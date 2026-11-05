@@ -116,10 +116,10 @@ class PrefixList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: pulumi.Input[Optional['PrefixListAddressFamily']] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict', 'outputs.PrefixListEntry']]]]] = None,
                  max_entries: pulumi.Input[Optional[_builtins.int]] = None,
                  prefix_list_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema of AWS::EC2::PrefixList Type
@@ -182,10 +182,10 @@ class PrefixList(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['PrefixListAddressFamily'] address_family: Ip Version of Prefix List.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]] entries: Entries of Prefix List.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict', 'outputs.PrefixListEntry']]]] entries: Entries of Prefix List.
         :param pulumi.Input[_builtins.int] max_entries: Max Entries of Prefix List.
         :param pulumi.Input[_builtins.str] prefix_list_name: Name of Prefix List.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for Prefix List
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for Prefix List
         """
         ...
     @overload
@@ -267,10 +267,10 @@ class PrefixList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: pulumi.Input[Optional['PrefixListAddressFamily']] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict', 'outputs.PrefixListEntry']]]]] = None,
                  max_entries: pulumi.Input[Optional[_builtins.int]] = None,
                  prefix_list_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,6 +323,12 @@ class PrefixList(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["version"] = None
         return PrefixList(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ec2:PrefixList', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="addressFamily")

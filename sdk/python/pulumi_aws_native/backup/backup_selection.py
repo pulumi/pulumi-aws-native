@@ -68,7 +68,7 @@ class BackupSelection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 backup_selection: pulumi.Input[Optional[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict']]] = None,
+                 backup_selection: pulumi.Input[Optional[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict', 'outputs.BackupSelectionResourceType']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::BackupSelection
@@ -76,7 +76,7 @@ class BackupSelection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_plan_id: Uniquely identifies a backup plan.
-        :param pulumi.Input[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict']] backup_selection: Specifies the body of a request to assign a set of resources to a backup plan.
+        :param pulumi.Input[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict', 'outputs.BackupSelectionResourceType']] backup_selection: Specifies the body of a request to assign a set of resources to a backup plan.
                
                It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
         """
@@ -105,7 +105,7 @@ class BackupSelection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 backup_selection: pulumi.Input[Optional[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict']]] = None,
+                 backup_selection: pulumi.Input[Optional[Union['BackupSelectionResourceTypeArgs', 'BackupSelectionResourceTypeArgsDict', 'outputs.BackupSelectionResourceType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -152,6 +152,12 @@ class BackupSelection(pulumi.CustomResource):
         __props__.__dict__["backup_selection"] = None
         __props__.__dict__["selection_id"] = None
         return BackupSelection(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:backup:BackupSelection', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="awsId")

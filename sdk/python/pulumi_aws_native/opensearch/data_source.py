@@ -92,7 +92,7 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source_type: pulumi.Input[Optional[Union['DataSourceTypeArgs', 'DataSourceTypeArgsDict']]] = None,
+                 data_source_type: pulumi.Input[Optional[Union['DataSourceTypeArgs', 'DataSourceTypeArgsDict', 'outputs.DataSourceType']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -130,7 +130,7 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source_type: pulumi.Input[Optional[Union['DataSourceTypeArgs', 'DataSourceTypeArgsDict']]] = None,
+                 data_source_type: pulumi.Input[Optional[Union['DataSourceTypeArgs', 'DataSourceTypeArgsDict', 'outputs.DataSourceType']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -184,6 +184,12 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
         return DataSource(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:opensearch:DataSource', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

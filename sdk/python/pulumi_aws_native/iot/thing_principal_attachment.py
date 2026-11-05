@@ -194,6 +194,12 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         __props__.__dict__["thing_principal_type"] = None
         return ThingPrincipalAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:iot:ThingPrincipalAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def principal(self) -> pulumi.Output[_builtins.str]:

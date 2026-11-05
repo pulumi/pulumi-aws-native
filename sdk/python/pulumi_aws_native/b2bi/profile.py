@@ -128,7 +128,7 @@ class Profile(pulumi.CustomResource):
                  logging: pulumi.Input[Optional['ProfileLogging']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  phone: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::B2BI::Profile Resource Type
@@ -139,7 +139,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
         :param pulumi.Input[_builtins.str] name: Returns the display name for profile.
         :param pulumi.Input[_builtins.str] phone: Specifies the phone number associated with the profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -170,7 +170,7 @@ class Profile(pulumi.CustomResource):
                  logging: pulumi.Input[Optional['ProfileLogging']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  phone: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -233,6 +233,12 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["profile_id"] = None
         __props__.__dict__["tags"] = None
         return Profile(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:b2bi:Profile', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="businessName")

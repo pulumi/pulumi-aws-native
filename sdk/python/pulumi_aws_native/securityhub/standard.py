@@ -66,7 +66,7 @@ class Standard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_standards_controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]]] = None,
+                 disabled_standards_controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict', 'outputs.StandardsControl']]]]] = None,
                  standards_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -76,7 +76,7 @@ class Standard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]] disabled_standards_controls: Specifies which controls are to be disabled in a standard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict', 'outputs.StandardsControl']]]] disabled_standards_controls: Specifies which controls are to be disabled in a standard.
                 *Maximum*: ``100``
         :param pulumi.Input[_builtins.str] standards_arn: The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
         """
@@ -106,7 +106,7 @@ class Standard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_standards_controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]]] = None,
+                 disabled_standards_controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict', 'outputs.StandardsControl']]]]] = None,
                  standards_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -150,6 +150,12 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["standards_arn"] = None
         __props__.__dict__["standards_subscription_arn"] = None
         return Standard(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:securityhub:Standard', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="disabledStandardsControls")

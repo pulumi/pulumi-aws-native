@@ -178,7 +178,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  max_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  min_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  mpa_approval_team_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 notifications: pulumi.Input[Optional[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
+                 notifications: pulumi.Input[Optional[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict', 'outputs.LogicallyAirGappedBackupVaultNotificationObjectType']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
@@ -198,7 +198,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                
                The minimum value accepted is 7 days.
         :param pulumi.Input[_builtins.str] mpa_approval_team_arn: The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
-        :param pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']] notifications: Returns event notifications for the specified backup vault.
+        :param pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict', 'outputs.LogicallyAirGappedBackupVaultNotificationObjectType']] notifications: Returns event notifications for the specified backup vault.
         """
         ...
     @overload
@@ -231,7 +231,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  max_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  min_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  mpa_approval_team_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 notifications: pulumi.Input[Optional[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
+                 notifications: pulumi.Input[Optional[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict', 'outputs.LogicallyAirGappedBackupVaultNotificationObjectType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -292,6 +292,12 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
         __props__.__dict__["vault_state"] = None
         __props__.__dict__["vault_type"] = None
         return LogicallyAirGappedBackupVault(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:backup:LogicallyAirGappedBackupVault', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="accessPolicy")

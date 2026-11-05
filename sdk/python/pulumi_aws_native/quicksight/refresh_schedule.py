@@ -84,7 +84,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict', 'outputs.RefreshScheduleMap']]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::RefreshSchedule Resource Type.
@@ -93,7 +93,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID of the account that you are creating a schedule in.
         :param pulumi.Input[_builtins.str] data_set_id: The ID of the dataset that you are creating a refresh schedule for.
-        :param pulumi.Input[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']] schedule: The refresh schedule of a dataset.
+        :param pulumi.Input[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict', 'outputs.RefreshScheduleMap']] schedule: The refresh schedule of a dataset.
         """
         ...
     @overload
@@ -121,7 +121,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict', 'outputs.RefreshScheduleMap']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -164,6 +164,12 @@ class RefreshSchedule(pulumi.CustomResource):
         __props__.__dict__["data_set_id"] = None
         __props__.__dict__["schedule"] = None
         return RefreshSchedule(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:quicksight:RefreshSchedule', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

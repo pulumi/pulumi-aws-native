@@ -147,10 +147,10 @@ class AccessGrant(pulumi.CustomResource):
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  permission: pulumi.Input[Optional['AccessGrantPermission']] = None,
-                 principal: pulumi.Input[Optional[Union['AccessGrantPrincipalArgs', 'AccessGrantPrincipalArgsDict']]] = None,
-                 scoped_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessGrantScopedActionsArgs', 'AccessGrantScopedActionsArgsDict']]]]] = None,
+                 principal: pulumi.Input[Optional[Union['AccessGrantPrincipalArgs', 'AccessGrantPrincipalArgsDict', 'outputs.AccessGrantPrincipal']]] = None,
+                 scoped_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessGrantScopedActionsArgs', 'AccessGrantScopedActionsArgsDict', 'outputs.AccessGrantScopedActions']]]]] = None,
                  space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::AccessGrant. An access grant authorizes a principal to perform a set of actions on resources in a space.
@@ -160,10 +160,10 @@ class AccessGrant(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_id: The ID of the domain the grant belongs to.
         :param pulumi.Input[_builtins.str] name: A name that identifies the access grant.
         :param pulumi.Input['AccessGrantPermission'] permission: The permission granted.
-        :param pulumi.Input[Union['AccessGrantPrincipalArgs', 'AccessGrantPrincipalArgsDict']] principal: The principal receiving the grant.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessGrantScopedActionsArgs', 'AccessGrantScopedActionsArgsDict']]]] scoped_actions: Groups of actions allowed by the grant, each with the resource scopes and conditions that limit those actions.
+        :param pulumi.Input[Union['AccessGrantPrincipalArgs', 'AccessGrantPrincipalArgsDict', 'outputs.AccessGrantPrincipal']] principal: The principal receiving the grant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessGrantScopedActionsArgs', 'AccessGrantScopedActionsArgsDict', 'outputs.AccessGrantScopedActions']]]] scoped_actions: Groups of actions allowed by the grant, each with the resource scopes and conditions that limit those actions.
         :param pulumi.Input[_builtins.str] space_id: The space this grant applies to. Domain-scoped grants are returned by ListDomainAccessGrantsForOrganization instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -192,10 +192,10 @@ class AccessGrant(pulumi.CustomResource):
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  permission: pulumi.Input[Optional['AccessGrantPermission']] = None,
-                 principal: pulumi.Input[Optional[Union['AccessGrantPrincipalArgs', 'AccessGrantPrincipalArgsDict']]] = None,
-                 scoped_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessGrantScopedActionsArgs', 'AccessGrantScopedActionsArgsDict']]]]] = None,
+                 principal: pulumi.Input[Optional[Union['AccessGrantPrincipalArgs', 'AccessGrantPrincipalArgsDict', 'outputs.AccessGrantPrincipal']]] = None,
+                 scoped_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessGrantScopedActionsArgs', 'AccessGrantScopedActionsArgsDict', 'outputs.AccessGrantScopedActions']]]]] = None,
                  space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,6 +266,12 @@ class AccessGrant(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return AccessGrant(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:cloudwatch:AccessGrant', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="accountId")

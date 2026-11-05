@@ -63,7 +63,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: pulumi.Input[Optional[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict', 'outputs.ResourcePolicyPolicy']]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -71,7 +71,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']] policy: A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        :param pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict', 'outputs.ResourcePolicyPolicy']] policy: A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
         """
         ...
@@ -98,7 +98,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: pulumi.Input[Optional[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict', 'outputs.ResourcePolicyPolicy']]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -146,6 +146,12 @@ class ResourcePolicy(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["revision_id"] = None
         return ResourcePolicy(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:lex:ResourcePolicy', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="awsId")

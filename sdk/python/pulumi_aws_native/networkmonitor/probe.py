@@ -148,7 +148,7 @@ class Probe(pulumi.CustomResource):
                  packet_size: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional['ProbeProtocol']] = None,
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         An Amazon CloudWatch Network Monitor probe that measures network traffic between a source subnet and a destination.
@@ -161,7 +161,7 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] packet_size: The size, in bytes, of the packets the probe sends.
         :param pulumi.Input['ProbeProtocol'] protocol: The protocol the probe uses.
         :param pulumi.Input[_builtins.str] source_arn: The ARN of the subnet the probe sends traffic from.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the probe.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the probe.
         """
         ...
     @overload
@@ -193,7 +193,7 @@ class Probe(pulumi.CustomResource):
                  packet_size: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional['ProbeProtocol']] = None,
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,6 +264,12 @@ class Probe(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return Probe(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:networkmonitor:Probe', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="addressFamily")

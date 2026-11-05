@@ -80,7 +80,7 @@ class GetSourceEndpointResult:
 
     @_builtins.property
     @pulumi.getter(name="associatedResourceDetails")
-    def associated_resource_details(self) -> Optional[Any]:
+    def associated_resource_details(self) -> Optional[Union['outputs.SourceEndpointAssociatedResourceDetails0Properties', 'outputs.SourceEndpointAssociatedResourceDetails1Properties']]:
         return pulumi.get(self, "associated_resource_details")
 
     @_builtins.property
@@ -101,7 +101,7 @@ class GetSourceEndpointResult:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.SourceEndpointConfiguration0Properties', 'outputs.SourceEndpointConfiguration1Properties']]:
         return pulumi.get(self, "configuration")
 
     @_builtins.property

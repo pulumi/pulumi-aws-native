@@ -145,26 +145,26 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_template_and_rule_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyAssociatedTemplateAndRuleArgs', 'PolicyAssociatedTemplateAndRuleArgsDict']]]]] = None,
+                 associated_template_and_rule_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyAssociatedTemplateAndRuleArgs', 'PolicyAssociatedTemplateAndRuleArgsDict', 'outputs.PolicyAssociatedTemplateAndRule']]]]] = None,
                  firewall_type: pulumi.Input[Optional['PolicyFirewallType']] = None,
-                 policy_configuration: pulumi.Input[Optional[Union['PolicyConfigurationArgs', 'PolicyConfigurationArgsDict']]] = None,
+                 policy_configuration: pulumi.Input[Optional[Union['PolicyConfigurationArgs', 'PolicyConfigurationArgsDict', 'outputs.PolicyConfiguration']]] = None,
                  policy_description: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::NetworkSecurityManager::Policy. Creates and manages a Network Security Manager policy.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyAssociatedTemplateAndRuleArgs', 'PolicyAssociatedTemplateAndRuleArgsDict']]]] associated_template_and_rule_list: List of templates and rules associated with this policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyAssociatedTemplateAndRuleArgs', 'PolicyAssociatedTemplateAndRuleArgsDict', 'outputs.PolicyAssociatedTemplateAndRule']]]] associated_template_and_rule_list: List of templates and rules associated with this policy.
         :param pulumi.Input['PolicyFirewallType'] firewall_type: The type of firewall.
-        :param pulumi.Input[Union['PolicyConfigurationArgs', 'PolicyConfigurationArgsDict']] policy_configuration: Configuration settings for policy behavior.
+        :param pulumi.Input[Union['PolicyConfigurationArgs', 'PolicyConfigurationArgsDict', 'outputs.PolicyConfiguration']] policy_configuration: Configuration settings for policy behavior.
         :param pulumi.Input[_builtins.str] policy_description: A description of the policy.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
         :param pulumi.Input[_builtins.int] priority: The priority of the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the policy.
         """
         ...
     @overload
@@ -190,13 +190,13 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_template_and_rule_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyAssociatedTemplateAndRuleArgs', 'PolicyAssociatedTemplateAndRuleArgsDict']]]]] = None,
+                 associated_template_and_rule_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyAssociatedTemplateAndRuleArgs', 'PolicyAssociatedTemplateAndRuleArgsDict', 'outputs.PolicyAssociatedTemplateAndRule']]]]] = None,
                  firewall_type: pulumi.Input[Optional['PolicyFirewallType']] = None,
-                 policy_configuration: pulumi.Input[Optional[Union['PolicyConfigurationArgs', 'PolicyConfigurationArgsDict']]] = None,
+                 policy_configuration: pulumi.Input[Optional[Union['PolicyConfigurationArgs', 'PolicyConfigurationArgsDict', 'outputs.PolicyConfiguration']]] = None,
                  policy_description: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -261,6 +261,12 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = None
         __props__.__dict__["version"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:networksecuritymanager:Policy', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="associatedTemplateAndRuleList")

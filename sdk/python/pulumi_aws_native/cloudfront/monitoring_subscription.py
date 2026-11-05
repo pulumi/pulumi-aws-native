@@ -65,7 +65,7 @@ class MonitoringSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitoring_subscription: pulumi.Input[Optional[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
+                 monitoring_subscription: pulumi.Input[Optional[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict', 'outputs.MonitoringSubscription']]] = None,
                  __props__=None):
         """
         A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
@@ -73,7 +73,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] distribution_id: The ID of the distribution that you are enabling metrics for.
-        :param pulumi.Input[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']] monitoring_subscription: A subscription configuration for additional CloudWatch metrics.
+        :param pulumi.Input[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict', 'outputs.MonitoringSubscription']] monitoring_subscription: A subscription configuration for additional CloudWatch metrics.
         """
         ...
     @overload
@@ -100,7 +100,7 @@ class MonitoringSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitoring_subscription: pulumi.Input[Optional[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
+                 monitoring_subscription: pulumi.Input[Optional[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict', 'outputs.MonitoringSubscription']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -143,6 +143,12 @@ class MonitoringSubscription(pulumi.CustomResource):
         __props__.__dict__["distribution_id"] = None
         __props__.__dict__["monitoring_subscription"] = None
         return MonitoringSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:cloudfront:MonitoringSubscription', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="distributionId")

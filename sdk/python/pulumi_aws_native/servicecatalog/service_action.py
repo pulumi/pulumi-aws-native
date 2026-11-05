@@ -121,7 +121,7 @@ class ServiceAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_language: pulumi.Input[Optional['ServiceActionAcceptLanguage']] = None,
-                 definition: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict']]]]] = None,
+                 definition: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict', 'outputs.ServiceActionDefinitionParameter']]]]] = None,
                  definition_type: pulumi.Input[Optional['ServiceActionDefinitionType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -136,7 +136,7 @@ class ServiceAction(pulumi.CustomResource):
                - `en` - English (default)
                - `jp` - Japanese
                - `zh` - Chinese
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict']]]] definition: A map that defines the self-service action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict', 'outputs.ServiceActionDefinitionParameter']]]] definition: A map that defines the self-service action.
         :param pulumi.Input['ServiceActionDefinitionType'] definition_type: The self-service action definition type. For example, `SSM_AUTOMATION` .
         :param pulumi.Input[_builtins.str] description: The self-service action description.
         :param pulumi.Input[_builtins.str] name: The self-service action name.
@@ -166,7 +166,7 @@ class ServiceAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_language: pulumi.Input[Optional['ServiceActionAcceptLanguage']] = None,
-                 definition: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict']]]]] = None,
+                 definition: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict', 'outputs.ServiceActionDefinitionParameter']]]]] = None,
                  definition_type: pulumi.Input[Optional['ServiceActionDefinitionType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -218,6 +218,12 @@ class ServiceAction(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         return ServiceAction(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:servicecatalog:ServiceAction', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")

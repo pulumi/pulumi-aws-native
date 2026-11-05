@@ -112,7 +112,7 @@ class GetGuardHookResult:
 
     @_builtins.property
     @pulumi.getter(name="targetFilters")
-    def target_filters(self) -> Optional[Any]:
+    def target_filters(self) -> Optional[Union['outputs.TargetFilters0Properties', 'outputs.TargetFilters1Properties']]:
         """
         Attribute to specify which targets should invoke the hook
         """

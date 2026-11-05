@@ -112,8 +112,8 @@ class Recommender(pulumi.CustomResource):
                  dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 recommender_config: pulumi.Input[Optional[Union['RecommenderConfigArgs', 'RecommenderConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 recommender_config: pulumi.Input[Optional[Union['RecommenderConfigArgs', 'RecommenderConfigArgsDict', 'outputs.RecommenderConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A recommender for a Domain dataset group that generates recommendations using a domain use case recipe.
@@ -123,7 +123,7 @@ class Recommender(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dataset_group_arn: The ARN of the Domain dataset group that the recommender is created for.
         :param pulumi.Input[_builtins.str] name: The name of the recommender.
         :param pulumi.Input[_builtins.str] recipe_arn: The ARN of the recipe (Domain dataset group use case) that the recommender uses.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the recommender.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the recommender.
         """
         ...
     @overload
@@ -152,8 +152,8 @@ class Recommender(pulumi.CustomResource):
                  dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 recommender_config: pulumi.Input[Optional[Union['RecommenderConfigArgs', 'RecommenderConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 recommender_config: pulumi.Input[Optional[Union['RecommenderConfigArgs', 'RecommenderConfigArgsDict', 'outputs.RecommenderConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,6 +210,12 @@ class Recommender(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return Recommender(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:personalize:Recommender', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="creationDateTime")

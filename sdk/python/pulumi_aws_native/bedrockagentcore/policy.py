@@ -116,7 +116,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enforcement_mode: pulumi.Input[Optional['PolicyEnforcementMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -156,7 +156,7 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enforcement_mode: pulumi.Input[Optional['PolicyEnforcementMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -224,6 +224,12 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = None
         __props__.__dict__["validation_mode"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:bedrockagentcore:Policy', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

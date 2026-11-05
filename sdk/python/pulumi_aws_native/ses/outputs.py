@@ -2223,10 +2223,10 @@ class MailManagerRuleSetReplaceRecipientAction(dict):
 @pulumi.output_type
 class MailManagerRuleSetRule(dict):
     def __init__(__self__, *,
-                 actions: Sequence[Any],
-                 conditions: Optional[Sequence[Any]] = None,
+                 actions: Sequence[Union['outputs.MailManagerRuleSetRuleAction0Properties', 'outputs.MailManagerRuleSetRuleAction1Properties', 'outputs.MailManagerRuleSetRuleAction2Properties', 'outputs.MailManagerRuleSetRuleAction3Properties', 'outputs.MailManagerRuleSetRuleAction4Properties', 'outputs.MailManagerRuleSetRuleAction5Properties', 'outputs.MailManagerRuleSetRuleAction6Properties', 'outputs.MailManagerRuleSetRuleAction7Properties', 'outputs.MailManagerRuleSetRuleAction8Properties', 'outputs.MailManagerRuleSetRuleAction9Properties', 'outputs.MailManagerRuleSetRuleAction10Properties', 'outputs.MailManagerRuleSetRuleAction11Properties']],
+                 conditions: Optional[Sequence[Union['outputs.MailManagerRuleSetRuleCondition0Properties', 'outputs.MailManagerRuleSetRuleCondition1Properties', 'outputs.MailManagerRuleSetRuleCondition2Properties', 'outputs.MailManagerRuleSetRuleCondition3Properties', 'outputs.MailManagerRuleSetRuleCondition4Properties', 'outputs.MailManagerRuleSetRuleCondition5Properties']]] = None,
                  name: Optional[_builtins.str] = None,
-                 unless: Optional[Sequence[Any]] = None):
+                 unless: Optional[Sequence[Union['outputs.MailManagerRuleSetRuleCondition0Properties', 'outputs.MailManagerRuleSetRuleCondition1Properties', 'outputs.MailManagerRuleSetRuleCondition2Properties', 'outputs.MailManagerRuleSetRuleCondition3Properties', 'outputs.MailManagerRuleSetRuleCondition4Properties', 'outputs.MailManagerRuleSetRuleCondition5Properties']]] = None):
         """
         :param Sequence[Union['MailManagerRuleSetRuleAction0Properties', 'MailManagerRuleSetRuleAction1Properties', 'MailManagerRuleSetRuleAction2Properties', 'MailManagerRuleSetRuleAction3Properties', 'MailManagerRuleSetRuleAction4Properties', 'MailManagerRuleSetRuleAction5Properties', 'MailManagerRuleSetRuleAction6Properties', 'MailManagerRuleSetRuleAction7Properties', 'MailManagerRuleSetRuleAction8Properties', 'MailManagerRuleSetRuleAction9Properties', 'MailManagerRuleSetRuleAction10Properties', 'MailManagerRuleSetRuleAction11Properties']] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
         :param Sequence[Union['MailManagerRuleSetRuleCondition0Properties', 'MailManagerRuleSetRuleCondition1Properties', 'MailManagerRuleSetRuleCondition2Properties', 'MailManagerRuleSetRuleCondition3Properties', 'MailManagerRuleSetRuleCondition4Properties', 'MailManagerRuleSetRuleCondition5Properties']] conditions: The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
@@ -2243,7 +2243,7 @@ class MailManagerRuleSetRule(dict):
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Sequence[Any]:
+    def actions(self) -> Sequence[Union['outputs.MailManagerRuleSetRuleAction0Properties', 'outputs.MailManagerRuleSetRuleAction1Properties', 'outputs.MailManagerRuleSetRuleAction2Properties', 'outputs.MailManagerRuleSetRuleAction3Properties', 'outputs.MailManagerRuleSetRuleAction4Properties', 'outputs.MailManagerRuleSetRuleAction5Properties', 'outputs.MailManagerRuleSetRuleAction6Properties', 'outputs.MailManagerRuleSetRuleAction7Properties', 'outputs.MailManagerRuleSetRuleAction8Properties', 'outputs.MailManagerRuleSetRuleAction9Properties', 'outputs.MailManagerRuleSetRuleAction10Properties', 'outputs.MailManagerRuleSetRuleAction11Properties']]:
         """
         The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
         """
@@ -2251,7 +2251,7 @@ class MailManagerRuleSetRule(dict):
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[Sequence[Any]]:
+    def conditions(self) -> Optional[Sequence[Union['outputs.MailManagerRuleSetRuleCondition0Properties', 'outputs.MailManagerRuleSetRuleCondition1Properties', 'outputs.MailManagerRuleSetRuleCondition2Properties', 'outputs.MailManagerRuleSetRuleCondition3Properties', 'outputs.MailManagerRuleSetRuleCondition4Properties', 'outputs.MailManagerRuleSetRuleCondition5Properties']]]:
         """
         The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
         """
@@ -2267,7 +2267,7 @@ class MailManagerRuleSetRule(dict):
 
     @_builtins.property
     @pulumi.getter
-    def unless(self) -> Optional[Sequence[Any]]:
+    def unless(self) -> Optional[Sequence[Union['outputs.MailManagerRuleSetRuleCondition0Properties', 'outputs.MailManagerRuleSetRuleCondition1Properties', 'outputs.MailManagerRuleSetRuleCondition2Properties', 'outputs.MailManagerRuleSetRuleCondition3Properties', 'outputs.MailManagerRuleSetRuleCondition4Properties', 'outputs.MailManagerRuleSetRuleCondition5Properties']]]:
         """
         The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
         """
@@ -2540,14 +2540,14 @@ class MailManagerRuleSetRuleAction9Properties(dict):
 @pulumi.output_type
 class MailManagerRuleSetRuleBooleanExpression(dict):
     def __init__(__self__, *,
-                 evaluate: Any,
+                 evaluate: Union['outputs.MailManagerRuleSetRuleBooleanToEvaluate0Properties', 'outputs.MailManagerRuleSetRuleBooleanToEvaluate1Properties', 'outputs.MailManagerRuleSetRuleBooleanToEvaluate2Properties'],
                  operator: 'MailManagerRuleSetRuleBooleanOperator'):
         pulumi.set(__self__, "evaluate", evaluate)
         pulumi.set(__self__, "operator", operator)
 
     @_builtins.property
     @pulumi.getter
-    def evaluate(self) -> Any:
+    def evaluate(self) -> Union['outputs.MailManagerRuleSetRuleBooleanToEvaluate0Properties', 'outputs.MailManagerRuleSetRuleBooleanToEvaluate1Properties', 'outputs.MailManagerRuleSetRuleBooleanToEvaluate2Properties']:
         return pulumi.get(self, "evaluate")
 
     @_builtins.property
@@ -2917,7 +2917,7 @@ class MailManagerRuleSetRuleNumberToEvaluateProperties(dict):
 @pulumi.output_type
 class MailManagerRuleSetRuleStringExpression(dict):
     def __init__(__self__, *,
-                 evaluate: Any,
+                 evaluate: Union['outputs.MailManagerRuleSetRuleStringToEvaluate0Properties', 'outputs.MailManagerRuleSetRuleStringToEvaluate1Properties', 'outputs.MailManagerRuleSetRuleStringToEvaluate2Properties', 'outputs.MailManagerRuleSetRuleStringToEvaluate3Properties'],
                  operator: 'MailManagerRuleSetRuleStringOperator',
                  values: Sequence[_builtins.str]):
         pulumi.set(__self__, "evaluate", evaluate)
@@ -2926,7 +2926,7 @@ class MailManagerRuleSetRuleStringExpression(dict):
 
     @_builtins.property
     @pulumi.getter
-    def evaluate(self) -> Any:
+    def evaluate(self) -> Union['outputs.MailManagerRuleSetRuleStringToEvaluate0Properties', 'outputs.MailManagerRuleSetRuleStringToEvaluate1Properties', 'outputs.MailManagerRuleSetRuleStringToEvaluate2Properties', 'outputs.MailManagerRuleSetRuleStringToEvaluate3Properties']:
         return pulumi.get(self, "evaluate")
 
     @_builtins.property
@@ -3025,7 +3025,7 @@ class MailManagerRuleSetRuleStringToEvaluate3Properties(dict):
 @pulumi.output_type
 class MailManagerRuleSetRuleVerdictExpression(dict):
     def __init__(__self__, *,
-                 evaluate: Any,
+                 evaluate: Union['outputs.MailManagerRuleSetRuleVerdictToEvaluate0Properties', 'outputs.MailManagerRuleSetRuleVerdictToEvaluate1Properties'],
                  operator: 'MailManagerRuleSetRuleVerdictOperator',
                  values: Sequence['MailManagerRuleSetRuleVerdict']):
         pulumi.set(__self__, "evaluate", evaluate)
@@ -3034,7 +3034,7 @@ class MailManagerRuleSetRuleVerdictExpression(dict):
 
     @_builtins.property
     @pulumi.getter
-    def evaluate(self) -> Any:
+    def evaluate(self) -> Union['outputs.MailManagerRuleSetRuleVerdictToEvaluate0Properties', 'outputs.MailManagerRuleSetRuleVerdictToEvaluate1Properties']:
         return pulumi.get(self, "evaluate")
 
     @_builtins.property
@@ -3284,14 +3284,14 @@ class MailManagerTrafficPolicyIngressAnalysis(dict):
 @pulumi.output_type
 class MailManagerTrafficPolicyIngressBooleanExpression(dict):
     def __init__(__self__, *,
-                 evaluate: Any,
+                 evaluate: Union['outputs.MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties', 'outputs.MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties'],
                  operator: 'MailManagerTrafficPolicyIngressBooleanOperator'):
         pulumi.set(__self__, "evaluate", evaluate)
         pulumi.set(__self__, "operator", operator)
 
     @_builtins.property
     @pulumi.getter
-    def evaluate(self) -> Any:
+    def evaluate(self) -> Union['outputs.MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties', 'outputs.MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties']:
         return pulumi.get(self, "evaluate")
 
     @_builtins.property
@@ -3456,7 +3456,7 @@ class MailManagerTrafficPolicyIngressIsInAddressList(dict):
 @pulumi.output_type
 class MailManagerTrafficPolicyIngressStringExpression(dict):
     def __init__(__self__, *,
-                 evaluate: Any,
+                 evaluate: Union['outputs.MailManagerTrafficPolicyIngressStringToEvaluate0Properties', 'outputs.MailManagerTrafficPolicyIngressStringToEvaluate1Properties'],
                  operator: 'MailManagerTrafficPolicyIngressStringOperator',
                  values: Sequence[_builtins.str]):
         pulumi.set(__self__, "evaluate", evaluate)
@@ -3465,7 +3465,7 @@ class MailManagerTrafficPolicyIngressStringExpression(dict):
 
     @_builtins.property
     @pulumi.getter
-    def evaluate(self) -> Any:
+    def evaluate(self) -> Union['outputs.MailManagerTrafficPolicyIngressStringToEvaluate0Properties', 'outputs.MailManagerTrafficPolicyIngressStringToEvaluate1Properties']:
         return pulumi.get(self, "evaluate")
 
     @_builtins.property
@@ -3690,7 +3690,7 @@ class MailManagerTrafficPolicyPolicyCondition4Properties(dict):
 class MailManagerTrafficPolicyPolicyStatement(dict):
     def __init__(__self__, *,
                  action: 'MailManagerTrafficPolicyAcceptAction',
-                 conditions: Sequence[Any]):
+                 conditions: Sequence[Union['outputs.MailManagerTrafficPolicyPolicyCondition0Properties', 'outputs.MailManagerTrafficPolicyPolicyCondition1Properties', 'outputs.MailManagerTrafficPolicyPolicyCondition2Properties', 'outputs.MailManagerTrafficPolicyPolicyCondition3Properties', 'outputs.MailManagerTrafficPolicyPolicyCondition4Properties']]):
         """
         :param 'MailManagerTrafficPolicyAcceptAction' action: The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
         :param Sequence[Union['MailManagerTrafficPolicyPolicyCondition0Properties', 'MailManagerTrafficPolicyPolicyCondition1Properties', 'MailManagerTrafficPolicyPolicyCondition2Properties', 'MailManagerTrafficPolicyPolicyCondition3Properties', 'MailManagerTrafficPolicyPolicyCondition4Properties']] conditions: The list of conditions to apply to incoming messages for filtering email traffic.
@@ -3708,7 +3708,7 @@ class MailManagerTrafficPolicyPolicyStatement(dict):
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Sequence[Any]:
+    def conditions(self) -> Sequence[Union['outputs.MailManagerTrafficPolicyPolicyCondition0Properties', 'outputs.MailManagerTrafficPolicyPolicyCondition1Properties', 'outputs.MailManagerTrafficPolicyPolicyCondition2Properties', 'outputs.MailManagerTrafficPolicyPolicyCondition3Properties', 'outputs.MailManagerTrafficPolicyPolicyCondition4Properties']]:
         """
         The list of conditions to apply to incoming messages for filtering email traffic.
         """

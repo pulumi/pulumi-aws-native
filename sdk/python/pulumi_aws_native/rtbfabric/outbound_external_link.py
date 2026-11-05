@@ -93,10 +93,10 @@ class OutboundExternalLink(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 link_attributes: pulumi.Input[Optional[Union['OutboundExternalLinkLinkAttributesArgs', 'OutboundExternalLinkLinkAttributesArgsDict']]] = None,
-                 link_log_settings: pulumi.Input[Optional[Union['OutboundExternalLinkLinkLogSettingsArgs', 'OutboundExternalLinkLinkLogSettingsArgsDict']]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['OutboundExternalLinkLinkAttributesArgs', 'OutboundExternalLinkLinkAttributesArgsDict', 'outputs.OutboundExternalLinkLinkAttributes']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['OutboundExternalLinkLinkLogSettingsArgs', 'OutboundExternalLinkLinkLogSettingsArgsDict', 'outputs.OutboundExternalLinkLinkLogSettings']]] = None,
                  public_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RTBFabric::OutboundExternalLink Resource Type
@@ -129,10 +129,10 @@ class OutboundExternalLink(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 link_attributes: pulumi.Input[Optional[Union['OutboundExternalLinkLinkAttributesArgs', 'OutboundExternalLinkLinkAttributesArgsDict']]] = None,
-                 link_log_settings: pulumi.Input[Optional[Union['OutboundExternalLinkLinkLogSettingsArgs', 'OutboundExternalLinkLinkLogSettingsArgsDict']]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['OutboundExternalLinkLinkAttributesArgs', 'OutboundExternalLinkLinkAttributesArgsDict', 'outputs.OutboundExternalLinkLinkAttributes']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['OutboundExternalLinkLinkLogSettingsArgs', 'OutboundExternalLinkLinkLogSettingsArgsDict', 'outputs.OutboundExternalLinkLinkLogSettings']]] = None,
                  public_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -191,6 +191,12 @@ class OutboundExternalLink(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_timestamp"] = None
         return OutboundExternalLink(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:rtbfabric:OutboundExternalLink', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

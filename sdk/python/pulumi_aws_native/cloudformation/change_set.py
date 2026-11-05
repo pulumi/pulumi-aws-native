@@ -284,7 +284,7 @@ class ChangeSet(pulumi.CustomResource):
                  on_stack_failure: pulumi.Input[Optional['ChangeSetOnStackFailure']] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_url: pulumi.Input[Optional[_builtins.str]] = None,
                  use_previous_template: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -305,7 +305,7 @@ class ChangeSet(pulumi.CustomResource):
         :param pulumi.Input['ChangeSetOnStackFailure'] on_stack_failure: Determines what action will be taken if stack creation fails.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role that CloudFormation assumes when executing the change set.
         :param pulumi.Input[_builtins.str] stack_name: The name or unique ID of the stack for which you are creating a change set.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Key-value pairs to associate with the change set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: Key-value pairs to associate with the change set.
         :param pulumi.Input[_builtins.str] template_body: A structure that contains the body of the revised template.
         :param pulumi.Input[_builtins.str] template_url: The URL of the file that contains the revised template.
         :param pulumi.Input[_builtins.bool] use_previous_template: Whether to reuse the template associated with the stack to create the change set.
@@ -345,7 +345,7 @@ class ChangeSet(pulumi.CustomResource):
                  on_stack_failure: pulumi.Input[Optional['ChangeSetOnStackFailure']] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_url: pulumi.Input[Optional[_builtins.str]] = None,
                  use_previous_template: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -421,6 +421,12 @@ class ChangeSet(pulumi.CustomResource):
         __props__.__dict__["template_url"] = None
         __props__.__dict__["use_previous_template"] = None
         return ChangeSet(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:cloudformation:ChangeSet', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

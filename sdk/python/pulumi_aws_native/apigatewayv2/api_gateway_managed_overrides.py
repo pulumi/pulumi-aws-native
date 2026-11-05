@@ -97,9 +97,9 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 integration: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesIntegrationOverridesArgs', 'ApiGatewayManagedOverridesIntegrationOverridesArgsDict']]] = None,
-                 route: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesRouteOverridesArgs', 'ApiGatewayManagedOverridesRouteOverridesArgsDict']]] = None,
-                 stage: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesStageOverridesArgs', 'ApiGatewayManagedOverridesStageOverridesArgsDict']]] = None,
+                 integration: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesIntegrationOverridesArgs', 'ApiGatewayManagedOverridesIntegrationOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesIntegrationOverrides']]] = None,
+                 route: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesRouteOverridesArgs', 'ApiGatewayManagedOverridesRouteOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesRouteOverrides']]] = None,
+                 stage: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesStageOverridesArgs', 'ApiGatewayManagedOverridesStageOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesStageOverrides']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
@@ -107,9 +107,9 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The ID of the API for which to override the configuration of API Gateway-managed resources.
-        :param pulumi.Input[Union['ApiGatewayManagedOverridesIntegrationOverridesArgs', 'ApiGatewayManagedOverridesIntegrationOverridesArgsDict']] integration: Overrides the integration configuration for an API Gateway-managed integration.
-        :param pulumi.Input[Union['ApiGatewayManagedOverridesRouteOverridesArgs', 'ApiGatewayManagedOverridesRouteOverridesArgsDict']] route: Overrides the route configuration for an API Gateway-managed route.
-        :param pulumi.Input[Union['ApiGatewayManagedOverridesStageOverridesArgs', 'ApiGatewayManagedOverridesStageOverridesArgsDict']] stage: Overrides the stage configuration for an API Gateway-managed stage.
+        :param pulumi.Input[Union['ApiGatewayManagedOverridesIntegrationOverridesArgs', 'ApiGatewayManagedOverridesIntegrationOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesIntegrationOverrides']] integration: Overrides the integration configuration for an API Gateway-managed integration.
+        :param pulumi.Input[Union['ApiGatewayManagedOverridesRouteOverridesArgs', 'ApiGatewayManagedOverridesRouteOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesRouteOverrides']] route: Overrides the route configuration for an API Gateway-managed route.
+        :param pulumi.Input[Union['ApiGatewayManagedOverridesStageOverridesArgs', 'ApiGatewayManagedOverridesStageOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesStageOverrides']] stage: Overrides the stage configuration for an API Gateway-managed stage.
         """
         ...
     @overload
@@ -136,9 +136,9 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 integration: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesIntegrationOverridesArgs', 'ApiGatewayManagedOverridesIntegrationOverridesArgsDict']]] = None,
-                 route: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesRouteOverridesArgs', 'ApiGatewayManagedOverridesRouteOverridesArgsDict']]] = None,
-                 stage: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesStageOverridesArgs', 'ApiGatewayManagedOverridesStageOverridesArgsDict']]] = None,
+                 integration: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesIntegrationOverridesArgs', 'ApiGatewayManagedOverridesIntegrationOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesIntegrationOverrides']]] = None,
+                 route: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesRouteOverridesArgs', 'ApiGatewayManagedOverridesRouteOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesRouteOverrides']]] = None,
+                 stage: pulumi.Input[Optional[Union['ApiGatewayManagedOverridesStageOverridesArgs', 'ApiGatewayManagedOverridesStageOverridesArgsDict', 'outputs.ApiGatewayManagedOverridesStageOverrides']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -185,6 +185,12 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
         __props__.__dict__["route"] = None
         __props__.__dict__["stage"] = None
         return ApiGatewayManagedOverrides(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:apigatewayv2:ApiGatewayManagedOverrides', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="apiId")

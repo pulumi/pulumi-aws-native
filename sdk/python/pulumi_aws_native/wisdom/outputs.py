@@ -668,7 +668,7 @@ class AiAgentDelegateAgentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 agent_target: Any,
+                 agent_target: Union['outputs.AiAgentAgentTarget0Properties', 'outputs.AiAgentAgentTarget1Properties'],
                  instruction: Optional['outputs.AiAgentMultiAgentInstruction'] = None):
         pulumi.set(__self__, "agent_target", agent_target)
         if instruction is not None:
@@ -676,7 +676,7 @@ class AiAgentDelegateAgentConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="agentTarget")
-    def agent_target(self) -> Any:
+    def agent_target(self) -> Union['outputs.AiAgentAgentTarget0Properties', 'outputs.AiAgentAgentTarget1Properties']:
         return pulumi.get(self, "agent_target")
 
     @_builtins.property
@@ -863,7 +863,7 @@ class AiAgentHandoffAgentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 agent_target: Any,
+                 agent_target: Union['outputs.AiAgentAgentTarget0Properties', 'outputs.AiAgentAgentTarget1Properties'],
                  audio_streaming_enabled: Optional[_builtins.bool] = None,
                  immediate_handoff: Optional[_builtins.bool] = None,
                  instruction: Optional['outputs.AiAgentMultiAgentInstruction'] = None):
@@ -877,7 +877,7 @@ class AiAgentHandoffAgentConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="agentTarget")
-    def agent_target(self) -> Any:
+    def agent_target(self) -> Union['outputs.AiAgentAgentTarget0Properties', 'outputs.AiAgentAgentTarget1Properties']:
         return pulumi.get(self, "agent_target")
 
     @_builtins.property
@@ -920,7 +920,7 @@ class AiAgentKnowledgeBaseAssociationConfigurationData(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_tag_filter: Optional[Any] = None,
+                 content_tag_filter: Optional[Union['outputs.AiAgentTagFilter0Properties', 'outputs.AiAgentTagFilter1Properties', 'outputs.AiAgentTagFilter2Properties']] = None,
                  max_results: Optional[_builtins.float] = None,
                  override_knowledge_base_search_type: Optional['AiAgentKnowledgeBaseSearchType'] = None):
         if content_tag_filter is not None:
@@ -932,7 +932,7 @@ class AiAgentKnowledgeBaseAssociationConfigurationData(dict):
 
     @_builtins.property
     @pulumi.getter(name="contentTagFilter")
-    def content_tag_filter(self) -> Optional[Any]:
+    def content_tag_filter(self) -> Optional[Union['outputs.AiAgentTagFilter0Properties', 'outputs.AiAgentTagFilter1Properties', 'outputs.AiAgentTagFilter2Properties']]:
         return pulumi.get(self, "content_tag_filter")
 
     @_builtins.property
@@ -1224,7 +1224,7 @@ class AiAgentOrchestrationAiAgentConfiguration(dict):
                  connect_instance_arn: Optional[_builtins.str] = None,
                  input_schemas: Optional[Sequence[Any]] = None,
                  locale: Optional[_builtins.str] = None,
-                 multi_agent_configurations: Optional[Sequence[Any]] = None,
+                 multi_agent_configurations: Optional[Sequence[Union['outputs.AiAgentMultiAgentConfiguration0Properties', 'outputs.AiAgentMultiAgentConfiguration1Properties']]] = None,
                  orchestration_ai_guardrail_id: Optional[_builtins.str] = None,
                  orchestration_ai_prompt_id: Optional[_builtins.str] = None,
                  output_schemas: Optional[Sequence[Any]] = None,
@@ -1263,7 +1263,7 @@ class AiAgentOrchestrationAiAgentConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="multiAgentConfigurations")
-    def multi_agent_configurations(self) -> Optional[Sequence[Any]]:
+    def multi_agent_configurations(self) -> Optional[Sequence[Union['outputs.AiAgentMultiAgentConfiguration0Properties', 'outputs.AiAgentMultiAgentConfiguration1Properties']]]:
         return pulumi.get(self, "multi_agent_configurations")
 
     @_builtins.property
@@ -1445,12 +1445,12 @@ class AiAgentTagFilter2Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 or_conditions: Sequence[Any]):
+                 or_conditions: Sequence[Union['outputs.AiAgentOrCondition0Properties', 'outputs.AiAgentOrCondition1Properties']]):
         pulumi.set(__self__, "or_conditions", or_conditions)
 
     @_builtins.property
     @pulumi.getter(name="orConditions")
-    def or_conditions(self) -> Sequence[Any]:
+    def or_conditions(self) -> Sequence[Union['outputs.AiAgentOrCondition0Properties', 'outputs.AiAgentOrCondition1Properties']]:
         return pulumi.get(self, "or_conditions")
 
 

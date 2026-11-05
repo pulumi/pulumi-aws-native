@@ -49,7 +49,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 continuous_deployment_policy_config: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyConfigArgs', 'ContinuousDeploymentPolicyConfigArgsDict']]] = None,
+                 continuous_deployment_policy_config: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyConfigArgs', 'ContinuousDeploymentPolicyConfigArgsDict', 'outputs.ContinuousDeploymentPolicyConfig']]] = None,
                  __props__=None):
         """
         Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.
@@ -58,7 +58,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ContinuousDeploymentPolicyConfigArgs', 'ContinuousDeploymentPolicyConfigArgsDict']] continuous_deployment_policy_config: Contains the configuration for a continuous deployment policy.
+        :param pulumi.Input[Union['ContinuousDeploymentPolicyConfigArgs', 'ContinuousDeploymentPolicyConfigArgsDict', 'outputs.ContinuousDeploymentPolicyConfig']] continuous_deployment_policy_config: Contains the configuration for a continuous deployment policy.
         """
         ...
     @overload
@@ -86,7 +86,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 continuous_deployment_policy_config: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyConfigArgs', 'ContinuousDeploymentPolicyConfigArgsDict']]] = None,
+                 continuous_deployment_policy_config: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyConfigArgs', 'ContinuousDeploymentPolicyConfigArgsDict', 'outputs.ContinuousDeploymentPolicyConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -127,6 +127,12 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         __props__.__dict__["continuous_deployment_policy_config"] = None
         __props__.__dict__["last_modified_time"] = None
         return ContinuousDeploymentPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:cloudfront:ContinuousDeploymentPolicy', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="awsId")

@@ -79,7 +79,7 @@ class TieringConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict']]]]] = None,
+                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict', 'outputs.TieringConfigurationResourceSelection']]]]] = None,
                  tiering_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tiering_configuration_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -114,7 +114,7 @@ class TieringConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict']]]]] = None,
+                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict', 'outputs.TieringConfigurationResourceSelection']]]]] = None,
                  tiering_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tiering_configuration_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -169,6 +169,12 @@ class TieringConfiguration(pulumi.CustomResource):
         __props__.__dict__["tiering_configuration_name"] = None
         __props__.__dict__["tiering_configuration_tags"] = None
         return TieringConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:backup:TieringConfiguration', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="backupVaultName")

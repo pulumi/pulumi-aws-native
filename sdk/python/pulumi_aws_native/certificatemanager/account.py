@@ -48,14 +48,14 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expiry_events_configuration: pulumi.Input[Optional[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict']]] = None,
+                 expiry_events_configuration: pulumi.Input[Optional[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict', 'outputs.AccountExpiryEventsConfiguration']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::CertificateManager::Account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict']] expiry_events_configuration: Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+        :param pulumi.Input[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict', 'outputs.AccountExpiryEventsConfiguration']] expiry_events_configuration: Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
         """
         ...
     @overload
@@ -81,7 +81,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expiry_events_configuration: pulumi.Input[Optional[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict']]] = None,
+                 expiry_events_configuration: pulumi.Input[Optional[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict', 'outputs.AccountExpiryEventsConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -120,6 +120,12 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["account_id"] = None
         __props__.__dict__["expiry_events_configuration"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:certificatemanager:Account', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="accountId")

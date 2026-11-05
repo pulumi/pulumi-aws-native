@@ -214,7 +214,7 @@ class RcsAgent(pulumi.CustomResource):
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  opt_out_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  self_managed_opt_outs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  two_way_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None,
                  two_way_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -231,7 +231,7 @@ class RcsAgent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: When set to true the RCS agent can't be deleted. By default this is false.
         :param pulumi.Input[_builtins.str] opt_out_list_name: The name of the opt-out list associated with the RCS agent.
         :param pulumi.Input[_builtins.bool] self_managed_opt_outs_enabled: When set to true you're responsible for responding to HELP and STOP requests, and for tracking and honoring opt-out requests. By default this is false.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to the RCS agent.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to the RCS agent.
         :param pulumi.Input[_builtins.str] two_way_channel_arn: The Amazon Resource Name (ARN) of the two way channel where inbound messages are delivered.
         :param pulumi.Input[_builtins.str] two_way_channel_role: The Amazon Resource Name (ARN) of an IAM role for the service to assume in order to post inbound messages to the two way channel.
         :param pulumi.Input[_builtins.bool] two_way_enabled: When set to true two-way messaging is enabled for the RCS agent.
@@ -267,7 +267,7 @@ class RcsAgent(pulumi.CustomResource):
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  opt_out_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  self_managed_opt_outs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  two_way_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None,
                  two_way_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -341,6 +341,12 @@ class RcsAgent(pulumi.CustomResource):
         __props__.__dict__["two_way_media_s3_role"] = None
         __props__.__dict__["two_way_rcs_events_enabled"] = None
         return RcsAgent(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:smsvoice:RcsAgent', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="createdTimestamp")

@@ -136,8 +136,8 @@ class DataProtectionSettings(pulumi.CustomResource):
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::DataProtectionSettings Resource Type
@@ -148,8 +148,8 @@ class DataProtectionSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] customer_managed_key: The customer managed key used to encrypt sensitive information in the data protection settings.
         :param pulumi.Input[_builtins.str] description: The description of the data protection settings.
         :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
-        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']] inline_redaction_configuration: The inline redaction configuration for the data protection settings.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of the data protection settings.
+        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']] inline_redaction_configuration: The inline redaction configuration for the data protection settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags of the data protection settings.
         """
         ...
     @overload
@@ -179,8 +179,8 @@ class DataProtectionSettings(pulumi.CustomResource):
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -233,6 +233,12 @@ class DataProtectionSettings(pulumi.CustomResource):
         __props__.__dict__["inline_redaction_configuration"] = None
         __props__.__dict__["tags"] = None
         return DataProtectionSettings(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:workspacesweb:DataProtectionSettings', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")

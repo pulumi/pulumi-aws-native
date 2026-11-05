@@ -56,7 +56,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict']]] = None,
+                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict', 'outputs.TransactionSearchConfigCloudWatchLogsConfiguration']]] = None,
                  indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
@@ -89,7 +89,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict']]] = None,
+                 cloud_watch_logs_configuration: pulumi.Input[Optional[Union['TransactionSearchConfigCloudWatchLogsConfigurationArgs', 'TransactionSearchConfigCloudWatchLogsConfigurationArgsDict', 'outputs.TransactionSearchConfigCloudWatchLogsConfiguration']]] = None,
                  indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -131,6 +131,12 @@ class TransactionSearchConfig(pulumi.CustomResource):
         __props__.__dict__["cloud_watch_logs_configuration"] = None
         __props__.__dict__["indexing_percentage"] = None
         return TransactionSearchConfig(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:xray:TransactionSearchConfig', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="accountId")

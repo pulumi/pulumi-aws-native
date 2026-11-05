@@ -133,7 +133,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  type: pulumi.Input[Optional['RepositoryAssociationType']] = None,
                  __props__=None):
         """
@@ -264,7 +264,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         :param pulumi.Input[_builtins.str] name: Name of the repository to be associated.
         :param pulumi.Input[_builtins.str] owner: The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags associated with a repository association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: The tags associated with a repository association.
         :param pulumi.Input['RepositoryAssociationType'] type: The type of repository to be associated.
         """
         ...
@@ -414,7 +414,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  type: pulumi.Input[Optional['RepositoryAssociationType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -466,6 +466,12 @@ class RepositoryAssociation(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return RepositoryAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:codegurureviewer:RepositoryAssociation', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="associationArn")

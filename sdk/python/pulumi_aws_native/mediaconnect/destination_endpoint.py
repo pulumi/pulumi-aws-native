@@ -95,10 +95,10 @@ class DestinationEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['DestinationEndpointConfiguration0PropertiesArgs', 'DestinationEndpointConfiguration0PropertiesArgsDict'], Union['DestinationEndpointConfiguration1PropertiesArgs', 'DestinationEndpointConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['DestinationEndpointConfiguration0PropertiesArgs', 'DestinationEndpointConfiguration0PropertiesArgsDict', 'outputs.DestinationEndpointConfiguration0Properties'], Union['DestinationEndpointConfiguration1PropertiesArgs', 'DestinationEndpointConfiguration1PropertiesArgsDict', 'outputs.DestinationEndpointConfiguration1Properties']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents a destination endpoint in AWS Elemental MediaConnect that can be connected to a router output
@@ -107,7 +107,7 @@ class DestinationEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the destination endpoint.
         :param pulumi.Input[_builtins.str] region_name: The name of the Amazon Web Services Region in which the destination endpoint is located.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the destination endpoint. Each tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the destination endpoint. Each tag is a key-value pair.
         """
         ...
     @overload
@@ -133,10 +133,10 @@ class DestinationEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['DestinationEndpointConfiguration0PropertiesArgs', 'DestinationEndpointConfiguration0PropertiesArgsDict'], Union['DestinationEndpointConfiguration1PropertiesArgs', 'DestinationEndpointConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['DestinationEndpointConfiguration0PropertiesArgs', 'DestinationEndpointConfiguration0PropertiesArgsDict', 'outputs.DestinationEndpointConfiguration0Properties'], Union['DestinationEndpointConfiguration1PropertiesArgs', 'DestinationEndpointConfiguration1PropertiesArgsDict', 'outputs.DestinationEndpointConfiguration1Properties']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,6 +206,12 @@ class DestinationEndpoint(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = None
         return DestinationEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:mediaconnect:DestinationEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
@@ -213,7 +219,7 @@ class DestinationEndpoint(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="associatedResourceDetails")
-    def associated_resource_details(self) -> pulumi.Output[Any]:
+    def associated_resource_details(self) -> pulumi.Output[Union['outputs.DestinationEndpointAssociatedResourceDetails0Properties', 'outputs.DestinationEndpointAssociatedResourceDetails1Properties']]:
         return pulumi.get(self, "associated_resource_details")
 
     @_builtins.property
@@ -242,7 +248,7 @@ class DestinationEndpoint(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Any]:
+    def configuration(self) -> pulumi.Output[Union['outputs.DestinationEndpointConfiguration0Properties', 'outputs.DestinationEndpointConfiguration1Properties']]:
         return pulumi.get(self, "configuration")
 
     @_builtins.property

@@ -151,11 +151,11 @@ class Index(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 capacity_configuration: pulumi.Input[Optional[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict']]] = None,
+                 capacity_configuration: pulumi.Input[Optional[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict', 'outputs.IndexCapacityConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 document_attribute_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 document_attribute_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict', 'outputs.IndexDocumentAttributeConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['IndexType']] = None,
                  __props__=None):
         """
@@ -164,13 +164,13 @@ class Index(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business application using the index.
-        :param pulumi.Input[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict']] capacity_configuration: The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+        :param pulumi.Input[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict', 'outputs.IndexCapacityConfiguration']] capacity_configuration: The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
         :param pulumi.Input[_builtins.str] description: A description for the Amazon Q Business index.
         :param pulumi.Input[_builtins.str] display_name: The name of the index.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict']]]] document_attribute_configurations: Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict', 'outputs.IndexDocumentAttributeConfiguration']]]] document_attribute_configurations: Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
                
                For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         :param pulumi.Input['IndexType'] type: The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
         """
         ...
@@ -198,11 +198,11 @@ class Index(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 capacity_configuration: pulumi.Input[Optional[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict']]] = None,
+                 capacity_configuration: pulumi.Input[Optional[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict', 'outputs.IndexCapacityConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 document_attribute_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 document_attribute_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict', 'outputs.IndexDocumentAttributeConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['IndexType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -268,6 +268,12 @@ class Index(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
         return Index(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:qbusiness:Index', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="applicationId")

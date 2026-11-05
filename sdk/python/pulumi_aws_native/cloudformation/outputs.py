@@ -443,7 +443,7 @@ class OptionsProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 input_params: Optional[Any] = None):
+                 input_params: Optional[Union['outputs.GuardHookS3Location', Sequence['outputs.GuardHookS3Location']]] = None):
         """
         Specifies the S3 location of your input parameters.
 
@@ -454,7 +454,7 @@ class OptionsProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="inputParams")
-    def input_params(self) -> Optional[Any]:
+    def input_params(self) -> Optional[Union['outputs.GuardHookS3Location', Sequence['outputs.GuardHookS3Location']]]:
         """
         Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
         """

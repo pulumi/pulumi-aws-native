@@ -111,7 +111,7 @@ class TableOptimizer(pulumi.CustomResource):
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_optimizer_configuration: pulumi.Input[Optional[Union['TableOptimizerConfigurationArgs', 'TableOptimizerConfigurationArgsDict']]] = None,
+                 table_optimizer_configuration: pulumi.Input[Optional[Union['TableOptimizerConfigurationArgs', 'TableOptimizerConfigurationArgsDict', 'outputs.TableOptimizerConfiguration']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -122,7 +122,7 @@ class TableOptimizer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] catalog_id: The catalog ID of the table
         :param pulumi.Input[_builtins.str] database_name: The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
         :param pulumi.Input[_builtins.str] table_name: The table name. For Hive compatibility, this must be entirely lowercase.
-        :param pulumi.Input[Union['TableOptimizerConfigurationArgs', 'TableOptimizerConfigurationArgsDict']] table_optimizer_configuration: Specifies configuration details of a table optimizer.
+        :param pulumi.Input[Union['TableOptimizerConfigurationArgs', 'TableOptimizerConfigurationArgsDict', 'outputs.TableOptimizerConfiguration']] table_optimizer_configuration: Specifies configuration details of a table optimizer.
         :param pulumi.Input[_builtins.str] type: The type of table optimizer.
         """
         ...
@@ -152,7 +152,7 @@ class TableOptimizer(pulumi.CustomResource):
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_optimizer_configuration: pulumi.Input[Optional[Union['TableOptimizerConfigurationArgs', 'TableOptimizerConfigurationArgsDict']]] = None,
+                 table_optimizer_configuration: pulumi.Input[Optional[Union['TableOptimizerConfigurationArgs', 'TableOptimizerConfigurationArgsDict', 'outputs.TableOptimizerConfiguration']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -208,6 +208,12 @@ class TableOptimizer(pulumi.CustomResource):
         __props__.__dict__["table_optimizer_configuration"] = None
         __props__.__dict__["type"] = None
         return TableOptimizer(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:glue:TableOptimizer', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="catalogId")

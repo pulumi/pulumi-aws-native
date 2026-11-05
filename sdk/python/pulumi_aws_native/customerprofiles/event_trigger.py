@@ -175,13 +175,13 @@ class EventTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]]] = None,
-                 event_trigger_limits: pulumi.Input[Optional[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']]] = None,
+                 event_trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict', 'outputs.EventTriggerCondition']]]]] = None,
+                 event_trigger_limits: pulumi.Input[Optional[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict', 'outputs.EventTriggerLimits']]] = None,
                  event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 intent_filter_definition: pulumi.Input[Optional[Union['EventTriggerIntentFilterDefinitionArgs', 'EventTriggerIntentFilterDefinitionArgsDict']]] = None,
+                 intent_filter_definition: pulumi.Input[Optional[Union['EventTriggerIntentFilterDefinitionArgs', 'EventTriggerIntentFilterDefinitionArgsDict', 'outputs.EventTriggerIntentFilterDefinition']]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment_filter: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         An event trigger resource of Amazon Connect Customer Profiles
@@ -190,12 +190,12 @@ class EventTrigger(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the event trigger.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]] event_trigger_conditions: A list of conditions that determine when an event should trigger the destination.
-        :param pulumi.Input[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']] event_trigger_limits: Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict', 'outputs.EventTriggerCondition']]]] event_trigger_conditions: A list of conditions that determine when an event should trigger the destination.
+        :param pulumi.Input[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict', 'outputs.EventTriggerLimits']] event_trigger_limits: Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
         :param pulumi.Input[_builtins.str] event_trigger_name: The unique name of the event trigger.
         :param pulumi.Input[_builtins.str] object_type_name: The unique name of the object type.
         :param pulumi.Input[_builtins.str] segment_filter: The destination is triggered only for profiles that meet the criteria of a segment definition.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -223,13 +223,13 @@ class EventTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]]] = None,
-                 event_trigger_limits: pulumi.Input[Optional[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']]] = None,
+                 event_trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict', 'outputs.EventTriggerCondition']]]]] = None,
+                 event_trigger_limits: pulumi.Input[Optional[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict', 'outputs.EventTriggerLimits']]] = None,
                  event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 intent_filter_definition: pulumi.Input[Optional[Union['EventTriggerIntentFilterDefinitionArgs', 'EventTriggerIntentFilterDefinitionArgsDict']]] = None,
+                 intent_filter_definition: pulumi.Input[Optional[Union['EventTriggerIntentFilterDefinitionArgs', 'EventTriggerIntentFilterDefinitionArgsDict', 'outputs.EventTriggerIntentFilterDefinition']]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment_filter: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -292,6 +292,12 @@ class EventTrigger(pulumi.CustomResource):
         __props__.__dict__["segment_filter"] = None
         __props__.__dict__["tags"] = None
         return EventTrigger(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:customerprofiles:EventTrigger', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

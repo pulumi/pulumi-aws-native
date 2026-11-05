@@ -170,6 +170,12 @@ class AiPromptVersion(pulumi.CustomResource):
         __props__.__dict__["version_number"] = None
         return AiPromptVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:wisdom:AiPromptVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aiPromptArn")
     def ai_prompt_arn(self) -> pulumi.Output[_builtins.str]:

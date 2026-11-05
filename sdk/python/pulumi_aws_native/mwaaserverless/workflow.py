@@ -151,13 +151,13 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 code: pulumi.Input[Optional[Union['WorkflowCodeArgs', 'WorkflowCodeArgsDict']]] = None,
-                 definition_s3_location: pulumi.Input[Optional[Union['WorkflowS3LocationArgs', 'WorkflowS3LocationArgsDict']]] = None,
+                 code: pulumi.Input[Optional[Union['WorkflowCodeArgs', 'WorkflowCodeArgsDict', 'outputs.WorkflowCode']]] = None,
+                 definition_s3_location: pulumi.Input[Optional[Union['WorkflowS3LocationArgs', 'WorkflowS3LocationArgsDict', 'outputs.WorkflowS3Location']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['WorkflowEncryptionConfigurationArgs', 'WorkflowEncryptionConfigurationArgsDict']]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['WorkflowLoggingConfigurationArgs', 'WorkflowLoggingConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['WorkflowEncryptionConfigurationArgs', 'WorkflowEncryptionConfigurationArgsDict', 'outputs.WorkflowEncryptionConfiguration']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['WorkflowLoggingConfigurationArgs', 'WorkflowLoggingConfigurationArgsDict', 'outputs.WorkflowLoggingConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['WorkflowNetworkConfigurationArgs', 'WorkflowNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['WorkflowNetworkConfigurationArgs', 'WorkflowNetworkConfigurationArgsDict', 'outputs.WorkflowNetworkConfiguration']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trigger_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -192,13 +192,13 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 code: pulumi.Input[Optional[Union['WorkflowCodeArgs', 'WorkflowCodeArgsDict']]] = None,
-                 definition_s3_location: pulumi.Input[Optional[Union['WorkflowS3LocationArgs', 'WorkflowS3LocationArgsDict']]] = None,
+                 code: pulumi.Input[Optional[Union['WorkflowCodeArgs', 'WorkflowCodeArgsDict', 'outputs.WorkflowCode']]] = None,
+                 definition_s3_location: pulumi.Input[Optional[Union['WorkflowS3LocationArgs', 'WorkflowS3LocationArgsDict', 'outputs.WorkflowS3Location']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['WorkflowEncryptionConfigurationArgs', 'WorkflowEncryptionConfigurationArgsDict']]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['WorkflowLoggingConfigurationArgs', 'WorkflowLoggingConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['WorkflowEncryptionConfigurationArgs', 'WorkflowEncryptionConfigurationArgsDict', 'outputs.WorkflowEncryptionConfiguration']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['WorkflowLoggingConfigurationArgs', 'WorkflowLoggingConfigurationArgsDict', 'outputs.WorkflowLoggingConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['WorkflowNetworkConfigurationArgs', 'WorkflowNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['WorkflowNetworkConfigurationArgs', 'WorkflowNetworkConfigurationArgsDict', 'outputs.WorkflowNetworkConfiguration']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trigger_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -274,6 +274,12 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["workflow_status"] = None
         __props__.__dict__["workflow_version"] = None
         return Workflow(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:mwaaserverless:Workflow', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

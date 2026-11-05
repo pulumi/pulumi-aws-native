@@ -100,8 +100,8 @@ class Recipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict', 'outputs.RecipeStep']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Recipe.
@@ -143,8 +143,8 @@ class Recipe(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the recipe
         :param pulumi.Input[_builtins.str] name: Recipe name
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict']]]] steps: A list of steps that are defined by the recipe.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata tags that have been applied to the recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict', 'outputs.RecipeStep']]]] steps: A list of steps that are defined by the recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata tags that have been applied to the recipe.
         """
         ...
     @overload
@@ -205,8 +205,8 @@ class Recipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecipeStepArgs', 'RecipeStepArgsDict', 'outputs.RecipeStep']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -251,6 +251,12 @@ class Recipe(pulumi.CustomResource):
         __props__.__dict__["steps"] = None
         __props__.__dict__["tags"] = None
         return Recipe(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:databrew:Recipe', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

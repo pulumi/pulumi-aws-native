@@ -193,11 +193,11 @@ class Daemon(pulumi.CustomResource):
                  critical: pulumi.Input[Optional[_builtins.bool]] = None,
                  daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']]] = None,
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  propagate_tags: pulumi.Input[Optional['DaemonPropagateTags']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Information about a daemon resource.
@@ -208,7 +208,7 @@ class Daemon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
         :param pulumi.Input[_builtins.bool] critical: If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
         :param pulumi.Input[_builtins.str] daemon_task_definition_arn: The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
-        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']] deployment_configuration: The deployment configuration used for this daemon deployment.
+        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']] deployment_configuration: The deployment configuration used for this daemon deployment.
         :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
         :param pulumi.Input[_builtins.bool] enable_execute_command: Specifies whether the execute command functionality is turned on for the daemon tasks.
         :param pulumi.Input['DaemonPropagateTags'] propagate_tags: Specifies whether tags are propagated from the daemon to the daemon tasks.
@@ -242,11 +242,11 @@ class Daemon(pulumi.CustomResource):
                  critical: pulumi.Input[Optional[_builtins.bool]] = None,
                  daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']]] = None,
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  propagate_tags: pulumi.Input[Optional['DaemonPropagateTags']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,6 +311,12 @@ class Daemon(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return Daemon(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ecs:Daemon', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderArns")

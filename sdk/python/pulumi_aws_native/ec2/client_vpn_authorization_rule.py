@@ -206,6 +206,12 @@ class ClientVpnAuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["target_network_cidr"] = None
         return ClientVpnAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ec2:ClientVpnAuthorizationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessGroupId")
     def access_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:

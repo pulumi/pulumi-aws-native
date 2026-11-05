@@ -150,12 +150,12 @@ class StudioComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['StudioComponentConfigurationArgs', 'StudioComponentConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['StudioComponentConfigurationArgs', 'StudioComponentConfigurationArgsDict', 'outputs.StudioComponentConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  ec2_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 initialization_scripts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]]] = None,
+                 initialization_scripts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict', 'outputs.StudioComponentInitializationScript']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 script_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]]] = None,
+                 script_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict', 'outputs.StudioComponentScriptParameterKeyValue']]]]] = None,
                  studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subtype: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -191,12 +191,12 @@ class StudioComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['StudioComponentConfigurationArgs', 'StudioComponentConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['StudioComponentConfigurationArgs', 'StudioComponentConfigurationArgsDict', 'outputs.StudioComponentConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  ec2_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 initialization_scripts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]]] = None,
+                 initialization_scripts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict', 'outputs.StudioComponentInitializationScript']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 script_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]]] = None,
+                 script_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict', 'outputs.StudioComponentScriptParameterKeyValue']]]]] = None,
                  studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subtype: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -261,6 +261,12 @@ class StudioComponent(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return StudioComponent(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:nimblestudio:StudioComponent', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

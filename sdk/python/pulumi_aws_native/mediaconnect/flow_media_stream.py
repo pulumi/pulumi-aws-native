@@ -173,14 +173,14 @@ class FlowMediaStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Union['FlowMediaStreamMediaStreamAttributesArgs', 'FlowMediaStreamMediaStreamAttributesArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Union['FlowMediaStreamMediaStreamAttributesArgs', 'FlowMediaStreamMediaStreamAttributesArgsDict', 'outputs.FlowMediaStreamMediaStreamAttributes']]] = None,
                  clock_rate: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  media_stream_id: pulumi.Input[Optional[_builtins.int]] = None,
                  media_stream_name: pulumi.Input[Optional[_builtins.str]] = None,
                  media_stream_type: pulumi.Input[Optional['FlowMediaStreamMediaStreamType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  video_format: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -194,7 +194,7 @@ class FlowMediaStream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] media_stream_id: A unique identifier for the media stream.
         :param pulumi.Input[_builtins.str] media_stream_name: A name that helps you distinguish one media stream from another.
         :param pulumi.Input['FlowMediaStreamMediaStreamType'] media_stream_type: The type of media stream.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key-value pairs that can be used to tag and organize the media stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The key-value pairs that can be used to tag and organize the media stream.
         :param pulumi.Input[_builtins.str] video_format: The resolution of the video. Required for a video media stream and rejected for other media stream types.
         """
         ...
@@ -221,14 +221,14 @@ class FlowMediaStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Union['FlowMediaStreamMediaStreamAttributesArgs', 'FlowMediaStreamMediaStreamAttributesArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Union['FlowMediaStreamMediaStreamAttributesArgs', 'FlowMediaStreamMediaStreamAttributesArgsDict', 'outputs.FlowMediaStreamMediaStreamAttributes']]] = None,
                  clock_rate: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  media_stream_id: pulumi.Input[Optional[_builtins.int]] = None,
                  media_stream_name: pulumi.Input[Optional[_builtins.str]] = None,
                  media_stream_type: pulumi.Input[Optional['FlowMediaStreamMediaStreamType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  video_format: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -292,6 +292,12 @@ class FlowMediaStream(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["video_format"] = None
         return FlowMediaStream(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:mediaconnect:FlowMediaStream', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

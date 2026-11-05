@@ -226,7 +226,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blue_green_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
                  target_db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  target_db_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
@@ -244,7 +244,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] blue_green_deployment_name: The name of the Blue/Green Deployment.
         :param pulumi.Input[_builtins.str] source: The ARN of the source production database.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the Blue/Green Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the Blue/Green Deployment.
         :param pulumi.Input[_builtins.int] target_allocated_storage: The allocated storage size in GiB for the target DB instance.
         :param pulumi.Input[_builtins.str] target_db_cluster_parameter_group_name: The DB cluster parameter group for the target Aurora DB cluster.
         :param pulumi.Input[_builtins.str] target_db_instance_class: The DB instance class for target RDS DB instances.
@@ -281,7 +281,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blue_green_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
                  target_db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  target_db_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
@@ -367,6 +367,12 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["tasks"] = None
         __props__.__dict__["upgrade_target_storage_config"] = None
         return Deployment(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:rds:Deployment', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

@@ -64,7 +64,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 entitlement: pulumi.Input[Optional[Union['EntitlementArgs', 'EntitlementArgsDict']]] = None,
+                 entitlement: pulumi.Input[Optional[Union['EntitlementArgs', 'EntitlementArgsDict', 'outputs.Entitlement']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AccountAccess::Entitlement specifying an entitlement for account access
@@ -72,7 +72,7 @@ class Entitlement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: The ARN of the application
-        :param pulumi.Input[Union['EntitlementArgs', 'EntitlementArgsDict']] entitlement: The entitlement details
+        :param pulumi.Input[Union['EntitlementArgs', 'EntitlementArgsDict', 'outputs.Entitlement']] entitlement: The entitlement details
         """
         ...
     @overload
@@ -99,7 +99,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 entitlement: pulumi.Input[Optional[Union['EntitlementArgs', 'EntitlementArgsDict']]] = None,
+                 entitlement: pulumi.Input[Optional[Union['EntitlementArgs', 'EntitlementArgsDict', 'outputs.Entitlement']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -146,6 +146,12 @@ class Entitlement(pulumi.CustomResource):
         __props__.__dict__["entitlement"] = None
         __props__.__dict__["entitlement_id"] = None
         return Entitlement(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:accountaccess:Entitlement', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")

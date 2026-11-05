@@ -114,22 +114,22 @@ class LocationFSxOntap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 protocol: pulumi.Input[Optional[Union['LocationFSxOntapProtocolArgs', 'LocationFSxOntapProtocolArgsDict']]] = None,
+                 protocol: pulumi.Input[Optional[Union['LocationFSxOntapProtocolArgs', 'LocationFSxOntapProtocolArgsDict', 'outputs.LocationFSxOntapProtocol']]] = None,
                  security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_virtual_machine_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DataSync::LocationFSxONTAP.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LocationFSxOntapProtocolArgs', 'LocationFSxOntapProtocolArgsDict']] protocol: Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
+        :param pulumi.Input[Union['LocationFSxOntapProtocolArgs', 'LocationFSxOntapProtocolArgsDict', 'outputs.LocationFSxOntapProtocol']] protocol: Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
         :param pulumi.Input[_builtins.str] storage_virtual_machine_arn: The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
         :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -155,11 +155,11 @@ class LocationFSxOntap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 protocol: pulumi.Input[Optional[Union['LocationFSxOntapProtocolArgs', 'LocationFSxOntapProtocolArgsDict']]] = None,
+                 protocol: pulumi.Input[Optional[Union['LocationFSxOntapProtocolArgs', 'LocationFSxOntapProtocolArgsDict', 'outputs.LocationFSxOntapProtocol']]] = None,
                  security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_virtual_machine_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,6 +214,12 @@ class LocationFSxOntap(pulumi.CustomResource):
         __props__.__dict__["subdirectory"] = None
         __props__.__dict__["tags"] = None
         return LocationFSxOntap(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:datasync:LocationFSxOntap', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="fsxFilesystemArn")

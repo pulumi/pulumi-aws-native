@@ -115,7 +115,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
                  direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         AWS::NetworkManager::DirectConnectGatewayAttachment Resource Type
@@ -126,7 +126,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] direct_connect_gateway_arn: The ARN of the Direct Connect Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: The Regions where the edges are located.
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the attachment.
         """
         ...
     @overload
@@ -156,7 +156,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
                  direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,6 +235,12 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return DirectConnectGatewayAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:networkmanager:DirectConnectGatewayAttachment', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="attachmentId")

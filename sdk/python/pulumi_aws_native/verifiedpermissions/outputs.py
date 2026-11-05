@@ -344,7 +344,7 @@ class IdentitySourceOpenIdConnectConfiguration(dict):
 
     def __init__(__self__, *,
                  issuer: _builtins.str,
-                 token_selection: Any,
+                 token_selection: Union['outputs.IdentitySourceOpenIdConnectTokenSelection0Properties', 'outputs.IdentitySourceOpenIdConnectTokenSelection1Properties'],
                  entity_id_prefix: Optional[_builtins.str] = None,
                  group_configuration: Optional['outputs.IdentitySourceOpenIdConnectGroupConfiguration'] = None):
         pulumi.set(__self__, "issuer", issuer)
@@ -361,7 +361,7 @@ class IdentitySourceOpenIdConnectConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="tokenSelection")
-    def token_selection(self) -> Any:
+    def token_selection(self) -> Union['outputs.IdentitySourceOpenIdConnectTokenSelection0Properties', 'outputs.IdentitySourceOpenIdConnectTokenSelection1Properties']:
         return pulumi.get(self, "token_selection")
 
     @_builtins.property

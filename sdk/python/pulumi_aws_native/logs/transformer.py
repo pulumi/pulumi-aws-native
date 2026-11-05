@@ -65,7 +65,7 @@ class Transformer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 transformer_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict']]]]] = None,
+                 transformer_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict', 'outputs.TransformerProcessor']]]]] = None,
                  __props__=None):
         """
         Specifies a transformer on the log group to transform logs into consistent structured and information rich format.
@@ -73,7 +73,7 @@ class Transformer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_group_identifier: Existing log group that you want to associate with this transformer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict']]]] transformer_config: List of processors in a transformer
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict', 'outputs.TransformerProcessor']]]] transformer_config: List of processors in a transformer
         """
         ...
     @overload
@@ -100,7 +100,7 @@ class Transformer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 transformer_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict']]]]] = None,
+                 transformer_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict', 'outputs.TransformerProcessor']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -143,6 +143,12 @@ class Transformer(pulumi.CustomResource):
         __props__.__dict__["log_group_identifier"] = None
         __props__.__dict__["transformer_config"] = None
         return Transformer(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:logs:Transformer', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="logGroupIdentifier")

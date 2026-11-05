@@ -93,7 +93,7 @@ class TransitGatewayPolicyTableEntry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_rule: pulumi.Input[Optional[Union['TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs', 'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict']]] = None,
+                 policy_rule: pulumi.Input[Optional[Union['TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs', 'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict', 'outputs.TransitGatewayPolicyTableEntryTransitGatewayPolicyRule']]] = None,
                  policy_rule_number: pulumi.Input[Optional[_builtins.str]] = None,
                  target_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_policy_table_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -103,7 +103,7 @@ class TransitGatewayPolicyTableEntry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs', 'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict']] policy_rule: The policy rule associated with the entry.
+        :param pulumi.Input[Union['TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs', 'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict', 'outputs.TransitGatewayPolicyTableEntryTransitGatewayPolicyRule']] policy_rule: The policy rule associated with the entry.
         :param pulumi.Input[_builtins.str] policy_rule_number: The rule number for the policy table entry.
         :param pulumi.Input[_builtins.str] target_route_table_id: The ID of the target route table.
         :param pulumi.Input[_builtins.str] transit_gateway_policy_table_id: The ID of the transit gateway policy table.
@@ -132,7 +132,7 @@ class TransitGatewayPolicyTableEntry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_rule: pulumi.Input[Optional[Union['TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs', 'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict']]] = None,
+                 policy_rule: pulumi.Input[Optional[Union['TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs', 'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict', 'outputs.TransitGatewayPolicyTableEntryTransitGatewayPolicyRule']]] = None,
                  policy_rule_number: pulumi.Input[Optional[_builtins.str]] = None,
                  target_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_policy_table_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -188,6 +188,12 @@ class TransitGatewayPolicyTableEntry(pulumi.CustomResource):
         __props__.__dict__["target_route_table_id"] = None
         __props__.__dict__["transit_gateway_policy_table_id"] = None
         return TransitGatewayPolicyTableEntry(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ec2:TransitGatewayPolicyTableEntry', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="policyRule")

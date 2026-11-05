@@ -94,9 +94,9 @@ class AcmeExternalAccountBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acme_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 expiration: pulumi.Input[Optional[Union['AcmeExternalAccountBindingExpirationArgs', 'AcmeExternalAccountBindingExpirationArgsDict']]] = None,
+                 expiration: pulumi.Input[Optional[Union['AcmeExternalAccountBindingExpirationArgs', 'AcmeExternalAccountBindingExpirationArgsDict', 'outputs.AcmeExternalAccountBindingExpiration']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CertificateManager::AcmeExternalAccountBinding
@@ -105,7 +105,7 @@ class AcmeExternalAccountBinding(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acme_endpoint_arn: The ARN of the ACME endpoint this binding is associated with.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN for cross-account access.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the external account binding.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the external account binding.
         """
         ...
     @overload
@@ -132,9 +132,9 @@ class AcmeExternalAccountBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acme_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 expiration: pulumi.Input[Optional[Union['AcmeExternalAccountBindingExpirationArgs', 'AcmeExternalAccountBindingExpirationArgsDict']]] = None,
+                 expiration: pulumi.Input[Optional[Union['AcmeExternalAccountBindingExpirationArgs', 'AcmeExternalAccountBindingExpirationArgsDict', 'outputs.AcmeExternalAccountBindingExpiration']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,6 +183,12 @@ class AcmeExternalAccountBinding(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
         return AcmeExternalAccountBinding(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:certificatemanager:AcmeExternalAccountBinding', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="acmeEndpointArn")

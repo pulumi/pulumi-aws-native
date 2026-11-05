@@ -194,10 +194,10 @@ class VpcEndpointService(pulumi.CustomResource):
                  network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  payer_responsibility: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_dns_name_configuration: pulumi.Input[Optional[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]] = None,
+                 private_dns_name_configuration: pulumi.Input[Optional[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict', 'outputs.VpcEndpointServicePrivateDnsNameConfiguration']]] = None,
                  supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
                  supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointService
@@ -211,7 +211,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] payer_responsibility: The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]] supported_ip_address_types: Specify which Ip Address types are supported for VPC endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_regions: The Regions from which service consumers can access the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the VPC endpoint service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to add to the VPC endpoint service.
         """
         ...
     @overload
@@ -243,10 +243,10 @@ class VpcEndpointService(pulumi.CustomResource):
                  network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  payer_responsibility: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_dns_name_configuration: pulumi.Input[Optional[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]] = None,
+                 private_dns_name_configuration: pulumi.Input[Optional[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict', 'outputs.VpcEndpointServicePrivateDnsNameConfiguration']]] = None,
                  supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
                  supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,6 +301,12 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__.__dict__["supported_regions"] = None
         __props__.__dict__["tags"] = None
         return VpcEndpointService(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ec2:VpcEndpointService', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="acceptanceRequired")

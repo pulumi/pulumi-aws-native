@@ -114,8 +114,8 @@ class VpcEndpointAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet_mapping: pulumi.Input[Optional[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 subnet_mapping: pulumi.Input[Optional[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict', 'outputs.VpcEndpointAssociationSubnetMapping']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -125,8 +125,8 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the firewall.
-        :param pulumi.Input[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']] subnet_mapping: The ID for a subnet that's used in an association with a firewall. This is used in `CreateFirewall` , `AssociateSubnets` , and `CreateVpcEndpointAssociation` . AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key:value pairs to associate with the resource.
+        :param pulumi.Input[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict', 'outputs.VpcEndpointAssociationSubnetMapping']] subnet_mapping: The ID for a subnet that's used in an association with a firewall. This is used in `CreateFirewall` , `AssociateSubnets` , and `CreateVpcEndpointAssociation` . AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The key:value pairs to associate with the resource.
         :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC for the endpoint association.
         """
         ...
@@ -155,8 +155,8 @@ class VpcEndpointAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet_mapping: pulumi.Input[Optional[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 subnet_mapping: pulumi.Input[Optional[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict', 'outputs.VpcEndpointAssociationSubnetMapping']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -214,6 +214,12 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         __props__.__dict__["vpc_endpoint_association_id"] = None
         __props__.__dict__["vpc_id"] = None
         return VpcEndpointAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:networkfirewall:VpcEndpointAssociation', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

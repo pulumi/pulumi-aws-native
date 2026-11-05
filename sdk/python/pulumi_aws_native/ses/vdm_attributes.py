@@ -65,16 +65,16 @@ class VdmAttributes(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_attributes: pulumi.Input[Optional[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict']]] = None,
-                 guardian_attributes: pulumi.Input[Optional[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict']]] = None,
+                 dashboard_attributes: pulumi.Input[Optional[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict', 'outputs.VdmAttributesDashboardAttributes']]] = None,
+                 guardian_attributes: pulumi.Input[Optional[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict', 'outputs.VdmAttributesGuardianAttributes']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::VdmAttributes
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict', 'outputs.VdmAttributesDashboardAttributes']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict', 'outputs.VdmAttributesGuardianAttributes']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         ...
     @overload
@@ -100,8 +100,8 @@ class VdmAttributes(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_attributes: pulumi.Input[Optional[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict']]] = None,
-                 guardian_attributes: pulumi.Input[Optional[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict']]] = None,
+                 dashboard_attributes: pulumi.Input[Optional[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict', 'outputs.VdmAttributesDashboardAttributes']]] = None,
+                 guardian_attributes: pulumi.Input[Optional[Union['VdmAttributesGuardianAttributesArgs', 'VdmAttributesGuardianAttributesArgsDict', 'outputs.VdmAttributesGuardianAttributes']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -140,6 +140,12 @@ class VdmAttributes(pulumi.CustomResource):
         __props__.__dict__["guardian_attributes"] = None
         __props__.__dict__["vdm_attributes_resource_id"] = None
         return VdmAttributes(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ses:VdmAttributes', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="dashboardAttributes")

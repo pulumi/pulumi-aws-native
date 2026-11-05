@@ -207,6 +207,12 @@ class GroupProfile(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         return GroupProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:datazone:GroupProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[_builtins.str]:

@@ -183,7 +183,7 @@ class Volume(pulumi.CustomResource):
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict', 'outputs.VolumeTagSpecification']]]]] = None,
                  throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_type: pulumi.Input[Optional['VolumeType']] = None,
                  __props__=None):
@@ -198,7 +198,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption
         :param pulumi.Input[_builtins.int] size_in_gb: The size of the volume, in GiBs
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict']]]] tag_specifications: The tags passed to EBS volume
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict', 'outputs.VolumeTagSpecification']]]] tag_specifications: The tags passed to EBS volume
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s
         :param pulumi.Input['VolumeType'] volume_type: The volume type
         """
@@ -232,7 +232,7 @@ class Volume(pulumi.CustomResource):
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict', 'outputs.VolumeTagSpecification']]]]] = None,
                  throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_type: pulumi.Input[Optional['VolumeType']] = None,
                  __props__=None):
@@ -291,6 +291,12 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["volume_id"] = None
         __props__.__dict__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:workspacesinstances:Volume', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")

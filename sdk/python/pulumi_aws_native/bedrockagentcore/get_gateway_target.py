@@ -85,7 +85,7 @@ class GetGatewayTargetResult:
 
     @_builtins.property
     @pulumi.getter(name="certificateConfigurations")
-    def certificate_configurations(self) -> Optional[Sequence[Any]]:
+    def certificate_configurations(self) -> Optional[Sequence[Union['outputs.GatewayTargetCertificateConfiguration0Properties', 'outputs.GatewayTargetCertificateConfiguration1Properties']]]:
         return pulumi.get(self, "certificate_configurations")
 
     @_builtins.property
@@ -137,7 +137,7 @@ class GetGatewayTargetResult:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[Any]:
+    def private_endpoint(self) -> Optional[Union['outputs.GatewayTargetPrivateEndpoint0Properties', 'outputs.GatewayTargetPrivateEndpoint1Properties']]:
         return pulumi.get(self, "private_endpoint")
 
     @_builtins.property
@@ -168,7 +168,7 @@ class GetGatewayTargetResult:
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
-    def target_configuration(self) -> Optional[Any]:
+    def target_configuration(self) -> Optional[Union['outputs.GatewayTargetTargetConfiguration0Properties', 'outputs.GatewayTargetTargetConfiguration1Properties', 'outputs.GatewayTargetTargetConfiguration2Properties']]:
         """
         The target configuration for the Smithy model target.
         """

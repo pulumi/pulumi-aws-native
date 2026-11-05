@@ -130,7 +130,7 @@ class Schema(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -159,7 +159,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the schema.
         :param pulumi.Input[_builtins.str] registry_name: The name of the schema registry.
         :param pulumi.Input[_builtins.str] schema_name: The name of the schema.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the resource.
         :param pulumi.Input[_builtins.str] type: The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
         """
         ...
@@ -207,7 +207,7 @@ class Schema(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -269,6 +269,12 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["version_created_date"] = None
         return Schema(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:eventschemas:Schema', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

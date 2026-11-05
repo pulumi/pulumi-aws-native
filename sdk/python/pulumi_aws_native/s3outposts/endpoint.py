@@ -129,7 +129,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: pulumi.Input[Optional['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
-                 failed_reason: pulumi.Input[Optional[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']]] = None,
+                 failed_reason: pulumi.Input[Optional[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict', 'outputs.EndpointFailedReason']]] = None,
                  outpost_id: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -141,7 +141,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['EndpointAccessType'] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
-        :param pulumi.Input[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']] failed_reason: The failure reason, if any, for a create or delete endpoint operation.
+        :param pulumi.Input[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict', 'outputs.EndpointFailedReason']] failed_reason: The failure reason, if any, for a create or delete endpoint operation.
         :param pulumi.Input[_builtins.str] outpost_id: The id of the customer outpost on which the bucket resides.
         :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group to use with the endpoint.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
@@ -172,7 +172,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: pulumi.Input[Optional['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
-                 failed_reason: pulumi.Input[Optional[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']]] = None,
+                 failed_reason: pulumi.Input[Optional[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict', 'outputs.EndpointFailedReason']]] = None,
                  outpost_id: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -240,6 +240,12 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["subnet_id"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:s3outposts:Endpoint', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="accessType")

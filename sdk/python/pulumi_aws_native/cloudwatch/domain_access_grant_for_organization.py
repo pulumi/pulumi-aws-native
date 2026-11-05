@@ -116,8 +116,8 @@ class DomainAccessGrantForOrganization(pulumi.CustomResource):
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  permission: pulumi.Input[Optional['DomainAccessGrantForOrganizationPermission']] = None,
-                 principal: pulumi.Input[Optional[Union['DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs', 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 principal: pulumi.Input[Optional[Union['DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs', 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgsDict', 'outputs.DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::DomainAccessGrantForOrganization. An organization access grant authorizes a principal to administer an organization domain.
@@ -127,8 +127,8 @@ class DomainAccessGrantForOrganization(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_id: The ID of the organization domain the grant belongs to.
         :param pulumi.Input[_builtins.str] name: A name that identifies the access grant.
         :param pulumi.Input['DomainAccessGrantForOrganizationPermission'] permission: The permission granted.
-        :param pulumi.Input[Union['DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs', 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgsDict']] principal: The principal receiving the grant.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs', 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgsDict', 'outputs.DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal']] principal: The principal receiving the grant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -157,8 +157,8 @@ class DomainAccessGrantForOrganization(pulumi.CustomResource):
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  permission: pulumi.Input[Optional['DomainAccessGrantForOrganizationPermission']] = None,
-                 principal: pulumi.Input[Optional[Union['DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs', 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 principal: pulumi.Input[Optional[Union['DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgs', 'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalArgsDict', 'outputs.DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -221,6 +221,12 @@ class DomainAccessGrantForOrganization(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return DomainAccessGrantForOrganization(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:cloudwatch:DomainAccessGrantForOrganization', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter
