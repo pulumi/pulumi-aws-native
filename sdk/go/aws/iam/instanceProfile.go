@@ -180,6 +180,12 @@ func (InstanceProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceProfileState)(nil)).Elem()
 }
 
+// InstanceProfileExists checks whether an existing InstanceProfile resource with the given ID exists.
+func InstanceProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iam:InstanceProfile", id, state, "", opts...)
+}
+
 type instanceProfileArgs struct {
 	// The name of the instance profile to create.
 	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-

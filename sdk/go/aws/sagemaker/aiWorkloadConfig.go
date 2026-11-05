@@ -75,6 +75,12 @@ func (AiWorkloadConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aiWorkloadConfigState)(nil)).Elem()
 }
 
+// AiWorkloadConfigExists checks whether an existing AiWorkloadConfig resource with the given ID exists.
+func AiWorkloadConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AiWorkloadConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:AiWorkloadConfig", id, state, "", opts...)
+}
+
 type aiWorkloadConfigArgs struct {
 	// The name of the AI workload configuration. The name must be unique within your AWS account in the current AWS Region. Only lowercase letters and digits are accepted: DeleteAIWorkloadConfig lowercases the name before looking it up, so a name containing an uppercase letter produces a configuration that can be created and read but never deleted.
 	AiWorkloadConfigName *string `pulumi:"aiWorkloadConfigName"`

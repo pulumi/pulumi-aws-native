@@ -124,6 +124,12 @@ func (AiPromptState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aiPromptState)(nil)).Elem()
 }
 
+// AiPromptExists checks whether an existing AiPrompt resource with the given ID exists.
+func AiPromptExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AiPromptState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:AiPrompt", id, state, "", opts...)
+}
+
 type aiPromptArgs struct {
 	// The API format used for this AI Prompt.
 	ApiFormat AiPromptAiPromptApiFormat `pulumi:"apiFormat"`

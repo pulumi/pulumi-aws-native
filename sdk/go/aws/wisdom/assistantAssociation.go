@@ -88,6 +88,12 @@ func (AssistantAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assistantAssociationState)(nil)).Elem()
 }
 
+// AssistantAssociationExists checks whether an existing AssistantAssociation resource with the given ID exists.
+func AssistantAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssistantAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:AssistantAssociation", id, state, "", opts...)
+}
+
 type assistantAssociationArgs struct {
 	// The identifier of the Wisdom assistant.
 	AssistantId string `pulumi:"assistantId"`

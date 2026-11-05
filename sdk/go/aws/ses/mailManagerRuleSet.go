@@ -71,6 +71,12 @@ func (MailManagerRuleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailManagerRuleSetState)(nil)).Elem()
 }
 
+// MailManagerRuleSetExists checks whether an existing MailManagerRuleSet resource with the given ID exists.
+func MailManagerRuleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailManagerRuleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:MailManagerRuleSet", id, state, "", opts...)
+}
+
 type mailManagerRuleSetArgs struct {
 	// A user-friendly name for the rule set.
 	RuleSetName *string `pulumi:"ruleSetName"`

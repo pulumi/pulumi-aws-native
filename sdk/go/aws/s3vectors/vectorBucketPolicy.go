@@ -71,6 +71,12 @@ func (VectorBucketPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vectorBucketPolicyState)(nil)).Elem()
 }
 
+// VectorBucketPolicyExists checks whether an existing VectorBucketPolicy resource with the given ID exists.
+func VectorBucketPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VectorBucketPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3vectors:VectorBucketPolicy", id, state, "", opts...)
+}
+
 type vectorBucketPolicyArgs struct {
 	// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
 	Policy VectorBucketPolicyPolicy `pulumi:"policy"`

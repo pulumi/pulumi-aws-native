@@ -105,6 +105,12 @@ func (CalculatedAttributeDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*calculatedAttributeDefinitionState)(nil)).Elem()
 }
 
+// CalculatedAttributeDefinitionExists checks whether an existing CalculatedAttributeDefinition resource with the given ID exists.
+func CalculatedAttributeDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CalculatedAttributeDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:customerprofiles:CalculatedAttributeDefinition", id, state, "", opts...)
+}
+
 type calculatedAttributeDefinitionArgs struct {
 	// Mathematical expression and a list of attribute items specified in that expression.
 	AttributeDetails CalculatedAttributeDefinitionAttributeDetails `pulumi:"attributeDetails"`

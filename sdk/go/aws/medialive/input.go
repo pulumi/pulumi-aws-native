@@ -121,6 +121,12 @@ func (InputState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inputState)(nil)).Elem()
 }
 
+// InputExists checks whether an existing Input resource with the given ID exists.
+func InputExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InputState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:Input", id, state, "", opts...)
+}
+
 type inputArgs struct {
 	// A list of the destinations of the input (PUSH-type).
 	Destinations []InputDestination `pulumi:"destinations"`

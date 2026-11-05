@@ -93,6 +93,12 @@ func (FuotaTaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fuotaTaskState)(nil)).Elem()
 }
 
+// FuotaTaskExists checks whether an existing FuotaTask resource with the given ID exists.
+func FuotaTaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FuotaTaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotwireless:FuotaTask", id, state, "", opts...)
+}
+
 type fuotaTaskArgs struct {
 	// Multicast group to associate. Only for update request.
 	AssociateMulticastGroup *string `pulumi:"associateMulticastGroup"`

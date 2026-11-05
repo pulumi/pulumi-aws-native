@@ -79,6 +79,12 @@ func (LiveSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*liveSourceState)(nil)).Elem()
 }
 
+// LiveSourceExists checks whether an existing LiveSource resource with the given ID exists.
+func LiveSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LiveSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediatailor:LiveSource", id, state, "", opts...)
+}
+
 type liveSourceArgs struct {
 	// <p>A list of HTTP package configuration parameters for this live source.</p>
 	HttpPackageConfigurations []LiveSourceHttpPackageConfiguration `pulumi:"httpPackageConfigurations"`

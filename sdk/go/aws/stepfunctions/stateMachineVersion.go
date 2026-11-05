@@ -78,6 +78,12 @@ func (StateMachineVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stateMachineVersionState)(nil)).Elem()
 }
 
+// StateMachineVersionExists checks whether an existing StateMachineVersion resource with the given ID exists.
+func StateMachineVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StateMachineVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:stepfunctions:StateMachineVersion", id, state, "", opts...)
+}
+
 type stateMachineVersionArgs struct {
 	// An optional description of the state machine version.
 	Description *string `pulumi:"description"`

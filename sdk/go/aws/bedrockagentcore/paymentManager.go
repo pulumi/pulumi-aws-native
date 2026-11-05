@@ -94,6 +94,12 @@ func (PaymentManagerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*paymentManagerState)(nil)).Elem()
 }
 
+// PaymentManagerExists checks whether an existing PaymentManager resource with the given ID exists.
+func PaymentManagerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PaymentManagerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:PaymentManager", id, state, "", opts...)
+}
+
 type paymentManagerArgs struct {
 	// The authorizer configuration for the payment manager
 	AuthorizerConfiguration *PaymentManagerAuthorizerConfigurationProperties `pulumi:"authorizerConfiguration"`

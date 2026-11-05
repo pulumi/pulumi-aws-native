@@ -67,6 +67,12 @@ func (FeedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*feedState)(nil)).Elem()
 }
 
+// FeedExists checks whether an existing Feed resource with the given ID exists.
+func FeedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elementalinference:Feed", id, state, "", opts...)
+}
+
 type feedArgs struct {
 	AccessRoleArn *string           `pulumi:"accessRoleArn"`
 	Name          *string           `pulumi:"name"`

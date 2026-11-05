@@ -93,6 +93,12 @@ func (IpSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipSetState)(nil)).Elem()
 }
 
+// IpSetExists checks whether an existing IpSet resource with the given ID exists.
+func IpSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:guardduty:IpSet", id, state, "", opts...)
+}
+
 type ipSetArgs struct {
 	// A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
 	Activate *bool `pulumi:"activate"`

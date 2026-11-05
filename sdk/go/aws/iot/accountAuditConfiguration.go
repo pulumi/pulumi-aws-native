@@ -86,6 +86,12 @@ func (AccountAuditConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountAuditConfigurationState)(nil)).Elem()
 }
 
+// AccountAuditConfigurationExists checks whether an existing AccountAuditConfiguration resource with the given ID exists.
+func AccountAuditConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountAuditConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:AccountAuditConfiguration", id, state, "", opts...)
+}
+
 type accountAuditConfigurationArgs struct {
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
 	AccountId string `pulumi:"accountId"`

@@ -80,6 +80,12 @@ func (ScheduledActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledActionState)(nil)).Elem()
 }
 
+// ScheduledActionExists checks whether an existing ScheduledAction resource with the given ID exists.
+func ScheduledActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:redshift:ScheduledAction", id, state, "", opts...)
+}
+
 type scheduledActionArgs struct {
 	// If true, the schedule is enabled. If false, the scheduled action does not trigger.
 	Enable *bool `pulumi:"enable"`

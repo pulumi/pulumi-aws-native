@@ -77,6 +77,12 @@ func (DashboardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardState)(nil)).Elem()
 }
 
+// DashboardExists checks whether an existing Dashboard resource with the given ID exists.
+func DashboardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DashboardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudtrail:Dashboard", id, state, "", opts...)
+}
+
 type dashboardArgs struct {
 	// The name of the dashboard.
 	Name *string `pulumi:"name"`

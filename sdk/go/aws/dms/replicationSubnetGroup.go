@@ -152,6 +152,12 @@ func (ReplicationSubnetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationSubnetGroupState)(nil)).Elem()
 }
 
+// ReplicationSubnetGroupExists checks whether an existing ReplicationSubnetGroup resource with the given ID exists.
+func ReplicationSubnetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationSubnetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dms:ReplicationSubnetGroup", id, state, "", opts...)
+}
+
 type replicationSubnetGroupArgs struct {
 	// The description for the subnet group.
 	ReplicationSubnetGroupDescription string `pulumi:"replicationSubnetGroupDescription"`

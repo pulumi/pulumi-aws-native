@@ -301,6 +301,12 @@ func (PatchBaselineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*patchBaselineState)(nil)).Elem()
 }
 
+// PatchBaselineExists checks whether an existing PatchBaseline resource with the given ID exists.
+func PatchBaselineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PatchBaselineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssm:PatchBaseline", id, state, "", opts...)
+}
+
 type patchBaselineArgs struct {
 	// A set of rules used to include patches in the baseline.
 	ApprovalRules *PatchBaselineRuleGroup `pulumi:"approvalRules"`

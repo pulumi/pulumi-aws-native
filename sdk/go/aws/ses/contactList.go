@@ -69,6 +69,12 @@ func (ContactListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactListState)(nil)).Elem()
 }
 
+// ContactListExists checks whether an existing ContactList resource with the given ID exists.
+func ContactListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:ContactList", id, state, "", opts...)
+}
+
 type contactListArgs struct {
 	// The name of the contact list.
 	ContactListName *string `pulumi:"contactListName"`

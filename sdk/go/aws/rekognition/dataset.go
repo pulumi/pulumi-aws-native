@@ -74,6 +74,12 @@ func (DatasetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetState)(nil)).Elem()
 }
 
+// DatasetExists checks whether an existing Dataset resource with the given ID exists.
+func DatasetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rekognition:Dataset", id, state, "", opts...)
+}
+
 type datasetArgs struct {
 	// The type of the dataset. Specify TRAIN to create a training dataset. Specify TEST to create a test dataset.
 	DatasetType DatasetType `pulumi:"datasetType"`

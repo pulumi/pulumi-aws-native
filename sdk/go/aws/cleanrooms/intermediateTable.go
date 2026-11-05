@@ -83,6 +83,12 @@ func (IntermediateTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*intermediateTableState)(nil)).Elem()
 }
 
+// IntermediateTableExists checks whether an existing IntermediateTable resource with the given ID exists.
+func IntermediateTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntermediateTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:IntermediateTable", id, state, "", opts...)
+}
+
 type intermediateTableArgs struct {
 	AnalysisRules                   []IntermediateTableAnalysisRule                  `pulumi:"analysisRules"`
 	Description                     *string                                          `pulumi:"description"`

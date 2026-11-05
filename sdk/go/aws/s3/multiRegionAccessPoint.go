@@ -76,6 +76,12 @@ func (MultiRegionAccessPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiRegionAccessPointState)(nil)).Elem()
 }
 
+// MultiRegionAccessPointExists checks whether an existing MultiRegionAccessPoint resource with the given ID exists.
+func MultiRegionAccessPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiRegionAccessPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3:MultiRegionAccessPoint", id, state, "", opts...)
+}
+
 type multiRegionAccessPointArgs struct {
 	// The name you want to assign to this Multi Region Access Point.
 	Name *string `pulumi:"name"`

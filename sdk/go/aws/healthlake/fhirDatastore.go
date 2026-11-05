@@ -93,6 +93,12 @@ func (FhirDatastoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fhirDatastoreState)(nil)).Elem()
 }
 
+// FhirDatastoreExists checks whether an existing FhirDatastore resource with the given ID exists.
+func FhirDatastoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FhirDatastoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:healthlake:FhirDatastore", id, state, "", opts...)
+}
+
 type fhirDatastoreArgs struct {
 	AnalyticsConfiguration *FhirDatastoreAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// The data store name (user-generated).

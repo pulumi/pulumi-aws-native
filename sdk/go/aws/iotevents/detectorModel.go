@@ -90,6 +90,12 @@ func (DetectorModelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*detectorModelState)(nil)).Elem()
 }
 
+// DetectorModelExists checks whether an existing DetectorModel resource with the given ID exists.
+func DetectorModelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DetectorModelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotevents:DetectorModel", id, state, "", opts...)
+}
+
 type detectorModelArgs struct {
 	// Information that defines how a detector operates.
 	DetectorModelDefinition DetectorModelDefinition `pulumi:"detectorModelDefinition"`

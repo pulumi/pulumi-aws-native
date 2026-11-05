@@ -71,6 +71,12 @@ func (DirectConnectGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directConnectGatewayState)(nil)).Elem()
 }
 
+// DirectConnectGatewayExists checks whether an existing DirectConnectGateway resource with the given ID exists.
+func DirectConnectGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectConnectGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:directconnect:DirectConnectGateway", id, state, "", opts...)
+}
+
 type directConnectGatewayArgs struct {
 	// The autonomous system number (ASN) for the Amazon side of the connection.
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`

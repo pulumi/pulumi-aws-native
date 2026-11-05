@@ -80,6 +80,12 @@ func (TrafficDistributionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficDistributionGroupState)(nil)).Elem()
 }
 
+// TrafficDistributionGroupExists checks whether an existing TrafficDistributionGroup resource with the given ID exists.
+func TrafficDistributionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficDistributionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:TrafficDistributionGroup", id, state, "", opts...)
+}
+
 type trafficDistributionGroupArgs struct {
 	// A description for the traffic distribution group.
 	Description *string `pulumi:"description"`

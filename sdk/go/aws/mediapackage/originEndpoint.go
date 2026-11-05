@@ -96,6 +96,12 @@ func (OriginEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*originEndpointState)(nil)).Elem()
 }
 
+// OriginEndpointExists checks whether an existing OriginEndpoint resource with the given ID exists.
+func OriginEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OriginEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediapackage:OriginEndpoint", id, state, "", opts...)
+}
+
 type originEndpointArgs struct {
 	// Parameters for CDN authorization.
 	Authorization *OriginEndpointAuthorization `pulumi:"authorization"`

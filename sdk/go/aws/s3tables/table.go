@@ -101,6 +101,12 @@ func (TableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableState)(nil)).Elem()
 }
 
+// TableExists checks whether an existing Table resource with the given ID exists.
+func TableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3tables:Table", id, state, "", opts...)
+}
+
 type tableArgs struct {
 	// Contains details about the compaction settings for an Iceberg table.
 	Compaction *TableCompaction `pulumi:"compaction"`

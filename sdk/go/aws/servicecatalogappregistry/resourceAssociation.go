@@ -82,6 +82,12 @@ func (ResourceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceAssociationState)(nil)).Elem()
 }
 
+// ResourceAssociationExists checks whether an existing ResourceAssociation resource with the given ID exists.
+func ResourceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalogappregistry:ResourceAssociation", id, state, "", opts...)
+}
+
 type resourceAssociationArgs struct {
 	// The name or the Id of the Application.
 	Application string `pulumi:"application"`

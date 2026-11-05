@@ -75,6 +75,12 @@ func (PortfolioPrincipalAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*portfolioPrincipalAssociationState)(nil)).Elem()
 }
 
+// PortfolioPrincipalAssociationExists checks whether an existing PortfolioPrincipalAssociation resource with the given ID exists.
+func PortfolioPrincipalAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PortfolioPrincipalAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:PortfolioPrincipalAssociation", id, state, "", opts...)
+}
+
 type portfolioPrincipalAssociationArgs struct {
 	// The language code.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

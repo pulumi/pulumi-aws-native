@@ -83,6 +83,12 @@ func (ClientVpnAuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clientVpnAuthorizationRuleState)(nil)).Elem()
 }
 
+// ClientVpnAuthorizationRuleExists checks whether an existing ClientVpnAuthorizationRule resource with the given ID exists.
+func ClientVpnAuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClientVpnAuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:ClientVpnAuthorizationRule", id, state, "", opts...)
+}
+
 type clientVpnAuthorizationRuleArgs struct {
 	// The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group. Required if `AuthorizeAllGroups` is `false` or not specified.
 	AccessGroupId *string `pulumi:"accessGroupId"`

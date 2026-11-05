@@ -92,6 +92,12 @@ func (IdNamespaceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*idNamespaceAssociationState)(nil)).Elem()
 }
 
+// IdNamespaceAssociationExists checks whether an existing IdNamespaceAssociation resource with the given ID exists.
+func IdNamespaceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdNamespaceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:IdNamespaceAssociation", id, state, "", opts...)
+}
+
 type idNamespaceAssociationArgs struct {
 	// The description of the ID namespace association.
 	Description *string `pulumi:"description"`

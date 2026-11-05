@@ -94,6 +94,12 @@ func (StageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageState)(nil)).Elem()
 }
 
+// StageExists checks whether an existing Stage resource with the given ID exists.
+func StageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:Stage", id, state, "", opts...)
+}
+
 type stageArgs struct {
 	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting *StageAccessLogSetting `pulumi:"accessLogSetting"`

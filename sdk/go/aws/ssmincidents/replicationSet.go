@@ -69,6 +69,12 @@ func (ReplicationSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationSetState)(nil)).Elem()
 }
 
+// ReplicationSetExists checks whether an existing ReplicationSet resource with the given ID exists.
+func ReplicationSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssmincidents:ReplicationSet", id, state, "", opts...)
+}
+
 type replicationSetArgs struct {
 	// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
 	DeletionProtected *bool `pulumi:"deletionProtected"`

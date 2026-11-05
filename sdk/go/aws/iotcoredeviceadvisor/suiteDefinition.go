@@ -163,6 +163,12 @@ func (SuiteDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*suiteDefinitionState)(nil)).Elem()
 }
 
+// SuiteDefinitionExists checks whether an existing SuiteDefinition resource with the given ID exists.
+func SuiteDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SuiteDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotcoredeviceadvisor:SuiteDefinition", id, state, "", opts...)
+}
+
 type suiteDefinitionArgs struct {
 	// Gets the suite definition configuration.
 	SuiteDefinitionConfiguration SuiteDefinitionConfigurationProperties `pulumi:"suiteDefinitionConfiguration"`

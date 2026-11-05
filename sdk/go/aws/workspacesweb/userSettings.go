@@ -107,6 +107,12 @@ func (UserSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userSettingsState)(nil)).Elem()
 }
 
+// UserSettingsExists checks whether an existing UserSettings resource with the given ID exists.
+func UserSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspacesweb:UserSettings", id, state, "", opts...)
+}
+
 type userSettingsArgs struct {
 	// The additional encryption context of the user settings.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`

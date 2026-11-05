@@ -100,7 +100,7 @@ import (
 //			}
 //			_, err = organizations.NewOrganizationalUnit(ctx, "childOU", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("ChildOU"),
-//				ParentId: parentOU.ID().ToIDOutput().ToStringOutput(),
+//				ParentId: parentOU.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -136,7 +136,7 @@ import (
 //			}
 //			_, err = organizations.NewOrganizationalUnit(ctx, "childOU", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("ChildOU"),
-//				ParentId: parentOU.ID().ToIDOutput().ToStringOutput(),
+//				ParentId: parentOU.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -207,6 +207,12 @@ type OrganizationalUnitState struct {
 
 func (OrganizationalUnitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationalUnitState)(nil)).Elem()
+}
+
+// OrganizationalUnitExists checks whether an existing OrganizationalUnit resource with the given ID exists.
+func OrganizationalUnitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationalUnitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:organizations:OrganizationalUnit", id, state, "", opts...)
 }
 
 type organizationalUnitArgs struct {

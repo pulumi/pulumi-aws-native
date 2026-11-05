@@ -79,6 +79,12 @@ func (EventBusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventBusState)(nil)).Elem()
 }
 
+// EventBusExists checks whether an existing EventBus resource with the given ID exists.
+func EventBusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventBusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eventsv2:EventBus", id, state, "", opts...)
+}
+
 type eventBusArgs struct {
 	// A description of the event bus. Control characters and Unicode line separators are not allowed.
 	Description *string `pulumi:"description"`

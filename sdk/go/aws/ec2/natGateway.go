@@ -116,6 +116,12 @@ func (NatGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayState)(nil)).Elem()
 }
 
+// NatGatewayExists checks whether an existing NatGateway resource with the given ID exists.
+func NatGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NatGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:NatGateway", id, state, "", opts...)
+}
+
 type natGatewayArgs struct {
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
 	AllocationId *string `pulumi:"allocationId"`

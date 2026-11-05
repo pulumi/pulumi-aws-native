@@ -69,6 +69,12 @@ func (RecoveryGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recoveryGroupState)(nil)).Elem()
 }
 
+// RecoveryGroupExists checks whether an existing RecoveryGroup resource with the given ID exists.
+func RecoveryGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecoveryGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53recoveryreadiness:RecoveryGroup", id, state, "", opts...)
+}
+
 type recoveryGroupArgs struct {
 	// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
 	Cells []string `pulumi:"cells"`

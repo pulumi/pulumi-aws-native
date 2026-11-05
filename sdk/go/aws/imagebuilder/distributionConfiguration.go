@@ -74,6 +74,12 @@ func (DistributionConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionConfigurationState)(nil)).Elem()
 }
 
+// DistributionConfigurationExists checks whether an existing DistributionConfiguration resource with the given ID exists.
+func DistributionConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DistributionConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:imagebuilder:DistributionConfiguration", id, state, "", opts...)
+}
+
 type distributionConfigurationArgs struct {
 	// The description of the distribution configuration.
 	Description *string `pulumi:"description"`

@@ -88,6 +88,12 @@ func (AnomalyDetectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*anomalyDetectorState)(nil)).Elem()
 }
 
+// AnomalyDetectorExists checks whether an existing AnomalyDetector resource with the given ID exists.
+func AnomalyDetectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnomalyDetectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:aps:AnomalyDetector", id, state, "", opts...)
+}
+
 type anomalyDetectorArgs struct {
 	// The AnomalyDetector alias.
 	Alias string `pulumi:"alias"`

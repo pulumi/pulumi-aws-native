@@ -73,6 +73,12 @@ func (AccessPointPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPointPolicyState)(nil)).Elem()
 }
 
+// AccessPointPolicyExists checks whether an existing AccessPointPolicy resource with the given ID exists.
+func AccessPointPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPointPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3objectlambda:AccessPointPolicy", id, state, "", opts...)
+}
+
 type accessPointPolicyArgs struct {
 	// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
 	ObjectLambdaAccessPoint string `pulumi:"objectLambdaAccessPoint"`

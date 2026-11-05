@@ -58,6 +58,12 @@ func (LogAnomalyDetectionIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logAnomalyDetectionIntegrationState)(nil)).Elem()
 }
 
+// LogAnomalyDetectionIntegrationExists checks whether an existing LogAnomalyDetectionIntegration resource with the given ID exists.
+func LogAnomalyDetectionIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogAnomalyDetectionIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:devopsguru:LogAnomalyDetectionIntegration", id, state, "", opts...)
+}
+
 type logAnomalyDetectionIntegrationArgs struct {
 }
 

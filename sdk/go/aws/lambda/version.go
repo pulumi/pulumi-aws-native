@@ -84,6 +84,12 @@ func (VersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*versionState)(nil)).Elem()
 }
 
+// VersionExists checks whether an existing Version resource with the given ID exists.
+func VersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:Version", id, state, "", opts...)
+}
+
 type versionArgs struct {
 	// Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
 	CodeSha256 *string `pulumi:"codeSha256"`

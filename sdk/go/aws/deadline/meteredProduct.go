@@ -73,6 +73,12 @@ func (MeteredProductState) ElementType() reflect.Type {
 	return reflect.TypeOf((*meteredProductState)(nil)).Elem()
 }
 
+// MeteredProductExists checks whether an existing MeteredProduct resource with the given ID exists.
+func MeteredProductExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MeteredProductState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:MeteredProduct", id, state, "", opts...)
+}
+
 type meteredProductArgs struct {
 	// The Amazon EC2 identifier of the license endpoint.
 	LicenseEndpointId *string `pulumi:"licenseEndpointId"`

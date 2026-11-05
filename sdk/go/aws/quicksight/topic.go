@@ -83,6 +83,12 @@ func (TopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicState)(nil)).Elem()
 }
 
+// TopicExists checks whether an existing Topic resource with the given ID exists.
+func TopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:Topic", id, state, "", opts...)
+}
+
 type topicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId *string `pulumi:"awsAccountId"`

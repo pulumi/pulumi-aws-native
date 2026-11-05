@@ -102,6 +102,12 @@ func (SyncConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncConfigurationState)(nil)).Elem()
 }
 
+// SyncConfigurationExists checks whether an existing SyncConfiguration resource with the given ID exists.
+func SyncConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyncConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codestarconnections:SyncConfiguration", id, state, "", opts...)
+}
+
 type syncConfigurationArgs struct {
 	// The name of the branch of the repository from which resources are to be synchronized,
 	Branch string `pulumi:"branch"`

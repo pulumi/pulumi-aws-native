@@ -103,6 +103,12 @@ func (LogGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logGroupState)(nil)).Elem()
 }
 
+// LogGroupExists checks whether an existing LogGroup resource with the given ID exists.
+func LogGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:LogGroup", id, state, "", opts...)
+}
+
 type logGroupArgs struct {
 	// Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
 	BearerTokenAuthenticationEnabled *bool `pulumi:"bearerTokenAuthenticationEnabled"`

@@ -64,6 +64,12 @@ func (SnapshotBlockPublicAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotBlockPublicAccessState)(nil)).Elem()
 }
 
+// SnapshotBlockPublicAccessExists checks whether an existing SnapshotBlockPublicAccess resource with the given ID exists.
+func SnapshotBlockPublicAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotBlockPublicAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SnapshotBlockPublicAccess", id, state, "", opts...)
+}
+
 type snapshotBlockPublicAccessArgs struct {
 	// The state of EBS Snapshot Block Public Access.
 	State SnapshotBlockPublicAccessStateEnum `pulumi:"state"`

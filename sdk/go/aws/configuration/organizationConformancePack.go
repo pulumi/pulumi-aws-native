@@ -135,6 +135,12 @@ func (OrganizationConformancePackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConformancePackState)(nil)).Elem()
 }
 
+// OrganizationConformancePackExists checks whether an existing OrganizationConformancePack resource with the given ID exists.
+func OrganizationConformancePackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConformancePackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:OrganizationConformancePack", id, state, "", opts...)
+}
+
 type organizationConformancePackArgs struct {
 	// A list of ConformancePackInputParameter objects.
 	ConformancePackInputParameters []OrganizationConformancePackConformancePackInputParameter `pulumi:"conformancePackInputParameters"`

@@ -154,6 +154,12 @@ func (CloudVmClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudVmClusterState)(nil)).Elem()
 }
 
+// CloudVmClusterExists checks whether an existing CloudVmCluster resource with the given ID exists.
+func CloudVmClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudVmClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:odb:CloudVmCluster", id, state, "", opts...)
+}
+
 type cloudVmClusterArgs struct {
 	// The unique identifier of the Exadata infrastructure that this VM cluster belongs to.
 	CloudExadataInfrastructureId *string `pulumi:"cloudExadataInfrastructureId"`

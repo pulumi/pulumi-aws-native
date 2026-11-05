@@ -77,6 +77,12 @@ func (VerifiedDestinationNumberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*verifiedDestinationNumberState)(nil)).Elem()
 }
 
+// VerifiedDestinationNumberExists checks whether an existing VerifiedDestinationNumber resource with the given ID exists.
+func VerifiedDestinationNumberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VerifiedDestinationNumberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:VerifiedDestinationNumber", id, state, "", opts...)
+}
+
 type verifiedDestinationNumberArgs struct {
 	// The verified destination phone number, in E.164 format.
 	DestinationPhoneNumber string `pulumi:"destinationPhoneNumber"`

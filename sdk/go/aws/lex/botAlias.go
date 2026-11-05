@@ -87,6 +87,12 @@ func (BotAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*botAliasState)(nil)).Elem()
 }
 
+// BotAliasExists checks whether an existing BotAlias resource with the given ID exists.
+func BotAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BotAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lex:BotAlias", id, state, "", opts...)
+}
+
 type botAliasArgs struct {
 	// Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings []BotAliasLocaleSettingsItem `pulumi:"botAliasLocaleSettings"`

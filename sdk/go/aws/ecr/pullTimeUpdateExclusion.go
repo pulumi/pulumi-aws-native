@@ -66,6 +66,12 @@ func (PullTimeUpdateExclusionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pullTimeUpdateExclusionState)(nil)).Elem()
 }
 
+// PullTimeUpdateExclusionExists checks whether an existing PullTimeUpdateExclusion resource with the given ID exists.
+func PullTimeUpdateExclusionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PullTimeUpdateExclusionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecr:PullTimeUpdateExclusion", id, state, "", opts...)
+}
+
 type pullTimeUpdateExclusionArgs struct {
 	// The ARN of the IAM principal to remove from the pull time update exclusion list.
 	PrincipalArn string `pulumi:"principalArn"`

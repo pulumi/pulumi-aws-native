@@ -92,6 +92,12 @@ func (FlowAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowAliasState)(nil)).Elem()
 }
 
+// FlowAliasExists checks whether an existing FlowAlias resource with the given ID exists.
+func FlowAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:FlowAlias", id, state, "", opts...)
+}
+
 type flowAliasArgs struct {
 	// The configuration that specifies how nodes in the flow are executed concurrently.
 	ConcurrencyConfiguration *FlowAliasConcurrencyConfiguration `pulumi:"concurrencyConfiguration"`

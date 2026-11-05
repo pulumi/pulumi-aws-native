@@ -90,6 +90,12 @@ func (DlpSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dlpSettingState)(nil)).Elem()
 }
 
+// DlpSettingExists checks whether an existing DlpSetting resource with the given ID exists.
+func DlpSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DlpSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:DlpSetting", id, state, "", opts...)
+}
+
 type dlpSettingArgs struct {
 	AwsAccountId         *string                            `pulumi:"awsAccountId"`
 	DlpSettingId         string                             `pulumi:"dlpSettingId"`

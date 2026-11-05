@@ -170,6 +170,12 @@ func (HookDefaultVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hookDefaultVersionState)(nil)).Elem()
 }
 
+// HookDefaultVersionExists checks whether an existing HookDefaultVersion resource with the given ID exists.
+func HookDefaultVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HookDefaultVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:HookDefaultVersion", id, state, "", opts...)
+}
+
 type hookDefaultVersionArgs struct {
 	// The name of the type being registered.
 	//

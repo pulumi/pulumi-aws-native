@@ -71,6 +71,12 @@ func (ActionTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionTargetState)(nil)).Elem()
 }
 
+// ActionTargetExists checks whether an existing ActionTarget resource with the given ID exists.
+func ActionTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:ActionTarget", id, state, "", opts...)
+}
+
 type actionTargetArgs struct {
 	// The ID for the custom action target. Can contain up to 20 alphanumeric characters.
 	AwsId string `pulumi:"awsId"`

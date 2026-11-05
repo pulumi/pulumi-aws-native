@@ -71,6 +71,12 @@ func (DeviceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceState)(nil)).Elem()
 }
 
+// DeviceExists checks whether an existing Device resource with the given ID exists.
+func DeviceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:Device", id, state, "", opts...)
+}
+
 type deviceArgs struct {
 	// The Edge Device you want to register against a device fleet
 	Device *DeviceType `pulumi:"device"`

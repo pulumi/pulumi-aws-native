@@ -72,6 +72,12 @@ func (ApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiState)(nil)).Elem()
 }
 
+// ApiExists checks whether an existing Api resource with the given ID exists.
+func ApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:Api", id, state, "", opts...)
+}
+
 type apiArgs struct {
 	// Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
 	EventConfig *ApiEventConfig `pulumi:"eventConfig"`

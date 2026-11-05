@@ -98,6 +98,12 @@ func (StackSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetState)(nil)).Elem()
 }
 
+// StackSetExists checks whether an existing StackSet resource with the given ID exists.
+func StackSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StackSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:StackSet", id, state, "", opts...)
+}
+
 type stackSetArgs struct {
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
 	AdministrationRoleArn *string `pulumi:"administrationRoleArn"`

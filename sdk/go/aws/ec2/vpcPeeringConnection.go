@@ -87,6 +87,12 @@ func (VpcPeeringConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcPeeringConnectionState)(nil)).Elem()
 }
 
+// VpcPeeringConnectionExists checks whether an existing VpcPeeringConnection resource with the given ID exists.
+func VpcPeeringConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcPeeringConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpcPeeringConnection", id, state, "", opts...)
+}
+
 type vpcPeeringConnectionArgs struct {
 	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided. You can update this property.
 	AssumeRoleRegion *string `pulumi:"assumeRoleRegion"`

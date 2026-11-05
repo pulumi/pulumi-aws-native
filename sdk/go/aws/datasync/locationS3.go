@@ -143,6 +143,12 @@ func (LocationS3State) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationS3State)(nil)).Elem()
 }
 
+// LocationS3Exists checks whether an existing LocationS3 resource with the given ID exists.
+func LocationS3Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationS3State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationS3", id, state, "", opts...)
+}
+
 type locationS3Args struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
 	S3BucketArn *string `pulumi:"s3BucketArn"`

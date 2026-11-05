@@ -82,6 +82,12 @@ func (TargetDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetDomainState)(nil)).Elem()
 }
 
+// TargetDomainExists checks whether an existing TargetDomain resource with the given ID exists.
+func TargetDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TargetDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityagent:TargetDomain", id, state, "", opts...)
+}
+
 type targetDomainArgs struct {
 	// Tags for the target domain
 	Tags []aws.Tag `pulumi:"tags"`

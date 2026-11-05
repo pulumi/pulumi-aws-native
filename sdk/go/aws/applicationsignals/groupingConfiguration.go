@@ -66,6 +66,12 @@ func (GroupingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupingConfigurationState)(nil)).Elem()
 }
 
+// GroupingConfigurationExists checks whether an existing GroupingConfiguration resource with the given ID exists.
+func GroupingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:applicationsignals:GroupingConfiguration", id, state, "", opts...)
+}
+
 type groupingConfigurationArgs struct {
 	// An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
 	GroupingAttributeDefinitions []GroupingConfigurationGroupingAttributeDefinition `pulumi:"groupingAttributeDefinitions"`

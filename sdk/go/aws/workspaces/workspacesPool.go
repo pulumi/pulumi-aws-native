@@ -94,6 +94,12 @@ func (WorkspacesPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspacesPoolState)(nil)).Elem()
 }
 
+// WorkspacesPoolExists checks whether an existing WorkspacesPool resource with the given ID exists.
+func WorkspacesPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspacesPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspaces:WorkspacesPool", id, state, "", opts...)
+}
+
 type workspacesPoolArgs struct {
 	// The persistent application settings for users of the pool.
 	ApplicationSettings *WorkspacesPoolApplicationSettings `pulumi:"applicationSettings"`

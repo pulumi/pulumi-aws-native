@@ -91,6 +91,12 @@ func (IpamResourceDiscoveryAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamResourceDiscoveryAssociationState)(nil)).Elem()
 }
 
+// IpamResourceDiscoveryAssociationExists checks whether an existing IpamResourceDiscoveryAssociation resource with the given ID exists.
+func IpamResourceDiscoveryAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamResourceDiscoveryAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamResourceDiscoveryAssociation", id, state, "", opts...)
+}
+
 type ipamResourceDiscoveryAssociationArgs struct {
 	// The Id of the IPAM this Resource Discovery is associated to.
 	IpamId string `pulumi:"ipamId"`

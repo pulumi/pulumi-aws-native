@@ -67,6 +67,12 @@ func (AutoshiftObserverNotificationStatusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoshiftObserverNotificationStatusState)(nil)).Elem()
 }
 
+// AutoshiftObserverNotificationStatusExists checks whether an existing AutoshiftObserverNotificationStatus resource with the given ID exists.
+func AutoshiftObserverNotificationStatusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoshiftObserverNotificationStatusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:arczonalshift:AutoshiftObserverNotificationStatus", id, state, "", opts...)
+}
+
 type autoshiftObserverNotificationStatusArgs struct {
 	Status AutoshiftObserverNotificationStatusEnum `pulumi:"status"`
 }

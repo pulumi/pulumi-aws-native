@@ -86,6 +86,12 @@ func (IpAccessSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipAccessSettingsState)(nil)).Elem()
 }
 
+// IpAccessSettingsExists checks whether an existing IpAccessSettings resource with the given ID exists.
+func IpAccessSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpAccessSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspacesweb:IpAccessSettings", id, state, "", opts...)
+}
+
 type ipAccessSettingsArgs struct {
 	// Additional encryption context of the IP access settings.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`

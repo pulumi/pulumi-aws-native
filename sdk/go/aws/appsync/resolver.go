@@ -154,6 +154,12 @@ func (ResolverState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverState)(nil)).Elem()
 }
 
+// ResolverExists checks whether an existing Resolver resource with the given ID exists.
+func ResolverExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:Resolver", id, state, "", opts...)
+}
+
 type resolverArgs struct {
 	// The APSYlong GraphQL API to which you want to attach this resolver.
 	ApiId string `pulumi:"apiId"`

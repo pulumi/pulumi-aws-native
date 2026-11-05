@@ -113,6 +113,12 @@ func (IndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*indexState)(nil)).Elem()
 }
 
+// IndexExists checks whether an existing Index resource with the given ID exists.
+func IndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3vectors:Index", id, state, "", opts...)
+}
+
 type indexArgs struct {
 	// The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
 	DataType IndexDataType `pulumi:"dataType"`

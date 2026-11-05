@@ -89,6 +89,12 @@ func (SyncJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncJobState)(nil)).Elem()
 }
 
+// SyncJobExists checks whether an existing SyncJob resource with the given ID exists.
+func SyncJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyncJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iottwinmaker:SyncJob", id, state, "", opts...)
+}
+
 type syncJobArgs struct {
 	// The IAM Role that execute SyncJob.
 	SyncRole string `pulumi:"syncRole"`

@@ -118,6 +118,12 @@ func (ComputeEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*computeEnvironmentState)(nil)).Elem()
 }
 
+// ComputeEnvironmentExists checks whether an existing ComputeEnvironment resource with the given ID exists.
+func ComputeEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComputeEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:batch:ComputeEnvironment", id, state, "", opts...)
+}
+
 type computeEnvironmentArgs struct {
 	// The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	ComputeEnvironmentName *string `pulumi:"computeEnvironmentName"`

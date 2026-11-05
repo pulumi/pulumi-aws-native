@@ -72,6 +72,12 @@ func (ZonalAutoshiftConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zonalAutoshiftConfigurationState)(nil)).Elem()
 }
 
+// ZonalAutoshiftConfigurationExists checks whether an existing ZonalAutoshiftConfiguration resource with the given ID exists.
+func ZonalAutoshiftConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZonalAutoshiftConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:arczonalshift:ZonalAutoshiftConfiguration", id, state, "", opts...)
+}
+
 type zonalAutoshiftConfigurationArgs struct {
 	// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, ARC shifts traffic for the resource weekly for practice runs.
 	//

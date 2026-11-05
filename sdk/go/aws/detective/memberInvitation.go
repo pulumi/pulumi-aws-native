@@ -81,6 +81,12 @@ func (MemberInvitationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*memberInvitationState)(nil)).Elem()
 }
 
+// MemberInvitationExists checks whether an existing MemberInvitation resource with the given ID exists.
+func MemberInvitationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MemberInvitationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:detective:MemberInvitation", id, state, "", opts...)
+}
+
 type memberInvitationArgs struct {
 	// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
 	DisableEmailNotification *bool `pulumi:"disableEmailNotification"`

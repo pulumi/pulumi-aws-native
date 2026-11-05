@@ -102,6 +102,12 @@ func (SignalMapState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signalMapState)(nil)).Elem()
 }
 
+// SignalMapExists checks whether an existing SignalMap resource with the given ID exists.
+func SignalMapExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SignalMapState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:SignalMap", id, state, "", opts...)
+}
+
 type signalMapArgs struct {
 	// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
 	CloudWatchAlarmTemplateGroupIdentifiers []string `pulumi:"cloudWatchAlarmTemplateGroupIdentifiers"`

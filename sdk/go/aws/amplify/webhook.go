@@ -79,6 +79,12 @@ func (WebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookState)(nil)).Elem()
 }
 
+// WebhookExists checks whether an existing Webhook resource with the given ID exists.
+func WebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:amplify:Webhook", id, state, "", opts...)
+}
+
 type webhookArgs struct {
 	// The unique ID for an Amplify app.
 	AppId *string `pulumi:"appId"`

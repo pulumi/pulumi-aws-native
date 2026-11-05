@@ -91,6 +91,12 @@ func (PrincipalPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*principalPermissionsState)(nil)).Elem()
 }
 
+// PrincipalPermissionsExists checks whether an existing PrincipalPermissions resource with the given ID exists.
+func PrincipalPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrincipalPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lakeformation:PrincipalPermissions", id, state, "", opts...)
+}
+
 type principalPermissionsArgs struct {
 	// The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	Catalog *string `pulumi:"catalog"`

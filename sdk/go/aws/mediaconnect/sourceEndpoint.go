@@ -90,6 +90,12 @@ func (SourceEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceEndpointState)(nil)).Elem()
 }
 
+// SourceEndpointExists checks whether an existing SourceEndpoint resource with the given ID exists.
+func SourceEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:SourceEndpoint", id, state, "", opts...)
+}
+
 type sourceEndpointArgs struct {
 	Configuration interface{} `pulumi:"configuration"`
 	// The description of the source endpoint.

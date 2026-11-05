@@ -75,6 +75,12 @@ func (ViewVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewVersionState)(nil)).Elem()
 }
 
+// ViewVersionExists checks whether an existing ViewVersion resource with the given ID exists.
+func ViewVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ViewVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:ViewVersion", id, state, "", opts...)
+}
+
 type viewVersionArgs struct {
 	// The description for the view version.
 	VersionDescription *string `pulumi:"versionDescription"`

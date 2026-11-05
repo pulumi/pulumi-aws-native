@@ -86,6 +86,12 @@ func (ConsentPortalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*consentPortalState)(nil)).Elem()
 }
 
+// ConsentPortalExists checks whether an existing ConsentPortal resource with the given ID exists.
+func ConsentPortalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConsentPortalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:ConsentPortal", id, state, "", opts...)
+}
+
 type consentPortalArgs struct {
 	Description      *string                `pulumi:"description"`
 	ExecutionRoleArn string                 `pulumi:"executionRoleArn"`

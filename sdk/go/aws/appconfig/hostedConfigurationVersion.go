@@ -95,6 +95,12 @@ func (HostedConfigurationVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedConfigurationVersionState)(nil)).Elem()
 }
 
+// HostedConfigurationVersionExists checks whether an existing HostedConfigurationVersion resource with the given ID exists.
+func HostedConfigurationVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostedConfigurationVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appconfig:HostedConfigurationVersion", id, state, "", opts...)
+}
+
 type hostedConfigurationVersionArgs struct {
 	// The application ID.
 	ApplicationId string `pulumi:"applicationId"`

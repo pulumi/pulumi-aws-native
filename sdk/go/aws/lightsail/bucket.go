@@ -85,6 +85,12 @@ func (BucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketState)(nil)).Elem()
 }
 
+// BucketExists checks whether an existing Bucket resource with the given ID exists.
+func BucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lightsail:Bucket", id, state, "", opts...)
+}
+
 type bucketArgs struct {
 	// An object that describes the access rules for the bucket.
 	AccessRules *BucketAccessRules `pulumi:"accessRules"`

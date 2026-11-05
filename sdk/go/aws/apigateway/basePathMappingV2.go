@@ -78,6 +78,12 @@ func (BasePathMappingV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*basePathMappingV2State)(nil)).Elem()
 }
 
+// BasePathMappingV2Exists checks whether an existing BasePathMappingV2 resource with the given ID exists.
+func BasePathMappingV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BasePathMappingV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:BasePathMappingV2", id, state, "", opts...)
+}
+
 type basePathMappingV2Args struct {
 	// The base path name that callers of the API must provide in the URL after the domain name.
 	BasePath *string `pulumi:"basePath"`

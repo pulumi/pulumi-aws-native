@@ -112,6 +112,12 @@ func (ServerlessCacheState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessCacheState)(nil)).Elem()
 }
 
+// ServerlessCacheExists checks whether an existing ServerlessCache resource with the given ID exists.
+func ServerlessCacheExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessCacheState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticache:ServerlessCache", id, state, "", opts...)
+}
+
 type serverlessCacheArgs struct {
 	// The cache usage limit for the serverless cache.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`

@@ -90,6 +90,12 @@ func (AlarmModelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alarmModelState)(nil)).Elem()
 }
 
+// AlarmModelExists checks whether an existing AlarmModel resource with the given ID exists.
+func AlarmModelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlarmModelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotevents:AlarmModel", id, state, "", opts...)
+}
+
 type alarmModelArgs struct {
 	// Contains the configuration information of alarm state changes.
 	AlarmCapabilities *AlarmModelAlarmCapabilities `pulumi:"alarmCapabilities"`

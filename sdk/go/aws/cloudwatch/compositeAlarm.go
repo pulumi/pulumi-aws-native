@@ -91,6 +91,12 @@ func (CompositeAlarmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*compositeAlarmState)(nil)).Elem()
 }
 
+// CompositeAlarmExists checks whether an existing CompositeAlarm resource with the given ID exists.
+func CompositeAlarmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CompositeAlarmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:CompositeAlarm", id, state, "", opts...)
+}
+
 type compositeAlarmArgs struct {
 	// Configuration that applies to the notifications this alarm sends when it performs its actions.
 	ActionConfiguration *CompositeAlarmActionConfiguration `pulumi:"actionConfiguration"`

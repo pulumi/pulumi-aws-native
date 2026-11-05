@@ -81,6 +81,12 @@ func (ApiKeyCredentialProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyCredentialProviderState)(nil)).Elem()
 }
 
+// ApiKeyCredentialProviderExists checks whether an existing ApiKeyCredentialProvider resource with the given ID exists.
+func ApiKeyCredentialProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiKeyCredentialProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:ApiKeyCredentialProvider", id, state, "", opts...)
+}
+
 type apiKeyCredentialProviderArgs struct {
 	// The API key to use for authentication
 	ApiKey *string `pulumi:"apiKey"`

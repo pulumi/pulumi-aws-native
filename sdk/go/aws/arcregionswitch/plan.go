@@ -109,6 +109,12 @@ func (PlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*planState)(nil)).Elem()
 }
 
+// PlanExists checks whether an existing Plan resource with the given ID exists.
+func PlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:arcregionswitch:Plan", id, state, "", opts...)
+}
+
 type planArgs struct {
 	// The associated application health alarms for a plan.
 	AssociatedAlarms map[string]PlanAssociatedAlarm `pulumi:"associatedAlarms"`

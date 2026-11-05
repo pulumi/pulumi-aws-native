@@ -72,6 +72,12 @@ func (StackFleetAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackFleetAssociationState)(nil)).Elem()
 }
 
+// StackFleetAssociationExists checks whether an existing StackFleetAssociation resource with the given ID exists.
+func StackFleetAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StackFleetAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appstream:StackFleetAssociation", id, state, "", opts...)
+}
+
 type stackFleetAssociationArgs struct {
 	// The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
 	FleetName string `pulumi:"fleetName"`

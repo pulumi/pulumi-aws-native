@@ -94,6 +94,12 @@ func (RestoreTestingSelectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restoreTestingSelectionState)(nil)).Elem()
 }
 
+// RestoreTestingSelectionExists checks whether an existing RestoreTestingSelection resource with the given ID exists.
+func RestoreTestingSelectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestoreTestingSelectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:RestoreTestingSelection", id, state, "", opts...)
+}
+
 type restoreTestingSelectionArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
 	IamRoleArn string `pulumi:"iamRoleArn"`

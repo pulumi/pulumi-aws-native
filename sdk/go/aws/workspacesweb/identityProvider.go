@@ -116,6 +116,12 @@ func (IdentityProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderState)(nil)).Elem()
 }
 
+// IdentityProviderExists checks whether an existing IdentityProvider resource with the given ID exists.
+func IdentityProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspacesweb:IdentityProvider", id, state, "", opts...)
+}
+
 type identityProviderArgs struct {
 	// The identity provider details. The following list describes the provider detail keys for each identity provider type.
 	//

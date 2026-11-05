@@ -71,6 +71,12 @@ func (EncryptionConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*encryptionConfigurationState)(nil)).Elem()
 }
 
+// EncryptionConfigurationExists checks whether an existing EncryptionConfiguration resource with the given ID exists.
+func EncryptionConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EncryptionConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:EncryptionConfiguration", id, state, "", opts...)
+}
+
 type encryptionConfigurationArgs struct {
 	// The type of the KMS key.
 	EncryptionType EncryptionConfigurationEncryptionType `pulumi:"encryptionType"`

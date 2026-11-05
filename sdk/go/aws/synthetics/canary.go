@@ -252,6 +252,12 @@ func (CanaryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*canaryState)(nil)).Elem()
 }
 
+// CanaryExists checks whether an existing Canary resource with the given ID exists.
+func CanaryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CanaryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:synthetics:Canary", id, state, "", opts...)
+}
+
 type canaryArgs struct {
 	// Provide artifact configuration
 	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`

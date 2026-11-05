@@ -125,6 +125,12 @@ func (CollaborationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*collaborationState)(nil)).Elem()
 }
 
+// CollaborationExists checks whether an existing Collaboration resource with the given ID exists.
+func CollaborationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CollaborationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:Collaboration", id, state, "", opts...)
+}
+
 type collaborationArgs struct {
 	// The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
 	AllowedResultRegions []CollaborationSupportedS3Region `pulumi:"allowedResultRegions"`

@@ -74,6 +74,12 @@ func (TieringConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tieringConfigurationState)(nil)).Elem()
 }
 
+// TieringConfigurationExists checks whether an existing TieringConfiguration resource with the given ID exists.
+func TieringConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TieringConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:TieringConfiguration", id, state, "", opts...)
+}
+
 type tieringConfigurationArgs struct {
 	BackupVaultName          string                                  `pulumi:"backupVaultName"`
 	ResourceSelection        []TieringConfigurationResourceSelection `pulumi:"resourceSelection"`

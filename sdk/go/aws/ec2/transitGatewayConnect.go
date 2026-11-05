@@ -83,6 +83,12 @@ func (TransitGatewayConnectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayConnectState)(nil)).Elem()
 }
 
+// TransitGatewayConnectExists checks whether an existing TransitGatewayConnect resource with the given ID exists.
+func TransitGatewayConnectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayConnectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayConnect", id, state, "", opts...)
+}
+
 type transitGatewayConnectArgs struct {
 	// The Connect attachment options.
 	Options TransitGatewayConnectOptions `pulumi:"options"`

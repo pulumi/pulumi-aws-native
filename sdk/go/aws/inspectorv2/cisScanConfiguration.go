@@ -81,6 +81,12 @@ func (CisScanConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cisScanConfigurationState)(nil)).Elem()
 }
 
+// CisScanConfigurationExists checks whether an existing CisScanConfiguration resource with the given ID exists.
+func CisScanConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CisScanConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:inspectorv2:CisScanConfiguration", id, state, "", opts...)
+}
+
 type cisScanConfigurationArgs struct {
 	// Name of the scan
 	ScanName string `pulumi:"scanName"`

@@ -97,6 +97,12 @@ func (CommandState) ElementType() reflect.Type {
 	return reflect.TypeOf((*commandState)(nil)).Elem()
 }
 
+// CommandExists checks whether an existing Command resource with the given ID exists.
+func CommandExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CommandState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:Command", id, state, "", opts...)
+}
+
 type commandArgs struct {
 	// The unique identifier for the command.
 	CommandId string `pulumi:"commandId"`

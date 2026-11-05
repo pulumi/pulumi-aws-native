@@ -83,6 +83,12 @@ func (MetricAttributionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricAttributionState)(nil)).Elem()
 }
 
+// MetricAttributionExists checks whether an existing MetricAttribution resource with the given ID exists.
+func MetricAttributionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetricAttributionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:personalize:MetricAttribution", id, state, "", opts...)
+}
+
 type metricAttributionArgs struct {
 	// The ARN of the destination dataset group.
 	DatasetGroupArn string `pulumi:"datasetGroupArn"`

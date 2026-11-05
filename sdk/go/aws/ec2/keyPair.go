@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
 //				ImageId: pulumi.String("ami-02b92c281a4d3dc79"),
-//				KeyName: newKeyPair.ID().ToIDOutput().ToStringOutput(),
+//				KeyName: newKeyPair.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -78,7 +78,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
 //				ImageId: pulumi.String("ami-02b92c281a4d3dc79"),
-//				KeyName: newKeyPair.ID().ToIDOutput().ToStringOutput(),
+//				KeyName: newKeyPair.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -111,7 +111,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
 //				ImageId: pulumi.String("ami-02b92c281a4d3dc79"),
-//				KeyName: importedKeyPair.ID().ToIDOutput().ToStringOutput(),
+//				KeyName: importedKeyPair.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -144,7 +144,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
 //				ImageId: pulumi.String("ami-02b92c281a4d3dc79"),
-//				KeyName: importedKeyPair.ID().ToIDOutput().ToStringOutput(),
+//				KeyName: importedKeyPair.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -233,6 +233,12 @@ type KeyPairState struct {
 
 func (KeyPairState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyPairState)(nil)).Elem()
+}
+
+// KeyPairExists checks whether an existing KeyPair resource with the given ID exists.
+func KeyPairExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyPairState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:KeyPair", id, state, "", opts...)
 }
 
 type keyPairArgs struct {

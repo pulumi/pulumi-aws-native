@@ -70,6 +70,12 @@ func (AdConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*adConfigurationState)(nil)).Elem()
 }
 
+// AdConfigurationExists checks whether an existing AdConfiguration resource with the given ID exists.
+func AdConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivs:AdConfiguration", id, state, "", opts...)
+}
+
 type adConfigurationArgs struct {
 	// List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration.
 	MediaTailorPlaybackConfigurations []AdConfigurationMediaTailorPlaybackConfiguration `pulumi:"mediaTailorPlaybackConfigurations"`

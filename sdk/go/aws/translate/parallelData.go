@@ -97,6 +97,12 @@ func (ParallelDataState) ElementType() reflect.Type {
 	return reflect.TypeOf((*parallelDataState)(nil)).Elem()
 }
 
+// ParallelDataExists checks whether an existing ParallelData resource with the given ID exists.
+func ParallelDataExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ParallelDataState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:translate:ParallelData", id, state, "", opts...)
+}
+
 type parallelDataArgs struct {
 	// A custom description for the parallel data resource.
 	Description *string `pulumi:"description"`

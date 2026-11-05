@@ -140,6 +140,12 @@ func (ScalingPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalingPolicyState)(nil)).Elem()
 }
 
+// ScalingPolicyExists checks whether an existing ScalingPolicy resource with the given ID exists.
+func ScalingPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScalingPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:applicationautoscaling:ScalingPolicy", id, state, "", opts...)
+}
+
 type scalingPolicyArgs struct {
 	// The name of the scaling policy.
 	//  Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.

@@ -79,6 +79,12 @@ func (UserJourneyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userJourneyState)(nil)).Elem()
 }
 
+// UserJourneyExists checks whether an existing UserJourney resource with the given ID exists.
+func UserJourneyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserJourneyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:resiliencehubv2:UserJourney", id, state, "", opts...)
+}
+
 type userJourneyArgs struct {
 	// The description of the user journey.
 	Description *string `pulumi:"description"`

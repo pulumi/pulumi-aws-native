@@ -125,6 +125,12 @@ func (ContactFlowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactFlowState)(nil)).Elem()
 }
 
+// ContactFlowExists checks whether an existing ContactFlow resource with the given ID exists.
+func ContactFlowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactFlowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:ContactFlow", id, state, "", opts...)
+}
+
 type contactFlowArgs struct {
 	// The content of the contact flow in JSON format.
 	Content string `pulumi:"content"`

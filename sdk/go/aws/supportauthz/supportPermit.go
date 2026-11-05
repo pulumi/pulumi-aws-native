@@ -90,6 +90,12 @@ func (SupportPermitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*supportPermitState)(nil)).Elem()
 }
 
+// SupportPermitExists checks whether an existing SupportPermit resource with the given ID exists.
+func SupportPermitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SupportPermitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:supportauthz:SupportPermit", id, state, "", opts...)
+}
+
 type supportPermitArgs struct {
 	// An optional description of the support permit.
 	Description *string `pulumi:"description"`

@@ -105,7 +105,7 @@ import (
 //				return err
 //			}
 //			_, err = ses.NewConfigurationSetEventDestination(ctx, "cwEventDestination", &ses.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: configSet.ID().ToIDOutput().ToStringOutput(),
+//				ConfigurationSetName: configSet.ID(),
 //				EventDestination: &ses.ConfigurationSetEventDestinationEventDestinationArgs{
 //					Name:    pulumi.String(eventDestinationName),
 //					Enabled: pulumi.Bool(true),
@@ -172,7 +172,7 @@ import (
 //				return err
 //			}
 //			_, err = ses.NewConfigurationSetEventDestination(ctx, "cwEventDestination", &ses.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: configSet.ID().ToIDOutput().ToStringOutput(),
+//				ConfigurationSetName: configSet.ID(),
 //				EventDestination: &ses.ConfigurationSetEventDestinationEventDestinationArgs{
 //					Name:    pulumi.String(eventDestinationName),
 //					Enabled: pulumi.Bool(true),
@@ -268,6 +268,12 @@ type ConfigurationSetState struct {
 
 func (ConfigurationSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationSetState)(nil)).Elem()
+}
+
+// ConfigurationSetExists checks whether an existing ConfigurationSet resource with the given ID exists.
+func ConfigurationSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:ConfigurationSet", id, state, "", opts...)
 }
 
 type configurationSetArgs struct {

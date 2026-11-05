@@ -71,6 +71,12 @@ func (DatasetIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetIntegrationState)(nil)).Elem()
 }
 
+// DatasetIntegrationExists checks whether an existing DatasetIntegration resource with the given ID exists.
+func DatasetIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:observabilityadmin:DatasetIntegration", id, state, "", opts...)
+}
+
 type datasetIntegrationArgs struct {
 	// The ARN of the IAM role that the service assumes to forward telemetry to the customer's CloudWatch dataset. The role must live in the caller's account.
 	RoleArn string `pulumi:"roleArn"`

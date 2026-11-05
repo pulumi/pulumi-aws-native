@@ -91,6 +91,12 @@ func (LicenseEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licenseEndpointState)(nil)).Elem()
 }
 
+// LicenseEndpointExists checks whether an existing LicenseEndpoint resource with the given ID exists.
+func LicenseEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicenseEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:LicenseEndpoint", id, state, "", opts...)
+}
+
 type licenseEndpointArgs struct {
 	// The identifier of the Amazon EC2 security group that controls access to the license endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`

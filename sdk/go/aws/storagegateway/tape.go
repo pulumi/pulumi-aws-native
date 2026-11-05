@@ -98,6 +98,12 @@ func (TapeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tapeState)(nil)).Elem()
 }
 
+// TapeExists checks whether an existing Tape resource with the given ID exists.
+func TapeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TapeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:storagegateway:Tape", id, state, "", opts...)
+}
+
 type tapeArgs struct {
 	// The Amazon Resource Name (ARN) of the Tape Gateway that hosts the virtual tape.
 	GatewayArn string `pulumi:"gatewayArn"`

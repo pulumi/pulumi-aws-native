@@ -165,6 +165,12 @@ func (DbClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbClusterState)(nil)).Elem()
 }
 
+// DbClusterExists checks whether an existing DbCluster resource with the given ID exists.
+func DbClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:neptune:DbCluster", id, state, "", opts...)
+}
+
 type dbClusterArgs struct {
 	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
 	AssociatedRoles []DbClusterDbClusterRole `pulumi:"associatedRoles"`

@@ -75,6 +75,12 @@ func (AllowListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*allowListState)(nil)).Elem()
 }
 
+// AllowListExists checks whether an existing AllowList resource with the given ID exists.
+func AllowListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AllowListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:macie:AllowList", id, state, "", opts...)
+}
+
 type allowListArgs struct {
 	// AllowList criteria.
 	Criteria AllowListCriteria `pulumi:"criteria"`

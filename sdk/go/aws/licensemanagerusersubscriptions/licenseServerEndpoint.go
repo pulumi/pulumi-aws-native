@@ -84,6 +84,12 @@ func (LicenseServerEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licenseServerEndpointState)(nil)).Elem()
 }
 
+// LicenseServerEndpointExists checks whether an existing LicenseServerEndpoint resource with the given ID exists.
+func LicenseServerEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicenseServerEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:licensemanagerusersubscriptions:LicenseServerEndpoint", id, state, "", opts...)
+}
+
 type licenseServerEndpointArgs struct {
 	// The Amazon Resource Name (ARN) that identifies the registered identity provider the license server endpoint is created for. For Active Directory, that can be a self-managed Active Directory or an AWS Managed Microsoft AD.
 	IdentityProviderArn   string                                      `pulumi:"identityProviderArn"`

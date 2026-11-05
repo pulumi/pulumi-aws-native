@@ -68,6 +68,12 @@ func (BatchScramSecretState) ElementType() reflect.Type {
 	return reflect.TypeOf((*batchScramSecretState)(nil)).Elem()
 }
 
+// BatchScramSecretExists checks whether an existing BatchScramSecret resource with the given ID exists.
+func BatchScramSecretExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BatchScramSecretState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:msk:BatchScramSecret", id, state, "", opts...)
+}
+
 type batchScramSecretArgs struct {
 	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn string `pulumi:"clusterArn"`

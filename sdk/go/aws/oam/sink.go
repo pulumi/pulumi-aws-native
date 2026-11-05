@@ -70,6 +70,12 @@ func (SinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sinkState)(nil)).Elem()
 }
 
+// SinkExists checks whether an existing Sink resource with the given ID exists.
+func SinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:oam:Sink", id, state, "", opts...)
+}
+
 type sinkArgs struct {
 	// The name of the ObservabilityAccessManager Sink.
 	Name *string `pulumi:"name"`

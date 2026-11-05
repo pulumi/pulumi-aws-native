@@ -69,6 +69,12 @@ func (SoftwarePackageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*softwarePackageState)(nil)).Elem()
 }
 
+// SoftwarePackageExists checks whether an existing SoftwarePackage resource with the given ID exists.
+func SoftwarePackageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SoftwarePackageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:SoftwarePackage", id, state, "", opts...)
+}
+
 type softwarePackageArgs struct {
 	// A summary of the package being created. This can be used to outline the package's contents or purpose.
 	Description *string `pulumi:"description"`

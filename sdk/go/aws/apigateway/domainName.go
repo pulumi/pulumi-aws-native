@@ -174,6 +174,12 @@ func (DomainNameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameState)(nil)).Elem()
 }
 
+// DomainNameExists checks whether an existing DomainName resource with the given ID exists.
+func DomainNameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainNameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:DomainName", id, state, "", opts...)
+}
+
 type domainNameArgs struct {
 	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
 	CertificateArn *string `pulumi:"certificateArn"`

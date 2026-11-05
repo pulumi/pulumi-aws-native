@@ -100,6 +100,12 @@ func (SubscriberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriberState)(nil)).Elem()
 }
 
+// SubscriberExists checks whether an existing Subscriber resource with the given ID exists.
+func SubscriberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securitylake:Subscriber", id, state, "", opts...)
+}
+
 type subscriberArgs struct {
 	// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
 	//

@@ -75,6 +75,12 @@ func (ProtocolsListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protocolsListState)(nil)).Elem()
 }
 
+// ProtocolsListExists checks whether an existing ProtocolsList resource with the given ID exists.
+func ProtocolsListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtocolsListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:fms:ProtocolsList", id, state, "", opts...)
+}
+
 type protocolsListArgs struct {
 	// The name of the Firewall Manager protocols list.
 	ListName *string `pulumi:"listName"`

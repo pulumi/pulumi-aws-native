@@ -75,6 +75,12 @@ func (AuthPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authPolicyState)(nil)).Elem()
 }
 
+// AuthPolicyExists checks whether an existing AuthPolicy resource with the given ID exists.
+func AuthPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:vpclattice:AuthPolicy", id, state, "", opts...)
+}
+
 type authPolicyArgs struct {
 	// The auth policy.
 	//

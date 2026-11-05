@@ -84,6 +84,12 @@ func (IngestConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ingestConfigurationState)(nil)).Elem()
 }
 
+// IngestConfigurationExists checks whether an existing IngestConfiguration resource with the given ID exists.
+func IngestConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IngestConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivs:IngestConfiguration", id, state, "", opts...)
+}
+
 type ingestConfigurationArgs struct {
 	// Ingest Protocol.
 	IngestProtocol *IngestConfigurationIngestProtocol `pulumi:"ingestProtocol"`

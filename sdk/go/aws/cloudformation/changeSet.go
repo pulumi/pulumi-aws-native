@@ -115,6 +115,12 @@ func (ChangeSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*changeSetState)(nil)).Elem()
 }
 
+// ChangeSetExists checks whether an existing ChangeSet resource with the given ID exists.
+func ChangeSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChangeSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:ChangeSet", id, state, "", opts...)
+}
+
 type changeSetArgs struct {
 	// The capabilities that are allowed in the stack.
 	Capabilities []ChangeSetCapabilitiesItem `pulumi:"capabilities"`

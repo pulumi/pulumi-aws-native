@@ -185,6 +185,12 @@ func (KeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyState)(nil)).Elem()
 }
 
+// KeyExists checks whether an existing Key resource with the given ID exists.
+func KeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kms:Key", id, state, "", opts...)
+}
+
 type keyArgs struct {
 	// Skips ("bypasses") the key policy lockout safety check. The default value is false.
 	//   Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.

@@ -77,6 +77,12 @@ func (IpamResourceDiscoveryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamResourceDiscoveryState)(nil)).Elem()
 }
 
+// IpamResourceDiscoveryExists checks whether an existing IpamResourceDiscovery resource with the given ID exists.
+func IpamResourceDiscoveryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamResourceDiscoveryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamResourceDiscovery", id, state, "", opts...)
+}
+
 type ipamResourceDiscoveryArgs struct {
 	// The resource discovery description.
 	Description *string `pulumi:"description"`

@@ -68,6 +68,12 @@ func (PlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*planState)(nil)).Elem()
 }
 
+// PlanExists checks whether an existing Plan resource with the given ID exists.
+func PlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssmcontacts:Plan", id, state, "", opts...)
+}
+
 type planArgs struct {
 	// Contact ID for the AWS SSM Incident Manager Contact to associate the plan.
 	ContactId *string `pulumi:"contactId"`

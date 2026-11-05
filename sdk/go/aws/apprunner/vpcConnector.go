@@ -80,6 +80,12 @@ func (VpcConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcConnectorState)(nil)).Elem()
 }
 
+// VpcConnectorExists checks whether an existing VpcConnector resource with the given ID exists.
+func VpcConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apprunner:VpcConnector", id, state, "", opts...)
+}
+
 type vpcConnectorArgs struct {
 	// A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
 	SecurityGroups []string `pulumi:"securityGroups"`

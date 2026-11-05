@@ -101,6 +101,12 @@ func (AiGuardrailState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aiGuardrailState)(nil)).Elem()
 }
 
+// AiGuardrailExists checks whether an existing AiGuardrail resource with the given ID exists.
+func AiGuardrailExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AiGuardrailState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:AiGuardrail", id, state, "", opts...)
+}
+
 type aiGuardrailArgs struct {
 	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId string `pulumi:"assistantId"`

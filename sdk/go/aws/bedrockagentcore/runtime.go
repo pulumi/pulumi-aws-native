@@ -114,6 +114,12 @@ func (RuntimeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*runtimeState)(nil)).Elem()
 }
 
+// RuntimeExists checks whether an existing Runtime resource with the given ID exists.
+func RuntimeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuntimeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:Runtime", id, state, "", opts...)
+}
+
 type runtimeArgs struct {
 	// The artifact of the agent
 	AgentRuntimeArtifact RuntimeAgentRuntimeArtifact `pulumi:"agentRuntimeArtifact"`

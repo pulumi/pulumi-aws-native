@@ -74,6 +74,12 @@ func (WorkspaceIpGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceIpGroupState)(nil)).Elem()
 }
 
+// WorkspaceIpGroupExists checks whether an existing WorkspaceIpGroup resource with the given ID exists.
+func WorkspaceIpGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceIpGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspaces:WorkspaceIpGroup", id, state, "", opts...)
+}
+
 type workspaceIpGroupArgs struct {
 	// The description of the group.
 	GroupDesc *string `pulumi:"groupDesc"`

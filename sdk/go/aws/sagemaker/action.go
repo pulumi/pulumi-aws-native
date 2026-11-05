@@ -93,6 +93,12 @@ func (ActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionState)(nil)).Elem()
 }
 
+// ActionExists checks whether an existing Action resource with the given ID exists.
+func ActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:Action", id, state, "", opts...)
+}
+
 type actionArgs struct {
 	// The name of the action. Must be unique to your account in an AWS Region.
 	ActionName *string `pulumi:"actionName"`

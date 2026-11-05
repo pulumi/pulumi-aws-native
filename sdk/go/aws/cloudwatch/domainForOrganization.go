@@ -100,6 +100,12 @@ func (DomainForOrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainForOrganizationState)(nil)).Elem()
 }
 
+// DomainForOrganizationExists checks whether an existing DomainForOrganization resource with the given ID exists.
+func DomainForOrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainForOrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:DomainForOrganization", id, state, "", opts...)
+}
+
 type domainForOrganizationArgs struct {
 	// The ARN of the customer-provided IAM role in the management account used for domain access.
 	DomainAccessRoleArn string `pulumi:"domainAccessRoleArn"`

@@ -76,6 +76,12 @@ func (PreparedStatementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*preparedStatementState)(nil)).Elem()
 }
 
+// PreparedStatementExists checks whether an existing PreparedStatement resource with the given ID exists.
+func PreparedStatementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PreparedStatementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:athena:PreparedStatement", id, state, "", opts...)
+}
+
 type preparedStatementArgs struct {
 	// The description of the prepared statement.
 	Description *string `pulumi:"description"`

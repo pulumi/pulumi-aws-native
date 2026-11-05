@@ -77,6 +77,12 @@ func (DeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentState)(nil)).Elem()
 }
 
+// DeploymentExists checks whether an existing Deployment resource with the given ID exists.
+func DeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:Deployment", id, state, "", opts...)
+}
+
 type deploymentArgs struct {
 	// The input configuration for a canary deployment.
 	DeploymentCanarySettings *DeploymentCanarySettings `pulumi:"deploymentCanarySettings"`

@@ -83,6 +83,12 @@ func (IdentityProviderConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderConfigState)(nil)).Elem()
 }
 
+// IdentityProviderConfigExists checks whether an existing IdentityProviderConfig resource with the given ID exists.
+func IdentityProviderConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eks:IdentityProviderConfig", id, state, "", opts...)
+}
+
 type identityProviderConfigArgs struct {
 	// The name of the identity provider configuration.
 	ClusterName string `pulumi:"clusterName"`

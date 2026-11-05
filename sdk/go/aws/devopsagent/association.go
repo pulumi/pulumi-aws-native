@@ -84,6 +84,12 @@ func (AssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationState)(nil)).Elem()
 }
 
+// AssociationExists checks whether an existing Association resource with the given ID exists.
+func AssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:devopsagent:Association", id, state, "", opts...)
+}
+
 type associationArgs struct {
 	// The unique identifier of the AgentSpace
 	AgentSpaceId string `pulumi:"agentSpaceId"`

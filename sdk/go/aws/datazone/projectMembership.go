@@ -85,6 +85,12 @@ func (ProjectMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectMembershipState)(nil)).Elem()
 }
 
+// ProjectMembershipExists checks whether an existing ProjectMembership resource with the given ID exists.
+func ProjectMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:ProjectMembership", id, state, "", opts...)
+}
+
 type projectMembershipArgs struct {
 	// The designated role of a project member.
 	Designation string `pulumi:"designation"`

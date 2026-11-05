@@ -89,6 +89,12 @@ func (TableOptimizerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableOptimizerState)(nil)).Elem()
 }
 
+// TableOptimizerExists checks whether an existing TableOptimizer resource with the given ID exists.
+func TableOptimizerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableOptimizerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:TableOptimizer", id, state, "", opts...)
+}
+
 type tableOptimizerArgs struct {
 	// The catalog ID of the table
 	CatalogId string `pulumi:"catalogId"`

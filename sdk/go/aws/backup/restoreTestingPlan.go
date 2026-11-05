@@ -84,6 +84,12 @@ func (RestoreTestingPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restoreTestingPlanState)(nil)).Elem()
 }
 
+// RestoreTestingPlanExists checks whether an existing RestoreTestingPlan resource with the given ID exists.
+func RestoreTestingPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestoreTestingPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:RestoreTestingPlan", id, state, "", opts...)
+}
+
 type restoreTestingPlanArgs struct {
 	// The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
 	RecoveryPointSelection RestoreTestingPlanRestoreTestingRecoveryPointSelection `pulumi:"recoveryPointSelection"`

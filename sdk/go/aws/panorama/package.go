@@ -73,6 +73,12 @@ func (PackageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packageState)(nil)).Elem()
 }
 
+// PackageExists checks whether an existing Package resource with the given ID exists.
+func PackageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PackageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:panorama:Package", id, state, "", opts...)
+}
+
 type packageArgs struct {
 	// A name for the package.
 	PackageName *string `pulumi:"packageName"`

@@ -108,6 +108,12 @@ func (ReplicationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationConfigurationState)(nil)).Elem()
 }
 
+// ReplicationConfigurationExists checks whether an existing ReplicationConfiguration resource with the given ID exists.
+func ReplicationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecr:ReplicationConfiguration", id, state, "", opts...)
+}
+
 type replicationConfigurationArgs struct {
 	// The replication configuration for a registry.
 	ReplicationConfiguration ReplicationConfigurationType `pulumi:"replicationConfiguration"`

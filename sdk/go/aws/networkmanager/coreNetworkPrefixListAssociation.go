@@ -78,6 +78,12 @@ func (CoreNetworkPrefixListAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*coreNetworkPrefixListAssociationState)(nil)).Elem()
 }
 
+// CoreNetworkPrefixListAssociationExists checks whether an existing CoreNetworkPrefixListAssociation resource with the given ID exists.
+func CoreNetworkPrefixListAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CoreNetworkPrefixListAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkmanager:CoreNetworkPrefixListAssociation", id, state, "", opts...)
+}
+
 type coreNetworkPrefixListAssociationArgs struct {
 	// The ID of the core network.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

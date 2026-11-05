@@ -85,6 +85,12 @@ func (SpendingLimitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spendingLimitState)(nil)).Elem()
 }
 
+// SpendingLimitExists checks whether an existing SpendingLimit resource with the given ID exists.
+func SpendingLimitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpendingLimitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:braket:SpendingLimit", id, state, "", opts...)
+}
+
 type spendingLimitArgs struct {
 	// The Amazon Resource Name (ARN) of the quantum device to apply the spending limit to.
 	DeviceArn string `pulumi:"deviceArn"`

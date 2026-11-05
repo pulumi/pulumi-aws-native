@@ -97,6 +97,12 @@ func (TemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateState)(nil)).Elem()
 }
 
+// TemplateExists checks whether an existing Template resource with the given ID exists.
+func TemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:Template", id, state, "", opts...)
+}
+
 type templateArgs struct {
 	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
 	AwsAccountId string                     `pulumi:"awsAccountId"`

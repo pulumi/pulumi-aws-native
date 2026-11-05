@@ -145,6 +145,12 @@ func (ModelPackageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelPackageState)(nil)).Elem()
 }
 
+// ModelPackageExists checks whether an existing ModelPackage resource with the given ID exists.
+func ModelPackageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelPackageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:ModelPackage", id, state, "", opts...)
+}
+
 type modelPackageArgs struct {
 	// An array of additional Inference Specification objects.
 	AdditionalInferenceSpecifications []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecifications"`

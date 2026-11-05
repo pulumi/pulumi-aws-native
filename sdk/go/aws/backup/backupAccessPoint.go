@@ -95,6 +95,12 @@ func (BackupAccessPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupAccessPointState)(nil)).Elem()
 }
 
+// BackupAccessPointExists checks whether an existing BackupAccessPoint resource with the given ID exists.
+func BackupAccessPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupAccessPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:BackupAccessPoint", id, state, "", opts...)
+}
+
 type backupAccessPointArgs struct {
 	// For continuous (point-in-time) recovery points, the timestamp in ISO 8601 format (for example 2021-11-27T03:30:27Z) that determines the point-in-time view of the backup data. The timestamp must be within the continuous backup's retention period at the time the access point is created. Do not specify this for snapshot recovery points. The service reports it back under AccessPointMetadata.
 	AccessPointInTime *string `pulumi:"accessPointInTime"`

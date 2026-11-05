@@ -72,6 +72,12 @@ func (ServiceProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceProfileState)(nil)).Elem()
 }
 
+// ServiceProfileExists checks whether an existing ServiceProfile resource with the given ID exists.
+func ServiceProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotwireless:ServiceProfile", id, state, "", opts...)
+}
+
 type serviceProfileArgs struct {
 	// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
 	LoRaWan *ServiceProfileLoRaWanServiceProfile `pulumi:"loRaWan"`

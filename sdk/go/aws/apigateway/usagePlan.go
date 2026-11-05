@@ -73,6 +73,12 @@ func (UsagePlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*usagePlanState)(nil)).Elem()
 }
 
+// UsagePlanExists checks whether an existing UsagePlan resource with the given ID exists.
+func UsagePlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UsagePlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:UsagePlan", id, state, "", opts...)
+}
+
 type usagePlanArgs struct {
 	// The associated API stages of a usage plan.
 	ApiStages []UsagePlanApiStage `pulumi:"apiStages"`

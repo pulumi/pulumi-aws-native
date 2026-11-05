@@ -81,6 +81,12 @@ func (StudioLifecycleConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*studioLifecycleConfigState)(nil)).Elem()
 }
 
+// StudioLifecycleConfigExists checks whether an existing StudioLifecycleConfig resource with the given ID exists.
+func StudioLifecycleConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StudioLifecycleConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:StudioLifecycleConfig", id, state, "", opts...)
+}
+
 type studioLifecycleConfigArgs struct {
 	// The App type that the Lifecycle Configuration is attached to.
 	StudioLifecycleConfigAppType StudioLifecycleConfigAppType `pulumi:"studioLifecycleConfigAppType"`

@@ -79,6 +79,12 @@ func (WirelessGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*wirelessGatewayState)(nil)).Elem()
 }
 
+// WirelessGatewayExists checks whether an existing WirelessGateway resource with the given ID exists.
+func WirelessGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WirelessGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotwireless:WirelessGateway", id, state, "", opts...)
+}
+
 type wirelessGatewayArgs struct {
 	// Description of Wireless Gateway.
 	Description *string `pulumi:"description"`

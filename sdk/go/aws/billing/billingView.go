@@ -86,6 +86,12 @@ func (BillingViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*billingViewState)(nil)).Elem()
 }
 
+// BillingViewExists checks whether an existing BillingView resource with the given ID exists.
+func BillingViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BillingViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:billing:BillingView", id, state, "", opts...)
+}
+
 type billingViewArgs struct {
 	// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
 	DataFilterExpression *DataFilterExpressionProperties `pulumi:"dataFilterExpression"`

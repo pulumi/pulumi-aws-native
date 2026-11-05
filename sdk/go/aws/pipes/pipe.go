@@ -188,6 +188,12 @@ func (PipeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipeState)(nil)).Elem()
 }
 
+// PipeExists checks whether an existing Pipe resource with the given ID exists.
+func PipeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pipes:Pipe", id, state, "", opts...)
+}
+
 type pipeArgs struct {
 	// A description of the pipe.
 	Description *string `pulumi:"description"`

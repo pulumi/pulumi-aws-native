@@ -80,6 +80,12 @@ func (DbSubnetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbSubnetGroupState)(nil)).Elem()
 }
 
+// DbSubnetGroupExists checks whether an existing DbSubnetGroup resource with the given ID exists.
+func DbSubnetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbSubnetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:neptune:DbSubnetGroup", id, state, "", opts...)
+}
+
 type dbSubnetGroupArgs struct {
 	// The description for the DB subnet group.
 	DbSubnetGroupDescription string `pulumi:"dbSubnetGroupDescription"`

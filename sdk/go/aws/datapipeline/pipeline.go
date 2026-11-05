@@ -78,6 +78,12 @@ func (PipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineState)(nil)).Elem()
 }
 
+// PipelineExists checks whether an existing Pipeline resource with the given ID exists.
+func PipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datapipeline:Pipeline", id, state, "", opts...)
+}
+
 type pipelineArgs struct {
 	// Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
 	Activate *bool `pulumi:"activate"`

@@ -63,6 +63,12 @@ func (HubV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubV2State)(nil)).Elem()
 }
 
+// HubV2Exists checks whether an existing HubV2 resource with the given ID exists.
+func HubV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HubV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:HubV2", id, state, "", opts...)
+}
+
 type hubV2Args struct {
 	NetworkScanning *HubV2NetworkScanning `pulumi:"networkScanning"`
 	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.

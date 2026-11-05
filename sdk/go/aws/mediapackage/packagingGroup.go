@@ -77,6 +77,12 @@ func (PackagingGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packagingGroupState)(nil)).Elem()
 }
 
+// PackagingGroupExists checks whether an existing PackagingGroup resource with the given ID exists.
+func PackagingGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PackagingGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediapackage:PackagingGroup", id, state, "", opts...)
+}
+
 type packagingGroupArgs struct {
 	// CDN Authorization
 	Authorization *PackagingGroupAuthorization `pulumi:"authorization"`

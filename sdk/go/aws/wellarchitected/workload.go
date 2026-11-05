@@ -105,6 +105,12 @@ func (WorkloadState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadState)(nil)).Elem()
 }
 
+// WorkloadExists checks whether an existing Workload resource with the given ID exists.
+func WorkloadExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkloadState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wellarchitected:Workload", id, state, "", opts...)
+}
+
 type workloadArgs struct {
 	// The list of Amazon Web Services account IDs associated with the workload.
 	AccountIds []string `pulumi:"accountIds"`

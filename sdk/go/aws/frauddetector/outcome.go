@@ -73,6 +73,12 @@ func (OutcomeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outcomeState)(nil)).Elem()
 }
 
+// OutcomeExists checks whether an existing Outcome resource with the given ID exists.
+func OutcomeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutcomeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:frauddetector:Outcome", id, state, "", opts...)
+}
+
 type outcomeArgs struct {
 	// The outcome description.
 	Description *string `pulumi:"description"`

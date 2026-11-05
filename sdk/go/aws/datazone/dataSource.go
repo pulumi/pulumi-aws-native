@@ -122,6 +122,12 @@ func (DataSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceState)(nil)).Elem()
 }
 
+// DataSourceExists checks whether an existing DataSource resource with the given ID exists.
+func DataSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:DataSource", id, state, "", opts...)
+}
+
 type dataSourceArgs struct {
 	// The metadata forms that are to be attached to the assets that this data source works with.
 	AssetFormsInput []DataSourceFormInput `pulumi:"assetFormsInput"`

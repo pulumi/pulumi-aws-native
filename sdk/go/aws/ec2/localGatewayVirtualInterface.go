@@ -109,6 +109,12 @@ func (LocalGatewayVirtualInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGatewayVirtualInterfaceState)(nil)).Elem()
 }
 
+// LocalGatewayVirtualInterfaceExists checks whether an existing LocalGatewayVirtualInterface resource with the given ID exists.
+func LocalGatewayVirtualInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalGatewayVirtualInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:LocalGatewayVirtualInterface", id, state, "", opts...)
+}
+
 type localGatewayVirtualInterfaceArgs struct {
 	// The local address.
 	LocalAddress string `pulumi:"localAddress"`

@@ -92,6 +92,12 @@ func (OAuth2CredentialProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauth2CredentialProviderState)(nil)).Elem()
 }
 
+// OAuth2CredentialProviderExists checks whether an existing OAuth2CredentialProvider resource with the given ID exists.
+func OAuth2CredentialProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OAuth2CredentialProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:OAuth2CredentialProvider", id, state, "", opts...)
+}
+
 type oauth2CredentialProviderArgs struct {
 	// The vendor of the OAuth2 credential provider
 	CredentialProviderVendor OAuth2CredentialProviderCredentialProviderVendor `pulumi:"credentialProviderVendor"`

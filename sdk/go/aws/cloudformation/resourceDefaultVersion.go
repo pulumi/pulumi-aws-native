@@ -66,6 +66,12 @@ func (ResourceDefaultVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDefaultVersionState)(nil)).Elem()
 }
 
+// ResourceDefaultVersionExists checks whether an existing ResourceDefaultVersion resource with the given ID exists.
+func ResourceDefaultVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceDefaultVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:ResourceDefaultVersion", id, state, "", opts...)
+}
+
 type resourceDefaultVersionArgs struct {
 	// The name of the type being registered.
 	//

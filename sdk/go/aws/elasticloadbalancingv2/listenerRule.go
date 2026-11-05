@@ -90,6 +90,12 @@ func (ListenerRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerRuleState)(nil)).Elem()
 }
 
+// ListenerRuleExists checks whether an existing ListenerRule resource with the given ID exists.
+func ListenerRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ListenerRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticloadbalancingv2:ListenerRule", id, state, "", opts...)
+}
+
 type listenerRuleArgs struct {
 	// The actions.
 	//  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.

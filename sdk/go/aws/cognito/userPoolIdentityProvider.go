@@ -112,6 +112,12 @@ func (UserPoolIdentityProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolIdentityProviderState)(nil)).Elem()
 }
 
+// UserPoolIdentityProviderExists checks whether an existing UserPoolIdentityProvider resource with the given ID exists.
+func UserPoolIdentityProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolIdentityProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolIdentityProvider", id, state, "", opts...)
+}
+
 type userPoolIdentityProviderArgs struct {
 	// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
 	AttributeMapping map[string]string `pulumi:"attributeMapping"`

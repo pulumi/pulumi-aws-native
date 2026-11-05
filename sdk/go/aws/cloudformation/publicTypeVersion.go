@@ -82,6 +82,12 @@ func (PublicTypeVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicTypeVersionState)(nil)).Elem()
 }
 
+// PublicTypeVersionExists checks whether an existing PublicTypeVersion resource with the given ID exists.
+func PublicTypeVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublicTypeVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:PublicTypeVersion", id, state, "", opts...)
+}
+
 type publicTypeVersionArgs struct {
 	// The Amazon Resource Number (ARN) of the extension.
 	Arn *string `pulumi:"arn"`

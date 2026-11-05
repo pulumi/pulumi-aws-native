@@ -85,6 +85,12 @@ func (SourceNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceNetworkState)(nil)).Elem()
 }
 
+// SourceNetworkExists checks whether an existing SourceNetwork resource with the given ID exists.
+func SourceNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:drs:SourceNetwork", id, state, "", opts...)
+}
+
 type sourceNetworkArgs struct {
 	// The account ID containing the VPC to protect.
 	OriginAccountId string `pulumi:"originAccountId"`

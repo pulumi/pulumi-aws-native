@@ -96,6 +96,12 @@ func (MapState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mapState)(nil)).Elem()
 }
 
+// MapExists checks whether an existing Map resource with the given ID exists.
+func MapExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MapState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:location:Map", id, state, "", opts...)
+}
+
 type mapArgs struct {
 	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
 	Configuration MapConfiguration `pulumi:"configuration"`

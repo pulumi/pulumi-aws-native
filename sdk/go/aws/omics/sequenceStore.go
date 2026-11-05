@@ -97,6 +97,12 @@ func (SequenceStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sequenceStoreState)(nil)).Elem()
 }
 
+// SequenceStoreExists checks whether an existing SequenceStore resource with the given ID exists.
+func SequenceStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SequenceStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:omics:SequenceStore", id, state, "", opts...)
+}
+
 type sequenceStoreArgs struct {
 	// Location of the access logs.
 	AccessLogLocation *string `pulumi:"accessLogLocation"`

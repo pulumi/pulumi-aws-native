@@ -76,6 +76,12 @@ func (ChannelPlacementGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelPlacementGroupState)(nil)).Elem()
 }
 
+// ChannelPlacementGroupExists checks whether an existing ChannelPlacementGroup resource with the given ID exists.
+func ChannelPlacementGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelPlacementGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:ChannelPlacementGroup", id, state, "", opts...)
+}
+
 type channelPlacementGroupArgs struct {
 	// The ID of the cluster the node is on.
 	ClusterId *string `pulumi:"clusterId"`

@@ -69,6 +69,12 @@ func (MailManagerAddressListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailManagerAddressListState)(nil)).Elem()
 }
 
+// MailManagerAddressListExists checks whether an existing MailManagerAddressList resource with the given ID exists.
+func MailManagerAddressListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailManagerAddressListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:MailManagerAddressList", id, state, "", opts...)
+}
+
 type mailManagerAddressListArgs struct {
 	// A user-friendly name for the address list.
 	AddressListName *string `pulumi:"addressListName"`

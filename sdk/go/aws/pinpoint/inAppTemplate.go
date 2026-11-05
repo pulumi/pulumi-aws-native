@@ -87,6 +87,12 @@ func (InAppTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inAppTemplateState)(nil)).Elem()
 }
 
+// InAppTemplateExists checks whether an existing InAppTemplate resource with the given ID exists.
+func InAppTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InAppTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pinpoint:InAppTemplate", id, state, "", opts...)
+}
+
 type inAppTemplateArgs struct {
 	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 	Content []InAppTemplateInAppMessageContent `pulumi:"content"`

@@ -85,6 +85,12 @@ func (PackageGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packageGroupState)(nil)).Elem()
 }
 
+// PackageGroupExists checks whether an existing PackageGroup resource with the given ID exists.
+func PackageGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PackageGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codeartifact:PackageGroup", id, state, "", opts...)
+}
+
 type packageGroupArgs struct {
 	// The contact info of the package group.
 	ContactInfo *string `pulumi:"contactInfo"`

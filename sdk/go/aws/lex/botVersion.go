@@ -75,6 +75,12 @@ func (BotVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*botVersionState)(nil)).Elem()
 }
 
+// BotVersionExists checks whether an existing BotVersion resource with the given ID exists.
+func BotVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BotVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lex:BotVersion", id, state, "", opts...)
+}
+
 type botVersionArgs struct {
 	// The unique identifier of the bot.
 	BotId string `pulumi:"botId"`

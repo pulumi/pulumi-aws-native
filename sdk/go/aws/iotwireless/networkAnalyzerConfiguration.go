@@ -75,6 +75,12 @@ func (NetworkAnalyzerConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAnalyzerConfigurationState)(nil)).Elem()
 }
 
+// NetworkAnalyzerConfigurationExists checks whether an existing NetworkAnalyzerConfiguration resource with the given ID exists.
+func NetworkAnalyzerConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkAnalyzerConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotwireless:NetworkAnalyzerConfiguration", id, state, "", opts...)
+}
+
 type networkAnalyzerConfigurationArgs struct {
 	// The description of the new resource
 	Description *string `pulumi:"description"`

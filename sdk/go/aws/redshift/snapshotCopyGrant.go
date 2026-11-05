@@ -70,6 +70,12 @@ func (SnapshotCopyGrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyGrantState)(nil)).Elem()
 }
 
+// SnapshotCopyGrantExists checks whether an existing SnapshotCopyGrant resource with the given ID exists.
+func SnapshotCopyGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotCopyGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:redshift:SnapshotCopyGrant", id, state, "", opts...)
+}
+
 type snapshotCopyGrantArgs struct {
 	// The unique identifier of the encrypted symmetric key to which to grant Amazon Redshift permission. If no key is specified, the default key is used. Marked writeOnly because Create accepts aliases/key-ids but Describe returns the resolved key ARN, which would fail drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`

@@ -99,6 +99,12 @@ func (QuickResponseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*quickResponseState)(nil)).Elem()
 }
 
+// QuickResponseExists checks whether an existing QuickResponse resource with the given ID exists.
+func QuickResponseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QuickResponseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:QuickResponse", id, state, "", opts...)
+}
+
 type quickResponseArgs struct {
 	// The Amazon Connect contact channels this quick response applies to.
 	Channels []QuickResponseChannelType `pulumi:"channels"`

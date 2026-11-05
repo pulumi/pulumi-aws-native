@@ -79,6 +79,12 @@ func (TelemetryPipelinesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*telemetryPipelinesState)(nil)).Elem()
 }
 
+// TelemetryPipelinesExists checks whether an existing TelemetryPipelines resource with the given ID exists.
+func TelemetryPipelinesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TelemetryPipelinesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:observabilityadmin:TelemetryPipelines", id, state, "", opts...)
+}
+
 type telemetryPipelinesArgs struct {
 	// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 	Configuration TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`

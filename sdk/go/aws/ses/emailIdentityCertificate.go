@@ -78,6 +78,12 @@ func (EmailIdentityCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIdentityCertificateState)(nil)).Elem()
 }
 
+// EmailIdentityCertificateExists checks whether an existing EmailIdentityCertificate resource with the given ID exists.
+func EmailIdentityCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailIdentityCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:EmailIdentityCertificate", id, state, "", opts...)
+}
+
 type emailIdentityCertificateArgs struct {
 	// The ARN of the AWS Certificate Manager certificate to associate with the sender.
 	CertificateArn string `pulumi:"certificateArn"`

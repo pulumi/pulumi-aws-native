@@ -77,6 +77,12 @@ func (AggregationAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aggregationAuthorizationState)(nil)).Elem()
 }
 
+// AggregationAuthorizationExists checks whether an existing AggregationAuthorization resource with the given ID exists.
+func AggregationAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AggregationAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:AggregationAuthorization", id, state, "", opts...)
+}
+
 type aggregationAuthorizationArgs struct {
 	// The 12-digit account ID of the account authorized to aggregate data.
 	AuthorizedAccountId string `pulumi:"authorizedAccountId"`

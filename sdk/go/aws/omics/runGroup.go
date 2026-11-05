@@ -74,6 +74,12 @@ func (RunGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*runGroupState)(nil)).Elem()
 }
 
+// RunGroupExists checks whether an existing RunGroup resource with the given ID exists.
+func RunGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RunGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:omics:RunGroup", id, state, "", opts...)
+}
+
 type runGroupArgs struct {
 	// The group's maximum CPU count setting.
 	MaxCpus *float64 `pulumi:"maxCpus"`

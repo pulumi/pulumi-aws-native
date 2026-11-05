@@ -71,6 +71,12 @@ func (TransformerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transformerState)(nil)).Elem()
 }
 
+// TransformerExists checks whether an existing Transformer resource with the given ID exists.
+func TransformerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransformerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:Transformer", id, state, "", opts...)
+}
+
 type transformerArgs struct {
 	// Existing log group that you want to associate with this transformer.
 	LogGroupIdentifier string `pulumi:"logGroupIdentifier"`

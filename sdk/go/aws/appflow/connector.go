@@ -77,6 +77,12 @@ func (ConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorState)(nil)).Elem()
 }
 
+// ConnectorExists checks whether an existing Connector resource with the given ID exists.
+func ConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appflow:Connector", id, state, "", opts...)
+}
+
 type connectorArgs struct {
 	//  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
 	ConnectorLabel *string `pulumi:"connectorLabel"`

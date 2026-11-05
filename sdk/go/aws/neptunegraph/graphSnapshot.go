@@ -82,6 +82,12 @@ func (GraphSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphSnapshotState)(nil)).Elem()
 }
 
+// GraphSnapshotExists checks whether an existing GraphSnapshot resource with the given ID exists.
+func GraphSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GraphSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:neptunegraph:GraphSnapshot", id, state, "", opts...)
+}
+
 type graphSnapshotArgs struct {
 	// The unique identifier of the Neptune Analytics graph to create the snapshot from.
 	GraphIdentifier string `pulumi:"graphIdentifier"`

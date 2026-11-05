@@ -98,6 +98,12 @@ func (InfrastructureConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*infrastructureConfigurationState)(nil)).Elem()
 }
 
+// InfrastructureConfigurationExists checks whether an existing InfrastructureConfiguration resource with the given ID exists.
+func InfrastructureConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InfrastructureConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:imagebuilder:InfrastructureConfiguration", id, state, "", opts...)
+}
+
 type infrastructureConfigurationArgs struct {
 	// The description of the infrastructure configuration.
 	Description *string `pulumi:"description"`

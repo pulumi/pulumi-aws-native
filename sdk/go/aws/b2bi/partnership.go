@@ -97,6 +97,12 @@ func (PartnershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnershipState)(nil)).Elem()
 }
 
+// PartnershipExists checks whether an existing Partnership resource with the given ID exists.
+func PartnershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PartnershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:b2bi:Partnership", id, state, "", opts...)
+}
+
 type partnershipArgs struct {
 	// Returns one or more capabilities associated with this partnership.
 	Capabilities []string `pulumi:"capabilities"`

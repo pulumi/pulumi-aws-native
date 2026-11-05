@@ -100,6 +100,12 @@ func (EvaluationFormState) ElementType() reflect.Type {
 	return reflect.TypeOf((*evaluationFormState)(nil)).Elem()
 }
 
+// EvaluationFormExists checks whether an existing EvaluationForm resource with the given ID exists.
+func EvaluationFormExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EvaluationFormState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:EvaluationForm", id, state, "", opts...)
+}
+
 type evaluationFormArgs struct {
 	// The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
 	AiVersion *string `pulumi:"aiVersion"`

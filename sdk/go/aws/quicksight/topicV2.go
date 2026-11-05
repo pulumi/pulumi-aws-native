@@ -75,6 +75,12 @@ func (TopicV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicV2State)(nil)).Elem()
 }
 
+// TopicV2Exists checks whether an existing TopicV2 resource with the given ID exists.
+func TopicV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:TopicV2", id, state, "", opts...)
+}
+
 type topicV2Args struct {
 	AwsAccountId       *string                     `pulumi:"awsAccountId"`
 	CustomInstructions *TopicV2CustomInstructions  `pulumi:"customInstructions"`

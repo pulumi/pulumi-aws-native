@@ -107,6 +107,12 @@ func (ContainerRecipeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerRecipeState)(nil)).Elem()
 }
 
+// ContainerRecipeExists checks whether an existing ContainerRecipe resource with the given ID exists.
+func ContainerRecipeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerRecipeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:imagebuilder:ContainerRecipe", id, state, "", opts...)
+}
+
 type containerRecipeArgs struct {
 	// Components for build and test that are included in the container recipe.
 	Components []ContainerRecipeComponentConfiguration `pulumi:"components"`

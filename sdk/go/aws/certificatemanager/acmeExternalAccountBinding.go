@@ -79,6 +79,12 @@ func (AcmeExternalAccountBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*acmeExternalAccountBindingState)(nil)).Elem()
 }
 
+// AcmeExternalAccountBindingExists checks whether an existing AcmeExternalAccountBinding resource with the given ID exists.
+func AcmeExternalAccountBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AcmeExternalAccountBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:certificatemanager:AcmeExternalAccountBinding", id, state, "", opts...)
+}
+
 type acmeExternalAccountBindingArgs struct {
 	// The ARN of the ACME endpoint this binding is associated with.
 	AcmeEndpointArn string                                `pulumi:"acmeEndpointArn"`

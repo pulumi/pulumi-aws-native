@@ -78,6 +78,12 @@ func (EipAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipAssociationState)(nil)).Elem()
 }
 
+// EipAssociationExists checks whether an existing EipAssociation resource with the given ID exists.
+func EipAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EipAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:EipAssociation", id, state, "", opts...)
+}
+
 type eipAssociationArgs struct {
 	// The allocation ID. This is required.
 	AllocationId *string `pulumi:"allocationId"`

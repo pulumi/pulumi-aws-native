@@ -76,6 +76,12 @@ func (OrganizationTelemetryRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationTelemetryRuleState)(nil)).Elem()
 }
 
+// OrganizationTelemetryRuleExists checks whether an existing OrganizationTelemetryRule resource with the given ID exists.
+func OrganizationTelemetryRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationTelemetryRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:observabilityadmin:OrganizationTelemetryRule", id, state, "", opts...)
+}
+
 type organizationTelemetryRuleArgs struct {
 	// The name of the organization telemetry rule.
 	Rule OrganizationTelemetryRuleTelemetryRule `pulumi:"rule"`

@@ -81,6 +81,12 @@ func (MailManagerRelayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailManagerRelayState)(nil)).Elem()
 }
 
+// MailManagerRelayExists checks whether an existing MailManagerRelay resource with the given ID exists.
+func MailManagerRelayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailManagerRelayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:MailManagerRelay", id, state, "", opts...)
+}
+
 type mailManagerRelayArgs struct {
 	// Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
 	Authentication interface{} `pulumi:"authentication"`

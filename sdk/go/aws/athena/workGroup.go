@@ -273,6 +273,12 @@ func (WorkGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workGroupState)(nil)).Elem()
 }
 
+// WorkGroupExists checks whether an existing WorkGroup resource with the given ID exists.
+func WorkGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:athena:WorkGroup", id, state, "", opts...)
+}
+
 type workGroupArgs struct {
 	// The workgroup description.
 	Description *string `pulumi:"description"`

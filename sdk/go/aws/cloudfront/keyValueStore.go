@@ -75,6 +75,12 @@ func (KeyValueStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyValueStoreState)(nil)).Elem()
 }
 
+// KeyValueStoreExists checks whether an existing KeyValueStore resource with the given ID exists.
+func KeyValueStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyValueStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:KeyValueStore", id, state, "", opts...)
+}
+
 type keyValueStoreArgs struct {
 	// A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
 	Comment *string `pulumi:"comment"`

@@ -75,6 +75,12 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*carrierGatewayState)(nil)).Elem()
 }
 
+// CarrierGatewayExists checks whether an existing CarrierGateway resource with the given ID exists.
+func CarrierGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CarrierGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:CarrierGateway", id, state, "", opts...)
+}
+
 type carrierGatewayArgs struct {
 	// The tags for the carrier gateway.
 	Tags []aws.Tag `pulumi:"tags"`

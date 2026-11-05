@@ -71,6 +71,12 @@ func (LicenseAssetRuleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licenseAssetRuleSetState)(nil)).Elem()
 }
 
+// LicenseAssetRuleSetExists checks whether an existing LicenseAssetRuleSet resource with the given ID exists.
+func LicenseAssetRuleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicenseAssetRuleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:licensemanager:LicenseAssetRuleSet", id, state, "", opts...)
+}
+
 type licenseAssetRuleSetArgs struct {
 	// License asset ruleset description.
 	Description *string `pulumi:"description"`

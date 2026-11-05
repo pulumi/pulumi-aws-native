@@ -123,6 +123,12 @@ func (LaunchConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchConfigurationState)(nil)).Elem()
 }
 
+// LaunchConfigurationExists checks whether an existing LaunchConfiguration resource with the given ID exists.
+func LaunchConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:autoscaling:LaunchConfiguration", id, state, "", opts...)
+}
+
 type launchConfigurationArgs struct {
 	// For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`

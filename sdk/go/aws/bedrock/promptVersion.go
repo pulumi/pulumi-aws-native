@@ -90,6 +90,12 @@ func (PromptVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*promptVersionState)(nil)).Elem()
 }
 
+// PromptVersionExists checks whether an existing PromptVersion resource with the given ID exists.
+func PromptVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PromptVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:PromptVersion", id, state, "", opts...)
+}
+
 type promptVersionArgs struct {
 	// Description for a prompt version resource.
 	Description *string `pulumi:"description"`

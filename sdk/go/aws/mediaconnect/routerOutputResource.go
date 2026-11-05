@@ -113,6 +113,12 @@ func (RouterOutputResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routerOutputResourceState)(nil)).Elem()
 }
 
+// RouterOutputResourceExists checks whether an existing RouterOutputResource resource with the given ID exists.
+func RouterOutputResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouterOutputResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:RouterOutputResource", id, state, "", opts...)
+}
+
 type routerOutputResourceArgs struct {
 	// The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
 	AvailabilityZone    *string                                  `pulumi:"availabilityZone"`

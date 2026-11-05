@@ -83,6 +83,12 @@ func (VerifiedAccessGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*verifiedAccessGroupState)(nil)).Elem()
 }
 
+// VerifiedAccessGroupExists checks whether an existing VerifiedAccessGroup resource with the given ID exists.
+func VerifiedAccessGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VerifiedAccessGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VerifiedAccessGroup", id, state, "", opts...)
+}
+
 type verifiedAccessGroupArgs struct {
 	// A description for the AWS Verified Access group.
 	Description *string `pulumi:"description"`

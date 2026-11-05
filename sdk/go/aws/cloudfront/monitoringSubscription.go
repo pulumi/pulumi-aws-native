@@ -71,6 +71,12 @@ func (MonitoringSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitoringSubscriptionState)(nil)).Elem()
 }
 
+// MonitoringSubscriptionExists checks whether an existing MonitoringSubscription resource with the given ID exists.
+func MonitoringSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitoringSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:MonitoringSubscription", id, state, "", opts...)
+}
+
 type monitoringSubscriptionArgs struct {
 	// The ID of the distribution that you are enabling metrics for.
 	DistributionId string `pulumi:"distributionId"`

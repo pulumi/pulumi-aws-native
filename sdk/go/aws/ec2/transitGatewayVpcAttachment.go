@@ -89,6 +89,12 @@ func (TransitGatewayVpcAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayVpcAttachmentState)(nil)).Elem()
 }
 
+// TransitGatewayVpcAttachmentExists checks whether an existing TransitGatewayVpcAttachment resource with the given ID exists.
+func TransitGatewayVpcAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayVpcAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayVpcAttachment", id, state, "", opts...)
+}
+
 type transitGatewayVpcAttachmentArgs struct {
 	// The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
 	AddSubnetIds []string `pulumi:"addSubnetIds"`

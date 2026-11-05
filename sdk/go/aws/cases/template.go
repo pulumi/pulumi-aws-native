@@ -85,6 +85,12 @@ func (TemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateState)(nil)).Elem()
 }
 
+// TemplateExists checks whether an existing Template resource with the given ID exists.
+func TemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cases:Template", id, state, "", opts...)
+}
+
 type templateArgs struct {
 	// A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
 	Description *string `pulumi:"description"`

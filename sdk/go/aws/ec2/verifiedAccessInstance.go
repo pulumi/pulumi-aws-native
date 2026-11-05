@@ -79,6 +79,12 @@ func (VerifiedAccessInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*verifiedAccessInstanceState)(nil)).Elem()
 }
 
+// VerifiedAccessInstanceExists checks whether an existing VerifiedAccessInstance resource with the given ID exists.
+func VerifiedAccessInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VerifiedAccessInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VerifiedAccessInstance", id, state, "", opts...)
+}
+
 type verifiedAccessInstanceArgs struct {
 	// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
 	CidrEndpointsCustomSubDomain *string `pulumi:"cidrEndpointsCustomSubDomain"`

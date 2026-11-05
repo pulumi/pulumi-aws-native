@@ -87,6 +87,12 @@ func (FirewallDomainListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallDomainListState)(nil)).Elem()
 }
 
+// FirewallDomainListExists checks whether an existing FirewallDomainList resource with the given ID exists.
+func FirewallDomainListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallDomainListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:FirewallDomainList", id, state, "", opts...)
+}
+
 type firewallDomainListArgs struct {
 	// S3 URL to import domains from.
 	DomainFileUrl *string `pulumi:"domainFileUrl"`

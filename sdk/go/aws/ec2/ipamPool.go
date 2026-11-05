@@ -123,6 +123,12 @@ func (IpamPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamPoolState)(nil)).Elem()
 }
 
+// IpamPoolExists checks whether an existing IpamPool resource with the given ID exists.
+func IpamPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamPool", id, state, "", opts...)
+}
+
 type ipamPoolArgs struct {
 	// The address family of the address space in this pool. Either IPv4 or IPv6.
 	AddressFamily string `pulumi:"addressFamily"`

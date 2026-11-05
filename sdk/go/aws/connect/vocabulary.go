@@ -92,6 +92,12 @@ func (VocabularyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vocabularyState)(nil)).Elem()
 }
 
+// VocabularyExists checks whether an existing Vocabulary resource with the given ID exists.
+func VocabularyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VocabularyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:Vocabulary", id, state, "", opts...)
+}
+
 type vocabularyArgs struct {
 	// The content of the custom vocabulary in plain-text format with a table of values.
 	Content string `pulumi:"content"`

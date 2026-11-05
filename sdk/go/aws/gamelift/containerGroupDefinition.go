@@ -99,6 +99,12 @@ func (ContainerGroupDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerGroupDefinitionState)(nil)).Elem()
 }
 
+// ContainerGroupDefinitionExists checks whether an existing ContainerGroupDefinition resource with the given ID exists.
+func ContainerGroupDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerGroupDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gamelift:ContainerGroupDefinition", id, state, "", opts...)
+}
+
 type containerGroupDefinitionArgs struct {
 	// The scope of the container group
 	ContainerGroupType *ContainerGroupDefinitionContainerGroupType `pulumi:"containerGroupType"`

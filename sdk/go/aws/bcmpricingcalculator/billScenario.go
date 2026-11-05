@@ -79,6 +79,12 @@ func (BillScenarioState) ElementType() reflect.Type {
 	return reflect.TypeOf((*billScenarioState)(nil)).Elem()
 }
 
+// BillScenarioExists checks whether an existing BillScenario resource with the given ID exists.
+func BillScenarioExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BillScenarioState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bcmpricingcalculator:BillScenario", id, state, "", opts...)
+}
+
 type billScenarioArgs struct {
 	// The ARN of the cost category group sharing preference
 	CostCategoryGroupSharingPreferenceArn *string `pulumi:"costCategoryGroupSharingPreferenceArn"`

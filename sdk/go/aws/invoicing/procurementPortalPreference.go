@@ -131,6 +131,12 @@ func (ProcurementPortalPreferenceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*procurementPortalPreferenceState)(nil)).Elem()
 }
 
+// ProcurementPortalPreferenceExists checks whether an existing ProcurementPortalPreference resource with the given ID exists.
+func ProcurementPortalPreferenceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProcurementPortalPreferenceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:invoicing:ProcurementPortalPreference", id, state, "", opts...)
+}
+
 type procurementPortalPreferenceArgs struct {
 	// The domain identifier for the buyer in the procurement portal.
 	BuyerDomain ProcurementPortalPreferenceBuyerDomain `pulumi:"buyerDomain"`

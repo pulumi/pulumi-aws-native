@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			myDomainName, err := apigateway.NewDomainName(ctx, "myDomainName", &apigateway.DomainNameArgs{
-//				CertificateArn: myCertificate.ID().ToIDOutput().ToStringOutput(),
+//				CertificateArn: myCertificate.ID(),
 //				DomainName:     pulumi.String(domainName),
 //			})
 //			if err != nil {
@@ -66,8 +66,8 @@ import (
 //			}
 //			_, err = apigateway.NewBasePathMapping(ctx, "myMapping", &apigateway.BasePathMappingArgs{
 //				BasePath:   pulumi.String(basePath),
-//				DomainName: myDomainName.ID().ToIDOutput().ToStringOutput(),
-//				RestApiId:  myRestApi.ID().ToIDOutput().ToStringOutput(),
+//				DomainName: myDomainName.ID(),
+//				RestApiId:  myRestApi.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -114,7 +114,7 @@ import (
 //				return err
 //			}
 //			myDomainName, err := apigateway.NewDomainName(ctx, "myDomainName", &apigateway.DomainNameArgs{
-//				CertificateArn: myCertificate.ID().ToIDOutput().ToStringOutput(),
+//				CertificateArn: myCertificate.ID(),
 //				DomainName:     pulumi.String(domainName),
 //			})
 //			if err != nil {
@@ -128,8 +128,8 @@ import (
 //			}
 //			_, err = apigateway.NewBasePathMapping(ctx, "myMapping", &apigateway.BasePathMappingArgs{
 //				BasePath:   pulumi.String(basePath),
-//				DomainName: myDomainName.ID().ToIDOutput().ToStringOutput(),
-//				RestApiId:  myRestApi.ID().ToIDOutput().ToStringOutput(),
+//				DomainName: myDomainName.ID(),
+//				RestApiId:  myRestApi.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -266,6 +266,12 @@ type CertificateState struct {
 
 func (CertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateState)(nil)).Elem()
+}
+
+// CertificateExists checks whether an existing Certificate resource with the given ID exists.
+func CertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:certificatemanager:Certificate", id, state, "", opts...)
 }
 
 type certificateArgs struct {

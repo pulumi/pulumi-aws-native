@@ -94,6 +94,12 @@ func (FunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionState)(nil)).Elem()
 }
 
+// FunctionExists checks whether an existing Function resource with the given ID exists.
+func FunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:Function", id, state, "", opts...)
+}
+
 type functionArgs struct {
 	// A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
 	AutoPublish *bool `pulumi:"autoPublish"`

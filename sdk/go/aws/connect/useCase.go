@@ -85,6 +85,12 @@ func (UseCaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*useCaseState)(nil)).Elem()
 }
 
+// UseCaseExists checks whether an existing UseCase resource with the given ID exists.
+func UseCaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UseCaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:UseCase", id, state, "", opts...)
+}
+
 type useCaseArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceId string `pulumi:"instanceId"`

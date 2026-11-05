@@ -76,6 +76,12 @@ func (SubnetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetGroupState)(nil)).Elem()
 }
 
+// SubnetGroupExists checks whether an existing SubnetGroup resource with the given ID exists.
+func SubnetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticache:SubnetGroup", id, state, "", opts...)
+}
+
 type subnetGroupArgs struct {
 	// The name for the cache subnet group. This value is stored as a lowercase string.
 	CacheSubnetGroupName *string `pulumi:"cacheSubnetGroupName"`

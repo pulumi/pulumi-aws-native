@@ -81,6 +81,12 @@ func (AutoScalingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoScalingConfigurationState)(nil)).Elem()
 }
 
+// AutoScalingConfigurationExists checks whether an existing AutoScalingConfiguration resource with the given ID exists.
+func AutoScalingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoScalingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apprunner:AutoScalingConfiguration", id, state, "", opts...)
+}
+
 type autoScalingConfigurationArgs struct {
 	// The customer-provided auto scaling configuration name.  When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration. The auto scaling configuration name can be used in multiple revisions of a configuration.
 	AutoScalingConfigurationName *string `pulumi:"autoScalingConfigurationName"`

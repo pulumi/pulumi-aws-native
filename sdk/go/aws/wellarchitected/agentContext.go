@@ -97,6 +97,12 @@ func (AgentContextState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentContextState)(nil)).Elem()
 }
 
+// AgentContextExists checks whether an existing AgentContext resource with the given ID exists.
+func AgentContextExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentContextState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wellarchitected:AgentContext", id, state, "", opts...)
+}
+
 type agentContextArgs struct {
 	// The free-form content of the Agent Context, supplied as an arbitrary JSON object.
 	//

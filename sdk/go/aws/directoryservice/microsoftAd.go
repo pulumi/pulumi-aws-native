@@ -89,6 +89,12 @@ func (MicrosoftAdState) ElementType() reflect.Type {
 	return reflect.TypeOf((*microsoftAdState)(nil)).Elem()
 }
 
+// MicrosoftAdExists checks whether an existing MicrosoftAd resource with the given ID exists.
+func MicrosoftAdExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MicrosoftAdState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:directoryservice:MicrosoftAd", id, state, "", opts...)
+}
+
 type microsoftAdArgs struct {
 	// Specifies an alias for a directory and assigns the alias to the directory. The alias is used to construct the access URL for the directory, such as http://<alias>.awsapps.com. By default, AWS CloudFormation does not create an alias.
 	CreateAlias *bool `pulumi:"createAlias"`

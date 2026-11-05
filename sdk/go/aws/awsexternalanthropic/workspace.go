@@ -72,6 +72,12 @@ func (WorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceState)(nil)).Elem()
 }
 
+// WorkspaceExists checks whether an existing Workspace resource with the given ID exists.
+func WorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:awsexternalanthropic:Workspace", id, state, "", opts...)
+}
+
 type workspaceArgs struct {
 	DataResidency *WorkspaceDataResidency `pulumi:"dataResidency"`
 	// The name of the workspace.

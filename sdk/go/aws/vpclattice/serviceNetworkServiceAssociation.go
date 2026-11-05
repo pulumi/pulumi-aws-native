@@ -90,6 +90,12 @@ func (ServiceNetworkServiceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceNetworkServiceAssociationState)(nil)).Elem()
 }
 
+// ServiceNetworkServiceAssociationExists checks whether an existing ServiceNetworkServiceAssociation resource with the given ID exists.
+func ServiceNetworkServiceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceNetworkServiceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:vpclattice:ServiceNetworkServiceAssociation", id, state, "", opts...)
+}
+
 type serviceNetworkServiceAssociationArgs struct {
 	// The DNS information of the service.
 	DnsEntry *ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntry"`

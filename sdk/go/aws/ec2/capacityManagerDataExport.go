@@ -86,6 +86,12 @@ func (CapacityManagerDataExportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityManagerDataExportState)(nil)).Elem()
 }
 
+// CapacityManagerDataExportExists checks whether an existing CapacityManagerDataExport resource with the given ID exists.
+func CapacityManagerDataExportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityManagerDataExportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:CapacityManagerDataExport", id, state, "", opts...)
+}
+
 type capacityManagerDataExportArgs struct {
 	// The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
 	OutputFormat CapacityManagerDataExportOutputFormat `pulumi:"outputFormat"`

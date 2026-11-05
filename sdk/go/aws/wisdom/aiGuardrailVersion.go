@@ -83,6 +83,12 @@ func (AiGuardrailVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aiGuardrailVersionState)(nil)).Elem()
 }
 
+// AiGuardrailVersionExists checks whether an existing AiGuardrailVersion resource with the given ID exists.
+func AiGuardrailVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AiGuardrailVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:AiGuardrailVersion", id, state, "", opts...)
+}
+
 type aiGuardrailVersionArgs struct {
 	// The ID of the AI guardrail version.
 	AiGuardrailId string `pulumi:"aiGuardrailId"`

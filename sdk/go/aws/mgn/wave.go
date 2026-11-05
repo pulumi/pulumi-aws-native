@@ -75,6 +75,12 @@ func (WaveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*waveState)(nil)).Elem()
 }
 
+// WaveExists checks whether an existing Wave resource with the given ID exists.
+func WaveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WaveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mgn:Wave", id, state, "", opts...)
+}
+
 type waveArgs struct {
 	// A description of the wave.
 	Description *string `pulumi:"description"`

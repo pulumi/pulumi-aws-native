@@ -162,6 +162,12 @@ func (ActivityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityState)(nil)).Elem()
 }
 
+// ActivityExists checks whether an existing Activity resource with the given ID exists.
+func ActivityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActivityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:stepfunctions:Activity", id, state, "", opts...)
+}
+
 type activityArgs struct {
 	// Encryption configuration for the activity.
 	//

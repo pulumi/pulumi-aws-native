@@ -95,6 +95,12 @@ func (LaunchConfigurationTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchConfigurationTemplateState)(nil)).Elem()
 }
 
+// LaunchConfigurationTemplateExists checks whether an existing LaunchConfigurationTemplate resource with the given ID exists.
+func LaunchConfigurationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchConfigurationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mgn:LaunchConfigurationTemplate", id, state, "", opts...)
+}
+
 type launchConfigurationTemplateArgs struct {
 	// Whether to associate a public IP address with the launched instance.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`

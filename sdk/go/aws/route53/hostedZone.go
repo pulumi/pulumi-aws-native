@@ -108,6 +108,12 @@ func (HostedZoneState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedZoneState)(nil)).Elem()
 }
 
+// HostedZoneExists checks whether an existing HostedZone resource with the given ID exists.
+func HostedZoneExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostedZoneState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53:HostedZone", id, state, "", opts...)
+}
+
 type hostedZoneArgs struct {
 	DelegationSetId *string `pulumi:"delegationSetId"`
 	// A complex type that contains an optional comment.

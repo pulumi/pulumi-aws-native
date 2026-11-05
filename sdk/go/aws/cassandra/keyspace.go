@@ -180,6 +180,12 @@ func (KeyspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyspaceState)(nil)).Elem()
 }
 
+// KeyspaceExists checks whether an existing Keyspace resource with the given ID exists.
+func KeyspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cassandra:Keyspace", id, state, "", opts...)
+}
+
 type keyspaceArgs struct {
 	// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
 	ClientSideTimestampsEnabled *bool `pulumi:"clientSideTimestampsEnabled"`

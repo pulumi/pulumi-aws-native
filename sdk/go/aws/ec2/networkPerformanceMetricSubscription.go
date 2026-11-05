@@ -84,6 +84,12 @@ func (NetworkPerformanceMetricSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkPerformanceMetricSubscriptionState)(nil)).Elem()
 }
 
+// NetworkPerformanceMetricSubscriptionExists checks whether an existing NetworkPerformanceMetricSubscription resource with the given ID exists.
+func NetworkPerformanceMetricSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkPerformanceMetricSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:NetworkPerformanceMetricSubscription", id, state, "", opts...)
+}
+
 type networkPerformanceMetricSubscriptionArgs struct {
 	// The target Region or Availability Zone for the metric to subscribe to.
 	Destination string `pulumi:"destination"`

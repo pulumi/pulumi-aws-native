@@ -97,6 +97,12 @@ func (ProgramState) ElementType() reflect.Type {
 	return reflect.TypeOf((*programState)(nil)).Elem()
 }
 
+// ProgramExists checks whether an existing Program resource with the given ID exists.
+func ProgramExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProgramState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediatailor:Program", id, state, "", opts...)
+}
+
 type programArgs struct {
 	// The ad break configuration settings.
 	AdBreaks []ProgramAdBreak `pulumi:"adBreaks"`

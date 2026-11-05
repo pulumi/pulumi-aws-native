@@ -69,6 +69,12 @@ func (SqlHaStandbyDetectedInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlHaStandbyDetectedInstanceState)(nil)).Elem()
 }
 
+// SqlHaStandbyDetectedInstanceExists checks whether an existing SqlHaStandbyDetectedInstance resource with the given ID exists.
+func SqlHaStandbyDetectedInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlHaStandbyDetectedInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SqlHaStandbyDetectedInstance", id, state, "", opts...)
+}
+
 type sqlHaStandbyDetectedInstanceArgs struct {
 	InstanceId           string  `pulumi:"instanceId"`
 	SqlServerCredentials *string `pulumi:"sqlServerCredentials"`

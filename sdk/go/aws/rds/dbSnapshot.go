@@ -119,6 +119,12 @@ func (DbSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbSnapshotState)(nil)).Elem()
 }
 
+// DbSnapshotExists checks whether an existing DbSnapshot resource with the given ID exists.
+func DbSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbSnapshot", id, state, "", opts...)
+}
+
 type dbSnapshotArgs struct {
 	// The identifier of the DB instance that you want to create the snapshot of.
 	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`

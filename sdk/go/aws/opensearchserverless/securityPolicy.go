@@ -190,6 +190,12 @@ func (SecurityPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityPolicyState)(nil)).Elem()
 }
 
+// SecurityPolicyExists checks whether an existing SecurityPolicy resource with the given ID exists.
+func SecurityPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:opensearchserverless:SecurityPolicy", id, state, "", opts...)
+}
+
 type securityPolicyArgs struct {
 	// The description of the policy
 	Description *string `pulumi:"description"`

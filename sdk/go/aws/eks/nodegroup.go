@@ -201,6 +201,12 @@ func (NodegroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodegroupState)(nil)).Elem()
 }
 
+// NodegroupExists checks whether an existing Nodegroup resource with the given ID exists.
+func NodegroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NodegroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eks:Nodegroup", id, state, "", opts...)
+}
+
 type nodegroupArgs struct {
 	// The AMI type for your node group.
 	AmiType *string `pulumi:"amiType"`

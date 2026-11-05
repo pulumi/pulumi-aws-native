@@ -87,6 +87,12 @@ func (ServerlessCacheSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverlessCacheSnapshotState)(nil)).Elem()
 }
 
+// ServerlessCacheSnapshotExists checks whether an existing ServerlessCacheSnapshot resource with the given ID exists.
+func ServerlessCacheSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerlessCacheSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticache:ServerlessCacheSnapshot", id, state, "", opts...)
+}
+
 type serverlessCacheSnapshotArgs struct {
 	// The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the snapshot. Provide the key ARN: the resource returns the key ARN on read, so supplying a bare key ID or alias for this createOnly property may be reported as drift by CloudFormation.
 	KmsKeyId *string `pulumi:"kmsKeyId"`

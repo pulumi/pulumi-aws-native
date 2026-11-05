@@ -70,6 +70,12 @@ func (CollectionIndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*collectionIndexState)(nil)).Elem()
 }
 
+// CollectionIndexExists checks whether an existing CollectionIndex resource with the given ID exists.
+func CollectionIndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CollectionIndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:opensearchserverless:CollectionIndex", id, state, "", opts...)
+}
+
 type collectionIndexArgs struct {
 	// The identifier of the collection
 	AwsId string `pulumi:"awsId"`

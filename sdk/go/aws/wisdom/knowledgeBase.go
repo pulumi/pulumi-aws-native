@@ -90,6 +90,12 @@ func (KnowledgeBaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*knowledgeBaseState)(nil)).Elem()
 }
 
+// KnowledgeBaseExists checks whether an existing KnowledgeBase resource with the given ID exists.
+func KnowledgeBaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KnowledgeBaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:KnowledgeBase", id, state, "", opts...)
+}
+
 type knowledgeBaseArgs struct {
 	// The description.
 	Description *string `pulumi:"description"`

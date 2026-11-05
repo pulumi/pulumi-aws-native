@@ -79,6 +79,12 @@ func (PlacementGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementGroupState)(nil)).Elem()
 }
 
+// PlacementGroupExists checks whether an existing PlacementGroup resource with the given ID exists.
+func PlacementGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlacementGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:PlacementGroup", id, state, "", opts...)
+}
+
 type placementGroupArgs struct {
 	// The ID of a parent placement group. Valid for strategies that support parent group linking.
 	ParentGroupId *string `pulumi:"parentGroupId"`

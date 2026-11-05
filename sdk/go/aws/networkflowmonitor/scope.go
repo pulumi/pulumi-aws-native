@@ -75,6 +75,12 @@ func (ScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scopeState)(nil)).Elem()
 }
 
+// ScopeExists checks whether an existing Scope resource with the given ID exists.
+func ScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkflowmonitor:Scope", id, state, "", opts...)
+}
+
 type scopeArgs struct {
 	// The tags for the scope.
 	Tags []aws.Tag `pulumi:"tags"`

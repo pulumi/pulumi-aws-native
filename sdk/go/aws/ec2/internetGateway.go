@@ -94,6 +94,12 @@ func (InternetGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*internetGatewayState)(nil)).Elem()
 }
 
+// InternetGatewayExists checks whether an existing InternetGateway resource with the given ID exists.
+func InternetGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InternetGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:InternetGateway", id, state, "", opts...)
+}
+
 type internetGatewayArgs struct {
 	// Any tags to assign to the internet gateway.
 	Tags []aws.Tag `pulumi:"tags"`

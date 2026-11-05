@@ -87,6 +87,12 @@ func (IpamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamState)(nil)).Elem()
 }
 
+// IpamExists checks whether an existing Ipam resource with the given ID exists.
+func IpamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:Ipam", id, state, "", opts...)
+}
+
 type ipamArgs struct {
 	// A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
 	DefaultResourceDiscoveryOrganizationalUnitExclusions []IpamOrganizationalUnitExclusion `pulumi:"defaultResourceDiscoveryOrganizationalUnitExclusions"`

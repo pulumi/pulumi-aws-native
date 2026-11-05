@@ -77,6 +77,12 @@ func (TablePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tablePolicyState)(nil)).Elem()
 }
 
+// TablePolicyExists checks whether an existing TablePolicy resource with the given ID exists.
+func TablePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TablePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3tables:TablePolicy", id, state, "", opts...)
+}
+
 type tablePolicyArgs struct {
 	// The `JSON` that defines the policy.
 	ResourcePolicy TablePolicyResourcePolicy `pulumi:"resourcePolicy"`

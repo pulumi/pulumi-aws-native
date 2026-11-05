@@ -144,6 +144,12 @@ func (AccountPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountPolicyState)(nil)).Elem()
 }
 
+// AccountPolicyExists checks whether an existing AccountPolicy resource with the given ID exists.
+func AccountPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:AccountPolicy", id, state, "", opts...)
+}
+
 type accountPolicyArgs struct {
 	// The body of the policy document you want to use for this topic.
 	//

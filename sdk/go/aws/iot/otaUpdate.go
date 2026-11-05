@@ -112,6 +112,12 @@ func (OtaUpdateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*otaUpdateState)(nil)).Elem()
 }
 
+// OtaUpdateExists checks whether an existing OtaUpdate resource with the given ID exists.
+func OtaUpdateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OtaUpdateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:OtaUpdate", id, state, "", opts...)
+}
+
 type otaUpdateArgs struct {
 	// A list of additional OTA update parameters, which are name-value pairs.
 	AdditionalParameters          map[string]string                       `pulumi:"additionalParameters"`

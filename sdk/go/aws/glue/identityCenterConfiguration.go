@@ -74,6 +74,12 @@ func (IdentityCenterConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityCenterConfigurationState)(nil)).Elem()
 }
 
+// IdentityCenterConfigurationExists checks whether an existing IdentityCenterConfiguration resource with the given ID exists.
+func IdentityCenterConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityCenterConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:IdentityCenterConfiguration", id, state, "", opts...)
+}
+
 type identityCenterConfigurationArgs struct {
 	// The IAM identity center instance arn
 	InstanceArn string `pulumi:"instanceArn"`

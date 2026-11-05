@@ -81,6 +81,12 @@ func (TransitGatewayConnectPeerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayConnectPeerState)(nil)).Elem()
 }
 
+// TransitGatewayConnectPeerExists checks whether an existing TransitGatewayConnectPeer resource with the given ID exists.
+func TransitGatewayConnectPeerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayConnectPeerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayConnectPeer", id, state, "", opts...)
+}
+
 type transitGatewayConnectPeerArgs struct {
 	// The Connect peer details.
 	ConnectPeerConfiguration TransitGatewayConnectPeerConfiguration `pulumi:"connectPeerConfiguration"`

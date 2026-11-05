@@ -147,6 +147,12 @@ func (RepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryState)(nil)).Elem()
 }
 
+// RepositoryExists checks whether an existing Repository resource with the given ID exists.
+func RepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codecommit:Repository", id, state, "", opts...)
+}
+
 type repositoryArgs struct {
 	// Information about code to be committed to a repository after it is created in an AWS CloudFormation stack. Information about code is only used in resource creation. Updates to a stack will not reflect changes made to code properties after initial resource creation.
 	Code *RepositoryCode `pulumi:"code"`

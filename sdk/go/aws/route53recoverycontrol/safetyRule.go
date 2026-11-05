@@ -75,6 +75,12 @@ func (SafetyRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*safetyRuleState)(nil)).Elem()
 }
 
+// SafetyRuleExists checks whether an existing SafetyRule resource with the given ID exists.
+func SafetyRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SafetyRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53recoverycontrol:SafetyRule", id, state, "", opts...)
+}
+
 type safetyRuleArgs struct {
 	// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
 	AssertionRule *SafetyRuleAssertionRule `pulumi:"assertionRule"`

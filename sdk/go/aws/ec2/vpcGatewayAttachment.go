@@ -72,6 +72,12 @@ func (VpcGatewayAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcGatewayAttachmentState)(nil)).Elem()
 }
 
+// VpcGatewayAttachmentExists checks whether an existing VpcGatewayAttachment resource with the given ID exists.
+func VpcGatewayAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcGatewayAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpcGatewayAttachment", id, state, "", opts...)
+}
+
 type vpcGatewayAttachmentArgs struct {
 	// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`

@@ -85,6 +85,12 @@ func (StorageSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageSystemState)(nil)).Elem()
 }
 
+// StorageSystemExists checks whether an existing StorageSystem resource with the given ID exists.
+func StorageSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:StorageSystem", id, state, "", opts...)
+}
+
 type storageSystemArgs struct {
 	// The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
 	AgentArns []string `pulumi:"agentArns"`

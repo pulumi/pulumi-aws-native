@@ -75,6 +75,12 @@ func (TableBucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableBucketState)(nil)).Elem()
 }
 
+// TableBucketExists checks whether an existing TableBucket resource with the given ID exists.
+func TableBucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableBucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3tables:TableBucket", id, state, "", opts...)
+}
+
 type tableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration  *TableBucketEncryptionConfiguration  `pulumi:"encryptionConfiguration"`

@@ -85,6 +85,12 @@ func (EntitlementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entitlementState)(nil)).Elem()
 }
 
+// EntitlementExists checks whether an existing Entitlement resource with the given ID exists.
+func EntitlementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntitlementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appstream:Entitlement", id, state, "", opts...)
+}
+
 type entitlementArgs struct {
 	// Specifies whether to entitle all apps or only selected apps.
 	AppVisibility string `pulumi:"appVisibility"`

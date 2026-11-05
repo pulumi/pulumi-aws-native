@@ -71,6 +71,12 @@ func (IPv4PoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipv4PoolState)(nil)).Elem()
 }
 
+// IPv4PoolExists checks whether an existing IPv4Pool resource with the given ID exists.
+func IPv4PoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IPv4PoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IPv4Pool", id, state, "", opts...)
+}
+
 type ipv4PoolArgs struct {
 	// Any tags assigned to the public IPv4 pool.
 	Tags []aws.Tag `pulumi:"tags"`

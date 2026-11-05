@@ -142,6 +142,12 @@ func (DeploymentStrategyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentStrategyState)(nil)).Elem()
 }
 
+// DeploymentStrategyExists checks whether an existing DeploymentStrategy resource with the given ID exists.
+func DeploymentStrategyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentStrategyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appconfig:DeploymentStrategy", id, state, "", opts...)
+}
+
 type deploymentStrategyArgs struct {
 	// Total amount of time for a deployment to last.
 	DeploymentDurationInMinutes float64 `pulumi:"deploymentDurationInMinutes"`

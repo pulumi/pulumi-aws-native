@@ -99,6 +99,12 @@ func (AgentProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentProfileState)(nil)).Elem()
 }
 
+// AgentProfileExists checks whether an existing AgentProfile resource with the given ID exists.
+func AgentProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wellarchitected:AgentProfile", id, state, "", opts...)
+}
+
 type agentProfileArgs struct {
 	// The aggregation configuration entries (account, regions, access role) associated with this profile.
 	AggregationConfiguration []AgentProfileAggregationConfiguration `pulumi:"aggregationConfiguration"`

@@ -64,6 +64,12 @@ func (AccountCustomizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountCustomizationState)(nil)).Elem()
 }
 
+// AccountCustomizationExists checks whether an existing AccountCustomization resource with the given ID exists.
+func AccountCustomizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountCustomizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:uxc:AccountCustomization", id, state, "", opts...)
+}
+
 type accountCustomizationArgs struct {
 	// The color theme assigned to the account for visual identification in the AWS Console.
 	AccountColor *AccountCustomizationAccountColor `pulumi:"accountColor"`

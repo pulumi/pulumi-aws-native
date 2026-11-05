@@ -93,6 +93,12 @@ func (DeliveryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deliveryState)(nil)).Elem()
 }
 
+// DeliveryExists checks whether an existing Delivery resource with the given ID exists.
+func DeliveryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeliveryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:Delivery", id, state, "", opts...)
+}
+
 type deliveryArgs struct {
 	// The ARN of the delivery destination that is associated with this delivery.
 	DeliveryDestinationArn string `pulumi:"deliveryDestinationArn"`

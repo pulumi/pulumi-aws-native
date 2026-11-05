@@ -113,6 +113,12 @@ func (FlowOutputResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowOutputResourceState)(nil)).Elem()
 }
 
+// FlowOutputResourceExists checks whether an existing FlowOutputResource resource with the given ID exists.
+func FlowOutputResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowOutputResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:FlowOutput", id, state, "", opts...)
+}
+
 type flowOutputResourceArgs struct {
 	// The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	CidrAllowList []string `pulumi:"cidrAllowList"`

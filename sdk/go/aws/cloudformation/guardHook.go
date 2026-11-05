@@ -102,6 +102,12 @@ func (GuardHookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*guardHookState)(nil)).Elem()
 }
 
+// GuardHookExists checks whether an existing GuardHook resource with the given ID exists.
+func GuardHookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GuardHookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:GuardHook", id, state, "", opts...)
+}
+
 type guardHookArgs struct {
 	// The typename alias for the hook.
 	Alias string `pulumi:"alias"`

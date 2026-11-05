@@ -93,6 +93,12 @@ func (ListenerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerState)(nil)).Elem()
 }
 
+// ListenerExists checks whether an existing Listener resource with the given ID exists.
+func ListenerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ListenerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:vpclattice:Listener", id, state, "", opts...)
+}
+
 type listenerArgs struct {
 	// The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
 	DefaultAction ListenerDefaultAction `pulumi:"defaultAction"`

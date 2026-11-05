@@ -87,6 +87,12 @@ func (IpamExternalResourceVerificationTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamExternalResourceVerificationTokenState)(nil)).Elem()
 }
 
+// IpamExternalResourceVerificationTokenExists checks whether an existing IpamExternalResourceVerificationToken resource with the given ID exists.
+func IpamExternalResourceVerificationTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamExternalResourceVerificationTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamExternalResourceVerificationToken", id, state, "", opts...)
+}
+
 type ipamExternalResourceVerificationTokenArgs struct {
 	// The ID of the IPAM that will create the token.
 	IpamId string `pulumi:"ipamId"`

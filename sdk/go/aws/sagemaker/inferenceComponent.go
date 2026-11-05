@@ -84,6 +84,12 @@ func (InferenceComponentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inferenceComponentState)(nil)).Elem()
 }
 
+// InferenceComponentExists checks whether an existing InferenceComponent resource with the given ID exists.
+func InferenceComponentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InferenceComponentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:InferenceComponent", id, state, "", opts...)
+}
+
 type inferenceComponentArgs struct {
 	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
 	DeploymentConfig *InferenceComponentDeploymentConfig `pulumi:"deploymentConfig"`

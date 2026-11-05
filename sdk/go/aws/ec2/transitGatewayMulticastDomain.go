@@ -79,6 +79,12 @@ func (TransitGatewayMulticastDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayMulticastDomainState)(nil)).Elem()
 }
 
+// TransitGatewayMulticastDomainExists checks whether an existing TransitGatewayMulticastDomain resource with the given ID exists.
+func TransitGatewayMulticastDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayMulticastDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayMulticastDomain", id, state, "", opts...)
+}
+
 type transitGatewayMulticastDomainArgs struct {
 	// The options for the transit gateway multicast domain.
 	Options *OptionsProperties `pulumi:"options"`

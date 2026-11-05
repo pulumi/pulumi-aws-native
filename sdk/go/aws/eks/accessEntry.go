@@ -86,6 +86,12 @@ func (AccessEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessEntryState)(nil)).Elem()
 }
 
+// AccessEntryExists checks whether an existing AccessEntry resource with the given ID exists.
+func AccessEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eks:AccessEntry", id, state, "", opts...)
+}
+
 type accessEntryArgs struct {
 	// An array of access policies that are associated with the access entry.
 	AccessPolicies []AccessEntryAccessPolicy `pulumi:"accessPolicies"`

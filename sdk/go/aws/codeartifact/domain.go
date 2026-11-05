@@ -542,6 +542,12 @@ func (DomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainState)(nil)).Elem()
 }
 
+// DomainExists checks whether an existing Domain resource with the given ID exists.
+func DomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codeartifact:Domain", id, state, "", opts...)
+}
+
 type domainArgs struct {
 	// The name of the domain.
 	DomainName *string `pulumi:"domainName"`

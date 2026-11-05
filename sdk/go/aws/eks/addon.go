@@ -89,6 +89,12 @@ func (AddonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*addonState)(nil)).Elem()
 }
 
+// AddonExists checks whether an existing Addon resource with the given ID exists.
+func AddonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AddonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eks:Addon", id, state, "", opts...)
+}
+
 type addonArgs struct {
 	// Name of Addon
 	AddonName *string `pulumi:"addonName"`

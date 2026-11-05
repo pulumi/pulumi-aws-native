@@ -85,6 +85,12 @@ func (MediaInsightsPipelineConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mediaInsightsPipelineConfigurationState)(nil)).Elem()
 }
 
+// MediaInsightsPipelineConfigurationExists checks whether an existing MediaInsightsPipelineConfiguration resource with the given ID exists.
+func MediaInsightsPipelineConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MediaInsightsPipelineConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:chime:MediaInsightsPipelineConfiguration", id, state, "", opts...)
+}
+
 type mediaInsightsPipelineConfigurationArgs struct {
 	// The elements in the configuration.
 	Elements []MediaInsightsPipelineConfigurationElement `pulumi:"elements"`

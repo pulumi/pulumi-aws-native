@@ -77,6 +77,12 @@ func (FindingsFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*findingsFilterState)(nil)).Elem()
 }
 
+// FindingsFilterExists checks whether an existing FindingsFilter resource with the given ID exists.
+func FindingsFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FindingsFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:macie:FindingsFilter", id, state, "", opts...)
+}
+
 type findingsFilterArgs struct {
 	// Findings filter action.
 	Action *FindingsFilterFindingFilterAction `pulumi:"action"`

@@ -69,6 +69,12 @@ func (ExecutionPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*executionPlanState)(nil)).Elem()
 }
 
+// ExecutionPlanExists checks whether an existing ExecutionPlan resource with the given ID exists.
+func ExecutionPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExecutionPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kendraranking:ExecutionPlan", id, state, "", opts...)
+}
+
 type executionPlanArgs struct {
 	// Capacity units
 	CapacityUnits *ExecutionPlanCapacityUnitsConfiguration `pulumi:"capacityUnits"`

@@ -66,6 +66,12 @@ func (VpcBlockPublicAccessOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcBlockPublicAccessOptionsState)(nil)).Elem()
 }
 
+// VpcBlockPublicAccessOptionsExists checks whether an existing VpcBlockPublicAccessOptions resource with the given ID exists.
+func VpcBlockPublicAccessOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcBlockPublicAccessOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpcBlockPublicAccessOptions", id, state, "", opts...)
+}
+
 type vpcBlockPublicAccessOptionsArgs struct {
 	// The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
 	InternetGatewayBlockMode VpcBlockPublicAccessOptionsInternetGatewayBlockMode `pulumi:"internetGatewayBlockMode"`

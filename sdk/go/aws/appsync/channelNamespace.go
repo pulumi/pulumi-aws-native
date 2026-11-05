@@ -84,6 +84,12 @@ func (ChannelNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelNamespaceState)(nil)).Elem()
 }
 
+// ChannelNamespaceExists checks whether an existing ChannelNamespace resource with the given ID exists.
+func ChannelNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:ChannelNamespace", id, state, "", opts...)
+}
+
 type channelNamespaceArgs struct {
 	// AppSync Api Id that this Channel Namespace belongs to.
 	ApiId string `pulumi:"apiId"`

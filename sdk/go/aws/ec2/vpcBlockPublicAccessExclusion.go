@@ -76,6 +76,12 @@ func (VpcBlockPublicAccessExclusionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcBlockPublicAccessExclusionState)(nil)).Elem()
 }
 
+// VpcBlockPublicAccessExclusionExists checks whether an existing VpcBlockPublicAccessExclusion resource with the given ID exists.
+func VpcBlockPublicAccessExclusionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcBlockPublicAccessExclusionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpcBlockPublicAccessExclusion", id, state, "", opts...)
+}
+
 type vpcBlockPublicAccessExclusionArgs struct {
 	// The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
 	InternetGatewayExclusionMode VpcBlockPublicAccessExclusionInternetGatewayExclusionMode `pulumi:"internetGatewayExclusionMode"`

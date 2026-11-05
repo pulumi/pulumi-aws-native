@@ -84,6 +84,12 @@ func (LocationEfsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationEfsState)(nil)).Elem()
 }
 
+// LocationEfsExists checks whether an existing LocationEfs resource with the given ID exists.
+func LocationEfsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationEfsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationEfs", id, state, "", opts...)
+}
+
 type locationEfsArgs struct {
 	// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
 	AccessPointArn *string `pulumi:"accessPointArn"`

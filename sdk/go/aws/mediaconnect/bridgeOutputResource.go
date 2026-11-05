@@ -74,6 +74,12 @@ func (BridgeOutputResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bridgeOutputResourceState)(nil)).Elem()
 }
 
+// BridgeOutputResourceExists checks whether an existing BridgeOutputResource resource with the given ID exists.
+func BridgeOutputResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BridgeOutputResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:BridgeOutputResource", id, state, "", opts...)
+}
+
 type bridgeOutputResourceArgs struct {
 	// The Amazon Resource Number (ARN) of the bridge.
 	BridgeArn string `pulumi:"bridgeArn"`

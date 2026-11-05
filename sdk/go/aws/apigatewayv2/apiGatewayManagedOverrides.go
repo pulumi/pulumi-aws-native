@@ -74,6 +74,12 @@ func (ApiGatewayManagedOverridesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiGatewayManagedOverridesState)(nil)).Elem()
 }
 
+// ApiGatewayManagedOverridesExists checks whether an existing ApiGatewayManagedOverrides resource with the given ID exists.
+func ApiGatewayManagedOverridesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiGatewayManagedOverridesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:ApiGatewayManagedOverrides", id, state, "", opts...)
+}
+
 type apiGatewayManagedOverridesArgs struct {
 	// The ID of the API for which to override the configuration of API Gateway-managed resources.
 	ApiId string `pulumi:"apiId"`

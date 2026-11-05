@@ -89,6 +89,12 @@ func (EventTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventTypeState)(nil)).Elem()
 }
 
+// EventTypeExists checks whether an existing EventType resource with the given ID exists.
+func EventTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:frauddetector:EventType", id, state, "", opts...)
+}
+
 type eventTypeArgs struct {
 	// The description of the event type.
 	Description *string `pulumi:"description"`

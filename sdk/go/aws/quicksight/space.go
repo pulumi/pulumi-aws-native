@@ -91,6 +91,12 @@ func (SpaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spaceState)(nil)).Elem()
 }
 
+// SpaceExists checks whether an existing Space resource with the given ID exists.
+func SpaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:Space", id, state, "", opts...)
+}
+
 type spaceArgs struct {
 	// The ID of the Amazon Web Services account where the space is being created.
 	AwsAccountId string `pulumi:"awsAccountId"`

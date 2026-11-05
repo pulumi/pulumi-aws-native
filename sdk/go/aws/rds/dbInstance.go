@@ -759,6 +759,12 @@ func (DbInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbInstanceState)(nil)).Elem()
 }
 
+// DbInstanceExists checks whether an existing DbInstance resource with the given ID exists.
+func DbInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbInstance", id, state, "", opts...)
+}
+
 type dbInstanceArgs struct {
 	// The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
 	AdditionalStorageVolumes []DbInstanceAdditionalStorageVolume `pulumi:"additionalStorageVolumes"`

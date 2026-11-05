@@ -85,6 +85,12 @@ func (AccessProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessProfileState)(nil)).Elem()
 }
 
+// AccessProfileExists checks whether an existing AccessProfile resource with the given ID exists.
+func AccessProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:AccessProfile", id, state, "", opts...)
+}
+
 type accessProfileArgs struct {
 	// The description of the access profile.
 	Description *string `pulumi:"description"`

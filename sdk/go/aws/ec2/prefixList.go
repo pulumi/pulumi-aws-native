@@ -169,6 +169,12 @@ func (PrefixListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*prefixListState)(nil)).Elem()
 }
 
+// PrefixListExists checks whether an existing PrefixList resource with the given ID exists.
+func PrefixListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrefixListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:PrefixList", id, state, "", opts...)
+}
+
 type prefixListArgs struct {
 	// Ip Version of Prefix List.
 	AddressFamily PrefixListAddressFamily `pulumi:"addressFamily"`

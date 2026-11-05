@@ -92,6 +92,12 @@ func (DiskSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskSnapshotState)(nil)).Elem()
 }
 
+// DiskSnapshotExists checks whether an existing DiskSnapshot resource with the given ID exists.
+func DiskSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DiskSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lightsail:DiskSnapshot", id, state, "", opts...)
+}
+
 type diskSnapshotArgs struct {
 	// The name of the source disk from which the snapshot was created.
 	DiskName string `pulumi:"diskName"`

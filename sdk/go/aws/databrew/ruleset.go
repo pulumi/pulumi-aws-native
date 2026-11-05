@@ -81,6 +81,12 @@ func (RulesetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulesetState)(nil)).Elem()
 }
 
+// RulesetExists checks whether an existing Ruleset resource with the given ID exists.
+func RulesetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RulesetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:databrew:Ruleset", id, state, "", opts...)
+}
+
 type rulesetArgs struct {
 	// Description of the Ruleset
 	Description *string `pulumi:"description"`

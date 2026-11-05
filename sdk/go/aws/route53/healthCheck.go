@@ -67,6 +67,12 @@ func (HealthCheckState) ElementType() reflect.Type {
 	return reflect.TypeOf((*healthCheckState)(nil)).Elem()
 }
 
+// HealthCheckExists checks whether an existing HealthCheck resource with the given ID exists.
+func HealthCheckExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HealthCheckState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53:HealthCheck", id, state, "", opts...)
+}
+
 type healthCheckArgs struct {
 	// A complex type that contains information about the health check.
 	HealthCheckConfig HealthCheckConfigProperties `pulumi:"healthCheckConfig"`

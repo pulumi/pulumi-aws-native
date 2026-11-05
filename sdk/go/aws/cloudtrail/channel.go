@@ -71,6 +71,12 @@ func (ChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelState)(nil)).Elem()
 }
 
+// ChannelExists checks whether an existing Channel resource with the given ID exists.
+func ChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudtrail:Channel", id, state, "", opts...)
+}
+
 type channelArgs struct {
 	// One or more resources to which events arriving through a channel are logged and stored.
 	Destinations []ChannelDestination `pulumi:"destinations"`

@@ -74,6 +74,12 @@ func (DelegatedAdminState) ElementType() reflect.Type {
 	return reflect.TypeOf((*delegatedAdminState)(nil)).Elem()
 }
 
+// DelegatedAdminExists checks whether an existing DelegatedAdmin resource with the given ID exists.
+func DelegatedAdminExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DelegatedAdminState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:DelegatedAdmin", id, state, "", opts...)
+}
+
 type delegatedAdminArgs struct {
 	// The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
 	AdminAccountId string `pulumi:"adminAccountId"`

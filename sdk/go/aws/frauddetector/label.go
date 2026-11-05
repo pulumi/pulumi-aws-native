@@ -73,6 +73,12 @@ func (LabelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*labelState)(nil)).Elem()
 }
 
+// LabelExists checks whether an existing Label resource with the given ID exists.
+func LabelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LabelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:frauddetector:Label", id, state, "", opts...)
+}
+
 type labelArgs struct {
 	// The label description.
 	Description *string `pulumi:"description"`

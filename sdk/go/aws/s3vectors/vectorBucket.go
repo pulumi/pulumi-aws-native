@@ -80,6 +80,12 @@ func (VectorBucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vectorBucketState)(nil)).Elem()
 }
 
+// VectorBucketExists checks whether an existing VectorBucket resource with the given ID exists.
+func VectorBucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VectorBucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3vectors:VectorBucket", id, state, "", opts...)
+}
+
 type vectorBucketArgs struct {
 	// The encryption configuration for the vector bucket.
 	EncryptionConfiguration *VectorBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`

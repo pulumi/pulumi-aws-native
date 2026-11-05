@@ -79,6 +79,12 @@ func (SourceLocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceLocationState)(nil)).Elem()
 }
 
+// SourceLocationExists checks whether an existing SourceLocation resource with the given ID exists.
+func SourceLocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceLocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediatailor:SourceLocation", id, state, "", opts...)
+}
+
 type sourceLocationArgs struct {
 	// The access configuration for the source location.
 	AccessConfiguration *SourceLocationAccessConfiguration `pulumi:"accessConfiguration"`

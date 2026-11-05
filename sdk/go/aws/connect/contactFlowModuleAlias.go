@@ -79,6 +79,12 @@ func (ContactFlowModuleAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactFlowModuleAliasState)(nil)).Elem()
 }
 
+// ContactFlowModuleAliasExists checks whether an existing ContactFlowModuleAlias resource with the given ID exists.
+func ContactFlowModuleAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactFlowModuleAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:ContactFlowModuleAlias", id, state, "", opts...)
+}
+
 type contactFlowModuleAliasArgs struct {
 	// The identifier of the contact flow module (ARN) this alias is tied to.
 	ContactFlowModuleId string `pulumi:"contactFlowModuleId"`

@@ -223,6 +223,12 @@ func (ScalingPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalingPlanState)(nil)).Elem()
 }
 
+// ScalingPlanExists checks whether an existing ScalingPlan resource with the given ID exists.
+func ScalingPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScalingPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:autoscalingplans:ScalingPlan", id, state, "", opts...)
+}
+
 type scalingPlanArgs struct {
 	// A CloudFormation stack or a set of tags. You can create one scaling plan per application source. The ApplicationSource property must be present to ensure interoperability with the AWS Auto Scaling console.
 	ApplicationSource ScalingPlanApplicationSource `pulumi:"applicationSource"`

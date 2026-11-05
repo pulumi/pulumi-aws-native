@@ -91,6 +91,12 @@ func (LagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lagState)(nil)).Elem()
 }
 
+// LagExists checks whether an existing Lag resource with the given ID exists.
+func LagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:directconnect:Lag", id, state, "", opts...)
+}
+
 type lagArgs struct {
 	// The bandwidth of the individual physical dedicated connections bundled by the LAG.
 	ConnectionsBandwidth string `pulumi:"connectionsBandwidth"`

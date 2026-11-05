@@ -92,6 +92,12 @@ func (LaunchState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchState)(nil)).Elem()
 }
 
+// LaunchExists checks whether an existing Launch resource with the given ID exists.
+func LaunchExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:evidently:Launch", id, state, "", opts...)
+}
+
 type launchArgs struct {
 	// An optional description for the launch.
 	Description *string `pulumi:"description"`

@@ -141,6 +141,12 @@ func (ReceiptFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptFilterState)(nil)).Elem()
 }
 
+// ReceiptFilterExists checks whether an existing ReceiptFilter resource with the given ID exists.
+func ReceiptFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReceiptFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:ReceiptFilter", id, state, "", opts...)
+}
+
 type receiptFilterArgs struct {
 	// A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
 	Filter ReceiptFilterFilter `pulumi:"filter"`

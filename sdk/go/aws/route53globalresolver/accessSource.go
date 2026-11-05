@@ -84,6 +84,12 @@ func (AccessSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessSourceState)(nil)).Elem()
 }
 
+// AccessSourceExists checks whether an existing AccessSource resource with the given ID exists.
+func AccessSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53globalresolver:AccessSource", id, state, "", opts...)
+}
+
 type accessSourceArgs struct {
 	Cidr          string                     `pulumi:"cidr"`
 	ClientToken   *string                    `pulumi:"clientToken"`

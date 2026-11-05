@@ -117,6 +117,12 @@ func (HarnessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*harnessState)(nil)).Elem()
 }
 
+// HarnessExists checks whether an existing Harness resource with the given ID exists.
+func HarnessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HarnessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:Harness", id, state, "", opts...)
+}
+
 type harnessArgs struct {
 	// The tools that the agent is allowed to use.
 	AllowedTools []string `pulumi:"allowedTools"`

@@ -96,6 +96,12 @@ func (IpamInternetRegistryAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamInternetRegistryAssociationState)(nil)).Elem()
 }
 
+// IpamInternetRegistryAssociationExists checks whether an existing IpamInternetRegistryAssociation resource with the given ID exists.
+func IpamInternetRegistryAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamInternetRegistryAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamInternetRegistryAssociation", id, state, "", opts...)
+}
+
 type ipamInternetRegistryAssociationArgs struct {
 	// A description for the internet registry association.
 	Description *string `pulumi:"description"`

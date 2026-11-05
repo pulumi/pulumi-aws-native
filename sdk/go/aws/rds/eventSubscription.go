@@ -92,6 +92,12 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSubscriptionState)(nil)).Elem()
 }
 
+// EventSubscriptionExists checks whether an existing EventSubscription resource with the given ID exists.
+func EventSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:EventSubscription", id, state, "", opts...)
+}
+
 type eventSubscriptionArgs struct {
 	// Specifies whether to activate the subscription. If the event notification subscription isn't activated, the subscription is created but not active.
 	Enabled *bool `pulumi:"enabled"`

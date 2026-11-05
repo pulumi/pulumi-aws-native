@@ -134,6 +134,12 @@ func (AgentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentState)(nil)).Elem()
 }
 
+// AgentExists checks whether an existing Agent resource with the given ID exists.
+func AgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:Agent", id, state, "", opts...)
+}
+
 type agentArgs struct {
 	// Activation key of the Agent.
 	ActivationKey *string `pulumi:"activationKey"`

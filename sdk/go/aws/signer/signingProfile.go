@@ -81,6 +81,12 @@ func (SigningProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signingProfileState)(nil)).Elem()
 }
 
+// SigningProfileExists checks whether an existing SigningProfile resource with the given ID exists.
+func SigningProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SigningProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:signer:SigningProfile", id, state, "", opts...)
+}
+
 type signingProfileArgs struct {
 	// The ID of the target signing platform.
 	PlatformId SigningProfilePlatformId `pulumi:"platformId"`

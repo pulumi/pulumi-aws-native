@@ -87,6 +87,12 @@ func (PrivateConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateConnectionState)(nil)).Elem()
 }
 
+// PrivateConnectionExists checks whether an existing PrivateConnection resource with the given ID exists.
+func PrivateConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityagent:PrivateConnection", id, state, "", opts...)
+}
+
 type privateConnectionArgs struct {
 	// The PEM-encoded certificate chain for the private connection.
 	Certificate *string                `pulumi:"certificate"`

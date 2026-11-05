@@ -78,6 +78,12 @@ func (ResolverRuleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverRuleAssociationState)(nil)).Elem()
 }
 
+// ResolverRuleAssociationExists checks whether an existing ResolverRuleAssociation resource with the given ID exists.
+func ResolverRuleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverRuleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:ResolverRuleAssociation", id, state, "", opts...)
+}
+
 type resolverRuleAssociationArgs struct {
 	// The name of an association between a Resolver rule and a VPC.
 	//  The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.

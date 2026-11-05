@@ -81,6 +81,12 @@ func (RealtimeLogConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*realtimeLogConfigState)(nil)).Elem()
 }
 
+// RealtimeLogConfigExists checks whether an existing RealtimeLogConfig resource with the given ID exists.
+func RealtimeLogConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RealtimeLogConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:RealtimeLogConfig", id, state, "", opts...)
+}
+
 type realtimeLogConfigArgs struct {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints []RealtimeLogConfigEndPoint `pulumi:"endPoints"`

@@ -82,6 +82,12 @@ func (AcmeEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*acmeEndpointState)(nil)).Elem()
 }
 
+// AcmeEndpointExists checks whether an existing AcmeEndpoint resource with the given ID exists.
+func AcmeEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AcmeEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:certificatemanager:AcmeEndpoint", id, state, "", opts...)
+}
+
 type acmeEndpointArgs struct {
 	// The authorization behavior for the ACME endpoint.
 	AuthorizationBehavior string                           `pulumi:"authorizationBehavior"`

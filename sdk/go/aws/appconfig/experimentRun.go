@@ -95,6 +95,12 @@ func (ExperimentRunState) ElementType() reflect.Type {
 	return reflect.TypeOf((*experimentRunState)(nil)).Elem()
 }
 
+// ExperimentRunExists checks whether an existing ExperimentRun resource with the given ID exists.
+func ExperimentRunExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExperimentRunState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appconfig:ExperimentRun", id, state, "", opts...)
+}
+
 type experimentRunArgs struct {
 	// The application name or ID used to create the experiment run.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`

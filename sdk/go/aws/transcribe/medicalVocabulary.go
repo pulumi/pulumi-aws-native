@@ -76,6 +76,12 @@ func (MedicalVocabularyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*medicalVocabularyState)(nil)).Elem()
 }
 
+// MedicalVocabularyExists checks whether an existing MedicalVocabulary resource with the given ID exists.
+func MedicalVocabularyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MedicalVocabularyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:transcribe:MedicalVocabulary", id, state, "", opts...)
+}
+
 type medicalVocabularyArgs struct {
 	// The language code of the vocabulary entries.
 	LanguageCode MedicalVocabularyLanguageCode `pulumi:"languageCode"`

@@ -81,6 +81,12 @@ func (BridgeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bridgeState)(nil)).Elem()
 }
 
+// BridgeExists checks whether an existing Bridge resource with the given ID exists.
+func BridgeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BridgeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:Bridge", id, state, "", opts...)
+}
+
 type bridgeArgs struct {
 	// An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
 	EgressGatewayBridge *BridgeEgressGatewayBridge `pulumi:"egressGatewayBridge"`

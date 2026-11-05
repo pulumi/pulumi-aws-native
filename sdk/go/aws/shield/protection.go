@@ -82,6 +82,12 @@ func (ProtectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionState)(nil)).Elem()
 }
 
+// ProtectionExists checks whether an existing Protection resource with the given ID exists.
+func ProtectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:shield:Protection", id, state, "", opts...)
+}
+
 type protectionArgs struct {
 	// The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 	//

@@ -127,6 +127,12 @@ func (ServiceLinkedRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLinkedRoleState)(nil)).Elem()
 }
 
+// ServiceLinkedRoleExists checks whether an existing ServiceLinkedRole resource with the given ID exists.
+func ServiceLinkedRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceLinkedRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iam:ServiceLinkedRole", id, state, "", opts...)
+}
+
 type serviceLinkedRoleArgs struct {
 	// The service principal for the AWS service to which this role is attached.
 	AwsServiceName *string `pulumi:"awsServiceName"`

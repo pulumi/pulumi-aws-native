@@ -85,6 +85,12 @@ func (LocalGatewayRouteTableVirtualInterfaceGroupAssociationState) ElementType()
 	return reflect.TypeOf((*localGatewayRouteTableVirtualInterfaceGroupAssociationState)(nil)).Elem()
 }
 
+// LocalGatewayRouteTableVirtualInterfaceGroupAssociationExists checks whether an existing LocalGatewayRouteTableVirtualInterfaceGroupAssociation resource with the given ID exists.
+func LocalGatewayRouteTableVirtualInterfaceGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalGatewayRouteTableVirtualInterfaceGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation", id, state, "", opts...)
+}
+
 type localGatewayRouteTableVirtualInterfaceGroupAssociationArgs struct {
 	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`

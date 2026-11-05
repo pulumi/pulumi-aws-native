@@ -72,6 +72,12 @@ func (SecurityControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityControlState)(nil)).Elem()
 }
 
+// SecurityControlExists checks whether an existing SecurityControl resource with the given ID exists.
+func SecurityControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:SecurityControl", id, state, "", opts...)
+}
+
 type securityControlArgs struct {
 	// The most recent reason for updating the customizable properties of a security control. This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
 	LastUpdateReason *string `pulumi:"lastUpdateReason"`

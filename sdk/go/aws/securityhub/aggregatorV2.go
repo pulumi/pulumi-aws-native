@@ -73,6 +73,12 @@ func (AggregatorV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*aggregatorV2State)(nil)).Elem()
 }
 
+// AggregatorV2Exists checks whether an existing AggregatorV2 resource with the given ID exists.
+func AggregatorV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AggregatorV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:AggregatorV2", id, state, "", opts...)
+}
+
 type aggregatorV2Args struct {
 	// The list of included Regions
 	LinkedRegions []string `pulumi:"linkedRegions"`

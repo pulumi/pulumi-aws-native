@@ -72,6 +72,12 @@ func (ServicePrincipalNameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicePrincipalNameState)(nil)).Elem()
 }
 
+// ServicePrincipalNameExists checks whether an existing ServicePrincipalName resource with the given ID exists.
+func ServicePrincipalNameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServicePrincipalNameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pcaconnectorad:ServicePrincipalName", id, state, "", opts...)
+}
+
 type servicePrincipalNameArgs struct {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	ConnectorArn string `pulumi:"connectorArn"`

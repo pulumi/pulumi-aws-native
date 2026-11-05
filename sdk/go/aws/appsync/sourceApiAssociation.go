@@ -87,6 +87,12 @@ func (SourceApiAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceApiAssociationState)(nil)).Elem()
 }
 
+// SourceApiAssociationExists checks whether an existing SourceApiAssociation resource with the given ID exists.
+func SourceApiAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceApiAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:SourceApiAssociation", id, state, "", opts...)
+}
+
 type sourceApiAssociationArgs struct {
 	// Description of the SourceApiAssociation.
 	Description *string `pulumi:"description"`

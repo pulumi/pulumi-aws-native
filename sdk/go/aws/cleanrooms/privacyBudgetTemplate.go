@@ -98,6 +98,12 @@ func (PrivacyBudgetTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privacyBudgetTemplateState)(nil)).Elem()
 }
 
+// PrivacyBudgetTemplateExists checks whether an existing PrivacyBudgetTemplate resource with the given ID exists.
+func PrivacyBudgetTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivacyBudgetTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:PrivacyBudgetTemplate", id, state, "", opts...)
+}
+
 type privacyBudgetTemplateArgs struct {
 	// How often the privacy budget refreshes.
 	//

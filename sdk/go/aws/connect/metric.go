@@ -125,6 +125,12 @@ func (MetricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricState)(nil)).Elem()
 }
 
+// MetricExists checks whether an existing Metric resource with the given ID exists.
+func MetricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:Metric", id, state, "", opts...)
+}
+
 type metricArgs struct {
 	// The description of the custom metric
 	Description *string `pulumi:"description"`

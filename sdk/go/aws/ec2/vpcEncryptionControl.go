@@ -91,6 +91,12 @@ func (VpcEncryptionControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEncryptionControlState)(nil)).Elem()
 }
 
+// VpcEncryptionControlExists checks whether an existing VpcEncryptionControl resource with the given ID exists.
+func VpcEncryptionControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEncryptionControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpcEncryptionControl", id, state, "", opts...)
+}
+
 type vpcEncryptionControlArgs struct {
 	// Used to enable or disable EIGW exclusion
 	EgressOnlyInternetGatewayExclusionInput *VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnum `pulumi:"egressOnlyInternetGatewayExclusionInput"`

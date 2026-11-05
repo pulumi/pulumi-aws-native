@@ -81,6 +81,12 @@ func (AiPromptVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aiPromptVersionState)(nil)).Elem()
 }
 
+// AiPromptVersionExists checks whether an existing AiPromptVersion resource with the given ID exists.
+func AiPromptVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AiPromptVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:AiPromptVersion", id, state, "", opts...)
+}
+
 type aiPromptVersionArgs struct {
 	// The identifier of the Amazon Q in Connect AI prompt.
 	AiPromptId string `pulumi:"aiPromptId"`

@@ -71,6 +71,12 @@ func (DataLakeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataLakeState)(nil)).Elem()
 }
 
+// DataLakeExists checks whether an existing DataLake resource with the given ID exists.
+func DataLakeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataLakeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securitylake:DataLake", id, state, "", opts...)
+}
+
 type dataLakeArgs struct {
 	// Provides encryption details of the Amazon Security Lake object.
 	EncryptionConfiguration *DataLakeEncryptionConfiguration `pulumi:"encryptionConfiguration"`

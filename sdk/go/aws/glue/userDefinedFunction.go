@@ -82,6 +82,12 @@ func (UserDefinedFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userDefinedFunctionState)(nil)).Elem()
 }
 
+// UserDefinedFunctionExists checks whether an existing UserDefinedFunction resource with the given ID exists.
+func UserDefinedFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserDefinedFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:UserDefinedFunction", id, state, "", opts...)
+}
+
 type userDefinedFunctionArgs struct {
 	// The Java class that contains the function code.
 	ClassName *string `pulumi:"className"`

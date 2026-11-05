@@ -78,6 +78,12 @@ func (MailManagerArchiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailManagerArchiveState)(nil)).Elem()
 }
 
+// MailManagerArchiveExists checks whether an existing MailManagerArchive resource with the given ID exists.
+func MailManagerArchiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailManagerArchiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:MailManagerArchive", id, state, "", opts...)
+}
+
 type mailManagerArchiveArgs struct {
 	// A unique name for the new archive.
 	ArchiveName *string `pulumi:"archiveName"`

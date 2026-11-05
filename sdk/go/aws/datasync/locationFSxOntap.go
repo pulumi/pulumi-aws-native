@@ -85,6 +85,12 @@ func (LocationFSxOntapState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationFSxOntapState)(nil)).Elem()
 }
 
+// LocationFSxOntapExists checks whether an existing LocationFSxOntap resource with the given ID exists.
+func LocationFSxOntapExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationFSxOntapState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationFSxOntap", id, state, "", opts...)
+}
+
 type locationFSxOntapArgs struct {
 	// Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
 	Protocol *LocationFSxOntapProtocol `pulumi:"protocol"`

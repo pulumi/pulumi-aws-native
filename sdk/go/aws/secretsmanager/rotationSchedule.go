@@ -80,6 +80,12 @@ func (RotationScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rotationScheduleState)(nil)).Elem()
 }
 
+// RotationScheduleExists checks whether an existing RotationSchedule resource with the given ID exists.
+func RotationScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RotationScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:secretsmanager:RotationSchedule", id, state, "", opts...)
+}
+
 type rotationScheduleArgs struct {
 	// The list of metadata needed to successfully rotate a managed external secret.
 	ExternalSecretRotationMetadata []RotationScheduleExternalSecretRotationMetadataItem `pulumi:"externalSecretRotationMetadata"`

@@ -105,6 +105,12 @@ func (CustomMetricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customMetricState)(nil)).Elem()
 }
 
+// CustomMetricExists checks whether an existing CustomMetric resource with the given ID exists.
+func CustomMetricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomMetricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:CustomMetric", id, state, "", opts...)
+}
+
 type customMetricArgs struct {
 	// Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.
 	DisplayName *string `pulumi:"displayName"`

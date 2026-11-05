@@ -72,6 +72,12 @@ func (RouteServerAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerAssociationState)(nil)).Elem()
 }
 
+// RouteServerAssociationExists checks whether an existing RouteServerAssociation resource with the given ID exists.
+func RouteServerAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:RouteServerAssociation", id, state, "", opts...)
+}
+
 type routeServerAssociationArgs struct {
 	// Route Server ID
 	RouteServerId string `pulumi:"routeServerId"`

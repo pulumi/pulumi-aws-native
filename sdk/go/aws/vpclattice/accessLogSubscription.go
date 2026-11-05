@@ -81,6 +81,12 @@ func (AccessLogSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessLogSubscriptionState)(nil)).Elem()
 }
 
+// AccessLogSubscriptionExists checks whether an existing AccessLogSubscription resource with the given ID exists.
+func AccessLogSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessLogSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:vpclattice:AccessLogSubscription", id, state, "", opts...)
+}
+
 type accessLogSubscriptionArgs struct {
 	// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
 	DestinationArn string `pulumi:"destinationArn"`

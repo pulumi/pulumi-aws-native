@@ -77,6 +77,12 @@ func (CertificateAuthorityActivationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateAuthorityActivationState)(nil)).Elem()
 }
 
+// CertificateAuthorityActivationExists checks whether an existing CertificateAuthorityActivation resource with the given ID exists.
+func CertificateAuthorityActivationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateAuthorityActivationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:acmpca:CertificateAuthorityActivation", id, state, "", opts...)
+}
+
 type certificateAuthorityActivationArgs struct {
 	// Certificate Authority certificate that will be installed in the Certificate Authority.
 	Certificate string `pulumi:"certificate"`

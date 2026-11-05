@@ -84,6 +84,12 @@ func (PolicyStatementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyStatementState)(nil)).Elem()
 }
 
+// PolicyStatementExists checks whether an existing PolicyStatement resource with the given ID exists.
+func PolicyStatementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyStatementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:entityresolution:PolicyStatement", id, state, "", opts...)
+}
+
 type policyStatementArgs struct {
 	// The action that the principal can use on the resource.
 	//

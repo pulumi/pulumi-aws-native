@@ -86,6 +86,12 @@ func (DataTransformationProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataTransformationProfileState)(nil)).Elem()
 }
 
+// DataTransformationProfileExists checks whether an existing DataTransformationProfile resource with the given ID exists.
+func DataTransformationProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataTransformationProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:healthlake:DataTransformationProfile", id, state, "", opts...)
+}
+
 type dataTransformationProfileArgs struct {
 	// The identifier (key ID or ARN) of a customer-managed KMS key used to encrypt the profile's template content at rest. If omitted, an AWS owned key is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`

@@ -75,6 +75,12 @@ func (MultiRegionAccessPointPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiRegionAccessPointPolicyState)(nil)).Elem()
 }
 
+// MultiRegionAccessPointPolicyExists checks whether an existing MultiRegionAccessPointPolicy resource with the given ID exists.
+func MultiRegionAccessPointPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiRegionAccessPointPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3:MultiRegionAccessPointPolicy", id, state, "", opts...)
+}
+
 type multiRegionAccessPointPolicyArgs struct {
 	// The name of the Multi Region Access Point to apply policy
 	MrapName string `pulumi:"mrapName"`

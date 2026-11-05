@@ -134,6 +134,12 @@ func (AlarmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alarmState)(nil)).Elem()
 }
 
+// AlarmExists checks whether an existing Alarm resource with the given ID exists.
+func AlarmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlarmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:Alarm", id, state, "", opts...)
+}
+
 type alarmArgs struct {
 	ActionConfiguration *AlarmActionConfiguration `pulumi:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.

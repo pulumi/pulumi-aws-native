@@ -90,6 +90,12 @@ func (VpcEndpointAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointAssociationState)(nil)).Elem()
 }
 
+// VpcEndpointAssociationExists checks whether an existing VpcEndpointAssociation resource with the given ID exists.
+func VpcEndpointAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkfirewall:VpcEndpointAssociation", id, state, "", opts...)
+}
+
 type vpcEndpointAssociationArgs struct {
 	// A description of the VPC endpoint association.
 	Description *string `pulumi:"description"`

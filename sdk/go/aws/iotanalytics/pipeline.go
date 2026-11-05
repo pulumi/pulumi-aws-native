@@ -342,6 +342,12 @@ func (PipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineState)(nil)).Elem()
 }
 
+// PipelineExists checks whether an existing Pipeline resource with the given ID exists.
+func PipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotanalytics:Pipeline", id, state, "", opts...)
+}
+
 type pipelineArgs struct {
 	// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
 	//

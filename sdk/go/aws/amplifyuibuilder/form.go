@@ -87,6 +87,12 @@ func (FormState) ElementType() reflect.Type {
 	return reflect.TypeOf((*formState)(nil)).Elem()
 }
 
+// FormExists checks whether an existing Form resource with the given ID exists.
+func FormExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FormState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:amplifyuibuilder:Form", id, state, "", opts...)
+}
+
 type formArgs struct {
 	// The unique ID of the Amplify app associated with the form.
 	AppId *string `pulumi:"appId"`

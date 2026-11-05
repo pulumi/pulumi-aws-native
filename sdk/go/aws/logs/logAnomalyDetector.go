@@ -78,6 +78,12 @@ func (LogAnomalyDetectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logAnomalyDetectorState)(nil)).Elem()
 }
 
+// LogAnomalyDetectorExists checks whether an existing LogAnomalyDetector resource with the given ID exists.
+func LogAnomalyDetectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogAnomalyDetectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:LogAnomalyDetector", id, state, "", opts...)
+}
+
 type logAnomalyDetectorArgs struct {
 	// Account ID for owner of detector
 	AccountId *string `pulumi:"accountId"`

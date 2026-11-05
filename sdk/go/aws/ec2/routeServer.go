@@ -79,6 +79,12 @@ func (RouteServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerState)(nil)).Elem()
 }
 
+// RouteServerExists checks whether an existing RouteServer resource with the given ID exists.
+func RouteServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:RouteServer", id, state, "", opts...)
+}
+
 type routeServerArgs struct {
 	// The Amazon-side ASN of the Route Server.
 	AmazonSideAsn int `pulumi:"amazonSideAsn"`

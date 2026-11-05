@@ -77,6 +77,12 @@ func (RoleAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleAliasState)(nil)).Elem()
 }
 
+// RoleAliasExists checks whether an existing RoleAlias resource with the given ID exists.
+func RoleAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:RoleAlias", id, state, "", opts...)
+}
+
 type roleAliasArgs struct {
 	// The number of seconds for which the credential is valid.
 	CredentialDurationSeconds *int `pulumi:"credentialDurationSeconds"`

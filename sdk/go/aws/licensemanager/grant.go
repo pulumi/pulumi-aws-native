@@ -81,6 +81,12 @@ func (GrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantState)(nil)).Elem()
 }
 
+// GrantExists checks whether an existing Grant resource with the given ID exists.
+func GrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:licensemanager:Grant", id, state, "", opts...)
+}
+
 type grantArgs struct {
 	// Allowed operations for the grant.
 	AllowedOperations []string `pulumi:"allowedOperations"`

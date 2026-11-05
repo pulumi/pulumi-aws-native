@@ -153,6 +153,12 @@ func (UserPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolState)(nil)).Elem()
 }
 
+// UserPoolExists checks whether an existing UserPool resource with the given ID exists.
+func UserPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPool", id, state, "", opts...)
+}
+
 type userPoolArgs struct {
 	// The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
 	AccountRecoverySetting *UserPoolAccountRecoverySetting `pulumi:"accountRecoverySetting"`

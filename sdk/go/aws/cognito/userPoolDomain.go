@@ -81,6 +81,12 @@ func (UserPoolDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolDomainState)(nil)).Elem()
 }
 
+// UserPoolDomainExists checks whether an existing UserPoolDomain resource with the given ID exists.
+func UserPoolDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolDomain", id, state, "", opts...)
+}
+
 type userPoolDomainArgs struct {
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 	//

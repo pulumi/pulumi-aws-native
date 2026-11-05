@@ -82,6 +82,12 @@ func (RobotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*robotState)(nil)).Elem()
 }
 
+// RobotExists checks whether an existing Robot resource with the given ID exists.
+func RobotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RobotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:robomaker:Robot", id, state, "", opts...)
+}
+
 type robotArgs struct {
 	// The target architecture of the robot.
 	Architecture RobotArchitecture `pulumi:"architecture"`

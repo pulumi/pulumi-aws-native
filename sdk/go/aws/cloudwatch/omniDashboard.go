@@ -88,6 +88,12 @@ func (OmniDashboardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*omniDashboardState)(nil)).Elem()
 }
 
+// OmniDashboardExists checks whether an existing OmniDashboard resource with the given ID exists.
+func OmniDashboardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OmniDashboardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:OmniDashboard", id, state, "", opts...)
+}
+
 type omniDashboardArgs struct {
 	// The dashboard definition.
 	Body string `pulumi:"body"`

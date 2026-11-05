@@ -83,6 +83,12 @@ func (LocationFSxOpenZfsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationFSxOpenZfsState)(nil)).Elem()
 }
 
+// LocationFSxOpenZfsExists checks whether an existing LocationFSxOpenZfs resource with the given ID exists.
+func LocationFSxOpenZfsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationFSxOpenZfsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationFSxOpenZfs", id, state, "", opts...)
+}
+
 type locationFSxOpenZfsArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`

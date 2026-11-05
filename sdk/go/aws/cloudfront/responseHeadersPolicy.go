@@ -70,6 +70,12 @@ func (ResponseHeadersPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*responseHeadersPolicyState)(nil)).Elem()
 }
 
+// ResponseHeadersPolicyExists checks whether an existing ResponseHeadersPolicy resource with the given ID exists.
+func ResponseHeadersPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResponseHeadersPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:ResponseHeadersPolicy", id, state, "", opts...)
+}
+
 type responseHeadersPolicyArgs struct {
 	// A response headers policy configuration.
 	ResponseHeadersPolicyConfig ResponseHeadersPolicyConfig `pulumi:"responseHeadersPolicyConfig"`

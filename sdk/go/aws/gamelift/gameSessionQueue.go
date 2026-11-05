@@ -125,7 +125,7 @@ import (
 //					queueResource.Arn,
 //				},
 //				RequestTimeoutSeconds: pulumi.Int(100),
-//				RuleSetName:           matchmakingRuleSetResource.ID().ToIDOutput().ToStringOutput(),
+//				RuleSetName:           matchmakingRuleSetResource.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				queueResource,
 //				matchmakingRuleSetResource,
@@ -204,6 +204,12 @@ type GameSessionQueueState struct {
 
 func (GameSessionQueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gameSessionQueueState)(nil)).Elem()
+}
+
+// GameSessionQueueExists checks whether an existing GameSessionQueue resource with the given ID exists.
+func GameSessionQueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GameSessionQueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gamelift:GameSessionQueue", id, state, "", opts...)
 }
 
 type gameSessionQueueArgs struct {

@@ -80,6 +80,12 @@ func (DomainObjectTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainObjectTypeState)(nil)).Elem()
 }
 
+// DomainObjectTypeExists checks whether an existing DomainObjectType resource with the given ID exists.
+func DomainObjectTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainObjectTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:customerprofiles:DomainObjectType", id, state, "", opts...)
+}
+
 type domainObjectTypeArgs struct {
 	Description    *string                          `pulumi:"description"`
 	DomainName     string                           `pulumi:"domainName"`

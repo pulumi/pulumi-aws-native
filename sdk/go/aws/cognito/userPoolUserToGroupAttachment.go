@@ -78,6 +78,12 @@ func (UserPoolUserToGroupAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolUserToGroupAttachmentState)(nil)).Elem()
 }
 
+// UserPoolUserToGroupAttachmentExists checks whether an existing UserPoolUserToGroupAttachment resource with the given ID exists.
+func UserPoolUserToGroupAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolUserToGroupAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolUserToGroupAttachment", id, state, "", opts...)
+}
+
 type userPoolUserToGroupAttachmentArgs struct {
 	// The name of the group that you want to add your user to.
 	GroupName string `pulumi:"groupName"`

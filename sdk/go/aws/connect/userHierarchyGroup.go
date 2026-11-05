@@ -75,6 +75,12 @@ func (UserHierarchyGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userHierarchyGroupState)(nil)).Elem()
 }
 
+// UserHierarchyGroupExists checks whether an existing UserHierarchyGroup resource with the given ID exists.
+func UserHierarchyGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserHierarchyGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:UserHierarchyGroup", id, state, "", opts...)
+}
+
 type userHierarchyGroupArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`

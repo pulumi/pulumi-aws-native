@@ -86,6 +86,12 @@ func (PermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionState)(nil)).Elem()
 }
 
+// PermissionExists checks whether an existing Permission resource with the given ID exists.
+func PermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:qbusiness:Permission", id, state, "", opts...)
+}
+
 type permissionArgs struct {
 	// The list of Amazon Q Business actions that the ISV is allowed to perform.
 	Actions []string `pulumi:"actions"`

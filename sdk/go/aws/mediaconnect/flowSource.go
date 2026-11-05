@@ -114,6 +114,12 @@ func (FlowSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowSourceState)(nil)).Elem()
 }
 
+// FlowSourceExists checks whether an existing FlowSource resource with the given ID exists.
+func FlowSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:FlowSource", id, state, "", opts...)
+}
+
 type flowSourceArgs struct {
 	// The type of encryption that is used on the content ingested from this source.
 	Decryption *FlowSourceEncryption `pulumi:"decryption"`

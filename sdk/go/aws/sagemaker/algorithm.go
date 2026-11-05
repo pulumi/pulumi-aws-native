@@ -83,6 +83,12 @@ func (AlgorithmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*algorithmState)(nil)).Elem()
 }
 
+// AlgorithmExists checks whether an existing Algorithm resource with the given ID exists.
+func AlgorithmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlgorithmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:Algorithm", id, state, "", opts...)
+}
+
 type algorithmArgs struct {
 	// A description of the algorithm.
 	AlgorithmDescription *string `pulumi:"algorithmDescription"`

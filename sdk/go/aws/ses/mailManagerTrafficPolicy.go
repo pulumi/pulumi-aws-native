@@ -80,6 +80,12 @@ func (MailManagerTrafficPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailManagerTrafficPolicyState)(nil)).Elem()
 }
 
+// MailManagerTrafficPolicyExists checks whether an existing MailManagerTrafficPolicy resource with the given ID exists.
+func MailManagerTrafficPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailManagerTrafficPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:MailManagerTrafficPolicy", id, state, "", opts...)
+}
+
 type mailManagerTrafficPolicyArgs struct {
 	// Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements
 	DefaultAction MailManagerTrafficPolicyAcceptAction `pulumi:"defaultAction"`

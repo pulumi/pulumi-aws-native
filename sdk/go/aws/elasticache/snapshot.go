@@ -120,6 +120,12 @@ func (SnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotState)(nil)).Elem()
 }
 
+// SnapshotExists checks whether an existing Snapshot resource with the given ID exists.
+func SnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticache:Snapshot", id, state, "", opts...)
+}
+
 type snapshotArgs struct {
 	// The identifier of an existing cluster to create a snapshot from. The snapshot is created from this cluster.
 	CacheClusterId *string `pulumi:"cacheClusterId"`

@@ -92,6 +92,12 @@ func (DataTableAttributeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataTableAttributeState)(nil)).Elem()
 }
 
+// DataTableAttributeExists checks whether an existing DataTableAttribute resource with the given ID exists.
+func DataTableAttributeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataTableAttributeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:DataTableAttribute", id, state, "", opts...)
+}
+
 type dataTableAttributeArgs struct {
 	// The Amazon Resource Name (ARN) of the data table that contains this attribute.
 	DataTableArn string `pulumi:"dataTableArn"`

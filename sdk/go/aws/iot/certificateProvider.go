@@ -84,6 +84,12 @@ func (CertificateProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateProviderState)(nil)).Elem()
 }
 
+// CertificateProviderExists checks whether an existing CertificateProvider resource with the given ID exists.
+func CertificateProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:CertificateProvider", id, state, "", opts...)
+}
+
 type certificateProviderArgs struct {
 	// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
 	AccountDefaultForOperations []CertificateProviderOperation `pulumi:"accountDefaultForOperations"`

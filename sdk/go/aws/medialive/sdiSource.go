@@ -74,6 +74,12 @@ func (SdiSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sdiSourceState)(nil)).Elem()
 }
 
+// SdiSourceExists checks whether an existing SdiSource resource with the given ID exists.
+func SdiSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SdiSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:SdiSource", id, state, "", opts...)
+}
+
 type sdiSourceArgs struct {
 	Mode *SdiSourceMode `pulumi:"mode"`
 	// The name of the SdiSource.

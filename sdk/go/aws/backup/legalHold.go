@@ -89,6 +89,12 @@ func (LegalHoldState) ElementType() reflect.Type {
 	return reflect.TypeOf((*legalHoldState)(nil)).Elem()
 }
 
+// LegalHoldExists checks whether an existing LegalHold resource with the given ID exists.
+func LegalHoldExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LegalHoldState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:LegalHold", id, state, "", opts...)
+}
+
 type legalHoldArgs struct {
 	// The description of the legal hold.
 	Description string `pulumi:"description"`

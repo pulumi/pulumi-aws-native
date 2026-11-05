@@ -75,6 +75,12 @@ func (ChannelGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelGroupState)(nil)).Elem()
 }
 
+// ChannelGroupExists checks whether an existing ChannelGroup resource with the given ID exists.
+func ChannelGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediapackagev2:ChannelGroup", id, state, "", opts...)
+}
+
 type channelGroupArgs struct {
 	// The name of the channel group.
 	ChannelGroupName *string `pulumi:"channelGroupName"`

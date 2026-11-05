@@ -119,6 +119,12 @@ func (ThingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingState)(nil)).Elem()
 }
 
+// ThingExists checks whether an existing Thing resource with the given ID exists.
+func ThingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:Thing", id, state, "", opts...)
+}
+
 type thingArgs struct {
 	// A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
 	AttributePayload *ThingAttributePayload `pulumi:"attributePayload"`

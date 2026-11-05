@@ -90,6 +90,12 @@ func (EndpointGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointGroupState)(nil)).Elem()
 }
 
+// EndpointGroupExists checks whether an existing EndpointGroup resource with the given ID exists.
+func EndpointGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:globalaccelerator:EndpointGroup", id, state, "", opts...)
+}
+
 type endpointGroupArgs struct {
 	// The list of endpoint objects.
 	EndpointConfigurations []EndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`

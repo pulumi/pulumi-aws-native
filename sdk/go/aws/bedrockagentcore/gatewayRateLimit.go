@@ -83,6 +83,12 @@ func (GatewayRateLimitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayRateLimitState)(nil)).Elem()
 }
 
+// GatewayRateLimitExists checks whether an existing GatewayRateLimit resource with the given ID exists.
+func GatewayRateLimitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayRateLimitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:GatewayRateLimit", id, state, "", opts...)
+}
+
 type gatewayRateLimitArgs struct {
 	// Optional human-readable description for this limit.
 	Description *string `pulumi:"description"`

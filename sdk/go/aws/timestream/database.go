@@ -69,6 +69,12 @@ func (DatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseState)(nil)).Elem()
 }
 
+// DatabaseExists checks whether an existing Database resource with the given ID exists.
+func DatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:timestream:Database", id, state, "", opts...)
+}
+
 type databaseArgs struct {
 	// The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
 	DatabaseName *string `pulumi:"databaseName"`

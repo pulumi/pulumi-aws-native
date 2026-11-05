@@ -76,6 +76,12 @@ func (WorkforceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workforceState)(nil)).Elem()
 }
 
+// WorkforceExists checks whether an existing Workforce resource with the given ID exists.
+func WorkforceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkforceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:Workforce", id, state, "", opts...)
+}
+
 type workforceArgs struct {
 	CognitoConfig *WorkforceCognitoConfig `pulumi:"cognitoConfig"`
 	// The IP address type for the workforce. IPv4 only or dualstack (IPv4 and IPv6).

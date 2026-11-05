@@ -91,6 +91,12 @@ func (ProjectProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectProfileState)(nil)).Elem()
 }
 
+// ProjectProfileExists checks whether an existing ProjectProfile resource with the given ID exists.
+func ProjectProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:ProjectProfile", id, state, "", opts...)
+}
+
 type projectProfileArgs struct {
 	AllowCustomProjectResourceTags *bool `pulumi:"allowCustomProjectResourceTags"`
 	// The description of the project profile.

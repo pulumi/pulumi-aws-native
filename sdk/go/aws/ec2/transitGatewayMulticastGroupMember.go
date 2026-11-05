@@ -92,6 +92,12 @@ func (TransitGatewayMulticastGroupMemberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayMulticastGroupMemberState)(nil)).Elem()
 }
 
+// TransitGatewayMulticastGroupMemberExists checks whether an existing TransitGatewayMulticastGroupMember resource with the given ID exists.
+func TransitGatewayMulticastGroupMemberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayMulticastGroupMemberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayMulticastGroupMember", id, state, "", opts...)
+}
+
 type transitGatewayMulticastGroupMemberArgs struct {
 	// The IP address assigned to the transit gateway multicast group.
 	GroupIpAddress string `pulumi:"groupIpAddress"`

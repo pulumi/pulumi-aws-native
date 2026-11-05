@@ -111,6 +111,12 @@ func (WebFunctionEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webFunctionEndpointState)(nil)).Elem()
 }
 
+// WebFunctionEndpointExists checks whether an existing WebFunctionEndpoint resource with the given ID exists.
+func WebFunctionEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebFunctionEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:WebFunctionEndpoint", id, state, "", opts...)
+}
+
 type webFunctionEndpointArgs struct {
 	// The authentication type for the endpoint.
 	AuthType WebFunctionEndpointAuthType `pulumi:"authType"`

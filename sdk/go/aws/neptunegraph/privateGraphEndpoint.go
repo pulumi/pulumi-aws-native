@@ -84,6 +84,12 @@ func (PrivateGraphEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateGraphEndpointState)(nil)).Elem()
 }
 
+// PrivateGraphEndpointExists checks whether an existing PrivateGraphEndpoint resource with the given ID exists.
+func PrivateGraphEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateGraphEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:neptunegraph:PrivateGraphEndpoint", id, state, "", opts...)
+}
+
 type privateGraphEndpointArgs struct {
 	// The auto-generated Graph Id assigned by the service.
 	GraphIdentifier string `pulumi:"graphIdentifier"`

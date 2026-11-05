@@ -78,6 +78,12 @@ func (SchemaVersionMetadataState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaVersionMetadataState)(nil)).Elem()
 }
 
+// SchemaVersionMetadataExists checks whether an existing SchemaVersionMetadata resource with the given ID exists.
+func SchemaVersionMetadataExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaVersionMetadataState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:SchemaVersionMetadata", id, state, "", opts...)
+}
+
 type schemaVersionMetadataArgs struct {
 	// Metadata key
 	Key string `pulumi:"key"`

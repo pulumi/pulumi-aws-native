@@ -85,6 +85,12 @@ func (TaskTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskTemplateState)(nil)).Elem()
 }
 
+// TaskTemplateExists checks whether an existing TaskTemplate resource with the given ID exists.
+func TaskTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TaskTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:TaskTemplate", id, state, "", opts...)
+}
+
 type taskTemplateArgs struct {
 	// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 	ClientToken *string `pulumi:"clientToken"`

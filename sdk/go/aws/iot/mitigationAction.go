@@ -80,6 +80,12 @@ func (MitigationActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mitigationActionState)(nil)).Elem()
 }
 
+// MitigationActionExists checks whether an existing MitigationAction resource with the given ID exists.
+func MitigationActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MitigationActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:MitigationAction", id, state, "", opts...)
+}
+
 type mitigationActionArgs struct {
 	// A unique identifier for the mitigation action.
 	ActionName *string `pulumi:"actionName"`

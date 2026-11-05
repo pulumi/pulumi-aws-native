@@ -93,6 +93,12 @@ func (RuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleState)(nil)).Elem()
 }
 
+// RuleExists checks whether an existing Rule resource with the given ID exists.
+func RuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:vpclattice:Rule", id, state, "", opts...)
+}
+
 type ruleArgs struct {
 	// Describes the action for a rule.
 	Action RuleAction `pulumi:"action"`

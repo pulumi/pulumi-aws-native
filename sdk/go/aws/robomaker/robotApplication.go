@@ -222,6 +222,12 @@ func (RobotApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*robotApplicationState)(nil)).Elem()
 }
 
+// RobotApplicationExists checks whether an existing RobotApplication resource with the given ID exists.
+func RobotApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RobotApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:robomaker:RobotApplication", id, state, "", opts...)
+}
+
 type robotApplicationArgs struct {
 	// The revision ID of robot application.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`

@@ -138,6 +138,12 @@ func (AnalyzerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyzerState)(nil)).Elem()
 }
 
+// AnalyzerExists checks whether an existing Analyzer resource with the given ID exists.
+func AnalyzerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnalyzerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:accessanalyzer:Analyzer", id, state, "", opts...)
+}
+
 type analyzerArgs struct {
 	// The configuration for the analyzer
 	AnalyzerConfiguration *AnalyzerConfigurationProperties `pulumi:"analyzerConfiguration"`

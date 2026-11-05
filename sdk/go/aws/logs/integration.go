@@ -77,6 +77,12 @@ func (IntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationState)(nil)).Elem()
 }
 
+// IntegrationExists checks whether an existing Integration resource with the given ID exists.
+func IntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:Integration", id, state, "", opts...)
+}
+
 type integrationArgs struct {
 	// User provided identifier for integration, unique to the user account.
 	IntegrationName *string `pulumi:"integrationName"`

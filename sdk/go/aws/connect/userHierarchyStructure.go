@@ -70,6 +70,12 @@ func (UserHierarchyStructureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userHierarchyStructureState)(nil)).Elem()
 }
 
+// UserHierarchyStructureExists checks whether an existing UserHierarchyStructure resource with the given ID exists.
+func UserHierarchyStructureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserHierarchyStructureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:UserHierarchyStructure", id, state, "", opts...)
+}
+
 type userHierarchyStructureArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`

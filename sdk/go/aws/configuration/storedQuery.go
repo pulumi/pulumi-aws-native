@@ -77,6 +77,12 @@ func (StoredQueryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storedQueryState)(nil)).Elem()
 }
 
+// StoredQueryExists checks whether an existing StoredQuery resource with the given ID exists.
+func StoredQueryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StoredQueryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:StoredQuery", id, state, "", opts...)
+}
+
 type storedQueryArgs struct {
 	// A unique description for the query.
 	QueryDescription *string `pulumi:"queryDescription"`

@@ -64,6 +64,12 @@ func (DefaultViewAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultViewAssociationState)(nil)).Elem()
 }
 
+// DefaultViewAssociationExists checks whether an existing DefaultViewAssociation resource with the given ID exists.
+func DefaultViewAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefaultViewAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:resourceexplorer2:DefaultViewAssociation", id, state, "", opts...)
+}
+
 type defaultViewAssociationArgs struct {
 	// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
 	ViewArn string `pulumi:"viewArn"`

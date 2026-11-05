@@ -70,6 +70,12 @@ func (GeneratedTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*generatedTemplateState)(nil)).Elem()
 }
 
+// GeneratedTemplateExists checks whether an existing GeneratedTemplate resource with the given ID exists.
+func GeneratedTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GeneratedTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:GeneratedTemplate", id, state, "", opts...)
+}
+
 type generatedTemplateArgs struct {
 	// The name assigned to the generated template.
 	GeneratedTemplateName *string                                 `pulumi:"generatedTemplateName"`

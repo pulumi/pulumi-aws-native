@@ -79,6 +79,12 @@ func (DnsViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnsViewState)(nil)).Elem()
 }
 
+// DnsViewExists checks whether an existing DnsView resource with the given ID exists.
+func DnsViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DnsViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53globalresolver:DnsView", id, state, "", opts...)
+}
+
 type dnsViewArgs struct {
 	ClientToken           *string                           `pulumi:"clientToken"`
 	Description           *string                           `pulumi:"description"`

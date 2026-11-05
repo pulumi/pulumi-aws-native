@@ -87,6 +87,12 @@ func (NodeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodeState)(nil)).Elem()
 }
 
+// NodeExists checks whether an existing Node resource with the given ID exists.
+func NodeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NodeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:Node", id, state, "", opts...)
+}
+
 type nodeArgs struct {
 	// The ID of the Cluster that the Node belongs to.
 	ClusterId string `pulumi:"clusterId"`

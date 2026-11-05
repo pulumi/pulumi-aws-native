@@ -97,6 +97,12 @@ func (DataAccessorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataAccessorState)(nil)).Elem()
 }
 
+// DataAccessorExists checks whether an existing DataAccessor resource with the given ID exists.
+func DataAccessorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataAccessorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:qbusiness:DataAccessor", id, state, "", opts...)
+}
+
 type dataAccessorArgs struct {
 	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations []DataAccessorActionConfiguration `pulumi:"actionConfigurations"`

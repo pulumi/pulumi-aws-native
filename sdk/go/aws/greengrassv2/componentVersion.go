@@ -79,6 +79,12 @@ func (ComponentVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*componentVersionState)(nil)).Elem()
 }
 
+// ComponentVersionExists checks whether an existing ComponentVersion resource with the given ID exists.
+func ComponentVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComponentVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:greengrassv2:ComponentVersion", id, state, "", opts...)
+}
+
 type componentVersionArgs struct {
 	// The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
 	//

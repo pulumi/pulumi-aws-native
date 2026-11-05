@@ -81,6 +81,12 @@ func (LayoutState) ElementType() reflect.Type {
 	return reflect.TypeOf((*layoutState)(nil)).Elem()
 }
 
+// LayoutExists checks whether an existing Layout resource with the given ID exists.
+func LayoutExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LayoutState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cases:Layout", id, state, "", opts...)
+}
+
 type layoutArgs struct {
 	// Object to store union of different versions of layout content.
 	Content LayoutContentProperties `pulumi:"content"`

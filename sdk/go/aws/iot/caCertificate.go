@@ -102,6 +102,12 @@ func (CaCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*caCertificateState)(nil)).Elem()
 }
 
+// CaCertificateExists checks whether an existing CaCertificate resource with the given ID exists.
+func CaCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CaCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:CaCertificate", id, state, "", opts...)
+}
+
 type caCertificateArgs struct {
 	// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
 	AutoRegistrationStatus *CaCertificateAutoRegistrationStatus `pulumi:"autoRegistrationStatus"`

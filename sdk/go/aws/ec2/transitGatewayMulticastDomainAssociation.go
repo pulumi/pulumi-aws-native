@@ -84,6 +84,12 @@ func (TransitGatewayMulticastDomainAssociationState) ElementType() reflect.Type 
 	return reflect.TypeOf((*transitGatewayMulticastDomainAssociationState)(nil)).Elem()
 }
 
+// TransitGatewayMulticastDomainAssociationExists checks whether an existing TransitGatewayMulticastDomainAssociation resource with the given ID exists.
+func TransitGatewayMulticastDomainAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayMulticastDomainAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayMulticastDomainAssociation", id, state, "", opts...)
+}
+
 type transitGatewayMulticastDomainAssociationArgs struct {
 	// The IDs of the subnets to associate with the transit gateway multicast domain.
 	SubnetId string `pulumi:"subnetId"`

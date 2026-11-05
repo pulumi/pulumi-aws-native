@@ -122,6 +122,12 @@ func (CustomResourceEmulatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customResourceEmulatorState)(nil)).Elem()
 }
 
+// CustomResourceEmulatorExists checks whether an existing CustomResourceEmulator resource with the given ID exists.
+func CustomResourceEmulatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomResourceEmulatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:CustomResourceEmulator", id, state, "", opts...)
+}
+
 type customResourceEmulatorArgs struct {
 	// The prefix to use for the bucket key when storing the response from the Custom Resource provider.
 	BucketKeyPrefix string `pulumi:"bucketKeyPrefix"`

@@ -83,6 +83,12 @@ func (DeliverySourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deliverySourceState)(nil)).Elem()
 }
 
+// DeliverySourceExists checks whether an existing DeliverySource resource with the given ID exists.
+func DeliverySourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeliverySourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:DeliverySource", id, state, "", opts...)
+}
+
 type deliverySourceArgs struct {
 	// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
 	DeliverySourceConfiguration map[string]string `pulumi:"deliverySourceConfiguration"`

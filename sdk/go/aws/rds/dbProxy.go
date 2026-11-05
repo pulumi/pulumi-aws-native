@@ -107,6 +107,12 @@ func (DbProxyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbProxyState)(nil)).Elem()
 }
 
+// DbProxyExists checks whether an existing DbProxy resource with the given ID exists.
+func DbProxyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbProxyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbProxy", id, state, "", opts...)
+}
+
 type dbProxyArgs struct {
 	// The authorization mechanism that the proxy uses.
 	Auth []DbProxyAuthFormat `pulumi:"auth"`

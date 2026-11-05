@@ -165,6 +165,12 @@ func (DataCatalogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCatalogState)(nil)).Elem()
 }
 
+// DataCatalogExists checks whether an existing DataCatalog resource with the given ID exists.
+func DataCatalogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataCatalogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:athena:DataCatalog", id, state, "", opts...)
+}
+
 type dataCatalogArgs struct {
 	// The type of connection for a FEDERATED data catalog
 	ConnectionType *string `pulumi:"connectionType"`

@@ -113,6 +113,12 @@ func (SubscriberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriberState)(nil)).Elem()
 }
 
+// SubscriberExists checks whether an existing Subscriber resource with the given ID exists.
+func SubscriberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eventsv2:Subscriber", id, state, "", opts...)
+}
+
 type subscriberArgs struct {
 	// Configuration for batching events into a single delivery to the target.
 	BatchConfiguration *SubscriberBatchConfiguration `pulumi:"batchConfiguration"`

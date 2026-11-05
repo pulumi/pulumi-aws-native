@@ -117,6 +117,12 @@ func (DimensionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dimensionState)(nil)).Elem()
 }
 
+// DimensionExists checks whether an existing Dimension resource with the given ID exists.
+func DimensionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DimensionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:Dimension", id, state, "", opts...)
+}
+
 type dimensionArgs struct {
 	// A unique identifier for the dimension.
 	Name *string `pulumi:"name"`

@@ -76,6 +76,12 @@ func (AccessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPolicyState)(nil)).Elem()
 }
 
+// AccessPolicyExists checks whether an existing AccessPolicy resource with the given ID exists.
+func AccessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:opensearchserverless:AccessPolicy", id, state, "", opts...)
+}
+
 type accessPolicyArgs struct {
 	// The description of the policy
 	Description *string `pulumi:"description"`

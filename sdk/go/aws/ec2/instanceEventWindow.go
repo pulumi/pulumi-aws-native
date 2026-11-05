@@ -71,6 +71,12 @@ func (InstanceEventWindowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceEventWindowState)(nil)).Elem()
 }
 
+// InstanceEventWindowExists checks whether an existing InstanceEventWindow resource with the given ID exists.
+func InstanceEventWindowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceEventWindowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:InstanceEventWindow", id, state, "", opts...)
+}
+
 type instanceEventWindowArgs struct {
 	// The cron expression defined for the event window. Exactly one of TimeRanges or CronExpression must be specified.
 	CronExpression *string `pulumi:"cronExpression"`

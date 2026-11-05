@@ -77,6 +77,12 @@ func (DataTableRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataTableRecordState)(nil)).Elem()
 }
 
+// DataTableRecordExists checks whether an existing DataTableRecord resource with the given ID exists.
+func DataTableRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataTableRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:DataTableRecord", id, state, "", opts...)
+}
+
 type dataTableRecordArgs struct {
 	// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
 	DataTableArn    string                    `pulumi:"dataTableArn"`

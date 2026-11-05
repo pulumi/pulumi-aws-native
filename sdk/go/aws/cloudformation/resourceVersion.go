@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewResourceDefaultVersion(ctx, "resourceDefaultVersion", &cloudformation.ResourceDefaultVersionArgs{
-//				TypeVersionArn: resourceVersion.ID().ToIDOutput().ToStringOutput(),
+//				TypeVersionArn: resourceVersion.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewResourceDefaultVersion(ctx, "resourceDefaultVersion", &cloudformation.ResourceDefaultVersionArgs{
-//				TypeVersionArn: resourceVersion.ID().ToIDOutput().ToStringOutput(),
+//				TypeVersionArn: resourceVersion.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -153,7 +153,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewResourceDefaultVersion(ctx, "resourceDefaultVersion", &cloudformation.ResourceDefaultVersionArgs{
-//				TypeVersionArn: resourceVersion.ID().ToIDOutput().ToStringOutput(),
+//				TypeVersionArn: resourceVersion.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -185,7 +185,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewResourceDefaultVersion(ctx, "resourceDefaultVersion", &cloudformation.ResourceDefaultVersionArgs{
-//				TypeVersionArn: resourceVersion.ID().ToIDOutput().ToStringOutput(),
+//				TypeVersionArn: resourceVersion.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -280,6 +280,12 @@ type ResourceVersionState struct {
 
 func (ResourceVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceVersionState)(nil)).Elem()
+}
+
+// ResourceVersionExists checks whether an existing ResourceVersion resource with the given ID exists.
+func ResourceVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:ResourceVersion", id, state, "", opts...)
 }
 
 type resourceVersionArgs struct {

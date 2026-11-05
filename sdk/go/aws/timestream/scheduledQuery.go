@@ -129,6 +129,12 @@ func (ScheduledQueryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryState)(nil)).Elem()
 }
 
+// ScheduledQueryExists checks whether an existing ScheduledQuery resource with the given ID exists.
+func ScheduledQueryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledQueryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:timestream:ScheduledQuery", id, state, "", opts...)
+}
+
 type scheduledQueryArgs struct {
 	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
 	//

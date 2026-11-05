@@ -74,6 +74,12 @@ func (SubnetNetworkAclAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetNetworkAclAssociationState)(nil)).Elem()
 }
 
+// SubnetNetworkAclAssociationExists checks whether an existing SubnetNetworkAclAssociation resource with the given ID exists.
+func SubnetNetworkAclAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetNetworkAclAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SubnetNetworkAclAssociation", id, state, "", opts...)
+}
+
 type subnetNetworkAclAssociationArgs struct {
 	// The ID of the network ACL
 	NetworkAclId string `pulumi:"networkAclId"`

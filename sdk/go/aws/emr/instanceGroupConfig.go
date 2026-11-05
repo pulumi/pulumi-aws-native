@@ -108,6 +108,12 @@ func (InstanceGroupConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceGroupConfigState)(nil)).Elem()
 }
 
+// InstanceGroupConfigExists checks whether an existing InstanceGroupConfig resource with the given ID exists.
+func InstanceGroupConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceGroupConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:emr:InstanceGroupConfig", id, state, "", opts...)
+}
+
 type instanceGroupConfigArgs struct {
 	// `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` . `AutoScalingPolicy` defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. For more information, see [Using Automatic Scaling in Amazon EMR](https://docs.aws.amazon.com//emr/latest/ManagementGuide/emr-automatic-scaling.html) in the *Amazon EMR Management Guide* .
 	AutoScalingPolicy *InstanceGroupConfigAutoScalingPolicy `pulumi:"autoScalingPolicy"`

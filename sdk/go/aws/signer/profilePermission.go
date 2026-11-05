@@ -87,6 +87,12 @@ func (ProfilePermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profilePermissionState)(nil)).Elem()
 }
 
+// ProfilePermissionExists checks whether an existing ProfilePermission resource with the given ID exists.
+func ProfilePermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfilePermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:signer:ProfilePermission", id, state, "", opts...)
+}
+
 type profilePermissionArgs struct {
 	// The AWS Signer action permitted as part of cross-account permissions.
 	Action string `pulumi:"action"`

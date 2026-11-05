@@ -113,6 +113,12 @@ func (LogAlarmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logAlarmState)(nil)).Elem()
 }
 
+// LogAlarmExists checks whether an existing LogAlarm resource with the given ID exists.
+func LogAlarmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogAlarmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:LogAlarm", id, state, "", opts...)
+}
+
 type logAlarmArgs struct {
 	// Configuration that applies to the notifications this alarm sends when it performs its actions.
 	ActionConfiguration *LogAlarmActionConfiguration `pulumi:"actionConfiguration"`

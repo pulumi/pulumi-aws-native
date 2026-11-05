@@ -120,6 +120,12 @@ func (DocumentClassifierState) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentClassifierState)(nil)).Elem()
 }
 
+// DocumentClassifierExists checks whether an existing DocumentClassifier resource with the given ID exists.
+func DocumentClassifierExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DocumentClassifierState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:comprehend:DocumentClassifier", id, state, "", opts...)
+}
+
 type documentClassifierArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
 	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`

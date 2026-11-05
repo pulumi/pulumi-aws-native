@@ -131,6 +131,12 @@ func (VerifiedAccessEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*verifiedAccessEndpointState)(nil)).Elem()
 }
 
+// VerifiedAccessEndpointExists checks whether an existing VerifiedAccessEndpoint resource with the given ID exists.
+func VerifiedAccessEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VerifiedAccessEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VerifiedAccessEndpoint", id, state, "", opts...)
+}
+
 type verifiedAccessEndpointArgs struct {
 	// The DNS name for users to reach your application.
 	ApplicationDomain *string `pulumi:"applicationDomain"`

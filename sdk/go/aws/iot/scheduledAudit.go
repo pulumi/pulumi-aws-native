@@ -82,6 +82,12 @@ func (ScheduledAuditState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledAuditState)(nil)).Elem()
 }
 
+// ScheduledAuditExists checks whether an existing ScheduledAudit resource with the given ID exists.
+func ScheduledAuditExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledAuditState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:ScheduledAudit", id, state, "", opts...)
+}
+
 type scheduledAuditArgs struct {
 	// The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
 	DayOfMonth *string `pulumi:"dayOfMonth"`

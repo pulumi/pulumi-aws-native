@@ -94,6 +94,12 @@ func (DbClusterEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbClusterEndpointState)(nil)).Elem()
 }
 
+// DbClusterEndpointExists checks whether an existing DbClusterEndpoint resource with the given ID exists.
+func DbClusterEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbClusterEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbClusterEndpoint", id, state, "", opts...)
+}
+
 type dbClusterEndpointArgs struct {
 	// The type of the custom endpoint.
 	CustomEndpointType DbClusterEndpointCustomEndpointType `pulumi:"customEndpointType"`

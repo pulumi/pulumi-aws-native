@@ -71,6 +71,12 @@ func (ProactiveEngagementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*proactiveEngagementState)(nil)).Elem()
 }
 
+// ProactiveEngagementExists checks whether an existing ProactiveEngagement resource with the given ID exists.
+func ProactiveEngagementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProactiveEngagementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:shield:ProactiveEngagement", id, state, "", opts...)
+}
+
 type proactiveEngagementArgs struct {
 	// A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
 	// To enable proactive engagement, the contact list must include at least one phone number.

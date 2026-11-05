@@ -91,6 +91,12 @@ func (DatasetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetState)(nil)).Elem()
 }
 
+// DatasetExists checks whether an existing Dataset resource with the given ID exists.
+func DatasetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:Dataset", id, state, "", opts...)
+}
+
 type datasetArgs struct {
 	// Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
 	DatasetName *string `pulumi:"datasetName"`

@@ -92,6 +92,12 @@ func (AiAgentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aiAgentState)(nil)).Elem()
 }
 
+// AiAgentExists checks whether an existing AiAgent resource with the given ID exists.
+func AiAgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AiAgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:AiAgent", id, state, "", opts...)
+}
+
 type aiAgentArgs struct {
 	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId string `pulumi:"assistantId"`

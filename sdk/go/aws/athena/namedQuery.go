@@ -141,6 +141,12 @@ func (NamedQueryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namedQueryState)(nil)).Elem()
 }
 
+// NamedQueryExists checks whether an existing NamedQuery resource with the given ID exists.
+func NamedQueryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamedQueryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:athena:NamedQuery", id, state, "", opts...)
+}
+
 type namedQueryArgs struct {
 	// The database to which the query belongs.
 	Database string `pulumi:"database"`

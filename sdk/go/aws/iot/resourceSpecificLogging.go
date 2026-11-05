@@ -79,6 +79,12 @@ func (ResourceSpecificLoggingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceSpecificLoggingState)(nil)).Elem()
 }
 
+// ResourceSpecificLoggingExists checks whether an existing ResourceSpecificLogging resource with the given ID exists.
+func ResourceSpecificLoggingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceSpecificLoggingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:ResourceSpecificLogging", id, state, "", opts...)
+}
+
 type resourceSpecificLoggingArgs struct {
 	// The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
 	LogLevel ResourceSpecificLoggingLogLevel `pulumi:"logLevel"`

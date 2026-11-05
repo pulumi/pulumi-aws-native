@@ -76,6 +76,12 @@ func (VpnConcentratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnConcentratorState)(nil)).Elem()
 }
 
+// VpnConcentratorExists checks whether an existing VpnConcentrator resource with the given ID exists.
+func VpnConcentratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnConcentratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpnConcentrator", id, state, "", opts...)
+}
+
 type vpnConcentratorArgs struct {
 	// Any tags assigned to the VPN concentrator.
 	Tags []aws.Tag `pulumi:"tags"`

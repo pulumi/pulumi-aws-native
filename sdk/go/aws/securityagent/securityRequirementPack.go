@@ -75,6 +75,12 @@ func (SecurityRequirementPackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityRequirementPackState)(nil)).Elem()
 }
 
+// SecurityRequirementPackExists checks whether an existing SecurityRequirementPack resource with the given ID exists.
+func SecurityRequirementPackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityRequirementPackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityagent:SecurityRequirementPack", id, state, "", opts...)
+}
+
 type securityRequirementPackArgs struct {
 	// Description of the pack
 	Description *string `pulumi:"description"`

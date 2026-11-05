@@ -111,6 +111,12 @@ func (PolicyTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyTemplateState)(nil)).Elem()
 }
 
+// PolicyTemplateExists checks whether an existing PolicyTemplate resource with the given ID exists.
+func PolicyTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:verifiedpermissions:PolicyTemplate", id, state, "", opts...)
+}
+
 type policyTemplateArgs struct {
 	// The description to attach to the new or updated policy template.
 	Description *string `pulumi:"description"`

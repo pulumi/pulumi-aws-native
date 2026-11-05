@@ -82,6 +82,12 @@ func (EventActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventActionState)(nil)).Elem()
 }
 
+// EventActionExists checks whether an existing EventAction resource with the given ID exists.
+func EventActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dataexchange:EventAction", id, state, "", opts...)
+}
+
 type eventActionArgs struct {
 	// What occurs after a certain event.
 	Action EventActionAction `pulumi:"action"`

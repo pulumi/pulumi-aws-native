@@ -84,6 +84,12 @@ func (RotationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rotationState)(nil)).Elem()
 }
 
+// RotationExists checks whether an existing Rotation resource with the given ID exists.
+func RotationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RotationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssmcontacts:Rotation", id, state, "", opts...)
+}
+
 type rotationArgs struct {
 	// Members of the rotation
 	ContactIds []string `pulumi:"contactIds"`

@@ -104,6 +104,12 @@ func (TrafficMirrorFilterRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorFilterRuleState)(nil)).Elem()
 }
 
+// TrafficMirrorFilterRuleExists checks whether an existing TrafficMirrorFilterRule resource with the given ID exists.
+func TrafficMirrorFilterRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficMirrorFilterRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TrafficMirrorFilterRule", id, state, "", opts...)
+}
+
 type trafficMirrorFilterRuleArgs struct {
 	// The description of the Traffic Mirror Filter rule.
 	Description *string `pulumi:"description"`

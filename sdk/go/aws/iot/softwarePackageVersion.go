@@ -89,6 +89,12 @@ func (SoftwarePackageVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*softwarePackageVersionState)(nil)).Elem()
 }
 
+// SoftwarePackageVersionExists checks whether an existing SoftwarePackageVersion resource with the given ID exists.
+func SoftwarePackageVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SoftwarePackageVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:SoftwarePackageVersion", id, state, "", opts...)
+}
+
 type softwarePackageVersionArgs struct {
 	Artifact *SoftwarePackageVersionPackageVersionArtifact `pulumi:"artifact"`
 	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.

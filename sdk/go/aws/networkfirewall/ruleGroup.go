@@ -94,6 +94,12 @@ func (RuleGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleGroupState)(nil)).Elem()
 }
 
+// RuleGroupExists checks whether an existing RuleGroup resource with the given ID exists.
+func RuleGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkfirewall:RuleGroup", id, state, "", opts...)
+}
+
 type ruleGroupArgs struct {
 	// The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
 	Capacity int `pulumi:"capacity"`

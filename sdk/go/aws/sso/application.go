@@ -87,6 +87,12 @@ func (ApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationState)(nil)).Elem()
 }
 
+// ApplicationExists checks whether an existing Application resource with the given ID exists.
+func ApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sso:Application", id, state, "", opts...)
+}
+
 type applicationArgs struct {
 	// The ARN of the application provider under which the operation will run
 	ApplicationProviderArn string `pulumi:"applicationProviderArn"`

@@ -80,6 +80,12 @@ func (GatewayResponseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayResponseState)(nil)).Elem()
 }
 
+// GatewayResponseExists checks whether an existing GatewayResponse resource with the given ID exists.
+func GatewayResponseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayResponseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:GatewayResponse", id, state, "", opts...)
+}
+
 type gatewayResponseArgs struct {
 	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseParameters map[string]string `pulumi:"responseParameters"`

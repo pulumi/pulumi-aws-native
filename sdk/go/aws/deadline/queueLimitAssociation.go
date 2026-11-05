@@ -78,6 +78,12 @@ func (QueueLimitAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueLimitAssociationState)(nil)).Elem()
 }
 
+// QueueLimitAssociationExists checks whether an existing QueueLimitAssociation resource with the given ID exists.
+func QueueLimitAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueLimitAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:QueueLimitAssociation", id, state, "", opts...)
+}
+
 type queueLimitAssociationArgs struct {
 	// The unique identifier of the farm that contains the queue-limit association.
 	FarmId string `pulumi:"farmId"`

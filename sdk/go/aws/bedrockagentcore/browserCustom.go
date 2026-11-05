@@ -101,6 +101,12 @@ func (BrowserCustomState) ElementType() reflect.Type {
 	return reflect.TypeOf((*browserCustomState)(nil)).Elem()
 }
 
+// BrowserCustomExists checks whether an existing BrowserCustom resource with the given ID exists.
+func BrowserCustomExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrowserCustomState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:BrowserCustom", id, state, "", opts...)
+}
+
 type browserCustomArgs struct {
 	// Browser signing configuration.
 	BrowserSigning *BrowserCustomBrowserSigning `pulumi:"browserSigning"`

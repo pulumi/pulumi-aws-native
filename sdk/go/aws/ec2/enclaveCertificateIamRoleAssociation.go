@@ -132,6 +132,12 @@ func (EnclaveCertificateIamRoleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enclaveCertificateIamRoleAssociationState)(nil)).Elem()
 }
 
+// EnclaveCertificateIamRoleAssociationExists checks whether an existing EnclaveCertificateIamRoleAssociation resource with the given ID exists.
+func EnclaveCertificateIamRoleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnclaveCertificateIamRoleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:EnclaveCertificateIamRoleAssociation", id, state, "", opts...)
+}
+
 type enclaveCertificateIamRoleAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
 	CertificateArn string `pulumi:"certificateArn"`

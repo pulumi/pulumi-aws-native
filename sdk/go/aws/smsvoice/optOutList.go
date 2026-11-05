@@ -67,6 +67,12 @@ func (OptOutListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*optOutListState)(nil)).Elem()
 }
 
+// OptOutListExists checks whether an existing OptOutList resource with the given ID exists.
+func OptOutListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OptOutListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:OptOutList", id, state, "", opts...)
+}
+
 type optOutListArgs struct {
 	// The name of the new OptOutList.
 	OptOutListName *string `pulumi:"optOutListName"`

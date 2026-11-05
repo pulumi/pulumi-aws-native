@@ -82,6 +82,12 @@ func (DhcpOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dhcpOptionsState)(nil)).Elem()
 }
 
+// DhcpOptionsExists checks whether an existing DhcpOptions resource with the given ID exists.
+func DhcpOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DhcpOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:DhcpOptions", id, state, "", opts...)
+}
+
 type dhcpOptionsArgs struct {
 	// This value is used to complete unqualified DNS hostnames.
 	DomainName *string `pulumi:"domainName"`

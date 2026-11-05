@@ -107,6 +107,12 @@ func (MatchmakingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*matchmakingConfigurationState)(nil)).Elem()
 }
 
+// MatchmakingConfigurationExists checks whether an existing MatchmakingConfiguration resource with the given ID exists.
+func MatchmakingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MatchmakingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gamelift:MatchmakingConfiguration", id, state, "", opts...)
+}
+
 type matchmakingConfigurationArgs struct {
 	// A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
 	AcceptanceRequired bool `pulumi:"acceptanceRequired"`

@@ -77,6 +77,12 @@ func (PrimaryTaskSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*primaryTaskSetState)(nil)).Elem()
 }
 
+// PrimaryTaskSetExists checks whether an existing PrimaryTaskSet resource with the given ID exists.
+func PrimaryTaskSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrimaryTaskSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecs:PrimaryTaskSet", id, state, "", opts...)
+}
+
 type primaryTaskSetArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster string `pulumi:"cluster"`

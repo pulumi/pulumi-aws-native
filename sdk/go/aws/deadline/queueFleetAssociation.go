@@ -78,6 +78,12 @@ func (QueueFleetAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueFleetAssociationState)(nil)).Elem()
 }
 
+// QueueFleetAssociationExists checks whether an existing QueueFleetAssociation resource with the given ID exists.
+func QueueFleetAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueFleetAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:QueueFleetAssociation", id, state, "", opts...)
+}
+
 type queueFleetAssociationArgs struct {
 	// The identifier of the farm that contains the queue and the fleet.
 	FarmId string `pulumi:"farmId"`

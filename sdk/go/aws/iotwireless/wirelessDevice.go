@@ -88,6 +88,12 @@ func (WirelessDeviceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*wirelessDeviceState)(nil)).Elem()
 }
 
+// WirelessDeviceExists checks whether an existing WirelessDevice resource with the given ID exists.
+func WirelessDeviceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WirelessDeviceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotwireless:WirelessDevice", id, state, "", opts...)
+}
+
 type wirelessDeviceArgs struct {
 	// Wireless device description
 	Description *string `pulumi:"description"`

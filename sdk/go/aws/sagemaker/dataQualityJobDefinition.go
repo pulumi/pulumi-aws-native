@@ -112,6 +112,12 @@ func (DataQualityJobDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataQualityJobDefinitionState)(nil)).Elem()
 }
 
+// DataQualityJobDefinitionExists checks whether an existing DataQualityJobDefinition resource with the given ID exists.
+func DataQualityJobDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataQualityJobDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:DataQualityJobDefinition", id, state, "", opts...)
+}
+
 type dataQualityJobDefinitionArgs struct {
 	// Specifies the container that runs the monitoring job.
 	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecification `pulumi:"dataQualityAppSpecification"`

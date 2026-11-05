@@ -66,6 +66,12 @@ func (DictionaryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dictionaryState)(nil)).Elem()
 }
 
+// DictionaryExists checks whether an existing Dictionary resource with the given ID exists.
+func DictionaryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DictionaryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elementalinference:Dictionary", id, state, "", opts...)
+}
+
 type dictionaryArgs struct {
 	Entries  *string            `pulumi:"entries"`
 	Language DictionaryLanguage `pulumi:"language"`

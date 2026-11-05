@@ -83,6 +83,12 @@ func (CapacityReservationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityReservationState)(nil)).Elem()
 }
 
+// CapacityReservationExists checks whether an existing CapacityReservation resource with the given ID exists.
+func CapacityReservationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityReservationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:athena:CapacityReservation", id, state, "", opts...)
+}
+
 type capacityReservationArgs struct {
 	// Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
 	CapacityAssignmentConfiguration *CapacityReservationCapacityAssignmentConfiguration `pulumi:"capacityAssignmentConfiguration"`

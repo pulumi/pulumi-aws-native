@@ -41,7 +41,7 @@ import (
 //				Name: pulumi.String("MyRecordingConfiguration"),
 //				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
 //					S3: &ivs.RecordingConfigurationS3DestinationConfigurationArgs{
-//						BucketName: s3Bucket.ID().ToIDOutput().ToStringOutput(),
+//						BucketName: s3Bucket.ID(),
 //					},
 //				},
 //				ThumbnailConfiguration: &ivs.RecordingConfigurationThumbnailConfigurationArgs{
@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
 //				Name:                      pulumi.String("MyRecordedChannel"),
-//				RecordingConfigurationArn: recordingConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				RecordingConfigurationArn: recordingConfiguration.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				recordingConfiguration,
 //			}))
@@ -103,7 +103,7 @@ import (
 //				Name: pulumi.String("MyRecordingConfiguration"),
 //				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
 //					S3: &ivs.RecordingConfigurationS3DestinationConfigurationArgs{
-//						BucketName: s3Bucket.ID().ToIDOutput().ToStringOutput(),
+//						BucketName: s3Bucket.ID(),
 //					},
 //				},
 //				ThumbnailConfiguration: &ivs.RecordingConfigurationThumbnailConfigurationArgs{
@@ -130,7 +130,7 @@ import (
 //			}
 //			_, err = ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
 //				Name:                      pulumi.String("MyRecordedChannel"),
-//				RecordingConfigurationArn: recordingConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				RecordingConfigurationArn: recordingConfiguration.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				recordingConfiguration,
 //			}))
@@ -912,6 +912,12 @@ type BucketState struct {
 
 func (BucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketState)(nil)).Elem()
+}
+
+// BucketExists checks whether an existing Bucket resource with the given ID exists.
+func BucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3:Bucket", id, state, "", opts...)
 }
 
 type bucketArgs struct {

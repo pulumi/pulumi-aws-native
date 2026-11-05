@@ -93,6 +93,12 @@ func (FeatureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*featureState)(nil)).Elem()
 }
 
+// FeatureExists checks whether an existing Feature resource with the given ID exists.
+func FeatureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeatureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:evidently:Feature", id, state, "", opts...)
+}
+
 type featureArgs struct {
 	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
 	//

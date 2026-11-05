@@ -79,6 +79,12 @@ func (EnvironmentAccountConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentAccountConnectionState)(nil)).Elem()
 }
 
+// EnvironmentAccountConnectionExists checks whether an existing EnvironmentAccountConnection resource with the given ID exists.
+func EnvironmentAccountConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentAccountConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:proton:EnvironmentAccountConnection", id, state, "", opts...)
+}
+
 type environmentAccountConnectionArgs struct {
 	// The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
 	CodebuildRoleArn *string `pulumi:"codebuildRoleArn"`

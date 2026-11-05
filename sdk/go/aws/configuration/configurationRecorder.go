@@ -77,6 +77,12 @@ func (ConfigurationRecorderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationRecorderState)(nil)).Elem()
 }
 
+// ConfigurationRecorderExists checks whether an existing ConfigurationRecorder resource with the given ID exists.
+func ConfigurationRecorderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationRecorderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:ConfigurationRecorder", id, state, "", opts...)
+}
+
 type configurationRecorderArgs struct {
 	// The name of the configuration recorder. By default, AWS Config assigns the name "default" when creating the configuration recorder. To change the configuration recorder name, you must use the DeleteConfigurationRecorder action to delete your current configuration recorder, and then you must use the PutConfigurationRecorder command to create a configuration recorder that has the desired name.
 	Name *string `pulumi:"name"`

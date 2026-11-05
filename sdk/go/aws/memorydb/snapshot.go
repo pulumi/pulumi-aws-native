@@ -85,6 +85,12 @@ func (SnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotState)(nil)).Elem()
 }
 
+// SnapshotExists checks whether an existing Snapshot resource with the given ID exists.
+func SnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:memorydb:Snapshot", id, state, "", opts...)
+}
+
 type snapshotArgs struct {
 	// The name of the cluster from which the snapshot was taken.
 	ClusterName string `pulumi:"clusterName"`

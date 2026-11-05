@@ -79,6 +79,12 @@ func (ViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewState)(nil)).Elem()
 }
 
+// ViewExists checks whether an existing View resource with the given ID exists.
+func ViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:resourceexplorer2:View", id, state, "", opts...)
+}
+
 type viewArgs struct {
 	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
 	//

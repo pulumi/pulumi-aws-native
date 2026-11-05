@@ -103,6 +103,12 @@ func (ProbeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*probeState)(nil)).Elem()
 }
 
+// ProbeExists checks whether an existing Probe resource with the given ID exists.
+func ProbeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProbeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkmonitor:Probe", id, state, "", opts...)
+}
+
 type probeArgs struct {
 	// The literal IPv4 or IPv6 address the probe sends traffic to. The service rejects a domain name and a CIDR block.
 	Destination string `pulumi:"destination"`

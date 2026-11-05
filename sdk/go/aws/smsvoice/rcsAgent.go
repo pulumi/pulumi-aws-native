@@ -90,6 +90,12 @@ func (RcsAgentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rcsAgentState)(nil)).Elem()
 }
 
+// RcsAgentExists checks whether an existing RcsAgent resource with the given ID exists.
+func RcsAgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RcsAgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:RcsAgent", id, state, "", opts...)
+}
+
 type rcsAgentArgs struct {
 	// When set to true the RCS agent can't be deleted. By default this is false.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`

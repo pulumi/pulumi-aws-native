@@ -73,6 +73,12 @@ func (PromptState) ElementType() reflect.Type {
 	return reflect.TypeOf((*promptState)(nil)).Elem()
 }
 
+// PromptExists checks whether an existing Prompt resource with the given ID exists.
+func PromptExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PromptState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:Prompt", id, state, "", opts...)
+}
+
 type promptArgs struct {
 	// The description of the prompt.
 	Description *string `pulumi:"description"`

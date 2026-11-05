@@ -168,6 +168,12 @@ func (EventSourceMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSourceMappingState)(nil)).Elem()
 }
 
+// EventSourceMappingExists checks whether an existing EventSourceMapping resource with the given ID exists.
+func EventSourceMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventSourceMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:EventSourceMapping", id, state, "", opts...)
+}
+
 type eventSourceMappingArgs struct {
 	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 	AmazonManagedKafkaEventSourceConfig *EventSourceMappingAmazonManagedKafkaEventSourceConfig `pulumi:"amazonManagedKafkaEventSourceConfig"`

@@ -92,6 +92,12 @@ func (AccessGrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessGrantState)(nil)).Elem()
 }
 
+// AccessGrantExists checks whether an existing AccessGrant resource with the given ID exists.
+func AccessGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3:AccessGrant", id, state, "", opts...)
+}
+
 type accessGrantArgs struct {
 	// The configuration options of the grant location, which is the S3 path to the data to which you are granting access.
 	AccessGrantsLocationConfiguration *AccessGrantsLocationConfiguration `pulumi:"accessGrantsLocationConfiguration"`

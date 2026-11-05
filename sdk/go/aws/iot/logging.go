@@ -78,6 +78,12 @@ func (LoggingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggingState)(nil)).Elem()
 }
 
+// LoggingExists checks whether an existing Logging resource with the given ID exists.
+func LoggingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoggingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:Logging", id, state, "", opts...)
+}
+
 type loggingArgs struct {
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
 	AccountId string `pulumi:"accountId"`

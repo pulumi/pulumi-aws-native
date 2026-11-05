@@ -80,6 +80,12 @@ func (CallAnalyticsCategoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*callAnalyticsCategoryState)(nil)).Elem()
 }
 
+// CallAnalyticsCategoryExists checks whether an existing CallAnalyticsCategory resource with the given ID exists.
+func CallAnalyticsCategoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CallAnalyticsCategoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:transcribe:CallAnalyticsCategory", id, state, "", opts...)
+}
+
 type callAnalyticsCategoryArgs struct {
 	// A unique name, chosen by you, for your Call Analytics category.
 	CategoryName *string `pulumi:"categoryName"`

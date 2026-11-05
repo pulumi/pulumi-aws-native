@@ -66,6 +66,12 @@ func (DnssecState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnssecState)(nil)).Elem()
 }
 
+// DnssecExists checks whether an existing Dnssec resource with the given ID exists.
+func DnssecExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DnssecState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53:Dnssec", id, state, "", opts...)
+}
+
 type dnssecArgs struct {
 	// The unique string (ID) used to identify a hosted zone.
 	HostedZoneId string `pulumi:"hostedZoneId"`

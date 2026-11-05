@@ -67,6 +67,12 @@ func (LocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationState)(nil)).Elem()
 }
 
+// LocationExists checks whether an existing Location resource with the given ID exists.
+func LocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gamelift:Location", id, state, "", opts...)
+}
+
 type locationArgs struct {
 	// A descriptive name for the custom location.
 	LocationName *string `pulumi:"locationName"`

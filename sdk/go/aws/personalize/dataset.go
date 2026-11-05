@@ -161,6 +161,12 @@ func (DatasetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetState)(nil)).Elem()
 }
 
+// DatasetExists checks whether an existing Dataset resource with the given ID exists.
+func DatasetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:personalize:Dataset", id, state, "", opts...)
+}
+
 type datasetArgs struct {
 	// The Amazon Resource Name (ARN) of the dataset group to add the dataset to
 	DatasetGroupArn string `pulumi:"datasetGroupArn"`

@@ -98,6 +98,12 @@ func (LogicallyAirGappedBackupVaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logicallyAirGappedBackupVaultState)(nil)).Elem()
 }
 
+// LogicallyAirGappedBackupVaultExists checks whether an existing LogicallyAirGappedBackupVault resource with the given ID exists.
+func LogicallyAirGappedBackupVaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogicallyAirGappedBackupVaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:LogicallyAirGappedBackupVault", id, state, "", opts...)
+}
+
 type logicallyAirGappedBackupVaultArgs struct {
 	// The backup vault access policy document in JSON format.
 	//

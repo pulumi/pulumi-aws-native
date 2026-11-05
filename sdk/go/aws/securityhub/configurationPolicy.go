@@ -78,6 +78,12 @@ func (ConfigurationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationPolicyState)(nil)).Elem()
 }
 
+// ConfigurationPolicyExists checks whether an existing ConfigurationPolicy resource with the given ID exists.
+func ConfigurationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:ConfigurationPolicy", id, state, "", opts...)
+}
+
 type configurationPolicyArgs struct {
 	// An object that defines how AWS Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
 	ConfigurationPolicy ConfigurationPolicyPolicy `pulumi:"configurationPolicy"`

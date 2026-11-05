@@ -75,6 +75,12 @@ func (ConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorState)(nil)).Elem()
 }
 
+// ConnectorExists checks whether an existing Connector resource with the given ID exists.
+func ConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:Connector", id, state, "", opts...)
+}
+
 type connectorArgs struct {
 	// The configuration for the connector that specifies the third-party cloud provider connection details.
 	ConnectorConfiguration ConnectorConfiguration `pulumi:"connectorConfiguration"`

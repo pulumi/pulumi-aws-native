@@ -79,6 +79,12 @@ func (MulticastGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multicastGroupState)(nil)).Elem()
 }
 
+// MulticastGroupExists checks whether an existing MulticastGroup resource with the given ID exists.
+func MulticastGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MulticastGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotwireless:MulticastGroup", id, state, "", opts...)
+}
+
 type multicastGroupArgs struct {
 	// Wireless device to associate. Only for update request.
 	AssociateWirelessDevice *string `pulumi:"associateWirelessDevice"`

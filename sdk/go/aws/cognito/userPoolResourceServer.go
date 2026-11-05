@@ -78,6 +78,12 @@ func (UserPoolResourceServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolResourceServerState)(nil)).Elem()
 }
 
+// UserPoolResourceServerExists checks whether an existing UserPoolResourceServer resource with the given ID exists.
+func UserPoolResourceServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolResourceServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolResourceServer", id, state, "", opts...)
+}
+
 type userPoolResourceServerArgs struct {
 	// A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
 	//

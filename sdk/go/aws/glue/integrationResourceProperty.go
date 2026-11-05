@@ -75,6 +75,12 @@ func (IntegrationResourcePropertyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationResourcePropertyState)(nil)).Elem()
 }
 
+// IntegrationResourcePropertyExists checks whether an existing IntegrationResourceProperty resource with the given ID exists.
+func IntegrationResourcePropertyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationResourcePropertyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:IntegrationResourceProperty", id, state, "", opts...)
+}
+
 type integrationResourcePropertyArgs struct {
 	// The connection ARN of the source, or the database ARN of the target.
 	ResourceArn string `pulumi:"resourceArn"`

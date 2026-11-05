@@ -94,6 +94,12 @@ func (QueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueState)(nil)).Elem()
 }
 
+// QueueExists checks whether an existing Queue resource with the given ID exists.
+func QueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:Queue", id, state, "", opts...)
+}
+
 type queueArgs struct {
 	// The email addresses that agents can use when replying to or initiating email contacts
 	AdditionalEmailAddresses []QueueEmailAddress `pulumi:"additionalEmailAddresses"`

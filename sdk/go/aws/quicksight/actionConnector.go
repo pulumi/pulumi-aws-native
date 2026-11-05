@@ -90,6 +90,12 @@ func (ActionConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionConnectorState)(nil)).Elem()
 }
 
+// ActionConnectorExists checks whether an existing ActionConnector resource with the given ID exists.
+func ActionConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:ActionConnector", id, state, "", opts...)
+}
+
 type actionConnectorArgs struct {
 	ActionConnectorId    string                              `pulumi:"actionConnectorId"`
 	AuthenticationConfig ActionConnectorAuthConfig           `pulumi:"authenticationConfig"`

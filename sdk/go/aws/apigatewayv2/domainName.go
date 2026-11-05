@@ -82,6 +82,12 @@ func (DomainNameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameState)(nil)).Elem()
 }
 
+// DomainNameExists checks whether an existing DomainName resource with the given ID exists.
+func DomainNameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainNameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:DomainName", id, state, "", opts...)
+}
+
 type domainNameArgs struct {
 	// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
 	DomainName string `pulumi:"domainName"`

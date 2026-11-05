@@ -79,6 +79,12 @@ func (GatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayState)(nil)).Elem()
 }
 
+// GatewayExists checks whether an existing Gateway resource with the given ID exists.
+func GatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:Gateway", id, state, "", opts...)
+}
+
 type gatewayArgs struct {
 	// The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	EgressCidrBlocks []string `pulumi:"egressCidrBlocks"`

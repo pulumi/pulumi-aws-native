@@ -173,6 +173,12 @@ func (MissionProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*missionProfileState)(nil)).Elem()
 }
 
+// MissionProfileExists checks whether an existing MissionProfile resource with the given ID exists.
+func MissionProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MissionProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:groundstation:MissionProfile", id, state, "", opts...)
+}
+
 type missionProfileArgs struct {
 	// Post-pass time needed after the contact.
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`

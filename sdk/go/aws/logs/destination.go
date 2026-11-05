@@ -80,6 +80,12 @@ func (DestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*destinationState)(nil)).Elem()
 }
 
+// DestinationExists checks whether an existing Destination resource with the given ID exists.
+func DestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:Destination", id, state, "", opts...)
+}
+
 type destinationArgs struct {
 	// The name of the destination resource
 	DestinationName *string `pulumi:"destinationName"`

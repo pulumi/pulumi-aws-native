@@ -60,6 +60,12 @@ func (PreferencesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*preferencesState)(nil)).Elem()
 }
 
+// PreferencesExists checks whether an existing Preferences resource with the given ID exists.
+func PreferencesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PreferencesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssmguiconnect:Preferences", id, state, "", opts...)
+}
+
 type preferencesArgs struct {
 	// The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
 	ConnectionRecordingPreferences *ConnectionRecordingPreferencesProperties `pulumi:"connectionRecordingPreferences"`

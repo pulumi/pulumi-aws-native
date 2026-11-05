@@ -95,6 +95,12 @@ func (ComponentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*componentState)(nil)).Elem()
 }
 
+// ComponentExists checks whether an existing Component resource with the given ID exists.
+func ComponentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComponentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:amplifyuibuilder:Component", id, state, "", opts...)
+}
+
 type componentArgs struct {
 	// The unique ID of the Amplify app associated with the component.
 	AppId *string `pulumi:"appId"`

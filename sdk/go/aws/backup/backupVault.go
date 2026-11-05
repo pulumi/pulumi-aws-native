@@ -79,6 +79,12 @@ func (BackupVaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupVaultState)(nil)).Elem()
 }
 
+// BackupVaultExists checks whether an existing BackupVault resource with the given ID exists.
+func BackupVaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupVaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:BackupVault", id, state, "", opts...)
+}
+
 type backupVaultArgs struct {
 	// A resource-based policy that is used to manage access permissions on the target backup vault.
 	//

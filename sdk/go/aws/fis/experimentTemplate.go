@@ -187,6 +187,12 @@ func (ExperimentTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*experimentTemplateState)(nil)).Elem()
 }
 
+// ExperimentTemplateExists checks whether an existing ExperimentTemplate resource with the given ID exists.
+func ExperimentTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExperimentTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:fis:ExperimentTemplate", id, state, "", opts...)
+}
+
 type experimentTemplateArgs struct {
 	// The actions for the experiment.
 	Actions map[string]ExperimentTemplateAction `pulumi:"actions"`

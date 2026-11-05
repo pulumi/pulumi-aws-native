@@ -62,6 +62,12 @@ func (VdmAttributesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vdmAttributesState)(nil)).Elem()
 }
 
+// VdmAttributesExists checks whether an existing VdmAttributes resource with the given ID exists.
+func VdmAttributesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VdmAttributesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:VdmAttributes", id, state, "", opts...)
+}
+
 type vdmAttributesArgs struct {
 	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes *VdmAttributesDashboardAttributes `pulumi:"dashboardAttributes"`

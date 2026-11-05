@@ -115,6 +115,12 @@ func (InferenceExperimentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inferenceExperimentState)(nil)).Elem()
 }
 
+// InferenceExperimentExists checks whether an existing InferenceExperiment resource with the given ID exists.
+func InferenceExperimentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InferenceExperimentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:InferenceExperiment", id, state, "", opts...)
+}
+
 type inferenceExperimentArgs struct {
 	// The Amazon S3 location and configuration for storing inference request and response data.
 	DataStorageConfig *InferenceExperimentDataStorageConfig `pulumi:"dataStorageConfig"`

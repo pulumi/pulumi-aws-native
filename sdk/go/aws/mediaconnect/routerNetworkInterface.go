@@ -88,6 +88,12 @@ func (RouterNetworkInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routerNetworkInterfaceState)(nil)).Elem()
 }
 
+// RouterNetworkInterfaceExists checks whether an existing RouterNetworkInterface resource with the given ID exists.
+func RouterNetworkInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouterNetworkInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:RouterNetworkInterface", id, state, "", opts...)
+}
+
 type routerNetworkInterfaceArgs struct {
 	Configuration interface{} `pulumi:"configuration"`
 	// The name of the router network interface.

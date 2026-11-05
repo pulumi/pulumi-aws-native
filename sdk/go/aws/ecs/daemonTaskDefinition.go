@@ -91,6 +91,12 @@ func (DaemonTaskDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*daemonTaskDefinitionState)(nil)).Elem()
 }
 
+// DaemonTaskDefinitionExists checks whether an existing DaemonTaskDefinition resource with the given ID exists.
+func DaemonTaskDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DaemonTaskDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecs:DaemonTaskDefinition", id, state, "", opts...)
+}
+
 type daemonTaskDefinitionArgs struct {
 	// A list of container definitions in JSON format that describe the containers that make up the daemon task.
 	ContainerDefinitions []DaemonTaskDefinitionDaemonContainerDefinition `pulumi:"containerDefinitions"`

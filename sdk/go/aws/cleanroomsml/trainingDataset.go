@@ -87,6 +87,12 @@ func (TrainingDatasetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trainingDatasetState)(nil)).Elem()
 }
 
+// TrainingDatasetExists checks whether an existing TrainingDataset resource with the given ID exists.
+func TrainingDatasetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrainingDatasetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanroomsml:TrainingDataset", id, state, "", opts...)
+}
+
 type trainingDatasetArgs struct {
 	// The description of the training dataset.
 	Description *string `pulumi:"description"`

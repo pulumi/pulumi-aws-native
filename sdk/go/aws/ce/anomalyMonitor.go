@@ -267,8 +267,8 @@ import (
 //				Threshold:        pulumi.Float64(100),
 //				Frequency:        ce.AnomalySubscriptionFrequencyDaily,
 //				MonitorArnList: pulumi.StringArray{
-//					customAnomalyMonitorWithLinkedAccount.ID().ToIDOutput().ToStringOutput(),
-//					anomalyServiceMonitor.ID().ToIDOutput().ToStringOutput(),
+//					customAnomalyMonitorWithLinkedAccount.ID(),
+//					anomalyServiceMonitor.ID(),
 //				},
 //				Subscribers: ce.AnomalySubscriptionSubscriberArray{
 //					&ce.AnomalySubscriptionSubscriberArgs{
@@ -320,8 +320,8 @@ import (
 //				Threshold:        pulumi.Float64(100),
 //				Frequency:        ce.AnomalySubscriptionFrequencyDaily,
 //				MonitorArnList: pulumi.StringArray{
-//					customAnomalyMonitorWithLinkedAccount.ID().ToIDOutput().ToStringOutput(),
-//					anomalyServiceMonitor.ID().ToIDOutput().ToStringOutput(),
+//					customAnomalyMonitorWithLinkedAccount.ID(),
+//					anomalyServiceMonitor.ID(),
 //				},
 //				Subscribers: ce.AnomalySubscriptionSubscriberArray{
 //					&ce.AnomalySubscriptionSubscriberArgs{
@@ -373,8 +373,8 @@ import (
 //				Threshold:        pulumi.Float64(100),
 //				Frequency:        ce.AnomalySubscriptionFrequencyDaily,
 //				MonitorArnList: pulumi.StringArray{
-//					customAnomalyMonitorWithLinkedAccount.ID().ToIDOutput().ToStringOutput(),
-//					anomalyServiceMonitor.ID().ToIDOutput().ToStringOutput(),
+//					customAnomalyMonitorWithLinkedAccount.ID(),
+//					anomalyServiceMonitor.ID(),
 //				},
 //				Subscribers: ce.AnomalySubscriptionSubscriberArray{
 //					&ce.AnomalySubscriptionSubscriberArgs{
@@ -426,8 +426,8 @@ import (
 //				Threshold:        pulumi.Float64(100),
 //				Frequency:        ce.AnomalySubscriptionFrequencyDaily,
 //				MonitorArnList: pulumi.StringArray{
-//					customAnomalyMonitorWithLinkedAccount.ID().ToIDOutput().ToStringOutput(),
-//					anomalyServiceMonitor.ID().ToIDOutput().ToStringOutput(),
+//					customAnomalyMonitorWithLinkedAccount.ID(),
+//					anomalyServiceMonitor.ID(),
 //				},
 //				Subscribers: ce.AnomalySubscriptionSubscriberArray{
 //					&ce.AnomalySubscriptionSubscriberArgs{
@@ -522,6 +522,12 @@ type AnomalyMonitorState struct {
 
 func (AnomalyMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*anomalyMonitorState)(nil)).Elem()
+}
+
+// AnomalyMonitorExists checks whether an existing AnomalyMonitor resource with the given ID exists.
+func AnomalyMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnomalyMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ce:AnomalyMonitor", id, state, "", opts...)
 }
 
 type anomalyMonitorArgs struct {

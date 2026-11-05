@@ -91,6 +91,12 @@ func (ResourceGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGatewayState)(nil)).Elem()
 }
 
+// ResourceGatewayExists checks whether an existing ResourceGateway resource with the given ID exists.
+func ResourceGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:vpclattice:ResourceGateway", id, state, "", opts...)
+}
+
 type resourceGatewayArgs struct {
 	// The type of IP address used by the resource gateway.
 	IpAddressType *ResourceGatewayIpAddressType `pulumi:"ipAddressType"`

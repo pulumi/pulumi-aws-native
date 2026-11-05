@@ -192,6 +192,12 @@ func (ResourceCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceCollectionState)(nil)).Elem()
 }
 
+// ResourceCollectionExists checks whether an existing ResourceCollection resource with the given ID exists.
+func ResourceCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:devopsguru:ResourceCollection", id, state, "", opts...)
+}
+
 type resourceCollectionArgs struct {
 	// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 	ResourceCollectionFilter ResourceCollectionFilter `pulumi:"resourceCollectionFilter"`

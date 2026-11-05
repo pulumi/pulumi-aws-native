@@ -85,6 +85,12 @@ func (NetworkSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSettingsState)(nil)).Elem()
 }
 
+// NetworkSettingsExists checks whether an existing NetworkSettings resource with the given ID exists.
+func NetworkSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspacesweb:NetworkSettings", id, state, "", opts...)
+}
+
 type networkSettingsArgs struct {
 	// One or more security groups used to control access from streaming instances to your VPC.
 	//

@@ -100,6 +100,12 @@ func (ThemeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*themeState)(nil)).Elem()
 }
 
+// ThemeExists checks whether an existing Theme resource with the given ID exists.
+func ThemeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThemeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:Theme", id, state, "", opts...)
+}
+
 type themeArgs struct {
 	// The ID of the AWS account where you want to store the new theme.
 	AwsAccountId string `pulumi:"awsAccountId"`

@@ -79,6 +79,12 @@ func (AiAgentVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aiAgentVersionState)(nil)).Elem()
 }
 
+// AiAgentVersionExists checks whether an existing AiAgentVersion resource with the given ID exists.
+func AiAgentVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AiAgentVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:AiAgentVersion", id, state, "", opts...)
+}
+
 type aiAgentVersionArgs struct {
 	// The identifier of the AI Agent.
 	AiAgentId   string `pulumi:"aiAgentId"`

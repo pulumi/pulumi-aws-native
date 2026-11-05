@@ -90,6 +90,12 @@ func (CaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*caseState)(nil)).Elem()
 }
 
+// CaseExists checks whether an existing Case resource with the given ID exists.
+func CaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cases:Case", id, state, "", opts...)
+}
+
 type caseArgs struct {
 	// The full customer profile ARN for the case.
 	CustomerId string `pulumi:"customerId"`

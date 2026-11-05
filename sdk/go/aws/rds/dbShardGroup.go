@@ -109,6 +109,12 @@ func (DbShardGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbShardGroupState)(nil)).Elem()
 }
 
+// DbShardGroupExists checks whether an existing DbShardGroup resource with the given ID exists.
+func DbShardGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbShardGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbShardGroup", id, state, "", opts...)
+}
+
 type dbShardGroupArgs struct {
 	// Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
 	//   +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.

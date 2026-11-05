@@ -156,6 +156,12 @@ func (TaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskState)(nil)).Elem()
 }
 
+// TaskExists checks whether an existing Task resource with the given ID exists.
+func TaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:Task", id, state, "", opts...)
+}
+
 type taskArgs struct {
 	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`

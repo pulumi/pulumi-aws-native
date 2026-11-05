@@ -64,6 +64,12 @@ func (SigningConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signingConfigurationState)(nil)).Elem()
 }
 
+// SigningConfigurationExists checks whether an existing SigningConfiguration resource with the given ID exists.
+func SigningConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SigningConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecr:SigningConfiguration", id, state, "", opts...)
+}
+
 type signingConfigurationArgs struct {
 	// Array of signing rules that define which repositories should be signed and with which signing profiles.
 	Rules []SigningConfigurationRule `pulumi:"rules"`

@@ -122,6 +122,12 @@ func (SlackWorkspaceConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*slackWorkspaceConfigurationState)(nil)).Elem()
 }
 
+// SlackWorkspaceConfigurationExists checks whether an existing SlackWorkspaceConfiguration resource with the given ID exists.
+func SlackWorkspaceConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SlackWorkspaceConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:supportapp:SlackWorkspaceConfiguration", id, state, "", opts...)
+}
+
 type slackWorkspaceConfigurationArgs struct {
 	// The team ID in Slack, which uniquely identifies a workspace.
 	TeamId string `pulumi:"teamId"`

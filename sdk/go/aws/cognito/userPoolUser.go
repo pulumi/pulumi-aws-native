@@ -119,6 +119,12 @@ func (UserPoolUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolUserState)(nil)).Elem()
 }
 
+// UserPoolUserExists checks whether an existing UserPoolUser resource with the given ID exists.
+func UserPoolUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolUser", id, state, "", opts...)
+}
+
 type userPoolUserArgs struct {
 	// A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning AWS Lambda functions to user pool triggers.
 	//

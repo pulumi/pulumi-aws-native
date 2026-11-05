@@ -81,6 +81,12 @@ func (AccessPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPointState)(nil)).Elem()
 }
 
+// AccessPointExists checks whether an existing AccessPoint resource with the given ID exists.
+func AccessPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3files:AccessPoint", id, state, "", opts...)
+}
+
 type accessPointArgs struct {
 	// (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
 	ClientToken *string `pulumi:"clientToken"`

@@ -112,6 +112,12 @@ func (ModelExplainabilityJobDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelExplainabilityJobDefinitionState)(nil)).Elem()
 }
 
+// ModelExplainabilityJobDefinitionExists checks whether an existing ModelExplainabilityJobDefinition resource with the given ID exists.
+func ModelExplainabilityJobDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelExplainabilityJobDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:ModelExplainabilityJobDefinition", id, state, "", opts...)
+}
+
 type modelExplainabilityJobDefinitionArgs struct {
 	EndpointName *string `pulumi:"endpointName"`
 	// The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.

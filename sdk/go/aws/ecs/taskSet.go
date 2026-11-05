@@ -116,6 +116,12 @@ func (TaskSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskSetState)(nil)).Elem()
 }
 
+// TaskSetExists checks whether an existing TaskSet resource with the given ID exists.
+func TaskSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TaskSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecs:TaskSet", id, state, "", opts...)
+}
+
 type taskSetArgs struct {
 	// The capacity provider strategy that are associated with the task set.
 	CapacityProviderStrategy []TaskSetCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`

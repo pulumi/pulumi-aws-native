@@ -97,6 +97,12 @@ func (IntelligentPromptRouterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*intelligentPromptRouterState)(nil)).Elem()
 }
 
+// IntelligentPromptRouterExists checks whether an existing IntelligentPromptRouter resource with the given ID exists.
+func IntelligentPromptRouterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntelligentPromptRouterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:IntelligentPromptRouter", id, state, "", opts...)
+}
+
 type intelligentPromptRouterArgs struct {
 	// Description of the Prompt Router.
 	Description *string `pulumi:"description"`

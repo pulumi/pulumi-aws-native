@@ -78,6 +78,12 @@ func (UserPoolRiskConfigurationAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolRiskConfigurationAttachmentState)(nil)).Elem()
 }
 
+// UserPoolRiskConfigurationAttachmentExists checks whether an existing UserPoolRiskConfigurationAttachment resource with the given ID exists.
+func UserPoolRiskConfigurationAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolRiskConfigurationAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolRiskConfigurationAttachment", id, state, "", opts...)
+}
+
 type userPoolRiskConfigurationAttachmentArgs struct {
 	// The settings for automated responses and notification templates for adaptive authentication with threat protection.
 	AccountTakeoverRiskConfiguration *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType `pulumi:"accountTakeoverRiskConfiguration"`

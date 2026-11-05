@@ -78,6 +78,12 @@ func (GatewayClusterAssociationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayClusterAssociationsState)(nil)).Elem()
 }
 
+// GatewayClusterAssociationsExists checks whether an existing GatewayClusterAssociations resource with the given ID exists.
+func GatewayClusterAssociationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayClusterAssociationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecs:GatewayClusterAssociations", id, state, "", opts...)
+}
+
 type gatewayClusterAssociationsArgs struct {
 	// The name or full Amazon Resource Name (ARN) of the cluster to associate the gateway with.
 	Cluster string `pulumi:"cluster"`

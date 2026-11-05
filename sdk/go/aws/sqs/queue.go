@@ -79,10 +79,10 @@ import (
 //				Threshold:          pulumi.Float64(10),
 //				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
 //				AlarmActions: pulumi.StringArray{
-//					alarmTopic.ID().ToIDOutput().ToStringOutput(),
+//					alarmTopic.ID(),
 //				},
 //				InsufficientDataActions: pulumi.StringArray{
-//					alarmTopic.ID().ToIDOutput().ToStringOutput(),
+//					alarmTopic.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -151,10 +151,10 @@ import (
 //				Threshold:          pulumi.Float64(10),
 //				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
 //				AlarmActions: pulumi.StringArray{
-//					alarmTopic.ID().ToIDOutput().ToStringOutput(),
+//					alarmTopic.ID(),
 //				},
 //				InsufficientDataActions: pulumi.StringArray{
-//					alarmTopic.ID().ToIDOutput().ToStringOutput(),
+//					alarmTopic.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -353,6 +353,12 @@ type QueueState struct {
 
 func (QueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueState)(nil)).Elem()
+}
+
+// QueueExists checks whether an existing Queue resource with the given ID exists.
+func QueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sqs:Queue", id, state, "", opts...)
 }
 
 type queueArgs struct {

@@ -110,6 +110,12 @@ func (PlaceIndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*placeIndexState)(nil)).Elem()
 }
 
+// PlaceIndexExists checks whether an existing PlaceIndex resource with the given ID exists.
+func PlaceIndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlaceIndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:location:PlaceIndex", id, state, "", opts...)
+}
+
 type placeIndexArgs struct {
 	// Specifies the geospatial data provider for the new place index.
 	//

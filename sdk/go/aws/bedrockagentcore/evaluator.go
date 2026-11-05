@@ -95,6 +95,12 @@ func (EvaluatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*evaluatorState)(nil)).Elem()
 }
 
+// EvaluatorExists checks whether an existing Evaluator resource with the given ID exists.
+func EvaluatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EvaluatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:Evaluator", id, state, "", opts...)
+}
+
 type evaluatorArgs struct {
 	// The description of the evaluator.
 	Description *string `pulumi:"description"`

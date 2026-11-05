@@ -99,6 +99,12 @@ func (DistributionTenantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionTenantState)(nil)).Elem()
 }
 
+// DistributionTenantExists checks whether an existing DistributionTenant resource with the given ID exists.
+func DistributionTenantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DistributionTenantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:DistributionTenant", id, state, "", opts...)
+}
+
 type distributionTenantArgs struct {
 	// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
 	ConnectionGroupId *string `pulumi:"connectionGroupId"`

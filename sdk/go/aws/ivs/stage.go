@@ -67,6 +67,12 @@ func (StageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageState)(nil)).Elem()
 }
 
+// StageExists checks whether an existing Stage resource with the given ID exists.
+func StageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivs:Stage", id, state, "", opts...)
+}
+
 type stageArgs struct {
 	// Configuration object for individual participant recording.
 	AutoParticipantRecordingConfiguration *StageAutoParticipantRecordingConfiguration `pulumi:"autoParticipantRecordingConfiguration"`

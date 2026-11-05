@@ -112,6 +112,12 @@ func (ModelBiasJobDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelBiasJobDefinitionState)(nil)).Elem()
 }
 
+// ModelBiasJobDefinitionExists checks whether an existing ModelBiasJobDefinition resource with the given ID exists.
+func ModelBiasJobDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelBiasJobDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:ModelBiasJobDefinition", id, state, "", opts...)
+}
+
 type modelBiasJobDefinitionArgs struct {
 	EndpointName *string `pulumi:"endpointName"`
 	// The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.

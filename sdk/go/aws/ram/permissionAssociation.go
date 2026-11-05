@@ -86,6 +86,12 @@ func (PermissionAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionAssociationState)(nil)).Elem()
 }
 
+// PermissionAssociationExists checks whether an existing PermissionAssociation resource with the given ID exists.
+func PermissionAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ram:PermissionAssociation", id, state, "", opts...)
+}
+
 type permissionAssociationArgs struct {
 	// Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share.
 	PermissionArn string `pulumi:"permissionArn"`

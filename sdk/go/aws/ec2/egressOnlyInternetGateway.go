@@ -71,6 +71,12 @@ func (EgressOnlyInternetGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*egressOnlyInternetGatewayState)(nil)).Elem()
 }
 
+// EgressOnlyInternetGatewayExists checks whether an existing EgressOnlyInternetGateway resource with the given ID exists.
+func EgressOnlyInternetGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EgressOnlyInternetGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:EgressOnlyInternetGateway", id, state, "", opts...)
+}
+
 type egressOnlyInternetGatewayArgs struct {
 	// Any tags assigned to the egress only internet gateway.
 	Tags []aws.Tag `pulumi:"tags"`

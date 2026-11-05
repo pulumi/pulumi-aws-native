@@ -82,6 +82,12 @@ func (EmailAddressState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailAddressState)(nil)).Elem()
 }
 
+// EmailAddressExists checks whether an existing EmailAddress resource with the given ID exists.
+func EmailAddressExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailAddressState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:EmailAddress", id, state, "", opts...)
+}
+
 type emailAddressArgs struct {
 	// List of alias configurations for the email address
 	AliasConfigurations []EmailAddressAliasConfiguration `pulumi:"aliasConfigurations"`

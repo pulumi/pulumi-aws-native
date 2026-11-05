@@ -71,6 +71,12 @@ func (RoutingControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routingControlState)(nil)).Elem()
 }
 
+// RoutingControlExists checks whether an existing RoutingControl resource with the given ID exists.
+func RoutingControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoutingControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53recoverycontrol:RoutingControl", id, state, "", opts...)
+}
+
 type routingControlArgs struct {
 	// Arn associated with Control Panel
 	ClusterArn *string `pulumi:"clusterArn"`

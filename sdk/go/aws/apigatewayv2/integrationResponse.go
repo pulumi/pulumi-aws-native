@@ -94,6 +94,12 @@ func (IntegrationResponseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationResponseState)(nil)).Elem()
 }
 
+// IntegrationResponseExists checks whether an existing IntegrationResponse resource with the given ID exists.
+func IntegrationResponseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationResponseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:IntegrationResponse", id, state, "", opts...)
+}
+
 type integrationResponseArgs struct {
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`

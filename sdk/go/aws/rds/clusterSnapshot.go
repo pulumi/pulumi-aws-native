@@ -111,6 +111,12 @@ func (ClusterSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSnapshotState)(nil)).Elem()
 }
 
+// ClusterSnapshotExists checks whether an existing ClusterSnapshot resource with the given ID exists.
+func ClusterSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:ClusterSnapshot", id, state, "", opts...)
+}
+
 type clusterSnapshotArgs struct {
 	// The identifier of the DB cluster to create a snapshot for.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`

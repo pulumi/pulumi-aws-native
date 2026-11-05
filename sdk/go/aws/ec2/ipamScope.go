@@ -87,6 +87,12 @@ func (IpamScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamScopeState)(nil)).Elem()
 }
 
+// IpamScopeExists checks whether an existing IpamScope resource with the given ID exists.
+func IpamScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamScope", id, state, "", opts...)
+}
+
 type ipamScopeArgs struct {
 	// The description of the scope.
 	Description *string `pulumi:"description"`

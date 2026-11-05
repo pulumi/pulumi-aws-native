@@ -76,6 +76,12 @@ func (HostedZoneAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedZoneAssociationState)(nil)).Elem()
 }
 
+// HostedZoneAssociationExists checks whether an existing HostedZoneAssociation resource with the given ID exists.
+func HostedZoneAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostedZoneAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53globalresolver:HostedZoneAssociation", id, state, "", opts...)
+}
+
 type hostedZoneAssociationArgs struct {
 	HostedZoneId string  `pulumi:"hostedZoneId"`
 	Name         *string `pulumi:"name"`

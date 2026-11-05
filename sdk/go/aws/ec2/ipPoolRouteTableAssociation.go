@@ -74,6 +74,12 @@ func (IpPoolRouteTableAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipPoolRouteTableAssociationState)(nil)).Elem()
 }
 
+// IpPoolRouteTableAssociationExists checks whether an existing IpPoolRouteTableAssociation resource with the given ID exists.
+func IpPoolRouteTableAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpPoolRouteTableAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpPoolRouteTableAssociation", id, state, "", opts...)
+}
+
 type ipPoolRouteTableAssociationArgs struct {
 	// The ID of the public IPv4 pool.
 	PublicIpv4Pool string `pulumi:"publicIpv4Pool"`

@@ -72,6 +72,12 @@ func (MessageTemplateVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*messageTemplateVersionState)(nil)).Elem()
 }
 
+// MessageTemplateVersionExists checks whether an existing MessageTemplateVersion resource with the given ID exists.
+func MessageTemplateVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MessageTemplateVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:MessageTemplateVersion", id, state, "", opts...)
+}
+
 type messageTemplateVersionArgs struct {
 	// The unqualified Amazon Resource Name (ARN) of the message template.
 	MessageTemplateArn string `pulumi:"messageTemplateArn"`

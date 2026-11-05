@@ -66,6 +66,12 @@ func (CertificateAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateAssociationState)(nil)).Elem()
 }
 
+// CertificateAssociationExists checks whether an existing CertificateAssociation resource with the given ID exists.
+func CertificateAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconvert:CertificateAssociation", id, state, "", opts...)
+}
+
 type certificateAssociationArgs struct {
 	// The ARN of the ACM certificate to associate with MediaConvert.
 	Arn string `pulumi:"arn"`

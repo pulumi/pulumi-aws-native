@@ -85,6 +85,12 @@ func (TypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*typeState)(nil)).Elem()
 }
 
+// TypeExists checks whether an existing Type resource with the given ID exists.
+func TypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cassandra:Type", id, state, "", opts...)
+}
+
 type typeArgs struct {
 	// Field definitions of the User-Defined Type
 	Fields []TypeField `pulumi:"fields"`

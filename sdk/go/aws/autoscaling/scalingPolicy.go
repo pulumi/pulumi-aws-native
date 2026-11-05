@@ -90,6 +90,12 @@ func (ScalingPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalingPolicyState)(nil)).Elem()
 }
 
+// ScalingPolicyExists checks whether an existing ScalingPolicy resource with the given ID exists.
+func ScalingPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScalingPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:autoscaling:ScalingPolicy", id, state, "", opts...)
+}
+
 type scalingPolicyArgs struct {
 	// Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
 	AdjustmentType *string `pulumi:"adjustmentType"`

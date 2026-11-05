@@ -91,6 +91,12 @@ func (NetworkMigrationDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkMigrationDefinitionState)(nil)).Elem()
 }
 
+// NetworkMigrationDefinitionExists checks whether an existing NetworkMigrationDefinition resource with the given ID exists.
+func NetworkMigrationDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkMigrationDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mgn:NetworkMigrationDefinition", id, state, "", opts...)
+}
+
 type networkMigrationDefinitionArgs struct {
 	// A description of the network migration definition.
 	Description *string `pulumi:"description"`

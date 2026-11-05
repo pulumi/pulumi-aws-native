@@ -85,6 +85,12 @@ func (ServiceFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceFunctionState)(nil)).Elem()
 }
 
+// ServiceFunctionExists checks whether an existing ServiceFunction resource with the given ID exists.
+func ServiceFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:resiliencehubv2:ServiceFunction", id, state, "", opts...)
+}
+
 type serviceFunctionArgs struct {
 	// The criticality of the service function.
 	Criticality ServiceFunctionCriticality `pulumi:"criticality"`

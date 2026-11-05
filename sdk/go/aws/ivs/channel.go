@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
-//				ChannelArn: channel.ID().ToIDOutput().ToStringOutput(),
+//				ChannelArn: channel.ID(),
 //				Tags: aws.TagArray{
 //					&aws.TagArgs{
 //						Key:   pulumi.String("MyKey"),
@@ -93,7 +93,7 @@ import (
 //				return err
 //			}
 //			streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
-//				ChannelArn: channel.ID().ToIDOutput().ToStringOutput(),
+//				ChannelArn: channel.ID(),
 //				Tags: aws.TagArray{
 //					&aws.TagArgs{
 //						Key:   pulumi.String("MyKey"),
@@ -181,6 +181,12 @@ type ChannelState struct {
 
 func (ChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelState)(nil)).Elem()
+}
+
+// ChannelExists checks whether an existing Channel resource with the given ID exists.
+func ChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivs:Channel", id, state, "", opts...)
 }
 
 type channelArgs struct {

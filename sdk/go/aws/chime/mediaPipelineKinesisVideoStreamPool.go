@@ -81,6 +81,12 @@ func (MediaPipelineKinesisVideoStreamPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mediaPipelineKinesisVideoStreamPoolState)(nil)).Elem()
 }
 
+// MediaPipelineKinesisVideoStreamPoolExists checks whether an existing MediaPipelineKinesisVideoStreamPool resource with the given ID exists.
+func MediaPipelineKinesisVideoStreamPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MediaPipelineKinesisVideoStreamPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:chime:MediaPipelineKinesisVideoStreamPool", id, state, "", opts...)
+}
+
 type mediaPipelineKinesisVideoStreamPoolArgs struct {
 	// The name of the Kinesis Video Stream Pool.
 	PoolName *string `pulumi:"poolName"`

@@ -79,6 +79,12 @@ func (RuleGroupsNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleGroupsNamespaceState)(nil)).Elem()
 }
 
+// RuleGroupsNamespaceExists checks whether an existing RuleGroupsNamespace resource with the given ID exists.
+func RuleGroupsNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleGroupsNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:aps:RuleGroupsNamespace", id, state, "", opts...)
+}
+
 type ruleGroupsNamespaceArgs struct {
 	// The RuleGroupsNamespace data.
 	Data string `pulumi:"data"`

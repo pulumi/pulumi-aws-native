@@ -65,6 +65,12 @@ func (TagOptionAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagOptionAssociationState)(nil)).Elem()
 }
 
+// TagOptionAssociationExists checks whether an existing TagOptionAssociation resource with the given ID exists.
+func TagOptionAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagOptionAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:TagOptionAssociation", id, state, "", opts...)
+}
+
 type tagOptionAssociationArgs struct {
 	// The CloudformationProduct or Portfolio identifier.
 	ResourceId *string `pulumi:"resourceId"`

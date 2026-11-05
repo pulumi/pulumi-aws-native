@@ -103,6 +103,12 @@ func (OpsItemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*opsItemState)(nil)).Elem()
 }
 
+// OpsItemExists checks whether an existing OpsItem resource with the given ID exists.
+func OpsItemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpsItemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssm:OpsItem", id, state, "", opts...)
+}
+
 type opsItemArgs struct {
 	// The category of the OpsItem.
 	Category *string `pulumi:"category"`

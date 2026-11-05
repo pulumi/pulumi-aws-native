@@ -77,6 +77,12 @@ func (ReferenceStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*referenceStoreState)(nil)).Elem()
 }
 
+// ReferenceStoreExists checks whether an existing ReferenceStore resource with the given ID exists.
+func ReferenceStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReferenceStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:omics:ReferenceStore", id, state, "", opts...)
+}
+
 type referenceStoreArgs struct {
 	// A description for the store.
 	Description *string `pulumi:"description"`

@@ -82,6 +82,12 @@ func (CollectionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*collectionGroupState)(nil)).Elem()
 }
 
+// CollectionGroupExists checks whether an existing CollectionGroup resource with the given ID exists.
+func CollectionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CollectionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:opensearchserverless:CollectionGroup", id, state, "", opts...)
+}
+
 type collectionGroupArgs struct {
 	CapacityLimits *CollectionGroupCapacityLimits `pulumi:"capacityLimits"`
 	// The description of the collection group.

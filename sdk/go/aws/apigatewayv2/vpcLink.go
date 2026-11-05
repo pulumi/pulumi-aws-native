@@ -75,6 +75,12 @@ func (VpcLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcLinkState)(nil)).Elem()
 }
 
+// VpcLinkExists checks whether an existing VpcLink resource with the given ID exists.
+func VpcLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:VpcLink", id, state, "", opts...)
+}
+
 type vpcLinkArgs struct {
 	// The name of the VPC link.
 	Name *string `pulumi:"name"`

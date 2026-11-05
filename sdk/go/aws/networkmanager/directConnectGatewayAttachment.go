@@ -110,6 +110,12 @@ func (DirectConnectGatewayAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directConnectGatewayAttachmentState)(nil)).Elem()
 }
 
+// DirectConnectGatewayAttachmentExists checks whether an existing DirectConnectGatewayAttachment resource with the given ID exists.
+func DirectConnectGatewayAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectConnectGatewayAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkmanager:DirectConnectGatewayAttachment", id, state, "", opts...)
+}
+
 type directConnectGatewayAttachmentArgs struct {
 	// The ID of a core network for the Direct Connect Gateway attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

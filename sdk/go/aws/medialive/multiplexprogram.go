@@ -75,6 +75,12 @@ func (MultiplexprogramState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiplexprogramState)(nil)).Elem()
 }
 
+// MultiplexprogramExists checks whether an existing Multiplexprogram resource with the given ID exists.
+func MultiplexprogramExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiplexprogramState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:Multiplexprogram", id, state, "", opts...)
+}
+
 type multiplexprogramArgs struct {
 	// The ID of the multiplex that the program belongs to.
 	MultiplexId *string `pulumi:"multiplexId"`

@@ -151,6 +151,12 @@ func (EnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentState)(nil)).Elem()
 }
 
+// EnvironmentExists checks whether an existing Environment resource with the given ID exists.
+func EnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:finspace:Environment", id, state, "", opts...)
+}
+
 type environmentArgs struct {
 	// ARNs of FinSpace Data Bundles to install
 	DataBundles []string `pulumi:"dataBundles"`

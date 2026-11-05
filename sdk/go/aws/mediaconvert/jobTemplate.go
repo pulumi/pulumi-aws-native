@@ -90,6 +90,12 @@ func (JobTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobTemplateState)(nil)).Elem()
 }
 
+// JobTemplateExists checks whether an existing JobTemplate resource with the given ID exists.
+func JobTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconvert:JobTemplate", id, state, "", opts...)
+}
+
 type jobTemplateArgs struct {
 	// Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing.
 	AccelerationSettings *JobTemplateAccelerationSettings `pulumi:"accelerationSettings"`

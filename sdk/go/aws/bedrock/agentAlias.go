@@ -96,6 +96,12 @@ func (AgentAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentAliasState)(nil)).Elem()
 }
 
+// AgentAliasExists checks whether an existing AgentAlias resource with the given ID exists.
+func AgentAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:AgentAlias", id, state, "", opts...)
+}
+
 type agentAliasArgs struct {
 	// Name for a resource.
 	AgentAliasName *string `pulumi:"agentAliasName"`

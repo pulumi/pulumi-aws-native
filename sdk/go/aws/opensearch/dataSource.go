@@ -79,6 +79,12 @@ func (DataSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceState)(nil)).Elem()
 }
 
+// DataSourceExists checks whether an existing DataSource resource with the given ID exists.
+func DataSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:opensearch:DataSource", id, state, "", opts...)
+}
+
 type dataSourceArgs struct {
 	DataSourceType DataSourceType `pulumi:"dataSourceType"`
 	// A description of the data source.

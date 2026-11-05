@@ -92,6 +92,12 @@ func (PaymentConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*paymentConnectorState)(nil)).Elem()
 }
 
+// PaymentConnectorExists checks whether an existing PaymentConnector resource with the given ID exists.
+func PaymentConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PaymentConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:PaymentConnector", id, state, "", opts...)
+}
+
 type paymentConnectorArgs struct {
 	// The name of the payment connector
 	ConnectorName *string              `pulumi:"connectorName"`

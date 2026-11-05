@@ -75,6 +75,12 @@ func (PublicDnsNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicDnsNamespaceState)(nil)).Elem()
 }
 
+// PublicDnsNamespaceExists checks whether an existing PublicDnsNamespace resource with the given ID exists.
+func PublicDnsNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublicDnsNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicediscovery:PublicDnsNamespace", id, state, "", opts...)
+}
+
 type publicDnsNamespaceArgs struct {
 	// A description for the namespace.
 	Description *string `pulumi:"description"`

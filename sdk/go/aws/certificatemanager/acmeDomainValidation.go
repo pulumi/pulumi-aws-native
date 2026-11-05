@@ -82,6 +82,12 @@ func (AcmeDomainValidationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*acmeDomainValidationState)(nil)).Elem()
 }
 
+// AcmeDomainValidationExists checks whether an existing AcmeDomainValidation resource with the given ID exists.
+func AcmeDomainValidationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AcmeDomainValidationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:certificatemanager:AcmeDomainValidation", id, state, "", opts...)
+}
+
 type acmeDomainValidationArgs struct {
 	// The ARN of the ACME endpoint this domain validation is associated with.
 	AcmeEndpointArn string `pulumi:"acmeEndpointArn"`

@@ -85,6 +85,12 @@ func (ConnectorProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorProfileState)(nil)).Elem()
 }
 
+// ConnectorProfileExists checks whether an existing ConnectorProfile resource with the given ID exists.
+func ConnectorProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectorProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appflow:ConnectorProfile", id, state, "", opts...)
+}
+
 type connectorProfileArgs struct {
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 	ConnectionMode ConnectorProfileConnectionMode `pulumi:"connectionMode"`

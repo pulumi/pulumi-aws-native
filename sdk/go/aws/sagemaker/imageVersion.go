@@ -99,6 +99,12 @@ func (ImageVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageVersionState)(nil)).Elem()
 }
 
+// ImageVersionExists checks whether an existing ImageVersion resource with the given ID exists.
+func ImageVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImageVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:ImageVersion", id, state, "", opts...)
+}
+
 type imageVersionArgs struct {
 	Alias   *string  `pulumi:"alias"`
 	Aliases []string `pulumi:"aliases"`

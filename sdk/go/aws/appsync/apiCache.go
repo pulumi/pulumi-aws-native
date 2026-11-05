@@ -159,6 +159,12 @@ func (ApiCacheState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiCacheState)(nil)).Elem()
 }
 
+// ApiCacheExists checks whether an existing ApiCache resource with the given ID exists.
+func ApiCacheExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiCacheState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:ApiCache", id, state, "", opts...)
+}
+
 type apiCacheArgs struct {
 	// Caching behavior, such as FULL_REQUEST_CACHING, PER_RESOLVER_CACHING, or OPERATION_LEVEL_CACHING
 	ApiCachingBehavior string `pulumi:"apiCachingBehavior"`

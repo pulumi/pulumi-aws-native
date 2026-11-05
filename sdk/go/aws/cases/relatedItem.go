@@ -91,6 +91,12 @@ func (RelatedItemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*relatedItemState)(nil)).Elem()
 }
 
+// RelatedItemExists checks whether an existing RelatedItem resource with the given ID exists.
+func RelatedItemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RelatedItemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cases:RelatedItem", id, state, "", opts...)
+}
+
 type relatedItemArgs struct {
 	// A unique identifier of the case.
 	CaseId string `pulumi:"caseId"`

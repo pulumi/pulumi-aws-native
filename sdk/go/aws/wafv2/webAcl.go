@@ -133,6 +133,12 @@ func (WebAclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclState)(nil)).Elem()
 }
 
+// WebAclExists checks whether an existing WebAcl resource with the given ID exists.
+func WebAclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wafv2:WebAcl", id, state, "", opts...)
+}
+
 type webAclArgs struct {
 	// Collection of application attributes.
 	ApplicationConfig *WebAclApplicationConfig `pulumi:"applicationConfig"`

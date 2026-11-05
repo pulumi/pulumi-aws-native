@@ -80,6 +80,12 @@ func (TransitGatewayAttachmentNatConfigurationState) ElementType() reflect.Type 
 	return reflect.TypeOf((*transitGatewayAttachmentNatConfigurationState)(nil)).Elem()
 }
 
+// TransitGatewayAttachmentNatConfigurationExists checks whether an existing TransitGatewayAttachmentNatConfiguration resource with the given ID exists.
+func TransitGatewayAttachmentNatConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayAttachmentNatConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayAttachmentNatConfiguration", id, state, "", opts...)
+}
+
 type transitGatewayAttachmentNatConfigurationArgs struct {
 	// The complete set of NAT rules for the attachment. Updating this property replaces the entire rule set: rules omitted from the new value are removed.
 	NatGatewayRules []TransitGatewayAttachmentNatConfigurationNatRule `pulumi:"natGatewayRules"`

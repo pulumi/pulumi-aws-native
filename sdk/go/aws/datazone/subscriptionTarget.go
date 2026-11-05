@@ -115,6 +115,12 @@ func (SubscriptionTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionTargetState)(nil)).Elem()
 }
 
+// SubscriptionTargetExists checks whether an existing SubscriptionTarget resource with the given ID exists.
+func SubscriptionTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:SubscriptionTarget", id, state, "", opts...)
+}
+
 type subscriptionTargetArgs struct {
 	// The asset types that can be included in the subscription target.
 	ApplicableAssetTypes []string `pulumi:"applicableAssetTypes"`

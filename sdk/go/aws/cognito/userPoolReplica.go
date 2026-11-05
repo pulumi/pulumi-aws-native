@@ -72,6 +72,12 @@ func (UserPoolReplicaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolReplicaState)(nil)).Elem()
 }
 
+// UserPoolReplicaExists checks whether an existing UserPoolReplica resource with the given ID exists.
+func UserPoolReplicaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolReplicaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolReplica", id, state, "", opts...)
+}
+
 type userPoolReplicaArgs struct {
 	RegionName           string            `pulumi:"regionName"`
 	UserPoolId           string            `pulumi:"userPoolId"`

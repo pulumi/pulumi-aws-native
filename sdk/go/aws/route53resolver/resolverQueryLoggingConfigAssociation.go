@@ -75,6 +75,12 @@ func (ResolverQueryLoggingConfigAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverQueryLoggingConfigAssociationState)(nil)).Elem()
 }
 
+// ResolverQueryLoggingConfigAssociationExists checks whether an existing ResolverQueryLoggingConfigAssociation resource with the given ID exists.
+func ResolverQueryLoggingConfigAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverQueryLoggingConfigAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:ResolverQueryLoggingConfigAssociation", id, state, "", opts...)
+}
+
 type resolverQueryLoggingConfigAssociationArgs struct {
 	// ResolverQueryLogConfigId
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`

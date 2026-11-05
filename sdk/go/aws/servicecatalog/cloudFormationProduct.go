@@ -95,6 +95,12 @@ func (CloudFormationProductState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudFormationProductState)(nil)).Elem()
 }
 
+// CloudFormationProductExists checks whether an existing CloudFormationProduct resource with the given ID exists.
+func CloudFormationProductExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudFormationProductState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:CloudFormationProduct", id, state, "", opts...)
+}
+
 type cloudFormationProductArgs struct {
 	// The language code.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

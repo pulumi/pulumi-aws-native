@@ -105,6 +105,12 @@ func (ApplicationStatusCheckState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationStatusCheckState)(nil)).Elem()
 }
 
+// ApplicationStatusCheckExists checks whether an existing ApplicationStatusCheck resource with the given ID exists.
+func ApplicationStatusCheckExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationStatusCheckState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:ApplicationStatusCheck", id, state, "", opts...)
+}
+
 type applicationStatusCheckArgs struct {
 	// Whether this check is included in the rolled-up application status.
 	Aggregation *ApplicationStatusCheckAggregation `pulumi:"aggregation"`

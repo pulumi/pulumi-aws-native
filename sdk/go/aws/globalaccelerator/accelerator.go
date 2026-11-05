@@ -85,6 +85,12 @@ func (AcceleratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*acceleratorState)(nil)).Elem()
 }
 
+// AcceleratorExists checks whether an existing Accelerator resource with the given ID exists.
+func AcceleratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AcceleratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:globalaccelerator:Accelerator", id, state, "", opts...)
+}
+
 type acceleratorArgs struct {
 	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled *bool `pulumi:"enabled"`

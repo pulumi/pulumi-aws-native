@@ -81,6 +81,12 @@ func (ConfiguredModelAlgorithmAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configuredModelAlgorithmAssociationState)(nil)).Elem()
 }
 
+// ConfiguredModelAlgorithmAssociationExists checks whether an existing ConfiguredModelAlgorithmAssociation resource with the given ID exists.
+func ConfiguredModelAlgorithmAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfiguredModelAlgorithmAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociation", id, state, "", opts...)
+}
+
 type configuredModelAlgorithmAssociationArgs struct {
 	ConfiguredModelAlgorithmArn string                                                   `pulumi:"configuredModelAlgorithmArn"`
 	Description                 *string                                                  `pulumi:"description"`

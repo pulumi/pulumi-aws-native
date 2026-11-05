@@ -90,6 +90,12 @@ func (AssetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assetState)(nil)).Elem()
 }
 
+// AssetExists checks whether an existing Asset resource with the given ID exists.
+func AssetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:devopsagent:Asset", id, state, "", opts...)
+}
+
 type assetArgs struct {
 	// The unique identifier of the parent Agent Space. The asset is created as a child of this agent space.
 	AgentSpaceId string `pulumi:"agentSpaceId"`

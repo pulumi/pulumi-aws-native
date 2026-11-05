@@ -89,6 +89,12 @@ func (FleetMetricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetMetricState)(nil)).Elem()
 }
 
+// FleetMetricExists checks whether an existing FleetMetric resource with the given ID exists.
+func FleetMetricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetMetricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:FleetMetric", id, state, "", opts...)
+}
+
 type fleetMetricArgs struct {
 	// The aggregation field to perform aggregation and metric emission
 	AggregationField *string `pulumi:"aggregationField"`

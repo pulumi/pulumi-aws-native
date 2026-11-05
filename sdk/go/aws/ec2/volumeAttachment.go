@@ -82,6 +82,12 @@ func (VolumeAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeAttachmentState)(nil)).Elem()
 }
 
+// VolumeAttachmentExists checks whether an existing VolumeAttachment resource with the given ID exists.
+func VolumeAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VolumeAttachment", id, state, "", opts...)
+}
+
 type volumeAttachmentArgs struct {
 	// The device name (for example, ``/dev/sdh`` or ``xvdh``).
 	Device *string `pulumi:"device"`

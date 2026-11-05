@@ -91,6 +91,12 @@ func (ApprovalPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*approvalPolicyState)(nil)).Elem()
 }
 
+// ApprovalPolicyExists checks whether an existing ApprovalPolicy resource with the given ID exists.
+func ApprovalPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApprovalPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:ApprovalPolicy", id, state, "", opts...)
+}
+
 type approvalPolicyArgs struct {
 	// List of governed actions a policy applies to.
 	Actions      []ApprovalPolicyGovernedAction `pulumi:"actions"`

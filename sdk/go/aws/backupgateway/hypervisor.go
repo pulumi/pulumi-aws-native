@@ -78,6 +78,12 @@ func (HypervisorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hypervisorState)(nil)).Elem()
 }
 
+// HypervisorExists checks whether an existing Hypervisor resource with the given ID exists.
+func HypervisorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HypervisorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backupgateway:Hypervisor", id, state, "", opts...)
+}
+
 type hypervisorArgs struct {
 	// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
 	Host *string `pulumi:"host"`

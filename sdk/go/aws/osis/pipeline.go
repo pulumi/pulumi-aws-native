@@ -100,6 +100,12 @@ func (PipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineState)(nil)).Elem()
 }
 
+// PipelineExists checks whether an existing Pipeline resource with the given ID exists.
+func PipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:osis:Pipeline", id, state, "", opts...)
+}
+
 type pipelineArgs struct {
 	// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
 	BufferOptions *PipelineBufferOptions `pulumi:"bufferOptions"`

@@ -89,6 +89,12 @@ func (StepState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stepState)(nil)).Elem()
 }
 
+// StepExists checks whether an existing Step resource with the given ID exists.
+func StepExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StepState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:emr:Step", id, state, "", opts...)
+}
+
 type stepArgs struct {
 	// This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
 	ActionOnFailure string `pulumi:"actionOnFailure"`

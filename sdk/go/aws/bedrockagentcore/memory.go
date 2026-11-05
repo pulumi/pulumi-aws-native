@@ -90,6 +90,12 @@ func (MemoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*memoryState)(nil)).Elem()
 }
 
+// MemoryExists checks whether an existing Memory resource with the given ID exists.
+func MemoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MemoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:Memory", id, state, "", opts...)
+}
+
 type memoryArgs struct {
 	Description *string `pulumi:"description"`
 	// The memory encryption key Amazon Resource Name (ARN).

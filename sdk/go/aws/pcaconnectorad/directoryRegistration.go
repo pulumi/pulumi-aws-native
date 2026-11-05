@@ -70,6 +70,12 @@ func (DirectoryRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryRegistrationState)(nil)).Elem()
 }
 
+// DirectoryRegistrationExists checks whether an existing DirectoryRegistration resource with the given ID exists.
+func DirectoryRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectoryRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pcaconnectorad:DirectoryRegistration", id, state, "", opts...)
+}
+
 type directoryRegistrationArgs struct {
 	// The identifier of the Active Directory.
 	DirectoryId string `pulumi:"directoryId"`

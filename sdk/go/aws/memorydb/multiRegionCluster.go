@@ -96,6 +96,12 @@ func (MultiRegionClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiRegionClusterState)(nil)).Elem()
 }
 
+// MultiRegionClusterExists checks whether an existing MultiRegionCluster resource with the given ID exists.
+func MultiRegionClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MultiRegionClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:memorydb:MultiRegionCluster", id, state, "", opts...)
+}
+
 type multiRegionClusterArgs struct {
 	// Description of the multi region cluster.
 	Description *string `pulumi:"description"`

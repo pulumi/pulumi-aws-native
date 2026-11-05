@@ -106,6 +106,12 @@ func (ThingPrincipalAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingPrincipalAttachmentState)(nil)).Elem()
 }
 
+// ThingPrincipalAttachmentExists checks whether an existing ThingPrincipalAttachment resource with the given ID exists.
+func ThingPrincipalAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThingPrincipalAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:ThingPrincipalAttachment", id, state, "", opts...)
+}
+
 type thingPrincipalAttachmentArgs struct {
 	// The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
 	Principal string `pulumi:"principal"`

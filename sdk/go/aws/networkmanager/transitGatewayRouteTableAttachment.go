@@ -109,6 +109,12 @@ func (TransitGatewayRouteTableAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRouteTableAttachmentState)(nil)).Elem()
 }
 
+// TransitGatewayRouteTableAttachmentExists checks whether an existing TransitGatewayRouteTableAttachment resource with the given ID exists.
+func TransitGatewayRouteTableAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayRouteTableAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkmanager:TransitGatewayRouteTableAttachment", id, state, "", opts...)
+}
+
 type transitGatewayRouteTableAttachmentArgs struct {
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`

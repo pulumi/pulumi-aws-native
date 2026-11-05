@@ -103,6 +103,12 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInsightsPathState)(nil)).Elem()
 }
 
+// NetworkInsightsPathExists checks whether an existing NetworkInsightsPath resource with the given ID exists.
+func NetworkInsightsPathExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInsightsPathState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:NetworkInsightsPath", id, state, "", opts...)
+}
+
 type networkInsightsPathArgs struct {
 	// The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
 	Destination *string `pulumi:"destination"`

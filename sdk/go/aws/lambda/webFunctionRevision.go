@@ -96,6 +96,12 @@ func (WebFunctionRevisionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webFunctionRevisionState)(nil)).Elem()
 }
 
+// WebFunctionRevisionExists checks whether an existing WebFunctionRevision resource with the given ID exists.
+func WebFunctionRevisionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebFunctionRevisionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:WebFunctionRevision", id, state, "", opts...)
+}
+
 type webFunctionRevisionArgs struct {
 	// The build configuration for the revision.
 	BuildConfig BuildConfigProperties `pulumi:"buildConfig"`

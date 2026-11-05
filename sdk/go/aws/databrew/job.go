@@ -153,6 +153,12 @@ func (JobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobState)(nil)).Elem()
 }
 
+// JobExists checks whether an existing Job resource with the given ID exists.
+func JobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:databrew:Job", id, state, "", opts...)
+}
+
 type jobArgs struct {
 	// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
 	DataCatalogOutputs []JobDataCatalogOutput `pulumi:"dataCatalogOutputs"`

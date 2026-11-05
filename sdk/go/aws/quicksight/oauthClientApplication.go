@@ -86,6 +86,12 @@ func (OAuthClientApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthClientApplicationState)(nil)).Elem()
 }
 
+// OAuthClientApplicationExists checks whether an existing OAuthClientApplication resource with the given ID exists.
+func OAuthClientApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OAuthClientApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:OAuthClientApplication", id, state, "", opts...)
+}
+
 type oauthClientApplicationArgs struct {
 	ClientId                                *string                                                        `pulumi:"clientId"`
 	ClientSecret                            *string                                                        `pulumi:"clientSecret"`

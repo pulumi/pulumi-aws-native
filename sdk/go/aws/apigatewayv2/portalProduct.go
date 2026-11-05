@@ -73,6 +73,12 @@ func (PortalProductState) ElementType() reflect.Type {
 	return reflect.TypeOf((*portalProductState)(nil)).Elem()
 }
 
+// PortalProductExists checks whether an existing PortalProduct resource with the given ID exists.
+func PortalProductExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PortalProductState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:PortalProduct", id, state, "", opts...)
+}
+
 type portalProductArgs struct {
 	// A description of the portal product.
 	Description *string `pulumi:"description"`

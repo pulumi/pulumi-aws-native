@@ -73,6 +73,12 @@ func (DatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseState)(nil)).Elem()
 }
 
+// DatabaseExists checks whether an existing Database resource with the given ID exists.
+func DatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:Database", id, state, "", opts...)
+}
+
 type databaseArgs struct {
 	// The AWS account ID for the account in which to create the catalog object.
 	CatalogId string `pulumi:"catalogId"`

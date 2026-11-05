@@ -163,6 +163,12 @@ func (ClusterCapacityProviderAssociationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterCapacityProviderAssociationsState)(nil)).Elem()
 }
 
+// ClusterCapacityProviderAssociationsExists checks whether an existing ClusterCapacityProviderAssociations resource with the given ID exists.
+func ClusterCapacityProviderAssociationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterCapacityProviderAssociationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecs:ClusterCapacityProviderAssociations", id, state, "", opts...)
+}
+
 type clusterCapacityProviderAssociationsArgs struct {
 	// The capacity providers to associate with the cluster.
 	CapacityProviders []string `pulumi:"capacityProviders"`

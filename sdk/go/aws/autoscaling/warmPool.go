@@ -80,6 +80,12 @@ func (WarmPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*warmPoolState)(nil)).Elem()
 }
 
+// WarmPoolExists checks whether an existing WarmPool resource with the given ID exists.
+func WarmPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WarmPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:autoscaling:WarmPool", id, state, "", opts...)
+}
+
 type warmPoolArgs struct {
 	// The name of the Auto Scaling group.
 	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`

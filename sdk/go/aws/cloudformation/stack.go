@@ -164,6 +164,12 @@ func (StackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackState)(nil)).Elem()
 }
 
+// StackExists checks whether an existing Stack resource with the given ID exists.
+func StackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:Stack", id, state, "", opts...)
+}
+
 type stackArgs struct {
 	// In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for CloudFormation to create the stack.
 	//
