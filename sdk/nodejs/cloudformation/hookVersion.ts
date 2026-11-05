@@ -101,6 +101,16 @@ export class HookVersion extends pulumi.CustomResource {
         return new HookVersion(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing HookVersion resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:cloudformation:HookVersion", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:cloudformation:HookVersion';
 

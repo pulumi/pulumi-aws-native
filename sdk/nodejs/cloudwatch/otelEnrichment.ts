@@ -23,6 +23,16 @@ export class OTelEnrichment extends pulumi.CustomResource {
         return new OTelEnrichment(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing OTelEnrichment resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:cloudwatch:OTelEnrichment", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:cloudwatch:OTelEnrichment';
 

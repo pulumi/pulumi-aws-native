@@ -20,6 +20,16 @@ export class Alarm extends pulumi.CustomResource {
         return new Alarm(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Alarm resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:lightsail:Alarm", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:lightsail:Alarm';
 

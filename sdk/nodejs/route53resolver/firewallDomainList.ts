@@ -23,6 +23,16 @@ export class FirewallDomainList extends pulumi.CustomResource {
         return new FirewallDomainList(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing FirewallDomainList resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:route53resolver:FirewallDomainList", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:route53resolver:FirewallDomainList';
 

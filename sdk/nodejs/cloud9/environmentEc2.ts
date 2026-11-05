@@ -23,6 +23,16 @@ export class EnvironmentEc2 extends pulumi.CustomResource {
         return new EnvironmentEc2(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing EnvironmentEc2 resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:cloud9:EnvironmentEc2", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:cloud9:EnvironmentEc2';
 

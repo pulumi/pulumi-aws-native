@@ -27,6 +27,16 @@ export class LogGroup extends pulumi.CustomResource {
         return new LogGroup(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing LogGroup resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:logs:LogGroup", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:logs:LogGroup';
 
