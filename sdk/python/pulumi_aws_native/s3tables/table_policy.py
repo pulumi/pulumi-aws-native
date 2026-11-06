@@ -63,7 +63,7 @@ class TablePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_policy: pulumi.Input[Optional[Union['TablePolicyResourcePolicyArgs', 'TablePolicyResourcePolicyArgsDict']]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['TablePolicyResourcePolicyArgs', 'TablePolicyResourcePolicyArgsDict', 'outputs.TablePolicyResourcePolicy']]] = None,
                  table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -71,7 +71,7 @@ class TablePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TablePolicyResourcePolicyArgs', 'TablePolicyResourcePolicyArgsDict']] resource_policy: The `JSON` that defines the policy.
+        :param pulumi.Input[Union['TablePolicyResourcePolicyArgs', 'TablePolicyResourcePolicyArgsDict', 'outputs.TablePolicyResourcePolicy']] resource_policy: The `JSON` that defines the policy.
         :param pulumi.Input[_builtins.str] table_arn: The Amazon Resource Name (ARN) of the table.
         """
         ...
@@ -98,7 +98,7 @@ class TablePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_policy: pulumi.Input[Optional[Union['TablePolicyResourcePolicyArgs', 'TablePolicyResourcePolicyArgsDict']]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['TablePolicyResourcePolicyArgs', 'TablePolicyResourcePolicyArgsDict', 'outputs.TablePolicyResourcePolicy']]] = None,
                  table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -148,6 +148,12 @@ class TablePolicy(pulumi.CustomResource):
         __props__.__dict__["table_bucket_arn"] = None
         __props__.__dict__["table_name"] = None
         return TablePolicy(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:s3tables:TablePolicy', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

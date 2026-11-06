@@ -85,6 +85,12 @@ func (StreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamState)(nil)).Elem()
 }
 
+// StreamExists checks whether an existing Stream resource with the given ID exists.
+func StreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kinesis:Stream", id, state, "", opts...)
+}
+
 type streamArgs struct {
 	// The final list of shard-level metrics
 	DesiredShardLevelMetrics []StreamEnhancedMetric `pulumi:"desiredShardLevelMetrics"`

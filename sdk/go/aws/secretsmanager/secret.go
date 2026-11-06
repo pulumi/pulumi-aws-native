@@ -65,8 +65,8 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretTargetAttachment(ctx, "secretRedshiftAttachment", &secretsmanager.SecretTargetAttachmentArgs{
-//				SecretId:   myRedshiftSecret.ID().ToIDOutput().ToStringOutput(),
-//				TargetId:   myRedshiftCluster.ID().ToIDOutput().ToStringOutput(),
+//				SecretId:   myRedshiftSecret.ID(),
+//				TargetId:   myRedshiftCluster.ID(),
 //				TargetType: pulumi.String("AWS::Redshift::Cluster"),
 //			})
 //			if err != nil {
@@ -121,8 +121,8 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretTargetAttachment(ctx, "secretRedshiftAttachment", &secretsmanager.SecretTargetAttachmentArgs{
-//				SecretId:   myRedshiftSecret.ID().ToIDOutput().ToStringOutput(),
-//				TargetId:   myRedshiftCluster.ID().ToIDOutput().ToStringOutput(),
+//				SecretId:   myRedshiftSecret.ID(),
+//				TargetId:   myRedshiftCluster.ID(),
 //				TargetType: pulumi.String("AWS::Redshift::Cluster"),
 //			})
 //			if err != nil {
@@ -215,6 +215,12 @@ type SecretState struct {
 
 func (SecretState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretState)(nil)).Elem()
+}
+
+// SecretExists checks whether an existing Secret resource with the given ID exists.
+func SecretExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:secretsmanager:Secret", id, state, "", opts...)
 }
 
 type secretArgs struct {

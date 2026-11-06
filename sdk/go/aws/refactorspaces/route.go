@@ -101,6 +101,12 @@ func (RouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeState)(nil)).Elem()
 }
 
+// RouteExists checks whether an existing Route resource with the given ID exists.
+func RouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:refactorspaces:Route", id, state, "", opts...)
+}
+
 type routeArgs struct {
 	// The unique identifier of the application.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`

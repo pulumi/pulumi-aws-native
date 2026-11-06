@@ -82,6 +82,12 @@ func (ResourceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceAssociationState)(nil)).Elem()
 }
 
+// ResourceAssociationExists checks whether an existing ResourceAssociation resource with the given ID exists.
+func ResourceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ram:ResourceAssociation", id, state, "", opts...)
+}
+
 type resourceAssociationArgs struct {
 	// Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the resource to associate with the resource share.
 	ResourceArn string `pulumi:"resourceArn"`

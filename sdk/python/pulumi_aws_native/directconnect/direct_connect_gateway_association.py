@@ -185,6 +185,12 @@ class DirectConnectGatewayAssociation(pulumi.CustomResource):
         __props__.__dict__["direct_connect_gateway_id"] = None
         return DirectConnectGatewayAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:directconnect:DirectConnectGatewayAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptDirectConnectGatewayAssociationProposalRoleArn")
     def accept_direct_connect_gateway_association_proposal_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:

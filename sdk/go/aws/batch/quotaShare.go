@@ -90,6 +90,12 @@ func (QuotaShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*quotaShareState)(nil)).Elem()
 }
 
+// QuotaShareExists checks whether an existing QuotaShare resource with the given ID exists.
+func QuotaShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QuotaShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:batch:QuotaShare", id, state, "", opts...)
+}
+
 type quotaShareArgs struct {
 	// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 	CapacityLimits []QuotaShareCapacityLimit `pulumi:"capacityLimits"`

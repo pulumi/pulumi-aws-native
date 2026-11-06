@@ -79,6 +79,12 @@ func (PaymentCredentialProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*paymentCredentialProviderState)(nil)).Elem()
 }
 
+// PaymentCredentialProviderExists checks whether an existing PaymentCredentialProvider resource with the given ID exists.
+func PaymentCredentialProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PaymentCredentialProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:PaymentCredentialProvider", id, state, "", opts...)
+}
+
 type paymentCredentialProviderArgs struct {
 	CredentialProviderVendor PaymentCredentialProviderVendorType `pulumi:"credentialProviderVendor"`
 	// Unique name for the payment credential provider

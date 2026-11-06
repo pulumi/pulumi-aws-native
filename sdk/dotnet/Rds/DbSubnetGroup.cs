@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
         ///   +  Must not be default.
         ///   +  First character must be a letter.
-        ///   
+        /// 
         ///  Example: ``mydbsubnetgroup``
         /// </summary>
         [Output("dbSubnetGroupName")]
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
         ///   +  Must not be default.
         ///   +  First character must be a letter.
-        ///   
+        /// 
         ///  Example: ``mydbsubnetgroup``
         /// </summary>
         [Input("dbSubnetGroupName")]

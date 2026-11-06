@@ -86,6 +86,12 @@ func (ApiDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiDestinationState)(nil)).Elem()
 }
 
+// ApiDestinationExists checks whether an existing ApiDestination resource with the given ID exists.
+func ApiDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:events:ApiDestination", id, state, "", opts...)
+}
+
 type apiDestinationArgs struct {
 	// The arn of the connection.
 	ConnectionArn string `pulumi:"connectionArn"`

@@ -83,6 +83,12 @@ func (UserPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPolicyState)(nil)).Elem()
 }
 
+// UserPolicyExists checks whether an existing UserPolicy resource with the given ID exists.
+func UserPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iam:UserPolicy", id, state, "", opts...)
+}
+
 type userPolicyArgs struct {
 	// The policy document.
 	//  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.

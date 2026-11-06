@@ -84,18 +84,18 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_participant_recording_configuration: pulumi.Input[Optional[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict']]] = None,
+                 auto_participant_recording_configuration: pulumi.Input[Optional[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict', 'outputs.StageAutoParticipantRecordingConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::Stage.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict']] auto_participant_recording_configuration: Configuration object for individual participant recording.
+        :param pulumi.Input[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict', 'outputs.StageAutoParticipantRecordingConfiguration']] auto_participant_recording_configuration: Configuration object for individual participant recording.
         :param pulumi.Input[_builtins.str] name: Stage name
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -121,9 +121,9 @@ class Stage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_participant_recording_configuration: pulumi.Input[Optional[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict']]] = None,
+                 auto_participant_recording_configuration: pulumi.Input[Optional[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict', 'outputs.StageAutoParticipantRecordingConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,6 +166,12 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Stage(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ivs:Stage', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="activeSessionId")

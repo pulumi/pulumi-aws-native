@@ -100,6 +100,12 @@ func (AgreementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agreementState)(nil)).Elem()
 }
 
+// AgreementExists checks whether an existing Agreement resource with the given ID exists.
+func AgreementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgreementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:transfer:Agreement", id, state, "", opts...)
+}
+
 type agreementArgs struct {
 	// Specifies the access role for the agreement.
 	AccessRole string `pulumi:"accessRole"`

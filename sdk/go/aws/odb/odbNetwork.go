@@ -113,6 +113,12 @@ func (OdbNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*odbNetworkState)(nil)).Elem()
 }
 
+// OdbNetworkExists checks whether an existing OdbNetwork resource with the given ID exists.
+func OdbNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OdbNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:odb:OdbNetwork", id, state, "", opts...)
+}
+
 type odbNetworkArgs struct {
 	// The AWS Availability Zone (AZ) where the ODB network is located.
 	AvailabilityZone *string `pulumi:"availabilityZone"`

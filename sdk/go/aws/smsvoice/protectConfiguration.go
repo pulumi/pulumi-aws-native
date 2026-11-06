@@ -67,6 +67,12 @@ func (ProtectConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectConfigurationState)(nil)).Elem()
 }
 
+// ProtectConfigurationExists checks whether an existing ProtectConfiguration resource with the given ID exists.
+func ProtectConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:ProtectConfiguration", id, state, "", opts...)
+}
+
 type protectConfigurationArgs struct {
 	// An array of CountryRule containing the rules for the NumberCapability.
 	CountryRuleSet *ProtectConfigurationCountryRuleSet `pulumi:"countryRuleSet"`

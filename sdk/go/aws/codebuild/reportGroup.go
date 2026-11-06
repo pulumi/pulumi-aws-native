@@ -89,6 +89,12 @@ func (ReportGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportGroupState)(nil)).Elem()
 }
 
+// ReportGroupExists checks whether an existing ReportGroup resource with the given ID exists.
+func ReportGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReportGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codebuild:ReportGroup", id, state, "", opts...)
+}
+
 type reportGroupArgs struct {
 	// When deleting a report group, specifies if reports within the report group should be deleted.
 	//

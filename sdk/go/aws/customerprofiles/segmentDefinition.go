@@ -94,6 +94,12 @@ func (SegmentDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*segmentDefinitionState)(nil)).Elem()
 }
 
+// SegmentDefinitionExists checks whether an existing SegmentDefinition resource with the given ID exists.
+func SegmentDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SegmentDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:customerprofiles:SegmentDefinition", id, state, "", opts...)
+}
+
 type segmentDefinitionArgs struct {
 	// The description of the segment definition.
 	Description *string `pulumi:"description"`

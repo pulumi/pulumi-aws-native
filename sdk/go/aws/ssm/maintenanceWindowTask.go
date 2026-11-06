@@ -50,7 +50,7 @@ import (
 //						},
 //					},
 //				},
-//				WindowId: maintenanceWindow.ID().ToIDOutput().ToStringOutput(),
+//				WindowId: maintenanceWindow.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -61,7 +61,7 @@ import (
 //				MaxErrors:      pulumi.String("1"),
 //				Priority:       pulumi.Int(0),
 //				TaskType:       pulumi.String("RUN_COMMAND"),
-//				WindowId:       maintenanceWindow.ID().ToIDOutput().ToStringOutput(),
+//				WindowId:       maintenanceWindow.ID(),
 //				TaskArn:        pulumi.String("AWS-RunPatchBaseline"),
 //				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 //					MaintenanceWindowRunCommandParameters: &ssm.MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{
@@ -79,7 +79,7 @@ import (
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("WindowTargetIds"),
 //						Values: pulumi.StringArray{
-//							maintenanceWindowTarget.ID().ToIDOutput().ToStringOutput(),
+//							maintenanceWindowTarget.ID(),
 //						},
 //					},
 //				},
@@ -127,7 +127,7 @@ import (
 //						},
 //					},
 //				},
-//				WindowId: maintenanceWindow.ID().ToIDOutput().ToStringOutput(),
+//				WindowId: maintenanceWindow.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -138,7 +138,7 @@ import (
 //				MaxErrors:      pulumi.String("1"),
 //				Priority:       pulumi.Int(0),
 //				TaskType:       pulumi.String("RUN_COMMAND"),
-//				WindowId:       maintenanceWindow.ID().ToIDOutput().ToStringOutput(),
+//				WindowId:       maintenanceWindow.ID(),
 //				TaskArn:        pulumi.String("AWS-RunPatchBaseline"),
 //				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 //					MaintenanceWindowRunCommandParameters: &ssm.MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{
@@ -156,7 +156,7 @@ import (
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("WindowTargetIds"),
 //						Values: pulumi.StringArray{
-//							maintenanceWindowTarget.ID().ToIDOutput().ToStringOutput(),
+//							maintenanceWindowTarget.ID(),
 //						},
 //					},
 //				},
@@ -334,6 +334,12 @@ type MaintenanceWindowTaskState struct {
 
 func (MaintenanceWindowTaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceWindowTaskState)(nil)).Elem()
+}
+
+// MaintenanceWindowTaskExists checks whether an existing MaintenanceWindowTask resource with the given ID exists.
+func MaintenanceWindowTaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MaintenanceWindowTaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssm:MaintenanceWindowTask", id, state, "", opts...)
 }
 
 type maintenanceWindowTaskArgs struct {

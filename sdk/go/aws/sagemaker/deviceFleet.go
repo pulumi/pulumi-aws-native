@@ -78,6 +78,12 @@ func (DeviceFleetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceFleetState)(nil)).Elem()
 }
 
+// DeviceFleetExists checks whether an existing DeviceFleet resource with the given ID exists.
+func DeviceFleetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceFleetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:DeviceFleet", id, state, "", opts...)
+}
+
 type deviceFleetArgs struct {
 	// Description for the edge device fleet
 	Description *string `pulumi:"description"`

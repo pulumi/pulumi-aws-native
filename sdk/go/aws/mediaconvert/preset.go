@@ -82,6 +82,12 @@ func (PresetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*presetState)(nil)).Elem()
 }
 
+// PresetExists checks whether an existing Preset resource with the given ID exists.
+func PresetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PresetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconvert:Preset", id, state, "", opts...)
+}
+
 type presetArgs struct {
 	// The new category for the preset, if you are changing it.
 	Category *string `pulumi:"category"`

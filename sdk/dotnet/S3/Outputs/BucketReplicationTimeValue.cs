@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.S3.Outputs
     public sealed class BucketReplicationTimeValue
     {
         /// <summary>
-        /// Contains an integer specifying time in minutes. 
+        /// Contains an integer specifying time in minutes.
         ///   Valid value: 15
         /// </summary>
         public readonly int Minutes;

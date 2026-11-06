@@ -73,6 +73,12 @@ func (NetworkAclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclState)(nil)).Elem()
 }
 
+// NetworkAclExists checks whether an existing NetworkAcl resource with the given ID exists.
+func NetworkAclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkAclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:NetworkAcl", id, state, "", opts...)
+}
+
 type networkAclArgs struct {
 	// The tags for the network ACL.
 	Tags []aws.Tag `pulumi:"tags"`

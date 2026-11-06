@@ -87,6 +87,12 @@ func (ConnectionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionGroupState)(nil)).Elem()
 }
 
+// ConnectionGroupExists checks whether an existing ConnectionGroup resource with the given ID exists.
+func ConnectionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:ConnectionGroup", id, state, "", opts...)
+}
+
 type connectionGroupArgs struct {
 	// The ID of the Anycast static IP list.
 	AnycastIpListId *string `pulumi:"anycastIpListId"`

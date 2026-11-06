@@ -87,6 +87,12 @@ func (ArtifactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*artifactState)(nil)).Elem()
 }
 
+// ArtifactExists checks whether an existing Artifact resource with the given ID exists.
+func ArtifactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArtifactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityagent:Artifact", id, state, "", opts...)
+}
+
 type artifactArgs struct {
 	// The unique identifier of the agent space to add the artifact to.
 	AgentSpaceId string `pulumi:"agentSpaceId"`

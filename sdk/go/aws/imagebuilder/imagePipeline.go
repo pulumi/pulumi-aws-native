@@ -96,6 +96,12 @@ func (ImagePipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imagePipelineState)(nil)).Elem()
 }
 
+// ImagePipelineExists checks whether an existing ImagePipeline resource with the given ID exists.
+func ImagePipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImagePipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:imagebuilder:ImagePipeline", id, state, "", opts...)
+}
+
 type imagePipelineArgs struct {
 	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`

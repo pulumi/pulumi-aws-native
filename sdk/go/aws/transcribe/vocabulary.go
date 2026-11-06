@@ -84,6 +84,12 @@ func (VocabularyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vocabularyState)(nil)).Elem()
 }
 
+// VocabularyExists checks whether an existing Vocabulary resource with the given ID exists.
+func VocabularyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VocabularyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:transcribe:Vocabulary", id, state, "", opts...)
+}
+
 type vocabularyArgs struct {
 	// The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input file.
 	DataAccessRoleArn *string `pulumi:"dataAccessRoleArn"`

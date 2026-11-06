@@ -92,6 +92,12 @@ func (GatewayTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayTargetState)(nil)).Elem()
 }
 
+// GatewayTargetExists checks whether an existing GatewayTarget resource with the given ID exists.
+func GatewayTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:GatewayTarget", id, state, "", opts...)
+}
+
 type gatewayTargetArgs struct {
 	CertificateConfigurations []interface{} `pulumi:"certificateConfigurations"`
 	// The OAuth credential provider configuration.

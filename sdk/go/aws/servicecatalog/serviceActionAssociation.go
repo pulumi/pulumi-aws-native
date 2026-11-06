@@ -78,6 +78,12 @@ func (ServiceActionAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceActionAssociationState)(nil)).Elem()
 }
 
+// ServiceActionAssociationExists checks whether an existing ServiceActionAssociation resource with the given ID exists.
+func ServiceActionAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceActionAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:ServiceActionAssociation", id, state, "", opts...)
+}
+
 type serviceActionAssociationArgs struct {
 	// The product identifier. For example, `prod-abcdzk7xy33qa` .
 	ProductId string `pulumi:"productId"`

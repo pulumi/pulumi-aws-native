@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Efs.Inputs
     {
         /// <summary>
         /// Set the backup policy status for the file system.
-        ///   +  *ENABLED* - Turns automatic backups on for the file system. 
+        ///   +  *ENABLED* - Turns automatic backups on for the file system.
         ///   +  *DISABLED* - Turns automatic backups off for the file system.
         /// </summary>
         [Input("status", required: true)]

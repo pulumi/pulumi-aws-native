@@ -116,6 +116,12 @@ func (RouterInputState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routerInputState)(nil)).Elem()
 }
 
+// RouterInputExists checks whether an existing RouterInput resource with the given ID exists.
+func RouterInputExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouterInputState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:RouterInput", id, state, "", opts...)
+}
+
 type routerInputArgs struct {
 	// The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
 	AvailabilityZone                    *string                                                         `pulumi:"availabilityZone"`

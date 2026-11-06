@@ -63,7 +63,7 @@ class GetPluginResult:
 
     @_builtins.property
     @pulumi.getter(name="authConfiguration")
-    def auth_configuration(self) -> Optional[Any]:
+    def auth_configuration(self) -> Optional[Union['outputs.PluginAuthConfiguration0Properties', 'outputs.PluginAuthConfiguration1Properties', 'outputs.PluginAuthConfiguration2Properties']]:
         """
         Authentication configuration information for an Amazon Q Business plugin.
         """

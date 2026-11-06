@@ -129,10 +129,10 @@ class Retriever(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict', 'outputs.RetrieverConfiguration0Properties'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict', 'outputs.RetrieverConfiguration1Properties']]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['RetrieverType']] = None,
                  __props__=None):
         """
@@ -141,10 +141,10 @@ class Retriever(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business application using the retriever.
-        :param pulumi.Input[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict']]] configuration: Provides information on how the retriever used for your Amazon Q Business application is configured.
+        :param pulumi.Input[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict', 'outputs.RetrieverConfiguration0Properties'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict', 'outputs.RetrieverConfiguration1Properties']]] configuration: Provides information on how the retriever used for your Amazon Q Business application is configured.
         :param pulumi.Input[_builtins.str] display_name: The name of your retriever.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         :param pulumi.Input['RetrieverType'] type: The type of your retriever.
         """
         ...
@@ -172,10 +172,10 @@ class Retriever(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration0PropertiesArgsDict', 'outputs.RetrieverConfiguration0Properties'], Union['RetrieverConfiguration1PropertiesArgs', 'RetrieverConfiguration1PropertiesArgsDict', 'outputs.RetrieverConfiguration1Properties']]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['RetrieverType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -242,6 +242,12 @@ class Retriever(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = None
         return Retriever(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:qbusiness:Retriever', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
@@ -252,7 +258,7 @@ class Retriever(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Any]:
+    def configuration(self) -> pulumi.Output[Union['outputs.RetrieverConfiguration0Properties', 'outputs.RetrieverConfiguration1Properties']]:
         """
         Provides information on how the retriever used for your Amazon Q Business application is configured.
         """

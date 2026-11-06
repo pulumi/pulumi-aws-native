@@ -94,6 +94,12 @@ func (FlowMediaStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowMediaStreamState)(nil)).Elem()
 }
 
+// FlowMediaStreamExists checks whether an existing FlowMediaStream resource with the given ID exists.
+func FlowMediaStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowMediaStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:FlowMediaStream", id, state, "", opts...)
+}
+
 type flowMediaStreamArgs struct {
 	Attributes *FlowMediaStreamMediaStreamAttributes `pulumi:"attributes"`
 	// The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.

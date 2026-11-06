@@ -77,6 +77,12 @@ func (TunnelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tunnelState)(nil)).Elem()
 }
 
+// TunnelExists checks whether an existing Tunnel resource with the given ID exists.
+func TunnelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TunnelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotsecuretunneling:Tunnel", id, state, "", opts...)
+}
+
 type tunnelArgs struct {
 	// A short text description of the tunnel.
 	Description *string `pulumi:"description"`

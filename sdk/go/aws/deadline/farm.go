@@ -82,6 +82,12 @@ func (FarmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*farmState)(nil)).Elem()
 }
 
+// FarmExists checks whether an existing Farm resource with the given ID exists.
+func FarmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FarmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:Farm", id, state, "", opts...)
+}
+
 type farmArgs struct {
 	CostScaleFactor *float64 `pulumi:"costScaleFactor"`
 	// A description of the farm that helps identify what the farm is used for.

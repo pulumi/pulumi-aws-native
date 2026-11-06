@@ -81,6 +81,12 @@ func (SubnetCidrBlockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetCidrBlockState)(nil)).Elem()
 }
 
+// SubnetCidrBlockExists checks whether an existing SubnetCidrBlock resource with the given ID exists.
+func SubnetCidrBlockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetCidrBlockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SubnetCidrBlock", id, state, "", opts...)
+}
+
 type subnetCidrBlockArgs struct {
 	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`

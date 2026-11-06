@@ -73,6 +73,12 @@ func (EntityTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entityTypeState)(nil)).Elem()
 }
 
+// EntityTypeExists checks whether an existing EntityType resource with the given ID exists.
+func EntityTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntityTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:frauddetector:EntityType", id, state, "", opts...)
+}
+
 type entityTypeArgs struct {
 	// The entity type description.
 	Description *string `pulumi:"description"`

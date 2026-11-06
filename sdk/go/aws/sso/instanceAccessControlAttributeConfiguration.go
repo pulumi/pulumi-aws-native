@@ -142,6 +142,12 @@ func (InstanceAccessControlAttributeConfigurationState) ElementType() reflect.Ty
 	return reflect.TypeOf((*instanceAccessControlAttributeConfigurationState)(nil)).Elem()
 }
 
+// InstanceAccessControlAttributeConfigurationExists checks whether an existing InstanceAccessControlAttributeConfiguration resource with the given ID exists.
+func InstanceAccessControlAttributeConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceAccessControlAttributeConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sso:InstanceAccessControlAttributeConfiguration", id, state, "", opts...)
+}
+
 type instanceAccessControlAttributeConfigurationArgs struct {
 	// Lists the attributes that are configured for ABAC in the specified  instance.
 	AccessControlAttributes []InstanceAccessControlAttributeConfigurationAccessControlAttribute `pulumi:"accessControlAttributes"`

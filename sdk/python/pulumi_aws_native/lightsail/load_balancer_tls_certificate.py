@@ -229,6 +229,12 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         return LoadBalancerTlsCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:lightsail:LoadBalancerTlsCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateAlternativeNames")
     def certificate_alternative_names(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

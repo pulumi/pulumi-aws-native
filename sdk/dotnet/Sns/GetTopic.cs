@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.Sns
         public readonly object? DataProtectionPolicy;
         /// <summary>
         /// The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-        ///   +  HTTP 
+        ///   +  HTTP
         ///   +  Amazon Kinesis Data Firehose
         ///   +  AWS Lambda
         ///   +  Platform application endpoint
         ///   +  Amazon Simple Queue Service
-        ///   
+        /// 
         ///  Once configured, log entries are sent to Amazon CloudWatch Logs.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicLoggingConfig> DeliveryStatusLogging;

@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// - The prefix is optional and must be 253 characters or less. If specified, the prefix must be a DNS subdomain− a series of DNS labels separated by dots (.), and it must end with a slash (/).
         /// - The name segment is required and must be 63 characters or less. It can include alphanumeric characters ([a-z0-9A-Z]), dashes (-), underscores (_), and dots (.), but must begin and end with an alphanumeric character.
         /// 
-        /// &gt; Annotation values must be 255 characters or less. 
+        /// &gt; Annotation values must be 255 characters or less.
         /// 
         /// Annotations can be added or modified at any time. Each resource can have multiple annotations.
         /// </summary>

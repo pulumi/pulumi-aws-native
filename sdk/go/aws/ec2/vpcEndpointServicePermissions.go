@@ -68,6 +68,12 @@ func (VpcEndpointServicePermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointServicePermissionsState)(nil)).Elem()
 }
 
+// VpcEndpointServicePermissionsExists checks whether an existing VpcEndpointServicePermissions resource with the given ID exists.
+func VpcEndpointServicePermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointServicePermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpcEndpointServicePermissions", id, state, "", opts...)
+}
+
 type vpcEndpointServicePermissionsArgs struct {
 	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`

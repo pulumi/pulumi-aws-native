@@ -87,6 +87,12 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLevelObjectiveState)(nil)).Elem()
 }
 
+// ServiceLevelObjectiveExists checks whether an existing ServiceLevelObjective resource with the given ID exists.
+func ServiceLevelObjectiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceLevelObjectiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:applicationsignals:ServiceLevelObjective", id, state, "", opts...)
+}
+
 type serviceLevelObjectiveArgs struct {
 	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 	BurnRateConfigurations []ServiceLevelObjectiveBurnRateConfiguration `pulumi:"burnRateConfigurations"`

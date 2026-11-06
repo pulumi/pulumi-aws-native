@@ -78,6 +78,12 @@ func (QuickConnectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*quickConnectState)(nil)).Elem()
 }
 
+// QuickConnectExists checks whether an existing QuickConnect resource with the given ID exists.
+func QuickConnectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QuickConnectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:QuickConnect", id, state, "", opts...)
+}
+
 type quickConnectArgs struct {
 	// The description of the quick connect.
 	Description *string `pulumi:"description"`

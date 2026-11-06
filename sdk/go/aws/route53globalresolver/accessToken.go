@@ -79,6 +79,12 @@ func (AccessTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessTokenState)(nil)).Elem()
 }
 
+// AccessTokenExists checks whether an existing AccessToken resource with the given ID exists.
+func AccessTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53globalresolver:AccessToken", id, state, "", opts...)
+}
+
 type accessTokenArgs struct {
 	ClientToken *string   `pulumi:"clientToken"`
 	DnsViewId   string    `pulumi:"dnsViewId"`

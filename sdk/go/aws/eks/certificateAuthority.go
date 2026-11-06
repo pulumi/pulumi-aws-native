@@ -88,6 +88,12 @@ func (CertificateAuthorityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateAuthorityState)(nil)).Elem()
 }
 
+// CertificateAuthorityExists checks whether an existing CertificateAuthority resource with the given ID exists.
+func CertificateAuthorityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateAuthorityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eks:CertificateAuthority", id, state, "", opts...)
+}
+
 type certificateAuthorityArgs struct {
 	// The name of the EKS cluster that the certificate authority belongs to.
 	ClusterName string `pulumi:"clusterName"`

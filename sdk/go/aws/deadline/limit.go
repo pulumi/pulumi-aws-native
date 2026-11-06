@@ -94,6 +94,12 @@ func (LimitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*limitState)(nil)).Elem()
 }
 
+// LimitExists checks whether an existing Limit resource with the given ID exists.
+func LimitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LimitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:Limit", id, state, "", opts...)
+}
+
 type limitArgs struct {
 	// The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
 	AmountRequirementName string `pulumi:"amountRequirementName"`

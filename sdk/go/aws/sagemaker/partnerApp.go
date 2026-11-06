@@ -110,6 +110,12 @@ func (PartnerAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnerAppState)(nil)).Elem()
 }
 
+// PartnerAppExists checks whether an existing PartnerApp resource with the given ID exists.
+func PartnerAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PartnerAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:PartnerApp", id, state, "", opts...)
+}
+
 type partnerAppArgs struct {
 	// The version of the PartnerApp.
 	AppVersion *string `pulumi:"appVersion"`

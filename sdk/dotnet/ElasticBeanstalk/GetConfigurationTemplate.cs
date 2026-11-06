@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     public sealed class GetConfigurationTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Elastic Beanstalk application to associate with this configuration template. 
+        /// The name of the Elastic Beanstalk application to associate with this configuration template.
         /// </summary>
         [Input("applicationName", required: true)]
         public string ApplicationName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     public sealed class GetConfigurationTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Elastic Beanstalk application to associate with this configuration template. 
+        /// The name of the Elastic Beanstalk application to associate with this configuration template.
         /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. 
+        /// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationTemplateConfigurationOptionSetting> OptionSettings;
         /// <summary>

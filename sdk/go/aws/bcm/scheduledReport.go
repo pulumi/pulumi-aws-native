@@ -91,6 +91,12 @@ func (ScheduledReportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledReportState)(nil)).Elem()
 }
 
+// ScheduledReportExists checks whether an existing ScheduledReport resource with the given ID exists.
+func ScheduledReportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledReportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bcm:ScheduledReport", id, state, "", opts...)
+}
+
 type scheduledReportArgs struct {
 	// The ARN of the dashboard associated with the scheduled report. Managed dashboards cannot be used.
 	DashboardArn string `pulumi:"dashboardArn"`

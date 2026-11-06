@@ -72,6 +72,12 @@ func (ResourceMetricsConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceMetricsConfigurationState)(nil)).Elem()
 }
 
+// ResourceMetricsConfigurationExists checks whether an existing ResourceMetricsConfiguration resource with the given ID exists.
+func ResourceMetricsConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceMetricsConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:ResourceMetricsConfiguration", id, state, "", opts...)
+}
+
 type resourceMetricsConfigurationArgs struct {
 	// The metric selections that define which metrics are enabled for detailed monitoring on the resource.
 	MetricSelections []ResourceMetricsConfigurationResourceMetricSelection `pulumi:"metricSelections"`

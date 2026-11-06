@@ -88,6 +88,12 @@ func (InstanceFleetConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceFleetConfigState)(nil)).Elem()
 }
 
+// InstanceFleetConfigExists checks whether an existing InstanceFleetConfig resource with the given ID exists.
+func InstanceFleetConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceFleetConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:emr:InstanceFleetConfig", id, state, "", opts...)
+}
+
 type instanceFleetConfigArgs struct {
 	// The unique identifier of the EMR cluster.
 	ClusterId string `pulumi:"clusterId"`

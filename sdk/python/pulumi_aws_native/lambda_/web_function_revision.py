@@ -111,22 +111,22 @@ class WebFunctionRevision(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_config: pulumi.Input[Optional[Union['BuildConfigPropertiesArgs', 'BuildConfigPropertiesArgsDict']]] = None,
+                 build_config: pulumi.Input[Optional[Union['BuildConfigPropertiesArgs', 'BuildConfigPropertiesArgsDict', 'outputs.BuildConfigProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_config: pulumi.Input[Optional[Union['ServiceConfigPropertiesArgs', 'ServiceConfigPropertiesArgsDict']]] = None,
+                 service_config: pulumi.Input[Optional[Union['ServiceConfigPropertiesArgs', 'ServiceConfigPropertiesArgsDict', 'outputs.ServiceConfigProperties']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::WebFunctionRevision. An immutable revision of a Lambda web function, containing the function code and configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BuildConfigPropertiesArgs', 'BuildConfigPropertiesArgsDict']] build_config: The build configuration for the revision.
+        :param pulumi.Input[Union['BuildConfigPropertiesArgs', 'BuildConfigPropertiesArgsDict', 'outputs.BuildConfigProperties']] build_config: The build configuration for the revision.
         :param pulumi.Input[_builtins.str] description: A description of the revision.
         :param pulumi.Input[_builtins.str] function_name: The name of the web function this revision belongs to. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the revision.
-        :param pulumi.Input[Union['ServiceConfigPropertiesArgs', 'ServiceConfigPropertiesArgsDict']] service_config: The service configuration for the revision.
+        :param pulumi.Input[Union['ServiceConfigPropertiesArgs', 'ServiceConfigPropertiesArgsDict', 'outputs.ServiceConfigProperties']] service_config: The service configuration for the revision.
         """
         ...
     @overload
@@ -152,11 +152,11 @@ class WebFunctionRevision(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_config: pulumi.Input[Optional[Union['BuildConfigPropertiesArgs', 'BuildConfigPropertiesArgsDict']]] = None,
+                 build_config: pulumi.Input[Optional[Union['BuildConfigPropertiesArgs', 'BuildConfigPropertiesArgsDict', 'outputs.BuildConfigProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_config: pulumi.Input[Optional[Union['ServiceConfigPropertiesArgs', 'ServiceConfigPropertiesArgsDict']]] = None,
+                 service_config: pulumi.Input[Optional[Union['ServiceConfigPropertiesArgs', 'ServiceConfigPropertiesArgsDict', 'outputs.ServiceConfigProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -219,6 +219,12 @@ class WebFunctionRevision(pulumi.CustomResource):
         __props__.__dict__["state"] = None
         __props__.__dict__["state_reason"] = None
         return WebFunctionRevision(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:lambda:WebFunctionRevision', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="buildConfig")

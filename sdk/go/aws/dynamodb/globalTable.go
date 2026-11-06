@@ -129,6 +129,12 @@ func (GlobalTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalTableState)(nil)).Elem()
 }
 
+// GlobalTableExists checks whether an existing GlobalTable resource with the given ID exists.
+func GlobalTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dynamodb:GlobalTable", id, state, "", opts...)
+}
+
 type globalTableArgs struct {
 	// A list of attributes that describe the key schema for the global table and indexes.
 	AttributeDefinitions []GlobalTableAttributeDefinition `pulumi:"attributeDefinitions"`

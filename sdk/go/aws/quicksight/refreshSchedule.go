@@ -70,6 +70,12 @@ func (RefreshScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*refreshScheduleState)(nil)).Elem()
 }
 
+// RefreshScheduleExists checks whether an existing RefreshSchedule resource with the given ID exists.
+func RefreshScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RefreshScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:RefreshSchedule", id, state, "", opts...)
+}
+
 type refreshScheduleArgs struct {
 	// The AWS account ID of the account that you are creating a schedule in.
 	AwsAccountId *string `pulumi:"awsAccountId"`

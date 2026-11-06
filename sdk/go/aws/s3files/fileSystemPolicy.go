@@ -70,6 +70,12 @@ func (FileSystemPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemPolicyState)(nil)).Elem()
 }
 
+// FileSystemPolicyExists checks whether an existing FileSystemPolicy resource with the given ID exists.
+func FileSystemPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileSystemPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3files:FileSystemPolicy", id, state, "", opts...)
+}
+
 type fileSystemPolicyArgs struct {
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Files::FileSystemPolicy` for more information about the expected schema for this property.

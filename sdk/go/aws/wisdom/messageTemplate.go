@@ -98,6 +98,12 @@ func (MessageTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*messageTemplateState)(nil)).Elem()
 }
 
+// MessageTemplateExists checks whether an existing MessageTemplate resource with the given ID exists.
+func MessageTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MessageTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:MessageTemplate", id, state, "", opts...)
+}
+
 type messageTemplateArgs struct {
 	// The channel subtype this message template applies to.
 	ChannelSubtype MessageTemplateChannelSubtype `pulumi:"channelSubtype"`

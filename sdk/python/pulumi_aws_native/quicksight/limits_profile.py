@@ -82,7 +82,7 @@ class LimitsProfile(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_limits: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['LimitsProfileProfileLimitValueArgs', 'LimitsProfileProfileLimitValueArgsDict']]]]] = None,
+                 resource_limits: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['LimitsProfileProfileLimitValueArgs', 'LimitsProfileProfileLimitValueArgsDict', 'outputs.LimitsProfileProfileLimitValue']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::QuickSight::LimitsProfile Resource Type
@@ -117,7 +117,7 @@ class LimitsProfile(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_limits: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['LimitsProfileProfileLimitValueArgs', 'LimitsProfileProfileLimitValueArgsDict']]]]] = None,
+                 resource_limits: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['LimitsProfileProfileLimitValueArgs', 'LimitsProfileProfileLimitValueArgsDict', 'outputs.LimitsProfileProfileLimitValue']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -172,6 +172,12 @@ class LimitsProfile(pulumi.CustomResource):
         __props__.__dict__["resource_limits"] = None
         __props__.__dict__["updated_at"] = None
         return LimitsProfile(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:quicksight:LimitsProfile', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="accountId")

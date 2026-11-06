@@ -82,18 +82,18 @@ class StorageLensGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter: pulumi.Input[Optional[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict', 'outputs.StorageLensGroupFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict']] filter: This property contains the criteria for the Storage Lens group data that is displayed
+        :param pulumi.Input[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict', 'outputs.StorageLensGroupFilter']] filter: This property contains the criteria for the Storage Lens group data that is displayed
         :param pulumi.Input[_builtins.str] name: This property contains the Storage Lens group name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         """
         ...
     @overload
@@ -119,9 +119,9 @@ class StorageLensGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter: pulumi.Input[Optional[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict', 'outputs.StorageLensGroupFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,6 +166,12 @@ class StorageLensGroup(pulumi.CustomResource):
         __props__.__dict__["storage_lens_group_arn"] = None
         __props__.__dict__["tags"] = None
         return StorageLensGroup(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:s3:StorageLensGroup', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

@@ -93,6 +93,12 @@ func (MlflowAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mlflowAppState)(nil)).Elem()
 }
 
+// MlflowAppExists checks whether an existing MlflowApp resource with the given ID exists.
+func MlflowAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MlflowAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:MlflowApp", id, state, "", opts...)
+}
+
 type mlflowAppArgs struct {
 	// The S3 URI for a general purpose bucket to use as the MLflow App artifact store.
 	ArtifactStoreUri string `pulumi:"artifactStoreUri"`

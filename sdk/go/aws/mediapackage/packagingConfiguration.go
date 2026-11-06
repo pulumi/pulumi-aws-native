@@ -80,6 +80,12 @@ func (PackagingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packagingConfigurationState)(nil)).Elem()
 }
 
+// PackagingConfigurationExists checks whether an existing PackagingConfiguration resource with the given ID exists.
+func PackagingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PackagingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediapackage:PackagingConfiguration", id, state, "", opts...)
+}
+
 type packagingConfigurationArgs struct {
 	// The ID of the PackagingConfiguration.
 	AwsId string `pulumi:"awsId"`

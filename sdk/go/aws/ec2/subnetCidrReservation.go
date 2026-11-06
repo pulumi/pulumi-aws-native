@@ -90,6 +90,12 @@ func (SubnetCidrReservationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetCidrReservationState)(nil)).Elem()
 }
 
+// SubnetCidrReservationExists checks whether an existing SubnetCidrReservation resource with the given ID exists.
+func SubnetCidrReservationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetCidrReservationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SubnetCidrReservation", id, state, "", opts...)
+}
+
 type subnetCidrReservationArgs struct {
 	// The IPv4 or IPv6 CIDR range to reserve. Must lie inside the subnet's CIDR block and must not overlap an existing reservation. Supply an IPv6 range exactly as the service returns it: Amazon EC2 stores an IPv6 CIDR in RFC 5952 compressed form, and a noncanonical spelling of the same range is reported as drift because this property is create-only and read back.
 	Cidr string `pulumi:"cidr"`

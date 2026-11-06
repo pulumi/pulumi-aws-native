@@ -97,6 +97,12 @@ func (ConnectorV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorV2State)(nil)).Elem()
 }
 
+// ConnectorV2Exists checks whether an existing ConnectorV2 resource with the given ID exists.
+func ConnectorV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectorV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:ConnectorV2", id, state, "", opts...)
+}
+
 type connectorV2Args struct {
 	// A description of the connector
 	Description *string `pulumi:"description"`

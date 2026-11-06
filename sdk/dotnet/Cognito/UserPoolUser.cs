@@ -23,7 +23,6 @@ namespace Pulumi.AwsNative.Cognito
         /// To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see [Connecting API actions to Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event) in the *Amazon Cognito Developer Guide* .
         /// 
         /// &gt; When you use the `ClientMetadata` parameter, note that Amazon Cognito won't do the following:
-        /// &gt; 
         /// &gt; - Store the `ClientMetadata` value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the `ClientMetadata` parameter serves no purpose.
         /// &gt; - Validate the `ClientMetadata` value.
         /// &gt; - Encrypt the `ClientMetadata` value. Don't send sensitive information in this parameter.
@@ -163,7 +162,6 @@ namespace Pulumi.AwsNative.Cognito
         /// To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see [Connecting API actions to Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event) in the *Amazon Cognito Developer Guide* .
         /// 
         /// &gt; When you use the `ClientMetadata` parameter, note that Amazon Cognito won't do the following:
-        /// &gt; 
         /// &gt; - Store the `ClientMetadata` value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the `ClientMetadata` parameter serves no purpose.
         /// &gt; - Validate the `ClientMetadata` value.
         /// &gt; - Encrypt the `ClientMetadata` value. Don't send sensitive information in this parameter.

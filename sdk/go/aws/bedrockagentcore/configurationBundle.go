@@ -91,6 +91,12 @@ func (ConfigurationBundleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationBundleState)(nil)).Elem()
 }
 
+// ConfigurationBundleExists checks whether an existing ConfigurationBundle resource with the given ID exists.
+func ConfigurationBundleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationBundleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:ConfigurationBundle", id, state, "", opts...)
+}
+
 type configurationBundleArgs struct {
 	// The branch name for version tracking.
 	BranchName *string `pulumi:"branchName"`

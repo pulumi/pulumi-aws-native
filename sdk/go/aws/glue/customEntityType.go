@@ -70,6 +70,12 @@ func (CustomEntityTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customEntityTypeState)(nil)).Elem()
 }
 
+// CustomEntityTypeExists checks whether an existing CustomEntityType resource with the given ID exists.
+func CustomEntityTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomEntityTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:CustomEntityType", id, state, "", opts...)
+}
+
 type customEntityTypeArgs struct {
 	// A list of context words.
 	ContextWords []string `pulumi:"contextWords"`

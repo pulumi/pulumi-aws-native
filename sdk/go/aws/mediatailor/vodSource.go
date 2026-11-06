@@ -79,6 +79,12 @@ func (VodSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vodSourceState)(nil)).Elem()
 }
 
+// VodSourceExists checks whether an existing VodSource resource with the given ID exists.
+func VodSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VodSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediatailor:VodSource", id, state, "", opts...)
+}
+
 type vodSourceArgs struct {
 	// <p>A list of HTTP package configuration parameters for this VOD source.</p>
 	HttpPackageConfigurations []VodSourceHttpPackageConfiguration `pulumi:"httpPackageConfigurations"`

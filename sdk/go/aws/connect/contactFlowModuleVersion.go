@@ -75,6 +75,12 @@ func (ContactFlowModuleVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactFlowModuleVersionState)(nil)).Elem()
 }
 
+// ContactFlowModuleVersionExists checks whether an existing ContactFlowModuleVersion resource with the given ID exists.
+func ContactFlowModuleVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactFlowModuleVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:ContactFlowModuleVersion", id, state, "", opts...)
+}
+
 type contactFlowModuleVersionArgs struct {
 	// The identifier of the contact flow module (ARN) this version is tied to.
 	ContactFlowModuleId string `pulumi:"contactFlowModuleId"`

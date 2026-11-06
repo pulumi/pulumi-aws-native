@@ -49,7 +49,7 @@ class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: pulumi.Input[Optional[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict', 'outputs.NotificationChannelConfig']]] = None,
                  __props__=None):
         """
         This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
@@ -119,7 +119,7 @@ class NotificationChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']] config: A `NotificationChannelConfig` object that contains information about configured notification channels.
+        :param pulumi.Input[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict', 'outputs.NotificationChannelConfig']] config: A `NotificationChannelConfig` object that contains information about configured notification channels.
         """
         ...
     @overload
@@ -208,7 +208,7 @@ class NotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: pulumi.Input[Optional[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict', 'outputs.NotificationChannelConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,6 +249,12 @@ class NotificationChannel(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["config"] = None
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:devopsguru:NotificationChannel', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="awsId")

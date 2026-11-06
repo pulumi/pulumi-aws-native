@@ -147,6 +147,12 @@ class AccessPointPolicy(pulumi.CustomResource):
         __props__.__dict__["policy_document"] = None
         return AccessPointPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:s3objectlambda:AccessPointPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="objectLambdaAccessPoint")
     def object_lambda_access_point(self) -> pulumi.Output[_builtins.str]:

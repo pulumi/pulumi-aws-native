@@ -73,6 +73,12 @@ func (TenantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tenantState)(nil)).Elem()
 }
 
+// TenantExists checks whether an existing Tenant resource with the given ID exists.
+func TenantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TenantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:Tenant", id, state, "", opts...)
+}
+
 type tenantArgs struct {
 	// The reputation configuration for the tenant. Sending status remains managed by SES.
 	ReputationEntity *TenantReputationEntity `pulumi:"reputationEntity"`

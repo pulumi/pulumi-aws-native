@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
         /// 
-        /// &gt; This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        /// &gt; This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
         /// 
         /// Valid values include:
         /// 
@@ -158,7 +158,7 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
         /// 
-        /// &gt; This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        /// &gt; This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
         /// 
         /// Valid values include:
         /// 

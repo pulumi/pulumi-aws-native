@@ -76,6 +76,12 @@ func (IpamPoolCidrState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamPoolCidrState)(nil)).Elem()
 }
 
+// IpamPoolCidrExists checks whether an existing IpamPoolCidr resource with the given ID exists.
+func IpamPoolCidrExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamPoolCidrState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamPoolCidr", id, state, "", opts...)
+}
+
 type ipamPoolCidrArgs struct {
 	// Represents a single IPv4 or IPv6 CIDR
 	Cidr *string `pulumi:"cidr"`

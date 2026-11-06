@@ -83,6 +83,12 @@ func (DomainNameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameState)(nil)).Elem()
 }
 
+// DomainNameExists checks whether an existing DomainName resource with the given ID exists.
+func DomainNameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainNameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:DomainName", id, state, "", opts...)
+}
+
 type domainNameArgs struct {
 	// The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
 	CertificateArn string `pulumi:"certificateArn"`

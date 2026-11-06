@@ -63,6 +63,12 @@ func (ClientCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clientCertificateState)(nil)).Elem()
 }
 
+// ClientCertificateExists checks whether an existing ClientCertificate resource with the given ID exists.
+func ClientCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClientCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:ClientCertificate", id, state, "", opts...)
+}
+
 type clientCertificateArgs struct {
 	// The description of the client certificate.
 	Description *string `pulumi:"description"`

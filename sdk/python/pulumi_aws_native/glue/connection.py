@@ -84,7 +84,7 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_input: pulumi.Input[Optional[Union['ConnectionInputArgs', 'ConnectionInputArgsDict']]] = None,
+                 connection_input: pulumi.Input[Optional[Union['ConnectionInputArgs', 'ConnectionInputArgsDict', 'outputs.ConnectionInput']]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         """
@@ -93,7 +93,7 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The ID of the data catalog to create the catalog object in. Currently, this should be the AWS account ID.
-        :param pulumi.Input[Union['ConnectionInputArgs', 'ConnectionInputArgsDict']] connection_input: The connection properties used for this connection.
+        :param pulumi.Input[Union['ConnectionInputArgs', 'ConnectionInputArgsDict', 'outputs.ConnectionInput']] connection_input: The connection properties used for this connection.
         :param Any tags: The collection of tags. Each tag element is associated with a given resource.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Connection` for more information about the expected schema for this property.
@@ -123,7 +123,7 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_input: pulumi.Input[Optional[Union['ConnectionInputArgs', 'ConnectionInputArgsDict']]] = None,
+                 connection_input: pulumi.Input[Optional[Union['ConnectionInputArgs', 'ConnectionInputArgsDict', 'outputs.ConnectionInput']]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -171,6 +171,12 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Connection(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:glue:Connection', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="catalogId")

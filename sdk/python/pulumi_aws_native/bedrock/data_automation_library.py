@@ -96,10 +96,10 @@ class DataAutomationLibrary(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['DataAutomationLibraryEncryptionConfigurationArgs', 'DataAutomationLibraryEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['DataAutomationLibraryEncryptionConfigurationArgs', 'DataAutomationLibraryEncryptionConfigurationArgsDict', 'outputs.DataAutomationLibraryEncryptionConfiguration']]] = None,
                  library_description: pulumi.Input[Optional[_builtins.str]] = None,
                  library_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Bedrock::DataAutomationLibrary
@@ -108,7 +108,7 @@ class DataAutomationLibrary(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] library_description: Description of the DataAutomationLibrary
         :param pulumi.Input[_builtins.str] library_name: Name of the DataAutomationLibrary
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: List of tags
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: List of tags
         """
         ...
     @overload
@@ -134,10 +134,10 @@ class DataAutomationLibrary(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['DataAutomationLibraryEncryptionConfigurationArgs', 'DataAutomationLibraryEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['DataAutomationLibraryEncryptionConfigurationArgs', 'DataAutomationLibraryEncryptionConfigurationArgsDict', 'outputs.DataAutomationLibraryEncryptionConfiguration']]] = None,
                  library_description: pulumi.Input[Optional[_builtins.str]] = None,
                  library_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,6 +188,12 @@ class DataAutomationLibrary(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return DataAutomationLibrary(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:bedrock:DataAutomationLibrary', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="creationTime")

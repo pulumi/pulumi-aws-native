@@ -17,17 +17,17 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// Specifies the name of the engine that this option group should be associated with.
-        ///  Valid Values: 
-        ///   +   ``mariadb`` 
-        ///   +   ``mysql`` 
-        ///   +   ``oracle-ee`` 
-        ///   +   ``oracle-ee-cdb`` 
-        ///   +   ``oracle-se2`` 
-        ///   +   ``oracle-se2-cdb`` 
-        ///   +   ``postgres`` 
-        ///   +   ``sqlserver-ee`` 
-        ///   +   ``sqlserver-se`` 
-        ///   +   ``sqlserver-ex`` 
+        ///  Valid Values:
+        ///   +   ``mariadb``
+        ///   +   ``mysql``
+        ///   +   ``oracle-ee``
+        ///   +   ``oracle-ee-cdb``
+        ///   +   ``oracle-se2``
+        ///   +   ``oracle-se2-cdb``
+        ///   +   ``postgres``
+        ///   +   ``sqlserver-ee``
+        ///   +   ``sqlserver-se``
+        ///   +   ``sqlserver-ex``
         ///   +   ``sqlserver-web``
         /// </summary>
         [Output("engineName")]
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must be 1 to 255 letters, numbers, or hyphens
         ///   +  First character must be a letter
         ///   +  Can't end with a hyphen or contain two consecutive hyphens
-        ///   
+        /// 
         ///  Example: ``myoptiongroup``
         ///  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
         ///   This value is stored as a lowercase string.
@@ -125,17 +125,17 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// Specifies the name of the engine that this option group should be associated with.
-        ///  Valid Values: 
-        ///   +   ``mariadb`` 
-        ///   +   ``mysql`` 
-        ///   +   ``oracle-ee`` 
-        ///   +   ``oracle-ee-cdb`` 
-        ///   +   ``oracle-se2`` 
-        ///   +   ``oracle-se2-cdb`` 
-        ///   +   ``postgres`` 
-        ///   +   ``sqlserver-ee`` 
-        ///   +   ``sqlserver-se`` 
-        ///   +   ``sqlserver-ex`` 
+        ///  Valid Values:
+        ///   +   ``mariadb``
+        ///   +   ``mysql``
+        ///   +   ``oracle-ee``
+        ///   +   ``oracle-ee-cdb``
+        ///   +   ``oracle-se2``
+        ///   +   ``oracle-se2-cdb``
+        ///   +   ``postgres``
+        ///   +   ``sqlserver-ee``
+        ///   +   ``sqlserver-se``
+        ///   +   ``sqlserver-ex``
         ///   +   ``sqlserver-web``
         /// </summary>
         [Input("engineName", required: true)]
@@ -171,7 +171,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must be 1 to 255 letters, numbers, or hyphens
         ///   +  First character must be a letter
         ///   +  Can't end with a hyphen or contain two consecutive hyphens
-        ///   
+        /// 
         ///  Example: ``myoptiongroup``
         ///  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
         ///   This value is stored as a lowercase string.

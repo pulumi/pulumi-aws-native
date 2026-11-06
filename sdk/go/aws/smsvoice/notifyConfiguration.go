@@ -100,6 +100,12 @@ func (NotifyConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notifyConfigurationState)(nil)).Elem()
 }
 
+// NotifyConfigurationExists checks whether an existing NotifyConfiguration resource with the given ID exists.
+func NotifyConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotifyConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:NotifyConfiguration", id, state, "", opts...)
+}
+
 type notifyConfigurationArgs struct {
 	// The default template identifier to associate with the notify configuration. If specified, this template is used when sending messages without an explicit template identifier.
 	DefaultTemplateId *string `pulumi:"defaultTemplateId"`

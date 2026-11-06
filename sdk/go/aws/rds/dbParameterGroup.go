@@ -118,6 +118,12 @@ func (DbParameterGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbParameterGroupState)(nil)).Elem()
 }
 
+// DbParameterGroupExists checks whether an existing DbParameterGroup resource with the given ID exists.
+func DbParameterGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbParameterGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbParameterGroup", id, state, "", opts...)
+}
+
 type dbParameterGroupArgs struct {
 	// The name of the DB parameter group.
 	//  Constraints:

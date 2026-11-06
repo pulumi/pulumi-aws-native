@@ -100,6 +100,12 @@ func (PrivateVirtualInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateVirtualInterfaceState)(nil)).Elem()
 }
 
+// PrivateVirtualInterfaceExists checks whether an existing PrivateVirtualInterface resource with the given ID exists.
+func PrivateVirtualInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateVirtualInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:directconnect:PrivateVirtualInterface", id, state, "", opts...)
+}
+
 type privateVirtualInterfaceArgs struct {
 	// The Amazon Resource Name (ARN) of the role to allocate the private virtual interface. Needs directconnect:AllocatePrivateVirtualInterface permissions and tag permissions if applicable.
 	AllocatePrivateVirtualInterfaceRoleArn *string `pulumi:"allocatePrivateVirtualInterfaceRoleArn"`

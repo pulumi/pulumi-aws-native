@@ -71,6 +71,12 @@ func (NotificationChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationChannelState)(nil)).Elem()
 }
 
+// NotificationChannelExists checks whether an existing NotificationChannel resource with the given ID exists.
+func NotificationChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:fms:NotificationChannel", id, state, "", opts...)
+}
+
 type notificationChannelArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 	SnsRoleName string `pulumi:"snsRoleName"`

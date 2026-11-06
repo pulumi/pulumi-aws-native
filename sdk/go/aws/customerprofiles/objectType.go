@@ -101,6 +101,12 @@ func (ObjectTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*objectTypeState)(nil)).Elem()
 }
 
+// ObjectTypeExists checks whether an existing ObjectType resource with the given ID exists.
+func ObjectTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObjectTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:customerprofiles:ObjectType", id, state, "", opts...)
+}
+
 type objectTypeArgs struct {
 	// Indicates whether a profile should be created when data is received.
 	AllowProfileCreation *bool `pulumi:"allowProfileCreation"`

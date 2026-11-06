@@ -93,6 +93,12 @@ func (NetworkProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkProfileState)(nil)).Elem()
 }
 
+// NetworkProfileExists checks whether an existing NetworkProfile resource with the given ID exists.
+func NetworkProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:devicefarm:NetworkProfile", id, state, "", opts...)
+}
+
 type networkProfileArgs struct {
 	// The description of the network profile.
 	Description *string `pulumi:"description"`

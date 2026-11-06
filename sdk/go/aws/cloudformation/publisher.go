@@ -77,6 +77,12 @@ func (PublisherState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publisherState)(nil)).Elem()
 }
 
+// PublisherExists checks whether an existing Publisher resource with the given ID exists.
+func PublisherExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublisherState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:Publisher", id, state, "", opts...)
+}
+
 type publisherArgs struct {
 	// Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
 	AcceptTermsAndConditions bool `pulumi:"acceptTermsAndConditions"`

@@ -78,6 +78,12 @@ func (LensState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lensState)(nil)).Elem()
 }
 
+// LensExists checks whether an existing Lens resource with the given ID exists.
+func LensExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LensState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wellarchitected:Lens", id, state, "", opts...)
+}
+
 type lensArgs struct {
 	// The JSON representation of a lens.
 	JsonString *string `pulumi:"jsonString"`

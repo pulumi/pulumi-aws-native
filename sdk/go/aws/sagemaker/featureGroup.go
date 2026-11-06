@@ -103,6 +103,12 @@ func (FeatureGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*featureGroupState)(nil)).Elem()
 }
 
+// FeatureGroupExists checks whether an existing FeatureGroup resource with the given ID exists.
+func FeatureGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeatureGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:FeatureGroup", id, state, "", opts...)
+}
+
 type featureGroupArgs struct {
 	// Description about the FeatureGroup.
 	Description *string `pulumi:"description"`

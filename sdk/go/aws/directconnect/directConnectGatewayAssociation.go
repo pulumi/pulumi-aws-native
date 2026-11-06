@@ -79,6 +79,12 @@ func (DirectConnectGatewayAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directConnectGatewayAssociationState)(nil)).Elem()
 }
 
+// DirectConnectGatewayAssociationExists checks whether an existing DirectConnectGatewayAssociation resource with the given ID exists.
+func DirectConnectGatewayAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectConnectGatewayAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:directconnect:DirectConnectGatewayAssociation", id, state, "", opts...)
+}
+
 type directConnectGatewayAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the role to accept the Direct Connect Gateway association proposal. Needs directconnect:AcceptDirectConnectGatewayAssociationProposal permissions.
 	AcceptDirectConnectGatewayAssociationProposalRoleArn *string `pulumi:"acceptDirectConnectGatewayAssociationProposalRoleArn"`

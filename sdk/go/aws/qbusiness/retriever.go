@@ -97,6 +97,12 @@ func (RetrieverState) ElementType() reflect.Type {
 	return reflect.TypeOf((*retrieverState)(nil)).Elem()
 }
 
+// RetrieverExists checks whether an existing Retriever resource with the given ID exists.
+func RetrieverExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RetrieverState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:qbusiness:Retriever", id, state, "", opts...)
+}
+
 type retrieverArgs struct {
 	// The identifier of the Amazon Q Business application using the retriever.
 	ApplicationId string `pulumi:"applicationId"`

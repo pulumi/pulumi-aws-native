@@ -394,6 +394,12 @@ func (SimulationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*simulationState)(nil)).Elem()
 }
 
+// SimulationExists checks whether an existing Simulation resource with the given ID exists.
+func SimulationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SimulationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:simspaceweaver:Simulation", id, state, "", opts...)
+}
+
 type simulationArgs struct {
 	// The maximum running time of the simulation.
 	MaximumDuration *string `pulumi:"maximumDuration"`

@@ -82,6 +82,12 @@ func (CodeSecurityIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*codeSecurityIntegrationState)(nil)).Elem()
 }
 
+// CodeSecurityIntegrationExists checks whether an existing CodeSecurityIntegration resource with the given ID exists.
+func CodeSecurityIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CodeSecurityIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:inspectorv2:CodeSecurityIntegration", id, state, "", opts...)
+}
+
 type codeSecurityIntegrationArgs struct {
 	// Create Integration Details
 	CreateIntegrationDetails *CodeSecurityIntegrationCreateDetails `pulumi:"createIntegrationDetails"`

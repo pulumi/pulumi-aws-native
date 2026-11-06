@@ -267,6 +267,12 @@ func (StorageLensState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageLensState)(nil)).Elem()
 }
 
+// StorageLensExists checks whether an existing StorageLens resource with the given ID exists.
+func StorageLensExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageLensState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3:StorageLens", id, state, "", opts...)
+}
+
 type storageLensArgs struct {
 	// This resource contains the details Amazon S3 Storage Lens configuration.
 	StorageLensConfiguration StorageLensConfiguration `pulumi:"storageLensConfiguration"`

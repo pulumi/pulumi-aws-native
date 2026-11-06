@@ -95,6 +95,12 @@ func (ImageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageState)(nil)).Elem()
 }
 
+// ImageExists checks whether an existing Image resource with the given ID exists.
+func ImageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:Image", id, state, "", opts...)
+}
+
 type imageArgs struct {
 	// The description of the image.
 	ImageDescription *string `pulumi:"imageDescription"`

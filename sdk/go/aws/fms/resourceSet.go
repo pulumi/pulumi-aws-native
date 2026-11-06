@@ -71,6 +71,12 @@ func (ResourceSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceSetState)(nil)).Elem()
 }
 
+// ResourceSetExists checks whether an existing ResourceSet resource with the given ID exists.
+func ResourceSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:fms:ResourceSet", id, state, "", opts...)
+}
+
 type resourceSetArgs struct {
 	// A description of the resource set.
 	Description *string `pulumi:"description"`

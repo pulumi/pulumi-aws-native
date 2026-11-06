@@ -310,8 +310,8 @@ class Namespace(pulumi.CustomResource):
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_resource_policy: Optional[Any] = None,
                  redshift_idc_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_copy_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 snapshot_copy_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict', 'outputs.NamespaceSnapshotCopyConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::RedshiftServerless::Namespace Resource Type
@@ -334,8 +334,8 @@ class Namespace(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] redshift_idc_application_arn: The ARN for the Redshift application that integrates with IAM Identity Center.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict']]]] snapshot_copy_configurations: The snapshot copy configurations for the namespace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of tags for the namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict', 'outputs.NamespaceSnapshotCopyConfiguration']]]] snapshot_copy_configurations: The snapshot copy configurations for the namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The list of tags for the namespace.
         """
         ...
     @overload
@@ -375,8 +375,8 @@ class Namespace(pulumi.CustomResource):
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_resource_policy: Optional[Any] = None,
                  redshift_idc_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_copy_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 snapshot_copy_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceSnapshotCopyConfigurationArgs', 'NamespaceSnapshotCopyConfigurationArgsDict', 'outputs.NamespaceSnapshotCopyConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -445,6 +445,12 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["snapshot_copy_configurations"] = None
         __props__.__dict__["tags"] = None
         return Namespace(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:redshiftserverless:Namespace', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="adminPasswordSecretKmsKeyId")

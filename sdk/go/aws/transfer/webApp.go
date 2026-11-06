@@ -90,6 +90,12 @@ func (WebAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppState)(nil)).Elem()
 }
 
+// WebAppExists checks whether an existing WebApp resource with the given ID exists.
+func WebAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:transfer:WebApp", id, state, "", opts...)
+}
+
 type webAppArgs struct {
 	// The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
 	AccessEndpoint  *string                `pulumi:"accessEndpoint"`

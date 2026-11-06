@@ -74,6 +74,12 @@ func (AttributeGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*attributeGroupState)(nil)).Elem()
 }
 
+// AttributeGroupExists checks whether an existing AttributeGroup resource with the given ID exists.
+func AttributeGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AttributeGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalogappregistry:AttributeGroup", id, state, "", opts...)
+}
+
 type attributeGroupArgs struct {
 	// A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
 	//

@@ -87,6 +87,12 @@ func (SamlProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlProviderState)(nil)).Elem()
 }
 
+// SamlProviderExists checks whether an existing SamlProvider resource with the given ID exists.
+func SamlProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SamlProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iam:SamlProvider", id, state, "", opts...)
+}
+
 type samlProviderArgs struct {
 	// The private key from your external identity provider
 	AddPrivateKey *string `pulumi:"addPrivateKey"`

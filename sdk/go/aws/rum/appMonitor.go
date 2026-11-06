@@ -93,6 +93,12 @@ func (AppMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appMonitorState)(nil)).Elem()
 }
 
+// AppMonitorExists checks whether an existing AppMonitor resource with the given ID exists.
+func AppMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rum:AppMonitor", id, state, "", opts...)
+}
+
 type appMonitorArgs struct {
 	// A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
 	//

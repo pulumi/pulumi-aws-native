@@ -131,6 +131,12 @@ func (EnabledControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enabledControlState)(nil)).Elem()
 }
 
+// EnabledControlExists checks whether an existing EnabledControl resource with the given ID exists.
+func EnabledControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnabledControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:controltower:EnabledControl", id, state, "", opts...)
+}
+
 type enabledControlArgs struct {
 	// Arn of the control.
 	ControlIdentifier string `pulumi:"controlIdentifier"`

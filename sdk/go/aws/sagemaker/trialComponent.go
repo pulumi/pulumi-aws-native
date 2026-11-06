@@ -84,6 +84,12 @@ func (TrialComponentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trialComponentState)(nil)).Elem()
 }
 
+// TrialComponentExists checks whether an existing TrialComponent resource with the given ID exists.
+func TrialComponentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrialComponentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:TrialComponent", id, state, "", opts...)
+}
+
 type trialComponentArgs struct {
 	// The name of the component as displayed. If DisplayName isn't specified, TrialComponentName is displayed.
 	DisplayName *string `pulumi:"displayName"`

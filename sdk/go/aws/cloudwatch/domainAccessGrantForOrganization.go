@@ -97,6 +97,12 @@ func (DomainAccessGrantForOrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainAccessGrantForOrganizationState)(nil)).Elem()
 }
 
+// DomainAccessGrantForOrganizationExists checks whether an existing DomainAccessGrantForOrganization resource with the given ID exists.
+func DomainAccessGrantForOrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainAccessGrantForOrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:DomainAccessGrantForOrganization", id, state, "", opts...)
+}
+
 type domainAccessGrantForOrganizationArgs struct {
 	// The ID of the organization domain the grant belongs to.
 	DomainId string `pulumi:"domainId"`

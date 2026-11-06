@@ -127,6 +127,12 @@ func (RecipeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recipeState)(nil)).Elem()
 }
 
+// RecipeExists checks whether an existing Recipe resource with the given ID exists.
+func RecipeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecipeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:databrew:Recipe", id, state, "", opts...)
+}
+
 type recipeArgs struct {
 	// Description of the recipe
 	Description *string `pulumi:"description"`

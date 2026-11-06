@@ -69,6 +69,12 @@ func (DistributionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionState)(nil)).Elem()
 }
 
+// DistributionExists checks whether an existing Distribution resource with the given ID exists.
+func DistributionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DistributionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:Distribution", id, state, "", opts...)
+}
+
 type distributionArgs struct {
 	// The distribution's configuration.
 	DistributionConfig DistributionConfig `pulumi:"distributionConfig"`

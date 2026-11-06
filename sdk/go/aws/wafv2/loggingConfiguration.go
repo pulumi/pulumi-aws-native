@@ -77,6 +77,12 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggingConfigurationState)(nil)).Elem()
 }
 
+// LoggingConfigurationExists checks whether an existing LoggingConfiguration resource with the given ID exists.
+func LoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wafv2:LoggingConfiguration", id, state, "", opts...)
+}
+
 type loggingConfigurationArgs struct {
 	// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
 	LogDestinationConfigs []string `pulumi:"logDestinationConfigs"`

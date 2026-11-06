@@ -98,6 +98,12 @@ func (EndpointAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointAccessState)(nil)).Elem()
 }
 
+// EndpointAccessExists checks whether an existing EndpointAccess resource with the given ID exists.
+func EndpointAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:redshift:EndpointAccess", id, state, "", opts...)
+}
+
 type endpointAccessArgs struct {
 	// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`

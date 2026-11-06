@@ -116,6 +116,12 @@ func (DeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentState)(nil)).Elem()
 }
 
+// DeploymentExists checks whether an existing Deployment resource with the given ID exists.
+func DeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:Deployment", id, state, "", opts...)
+}
+
 type deploymentArgs struct {
 	// The name of the Blue/Green Deployment.
 	BlueGreenDeploymentName string `pulumi:"blueGreenDeploymentName"`

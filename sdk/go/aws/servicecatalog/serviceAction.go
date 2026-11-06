@@ -79,6 +79,12 @@ func (ServiceActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceActionState)(nil)).Elem()
 }
 
+// ServiceActionExists checks whether an existing ServiceAction resource with the given ID exists.
+func ServiceActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:ServiceAction", id, state, "", opts...)
+}
+
 type serviceActionArgs struct {
 	// The language code.
 	//

@@ -77,6 +77,12 @@ func (ListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*listState)(nil)).Elem()
 }
 
+// ListExists checks whether an existing List resource with the given ID exists.
+func ListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:frauddetector:List", id, state, "", opts...)
+}
+
 type listArgs struct {
 	// The description of the list.
 	Description *string `pulumi:"description"`

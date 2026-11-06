@@ -348,7 +348,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  out_post_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict', 'outputs.CapacityReservationTagSpecification']]]]] = None,
                  tenancy: pulumi.Input[Optional[_builtins.str]] = None,
                  unused_reservation_billing_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -397,7 +397,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] placement_group_arn: > Not supported for future-dated Capacity Reservations.
                
                The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the Capacity Reservation during launch.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict', 'outputs.CapacityReservationTagSpecification']]]] tag_specifications: The tags to apply to the Capacity Reservation during launch.
         :param pulumi.Input[_builtins.str] tenancy: Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
                
                - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
@@ -442,7 +442,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  out_post_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict', 'outputs.CapacityReservationTagSpecification']]]]] = None,
                  tenancy: pulumi.Input[Optional[_builtins.str]] = None,
                  unused_reservation_billing_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -541,6 +541,12 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["total_instance_count"] = None
         __props__.__dict__["unused_reservation_billing_owner_id"] = None
         return CapacityReservation(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ec2:CapacityReservation', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")

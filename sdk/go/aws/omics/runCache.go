@@ -82,6 +82,12 @@ func (RunCacheState) ElementType() reflect.Type {
 	return reflect.TypeOf((*runCacheState)(nil)).Elem()
 }
 
+// RunCacheExists checks whether an existing RunCache resource with the given ID exists.
+func RunCacheExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RunCacheState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:omics:RunCache", id, state, "", opts...)
+}
+
 type runCacheArgs struct {
 	// The default cache behavior for runs using this cache.
 	CacheBehavior *RunCacheCacheBehavior `pulumi:"cacheBehavior"`

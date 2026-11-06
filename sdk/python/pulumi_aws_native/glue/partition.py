@@ -95,7 +95,7 @@ class Partition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_input: pulumi.Input[Optional[Union['PartitionInputArgs', 'PartitionInputArgsDict']]] = None,
+                 partition_input: pulumi.Input[Optional[Union['PartitionInputArgs', 'PartitionInputArgsDict', 'outputs.PartitionInput']]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -105,7 +105,7 @@ class Partition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The name of the catalog database in which to create the partition.
         :param pulumi.Input[_builtins.str] database_name: The AWS account ID of the catalog in which the partion is to be created.
-        :param pulumi.Input[Union['PartitionInputArgs', 'PartitionInputArgsDict']] partition_input: The structure used to create and update a partition.
+        :param pulumi.Input[Union['PartitionInputArgs', 'PartitionInputArgsDict', 'outputs.PartitionInput']] partition_input: The structure used to create and update a partition.
         :param pulumi.Input[_builtins.str] table_name: The name of the metadata table in which the partition is to be created.
         """
         ...
@@ -134,7 +134,7 @@ class Partition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_input: pulumi.Input[Optional[Union['PartitionInputArgs', 'PartitionInputArgsDict']]] = None,
+                 partition_input: pulumi.Input[Optional[Union['PartitionInputArgs', 'PartitionInputArgsDict', 'outputs.PartitionInput']]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -188,6 +188,12 @@ class Partition(pulumi.CustomResource):
         __props__.__dict__["partition_input"] = None
         __props__.__dict__["table_name"] = None
         return Partition(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:glue:Partition', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="catalogId")

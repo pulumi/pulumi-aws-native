@@ -87,6 +87,12 @@ func (LaunchProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchProfileState)(nil)).Elem()
 }
 
+// LaunchProfileExists checks whether an existing LaunchProfile resource with the given ID exists.
+func LaunchProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:nimblestudio:LaunchProfile", id, state, "", opts...)
+}
+
 type launchProfileArgs struct {
 	Description                   *string                          `pulumi:"description"`
 	Ec2SubnetIds                  []string                         `pulumi:"ec2SubnetIds"`

@@ -132,6 +132,12 @@ func (LocationObjectStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationObjectStorageState)(nil)).Elem()
 }
 
+// LocationObjectStorageExists checks whether an existing LocationObjectStorage resource with the given ID exists.
+func LocationObjectStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationObjectStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationObjectStorage", id, state, "", opts...)
+}
+
 type locationObjectStorageArgs struct {
 	// Optional. The access key is used if credentials are required to access the self-managed object storage server.
 	AccessKey *string `pulumi:"accessKey"`

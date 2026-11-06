@@ -66,6 +66,12 @@ func (TelemetryEnrichmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*telemetryEnrichmentState)(nil)).Elem()
 }
 
+// TelemetryEnrichmentExists checks whether an existing TelemetryEnrichment resource with the given ID exists.
+func TelemetryEnrichmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TelemetryEnrichmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:observabilityadmin:TelemetryEnrichment", id, state, "", opts...)
+}
+
 type telemetryEnrichmentArgs struct {
 	Scope TelemetryEnrichmentScope `pulumi:"scope"`
 }

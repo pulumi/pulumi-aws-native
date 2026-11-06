@@ -68,6 +68,12 @@ func (ProductSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*productSubscriptionState)(nil)).Elem()
 }
 
+// ProductSubscriptionExists checks whether an existing ProductSubscription resource with the given ID exists.
+func ProductSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProductSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:ProductSubscription", id, state, "", opts...)
+}
+
 type productSubscriptionArgs struct {
 	// The generic ARN of the product being subscribed to
 	ProductArn string `pulumi:"productArn"`

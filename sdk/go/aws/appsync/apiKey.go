@@ -110,6 +110,12 @@ func (ApiKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyState)(nil)).Elem()
 }
 
+// ApiKeyExists checks whether an existing ApiKey resource with the given ID exists.
+func ApiKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:ApiKey", id, state, "", opts...)
+}
+
 type apiKeyArgs struct {
 	// Unique AWS AppSync GraphQL API ID for this API key.
 	ApiId string `pulumi:"apiId"`

@@ -125,6 +125,12 @@ func (ProcessingJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*processingJobState)(nil)).Elem()
 }
 
+// ProcessingJobExists checks whether an existing ProcessingJob resource with the given ID exists.
+func ProcessingJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProcessingJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:ProcessingJob", id, state, "", opts...)
+}
+
 type processingJobArgs struct {
 	// Configuration to run a processing job in a specified container image.
 	AppSpecification ProcessingJobAppSpecification `pulumi:"appSpecification"`

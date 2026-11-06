@@ -103,6 +103,12 @@ func (LambdaHookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lambdaHookState)(nil)).Elem()
 }
 
+// LambdaHookExists checks whether an existing LambdaHook resource with the given ID exists.
+func LambdaHookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LambdaHookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:LambdaHook", id, state, "", opts...)
+}
+
 type lambdaHookArgs struct {
 	// The typename alias for the hook.
 	Alias string `pulumi:"alias"`

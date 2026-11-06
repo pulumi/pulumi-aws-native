@@ -75,6 +75,12 @@ func (LimitsProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*limitsProfileState)(nil)).Elem()
 }
 
+// LimitsProfileExists checks whether an existing LimitsProfile resource with the given ID exists.
+func LimitsProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LimitsProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:LimitsProfile", id, state, "", opts...)
+}
+
 type limitsProfileArgs struct {
 	AccountId      string                                    `pulumi:"accountId"`
 	Description    *string                                   `pulumi:"description"`

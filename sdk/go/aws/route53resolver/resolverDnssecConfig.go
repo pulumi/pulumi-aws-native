@@ -68,6 +68,12 @@ func (ResolverDnssecConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverDnssecConfigState)(nil)).Elem()
 }
 
+// ResolverDnssecConfigExists checks whether an existing ResolverDnssecConfig resource with the given ID exists.
+func ResolverDnssecConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverDnssecConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:ResolverDnssecConfig", id, state, "", opts...)
+}
+
 type resolverDnssecConfigArgs struct {
 	// ResourceId
 	ResourceId *string `pulumi:"resourceId"`

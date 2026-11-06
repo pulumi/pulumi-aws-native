@@ -175,18 +175,18 @@ class KnowledgeBase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_configuration: pulumi.Input[Optional[Union['KnowledgeBaseAccessControlConfigurationArgs', 'KnowledgeBaseAccessControlConfigurationArgsDict']]] = None,
+                 access_control_configuration: pulumi.Input[Optional[Union['KnowledgeBaseAccessControlConfigurationArgs', 'KnowledgeBaseAccessControlConfigurationArgsDict', 'outputs.KnowledgeBaseAccessControlConfiguration']]] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_email_notification_opted_for_ingestion_failures: pulumi.Input[Optional[_builtins.bool]] = None,
-                 knowledge_base_configuration: pulumi.Input[Optional[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict', 'outputs.KnowledgeBaseConfiguration']]] = None,
                  knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 media_extraction_configuration: pulumi.Input[Optional[Union['KnowledgeBaseMediaExtractionConfigurationArgs', 'KnowledgeBaseMediaExtractionConfigurationArgsDict']]] = None,
+                 media_extraction_configuration: pulumi.Input[Optional[Union['KnowledgeBaseMediaExtractionConfigurationArgs', 'KnowledgeBaseMediaExtractionConfigurationArgsDict', 'outputs.KnowledgeBaseMediaExtractionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KnowledgeBaseResourcePermissionArgs', 'KnowledgeBaseResourcePermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KnowledgeBaseResourcePermissionArgs', 'KnowledgeBaseResourcePermissionArgsDict', 'outputs.KnowledgeBaseResourcePermission']]]]] = None,
                  primary_owner_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::QuickSight::KnowledgeBase Resource Type
@@ -218,18 +218,18 @@ class KnowledgeBase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_configuration: pulumi.Input[Optional[Union['KnowledgeBaseAccessControlConfigurationArgs', 'KnowledgeBaseAccessControlConfigurationArgsDict']]] = None,
+                 access_control_configuration: pulumi.Input[Optional[Union['KnowledgeBaseAccessControlConfigurationArgs', 'KnowledgeBaseAccessControlConfigurationArgsDict', 'outputs.KnowledgeBaseAccessControlConfiguration']]] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_email_notification_opted_for_ingestion_failures: pulumi.Input[Optional[_builtins.bool]] = None,
-                 knowledge_base_configuration: pulumi.Input[Optional[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict', 'outputs.KnowledgeBaseConfiguration']]] = None,
                  knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 media_extraction_configuration: pulumi.Input[Optional[Union['KnowledgeBaseMediaExtractionConfigurationArgs', 'KnowledgeBaseMediaExtractionConfigurationArgsDict']]] = None,
+                 media_extraction_configuration: pulumi.Input[Optional[Union['KnowledgeBaseMediaExtractionConfigurationArgs', 'KnowledgeBaseMediaExtractionConfigurationArgsDict', 'outputs.KnowledgeBaseMediaExtractionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KnowledgeBaseResourcePermissionArgs', 'KnowledgeBaseResourcePermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KnowledgeBaseResourcePermissionArgs', 'KnowledgeBaseResourcePermissionArgsDict', 'outputs.KnowledgeBaseResourcePermission']]]]] = None,
                  primary_owner_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,6 +312,12 @@ class KnowledgeBase(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
         return KnowledgeBase(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:quicksight:KnowledgeBase', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="accessControlConfiguration")

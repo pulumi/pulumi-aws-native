@@ -77,6 +77,12 @@ func (CustomActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customActionState)(nil)).Elem()
 }
 
+// CustomActionExists checks whether an existing CustomAction resource with the given ID exists.
+func CustomActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:chatbot:CustomAction", id, state, "", opts...)
+}
+
 type customActionArgs struct {
 	// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
 	ActionName *string `pulumi:"actionName"`

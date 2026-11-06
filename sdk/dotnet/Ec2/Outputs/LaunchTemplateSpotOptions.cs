@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
         ///   +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
         ///   +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
-        ///   
+        /// 
         ///  Default: 7 days from the current date
         /// </summary>
         public readonly string? ValidUntil;

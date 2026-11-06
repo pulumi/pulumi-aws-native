@@ -79,6 +79,12 @@ func (DataLakeAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataLakeAssociationState)(nil)).Elem()
 }
 
+// DataLakeAssociationExists checks whether an existing DataLakeAssociation resource with the given ID exists.
+func DataLakeAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataLakeAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:DataLakeAssociation", id, state, "", opts...)
+}
+
 type dataLakeAssociationArgs struct {
 	// The identifier of the analytics data set.
 	DataSetId string `pulumi:"dataSetId"`

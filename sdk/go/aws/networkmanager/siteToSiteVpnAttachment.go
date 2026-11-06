@@ -107,6 +107,12 @@ func (SiteToSiteVpnAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteToSiteVpnAttachmentState)(nil)).Elem()
 }
 
+// SiteToSiteVpnAttachmentExists checks whether an existing SiteToSiteVpnAttachment resource with the given ID exists.
+func SiteToSiteVpnAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SiteToSiteVpnAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkmanager:SiteToSiteVpnAttachment", id, state, "", opts...)
+}
+
 type siteToSiteVpnAttachmentArgs struct {
 	// The ID of a core network where you're creating a site-to-site VPN attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`

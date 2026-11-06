@@ -84,6 +84,12 @@ func (DeliveryDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deliveryDestinationState)(nil)).Elem()
 }
 
+// DeliveryDestinationExists checks whether an existing DeliveryDestination resource with the given ID exists.
+func DeliveryDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeliveryDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:DeliveryDestination", id, state, "", opts...)
+}
+
 type deliveryDestinationArgs struct {
 	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 	//

@@ -88,6 +88,12 @@ func (WorkerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workerState)(nil)).Elem()
 }
 
+// WorkerExists checks whether an existing Worker resource with the given ID exists.
+func WorkerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:Worker", id, state, "", opts...)
+}
+
 type workerArgs struct {
 	// The farm ID.
 	FarmId string `pulumi:"farmId"`

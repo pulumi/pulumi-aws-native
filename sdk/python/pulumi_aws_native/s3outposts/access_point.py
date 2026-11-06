@@ -102,7 +102,7 @@ class AccessPoint(pulumi.CustomResource):
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict', 'outputs.AccessPointVpcConfiguration']]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::S3Outposts::AccessPoint
@@ -114,7 +114,7 @@ class AccessPoint(pulumi.CustomResource):
         :param Any policy: The access point policy associated with this access point.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
-        :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
+        :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict', 'outputs.AccessPointVpcConfiguration']] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         """
         ...
     @overload
@@ -143,7 +143,7 @@ class AccessPoint(pulumi.CustomResource):
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict', 'outputs.AccessPointVpcConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -192,6 +192,12 @@ class AccessPoint(pulumi.CustomResource):
         __props__.__dict__["policy"] = None
         __props__.__dict__["vpc_configuration"] = None
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:s3outposts:AccessPoint', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

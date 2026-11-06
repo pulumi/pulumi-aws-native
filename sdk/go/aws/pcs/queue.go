@@ -83,6 +83,12 @@ func (QueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueState)(nil)).Elem()
 }
 
+// QueueExists checks whether an existing Queue resource with the given ID exists.
+func QueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pcs:Queue", id, state, "", opts...)
+}
+
 type queueArgs struct {
 	// The ID of the cluster of the queue.
 	ClusterId string `pulumi:"clusterId"`

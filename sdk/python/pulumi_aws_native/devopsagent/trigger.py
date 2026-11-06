@@ -112,7 +112,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[Any] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 condition: pulumi.Input[Optional[Union['TriggerConditionArgs', 'TriggerConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['TriggerConditionArgs', 'TriggerConditionArgsDict', 'outputs.TriggerCondition']]] = None,
                  status: pulumi.Input[Optional['TriggerStatus']] = None,
                  type: pulumi.Input[Optional['TriggerType']] = None,
                  __props__=None):
@@ -154,7 +154,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[Any] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 condition: pulumi.Input[Optional[Union['TriggerConditionArgs', 'TriggerConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['TriggerConditionArgs', 'TriggerConditionArgsDict', 'outputs.TriggerCondition']]] = None,
                  status: pulumi.Input[Optional['TriggerStatus']] = None,
                  type: pulumi.Input[Optional['TriggerType']] = None,
                  __props__=None):
@@ -217,6 +217,12 @@ class Trigger(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
         return Trigger(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:devopsagent:Trigger', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

@@ -80,6 +80,12 @@ func (SystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*systemState)(nil)).Elem()
 }
 
+// SystemExists checks whether an existing System resource with the given ID exists.
+func SystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:resiliencehubv2:System", id, state, "", opts...)
+}
+
 type systemArgs struct {
 	// The description of the system.
 	Description *string `pulumi:"description"`

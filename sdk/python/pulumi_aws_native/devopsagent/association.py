@@ -96,7 +96,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']]] = None,
                  linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -106,7 +106,7 @@ class Association(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_space_id: The unique identifier of the AgentSpace
-        :param pulumi.Input[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']] configuration: The configuration that directs how AgentSpace interacts with the given service
+        :param pulumi.Input[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']] configuration: The configuration that directs how AgentSpace interacts with the given service
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_association_ids: Set of linked association IDs for parent-child relationships
         :param pulumi.Input[_builtins.str] service_id: The identifier for the associated service
         """
@@ -135,7 +135,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']]] = None,
                  linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -192,6 +192,12 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["service_id"] = None
         __props__.__dict__["updated_at"] = None
         return Association(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:devopsagent:Association', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="agentSpaceId")

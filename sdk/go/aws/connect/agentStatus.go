@@ -86,6 +86,12 @@ func (AgentStatusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentStatusState)(nil)).Elem()
 }
 
+// AgentStatusExists checks whether an existing AgentStatus resource with the given ID exists.
+func AgentStatusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentStatusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:AgentStatus", id, state, "", opts...)
+}
+
 type agentStatusArgs struct {
 	// The description of the status.
 	Description *string `pulumi:"description"`

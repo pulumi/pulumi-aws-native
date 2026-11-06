@@ -120,6 +120,12 @@ func (AnalysisTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*analysisTemplateState)(nil)).Elem()
 }
 
+// AnalysisTemplateExists checks whether an existing AnalysisTemplate resource with the given ID exists.
+func AnalysisTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnalysisTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:AnalysisTemplate", id, state, "", opts...)
+}
+
 type analysisTemplateArgs struct {
 	// The member who can query can provide this placeholder for a literal data value in an analysis template
 	AnalysisParameters []AnalysisTemplateAnalysisParameter `pulumi:"analysisParameters"`

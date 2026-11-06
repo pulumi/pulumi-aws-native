@@ -88,6 +88,12 @@ func (RepositoryLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryLinkState)(nil)).Elem()
 }
 
+// RepositoryLinkExists checks whether an existing RepositoryLink resource with the given ID exists.
+func RepositoryLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codestarconnections:RepositoryLink", id, state, "", opts...)
+}
+
 type repositoryLinkArgs struct {
 	// The Amazon Resource Name (ARN) of the CodeStarConnection. The ARN is used as the connection reference when the connection is shared between AWS services.
 	ConnectionArn string `pulumi:"connectionArn"`

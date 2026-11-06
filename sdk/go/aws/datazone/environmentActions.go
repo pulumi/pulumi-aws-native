@@ -79,6 +79,12 @@ func (EnvironmentActionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentActionsState)(nil)).Elem()
 }
 
+// EnvironmentActionsExists checks whether an existing EnvironmentActions resource with the given ID exists.
+func EnvironmentActionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentActionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:EnvironmentActions", id, state, "", opts...)
+}
+
 type environmentActionsArgs struct {
 	// The description of the Amazon DataZone environment action.
 	Description *string `pulumi:"description"`

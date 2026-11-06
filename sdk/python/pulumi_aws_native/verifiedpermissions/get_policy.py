@@ -41,7 +41,7 @@ class GetPolicyResult:
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[Any]:
+    def definition(self) -> Optional[Union['outputs.PolicyDefinition0Properties', 'outputs.PolicyDefinition1Properties']]:
         """
         Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         """

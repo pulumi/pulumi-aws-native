@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the component denotes whether the component is used to build the image or only to test it. 
+        /// The type of the component denotes whether the component is used to build the image or only to test it.
         /// </summary>
         public readonly Pulumi.AwsNative.ImageBuilder.ComponentType? Type;
 

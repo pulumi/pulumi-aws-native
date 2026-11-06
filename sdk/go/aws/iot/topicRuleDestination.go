@@ -74,6 +74,12 @@ func (TopicRuleDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicRuleDestinationState)(nil)).Elem()
 }
 
+// TopicRuleDestinationExists checks whether an existing TopicRuleDestination resource with the given ID exists.
+func TopicRuleDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicRuleDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:TopicRuleDestination", id, state, "", opts...)
+}
+
 type topicRuleDestinationArgs struct {
 	// HTTP URL destination properties.
 	HttpUrlProperties *TopicRuleDestinationHttpUrlDestinationSummary `pulumi:"httpUrlProperties"`

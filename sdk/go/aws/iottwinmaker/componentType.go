@@ -100,6 +100,12 @@ func (ComponentTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*componentTypeState)(nil)).Elem()
 }
 
+// ComponentTypeExists checks whether an existing ComponentType resource with the given ID exists.
+func ComponentTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComponentTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iottwinmaker:ComponentType", id, state, "", opts...)
+}
+
 type componentTypeArgs struct {
 	// The ID of the component type.
 	ComponentTypeId string `pulumi:"componentTypeId"`

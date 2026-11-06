@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewHookDefaultVersion(ctx, "hookDefaultVersion", &cloudformation.HookDefaultVersionArgs{
-//				TypeVersionArn: hookVersion.ID().ToIDOutput().ToStringOutput(),
+//				TypeVersionArn: hookVersion.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewHookDefaultVersion(ctx, "hookDefaultVersion", &cloudformation.HookDefaultVersionArgs{
-//				TypeVersionArn: hookVersion.ID().ToIDOutput().ToStringOutput(),
+//				TypeVersionArn: hookVersion.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -153,7 +153,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewHookDefaultVersion(ctx, "hookDefaultVersion", &cloudformation.HookDefaultVersionArgs{
-//				TypeVersionArn: hookVersion.ID().ToIDOutput().ToStringOutput(),
+//				TypeVersionArn: hookVersion.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -185,7 +185,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewHookDefaultVersion(ctx, "hookDefaultVersion", &cloudformation.HookDefaultVersionArgs{
-//				TypeVersionArn: hookVersion.ID().ToIDOutput().ToStringOutput(),
+//				TypeVersionArn: hookVersion.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -278,6 +278,12 @@ type HookVersionState struct {
 
 func (HookVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hookVersionState)(nil)).Elem()
+}
+
+// HookVersionExists checks whether an existing HookVersion resource with the given ID exists.
+func HookVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HookVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:HookVersion", id, state, "", opts...)
 }
 
 type hookVersionArgs struct {

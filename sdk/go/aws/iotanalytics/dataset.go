@@ -292,6 +292,12 @@ func (DatasetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetState)(nil)).Elem()
 }
 
+// DatasetExists checks whether an existing Dataset resource with the given ID exists.
+func DatasetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotanalytics:Dataset", id, state, "", opts...)
+}
+
 type datasetArgs struct {
 	// The `DatasetAction` objects that automatically create the dataset contents.
 	Actions []DatasetAction `pulumi:"actions"`

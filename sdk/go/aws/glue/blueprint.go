@@ -83,6 +83,12 @@ func (BlueprintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*blueprintState)(nil)).Elem()
 }
 
+// BlueprintExists checks whether an existing Blueprint resource with the given ID exists.
+func BlueprintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BlueprintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:Blueprint", id, state, "", opts...)
+}
+
 type blueprintArgs struct {
 	// Specifies a path in Amazon S3 where the blueprint is published.
 	BlueprintLocation string `pulumi:"blueprintLocation"`

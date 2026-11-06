@@ -89,6 +89,12 @@ func (ProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileState)(nil)).Elem()
 }
 
+// ProfileExists checks whether an existing Profile resource with the given ID exists.
+func ProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rolesanywhere:Profile", id, state, "", opts...)
+}
+
 type profileArgs struct {
 	// Used to determine if a custom role session name will be accepted in a temporary credential request.
 	AcceptRoleSessionName *bool `pulumi:"acceptRoleSessionName"`

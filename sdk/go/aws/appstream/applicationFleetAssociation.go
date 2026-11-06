@@ -72,6 +72,12 @@ func (ApplicationFleetAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationFleetAssociationState)(nil)).Elem()
 }
 
+// ApplicationFleetAssociationExists checks whether an existing ApplicationFleetAssociation resource with the given ID exists.
+func ApplicationFleetAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationFleetAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appstream:ApplicationFleetAssociation", id, state, "", opts...)
+}
+
 type applicationFleetAssociationArgs struct {
 	// The ARN of the application.
 	ApplicationArn string `pulumi:"applicationArn"`

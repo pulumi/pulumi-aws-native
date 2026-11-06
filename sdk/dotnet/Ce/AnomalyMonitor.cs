@@ -366,7 +366,7 @@ namespace Pulumi.AwsNative.Ce
     public partial class AnomalyMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The date when the monitor was created. 
+        /// The date when the monitor was created.
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;

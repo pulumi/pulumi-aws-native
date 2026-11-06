@@ -133,7 +133,7 @@ class RouteResponse(pulumi.CustomResource):
                  api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict']]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict', 'outputs.RouteResponseParameterConstraints']]]]] = None,
                  route_id: pulumi.Input[Optional[_builtins.str]] = None,
                  route_response_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -147,7 +147,7 @@ class RouteResponse(pulumi.CustomResource):
         :param Any response_models: The response models for the route response.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict']]]] response_parameters: The route response parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict', 'outputs.RouteResponseParameterConstraints']]]] response_parameters: The route response parameters.
         :param pulumi.Input[_builtins.str] route_id: The route ID.
         :param pulumi.Input[_builtins.str] route_response_key: The route response key.
         """
@@ -178,7 +178,7 @@ class RouteResponse(pulumi.CustomResource):
                  api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict']]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict', 'outputs.RouteResponseParameterConstraints']]]]] = None,
                  route_id: pulumi.Input[Optional[_builtins.str]] = None,
                  route_response_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -235,6 +235,12 @@ class RouteResponse(pulumi.CustomResource):
         __props__.__dict__["route_response_id"] = None
         __props__.__dict__["route_response_key"] = None
         return RouteResponse(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:apigatewayv2:RouteResponse', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="apiId")

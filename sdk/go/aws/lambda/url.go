@@ -82,6 +82,12 @@ func (UrlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*urlState)(nil)).Elem()
 }
 
+// UrlExists checks whether an existing Url resource with the given ID exists.
+func UrlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UrlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:Url", id, state, "", opts...)
+}
+
 type urlArgs struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType UrlAuthType `pulumi:"authType"`

@@ -87,6 +87,12 @@ func (OriginEndpointPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*originEndpointPolicyState)(nil)).Elem()
 }
 
+// OriginEndpointPolicyExists checks whether an existing OriginEndpointPolicy resource with the given ID exists.
+func OriginEndpointPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OriginEndpointPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediapackagev2:OriginEndpointPolicy", id, state, "", opts...)
+}
+
 type originEndpointPolicyArgs struct {
 	// The settings to enable CDN authorization headers in MediaPackage.
 	CdnAuthConfiguration *OriginEndpointPolicyCdnAuthConfiguration `pulumi:"cdnAuthConfiguration"`

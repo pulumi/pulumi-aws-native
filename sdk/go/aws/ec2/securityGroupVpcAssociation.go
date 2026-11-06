@@ -78,6 +78,12 @@ func (SecurityGroupVpcAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupVpcAssociationState)(nil)).Elem()
 }
 
+// SecurityGroupVpcAssociationExists checks whether an existing SecurityGroupVpcAssociation resource with the given ID exists.
+func SecurityGroupVpcAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityGroupVpcAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SecurityGroupVpcAssociation", id, state, "", opts...)
+}
+
 type securityGroupVpcAssociationArgs struct {
 	// The group ID of the specified security group.
 	GroupId string `pulumi:"groupId"`

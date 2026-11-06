@@ -95,6 +95,12 @@ func (ConfiguredTableAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configuredTableAssociationState)(nil)).Elem()
 }
 
+// ConfiguredTableAssociationExists checks whether an existing ConfiguredTableAssociation resource with the given ID exists.
+func ConfiguredTableAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfiguredTableAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:ConfiguredTableAssociation", id, state, "", opts...)
+}
+
 type configuredTableAssociationArgs struct {
 	// An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
 	ConfiguredTableAssociationAnalysisRules []ConfiguredTableAssociationAnalysisRule `pulumi:"configuredTableAssociationAnalysisRules"`

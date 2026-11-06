@@ -166,7 +166,7 @@ class AgentStatus(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  reset_order_number: pulumi.Input[Optional[_builtins.bool]] = None,
                  state: pulumi.Input[Optional['AgentStatusState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['AgentStatusType']] = None,
                  __props__=None):
         """
@@ -180,7 +180,7 @@ class AgentStatus(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the status.
         :param pulumi.Input[_builtins.bool] reset_order_number: A number indicating the reset order of the agent status.
         :param pulumi.Input['AgentStatusState'] state: The state of the status.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['AgentStatusType'] type: The type of agent status.
         """
         ...
@@ -213,7 +213,7 @@ class AgentStatus(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  reset_order_number: pulumi.Input[Optional[_builtins.bool]] = None,
                  state: pulumi.Input[Optional['AgentStatusState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['AgentStatusType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -273,6 +273,12 @@ class AgentStatus(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return AgentStatus(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:connect:AgentStatus', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="agentStatusArn")

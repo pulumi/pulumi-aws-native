@@ -92,6 +92,12 @@ func (IpamPrefixListResolverTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamPrefixListResolverTargetState)(nil)).Elem()
 }
 
+// IpamPrefixListResolverTargetExists checks whether an existing IpamPrefixListResolverTarget resource with the given ID exists.
+func IpamPrefixListResolverTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamPrefixListResolverTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamPrefixListResolverTarget", id, state, "", opts...)
+}
+
 type ipamPrefixListResolverTargetArgs struct {
 	// The desired version of the Prefix List Resolver that this Target should synchronize with.
 	DesiredVersion *int `pulumi:"desiredVersion"`

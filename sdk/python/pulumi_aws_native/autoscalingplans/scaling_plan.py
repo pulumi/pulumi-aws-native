@@ -63,8 +63,8 @@ class ScalingPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_source: pulumi.Input[Optional[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
-                 scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
+                 application_source: pulumi.Input[Optional[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict', 'outputs.ScalingPlanApplicationSource']]] = None,
+                 scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict', 'outputs.ScalingPlanScalingInstruction']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AutoScalingPlans::ScalingPlan
@@ -170,8 +170,8 @@ class ScalingPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']] application_source: A CloudFormation stack or a set of tags. You can create one scaling plan per application source. The ApplicationSource property must be present to ensure interoperability with the AWS Auto Scaling console.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]] scaling_instructions: The scaling instructions.
+        :param pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict', 'outputs.ScalingPlanApplicationSource']] application_source: A CloudFormation stack or a set of tags. You can create one scaling plan per application source. The ApplicationSource property must be present to ensure interoperability with the AWS Auto Scaling console.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict', 'outputs.ScalingPlanScalingInstruction']]]] scaling_instructions: The scaling instructions.
         """
         ...
     @overload
@@ -296,8 +296,8 @@ class ScalingPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_source: pulumi.Input[Optional[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
-                 scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
+                 application_source: pulumi.Input[Optional[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict', 'outputs.ScalingPlanApplicationSource']]] = None,
+                 scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict', 'outputs.ScalingPlanScalingInstruction']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -344,6 +344,12 @@ class ScalingPlan(pulumi.CustomResource):
         __props__.__dict__["scaling_plan_name"] = None
         __props__.__dict__["scaling_plan_version"] = None
         return ScalingPlan(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:autoscalingplans:ScalingPlan', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="applicationSource")

@@ -104,6 +104,12 @@ func (ApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiState)(nil)).Elem()
 }
 
+// ApiExists checks whether an existing Api resource with the given ID exists.
+func ApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:Api", id, state, "", opts...)
+}
+
 type apiArgs struct {
 	// An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
 	ApiKeySelectionExpression *string `pulumi:"apiKeySelectionExpression"`

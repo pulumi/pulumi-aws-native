@@ -82,6 +82,12 @@ func (ProfileAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileAssociationState)(nil)).Elem()
 }
 
+// ProfileAssociationExists checks whether an existing ProfileAssociation resource with the given ID exists.
+func ProfileAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53profiles:ProfileAssociation", id, state, "", opts...)
+}
+
 type profileAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the profile association.
 	Arn *string `pulumi:"arn"`

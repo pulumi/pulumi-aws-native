@@ -79,6 +79,12 @@ func (TargetAccountConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetAccountConfigurationState)(nil)).Elem()
 }
 
+// TargetAccountConfigurationExists checks whether an existing TargetAccountConfiguration resource with the given ID exists.
+func TargetAccountConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TargetAccountConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:fis:TargetAccountConfiguration", id, state, "", opts...)
+}
+
 type targetAccountConfigurationArgs struct {
 	// The AWS account ID of the target account.
 	AccountId string `pulumi:"accountId"`

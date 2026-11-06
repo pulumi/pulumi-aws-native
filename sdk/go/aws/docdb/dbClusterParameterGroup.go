@@ -85,6 +85,12 @@ func (DbClusterParameterGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbClusterParameterGroupState)(nil)).Elem()
 }
 
+// DbClusterParameterGroupExists checks whether an existing DbClusterParameterGroup resource with the given ID exists.
+func DbClusterParameterGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbClusterParameterGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:docdb:DbClusterParameterGroup", id, state, "", opts...)
+}
+
 type dbClusterParameterGroupArgs struct {
 	// The description for the DB cluster parameter group.
 	Description string `pulumi:"description"`

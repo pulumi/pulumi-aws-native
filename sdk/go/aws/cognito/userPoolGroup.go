@@ -79,6 +79,12 @@ func (UserPoolGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolGroupState)(nil)).Elem()
 }
 
+// UserPoolGroupExists checks whether an existing UserPoolGroup resource with the given ID exists.
+func UserPoolGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolGroup", id, state, "", opts...)
+}
+
 type userPoolGroupArgs struct {
 	// A description of the group that you're creating.
 	Description *string `pulumi:"description"`

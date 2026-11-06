@@ -71,6 +71,12 @@ func (UsageProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*usageProfileState)(nil)).Elem()
 }
 
+// UsageProfileExists checks whether an existing UsageProfile resource with the given ID exists.
+func UsageProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UsageProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:UsageProfile", id, state, "", opts...)
+}
+
 type usageProfileArgs struct {
 	// UsageProfile configuration for supported service ex: (Jobs, Sessions).
 	Configuration *UsageProfileProfileConfiguration `pulumi:"configuration"`

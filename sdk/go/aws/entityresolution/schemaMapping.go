@@ -80,6 +80,12 @@ func (SchemaMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaMappingState)(nil)).Elem()
 }
 
+// SchemaMappingExists checks whether an existing SchemaMapping resource with the given ID exists.
+func SchemaMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:entityresolution:SchemaMapping", id, state, "", opts...)
+}
+
 type schemaMappingArgs struct {
 	// The description of the SchemaMapping
 	Description *string `pulumi:"description"`

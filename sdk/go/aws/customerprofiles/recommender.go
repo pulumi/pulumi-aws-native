@@ -88,6 +88,12 @@ func (RecommenderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recommenderState)(nil)).Elem()
 }
 
+// RecommenderExists checks whether an existing Recommender resource with the given ID exists.
+func RecommenderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecommenderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:customerprofiles:Recommender", id, state, "", opts...)
+}
+
 type recommenderArgs struct {
 	Description           *string            `pulumi:"description"`
 	DomainName            string             `pulumi:"domainName"`

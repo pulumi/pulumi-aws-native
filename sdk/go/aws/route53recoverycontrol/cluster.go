@@ -74,6 +74,12 @@ func (ClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterState)(nil)).Elem()
 }
 
+// ClusterExists checks whether an existing Cluster resource with the given ID exists.
+func ClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53recoverycontrol:Cluster", id, state, "", opts...)
+}
+
 type clusterArgs struct {
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name *string `pulumi:"name"`

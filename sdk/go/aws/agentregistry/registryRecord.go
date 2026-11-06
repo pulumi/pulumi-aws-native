@@ -100,6 +100,12 @@ func (RegistryRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryRecordState)(nil)).Elem()
 }
 
+// RegistryRecordExists checks whether an existing RegistryRecord resource with the given ID exists.
+func RegistryRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:agentregistry:RegistryRecord", id, state, "", opts...)
+}
+
 type registryRecordArgs struct {
 	// The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
 	//

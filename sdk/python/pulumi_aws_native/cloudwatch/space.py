@@ -133,9 +133,9 @@ class Space(pulumi.CustomResource):
                  agent_core_evaluation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['SpaceEncryptionConfigurationArgs', 'SpaceEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['SpaceEncryptionConfigurationArgs', 'SpaceEncryptionConfigurationArgsDict', 'outputs.SpaceEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::CloudWatch::Space
@@ -145,9 +145,9 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] agent_core_evaluation_role_arn: The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
         :param pulumi.Input[_builtins.str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
         :param pulumi.Input[_builtins.str] domain_id: The identifier of the domain the space belongs to.
-        :param pulumi.Input[Union['SpaceEncryptionConfigurationArgs', 'SpaceEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration for the space.
+        :param pulumi.Input[Union['SpaceEncryptionConfigurationArgs', 'SpaceEncryptionConfigurationArgsDict', 'outputs.SpaceEncryptionConfiguration']] encryption_configuration: The encryption configuration for the space.
         :param pulumi.Input[_builtins.str] name: The name of the space.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -176,9 +176,9 @@ class Space(pulumi.CustomResource):
                  agent_core_evaluation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['SpaceEncryptionConfigurationArgs', 'SpaceEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['SpaceEncryptionConfigurationArgs', 'SpaceEncryptionConfigurationArgsDict', 'outputs.SpaceEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,6 +243,12 @@ class Space(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return Space(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:cloudwatch:Space', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="agentCoreEvaluationRoleArn")

@@ -135,6 +135,12 @@ func (ConformancePackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*conformancePackState)(nil)).Elem()
 }
 
+// ConformancePackExists checks whether an existing ConformancePack resource with the given ID exists.
+func ConformancePackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConformancePackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:ConformancePack", id, state, "", opts...)
+}
+
 type conformancePackArgs struct {
 	// A list of ConformancePackInputParameter objects.
 	ConformancePackInputParameters []ConformancePackInputParameter `pulumi:"conformancePackInputParameters"`

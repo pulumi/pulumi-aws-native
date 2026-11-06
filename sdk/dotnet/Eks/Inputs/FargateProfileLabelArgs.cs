@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Eks.Inputs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The value for the label. 
+        /// The value for the label.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

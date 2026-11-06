@@ -126,6 +126,12 @@ func (InfluxDbClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*influxDbClusterState)(nil)).Elem()
 }
 
+// InfluxDbClusterExists checks whether an existing InfluxDbCluster resource with the given ID exists.
+func InfluxDbClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InfluxDbClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:timestream:InfluxDbCluster", id, state, "", opts...)
+}
+
 type influxDbClusterArgs struct {
 	// The allocated storage for the InfluxDB cluster.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`

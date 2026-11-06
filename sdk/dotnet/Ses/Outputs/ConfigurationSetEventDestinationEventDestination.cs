@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ses.Outputs
         /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationCloudWatchDestination? CloudWatchDestination;
         /// <summary>
-        /// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        /// Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

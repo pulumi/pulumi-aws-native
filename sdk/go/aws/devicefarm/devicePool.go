@@ -86,6 +86,12 @@ func (DevicePoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*devicePoolState)(nil)).Elem()
 }
 
+// DevicePoolExists checks whether an existing DevicePool resource with the given ID exists.
+func DevicePoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DevicePoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:devicefarm:DevicePool", id, state, "", opts...)
+}
+
 type devicePoolArgs struct {
 	// The device pool's description.
 	Description *string `pulumi:"description"`

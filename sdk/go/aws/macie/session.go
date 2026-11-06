@@ -66,6 +66,12 @@ func (SessionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sessionState)(nil)).Elem()
 }
 
+// SessionExists checks whether an existing Session resource with the given ID exists.
+func SessionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SessionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:macie:Session", id, state, "", opts...)
+}
+
 type sessionArgs struct {
 	// A enumeration value that specifies how frequently finding updates are published.
 	FindingPublishingFrequency *SessionFindingPublishingFrequency `pulumi:"findingPublishingFrequency"`

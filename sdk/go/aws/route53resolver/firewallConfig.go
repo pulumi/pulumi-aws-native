@@ -77,6 +77,12 @@ func (FirewallConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallConfigState)(nil)).Elem()
 }
 
+// FirewallConfigExists checks whether an existing FirewallConfig resource with the given ID exists.
+func FirewallConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:FirewallConfig", id, state, "", opts...)
+}
+
 type firewallConfigArgs struct {
 	// Determines how DNS Firewall operates during failures. By default, fail open is disabled, which means the failure mode is closed. If you enable this option, the failure mode is open. This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association.
 	FirewallFailOpen FirewallConfigFirewallFailOpen `pulumi:"firewallFailOpen"`

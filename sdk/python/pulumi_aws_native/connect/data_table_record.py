@@ -75,7 +75,7 @@ class DataTableRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict']]] = None,
+                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict', 'outputs.DataTableRecordProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -111,7 +111,7 @@ class DataTableRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict']]] = None,
+                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict', 'outputs.DataTableRecordProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -161,6 +161,12 @@ class DataTableRecord(pulumi.CustomResource):
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["record_id"] = None
         return DataTableRecord(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:connect:DataTableRecord', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="dataTableArn")

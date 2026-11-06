@@ -101,6 +101,12 @@ func (SubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionState)(nil)).Elem()
 }
 
+// SubscriptionExists checks whether an existing Subscription resource with the given ID exists.
+func SubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sns:Subscription", id, state, "", opts...)
+}
+
 type subscriptionArgs struct {
 	// The delivery policy JSON assigned to the subscription. Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic.
 	//

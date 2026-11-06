@@ -111,6 +111,12 @@ func (ComputeNodeGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*computeNodeGroupState)(nil)).Elem()
 }
 
+// ComputeNodeGroupExists checks whether an existing ComputeNodeGroup resource with the given ID exists.
+func ComputeNodeGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComputeNodeGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pcs:ComputeNodeGroup", id, state, "", opts...)
+}
+
 type computeNodeGroupArgs struct {
 	// The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances. If not provided, AWS PCS uses the AMI ID specified in the custom launch template.
 	AmiId *string `pulumi:"amiId"`

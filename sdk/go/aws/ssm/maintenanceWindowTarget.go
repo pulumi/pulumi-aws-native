@@ -84,6 +84,12 @@ func (MaintenanceWindowTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceWindowTargetState)(nil)).Elem()
 }
 
+// MaintenanceWindowTargetExists checks whether an existing MaintenanceWindowTarget resource with the given ID exists.
+func MaintenanceWindowTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MaintenanceWindowTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssm:MaintenanceWindowTarget", id, state, "", opts...)
+}
+
 type maintenanceWindowTargetArgs struct {
 	// A description for the target.
 	Description *string `pulumi:"description"`

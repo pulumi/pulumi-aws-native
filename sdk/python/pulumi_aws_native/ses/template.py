@@ -67,8 +67,8 @@ class Template(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 template: pulumi.Input[Optional[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 template: pulumi.Input[Optional[Union['TemplateArgs', 'TemplateArgsDict', 'outputs.Template']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::Template
@@ -116,8 +116,8 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the email template.
-        :param pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']] template: The content of the email, composed of a subject line and either an HTML part or a text-only part.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags (keys and values) associated with the email template.
+        :param pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict', 'outputs.Template']] template: The content of the email, composed of a subject line and either an HTML part or a text-only part.
         """
         ...
     @overload
@@ -184,8 +184,8 @@ class Template(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 template: pulumi.Input[Optional[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 template: pulumi.Input[Optional[Union['TemplateArgs', 'TemplateArgsDict', 'outputs.Template']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -226,6 +226,12 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["template"] = None
         return Template(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ses:Template', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="awsId")

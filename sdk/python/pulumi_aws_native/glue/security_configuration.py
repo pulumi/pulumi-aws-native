@@ -64,7 +64,7 @@ class SecurityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict', 'outputs.SecurityConfigurationEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -72,7 +72,7 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration associated with this security configuration.
+        :param pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict', 'outputs.SecurityConfigurationEncryptionConfiguration']] encryption_configuration: The encryption configuration associated with this security configuration.
         :param pulumi.Input[_builtins.str] name: The name for the security configuration.
         """
         ...
@@ -99,7 +99,7 @@ class SecurityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict', 'outputs.SecurityConfigurationEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -141,6 +141,12 @@ class SecurityConfiguration(pulumi.CustomResource):
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["name"] = None
         return SecurityConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:glue:SecurityConfiguration', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")

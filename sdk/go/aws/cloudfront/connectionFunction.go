@@ -93,6 +93,12 @@ func (ConnectionFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionFunctionState)(nil)).Elem()
 }
 
+// ConnectionFunctionExists checks whether an existing ConnectionFunction resource with the given ID exists.
+func ConnectionFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:ConnectionFunction", id, state, "", opts...)
+}
+
 type connectionFunctionArgs struct {
 	// A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
 	AutoPublish *bool `pulumi:"autoPublish"`

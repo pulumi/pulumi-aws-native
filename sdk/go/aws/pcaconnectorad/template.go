@@ -80,6 +80,12 @@ func (TemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateState)(nil)).Elem()
 }
 
+// TemplateExists checks whether an existing Template resource with the given ID exists.
+func TemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pcaconnectorad:Template", id, state, "", opts...)
+}
+
 type templateArgs struct {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	ConnectorArn string `pulumi:"connectorArn"`

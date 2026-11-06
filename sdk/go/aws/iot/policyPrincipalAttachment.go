@@ -103,6 +103,12 @@ func (PolicyPrincipalAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyPrincipalAttachmentState)(nil)).Elem()
 }
 
+// PolicyPrincipalAttachmentExists checks whether an existing PolicyPrincipalAttachment resource with the given ID exists.
+func PolicyPrincipalAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyPrincipalAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:PolicyPrincipalAttachment", id, state, "", opts...)
+}
+
 type policyPrincipalAttachmentArgs struct {
 	// The name of the AWS IoT policy
 	PolicyName string `pulumi:"policyName"`

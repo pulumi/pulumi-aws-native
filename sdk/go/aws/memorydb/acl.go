@@ -71,6 +71,12 @@ func (AclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aclState)(nil)).Elem()
 }
 
+// AclExists checks whether an existing Acl resource with the given ID exists.
+func AclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:memorydb:Acl", id, state, "", opts...)
+}
+
 type aclArgs struct {
 	// The name of the acl.
 	AclName *string `pulumi:"aclName"`

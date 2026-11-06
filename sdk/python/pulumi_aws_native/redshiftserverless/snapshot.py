@@ -102,7 +102,7 @@ class Snapshot(pulumi.CustomResource):
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RedshiftServerless::Snapshot Resource Type.
@@ -112,7 +112,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] namespace_name: The namespace the snapshot is associated with.
         :param pulumi.Input[_builtins.int] retention_period: The retention period of the snapshot.
         :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -141,7 +141,7 @@ class Snapshot(pulumi.CustomResource):
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,6 +188,12 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["snapshot_name"] = None
         __props__.__dict__["tags"] = None
         return Snapshot(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:redshiftserverless:Snapshot', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")

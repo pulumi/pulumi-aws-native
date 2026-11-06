@@ -87,6 +87,12 @@ func (FileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemState)(nil)).Elem()
 }
 
+// FileSystemExists checks whether an existing FileSystem resource with the given ID exists.
+func FileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3files:FileSystem", id, state, "", opts...)
+}
+
 type fileSystemArgs struct {
 	AcceptBucketWarning          *bool                                   `pulumi:"acceptBucketWarning"`
 	Bucket                       string                                  `pulumi:"bucket"`

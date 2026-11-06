@@ -324,6 +324,12 @@ func (RepositoryAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryAssociationState)(nil)).Elem()
 }
 
+// RepositoryAssociationExists checks whether an existing RepositoryAssociation resource with the given ID exists.
+func RepositoryAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codegurureviewer:RepositoryAssociation", id, state, "", opts...)
+}
+
 type repositoryAssociationArgs struct {
 	// The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
 	BucketName *string `pulumi:"bucketName"`

@@ -143,6 +143,12 @@ func (RoomState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roomState)(nil)).Elem()
 }
 
+// RoomExists checks whether an existing Room resource with the given ID exists.
+func RoomExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoomState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivschat:Room", id, state, "", opts...)
+}
+
 type roomArgs struct {
 	// Array of logging configuration identifiers attached to the room.
 	LoggingConfigurationIdentifiers []string `pulumi:"loggingConfigurationIdentifiers"`

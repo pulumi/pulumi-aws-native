@@ -178,6 +178,12 @@ func (HookTypeConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hookTypeConfigState)(nil)).Elem()
 }
 
+// HookTypeConfigExists checks whether an existing HookTypeConfig resource with the given ID exists.
+func HookTypeConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HookTypeConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:HookTypeConfig", id, state, "", opts...)
+}
+
 type hookTypeConfigArgs struct {
 	// The configuration data for the extension, in this account and region.
 	Configuration *string `pulumi:"configuration"`

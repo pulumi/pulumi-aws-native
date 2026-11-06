@@ -114,6 +114,12 @@ func (OriginEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*originEndpointState)(nil)).Elem()
 }
 
+// OriginEndpointExists checks whether an existing OriginEndpoint resource with the given ID exists.
+func OriginEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OriginEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediapackagev2:OriginEndpoint", id, state, "", opts...)
+}
+
 type originEndpointArgs struct {
 	// The name of the channel group associated with the origin endpoint configuration.
 	ChannelGroupName string `pulumi:"channelGroupName"`

@@ -77,6 +77,12 @@ func (TlsInspectionConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tlsInspectionConfigurationState)(nil)).Elem()
 }
 
+// TlsInspectionConfigurationExists checks whether an existing TlsInspectionConfiguration resource with the given ID exists.
+func TlsInspectionConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TlsInspectionConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkfirewall:TlsInspectionConfiguration", id, state, "", opts...)
+}
+
 type tlsInspectionConfigurationArgs struct {
 	// A description of the TLS inspection configuration.
 	Description *string `pulumi:"description"`

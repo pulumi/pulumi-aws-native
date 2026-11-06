@@ -89,6 +89,12 @@ func (IdNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*idNamespaceState)(nil)).Elem()
 }
 
+// IdNamespaceExists checks whether an existing IdNamespace resource with the given ID exists.
+func IdNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:entityresolution:IdNamespace", id, state, "", opts...)
+}
+
 type idNamespaceArgs struct {
 	// The description of the ID namespace.
 	Description *string `pulumi:"description"`

@@ -69,6 +69,12 @@ func (TestGridProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*testGridProjectState)(nil)).Elem()
 }
 
+// TestGridProjectExists checks whether an existing TestGridProject resource with the given ID exists.
+func TestGridProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TestGridProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:devicefarm:TestGridProject", id, state, "", opts...)
+}
+
 type testGridProjectArgs struct {
 	// A human-readable description for the project.
 	Description *string `pulumi:"description"`

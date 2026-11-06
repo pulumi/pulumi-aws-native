@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         private InputList<Inputs.ConfigurationRecorderRecordingModeOverrideArgs>? _recordingModeOverrides;
 
         /// <summary>
-        /// An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode. 
+        /// An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
         /// </summary>
         public InputList<Inputs.ConfigurationRecorderRecordingModeOverrideArgs> RecordingModeOverrides
         {

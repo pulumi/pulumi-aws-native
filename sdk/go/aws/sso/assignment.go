@@ -96,6 +96,12 @@ func (AssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentState)(nil)).Elem()
 }
 
+// AssignmentExists checks whether an existing Assignment resource with the given ID exists.
+func AssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sso:Assignment", id, state, "", opts...)
+}
+
 type assignmentArgs struct {
 	// The sso instance that the permission set is owned.
 	InstanceArn string `pulumi:"instanceArn"`

@@ -20,14 +20,14 @@ namespace Pulumi.AwsNative.S3.Inputs
         ///   +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
         ///   +  PUT Object calls fail if the request includes a public ACL.
         ///   +  PUT Bucket calls fail if the request includes a public ACL.
-        ///   
+        /// 
         ///  Enabling this setting doesn't affect existing policies or ACLs.
         /// </summary>
         [Input("blockPublicAcls")]
         public Input<bool>? BlockPublicAcls { get; set; }
 
         /// <summary>
-        /// Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. 
+        /// Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
         ///  Enabling this setting doesn't affect existing bucket policies.
         /// </summary>
         [Input("blockPublicPolicy")]

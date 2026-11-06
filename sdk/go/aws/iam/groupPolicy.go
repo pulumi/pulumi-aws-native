@@ -83,6 +83,12 @@ func (GroupPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupPolicyState)(nil)).Elem()
 }
 
+// GroupPolicyExists checks whether an existing GroupPolicy resource with the given ID exists.
+func GroupPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iam:GroupPolicy", id, state, "", opts...)
+}
+
 type groupPolicyArgs struct {
 	// The name of the group to associate the policy with.
 	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.

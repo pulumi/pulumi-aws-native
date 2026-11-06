@@ -118,6 +118,12 @@ func (LoadBalancerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerState)(nil)).Elem()
 }
 
+// LoadBalancerExists checks whether an existing LoadBalancer resource with the given ID exists.
+func LoadBalancerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticloadbalancingv2:LoadBalancer", id, state, "", opts...)
+}
+
 type loadBalancerArgs struct {
 	// Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is ``false``.
 	EnableCapacityReservationProvisionStabilize *bool `pulumi:"enableCapacityReservationProvisionStabilize"`

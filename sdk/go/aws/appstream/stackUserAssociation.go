@@ -81,6 +81,12 @@ func (StackUserAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackUserAssociationState)(nil)).Elem()
 }
 
+// StackUserAssociationExists checks whether an existing StackUserAssociation resource with the given ID exists.
+func StackUserAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StackUserAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appstream:StackUserAssociation", id, state, "", opts...)
+}
+
 type stackUserAssociationArgs struct {
 	// The authentication type for the user who is associated with the stack. You must specify USERPOOL.
 	AuthenticationType string `pulumi:"authenticationType"`

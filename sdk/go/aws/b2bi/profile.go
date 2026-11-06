@@ -91,6 +91,12 @@ func (ProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileState)(nil)).Elem()
 }
 
+// ProfileExists checks whether an existing Profile resource with the given ID exists.
+func ProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:b2bi:Profile", id, state, "", opts...)
+}
+
 type profileArgs struct {
 	// Returns the name for the business associated with this profile.
 	BusinessName string  `pulumi:"businessName"`

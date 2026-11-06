@@ -75,6 +75,12 @@ func (ObservabilityConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*observabilityConfigurationState)(nil)).Elem()
 }
 
+// ObservabilityConfigurationExists checks whether an existing ObservabilityConfiguration resource with the given ID exists.
+func ObservabilityConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObservabilityConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apprunner:ObservabilityConfiguration", id, state, "", opts...)
+}
+
 type observabilityConfigurationArgs struct {
 	// A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
 	ObservabilityConfigurationName *string `pulumi:"observabilityConfigurationName"`

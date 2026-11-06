@@ -70,6 +70,12 @@ func (LogDeliveryConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDeliveryConfigurationState)(nil)).Elem()
 }
 
+// LogDeliveryConfigurationExists checks whether an existing LogDeliveryConfiguration resource with the given ID exists.
+func LogDeliveryConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogDeliveryConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:LogDeliveryConfiguration", id, state, "", opts...)
+}
+
 type logDeliveryConfigurationArgs struct {
 	// A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
 	LogConfigurations []LogDeliveryConfigurationLogConfiguration `pulumi:"logConfigurations"`

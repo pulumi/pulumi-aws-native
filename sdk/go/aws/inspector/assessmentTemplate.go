@@ -86,6 +86,12 @@ func (AssessmentTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentTemplateState)(nil)).Elem()
 }
 
+// AssessmentTemplateExists checks whether an existing AssessmentTemplate resource with the given ID exists.
+func AssessmentTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssessmentTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:inspector:AssessmentTemplate", id, state, "", opts...)
+}
+
 type assessmentTemplateArgs struct {
 	// The ARN of the assessment target to be included in the assessment template.
 	AssessmentTargetArn string `pulumi:"assessmentTargetArn"`

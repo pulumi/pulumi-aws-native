@@ -91,6 +91,12 @@ func (EnvironmentEc2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentEc2State)(nil)).Elem()
 }
 
+// EnvironmentEc2Exists checks whether an existing EnvironmentEc2 resource with the given ID exists.
+func EnvironmentEc2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentEc2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloud9:EnvironmentEc2", id, state, "", opts...)
+}
+
 type environmentEc2Args struct {
 	// The number of minutes until the running instance is shut down after the environment was last used.
 	AutomaticStopTimeMinutes *int `pulumi:"automaticStopTimeMinutes"`

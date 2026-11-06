@@ -75,6 +75,12 @@ func (CloudWatchAlarmTemplateGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudWatchAlarmTemplateGroupState)(nil)).Elem()
 }
 
+// CloudWatchAlarmTemplateGroupExists checks whether an existing CloudWatchAlarmTemplateGroup resource with the given ID exists.
+func CloudWatchAlarmTemplateGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudWatchAlarmTemplateGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:CloudWatchAlarmTemplateGroup", id, state, "", opts...)
+}
+
 type cloudWatchAlarmTemplateGroupArgs struct {
 	// A resource's optional description.
 	Description *string `pulumi:"description"`

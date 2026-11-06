@@ -94,6 +94,12 @@ func (ConfigurationProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationProfileState)(nil)).Elem()
 }
 
+// ConfigurationProfileExists checks whether an existing ConfigurationProfile resource with the given ID exists.
+func ConfigurationProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appconfig:ConfigurationProfile", id, state, "", opts...)
+}
+
 type configurationProfileArgs struct {
 	// The application ID.
 	ApplicationId string `pulumi:"applicationId"`

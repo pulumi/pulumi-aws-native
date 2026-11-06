@@ -111,6 +111,12 @@ func (GraphQlApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphQlApiState)(nil)).Elem()
 }
 
+// GraphQlApiExists checks whether an existing GraphQlApi resource with the given ID exists.
+func GraphQlApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GraphQlApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:GraphQlApi", id, state, "", opts...)
+}
+
 type graphQlApiArgs struct {
 	// A list of additional authentication providers for the GraphqlApi API.
 	AdditionalAuthenticationProviders []GraphQlApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`

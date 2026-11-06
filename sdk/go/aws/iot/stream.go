@@ -89,6 +89,12 @@ func (StreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamState)(nil)).Elem()
 }
 
+// StreamExists checks whether an existing Stream resource with the given ID exists.
+func StreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:Stream", id, state, "", opts...)
+}
+
 type streamArgs struct {
 	// The description of the stream.
 	Description *string `pulumi:"description"`

@@ -128,8 +128,8 @@ class Thesaurus(pulumi.CustomResource):
                  index_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_s3_path: pulumi.Input[Optional[Union['ThesaurusS3PathArgs', 'ThesaurusS3PathArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source_s3_path: pulumi.Input[Optional[Union['ThesaurusS3PathArgs', 'ThesaurusS3PathArgsDict', 'outputs.ThesaurusS3Path']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A thesaurus for an Amazon Kendra index. The thesaurus contains a list of synonyms in Solr format.
@@ -140,7 +140,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for the thesaurus.
         :param pulumi.Input[_builtins.str] name: A name for the thesaurus.
         :param pulumi.Input[_builtins.str] role_arn: An IAM role that gives Amazon Kendra permissions to access the thesaurus file specified in SourceS3Path.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize the thesaurus.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that identify or categorize the thesaurus.
         """
         ...
     @overload
@@ -170,8 +170,8 @@ class Thesaurus(pulumi.CustomResource):
                  index_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_s3_path: pulumi.Input[Optional[Union['ThesaurusS3PathArgs', 'ThesaurusS3PathArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source_s3_path: pulumi.Input[Optional[Union['ThesaurusS3PathArgs', 'ThesaurusS3PathArgsDict', 'outputs.ThesaurusS3Path']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,6 +228,12 @@ class Thesaurus(pulumi.CustomResource):
         __props__.__dict__["source_s3_path"] = None
         __props__.__dict__["tags"] = None
         return Thesaurus(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:kendra:Thesaurus', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

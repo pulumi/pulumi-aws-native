@@ -87,6 +87,12 @@ func (ConsumableResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*consumableResourceState)(nil)).Elem()
 }
 
+// ConsumableResourceExists checks whether an existing ConsumableResource resource with the given ID exists.
+func ConsumableResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConsumableResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:batch:ConsumableResource", id, state, "", opts...)
+}
+
 type consumableResourceArgs struct {
 	// Name of ConsumableResource.
 	ConsumableResourceName *string `pulumi:"consumableResourceName"`

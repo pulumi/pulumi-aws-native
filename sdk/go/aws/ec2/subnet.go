@@ -129,6 +129,12 @@ func (SubnetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetState)(nil)).Elem()
 }
 
+// SubnetExists checks whether an existing Subnet resource with the given ID exists.
+func SubnetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:Subnet", id, state, "", opts...)
+}
+
 type subnetArgs struct {
 	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
 	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.

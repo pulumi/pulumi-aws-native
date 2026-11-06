@@ -86,6 +86,12 @@ func (TestCaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*testCaseState)(nil)).Elem()
 }
 
+// TestCaseExists checks whether an existing TestCase resource with the given ID exists.
+func TestCaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TestCaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:TestCase", id, state, "", opts...)
+}
+
 type testCaseArgs struct {
 	// The content of the test case.
 	Content string `pulumi:"content"`

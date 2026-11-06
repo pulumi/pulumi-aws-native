@@ -85,6 +85,12 @@ func (RegexPatternSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*regexPatternSetState)(nil)).Elem()
 }
 
+// RegexPatternSetExists checks whether an existing RegexPatternSet resource with the given ID exists.
+func RegexPatternSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegexPatternSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wafv2:RegexPatternSet", id, state, "", opts...)
+}
+
 type regexPatternSetArgs struct {
 	// Description of the entity.
 	Description *string `pulumi:"description"`

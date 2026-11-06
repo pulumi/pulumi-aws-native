@@ -85,6 +85,12 @@ func (LocalGatewayVirtualInterfaceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGatewayVirtualInterfaceGroupState)(nil)).Elem()
 }
 
+// LocalGatewayVirtualInterfaceGroupExists checks whether an existing LocalGatewayVirtualInterfaceGroup resource with the given ID exists.
+func LocalGatewayVirtualInterfaceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalGatewayVirtualInterfaceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:LocalGatewayVirtualInterfaceGroup", id, state, "", opts...)
+}
+
 type localGatewayVirtualInterfaceGroupArgs struct {
 	// The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)
 	LocalBgpAsn *int `pulumi:"localBgpAsn"`

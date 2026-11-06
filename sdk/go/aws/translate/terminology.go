@@ -92,6 +92,12 @@ func (TerminologyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*terminologyState)(nil)).Elem()
 }
 
+// TerminologyExists checks whether an existing Terminology resource with the given ID exists.
+func TerminologyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TerminologyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:translate:Terminology", id, state, "", opts...)
+}
+
 type terminologyArgs struct {
 	// The description of the custom terminology.
 	Description *string `pulumi:"description"`

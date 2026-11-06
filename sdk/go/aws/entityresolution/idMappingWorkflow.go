@@ -89,6 +89,12 @@ func (IdMappingWorkflowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*idMappingWorkflowState)(nil)).Elem()
 }
 
+// IdMappingWorkflowExists checks whether an existing IdMappingWorkflow resource with the given ID exists.
+func IdMappingWorkflowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdMappingWorkflowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:entityresolution:IdMappingWorkflow", id, state, "", opts...)
+}
+
 type idMappingWorkflowArgs struct {
 	// The description of the IdMappingWorkflow
 	Description                   *string                                         `pulumi:"description"`

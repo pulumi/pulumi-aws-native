@@ -90,6 +90,12 @@ func (LocationFSxWindowsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationFSxWindowsState)(nil)).Elem()
 }
 
+// LocationFSxWindowsExists checks whether an existing LocationFSxWindows resource with the given ID exists.
+func LocationFSxWindowsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationFSxWindowsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationFSxWindows", id, state, "", opts...)
+}
+
 type locationFSxWindowsArgs struct {
 	CmkSecretConfig    *LocationFSxWindowsCmkSecretConfig    `pulumi:"cmkSecretConfig"`
 	CustomSecretConfig *LocationFSxWindowsCustomSecretConfig `pulumi:"customSecretConfig"`

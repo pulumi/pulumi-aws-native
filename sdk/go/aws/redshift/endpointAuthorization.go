@@ -92,6 +92,12 @@ func (EndpointAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointAuthorizationState)(nil)).Elem()
 }
 
+// EndpointAuthorizationExists checks whether an existing EndpointAuthorization resource with the given ID exists.
+func EndpointAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:redshift:EndpointAuthorization", id, state, "", opts...)
+}
+
 type endpointAuthorizationArgs struct {
 	// The target AWS account ID to grant or revoke access for.
 	Account string `pulumi:"account"`

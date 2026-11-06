@@ -72,6 +72,12 @@ func (OrganizationConfigRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigRuleState)(nil)).Elem()
 }
 
+// OrganizationConfigRuleExists checks whether an existing OrganizationConfigRule resource with the given ID exists.
+func OrganizationConfigRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationConfigRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:OrganizationConfigRule", id, state, "", opts...)
+}
+
 type organizationConfigRuleArgs struct {
 	// A comma-separated list of accounts that you want to exclude from an organization AWS Config rule.
 	ExcludedAccounts []string `pulumi:"excludedAccounts"`

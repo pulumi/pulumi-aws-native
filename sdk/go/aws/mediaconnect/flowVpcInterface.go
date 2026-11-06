@@ -89,6 +89,12 @@ func (FlowVpcInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowVpcInterfaceState)(nil)).Elem()
 }
 
+// FlowVpcInterfaceExists checks whether an existing FlowVpcInterface resource with the given ID exists.
+func FlowVpcInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowVpcInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:FlowVpcInterface", id, state, "", opts...)
+}
+
 type flowVpcInterfaceArgs struct {
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 	FlowArn string `pulumi:"flowArn"`

@@ -88,6 +88,12 @@ func (RetrievalInstructionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*retrievalInstructionState)(nil)).Elem()
 }
 
+// RetrievalInstructionExists checks whether an existing RetrievalInstruction resource with the given ID exists.
+func RetrievalInstructionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RetrievalInstructionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:RetrievalInstruction", id, state, "", opts...)
+}
+
 type retrievalInstructionArgs struct {
 	// The ARN of the customer managed KMS key protecting this content, when one was supplied at create.
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`

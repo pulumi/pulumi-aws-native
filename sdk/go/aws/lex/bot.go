@@ -107,6 +107,12 @@ func (BotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*botState)(nil)).Elem()
 }
 
+// BotExists checks whether an existing Bot resource with the given ID exists.
+func BotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lex:Bot", id, state, "", opts...)
+}
+
 type botArgs struct {
 	// Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
 	AutoBuildBotLocales *bool `pulumi:"autoBuildBotLocales"`

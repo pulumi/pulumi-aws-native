@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.CodeArtifact
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = new[]
+    ///                     ["action"] = new object?[]
     ///                     {
     ///                         "codeartifact:ReadFromRepository",
     ///                         "codeartifact:DescribePackageVersion",
@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.CodeArtifact
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = new[]
+    ///                     ["action"] = new object?[]
     ///                     {
     ///                         "codeartifact:ReadFromRepository",
     ///                         "codeartifact:DescribePackageVersion",

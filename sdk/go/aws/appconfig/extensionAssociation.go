@@ -81,6 +81,12 @@ func (ExtensionAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*extensionAssociationState)(nil)).Elem()
 }
 
+// ExtensionAssociationExists checks whether an existing ExtensionAssociation resource with the given ID exists.
+func ExtensionAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExtensionAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appconfig:ExtensionAssociation", id, state, "", opts...)
+}
+
 type extensionAssociationArgs struct {
 	// The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 	ExtensionIdentifier *string `pulumi:"extensionIdentifier"`

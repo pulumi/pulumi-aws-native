@@ -85,6 +85,12 @@ func (NetworkInsightsAccessScopeAnalysisState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInsightsAccessScopeAnalysisState)(nil)).Elem()
 }
 
+// NetworkInsightsAccessScopeAnalysisExists checks whether an existing NetworkInsightsAccessScopeAnalysis resource with the given ID exists.
+func NetworkInsightsAccessScopeAnalysisExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInsightsAccessScopeAnalysisState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:NetworkInsightsAccessScopeAnalysis", id, state, "", opts...)
+}
+
 type networkInsightsAccessScopeAnalysisArgs struct {
 	// The ID of the Network Access Scope.
 	NetworkInsightsAccessScopeId string `pulumi:"networkInsightsAccessScopeId"`

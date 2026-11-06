@@ -68,6 +68,12 @@ func (PublicKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicKeyState)(nil)).Elem()
 }
 
+// PublicKeyExists checks whether an existing PublicKey resource with the given ID exists.
+func PublicKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublicKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:PublicKey", id, state, "", opts...)
+}
+
 type publicKeyArgs struct {
 	// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
 	PublicKeyConfig PublicKeyConfig `pulumi:"publicKeyConfig"`

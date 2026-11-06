@@ -78,6 +78,12 @@ func (ParameterGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*parameterGroupState)(nil)).Elem()
 }
 
+// ParameterGroupExists checks whether an existing ParameterGroup resource with the given ID exists.
+func ParameterGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ParameterGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticache:ParameterGroup", id, state, "", opts...)
+}
+
 type parameterGroupArgs struct {
 	// The name of the cache parameter group family that this cache parameter group is compatible with.
 	CacheParameterGroupFamily string `pulumi:"cacheParameterGroupFamily"`

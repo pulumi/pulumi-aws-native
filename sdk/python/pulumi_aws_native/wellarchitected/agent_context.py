@@ -203,6 +203,12 @@ class AgentContext(pulumi.CustomResource):
         __props__.__dict__["title"] = None
         return AgentContext(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:wellarchitected:AgentContext', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> pulumi.Output['AgentContextApplicationType']:

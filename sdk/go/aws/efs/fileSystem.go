@@ -113,6 +113,12 @@ func (FileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemState)(nil)).Elem()
 }
 
+// FileSystemExists checks whether an existing FileSystem resource with the given ID exists.
+func FileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:efs:FileSystem", id, state, "", opts...)
+}
+
 type fileSystemArgs struct {
 	// For One Zone file systems, specify the AWS Availability Zone in which to create the file system. Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type) in the *Amazon EFS User Guide*.
 	//   One Zone file systems are not available in all Availability Zones in AWS-Regions where Amazon EFS is available.

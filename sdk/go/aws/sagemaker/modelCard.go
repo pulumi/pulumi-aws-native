@@ -93,6 +93,12 @@ func (ModelCardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelCardState)(nil)).Elem()
 }
 
+// ModelCardExists checks whether an existing ModelCard resource with the given ID exists.
+func ModelCardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelCardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:ModelCard", id, state, "", opts...)
+}
+
 type modelCardArgs struct {
 	// The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content ModelCardContent `pulumi:"content"`

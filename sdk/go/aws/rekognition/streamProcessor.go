@@ -111,6 +111,12 @@ func (StreamProcessorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamProcessorState)(nil)).Elem()
 }
 
+// StreamProcessorExists checks whether an existing StreamProcessor resource with the given ID exists.
+func StreamProcessorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamProcessorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rekognition:StreamProcessor", id, state, "", opts...)
+}
+
 type streamProcessorArgs struct {
 	// The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
 	BoundingBoxRegionsOfInterest []StreamProcessorBoundingBox `pulumi:"boundingBoxRegionsOfInterest"`

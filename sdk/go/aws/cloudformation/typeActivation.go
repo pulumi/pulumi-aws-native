@@ -84,6 +84,12 @@ func (TypeActivationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*typeActivationState)(nil)).Elem()
 }
 
+// TypeActivationExists checks whether an existing TypeActivation resource with the given ID exists.
+func TypeActivationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TypeActivationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:TypeActivation", id, state, "", opts...)
+}
+
 type typeActivationArgs struct {
 	// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
 	AutoUpdate *bool `pulumi:"autoUpdate"`

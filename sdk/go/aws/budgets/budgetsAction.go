@@ -104,6 +104,12 @@ func (BudgetsActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetsActionState)(nil)).Elem()
 }
 
+// BudgetsActionExists checks whether an existing BudgetsAction resource with the given ID exists.
+func BudgetsActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BudgetsActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:budgets:BudgetsAction", id, state, "", opts...)
+}
+
 type budgetsActionArgs struct {
 	// The trigger threshold of the action.
 	ActionThreshold BudgetsActionActionThreshold `pulumi:"actionThreshold"`

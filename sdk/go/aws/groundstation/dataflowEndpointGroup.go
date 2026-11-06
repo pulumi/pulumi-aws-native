@@ -126,6 +126,12 @@ func (DataflowEndpointGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataflowEndpointGroupState)(nil)).Elem()
 }
 
+// DataflowEndpointGroupExists checks whether an existing DataflowEndpointGroup resource with the given ID exists.
+func DataflowEndpointGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataflowEndpointGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:groundstation:DataflowEndpointGroup", id, state, "", opts...)
+}
+
 type dataflowEndpointGroupArgs struct {
 	// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`

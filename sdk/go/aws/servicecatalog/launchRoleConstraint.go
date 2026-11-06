@@ -82,6 +82,12 @@ func (LaunchRoleConstraintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchRoleConstraintState)(nil)).Elem()
 }
 
+// LaunchRoleConstraintExists checks whether an existing LaunchRoleConstraint resource with the given ID exists.
+func LaunchRoleConstraintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchRoleConstraintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:LaunchRoleConstraint", id, state, "", opts...)
+}
+
 type launchRoleConstraintArgs struct {
 	// The language code for the constraint.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

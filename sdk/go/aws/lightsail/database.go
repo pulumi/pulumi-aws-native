@@ -114,6 +114,12 @@ func (DatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseState)(nil)).Elem()
 }
 
+// DatabaseExists checks whether an existing Database resource with the given ID exists.
+func DatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lightsail:Database", id, state, "", opts...)
+}
+
 type databaseArgs struct {
 	// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
 	AvailabilityZone *string `pulumi:"availabilityZone"`

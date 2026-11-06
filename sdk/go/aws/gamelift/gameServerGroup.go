@@ -92,6 +92,12 @@ func (GameServerGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gameServerGroupState)(nil)).Elem()
 }
 
+// GameServerGroupExists checks whether an existing GameServerGroup resource with the given ID exists.
+func GameServerGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GameServerGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gamelift:GameServerGroup", id, state, "", opts...)
+}
+
 type gameServerGroupArgs struct {
 	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 	AutoScalingPolicy *GameServerGroupAutoScalingPolicy `pulumi:"autoScalingPolicy"`

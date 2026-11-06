@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel>? _eventLevels;
 
         /// <summary>
-        /// The levels of event to log. 
+        /// The levels of event to log.
         /// </summary>
         public InputList<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel> EventLevels
         {

@@ -79,6 +79,12 @@ func (RegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registrationState)(nil)).Elem()
 }
 
+// RegistrationExists checks whether an existing Registration resource with the given ID exists.
+func RegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:Registration", id, state, "", opts...)
+}
+
 type registrationArgs struct {
 	// The type of registration form to create.
 	RegistrationType string `pulumi:"registrationType"`

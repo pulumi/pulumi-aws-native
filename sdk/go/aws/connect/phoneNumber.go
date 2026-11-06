@@ -86,6 +86,12 @@ func (PhoneNumberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*phoneNumberState)(nil)).Elem()
 }
 
+// PhoneNumberExists checks whether an existing PhoneNumber resource with the given ID exists.
+func PhoneNumberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PhoneNumberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:PhoneNumber", id, state, "", opts...)
+}
+
 type phoneNumberArgs struct {
 	// The phone number country code.
 	CountryCode *string `pulumi:"countryCode"`

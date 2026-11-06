@@ -73,6 +73,12 @@ func (QueueInlinePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueInlinePolicyState)(nil)).Elem()
 }
 
+// QueueInlinePolicyExists checks whether an existing QueueInlinePolicy resource with the given ID exists.
+func QueueInlinePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueInlinePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sqs:QueueInlinePolicy", id, state, "", opts...)
+}
+
 type queueInlinePolicyArgs struct {
 	// A policy document that contains permissions to add to the specified SQS queue
 	//

@@ -68,6 +68,12 @@ func (WorkspaceInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceInstanceState)(nil)).Elem()
 }
 
+// WorkspaceInstanceExists checks whether an existing WorkspaceInstance resource with the given ID exists.
+func WorkspaceInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspacesinstances:WorkspaceInstance", id, state, "", opts...)
+}
+
 type workspaceInstanceArgs struct {
 	ManagedInstance *ManagedInstanceProperties `pulumi:"managedInstance"`
 	Tags            []aws.Tag                  `pulumi:"tags"`

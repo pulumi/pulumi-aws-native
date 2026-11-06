@@ -103,6 +103,12 @@ func (ResponderGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*responderGatewayState)(nil)).Elem()
 }
 
+// ResponderGatewayExists checks whether an existing ResponderGateway resource with the given ID exists.
+func ResponderGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResponderGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rtbfabric:ResponderGateway", id, state, "", opts...)
+}
+
 type responderGatewayArgs struct {
 	AcmCertificateArn *string `pulumi:"acmCertificateArn"`
 	// An optional description for the responder gateway.

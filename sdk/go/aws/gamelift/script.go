@@ -83,6 +83,12 @@ func (ScriptState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scriptState)(nil)).Elem()
 }
 
+// ScriptExists checks whether an existing Script resource with the given ID exists.
+func ScriptExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScriptState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gamelift:Script", id, state, "", opts...)
+}
+
 type scriptArgs struct {
 	// A descriptive label that is associated with a script. Script names do not need to be unique.
 	Name *string `pulumi:"name"`

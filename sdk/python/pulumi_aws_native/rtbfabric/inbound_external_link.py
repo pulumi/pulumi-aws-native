@@ -82,9 +82,9 @@ class InboundExternalLink(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 link_attributes: pulumi.Input[Optional[Union['InboundExternalLinkLinkAttributesArgs', 'InboundExternalLinkLinkAttributesArgsDict']]] = None,
-                 link_log_settings: pulumi.Input[Optional[Union['InboundExternalLinkLinkLogSettingsArgs', 'InboundExternalLinkLinkLogSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['InboundExternalLinkLinkAttributesArgs', 'InboundExternalLinkLinkAttributesArgsDict', 'outputs.InboundExternalLinkLinkAttributes']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['InboundExternalLinkLinkLogSettingsArgs', 'InboundExternalLinkLinkLogSettingsArgsDict', 'outputs.InboundExternalLinkLinkLogSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RTBFabric::InboundExternalLink Resource Type
@@ -117,9 +117,9 @@ class InboundExternalLink(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 link_attributes: pulumi.Input[Optional[Union['InboundExternalLinkLinkAttributesArgs', 'InboundExternalLinkLinkAttributesArgsDict']]] = None,
-                 link_log_settings: pulumi.Input[Optional[Union['InboundExternalLinkLinkLogSettingsArgs', 'InboundExternalLinkLinkLogSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['InboundExternalLinkLinkAttributesArgs', 'InboundExternalLinkLinkAttributesArgsDict', 'outputs.InboundExternalLinkLinkAttributes']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['InboundExternalLinkLinkLogSettingsArgs', 'InboundExternalLinkLinkLogSettingsArgsDict', 'outputs.InboundExternalLinkLinkLogSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -176,6 +176,12 @@ class InboundExternalLink(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_timestamp"] = None
         return InboundExternalLink(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:rtbfabric:InboundExternalLink', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

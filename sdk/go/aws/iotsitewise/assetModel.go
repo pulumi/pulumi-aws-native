@@ -83,6 +83,12 @@ func (AssetModelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assetModelState)(nil)).Elem()
 }
 
+// AssetModelExists checks whether an existing AssetModel resource with the given ID exists.
+func AssetModelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssetModelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotsitewise:AssetModel", id, state, "", opts...)
+}
+
 type assetModelArgs struct {
 	// The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
 	AssetModelCompositeModels []AssetModelCompositeModel `pulumi:"assetModelCompositeModels"`

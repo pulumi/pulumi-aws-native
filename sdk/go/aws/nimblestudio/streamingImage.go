@@ -81,6 +81,12 @@ func (StreamingImageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamingImageState)(nil)).Elem()
 }
 
+// StreamingImageExists checks whether an existing StreamingImage resource with the given ID exists.
+func StreamingImageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamingImageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:nimblestudio:StreamingImage", id, state, "", opts...)
+}
+
 type streamingImageArgs struct {
 	Description                    *string           `pulumi:"description"`
 	Ec2ImageId                     string            `pulumi:"ec2ImageId"`

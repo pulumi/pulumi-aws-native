@@ -90,6 +90,12 @@ func (AgentGoalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentGoalState)(nil)).Elem()
 }
 
+// AgentGoalExists checks whether an existing AgentGoal resource with the given ID exists.
+func AgentGoalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentGoalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wellarchitected:AgentGoal", id, state, "", opts...)
+}
+
 type agentGoalArgs struct {
 	// A description of the Agent Goal.
 	Description *string `pulumi:"description"`

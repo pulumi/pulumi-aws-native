@@ -92,6 +92,12 @@ func (OutpostResolverState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outpostResolverState)(nil)).Elem()
 }
 
+// OutpostResolverExists checks whether an existing OutpostResolver resource with the given ID exists.
+func OutpostResolverExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutpostResolverState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:OutpostResolver", id, state, "", opts...)
+}
+
 type outpostResolverArgs struct {
 	// The number of OutpostResolvers.
 	InstanceCount *int `pulumi:"instanceCount"`

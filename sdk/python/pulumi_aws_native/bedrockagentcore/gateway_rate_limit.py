@@ -114,7 +114,7 @@ class GatewayRateLimit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  dimension_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRateLimitLimitEntryArgs', 'GatewayRateLimitLimitEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRateLimitLimitEntryArgs', 'GatewayRateLimitLimitEntryArgsDict', 'outputs.GatewayRateLimitLimitEntry']]]]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  rate_limit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -126,7 +126,7 @@ class GatewayRateLimit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Optional human-readable description for this limit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dimension_keys: Ordered list of dimension names defining the scope of this limit.
                Unique per gateway — no two limits can share the same dimensionKeys.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayRateLimitLimitEntryArgs', 'GatewayRateLimitLimitEntryArgsDict']]]] entries: Rule entries mapping dimension values to rate configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayRateLimitLimitEntryArgs', 'GatewayRateLimitLimitEntryArgsDict', 'outputs.GatewayRateLimitLimitEntry']]]] entries: Rule entries mapping dimension values to rate configurations.
         :param pulumi.Input[_builtins.str] rate_limit_id: Limit identifier. Optional on Create (system-generates if not provided by customer).
                Always present in responses.
         """
@@ -156,7 +156,7 @@ class GatewayRateLimit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  dimension_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRateLimitLimitEntryArgs', 'GatewayRateLimitLimitEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayRateLimitLimitEntryArgs', 'GatewayRateLimitLimitEntryArgsDict', 'outputs.GatewayRateLimitLimitEntry']]]]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  rate_limit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -213,6 +213,12 @@ class GatewayRateLimit(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["updated_at"] = None
         return GatewayRateLimit(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:bedrockagentcore:GatewayRateLimit', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

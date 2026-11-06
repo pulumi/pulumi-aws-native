@@ -107,6 +107,12 @@ func (GuardrailState) ElementType() reflect.Type {
 	return reflect.TypeOf((*guardrailState)(nil)).Elem()
 }
 
+// GuardrailExists checks whether an existing Guardrail resource with the given ID exists.
+func GuardrailExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GuardrailState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:Guardrail", id, state, "", opts...)
+}
+
 type guardrailArgs struct {
 	// Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
 	AutomatedReasoningPolicyConfig *GuardrailAutomatedReasoningPolicyConfig `pulumi:"automatedReasoningPolicyConfig"`

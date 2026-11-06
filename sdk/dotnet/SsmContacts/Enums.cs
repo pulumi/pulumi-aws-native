@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.SsmContacts
     }
 
     /// <summary>
-    /// The day of the week when weekly recurring on-call shift rotations begin. 
+    /// The day of the week when weekly recurring on-call shift rotations begin.
     /// </summary>
     [EnumType]
     public readonly struct RotationDayOfWeek : IEquatable<RotationDayOfWeek>

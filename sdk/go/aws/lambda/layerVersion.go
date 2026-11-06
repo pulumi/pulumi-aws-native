@@ -83,6 +83,12 @@ func (LayerVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*layerVersionState)(nil)).Elem()
 }
 
+// LayerVersionExists checks whether an existing LayerVersion resource with the given ID exists.
+func LayerVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LayerVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:LayerVersion", id, state, "", opts...)
+}
+
 type layerVersionArgs struct {
 	// A list of compatible instruction set architectures.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`

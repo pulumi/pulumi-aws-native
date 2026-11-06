@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Route53.Inputs
 {
 
     /// <summary>
-    /// *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+    /// *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
     ///   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
     /// </summary>
     public sealed class HostedZoneVpcArgs : global::Pulumi.ResourceArgs

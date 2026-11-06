@@ -151,7 +151,7 @@ class MetricFilter(pulumi.CustomResource):
                  filter_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict']]]]] = None,
+                 metric_transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict', 'outputs.MetricFilterMetricTransformation']]]]] = None,
                  __props__=None):
         """
         The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
@@ -166,7 +166,7 @@ class MetricFilter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] filter_name: The name of the metric filter.
         :param pulumi.Input[_builtins.str] filter_pattern: A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[_builtins.str] log_group_name: The name of an existing log group that you want to associate with this metric filter.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict']]]] metric_transformations: The metric transformations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict', 'outputs.MetricFilterMetricTransformation']]]] metric_transformations: The metric transformations.
         """
         ...
     @overload
@@ -199,7 +199,7 @@ class MetricFilter(pulumi.CustomResource):
                  filter_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict']]]]] = None,
+                 metric_transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricFilterMetricTransformationArgs', 'MetricFilterMetricTransformationArgsDict', 'outputs.MetricFilterMetricTransformation']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -254,6 +254,12 @@ class MetricFilter(pulumi.CustomResource):
         __props__.__dict__["log_group_name"] = None
         __props__.__dict__["metric_transformations"] = None
         return MetricFilter(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:logs:MetricFilter', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")

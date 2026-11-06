@@ -127,7 +127,7 @@ class LaunchProfile(pulumi.CustomResource):
                  ec2_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  launch_profile_protocol_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stream_configuration: pulumi.Input[Optional[Union['LaunchProfileStreamConfigurationArgs', 'LaunchProfileStreamConfigurationArgsDict']]] = None,
+                 stream_configuration: pulumi.Input[Optional[Union['LaunchProfileStreamConfigurationArgs', 'LaunchProfileStreamConfigurationArgsDict', 'outputs.LaunchProfileStreamConfiguration']]] = None,
                  studio_component_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -166,7 +166,7 @@ class LaunchProfile(pulumi.CustomResource):
                  ec2_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  launch_profile_protocol_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stream_configuration: pulumi.Input[Optional[Union['LaunchProfileStreamConfigurationArgs', 'LaunchProfileStreamConfigurationArgsDict']]] = None,
+                 stream_configuration: pulumi.Input[Optional[Union['LaunchProfileStreamConfigurationArgs', 'LaunchProfileStreamConfigurationArgsDict', 'outputs.LaunchProfileStreamConfiguration']]] = None,
                  studio_component_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -232,6 +232,12 @@ class LaunchProfile(pulumi.CustomResource):
         __props__.__dict__["studio_id"] = None
         __props__.__dict__["tags"] = None
         return LaunchProfile(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:nimblestudio:LaunchProfile', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

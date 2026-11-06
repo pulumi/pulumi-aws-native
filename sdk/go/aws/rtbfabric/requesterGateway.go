@@ -85,6 +85,12 @@ func (RequesterGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*requesterGatewayState)(nil)).Elem()
 }
 
+// RequesterGatewayExists checks whether an existing RequesterGateway resource with the given ID exists.
+func RequesterGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequesterGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rtbfabric:RequesterGateway", id, state, "", opts...)
+}
+
 type requesterGatewayArgs struct {
 	// An optional description for the requester gateway.
 	Description *string `pulumi:"description"`

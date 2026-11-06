@@ -93,6 +93,12 @@ func (SceneState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sceneState)(nil)).Elem()
 }
 
+// SceneExists checks whether an existing Scene resource with the given ID exists.
+func SceneExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SceneState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iottwinmaker:Scene", id, state, "", opts...)
+}
+
 type sceneArgs struct {
 	// A list of capabilities that the scene uses to render.
 	Capabilities []string `pulumi:"capabilities"`

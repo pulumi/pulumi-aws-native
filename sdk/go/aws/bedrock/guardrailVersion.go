@@ -75,6 +75,12 @@ func (GuardrailVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*guardrailVersionState)(nil)).Elem()
 }
 
+// GuardrailVersionExists checks whether an existing GuardrailVersion resource with the given ID exists.
+func GuardrailVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GuardrailVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:GuardrailVersion", id, state, "", opts...)
+}
+
 type guardrailVersionArgs struct {
 	// Description of the Guardrail version
 	Description *string `pulumi:"description"`

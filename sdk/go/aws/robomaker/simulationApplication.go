@@ -241,6 +241,12 @@ func (SimulationApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*simulationApplicationState)(nil)).Elem()
 }
 
+// SimulationApplicationExists checks whether an existing SimulationApplication resource with the given ID exists.
+func SimulationApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SimulationApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:robomaker:SimulationApplication", id, state, "", opts...)
+}
+
 type simulationApplicationArgs struct {
 	// The current revision id.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`

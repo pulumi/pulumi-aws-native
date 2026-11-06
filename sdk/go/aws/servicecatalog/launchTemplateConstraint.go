@@ -83,6 +83,12 @@ func (LaunchTemplateConstraintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchTemplateConstraintState)(nil)).Elem()
 }
 
+// LaunchTemplateConstraintExists checks whether an existing LaunchTemplateConstraint resource with the given ID exists.
+func LaunchTemplateConstraintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchTemplateConstraintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:LaunchTemplateConstraint", id, state, "", opts...)
+}
+
 type launchTemplateConstraintArgs struct {
 	// The language code.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.S3Express.Outputs
     public sealed class DirectoryBucketDestination
     {
         /// <summary>
-        /// The account ID that owns the destination S3 bucket. 
+        /// The account ID that owns the destination S3 bucket.
         /// </summary>
         public readonly string? BucketAccountId;
         /// <summary>

@@ -77,6 +77,12 @@ func (RecommenderSchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recommenderSchemaState)(nil)).Elem()
 }
 
+// RecommenderSchemaExists checks whether an existing RecommenderSchema resource with the given ID exists.
+func RecommenderSchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecommenderSchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:customerprofiles:RecommenderSchema", id, state, "", opts...)
+}
+
 type recommenderSchemaArgs struct {
 	DomainName            string                              `pulumi:"domainName"`
 	Fields                map[string][]RecommenderSchemaField `pulumi:"fields"`

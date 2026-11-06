@@ -61,11 +61,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// <summary>
         /// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
         ///  Valid formats:
-        ///   +   ``ami-0ac394d6a3example`` 
-        ///   +   ``resolve:ssm:parameter-name`` 
-        ///   +   ``resolve:ssm:parameter-name:version-number`` 
-        ///   +   ``resolve:ssm:parameter-name:label`` 
-        ///   
+        ///   +   ``ami-0ac394d6a3example``
+        ///   +   ``resolve:ssm:parameter-name``
+        ///   +   ``resolve:ssm:parameter-name:version-number``
+        ///   +   ``resolve:ssm:parameter-name:label``
+        /// 
         ///  For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
         /// </summary>
         public readonly string? ImageId;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///  To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
         ///   +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
         ///   +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-        ///   
+        /// 
         ///   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
         ///  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
         ///   For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.

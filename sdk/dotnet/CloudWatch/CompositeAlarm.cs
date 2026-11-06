@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        /// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
         /// </summary>
         [Output("actionsSuppressor")]
         public Output<string?> ActionsSuppressor { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public Input<bool>? ActionsEnabled { get; set; }
 
         /// <summary>
-        /// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        /// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
         /// </summary>
         [Input("actionsSuppressor")]
         public Input<string>? ActionsSuppressor { get; set; }

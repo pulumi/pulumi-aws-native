@@ -131,6 +131,12 @@ func (CacheClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheClusterState)(nil)).Elem()
 }
 
+// CacheClusterExists checks whether an existing CacheCluster resource with the given ID exists.
+func CacheClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CacheClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticache:CacheCluster", id, state, "", opts...)
+}
+
 type cacheClusterArgs struct {
 	// If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`

@@ -108,6 +108,12 @@ func (AccessGrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessGrantState)(nil)).Elem()
 }
 
+// AccessGrantExists checks whether an existing AccessGrant resource with the given ID exists.
+func AccessGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:AccessGrant", id, state, "", opts...)
+}
+
 type accessGrantArgs struct {
 	// The ID of the domain the grant belongs to.
 	DomainId string `pulumi:"domainId"`

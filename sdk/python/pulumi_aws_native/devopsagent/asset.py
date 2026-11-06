@@ -117,7 +117,7 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
                  asset_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetFileArgs', 'AssetFileArgsDict']]]]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetFileArgs', 'AssetFileArgsDict', 'outputs.AssetFile']]]]] = None,
                  metadata: Optional[Any] = None,
                  zip: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -128,7 +128,7 @@ class Asset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_space_id: The unique identifier of the parent Agent Space. The asset is created as a child of this agent space.
         :param pulumi.Input[_builtins.str] asset_type: The type of asset. The Asset API treats this as an open string; call ListAssetTypes for the current authoritative set of supported types. As of launch, customer-creatable types include skill, agents_md, and attachment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetFileArgs', 'AssetFileArgsDict']]]] files: Inline file list. Mutually exclusive with Zip; enforced by the handler at Create/Update time. Write-only: not repopulated by Read.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetFileArgs', 'AssetFileArgsDict', 'outputs.AssetFile']]]] files: Inline file list. Mutually exclusive with Zip; enforced by the handler at Create/Update time. Write-only: not repopulated by Read.
         :param Any metadata: Asset metadata document. Required and optional keys depend on AssetType. Values may be strings, numbers, booleans, or lists of any of those - validated server-side; see the public Asset API docs for the per-type metadata schema.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DevOpsAgent::Asset` for more information about the expected schema for this property.
@@ -160,7 +160,7 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
                  asset_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetFileArgs', 'AssetFileArgsDict']]]]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetFileArgs', 'AssetFileArgsDict', 'outputs.AssetFile']]]]] = None,
                  metadata: Optional[Any] = None,
                  zip: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -221,6 +221,12 @@ class Asset(pulumi.CustomResource):
         __props__.__dict__["version"] = None
         __props__.__dict__["zip"] = None
         return Asset(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:devopsagent:Asset', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="agentSpaceId")

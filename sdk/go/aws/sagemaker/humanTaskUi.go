@@ -72,6 +72,12 @@ func (HumanTaskUiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*humanTaskUiState)(nil)).Elem()
 }
 
+// HumanTaskUiExists checks whether an existing HumanTaskUi resource with the given ID exists.
+func HumanTaskUiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HumanTaskUiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:HumanTaskUi", id, state, "", opts...)
+}
+
 type humanTaskUiArgs struct {
 	// The name of the human task user interface.
 	HumanTaskUiName *string `pulumi:"humanTaskUiName"`

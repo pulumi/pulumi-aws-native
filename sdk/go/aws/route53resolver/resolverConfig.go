@@ -78,6 +78,12 @@ func (ResolverConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverConfigState)(nil)).Elem()
 }
 
+// ResolverConfigExists checks whether an existing ResolverConfig resource with the given ID exists.
+func ResolverConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:ResolverConfig", id, state, "", opts...)
+}
+
 type resolverConfigArgs struct {
 	// Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
 	AutodefinedReverseFlag ResolverConfigAutodefinedReverseFlag `pulumi:"autodefinedReverseFlag"`

@@ -84,6 +84,12 @@ func (CostCategoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*costCategoryState)(nil)).Elem()
 }
 
+// CostCategoryExists checks whether an existing CostCategory resource with the given ID exists.
+func CostCategoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CostCategoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ce:CostCategory", id, state, "", opts...)
+}
+
 type costCategoryArgs struct {
 	// The default value for the cost category
 	DefaultValue *string `pulumi:"defaultValue"`

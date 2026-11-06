@@ -78,6 +78,12 @@ func (IdentityPoolPrincipalTagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolPrincipalTagState)(nil)).Elem()
 }
 
+// IdentityPoolPrincipalTagExists checks whether an existing IdentityPoolPrincipalTag resource with the given ID exists.
+func IdentityPoolPrincipalTagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityPoolPrincipalTagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:IdentityPoolPrincipalTag", id, state, "", opts...)
+}
+
 type identityPoolPrincipalTagArgs struct {
 	// The identity pool that you want to associate with this principal tag map.
 	IdentityPoolId string `pulumi:"identityPoolId"`

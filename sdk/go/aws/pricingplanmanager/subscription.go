@@ -89,6 +89,12 @@ func (SubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionState)(nil)).Elem()
 }
 
+// SubscriptionExists checks whether an existing Subscription resource with the given ID exists.
+func SubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pricingplanmanager:Subscription", id, state, "", opts...)
+}
+
 type subscriptionArgs struct {
 	// The name of the pricing plan family.
 	PlanFamily SubscriptionPlanFamily `pulumi:"planFamily"`

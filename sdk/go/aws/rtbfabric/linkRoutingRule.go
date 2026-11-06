@@ -80,6 +80,12 @@ func (LinkRoutingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkRoutingRuleState)(nil)).Elem()
 }
 
+// LinkRoutingRuleExists checks whether an existing LinkRoutingRule resource with the given ID exists.
+func LinkRoutingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkRoutingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rtbfabric:LinkRoutingRule", id, state, "", opts...)
+}
+
 type linkRoutingRuleArgs struct {
 	Conditions LinkRoutingRuleRuleCondition `pulumi:"conditions"`
 	GatewayId  string                       `pulumi:"gatewayId"`

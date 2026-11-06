@@ -83,6 +83,12 @@ func (FeaturedResultsSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*featuredResultsSetState)(nil)).Elem()
 }
 
+// FeaturedResultsSetExists checks whether an existing FeaturedResultsSet resource with the given ID exists.
+func FeaturedResultsSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeaturedResultsSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kendra:FeaturedResultsSet", id, state, "", opts...)
+}
+
 type featuredResultsSetArgs struct {
 	// A description for the set of featured results.
 	Description *string `pulumi:"description"`

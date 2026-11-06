@@ -89,6 +89,12 @@ func (GlobalReplicationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalReplicationGroupState)(nil)).Elem()
 }
 
+// GlobalReplicationGroupExists checks whether an existing GlobalReplicationGroup resource with the given ID exists.
+func GlobalReplicationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalReplicationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticache:GlobalReplicationGroup", id, state, "", opts...)
+}
+
 type globalReplicationGroupArgs struct {
 	// AutomaticFailoverEnabled
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`

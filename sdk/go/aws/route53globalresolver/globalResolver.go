@@ -81,6 +81,12 @@ func (GlobalResolverState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalResolverState)(nil)).Elem()
 }
 
+// GlobalResolverExists checks whether an existing GlobalResolver resource with the given ID exists.
+func GlobalResolverExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalResolverState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53globalresolver:GlobalResolver", id, state, "", opts...)
+}
+
 type globalResolverArgs struct {
 	ClientToken         *string                      `pulumi:"clientToken"`
 	Description         *string                      `pulumi:"description"`

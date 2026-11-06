@@ -132,6 +132,12 @@ func (ManagedPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPolicyState)(nil)).Elem()
 }
 
+// ManagedPolicyExists checks whether an existing ManagedPolicy resource with the given ID exists.
+func ManagedPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iam:ManagedPolicy", id, state, "", opts...)
+}
+
 type managedPolicyArgs struct {
 	// A friendly description of the policy.
 	//  Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."

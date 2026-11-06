@@ -87,6 +87,12 @@ func (RouteResponseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeResponseState)(nil)).Elem()
 }
 
+// RouteResponseExists checks whether an existing RouteResponse resource with the given ID exists.
+func RouteResponseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteResponseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:RouteResponse", id, state, "", opts...)
+}
+
 type routeResponseArgs struct {
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`

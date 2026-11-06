@@ -94,6 +94,12 @@ func (SlackChannelConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*slackChannelConfigurationState)(nil)).Elem()
 }
 
+// SlackChannelConfigurationExists checks whether an existing SlackChannelConfiguration resource with the given ID exists.
+func SlackChannelConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SlackChannelConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:chatbot:SlackChannelConfiguration", id, state, "", opts...)
+}
+
 type slackChannelConfigurationArgs struct {
 	// The name of the configuration
 	ConfigurationName *string `pulumi:"configurationName"`

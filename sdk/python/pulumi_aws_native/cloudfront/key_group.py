@@ -48,7 +48,7 @@ class KeyGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_config: pulumi.Input[Optional[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']]] = None,
+                 key_group_config: pulumi.Input[Optional[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict', 'outputs.KeyGroupConfig']]] = None,
                  __props__=None):
         """
         A key group.
@@ -56,7 +56,7 @@ class KeyGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']] key_group_config: The key group configuration.
+        :param pulumi.Input[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict', 'outputs.KeyGroupConfig']] key_group_config: The key group configuration.
         """
         ...
     @overload
@@ -83,7 +83,7 @@ class KeyGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_config: pulumi.Input[Optional[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']]] = None,
+                 key_group_config: pulumi.Input[Optional[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict', 'outputs.KeyGroupConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -124,6 +124,12 @@ class KeyGroup(pulumi.CustomResource):
         __props__.__dict__["key_group_config"] = None
         __props__.__dict__["last_modified_time"] = None
         return KeyGroup(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:cloudfront:KeyGroup', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="awsId")

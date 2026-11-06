@@ -132,6 +132,12 @@ func (SchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaState)(nil)).Elem()
 }
 
+// SchemaExists checks whether an existing Schema resource with the given ID exists.
+func SchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:personalize:Schema", id, state, "", opts...)
+}
+
 type schemaArgs struct {
 	// The domain of a Domain dataset group.
 	Domain *SchemaDomain `pulumi:"domain"`

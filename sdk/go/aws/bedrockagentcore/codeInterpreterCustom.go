@@ -92,6 +92,12 @@ func (CodeInterpreterCustomState) ElementType() reflect.Type {
 	return reflect.TypeOf((*codeInterpreterCustomState)(nil)).Elem()
 }
 
+// CodeInterpreterCustomExists checks whether an existing CodeInterpreterCustom resource with the given ID exists.
+func CodeInterpreterCustomExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CodeInterpreterCustomState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:CodeInterpreterCustom", id, state, "", opts...)
+}
+
 type codeInterpreterCustomArgs struct {
 	// List of root CA certificates in PEM format.
 	Certificates []CodeInterpreterCustomCertificate `pulumi:"certificates"`

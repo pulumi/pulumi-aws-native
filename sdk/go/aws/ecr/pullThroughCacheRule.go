@@ -131,6 +131,12 @@ func (PullThroughCacheRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pullThroughCacheRuleState)(nil)).Elem()
 }
 
+// PullThroughCacheRuleExists checks whether an existing PullThroughCacheRule resource with the given ID exists.
+func PullThroughCacheRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PullThroughCacheRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecr:PullThroughCacheRule", id, state, "", opts...)
+}
+
 type pullThroughCacheRuleArgs struct {
 	// The ARN of the Secrets Manager secret associated with the pull through cache rule.
 	CredentialArn *string `pulumi:"credentialArn"`

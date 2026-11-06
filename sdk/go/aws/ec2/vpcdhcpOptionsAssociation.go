@@ -72,6 +72,12 @@ func (VpcdhcpOptionsAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcdhcpOptionsAssociationState)(nil)).Elem()
 }
 
+// VpcdhcpOptionsAssociationExists checks whether an existing VpcdhcpOptionsAssociation resource with the given ID exists.
+func VpcdhcpOptionsAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcdhcpOptionsAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpcdhcpOptionsAssociation", id, state, "", opts...)
+}
+
 type vpcdhcpOptionsAssociationArgs struct {
 	// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
 	DhcpOptionsId string `pulumi:"dhcpOptionsId"`

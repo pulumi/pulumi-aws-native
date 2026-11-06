@@ -84,6 +84,12 @@ func (TransitGatewayPolicyTableEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayPolicyTableEntryState)(nil)).Elem()
 }
 
+// TransitGatewayPolicyTableEntryExists checks whether an existing TransitGatewayPolicyTableEntry resource with the given ID exists.
+func TransitGatewayPolicyTableEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayPolicyTableEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayPolicyTableEntry", id, state, "", opts...)
+}
+
 type transitGatewayPolicyTableEntryArgs struct {
 	// The policy rule associated with the entry.
 	PolicyRule TransitGatewayPolicyTableEntryTransitGatewayPolicyRule `pulumi:"policyRule"`

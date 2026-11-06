@@ -86,6 +86,12 @@ func (LaunchNotificationConstraintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchNotificationConstraintState)(nil)).Elem()
 }
 
+// LaunchNotificationConstraintExists checks whether an existing LaunchNotificationConstraint resource with the given ID exists.
+func LaunchNotificationConstraintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchNotificationConstraintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:LaunchNotificationConstraint", id, state, "", opts...)
+}
+
 type launchNotificationConstraintArgs struct {
 	// The language code.
 	//

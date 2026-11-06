@@ -89,6 +89,12 @@ func (FlywheelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flywheelState)(nil)).Elem()
 }
 
+// FlywheelExists checks whether an existing Flywheel resource with the given ID exists.
+func FlywheelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlywheelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:comprehend:Flywheel", id, state, "", opts...)
+}
+
 type flywheelArgs struct {
 	// The Amazon Resource Number (ARN) of the active model version.
 	ActiveModelArn *string `pulumi:"activeModelArn"`

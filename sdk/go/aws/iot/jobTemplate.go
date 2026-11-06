@@ -110,6 +110,12 @@ func (JobTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobTemplateState)(nil)).Elem()
 }
 
+// JobTemplateExists checks whether an existing JobTemplate resource with the given ID exists.
+func JobTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:JobTemplate", id, state, "", opts...)
+}
+
 type jobTemplateArgs struct {
 	// The criteria that determine when and how a job abort takes place.
 	AbortConfig *AbortConfigProperties `pulumi:"abortConfig"`

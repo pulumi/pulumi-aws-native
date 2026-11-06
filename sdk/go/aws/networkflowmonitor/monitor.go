@@ -84,6 +84,12 @@ func (MonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorState)(nil)).Elem()
 }
 
+// MonitorExists checks whether an existing Monitor resource with the given ID exists.
+func MonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkflowmonitor:Monitor", id, state, "", opts...)
+}
+
 type monitorArgs struct {
 	// The local resources to monitor.
 	LocalResources []MonitorLocalResource `pulumi:"localResources"`

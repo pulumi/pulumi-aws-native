@@ -97,6 +97,12 @@ func (AnnotationStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*annotationStoreState)(nil)).Elem()
 }
 
+// AnnotationStoreExists checks whether an existing AnnotationStore resource with the given ID exists.
+func AnnotationStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnnotationStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:omics:AnnotationStore", id, state, "", opts...)
+}
+
 type annotationStoreArgs struct {
 	// A description for the store.
 	Description *string `pulumi:"description"`

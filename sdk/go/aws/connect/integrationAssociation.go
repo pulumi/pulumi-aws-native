@@ -182,6 +182,12 @@ func (IntegrationAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAssociationState)(nil)).Elem()
 }
 
+// IntegrationAssociationExists checks whether an existing IntegrationAssociation resource with the given ID exists.
+func IntegrationAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:IntegrationAssociation", id, state, "", opts...)
+}
+
 type integrationAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	//

@@ -93,6 +93,12 @@ func (ScheduledQueryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryState)(nil)).Elem()
 }
 
+// ScheduledQueryExists checks whether an existing ScheduledQuery resource with the given ID exists.
+func ScheduledQueryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledQueryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:ScheduledQuery", id, state, "", opts...)
+}
+
 type scheduledQueryArgs struct {
 	Description              *string                                 `pulumi:"description"`
 	DestinationConfiguration *ScheduledQueryDestinationConfiguration `pulumi:"destinationConfiguration"`

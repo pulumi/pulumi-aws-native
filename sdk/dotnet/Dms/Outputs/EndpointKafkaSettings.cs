@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Dms.Outputs
     public sealed class EndpointKafkaSettings
     {
         /// <summary>
-        /// A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location in the form broker-hostname-or-ip:port 
+        /// A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location in the form broker-hostname-or-ip:port
         /// </summary>
         public readonly string? Broker;
         /// <summary>

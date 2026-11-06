@@ -74,6 +74,12 @@ func (StandardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*standardState)(nil)).Elem()
 }
 
+// StandardExists checks whether an existing Standard resource with the given ID exists.
+func StandardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StandardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:Standard", id, state, "", opts...)
+}
+
 type standardArgs struct {
 	// Specifies which controls are to be disabled in a standard.
 	//  *Maximum*: ``100``

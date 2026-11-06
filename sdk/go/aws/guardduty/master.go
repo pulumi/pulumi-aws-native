@@ -75,6 +75,12 @@ func (MasterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*masterState)(nil)).Elem()
 }
 
+// MasterExists checks whether an existing Master resource with the given ID exists.
+func MasterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MasterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:guardduty:Master", id, state, "", opts...)
+}
+
 type masterArgs struct {
 	// Unique ID of the detector of the GuardDuty member account.
 	DetectorId string `pulumi:"detectorId"`

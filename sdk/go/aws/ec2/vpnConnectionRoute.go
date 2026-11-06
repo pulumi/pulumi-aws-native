@@ -74,6 +74,12 @@ func (VpnConnectionRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnConnectionRouteState)(nil)).Elem()
 }
 
+// VpnConnectionRouteExists checks whether an existing VpnConnectionRoute resource with the given ID exists.
+func VpnConnectionRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnConnectionRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpnConnectionRoute", id, state, "", opts...)
+}
+
 type vpnConnectionRouteArgs struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`

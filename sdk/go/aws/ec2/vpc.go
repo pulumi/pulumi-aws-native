@@ -101,6 +101,12 @@ func (VpcState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcState)(nil)).Elem()
 }
 
+// VpcExists checks whether an existing Vpc resource with the given ID exists.
+func VpcExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:Vpc", id, state, "", opts...)
+}
+
 type vpcArgs struct {
 	// The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
 	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.

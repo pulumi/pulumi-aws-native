@@ -91,6 +91,12 @@ func (SchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaState)(nil)).Elem()
 }
 
+// SchemaExists checks whether an existing Schema resource with the given ID exists.
+func SchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:Schema", id, state, "", opts...)
+}
+
 type schemaArgs struct {
 	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 	CheckpointVersion *SchemaVersionType `pulumi:"checkpointVersion"`

@@ -82,6 +82,12 @@ func (IpamAllocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamAllocationState)(nil)).Elem()
 }
 
+// IpamAllocationExists checks whether an existing IpamAllocation resource with the given ID exists.
+func IpamAllocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamAllocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamAllocation", id, state, "", opts...)
+}
+
 type ipamAllocationArgs struct {
 	// The CIDR you would like to allocate from the IPAM pool. Note the following:
 	//

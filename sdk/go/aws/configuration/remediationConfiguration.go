@@ -100,6 +100,12 @@ func (RemediationConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remediationConfigurationState)(nil)).Elem()
 }
 
+// RemediationConfigurationExists checks whether an existing RemediationConfiguration resource with the given ID exists.
+func RemediationConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemediationConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:RemediationConfiguration", id, state, "", opts...)
+}
+
 type remediationConfigurationArgs struct {
 	// The remediation is triggered automatically.
 	Automatic *bool `pulumi:"automatic"`

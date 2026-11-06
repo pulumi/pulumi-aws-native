@@ -73,6 +73,12 @@ func (RecoveryPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recoveryPlanState)(nil)).Elem()
 }
 
+// RecoveryPlanExists checks whether an existing RecoveryPlan resource with the given ID exists.
+func RecoveryPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecoveryPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:drs:RecoveryPlan", id, state, "", opts...)
+}
+
 type recoveryPlanArgs struct {
 	// The description of the Recovery Plan.
 	Description *string `pulumi:"description"`

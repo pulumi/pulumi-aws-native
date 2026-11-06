@@ -92,6 +92,12 @@ func (PrincipalAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*principalAssociationState)(nil)).Elem()
 }
 
+// PrincipalAssociationExists checks whether an existing PrincipalAssociation resource with the given ID exists.
+func PrincipalAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrincipalAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ram:PrincipalAssociation", id, state, "", opts...)
+}
+
 type principalAssociationArgs struct {
 	// Specifies the principal to associate with the resource share. The possible values are:
 	//

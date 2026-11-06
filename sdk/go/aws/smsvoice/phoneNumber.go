@@ -102,6 +102,12 @@ func (PhoneNumberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*phoneNumberState)(nil)).Elem()
 }
 
+// PhoneNumberExists checks whether an existing PhoneNumber resource with the given ID exists.
+func PhoneNumberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PhoneNumberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:PhoneNumber", id, state, "", opts...)
+}
+
 type phoneNumberArgs struct {
 	// When set to true the sender ID can't be deleted. By default this is set to false.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`

@@ -89,6 +89,12 @@ func (AppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appState)(nil)).Elem()
 }
 
+// AppExists checks whether an existing App resource with the given ID exists.
+func AppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:resiliencehub:App", id, state, "", opts...)
+}
+
 type appArgs struct {
 	// Assessment execution schedule.
 	AppAssessmentSchedule *AppAssessmentSchedule `pulumi:"appAssessmentSchedule"`

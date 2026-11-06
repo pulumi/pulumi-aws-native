@@ -169,6 +169,12 @@ func (ReplicationTaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationTaskState)(nil)).Elem()
 }
 
+// ReplicationTaskExists checks whether an existing ReplicationTask resource with the given ID exists.
+func ReplicationTaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationTaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dms:ReplicationTask", id, state, "", opts...)
+}
+
 type replicationTaskArgs struct {
 	// Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
 	CdcStartPosition *string `pulumi:"cdcStartPosition"`

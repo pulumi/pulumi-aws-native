@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Route53
     /// <summary>
     /// The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
     /// 
-    /// &gt; You can't change the value of `Type` after you create a health check. 
+    /// &gt; You can't change the value of `Type` after you create a health check.
     /// 
     /// You can create the following types of health checks:
     /// 
@@ -60,7 +60,6 @@ namespace Pulumi.AwsNative.Route53
     /// - *CLOUDWATCH_METRIC* : The health check is associated with a CloudWatch alarm. If the state of the alarm is `OK` , the health check is considered healthy. If the state is `ALARM` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is `OK` or `ALARM` , the health check status depends on the setting for `InsufficientDataHealthStatus` : `Healthy` , `Unhealthy` , or `LastKnownStatus` .
     /// 
     /// &gt; Route 53 supports CloudWatch alarms with the following features:
-    /// &gt; 
     /// &gt; - Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see [High-Resolution Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics) in the *Amazon CloudWatch User Guide* .
     /// &gt; - Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.
     /// - *CALCULATED* : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of `HealthThreshold` .

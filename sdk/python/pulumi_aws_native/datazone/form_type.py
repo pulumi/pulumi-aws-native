@@ -129,7 +129,7 @@ class FormType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['FormTypeStatus']] = None,
@@ -141,7 +141,7 @@ class FormType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of this Amazon DataZone metadata form type.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which this metadata form type is created.
-        :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']] model: The model of this Amazon DataZone metadata form type.
+        :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']] model: The model of this Amazon DataZone metadata form type.
         :param pulumi.Input[_builtins.str] name: The name of this Amazon DataZone metadata form type.
         :param pulumi.Input[_builtins.str] owning_project_identifier: The ID of the Amazon DataZone project that owns this metadata form type.
         :param pulumi.Input['FormTypeStatus'] status: The status of this Amazon DataZone metadata form type.
@@ -172,7 +172,7 @@ class FormType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['FormTypeStatus']] = None,
@@ -240,6 +240,12 @@ class FormType(pulumi.CustomResource):
         __props__.__dict__["revision"] = None
         __props__.__dict__["status"] = None
         return FormType(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:datazone:FormType', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

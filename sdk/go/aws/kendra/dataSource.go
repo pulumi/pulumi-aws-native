@@ -105,6 +105,12 @@ func (DataSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceState)(nil)).Elem()
 }
 
+// DataSourceExists checks whether an existing DataSource resource with the given ID exists.
+func DataSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kendra:DataSource", id, state, "", opts...)
+}
+
 type dataSourceArgs struct {
 	// Configuration information for altering document metadata and content during the document ingestion process.
 	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`

@@ -101,6 +101,12 @@ func (BudgetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetState)(nil)).Elem()
 }
 
+// BudgetExists checks whether an existing Budget resource with the given ID exists.
+func BudgetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BudgetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:Budget", id, state, "", opts...)
+}
+
 type budgetArgs struct {
 	// The budget actions to specify what happens when the budget runs out.
 	Actions []BudgetActionToAdd `pulumi:"actions"`

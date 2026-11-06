@@ -91,6 +91,12 @@ func (RepositoryCreationTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryCreationTemplateState)(nil)).Elem()
 }
 
+// RepositoryCreationTemplateExists checks whether an existing RepositoryCreationTemplate resource with the given ID exists.
+func RepositoryCreationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryCreationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecr:RepositoryCreationTemplate", id, state, "", opts...)
+}
+
 type repositoryCreationTemplateArgs struct {
 	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
 	AppliedFor []RepositoryCreationTemplateAppliedForItem `pulumi:"appliedFor"`

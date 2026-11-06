@@ -88,6 +88,12 @@ func (LaunchTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchTemplateState)(nil)).Elem()
 }
 
+// LaunchTemplateExists checks whether an existing LaunchTemplate resource with the given ID exists.
+func LaunchTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:LaunchTemplate", id, state, "", opts...)
+}
+
 type launchTemplateArgs struct {
 	// The information for the launch template.
 	LaunchTemplateData LaunchTemplateData `pulumi:"launchTemplateData"`

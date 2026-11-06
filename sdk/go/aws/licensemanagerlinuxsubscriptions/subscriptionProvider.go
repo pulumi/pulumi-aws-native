@@ -83,6 +83,12 @@ func (SubscriptionProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionProviderState)(nil)).Elem()
 }
 
+// SubscriptionProviderExists checks whether an existing SubscriptionProvider resource with the given ID exists.
+func SubscriptionProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:licensemanagerlinuxsubscriptions:SubscriptionProvider", id, state, "", opts...)
+}
+
 type subscriptionProviderArgs struct {
 	// The Amazon Resource Name (ARN) of the Secrets Manager secret that contains the access token for the third-party Linux subscription provider.
 	SecretArn string `pulumi:"secretArn"`

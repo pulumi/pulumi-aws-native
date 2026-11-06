@@ -76,6 +76,12 @@ func (DataAutomationLibraryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataAutomationLibraryState)(nil)).Elem()
 }
 
+// DataAutomationLibraryExists checks whether an existing DataAutomationLibrary resource with the given ID exists.
+func DataAutomationLibraryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataAutomationLibraryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:DataAutomationLibrary", id, state, "", opts...)
+}
+
 type dataAutomationLibraryArgs struct {
 	EncryptionConfiguration *DataAutomationLibraryEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Description of the DataAutomationLibrary

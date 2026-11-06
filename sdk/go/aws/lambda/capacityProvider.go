@@ -92,6 +92,12 @@ func (CapacityProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityProviderState)(nil)).Elem()
 }
 
+// CapacityProviderExists checks whether an existing CapacityProvider resource with the given ID exists.
+func CapacityProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:CapacityProvider", id, state, "", opts...)
+}
+
 type capacityProviderArgs struct {
 	CapacityProviderName *string `pulumi:"capacityProviderName"`
 	// The scaling configuration for the capacity provider.

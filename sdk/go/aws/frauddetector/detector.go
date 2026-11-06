@@ -103,6 +103,12 @@ func (DetectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*detectorState)(nil)).Elem()
 }
 
+// DetectorExists checks whether an existing Detector resource with the given ID exists.
+func DetectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DetectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:frauddetector:Detector", id, state, "", opts...)
+}
+
 type detectorArgs struct {
 	// The models to associate with this detector.
 	AssociatedModels []DetectorModel `pulumi:"associatedModels"`

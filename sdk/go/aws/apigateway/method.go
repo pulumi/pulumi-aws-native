@@ -99,6 +99,12 @@ func (MethodState) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodState)(nil)).Elem()
 }
 
+// MethodExists checks whether an existing Method resource with the given ID exists.
+func MethodExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MethodState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:Method", id, state, "", opts...)
+}
+
 type methodArgs struct {
 	// A boolean flag specifying whether a valid ApiKey is required to invoke this method.
 	ApiKeyRequired *bool `pulumi:"apiKeyRequired"`

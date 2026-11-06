@@ -107,6 +107,12 @@ func (DiscovererState) ElementType() reflect.Type {
 	return reflect.TypeOf((*discovererState)(nil)).Elem()
 }
 
+// DiscovererExists checks whether an existing Discoverer resource with the given ID exists.
+func DiscovererExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DiscovererState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eventschemas:Discoverer", id, state, "", opts...)
+}
+
 type discovererArgs struct {
 	// Defines whether event schemas from other accounts are discovered. Default is True.
 	CrossAccount *bool `pulumi:"crossAccount"`

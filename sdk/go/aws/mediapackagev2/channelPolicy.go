@@ -79,6 +79,12 @@ func (ChannelPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelPolicyState)(nil)).Elem()
 }
 
+// ChannelPolicyExists checks whether an existing ChannelPolicy resource with the given ID exists.
+func ChannelPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediapackagev2:ChannelPolicy", id, state, "", opts...)
+}
+
 type channelPolicyArgs struct {
 	// The name of the channel group associated with the channel policy.
 	ChannelGroupName string `pulumi:"channelGroupName"`

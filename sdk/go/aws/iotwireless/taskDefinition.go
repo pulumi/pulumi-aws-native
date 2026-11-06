@@ -77,6 +77,12 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskDefinitionState)(nil)).Elem()
 }
 
+// TaskDefinitionExists checks whether an existing TaskDefinition resource with the given ID exists.
+func TaskDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TaskDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotwireless:TaskDefinition", id, state, "", opts...)
+}
+
 type taskDefinitionArgs struct {
 	// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
 	AutoCreateTasks bool `pulumi:"autoCreateTasks"`

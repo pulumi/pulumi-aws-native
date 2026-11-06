@@ -236,6 +236,12 @@ func (ServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverState)(nil)).Elem()
 }
 
+// ServerExists checks whether an existing Server resource with the given ID exists.
+func ServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:opsworkscm:Server", id, state, "", opts...)
+}
+
 type serverArgs struct {
 	// Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`

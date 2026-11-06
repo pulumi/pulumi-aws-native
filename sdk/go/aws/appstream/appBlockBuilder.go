@@ -102,6 +102,12 @@ func (AppBlockBuilderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appBlockBuilderState)(nil)).Elem()
 }
 
+// AppBlockBuilderExists checks whether an existing AppBlockBuilder resource with the given ID exists.
+func AppBlockBuilderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppBlockBuilderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appstream:AppBlockBuilder", id, state, "", opts...)
+}
+
 type appBlockBuilderArgs struct {
 	// The access endpoints of the app block builder.
 	AccessEndpoints []AppBlockBuilderAccessEndpoint `pulumi:"accessEndpoints"`

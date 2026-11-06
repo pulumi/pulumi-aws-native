@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = ses.NewReceiptRule(ctx, "receiptRule2", &ses.ReceiptRuleArgs{
 //				RuleSetName: pulumi.String(ruleSetName),
-//				After:       receiptRule1.ID().ToIDOutput().ToStringOutput(),
+//				After:       receiptRule1.ID(),
 //				Rule: &ses.ReceiptRuleRuleArgs{
 //					Name: pulumi.String(receiptRuleName2),
 //				},
@@ -116,7 +116,7 @@ import (
 //			}
 //			_, err = ses.NewReceiptRule(ctx, "receiptRule2", &ses.ReceiptRuleArgs{
 //				RuleSetName: pulumi.String(ruleSetName),
-//				After:       receiptRule1.ID().ToIDOutput().ToStringOutput(),
+//				After:       receiptRule1.ID(),
 //				Rule: &ses.ReceiptRuleRuleArgs{
 //					Name: pulumi.String(receiptRuleName2),
 //				},
@@ -190,6 +190,12 @@ type ReceiptRuleState struct {
 
 func (ReceiptRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptRuleState)(nil)).Elem()
+}
+
+// ReceiptRuleExists checks whether an existing ReceiptRule resource with the given ID exists.
+func ReceiptRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReceiptRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:ReceiptRule", id, state, "", opts...)
 }
 
 type receiptRuleArgs struct {

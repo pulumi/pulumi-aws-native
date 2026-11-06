@@ -79,6 +79,12 @@ func (EnvironmentTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentTemplateState)(nil)).Elem()
 }
 
+// EnvironmentTemplateExists checks whether an existing EnvironmentTemplate resource with the given ID exists.
+func EnvironmentTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:proton:EnvironmentTemplate", id, state, "", opts...)
+}
+
 type environmentTemplateArgs struct {
 	// <p>A description of the environment template.</p>
 	Description *string `pulumi:"description"`

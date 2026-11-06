@@ -85,6 +85,12 @@ func (SecretTargetAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretTargetAttachmentState)(nil)).Elem()
 }
 
+// SecretTargetAttachmentExists checks whether an existing SecretTargetAttachment resource with the given ID exists.
+func SecretTargetAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretTargetAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:secretsmanager:SecretTargetAttachment", id, state, "", opts...)
+}
+
 type secretTargetAttachmentArgs struct {
 	// The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
 	SecretId string `pulumi:"secretId"`

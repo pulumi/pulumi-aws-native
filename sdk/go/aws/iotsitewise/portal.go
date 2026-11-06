@@ -96,6 +96,12 @@ func (PortalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*portalState)(nil)).Elem()
 }
 
+// PortalExists checks whether an existing Portal resource with the given ID exists.
+func PortalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PortalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotsitewise:Portal", id, state, "", opts...)
+}
+
 type portalArgs struct {
 	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
 	Alarms *AlarmsProperties `pulumi:"alarms"`

@@ -69,6 +69,12 @@ func (AccessGrantsInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessGrantsInstanceState)(nil)).Elem()
 }
 
+// AccessGrantsInstanceExists checks whether an existing AccessGrantsInstance resource with the given ID exists.
+func AccessGrantsInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessGrantsInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3:AccessGrantsInstance", id, state, "", opts...)
+}
+
 type accessGrantsInstanceArgs struct {
 	// The Amazon Resource Name (ARN) of the specified AWS Identity Center.
 	IdentityCenterArn *string `pulumi:"identityCenterArn"`

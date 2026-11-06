@@ -129,7 +129,7 @@ class EventBusPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
-                 condition: pulumi.Input[Optional[Union['EventBusPolicyConditionArgs', 'EventBusPolicyConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['EventBusPolicyConditionArgs', 'EventBusPolicyConditionArgsDict', 'outputs.EventBusPolicyCondition']]] = None,
                  event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
                  principal: pulumi.Input[Optional[_builtins.str]] = None,
                  statement: Optional[Any] = None,
@@ -173,7 +173,7 @@ class EventBusPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
-                 condition: pulumi.Input[Optional[Union['EventBusPolicyConditionArgs', 'EventBusPolicyConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['EventBusPolicyConditionArgs', 'EventBusPolicyConditionArgsDict', 'outputs.EventBusPolicyCondition']]] = None,
                  event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
                  principal: pulumi.Input[Optional[_builtins.str]] = None,
                  statement: Optional[Any] = None,
@@ -226,6 +226,12 @@ class EventBusPolicy(pulumi.CustomResource):
         __props__.__dict__["statement"] = None
         __props__.__dict__["statement_id"] = None
         return EventBusPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:events:EventBusPolicy', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

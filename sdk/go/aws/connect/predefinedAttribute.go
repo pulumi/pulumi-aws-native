@@ -79,6 +79,12 @@ func (PredefinedAttributeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*predefinedAttributeState)(nil)).Elem()
 }
 
+// PredefinedAttributeExists checks whether an existing PredefinedAttribute resource with the given ID exists.
+func PredefinedAttributeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PredefinedAttributeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:PredefinedAttribute", id, state, "", opts...)
+}
+
 type predefinedAttributeArgs struct {
 	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
 	AttributeConfiguration *AttributeConfigurationProperties `pulumi:"attributeConfiguration"`

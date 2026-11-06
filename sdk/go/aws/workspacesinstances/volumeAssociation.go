@@ -80,6 +80,12 @@ func (VolumeAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeAssociationState)(nil)).Elem()
 }
 
+// VolumeAssociationExists checks whether an existing VolumeAssociation resource with the given ID exists.
+func VolumeAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspacesinstances:VolumeAssociation", id, state, "", opts...)
+}
+
 type volumeAssociationArgs struct {
 	// The device name for the volume attachment
 	Device string `pulumi:"device"`

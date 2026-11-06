@@ -121,6 +121,12 @@ func (ExperimentDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*experimentDefinitionState)(nil)).Elem()
 }
 
+// ExperimentDefinitionExists checks whether an existing ExperimentDefinition resource with the given ID exists.
+func ExperimentDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExperimentDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appconfig:ExperimentDefinition", id, state, "", opts...)
+}
+
 type experimentDefinitionArgs struct {
 	// The application ID, name, or ARN.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`

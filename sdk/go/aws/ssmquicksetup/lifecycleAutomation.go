@@ -80,6 +80,12 @@ func (LifecycleAutomationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecycleAutomationState)(nil)).Elem()
 }
 
+// LifecycleAutomationExists checks whether an existing LifecycleAutomation resource with the given ID exists.
+func LifecycleAutomationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LifecycleAutomationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssmquicksetup:LifecycleAutomation", id, state, "", opts...)
+}
+
 type lifecycleAutomationArgs struct {
 	// The name of the Automation document to execute
 	AutomationDocument string `pulumi:"automationDocument"`

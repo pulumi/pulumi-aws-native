@@ -81,6 +81,12 @@ func (BackupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupState)(nil)).Elem()
 }
 
+// BackupExists checks whether an existing Backup resource with the given ID exists.
+func BackupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dynamodb:Backup", id, state, "", opts...)
+}
+
 type backupArgs struct {
 	// The name for the backup.
 	BackupName *string `pulumi:"backupName"`

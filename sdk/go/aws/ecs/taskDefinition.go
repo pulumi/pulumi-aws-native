@@ -430,6 +430,12 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskDefinitionState)(nil)).Elem()
 }
 
+// TaskDefinitionExists checks whether an existing TaskDefinition resource with the given ID exists.
+func TaskDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TaskDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecs:TaskDefinition", id, state, "", opts...)
+}
+
 type taskDefinitionArgs struct {
 	// A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ContainerDefinitions []TaskDefinitionContainerDefinition `pulumi:"containerDefinitions"`

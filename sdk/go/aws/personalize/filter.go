@@ -86,6 +86,12 @@ func (FilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*filterState)(nil)).Elem()
 }
 
+// FilterExists checks whether an existing Filter resource with the given ID exists.
+func FilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:personalize:Filter", id, state, "", opts...)
+}
+
 type filterArgs struct {
 	// The ARN of the dataset group that the filter belongs to.
 	DatasetGroupArn string `pulumi:"datasetGroupArn"`

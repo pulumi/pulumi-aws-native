@@ -82,6 +82,12 @@ func (EnabledBaselineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enabledBaselineState)(nil)).Elem()
 }
 
+// EnabledBaselineExists checks whether an existing EnabledBaseline resource with the given ID exists.
+func EnabledBaselineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnabledBaselineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:controltower:EnabledBaseline", id, state, "", opts...)
+}
+
 type enabledBaselineArgs struct {
 	// The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
 	BaselineIdentifier string `pulumi:"baselineIdentifier"`

@@ -100,6 +100,12 @@ func (TransitVirtualInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitVirtualInterfaceState)(nil)).Elem()
 }
 
+// TransitVirtualInterfaceExists checks whether an existing TransitVirtualInterface resource with the given ID exists.
+func TransitVirtualInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitVirtualInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:directconnect:TransitVirtualInterface", id, state, "", opts...)
+}
+
 type transitVirtualInterfaceArgs struct {
 	// The Amazon Resource Name (ARN) of the role to allocate the TransitVifAllocation. Needs directconnect:AllocateTransitVirtualInterface permissions and tag permissions if applicable.
 	AllocateTransitVirtualInterfaceRoleArn *string `pulumi:"allocateTransitVirtualInterfaceRoleArn"`

@@ -58,6 +58,12 @@ func (DiscoveryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*discoveryState)(nil)).Elem()
 }
 
+// DiscoveryExists checks whether an existing Discovery resource with the given ID exists.
+func DiscoveryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DiscoveryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:applicationsignals:Discovery", id, state, "", opts...)
+}
+
 type discoveryArgs struct {
 }
 

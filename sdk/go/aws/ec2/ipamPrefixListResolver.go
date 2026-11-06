@@ -81,6 +81,12 @@ func (IpamPrefixListResolverState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipamPrefixListResolverState)(nil)).Elem()
 }
 
+// IpamPrefixListResolverExists checks whether an existing IpamPrefixListResolver resource with the given ID exists.
+func IpamPrefixListResolverExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpamPrefixListResolverState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:IpamPrefixListResolver", id, state, "", opts...)
+}
+
 type ipamPrefixListResolverArgs struct {
 	// The address family of the address space in this Prefix List Resolver. Either IPv4 or IPv6.
 	AddressFamily string  `pulumi:"addressFamily"`

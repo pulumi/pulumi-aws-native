@@ -90,6 +90,12 @@ func (DestinationEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*destinationEndpointState)(nil)).Elem()
 }
 
+// DestinationEndpointExists checks whether an existing DestinationEndpoint resource with the given ID exists.
+func DestinationEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DestinationEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:DestinationEndpoint", id, state, "", opts...)
+}
+
 type destinationEndpointArgs struct {
 	Configuration interface{} `pulumi:"configuration"`
 	// The description of the destination endpoint.

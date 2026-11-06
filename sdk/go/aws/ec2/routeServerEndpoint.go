@@ -85,6 +85,12 @@ func (RouteServerEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerEndpointState)(nil)).Elem()
 }
 
+// RouteServerEndpointExists checks whether an existing RouteServerEndpoint resource with the given ID exists.
+func RouteServerEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:RouteServerEndpoint", id, state, "", opts...)
+}
+
 type routeServerEndpointArgs struct {
 	// Route Server ID
 	RouteServerId string `pulumi:"routeServerId"`

@@ -72,6 +72,12 @@ func (DomainNameApiAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameApiAssociationState)(nil)).Elem()
 }
 
+// DomainNameApiAssociationExists checks whether an existing DomainNameApiAssociation resource with the given ID exists.
+func DomainNameApiAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainNameApiAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:DomainNameApiAssociation", id, state, "", opts...)
+}
+
 type domainNameApiAssociationArgs struct {
 	// The API ID.
 	ApiId string `pulumi:"apiId"`

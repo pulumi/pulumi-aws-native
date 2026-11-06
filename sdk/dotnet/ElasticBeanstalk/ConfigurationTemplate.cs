@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     public partial class ConfigurationTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Elastic Beanstalk application to associate with this configuration template. 
+        /// The name of the Elastic Beanstalk application to associate with this configuration template.
         /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration. 
+        /// The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration.
         /// </summary>
         [Output("environmentId")]
         public Output<string?> EnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. 
+        /// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
         /// </summary>
         [Output("optionSettings")]
         public Output<ImmutableArray<Outputs.ConfigurationTemplateConfigurationOptionSetting>> OptionSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide. 
+        /// The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide.
         /// </summary>
         [Output("platformArn")]
         public Output<string?> PlatformArn { get; private set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// 
         ///  You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.
         /// 
-        ///  Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks. 
+        ///  Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks.
         /// </summary>
         [Output("solutionStackName")]
         public Output<string?> SolutionStackName { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// 
         /// You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.
         /// 
-        /// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name. 
+        /// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
         /// </summary>
         [Output("sourceConfiguration")]
         public Output<Outputs.ConfigurationTemplateSourceConfiguration?> SourceConfiguration { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     public sealed class ConfigurationTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Elastic Beanstalk application to associate with this configuration template. 
+        /// The name of the Elastic Beanstalk application to associate with this configuration template.
         /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration. 
+        /// The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration.
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         private InputList<Inputs.ConfigurationTemplateConfigurationOptionSettingArgs>? _optionSettings;
 
         /// <summary>
-        /// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. 
+        /// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
         /// </summary>
         public InputList<Inputs.ConfigurationTemplateConfigurationOptionSettingArgs> OptionSettings
         {
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide. 
+        /// The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide.
         /// </summary>
         [Input("platformArn")]
         public Input<string>? PlatformArn { get; set; }
@@ -167,7 +167,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// 
         ///  You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.
         /// 
-        ///  Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks. 
+        ///  Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks.
         /// </summary>
         [Input("solutionStackName")]
         public Input<string>? SolutionStackName { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// 
         /// You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.
         /// 
-        /// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name. 
+        /// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
         /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.ConfigurationTemplateSourceConfigurationArgs>? SourceConfiguration { get; set; }

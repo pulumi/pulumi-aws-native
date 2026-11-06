@@ -167,8 +167,8 @@ class Faq(pulumi.CustomResource):
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_path: pulumi.Input[Optional[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3_path: pulumi.Input[Optional[Union['FaqS3PathArgs', 'FaqS3PathArgsDict', 'outputs.FaqS3Path']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A Kendra FAQ resource
@@ -181,8 +181,8 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] language_code: The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
         :param pulumi.Input[_builtins.str] name: FAQ name
         :param pulumi.Input[_builtins.str] role_arn: FAQ role ARN
-        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: FAQ S3 path
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for labeling the FAQ
+        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict', 'outputs.FaqS3Path']] s3_path: FAQ S3 path
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for labeling the FAQ
         """
         ...
     @overload
@@ -214,8 +214,8 @@ class Faq(pulumi.CustomResource):
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_path: pulumi.Input[Optional[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3_path: pulumi.Input[Optional[Union['FaqS3PathArgs', 'FaqS3PathArgsDict', 'outputs.FaqS3Path']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -276,6 +276,12 @@ class Faq(pulumi.CustomResource):
         __props__.__dict__["s3_path"] = None
         __props__.__dict__["tags"] = None
         return Faq(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:kendra:Faq', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

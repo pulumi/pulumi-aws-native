@@ -89,6 +89,12 @@ func (ArchiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*archiveState)(nil)).Elem()
 }
 
+// ArchiveExists checks whether an existing Archive resource with the given ID exists.
+func ArchiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArchiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:events:Archive", id, state, "", opts...)
+}
+
 type archiveArgs struct {
 	// The name for the archive to create.
 	ArchiveName *string `pulumi:"archiveName"`

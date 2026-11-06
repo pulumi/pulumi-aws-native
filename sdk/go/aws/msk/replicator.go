@@ -100,6 +100,12 @@ func (ReplicatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicatorState)(nil)).Elem()
 }
 
+// ReplicatorExists checks whether an existing Replicator resource with the given ID exists.
+func ReplicatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:msk:Replicator", id, state, "", opts...)
+}
+
 type replicatorArgs struct {
 	// A summary description of the replicator.
 	Description *string `pulumi:"description"`

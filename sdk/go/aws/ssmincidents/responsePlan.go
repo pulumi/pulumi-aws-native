@@ -83,6 +83,12 @@ func (ResponsePlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*responsePlanState)(nil)).Elem()
 }
 
+// ResponsePlanExists checks whether an existing ResponsePlan resource with the given ID exists.
+func ResponsePlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResponsePlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssmincidents:ResponsePlan", id, state, "", opts...)
+}
+
 type responsePlanArgs struct {
 	// The list of actions.
 	Actions []ResponsePlanAction `pulumi:"actions"`

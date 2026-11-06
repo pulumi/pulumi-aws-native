@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3Files.Inputs
     public sealed class AccessPointRootDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory&gt;Path specified does not exist, EFS creates the root directory using the CreationPermissions settings when a client connects to an access point. When specifying the CreationPermissions, you must provide values for all properties.   If you do not provide CreationPermissions and the specified RootDirectory&gt;Path does not exist, attempts to mount the file system using the access point will fail. 
+        /// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory&gt;Path specified does not exist, EFS creates the root directory using the CreationPermissions settings when a client connects to an access point. When specifying the CreationPermissions, you must provide values for all properties.   If you do not provide CreationPermissions and the specified RootDirectory&gt;Path does not exist, attempts to mount the file system using the access point will fail.
         /// </summary>
         [Input("creationPermissions")]
         public Input<Inputs.AccessPointCreationPermissionsArgs>? CreationPermissions { get; set; }

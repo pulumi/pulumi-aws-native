@@ -91,6 +91,12 @@ func (FlowEntitlementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowEntitlementState)(nil)).Elem()
 }
 
+// FlowEntitlementExists checks whether an existing FlowEntitlement resource with the given ID exists.
+func FlowEntitlementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowEntitlementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediaconnect:FlowEntitlement", id, state, "", opts...)
+}
+
 type flowEntitlementArgs struct {
 	// Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
 	DataTransferSubscriberFeePercent *int `pulumi:"dataTransferSubscriberFeePercent"`

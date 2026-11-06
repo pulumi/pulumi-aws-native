@@ -84,6 +84,12 @@ func (CustomDetectionRuleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDetectionRuleAssociationState)(nil)).Elem()
 }
 
+// CustomDetectionRuleAssociationExists checks whether an existing CustomDetectionRuleAssociation resource with the given ID exists.
+func CustomDetectionRuleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDetectionRuleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:guardduty:CustomDetectionRuleAssociation", id, state, "", opts...)
+}
+
 type customDetectionRuleAssociationArgs struct {
 	// Whether the rule runs in LIVE mode (generates findings) or DRY_RUN mode (evaluates without generating findings).
 	Mode CustomDetectionRuleAssociationMode `pulumi:"mode"`

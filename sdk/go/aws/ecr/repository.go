@@ -161,6 +161,12 @@ func (RepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryState)(nil)).Elem()
 }
 
+// RepositoryExists checks whether an existing Repository resource with the given ID exists.
+func RepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecr:Repository", id, state, "", opts...)
+}
+
 type repositoryArgs struct {
 	// If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
 	EmptyOnDelete *bool `pulumi:"emptyOnDelete"`

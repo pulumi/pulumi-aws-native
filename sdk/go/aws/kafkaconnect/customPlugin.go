@@ -86,6 +86,12 @@ func (CustomPluginState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customPluginState)(nil)).Elem()
 }
 
+// CustomPluginExists checks whether an existing CustomPlugin resource with the given ID exists.
+func CustomPluginExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomPluginState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kafkaconnect:CustomPlugin", id, state, "", opts...)
+}
+
 type customPluginArgs struct {
 	// The type of the plugin file.
 	ContentType CustomPluginContentType `pulumi:"contentType"`

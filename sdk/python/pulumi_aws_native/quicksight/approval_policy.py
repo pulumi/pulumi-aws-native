@@ -130,7 +130,7 @@ class ApprovalPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]]] = None,
-                 applicable_to: pulumi.Input[Optional[Union['ApprovalPolicyApplicableToArgs', 'ApprovalPolicyApplicableToArgsDict']]] = None,
+                 applicable_to: pulumi.Input[Optional[Union['ApprovalPolicyApplicableToArgs', 'ApprovalPolicyApplicableToArgsDict', 'outputs.ApprovalPolicyApplicableTo']]] = None,
                  approval_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  asset_types: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalPolicyAssetType']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -173,7 +173,7 @@ class ApprovalPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalPolicyGovernedAction']]]] = None,
-                 applicable_to: pulumi.Input[Optional[Union['ApprovalPolicyApplicableToArgs', 'ApprovalPolicyApplicableToArgsDict']]] = None,
+                 applicable_to: pulumi.Input[Optional[Union['ApprovalPolicyApplicableToArgs', 'ApprovalPolicyApplicableToArgsDict', 'outputs.ApprovalPolicyApplicableTo']]] = None,
                  approval_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  asset_types: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalPolicyAssetType']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -243,6 +243,12 @@ class ApprovalPolicy(pulumi.CustomResource):
         __props__.__dict__["policy_id"] = None
         __props__.__dict__["updated_at"] = None
         return ApprovalPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:quicksight:ApprovalPolicy', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

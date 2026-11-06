@@ -78,6 +78,12 @@ func (EventBusPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventBusPolicyState)(nil)).Elem()
 }
 
+// EventBusPolicyExists checks whether an existing EventBusPolicy resource with the given ID exists.
+func EventBusPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventBusPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:events:EventBusPolicy", id, state, "", opts...)
+}
+
 type eventBusPolicyArgs struct {
 	// The action that you are enabling the other account to perform.
 	Action    *string                  `pulumi:"action"`

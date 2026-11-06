@@ -91,6 +91,12 @@ func (MountTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mountTargetState)(nil)).Elem()
 }
 
+// MountTargetExists checks whether an existing MountTarget resource with the given ID exists.
+func MountTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MountTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:efs:MountTarget", id, state, "", opts...)
+}
+
 type mountTargetArgs struct {
 	// The ID of the file system for which to create the mount target.
 	FileSystemId string `pulumi:"fileSystemId"`

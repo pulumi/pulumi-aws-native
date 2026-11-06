@@ -472,6 +472,12 @@ func (DbClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbClusterState)(nil)).Elem()
 }
 
+// DbClusterExists checks whether an existing DbCluster resource with the given ID exists.
+func DbClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbCluster", id, state, "", opts...)
+}
+
 type dbClusterArgs struct {
 	// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
 	//  Valid for Cluster Type: Multi-AZ DB clusters only

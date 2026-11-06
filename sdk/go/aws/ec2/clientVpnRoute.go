@@ -80,6 +80,12 @@ func (ClientVpnRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clientVpnRouteState)(nil)).Elem()
 }
 
+// ClientVpnRouteExists checks whether an existing ClientVpnRoute resource with the given ID exists.
+func ClientVpnRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClientVpnRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:ClientVpnRoute", id, state, "", opts...)
+}
+
 type clientVpnRouteArgs struct {
 	// The ID of the Client VPN endpoint to which to add the route.
 	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`

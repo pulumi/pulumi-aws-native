@@ -93,6 +93,12 @@ func (RuntimeEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*runtimeEndpointState)(nil)).Elem()
 }
 
+// RuntimeEndpointExists checks whether an existing RuntimeEndpoint resource with the given ID exists.
+func RuntimeEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuntimeEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:RuntimeEndpoint", id, state, "", opts...)
+}
+
 type runtimeEndpointArgs struct {
 	// The ID of the parent Agent Runtime (required for creation)
 	AgentRuntimeId string `pulumi:"agentRuntimeId"`

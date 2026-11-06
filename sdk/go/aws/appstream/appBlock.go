@@ -92,6 +92,12 @@ func (AppBlockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appBlockState)(nil)).Elem()
 }
 
+// AppBlockExists checks whether an existing AppBlock resource with the given ID exists.
+func AppBlockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppBlockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appstream:AppBlock", id, state, "", opts...)
+}
+
 type appBlockArgs struct {
 	// The description of the app block.
 	Description *string `pulumi:"description"`

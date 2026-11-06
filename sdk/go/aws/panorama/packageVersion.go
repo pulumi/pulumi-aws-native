@@ -97,6 +97,12 @@ func (PackageVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packageVersionState)(nil)).Elem()
 }
 
+// PackageVersionExists checks whether an existing PackageVersion resource with the given ID exists.
+func PackageVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PackageVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:panorama:PackageVersion", id, state, "", opts...)
+}
+
 type packageVersionArgs struct {
 	// Whether to mark the new version as the latest version.
 	MarkLatest *bool `pulumi:"markLatest"`

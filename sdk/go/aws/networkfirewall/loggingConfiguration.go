@@ -75,6 +75,12 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggingConfigurationState)(nil)).Elem()
 }
 
+// LoggingConfigurationExists checks whether an existing LoggingConfiguration resource with the given ID exists.
+func LoggingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoggingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkfirewall:LoggingConfiguration", id, state, "", opts...)
+}
+
 type loggingConfigurationArgs struct {
 	EnableMonitoringDashboard *bool `pulumi:"enableMonitoringDashboard"`
 	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.

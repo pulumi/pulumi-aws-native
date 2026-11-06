@@ -80,6 +80,12 @@ func (ReportPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportPlanState)(nil)).Elem()
 }
 
+// ReportPlanExists checks whether an existing ReportPlan resource with the given ID exists.
+func ReportPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReportPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:ReportPlan", id, state, "", opts...)
+}
+
 type reportPlanArgs struct {
 	// A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
 	ReportDeliveryChannel ReportDeliveryChannelProperties `pulumi:"reportDeliveryChannel"`

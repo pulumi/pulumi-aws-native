@@ -91,6 +91,12 @@ func (VariantStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*variantStoreState)(nil)).Elem()
 }
 
+// VariantStoreExists checks whether an existing VariantStore resource with the given ID exists.
+func VariantStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VariantStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:omics:VariantStore", id, state, "", opts...)
+}
+
 type variantStoreArgs struct {
 	// A description for the store.
 	Description *string `pulumi:"description"`

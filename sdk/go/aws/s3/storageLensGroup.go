@@ -73,6 +73,12 @@ func (StorageLensGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageLensGroupState)(nil)).Elem()
 }
 
+// StorageLensGroupExists checks whether an existing StorageLensGroup resource with the given ID exists.
+func StorageLensGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageLensGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3:StorageLensGroup", id, state, "", opts...)
+}
+
 type storageLensGroupArgs struct {
 	// This property contains the criteria for the Storage Lens group data that is displayed
 	Filter StorageLensGroupFilter `pulumi:"filter"`

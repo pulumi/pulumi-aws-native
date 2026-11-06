@@ -67,6 +67,12 @@ func (PolicyStoreAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyStoreAliasState)(nil)).Elem()
 }
 
+// PolicyStoreAliasExists checks whether an existing PolicyStoreAlias resource with the given ID exists.
+func PolicyStoreAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyStoreAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:verifiedpermissions:PolicyStoreAlias", id, state, "", opts...)
+}
+
 type policyStoreAliasArgs struct {
 	AliasName     *string `pulumi:"aliasName"`
 	PolicyStoreId string  `pulumi:"policyStoreId"`

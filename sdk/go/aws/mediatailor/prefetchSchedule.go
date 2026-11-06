@@ -86,6 +86,12 @@ func (PrefetchScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*prefetchScheduleState)(nil)).Elem()
 }
 
+// PrefetchScheduleExists checks whether an existing PrefetchSchedule resource with the given ID exists.
+func PrefetchScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrefetchScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediatailor:PrefetchSchedule", id, state, "", opts...)
+}
+
 type prefetchScheduleArgs struct {
 	Consumption *PrefetchSchedulePrefetchConsumption `pulumi:"consumption"`
 	// The name to assign to the prefetch schedule.

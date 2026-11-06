@@ -72,6 +72,12 @@ func (DataQualityRulesetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataQualityRulesetState)(nil)).Elem()
 }
 
+// DataQualityRulesetExists checks whether an existing DataQualityRuleset resource with the given ID exists.
+func DataQualityRulesetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataQualityRulesetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:DataQualityRuleset", id, state, "", opts...)
+}
+
 type dataQualityRulesetArgs struct {
 	// A unique token for idempotency.
 	ClientToken *string `pulumi:"clientToken"`

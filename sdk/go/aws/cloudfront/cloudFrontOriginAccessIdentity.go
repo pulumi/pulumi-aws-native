@@ -122,6 +122,12 @@ func (CloudFrontOriginAccessIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudFrontOriginAccessIdentityState)(nil)).Elem()
 }
 
+// CloudFrontOriginAccessIdentityExists checks whether an existing CloudFrontOriginAccessIdentity resource with the given ID exists.
+func CloudFrontOriginAccessIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudFrontOriginAccessIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudfront:CloudFrontOriginAccessIdentity", id, state, "", opts...)
+}
+
 type cloudFrontOriginAccessIdentityArgs struct {
 	// The current configuration information for the identity.
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityConfig `pulumi:"cloudFrontOriginAccessIdentityConfig"`

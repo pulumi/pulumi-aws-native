@@ -86,6 +86,12 @@ func (LoadBalancerTlsCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerTlsCertificateState)(nil)).Elem()
 }
 
+// LoadBalancerTlsCertificateExists checks whether an existing LoadBalancerTlsCertificate resource with the given ID exists.
+func LoadBalancerTlsCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerTlsCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lightsail:LoadBalancerTlsCertificate", id, state, "", opts...)
+}
+
 type loadBalancerTlsCertificateArgs struct {
 	// An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
 	CertificateAlternativeNames []string `pulumi:"certificateAlternativeNames"`

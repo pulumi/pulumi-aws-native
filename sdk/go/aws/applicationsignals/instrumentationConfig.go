@@ -114,6 +114,12 @@ func (InstrumentationConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instrumentationConfigState)(nil)).Elem()
 }
 
+// InstrumentationConfigExists checks whether an existing InstrumentationConfig resource with the given ID exists.
+func InstrumentationConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstrumentationConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:applicationsignals:InstrumentationConfig", id, state, "", opts...)
+}
+
 type instrumentationConfigArgs struct {
 	// Client-side filters that target specific instances. Each object is AND-matched on keys, multiple objects are OR-matched.
 	AttributeFilters []map[string]string `pulumi:"attributeFilters"`

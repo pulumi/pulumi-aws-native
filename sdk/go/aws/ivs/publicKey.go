@@ -72,6 +72,12 @@ func (PublicKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicKeyState)(nil)).Elem()
 }
 
+// PublicKeyExists checks whether an existing PublicKey resource with the given ID exists.
+func PublicKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublicKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivs:PublicKey", id, state, "", opts...)
+}
+
 type publicKeyArgs struct {
 	// Name of the public key to be imported. The value does not need to be unique.
 	Name *string `pulumi:"name"`

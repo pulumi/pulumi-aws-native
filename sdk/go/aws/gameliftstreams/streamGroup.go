@@ -166,6 +166,12 @@ func (StreamGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamGroupState)(nil)).Elem()
 }
 
+// StreamGroupExists checks whether an existing StreamGroup resource with the given ID exists.
+func StreamGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gameliftstreams:StreamGroup", id, state, "", opts...)
+}
+
 type streamGroupArgs struct {
 	// Object that identifies the Amazon GameLift Streams application to stream with this stream group.
 	DefaultApplication *StreamGroupDefaultApplication `pulumi:"defaultApplication"`

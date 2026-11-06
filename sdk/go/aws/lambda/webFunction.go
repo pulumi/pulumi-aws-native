@@ -75,6 +75,12 @@ func (WebFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webFunctionState)(nil)).Elem()
 }
 
+// WebFunctionExists checks whether an existing WebFunction resource with the given ID exists.
+func WebFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:WebFunction", id, state, "", opts...)
+}
+
 type webFunctionArgs struct {
 	// The name of the web function. The name can contain letters, numbers, hyphens (-), and underscores (_), and cannot begin or end with a hyphen or an underscore. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName *string `pulumi:"functionName"`

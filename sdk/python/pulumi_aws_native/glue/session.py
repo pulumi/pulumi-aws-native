@@ -266,8 +266,8 @@ class Session(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 command: pulumi.Input[Optional[Union['SessionCommandArgs', 'SessionCommandArgsDict']]] = None,
-                 connections: pulumi.Input[Optional[Union['SessionConnectionsListArgs', 'SessionConnectionsListArgsDict']]] = None,
+                 command: pulumi.Input[Optional[Union['SessionCommandArgs', 'SessionCommandArgsDict', 'outputs.SessionCommand']]] = None,
+                 connections: pulumi.Input[Optional[Union['SessionConnectionsListArgs', 'SessionConnectionsListArgsDict', 'outputs.SessionConnectionsList']]] = None,
                  default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  glue_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -277,7 +277,7 @@ class Session(pulumi.CustomResource):
                  request_origin: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  worker_type: pulumi.Input[Optional['SessionWorkerType']] = None,
                  __props__=None):
@@ -296,7 +296,7 @@ class Session(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] request_origin: The origin of the request.
         :param pulumi.Input[_builtins.str] role: The IAM Role ARN.
         :param pulumi.Input[_builtins.str] security_configuration: The name of the SecurityConfiguration structure to be used with the session.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags belonging to the session.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags belonging to the session.
         :param pulumi.Input[_builtins.int] timeout: The number of minutes before session times out.
         :param pulumi.Input['SessionWorkerType'] worker_type: The type of predefined worker that is allocated when a session runs.
         """
@@ -325,8 +325,8 @@ class Session(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 command: pulumi.Input[Optional[Union['SessionCommandArgs', 'SessionCommandArgsDict']]] = None,
-                 connections: pulumi.Input[Optional[Union['SessionConnectionsListArgs', 'SessionConnectionsListArgsDict']]] = None,
+                 command: pulumi.Input[Optional[Union['SessionCommandArgs', 'SessionCommandArgsDict', 'outputs.SessionCommand']]] = None,
+                 connections: pulumi.Input[Optional[Union['SessionConnectionsListArgs', 'SessionConnectionsListArgsDict', 'outputs.SessionConnectionsList']]] = None,
                  default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  glue_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -336,7 +336,7 @@ class Session(pulumi.CustomResource):
                  request_origin: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  worker_type: pulumi.Input[Optional['SessionWorkerType']] = None,
                  __props__=None):
@@ -417,6 +417,12 @@ class Session(pulumi.CustomResource):
         __props__.__dict__["timeout"] = None
         __props__.__dict__["worker_type"] = None
         return Session(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:glue:Session', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

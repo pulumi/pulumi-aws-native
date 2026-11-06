@@ -91,6 +91,12 @@ func (QueueEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueEnvironmentState)(nil)).Elem()
 }
 
+// QueueEnvironmentExists checks whether an existing QueueEnvironment resource with the given ID exists.
+func QueueEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:QueueEnvironment", id, state, "", opts...)
+}
+
 type queueEnvironmentArgs struct {
 	// The identifier assigned to the farm that contains the queue.
 	FarmId string `pulumi:"farmId"`

@@ -84,6 +84,12 @@ func (FlowVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowVersionState)(nil)).Elem()
 }
 
+// FlowVersionExists checks whether an existing FlowVersion resource with the given ID exists.
+func FlowVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:FlowVersion", id, state, "", opts...)
+}
+
 type flowVersionArgs struct {
 	// Description of the flow version
 	Description *string `pulumi:"description"`

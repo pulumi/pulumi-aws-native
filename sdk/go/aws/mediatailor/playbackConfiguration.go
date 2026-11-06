@@ -119,6 +119,12 @@ func (PlaybackConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*playbackConfigurationState)(nil)).Elem()
 }
 
+// PlaybackConfigurationExists checks whether an existing PlaybackConfiguration resource with the given ID exists.
+func PlaybackConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlaybackConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mediatailor:PlaybackConfiguration", id, state, "", opts...)
+}
+
 type playbackConfigurationArgs struct {
 	// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
 	AdConditioningConfiguration   *PlaybackConfigurationAdConditioningConfiguration   `pulumi:"adConditioningConfiguration"`

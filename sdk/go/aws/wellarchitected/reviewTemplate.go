@@ -86,6 +86,12 @@ func (ReviewTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reviewTemplateState)(nil)).Elem()
 }
 
+// ReviewTemplateExists checks whether an existing ReviewTemplate resource with the given ID exists.
+func ReviewTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReviewTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wellarchitected:ReviewTemplate", id, state, "", opts...)
+}
+
 type reviewTemplateArgs struct {
 	// The review template description.
 	Description string `pulumi:"description"`

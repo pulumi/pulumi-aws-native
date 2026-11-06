@@ -71,6 +71,12 @@ func (SignalingChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signalingChannelState)(nil)).Elem()
 }
 
+// SignalingChannelExists checks whether an existing SignalingChannel resource with the given ID exists.
+func SignalingChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SignalingChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kinesisvideo:SignalingChannel", id, state, "", opts...)
+}
+
 type signalingChannelArgs struct {
 	// The period of time a signaling channel retains undelivered messages before they are discarded.
 	MessageTtlSeconds *int `pulumi:"messageTtlSeconds"`

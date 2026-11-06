@@ -87,6 +87,12 @@ func (AutomatedReasoningPolicyVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automatedReasoningPolicyVersionState)(nil)).Elem()
 }
 
+// AutomatedReasoningPolicyVersionExists checks whether an existing AutomatedReasoningPolicyVersion resource with the given ID exists.
+func AutomatedReasoningPolicyVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomatedReasoningPolicyVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:AutomatedReasoningPolicyVersion", id, state, "", opts...)
+}
+
 type automatedReasoningPolicyVersionArgs struct {
 	// The hash of the policy definition that was last updated.
 	LastUpdatedDefinitionHash *string `pulumi:"lastUpdatedDefinitionHash"`

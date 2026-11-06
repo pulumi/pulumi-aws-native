@@ -103,6 +103,12 @@ func (DatabaseSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseSnapshotState)(nil)).Elem()
 }
 
+// DatabaseSnapshotExists checks whether an existing DatabaseSnapshot resource with the given ID exists.
+func DatabaseSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lightsail:DatabaseSnapshot", id, state, "", opts...)
+}
+
 type databaseSnapshotArgs struct {
 	// The name of the database on which to base your new snapshot.
 	RelationalDatabaseName string `pulumi:"relationalDatabaseName"`

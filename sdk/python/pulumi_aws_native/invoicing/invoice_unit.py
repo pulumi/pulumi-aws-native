@@ -132,8 +132,8 @@ class InvoiceUnit(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  invoice_receiver: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 rule: pulumi.Input[Optional[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 rule: pulumi.Input[Optional[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']]] = None,
                  tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -144,8 +144,8 @@ class InvoiceUnit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The assigned description for an invoice unit. This information can't be modified or deleted.
         :param pulumi.Input[_builtins.str] invoice_receiver: The account that receives invoices related to the invoice unit.
         :param pulumi.Input[_builtins.str] name: A unique name that is distinctive within your AWS .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] resource_tags: The tag structure that contains a tag key and value.
-        :param pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']] rule: An `InvoiceUnitRule` object used the categorize invoice units.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] resource_tags: The tag structure that contains a tag key and value.
+        :param pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']] rule: An `InvoiceUnitRule` object used the categorize invoice units.
         :param pulumi.Input[_builtins.bool] tax_inheritance_disabled: Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
         """
         ...
@@ -175,8 +175,8 @@ class InvoiceUnit(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  invoice_receiver: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 rule: pulumi.Input[Optional[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 rule: pulumi.Input[Optional[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']]] = None,
                  tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -232,6 +232,12 @@ class InvoiceUnit(pulumi.CustomResource):
         __props__.__dict__["rule"] = None
         __props__.__dict__["tax_inheritance_disabled"] = None
         return InvoiceUnit(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:invoicing:InvoiceUnit', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

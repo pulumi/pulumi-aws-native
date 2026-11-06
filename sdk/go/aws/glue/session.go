@@ -119,6 +119,12 @@ func (SessionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sessionState)(nil)).Elem()
 }
 
+// SessionExists checks whether an existing Session resource with the given ID exists.
+func SessionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SessionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:Session", id, state, "", opts...)
+}
+
 type sessionArgs struct {
 	// The ID of the session.
 	AwsId       string                  `pulumi:"awsId"`

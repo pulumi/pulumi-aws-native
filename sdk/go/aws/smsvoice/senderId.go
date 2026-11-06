@@ -79,6 +79,12 @@ func (SenderIdState) ElementType() reflect.Type {
 	return reflect.TypeOf((*senderIdState)(nil)).Elem()
 }
 
+// SenderIdExists checks whether an existing SenderId resource with the given ID exists.
+func SenderIdExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SenderIdState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:SenderId", id, state, "", opts...)
+}
+
 type senderIdArgs struct {
 	// When set to true the sender ID can't be deleted. By default this is set to false.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`

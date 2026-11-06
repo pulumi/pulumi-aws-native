@@ -92,6 +92,12 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerGatewayState)(nil)).Elem()
 }
 
+// CustomerGatewayExists checks whether an existing CustomerGateway resource with the given ID exists.
+func CustomerGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomerGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:CustomerGateway", id, state, "", opts...)
+}
+
 type customerGatewayArgs struct {
 	// For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
 	//  Default: 65000

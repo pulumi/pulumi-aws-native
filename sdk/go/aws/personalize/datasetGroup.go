@@ -129,6 +129,12 @@ func (DatasetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetGroupState)(nil)).Elem()
 }
 
+// DatasetGroupExists checks whether an existing DatasetGroup resource with the given ID exists.
+func DatasetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:personalize:DatasetGroup", id, state, "", opts...)
+}
+
 type datasetGroupArgs struct {
 	// The domain of a Domain dataset group.
 	Domain *DatasetGroupDomain `pulumi:"domain"`

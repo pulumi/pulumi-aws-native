@@ -73,6 +73,12 @@ func (ConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configState)(nil)).Elem()
 }
 
+// ConfigExists checks whether an existing Config resource with the given ID exists.
+func ConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:groundstation:Config", id, state, "", opts...)
+}
+
 type configArgs struct {
 	// Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
 	ConfigData ConfigData `pulumi:"configData"`

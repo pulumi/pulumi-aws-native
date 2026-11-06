@@ -70,6 +70,12 @@ func (BackupPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPlanState)(nil)).Elem()
 }
 
+// BackupPlanExists checks whether an existing BackupPlan resource with the given ID exists.
+func BackupPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:backup:BackupPlan", id, state, "", opts...)
+}
+
 type backupPlanArgs struct {
 	// Uniquely identifies the backup plan to be associated with the selection of resources.
 	BackupPlan BackupPlanResourceType `pulumi:"backupPlan"`

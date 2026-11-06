@@ -123,6 +123,12 @@ func (PortalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*portalState)(nil)).Elem()
 }
 
+// PortalExists checks whether an existing Portal resource with the given ID exists.
+func PortalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PortalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspacesweb:Portal", id, state, "", opts...)
+}
+
 type portalArgs struct {
 	// The additional encryption context of the portal.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`

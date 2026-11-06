@@ -96,6 +96,12 @@ func (MatchingWorkflowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*matchingWorkflowState)(nil)).Elem()
 }
 
+// MatchingWorkflowExists checks whether an existing MatchingWorkflow resource with the given ID exists.
+func MatchingWorkflowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MatchingWorkflowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:entityresolution:MatchingWorkflow", id, state, "", opts...)
+}
+
 type matchingWorkflowArgs struct {
 	// The description of the MatchingWorkflow
 	Description *string `pulumi:"description"`

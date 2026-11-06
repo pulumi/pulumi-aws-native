@@ -87,6 +87,12 @@ func (DataMigrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataMigrationState)(nil)).Elem()
 }
 
+// DataMigrationExists checks whether an existing DataMigration resource with the given ID exists.
+func DataMigrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataMigrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dms:DataMigration", id, state, "", opts...)
+}
+
 type dataMigrationArgs struct {
 	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	DataMigrationIdentifier *string `pulumi:"dataMigrationIdentifier"`

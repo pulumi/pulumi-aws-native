@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The number of instances for which to reserve capacity.
         /// 
-        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
+        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
         /// 
         /// Valid range: 1 - 1000
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Ec2
         /// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
         /// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
         /// 
-        /// &gt; If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . 
+        /// &gt; If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
         /// 
         /// Default: `open`
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The instance type for which to reserve capacity.
         /// 
-        /// &gt; You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
+        /// &gt; You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only.
         /// 
         /// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// &gt; Not supported for future-dated Capacity Reservations. 
+        /// &gt; Not supported for future-dated Capacity Reservations.
         /// 
         /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// &gt; Not supported for future-dated Capacity Reservations. 
+        /// &gt; Not supported for future-dated Capacity Reservations.
         /// 
         /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
         /// </summary>
@@ -327,7 +327,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The number of instances for which to reserve capacity.
         /// 
-        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
+        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
         /// 
         /// Valid range: 1 - 1000
         /// </summary>
@@ -340,7 +340,7 @@ namespace Pulumi.AwsNative.Ec2
         /// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
         /// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
         /// 
-        /// &gt; If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . 
+        /// &gt; If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
         /// 
         /// Default: `open`
         /// </summary>
@@ -356,7 +356,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The instance type for which to reserve capacity.
         /// 
-        /// &gt; You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
+        /// &gt; You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only.
         /// 
         /// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         /// </summary>
@@ -364,7 +364,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
-        /// &gt; Not supported for future-dated Capacity Reservations. 
+        /// &gt; Not supported for future-dated Capacity Reservations.
         /// 
         /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         /// </summary>
@@ -372,7 +372,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? OutPostArn { get; set; }
 
         /// <summary>
-        /// &gt; Not supported for future-dated Capacity Reservations. 
+        /// &gt; Not supported for future-dated Capacity Reservations.
         /// 
         /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
         /// </summary>

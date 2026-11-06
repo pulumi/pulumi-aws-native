@@ -84,6 +84,12 @@ func (HostState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostState)(nil)).Elem()
 }
 
+// HostExists checks whether an existing Host resource with the given ID exists.
+func HostExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codeconnections:Host", id, state, "", opts...)
+}
+
 type hostArgs struct {
 	// The name of the host.
 	Name *string `pulumi:"name"`

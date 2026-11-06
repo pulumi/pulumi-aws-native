@@ -106,6 +106,12 @@ func (StackSetConstraintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetConstraintState)(nil)).Elem()
 }
 
+// StackSetConstraintExists checks whether an existing StackSetConstraint resource with the given ID exists.
+func StackSetConstraintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StackSetConstraintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:StackSetConstraint", id, state, "", opts...)
+}
+
 type stackSetConstraintArgs struct {
 	// The language code.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

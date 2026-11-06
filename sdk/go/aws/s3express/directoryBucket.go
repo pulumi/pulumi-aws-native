@@ -90,6 +90,12 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryBucketState)(nil)).Elem()
 }
 
+// DirectoryBucketExists checks whether an existing DirectoryBucket resource with the given ID exists.
+func DirectoryBucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectoryBucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3express:DirectoryBucket", id, state, "", opts...)
+}
+
 type directoryBucketArgs struct {
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
 	BucketEncryption *DirectoryBucketBucketEncryption `pulumi:"bucketEncryption"`

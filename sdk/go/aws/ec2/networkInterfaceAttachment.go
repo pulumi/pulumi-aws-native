@@ -86,6 +86,12 @@ func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceAttachmentState)(nil)).Elem()
 }
 
+// NetworkInterfaceAttachmentExists checks whether an existing NetworkInterfaceAttachment resource with the given ID exists.
+func NetworkInterfaceAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:NetworkInterfaceAttachment", id, state, "", opts...)
+}
+
 type networkInterfaceAttachmentArgs struct {
 	// Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`

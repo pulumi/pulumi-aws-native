@@ -81,6 +81,12 @@ func (ResourceSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceSetState)(nil)).Elem()
 }
 
+// ResourceSetExists checks whether an existing ResourceSet resource with the given ID exists.
+func ResourceSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53recoveryreadiness:ResourceSet", id, state, "", opts...)
+}
+
 type resourceSetArgs struct {
 	// The name of the resource set to create.
 	ResourceSetName *string `pulumi:"resourceSetName"`

@@ -30,30 +30,30 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// <summary>
         /// The lifecycle stages at which to run the hook. Choose from these valid values:
         ///   +  RECONCILE_SERVICE
-        ///  The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
-        ///  You can use a lifecycle hook for this stage.
+        ///       The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
+        ///       You can use a lifecycle hook for this stage.
         ///   +  PRE_SCALE_UP
-        ///  The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
-        ///  You can use a lifecycle hook for this stage.
+        ///       The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+        ///       You can use a lifecycle hook for this stage.
         ///   +  POST_SCALE_UP
-        ///  The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
-        ///  You can use a lifecycle hook for this stage.
+        ///       The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+        ///       You can use a lifecycle hook for this stage.
         ///   +  TEST_TRAFFIC_SHIFT
-        ///  The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
-        ///  You can use a lifecycle hook for this stage.
+        ///       The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
+        ///       You can use a lifecycle hook for this stage.
         ///   +  POST_TEST_TRAFFIC_SHIFT
-        ///  The test traffic shift is complete. The green service revision handles 100% of the test traffic.
-        ///  You can use a lifecycle hook for this stage.
+        ///       The test traffic shift is complete. The green service revision handles 100% of the test traffic.
+        ///       You can use a lifecycle hook for this stage.
         ///   +  PRE_PRODUCTION_TRAFFIC_SHIFT
-        ///  Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.
-        ///  You can use a lifecycle hook for this stage.
+        ///       Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.
+        ///       You can use a lifecycle hook for this stage.
         ///   +  PRODUCTION_TRAFFIC_SHIFT
-        ///  Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.
-        ///  You can use a lifecycle hook for this stage.
+        ///       Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.
+        ///       You can use a lifecycle hook for this stage.
         ///   +  POST_PRODUCTION_TRAFFIC_SHIFT
-        ///  The production traffic shift is complete.
-        ///  You can use a lifecycle hook for this stage.
-        ///   
+        ///       The production traffic shift is complete.
+        ///       You can use a lifecycle hook for this stage.
+        /// 
         ///   ``PAUSE`` hooks cannot be configured at ``TEST_TRAFFIC_SHIFT`` or ``PRODUCTION_TRAFFIC_SHIFT`` stages. These stages are only valid for ``AWS_LAMBDA`` hooks.
         ///   You must provide this parameter when configuring a deployment lifecycle hook.
         /// </summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// The type of action the lifecycle hook performs. Valid values are:
         ///   +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
         ///   +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
-        ///   
+        /// 
         ///  This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecs.ServiceDeploymentLifecycleHookTargetType? TargetType;

@@ -80,6 +80,12 @@ func (VpceConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpceConfigurationState)(nil)).Elem()
 }
 
+// VpceConfigurationExists checks whether an existing VpceConfiguration resource with the given ID exists.
+func VpceConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpceConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:devicefarm:VpceConfiguration", id, state, "", opts...)
+}
+
 type vpceConfigurationArgs struct {
 	// The DNS name that Device Farm will use to map to the private service you want to access.
 	ServiceDnsName string `pulumi:"serviceDnsName"`

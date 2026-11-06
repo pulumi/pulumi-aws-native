@@ -75,6 +75,12 @@ func (ClusterPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterPolicyState)(nil)).Elem()
 }
 
+// ClusterPolicyExists checks whether an existing ClusterPolicy resource with the given ID exists.
+func ClusterPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:msk:ClusterPolicy", id, state, "", opts...)
+}
+
 type clusterPolicyArgs struct {
 	// The arn of the cluster for the resource policy.
 	ClusterArn string `pulumi:"clusterArn"`

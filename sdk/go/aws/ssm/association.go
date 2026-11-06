@@ -335,6 +335,12 @@ func (AssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationState)(nil)).Elem()
 }
 
+// AssociationExists checks whether an existing Association resource with the given ID exists.
+func AssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssm:Association", id, state, "", opts...)
+}
+
 type associationArgs struct {
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`

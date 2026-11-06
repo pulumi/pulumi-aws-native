@@ -72,6 +72,12 @@ func (ClusterSubnetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSubnetGroupState)(nil)).Elem()
 }
 
+// ClusterSubnetGroupExists checks whether an existing ClusterSubnetGroup resource with the given ID exists.
+func ClusterSubnetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterSubnetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:redshift:ClusterSubnetGroup", id, state, "", opts...)
+}
+
 type clusterSubnetGroupArgs struct {
 	// The description of the parameter group.
 	Description string `pulumi:"description"`

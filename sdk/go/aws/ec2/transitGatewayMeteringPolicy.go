@@ -77,6 +77,12 @@ func (TransitGatewayMeteringPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayMeteringPolicyState)(nil)).Elem()
 }
 
+// TransitGatewayMeteringPolicyExists checks whether an existing TransitGatewayMeteringPolicy resource with the given ID exists.
+func TransitGatewayMeteringPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayMeteringPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayMeteringPolicy", id, state, "", opts...)
+}
+
 type transitGatewayMeteringPolicyArgs struct {
 	// Middle box attachment Ids
 	MiddleboxAttachmentIds []string `pulumi:"middleboxAttachmentIds"`

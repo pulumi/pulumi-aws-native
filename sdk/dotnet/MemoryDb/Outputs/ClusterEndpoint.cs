@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.MemoryDb.Outputs
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// The port number that the engine is listening on. 
+        /// The port number that the engine is listening on.
         /// </summary>
         public readonly int? Port;
 

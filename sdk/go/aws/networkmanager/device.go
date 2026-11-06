@@ -93,6 +93,12 @@ func (DeviceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceState)(nil)).Elem()
 }
 
+// DeviceExists checks whether an existing Device resource with the given ID exists.
+func DeviceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkmanager:Device", id, state, "", opts...)
+}
+
 type deviceArgs struct {
 	// The Amazon Web Services location of the device, if applicable.
 	AwsLocation *DeviceAwsLocation `pulumi:"awsLocation"`

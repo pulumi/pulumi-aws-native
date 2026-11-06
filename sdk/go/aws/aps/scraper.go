@@ -91,6 +91,12 @@ func (ScraperState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scraperState)(nil)).Elem()
 }
 
+// ScraperExists checks whether an existing Scraper resource with the given ID exists.
+func ScraperExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScraperState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:aps:Scraper", id, state, "", opts...)
+}
+
 type scraperArgs struct {
 	// Scraper alias.
 	Alias *string `pulumi:"alias"`

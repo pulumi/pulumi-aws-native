@@ -78,6 +78,12 @@ func (ApplicationEntitlementAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationEntitlementAssociationState)(nil)).Elem()
 }
 
+// ApplicationEntitlementAssociationExists checks whether an existing ApplicationEntitlementAssociation resource with the given ID exists.
+func ApplicationEntitlementAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationEntitlementAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appstream:ApplicationEntitlementAssociation", id, state, "", opts...)
+}
+
 type applicationEntitlementAssociationArgs struct {
 	// The identifier of the application.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`

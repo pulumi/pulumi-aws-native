@@ -166,6 +166,12 @@ func (ReplicationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationGroupState)(nil)).Elem()
 }
 
+// ReplicationGroupExists checks whether an existing ReplicationGroup resource with the given ID exists.
+func ReplicationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticache:ReplicationGroup", id, state, "", opts...)
+}
+
 type replicationGroupArgs struct {
 	// A flag that enables encryption at rest when set to true.AtRestEncryptionEnabled after the replication group is created. To enable encryption at rest on a replication group you must set AtRestEncryptionEnabled to true when you create the replication group.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`

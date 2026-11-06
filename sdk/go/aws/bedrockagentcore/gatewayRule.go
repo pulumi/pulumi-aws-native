@@ -78,6 +78,12 @@ func (GatewayRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayRuleState)(nil)).Elem()
 }
 
+// GatewayRuleExists checks whether an existing GatewayRule resource with the given ID exists.
+func GatewayRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:GatewayRule", id, state, "", opts...)
+}
+
 type gatewayRuleArgs struct {
 	Actions           []interface{} `pulumi:"actions"`
 	Conditions        []interface{} `pulumi:"conditions"`

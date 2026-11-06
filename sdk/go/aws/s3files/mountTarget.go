@@ -84,6 +84,12 @@ func (MountTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mountTargetState)(nil)).Elem()
 }
 
+// MountTargetExists checks whether an existing MountTarget resource with the given ID exists.
+func MountTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MountTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3files:MountTarget", id, state, "", opts...)
+}
+
 type mountTargetArgs struct {
 	FileSystemId   string                    `pulumi:"fileSystemId"`
 	IpAddressType  *MountTargetIpAddressType `pulumi:"ipAddressType"`

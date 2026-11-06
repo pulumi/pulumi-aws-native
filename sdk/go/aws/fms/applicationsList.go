@@ -75,6 +75,12 @@ func (ApplicationsListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationsListState)(nil)).Elem()
 }
 
+// ApplicationsListExists checks whether an existing ApplicationsList resource with the given ID exists.
+func ApplicationsListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationsListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:fms:ApplicationsList", id, state, "", opts...)
+}
+
 type applicationsListArgs struct {
 	// An array of applications in the Firewall Manager applications list.
 	AppsList []ApplicationsListApp `pulumi:"appsList"`

@@ -95,6 +95,12 @@ func (FormTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*formTypeState)(nil)).Elem()
 }
 
+// FormTypeExists checks whether an existing FormType resource with the given ID exists.
+func FormTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FormTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:FormType", id, state, "", opts...)
+}
+
 type formTypeArgs struct {
 	// The description of this Amazon DataZone metadata form type.
 	Description *string `pulumi:"description"`

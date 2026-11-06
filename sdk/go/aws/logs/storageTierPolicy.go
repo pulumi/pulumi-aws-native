@@ -66,6 +66,12 @@ func (StorageTierPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageTierPolicyState)(nil)).Elem()
 }
 
+// StorageTierPolicyExists checks whether an existing StorageTierPolicy resource with the given ID exists.
+func StorageTierPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageTierPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:StorageTierPolicy", id, state, "", opts...)
+}
+
 type storageTierPolicyArgs struct {
 	// The storage tier to apply. Only INTELLIGENT_TIERING is accepted for creation.
 	StorageTier StorageTierPolicyStorageTier `pulumi:"storageTier"`

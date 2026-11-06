@@ -83,6 +83,12 @@ func (MigrationProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*migrationProjectState)(nil)).Elem()
 }
 
+// MigrationProjectExists checks whether an existing MigrationProject resource with the given ID exists.
+func MigrationProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MigrationProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dms:MigrationProject", id, state, "", opts...)
+}
+
 type migrationProjectArgs struct {
 	// The optional description of the migration project.
 	Description *string `pulumi:"description"`

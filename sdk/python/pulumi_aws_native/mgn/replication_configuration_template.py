@@ -288,7 +288,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  store_snapshot_on_local_zone: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_fips_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -309,7 +309,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_servers_security_groups_ids: The security group IDs that will be used by the replication server.
         :param pulumi.Input[_builtins.str] staging_area_subnet_id: The subnet to be used by the replication staging area.
         :param pulumi.Input[_builtins.bool] store_snapshot_on_local_zone: Whether to store the Snapshot in the Local Zone of the replication staging area subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags to be associated with the Replication Configuration Template resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A set of tags to be associated with the Replication Configuration Template resource.
         :param pulumi.Input[_builtins.bool] use_dedicated_replication_server: Whether to use a dedicated Replication Server in the replication staging area.
         :param pulumi.Input[_builtins.bool] use_fips_endpoint: Whether to use a FIPS endpoint when initiating the agent connection to the Application Migration Service service.
         """
@@ -350,7 +350,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  store_snapshot_on_local_zone: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_fips_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -443,6 +443,12 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         __props__.__dict__["use_dedicated_replication_server"] = None
         __props__.__dict__["use_fips_endpoint"] = None
         return ReplicationConfigurationTemplate(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:mgn:ReplicationConfigurationTemplate', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

@@ -133,8 +133,8 @@ class Project(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipe_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 sample: pulumi.Input[Optional[Union['ProjectSampleArgs', 'ProjectSampleArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sample: pulumi.Input[Optional[Union['ProjectSampleArgs', 'ProjectSampleArgsDict', 'outputs.ProjectSample']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Project.
@@ -186,8 +186,8 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Project name
         :param pulumi.Input[_builtins.str] recipe_name: Recipe name
         :param pulumi.Input[_builtins.str] role_arn: Role arn
-        :param pulumi.Input[Union['ProjectSampleArgs', 'ProjectSampleArgsDict']] sample: Sample
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata tags that have been applied to the project.
+        :param pulumi.Input[Union['ProjectSampleArgs', 'ProjectSampleArgsDict', 'outputs.ProjectSample']] sample: Sample
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata tags that have been applied to the project.
         """
         ...
     @overload
@@ -258,8 +258,8 @@ class Project(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipe_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 sample: pulumi.Input[Optional[Union['ProjectSampleArgs', 'ProjectSampleArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sample: pulumi.Input[Optional[Union['ProjectSampleArgs', 'ProjectSampleArgsDict', 'outputs.ProjectSample']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,6 +312,12 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["sample"] = None
         __props__.__dict__["tags"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:databrew:Project', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="datasetName")

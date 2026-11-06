@@ -70,6 +70,12 @@ func (OrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationState)(nil)).Elem()
 }
 
+// OrganizationExists checks whether an existing Organization resource with the given ID exists.
+func OrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:organizations:Organization", id, state, "", opts...)
+}
+
 type organizationArgs struct {
 	// Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
 	FeatureSet *OrganizationFeatureSet `pulumi:"featureSet"`

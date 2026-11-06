@@ -101,7 +101,7 @@ class StorageProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict', 'outputs.StorageProfileFileSystemLocation']]]]] = None,
                  os_family: pulumi.Input[Optional['StorageProfileOperatingSystemFamily']] = None,
                  __props__=None):
         """
@@ -113,7 +113,7 @@ class StorageProfile(pulumi.CustomResource):
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[_builtins.str] farm_id: The unique identifier of the farm that contains the storage profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]] file_system_locations: Operating system specific file system path to the storage location.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict', 'outputs.StorageProfileFileSystemLocation']]]] file_system_locations: Operating system specific file system path to the storage location.
         :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
         """
         ...
@@ -142,7 +142,7 @@ class StorageProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict', 'outputs.StorageProfileFileSystemLocation']]]]] = None,
                  os_family: pulumi.Input[Optional['StorageProfileOperatingSystemFamily']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -194,6 +194,12 @@ class StorageProfile(pulumi.CustomResource):
         __props__.__dict__["os_family"] = None
         __props__.__dict__["storage_profile_id"] = None
         return StorageProfile(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:deadline:StorageProfile', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="displayName")

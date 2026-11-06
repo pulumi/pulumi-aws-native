@@ -111,6 +111,12 @@ func (ResolverEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverEndpointState)(nil)).Elem()
 }
 
+// ResolverEndpointExists checks whether an existing ResolverEndpoint resource with the given ID exists.
+func ResolverEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:ResolverEndpoint", id, state, "", opts...)
+}
+
 type resolverEndpointArgs struct {
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
 	// - INBOUND: allows DNS queries to your VPC from your network

@@ -129,6 +129,12 @@ class PolicyStoreAlias(pulumi.CustomResource):
         __props__.__dict__["policy_store_id"] = None
         return PolicyStoreAlias(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:verifiedpermissions:PolicyStoreAlias', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Output[_builtins.str]:

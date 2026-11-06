@@ -123,6 +123,12 @@ func (NfsFileShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nfsFileShareState)(nil)).Elem()
 }
 
+// NfsFileShareExists checks whether an existing NfsFileShare resource with the given ID exists.
+func NfsFileShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NfsFileShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:storagegateway:NfsFileShare", id, state, "", opts...)
+}
+
 type nfsFileShareArgs struct {
 	// The ARN of the CloudWatch log group that receives the share's audit logs. Removing this property from a template detaches audit logging: the update sends the empty string, which the service treats as the reset.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`

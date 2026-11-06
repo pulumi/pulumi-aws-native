@@ -189,6 +189,12 @@ func (StreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamState)(nil)).Elem()
 }
 
+// StreamExists checks whether an existing Stream resource with the given ID exists.
+func StreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:qldb:Stream", id, state, "", opts...)
+}
+
 type streamArgs struct {
 	// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
 	//

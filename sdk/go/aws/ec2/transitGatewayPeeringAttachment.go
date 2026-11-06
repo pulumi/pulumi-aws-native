@@ -95,6 +95,12 @@ func (TransitGatewayPeeringAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayPeeringAttachmentState)(nil)).Elem()
 }
 
+// TransitGatewayPeeringAttachmentExists checks whether an existing TransitGatewayPeeringAttachment resource with the given ID exists.
+func TransitGatewayPeeringAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayPeeringAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayPeeringAttachment", id, state, "", opts...)
+}
+
 type transitGatewayPeeringAttachmentArgs struct {
 	// The ID of the peer account
 	PeerAccountId string `pulumi:"peerAccountId"`

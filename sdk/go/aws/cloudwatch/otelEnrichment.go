@@ -63,6 +63,12 @@ func (OTelEnrichmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*otelEnrichmentState)(nil)).Elem()
 }
 
+// OTelEnrichmentExists checks whether an existing OTelEnrichment resource with the given ID exists.
+func OTelEnrichmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OTelEnrichmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:OTelEnrichment", id, state, "", opts...)
+}
+
 type otelEnrichmentArgs struct {
 	// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
 	ExcludeFilters []OTelEnrichmentMetricSelector `pulumi:"excludeFilters"`

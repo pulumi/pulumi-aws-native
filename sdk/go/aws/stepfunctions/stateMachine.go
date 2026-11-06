@@ -282,6 +282,12 @@ func (StateMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stateMachineState)(nil)).Elem()
 }
 
+// StateMachineExists checks whether an existing StateMachine resource with the given ID exists.
+func StateMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StateMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:stepfunctions:StateMachine", id, state, "", opts...)
+}
+
 type stateMachineArgs struct {
 	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	Definition *StateMachineDefinition `pulumi:"definition"`

@@ -85,6 +85,12 @@ func (InvoiceUnitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*invoiceUnitState)(nil)).Elem()
 }
 
+// InvoiceUnitExists checks whether an existing InvoiceUnit resource with the given ID exists.
+func InvoiceUnitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InvoiceUnitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:invoicing:InvoiceUnit", id, state, "", opts...)
+}
+
 type invoiceUnitArgs struct {
 	// The assigned description for an invoice unit. This information can't be modified or deleted.
 	Description *string `pulumi:"description"`

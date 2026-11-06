@@ -103,6 +103,12 @@ func (MembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*membershipState)(nil)).Elem()
 }
 
+// MembershipExists checks whether an existing Membership resource with the given ID exists.
+func MembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:Membership", id, state, "", opts...)
+}
+
 type membershipArgs struct {
 	// The unique ID for the associated collaboration.
 	CollaborationIdentifier string `pulumi:"collaborationIdentifier"`

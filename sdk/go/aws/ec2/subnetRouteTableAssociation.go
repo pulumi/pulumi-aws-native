@@ -75,6 +75,12 @@ func (SubnetRouteTableAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetRouteTableAssociationState)(nil)).Elem()
 }
 
+// SubnetRouteTableAssociationExists checks whether an existing SubnetRouteTableAssociation resource with the given ID exists.
+func SubnetRouteTableAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetRouteTableAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SubnetRouteTableAssociation", id, state, "", opts...)
+}
+
 type subnetRouteTableAssociationArgs struct {
 	// The ID of the route table.
 	//  The physical ID changes when the route table ID is changed.

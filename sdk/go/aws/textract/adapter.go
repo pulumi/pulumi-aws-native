@@ -78,6 +78,12 @@ func (AdapterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*adapterState)(nil)).Elem()
 }
 
+// AdapterExists checks whether an existing Adapter resource with the given ID exists.
+func AdapterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdapterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:textract:Adapter", id, state, "", opts...)
+}
+
 type adapterArgs struct {
 	AdapterName *string            `pulumi:"adapterName"`
 	AutoUpdate  *AdapterAutoUpdate `pulumi:"autoUpdate"`

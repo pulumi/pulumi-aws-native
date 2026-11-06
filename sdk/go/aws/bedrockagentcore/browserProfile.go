@@ -73,6 +73,12 @@ func (BrowserProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*browserProfileState)(nil)).Elem()
 }
 
+// BrowserProfileExists checks whether an existing BrowserProfile resource with the given ID exists.
+func BrowserProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrowserProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:BrowserProfile", id, state, "", opts...)
+}
+
 type browserProfileArgs struct {
 	Description *string `pulumi:"description"`
 	Name        *string `pulumi:"name"`

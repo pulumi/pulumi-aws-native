@@ -88,6 +88,12 @@ func (FieldState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fieldState)(nil)).Elem()
 }
 
+// FieldExists checks whether an existing Field resource with the given ID exists.
+func FieldExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FieldState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cases:Field", id, state, "", opts...)
+}
+
 type fieldArgs struct {
 	// Field-type specific attributes that control rendering and validation behavior
 	Attributes *FieldAttributes `pulumi:"attributes"`

@@ -116,9 +116,9 @@ class Template(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_rule_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateAssociatedRuleArgs', 'TemplateAssociatedRuleArgsDict']]]]] = None,
+                 associated_rule_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateAssociatedRuleArgs', 'TemplateAssociatedRuleArgsDict', 'outputs.TemplateAssociatedRule']]]]] = None,
                  firewall_type: pulumi.Input[Optional['TemplateFirewallType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_description: pulumi.Input[Optional[_builtins.str]] = None,
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -127,9 +127,9 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateAssociatedRuleArgs', 'TemplateAssociatedRuleArgsDict']]]] associated_rule_list: List of rules associated with this template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateAssociatedRuleArgs', 'TemplateAssociatedRuleArgsDict', 'outputs.TemplateAssociatedRule']]]] associated_rule_list: List of rules associated with this template.
         :param pulumi.Input['TemplateFirewallType'] firewall_type: The type of firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the template.
         :param pulumi.Input[_builtins.str] template_description: A description of the template.
         :param pulumi.Input[_builtins.str] template_name: The name of the template.
         """
@@ -157,9 +157,9 @@ class Template(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_rule_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateAssociatedRuleArgs', 'TemplateAssociatedRuleArgsDict']]]]] = None,
+                 associated_rule_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateAssociatedRuleArgs', 'TemplateAssociatedRuleArgsDict', 'outputs.TemplateAssociatedRule']]]]] = None,
                  firewall_type: pulumi.Input[Optional['TemplateFirewallType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_description: pulumi.Input[Optional[_builtins.str]] = None,
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -216,6 +216,12 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = None
         __props__.__dict__["version"] = None
         return Template(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:networksecuritymanager:Template', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="associatedRuleList")

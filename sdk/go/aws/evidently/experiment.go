@@ -105,6 +105,12 @@ func (ExperimentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*experimentState)(nil)).Elem()
 }
 
+// ExperimentExists checks whether an existing Experiment resource with the given ID exists.
+func ExperimentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExperimentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:evidently:Experiment", id, state, "", opts...)
+}
+
 type experimentArgs struct {
 	// An optional description of the experiment.
 	Description *string `pulumi:"description"`

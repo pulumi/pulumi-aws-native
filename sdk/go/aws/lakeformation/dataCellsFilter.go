@@ -90,6 +90,12 @@ func (DataCellsFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCellsFilterState)(nil)).Elem()
 }
 
+// DataCellsFilterExists checks whether an existing DataCellsFilter resource with the given ID exists.
+func DataCellsFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataCellsFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lakeformation:DataCellsFilter", id, state, "", opts...)
+}
+
 type dataCellsFilterArgs struct {
 	// A list of columns to be included in this Data Cells Filter.
 	ColumnNames []string `pulumi:"columnNames"`

@@ -92,6 +92,12 @@ func (TagSyncTaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagSyncTaskState)(nil)).Elem()
 }
 
+// TagSyncTaskExists checks whether an existing TagSyncTask resource with the given ID exists.
+func TagSyncTaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagSyncTaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:resourcegroups:TagSyncTask", id, state, "", opts...)
+}
+
 type tagSyncTaskArgs struct {
 	// The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task
 	Group string `pulumi:"group"`

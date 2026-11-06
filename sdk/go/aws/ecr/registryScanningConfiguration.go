@@ -69,6 +69,12 @@ func (RegistryScanningConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryScanningConfigurationState)(nil)).Elem()
 }
 
+// RegistryScanningConfigurationExists checks whether an existing RegistryScanningConfiguration resource with the given ID exists.
+func RegistryScanningConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryScanningConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ecr:RegistryScanningConfiguration", id, state, "", opts...)
+}
+
 type registryScanningConfigurationArgs struct {
 	// The scanning rules associated with the registry.
 	Rules []RegistryScanningConfigurationScanningRule `pulumi:"rules"`

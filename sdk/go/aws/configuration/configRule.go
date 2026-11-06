@@ -99,6 +99,12 @@ func (ConfigRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configRuleState)(nil)).Elem()
 }
 
+// ConfigRuleExists checks whether an existing ConfigRule resource with the given ID exists.
+func ConfigRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:configuration:ConfigRule", id, state, "", opts...)
+}
+
 type configRuleArgs struct {
 	// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
 	Compliance *ComplianceProperties `pulumi:"compliance"`

@@ -78,6 +78,12 @@ func (AccessGrantsLocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessGrantsLocationState)(nil)).Elem()
 }
 
+// AccessGrantsLocationExists checks whether an existing AccessGrantsLocation resource with the given ID exists.
+func AccessGrantsLocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessGrantsLocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3:AccessGrantsLocation", id, state, "", opts...)
+}
+
 type accessGrantsLocationArgs struct {
 	// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
 	IamRoleArn string `pulumi:"iamRoleArn"`

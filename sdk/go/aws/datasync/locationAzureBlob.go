@@ -97,6 +97,12 @@ func (LocationAzureBlobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationAzureBlobState)(nil)).Elem()
 }
 
+// LocationAzureBlobExists checks whether an existing LocationAzureBlob resource with the given ID exists.
+func LocationAzureBlobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationAzureBlobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationAzureBlob", id, state, "", opts...)
+}
+
 type locationAzureBlobArgs struct {
 	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns []string `pulumi:"agentArns"`

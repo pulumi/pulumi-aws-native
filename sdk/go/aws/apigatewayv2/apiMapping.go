@@ -80,6 +80,12 @@ func (ApiMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiMappingState)(nil)).Elem()
 }
 
+// ApiMappingExists checks whether an existing ApiMapping resource with the given ID exists.
+func ApiMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:ApiMapping", id, state, "", opts...)
+}
+
 type apiMappingArgs struct {
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`

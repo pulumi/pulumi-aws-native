@@ -81,6 +81,12 @@ func (SiteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteState)(nil)).Elem()
 }
 
+// SiteExists checks whether an existing Site resource with the given ID exists.
+func SiteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SiteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkmanager:Site", id, state, "", opts...)
+}
+
 type siteArgs struct {
 	// The description of the site.
 	Description *string `pulumi:"description"`

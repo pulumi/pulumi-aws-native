@@ -87,6 +87,12 @@ func (RecommenderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recommenderState)(nil)).Elem()
 }
 
+// RecommenderExists checks whether an existing Recommender resource with the given ID exists.
+func RecommenderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecommenderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:personalize:Recommender", id, state, "", opts...)
+}
+
 type recommenderArgs struct {
 	// The ARN of the Domain dataset group that the recommender is created for.
 	DatasetGroupArn string `pulumi:"datasetGroupArn"`

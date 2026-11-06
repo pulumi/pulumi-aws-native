@@ -388,6 +388,12 @@ func (SourceCredentialState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceCredentialState)(nil)).Elem()
 }
 
+// SourceCredentialExists checks whether an existing SourceCredential resource with the given ID exists.
+func SourceCredentialExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceCredentialState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codebuild:SourceCredential", id, state, "", opts...)
+}
+
 type sourceCredentialArgs struct {
 	// The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER.
 	AuthType string `pulumi:"authType"`

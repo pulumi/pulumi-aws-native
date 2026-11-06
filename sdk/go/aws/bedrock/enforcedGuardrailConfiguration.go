@@ -84,6 +84,12 @@ func (EnforcedGuardrailConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enforcedGuardrailConfigurationState)(nil)).Elem()
 }
 
+// EnforcedGuardrailConfigurationExists checks whether an existing EnforcedGuardrailConfiguration resource with the given ID exists.
+func EnforcedGuardrailConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnforcedGuardrailConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:EnforcedGuardrailConfiguration", id, state, "", opts...)
+}
+
 type enforcedGuardrailConfigurationArgs struct {
 	// Identifier for the guardrail, could be the ID or the ARN
 	GuardrailIdentifier string `pulumi:"guardrailIdentifier"`

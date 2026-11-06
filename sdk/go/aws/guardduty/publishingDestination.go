@@ -85,6 +85,12 @@ func (PublishingDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publishingDestinationState)(nil)).Elem()
 }
 
+// PublishingDestinationExists checks whether an existing PublishingDestination resource with the given ID exists.
+func PublishingDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublishingDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:guardduty:PublishingDestination", id, state, "", opts...)
+}
+
 type publishingDestinationArgs struct {
 	// Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 	DestinationProperties PublishingDestinationCfnDestinationProperties `pulumi:"destinationProperties"`

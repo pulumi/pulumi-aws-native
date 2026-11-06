@@ -97,6 +97,12 @@ func (ConfiguredTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configuredTableState)(nil)).Elem()
 }
 
+// ConfiguredTableExists checks whether an existing ConfiguredTable resource with the given ID exists.
+func ConfiguredTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfiguredTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:ConfiguredTable", id, state, "", opts...)
+}
+
 type configuredTableArgs struct {
 	// The columns within the underlying AWS Glue table that can be used within collaborations.
 	AllowedColumns []string `pulumi:"allowedColumns"`

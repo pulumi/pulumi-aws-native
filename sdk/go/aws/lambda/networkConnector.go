@@ -74,6 +74,12 @@ func (NetworkConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkConnectorState)(nil)).Elem()
 }
 
+// NetworkConnectorExists checks whether an existing NetworkConnector resource with the given ID exists.
+func NetworkConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lambda:NetworkConnector", id, state, "", opts...)
+}
+
 type networkConnectorArgs struct {
 	Configuration NetworkConnectorConfig `pulumi:"configuration"`
 	Name          *string                `pulumi:"name"`

@@ -90,6 +90,12 @@ func (ReplicaKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicaKeyState)(nil)).Elem()
 }
 
+// ReplicaKeyExists checks whether an existing ReplicaKey resource with the given ID exists.
+func ReplicaKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicaKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kms:ReplicaKey", id, state, "", opts...)
+}
+
 type replicaKeyArgs struct {
 	// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 	Description *string `pulumi:"description"`

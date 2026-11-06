@@ -83,6 +83,12 @@ func (ResolverRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverRuleState)(nil)).Elem()
 }
 
+// ResolverRuleExists checks whether an existing ResolverRule resource with the given ID exists.
+func ResolverRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:ResolverRule", id, state, "", opts...)
+}
+
 type resolverRuleArgs struct {
 	// The name server domain for queries to be delegated to if a query matches the delegation record.
 	DelegationRecord *string `pulumi:"delegationRecord"`

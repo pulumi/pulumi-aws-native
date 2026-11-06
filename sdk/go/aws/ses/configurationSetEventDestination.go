@@ -72,6 +72,12 @@ func (ConfigurationSetEventDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationSetEventDestinationState)(nil)).Elem()
 }
 
+// ConfigurationSetEventDestinationExists checks whether an existing ConfigurationSetEventDestination resource with the given ID exists.
+func ConfigurationSetEventDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationSetEventDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:ConfigurationSetEventDestination", id, state, "", opts...)
+}
+
 type configurationSetEventDestinationArgs struct {
 	// The name of the configuration set that contains the event destination.
 	ConfigurationSetName string `pulumi:"configurationSetName"`

@@ -80,6 +80,12 @@ func (TrackerConsumerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trackerConsumerState)(nil)).Elem()
 }
 
+// TrackerConsumerExists checks whether an existing TrackerConsumer resource with the given ID exists.
+func TrackerConsumerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrackerConsumerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:location:TrackerConsumer", id, state, "", opts...)
+}
+
 type trackerConsumerArgs struct {
 	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
 	//

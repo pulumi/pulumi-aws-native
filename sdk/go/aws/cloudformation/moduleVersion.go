@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewModuleDefaultVersion(ctx, "moduleDefaultVersion", &cloudformation.ModuleDefaultVersionArgs{
-//				Arn: moduleVersion2.ID().ToIDOutput().ToStringOutput(),
+//				Arn: moduleVersion2.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -87,7 +87,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewModuleDefaultVersion(ctx, "moduleDefaultVersion", &cloudformation.ModuleDefaultVersionArgs{
-//				Arn: moduleVersion2.ID().ToIDOutput().ToStringOutput(),
+//				Arn: moduleVersion2.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -298,6 +298,12 @@ type ModuleVersionState struct {
 
 func (ModuleVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*moduleVersionState)(nil)).Elem()
+}
+
+// ModuleVersionExists checks whether an existing ModuleVersion resource with the given ID exists.
+func ModuleVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModuleVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:ModuleVersion", id, state, "", opts...)
 }
 
 type moduleVersionArgs struct {

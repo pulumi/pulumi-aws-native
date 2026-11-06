@@ -73,6 +73,12 @@ func (TopicInlinePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicInlinePolicyState)(nil)).Elem()
 }
 
+// TopicInlinePolicyExists checks whether an existing TopicInlinePolicy resource with the given ID exists.
+func TopicInlinePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicInlinePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sns:TopicInlinePolicy", id, state, "", opts...)
+}
+
 type topicInlinePolicyArgs struct {
 	// A policy document that contains permissions to add to the specified SNS topics.
 	//

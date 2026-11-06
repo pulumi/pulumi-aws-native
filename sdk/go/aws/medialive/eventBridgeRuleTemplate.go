@@ -87,6 +87,12 @@ func (EventBridgeRuleTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventBridgeRuleTemplateState)(nil)).Elem()
 }
 
+// EventBridgeRuleTemplateExists checks whether an existing EventBridgeRuleTemplate resource with the given ID exists.
+func EventBridgeRuleTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventBridgeRuleTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:EventBridgeRuleTemplate", id, state, "", opts...)
+}
+
 type eventBridgeRuleTemplateArgs struct {
 	// A resource's optional description.
 	Description *string `pulumi:"description"`

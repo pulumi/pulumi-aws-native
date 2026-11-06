@@ -102,6 +102,12 @@ func (IdentityPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolState)(nil)).Elem()
 }
 
+// IdentityPoolExists checks whether an existing IdentityPool resource with the given ID exists.
+func IdentityPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:IdentityPool", id, state, "", opts...)
+}
+
 type identityPoolArgs struct {
 	// Enables the Basic (Classic) authentication flow.
 	AllowClassicFlow *bool `pulumi:"allowClassicFlow"`

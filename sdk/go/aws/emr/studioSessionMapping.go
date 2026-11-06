@@ -83,6 +83,12 @@ func (StudioSessionMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*studioSessionMappingState)(nil)).Elem()
 }
 
+// StudioSessionMappingExists checks whether an existing StudioSessionMapping resource with the given ID exists.
+func StudioSessionMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StudioSessionMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:emr:StudioSessionMapping", id, state, "", opts...)
+}
+
 type studioSessionMappingArgs struct {
 	// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
 	IdentityName string `pulumi:"identityName"`

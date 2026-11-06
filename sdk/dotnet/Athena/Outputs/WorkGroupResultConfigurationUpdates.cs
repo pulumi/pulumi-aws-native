@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Athena.Outputs
 {
 
     /// <summary>
-    /// The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
+    /// The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
     /// </summary>
     [OutputType]
     public sealed class WorkGroupResultConfigurationUpdates

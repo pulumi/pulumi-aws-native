@@ -17,21 +17,21 @@ namespace Pulumi.AwsNative.Rds
         ///  For more information about creating a DB instance in an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
         ///  If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
         ///   If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
-        ///    *Updating DB instances* 
+        ///    *Updating DB instances*
         ///  When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
         ///   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
         ///   1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
-        ///   1.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
-        ///   1.  If you want to restore your instance using a DB snapshot, modify the updated template with your DB instance changes and add the ``DBSnapshotIdentifier`` property with the ID of the DB snapshot that you want to use.
-        ///  After you restore a DB instance with a ``DBSnapshotIdentifier`` property, you can delete the ``DBSnapshotIdentifier`` property. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. If you specify a different ``DBSnapshotIdentifier`` value, a new DB instance is restored from the specified snapshot, and the original DB instance is deleted.
-        ///   1.  Update the stack.
-        ///   
+        ///   2.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
+        ///   3.  If you want to restore your instance using a DB snapshot, modify the updated template with your DB instance changes and add the ``DBSnapshotIdentifier`` property with the ID of the DB snapshot that you want to use.
+        ///        After you restore a DB instance with a ``DBSnapshotIdentifier`` property, you can delete the ``DBSnapshotIdentifier`` property. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. If you specify a different ``DBSnapshotIdentifier`` value, a new DB instance is restored from the specified snapshot, and the original DB instance is deleted.
+        ///   4.  Update the stack.
+        /// 
         ///   For more information about updating other properties of this resource, see ``ModifyDBInstance``. For more information about updating stacks, see [CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
-        ///   *Deleting DB instances* 
+        ///   *Deleting DB instances*
         ///  For DB instances that are part of an Aurora DB cluster, you can set a deletion policy for your DB instance to control how AWS CloudFormation handles the DB instance when the stack is deleted. For Amazon RDS DB instances, you can choose to *retain* the DB instance, to *delete* the DB instance, or to *create a snapshot* of the DB instance. The default AWS CloudFormation behavior depends on the ``DBClusterIdentifier`` property:
         ///   1.  For ``AWS::RDS::DBInstance`` resources that don't specify the ``DBClusterIdentifier`` property, AWS CloudFormation saves a snapshot of the DB instance.
-        ///   1.   For ``AWS::RDS::DBInstance`` resources that do specify the ``DBClusterIdentifier`` property, AWS CloudFormation deletes the DB instance.
-        ///   
+        ///   2.   For ``AWS::RDS::DBInstance`` resources that do specify the ``DBClusterIdentifier`` property, AWS CloudFormation deletes the DB instance.
+        /// 
         ///   For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
         /// </summary>
         public static Task<GetDbInstanceResult> InvokeAsync(GetDbInstanceArgs args, InvokeOptions? options = null)
@@ -43,21 +43,21 @@ namespace Pulumi.AwsNative.Rds
         ///  For more information about creating a DB instance in an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
         ///  If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
         ///   If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
-        ///    *Updating DB instances* 
+        ///    *Updating DB instances*
         ///  When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
         ///   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
         ///   1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
-        ///   1.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
-        ///   1.  If you want to restore your instance using a DB snapshot, modify the updated template with your DB instance changes and add the ``DBSnapshotIdentifier`` property with the ID of the DB snapshot that you want to use.
-        ///  After you restore a DB instance with a ``DBSnapshotIdentifier`` property, you can delete the ``DBSnapshotIdentifier`` property. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. If you specify a different ``DBSnapshotIdentifier`` value, a new DB instance is restored from the specified snapshot, and the original DB instance is deleted.
-        ///   1.  Update the stack.
-        ///   
+        ///   2.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
+        ///   3.  If you want to restore your instance using a DB snapshot, modify the updated template with your DB instance changes and add the ``DBSnapshotIdentifier`` property with the ID of the DB snapshot that you want to use.
+        ///        After you restore a DB instance with a ``DBSnapshotIdentifier`` property, you can delete the ``DBSnapshotIdentifier`` property. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. If you specify a different ``DBSnapshotIdentifier`` value, a new DB instance is restored from the specified snapshot, and the original DB instance is deleted.
+        ///   4.  Update the stack.
+        /// 
         ///   For more information about updating other properties of this resource, see ``ModifyDBInstance``. For more information about updating stacks, see [CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
-        ///   *Deleting DB instances* 
+        ///   *Deleting DB instances*
         ///  For DB instances that are part of an Aurora DB cluster, you can set a deletion policy for your DB instance to control how AWS CloudFormation handles the DB instance when the stack is deleted. For Amazon RDS DB instances, you can choose to *retain* the DB instance, to *delete* the DB instance, or to *create a snapshot* of the DB instance. The default AWS CloudFormation behavior depends on the ``DBClusterIdentifier`` property:
         ///   1.  For ``AWS::RDS::DBInstance`` resources that don't specify the ``DBClusterIdentifier`` property, AWS CloudFormation saves a snapshot of the DB instance.
-        ///   1.   For ``AWS::RDS::DBInstance`` resources that do specify the ``DBClusterIdentifier`` property, AWS CloudFormation deletes the DB instance.
-        ///   
+        ///   2.   For ``AWS::RDS::DBInstance`` resources that do specify the ``DBClusterIdentifier`` property, AWS CloudFormation deletes the DB instance.
+        /// 
         ///   For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
         /// </summary>
         public static Output<GetDbInstanceResult> Invoke(GetDbInstanceInvokeArgs args, InvokeOptions? options = null)
@@ -69,21 +69,21 @@ namespace Pulumi.AwsNative.Rds
         ///  For more information about creating a DB instance in an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
         ///  If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
         ///   If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
-        ///    *Updating DB instances* 
+        ///    *Updating DB instances*
         ///  When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
         ///   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
         ///   1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
-        ///   1.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
-        ///   1.  If you want to restore your instance using a DB snapshot, modify the updated template with your DB instance changes and add the ``DBSnapshotIdentifier`` property with the ID of the DB snapshot that you want to use.
-        ///  After you restore a DB instance with a ``DBSnapshotIdentifier`` property, you can delete the ``DBSnapshotIdentifier`` property. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. If you specify a different ``DBSnapshotIdentifier`` value, a new DB instance is restored from the specified snapshot, and the original DB instance is deleted.
-        ///   1.  Update the stack.
-        ///   
+        ///   2.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
+        ///   3.  If you want to restore your instance using a DB snapshot, modify the updated template with your DB instance changes and add the ``DBSnapshotIdentifier`` property with the ID of the DB snapshot that you want to use.
+        ///        After you restore a DB instance with a ``DBSnapshotIdentifier`` property, you can delete the ``DBSnapshotIdentifier`` property. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. If you specify a different ``DBSnapshotIdentifier`` value, a new DB instance is restored from the specified snapshot, and the original DB instance is deleted.
+        ///   4.  Update the stack.
+        /// 
         ///   For more information about updating other properties of this resource, see ``ModifyDBInstance``. For more information about updating stacks, see [CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
-        ///   *Deleting DB instances* 
+        ///   *Deleting DB instances*
         ///  For DB instances that are part of an Aurora DB cluster, you can set a deletion policy for your DB instance to control how AWS CloudFormation handles the DB instance when the stack is deleted. For Amazon RDS DB instances, you can choose to *retain* the DB instance, to *delete* the DB instance, or to *create a snapshot* of the DB instance. The default AWS CloudFormation behavior depends on the ``DBClusterIdentifier`` property:
         ///   1.  For ``AWS::RDS::DBInstance`` resources that don't specify the ``DBClusterIdentifier`` property, AWS CloudFormation saves a snapshot of the DB instance.
-        ///   1.   For ``AWS::RDS::DBInstance`` resources that do specify the ``DBClusterIdentifier`` property, AWS CloudFormation deletes the DB instance.
-        ///   
+        ///   2.   For ``AWS::RDS::DBInstance`` resources that do specify the ``DBClusterIdentifier`` property, AWS CloudFormation deletes the DB instance.
+        /// 
         ///   For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
         /// </summary>
         public static Output<GetDbInstanceResult> Invoke(GetDbInstanceInvokeArgs args, InvokeOutputOptions options)
@@ -133,56 +133,56 @@ namespace Pulumi.AwsNative.Rds
         public readonly ImmutableArray<Outputs.DbInstanceAdditionalStorageVolume> AdditionalStorageVolumes;
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
-        ///   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
-        ///    *Amazon Aurora* 
+        ///   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
+        ///    *Amazon Aurora*
         ///  Not applicable. Aurora cluster volumes automatically grow as the amount of data in your database increases, though you are only charged for the space that you use in an Aurora cluster volume.
-        ///   *Db2* 
+        ///   *Db2*
         ///  Constraints to the amount of storage for each storage type are the following:
         ///   +  General Purpose (SSD) storage (gp3): Must be an integer from 20 to 64000.
         ///   +  Provisioned IOPS storage (io1): Must be an integer from 100 to 64000.
-        ///   
-        ///   *MySQL* 
-        ///  Constraints to the amount of storage for each storage type are the following: 
+        /// 
+        ///   *MySQL*
+        ///  Constraints to the amount of storage for each storage type are the following:
         ///   +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.
         ///   +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.
         ///   +  Magnetic storage (standard): Must be an integer from 5 to 3072.
-        ///   
-        ///   *MariaDB* 
-        ///  Constraints to the amount of storage for each storage type are the following: 
+        /// 
+        ///   *MariaDB*
+        ///  Constraints to the amount of storage for each storage type are the following:
         ///   +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.
         ///   +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.
         ///   +  Magnetic storage (standard): Must be an integer from 5 to 3072.
-        ///   
-        ///   *PostgreSQL* 
-        ///  Constraints to the amount of storage for each storage type are the following: 
+        /// 
+        ///   *PostgreSQL*
+        ///  Constraints to the amount of storage for each storage type are the following:
         ///   +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.
         ///   +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.
         ///   +  Magnetic storage (standard): Must be an integer from 5 to 3072.
-        ///   
-        ///   *Oracle* 
-        ///  Constraints to the amount of storage for each storage type are the following: 
+        /// 
+        ///   *Oracle*
+        ///  Constraints to the amount of storage for each storage type are the following:
         ///   +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.
         ///   +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.
         ///   +  Magnetic storage (standard): Must be an integer from 10 to 3072.
-        ///   
-        ///   *SQL Server* 
-        ///  Constraints to the amount of storage for each storage type are the following: 
+        /// 
+        ///   *SQL Server*
+        ///  Constraints to the amount of storage for each storage type are the following:
         ///   +  General Purpose (SSD) storage (gp2):
         ///   +  Enterprise and Standard editions: Must be an integer from 20 to 16384.
         ///   +  Web and Express editions: Must be an integer from 20 to 16384.
-        ///   
+        /// 
         ///   +  Provisioned IOPS storage (io1):
         ///   +  Enterprise and Standard editions: Must be an integer from 20 to 16384.
         ///   +  Web and Express editions: Must be an integer from 20 to 16384.
-        ///   
+        /// 
         ///   +  Magnetic storage (standard):
         ///   +  Enterprise and Standard editions: Must be an integer from 20 to 1024.
         ///   +  Web and Express editions: Must be an integer from 20 to 1024.
         /// </summary>
         public readonly string? AllocatedStorage;
         /// <summary>
-        /// The IAMlong (IAM) roles associated with the DB instance. 
-        ///   *Amazon Aurora* 
+        /// The IAMlong (IAM) roles associated with the DB instance.
+        ///   *Amazon Aurora*
         ///  Not applicable. The associated roles are managed by the DB cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.DbInstanceDbInstanceRole> AssociatedRoles;
@@ -195,7 +195,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? AutomaticBackupReplicationRegion;
         /// <summary>
-        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. 
+        /// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter.
         ///  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
         /// </summary>
         public readonly int? AutomaticBackupReplicationRetentionPeriod;
@@ -210,13 +210,13 @@ namespace Pulumi.AwsNative.Rds
         ///  Constraints:
         ///   +  The ``AvailabilityZone`` parameter can't be specified if the DB instance is a Multi-AZ deployment.
         ///   +  The specified Availability Zone must be in the same AWS-Region as the current endpoint.
-        ///   
+        /// 
         ///  Example: ``us-east-1d``
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
         /// The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
-        ///   *Amazon Aurora* 
+        ///   *Amazon Aurora*
         ///  Not applicable. The retention period for automated backups is managed by the DB cluster.
         ///  Default: 1
         ///  Constraints:
@@ -266,7 +266,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
         ///  To list all of the available DB parameter group names, use the following command:
-        ///   ``aws rds describe-db-parameter-groups --query "DBParameterGroups[].DBParameterGroupName" --output text`` 
+        ///   ``aws rds describe-db-parameter-groups --query "DBParameterGroups[].DBParameterGroupName" --output text``
         ///   If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
         ///   If you don't specify a value for ``DBParameterGroupName`` property, the default DB parameter group for the specified engine and engine version is used.
         /// </summary>
@@ -275,27 +275,27 @@ namespace Pulumi.AwsNative.Rds
         /// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         ///   If you set DBSecurityGroups, you must not set VPCSecurityGroups, and vice versa. Also, note that the DBSecurityGroups property exists only for backwards compatibility with older regions and is no longer recommended for providing security information to an RDS DB instance. Instead, use VPCSecurityGroups.
         ///   If you specify this property, AWS CloudFormation sends only the following properties (if specified) to Amazon RDS during create operations:
-        ///   +   ``AllocatedStorage`` 
-        ///   +   ``AutoMinorVersionUpgrade`` 
-        ///   +   ``AvailabilityZone`` 
-        ///   +   ``BackupRetentionPeriod`` 
-        ///   +   ``CharacterSetName`` 
-        ///   +   ``DBInstanceClass`` 
-        ///   +   ``DBName`` 
-        ///   +   ``DBParameterGroupName`` 
-        ///   +   ``DBSecurityGroups`` 
-        ///   +   ``DBSubnetGroupName`` 
-        ///   +   ``Engine`` 
-        ///   +   ``EngineVersion`` 
-        ///   +   ``Iops`` 
-        ///   +   ``LicenseModel`` 
-        ///   +   ``MasterUsername`` 
-        ///   +   ``MasterUserPassword`` 
-        ///   +   ``MultiAZ`` 
-        ///   +   ``OptionGroupName`` 
-        ///   +   ``PreferredBackupWindow`` 
-        ///   +   ``PreferredMaintenanceWindow`` 
-        ///   
+        ///   +   ``AllocatedStorage``
+        ///   +   ``AutoMinorVersionUpgrade``
+        ///   +   ``AvailabilityZone``
+        ///   +   ``BackupRetentionPeriod``
+        ///   +   ``CharacterSetName``
+        ///   +   ``DBInstanceClass``
+        ///   +   ``DBName``
+        ///   +   ``DBParameterGroupName``
+        ///   +   ``DBSecurityGroups``
+        ///   +   ``DBSubnetGroupName``
+        ///   +   ``Engine``
+        ///   +   ``EngineVersion``
+        ///   +   ``Iops``
+        ///   +   ``LicenseModel``
+        ///   +   ``MasterUsername``
+        ///   +   ``MasterUserPassword``
+        ///   +   ``MultiAZ``
+        ///   +   ``OptionGroupName``
+        ///   +   ``PreferredBackupWindow``
+        ///   +   ``PreferredMaintenanceWindow``
+        /// 
         ///  All other properties are ignored. Specify a virtual private cloud (VPC) security group if you want to submit other properties, such as ``StorageType``, ``StorageEncrypted``, or ``KmsKeyId``. If you're already using the ``DBSecurityGroups`` property, you can't use these other properties by updating your DB instance to use a VPC security group. You must recreate the DB instance.
         /// </summary>
         public readonly ImmutableArray<string> DbSecurityGroups;
@@ -326,7 +326,7 @@ namespace Pulumi.AwsNative.Rds
         /// The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.
         ///  Constraints:
         ///   +  Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list.
-        ///   
+        /// 
         ///  Example: ``123.124.125.126,234.235.236.237``
         /// </summary>
         public readonly ImmutableArray<string> DomainDnsIps;
@@ -334,7 +334,7 @@ namespace Pulumi.AwsNative.Rds
         /// The fully qualified domain name (FQDN) of an Active Directory domain.
         ///  Constraints:
         ///   +  Can't be longer than 64 characters.
-        ///   
+        /// 
         ///  Example: ``mymanagedADtest.mymanagedAD.mydomain``
         /// </summary>
         public readonly string? DomainFqdn;
@@ -350,32 +350,32 @@ namespace Pulumi.AwsNative.Rds
         ///  Constraints:
         ///   +  Must be in the distinguished name format.
         ///   +  Can't be longer than 64 characters.
-        ///   
+        /// 
         ///  Example: ``OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain``
         /// </summary>
         public readonly string? DomainOu;
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Relational Database Service User Guide*.
-        ///   *Amazon Aurora* 
-        ///  Not applicable. CloudWatch Logs exports are managed by the DB cluster. 
-        ///   *Db2* 
+        ///   *Amazon Aurora*
+        ///  Not applicable. CloudWatch Logs exports are managed by the DB cluster.
+        ///   *Db2*
         ///  Valid values: ``diag.log``, ``notify.log``
-        ///   *MariaDB* 
+        ///   *MariaDB*
         ///  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
-        ///   *Microsoft SQL Server* 
+        ///   *Microsoft SQL Server*
         ///  Valid values: ``agent``, ``error``
-        ///   *MySQL* 
+        ///   *MySQL*
         ///  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
-        ///   *Oracle* 
+        ///   *Oracle*
         ///  Valid values: ``alert``, ``audit``, ``listener``, ``trace``, ``oemagent``
-        ///   *PostgreSQL* 
+        ///   *PostgreSQL*
         ///  Valid values: ``postgresql``, ``upgrade``
         /// </summary>
         public readonly ImmutableArray<string> EnableCloudwatchLogsExports;
         /// <summary>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         ///  This property is supported for RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL. For more information, see [IAM Database Authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.*
-        ///   *Amazon Aurora* 
+        ///   *Amazon Aurora*
         ///  Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
         /// </summary>
         public readonly bool? EnableIamDatabaseAuthentication;
@@ -397,18 +397,18 @@ namespace Pulumi.AwsNative.Rds
         ///   +  ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
         ///   +  ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
         ///   +  ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
-        ///   +   ``db2-ae`` 
-        ///   +   ``db2-se`` 
-        ///   +   ``mariadb`` 
-        ///   +   ``mysql`` 
-        ///   +   ``oracle-ee`` 
-        ///   +   ``oracle-ee-cdb`` 
-        ///   +   ``oracle-se2`` 
-        ///   +   ``oracle-se2-cdb`` 
-        ///   +   ``postgres`` 
-        ///   +   ``sqlserver-ee`` 
-        ///   +   ``sqlserver-se`` 
-        ///   +   ``sqlserver-ex`` 
+        ///   +   ``db2-ae``
+        ///   +   ``db2-se``
+        ///   +   ``mariadb``
+        ///   +   ``mysql``
+        ///   +   ``oracle-ee``
+        ///   +   ``oracle-ee-cdb``
+        ///   +   ``oracle-se2``
+        ///   +   ``oracle-se2-cdb``
+        ///   +   ``postgres``
+        ///   +   ``sqlserver-ee``
+        ///   +   ``sqlserver-se``
+        ///   +   ``sqlserver-ex``
         ///   +   ``sqlserver-web``
         /// </summary>
         public readonly string? Engine;
@@ -425,19 +425,19 @@ namespace Pulumi.AwsNative.Rds
         /// The version number of the database engine to use.
         ///  For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.
         ///  The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.
-        ///   *Amazon Aurora* 
+        ///   *Amazon Aurora*
         ///  Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.
-        ///   *Db2* 
+        ///   *Db2*
         ///  See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
-        ///   *MariaDB* 
+        ///   *MariaDB*
         ///  See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
-        ///   *Microsoft SQL Server* 
+        ///   *Microsoft SQL Server*
         ///  See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*
-        ///   *MySQL* 
+        ///   *MySQL*
         ///  See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
-        ///   *Oracle* 
+        ///   *Oracle*
         ///  See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*
-        ///   *PostgreSQL* 
+        ///   *PostgreSQL*
         ///  See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
         ///   If you specify a version prefix rather than a full version number, AWS CloudFormation uses prefix matching during drift detection.
         ///  For example, ``"8.0"`` for MySQL or ``"16"`` for PostgreSQL matches any version that starts with that prefix.
@@ -448,7 +448,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? InstanceCreateTime;
         /// <summary>
-        /// The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000. 
+        /// The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000.
         ///  If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
         ///   If you specify ``io1`` for the ``StorageType`` property, then you must also specify the ``Iops`` property.
         ///   Constraints:
@@ -475,7 +475,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  RDS for MySQL - ``general-public-license``
         ///   +  RDS for Oracle - ``bring-your-own-license`` or ``license-included``
         ///   +  RDS for PostgreSQL - ``postgresql-license``
-        ///   
+        /// 
         ///   If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
         /// </summary>
         public readonly string? LicenseModel;
@@ -522,9 +522,9 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The network type of the DB instance.
         ///  Valid values:
-        ///   +   ``IPV4`` 
-        ///   +   ``DUAL`` 
-        ///   
+        ///   +   ``IPV4``
+        ///   +   ``DUAL``
+        /// 
         ///  The network type is determined by the ``DBSubnetGroup`` specified for the DB instance. A ``DBSubnetGroup`` can support only the IPv4 protocol or the IPv4 and IPv6 protocols (``DUAL``).
         ///  For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon RDS User Guide.*
         /// </summary>
@@ -546,7 +546,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Enabling or disabling Performance Insights using the ``EnablePerformanceInsights`` property
         ///   +  Changing between different identifier formats (key ARN, key ID, alias ARN, alias name) of the same physical KMS key
         ///   +  Removing the ``PerformanceInsightsKMSKeyId`` property from your template
-        ///   
+        /// 
         ///    *Drift behavior:* If you specify ``PerformanceInsightsKMSKeyId`` while ``EnablePerformanceInsights`` is set to ``false``, CloudFormation will report drift. This occurs because the RDS API does not allow setting a KMS key when Performance Insights is disabled. CloudFormation ignores the ``PerformanceInsightsKMSKeyId`` value during instance creation to avoid API errors, resulting in a mismatch between your template and the actual instance configuration.
         ///  To avoid drift, omit both ``EnablePerformanceInsights`` and ``PerformanceInsightsKMSKeyId`` during initial instance creation, then set both properties together when you're ready to enable Performance Insights.
         ///   For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights).
@@ -556,10 +556,10 @@ namespace Pulumi.AwsNative.Rds
         /// The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
         ///  This setting doesn't apply to RDS Custom DB instances.
         ///  Valid Values:
-        ///   +   ``7`` 
+        ///   +   ``7``
         ///   +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
-        ///   +   ``731`` 
-        ///   
+        ///   +   ``731``
+        /// 
         ///  Default: ``7`` days
         ///  If you specify a retention period that isn't valid, such as ``94``, Amazon RDS returns an error.
         /// </summary>
@@ -575,7 +575,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  RDS for MySQL - ``3306``
         ///   +  RDS for Oracle - ``1521``
         ///   +  RDS for PostgreSQL - ``5432``
-        ///   
+        /// 
         ///  Constraints:
         ///   +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
         /// </summary>
@@ -587,8 +587,8 @@ namespace Pulumi.AwsNative.Rds
         ///   +  Must be in Universal Coordinated Time (UTC).
         ///   +  Must not conflict with the preferred maintenance window.
         ///   +  Must be at least 30 minutes.
-        ///   
-        ///   *Amazon Aurora* 
+        /// 
+        ///   *Amazon Aurora*
         ///  Not applicable. The daily time range for creating automated backups is managed by the DB cluster.
         /// </summary>
         public readonly string? PreferredBackupWindow;
@@ -613,7 +613,7 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly int? PromotionTier;
         /// <summary>
-        /// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address. 
+        /// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
         ///  The default behavior value depends on your VPC setup and the database subnet group. For more information, see the ``PubliclyAccessible`` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference*.
         /// </summary>
         public readonly bool? PubliclyAccessible;
@@ -656,7 +656,7 @@ namespace Pulumi.AwsNative.Rds
         public readonly int? StorageOperationPercentProgress;
         public readonly string? StorageOperationStatus;
         /// <summary>
-        /// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type. 
+        /// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type.
         ///  This setting doesn't apply to RDS Custom or Amazon Aurora.
         /// </summary>
         public readonly int? StorageThroughput;
@@ -681,9 +681,9 @@ namespace Pulumi.AwsNative.Rds
         ///   +  You can't revert to using an RDS security group after you establish a VPC security group membership.
         ///   +  When you migrate your DB instance to VPC security groups, if your stack update rolls back because the DB instance update fails or because an update fails in another AWS CloudFormation resource, the rollback fails because it can't revert to an RDS security group.
         ///   +  To use the properties that are available when you use a VPC security group, you must recreate the DB instance. If you don't, AWS CloudFormation submits only the property values that are listed in the [DBSecurityGroups](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups) property.
-        ///   
-        ///   To avoid this situation, migrate your DB instance to using VPC security groups only when that is the only change in your stack template. 
-        ///   *Amazon Aurora* 
+        /// 
+        ///   To avoid this situation, migrate your DB instance to using VPC security groups only when that is the only change in your stack template.
+        ///   *Amazon Aurora*
         ///  Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroups;

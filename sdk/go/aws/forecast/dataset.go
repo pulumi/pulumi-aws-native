@@ -89,6 +89,12 @@ func (DatasetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetState)(nil)).Elem()
 }
 
+// DatasetExists checks whether an existing Dataset resource with the given ID exists.
+func DatasetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:forecast:Dataset", id, state, "", opts...)
+}
+
 type datasetArgs struct {
 	// Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
 	DataFrequency *string `pulumi:"dataFrequency"`

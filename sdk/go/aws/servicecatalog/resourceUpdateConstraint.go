@@ -83,6 +83,12 @@ func (ResourceUpdateConstraintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceUpdateConstraintState)(nil)).Elem()
 }
 
+// ResourceUpdateConstraintExists checks whether an existing ResourceUpdateConstraint resource with the given ID exists.
+func ResourceUpdateConstraintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceUpdateConstraintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:ResourceUpdateConstraint", id, state, "", opts...)
+}
+
 type resourceUpdateConstraintArgs struct {
 	// The language code
 	AcceptLanguage *string `pulumi:"acceptLanguage"`

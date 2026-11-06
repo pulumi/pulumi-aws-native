@@ -80,6 +80,12 @@ func (TableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableState)(nil)).Elem()
 }
 
+// TableExists checks whether an existing Table resource with the given ID exists.
+func TableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:Table", id, state, "", opts...)
+}
+
 type tableArgs struct {
 	// The ID of the Data Catalog in which to create the Table.
 	CatalogId string `pulumi:"catalogId"`

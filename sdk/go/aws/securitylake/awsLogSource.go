@@ -77,6 +77,12 @@ func (AwsLogSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsLogSourceState)(nil)).Elem()
 }
 
+// AwsLogSourceExists checks whether an existing AwsLogSource resource with the given ID exists.
+func AwsLogSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsLogSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securitylake:AwsLogSource", id, state, "", opts...)
+}
+
 type awsLogSourceArgs struct {
 	// AWS account where you want to collect logs from.
 	Accounts []string `pulumi:"accounts"`

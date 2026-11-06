@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3Express.Inputs
     public sealed class DirectoryBucketDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account ID that owns the destination S3 bucket. 
+        /// The account ID that owns the destination S3 bucket.
         /// </summary>
         [Input("bucketAccountId")]
         public Input<string>? BucketAccountId { get; set; }

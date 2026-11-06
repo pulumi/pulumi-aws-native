@@ -110,6 +110,12 @@ func (DataSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceState)(nil)).Elem()
 }
 
+// DataSourceExists checks whether an existing DataSource resource with the given ID exists.
+func DataSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:DataSource", id, state, "", opts...)
+}
+
 type dataSourceArgs struct {
 	// <p>A set of alternate data source parameters that you want to share for the credentials
 	//             stored with this data source. The credentials are applied in tandem with the data source

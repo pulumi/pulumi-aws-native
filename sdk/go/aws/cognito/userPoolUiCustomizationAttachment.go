@@ -74,6 +74,12 @@ func (UserPoolUiCustomizationAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolUiCustomizationAttachmentState)(nil)).Elem()
 }
 
+// UserPoolUiCustomizationAttachmentExists checks whether an existing UserPoolUiCustomizationAttachment resource with the given ID exists.
+func UserPoolUiCustomizationAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolUiCustomizationAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolUiCustomizationAttachment", id, state, "", opts...)
+}
+
 type userPoolUiCustomizationAttachmentArgs struct {
 	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId string `pulumi:"clientId"`

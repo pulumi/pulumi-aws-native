@@ -133,11 +133,11 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_buses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict']]]]] = None,
+                 event_buses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict', 'outputs.EndpointEventBus']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 replication_config: pulumi.Input[Optional[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict']]] = None,
+                 replication_config: pulumi.Input[Optional[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict', 'outputs.EndpointReplicationConfig']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_config: pulumi.Input[Optional[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict']]] = None,
+                 routing_config: pulumi.Input[Optional[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict', 'outputs.EndpointRoutingConfig']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Events::Endpoint.
@@ -213,13 +213,13 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict']]]] event_buses: The event buses being used by the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict', 'outputs.EndpointEventBus']]]] event_buses: The event buses being used by the endpoint.
                
                *Exactly* : `2`
         :param pulumi.Input[_builtins.str] name: The name of the endpoint.
-        :param pulumi.Input[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict']] replication_config: Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        :param pulumi.Input[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict', 'outputs.EndpointReplicationConfig']] replication_config: Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role used by event replication for the endpoint.
-        :param pulumi.Input[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict']] routing_config: The routing configuration of the endpoint.
+        :param pulumi.Input[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict', 'outputs.EndpointRoutingConfig']] routing_config: The routing configuration of the endpoint.
         """
         ...
     @overload
@@ -314,11 +314,11 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_buses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict']]]]] = None,
+                 event_buses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointEventBusArgs', 'EndpointEventBusArgsDict', 'outputs.EndpointEventBus']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 replication_config: pulumi.Input[Optional[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict']]] = None,
+                 replication_config: pulumi.Input[Optional[Union['EndpointReplicationConfigArgs', 'EndpointReplicationConfigArgsDict', 'outputs.EndpointReplicationConfig']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_config: pulumi.Input[Optional[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict']]] = None,
+                 routing_config: pulumi.Input[Optional[Union['EndpointRoutingConfigArgs', 'EndpointRoutingConfigArgsDict', 'outputs.EndpointRoutingConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -379,6 +379,12 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["state"] = None
         __props__.__dict__["state_reason"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:events:Endpoint', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

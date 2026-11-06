@@ -73,6 +73,12 @@ func (CrlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*crlState)(nil)).Elem()
 }
 
+// CrlExists checks whether an existing Crl resource with the given ID exists.
+func CrlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CrlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rolesanywhere:Crl", id, state, "", opts...)
+}
+
 type crlArgs struct {
 	// The x509 v3 specified certificate revocation list (CRL).
 	CrlData string `pulumi:"crlData"`

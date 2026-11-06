@@ -79,7 +79,7 @@ import (
 //				return err
 //			}
 //			dependentConfigurationProfile, err := appconfig.NewConfigurationProfile(ctx, "dependentConfigurationProfile", &appconfig.ConfigurationProfileArgs{
-//				ApplicationId: dependentApplication.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationId: dependentApplication.ID(),
 //				Name:          pulumi.String("MyTestProfile"),
 //				LocationUri:   pulumi.String("hosted"),
 //			})
@@ -87,8 +87,8 @@ import (
 //				return err
 //			}
 //			_, err = appconfig.NewHostedConfigurationVersion(ctx, "basicHostedConfigurationVersion", &appconfig.HostedConfigurationVersionArgs{
-//				ApplicationId:          dependentApplication.ID().ToIDOutput().ToStringOutput(),
-//				ConfigurationProfileId: dependentConfigurationProfile.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationId:          dependentApplication.ID(),
+//				ConfigurationProfileId: dependentConfigurationProfile.ID(),
 //				Description:            pulumi.String("A sample hosted configuration version"),
 //				Content:                pulumi.String("My hosted configuration content"),
 //				ContentType:            pulumi.String("text/plain"),
@@ -151,6 +151,12 @@ type ApplicationState struct {
 
 func (ApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationState)(nil)).Elem()
+}
+
+// ApplicationExists checks whether an existing Application resource with the given ID exists.
+func ApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appconfig:Application", id, state, "", opts...)
 }
 
 type applicationArgs struct {

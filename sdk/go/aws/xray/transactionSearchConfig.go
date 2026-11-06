@@ -63,6 +63,12 @@ func (TransactionSearchConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transactionSearchConfigState)(nil)).Elem()
 }
 
+// TransactionSearchConfigExists checks whether an existing TransactionSearchConfig resource with the given ID exists.
+func TransactionSearchConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransactionSearchConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:xray:TransactionSearchConfig", id, state, "", opts...)
+}
+
 type transactionSearchConfigArgs struct {
 	CloudWatchLogsConfiguration *TransactionSearchConfigCloudWatchLogsConfiguration `pulumi:"cloudWatchLogsConfiguration"`
 	IndexingPercentage          *float64                                            `pulumi:"indexingPercentage"`

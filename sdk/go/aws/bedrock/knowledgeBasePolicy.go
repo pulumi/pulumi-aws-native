@@ -75,6 +75,12 @@ func (KnowledgeBasePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*knowledgeBasePolicyState)(nil)).Elem()
 }
 
+// KnowledgeBasePolicyExists checks whether an existing KnowledgeBasePolicy resource with the given ID exists.
+func KnowledgeBasePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KnowledgeBasePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:KnowledgeBasePolicy", id, state, "", opts...)
+}
+
 type knowledgeBasePolicyArgs struct {
 	// The unique identifier of the knowledge base
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`

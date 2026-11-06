@@ -103,7 +103,7 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 studio_encryption_configuration: pulumi.Input[Optional[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']]] = None,
+                 studio_encryption_configuration: pulumi.Input[Optional[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict', 'outputs.StudioEncryptionConfiguration']]] = None,
                  studio_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -140,7 +140,7 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 studio_encryption_configuration: pulumi.Input[Optional[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']]] = None,
+                 studio_encryption_configuration: pulumi.Input[Optional[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict', 'outputs.StudioEncryptionConfiguration']]] = None,
                  studio_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -204,6 +204,12 @@ class Studio(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["user_role_arn"] = None
         return Studio(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:nimblestudio:Studio', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="adminRoleArn")

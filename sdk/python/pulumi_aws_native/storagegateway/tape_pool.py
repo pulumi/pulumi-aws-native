@@ -117,7 +117,7 @@ class TapePool(pulumi.CustomResource):
                  retention_lock_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  retention_lock_type: pulumi.Input[Optional['TapePoolRetentionLockType']] = None,
                  storage_class: pulumi.Input[Optional['TapePoolStorageClass']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a custom tape pool for archiving virtual tapes with optional retention lock.
@@ -128,7 +128,7 @@ class TapePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] retention_lock_time_in_days: Tape retention lock time in days (up to 36,500 days / 100 years).
         :param pulumi.Input['TapePoolRetentionLockType'] retention_lock_type: Tape retention lock type. Governance mode allows authorized removal; compliance mode prevents all removal.
         :param pulumi.Input['TapePoolStorageClass'] storage_class: The storage class associated with the custom pool (S3 Glacier or S3 Glacier Deep Archive).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of up to 50 tags for the tape pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of up to 50 tags for the tape pool.
         """
         ...
     @overload
@@ -158,7 +158,7 @@ class TapePool(pulumi.CustomResource):
                  retention_lock_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  retention_lock_type: pulumi.Input[Optional['TapePoolRetentionLockType']] = None,
                  storage_class: pulumi.Input[Optional['TapePoolStorageClass']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -209,6 +209,12 @@ class TapePool(pulumi.CustomResource):
         __props__.__dict__["storage_class"] = None
         __props__.__dict__["tags"] = None
         return TapePool(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:storagegateway:TapePool', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="poolArn")

@@ -89,6 +89,12 @@ func (PolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyState)(nil)).Elem()
 }
 
+// PolicyExists checks whether an existing Policy resource with the given ID exists.
+func PolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:Policy", id, state, "", opts...)
+}
+
 type policyArgs struct {
 	Definition PolicyDefinition `pulumi:"definition"`
 	// A human-readable description of the policy's purpose and functionality.

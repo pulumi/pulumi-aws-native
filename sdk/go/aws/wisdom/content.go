@@ -94,6 +94,12 @@ func (ContentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contentState)(nil)).Elem()
 }
 
+// ContentExists checks whether an existing Content resource with the given ID exists.
+func ContentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:Content", id, state, "", opts...)
+}
+
 type contentArgs struct {
 	// The identifier of the knowledge base.
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`

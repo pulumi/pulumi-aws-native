@@ -90,6 +90,12 @@ func (TermsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*termsState)(nil)).Elem()
 }
 
+// TermsExists checks whether an existing Terms resource with the given ID exists.
+func TermsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TermsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:Terms", id, state, "", opts...)
+}
+
 type termsArgs struct {
 	// The ID of the app client that the terms documents are assigned to.
 	ClientId *string `pulumi:"clientId"`

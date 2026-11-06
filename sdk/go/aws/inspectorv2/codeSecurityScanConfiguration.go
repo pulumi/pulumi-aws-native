@@ -74,6 +74,12 @@ func (CodeSecurityScanConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*codeSecurityScanConfigurationState)(nil)).Elem()
 }
 
+// CodeSecurityScanConfigurationExists checks whether an existing CodeSecurityScanConfiguration resource with the given ID exists.
+func CodeSecurityScanConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CodeSecurityScanConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:inspectorv2:CodeSecurityScanConfiguration", id, state, "", opts...)
+}
+
 type codeSecurityScanConfigurationArgs struct {
 	// Code Security Scan Configuration
 	Configuration *CodeSecurityScanConfigurationType `pulumi:"configuration"`

@@ -105,6 +105,12 @@ func (DbInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbInstanceState)(nil)).Elem()
 }
 
+// DbInstanceExists checks whether an existing DbInstance resource with the given ID exists.
+func DbInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:neptune:DbInstance", id, state, "", opts...)
+}
+
 type dbInstanceArgs struct {
 	// Indicates that major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
 	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`

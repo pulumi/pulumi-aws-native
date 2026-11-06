@@ -87,6 +87,12 @@ func (SpotFleetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotFleetState)(nil)).Elem()
 }
 
+// SpotFleetExists checks whether an existing SpotFleet resource with the given ID exists.
+func SpotFleetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpotFleetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SpotFleet", id, state, "", opts...)
+}
+
 type spotFleetArgs struct {
 	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData SpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`

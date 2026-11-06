@@ -101,7 +101,7 @@ class Scope(pulumi.CustomResource):
                  scope_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_description: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::NetworkSecurityManager::Scope. Creates and manages a Network Security Manager scope.
@@ -111,7 +111,7 @@ class Scope(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] scope_configuration: The scope configuration as a JSON string.
         :param pulumi.Input[_builtins.str] scope_description: A description of the scope.
         :param pulumi.Input[_builtins.str] scope_name: The name of the scope.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the scope.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the scope.
         """
         ...
     @overload
@@ -140,7 +140,7 @@ class Scope(pulumi.CustomResource):
                  scope_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_description: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,6 +193,12 @@ class Scope(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = None
         __props__.__dict__["version"] = None
         return Scope(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:networksecuritymanager:Scope', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="scopeArn")

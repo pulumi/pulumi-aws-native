@@ -96,6 +96,12 @@ func (PerfReportsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*perfReportsState)(nil)).Elem()
 }
 
+// PerfReportsExists checks whether an existing PerfReports resource with the given ID exists.
+func PerfReportsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PerfReportsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pi:PerfReports", id, state, "", opts...)
+}
+
 type perfReportsArgs struct {
 	// The end time defined for the analysis report in ISO 8601 format.
 	EndTime string `pulumi:"endTime"`

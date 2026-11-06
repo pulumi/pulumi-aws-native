@@ -87,6 +87,12 @@ func (LinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkState)(nil)).Elem()
 }
 
+// LinkExists checks whether an existing Link resource with the given ID exists.
+func LinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rtbfabric:Link", id, state, "", opts...)
+}
+
 type linkArgs struct {
 	// The unique identifier of the gateway.
 	GatewayId string `pulumi:"gatewayId"`

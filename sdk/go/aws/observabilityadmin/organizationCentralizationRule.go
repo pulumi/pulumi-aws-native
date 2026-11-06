@@ -72,6 +72,12 @@ func (OrganizationCentralizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationCentralizationRuleState)(nil)).Elem()
 }
 
+// OrganizationCentralizationRuleExists checks whether an existing OrganizationCentralizationRule resource with the given ID exists.
+func OrganizationCentralizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationCentralizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:observabilityadmin:OrganizationCentralizationRule", id, state, "", opts...)
+}
+
 type organizationCentralizationRuleArgs struct {
 	Rule OrganizationCentralizationRuleCentralizationRule `pulumi:"rule"`
 	// The name of the organization centralization rule.

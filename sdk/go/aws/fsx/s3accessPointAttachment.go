@@ -80,6 +80,12 @@ func (S3AccessPointAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*s3accessPointAttachmentState)(nil)).Elem()
 }
 
+// S3AccessPointAttachmentExists checks whether an existing S3AccessPointAttachment resource with the given ID exists.
+func S3AccessPointAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *S3AccessPointAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:fsx:S3AccessPointAttachment", id, state, "", opts...)
+}
+
 type s3accessPointAttachmentArgs struct {
 	// The name of the S3 access point attachment; also used for the name of the S3 access point.
 	Name *string `pulumi:"name"`

@@ -85,6 +85,12 @@ func (StorageVirtualMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageVirtualMachineState)(nil)).Elem()
 }
 
+// StorageVirtualMachineExists checks whether an existing StorageVirtualMachine resource with the given ID exists.
+func StorageVirtualMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageVirtualMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:fsx:StorageVirtualMachine", id, state, "", opts...)
+}
+
 type storageVirtualMachineArgs struct {
 	// Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.
 	ActiveDirectoryConfiguration *StorageVirtualMachineActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`

@@ -87,6 +87,12 @@ func (HarnessEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*harnessEndpointState)(nil)).Elem()
 }
 
+// HarnessEndpointExists checks whether an existing HarnessEndpoint resource with the given ID exists.
+func HarnessEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HarnessEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:HarnessEndpoint", id, state, "", opts...)
+}
+
 type harnessEndpointArgs struct {
 	// The description of the endpoint.
 	Description *string `pulumi:"description"`

@@ -17,9 +17,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     ///  +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
     ///   +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
     ///   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-    ///  In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-    ///   ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'`` 
-    ///   
+    ///       In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+    ///        ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+    /// 
     ///  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     /// </summary>
     public sealed class DetectorModelAssetPropertyTimestampArgs : global::Pulumi.ResourceArgs

@@ -75,6 +75,12 @@ func (MailManagerAddonSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailManagerAddonSubscriptionState)(nil)).Elem()
 }
 
+// MailManagerAddonSubscriptionExists checks whether an existing MailManagerAddonSubscription resource with the given ID exists.
+func MailManagerAddonSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailManagerAddonSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:MailManagerAddonSubscription", id, state, "", opts...)
+}
+
 type mailManagerAddonSubscriptionArgs struct {
 	// The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
 	//

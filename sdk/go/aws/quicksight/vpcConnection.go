@@ -92,6 +92,12 @@ func (VpcConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcConnectionState)(nil)).Elem()
 }
 
+// VpcConnectionExists checks whether an existing VpcConnection resource with the given ID exists.
+func VpcConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:VpcConnection", id, state, "", opts...)
+}
+
 type vpcConnectionArgs struct {
 	// The availability status of the VPC connection.
 	AvailabilityStatus *VpcConnectionVpcConnectionAvailabilityStatus `pulumi:"availabilityStatus"`

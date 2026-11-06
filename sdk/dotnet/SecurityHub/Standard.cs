@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public partial class Standard : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies which controls are to be disabled in a standard. 
+        /// Specifies which controls are to be disabled in a standard.
         ///  *Maximum*: ``100``
         /// </summary>
         [Output("disabledStandardsControls")]
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.SecurityHub
         private InputList<Inputs.StandardsControlArgs>? _disabledStandardsControls;
 
         /// <summary>
-        /// Specifies which controls are to be disabled in a standard. 
+        /// Specifies which controls are to be disabled in a standard.
         ///  *Maximum*: ``100``
         /// </summary>
         public InputList<Inputs.StandardsControlArgs> DisabledStandardsControls

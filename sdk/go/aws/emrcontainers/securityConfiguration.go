@@ -79,6 +79,12 @@ func (SecurityConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityConfigurationState)(nil)).Elem()
 }
 
+// SecurityConfigurationExists checks whether an existing SecurityConfiguration resource with the given ID exists.
+func SecurityConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:emrcontainers:SecurityConfiguration", id, state, "", opts...)
+}
+
 type securityConfigurationArgs struct {
 	// Container provider for the security configuration.
 	ContainerProvider *SecurityConfigurationContainerProvider `pulumi:"containerProvider"`

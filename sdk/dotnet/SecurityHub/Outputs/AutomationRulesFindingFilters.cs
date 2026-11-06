@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> AwsAccountId;
         /// <summary>
-        /// The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
+        /// The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> CompanyName;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ComplianceSecurityControlId;
         /// <summary>
-        /// The result of a security check. This field is only used for findings generated from controls. 
+        /// The result of a security check. This field is only used for findings generated from controls.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ComplianceStatus;
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleNumberFilter> Confidence;
         /// <summary>
-        /// A timestamp that indicates when this finding record was created. 
+        /// A timestamp that indicates when this finding record was created.
         ///  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
@@ -58,34 +58,34 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleNumberFilter> Criticality;
         /// <summary>
-        /// A finding's description. 
+        /// A finding's description.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> Description;
         /// <summary>
-        /// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. 
+        /// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
         ///  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleDateFilter> FirstObservedAt;
         /// <summary>
-        /// The identifier for the solution-specific component that generated a finding. 
+        /// The identifier for the solution-specific component that generated a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> GeneratorId;
         /// <summary>
-        /// The product-specific identifier for a finding. 
+        /// The product-specific identifier for a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> Id;
         /// <summary>
-        /// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding. 
+        /// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
         ///  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleDateFilter> LastObservedAt;
         /// <summary>
-        /// The text of a user-defined note that's added to a finding. 
+        /// The text of a user-defined note that's added to a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> NoteText;
@@ -96,77 +96,77 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleDateFilter> NoteUpdatedAt;
         /// <summary>
-        /// The principal that created a note. 
+        /// The principal that created a note.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> NoteUpdatedBy;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM. 
+        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ProductArn;
         /// <summary>
-        /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM. 
+        /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ProductName;
         /// <summary>
-        /// Provides the current state of a finding. 
+        /// Provides the current state of a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> RecordState;
         /// <summary>
-        /// The product-generated identifier for a related finding. 
+        /// The product-generated identifier for a related finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> RelatedFindingsId;
         /// <summary>
-        /// The ARN for the product that generated a related finding. 
+        /// The ARN for the product that generated a related finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> RelatedFindingsProductArn;
         /// <summary>
-        /// Custom fields and values about the resource that a finding pertains to. 
+        /// Custom fields and values about the resource that a finding pertains to.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleMapFilter> ResourceDetailsOther;
         /// <summary>
-        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. 
+        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
         ///   Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ResourceId;
         /// <summary>
-        /// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition. 
+        /// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ResourcePartition;
         /// <summary>
-        /// The AWS-Region where the resource that a finding pertains to is located. 
+        /// The AWS-Region where the resource that a finding pertains to is located.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ResourceRegion;
         /// <summary>
-        /// A list of AWS tags associated with a resource at the time the finding was processed. 
+        /// A list of AWS tags associated with a resource at the time the finding was processed.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleMapFilter> ResourceTags;
         /// <summary>
-        /// A finding's title. 
+        /// A finding's title.
         ///   Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ResourceType;
         /// <summary>
-        /// The severity value of the finding. 
+        /// The severity value of the finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> SeverityLabel;
         /// <summary>
-        /// Provides a URL that links to a page about the current finding in the finding product. 
+        /// Provides a URL that links to a page about the current finding in the finding product.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> SourceUrl;
         /// <summary>
-        /// A finding's title. 
+        /// A finding's title.
         ///   Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> Title;
@@ -176,23 +176,23 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> Type;
         /// <summary>
-        /// A timestamp that indicates when the finding record was most recently updated. 
+        /// A timestamp that indicates when the finding record was most recently updated.
         ///  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleDateFilter> UpdatedAt;
         /// <summary>
-        /// A list of user-defined name and value string pairs added to a finding. 
+        /// A list of user-defined name and value string pairs added to a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleMapFilter> UserDefinedFields;
         /// <summary>
-        /// Provides the veracity of a finding. 
+        /// Provides the veracity of a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> VerificationState;
         /// <summary>
-        /// Provides information about the status of the investigation into a finding. 
+        /// Provides information about the status of the investigation into a finding.
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> WorkflowStatus;

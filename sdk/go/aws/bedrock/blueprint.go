@@ -91,6 +91,12 @@ func (BlueprintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*blueprintState)(nil)).Elem()
 }
 
+// BlueprintExists checks whether an existing Blueprint resource with the given ID exists.
+func BlueprintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BlueprintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:Blueprint", id, state, "", opts...)
+}
+
 type blueprintArgs struct {
 	// Name of the Blueprint
 	BlueprintName *string `pulumi:"blueprintName"`

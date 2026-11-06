@@ -80,6 +80,12 @@ func (KeySigningKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keySigningKeyState)(nil)).Elem()
 }
 
+// KeySigningKeyExists checks whether an existing KeySigningKey resource with the given ID exists.
+func KeySigningKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeySigningKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53:KeySigningKey", id, state, "", opts...)
+}
+
 type keySigningKeyArgs struct {
 	// The unique string (ID) used to identify a hosted zone.
 	HostedZoneId string `pulumi:"hostedZoneId"`

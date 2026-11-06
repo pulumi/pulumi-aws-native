@@ -121,6 +121,12 @@ func (CloudWatchAlarmTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudWatchAlarmTemplateState)(nil)).Elem()
 }
 
+// CloudWatchAlarmTemplateExists checks whether an existing CloudWatchAlarmTemplate resource with the given ID exists.
+func CloudWatchAlarmTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudWatchAlarmTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:CloudWatchAlarmTemplate", id, state, "", opts...)
+}
+
 type cloudWatchAlarmTemplateArgs struct {
 	// The comparison operator used to compare the specified statistic and the threshold.
 	ComparisonOperator CloudWatchAlarmTemplateComparisonOperator `pulumi:"comparisonOperator"`

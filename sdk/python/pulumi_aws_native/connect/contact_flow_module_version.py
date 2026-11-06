@@ -146,6 +146,12 @@ class ContactFlowModuleVersion(pulumi.CustomResource):
         __props__.__dict__["version"] = None
         return ContactFlowModuleVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:connect:ContactFlowModuleVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="contactFlowModuleId")
     def contact_flow_module_id(self) -> pulumi.Output[_builtins.str]:

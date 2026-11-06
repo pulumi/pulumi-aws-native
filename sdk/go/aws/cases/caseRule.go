@@ -83,6 +83,12 @@ func (CaseRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*caseRuleState)(nil)).Elem()
 }
 
+// CaseRuleExists checks whether an existing CaseRule resource with the given ID exists.
+func CaseRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CaseRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cases:CaseRule", id, state, "", opts...)
+}
+
 type caseRuleArgs struct {
 	// A description explaining the purpose and behavior of this case rule. Helps administrators understand when and why this rule applies to case fields.
 	Description *string `pulumi:"description"`

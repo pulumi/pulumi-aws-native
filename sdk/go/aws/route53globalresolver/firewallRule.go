@@ -89,6 +89,12 @@ func (FirewallRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallRuleState)(nil)).Elem()
 }
 
+// FirewallRuleExists checks whether an existing FirewallRule resource with the given ID exists.
+func FirewallRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53globalresolver:FirewallRule", id, state, "", opts...)
+}
+
 type firewallRuleArgs struct {
 	Action                FirewallRuleAction                     `pulumi:"action"`
 	BlockOverrideDnsType  *FirewallRuleBlockOverrideDnsQueryType `pulumi:"blockOverrideDnsType"`

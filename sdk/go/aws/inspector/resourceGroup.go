@@ -70,6 +70,12 @@ func (ResourceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupState)(nil)).Elem()
 }
 
+// ResourceGroupExists checks whether an existing ResourceGroup resource with the given ID exists.
+func ResourceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:inspector:ResourceGroup", id, state, "", opts...)
+}
+
 type resourceGroupArgs struct {
 	// The tags (key and value pairs) that will be associated with the resource group.
 	//

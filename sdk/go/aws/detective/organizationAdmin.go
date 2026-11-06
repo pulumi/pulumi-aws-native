@@ -68,6 +68,12 @@ func (OrganizationAdminState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationAdminState)(nil)).Elem()
 }
 
+// OrganizationAdminExists checks whether an existing OrganizationAdmin resource with the given ID exists.
+func OrganizationAdminExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationAdminState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:detective:OrganizationAdmin", id, state, "", opts...)
+}
+
 type organizationAdminArgs struct {
 	// The account ID of the account that should be registered as your Organization's delegated administrator for Detective
 	AccountId string `pulumi:"accountId"`

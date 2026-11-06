@@ -137,6 +137,12 @@ func (HoursOfOperationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hoursOfOperationState)(nil)).Elem()
 }
 
+// HoursOfOperationExists checks whether an existing HoursOfOperation resource with the given ID exists.
+func HoursOfOperationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HoursOfOperationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:HoursOfOperation", id, state, "", opts...)
+}
+
 type hoursOfOperationArgs struct {
 	// List of child hours of operations.
 	ChildHoursOfOperations []HoursOfOperationsIdentifier `pulumi:"childHoursOfOperations"`

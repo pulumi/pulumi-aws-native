@@ -82,6 +82,12 @@ func (TemplateGroupAccessControlEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateGroupAccessControlEntryState)(nil)).Elem()
 }
 
+// TemplateGroupAccessControlEntryExists checks whether an existing TemplateGroupAccessControlEntry resource with the given ID exists.
+func TemplateGroupAccessControlEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateGroupAccessControlEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pcaconnectorad:TemplateGroupAccessControlEntry", id, state, "", opts...)
+}
+
 type templateGroupAccessControlEntryArgs struct {
 	// Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
 	AccessRights TemplateGroupAccessControlEntryAccessRights `pulumi:"accessRights"`

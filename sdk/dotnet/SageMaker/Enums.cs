@@ -1890,7 +1890,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
-    /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+    /// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
     /// </summary>
     [EnumType]
     public readonly struct DomainUserSettingsAutoMountHomeEfs : IEquatable<DomainUserSettingsAutoMountHomeEfs>
@@ -3685,7 +3685,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
-    /// The method to use to split the transform job's data files into smaller batches. 
+    /// The method to use to split the transform job's data files into smaller batches.
     /// </summary>
     [EnumType]
     public readonly struct ModelPackageTransformInputSplitType : IEquatable<ModelPackageTransformInputSplitType>
@@ -5748,7 +5748,7 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
-    /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+    /// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
     /// </summary>
     [EnumType]
     public readonly struct UserProfileUserSettingsAutoMountHomeEfs : IEquatable<UserProfileUserSettingsAutoMountHomeEfs>

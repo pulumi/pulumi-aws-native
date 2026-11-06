@@ -136,6 +136,12 @@ func (EnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentState)(nil)).Elem()
 }
 
+// EnvironmentExists checks whether an existing Environment resource with the given ID exists.
+func EnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:evs:Environment", id, state, "", opts...)
+}
+
 type environmentArgs struct {
 	// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
 	ConnectivityInfo *ConnectivityInfoProperties `pulumi:"connectivityInfo"`

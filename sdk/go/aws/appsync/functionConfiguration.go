@@ -141,6 +141,12 @@ func (FunctionConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionConfigurationState)(nil)).Elem()
 }
 
+// FunctionConfigurationExists checks whether an existing FunctionConfiguration resource with the given ID exists.
+func FunctionConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:appsync:FunctionConfiguration", id, state, "", opts...)
+}
+
 type functionConfigurationArgs struct {
 	// The AWS AppSync GraphQL API that you want to attach using this function.
 	ApiId string `pulumi:"apiId"`

@@ -121,6 +121,12 @@ func (ContainerFleetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerFleetState)(nil)).Elem()
 }
 
+// ContainerFleetExists checks whether an existing ContainerFleet resource with the given ID exists.
+func ContainerFleetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerFleetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gamelift:ContainerFleet", id, state, "", opts...)
+}
+
 type containerFleetArgs struct {
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
 	BillingType *ContainerFleetBillingType `pulumi:"billingType"`

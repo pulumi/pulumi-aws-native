@@ -79,6 +79,12 @@ func (ThemeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*themeState)(nil)).Elem()
 }
 
+// ThemeExists checks whether an existing Theme resource with the given ID exists.
+func ThemeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThemeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:amplifyuibuilder:Theme", id, state, "", opts...)
+}
+
 type themeArgs struct {
 	// The unique ID for the Amplify app associated with the theme.
 	AppId *string `pulumi:"appId"`

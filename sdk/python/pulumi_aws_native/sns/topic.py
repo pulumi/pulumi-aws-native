@@ -303,15 +303,15 @@ class Topic(pulumi.CustomResource):
                  archive_policy: Optional[Any] = None,
                  content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
-                 delivery_status_logging: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]]] = None,
+                 delivery_status_logging: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict', 'outputs.TopicLoggingConfig']]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  signature_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscription: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 subscription: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict', 'outputs.TopicSubscription']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tracing_config: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -417,7 +417,7 @@ class Topic(pulumi.CustomResource):
                 Length Constraints: Maximum length of 30,720.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]] delivery_status_logging: The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict', 'outputs.TopicLoggingConfig']]]] delivery_status_logging: The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
                  +  HTTP
                  +  Amazon Kinesis Data Firehose
                  +  AWS Lambda
@@ -433,9 +433,9 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] maximum_message_size: The maximum payload size, in bytes, for messages published to the topic. Valid values are ``1024`` to ``1048576`` (1 MiB). When this property is not specified, the topic uses the default SNS message size of ``262144`` bytes (256 KiB).
                 A topic with ``MaximumMessageSize`` above ``262144`` supports a maximum of 100 subscriptions, all of which must use the SQS, AWS Lambda, or Amazon Data Firehose protocols. For more information, see [Publishing large messages with](https://docs.aws.amazon.com/sns/latest/dg/large-message-payloads.html) in the *Developer Guide*.
         :param pulumi.Input[_builtins.str] signature_version: The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]] subscription: The SNS subscriptions (endpoints) for this topic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict', 'outputs.TopicSubscription']]]] subscription: The SNS subscriptions (endpoints) for this topic.
                  If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of tags to add to a new topic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The list of tags to add to a new topic.
                  To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
         :param pulumi.Input[_builtins.str] topic_name: The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
                 If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
@@ -556,15 +556,15 @@ class Topic(pulumi.CustomResource):
                  archive_policy: Optional[Any] = None,
                  content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
-                 delivery_status_logging: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]]] = None,
+                 delivery_status_logging: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict', 'outputs.TopicLoggingConfig']]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  signature_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscription: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 subscription: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict', 'outputs.TopicSubscription']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tracing_config: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -631,6 +631,12 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["topic_name"] = None
         __props__.__dict__["tracing_config"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:sns:Topic', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="archivePolicy")

@@ -185,6 +185,12 @@ func (ResourceShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceShareState)(nil)).Elem()
 }
 
+// ResourceShareExists checks whether an existing ResourceShare resource with the given ID exists.
+func ResourceShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ram:ResourceShare", id, state, "", opts...)
+}
+
 type resourceShareArgs struct {
 	// Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share. A value of `true` lets you share with individual AWS accounts that are not in your organization. A value of `false` only has meaning if your account is a member of an AWS Organization. The default value is `true`.
 	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`

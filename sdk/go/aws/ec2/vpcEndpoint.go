@@ -128,6 +128,12 @@ func (VpcEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointState)(nil)).Elem()
 }
 
+// VpcEndpointExists checks whether an existing VpcEndpoint resource with the given ID exists.
+func VpcEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpcEndpoint", id, state, "", opts...)
+}
+
 type vpcEndpointArgs struct {
 	// Describes the DNS options for an endpoint.
 	DnsOptions *VpcEndpointDnsOptionsSpecification `pulumi:"dnsOptions"`

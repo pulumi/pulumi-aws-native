@@ -85,6 +85,12 @@ func (AccessPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPointState)(nil)).Elem()
 }
 
+// AccessPointExists checks whether an existing AccessPoint resource with the given ID exists.
+func AccessPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:efs:AccessPoint", id, state, "", opts...)
+}
+
 type accessPointArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).

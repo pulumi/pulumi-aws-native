@@ -76,6 +76,12 @@ func (VpnGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayState)(nil)).Elem()
 }
 
+// VpnGatewayExists checks whether an existing VpnGateway resource with the given ID exists.
+func VpnGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VpnGateway", id, state, "", opts...)
+}
+
 type vpnGatewayArgs struct {
 	// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	AmazonSideAsn *int `pulumi:"amazonSideAsn"`

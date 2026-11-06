@@ -90,6 +90,12 @@ func (RoutingProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routingProfileState)(nil)).Elem()
 }
 
+// RoutingProfileExists checks whether an existing RoutingProfile resource with the given ID exists.
+func RoutingProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoutingProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:RoutingProfile", id, state, "", opts...)
+}
+
 type routingProfileArgs struct {
 	// Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
 	AgentAvailabilityTimer *RoutingProfileAgentAvailabilityTimer `pulumi:"agentAvailabilityTimer"`

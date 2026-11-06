@@ -97,6 +97,12 @@ func (QueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueState)(nil)).Elem()
 }
 
+// QueueExists checks whether an existing Queue resource with the given ID exists.
+func QueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:Queue", id, state, "", opts...)
+}
+
 type queueArgs struct {
 	// The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
 	AllowedStorageProfileIds []string `pulumi:"allowedStorageProfileIds"`

@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.Rds
         ///  If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
         ///   +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
         ///   +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
-        ///   
+        /// 
         ///  If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
         ///   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
         ///   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
@@ -181,7 +181,7 @@ namespace Pulumi.AwsNative.Rds
         ///  If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:
         ///   +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.
         ///   +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.
-        ///   
+        /// 
         ///  If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:
         ///   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
         ///   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.

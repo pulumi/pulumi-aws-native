@@ -82,6 +82,12 @@ func (StorageProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageProfileState)(nil)).Elem()
 }
 
+// StorageProfileExists checks whether an existing StorageProfile resource with the given ID exists.
+func StorageProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:deadline:StorageProfile", id, state, "", opts...)
+}
+
 type storageProfileArgs struct {
 	// The display name of the storage profile summary to update.
 	//

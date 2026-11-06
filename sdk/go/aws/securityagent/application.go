@@ -70,6 +70,12 @@ func (ApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationState)(nil)).Elem()
 }
 
+// ApplicationExists checks whether an existing Application resource with the given ID exists.
+func ApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityagent:Application", id, state, "", opts...)
+}
+
 type applicationArgs struct {
 	// Identifier of a KMS key. Can be a key ID, key ARN, alias name, or alias ARN.
 	DefaultKmsKeyId  *string                      `pulumi:"defaultKmsKeyId"`

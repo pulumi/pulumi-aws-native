@@ -84,6 +84,12 @@ func (InsightRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*insightRuleState)(nil)).Elem()
 }
 
+// InsightRuleExists checks whether an existing InsightRule resource with the given ID exists.
+func InsightRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InsightRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:InsightRule", id, state, "", opts...)
+}
+
 type insightRuleArgs struct {
 	// Determines whether the rules is evaluated on transformed versions of logs. Valid values are `TRUE` and `FALSE` .
 	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`

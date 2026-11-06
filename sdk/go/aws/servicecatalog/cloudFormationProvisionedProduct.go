@@ -112,6 +112,12 @@ func (CloudFormationProvisionedProductState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudFormationProvisionedProductState)(nil)).Elem()
 }
 
+// CloudFormationProvisionedProductExists checks whether an existing CloudFormationProvisionedProduct resource with the given ID exists.
+func CloudFormationProvisionedProductExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudFormationProvisionedProductState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:CloudFormationProvisionedProduct", id, state, "", opts...)
+}
+
 type cloudFormationProvisionedProductArgs struct {
 	// The language code.
 	//

@@ -57,7 +57,7 @@ class GetRetrieverResult:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.RetrieverConfiguration0Properties', 'outputs.RetrieverConfiguration1Properties']]:
         """
         Provides information on how the retriever used for your Amazon Q Business application is configured.
         """

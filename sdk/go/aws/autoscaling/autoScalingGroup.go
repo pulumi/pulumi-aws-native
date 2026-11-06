@@ -173,6 +173,12 @@ func (AutoScalingGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoScalingGroupState)(nil)).Elem()
 }
 
+// AutoScalingGroupExists checks whether an existing AutoScalingGroup resource with the given ID exists.
+func AutoScalingGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoScalingGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:autoscaling:AutoScalingGroup", id, state, "", opts...)
+}
+
 type autoScalingGroupArgs struct {
 	// The name of the Auto Scaling group. This name must be unique per Region per account.
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     ///  To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
     ///   +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
     ///   +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-    ///   
+    /// 
     ///   You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
     ///   For an example template, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
     ///  For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         ///   +  For instance types with AMD devices, specify ``amd``.
         ///   +  For instance types with AWS devices, specify ``amazon-web-services``.
         ///   +  For instance types with Xilinx devices, specify ``xilinx``.
-        ///   
+        /// 
         ///  Default: Any manufacturer
         /// </summary>
         public InputList<string> AcceleratorManufacturers
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         ///   +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
         ///   +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
         ///   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
-        ///   
+        /// 
         ///  Default: Any accelerator
         /// </summary>
         public InputList<string> AcceleratorNames
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         ///   +  For instance types with GPU accelerators, specify ``gpu``.
         ///   +  For instance types with FPGA accelerators, specify ``fpga``.
         ///   +  For instance types with inference accelerators, specify ``inference``.
-        ///   
+        /// 
         ///  Default: Any accelerator type
         /// </summary>
         public InputList<string> AcceleratorTypes
@@ -147,8 +147,8 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         ///   +  For instance types with AMD CPUs, specify ``amd``.
         ///   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
         ///   +  For instance types with Apple CPUs, specify ``apple``.
-        ///   
-        ///   Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+        /// 
+        ///   Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         ///   Default: Any manufacturer
         /// </summary>
         public InputList<string> CpuManufacturers
@@ -161,7 +161,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         private InputList<string>? _excludedInstanceTypes;
 
         /// <summary>
-        /// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance family, type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``. 
+        /// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance family, type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
         ///  For example, if you specify ``c5*``, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.
         ///   If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
         ///   Default: No excluded instance types
@@ -179,7 +179,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         /// Indicates whether current or previous generation instance types are included.
         ///   +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
         ///   +  For previous generation instance types, specify ``previous``.
-        ///   
+        /// 
         ///  Default: Any current or previous generation
         /// </summary>
         public InputList<string> InstanceGenerations
@@ -202,7 +202,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         /// Indicates the type of local storage that is required.
         ///   +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
         ///   +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
-        ///   
+        /// 
         ///  Default: Any local storage type
         /// </summary>
         public InputList<string> LocalStorageTypes
@@ -214,7 +214,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         /// <summary>
         /// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
         ///  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-        ///  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+        ///  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
         ///   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
         /// </summary>
         [Input("maxSpotPriceAsPercentageOfOptimalOnDemandPrice")]
@@ -248,10 +248,10 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public Input<Inputs.AutoScalingGroupNetworkInterfaceCountRequestArgs>? NetworkInterfaceCount { get; set; }
 
         /// <summary>
-        /// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold. 
+        /// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
         ///  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
-        ///  To turn off price protection, specify a high value, such as ``999999``. 
-        ///  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per instance price. 
+        ///  To turn off price protection, specify a high value, such as ``999999``.
+        ///  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per instance price.
         ///  Default: ``20``
         /// </summary>
         [Input("onDemandMaxPricePercentageOverLowestPrice")]
@@ -266,8 +266,8 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
         /// <summary>
         /// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
-        ///  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. 
-        ///  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+        ///  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+        ///  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price.
         ///   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
         /// </summary>
         [Input("spotMaxPricePercentageOverLowestPrice")]

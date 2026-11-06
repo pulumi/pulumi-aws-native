@@ -88,6 +88,12 @@ func (ContextState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contextState)(nil)).Elem()
 }
 
+// ContextExists checks whether an existing Context resource with the given ID exists.
+func ContextExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContextState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:Context", id, state, "", opts...)
+}
+
 type contextArgs struct {
 	// The name of the context. Must be unique to your account in an AWS Region.
 	ContextName *string `pulumi:"contextName"`

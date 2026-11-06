@@ -80,6 +80,12 @@ func (StudioComponentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*studioComponentState)(nil)).Elem()
 }
 
+// StudioComponentExists checks whether an existing StudioComponent resource with the given ID exists.
+func StudioComponentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StudioComponentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:nimblestudio:StudioComponent", id, state, "", opts...)
+}
+
 type studioComponentArgs struct {
 	Configuration         *StudioComponentConfiguration            `pulumi:"configuration"`
 	Description           *string                                  `pulumi:"description"`

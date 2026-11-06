@@ -94,6 +94,12 @@ func (AutomationRuleV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationRuleV2State)(nil)).Elem()
 }
 
+// AutomationRuleV2Exists checks whether an existing AutomationRuleV2 resource with the given ID exists.
+func AutomationRuleV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomationRuleV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:AutomationRuleV2", id, state, "", opts...)
+}
+
 type automationRuleV2Args struct {
 	// A list of actions to be performed when the rule criteria is met
 	Actions []AutomationRuleV2AutomationRulesActionV2 `pulumi:"actions"`

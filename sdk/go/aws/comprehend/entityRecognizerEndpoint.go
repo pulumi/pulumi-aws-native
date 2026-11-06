@@ -88,6 +88,12 @@ func (EntityRecognizerEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entityRecognizerEndpointState)(nil)).Elem()
 }
 
+// EntityRecognizerEndpointExists checks whether an existing EntityRecognizerEndpoint resource with the given ID exists.
+func EntityRecognizerEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntityRecognizerEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:comprehend:EntityRecognizerEndpoint", id, state, "", opts...)
+}
+
 type entityRecognizerEndpointArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to trained custom models encrypted with a customer managed key (ModelKmsKeyId).
 	DataAccessRoleArn *string `pulumi:"dataAccessRoleArn"`

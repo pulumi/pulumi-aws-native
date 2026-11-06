@@ -139,6 +139,12 @@ func (CapacityReservationFleetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityReservationFleetState)(nil)).Elem()
 }
 
+// CapacityReservationFleetExists checks whether an existing CapacityReservationFleet resource with the given ID exists.
+func CapacityReservationFleetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityReservationFleetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:CapacityReservationFleet", id, state, "", opts...)
+}
+
 type capacityReservationFleetArgs struct {
 	// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the *Amazon EC2 User Guide* .
 	//

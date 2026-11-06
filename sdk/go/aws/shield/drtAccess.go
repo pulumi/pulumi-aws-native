@@ -66,6 +66,12 @@ func (DrtAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*drtAccessState)(nil)).Elem()
 }
 
+// DrtAccessExists checks whether an existing DrtAccess resource with the given ID exists.
+func DrtAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DrtAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:shield:DrtAccess", id, state, "", opts...)
+}
+
 type drtAccessArgs struct {
 	// Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.
 	LogBucketList []string `pulumi:"logBucketList"`

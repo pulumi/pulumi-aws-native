@@ -217,7 +217,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
                  lambda_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlLambdaExclusionInput']] = None,
                  mode: pulumi.Input[Optional['VpcEncryptionControlMode']] = None,
                  nat_gateway_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlNatGatewayExclusionInput']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  virtual_private_gateway_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlVirtualPrivateGatewayExclusionInput']] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_lattice_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlVpcLatticeExclusionInput']] = None,
@@ -234,7 +234,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
         :param pulumi.Input['VpcEncryptionControlLambdaExclusionInput'] lambda_exclusion_input: Used to enable or disable Lambda exclusion
         :param pulumi.Input['VpcEncryptionControlMode'] mode: The VPC encryption control mode, either monitor or enforce.
         :param pulumi.Input['VpcEncryptionControlNatGatewayExclusionInput'] nat_gateway_exclusion_input: Used to enable or disable Nat gateway exclusion
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to assign to the VPC encryption control.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to assign to the VPC encryption control.
         :param pulumi.Input['VpcEncryptionControlVirtualPrivateGatewayExclusionInput'] virtual_private_gateway_exclusion_input: Used to enable or disable VGW exclusion
         :param pulumi.Input[_builtins.str] vpc_id: The VPC on which this VPC encryption control is applied.
         :param pulumi.Input['VpcEncryptionControlVpcLatticeExclusionInput'] vpc_lattice_exclusion_input: Used to enable or disable Vpc Lattice exclusion
@@ -270,7 +270,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
                  lambda_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlLambdaExclusionInput']] = None,
                  mode: pulumi.Input[Optional['VpcEncryptionControlMode']] = None,
                  nat_gateway_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlNatGatewayExclusionInput']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  virtual_private_gateway_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlVirtualPrivateGatewayExclusionInput']] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_lattice_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlVpcLatticeExclusionInput']] = None,
@@ -339,6 +339,12 @@ class VpcEncryptionControl(pulumi.CustomResource):
         __props__.__dict__["vpc_lattice_exclusion_input"] = None
         __props__.__dict__["vpc_peering_exclusion_input"] = None
         return VpcEncryptionControl(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ec2:VpcEncryptionControl', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="egressOnlyInternetGatewayExclusionInput")

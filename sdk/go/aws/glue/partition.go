@@ -86,6 +86,12 @@ func (PartitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*partitionState)(nil)).Elem()
 }
 
+// PartitionExists checks whether an existing Partition resource with the given ID exists.
+func PartitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PartitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:Partition", id, state, "", opts...)
+}
+
 type partitionArgs struct {
 	// The name of the catalog database in which to create the partition.
 	CatalogId string `pulumi:"catalogId"`

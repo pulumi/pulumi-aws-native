@@ -83,6 +83,12 @@ func (DbProxyTargetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbProxyTargetGroupState)(nil)).Elem()
 }
 
+// DbProxyTargetGroupExists checks whether an existing DbProxyTargetGroup resource with the given ID exists.
+func DbProxyTargetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbProxyTargetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbProxyTargetGroup", id, state, "", opts...)
+}
+
 type dbProxyTargetGroupArgs struct {
 	// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
 	ConnectionPoolConfigurationInfo *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat `pulumi:"connectionPoolConfigurationInfo"`

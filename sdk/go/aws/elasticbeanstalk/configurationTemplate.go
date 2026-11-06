@@ -94,6 +94,12 @@ func (ConfigurationTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationTemplateState)(nil)).Elem()
 }
 
+// ConfigurationTemplateExists checks whether an existing ConfigurationTemplate resource with the given ID exists.
+func ConfigurationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticbeanstalk:ConfigurationTemplate", id, state, "", opts...)
+}
+
 type configurationTemplateArgs struct {
 	// The name of the Elastic Beanstalk application to associate with this configuration template.
 	ApplicationName string `pulumi:"applicationName"`

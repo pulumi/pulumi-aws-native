@@ -81,6 +81,12 @@ func (StudioState) ElementType() reflect.Type {
 	return reflect.TypeOf((*studioState)(nil)).Elem()
 }
 
+// StudioExists checks whether an existing Studio resource with the given ID exists.
+func StudioExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StudioState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:nimblestudio:Studio", id, state, "", opts...)
+}
+
 type studioArgs struct {
 	AdminRoleArn                  string                         `pulumi:"adminRoleArn"`
 	DisplayName                   string                         `pulumi:"displayName"`

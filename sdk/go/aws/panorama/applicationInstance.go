@@ -106,6 +106,12 @@ func (ApplicationInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationInstanceState)(nil)).Elem()
 }
 
+// ApplicationInstanceExists checks whether an existing ApplicationInstance resource with the given ID exists.
+func ApplicationInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:panorama:ApplicationInstance", id, state, "", opts...)
+}
+
 type applicationInstanceArgs struct {
 	// The ID of an application instance to replace with the new instance.
 	ApplicationInstanceIdToReplace *string `pulumi:"applicationInstanceIdToReplace"`

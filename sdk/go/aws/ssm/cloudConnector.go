@@ -96,6 +96,12 @@ func (CloudConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudConnectorState)(nil)).Elem()
 }
 
+// CloudConnectorExists checks whether an existing CloudConnector resource with the given ID exists.
+func CloudConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssm:CloudConnector", id, state, "", opts...)
+}
+
 type cloudConnectorArgs struct {
 	// The ARN of the AWS Config connector.
 	ConfigConnectorArn string `pulumi:"configConnectorArn"`

@@ -76,6 +76,12 @@ func (BucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketState)(nil)).Elem()
 }
 
+// BucketExists checks whether an existing Bucket resource with the given ID exists.
+func BucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:s3outposts:Bucket", id, state, "", opts...)
+}
+
 type bucketArgs struct {
 	// A name for the bucket.
 	BucketName *string `pulumi:"bucketName"`

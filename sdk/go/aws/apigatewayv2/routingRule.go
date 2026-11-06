@@ -85,6 +85,12 @@ func (RoutingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routingRuleState)(nil)).Elem()
 }
 
+// RoutingRuleExists checks whether an existing RoutingRule resource with the given ID exists.
+func RoutingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoutingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigatewayv2:RoutingRule", id, state, "", opts...)
+}
+
 type routingRuleArgs struct {
 	// The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
 	Actions []RoutingRuleAction `pulumi:"actions"`

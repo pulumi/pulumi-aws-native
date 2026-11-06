@@ -103,6 +103,12 @@ func (JobDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobDefinitionState)(nil)).Elem()
 }
 
+// JobDefinitionExists checks whether an existing JobDefinition resource with the given ID exists.
+func JobDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:batch:JobDefinition", id, state, "", opts...)
+}
+
 type jobDefinitionArgs struct {
 	// Contains a list of consumable resources required by the job.
 	ConsumableResourceProperties *JobDefinitionConsumableResourceProperties `pulumi:"consumableResourceProperties"`

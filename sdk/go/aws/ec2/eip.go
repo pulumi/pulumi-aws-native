@@ -92,6 +92,12 @@ func (EipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipState)(nil)).Elem()
 }
 
+// EipExists checks whether an existing Eip resource with the given ID exists.
+func EipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:Eip", id, state, "", opts...)
+}
+
 type eipArgs struct {
 	// An Elastic IP address or a carrier IP address in a Wavelength Zone.
 	Address *string `pulumi:"address"`

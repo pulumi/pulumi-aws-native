@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Rds
         /// The name of the DB cluster parameter group.
         ///  Constraints:
         ///   +  Must not match the name of an existing DB cluster parameter group.
-        ///   
+        /// 
         ///   This value is stored as a lowercase string.
         /// </summary>
         [Input("dbClusterParameterGroupName", required: true)]
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Rds
         /// The name of the DB cluster parameter group.
         ///  Constraints:
         ///   +  Must not match the name of an existing DB cluster parameter group.
-        ///   
+        /// 
         ///   This value is stored as a lowercase string.
         /// </summary>
         [Input("dbClusterParameterGroupName", required: true)]

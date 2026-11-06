@@ -81,6 +81,12 @@ func (PromptState) ElementType() reflect.Type {
 	return reflect.TypeOf((*promptState)(nil)).Elem()
 }
 
+// PromptExists checks whether an existing Prompt resource with the given ID exists.
+func PromptExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PromptState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:Prompt", id, state, "", opts...)
+}
+
 type promptArgs struct {
 	// A KMS key ARN
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`

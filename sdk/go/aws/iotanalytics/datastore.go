@@ -212,6 +212,12 @@ func (DatastoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datastoreState)(nil)).Elem()
 }
 
+// DatastoreExists checks whether an existing Datastore resource with the given ID exists.
+func DatastoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatastoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotanalytics:Datastore", id, state, "", opts...)
+}
+
 type datastoreArgs struct {
 	// The name of the data store.
 	DatastoreName *string `pulumi:"datastoreName"`

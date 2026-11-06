@@ -70,6 +70,12 @@ func (EncoderConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*encoderConfigurationState)(nil)).Elem()
 }
 
+// EncoderConfigurationExists checks whether an existing EncoderConfiguration resource with the given ID exists.
+func EncoderConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EncoderConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivs:EncoderConfiguration", id, state, "", opts...)
+}
+
 type encoderConfigurationArgs struct {
 	// Encoder configuration name.
 	Name *string `pulumi:"name"`

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public Input<Inputs.ScalingPolicyPredictiveScalingMetricArgs>? Metric { get; set; }
 
         /// <summary>
-        /// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide*. 
+        /// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide*.
         ///  The most commonly used metrics for predictive scaling are ``Average`` and ``Sum``.
         /// </summary>
         [Input("stat")]

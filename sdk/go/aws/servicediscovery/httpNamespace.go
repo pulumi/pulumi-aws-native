@@ -71,6 +71,12 @@ func (HttpNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*httpNamespaceState)(nil)).Elem()
 }
 
+// HttpNamespaceExists checks whether an existing HttpNamespace resource with the given ID exists.
+func HttpNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HttpNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicediscovery:HttpNamespace", id, state, "", opts...)
+}
+
 type httpNamespaceArgs struct {
 	// A description for the namespace.
 	Description *string `pulumi:"description"`

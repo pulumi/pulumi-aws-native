@@ -86,6 +86,12 @@ func (ConnectionTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionTypeState)(nil)).Elem()
 }
 
+// ConnectionTypeExists checks whether an existing ConnectionType resource with the given ID exists.
+func ConnectionTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:ConnectionType", id, state, "", opts...)
+}
+
 type connectionTypeArgs struct {
 	ConnectionProperties *ConnectionTypeConnectionPropertiesConfiguration `pulumi:"connectionProperties"`
 	// The name of the connection type. Must be prefixed with REST-.

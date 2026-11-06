@@ -23,6 +23,16 @@ export class Runtime extends pulumi.CustomResource {
         return new Runtime(name, undefined as any, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Runtime resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("aws-native:bedrockagentcore:Runtime", id, {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'aws-native:bedrockagentcore:Runtime';
 

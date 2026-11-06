@@ -98,6 +98,12 @@ func (TrustedEntitySetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustedEntitySetState)(nil)).Elem()
 }
 
+// TrustedEntitySetExists checks whether an existing TrustedEntitySet resource with the given ID exists.
+func TrustedEntitySetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustedEntitySetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:guardduty:TrustedEntitySet", id, state, "", opts...)
+}
+
 type trustedEntitySetArgs struct {
 	// A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
 	Activate *bool `pulumi:"activate"`

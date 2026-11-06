@@ -86,6 +86,12 @@ func (CapabilityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capabilityState)(nil)).Elem()
 }
 
+// CapabilityExists checks whether an existing Capability resource with the given ID exists.
+func CapabilityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapabilityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:b2bi:Capability", id, state, "", opts...)
+}
+
 type capabilityArgs struct {
 	// Specifies a structure that contains the details for a capability.
 	Configuration CapabilityConfigurationProperties `pulumi:"configuration"`

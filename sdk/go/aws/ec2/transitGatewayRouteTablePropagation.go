@@ -72,6 +72,12 @@ func (TransitGatewayRouteTablePropagationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRouteTablePropagationState)(nil)).Elem()
 }
 
+// TransitGatewayRouteTablePropagationExists checks whether an existing TransitGatewayRouteTablePropagation resource with the given ID exists.
+func TransitGatewayRouteTablePropagationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayRouteTablePropagationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayRouteTablePropagation", id, state, "", opts...)
+}
+
 type transitGatewayRouteTablePropagationArgs struct {
 	// The ID of transit gateway attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`

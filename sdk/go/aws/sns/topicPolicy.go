@@ -71,6 +71,12 @@ func (TopicPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicPolicyState)(nil)).Elem()
 }
 
+// TopicPolicyExists checks whether an existing TopicPolicy resource with the given ID exists.
+func TopicPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sns:TopicPolicy", id, state, "", opts...)
+}
+
 type topicPolicyArgs struct {
 	// A policy document that contains permissions to add to the specified SNS topics.
 	//

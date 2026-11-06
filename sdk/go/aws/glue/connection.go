@@ -78,6 +78,12 @@ func (ConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionState)(nil)).Elem()
 }
 
+// ConnectionExists checks whether an existing Connection resource with the given ID exists.
+func ConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:glue:Connection", id, state, "", opts...)
+}
+
 type connectionArgs struct {
 	// The ID of the data catalog to create the catalog object in. Currently, this should be the AWS account ID.
 	CatalogId string `pulumi:"catalogId"`

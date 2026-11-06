@@ -96,6 +96,12 @@ func (ContentAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contentAssociationState)(nil)).Elem()
 }
 
+// ContentAssociationExists checks whether an existing ContentAssociation resource with the given ID exists.
+func ContentAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContentAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wisdom:ContentAssociation", id, state, "", opts...)
+}
+
 type contentAssociationArgs struct {
 	// The identifier of the associated resource.
 	Association ContentAssociationContents `pulumi:"association"`

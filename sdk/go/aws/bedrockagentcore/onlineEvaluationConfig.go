@@ -103,6 +103,12 @@ func (OnlineEvaluationConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*onlineEvaluationConfigState)(nil)).Elem()
 }
 
+// OnlineEvaluationConfigExists checks whether an existing OnlineEvaluationConfig resource with the given ID exists.
+func OnlineEvaluationConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OnlineEvaluationConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:OnlineEvaluationConfig", id, state, "", opts...)
+}
+
 type onlineEvaluationConfigArgs struct {
 	// The configuration for clustering analysis of evaluation results.
 	ClusteringConfig *OnlineEvaluationConfigClusteringConfig `pulumi:"clusteringConfig"`

@@ -46,7 +46,7 @@ import (
 //				Description:              pulumi.String("A basic standalone matchmaking configuration"),
 //				FlexMatchMode:            gamelift.MatchmakingConfigurationFlexMatchModeStandalone,
 //				RequestTimeoutSeconds:    pulumi.Int(100),
-//				RuleSetName:              matchmakingRuleSetResource.ID().ToIDOutput().ToStringOutput(),
+//				RuleSetName:              matchmakingRuleSetResource.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				matchmakingRuleSetResource,
 //			}))
@@ -144,6 +144,12 @@ type MatchmakingRuleSetState struct {
 
 func (MatchmakingRuleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*matchmakingRuleSetState)(nil)).Elem()
+}
+
+// MatchmakingRuleSetExists checks whether an existing MatchmakingRuleSet resource with the given ID exists.
+func MatchmakingRuleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MatchmakingRuleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:gamelift:MatchmakingRuleSet", id, state, "", opts...)
 }
 
 type matchmakingRuleSetArgs struct {

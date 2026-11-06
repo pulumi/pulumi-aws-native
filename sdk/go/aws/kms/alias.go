@@ -89,6 +89,12 @@ func (AliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aliasState)(nil)).Elem()
 }
 
+// AliasExists checks whether an existing Alias resource with the given ID exists.
+func AliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kms:Alias", id, state, "", opts...)
+}
+
 type aliasArgs struct {
 	// Specifies the alias name. This value must begin with ``alias/`` followed by a name, such as ``alias/ExampleAlias``.
 	//   If you change the value of the ``AliasName`` property, the existing alias is deleted and a new alias is created for the specified KMS key. This change can disrupt applications that use the alias. It can also allow or deny access to a KMS key affected by attribute-based access control (ABAC).

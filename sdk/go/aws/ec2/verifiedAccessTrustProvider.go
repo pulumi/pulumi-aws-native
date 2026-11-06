@@ -98,6 +98,12 @@ func (VerifiedAccessTrustProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*verifiedAccessTrustProviderState)(nil)).Elem()
 }
 
+// VerifiedAccessTrustProviderExists checks whether an existing VerifiedAccessTrustProvider resource with the given ID exists.
+func VerifiedAccessTrustProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VerifiedAccessTrustProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:VerifiedAccessTrustProvider", id, state, "", opts...)
+}
+
 type verifiedAccessTrustProviderArgs struct {
 	// A description for the Amazon Web Services Verified Access trust provider.
 	Description *string `pulumi:"description"`

@@ -69,6 +69,12 @@ func (TrustStoreRevocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustStoreRevocationState)(nil)).Elem()
 }
 
+// TrustStoreRevocationExists checks whether an existing TrustStoreRevocation resource with the given ID exists.
+func TrustStoreRevocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustStoreRevocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:elasticloadbalancingv2:TrustStoreRevocation", id, state, "", opts...)
+}
+
 type trustStoreRevocationArgs struct {
 	// The attributes required to create a trust store revocation.
 	RevocationContents []TrustStoreRevocationRevocationContent `pulumi:"revocationContents"`

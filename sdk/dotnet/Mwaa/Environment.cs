@@ -21,9 +21,9 @@ namespace Pulumi.AwsNative.Mwaa
         /// 
         ///     [core]
         ///     dags_folder={AIRFLOW_HOME}/dags
-        /// 
+        ///     
         ///     Would be represented as
-        /// 
+        ///     
         ///     "core.dags_folder": "{AIRFLOW_HOME}/dags"
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
@@ -289,9 +289,9 @@ namespace Pulumi.AwsNative.Mwaa
         /// 
         ///     [core]
         ///     dags_folder={AIRFLOW_HOME}/dags
-        /// 
+        ///     
         ///     Would be represented as
-        /// 
+        ///     
         ///     "core.dags_folder": "{AIRFLOW_HOME}/dags"
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.

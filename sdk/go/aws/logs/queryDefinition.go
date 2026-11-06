@@ -72,6 +72,12 @@ func (QueryDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryDefinitionState)(nil)).Elem()
 }
 
+// QueryDefinitionExists checks whether an existing QueryDefinition resource with the given ID exists.
+func QueryDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueryDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:logs:QueryDefinition", id, state, "", opts...)
+}
+
 type queryDefinitionArgs struct {
 	// Optionally define specific log groups as part of your query definition
 	LogGroupNames []string `pulumi:"logGroupNames"`

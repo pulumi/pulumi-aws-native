@@ -165,6 +165,12 @@ func (CloudAutonomousVmClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudAutonomousVmClusterState)(nil)).Elem()
 }
 
+// CloudAutonomousVmClusterExists checks whether an existing CloudAutonomousVmCluster resource with the given ID exists.
+func CloudAutonomousVmClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudAutonomousVmClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:odb:CloudAutonomousVmCluster", id, state, "", opts...)
+}
+
 type cloudAutonomousVmClusterArgs struct {
 	// The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
 	AutonomousDataStorageSizeInTbs *float64 `pulumi:"autonomousDataStorageSizeInTbs"`

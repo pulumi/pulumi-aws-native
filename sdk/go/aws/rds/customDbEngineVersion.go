@@ -117,6 +117,12 @@ func (CustomDbEngineVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDbEngineVersionState)(nil)).Elem()
 }
 
+// CustomDbEngineVersionExists checks whether an existing CustomDbEngineVersion resource with the given ID exists.
+func CustomDbEngineVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDbEngineVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:CustomDbEngineVersion", id, state, "", opts...)
+}
+
 type customDbEngineVersionArgs struct {
 	DatabaseInstallationFiles []string `pulumi:"databaseInstallationFiles"`
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.

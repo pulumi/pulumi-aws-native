@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// <summary>
         /// The AWS Key Management Service customer master key (CMK) to be used for encrypting the build output artifacts.
         /// 
-        /// &gt; You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. 
+        /// &gt; You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key.
         /// 
         /// You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format `alias/&lt;alias-name&gt;` ). If you don't specify a value, CodeBuild uses the managed CMK for Amazon Simple Storage Service (Amazon S3).
         /// </summary>
@@ -278,7 +278,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// <summary>
         /// The AWS Key Management Service customer master key (CMK) to be used for encrypting the build output artifacts.
         /// 
-        /// &gt; You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. 
+        /// &gt; You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key.
         /// 
         /// You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format `alias/&lt;alias-name&gt;` ). If you don't specify a value, CodeBuild uses the managed CMK for Amazon Simple Storage Service (Amazon S3).
         /// </summary>

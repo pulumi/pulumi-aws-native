@@ -102,6 +102,12 @@ func (ImageRecipeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageRecipeState)(nil)).Elem()
 }
 
+// ImageRecipeExists checks whether an existing ImageRecipe resource with the given ID exists.
+func ImageRecipeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImageRecipeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:imagebuilder:ImageRecipe", id, state, "", opts...)
+}
+
 type imageRecipeArgs struct {
 	// Specify additional settings and launch scripts for your build instances.
 	AdditionalInstanceConfiguration *ImageRecipeAdditionalInstanceConfiguration `pulumi:"additionalInstanceConfiguration"`

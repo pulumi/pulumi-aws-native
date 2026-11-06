@@ -93,6 +93,12 @@ func (IdMappingTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*idMappingTableState)(nil)).Elem()
 }
 
+// IdMappingTableExists checks whether an existing IdMappingTable resource with the given ID exists.
+func IdMappingTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdMappingTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cleanrooms:IdMappingTable", id, state, "", opts...)
+}
+
 type idMappingTableArgs struct {
 	// The description of the ID mapping table.
 	Description *string `pulumi:"description"`

@@ -79,6 +79,12 @@ func (S3TableIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*s3tableIntegrationState)(nil)).Elem()
 }
 
+// S3TableIntegrationExists checks whether an existing S3TableIntegration resource with the given ID exists.
+func S3TableIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *S3TableIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:observabilityadmin:S3TableIntegration", id, state, "", opts...)
+}
+
 type s3tableIntegrationArgs struct {
 	// Defines the encryption configuration for S3 Table integrations, including the encryption algorithm and KMS key settings.
 	Encryption S3TableIntegrationEncryptionConfig `pulumi:"encryption"`

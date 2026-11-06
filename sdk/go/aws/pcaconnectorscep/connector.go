@@ -79,6 +79,12 @@ func (ConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorState)(nil)).Elem()
 }
 
+// ConnectorExists checks whether an existing Connector resource with the given ID exists.
+func ConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pcaconnectorscep:Connector", id, state, "", opts...)
+}
+
 type connectorArgs struct {
 	// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`

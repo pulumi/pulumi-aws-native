@@ -138,6 +138,12 @@ func (LocationFSxLustreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationFSxLustreState)(nil)).Elem()
 }
 
+// LocationFSxLustreExists checks whether an existing LocationFSxLustre resource with the given ID exists.
+func LocationFSxLustreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationFSxLustreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationFSxLustre", id, state, "", opts...)
+}
+
 type locationFSxLustreArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`

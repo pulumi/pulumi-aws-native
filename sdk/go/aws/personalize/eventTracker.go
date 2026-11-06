@@ -76,6 +76,12 @@ func (EventTrackerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventTrackerState)(nil)).Elem()
 }
 
+// EventTrackerExists checks whether an existing EventTracker resource with the given ID exists.
+func EventTrackerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventTrackerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:personalize:EventTracker", id, state, "", opts...)
+}
+
 type eventTrackerArgs struct {
 	// The Amazon Resource Name (ARN) of the dataset group that receives the event data.
 	DatasetGroupArn string `pulumi:"datasetGroupArn"`

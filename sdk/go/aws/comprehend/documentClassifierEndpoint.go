@@ -84,6 +84,12 @@ func (DocumentClassifierEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentClassifierEndpointState)(nil)).Elem()
 }
 
+// DocumentClassifierEndpointExists checks whether an existing DocumentClassifierEndpoint resource with the given ID exists.
+func DocumentClassifierEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DocumentClassifierEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:comprehend:DocumentClassifierEndpoint", id, state, "", opts...)
+}
+
 type documentClassifierEndpointArgs struct {
 	// The desired number of inference units to be used by the model. Each inference unit represents throughput of 100 characters per second.
 	DesiredInferenceUnits int `pulumi:"desiredInferenceUnits"`

@@ -65,6 +65,12 @@ func (WalWorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*walWorkspaceState)(nil)).Elem()
 }
 
+// WalWorkspaceExists checks whether an existing WalWorkspace resource with the given ID exists.
+func WalWorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WalWorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:emr:WalWorkspace", id, state, "", opts...)
+}
+
 type walWorkspaceArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`

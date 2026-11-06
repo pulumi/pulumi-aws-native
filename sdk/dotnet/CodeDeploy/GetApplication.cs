@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CodeDeploy
     public sealed class GetApplicationResult
     {
         /// <summary>
-        /// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+        /// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

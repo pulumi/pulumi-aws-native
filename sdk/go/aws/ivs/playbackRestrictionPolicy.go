@@ -69,6 +69,12 @@ func (PlaybackRestrictionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*playbackRestrictionPolicyState)(nil)).Elem()
 }
 
+// PlaybackRestrictionPolicyExists checks whether an existing PlaybackRestrictionPolicy resource with the given ID exists.
+func PlaybackRestrictionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlaybackRestrictionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivs:PlaybackRestrictionPolicy", id, state, "", opts...)
+}
+
 type playbackRestrictionPolicyArgs struct {
 	// A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
 	AllowedCountries []string `pulumi:"allowedCountries"`

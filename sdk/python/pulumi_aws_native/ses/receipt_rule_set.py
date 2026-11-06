@@ -168,6 +168,12 @@ class ReceiptRuleSet(pulumi.CustomResource):
         __props__.__dict__["rule_set_name"] = None
         return ReceiptRuleSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ses:ReceiptRuleSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> pulumi.Output[Optional[_builtins.str]]:

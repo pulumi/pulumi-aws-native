@@ -104,22 +104,22 @@ class Api(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AppSync Api
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']] event_config: Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
         :param pulumi.Input[_builtins.str] name: The name of the `Api` .
         :param pulumi.Input[_builtins.str] owner_contact: The owner contact information for an API resource.
                
                This field accepts any string input with a length of 0 - 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this API.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A set of tags (key-value pairs) for this API.
         """
         ...
     @overload
@@ -145,10 +145,10 @@ class Api(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -195,6 +195,12 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["owner_contact"] = None
         __props__.__dict__["tags"] = None
         return Api(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:appsync:Api', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="apiArn")

@@ -63,7 +63,7 @@ class GeneratedTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  generated_template_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 template_configuration: pulumi.Input[Optional[Union['GeneratedTemplateTemplateConfigurationArgs', 'GeneratedTemplateTemplateConfigurationArgsDict']]] = None,
+                 template_configuration: pulumi.Input[Optional[Union['GeneratedTemplateTemplateConfigurationArgs', 'GeneratedTemplateTemplateConfigurationArgsDict', 'outputs.GeneratedTemplateTemplateConfiguration']]] = None,
                  __props__=None):
         """
         Creates a generated template from existing resources using the CloudFormation IaC Generator.
@@ -97,7 +97,7 @@ class GeneratedTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  generated_template_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 template_configuration: pulumi.Input[Optional[Union['GeneratedTemplateTemplateConfigurationArgs', 'GeneratedTemplateTemplateConfigurationArgsDict']]] = None,
+                 template_configuration: pulumi.Input[Optional[Union['GeneratedTemplateTemplateConfigurationArgs', 'GeneratedTemplateTemplateConfigurationArgsDict', 'outputs.GeneratedTemplateTemplateConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -146,6 +146,12 @@ class GeneratedTemplate(pulumi.CustomResource):
         __props__.__dict__["template_configuration"] = None
         __props__.__dict__["total_warnings"] = None
         return GeneratedTemplate(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:cloudformation:GeneratedTemplate', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="creationTime")

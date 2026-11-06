@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Rum.Inputs
         public Input<Pulumi.AwsNative.Rum.AppMonitorMetricDestinationDestination> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+        /// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
         /// 
         /// This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Rum.Inputs
         public Input<string>? DestinationArn { get; set; }
 
         /// <summary>
-        /// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+        /// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
         /// 
         /// This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         /// </summary>

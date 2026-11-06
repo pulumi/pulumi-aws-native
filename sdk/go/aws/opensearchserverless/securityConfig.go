@@ -144,6 +144,12 @@ func (SecurityConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityConfigState)(nil)).Elem()
 }
 
+// SecurityConfigExists checks whether an existing SecurityConfig resource with the given ID exists.
+func SecurityConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:opensearchserverless:SecurityConfig", id, state, "", opts...)
+}
+
 type securityConfigArgs struct {
 	// Security config description
 	Description *string `pulumi:"description"`

@@ -81,6 +81,12 @@ func (DataProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataProviderState)(nil)).Elem()
 }
 
+// DataProviderExists checks whether an existing DataProvider resource with the given ID exists.
+func DataProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dms:DataProvider", id, state, "", opts...)
+}
+
 type dataProviderArgs struct {
 	// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	DataProviderIdentifier *string `pulumi:"dataProviderIdentifier"`

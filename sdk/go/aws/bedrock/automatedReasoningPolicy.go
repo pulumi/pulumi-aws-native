@@ -84,6 +84,12 @@ func (AutomatedReasoningPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automatedReasoningPolicyState)(nil)).Elem()
 }
 
+// AutomatedReasoningPolicyExists checks whether an existing AutomatedReasoningPolicy resource with the given ID exists.
+func AutomatedReasoningPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomatedReasoningPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:AutomatedReasoningPolicy", id, state, "", opts...)
+}
+
 type automatedReasoningPolicyArgs struct {
 	// The description of the policy.
 	Description *string `pulumi:"description"`

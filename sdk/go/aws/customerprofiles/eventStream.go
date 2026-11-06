@@ -86,6 +86,12 @@ func (EventStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventStreamState)(nil)).Elem()
 }
 
+// EventStreamExists checks whether an existing EventStream resource with the given ID exists.
+func EventStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:customerprofiles:EventStream", id, state, "", opts...)
+}
+
 type eventStreamArgs struct {
 	// The unique name of the domain.
 	DomainName string `pulumi:"domainName"`

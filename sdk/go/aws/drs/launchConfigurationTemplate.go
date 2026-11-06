@@ -82,6 +82,12 @@ func (LaunchConfigurationTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchConfigurationTemplateState)(nil)).Elem()
 }
 
+// LaunchConfigurationTemplateExists checks whether an existing LaunchConfigurationTemplate resource with the given ID exists.
+func LaunchConfigurationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LaunchConfigurationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:drs:LaunchConfigurationTemplate", id, state, "", opts...)
+}
+
 type launchConfigurationTemplateArgs struct {
 	// Copy private IP.
 	CopyPrivateIp *bool `pulumi:"copyPrivateIp"`

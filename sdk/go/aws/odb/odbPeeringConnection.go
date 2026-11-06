@@ -85,6 +85,12 @@ func (OdbPeeringConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*odbPeeringConnectionState)(nil)).Elem()
 }
 
+// OdbPeeringConnectionExists checks whether an existing OdbPeeringConnection resource with the given ID exists.
+func OdbPeeringConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OdbPeeringConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:odb:OdbPeeringConnection", id, state, "", opts...)
+}
+
 type odbPeeringConnectionArgs struct {
 	// The additional CIDR blocks for the ODB peering connection.
 	AdditionalPeerNetworkCidrs []string `pulumi:"additionalPeerNetworkCidrs"`

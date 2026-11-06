@@ -72,6 +72,12 @@ func (DeviceProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceProfileState)(nil)).Elem()
 }
 
+// DeviceProfileExists checks whether an existing DeviceProfile resource with the given ID exists.
+func DeviceProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotwireless:DeviceProfile", id, state, "", opts...)
+}
+
 type deviceProfileArgs struct {
 	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
 	LoRaWan *DeviceProfileLoRaWanDeviceProfile `pulumi:"loRaWan"`

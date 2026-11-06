@@ -201,7 +201,7 @@ class Tracker(pulumi.CustomResource):
                  position_filtering: pulumi.Input[Optional['TrackerPositionFiltering']] = None,
                  pricing_plan: pulumi.Input[Optional['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tracker_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -221,7 +221,7 @@ class Tracker(pulumi.CustomResource):
                
                This field is optional. If not specified, the default value is `TimeBased` .
         :param pulumi.Input[_builtins.str] pricing_plan_data_source: This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] tracker_name: The name for the tracker resource.
                
                Requirements:
@@ -261,7 +261,7 @@ class Tracker(pulumi.CustomResource):
                  position_filtering: pulumi.Input[Optional['TrackerPositionFiltering']] = None,
                  pricing_plan: pulumi.Input[Optional['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tracker_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -323,6 +323,12 @@ class Tracker(pulumi.CustomResource):
         __props__.__dict__["tracker_name"] = None
         __props__.__dict__["update_time"] = None
         return Tracker(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:location:Tracker', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

@@ -89,6 +89,12 @@ func (InstanceSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceSnapshotState)(nil)).Elem()
 }
 
+// InstanceSnapshotExists checks whether an existing InstanceSnapshot resource with the given ID exists.
+func InstanceSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lightsail:InstanceSnapshot", id, state, "", opts...)
+}
+
 type instanceSnapshotArgs struct {
 	// The instance from which the snapshot was created.
 	InstanceName string `pulumi:"instanceName"`

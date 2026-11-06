@@ -116,7 +116,7 @@ class List(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  elements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  variable_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -127,7 +127,7 @@ class List(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] elements: The elements in this list.
         :param pulumi.Input[_builtins.str] name: The name of the list.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with this list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with this list.
         :param pulumi.Input[_builtins.str] variable_type: The variable type of the list.
         """
         ...
@@ -157,7 +157,7 @@ class List(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  elements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  variable_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -209,6 +209,12 @@ class List(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["variable_type"] = None
         return List(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:frauddetector:List', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

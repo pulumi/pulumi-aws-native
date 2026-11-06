@@ -79,6 +79,12 @@ func (ServiceTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceTemplateState)(nil)).Elem()
 }
 
+// ServiceTemplateExists checks whether an existing ServiceTemplate resource with the given ID exists.
+func ServiceTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:proton:ServiceTemplate", id, state, "", opts...)
+}
+
 type serviceTemplateArgs struct {
 	// <p>A description of the service template.</p>
 	Description *string `pulumi:"description"`

@@ -76,6 +76,12 @@ func (AttributeGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*attributeGroupAssociationState)(nil)).Elem()
 }
 
+// AttributeGroupAssociationExists checks whether an existing AttributeGroupAssociation resource with the given ID exists.
+func AttributeGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AttributeGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalogappregistry:AttributeGroupAssociation", id, state, "", opts...)
+}
+
 type attributeGroupAssociationArgs struct {
 	// The name or the Id of the Application.
 	Application string `pulumi:"application"`

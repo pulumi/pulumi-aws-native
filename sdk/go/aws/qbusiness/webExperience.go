@@ -103,6 +103,12 @@ func (WebExperienceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webExperienceState)(nil)).Elem()
 }
 
+// WebExperienceExists checks whether an existing WebExperience resource with the given ID exists.
+func WebExperienceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebExperienceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:qbusiness:WebExperience", id, state, "", opts...)
+}
+
 type webExperienceArgs struct {
 	// The identifier of the Amazon Q Business web experience.
 	ApplicationId string `pulumi:"applicationId"`

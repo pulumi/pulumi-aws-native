@@ -96,6 +96,12 @@ func (SpaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spaceState)(nil)).Elem()
 }
 
+// SpaceExists checks whether an existing Space resource with the given ID exists.
+func SpaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudwatch:Space", id, state, "", opts...)
+}
+
 type spaceArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
 	AgentCoreEvaluationRoleArn *string `pulumi:"agentCoreEvaluationRoleArn"`

@@ -117,6 +117,12 @@ func (Ec2FleetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ec2FleetState)(nil)).Elem()
 }
 
+// Ec2FleetExists checks whether an existing Ec2Fleet resource with the given ID exists.
+func Ec2FleetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Ec2FleetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:Ec2Fleet", id, state, "", opts...)
+}
+
 type ec2FleetArgs struct {
 	// Reserved.
 	Context *string `pulumi:"context"`

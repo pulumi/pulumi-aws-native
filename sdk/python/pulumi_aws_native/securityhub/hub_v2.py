@@ -62,7 +62,7 @@ class HubV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict']]] = None,
+                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict', 'outputs.HubV2NetworkScanning']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -96,7 +96,7 @@ class HubV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict']]] = None,
+                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict', 'outputs.HubV2NetworkScanning']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -138,6 +138,12 @@ class HubV2(pulumi.CustomResource):
         __props__.__dict__["subscribed_at"] = None
         __props__.__dict__["tags"] = None
         return HubV2(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:securityhub:HubV2', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter(name="hubV2Arn")

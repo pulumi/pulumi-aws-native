@@ -75,6 +75,12 @@ func (CodeRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*codeRepositoryState)(nil)).Elem()
 }
 
+// CodeRepositoryExists checks whether an existing CodeRepository resource with the given ID exists.
+func CodeRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CodeRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:CodeRepository", id, state, "", opts...)
+}
+
 type codeRepositoryArgs struct {
 	// The name of the Git repository.
 	CodeRepositoryName *string `pulumi:"codeRepositoryName"`

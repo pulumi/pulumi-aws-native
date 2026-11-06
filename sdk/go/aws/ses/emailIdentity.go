@@ -93,6 +93,12 @@ func (EmailIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIdentityState)(nil)).Elem()
 }
 
+// EmailIdentityExists checks whether an existing EmailIdentity resource with the given ID exists.
+func EmailIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:EmailIdentity", id, state, "", opts...)
+}
+
 type emailIdentityArgs struct {
 	// Used to associate a configuration set with an email identity.
 	ConfigurationSetAttributes *EmailIdentityConfigurationSetAttributes `pulumi:"configurationSetAttributes"`

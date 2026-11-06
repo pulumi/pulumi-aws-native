@@ -80,6 +80,12 @@ func (SourceAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceAssociationState)(nil)).Elem()
 }
 
+// SourceAssociationExists checks whether an existing SourceAssociation resource with the given ID exists.
+func SourceAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ram:SourceAssociation", id, state, "", opts...)
+}
+
 type sourceAssociationArgs struct {
 	// Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the resource share.
 	ResourceShareArn string `pulumi:"resourceShareArn"`

@@ -73,6 +73,12 @@ func (SubscriberNotificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriberNotificationState)(nil)).Elem()
 }
 
+// SubscriberNotificationExists checks whether an existing SubscriberNotification resource with the given ID exists.
+func SubscriberNotificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriberNotificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securitylake:SubscriberNotification", id, state, "", opts...)
+}
+
 type subscriberNotificationArgs struct {
 	// Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
 	NotificationConfiguration SubscriberNotificationNotificationConfiguration `pulumi:"notificationConfiguration"`

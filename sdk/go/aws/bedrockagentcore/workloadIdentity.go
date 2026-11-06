@@ -73,6 +73,12 @@ func (WorkloadIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadIdentityState)(nil)).Elem()
 }
 
+// WorkloadIdentityExists checks whether an existing WorkloadIdentity resource with the given ID exists.
+func WorkloadIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkloadIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrockagentcore:WorkloadIdentity", id, state, "", opts...)
+}
+
 type workloadIdentityArgs struct {
 	// The list of allowed OAuth2 return URLs for resources associated with this workload identity.
 	AllowedResourceOauth2ReturnUrls []string `pulumi:"allowedResourceOauth2ReturnUrls"`

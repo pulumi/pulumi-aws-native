@@ -80,6 +80,12 @@ func (LexiconState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lexiconState)(nil)).Elem()
 }
 
+// LexiconExists checks whether an existing Lexicon resource with the given ID exists.
+func LexiconExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LexiconState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:polly:Lexicon", id, state, "", opts...)
+}
+
 type lexiconArgs struct {
 	// The content of the PLS lexicon in string format.
 	Content string `pulumi:"content"`

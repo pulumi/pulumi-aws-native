@@ -74,6 +74,12 @@ func (StorageConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageConfigurationState)(nil)).Elem()
 }
 
+// StorageConfigurationExists checks whether an existing StorageConfiguration resource with the given ID exists.
+func StorageConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ivs:StorageConfiguration", id, state, "", opts...)
+}
+
 type storageConfigurationArgs struct {
 	// Storage Configuration Name.
 	Name *string `pulumi:"name"`

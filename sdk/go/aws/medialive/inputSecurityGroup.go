@@ -66,6 +66,12 @@ func (InputSecurityGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inputSecurityGroupState)(nil)).Elem()
 }
 
+// InputSecurityGroupExists checks whether an existing InputSecurityGroup resource with the given ID exists.
+func InputSecurityGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InputSecurityGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:medialive:InputSecurityGroup", id, state, "", opts...)
+}
+
 type inputSecurityGroupArgs struct {
 	// A collection of key-value pairs.
 	Tags map[string]string `pulumi:"tags"`

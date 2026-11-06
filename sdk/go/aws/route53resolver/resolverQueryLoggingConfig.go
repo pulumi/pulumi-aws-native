@@ -85,6 +85,12 @@ func (ResolverQueryLoggingConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverQueryLoggingConfigState)(nil)).Elem()
 }
 
+// ResolverQueryLoggingConfigExists checks whether an existing ResolverQueryLoggingConfig resource with the given ID exists.
+func ResolverQueryLoggingConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverQueryLoggingConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53resolver:ResolverQueryLoggingConfig", id, state, "", opts...)
+}
+
 type resolverQueryLoggingConfigArgs struct {
 	// destination arn
 	DestinationArn *string `pulumi:"destinationArn"`

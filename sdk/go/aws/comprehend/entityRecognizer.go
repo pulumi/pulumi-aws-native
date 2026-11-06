@@ -101,6 +101,12 @@ func (EntityRecognizerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entityRecognizerState)(nil)).Elem()
 }
 
+// EntityRecognizerExists checks whether an existing EntityRecognizer resource with the given ID exists.
+func EntityRecognizerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntityRecognizerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:comprehend:EntityRecognizer", id, state, "", opts...)
+}
+
 type entityRecognizerArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
 	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`

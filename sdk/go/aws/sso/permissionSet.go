@@ -92,6 +92,12 @@ func (PermissionSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionSetState)(nil)).Elem()
 }
 
+// PermissionSetExists checks whether an existing PermissionSet resource with the given ID exists.
+func PermissionSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sso:PermissionSet", id, state, "", opts...)
+}
+
 type permissionSetArgs struct {
 	// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
 	CustomerManagedPolicyReferences []PermissionSetCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReferences"`

@@ -96,6 +96,12 @@ func (SecurityProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityProfileState)(nil)).Elem()
 }
 
+// SecurityProfileExists checks whether an existing SecurityProfile resource with the given ID exists.
+func SecurityProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:SecurityProfile", id, state, "", opts...)
+}
+
 type securityProfileArgs struct {
 	// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlHierarchyGroupId *string `pulumi:"allowedAccessControlHierarchyGroupId"`

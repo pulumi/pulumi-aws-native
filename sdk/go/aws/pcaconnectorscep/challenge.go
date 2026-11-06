@@ -69,6 +69,12 @@ func (ChallengeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*challengeState)(nil)).Elem()
 }
 
+// ChallengeExists checks whether an existing Challenge resource with the given ID exists.
+func ChallengeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChallengeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:pcaconnectorscep:Challenge", id, state, "", opts...)
+}
+
 type challengeArgs struct {
 	// The Amazon Resource Name (ARN) of the connector.
 	ConnectorArn string            `pulumi:"connectorArn"`

@@ -71,6 +71,12 @@ func (InsightState) ElementType() reflect.Type {
 	return reflect.TypeOf((*insightState)(nil)).Elem()
 }
 
+// InsightExists checks whether an existing Insight resource with the given ID exists.
+func InsightExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InsightState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:securityhub:Insight", id, state, "", opts...)
+}
+
 type insightArgs struct {
 	// One or more attributes used to filter the findings included in the insight
 	Filters InsightAwsSecurityFindingFilters `pulumi:"filters"`

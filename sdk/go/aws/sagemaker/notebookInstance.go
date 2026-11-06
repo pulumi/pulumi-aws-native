@@ -36,7 +36,7 @@ import (
 //			basicNotebookInstanceLifecycleConfig, err := sagemaker.NewNotebookInstanceLifecycleConfig(ctx, "basicNotebookInstanceLifecycleConfig", &sagemaker.NotebookInstanceLifecycleConfigArgs{
 //				OnStart: sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray{
 //					&sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs{
-//						Content: pulumi.String(base64.StdEncoding.EncodeToString([]byte("echo 'hello'"))),
+//						Content: base64.StdEncoding.EncodeToString([]byte("echo 'hello'")),
 //					},
 //				},
 //			})
@@ -186,6 +186,12 @@ type NotebookInstanceState struct {
 
 func (NotebookInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookInstanceState)(nil)).Elem()
+}
+
+// NotebookInstanceExists checks whether an existing NotebookInstance resource with the given ID exists.
+func NotebookInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotebookInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:NotebookInstance", id, state, "", opts...)
 }
 
 type notebookInstanceArgs struct {

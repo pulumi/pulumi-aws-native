@@ -90,6 +90,12 @@ func (DataAutomationProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataAutomationProjectState)(nil)).Elem()
 }
 
+// DataAutomationProjectExists checks whether an existing DataAutomationProject resource with the given ID exists.
+func DataAutomationProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataAutomationProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:bedrock:DataAutomationProject", id, state, "", opts...)
+}
+
 type dataAutomationProjectArgs struct {
 	// Blueprints to apply to objects processed by the project.
 	CustomOutputConfiguration *DataAutomationProjectCustomOutputConfiguration `pulumi:"customOutputConfiguration"`

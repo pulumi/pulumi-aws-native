@@ -84,6 +84,12 @@ func (ContactMethodState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactMethodState)(nil)).Elem()
 }
 
+// ContactMethodExists checks whether an existing ContactMethod resource with the given ID exists.
+func ContactMethodExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactMethodState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lightsail:ContactMethod", id, state, "", opts...)
+}
+
 type contactMethodArgs struct {
 	// The destination of the contact method, such as an email address or a mobile phone number.
 	ContactEndpoint string `pulumi:"contactEndpoint"`

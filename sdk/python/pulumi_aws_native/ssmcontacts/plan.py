@@ -83,7 +83,7 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: pulumi.Input[Optional[_builtins.str]] = None,
                  rotation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict', 'outputs.PlanStage']]]]] = None,
                  __props__=None):
         """
         Engagement Plan for a SSM Incident Manager Contact.
@@ -92,7 +92,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_id: Contact ID for the AWS SSM Incident Manager Contact to associate the plan.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rotation_ids: Rotation Ids to associate with Oncall Contact for engagement.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]] stages: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict', 'outputs.PlanStage']]]] stages: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         ...
     @overload
@@ -120,7 +120,7 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: pulumi.Input[Optional[_builtins.str]] = None,
                  rotation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict', 'outputs.PlanStage']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -163,6 +163,12 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["rotation_ids"] = None
         __props__.__dict__["stages"] = None
         return Plan(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ssmcontacts:Plan', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

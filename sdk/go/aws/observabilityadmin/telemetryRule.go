@@ -76,6 +76,12 @@ func (TelemetryRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*telemetryRuleState)(nil)).Elem()
 }
 
+// TelemetryRuleExists checks whether an existing TelemetryRule resource with the given ID exists.
+func TelemetryRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TelemetryRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:observabilityadmin:TelemetryRule", id, state, "", opts...)
+}
+
 type telemetryRuleArgs struct {
 	// Retrieves the details of a specific telemetry rule in your account.
 	Rule TelemetryRuleType `pulumi:"rule"`

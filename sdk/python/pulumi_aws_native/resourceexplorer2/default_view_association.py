@@ -119,6 +119,12 @@ class DefaultViewAssociation(pulumi.CustomResource):
         __props__.__dict__["view_arn"] = None
         return DefaultViewAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:resourceexplorer2:DefaultViewAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="associatedAwsPrincipal")
     def associated_aws_principal(self) -> pulumi.Output[_builtins.str]:

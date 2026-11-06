@@ -93,6 +93,12 @@ func (DbProxyEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dbProxyEndpointState)(nil)).Elem()
 }
 
+// DbProxyEndpointExists checks whether an existing DbProxyEndpoint resource with the given ID exists.
+func DbProxyEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DbProxyEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rds:DbProxyEndpoint", id, state, "", opts...)
+}
+
 type dbProxyEndpointArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
 	DbProxyEndpointName *string `pulumi:"dbProxyEndpointName"`

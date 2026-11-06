@@ -126,7 +126,7 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict']]]]] = None,
+                 event_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict', 'outputs.EventBridgeRuleTemplateTarget']]]]] = None,
                  event_type: pulumi.Input[Optional['EventBridgeRuleTemplateEventType']] = None,
                  group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -138,7 +138,7 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A resource's optional description.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict']]]] event_targets: Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict', 'outputs.EventBridgeRuleTemplateTarget']]]] event_targets: Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
         :param pulumi.Input['EventBridgeRuleTemplateEventType'] event_type: The type of event to match with the rule.
         :param pulumi.Input[_builtins.str] group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[_builtins.str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -168,7 +168,7 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict']]]]] = None,
+                 event_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict', 'outputs.EventBridgeRuleTemplateTarget']]]]] = None,
                  event_type: pulumi.Input[Optional['EventBridgeRuleTemplateEventType']] = None,
                  group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -233,6 +233,12 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return EventBridgeRuleTemplate(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:medialive:EventBridgeRuleTemplate', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

@@ -168,6 +168,12 @@ func (VirtualClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualClusterState)(nil)).Elem()
 }
 
+// VirtualClusterExists checks whether an existing VirtualCluster resource with the given ID exists.
+func VirtualClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:emrcontainers:VirtualCluster", id, state, "", opts...)
+}
+
 type virtualClusterArgs struct {
 	// Container provider of the virtual cluster.
 	ContainerProvider VirtualClusterContainerProvider `pulumi:"containerProvider"`

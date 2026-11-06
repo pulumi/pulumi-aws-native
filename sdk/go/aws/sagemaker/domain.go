@@ -111,6 +111,12 @@ func (DomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainState)(nil)).Elem()
 }
 
+// DomainExists checks whether an existing Domain resource with the given ID exists.
+func DomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:Domain", id, state, "", opts...)
+}
+
 type domainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
 	AppNetworkAccessType *DomainAppNetworkAccessType `pulumi:"appNetworkAccessType"`

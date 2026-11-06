@@ -239,6 +239,12 @@ class PackageVersion(pulumi.CustomResource):
         __props__.__dict__["updated_latest_patch_version"] = None
         return PackageVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:panorama:PackageVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="isLatestPatch")
     def is_latest_patch(self) -> pulumi.Output[_builtins.bool]:

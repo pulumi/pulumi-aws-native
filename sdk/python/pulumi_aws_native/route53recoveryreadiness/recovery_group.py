@@ -83,7 +83,7 @@ class RecoveryGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cells: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  recovery_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
@@ -92,7 +92,7 @@ class RecoveryGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: A list of the cell Amazon Resource Names (ARNs) in the recovery group.
         :param pulumi.Input[_builtins.str] recovery_group_name: The name of the recovery group to create.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of tags associated with a resource.
         """
         ...
     @overload
@@ -120,7 +120,7 @@ class RecoveryGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cells: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  recovery_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -163,6 +163,12 @@ class RecoveryGroup(pulumi.CustomResource):
         __props__.__dict__["recovery_group_name"] = None
         __props__.__dict__["tags"] = None
         return RecoveryGroup(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:route53recoveryreadiness:RecoveryGroup', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

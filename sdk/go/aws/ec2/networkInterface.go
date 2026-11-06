@@ -114,6 +114,12 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceState)(nil)).Elem()
 }
 
+// NetworkInterfaceExists checks whether an existing NetworkInterface resource with the given ID exists.
+func NetworkInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:NetworkInterface", id, state, "", opts...)
+}
+
 type networkInterfaceArgs struct {
 	// A connection tracking specification for the network interface.
 	ConnectionTrackingSpecification *NetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`

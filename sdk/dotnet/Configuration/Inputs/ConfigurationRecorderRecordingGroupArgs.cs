@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         public Input<Inputs.ConfigurationRecorderExclusionByResourceTypesArgs>? ExclusionByResourceTypes { get; set; }
 
         /// <summary>
-        /// This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies. 
+        /// This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
         /// </summary>
         [Input("includeGlobalResourceTypes")]
         public Input<bool>? IncludeGlobalResourceTypes { get; set; }

@@ -23,7 +23,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         /// This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
         /// 
         /// &gt; This property can only be set as follows:
-        /// &gt; 
         /// &gt; - `EndpointType` must be set to `VPC`
         /// &gt; - The Transfer Family server must be offline.
         /// &gt; - You cannot set this parameter for Transfer Family servers that use the FTP protocol.

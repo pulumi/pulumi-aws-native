@@ -65,6 +65,12 @@ func (ExtensionResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*extensionResourceState)(nil)).Elem()
 }
 
+// ExtensionResourceExists checks whether an existing ExtensionResource resource with the given ID exists.
+func ExtensionResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExtensionResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:index:ExtensionResource", id, state, "", opts...)
+}
+
 type extensionResourceArgs struct {
 	// Optional auto-naming specification for the resource.
 	// If provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.

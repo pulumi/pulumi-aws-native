@@ -79,6 +79,12 @@ func (SecurityProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityProfileState)(nil)).Elem()
 }
 
+// SecurityProfileExists checks whether an existing SecurityProfile resource with the given ID exists.
+func SecurityProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iot:SecurityProfile", id, state, "", opts...)
+}
+
 type securityProfileArgs struct {
 	// A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
 	AdditionalMetricsToRetainV2 []SecurityProfileMetricToRetain `pulumi:"additionalMetricsToRetainV2"`

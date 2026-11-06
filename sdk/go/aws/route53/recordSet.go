@@ -97,6 +97,12 @@ func (RecordSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordSetState)(nil)).Elem()
 }
 
+// RecordSetExists checks whether an existing RecordSet resource with the given ID exists.
+func RecordSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecordSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:route53:RecordSet", id, state, "", opts...)
+}
+
 type recordSetArgs struct {
 	// Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	AliasTarget *RecordSetAliasTarget `pulumi:"aliasTarget"`

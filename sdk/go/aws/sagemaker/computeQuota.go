@@ -99,6 +99,12 @@ func (ComputeQuotaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*computeQuotaState)(nil)).Elem()
 }
 
+// ComputeQuotaExists checks whether an existing ComputeQuota resource with the given ID exists.
+func ComputeQuotaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComputeQuotaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:ComputeQuota", id, state, "", opts...)
+}
+
 type computeQuotaArgs struct {
 	// Whether the compute allocation rule is active. Defaults service-side to 'Enabled' when omitted on Create.
 	ActivationState *ComputeQuotaActivationState `pulumi:"activationState"`

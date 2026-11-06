@@ -81,6 +81,12 @@ func (ConfigurationManagerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationManagerState)(nil)).Elem()
 }
 
+// ConfigurationManagerExists checks whether an existing ConfigurationManager resource with the given ID exists.
+func ConfigurationManagerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationManagerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ssmquicksetup:ConfigurationManager", id, state, "", opts...)
+}
+
 type configurationManagerArgs struct {
 	// The definition of the Quick Setup configuration that the configuration manager deploys.
 	ConfigurationDefinitions []ConfigurationManagerConfigurationDefinition `pulumi:"configurationDefinitions"`

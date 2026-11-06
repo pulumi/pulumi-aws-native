@@ -100,6 +100,12 @@ func (InstanceConnectEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceConnectEndpointState)(nil)).Elem()
 }
 
+// InstanceConnectEndpointExists checks whether an existing InstanceConnectEndpoint resource with the given ID exists.
+func InstanceConnectEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceConnectEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:InstanceConnectEndpoint", id, state, "", opts...)
+}
+
 type instanceConnectEndpointArgs struct {
 	// The client token of the instance connect endpoint.
 	ClientToken *string `pulumi:"clientToken"`

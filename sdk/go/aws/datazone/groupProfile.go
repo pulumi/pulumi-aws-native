@@ -83,6 +83,12 @@ func (GroupProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupProfileState)(nil)).Elem()
 }
 
+// GroupProfileExists checks whether an existing GroupProfile resource with the given ID exists.
+func GroupProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:GroupProfile", id, state, "", opts...)
+}
+
 type groupProfileArgs struct {
 	// The identifier of the Amazon DataZone domain in which the group profile would be created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`

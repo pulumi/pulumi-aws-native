@@ -83,6 +83,12 @@ func (CampaignState) ElementType() reflect.Type {
 	return reflect.TypeOf((*campaignState)(nil)).Elem()
 }
 
+// CampaignExists checks whether an existing Campaign resource with the given ID exists.
+func CampaignExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CampaignState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connectcampaigns:Campaign", id, state, "", opts...)
+}
+
 type campaignArgs struct {
 	// Amazon Connect Instance Arn
 	ConnectInstanceArn string `pulumi:"connectInstanceArn"`

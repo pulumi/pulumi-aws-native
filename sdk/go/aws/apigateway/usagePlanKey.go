@@ -80,6 +80,12 @@ func (UsagePlanKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*usagePlanKeyState)(nil)).Elem()
 }
 
+// UsagePlanKeyExists checks whether an existing UsagePlanKey resource with the given ID exists.
+func UsagePlanKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UsagePlanKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:UsagePlanKey", id, state, "", opts...)
+}
+
 type usagePlanKeyArgs struct {
 	// The Id of the UsagePlanKey resource.
 	KeyId string `pulumi:"keyId"`

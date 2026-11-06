@@ -125,6 +125,12 @@ func (DirectoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryState)(nil)).Elem()
 }
 
+// DirectoryExists checks whether an existing Directory resource with the given ID exists.
+func DirectoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspaces:Directory", id, state, "", opts...)
+}
+
 type directoryArgs struct {
 	ActiveDirectoryConfig          *DirectoryActiveDirectoryConfig          `pulumi:"activeDirectoryConfig"`
 	CertificateBasedAuthProperties *DirectoryCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`

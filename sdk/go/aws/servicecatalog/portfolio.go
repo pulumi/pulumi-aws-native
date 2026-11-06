@@ -81,6 +81,12 @@ func (PortfolioState) ElementType() reflect.Type {
 	return reflect.TypeOf((*portfolioState)(nil)).Elem()
 }
 
+// PortfolioExists checks whether an existing Portfolio resource with the given ID exists.
+func PortfolioExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PortfolioState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:servicecatalog:Portfolio", id, state, "", opts...)
+}
+
 type portfolioArgs struct {
 	// The language code.
 	//

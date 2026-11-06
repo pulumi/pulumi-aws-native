@@ -97,6 +97,12 @@ func (MailManagerIngressPointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailManagerIngressPointState)(nil)).Elem()
 }
 
+// MailManagerIngressPointExists checks whether an existing MailManagerIngressPoint resource with the given ID exists.
+func MailManagerIngressPointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailManagerIngressPointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:MailManagerIngressPoint", id, state, "", opts...)
+}
+
 type mailManagerIngressPointArgs struct {
 	// The configuration of the ingress endpoint resource.
 	IngressPointConfiguration interface{} `pulumi:"ingressPointConfiguration"`

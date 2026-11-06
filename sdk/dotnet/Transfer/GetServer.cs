@@ -123,7 +123,6 @@ namespace Pulumi.AwsNative.Transfer
         /// Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
         /// 
         /// &gt; The `IpAddressType` parameter has the following limitations:
-        /// &gt; 
         /// &gt; - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
         /// &gt; - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. &gt; When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
         /// </summary>
@@ -169,7 +168,7 @@ namespace Pulumi.AwsNative.Transfer
         /// &gt; - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
         /// &gt; - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.
         /// &gt; - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
-        /// &gt; - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. 
+        /// &gt; - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3.
         /// 
         /// The `Protocols` parameter is an array of strings.
         /// 

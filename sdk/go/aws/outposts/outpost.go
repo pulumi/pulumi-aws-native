@@ -79,6 +79,12 @@ func (OutpostState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outpostState)(nil)).Elem()
 }
 
+// OutpostExists checks whether an existing Outpost resource with the given ID exists.
+func OutpostExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutpostState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:outposts:Outpost", id, state, "", opts...)
+}
+
 type outpostArgs struct {
 	AvailabilityZone      *string                       `pulumi:"availabilityZone"`
 	AvailabilityZoneId    *string                       `pulumi:"availabilityZoneId"`

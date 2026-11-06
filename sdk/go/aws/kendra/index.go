@@ -101,6 +101,12 @@ func (IndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*indexState)(nil)).Elem()
 }
 
+// IndexExists checks whether an existing Index resource with the given ID exists.
+func IndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kendra:Index", id, state, "", opts...)
+}
+
 type indexArgs struct {
 	// Capacity units
 	CapacityUnits *IndexCapacityUnitsConfiguration `pulumi:"capacityUnits"`

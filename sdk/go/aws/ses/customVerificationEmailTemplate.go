@@ -91,6 +91,12 @@ func (CustomVerificationEmailTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customVerificationEmailTemplateState)(nil)).Elem()
 }
 
+// CustomVerificationEmailTemplateExists checks whether an existing CustomVerificationEmailTemplate resource with the given ID exists.
+func CustomVerificationEmailTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomVerificationEmailTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:CustomVerificationEmailTemplate", id, state, "", opts...)
+}
+
 type customVerificationEmailTemplateArgs struct {
 	// The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
 	FailureRedirectionUrl string `pulumi:"failureRedirectionUrl"`

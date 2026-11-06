@@ -81,6 +81,12 @@ func (InstanceProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceProfileState)(nil)).Elem()
 }
 
+// InstanceProfileExists checks whether an existing InstanceProfile resource with the given ID exists.
+func InstanceProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InstanceProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:dms:InstanceProfile", id, state, "", opts...)
+}
+
 type instanceProfileArgs struct {
 	// The property describes an availability zone of the instance profile.
 	AvailabilityZone *string `pulumi:"availabilityZone"`

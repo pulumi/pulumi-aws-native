@@ -152,6 +152,12 @@ func (SolutionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*solutionState)(nil)).Elem()
 }
 
+// SolutionExists checks whether an existing Solution resource with the given ID exists.
+func SolutionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SolutionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:personalize:Solution", id, state, "", opts...)
+}
+
 type solutionArgs struct {
 	// The ARN of the dataset group that provides the training data.
 	DatasetGroupArn string `pulumi:"datasetGroupArn"`

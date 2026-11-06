@@ -71,6 +71,12 @@ func (SamplingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*samplingRuleState)(nil)).Elem()
 }
 
+// SamplingRuleExists checks whether an existing SamplingRule resource with the given ID exists.
+func SamplingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SamplingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:xray:SamplingRule", id, state, "", opts...)
+}
+
 type samplingRuleArgs struct {
 	RuleName *string `pulumi:"ruleName"`
 	// The sampling rule to be created or updated.

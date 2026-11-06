@@ -92,6 +92,12 @@ func (InvestigationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*investigationGroupState)(nil)).Elem()
 }
 
+// InvestigationGroupExists checks whether an existing InvestigationGroup resource with the given ID exists.
+func InvestigationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InvestigationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:aiops:InvestigationGroup", id, state, "", opts...)
+}
+
 type investigationGroupArgs struct {
 	// An array of key-value pairs of notification channels to apply to this resource.
 	ChatbotNotificationChannels []InvestigationGroupChatbotNotificationChannel `pulumi:"chatbotNotificationChannels"`

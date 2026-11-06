@@ -112,6 +112,12 @@ func (ModelQualityJobDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelQualityJobDefinitionState)(nil)).Elem()
 }
 
+// ModelQualityJobDefinitionExists checks whether an existing ModelQualityJobDefinition resource with the given ID exists.
+func ModelQualityJobDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModelQualityJobDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:sagemaker:ModelQualityJobDefinition", id, state, "", opts...)
+}
+
 type modelQualityJobDefinitionArgs struct {
 	EndpointName *string `pulumi:"endpointName"`
 	// The name of the monitoring job definition.

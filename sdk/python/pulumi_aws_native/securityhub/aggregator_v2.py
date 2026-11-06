@@ -165,6 +165,12 @@ class AggregatorV2(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         return AggregatorV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:securityhub:AggregatorV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aggregationRegion")
     def aggregation_region(self) -> pulumi.Output[_builtins.str]:

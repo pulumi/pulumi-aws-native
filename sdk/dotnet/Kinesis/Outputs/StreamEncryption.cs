@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Kinesis.Outputs
     public sealed class StreamEncryption
     {
         /// <summary>
-        /// The encryption type to use. The only valid value is KMS. 
+        /// The encryption type to use. The only valid value is KMS.
         /// </summary>
         public readonly Pulumi.AwsNative.Kinesis.StreamEncryptionEncryptionType EncryptionType;
         /// <summary>

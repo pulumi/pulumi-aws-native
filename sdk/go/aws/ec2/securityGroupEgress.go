@@ -106,6 +106,12 @@ func (SecurityGroupEgressState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupEgressState)(nil)).Elem()
 }
 
+// SecurityGroupEgressExists checks whether an existing SecurityGroupEgress resource with the given ID exists.
+func SecurityGroupEgressExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityGroupEgressState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:SecurityGroupEgress", id, state, "", opts...)
+}
+
 type securityGroupEgressArgs struct {
 	// The IPv4 address range, in CIDR format.
 	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.

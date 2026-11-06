@@ -80,6 +80,12 @@ func (ServiceEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEnvironmentState)(nil)).Elem()
 }
 
+// ServiceEnvironmentExists checks whether an existing ServiceEnvironment resource with the given ID exists.
+func ServiceEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:batch:ServiceEnvironment", id, state, "", opts...)
+}
+
 type serviceEnvironmentArgs struct {
 	// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
 	CapacityLimits []ServiceEnvironmentCapacityLimit `pulumi:"capacityLimits"`

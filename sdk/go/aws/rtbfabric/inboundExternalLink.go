@@ -74,6 +74,12 @@ func (InboundExternalLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inboundExternalLinkState)(nil)).Elem()
 }
 
+// InboundExternalLinkExists checks whether an existing InboundExternalLink resource with the given ID exists.
+func InboundExternalLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InboundExternalLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:rtbfabric:InboundExternalLink", id, state, "", opts...)
+}
+
 type inboundExternalLinkArgs struct {
 	GatewayId       string                             `pulumi:"gatewayId"`
 	LinkAttributes  *InboundExternalLinkLinkAttributes `pulumi:"linkAttributes"`

@@ -89,6 +89,12 @@ func (FargateProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fargateProfileState)(nil)).Elem()
 }
 
+// FargateProfileExists checks whether an existing FargateProfile resource with the given ID exists.
+func FargateProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FargateProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:eks:FargateProfile", id, state, "", opts...)
+}
+
 type fargateProfileArgs struct {
 	// Name of the Cluster
 	ClusterName string `pulumi:"clusterName"`

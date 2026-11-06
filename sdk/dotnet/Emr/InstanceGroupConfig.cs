@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Emr
         public Output<string?> BidPrice { get; private set; } = null!;
 
         /// <summary>
-        /// &gt; Amazon EMR releases 4.x or later. 
+        /// &gt; Amazon EMR releases 4.x or later.
         /// 
         /// The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
         /// </summary>
@@ -161,7 +161,7 @@ namespace Pulumi.AwsNative.Emr
         private InputList<Inputs.InstanceGroupConfigAppConfigurationArgs>? _configurations;
 
         /// <summary>
-        /// &gt; Amazon EMR releases 4.x or later. 
+        /// &gt; Amazon EMR releases 4.x or later.
         /// 
         /// The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
         /// </summary>

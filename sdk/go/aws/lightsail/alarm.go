@@ -104,6 +104,12 @@ func (AlarmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alarmState)(nil)).Elem()
 }
 
+// AlarmExists checks whether an existing Alarm resource with the given ID exists.
+func AlarmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlarmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lightsail:Alarm", id, state, "", opts...)
+}
+
 type alarmArgs struct {
 	// The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
 	AlarmName *string `pulumi:"alarmName"`

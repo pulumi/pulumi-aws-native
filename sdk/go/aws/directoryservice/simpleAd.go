@@ -97,6 +97,12 @@ func (SimpleAdState) ElementType() reflect.Type {
 	return reflect.TypeOf((*simpleAdState)(nil)).Elem()
 }
 
+// SimpleAdExists checks whether an existing SimpleAd resource with the given ID exists.
+func SimpleAdExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SimpleAdState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:directoryservice:SimpleAd", id, state, "", opts...)
+}
+
 type simpleAdArgs struct {
 	// The name of the configuration set.
 	CreateAlias *bool `pulumi:"createAlias"`

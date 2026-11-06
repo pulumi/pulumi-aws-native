@@ -90,6 +90,12 @@ func (FpgaImageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fpgaImageState)(nil)).Elem()
 }
 
+// FpgaImageExists checks whether an existing FpgaImage resource with the given ID exists.
+func FpgaImageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FpgaImageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:FpgaImage", id, state, "", opts...)
+}
+
 type fpgaImageArgs struct {
 	// A description for the AFI.
 	Description *string `pulumi:"description"`

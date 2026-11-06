@@ -93,6 +93,12 @@ func (EventTriggerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventTriggerState)(nil)).Elem()
 }
 
+// EventTriggerExists checks whether an existing EventTrigger resource with the given ID exists.
+func EventTriggerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventTriggerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:customerprofiles:EventTrigger", id, state, "", opts...)
+}
+
 type eventTriggerArgs struct {
 	// The description of the event trigger.
 	Description *string `pulumi:"description"`

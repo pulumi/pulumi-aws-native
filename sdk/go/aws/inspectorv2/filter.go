@@ -75,6 +75,12 @@ func (FilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*filterState)(nil)).Elem()
 }
 
+// FilterExists checks whether an existing Filter resource with the given ID exists.
+func FilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:inspectorv2:Filter", id, state, "", opts...)
+}
+
 type filterArgs struct {
 	// Findings filter description.
 	Description *string `pulumi:"description"`

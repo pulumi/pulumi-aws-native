@@ -130,7 +130,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_information: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTargetTargetsArgs', 'MaintenanceWindowTargetTargetsArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTargetTargetsArgs', 'MaintenanceWindowTargetTargetsArgsDict', 'outputs.MaintenanceWindowTargetTargets']]]]] = None,
                  window_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -142,7 +142,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name for the maintenance window target.
         :param pulumi.Input[_builtins.str] owner_information: A user-provided value that will be included in any Amazon CloudWatch Events events that are raised while running tasks for these targets in this maintenance window.
         :param pulumi.Input[_builtins.str] resource_type: The type of target that is being registered with the maintenance window.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTargetTargetsArgs', 'MaintenanceWindowTargetTargetsArgsDict']]]] targets: The targets to register with the maintenance window.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTargetTargetsArgs', 'MaintenanceWindowTargetTargetsArgsDict', 'outputs.MaintenanceWindowTargetTargets']]]] targets: The targets to register with the maintenance window.
         :param pulumi.Input[_builtins.str] window_id: The ID of the maintenance window to register the target with.
         """
         ...
@@ -173,7 +173,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_information: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTargetTargetsArgs', 'MaintenanceWindowTargetTargetsArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTargetTargetsArgs', 'MaintenanceWindowTargetTargetsArgsDict', 'outputs.MaintenanceWindowTargetTargets']]]]] = None,
                  window_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -229,6 +229,12 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         __props__.__dict__["window_id"] = None
         __props__.__dict__["window_target_id"] = None
         return MaintenanceWindowTarget(resource_name, opts=opts, __props__=__props__)
+
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'aws-native:ssm:MaintenanceWindowTarget', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter

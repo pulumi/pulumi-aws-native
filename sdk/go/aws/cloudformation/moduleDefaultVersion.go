@@ -68,6 +68,12 @@ func (ModuleDefaultVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*moduleDefaultVersionState)(nil)).Elem()
 }
 
+// ModuleDefaultVersionExists checks whether an existing ModuleDefaultVersion resource with the given ID exists.
+func ModuleDefaultVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModuleDefaultVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cloudformation:ModuleDefaultVersion", id, state, "", opts...)
+}
+
 type moduleDefaultVersionArgs struct {
 	// The Amazon Resource Name (ARN) of the module version to set as the default version.
 	Arn *string `pulumi:"arn"`

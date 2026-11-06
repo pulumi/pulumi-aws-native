@@ -85,6 +85,12 @@ func (ApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationState)(nil)).Elem()
 }
 
+// ApplicationExists checks whether an existing Application resource with the given ID exists.
+func ApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iotfleethub:Application", id, state, "", opts...)
+}
+
 type applicationArgs struct {
 	// Application Description, should be between 1 and 2048 characters.
 	ApplicationDescription *string `pulumi:"applicationDescription"`

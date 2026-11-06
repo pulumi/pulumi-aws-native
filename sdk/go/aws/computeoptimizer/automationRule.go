@@ -102,6 +102,12 @@ func (AutomationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationRuleState)(nil)).Elem()
 }
 
+// AutomationRuleExists checks whether an existing AutomationRule resource with the given ID exists.
+func AutomationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:computeoptimizer:AutomationRule", id, state, "", opts...)
+}
+
 type automationRuleArgs struct {
 	// Filter criteria that specify which recommended actions qualify for implementation.
 	Criteria *AutomationRuleCriteria `pulumi:"criteria"`

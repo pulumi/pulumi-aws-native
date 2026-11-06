@@ -213,6 +213,12 @@ func (ConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionState)(nil)).Elem()
 }
 
+// ConnectionExists checks whether an existing Connection resource with the given ID exists.
+func ConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:codestarconnections:Connection", id, state, "", opts...)
+}
+
 type connectionArgs struct {
 	// The name of the connection. Connection names must be unique in an AWS user account.
 	ConnectionName *string `pulumi:"connectionName"`

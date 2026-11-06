@@ -149,6 +149,12 @@ func (ScalableTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalableTargetState)(nil)).Elem()
 }
 
+// ScalableTargetExists checks whether an existing ScalableTarget resource with the given ID exists.
+func ScalableTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScalableTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:applicationautoscaling:ScalableTarget", id, state, "", opts...)
+}
+
 type scalableTargetArgs struct {
 	// The maximum value that you plan to scale out to. When a scaling policy is in effect, Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to changing demand.
 	MaxCapacity int `pulumi:"maxCapacity"`

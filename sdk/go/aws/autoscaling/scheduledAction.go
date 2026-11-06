@@ -82,6 +82,12 @@ func (ScheduledActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledActionState)(nil)).Elem()
 }
 
+// ScheduledActionExists checks whether an existing ScheduledAction resource with the given ID exists.
+func ScheduledActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:autoscaling:ScheduledAction", id, state, "", opts...)
+}
+
 type scheduledActionArgs struct {
 	// The name of the Auto Scaling group.
 	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`

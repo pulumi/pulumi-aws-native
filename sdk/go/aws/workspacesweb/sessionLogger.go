@@ -87,6 +87,12 @@ func (SessionLoggerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sessionLoggerState)(nil)).Elem()
 }
 
+// SessionLoggerExists checks whether an existing SessionLogger resource with the given ID exists.
+func SessionLoggerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SessionLoggerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:workspacesweb:SessionLogger", id, state, "", opts...)
+}
+
 type sessionLoggerArgs struct {
 	// The additional encryption context of the session logger.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`

@@ -116,6 +116,12 @@ func (WorkflowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowState)(nil)).Elem()
 }
 
+// WorkflowExists checks whether an existing Workflow resource with the given ID exists.
+func WorkflowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkflowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:omics:Workflow", id, state, "", opts...)
+}
+
 type workflowArgs struct {
 	Accelerators *WorkflowAccelerators `pulumi:"accelerators"`
 	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .

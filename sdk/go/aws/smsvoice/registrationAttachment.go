@@ -78,6 +78,12 @@ func (RegistrationAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registrationAttachmentState)(nil)).Elem()
 }
 
+// RegistrationAttachmentExists checks whether an existing RegistrationAttachment resource with the given ID exists.
+func RegistrationAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistrationAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:smsvoice:RegistrationAttachment", id, state, "", opts...)
+}
+
 type registrationAttachmentArgs struct {
 	// The registration file to upload. The maximum file size is 1500KB and valid file extensions are PDF, JPEG and PNG.
 	AttachmentBody *string `pulumi:"attachmentBody"`

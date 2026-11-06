@@ -88,6 +88,12 @@ func (DomainUnitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainUnitState)(nil)).Elem()
 }
 
+// DomainUnitExists checks whether an existing DomainUnit resource with the given ID exists.
+func DomainUnitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainUnitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:DomainUnit", id, state, "", opts...)
+}
+
 type domainUnitArgs struct {
 	// The description of the domain unit.
 	Description *string `pulumi:"description"`

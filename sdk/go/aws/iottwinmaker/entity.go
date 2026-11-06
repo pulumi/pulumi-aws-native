@@ -91,6 +91,12 @@ func (EntityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entityState)(nil)).Elem()
 }
 
+// EntityExists checks whether an existing Entity resource with the given ID exists.
+func EntityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:iottwinmaker:Entity", id, state, "", opts...)
+}
+
 type entityArgs struct {
 	// A map that sets information about a component type.
 	Components map[string]EntityComponent `pulumi:"components"`

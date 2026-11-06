@@ -106,6 +106,12 @@ func (ApprovedOriginState) ElementType() reflect.Type {
 	return reflect.TypeOf((*approvedOriginState)(nil)).Elem()
 }
 
+// ApprovedOriginExists checks whether an existing ApprovedOrigin resource with the given ID exists.
+func ApprovedOriginExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApprovedOriginState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:ApprovedOrigin", id, state, "", opts...)
+}
+
 type approvedOriginArgs struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	//

@@ -71,6 +71,12 @@ func (TransitGatewayRouteTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayRouteTableState)(nil)).Elem()
 }
 
+// TransitGatewayRouteTableExists checks whether an existing TransitGatewayRouteTable resource with the given ID exists.
+func TransitGatewayRouteTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayRouteTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayRouteTable", id, state, "", opts...)
+}
+
 type transitGatewayRouteTableArgs struct {
 	// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
 	Tags []aws.Tag `pulumi:"tags"`

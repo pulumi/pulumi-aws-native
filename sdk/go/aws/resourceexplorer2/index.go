@@ -130,6 +130,12 @@ func (IndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*indexState)(nil)).Elem()
 }
 
+// IndexExists checks whether an existing Index resource with the given ID exists.
+func IndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:resourceexplorer2:Index", id, state, "", opts...)
+}
+
 type indexArgs struct {
 	// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
 	Tags map[string]string `pulumi:"tags"`

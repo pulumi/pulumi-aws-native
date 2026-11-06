@@ -112,6 +112,12 @@ func (SecurityKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityKeyState)(nil)).Elem()
 }
 
+// SecurityKeyExists checks whether an existing SecurityKey resource with the given ID exists.
+func SecurityKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:connect:SecurityKey", id, state, "", opts...)
+}
+
 type securityKeyArgs struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	//

@@ -76,6 +76,12 @@ func (CustomPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customPermissionsState)(nil)).Elem()
 }
 
+// CustomPermissionsExists checks whether an existing CustomPermissions resource with the given ID exists.
+func CustomPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:quicksight:CustomPermissions", id, state, "", opts...)
+}
+
 type customPermissionsArgs struct {
 	// The ID of the AWS account that contains the custom permission configuration that you want to update.
 	AwsAccountId string `pulumi:"awsAccountId"`

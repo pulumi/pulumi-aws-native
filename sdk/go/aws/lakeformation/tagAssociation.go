@@ -76,6 +76,12 @@ func (TagAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagAssociationState)(nil)).Elem()
 }
 
+// TagAssociationExists checks whether an existing TagAssociation resource with the given ID exists.
+func TagAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:lakeformation:TagAssociation", id, state, "", opts...)
+}
+
 type tagAssociationArgs struct {
 	// List of Lake Formation Tags to associate with the Lake Formation Resource
 	LfTags []TagAssociationLfTagPair `pulumi:"lfTags"`

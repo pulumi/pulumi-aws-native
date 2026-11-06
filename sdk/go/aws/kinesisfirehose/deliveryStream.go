@@ -140,6 +140,12 @@ func (DeliveryStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deliveryStreamState)(nil)).Elem()
 }
 
+// DeliveryStreamExists checks whether an existing DeliveryStream resource with the given ID exists.
+func DeliveryStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeliveryStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:kinesisfirehose:DeliveryStream", id, state, "", opts...)
+}
+
 type deliveryStreamArgs struct {
 	// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
 	AmazonOpenSearchServerlessDestinationConfiguration *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration `pulumi:"amazonOpenSearchServerlessDestinationConfiguration"`

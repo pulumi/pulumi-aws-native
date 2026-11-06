@@ -74,6 +74,12 @@ func (DocumentationVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentationVersionState)(nil)).Elem()
 }
 
+// DocumentationVersionExists checks whether an existing DocumentationVersion resource with the given ID exists.
+func DocumentationVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DocumentationVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:apigateway:DocumentationVersion", id, state, "", opts...)
+}
+
 type documentationVersionArgs struct {
 	// A description about the new documentation snapshot.
 	Description *string `pulumi:"description"`

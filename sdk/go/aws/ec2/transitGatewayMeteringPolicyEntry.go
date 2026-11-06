@@ -109,6 +109,12 @@ func (TransitGatewayMeteringPolicyEntryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayMeteringPolicyEntryState)(nil)).Elem()
 }
 
+// TransitGatewayMeteringPolicyEntryExists checks whether an existing TransitGatewayMeteringPolicyEntry resource with the given ID exists.
+func TransitGatewayMeteringPolicyEntryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransitGatewayMeteringPolicyEntryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ec2:TransitGatewayMeteringPolicyEntry", id, state, "", opts...)
+}
+
 type transitGatewayMeteringPolicyEntryArgs struct {
 	// The list of IP addresses of the instances receiving traffic from the transit gateway
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`

@@ -21,9 +21,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  Using both ``AWS::Lambda::Permission`` and ``AWS::Lambda::ResourcePolicy`` to set permissions on a function can result in errors. Permissions defined in ``AWS::Lambda::Permission`` can be unintentionally overwritten, whether in a single CFN stack or across multiple stacks. Don't use both resource types to set permissions on a function.
         ///  We recommend using the ``AWS::Lambda::ResourcePolicy`` resource to set access permissions. With this resource, you have more flexibility and fine-grained control than ``AWS::Lambda::Permission``. To migrate existing permissions for a function from ``AWS::Lambda::Permission`` to ``AWS::Lambda::ResourcePolicy``, do the following:
         ///   1.  Set a ``Retain``[deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the ``AWS::Lambda::Permission`` resources you want to migrate. This is necessary so that Lambda does not delete statements with the same statement ID when you delete these resources.
-        ///   1.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
-        ///   1.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
-        ///   1.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
+        ///   2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
+        ///   3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
+        ///   4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
         /// </summary>
         public static Task<GetPermissionResult> InvokeAsync(GetPermissionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionArgs(), options.WithDefaults());
@@ -38,9 +38,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  Using both ``AWS::Lambda::Permission`` and ``AWS::Lambda::ResourcePolicy`` to set permissions on a function can result in errors. Permissions defined in ``AWS::Lambda::Permission`` can be unintentionally overwritten, whether in a single CFN stack or across multiple stacks. Don't use both resource types to set permissions on a function.
         ///  We recommend using the ``AWS::Lambda::ResourcePolicy`` resource to set access permissions. With this resource, you have more flexibility and fine-grained control than ``AWS::Lambda::Permission``. To migrate existing permissions for a function from ``AWS::Lambda::Permission`` to ``AWS::Lambda::ResourcePolicy``, do the following:
         ///   1.  Set a ``Retain``[deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the ``AWS::Lambda::Permission`` resources you want to migrate. This is necessary so that Lambda does not delete statements with the same statement ID when you delete these resources.
-        ///   1.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
-        ///   1.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
-        ///   1.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
+        ///   2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
+        ///   3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
+        ///   4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
         /// </summary>
         public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
@@ -55,9 +55,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  Using both ``AWS::Lambda::Permission`` and ``AWS::Lambda::ResourcePolicy`` to set permissions on a function can result in errors. Permissions defined in ``AWS::Lambda::Permission`` can be unintentionally overwritten, whether in a single CFN stack or across multiple stacks. Don't use both resource types to set permissions on a function.
         ///  We recommend using the ``AWS::Lambda::ResourcePolicy`` resource to set access permissions. With this resource, you have more flexibility and fine-grained control than ``AWS::Lambda::Permission``. To migrate existing permissions for a function from ``AWS::Lambda::Permission`` to ``AWS::Lambda::ResourcePolicy``, do the following:
         ///   1.  Set a ``Retain``[deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the ``AWS::Lambda::Permission`` resources you want to migrate. This is necessary so that Lambda does not delete statements with the same statement ID when you delete these resources.
-        ///   1.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
-        ///   1.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
-        ///   1.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
+        ///   2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
+        ///   3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
+        ///   4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
         /// </summary>
         public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Lambda
         ///  +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
         ///   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
         ///   +  *Partial ARN* – ``123456789012:function:my-function``.
-        ///   
+        /// 
         ///  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         /// </summary>
         [Input("functionName", required: true)]
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Lambda
         ///  +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
         ///   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
         ///   +  *Partial ARN* – ``123456789012:function:my-function``.
-        ///   
+        /// 
         ///  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         /// </summary>
         [Input("functionName", required: true)]

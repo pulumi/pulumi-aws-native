@@ -100,6 +100,12 @@ func (LocationSmbState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationSmbState)(nil)).Elem()
 }
 
+// LocationSmbExists checks whether an existing LocationSmb resource with the given ID exists.
+func LocationSmbExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationSmbState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datasync:LocationSmb", id, state, "", opts...)
+}
+
 type locationSmbArgs struct {
 	// The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
 	AgentArns []string `pulumi:"agentArns"`

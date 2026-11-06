@@ -85,6 +85,12 @@ func (ContainerAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerAssociationState)(nil)).Elem()
 }
 
+// ContainerAssociationExists checks whether an existing ContainerAssociation resource with the given ID exists.
+func ContainerAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:networkfirewall:ContainerAssociation", id, state, "", opts...)
+}
+
 type containerAssociationArgs struct {
 	// The descriptive name of the container association. You can't change the name of a container association after you create it.
 	ContainerAssociationName *string `pulumi:"containerAssociationName"`

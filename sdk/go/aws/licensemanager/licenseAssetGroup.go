@@ -82,6 +82,12 @@ func (LicenseAssetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licenseAssetGroupState)(nil)).Elem()
 }
 
+// LicenseAssetGroupExists checks whether an existing LicenseAssetGroup resource with the given ID exists.
+func LicenseAssetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicenseAssetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:licensemanager:LicenseAssetGroup", id, state, "", opts...)
+}
+
 type licenseAssetGroupArgs struct {
 	// ARNs of associated license asset rulesets.
 	AssociatedLicenseAssetRulesetArns []string `pulumi:"associatedLicenseAssetRulesetArns"`

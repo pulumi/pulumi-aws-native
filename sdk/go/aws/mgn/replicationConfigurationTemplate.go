@@ -126,6 +126,12 @@ func (ReplicationConfigurationTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationConfigurationTemplateState)(nil)).Elem()
 }
 
+// ReplicationConfigurationTemplateExists checks whether an existing ReplicationConfigurationTemplate resource with the given ID exists.
+func ReplicationConfigurationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationConfigurationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:mgn:ReplicationConfigurationTemplate", id, state, "", opts...)
+}
+
 type replicationConfigurationTemplateArgs struct {
 	// Whether to associate the default Application Migration Service Security Group with the Replication Configuration Template.
 	AssociateDefaultSecurityGroup bool `pulumi:"associateDefaultSecurityGroup"`

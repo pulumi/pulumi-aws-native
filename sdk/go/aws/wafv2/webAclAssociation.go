@@ -82,6 +82,12 @@ func (WebAclAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclAssociationState)(nil)).Elem()
 }
 
+// WebAclAssociationExists checks whether an existing WebAclAssociation resource with the given ID exists.
+func WebAclAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAclAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:wafv2:WebAclAssociation", id, state, "", opts...)
+}
+
 type webAclAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
 	//

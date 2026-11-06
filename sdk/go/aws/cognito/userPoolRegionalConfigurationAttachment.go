@@ -71,6 +71,12 @@ func (UserPoolRegionalConfigurationAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolRegionalConfigurationAttachmentState)(nil)).Elem()
 }
 
+// UserPoolRegionalConfigurationAttachmentExists checks whether an existing UserPoolRegionalConfigurationAttachment resource with the given ID exists.
+func UserPoolRegionalConfigurationAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPoolRegionalConfigurationAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:cognito:UserPoolRegionalConfigurationAttachment", id, state, "", opts...)
+}
+
 type userPoolRegionalConfigurationAttachmentArgs struct {
 	EmailConfiguration *UserPoolRegionalConfigurationAttachmentEmailConfiguration `pulumi:"emailConfiguration"`
 	LambdaConfig       *UserPoolRegionalConfigurationAttachmentLambdaConfig       `pulumi:"lambdaConfig"`

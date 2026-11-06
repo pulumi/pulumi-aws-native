@@ -67,6 +67,12 @@ func (DedicatedIpPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedIpPoolState)(nil)).Elem()
 }
 
+// DedicatedIpPoolExists checks whether an existing DedicatedIpPool resource with the given ID exists.
+func DedicatedIpPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DedicatedIpPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:ses:DedicatedIpPool", id, state, "", opts...)
+}
+
 type dedicatedIpPoolArgs struct {
 	// The name of the dedicated IP pool.
 	PoolName *string `pulumi:"poolName"`

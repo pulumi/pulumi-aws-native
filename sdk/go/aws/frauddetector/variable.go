@@ -91,6 +91,12 @@ func (VariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*variableState)(nil)).Elem()
 }
 
+// VariableExists checks whether an existing Variable resource with the given ID exists.
+func VariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:frauddetector:Variable", id, state, "", opts...)
+}
+
 type variableArgs struct {
 	// The source of the data.
 	DataSource VariableDataSource `pulumi:"dataSource"`

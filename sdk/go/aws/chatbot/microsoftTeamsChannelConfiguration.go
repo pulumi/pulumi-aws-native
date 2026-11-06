@@ -102,6 +102,12 @@ func (MicrosoftTeamsChannelConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*microsoftTeamsChannelConfigurationState)(nil)).Elem()
 }
 
+// MicrosoftTeamsChannelConfigurationExists checks whether an existing MicrosoftTeamsChannelConfiguration resource with the given ID exists.
+func MicrosoftTeamsChannelConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MicrosoftTeamsChannelConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:chatbot:MicrosoftTeamsChannelConfiguration", id, state, "", opts...)
+}
+
 type microsoftTeamsChannelConfigurationArgs struct {
 	// The name of the configuration
 	ConfigurationName *string `pulumi:"configurationName"`

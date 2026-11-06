@@ -88,6 +88,12 @@ func (OwnerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ownerState)(nil)).Elem()
 }
 
+// OwnerExists checks whether an existing Owner resource with the given ID exists.
+func OwnerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OwnerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("aws-native:datazone:Owner", id, state, "", opts...)
+}
+
 type ownerArgs struct {
 	// The ID of the domain in which you want to add the entity owner.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
