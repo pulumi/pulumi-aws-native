@@ -103,7 +103,7 @@ require (
 	github.com/iwdgo/sigintwindows v0.2.2 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kevinburke/ssh_config v1.6.0 // indirect
-	github.com/klauspost/compress v1.18.7 // indirect
+	github.com/klauspost/compress v1.20.2 // indirect
 	github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c // indirect
 	github.com/lestrrat-go/jsref v0.0.0-20211028120858-c0bcbb5abf20 // indirect
 	github.com/lestrrat-go/option v1.0.0 // indirect
