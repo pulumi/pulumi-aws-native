@@ -2,10 +2,7 @@
 
 name: release
 on:
-  push:
-    tags:
-    - v*.*.*
-    - "!v*.*.*-**"
+  workflow_call: {}
 env:
   PROVIDER: aws-native
   TRAVIS_OS_NAME: linux
@@ -24,6 +21,7 @@ env:
 
 jobs:
   prerequisites:
+    if: github.repository == 'pulumi/pulumi-aws-native'
     runs-on: ubuntu-latest
     name: prerequisites
     permissions:
