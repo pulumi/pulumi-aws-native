@@ -7,8 +7,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.32.31
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.73.0
 	github.com/pulumi/providertest v0.7.0
-	github.com/pulumi/pulumi/pkg/v3 v3.274.1
-	github.com/pulumi/pulumi/sdk/v3 v3.274.1
+	github.com/pulumi/pulumi/pkg/v3 v3.275.0
+	github.com/pulumi/pulumi/sdk/v3 v3.275.0
 	github.com/stretchr/testify v1.12.1
 )
 
@@ -112,7 +112,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
-	github.com/pulumi/pulumi-cloud-sdk/go v1.20261110.0 // indirect
+	github.com/pulumi/pulumi-cloud-sdk/go v1.20261111.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
