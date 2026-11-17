@@ -145,6 +145,10 @@ func Test_readJSONSchema_convertsExclusiveBounds(t *testing.T) {
     "Size": {
       "type": "integer",
       "exclusiveMaximum": 10
+    },
+    "Count": {
+      "type": "number",
+      "exclusiveMinimum": 0
     }
   }
 }`), 0o600)
@@ -155,6 +159,11 @@ func Test_readJSONSchema_convertsExclusiveBounds(t *testing.T) {
 	require.NotNil(t, size)
 	assert.Equal(t, float64(10), size.Maximum.Val)
 	assert.True(t, size.ExclusiveMaximum.Bool())
+
+	count := schema.Properties["Count"]
+	require.NotNil(t, count)
+	assert.Equal(t, float64(0), count.Minimum.Val)
+	assert.True(t, count.ExclusiveMinimum.Bool())
 }
 
 func assertExistsAndEmpty(t *testing.T, path string) bool {
