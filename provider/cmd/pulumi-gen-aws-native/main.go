@@ -12,7 +12,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -231,7 +230,10 @@ func main() {
 // Fail loud and clear.
 func fatalf(format string, a ...any) {
 	barrier := strings.Repeat("=", 110)
-	log.Fatalf("schema generation failed\n%s\n%s\n%s\n", barrier, fmt.Sprintf(format, a...), barrier)
+	// Write directly to stderr: some imported packages redirect the standard logger's output, which
+	// previously made these failures exit non-zero without printing anything.
+	fmt.Fprintf(os.Stderr, "schema generation failed\n%s\n%s\n%s\n", barrier, fmt.Sprintf(format, a...), barrier)
+	os.Exit(1)
 }
 
 func readJSONSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (res []*jsschema.Schema) {
@@ -264,7 +266,8 @@ func readJSONSchema(schemaPath string, overlay map[string]AutoNamingOverlay) *js
 	}
 
 	s, err := jsschema.Read(bytes.NewReader(raw))
-	if err != nil && strings.Contains(err.Error(), "failed to extract 'exclusiveMaximum'") {
+	if err != nil && (strings.Contains(err.Error(), "failed to extract 'exclusiveMaximum'") ||
+		strings.Contains(err.Error(), "failed to extract 'exclusiveMinimum'")) {
 		normalized, nerr := normalizeExclusiveBounds(raw)
 		if nerr != nil {
 			fatalf("error normalizing json schema: %v", errors.Wrap(nerr, schemaPath))
