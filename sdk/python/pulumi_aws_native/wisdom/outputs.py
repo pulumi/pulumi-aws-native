@@ -72,6 +72,7 @@ __all__ = [
     'AiGuardrailGuardrailRegexConfig',
     'AiGuardrailGuardrailTopicConfig',
     'AiGuardrailGuardrailWordConfig',
+    'AiPromptAiPromptInferenceConfiguration',
     'AiPromptAiPromptTemplateConfiguration',
     'AiPromptTextFullAiPromptEditTemplateConfiguration',
     'AssistantAssociationAssociationData0Properties',
@@ -2535,6 +2536,64 @@ class AiGuardrailGuardrailWordConfig(dict):
         The custom word text.
         """
         return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class AiPromptAiPromptInferenceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTokensToSample":
+            suggest = "max_tokens_to_sample"
+        elif key == "topK":
+            suggest = "top_k"
+        elif key == "topP":
+            suggest = "top_p"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiPromptAiPromptInferenceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiPromptAiPromptInferenceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiPromptAiPromptInferenceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_tokens_to_sample: Optional[_builtins.int] = None,
+                 temperature: Optional[_builtins.float] = None,
+                 top_k: Optional[_builtins.int] = None,
+                 top_p: Optional[_builtins.float] = None):
+        if max_tokens_to_sample is not None:
+            pulumi.set(__self__, "max_tokens_to_sample", max_tokens_to_sample)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_k is not None:
+            pulumi.set(__self__, "top_k", top_k)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokensToSample")
+    def max_tokens_to_sample(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_tokens_to_sample")
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "temperature")
+
+    @_builtins.property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "top_k")
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "top_p")
 
 
 @pulumi.output_type

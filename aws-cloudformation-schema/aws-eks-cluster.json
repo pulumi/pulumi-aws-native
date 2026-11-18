@@ -206,20 +206,20 @@
       }
     },
     "ComputeConfig" : {
-      "description" : "Todo: add description",
+      "description" : "Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Enabled" : {
-          "description" : "Todo: add description",
+          "description" : "Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.",
           "type" : "boolean"
         },
         "NodeRoleArn" : {
-          "description" : "Todo: add description",
+          "description" : "The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.",
           "type" : "string"
         },
         "NodePools" : {
-          "description" : "Todo: add description",
+          "description" : "Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.",
           "type" : "array",
           "insertionOrder" : false,
           "items" : {
@@ -229,23 +229,23 @@
       }
     },
     "BlockStorage" : {
-      "description" : "Todo: add description",
+      "description" : "Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Enabled" : {
-          "description" : "Todo: add description",
+          "description" : "Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.",
           "type" : "boolean"
         }
       }
     },
     "StorageConfig" : {
-      "description" : "Todo: add description",
+      "description" : "Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "BlockStorage" : {
-          "description" : "Todo: add description",
+          "description" : "Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.",
           "$ref" : "#/definitions/BlockStorage"
         }
       }
@@ -275,12 +275,12 @@
       "required" : [ "Crds" ]
     },
     "ElasticLoadBalancing" : {
-      "description" : "Todo: add description",
+      "description" : "Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Enabled" : {
-          "description" : "Todo: add description",
+          "description" : "Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.",
           "type" : "boolean"
         },
         "GatewayApi" : {
@@ -308,7 +308,7 @@
           "enum" : [ "ipv4", "ipv6" ]
         },
         "ElasticLoadBalancing" : {
-          "description" : "Todo: add description",
+          "description" : "Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.",
           "$ref" : "#/definitions/ElasticLoadBalancing"
         }
       }

@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
-    /// Resource type definition for AWS::CloudWatch::Space
+    /// Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudwatch:Space")]
     public partial class Space : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+        /// The ARN of the IAM role used by AgentCore online evaluation. Absent when the space was created without one.
         /// </summary>
         [Output("agentCoreEvaluationRoleArn")]
         public Output<string?> AgentCoreEvaluationRoleArn { get; private set; } = null!;
@@ -28,49 +28,49 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The time the space was created.
+        /// The timestamp when the space was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+        /// The ARN of the IAM role used for data access.
         /// </summary>
         [Output("dataAccessRoleArn")]
         public Output<string> DataAccessRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the domain the space belongs to.
+        /// The ID of the domain to create the space in.
         /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption configuration for the space.
+        /// How the space's data at rest is encrypted. Always populated.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.SpaceEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the space.
+        /// A name that identifies the space.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account that owns the space.
+        /// AWS account ID that owns this space.
         /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region the space resides in.
+        /// The region where this space was created.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the space.
+        /// The unique ID of the space.
         /// </summary>
         [Output("spaceId")]
         public Output<string> SpaceId { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The time the space was last updated.
+        /// The timestamp when the space was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -145,31 +145,31 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class SpaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+        /// The ARN of the IAM role used by AgentCore online evaluation. Absent when the space was created without one.
         /// </summary>
         [Input("agentCoreEvaluationRoleArn")]
         public Input<string>? AgentCoreEvaluationRoleArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+        /// The ARN of the IAM role used for data access.
         /// </summary>
         [Input("dataAccessRoleArn", required: true)]
         public Input<string> DataAccessRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the domain the space belongs to.
+        /// The ID of the domain to create the space in.
         /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
-        /// The encryption configuration for the space.
+        /// How the space's data at rest is encrypted. Always populated.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.SpaceEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the space.
+        /// A name that identifies the space.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

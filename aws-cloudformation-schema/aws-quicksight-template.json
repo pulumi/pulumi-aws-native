@@ -465,6 +465,12 @@
         },
         "WeekStart" : {
           "$ref" : "#/definitions/DayOfTheWeek"
+        },
+        "CustomActionDefaults" : {
+          "$ref" : "#/definitions/VisualCustomActionDefaults"
+        },
+        "VisualMessages" : {
+          "$ref" : "#/definitions/VisualMessages"
         }
       }
     },
@@ -4262,6 +4268,10 @@
       "type" : "string",
       "enum" : [ "LINE", "AREA", "STACKED_AREA" ]
     },
+    "VisualHighlightTrigger" : {
+      "type" : "string",
+      "enum" : [ "DATA_POINT_CLICK", "DATA_POINT_HOVER", "NONE" ]
+    },
     "DefaultTextFieldControlOptions" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -4900,6 +4910,15 @@
         }
       }
     },
+    "VisualCustomActionDefaults" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "HighlightOperation" : {
+          "$ref" : "#/definitions/VisualHighlightOperation"
+        }
+      }
+    },
     "CategoryInnerFilter" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -5290,6 +5309,16 @@
         }
       }
     },
+    "VisualHighlightOperation" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Trigger" : {
+          "$ref" : "#/definitions/VisualHighlightTrigger"
+        }
+      },
+      "required" : [ "Trigger" ]
+    },
     "ScatterPlotSortConfiguration" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -5596,6 +5625,49 @@
       "properties" : {
         "HeatMapAggregatedFieldWells" : {
           "$ref" : "#/definitions/HeatMapAggregatedFieldWells"
+        }
+      }
+    },
+    "VisualMessageConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "TitleVisibility" : {
+          "$ref" : "#/definitions/Visibility"
+        },
+        "Description" : {
+          "minLength" : 0,
+          "pattern" : "^[^*;=`{}~\\x00-\\x08\\x0E-\\x1F\\x7F]*$",
+          "type" : "string",
+          "maxLength" : 120
+        },
+        "LinkUrl" : {
+          "minLength" : 0,
+          "pattern" : "^(?:(?:[hH][tT][tT][pP][sS]?://|[mM][aA][iI][lL][tT][oO]:)\\S*<<\\$.+?>>\\S*|[hH][tT][tT][pP][sS]?://[a-zA-Z\\d.-]+\\.[a-zA-Z]{2,63}(?::\\d+)?(?:[/?#][^\\s]*)?|[mM][aA][iI][lL][tT][oO]:[^\\s@]+@[a-zA-Z\\d.-]+\\.[a-zA-Z]{2,63})$(?![\\s\\S])",
+          "type" : "string",
+          "maxLength" : 120
+        },
+        "LinkVisibility" : {
+          "$ref" : "#/definitions/Visibility"
+        },
+        "Enabled" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "Title" : {
+          "minLength" : 0,
+          "pattern" : "^[^*;=`{}~\\x00-\\x08\\x0E-\\x1F\\x7F]*$",
+          "type" : "string",
+          "maxLength" : 120
+        },
+        "DescriptionVisibility" : {
+          "$ref" : "#/definitions/Visibility"
+        },
+        "LinkText" : {
+          "minLength" : 0,
+          "pattern" : "^[^*;=`{}~\\x00-\\x08\\x0E-\\x1F\\x7F]*$",
+          "type" : "string",
+          "maxLength" : 120
         }
       }
     },
@@ -7297,6 +7369,15 @@
       },
       "required" : [ "FilterControlId", "SourceFilterId", "Title" ]
     },
+    "VisualMessages" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "NoDataMessage" : {
+          "$ref" : "#/definitions/VisualMessageConfiguration"
+        }
+      }
+    },
     "TablePinnedFieldOptions" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -8894,6 +8975,9 @@
           "items" : {
             "$ref" : "#/definitions/FilterControl"
           }
+        },
+        "CustomActionDefaults" : {
+          "$ref" : "#/definitions/VisualCustomActionDefaults"
         },
         "Visuals" : {
           "minItems" : 0,

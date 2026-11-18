@@ -81,7 +81,9 @@ type ConformancePack struct {
 	// AWS Config stores intermediate files while processing conformance pack template.
 	DeliveryS3Bucket pulumi.StringPtrOutput `pulumi:"deliveryS3Bucket"`
 	// The prefix for delivery S3 bucket.
-	DeliveryS3KeyPrefix pulumi.StringPtrOutput `pulumi:"deliveryS3KeyPrefix"`
+	DeliveryS3KeyPrefix pulumi.StringPtrOutput         `pulumi:"deliveryS3KeyPrefix"`
+	Scope               ConformancePackScopePtrOutput  `pulumi:"scope"`
+	Source              ConformancePackSourcePtrOutput `pulumi:"source"`
 	// The tags for the conformance pack.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
@@ -90,6 +92,7 @@ type ConformancePack struct {
 	TemplateS3Uri pulumi.StringPtrOutput `pulumi:"templateS3Uri"`
 	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
 	TemplateSsmDocumentDetails TemplateSsmDocumentDetailsPropertiesPtrOutput `pulumi:"templateSsmDocumentDetails"`
+	Type                       ConformancePackTypeOutput                     `pulumi:"type"`
 }
 
 // NewConformancePack registers a new resource with the given unique name, arguments, and options.
@@ -101,6 +104,7 @@ func NewConformancePack(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"conformancePackName",
+		"source",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -149,7 +153,9 @@ type conformancePackArgs struct {
 	// AWS Config stores intermediate files while processing conformance pack template.
 	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
 	// The prefix for delivery S3 bucket.
-	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
+	DeliveryS3KeyPrefix *string                `pulumi:"deliveryS3KeyPrefix"`
+	Scope               *ConformancePackScope  `pulumi:"scope"`
+	Source              *ConformancePackSource `pulumi:"source"`
 	// The tags for the conformance pack.
 	Tags []aws.Tag `pulumi:"tags"`
 	// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
@@ -170,6 +176,8 @@ type ConformancePackArgs struct {
 	DeliveryS3Bucket pulumi.StringPtrInput
 	// The prefix for delivery S3 bucket.
 	DeliveryS3KeyPrefix pulumi.StringPtrInput
+	Scope               ConformancePackScopePtrInput
+	Source              ConformancePackSourcePtrInput
 	// The tags for the conformance pack.
 	Tags aws.TagArrayInput
 	// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
@@ -244,6 +252,14 @@ func (o ConformancePackOutput) DeliveryS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+func (o ConformancePackOutput) Scope() ConformancePackScopePtrOutput {
+	return o.ApplyT(func(v *ConformancePack) ConformancePackScopePtrOutput { return v.Scope }).(ConformancePackScopePtrOutput)
+}
+
+func (o ConformancePackOutput) Source() ConformancePackSourcePtrOutput {
+	return o.ApplyT(func(v *ConformancePack) ConformancePackSourcePtrOutput { return v.Source }).(ConformancePackSourcePtrOutput)
+}
+
 // The tags for the conformance pack.
 func (o ConformancePackOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ConformancePack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
@@ -264,6 +280,10 @@ func (o ConformancePackOutput) TemplateSsmDocumentDetails() TemplateSsmDocumentD
 	return o.ApplyT(func(v *ConformancePack) TemplateSsmDocumentDetailsPropertiesPtrOutput {
 		return v.TemplateSsmDocumentDetails
 	}).(TemplateSsmDocumentDetailsPropertiesPtrOutput)
+}
+
+func (o ConformancePackOutput) Type() ConformancePackTypeOutput {
+	return o.ApplyT(func(v *ConformancePack) ConformancePackTypeOutput { return v.Type }).(ConformancePackTypeOutput)
 }
 
 func init() {

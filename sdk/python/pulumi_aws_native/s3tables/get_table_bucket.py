@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableBucketResult:
-    def __init__(__self__, encryption_configuration=None, metrics_configuration=None, replication_configuration=None, storage_class_configuration=None, table_bucket_arn=None, tags=None, unreferenced_file_removal=None):
+    def __init__(__self__, encryption_configuration=None, logging_configuration=None, metrics_configuration=None, replication_configuration=None, storage_class_configuration=None, table_bucket_arn=None, tags=None, unreferenced_file_removal=None):
         if encryption_configuration and not isinstance(encryption_configuration, dict):
             raise TypeError("Expected argument 'encryption_configuration' to be a dict")
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if logging_configuration and not isinstance(logging_configuration, dict):
+            raise TypeError("Expected argument 'logging_configuration' to be a dict")
+        pulumi.set(__self__, "logging_configuration", logging_configuration)
         if metrics_configuration and not isinstance(metrics_configuration, dict):
             raise TypeError("Expected argument 'metrics_configuration' to be a dict")
         pulumi.set(__self__, "metrics_configuration", metrics_configuration)
@@ -56,6 +59,11 @@ class GetTableBucketResult:
         Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
         """
         return pulumi.get(self, "encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional['outputs.TableBucketLoggingConfiguration']:
+        return pulumi.get(self, "logging_configuration")
 
     @_builtins.property
     @pulumi.getter(name="metricsConfiguration")
@@ -107,6 +115,7 @@ class AwaitableGetTableBucketResult(GetTableBucketResult):
             yield self
         return GetTableBucketResult(
             encryption_configuration=self.encryption_configuration,
+            logging_configuration=self.logging_configuration,
             metrics_configuration=self.metrics_configuration,
             replication_configuration=self.replication_configuration,
             storage_class_configuration=self.storage_class_configuration,
@@ -129,6 +138,7 @@ def get_table_bucket(table_bucket_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetTableBucketResult(
         encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
+        logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
         metrics_configuration=pulumi.get(__ret__, 'metrics_configuration'),
         replication_configuration=pulumi.get(__ret__, 'replication_configuration'),
         storage_class_configuration=pulumi.get(__ret__, 'storage_class_configuration'),
@@ -148,6 +158,7 @@ def get_table_bucket_output(table_bucket_arn: pulumi.Input[Optional[_builtins.st
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3tables:getTableBucket', __args__, opts=opts, typ=GetTableBucketResult)
     return __ret__.apply(lambda __response__: GetTableBucketResult(
         encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
+        logging_configuration=pulumi.get(__response__, 'logging_configuration'),
         metrics_configuration=pulumi.get(__response__, 'metrics_configuration'),
         replication_configuration=pulumi.get(__response__, 'replication_configuration'),
         storage_class_configuration=pulumi.get(__response__, 'storage_class_configuration'),

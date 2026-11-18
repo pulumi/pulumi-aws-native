@@ -17,6 +17,43 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ClusterApplication',
+    'ClusterAutoScalingPolicy',
+    'ClusterAutoTerminationPolicy',
+    'ClusterBootstrapActionConfig',
+    'ClusterCloudWatchAlarmDefinition',
+    'ClusterCloudWatchLogConfiguration',
+    'ClusterComputeLimits',
+    'ClusterEbsBlockDeviceConfig',
+    'ClusterEbsConfiguration',
+    'ClusterEmrConfiguration',
+    'ClusterHadoopJarStepConfig',
+    'ClusterInstanceFleetConfig',
+    'ClusterInstanceFleetProvisioningSpecifications',
+    'ClusterInstanceFleetResizingSpecifications',
+    'ClusterInstanceGroupConfig',
+    'ClusterInstanceTypeConfig',
+    'ClusterJobFlowInstancesConfig',
+    'ClusterKerberosAttributes',
+    'ClusterKeyValue',
+    'ClusterManagedScalingPolicy',
+    'ClusterMetricDimension',
+    'ClusterMonitoringConfiguration',
+    'ClusterOnDemandCapacityReservationOptions',
+    'ClusterOnDemandProvisioningSpecification',
+    'ClusterOnDemandResizingSpecification',
+    'ClusterPlacementGroupConfig',
+    'ClusterPlacementType',
+    'ClusterScalingAction',
+    'ClusterScalingConstraints',
+    'ClusterScalingRule',
+    'ClusterScalingTrigger',
+    'ClusterScriptBootstrapActionConfig',
+    'ClusterSimpleScalingPolicyConfiguration',
+    'ClusterSpotProvisioningSpecification',
+    'ClusterSpotResizingSpecification',
+    'ClusterStepConfig',
+    'ClusterVolumeSpecification',
     'InstanceFleetConfigApplicationConfiguration',
     'InstanceFleetConfigEbsBlockDeviceConfig',
     'InstanceFleetConfigEbsConfiguration',
@@ -44,6 +81,2555 @@ __all__ = [
     'StepHadoopJarStepConfig',
     'StepKeyValue',
 ]
+
+@pulumi.output_type
+class ClusterApplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterApplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterApplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterApplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Optional[Mapping[str, _builtins.str]] = None,
+                 args: Optional[Sequence[_builtins.str]] = None,
+                 name: Optional[_builtins.str] = None,
+                 version: Optional[_builtins.str] = None):
+        """
+        :param Mapping[str, _builtins.str] additional_info: This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
+        :param Sequence[_builtins.str] args: Arguments for Amazon EMR to pass to the application
+        :param _builtins.str name: The name of the application.
+        :param _builtins.str version: The version of the application.
+        """
+        if additional_info is not None:
+            pulumi.set(__self__, "additional_info", additional_info)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @_builtins.property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Arguments for Amazon EMR to pass to the application
+        """
+        return pulumi.get(self, "args")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the application.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The version of the application.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ClusterAutoScalingPolicy(dict):
+    def __init__(__self__, *,
+                 constraints: 'outputs.ClusterScalingConstraints',
+                 rules: Sequence['outputs.ClusterScalingRule']):
+        """
+        :param 'ClusterScalingConstraints' constraints: The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+        :param Sequence['ClusterScalingRule'] rules: The scale-in and scale-out rules that comprise the automatic scaling policy.
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> 'outputs.ClusterScalingConstraints':
+        """
+        The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.ClusterScalingRule']:
+        """
+        The scale-in and scale-out rules that comprise the automatic scaling policy.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class ClusterAutoTerminationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeout":
+            suggest = "idle_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAutoTerminationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAutoTerminationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAutoTerminationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int idle_timeout: Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days)
+        """
+        if idle_timeout is not None:
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[_builtins.int]:
+        """
+        Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days)
+        """
+        return pulumi.get(self, "idle_timeout")
+
+
+@pulumi.output_type
+class ClusterBootstrapActionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptBootstrapAction":
+            suggest = "script_bootstrap_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterBootstrapActionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterBootstrapActionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterBootstrapActionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 script_bootstrap_action: 'outputs.ClusterScriptBootstrapActionConfig'):
+        """
+        :param _builtins.str name: The name of the bootstrap action.
+        :param 'ClusterScriptBootstrapActionConfig' script_bootstrap_action: The script run by the bootstrap action.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "script_bootstrap_action", script_bootstrap_action)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the bootstrap action.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="scriptBootstrapAction")
+    def script_bootstrap_action(self) -> 'outputs.ClusterScriptBootstrapActionConfig':
+        """
+        The script run by the bootstrap action.
+        """
+        return pulumi.get(self, "script_bootstrap_action")
+
+
+@pulumi.output_type
+class ClusterCloudWatchAlarmDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "evaluationPeriods":
+            suggest = "evaluation_periods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudWatchAlarmDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudWatchAlarmDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudWatchAlarmDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparison_operator: 'ClusterCloudWatchAlarmDefinitionComparisonOperator',
+                 metric_name: _builtins.str,
+                 period: _builtins.int,
+                 threshold: _builtins.float,
+                 dimensions: Optional[Sequence['outputs.ClusterMetricDimension']] = None,
+                 evaluation_periods: Optional[_builtins.int] = None,
+                 namespace: Optional[_builtins.str] = None,
+                 statistic: Optional['ClusterCloudWatchAlarmDefinitionStatistic'] = None,
+                 unit: Optional['ClusterCloudWatchAlarmDefinitionUnit'] = None):
+        """
+        :param 'ClusterCloudWatchAlarmDefinitionComparisonOperator' comparison_operator: Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+        :param _builtins.str metric_name: The name of the CloudWatch metric that is watched to determine an alarm condition.
+        :param _builtins.int period: The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify 300.
+        :param _builtins.float threshold: The value against which the specified statistic is compared.
+        :param Sequence['ClusterMetricDimension'] dimensions: A CloudWatch metric dimension.
+        :param _builtins.int evaluation_periods: The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is 1.
+        :param _builtins.str namespace: The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce.
+        :param 'ClusterCloudWatchAlarmDefinitionStatistic' statistic: The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+        :param 'ClusterCloudWatchAlarmDefinitionUnit' unit: The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+        """
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "threshold", threshold)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if evaluation_periods is not None:
+            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if statistic is not None:
+            pulumi.set(__self__, "statistic", statistic)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> 'ClusterCloudWatchAlarmDefinitionComparisonOperator':
+        """
+        Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        The name of the CloudWatch metric that is watched to determine an alarm condition.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def period(self) -> _builtins.int:
+        """
+        The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify 300.
+        """
+        return pulumi.get(self, "period")
+
+    @_builtins.property
+    @pulumi.getter
+    def threshold(self) -> _builtins.float:
+        """
+        The value against which the specified statistic is compared.
+        """
+        return pulumi.get(self, "threshold")
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.ClusterMetricDimension']]:
+        """
+        A CloudWatch metric dimension.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationPeriods")
+    def evaluation_periods(self) -> Optional[_builtins.int]:
+        """
+        The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is 1.
+        """
+        return pulumi.get(self, "evaluation_periods")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def statistic(self) -> Optional['ClusterCloudWatchAlarmDefinitionStatistic']:
+        """
+        The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+        """
+        return pulumi.get(self, "statistic")
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> Optional['ClusterCloudWatchAlarmDefinitionUnit']:
+        """
+        The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class ClusterCloudWatchLogConfiguration(dict):
+    """
+    Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+        elif key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamNamePrefix":
+            suggest = "log_stream_name_prefix"
+        elif key == "logTypes":
+            suggest = "log_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCloudWatchLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCloudWatchLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCloudWatchLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 encryption_key_arn: Optional[_builtins.str] = None,
+                 log_group_name: Optional[_builtins.str] = None,
+                 log_stream_name_prefix: Optional[_builtins.str] = None,
+                 log_types: Optional[Mapping[str, Sequence[_builtins.str]]] = None):
+        """
+        Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.
+
+        :param _builtins.bool enabled: Specifies if CloudWatch logging is enabled.
+        :param _builtins.str encryption_key_arn: The ARN of the encryption key used to encrypt the logs.
+        :param _builtins.str log_group_name: The name of the CloudWatch log group where logs are published.
+        :param _builtins.str log_stream_name_prefix: The prefix of the log stream name.
+        :param Mapping[str, Sequence[_builtins.str]] log_types: A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name_prefix is not None:
+            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Specifies if CloudWatch logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the encryption key used to encrypt the logs.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the CloudWatch log group where logs are published.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamNamePrefix")
+    def log_stream_name_prefix(self) -> Optional[_builtins.str]:
+        """
+        The prefix of the log stream name.
+        """
+        return pulumi.get(self, "log_stream_name_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[Mapping[str, Sequence[_builtins.str]]]:
+        """
+        A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.
+        """
+        return pulumi.get(self, "log_types")
+
+
+@pulumi.output_type
+class ClusterComputeLimits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumCapacityUnits":
+            suggest = "maximum_capacity_units"
+        elif key == "minimumCapacityUnits":
+            suggest = "minimum_capacity_units"
+        elif key == "unitType":
+            suggest = "unit_type"
+        elif key == "maximumCoreCapacityUnits":
+            suggest = "maximum_core_capacity_units"
+        elif key == "maximumOnDemandCapacityUnits":
+            suggest = "maximum_on_demand_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterComputeLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterComputeLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterComputeLimits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_capacity_units: _builtins.int,
+                 minimum_capacity_units: _builtins.int,
+                 unit_type: 'ClusterComputeLimitsUnitType',
+                 maximum_core_capacity_units: Optional[_builtins.int] = None,
+                 maximum_on_demand_capacity_units: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int maximum_capacity_units:  The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        :param _builtins.int minimum_capacity_units: The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        :param 'ClusterComputeLimitsUnitType' unit_type: The unit type used for specifying a managed scaling policy.
+        :param _builtins.int maximum_core_capacity_units: The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+        :param _builtins.int maximum_on_demand_capacity_units:  The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+        """
+        pulumi.set(__self__, "maximum_capacity_units", maximum_capacity_units)
+        pulumi.set(__self__, "minimum_capacity_units", minimum_capacity_units)
+        pulumi.set(__self__, "unit_type", unit_type)
+        if maximum_core_capacity_units is not None:
+            pulumi.set(__self__, "maximum_core_capacity_units", maximum_core_capacity_units)
+        if maximum_on_demand_capacity_units is not None:
+            pulumi.set(__self__, "maximum_on_demand_capacity_units", maximum_on_demand_capacity_units)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumCapacityUnits")
+    def maximum_capacity_units(self) -> _builtins.int:
+        """
+         The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        """
+        return pulumi.get(self, "maximum_capacity_units")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumCapacityUnits")
+    def minimum_capacity_units(self) -> _builtins.int:
+        """
+        The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        """
+        return pulumi.get(self, "minimum_capacity_units")
+
+    @_builtins.property
+    @pulumi.getter(name="unitType")
+    def unit_type(self) -> 'ClusterComputeLimitsUnitType':
+        """
+        The unit type used for specifying a managed scaling policy.
+        """
+        return pulumi.get(self, "unit_type")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumCoreCapacityUnits")
+    def maximum_core_capacity_units(self) -> Optional[_builtins.int]:
+        """
+        The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+        """
+        return pulumi.get(self, "maximum_core_capacity_units")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumOnDemandCapacityUnits")
+    def maximum_on_demand_capacity_units(self) -> Optional[_builtins.int]:
+        """
+         The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+        """
+        return pulumi.get(self, "maximum_on_demand_capacity_units")
+
+
+@pulumi.output_type
+class ClusterEbsBlockDeviceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeSpecification":
+            suggest = "volume_specification"
+        elif key == "volumesPerInstance":
+            suggest = "volumes_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEbsBlockDeviceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEbsBlockDeviceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEbsBlockDeviceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 volume_specification: 'outputs.ClusterVolumeSpecification',
+                 volumes_per_instance: Optional[_builtins.int] = None):
+        """
+        :param 'ClusterVolumeSpecification' volume_specification: EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+        :param _builtins.int volumes_per_instance: Number of EBS volumes with a specific volume configuration that are associated with every instance in the instance group. Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume,replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification.Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+        """
+        pulumi.set(__self__, "volume_specification", volume_specification)
+        if volumes_per_instance is not None:
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSpecification")
+    def volume_specification(self) -> 'outputs.ClusterVolumeSpecification':
+        """
+        EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+        """
+        return pulumi.get(self, "volume_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="volumesPerInstance")
+    def volumes_per_instance(self) -> Optional[_builtins.int]:
+        """
+        Number of EBS volumes with a specific volume configuration that are associated with every instance in the instance group. Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume,replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification.Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+        """
+        return pulumi.get(self, "volumes_per_instance")
+
+
+@pulumi.output_type
+class ClusterEbsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsBlockDeviceConfigs":
+            suggest = "ebs_block_device_configs"
+        elif key == "ebsOptimized":
+            suggest = "ebs_optimized"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEbsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEbsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEbsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_block_device_configs: Optional[Sequence['outputs.ClusterEbsBlockDeviceConfig']] = None,
+                 ebs_optimized: Optional[_builtins.bool] = None):
+        """
+        :param Sequence['ClusterEbsBlockDeviceConfig'] ebs_block_device_configs: An array of Amazon EBS volume specifications attached to a cluster instance.
+        :param _builtins.bool ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized.
+        """
+        if ebs_block_device_configs is not None:
+            pulumi.set(__self__, "ebs_block_device_configs", ebs_block_device_configs)
+        if ebs_optimized is not None:
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+
+    @_builtins.property
+    @pulumi.getter(name="ebsBlockDeviceConfigs")
+    def ebs_block_device_configs(self) -> Optional[Sequence['outputs.ClusterEbsBlockDeviceConfig']]:
+        """
+        An array of Amazon EBS volume specifications attached to a cluster instance.
+        """
+        return pulumi.get(self, "ebs_block_device_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether an Amazon EBS volume is EBS-optimized.
+        """
+        return pulumi.get(self, "ebs_optimized")
+
+
+@pulumi.output_type
+class ClusterEmrConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationProperties":
+            suggest = "configuration_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEmrConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEmrConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEmrConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classification: Optional[_builtins.str] = None,
+                 configuration_properties: Optional[Mapping[str, _builtins.str]] = None,
+                 configurations: Optional[Sequence['outputs.ClusterEmrConfiguration']] = None):
+        """
+        :param _builtins.str classification: The classification within a configuration.
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if configuration_properties is not None:
+            pulumi.set(__self__, "configuration_properties", configuration_properties)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> Optional[_builtins.str]:
+        """
+        The classification within a configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationProperties")
+    def configuration_properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "configuration_properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.ClusterEmrConfiguration']]:
+        return pulumi.get(self, "configurations")
+
+
+@pulumi.output_type
+class ClusterHadoopJarStepConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mainClass":
+            suggest = "main_class"
+        elif key == "stepProperties":
+            suggest = "step_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterHadoopJarStepConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterHadoopJarStepConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterHadoopJarStepConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 jar: _builtins.str,
+                 args: Optional[Sequence[_builtins.str]] = None,
+                 main_class: Optional[_builtins.str] = None,
+                 step_properties: Optional[Sequence['outputs.ClusterKeyValue']] = None):
+        """
+        :param _builtins.str jar: A path to a JAR file run during the step.
+        :param Sequence[_builtins.str] args: A list of command line arguments passed to the JAR file's main function when executed.
+        :param _builtins.str main_class: The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+        :param Sequence['ClusterKeyValue'] step_properties: A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+        """
+        pulumi.set(__self__, "jar", jar)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if main_class is not None:
+            pulumi.set(__self__, "main_class", main_class)
+        if step_properties is not None:
+            pulumi.set(__self__, "step_properties", step_properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def jar(self) -> _builtins.str:
+        """
+        A path to a JAR file run during the step.
+        """
+        return pulumi.get(self, "jar")
+
+    @_builtins.property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of command line arguments passed to the JAR file's main function when executed.
+        """
+        return pulumi.get(self, "args")
+
+    @_builtins.property
+    @pulumi.getter(name="mainClass")
+    def main_class(self) -> Optional[_builtins.str]:
+        """
+        The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+        """
+        return pulumi.get(self, "main_class")
+
+    @_builtins.property
+    @pulumi.getter(name="stepProperties")
+    def step_properties(self) -> Optional[Sequence['outputs.ClusterKeyValue']]:
+        """
+        A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+        """
+        return pulumi.get(self, "step_properties")
+
+
+@pulumi.output_type
+class ClusterInstanceFleetConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceTypeConfigs":
+            suggest = "instance_type_configs"
+        elif key == "launchSpecifications":
+            suggest = "launch_specifications"
+        elif key == "resizeSpecifications":
+            suggest = "resize_specifications"
+        elif key == "targetOnDemandCapacity":
+            suggest = "target_on_demand_capacity"
+        elif key == "targetSpotCapacity":
+            suggest = "target_spot_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInstanceFleetConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInstanceFleetConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInstanceFleetConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type_configs: Optional[Sequence['outputs.ClusterInstanceTypeConfig']] = None,
+                 launch_specifications: Optional['outputs.ClusterInstanceFleetProvisioningSpecifications'] = None,
+                 name: Optional[_builtins.str] = None,
+                 resize_specifications: Optional['outputs.ClusterInstanceFleetResizingSpecifications'] = None,
+                 target_on_demand_capacity: Optional[_builtins.int] = None,
+                 target_spot_capacity: Optional[_builtins.int] = None):
+        """
+        :param Sequence['ClusterInstanceTypeConfig'] instance_type_configs: The instance type configurations that define the Amazon EC2 instances in the instance fleet.
+        :param 'ClusterInstanceFleetProvisioningSpecifications' launch_specifications: The launch specification for the instance fleet.
+        :param _builtins.str name: The friendly name of the instance fleet.
+        :param 'ClusterInstanceFleetResizingSpecifications' resize_specifications: The resize specification for the instance fleet.
+        :param _builtins.int target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision
+        :param _builtins.int target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision.
+        """
+        if instance_type_configs is not None:
+            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
+        if launch_specifications is not None:
+            pulumi.set(__self__, "launch_specifications", launch_specifications)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resize_specifications is not None:
+            pulumi.set(__self__, "resize_specifications", resize_specifications)
+        if target_on_demand_capacity is not None:
+            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
+        if target_spot_capacity is not None:
+            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceTypeConfigs")
+    def instance_type_configs(self) -> Optional[Sequence['outputs.ClusterInstanceTypeConfig']]:
+        """
+        The instance type configurations that define the Amazon EC2 instances in the instance fleet.
+        """
+        return pulumi.get(self, "instance_type_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="launchSpecifications")
+    def launch_specifications(self) -> Optional['outputs.ClusterInstanceFleetProvisioningSpecifications']:
+        """
+        The launch specification for the instance fleet.
+        """
+        return pulumi.get(self, "launch_specifications")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The friendly name of the instance fleet.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="resizeSpecifications")
+    def resize_specifications(self) -> Optional['outputs.ClusterInstanceFleetResizingSpecifications']:
+        """
+        The resize specification for the instance fleet.
+        """
+        return pulumi.get(self, "resize_specifications")
+
+    @_builtins.property
+    @pulumi.getter(name="targetOnDemandCapacity")
+    def target_on_demand_capacity(self) -> Optional[_builtins.int]:
+        """
+        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision
+        """
+        return pulumi.get(self, "target_on_demand_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="targetSpotCapacity")
+    def target_spot_capacity(self) -> Optional[_builtins.int]:
+        """
+        The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision.
+        """
+        return pulumi.get(self, "target_spot_capacity")
+
+
+@pulumi.output_type
+class ClusterInstanceFleetProvisioningSpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDemandSpecification":
+            suggest = "on_demand_specification"
+        elif key == "spotSpecification":
+            suggest = "spot_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInstanceFleetProvisioningSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInstanceFleetProvisioningSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInstanceFleetProvisioningSpecifications.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_demand_specification: Optional['outputs.ClusterOnDemandProvisioningSpecification'] = None,
+                 spot_specification: Optional['outputs.ClusterSpotProvisioningSpecification'] = None):
+        """
+        :param 'ClusterOnDemandProvisioningSpecification' on_demand_specification: The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy and capacity reservation options.
+               
+               > The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+        :param 'ClusterSpotProvisioningSpecification' spot_specification: The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined duration, and provisioning timeout behavior.
+        """
+        if on_demand_specification is not None:
+            pulumi.set(__self__, "on_demand_specification", on_demand_specification)
+        if spot_specification is not None:
+            pulumi.set(__self__, "spot_specification", spot_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="onDemandSpecification")
+    def on_demand_specification(self) -> Optional['outputs.ClusterOnDemandProvisioningSpecification']:
+        """
+        The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy and capacity reservation options.
+
+        > The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+        """
+        return pulumi.get(self, "on_demand_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="spotSpecification")
+    def spot_specification(self) -> Optional['outputs.ClusterSpotProvisioningSpecification']:
+        """
+        The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined duration, and provisioning timeout behavior.
+        """
+        return pulumi.get(self, "spot_specification")
+
+
+@pulumi.output_type
+class ClusterInstanceFleetResizingSpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDemandResizeSpecification":
+            suggest = "on_demand_resize_specification"
+        elif key == "spotResizeSpecification":
+            suggest = "spot_resize_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInstanceFleetResizingSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInstanceFleetResizingSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInstanceFleetResizingSpecifications.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_demand_resize_specification: Optional['outputs.ClusterOnDemandResizingSpecification'] = None,
+                 spot_resize_specification: Optional['outputs.ClusterSpotResizingSpecification'] = None):
+        """
+        :param 'ClusterOnDemandResizingSpecification' on_demand_resize_specification: The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+        :param 'ClusterSpotResizingSpecification' spot_resize_specification: The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+        """
+        if on_demand_resize_specification is not None:
+            pulumi.set(__self__, "on_demand_resize_specification", on_demand_resize_specification)
+        if spot_resize_specification is not None:
+            pulumi.set(__self__, "spot_resize_specification", spot_resize_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="onDemandResizeSpecification")
+    def on_demand_resize_specification(self) -> Optional['outputs.ClusterOnDemandResizingSpecification']:
+        """
+        The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+        """
+        return pulumi.get(self, "on_demand_resize_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="spotResizeSpecification")
+    def spot_resize_specification(self) -> Optional['outputs.ClusterSpotResizingSpecification']:
+        """
+        The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+        """
+        return pulumi.get(self, "spot_resize_specification")
+
+
+@pulumi.output_type
+class ClusterInstanceGroupConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "autoScalingPolicy":
+            suggest = "auto_scaling_policy"
+        elif key == "bidPrice":
+            suggest = "bid_price"
+        elif key == "customAmiId":
+            suggest = "custom_ami_id"
+        elif key == "ebsConfiguration":
+            suggest = "ebs_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInstanceGroupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInstanceGroupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInstanceGroupConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: _builtins.int,
+                 instance_type: _builtins.str,
+                 auto_scaling_policy: Optional['outputs.ClusterAutoScalingPolicy'] = None,
+                 bid_price: Optional[_builtins.str] = None,
+                 configurations: Optional[Sequence['outputs.ClusterEmrConfiguration']] = None,
+                 custom_ami_id: Optional[_builtins.str] = None,
+                 ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
+                 market: Optional['ClusterInstanceGroupConfigMarket'] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int instance_count: Target number of instances for the instance group.
+        :param _builtins.str instance_type: The EC2 instance type for all instances in the instance group.
+        :param 'ClusterAutoScalingPolicy' auto_scaling_policy: An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.
+        :param _builtins.str bid_price: If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.
+        :param Sequence['ClusterEmrConfiguration'] configurations: The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+        :param _builtins.str custom_ami_id: The custom AMI ID to use for the provisioned instance group.
+        :param 'ClusterEbsConfiguration' ebs_configuration: EBS configurations that will be attached to each EC2 instance in the instance group.
+        :param 'ClusterInstanceGroupConfigMarket' market: Market type of the EC2 instances used to create a cluster node.
+        :param _builtins.str name: Friendly name given to the instance group.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        if auto_scaling_policy is not None:
+            pulumi.set(__self__, "auto_scaling_policy", auto_scaling_policy)
+        if bid_price is not None:
+            pulumi.set(__self__, "bid_price", bid_price)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
+        if ebs_configuration is not None:
+            pulumi.set(__self__, "ebs_configuration", ebs_configuration)
+        if market is not None:
+            pulumi.set(__self__, "market", market)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> _builtins.int:
+        """
+        Target number of instances for the instance group.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        The EC2 instance type for all instances in the instance group.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingPolicy")
+    def auto_scaling_policy(self) -> Optional['outputs.ClusterAutoScalingPolicy']:
+        """
+        An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.
+        """
+        return pulumi.get(self, "auto_scaling_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="bidPrice")
+    def bid_price(self) -> Optional[_builtins.str]:
+        """
+        If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.
+        """
+        return pulumi.get(self, "bid_price")
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.ClusterEmrConfiguration']]:
+        """
+        The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+        """
+        return pulumi.get(self, "configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[_builtins.str]:
+        """
+        The custom AMI ID to use for the provisioned instance group.
+        """
+        return pulumi.get(self, "custom_ami_id")
+
+    @_builtins.property
+    @pulumi.getter(name="ebsConfiguration")
+    def ebs_configuration(self) -> Optional['outputs.ClusterEbsConfiguration']:
+        """
+        EBS configurations that will be attached to each EC2 instance in the instance group.
+        """
+        return pulumi.get(self, "ebs_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def market(self) -> Optional['ClusterInstanceGroupConfigMarket']:
+        """
+        Market type of the EC2 instances used to create a cluster node.
+        """
+        return pulumi.get(self, "market")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Friendly name given to the instance group.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ClusterInstanceTypeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "bidPrice":
+            suggest = "bid_price"
+        elif key == "bidPriceAsPercentageOfOnDemandPrice":
+            suggest = "bid_price_as_percentage_of_on_demand_price"
+        elif key == "customAmiId":
+            suggest = "custom_ami_id"
+        elif key == "ebsConfiguration":
+            suggest = "ebs_configuration"
+        elif key == "weightedCapacity":
+            suggest = "weighted_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInstanceTypeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInstanceTypeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInstanceTypeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: _builtins.str,
+                 bid_price: Optional[_builtins.str] = None,
+                 bid_price_as_percentage_of_on_demand_price: Optional[_builtins.float] = None,
+                 configurations: Optional[Sequence['outputs.ClusterEmrConfiguration']] = None,
+                 custom_ami_id: Optional[_builtins.str] = None,
+                 ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
+                 priority: Optional[_builtins.float] = None,
+                 weighted_capacity: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str instance_type: An EC2 instance type, such as m3.xlarge.
+        :param _builtins.str bid_price: The bid price for each EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        :param _builtins.float bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        :param Sequence['ClusterEmrConfiguration'] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+        :param _builtins.str custom_ami_id: The custom AMI ID to use for the instance type.
+        :param 'ClusterEbsConfiguration' ebs_configuration: The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+        :param _builtins.float priority: The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type. Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+        :param _builtins.int weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if bid_price is not None:
+            pulumi.set(__self__, "bid_price", bid_price)
+        if bid_price_as_percentage_of_on_demand_price is not None:
+            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
+        if ebs_configuration is not None:
+            pulumi.set(__self__, "ebs_configuration", ebs_configuration)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if weighted_capacity is not None:
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        An EC2 instance type, such as m3.xlarge.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="bidPrice")
+    def bid_price(self) -> Optional[_builtins.str]:
+        """
+        The bid price for each EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price")
+
+    @_builtins.property
+    @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
+    def bid_price_as_percentage_of_on_demand_price(self) -> Optional[_builtins.float]:
+        """
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.ClusterEmrConfiguration']]:
+        """
+        A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+        """
+        return pulumi.get(self, "configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[_builtins.str]:
+        """
+        The custom AMI ID to use for the instance type.
+        """
+        return pulumi.get(self, "custom_ami_id")
+
+    @_builtins.property
+    @pulumi.getter(name="ebsConfiguration")
+    def ebs_configuration(self) -> Optional['outputs.ClusterEbsConfiguration']:
+        """
+        The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+        """
+        return pulumi.get(self, "ebs_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> Optional[_builtins.float]:
+        """
+        The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type. Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter(name="weightedCapacity")
+    def weighted_capacity(self) -> Optional[_builtins.int]:
+        """
+        The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+        """
+        return pulumi.get(self, "weighted_capacity")
+
+
+@pulumi.output_type
+class ClusterJobFlowInstancesConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalMasterSecurityGroups":
+            suggest = "additional_master_security_groups"
+        elif key == "additionalSlaveSecurityGroups":
+            suggest = "additional_slave_security_groups"
+        elif key == "coreInstanceFleet":
+            suggest = "core_instance_fleet"
+        elif key == "coreInstanceGroup":
+            suggest = "core_instance_group"
+        elif key == "ec2KeyName":
+            suggest = "ec2_key_name"
+        elif key == "ec2SubnetId":
+            suggest = "ec2_subnet_id"
+        elif key == "ec2SubnetIds":
+            suggest = "ec2_subnet_ids"
+        elif key == "emrManagedMasterSecurityGroup":
+            suggest = "emr_managed_master_security_group"
+        elif key == "emrManagedSlaveSecurityGroup":
+            suggest = "emr_managed_slave_security_group"
+        elif key == "hadoopVersion":
+            suggest = "hadoop_version"
+        elif key == "keepJobFlowAliveWhenNoSteps":
+            suggest = "keep_job_flow_alive_when_no_steps"
+        elif key == "masterInstanceFleet":
+            suggest = "master_instance_fleet"
+        elif key == "masterInstanceGroup":
+            suggest = "master_instance_group"
+        elif key == "serviceAccessSecurityGroup":
+            suggest = "service_access_security_group"
+        elif key == "taskInstanceFleets":
+            suggest = "task_instance_fleets"
+        elif key == "taskInstanceGroups":
+            suggest = "task_instance_groups"
+        elif key == "terminationProtected":
+            suggest = "termination_protected"
+        elif key == "unhealthyNodeReplacement":
+            suggest = "unhealthy_node_replacement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterJobFlowInstancesConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterJobFlowInstancesConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterJobFlowInstancesConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_master_security_groups: Optional[Sequence[_builtins.str]] = None,
+                 additional_slave_security_groups: Optional[Sequence[_builtins.str]] = None,
+                 core_instance_fleet: Optional['outputs.ClusterInstanceFleetConfig'] = None,
+                 core_instance_group: Optional['outputs.ClusterInstanceGroupConfig'] = None,
+                 ec2_key_name: Optional[_builtins.str] = None,
+                 ec2_subnet_id: Optional[_builtins.str] = None,
+                 ec2_subnet_ids: Optional[Sequence[_builtins.str]] = None,
+                 emr_managed_master_security_group: Optional[_builtins.str] = None,
+                 emr_managed_slave_security_group: Optional[_builtins.str] = None,
+                 hadoop_version: Optional[_builtins.str] = None,
+                 keep_job_flow_alive_when_no_steps: Optional[_builtins.bool] = None,
+                 master_instance_fleet: Optional['outputs.ClusterInstanceFleetConfig'] = None,
+                 master_instance_group: Optional['outputs.ClusterInstanceGroupConfig'] = None,
+                 placement: Optional['outputs.ClusterPlacementType'] = None,
+                 service_access_security_group: Optional[_builtins.str] = None,
+                 task_instance_fleets: Optional[Sequence['outputs.ClusterInstanceFleetConfig']] = None,
+                 task_instance_groups: Optional[Sequence['outputs.ClusterInstanceGroupConfig']] = None,
+                 termination_protected: Optional[_builtins.bool] = None,
+                 unhealthy_node_replacement: Optional[_builtins.bool] = None):
+        """
+        :param Sequence[_builtins.str] additional_master_security_groups: A list of additional Amazon EC2 security group IDs for the master node.
+        :param Sequence[_builtins.str] additional_slave_security_groups: A list of additional Amazon EC2 security group IDs for the core and task nodes.
+        :param 'ClusterInstanceFleetConfig' core_instance_fleet: Describes the EC2 instances and instance configurations for the core instance fleet when using clusters with the instance fleet configuration.
+        :param 'ClusterInstanceGroupConfig' core_instance_group: Configuration for the instance groups in a cluster.
+        :param _builtins.str ec2_key_name: The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called 'hadoop'.
+        :param _builtins.str ec2_subnet_id: Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+        :param Sequence[_builtins.str] ec2_subnet_ids: Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+        :param _builtins.str emr_managed_master_security_group: The identifier of the Amazon EC2 security group for the master node. If you specify EmrManagedMasterSecurityGroup, you must also specify EmrManagedSlaveSecurityGroup.
+        :param _builtins.str emr_managed_slave_security_group: The identifier of the Amazon EC2 security group for the core and task nodes. If you specify EmrManagedSlaveSecurityGroup, you must also specify EmrManagedMasterSecurityGroup.
+        :param _builtins.str hadoop_version: Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+        :param _builtins.bool keep_job_flow_alive_when_no_steps: Specifies whether the cluster should remain available after completing all steps. Defaults to true. For more information about configuring cluster termination, see Control Cluster Termination in the EMR Management Guide.
+        :param 'ClusterInstanceFleetConfig' master_instance_fleet: Describes the EC2 instances and instance configurations for the master instance fleet when using clusters with the instance fleet configuration.
+        :param 'ClusterInstanceGroupConfig' master_instance_group: Configuration for the instance groups in a cluster.
+        :param 'ClusterPlacementType' placement: The Availability Zone in which the cluster runs.
+        :param _builtins.str service_access_security_group: The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+        :param Sequence['ClusterInstanceFleetConfig'] task_instance_fleets: Describes the EC2 instances and instance configurations for the task instance fleets when using clusters with the instance fleet configuration. These task instance fleets are added to the cluster as part of the cluster launch. Each task instance fleet must have a unique name specified so that CloudFormation can differentiate between the task instance fleets.
+               
+               > You can currently specify only one task instance fleet for a cluster. After creating the cluster, you can only modify the mutable properties of `InstanceFleetConfig` , which are `TargetOnDemandCapacity` and `TargetSpotCapacity` . Modifying any other property results in cluster replacement. > To allow a maximum of 30 Amazon EC2 instance types per fleet, include `TaskInstanceFleets` when you create your cluster. If you create your cluster without `TaskInstanceFleets` , Amazon EMR uses its default allocation strategy, which allows for a maximum of five Amazon EC2 instance types.
+        :param Sequence['ClusterInstanceGroupConfig'] task_instance_groups: Configuration for the instance groups in a cluster.
+        :param _builtins.bool termination_protected: Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+        :param _builtins.bool unhealthy_node_replacement: Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+        """
+        if additional_master_security_groups is not None:
+            pulumi.set(__self__, "additional_master_security_groups", additional_master_security_groups)
+        if additional_slave_security_groups is not None:
+            pulumi.set(__self__, "additional_slave_security_groups", additional_slave_security_groups)
+        if core_instance_fleet is not None:
+            pulumi.set(__self__, "core_instance_fleet", core_instance_fleet)
+        if core_instance_group is not None:
+            pulumi.set(__self__, "core_instance_group", core_instance_group)
+        if ec2_key_name is not None:
+            pulumi.set(__self__, "ec2_key_name", ec2_key_name)
+        if ec2_subnet_id is not None:
+            pulumi.set(__self__, "ec2_subnet_id", ec2_subnet_id)
+        if ec2_subnet_ids is not None:
+            pulumi.set(__self__, "ec2_subnet_ids", ec2_subnet_ids)
+        if emr_managed_master_security_group is not None:
+            pulumi.set(__self__, "emr_managed_master_security_group", emr_managed_master_security_group)
+        if emr_managed_slave_security_group is not None:
+            pulumi.set(__self__, "emr_managed_slave_security_group", emr_managed_slave_security_group)
+        if hadoop_version is not None:
+            pulumi.set(__self__, "hadoop_version", hadoop_version)
+        if keep_job_flow_alive_when_no_steps is not None:
+            pulumi.set(__self__, "keep_job_flow_alive_when_no_steps", keep_job_flow_alive_when_no_steps)
+        if master_instance_fleet is not None:
+            pulumi.set(__self__, "master_instance_fleet", master_instance_fleet)
+        if master_instance_group is not None:
+            pulumi.set(__self__, "master_instance_group", master_instance_group)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if service_access_security_group is not None:
+            pulumi.set(__self__, "service_access_security_group", service_access_security_group)
+        if task_instance_fleets is not None:
+            pulumi.set(__self__, "task_instance_fleets", task_instance_fleets)
+        if task_instance_groups is not None:
+            pulumi.set(__self__, "task_instance_groups", task_instance_groups)
+        if termination_protected is not None:
+            pulumi.set(__self__, "termination_protected", termination_protected)
+        if unhealthy_node_replacement is not None:
+            pulumi.set(__self__, "unhealthy_node_replacement", unhealthy_node_replacement)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalMasterSecurityGroups")
+    def additional_master_security_groups(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of additional Amazon EC2 security group IDs for the master node.
+        """
+        return pulumi.get(self, "additional_master_security_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalSlaveSecurityGroups")
+    def additional_slave_security_groups(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of additional Amazon EC2 security group IDs for the core and task nodes.
+        """
+        return pulumi.get(self, "additional_slave_security_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="coreInstanceFleet")
+    def core_instance_fleet(self) -> Optional['outputs.ClusterInstanceFleetConfig']:
+        """
+        Describes the EC2 instances and instance configurations for the core instance fleet when using clusters with the instance fleet configuration.
+        """
+        return pulumi.get(self, "core_instance_fleet")
+
+    @_builtins.property
+    @pulumi.getter(name="coreInstanceGroup")
+    def core_instance_group(self) -> Optional['outputs.ClusterInstanceGroupConfig']:
+        """
+        Configuration for the instance groups in a cluster.
+        """
+        return pulumi.get(self, "core_instance_group")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2KeyName")
+    def ec2_key_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called 'hadoop'.
+        """
+        return pulumi.get(self, "ec2_key_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2SubnetId")
+    def ec2_subnet_id(self) -> Optional[_builtins.str]:
+        """
+        Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+        """
+        return pulumi.get(self, "ec2_subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2SubnetIds")
+    def ec2_subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+        """
+        return pulumi.get(self, "ec2_subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="emrManagedMasterSecurityGroup")
+    def emr_managed_master_security_group(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the Amazon EC2 security group for the master node. If you specify EmrManagedMasterSecurityGroup, you must also specify EmrManagedSlaveSecurityGroup.
+        """
+        return pulumi.get(self, "emr_managed_master_security_group")
+
+    @_builtins.property
+    @pulumi.getter(name="emrManagedSlaveSecurityGroup")
+    def emr_managed_slave_security_group(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the Amazon EC2 security group for the core and task nodes. If you specify EmrManagedSlaveSecurityGroup, you must also specify EmrManagedMasterSecurityGroup.
+        """
+        return pulumi.get(self, "emr_managed_slave_security_group")
+
+    @_builtins.property
+    @pulumi.getter(name="hadoopVersion")
+    def hadoop_version(self) -> Optional[_builtins.str]:
+        """
+        Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+        """
+        return pulumi.get(self, "hadoop_version")
+
+    @_builtins.property
+    @pulumi.getter(name="keepJobFlowAliveWhenNoSteps")
+    def keep_job_flow_alive_when_no_steps(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether the cluster should remain available after completing all steps. Defaults to true. For more information about configuring cluster termination, see Control Cluster Termination in the EMR Management Guide.
+        """
+        return pulumi.get(self, "keep_job_flow_alive_when_no_steps")
+
+    @_builtins.property
+    @pulumi.getter(name="masterInstanceFleet")
+    def master_instance_fleet(self) -> Optional['outputs.ClusterInstanceFleetConfig']:
+        """
+        Describes the EC2 instances and instance configurations for the master instance fleet when using clusters with the instance fleet configuration.
+        """
+        return pulumi.get(self, "master_instance_fleet")
+
+    @_builtins.property
+    @pulumi.getter(name="masterInstanceGroup")
+    def master_instance_group(self) -> Optional['outputs.ClusterInstanceGroupConfig']:
+        """
+        Configuration for the instance groups in a cluster.
+        """
+        return pulumi.get(self, "master_instance_group")
+
+    @_builtins.property
+    @pulumi.getter
+    def placement(self) -> Optional['outputs.ClusterPlacementType']:
+        """
+        The Availability Zone in which the cluster runs.
+        """
+        return pulumi.get(self, "placement")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessSecurityGroup")
+    def service_access_security_group(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+        """
+        return pulumi.get(self, "service_access_security_group")
+
+    @_builtins.property
+    @pulumi.getter(name="taskInstanceFleets")
+    def task_instance_fleets(self) -> Optional[Sequence['outputs.ClusterInstanceFleetConfig']]:
+        """
+        Describes the EC2 instances and instance configurations for the task instance fleets when using clusters with the instance fleet configuration. These task instance fleets are added to the cluster as part of the cluster launch. Each task instance fleet must have a unique name specified so that CloudFormation can differentiate between the task instance fleets.
+
+        > You can currently specify only one task instance fleet for a cluster. After creating the cluster, you can only modify the mutable properties of `InstanceFleetConfig` , which are `TargetOnDemandCapacity` and `TargetSpotCapacity` . Modifying any other property results in cluster replacement. > To allow a maximum of 30 Amazon EC2 instance types per fleet, include `TaskInstanceFleets` when you create your cluster. If you create your cluster without `TaskInstanceFleets` , Amazon EMR uses its default allocation strategy, which allows for a maximum of five Amazon EC2 instance types.
+        """
+        return pulumi.get(self, "task_instance_fleets")
+
+    @_builtins.property
+    @pulumi.getter(name="taskInstanceGroups")
+    def task_instance_groups(self) -> Optional[Sequence['outputs.ClusterInstanceGroupConfig']]:
+        """
+        Configuration for the instance groups in a cluster.
+        """
+        return pulumi.get(self, "task_instance_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="terminationProtected")
+    def termination_protected(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+        """
+        return pulumi.get(self, "termination_protected")
+
+    @_builtins.property
+    @pulumi.getter(name="unhealthyNodeReplacement")
+    def unhealthy_node_replacement(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+        """
+        return pulumi.get(self, "unhealthy_node_replacement")
+
+
+@pulumi.output_type
+class ClusterKerberosAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kdcAdminPassword":
+            suggest = "kdc_admin_password"
+        elif key == "adDomainJoinPassword":
+            suggest = "ad_domain_join_password"
+        elif key == "adDomainJoinUser":
+            suggest = "ad_domain_join_user"
+        elif key == "crossRealmTrustPrincipalPassword":
+            suggest = "cross_realm_trust_principal_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKerberosAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKerberosAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKerberosAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kdc_admin_password: _builtins.str,
+                 realm: _builtins.str,
+                 ad_domain_join_password: Optional[_builtins.str] = None,
+                 ad_domain_join_user: Optional[_builtins.str] = None,
+                 cross_realm_trust_principal_password: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str kdc_admin_password: The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+        :param _builtins.str realm: The name of the Kerberos realm to which all nodes in a cluster belong. For example, EC2.INTERNAL.
+        :param _builtins.str ad_domain_join_password: The Active Directory password for ADDomainJoinUser.
+        :param _builtins.str ad_domain_join_user: Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+        :param _builtins.str cross_realm_trust_principal_password: Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+        """
+        pulumi.set(__self__, "kdc_admin_password", kdc_admin_password)
+        pulumi.set(__self__, "realm", realm)
+        if ad_domain_join_password is not None:
+            pulumi.set(__self__, "ad_domain_join_password", ad_domain_join_password)
+        if ad_domain_join_user is not None:
+            pulumi.set(__self__, "ad_domain_join_user", ad_domain_join_user)
+        if cross_realm_trust_principal_password is not None:
+            pulumi.set(__self__, "cross_realm_trust_principal_password", cross_realm_trust_principal_password)
+
+    @_builtins.property
+    @pulumi.getter(name="kdcAdminPassword")
+    def kdc_admin_password(self) -> _builtins.str:
+        """
+        The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+        """
+        return pulumi.get(self, "kdc_admin_password")
+
+    @_builtins.property
+    @pulumi.getter
+    def realm(self) -> _builtins.str:
+        """
+        The name of the Kerberos realm to which all nodes in a cluster belong. For example, EC2.INTERNAL.
+        """
+        return pulumi.get(self, "realm")
+
+    @_builtins.property
+    @pulumi.getter(name="adDomainJoinPassword")
+    def ad_domain_join_password(self) -> Optional[_builtins.str]:
+        """
+        The Active Directory password for ADDomainJoinUser.
+        """
+        return pulumi.get(self, "ad_domain_join_password")
+
+    @_builtins.property
+    @pulumi.getter(name="adDomainJoinUser")
+    def ad_domain_join_user(self) -> Optional[_builtins.str]:
+        """
+        Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+        """
+        return pulumi.get(self, "ad_domain_join_user")
+
+    @_builtins.property
+    @pulumi.getter(name="crossRealmTrustPrincipalPassword")
+    def cross_realm_trust_principal_password(self) -> Optional[_builtins.str]:
+        """
+        Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+        """
+        return pulumi.get(self, "cross_realm_trust_principal_password")
+
+
+@pulumi.output_type
+class ClusterKeyValue(dict):
+    def __init__(__self__, *,
+                 key: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key: The unique identifier of a key-value pair.
+        :param _builtins.str value: The value part of the identified key.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier of a key-value pair.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        The value part of the identified key.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ClusterManagedScalingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeLimits":
+            suggest = "compute_limits"
+        elif key == "scalingStrategy":
+            suggest = "scaling_strategy"
+        elif key == "utilizationPerformanceIndex":
+            suggest = "utilization_performance_index"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterManagedScalingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterManagedScalingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterManagedScalingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_limits: Optional['outputs.ClusterComputeLimits'] = None,
+                 scaling_strategy: Optional[_builtins.str] = None,
+                 utilization_performance_index: Optional[_builtins.int] = None):
+        """
+        :param 'ClusterComputeLimits' compute_limits: The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        :param _builtins.str scaling_strategy: Determines whether a custom scaling utilization performance index can be set. Possible values include *ADVANCED* or *DEFAULT* .
+        :param _builtins.int utilization_performance_index: An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
+        """
+        if compute_limits is not None:
+            pulumi.set(__self__, "compute_limits", compute_limits)
+        if scaling_strategy is not None:
+            pulumi.set(__self__, "scaling_strategy", scaling_strategy)
+        if utilization_performance_index is not None:
+            pulumi.set(__self__, "utilization_performance_index", utilization_performance_index)
+
+    @_builtins.property
+    @pulumi.getter(name="computeLimits")
+    def compute_limits(self) -> Optional['outputs.ClusterComputeLimits']:
+        """
+        The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        """
+        return pulumi.get(self, "compute_limits")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingStrategy")
+    def scaling_strategy(self) -> Optional[_builtins.str]:
+        """
+        Determines whether a custom scaling utilization performance index can be set. Possible values include *ADVANCED* or *DEFAULT* .
+        """
+        return pulumi.get(self, "scaling_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="utilizationPerformanceIndex")
+    def utilization_performance_index(self) -> Optional[_builtins.int]:
+        """
+        An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
+        """
+        return pulumi.get(self, "utilization_performance_index")
+
+
+@pulumi.output_type
+class ClusterMetricDimension(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: The dimension name.
+        :param _builtins.str value: The dimension value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The dimension name.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The dimension value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ClusterMonitoringConfiguration(dict):
+    """
+    Contains CloudWatch log configuration metadata and settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogConfiguration":
+            suggest = "cloud_watch_log_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_log_configuration: Optional['outputs.ClusterCloudWatchLogConfiguration'] = None):
+        """
+        Contains CloudWatch log configuration metadata and settings.
+        """
+        if cloud_watch_log_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_log_configuration", cloud_watch_log_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogConfiguration")
+    def cloud_watch_log_configuration(self) -> Optional['outputs.ClusterCloudWatchLogConfiguration']:
+        return pulumi.get(self, "cloud_watch_log_configuration")
+
+
+@pulumi.output_type
+class ClusterOnDemandCapacityReservationOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "capacityReservationResourceGroupArn":
+            suggest = "capacity_reservation_resource_group_arn"
+        elif key == "usageStrategy":
+            suggest = "usage_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOnDemandCapacityReservationOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOnDemandCapacityReservationOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOnDemandCapacityReservationOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[_builtins.str] = None,
+                 capacity_reservation_resource_group_arn: Optional[_builtins.str] = None,
+                 usage_strategy: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str capacity_reservation_preference: Supported values: none, open
+        :param _builtins.str capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
+        :param _builtins.str usage_strategy: Supported values: use-capacity-reservations-first
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+        if usage_strategy is not None:
+            pulumi.set(__self__, "usage_strategy", usage_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[_builtins.str]:
+        """
+        Supported values: none, open
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="usageStrategy")
+    def usage_strategy(self) -> Optional[_builtins.str]:
+        """
+        Supported values: use-capacity-reservations-first
+        """
+        return pulumi.get(self, "usage_strategy")
+
+
+@pulumi.output_type
+class ClusterOnDemandProvisioningSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "capacityReservationOptions":
+            suggest = "capacity_reservation_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOnDemandProvisioningSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOnDemandProvisioningSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOnDemandProvisioningSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_strategy: _builtins.str,
+                 capacity_reservation_options: Optional['outputs.ClusterOnDemandCapacityReservationOptions'] = None):
+        """
+        :param _builtins.str allocation_strategy: Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+        :param 'ClusterOnDemandCapacityReservationOptions' capacity_reservation_options: The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if capacity_reservation_options is not None:
+            pulumi.set(__self__, "capacity_reservation_options", capacity_reservation_options)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> _builtins.str:
+        """
+        Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationOptions")
+    def capacity_reservation_options(self) -> Optional['outputs.ClusterOnDemandCapacityReservationOptions']:
+        """
+        The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+        """
+        return pulumi.get(self, "capacity_reservation_options")
+
+
+@pulumi.output_type
+class ClusterOnDemandResizingSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "capacityReservationOptions":
+            suggest = "capacity_reservation_options"
+        elif key == "timeoutDurationMinutes":
+            suggest = "timeout_duration_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOnDemandResizingSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOnDemandResizingSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOnDemandResizingSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_strategy: Optional[_builtins.str] = None,
+                 capacity_reservation_options: Optional['outputs.ClusterOnDemandCapacityReservationOptions'] = None,
+                 timeout_duration_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str allocation_strategy: Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is `lowest-price` .
+        :param _builtins.int timeout_duration_minutes: On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+        """
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if capacity_reservation_options is not None:
+            pulumi.set(__self__, "capacity_reservation_options", capacity_reservation_options)
+        if timeout_duration_minutes is not None:
+            pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> Optional[_builtins.str]:
+        """
+        Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is `lowest-price` .
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationOptions")
+    def capacity_reservation_options(self) -> Optional['outputs.ClusterOnDemandCapacityReservationOptions']:
+        return pulumi.get(self, "capacity_reservation_options")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> Optional[_builtins.int]:
+        """
+        On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+
+@pulumi.output_type
+class ClusterPlacementGroupConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceRole":
+            suggest = "instance_role"
+        elif key == "placementStrategy":
+            suggest = "placement_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPlacementGroupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPlacementGroupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPlacementGroupConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_role: 'ClusterPlacementGroupConfigInstanceRole',
+                 placement_strategy: Optional['ClusterPlacementGroupConfigPlacementStrategy'] = None):
+        """
+        :param 'ClusterPlacementGroupConfigInstanceRole' instance_role: Role of the instance in the cluster.
+        :param 'ClusterPlacementGroupConfigPlacementStrategy' placement_strategy: Amazon EC2 Placement Group strategy associated with instance role.
+        """
+        pulumi.set(__self__, "instance_role", instance_role)
+        if placement_strategy is not None:
+            pulumi.set(__self__, "placement_strategy", placement_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceRole")
+    def instance_role(self) -> 'ClusterPlacementGroupConfigInstanceRole':
+        """
+        Role of the instance in the cluster.
+        """
+        return pulumi.get(self, "instance_role")
+
+    @_builtins.property
+    @pulumi.getter(name="placementStrategy")
+    def placement_strategy(self) -> Optional['ClusterPlacementGroupConfigPlacementStrategy']:
+        """
+        Amazon EC2 Placement Group strategy associated with instance role.
+        """
+        return pulumi.get(self, "placement_strategy")
+
+
+@pulumi.output_type
+class ClusterPlacementType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPlacementType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPlacementType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPlacementType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: _builtins.str):
+        """
+        :param _builtins.str availability_zone: The Amazon EC2 Availability Zone for the cluster. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.
+        """
+        pulumi.set(__self__, "availability_zone", availability_zone)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> _builtins.str:
+        """
+        The Amazon EC2 Availability Zone for the cluster. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.
+        """
+        return pulumi.get(self, "availability_zone")
+
+
+@pulumi.output_type
+class ClusterScalingAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "simpleScalingPolicyConfiguration":
+            suggest = "simple_scaling_policy_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterScalingAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterScalingAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterScalingAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 simple_scaling_policy_configuration: 'outputs.ClusterSimpleScalingPolicyConfiguration',
+                 market: Optional['ClusterScalingActionMarket'] = None):
+        """
+        :param 'ClusterSimpleScalingPolicyConfiguration' simple_scaling_policy_configuration: The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+        :param 'ClusterScalingActionMarket' market: Not available for instance groups. Instance groups use the market type specified for the group.
+        """
+        pulumi.set(__self__, "simple_scaling_policy_configuration", simple_scaling_policy_configuration)
+        if market is not None:
+            pulumi.set(__self__, "market", market)
+
+    @_builtins.property
+    @pulumi.getter(name="simpleScalingPolicyConfiguration")
+    def simple_scaling_policy_configuration(self) -> 'outputs.ClusterSimpleScalingPolicyConfiguration':
+        """
+        The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+        """
+        return pulumi.get(self, "simple_scaling_policy_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def market(self) -> Optional['ClusterScalingActionMarket']:
+        """
+        Not available for instance groups. Instance groups use the market type specified for the group.
+        """
+        return pulumi.get(self, "market")
+
+
+@pulumi.output_type
+class ClusterScalingConstraints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterScalingConstraints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterScalingConstraints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterScalingConstraints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_capacity: _builtins.int,
+                 min_capacity: _builtins.int):
+        """
+        :param _builtins.int max_capacity: The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+        :param _builtins.int min_capacity: The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> _builtins.int:
+        """
+        The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> _builtins.int:
+        """
+        The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+        """
+        return pulumi.get(self, "min_capacity")
+
+
+@pulumi.output_type
+class ClusterScalingRule(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.ClusterScalingAction',
+                 name: _builtins.str,
+                 trigger: 'outputs.ClusterScalingTrigger',
+                 description: Optional[_builtins.str] = None):
+        """
+        :param 'ClusterScalingAction' action: The conditions that trigger an automatic scaling activity.
+        :param _builtins.str name: The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+        :param 'ClusterScalingTrigger' trigger: The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+        :param _builtins.str description: A friendly, more verbose description of the automatic scaling rule.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trigger", trigger)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'outputs.ClusterScalingAction':
+        """
+        The conditions that trigger an automatic scaling activity.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> 'outputs.ClusterScalingTrigger':
+        """
+        The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+        """
+        return pulumi.get(self, "trigger")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A friendly, more verbose description of the automatic scaling rule.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ClusterScalingTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchAlarmDefinition":
+            suggest = "cloud_watch_alarm_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterScalingTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterScalingTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterScalingTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_alarm_definition: 'outputs.ClusterCloudWatchAlarmDefinition'):
+        """
+        :param 'ClusterCloudWatchAlarmDefinition' cloud_watch_alarm_definition: The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+        """
+        pulumi.set(__self__, "cloud_watch_alarm_definition", cloud_watch_alarm_definition)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchAlarmDefinition")
+    def cloud_watch_alarm_definition(self) -> 'outputs.ClusterCloudWatchAlarmDefinition':
+        """
+        The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+        """
+        return pulumi.get(self, "cloud_watch_alarm_definition")
+
+
+@pulumi.output_type
+class ClusterScriptBootstrapActionConfig(dict):
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 args: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str path: Location in Amazon S3 of the script to run during a bootstrap action.
+        :param Sequence[_builtins.str] args: A list of command line arguments to pass to the bootstrap action script.
+        """
+        pulumi.set(__self__, "path", path)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        Location in Amazon S3 of the script to run during a bootstrap action.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of command line arguments to pass to the bootstrap action script.
+        """
+        return pulumi.get(self, "args")
+
+
+@pulumi.output_type
+class ClusterSimpleScalingPolicyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scalingAdjustment":
+            suggest = "scaling_adjustment"
+        elif key == "adjustmentType":
+            suggest = "adjustment_type"
+        elif key == "coolDown":
+            suggest = "cool_down"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSimpleScalingPolicyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSimpleScalingPolicyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSimpleScalingPolicyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scaling_adjustment: _builtins.int,
+                 adjustment_type: Optional['ClusterSimpleScalingPolicyConfigurationAdjustmentType'] = None,
+                 cool_down: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int scaling_adjustment: The amount by which to scale in or scale out, based on the specified AdjustmentType. A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be a positive integer. If AdjustmentType is set to PERCENT_CHANGE_IN_CAPACITY, the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+        :param 'ClusterSimpleScalingPolicyConfigurationAdjustmentType' adjustment_type: The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+        :param _builtins.int cool_down: The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+        """
+        pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
+        if adjustment_type is not None:
+            pulumi.set(__self__, "adjustment_type", adjustment_type)
+        if cool_down is not None:
+            pulumi.set(__self__, "cool_down", cool_down)
+
+    @_builtins.property
+    @pulumi.getter(name="scalingAdjustment")
+    def scaling_adjustment(self) -> _builtins.int:
+        """
+        The amount by which to scale in or scale out, based on the specified AdjustmentType. A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be a positive integer. If AdjustmentType is set to PERCENT_CHANGE_IN_CAPACITY, the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+        """
+        return pulumi.get(self, "scaling_adjustment")
+
+    @_builtins.property
+    @pulumi.getter(name="adjustmentType")
+    def adjustment_type(self) -> Optional['ClusterSimpleScalingPolicyConfigurationAdjustmentType']:
+        """
+        The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+        """
+        return pulumi.get(self, "adjustment_type")
+
+    @_builtins.property
+    @pulumi.getter(name="coolDown")
+    def cool_down(self) -> Optional[_builtins.int]:
+        """
+        The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+        """
+        return pulumi.get(self, "cool_down")
+
+
+@pulumi.output_type
+class ClusterSpotProvisioningSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeoutAction":
+            suggest = "timeout_action"
+        elif key == "timeoutDurationMinutes":
+            suggest = "timeout_duration_minutes"
+        elif key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "blockDurationMinutes":
+            suggest = "block_duration_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSpotProvisioningSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSpotProvisioningSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSpotProvisioningSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timeout_action: 'ClusterSpotProvisioningSpecificationTimeoutAction',
+                 timeout_duration_minutes: _builtins.int,
+                 allocation_strategy: Optional[_builtins.str] = None,
+                 block_duration_minutes: Optional[_builtins.int] = None):
+        """
+        :param 'ClusterSpotProvisioningSpecificationTimeoutAction' timeout_action: The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        :param _builtins.int timeout_duration_minutes: The spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        :param _builtins.str allocation_strategy: Specifies the strategy to use in launching Spot Instance fleets. Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+        :param _builtins.int block_duration_minutes: The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+        pulumi.set(__self__, "timeout_action", timeout_action)
+        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutAction")
+    def timeout_action(self) -> 'ClusterSpotProvisioningSpecificationTimeoutAction':
+        """
+        The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        """
+        return pulumi.get(self, "timeout_action")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> _builtins.int:
+        """
+        The spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> Optional[_builtins.str]:
+        """
+        Specifies the strategy to use in launching Spot Instance fleets. Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="blockDurationMinutes")
+    def block_duration_minutes(self) -> Optional[_builtins.int]:
+        """
+        The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+        return pulumi.get(self, "block_duration_minutes")
+
+
+@pulumi.output_type
+class ClusterSpotResizingSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "timeoutDurationMinutes":
+            suggest = "timeout_duration_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSpotResizingSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSpotResizingSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSpotResizingSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_strategy: Optional[_builtins.str] = None,
+                 timeout_duration_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str allocation_strategy: Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher, the default is `price-capacity-optimized` . If you run Amazon EMR releases 6.8.0 or lower, the default is `capacity-optimized` .
+        :param _builtins.int timeout_duration_minutes: Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+        """
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if timeout_duration_minutes is not None:
+            pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> Optional[_builtins.str]:
+        """
+        Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher, the default is `price-capacity-optimized` . If you run Amazon EMR releases 6.8.0 or lower, the default is `capacity-optimized` .
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> Optional[_builtins.int]:
+        """
+        Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+
+@pulumi.output_type
+class ClusterStepConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hadoopJarStep":
+            suggest = "hadoop_jar_step"
+        elif key == "actionOnFailure":
+            suggest = "action_on_failure"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterStepConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterStepConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterStepConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hadoop_jar_step: 'outputs.ClusterHadoopJarStepConfig',
+                 name: _builtins.str,
+                 action_on_failure: Optional['ClusterStepConfigActionOnFailure'] = None):
+        """
+        :param 'ClusterHadoopJarStepConfig' hadoop_jar_step: The JAR file used for the step.
+        :param _builtins.str name: The name of the step.
+        :param 'ClusterStepConfigActionOnFailure' action_on_failure: The action to take when the step fails. Use one of the following values:
+               
+                   TERMINATE_CLUSTER - Shuts down the cluster.
+                   
+                   CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+                   
+                   CONTINUE - Continues to the next step in the queue.
+                   
+                   TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+                If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+               
+               If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+        """
+        pulumi.set(__self__, "hadoop_jar_step", hadoop_jar_step)
+        pulumi.set(__self__, "name", name)
+        if action_on_failure is not None:
+            pulumi.set(__self__, "action_on_failure", action_on_failure)
+
+    @_builtins.property
+    @pulumi.getter(name="hadoopJarStep")
+    def hadoop_jar_step(self) -> 'outputs.ClusterHadoopJarStepConfig':
+        """
+        The JAR file used for the step.
+        """
+        return pulumi.get(self, "hadoop_jar_step")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the step.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="actionOnFailure")
+    def action_on_failure(self) -> Optional['ClusterStepConfigActionOnFailure']:
+        """
+        The action to take when the step fails. Use one of the following values:
+
+            TERMINATE_CLUSTER - Shuts down the cluster.
+            
+            CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+            
+            CONTINUE - Continues to the next step in the queue.
+            
+            TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+         If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+
+        If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+        """
+        return pulumi.get(self, "action_on_failure")
+
+
+@pulumi.output_type
+class ClusterVolumeSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeInGb":
+            suggest = "size_in_gb"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterVolumeSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterVolumeSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterVolumeSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 size_in_gb: _builtins.int,
+                 volume_type: _builtins.str,
+                 iops: Optional[_builtins.int] = None,
+                 throughput: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int size_in_gb: The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+        :param _builtins.str volume_type: The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+        :param _builtins.int iops: The number of I/O operations per second (IOPS) that the volume supports.
+        :param _builtins.int throughput: The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+        """
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        pulumi.set(__self__, "volume_type", volume_type)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @_builtins.property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> _builtins.int:
+        """
+        The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+        """
+        return pulumi.get(self, "size_in_gb")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> _builtins.str:
+        """
+        The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+        """
+        return pulumi.get(self, "volume_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> Optional[_builtins.int]:
+        """
+        The number of I/O operations per second (IOPS) that the volume supports.
+        """
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter
+    def throughput(self) -> Optional[_builtins.int]:
+        """
+        The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+        """
+        return pulumi.get(self, "throughput")
+
 
 @pulumi.output_type
 class InstanceFleetConfigApplicationConfiguration(dict):

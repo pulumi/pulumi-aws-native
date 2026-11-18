@@ -77,13 +77,15 @@
       "properties" : {
         "IdleRuntimeSessionTimeout" : {
           "type" : "integer",
+          "description" : "Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Valid range: 60 to 28800 seconds (8 hours), and must be less than or equal to MaxLifetime. Default: 900 seconds (15 minutes).",
           "minimum" : 60,
-          "maximum" : 1209600
+          "maximum" : 28800
         },
         "MaxLifetime" : {
           "type" : "integer",
+          "description" : "Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Valid range: 60 to 28800 seconds (8 hours). Default: 28800 seconds (8 hours).",
           "minimum" : 60,
-          "maximum" : 1209600
+          "maximum" : 28800
         }
       },
       "additionalProperties" : false
@@ -679,9 +681,56 @@
             }
           },
           "additionalProperties" : false
+        },
+        "OutboundAuth" : {
+          "$ref" : "#/definitions/HarnessRemoteMcpOutboundAuth",
+          "description" : "How the harness authenticates to this MCP endpoint. Defaults to None if omitted."
         }
       },
       "required" : [ "Url" ],
+      "additionalProperties" : false
+    },
+    "HarnessRemoteMcpOutboundAuth" : {
+      "type" : "object",
+      "description" : "Authentication method for calling a remote MCP server.",
+      "properties" : {
+        "AwsIam" : {
+          "$ref" : "#/definitions/IamCredentialProvider",
+          "description" : "SigV4-sign requests using the harness execution role. Region defaults to the harness Region if omitted."
+        },
+        "None" : {
+          "type" : "object",
+          "description" : "No authentication.",
+          "additionalProperties" : false
+        }
+      },
+      "oneOf" : [ {
+        "required" : [ "AwsIam" ]
+      }, {
+        "required" : [ "None" ]
+      } ],
+      "additionalProperties" : false
+    },
+    "IamCredentialProvider" : {
+      "type" : "object",
+      "description" : "IAM credentials used to SigV4-sign requests.",
+      "properties" : {
+        "Service" : {
+          "type" : "string",
+          "description" : "The AWS service name used for SigV4 signing.",
+          "minLength" : 1,
+          "maxLength" : 64,
+          "pattern" : "^[a-zA-Z0-9._-]+$"
+        },
+        "Region" : {
+          "type" : "string",
+          "description" : "The AWS Region used for SigV4 signing.",
+          "minLength" : 1,
+          "maxLength" : 32,
+          "pattern" : "^[a-zA-Z0-9-]+$"
+        }
+      },
+      "required" : [ "Service" ],
       "additionalProperties" : false
     },
     "HarnessAgentCoreBrowserConfig" : {
@@ -763,7 +812,7 @@
         },
         "GrantType" : {
           "type" : "string",
-          "enum" : [ "CLIENT_CREDENTIALS", "AUTHORIZATION_CODE" ]
+          "enum" : [ "CLIENT_CREDENTIALS", "AUTHORIZATION_CODE", "TOKEN_EXCHANGE" ]
         },
         "DefaultReturnUrl" : {
           "type" : "string",
@@ -1394,13 +1443,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock-agentcore:CreateAgentRuntime", "bedrock-agentcore:CreateAgentRuntimeEndpoint", "bedrock-agentcore:CreateHarness", "bedrock-agentcore:CreateMemory", "bedrock-agentcore:GetMemory", "bedrock-agentcore:DeleteMemory", "bedrock-agentcore:CreateWorkloadIdentity", "bedrock-agentcore:DeleteAgentRuntime", "bedrock-agentcore:DeleteAgentRuntimeEndpoint", "bedrock-agentcore:DeleteWorkloadIdentity", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:GetHarness", "bedrock-agentcore:TagResource", "bedrock-agentcore:UpdateAgentRuntime", "bedrock-agentcore:UpdateAgentRuntimeEndpoint", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
+      "permissions" : [ "bedrock-agentcore:CreateAgentRuntime", "bedrock-agentcore:CreateAgentRuntimeEndpoint", "bedrock-agentcore:CreateHarness", "bedrock-agentcore:CreateMemory", "bedrock-agentcore:GetMemory", "bedrock-agentcore:DeleteMemory", "bedrock-agentcore:CreateWorkloadIdentity", "bedrock-agentcore:DeleteAgentRuntime", "bedrock-agentcore:DeleteAgentRuntimeEndpoint", "bedrock-agentcore:DeleteWorkloadIdentity", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:GetHarness", "bedrock-agentcore:TagResource", "bedrock-agentcore:UpdateAgentRuntime", "bedrock-agentcore:UpdateAgentRuntimeEndpoint", "ec2:AssignIpv6Addresses", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:DescribeNetworkInterfaces", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations", "vpc-lattice:AssociateViaAWSService", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "bedrock-agentcore:GetHarness", "bedrock-agentcore:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "bedrock-agentcore:CreateAgentRuntime", "bedrock-agentcore:CreateAgentRuntimeEndpoint", "bedrock-agentcore:CreateMemory", "bedrock-agentcore:GetMemory", "bedrock-agentcore:UpdateMemory", "bedrock-agentcore:DeleteMemory", "bedrock-agentcore:CreateWorkloadIdentity", "bedrock-agentcore:DeleteAgentRuntime", "bedrock-agentcore:DeleteAgentRuntimeEndpoint", "bedrock-agentcore:DeleteWorkloadIdentity", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:GetHarness", "bedrock-agentcore:ListTagsForResource", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource", "bedrock-agentcore:UpdateAgentRuntime", "bedrock-agentcore:UpdateAgentRuntimeEndpoint", "bedrock-agentcore:UpdateHarness", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
+      "permissions" : [ "bedrock-agentcore:CreateAgentRuntime", "bedrock-agentcore:CreateAgentRuntimeEndpoint", "bedrock-agentcore:CreateMemory", "bedrock-agentcore:GetMemory", "bedrock-agentcore:UpdateMemory", "bedrock-agentcore:DeleteMemory", "bedrock-agentcore:CreateWorkloadIdentity", "bedrock-agentcore:DeleteAgentRuntime", "bedrock-agentcore:DeleteAgentRuntimeEndpoint", "bedrock-agentcore:DeleteWorkloadIdentity", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:GetHarness", "bedrock-agentcore:ListTagsForResource", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource", "bedrock-agentcore:UpdateAgentRuntime", "bedrock-agentcore:UpdateAgentRuntimeEndpoint", "bedrock-agentcore:UpdateHarness", "ec2:AssignIpv6Addresses", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:DescribeNetworkInterfaces", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations", "vpc-lattice:AssociateViaAWSService", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "bedrock-agentcore:CreateAgentRuntime", "bedrock-agentcore:CreateAgentRuntimeEndpoint", "bedrock-agentcore:CreateWorkloadIdentity", "bedrock-agentcore:DeleteAgentRuntime", "bedrock-agentcore:DeleteAgentRuntimeEndpoint", "bedrock-agentcore:DeleteHarness", "bedrock-agentcore:DeleteMemory", "bedrock-agentcore:GetMemory", "bedrock-agentcore:DeleteWorkloadIdentity", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:GetHarness", "bedrock-agentcore:UpdateAgentRuntime", "bedrock-agentcore:UpdateAgentRuntimeEndpoint" ]

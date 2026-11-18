@@ -37,6 +37,7 @@ class TrailArgs:
                  is_multi_region_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_organization_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recursive_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -57,6 +58,7 @@ class TrailArgs:
         :param pulumi.Input[_builtins.bool] is_multi_region_trail: Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
         :param pulumi.Input[_builtins.bool] is_organization_trail: Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.
         :param pulumi.Input[_builtins.str] kms_key_id: Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        :param pulumi.Input[_builtins.bool] recursive_logging: Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
         :param pulumi.Input[_builtins.str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[_builtins.str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A custom set of tags (key-value pairs) for this trail.
@@ -92,6 +94,8 @@ class TrailArgs:
             pulumi.set(__self__, "is_organization_trail", is_organization_trail)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if recursive_logging is not None:
+            pulumi.set(__self__, "recursive_logging", recursive_logging)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
         if sns_topic_name is not None:
@@ -258,6 +262,18 @@ class TrailArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="recursiveLogging")
+    def recursive_logging(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+        """
+        return pulumi.get(self, "recursive_logging")
+
+    @recursive_logging.setter
+    def recursive_logging(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "recursive_logging", value)
+
+    @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -330,6 +346,7 @@ class Trail(pulumi.CustomResource):
                  is_multi_region_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_organization_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recursive_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -353,6 +370,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] is_multi_region_trail: Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
         :param pulumi.Input[_builtins.bool] is_organization_trail: Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.
         :param pulumi.Input[_builtins.str] kms_key_id: Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        :param pulumi.Input[_builtins.bool] recursive_logging: Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
         :param pulumi.Input[_builtins.str] s3_bucket_name: Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
         :param pulumi.Input[_builtins.str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[_builtins.str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
@@ -401,6 +419,7 @@ class Trail(pulumi.CustomResource):
                  is_multi_region_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_organization_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recursive_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -429,6 +448,7 @@ class Trail(pulumi.CustomResource):
             __props__.__dict__["is_multi_region_trail"] = is_multi_region_trail
             __props__.__dict__["is_organization_trail"] = is_organization_trail
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["recursive_logging"] = recursive_logging
             if s3_bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_name'")
             __props__.__dict__["s3_bucket_name"] = s3_bucket_name
@@ -475,6 +495,7 @@ class Trail(pulumi.CustomResource):
         __props__.__dict__["is_multi_region_trail"] = None
         __props__.__dict__["is_organization_trail"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["recursive_logging"] = None
         __props__.__dict__["s3_bucket_name"] = None
         __props__.__dict__["s3_key_prefix"] = None
         __props__.__dict__["sns_topic_arn"] = None
@@ -592,6 +613,14 @@ class Trail(pulumi.CustomResource):
         Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="recursiveLogging")
+    def recursive_logging(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+        """
+        return pulumi.get(self, "recursive_logging")
 
     @_builtins.property
     @pulumi.getter(name="s3BucketName")

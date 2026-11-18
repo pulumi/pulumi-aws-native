@@ -14,15 +14,22 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class HarnessRemoteMcpConfig
     {
         public readonly ImmutableDictionary<string, string>? Headers;
+        /// <summary>
+        /// How the harness authenticates to this MCP endpoint. Defaults to None if omitted.
+        /// </summary>
+        public readonly Outputs.HarnessRemoteMcpOutboundAuth? OutboundAuth;
         public readonly string Url;
 
         [OutputConstructor]
         private HarnessRemoteMcpConfig(
             ImmutableDictionary<string, string>? headers,
 
+            Outputs.HarnessRemoteMcpOutboundAuth? outboundAuth,
+
             string url)
         {
             Headers = headers;
+            OutboundAuth = outboundAuth;
             Url = url;
         }
     }

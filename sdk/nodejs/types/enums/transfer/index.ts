@@ -186,6 +186,13 @@ export const ServerAs2Transport = {
 
 export type ServerAs2Transport = (typeof ServerAs2Transport)[keyof typeof ServerAs2Transport];
 
+export const ServerCommunicationMode = {
+    ClientTalkFirst: "CLIENT_TALK_FIRST",
+    ServerTalkFirst: "SERVER_TALK_FIRST",
+} as const;
+
+export type ServerCommunicationMode = (typeof ServerCommunicationMode)[keyof typeof ServerCommunicationMode];
+
 export const ServerDirectoryListingOptimization = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

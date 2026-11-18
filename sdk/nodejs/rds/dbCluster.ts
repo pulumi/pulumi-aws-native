@@ -570,6 +570,7 @@ export class DbCluster extends pulumi.CustomResource {
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     declare public readonly vpcSecurityGroupIds: pulumi.Output<string[] | undefined>;
+    declare public readonly withExpressConfiguration: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DbCluster resource with the given unique name, arguments, and options.
@@ -643,6 +644,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["useLatestRestorableTime"] = args?.useLatestRestorableTime;
             resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["withExpressConfiguration"] = args?.withExpressConfiguration;
             resourceInputs["dbClusterArn"] = undefined /*out*/;
             resourceInputs["dbClusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -717,9 +719,10 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["useLatestRestorableTime"] = undefined /*out*/;
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["withExpressConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"] };
+        const replaceOnChanges = { replaceOnChanges: ["clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime", "withExpressConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -1219,4 +1222,5 @@ export interface DbClusterArgs {
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    withExpressConfiguration?: pulumi.Input<boolean | undefined>;
 }

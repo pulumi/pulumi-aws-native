@@ -458,6 +458,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("taskRoleArn")]
         public Output<string?> TaskRoleArn { get; private set; } = null!;
 
+        [Output("trustedExecutionConfiguration")]
+        public Output<Outputs.TaskDefinitionTrustedExecutionConfiguration?> TrustedExecutionConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
         ///   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
@@ -701,6 +704,9 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
+
+        [Input("trustedExecutionConfiguration")]
+        public Input<Inputs.TaskDefinitionTrustedExecutionConfigurationArgs>? TrustedExecutionConfiguration { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.TaskDefinitionVolumeArgs>? _volumes;

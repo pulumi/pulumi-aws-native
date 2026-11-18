@@ -31,6 +31,7 @@ type LookupTableBucketArgs struct {
 type LookupTableBucketResult struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration  *TableBucketEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
+	LoggingConfiguration     *TableBucketLoggingConfiguration     `pulumi:"loggingConfiguration"`
 	MetricsConfiguration     *TableBucketMetricsConfiguration     `pulumi:"metricsConfiguration"`
 	ReplicationConfiguration *TableBucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
@@ -74,6 +75,10 @@ func (o LookupTableBucketResultOutput) ToLookupTableBucketResultOutputWithContex
 // Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 func (o LookupTableBucketResultOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketEncryptionConfiguration { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationPtrOutput)
+}
+
+func (o LookupTableBucketResultOutput) LoggingConfiguration() TableBucketLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketLoggingConfiguration { return v.LoggingConfiguration }).(TableBucketLoggingConfigurationPtrOutput)
 }
 
 func (o LookupTableBucketResultOutput) MetricsConfiguration() TableBucketMetricsConfigurationPtrOutput {

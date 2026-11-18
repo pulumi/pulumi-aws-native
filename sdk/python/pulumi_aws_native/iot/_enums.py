@@ -620,3 +620,4 @@ class TopicRuleDestinationStatus(_builtins.str, Enum):
     ENABLED = "ENABLED"
     IN_PROGRESS = "IN_PROGRESS"
     DISABLED = "DISABLED"
+    ERROR = "ERROR"

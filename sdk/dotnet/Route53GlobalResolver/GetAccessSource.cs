@@ -59,6 +59,9 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
     {
         public readonly string? AccessSourceId;
         public readonly string? Arn;
+        /// <summary>
+        /// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+        /// </summary>
         public readonly string? Cidr;
         public readonly string? CreatedAt;
         public readonly Pulumi.AwsNative.Route53GlobalResolver.AccessSourceIpAddressType? IpAddressType;

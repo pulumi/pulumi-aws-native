@@ -43,6 +43,7 @@ export type CloudWatchAlarmTemplateStatistic = (typeof CloudWatchAlarmTemplateSt
 
 export const CloudWatchAlarmTemplateTargetResourceType = {
     CloudfrontDistribution: "CLOUDFRONT_DISTRIBUTION",
+    ElementalInferenceFeed: "ELEMENTAL_INFERENCE_FEED",
     MedialiveMultiplex: "MEDIALIVE_MULTIPLEX",
     MedialiveChannel: "MEDIALIVE_CHANNEL",
     MedialiveInputDevice: "MEDIALIVE_INPUT_DEVICE",

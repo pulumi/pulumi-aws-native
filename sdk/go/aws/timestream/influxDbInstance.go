@@ -26,6 +26,8 @@ type InfluxDbInstance struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The bucket for the InfluxDB instance.
 	Bucket pulumi.StringPtrOutput `pulumi:"bucket"`
+	// The service generated unique identifier of the InfluxDB cluster containing this instance.
+	DbClusterId pulumi.StringOutput `pulumi:"dbClusterId"`
 	// The compute instance of the InfluxDB instance.
 	DbInstanceType InfluxDbInstanceDbInstanceTypePtrOutput `pulumi:"dbInstanceType"`
 	// The name of an existing InfluxDB parameter group.
@@ -38,6 +40,8 @@ type InfluxDbInstance struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB instance.
 	InfluxAuthParametersSecretArn pulumi.StringOutput `pulumi:"influxAuthParametersSecretArn"`
+	// The customer managed key used to encrypt data in the InfluxDB instance.
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Configuration for sending logs to customer account from the InfluxDB instance.
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrOutput `pulumi:"logDeliveryConfiguration"`
 	// The maintenance schedule for the InfluxDB instance.
@@ -79,6 +83,7 @@ func NewInfluxDbInstance(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"bucket",
+		"kmsKeyId",
 		"name",
 		"networkType",
 		"organization",
@@ -140,6 +145,8 @@ type influxDbInstanceArgs struct {
 	DbStorageType *InfluxDbInstanceDbStorageType `pulumi:"dbStorageType"`
 	// Deployment type of the InfluxDB Instance.
 	DeploymentType *InfluxDbInstanceDeploymentType `pulumi:"deploymentType"`
+	// The customer managed key used to encrypt data in the InfluxDB instance.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Configuration for sending logs to customer account from the InfluxDB instance.
 	LogDeliveryConfiguration *LogDeliveryConfigurationProperties `pulumi:"logDeliveryConfiguration"`
 	// The maintenance schedule for the InfluxDB instance.
@@ -180,6 +187,8 @@ type InfluxDbInstanceArgs struct {
 	DbStorageType InfluxDbInstanceDbStorageTypePtrInput
 	// Deployment type of the InfluxDB Instance.
 	DeploymentType InfluxDbInstanceDeploymentTypePtrInput
+	// The customer managed key used to encrypt data in the InfluxDB instance.
+	KmsKeyId pulumi.StringPtrInput
 	// Configuration for sending logs to customer account from the InfluxDB instance.
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrInput
 	// The maintenance schedule for the InfluxDB instance.
@@ -268,6 +277,11 @@ func (o InfluxDbInstanceOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringPtrOutput { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
+// The service generated unique identifier of the InfluxDB cluster containing this instance.
+func (o InfluxDbInstanceOutput) DbClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringOutput { return v.DbClusterId }).(pulumi.StringOutput)
+}
+
 // The compute instance of the InfluxDB instance.
 func (o InfluxDbInstanceOutput) DbInstanceType() InfluxDbInstanceDbInstanceTypePtrOutput {
 	return o.ApplyT(func(v *InfluxDbInstance) InfluxDbInstanceDbInstanceTypePtrOutput { return v.DbInstanceType }).(InfluxDbInstanceDbInstanceTypePtrOutput)
@@ -296,6 +310,11 @@ func (o InfluxDbInstanceOutput) Endpoint() pulumi.StringOutput {
 // The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB instance.
 func (o InfluxDbInstanceOutput) InfluxAuthParametersSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringOutput { return v.InfluxAuthParametersSecretArn }).(pulumi.StringOutput)
+}
+
+// The customer managed key used to encrypt data in the InfluxDB instance.
+func (o InfluxDbInstanceOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbInstance) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Configuration for sending logs to customer account from the InfluxDB instance.

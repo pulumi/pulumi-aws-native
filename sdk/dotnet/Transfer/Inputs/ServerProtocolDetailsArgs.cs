@@ -57,6 +57,14 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         [Input("setStatOption")]
         public Input<Pulumi.AwsNative.Transfer.ServerSetStatOption>? SetStatOption { get; set; }
 
+        [Input("sftpPorts")]
+        private InputList<Inputs.ServerSftpPortWithOptionsArgs>? _sftpPorts;
+        public InputList<Inputs.ServerSftpPortWithOptionsArgs> SftpPorts
+        {
+            get => _sftpPorts ?? (_sftpPorts = new InputList<Inputs.ServerSftpPortWithOptionsArgs>());
+            set => _sftpPorts = value;
+        }
+
         /// <summary>
         /// A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
         /// 

@@ -22,6 +22,34 @@
       },
       "required" : [ "Key", "Value" ],
       "additionalProperties" : false
+    },
+    "WorkloadIdentityConfig" : {
+      "description" : "The workload identity configuration of the pod identity association. When enabled, the association also provisions a SPIFFE identity for the workload. Setting Enabled to false disables workload identity and keeps the ARNs. Removing the property from the template leaves the association unchanged; set Enabled to false to disable workload identity.",
+      "type" : "object",
+      "properties" : {
+        "Enabled" : {
+          "description" : "Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.",
+          "type" : "boolean"
+        },
+        "TemplateArn" : {
+          "description" : "The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.",
+          "type" : "string",
+          "minLength" : 1,
+          "pattern" : "^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:workload-identity-template/[^/]+$"
+        },
+        "ProviderArn" : {
+          "description" : "The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.",
+          "type" : "string",
+          "minLength" : 1,
+          "pattern" : "^arn:aws[a-zA-Z-]*:iam::([0-9]{12}|o-[a-z0-9]{10,32}):workload-identity-provider/[^/]+$"
+        }
+      },
+      "required" : [ "Enabled" ],
+      "dependencies" : {
+        "TemplateArn" : [ "ProviderArn" ],
+        "ProviderArn" : [ "TemplateArn" ]
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -71,6 +99,9 @@
       "type" : "boolean",
       "minLength" : 1
     },
+    "WorkloadIdentityConfig" : {
+      "$ref" : "#/definitions/WorkloadIdentityConfig"
+    },
     "Tags" : {
       "description" : "An array of key-value pairs to apply to this resource.",
       "type" : "array",
@@ -97,13 +128,13 @@
   "replacementStrategy" : "create_then_delete",
   "handlers" : {
     "create" : {
-      "permissions" : [ "eks:CreatePodIdentityAssociation", "eks:DescribePodIdentityAssociation", "eks:TagResource", "iam:PassRole", "iam:GetRole" ]
+      "permissions" : [ "eks:CreatePodIdentityAssociation", "eks:DescribePodIdentityAssociation", "eks:TagResource", "iam:PassRole", "iam:GetRole", "iam:PassWorkloadIdentityTemplate", "iam:GetWorkloadIdentityTemplate", "iam:GetWorkloadIdentityTemplateAttestationPolicy", "iam:GetWorkloadIdentityProvider" ]
     },
     "read" : {
       "permissions" : [ "eks:DescribePodIdentityAssociation" ]
     },
     "update" : {
-      "permissions" : [ "eks:DescribePodIdentityAssociation", "eks:UpdatePodIdentityAssociation", "eks:TagResource", "eks:UntagResource", "iam:PassRole", "iam:GetRole" ]
+      "permissions" : [ "eks:DescribePodIdentityAssociation", "eks:UpdatePodIdentityAssociation", "eks:TagResource", "eks:UntagResource", "iam:PassRole", "iam:GetRole", "iam:PassWorkloadIdentityTemplate", "iam:GetWorkloadIdentityTemplate", "iam:GetWorkloadIdentityTemplateAttestationPolicy", "iam:GetWorkloadIdentityProvider" ]
     },
     "delete" : {
       "permissions" : [ "eks:DeletePodIdentityAssociation", "eks:DescribePodIdentityAssociation" ]

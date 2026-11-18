@@ -43,6 +43,8 @@ type Trail struct {
 	IsOrganizationTrail pulumi.BoolPtrOutput `pulumi:"isOrganizationTrail"`
 	// Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+	RecursiveLogging pulumi.BoolPtrOutput `pulumi:"recursiveLogging"`
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
@@ -143,6 +145,8 @@ type trailArgs struct {
 	IsOrganizationTrail *bool `pulumi:"isOrganizationTrail"`
 	// Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+	RecursiveLogging *bool `pulumi:"recursiveLogging"`
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
 	S3BucketName string `pulumi:"s3BucketName"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
@@ -187,6 +191,8 @@ type TrailArgs struct {
 	IsOrganizationTrail pulumi.BoolPtrInput
 	// Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrInput
+	// Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+	RecursiveLogging pulumi.BoolPtrInput
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
 	S3BucketName pulumi.StringInput
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
@@ -305,6 +311,11 @@ func (o TrailOutput) IsOrganizationTrail() pulumi.BoolPtrOutput {
 // Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 func (o TrailOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+func (o TrailOutput) RecursiveLogging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Trail) pulumi.BoolPtrOutput { return v.RecursiveLogging }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.

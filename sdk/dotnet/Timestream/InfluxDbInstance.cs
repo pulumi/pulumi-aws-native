@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.Timestream
         public Output<string?> Bucket { get; private set; } = null!;
 
         /// <summary>
+        /// The service generated unique identifier of the InfluxDB cluster containing this instance.
+        /// </summary>
+        [Output("dbClusterId")]
+        public Output<string> DbClusterId { get; private set; } = null!;
+
+        /// <summary>
         /// The compute instance of the InfluxDB instance.
         /// </summary>
         [Output("dbInstanceType")]
@@ -80,6 +86,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Output("influxAuthParametersSecretArn")]
         public Output<string> InfluxAuthParametersSecretArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The customer managed key used to encrypt data in the InfluxDB instance.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for sending logs to customer account from the InfluxDB instance.
@@ -197,6 +209,7 @@ namespace Pulumi.AwsNative.Timestream
                 ReplaceOnChanges =
                 {
                     "bucket",
+                    "kmsKeyId",
                     "name",
                     "networkType",
                     "organization",
@@ -263,6 +276,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Input("deploymentType")]
         public Input<Pulumi.AwsNative.Timestream.InfluxDbInstanceDeploymentType>? DeploymentType { get; set; }
+
+        /// <summary>
+        /// The customer managed key used to encrypt data in the InfluxDB instance.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// Configuration for sending logs to customer account from the InfluxDB instance.

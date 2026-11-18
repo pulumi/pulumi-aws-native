@@ -49,6 +49,45 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "Source" : {
+      "description" : "The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SourceIdentifier" : {
+          "description" : "The identifier specifying which managed conformance pack is being deployed.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "SourceIdentifier" ]
+    },
+    "Scope" : {
+      "description" : "The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TagKey" : {
+          "description" : "The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "TagValue" : {
+          "description" : "The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.",
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "TagKey" ]
+    },
+    "ConformancePackType" : {
+      "description" : "The type of the conformance pack. CUSTOM for a conformance pack whose Config rules are managed by the customer; MANAGED for a managed conformance pack whose Config rules are managed by AWS.",
+      "type" : "string",
+      "enum" : [ "CUSTOM", "MANAGED" ]
     }
   },
   "tagging" : {
@@ -130,13 +169,22 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "Source" : {
+      "$ref" : "#/definitions/Source"
+    },
+    "Scope" : {
+      "$ref" : "#/definitions/Scope"
+    },
+    "Type" : {
+      "$ref" : "#/definitions/ConformancePackType"
     }
   },
   "additionalProperties" : false,
   "required" : [ "ConformancePackName" ],
-  "readOnlyProperties" : [ "/properties/ConformancePackArn" ],
+  "readOnlyProperties" : [ "/properties/ConformancePackArn", "/properties/Type" ],
   "writeOnlyProperties" : [ "/properties/TemplateBody", "/properties/TemplateS3Uri", "/properties/TemplateSSMDocumentDetails" ],
-  "createOnlyProperties" : [ "/properties/ConformancePackName" ],
+  "createOnlyProperties" : [ "/properties/ConformancePackName", "/properties/Source" ],
   "primaryIdentifier" : [ "/properties/ConformancePackName" ],
   "handlers" : {
     "create" : {

@@ -13,35 +13,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::CloudWatch::Space
+// Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
 type Space struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+	// The ARN of the IAM role used by AgentCore online evaluation. Absent when the space was created without one.
 	AgentCoreEvaluationRoleArn pulumi.StringPtrOutput `pulumi:"agentCoreEvaluationRoleArn"`
 	// The Amazon Resource Name (ARN) of the space.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The time the space was created.
+	// The timestamp when the space was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+	// The ARN of the IAM role used for data access.
 	DataAccessRoleArn pulumi.StringOutput `pulumi:"dataAccessRoleArn"`
-	// The identifier of the domain the space belongs to.
+	// The ID of the domain to create the space in.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// The encryption configuration for the space.
+	// How the space's data at rest is encrypted. Always populated.
 	EncryptionConfiguration SpaceEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	// The name of the space.
+	// A name that identifies the space.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS account that owns the space.
+	// AWS account ID that owns this space.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The AWS Region the space resides in.
+	// The region where this space was created.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The unique identifier of the space.
+	// The unique ID of the space.
 	SpaceId pulumi.StringOutput `pulumi:"spaceId"`
 	// The status of the space.
 	Status SpaceStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The time the space was last updated.
+	// The timestamp when the space was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -103,15 +103,15 @@ func SpaceExists(ctx *pulumi.Context,
 }
 
 type spaceArgs struct {
-	// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+	// The ARN of the IAM role used by AgentCore online evaluation. Absent when the space was created without one.
 	AgentCoreEvaluationRoleArn *string `pulumi:"agentCoreEvaluationRoleArn"`
-	// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+	// The ARN of the IAM role used for data access.
 	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
-	// The identifier of the domain the space belongs to.
+	// The ID of the domain to create the space in.
 	DomainId string `pulumi:"domainId"`
-	// The encryption configuration for the space.
+	// How the space's data at rest is encrypted. Always populated.
 	EncryptionConfiguration *SpaceEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The name of the space.
+	// A name that identifies the space.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -119,15 +119,15 @@ type spaceArgs struct {
 
 // The set of arguments for constructing a Space resource.
 type SpaceArgs struct {
-	// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+	// The ARN of the IAM role used by AgentCore online evaluation. Absent when the space was created without one.
 	AgentCoreEvaluationRoleArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+	// The ARN of the IAM role used for data access.
 	DataAccessRoleArn pulumi.StringInput
-	// The identifier of the domain the space belongs to.
+	// The ID of the domain to create the space in.
 	DomainId pulumi.StringInput
-	// The encryption configuration for the space.
+	// How the space's data at rest is encrypted. Always populated.
 	EncryptionConfiguration SpaceEncryptionConfigurationPtrInput
-	// The name of the space.
+	// A name that identifies the space.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -170,7 +170,7 @@ func (o SpaceOutput) ToSpaceOutputWithContext(ctx context.Context) SpaceOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+// The ARN of the IAM role used by AgentCore online evaluation. Absent when the space was created without one.
 func (o SpaceOutput) AgentCoreEvaluationRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.AgentCoreEvaluationRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -180,42 +180,42 @@ func (o SpaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The time the space was created.
+// The timestamp when the space was created.
 func (o SpaceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+// The ARN of the IAM role used for data access.
 func (o SpaceOutput) DataAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.DataAccessRoleArn }).(pulumi.StringOutput)
 }
 
-// The identifier of the domain the space belongs to.
+// The ID of the domain to create the space in.
 func (o SpaceOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// The encryption configuration for the space.
+// How the space's data at rest is encrypted. Always populated.
 func (o SpaceOutput) EncryptionConfiguration() SpaceEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(SpaceEncryptionConfigurationPtrOutput)
 }
 
-// The name of the space.
+// A name that identifies the space.
 func (o SpaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS account that owns the space.
+// AWS account ID that owns this space.
 func (o SpaceOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The AWS Region the space resides in.
+// The region where this space was created.
 func (o SpaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the space.
+// The unique ID of the space.
 func (o SpaceOutput) SpaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.SpaceId }).(pulumi.StringOutput)
 }
@@ -230,7 +230,7 @@ func (o SpaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Space) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The time the space was last updated.
+// The timestamp when the space was last updated.
 func (o SpaceOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

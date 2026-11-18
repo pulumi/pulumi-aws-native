@@ -80,6 +80,10 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
      */
     declare public readonly instanceConfigs: pulumi.Output<outputs.pcs.ComputeNodeGroupInstanceConfig[]>;
     /**
+     * How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+     */
+    declare public readonly launchTemplateMode: pulumi.Output<enums.pcs.ComputeNodeGroupLaunchTemplateMode | undefined>;
+    /**
      * The name that identifies the compute node group.
      */
     declare public readonly name: pulumi.Output<string | undefined>;
@@ -93,6 +97,10 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
      */
     declare public readonly scalingConfiguration: pulumi.Output<outputs.pcs.ScalingConfigurationProperties>;
     /**
+     * The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+     */
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
+    /**
      * Additional options related to the Slurm scheduler.
      */
     declare public readonly slurmConfiguration: pulumi.Output<outputs.pcs.SlurmConfigurationProperties | undefined>;
@@ -100,6 +108,10 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
      * Additional configuration when you specify SPOT as the purchase option.
      */
     declare public readonly spotOptions: pulumi.Output<outputs.pcs.SpotOptionsProperties | undefined>;
+    /**
+     * The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+     */
+    declare public readonly sshKeyName: pulumi.Output<string | undefined>;
     /**
      * The provisioning status of the compute node group. The provisioning status doesn't indicate the overall health of the compute node group.
      */
@@ -144,12 +156,15 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
             resourceInputs["customLaunchTemplate"] = args?.customLaunchTemplate;
             resourceInputs["iamInstanceProfileArn"] = args?.iamInstanceProfileArn;
             resourceInputs["instanceConfigs"] = args?.instanceConfigs;
+            resourceInputs["launchTemplateMode"] = args?.launchTemplateMode;
             resourceInputs["name"] = args?.name;
             resourceInputs["nodeLifecycleActions"] = args?.nodeLifecycleActions;
             resourceInputs["purchaseOption"] = args?.purchaseOption;
             resourceInputs["scalingConfiguration"] = args?.scalingConfiguration;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["slurmConfiguration"] = args?.slurmConfiguration;
             resourceInputs["spotOptions"] = args?.spotOptions;
+            resourceInputs["sshKeyName"] = args?.sshKeyName;
             resourceInputs["subnetIds"] = args?.subnetIds;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -165,12 +180,15 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
             resourceInputs["errorInfo"] = undefined /*out*/;
             resourceInputs["iamInstanceProfileArn"] = undefined /*out*/;
             resourceInputs["instanceConfigs"] = undefined /*out*/;
+            resourceInputs["launchTemplateMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeLifecycleActions"] = undefined /*out*/;
             resourceInputs["purchaseOption"] = undefined /*out*/;
             resourceInputs["scalingConfiguration"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["slurmConfiguration"] = undefined /*out*/;
             resourceInputs["spotOptions"] = undefined /*out*/;
+            resourceInputs["sshKeyName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -207,6 +225,10 @@ export interface ComputeNodeGroupArgs {
      */
     instanceConfigs: pulumi.Input<pulumi.Input<inputs.pcs.ComputeNodeGroupInstanceConfigArgs>[]>;
     /**
+     * How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+     */
+    launchTemplateMode?: pulumi.Input<enums.pcs.ComputeNodeGroupLaunchTemplateMode | undefined>;
+    /**
      * The name that identifies the compute node group.
      */
     name?: pulumi.Input<string | undefined>;
@@ -220,6 +242,10 @@ export interface ComputeNodeGroupArgs {
      */
     scalingConfiguration: pulumi.Input<inputs.pcs.ScalingConfigurationPropertiesArgs>;
     /**
+     * The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+     */
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * Additional options related to the Slurm scheduler.
      */
     slurmConfiguration?: pulumi.Input<inputs.pcs.SlurmConfigurationPropertiesArgs | undefined>;
@@ -227,6 +253,10 @@ export interface ComputeNodeGroupArgs {
      * Additional configuration when you specify SPOT as the purchase option.
      */
     spotOptions?: pulumi.Input<inputs.pcs.SpotOptionsPropertiesArgs | undefined>;
+    /**
+     * The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+     */
+    sshKeyName?: pulumi.Input<string | undefined>;
     /**
      * The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
      */

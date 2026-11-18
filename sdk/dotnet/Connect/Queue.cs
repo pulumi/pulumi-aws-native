@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> QueueArn { get; private set; } = null!;
 
         /// <summary>
-        /// The quick connects available to agents who are working the queue.
+        /// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
         /// </summary>
         [Output("quickConnectArns")]
         public Output<ImmutableArray<string>> QuickConnectArns { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.AwsNative.Connect
         private InputList<string>? _quickConnectArns;
 
         /// <summary>
-        /// The quick connects available to agents who are working the queue.
+        /// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
         /// </summary>
         public InputList<string> QuickConnectArns
         {

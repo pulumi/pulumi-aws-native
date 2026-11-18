@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("availabilityStartTimeConfiguration")]
         public Input<Inputs.OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs>? AvailabilityStartTimeConfiguration { get; set; }
 
+        [Input("bandwidthReportingMode")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashBandwidthReportingMode>? BandwidthReportingMode { get; set; }
+
         [Input("baseUrls")]
         private InputList<Inputs.OriginEndpointDashBaseUrlArgs>? _baseUrls;
 

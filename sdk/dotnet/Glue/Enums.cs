@@ -72,6 +72,37 @@ namespace Pulumi.AwsNative.Glue
     }
 
     /// <summary>
+    /// Whether asset synchronization is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogAssetsSyncConfigurationStatus : IEquatable<CatalogAssetsSyncConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private CatalogAssetsSyncConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogAssetsSyncConfigurationStatus Enabled { get; } = new CatalogAssetsSyncConfigurationStatus("ENABLED");
+        public static CatalogAssetsSyncConfigurationStatus Disabled { get; } = new CatalogAssetsSyncConfigurationStatus("DISABLED");
+
+        public static bool operator ==(CatalogAssetsSyncConfigurationStatus left, CatalogAssetsSyncConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(CatalogAssetsSyncConfigurationStatus left, CatalogAssetsSyncConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogAssetsSyncConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogAssetsSyncConfigurationStatus other && Equals(other);
+        public bool Equals(CatalogAssetsSyncConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
     /// </summary>
     [EnumType]
@@ -95,6 +126,69 @@ namespace Pulumi.AwsNative.Glue
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess other && Equals(other);
         public bool Equals(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether lineage synchronization is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogLineageSyncConfigurationStatus : IEquatable<CatalogLineageSyncConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private CatalogLineageSyncConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogLineageSyncConfigurationStatus Enabled { get; } = new CatalogLineageSyncConfigurationStatus("ENABLED");
+        public static CatalogLineageSyncConfigurationStatus Disabled { get; } = new CatalogLineageSyncConfigurationStatus("DISABLED");
+
+        public static bool operator ==(CatalogLineageSyncConfigurationStatus left, CatalogLineageSyncConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(CatalogLineageSyncConfigurationStatus left, CatalogLineageSyncConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogLineageSyncConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogLineageSyncConfigurationStatus other && Equals(other);
+        public bool Equals(CatalogLineageSyncConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The provisioning state of the crawler.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogManagedCrawlerDetailsStatus : IEquatable<CatalogManagedCrawlerDetailsStatus>
+    {
+        private readonly string _value;
+
+        private CatalogManagedCrawlerDetailsStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogManagedCrawlerDetailsStatus Provisioning { get; } = new CatalogManagedCrawlerDetailsStatus("PROVISIONING");
+        public static CatalogManagedCrawlerDetailsStatus Provisioned { get; } = new CatalogManagedCrawlerDetailsStatus("PROVISIONED");
+        public static CatalogManagedCrawlerDetailsStatus Failed { get; } = new CatalogManagedCrawlerDetailsStatus("FAILED");
+
+        public static bool operator ==(CatalogManagedCrawlerDetailsStatus left, CatalogManagedCrawlerDetailsStatus right) => left.Equals(right);
+        public static bool operator !=(CatalogManagedCrawlerDetailsStatus left, CatalogManagedCrawlerDetailsStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogManagedCrawlerDetailsStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogManagedCrawlerDetailsStatus other && Equals(other);
+        public bool Equals(CatalogManagedCrawlerDetailsStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -757,6 +851,16 @@ namespace Pulumi.AwsNative.Glue
         public static JobWorkerType R2x { get; } = new JobWorkerType("R.2X");
         public static JobWorkerType R4x { get; } = new JobWorkerType("R.4X");
         public static JobWorkerType R8x { get; } = new JobWorkerType("R.8X");
+        public static JobWorkerType G1xGraviton { get; } = new JobWorkerType("G.1X.GRAVITON");
+        public static JobWorkerType G2xGraviton { get; } = new JobWorkerType("G.2X.GRAVITON");
+        public static JobWorkerType G4xGraviton { get; } = new JobWorkerType("G.4X.GRAVITON");
+        public static JobWorkerType G8xGraviton { get; } = new JobWorkerType("G.8X.GRAVITON");
+        public static JobWorkerType G12xGraviton { get; } = new JobWorkerType("G.12X.GRAVITON");
+        public static JobWorkerType G16xGraviton { get; } = new JobWorkerType("G.16X.GRAVITON");
+        public static JobWorkerType R1xGraviton { get; } = new JobWorkerType("R.1X.GRAVITON");
+        public static JobWorkerType R2xGraviton { get; } = new JobWorkerType("R.2X.GRAVITON");
+        public static JobWorkerType R4xGraviton { get; } = new JobWorkerType("R.4X.GRAVITON");
+        public static JobWorkerType R8xGraviton { get; } = new JobWorkerType("R.8X.GRAVITON");
 
         public static bool operator ==(JobWorkerType left, JobWorkerType right) => left.Equals(right);
         public static bool operator !=(JobWorkerType left, JobWorkerType right) => !left.Equals(right);

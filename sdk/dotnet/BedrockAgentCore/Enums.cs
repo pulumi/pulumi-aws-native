@@ -1714,6 +1714,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static HarnessOAuthCredentialProviderGrantType ClientCredentials { get; } = new HarnessOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS");
         public static HarnessOAuthCredentialProviderGrantType AuthorizationCode { get; } = new HarnessOAuthCredentialProviderGrantType("AUTHORIZATION_CODE");
+        public static HarnessOAuthCredentialProviderGrantType TokenExchange { get; } = new HarnessOAuthCredentialProviderGrantType("TOKEN_EXCHANGE");
 
         public static bool operator ==(HarnessOAuthCredentialProviderGrantType left, HarnessOAuthCredentialProviderGrantType right) => left.Equals(right);
         public static bool operator !=(HarnessOAuthCredentialProviderGrantType left, HarnessOAuthCredentialProviderGrantType right) => !left.Equals(right);
@@ -3260,27 +3261,27 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
-    public readonly struct PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator : IEquatable<PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator>
+    public readonly struct PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator : IEquatable<PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator>
     {
         private readonly string _value;
 
-        private PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator(string value)
+        private PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator EqualsValue { get; } = new PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator("EQUALS");
-        public static PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator Contains { get; } = new PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator("CONTAINS");
-        public static PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator ContainsAny { get; } = new PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator("CONTAINS_ANY");
+        public static PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator EqualsValue { get; } = new PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS");
+        public static PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator Contains { get; } = new PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS");
+        public static PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator ContainsAny { get; } = new PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS_ANY");
 
-        public static bool operator ==(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator left, PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator right) => left.Equals(right);
-        public static bool operator !=(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator left, PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator right) => !left.Equals(right);
+        public static bool operator ==(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator left, PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator right) => left.Equals(right);
+        public static bool operator !=(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator left, PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator right) => !left.Equals(right);
 
-        public static explicit operator string(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator value) => value._value;
+        public static explicit operator string(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator other && Equals(other);
-        public bool Equals(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator other && Equals(other);
+        public bool Equals(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

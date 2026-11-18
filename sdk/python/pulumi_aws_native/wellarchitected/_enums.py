@@ -11,6 +11,7 @@ __all__ = [
     'AgentContextContextType',
     'AgentContextCriticality',
     'AgentGoalPillar',
+    'AgentOrganizationalProfilePillar',
     'AgentProfilePillar',
     'ReviewTemplateUpdateStatus',
     'WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus',
@@ -53,6 +54,18 @@ class AgentContextCriticality(_builtins.str, Enum):
 class AgentGoalPillar(_builtins.str, Enum):
     """
     A Well-Architected pillar the Agent Goal targets.
+    """
+    COST_OPTIMIZATION = "COST_OPTIMIZATION"
+    SECURITY = "SECURITY"
+    RESILIENCE = "RESILIENCE"
+    PERFORMANCE = "PERFORMANCE"
+    OPERATIONAL_EXCELLENCE = "OPERATIONAL_EXCELLENCE"
+
+
+@pulumi.type_token("aws-native:wellarchitected:AgentOrganizationalProfilePillar")
+class AgentOrganizationalProfilePillar(_builtins.str, Enum):
+    """
+    A Well-Architected pillar the Agent Organizational Profile focuses on.
     """
     COST_OPTIMIZATION = "COST_OPTIMIZATION"
     SECURITY = "SECURITY"

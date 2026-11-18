@@ -525,6 +525,171 @@ func (o AccessTokenTokenStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
+type CoreNetworkEndpointRegionScope string
+
+const (
+	CoreNetworkEndpointRegionScopeAll      = CoreNetworkEndpointRegionScope("ALL")
+	CoreNetworkEndpointRegionScopeRegional = CoreNetworkEndpointRegionScope("REGIONAL")
+)
+
+func (CoreNetworkEndpointRegionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkEndpointRegionScope)(nil)).Elem()
+}
+
+func (e CoreNetworkEndpointRegionScope) ToCoreNetworkEndpointRegionScopeOutput() CoreNetworkEndpointRegionScopeOutput {
+	return pulumi.ToOutput(e).(CoreNetworkEndpointRegionScopeOutput)
+}
+
+func (e CoreNetworkEndpointRegionScope) ToCoreNetworkEndpointRegionScopeOutputWithContext(ctx context.Context) CoreNetworkEndpointRegionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CoreNetworkEndpointRegionScopeOutput)
+}
+
+func (e CoreNetworkEndpointRegionScope) ToCoreNetworkEndpointRegionScopePtrOutput() CoreNetworkEndpointRegionScopePtrOutput {
+	return e.ToCoreNetworkEndpointRegionScopePtrOutputWithContext(context.Background())
+}
+
+func (e CoreNetworkEndpointRegionScope) ToCoreNetworkEndpointRegionScopePtrOutputWithContext(ctx context.Context) CoreNetworkEndpointRegionScopePtrOutput {
+	return CoreNetworkEndpointRegionScope(e).ToCoreNetworkEndpointRegionScopeOutputWithContext(ctx).ToCoreNetworkEndpointRegionScopePtrOutputWithContext(ctx)
+}
+
+func (e CoreNetworkEndpointRegionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CoreNetworkEndpointRegionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CoreNetworkEndpointRegionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CoreNetworkEndpointRegionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CoreNetworkEndpointRegionScopeOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkEndpointRegionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkEndpointRegionScope)(nil)).Elem()
+}
+
+func (o CoreNetworkEndpointRegionScopeOutput) ToCoreNetworkEndpointRegionScopeOutput() CoreNetworkEndpointRegionScopeOutput {
+	return o
+}
+
+func (o CoreNetworkEndpointRegionScopeOutput) ToCoreNetworkEndpointRegionScopeOutputWithContext(ctx context.Context) CoreNetworkEndpointRegionScopeOutput {
+	return o
+}
+
+func (o CoreNetworkEndpointRegionScopeOutput) ToCoreNetworkEndpointRegionScopePtrOutput() CoreNetworkEndpointRegionScopePtrOutput {
+	return o.ToCoreNetworkEndpointRegionScopePtrOutputWithContext(context.Background())
+}
+
+func (o CoreNetworkEndpointRegionScopeOutput) ToCoreNetworkEndpointRegionScopePtrOutputWithContext(ctx context.Context) CoreNetworkEndpointRegionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CoreNetworkEndpointRegionScope) *CoreNetworkEndpointRegionScope {
+		return &v
+	}).(CoreNetworkEndpointRegionScopePtrOutput)
+}
+
+func (o CoreNetworkEndpointRegionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CoreNetworkEndpointRegionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CoreNetworkEndpointRegionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CoreNetworkEndpointRegionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CoreNetworkEndpointRegionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CoreNetworkEndpointRegionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CoreNetworkEndpointRegionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkEndpointRegionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreNetworkEndpointRegionScope)(nil)).Elem()
+}
+
+func (o CoreNetworkEndpointRegionScopePtrOutput) ToCoreNetworkEndpointRegionScopePtrOutput() CoreNetworkEndpointRegionScopePtrOutput {
+	return o
+}
+
+func (o CoreNetworkEndpointRegionScopePtrOutput) ToCoreNetworkEndpointRegionScopePtrOutputWithContext(ctx context.Context) CoreNetworkEndpointRegionScopePtrOutput {
+	return o
+}
+
+func (o CoreNetworkEndpointRegionScopePtrOutput) Elem() CoreNetworkEndpointRegionScopeOutput {
+	return o.ApplyT(func(v *CoreNetworkEndpointRegionScope) CoreNetworkEndpointRegionScope {
+		if v != nil {
+			return *v
+		}
+		var ret CoreNetworkEndpointRegionScope
+		return ret
+	}).(CoreNetworkEndpointRegionScopeOutput)
+}
+
+func (o CoreNetworkEndpointRegionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CoreNetworkEndpointRegionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CoreNetworkEndpointRegionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CoreNetworkEndpointRegionScopeInput is an input type that accepts values of the CoreNetworkEndpointRegionScope enum
+// A concrete instance of `CoreNetworkEndpointRegionScopeInput` can be one of the following:
+//
+//	CoreNetworkEndpointRegionScopeAll
+//	CoreNetworkEndpointRegionScopeRegional
+type CoreNetworkEndpointRegionScopeInput interface {
+	pulumi.Input
+
+	ToCoreNetworkEndpointRegionScopeOutput() CoreNetworkEndpointRegionScopeOutput
+	ToCoreNetworkEndpointRegionScopeOutputWithContext(context.Context) CoreNetworkEndpointRegionScopeOutput
+}
+
+var coreNetworkEndpointRegionScopePtrType = reflect.TypeOf((**CoreNetworkEndpointRegionScope)(nil)).Elem()
+
+type CoreNetworkEndpointRegionScopePtrInput interface {
+	pulumi.Input
+
+	ToCoreNetworkEndpointRegionScopePtrOutput() CoreNetworkEndpointRegionScopePtrOutput
+	ToCoreNetworkEndpointRegionScopePtrOutputWithContext(context.Context) CoreNetworkEndpointRegionScopePtrOutput
+}
+
+type coreNetworkEndpointRegionScopePtr string
+
+func CoreNetworkEndpointRegionScopePtr(v string) CoreNetworkEndpointRegionScopePtrInput {
+	return (*coreNetworkEndpointRegionScopePtr)(&v)
+}
+
+func (*coreNetworkEndpointRegionScopePtr) ElementType() reflect.Type {
+	return coreNetworkEndpointRegionScopePtrType
+}
+
+func (in *coreNetworkEndpointRegionScopePtr) ToCoreNetworkEndpointRegionScopePtrOutput() CoreNetworkEndpointRegionScopePtrOutput {
+	return pulumi.ToOutput(in).(CoreNetworkEndpointRegionScopePtrOutput)
+}
+
+func (in *coreNetworkEndpointRegionScopePtr) ToCoreNetworkEndpointRegionScopePtrOutputWithContext(ctx context.Context) CoreNetworkEndpointRegionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CoreNetworkEndpointRegionScopePtrOutput)
+}
+
 type DnsViewDnsSecValidationType string
 
 const (
@@ -2387,6 +2552,173 @@ func (in *globalResolverIpAddressTypePtr) ToGlobalResolverIpAddressTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalResolverIpAddressTypePtrOutput)
 }
 
+type GlobalResolverPublicIpStatus string
+
+const (
+	GlobalResolverPublicIpStatusEnabledReserved  = GlobalResolverPublicIpStatus("ENABLED_RESERVED")
+	GlobalResolverPublicIpStatusDisabledReserved = GlobalResolverPublicIpStatus("DISABLED_RESERVED")
+	GlobalResolverPublicIpStatusDisabledReleased = GlobalResolverPublicIpStatus("DISABLED_RELEASED")
+)
+
+func (GlobalResolverPublicIpStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalResolverPublicIpStatus)(nil)).Elem()
+}
+
+func (e GlobalResolverPublicIpStatus) ToGlobalResolverPublicIpStatusOutput() GlobalResolverPublicIpStatusOutput {
+	return pulumi.ToOutput(e).(GlobalResolverPublicIpStatusOutput)
+}
+
+func (e GlobalResolverPublicIpStatus) ToGlobalResolverPublicIpStatusOutputWithContext(ctx context.Context) GlobalResolverPublicIpStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GlobalResolverPublicIpStatusOutput)
+}
+
+func (e GlobalResolverPublicIpStatus) ToGlobalResolverPublicIpStatusPtrOutput() GlobalResolverPublicIpStatusPtrOutput {
+	return e.ToGlobalResolverPublicIpStatusPtrOutputWithContext(context.Background())
+}
+
+func (e GlobalResolverPublicIpStatus) ToGlobalResolverPublicIpStatusPtrOutputWithContext(ctx context.Context) GlobalResolverPublicIpStatusPtrOutput {
+	return GlobalResolverPublicIpStatus(e).ToGlobalResolverPublicIpStatusOutputWithContext(ctx).ToGlobalResolverPublicIpStatusPtrOutputWithContext(ctx)
+}
+
+func (e GlobalResolverPublicIpStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalResolverPublicIpStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalResolverPublicIpStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GlobalResolverPublicIpStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GlobalResolverPublicIpStatusOutput struct{ *pulumi.OutputState }
+
+func (GlobalResolverPublicIpStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalResolverPublicIpStatus)(nil)).Elem()
+}
+
+func (o GlobalResolverPublicIpStatusOutput) ToGlobalResolverPublicIpStatusOutput() GlobalResolverPublicIpStatusOutput {
+	return o
+}
+
+func (o GlobalResolverPublicIpStatusOutput) ToGlobalResolverPublicIpStatusOutputWithContext(ctx context.Context) GlobalResolverPublicIpStatusOutput {
+	return o
+}
+
+func (o GlobalResolverPublicIpStatusOutput) ToGlobalResolverPublicIpStatusPtrOutput() GlobalResolverPublicIpStatusPtrOutput {
+	return o.ToGlobalResolverPublicIpStatusPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalResolverPublicIpStatusOutput) ToGlobalResolverPublicIpStatusPtrOutputWithContext(ctx context.Context) GlobalResolverPublicIpStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalResolverPublicIpStatus) *GlobalResolverPublicIpStatus {
+		return &v
+	}).(GlobalResolverPublicIpStatusPtrOutput)
+}
+
+func (o GlobalResolverPublicIpStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GlobalResolverPublicIpStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalResolverPublicIpStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GlobalResolverPublicIpStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalResolverPublicIpStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalResolverPublicIpStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalResolverPublicIpStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalResolverPublicIpStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalResolverPublicIpStatus)(nil)).Elem()
+}
+
+func (o GlobalResolverPublicIpStatusPtrOutput) ToGlobalResolverPublicIpStatusPtrOutput() GlobalResolverPublicIpStatusPtrOutput {
+	return o
+}
+
+func (o GlobalResolverPublicIpStatusPtrOutput) ToGlobalResolverPublicIpStatusPtrOutputWithContext(ctx context.Context) GlobalResolverPublicIpStatusPtrOutput {
+	return o
+}
+
+func (o GlobalResolverPublicIpStatusPtrOutput) Elem() GlobalResolverPublicIpStatusOutput {
+	return o.ApplyT(func(v *GlobalResolverPublicIpStatus) GlobalResolverPublicIpStatus {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalResolverPublicIpStatus
+		return ret
+	}).(GlobalResolverPublicIpStatusOutput)
+}
+
+func (o GlobalResolverPublicIpStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalResolverPublicIpStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GlobalResolverPublicIpStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GlobalResolverPublicIpStatusInput is an input type that accepts values of the GlobalResolverPublicIpStatus enum
+// A concrete instance of `GlobalResolverPublicIpStatusInput` can be one of the following:
+//
+//	GlobalResolverPublicIpStatusEnabledReserved
+//	GlobalResolverPublicIpStatusDisabledReserved
+//	GlobalResolverPublicIpStatusDisabledReleased
+type GlobalResolverPublicIpStatusInput interface {
+	pulumi.Input
+
+	ToGlobalResolverPublicIpStatusOutput() GlobalResolverPublicIpStatusOutput
+	ToGlobalResolverPublicIpStatusOutputWithContext(context.Context) GlobalResolverPublicIpStatusOutput
+}
+
+var globalResolverPublicIpStatusPtrType = reflect.TypeOf((**GlobalResolverPublicIpStatus)(nil)).Elem()
+
+type GlobalResolverPublicIpStatusPtrInput interface {
+	pulumi.Input
+
+	ToGlobalResolverPublicIpStatusPtrOutput() GlobalResolverPublicIpStatusPtrOutput
+	ToGlobalResolverPublicIpStatusPtrOutputWithContext(context.Context) GlobalResolverPublicIpStatusPtrOutput
+}
+
+type globalResolverPublicIpStatusPtr string
+
+func GlobalResolverPublicIpStatusPtr(v string) GlobalResolverPublicIpStatusPtrInput {
+	return (*globalResolverPublicIpStatusPtr)(&v)
+}
+
+func (*globalResolverPublicIpStatusPtr) ElementType() reflect.Type {
+	return globalResolverPublicIpStatusPtrType
+}
+
+func (in *globalResolverPublicIpStatusPtr) ToGlobalResolverPublicIpStatusPtrOutput() GlobalResolverPublicIpStatusPtrOutput {
+	return pulumi.ToOutput(in).(GlobalResolverPublicIpStatusPtrOutput)
+}
+
+func (in *globalResolverPublicIpStatusPtr) ToGlobalResolverPublicIpStatusPtrOutputWithContext(ctx context.Context) GlobalResolverPublicIpStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GlobalResolverPublicIpStatusPtrOutput)
+}
+
 type HostedZoneAssociationStatus string
 
 const (
@@ -2483,6 +2815,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessSourceDnsProtocolPtrInput)(nil)).Elem(), AccessSourceDnsProtocol("DO53"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessSourceIpAddressTypeInput)(nil)).Elem(), AccessSourceIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessSourceIpAddressTypePtrInput)(nil)).Elem(), AccessSourceIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkEndpointRegionScopeInput)(nil)).Elem(), CoreNetworkEndpointRegionScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkEndpointRegionScopePtrInput)(nil)).Elem(), CoreNetworkEndpointRegionScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsViewDnsSecValidationTypeInput)(nil)).Elem(), DnsViewDnsSecValidationType("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsViewDnsSecValidationTypePtrInput)(nil)).Elem(), DnsViewDnsSecValidationType("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsViewEdnsClientSubnetTypeInput)(nil)).Elem(), DnsViewEdnsClientSubnetType("ENABLED"))
@@ -2501,6 +2835,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleFirewallBlockResponsePtrInput)(nil)).Elem(), FirewallRuleFirewallBlockResponse("NODATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalResolverIpAddressTypeInput)(nil)).Elem(), GlobalResolverIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalResolverIpAddressTypePtrInput)(nil)).Elem(), GlobalResolverIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalResolverPublicIpStatusInput)(nil)).Elem(), GlobalResolverPublicIpStatus("ENABLED_RESERVED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalResolverPublicIpStatusPtrInput)(nil)).Elem(), GlobalResolverPublicIpStatus("ENABLED_RESERVED"))
 	pulumi.RegisterOutputType(AccessSourceCrResourceStatusOutput{})
 	pulumi.RegisterOutputType(AccessSourceCrResourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(AccessSourceDnsProtocolOutput{})
@@ -2509,6 +2845,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessSourceIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(AccessTokenTokenStatusOutput{})
 	pulumi.RegisterOutputType(AccessTokenTokenStatusPtrOutput{})
+	pulumi.RegisterOutputType(CoreNetworkEndpointRegionScopeOutput{})
+	pulumi.RegisterOutputType(CoreNetworkEndpointRegionScopePtrOutput{})
 	pulumi.RegisterOutputType(DnsViewDnsSecValidationTypeOutput{})
 	pulumi.RegisterOutputType(DnsViewDnsSecValidationTypePtrOutput{})
 	pulumi.RegisterOutputType(DnsViewEdnsClientSubnetTypeOutput{})
@@ -2535,6 +2873,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalResolverCrResourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(GlobalResolverIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(GlobalResolverIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(GlobalResolverPublicIpStatusOutput{})
+	pulumi.RegisterOutputType(GlobalResolverPublicIpStatusPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneAssociationStatusOutput{})
 	pulumi.RegisterOutputType(HostedZoneAssociationStatusPtrOutput{})
 }

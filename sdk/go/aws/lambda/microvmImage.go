@@ -37,6 +37,8 @@ type MicrovmImage struct {
 	Hooks                HooksOutput                                `pulumi:"hooks"`
 	// ARN of the MicroVM image.
 	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
+	// The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// The latest active version of the MicroVM image.
 	LatestActiveImageVersion pulumi.StringOutput `pulumi:"latestActiveImageVersion"`
 	// The latest failed version of the MicroVM image.
@@ -156,6 +158,8 @@ type microvmImageArgs struct {
 	// Environment variables to set in the container during the snapshot build.
 	EnvironmentVariables []MicrovmImageEnvironmentVariable `pulumi:"environmentVariables"`
 	Hooks                Hooks                             `pulumi:"hooks"`
+	// The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Configuration for MicroVM image logging.
 	Logging MicrovmImageLogging `pulumi:"logging"`
 	// Unique name for the MicroVM image within the account.
@@ -183,6 +187,8 @@ type MicrovmImageArgs struct {
 	// Environment variables to set in the container during the snapshot build.
 	EnvironmentVariables MicrovmImageEnvironmentVariableArrayInput
 	Hooks                HooksInput
+	// The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// Configuration for MicroVM image logging.
 	Logging MicrovmImageLoggingInput
 	// Unique name for the MicroVM image within the account.
@@ -285,6 +291,11 @@ func (o MicrovmImageOutput) Hooks() HooksOutput {
 // ARN of the MicroVM image.
 func (o MicrovmImageOutput) ImageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MicrovmImage) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
+}
+
+// The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.
+func (o MicrovmImageOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmImage) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The latest active version of the MicroVM image.

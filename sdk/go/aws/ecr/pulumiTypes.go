@@ -326,6 +326,143 @@ func (o ReplicationConfigurationTypePtrOutput) Rules() ReplicationConfigurationR
 	}).(ReplicationConfigurationReplicationRuleArrayOutput)
 }
 
+type ReplicationConfigurationDeleteReplication struct {
+	// Whether image deletions and image tag removals in the source registry are replicated to the replication destinations.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ReplicationConfigurationDeleteReplicationInput is an input type that accepts ReplicationConfigurationDeleteReplicationArgs and ReplicationConfigurationDeleteReplicationOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationDeleteReplicationInput` via:
+//
+//	ReplicationConfigurationDeleteReplicationArgs{...}
+type ReplicationConfigurationDeleteReplicationInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationDeleteReplicationOutput() ReplicationConfigurationDeleteReplicationOutput
+	ToReplicationConfigurationDeleteReplicationOutputWithContext(context.Context) ReplicationConfigurationDeleteReplicationOutput
+}
+
+type ReplicationConfigurationDeleteReplicationArgs struct {
+	// Whether image deletions and image tag removals in the source registry are replicated to the replication destinations.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ReplicationConfigurationDeleteReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationDeleteReplication)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationDeleteReplicationArgs) ToReplicationConfigurationDeleteReplicationOutput() ReplicationConfigurationDeleteReplicationOutput {
+	return i.ToReplicationConfigurationDeleteReplicationOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationDeleteReplicationArgs) ToReplicationConfigurationDeleteReplicationOutputWithContext(ctx context.Context) ReplicationConfigurationDeleteReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationDeleteReplicationOutput)
+}
+
+func (i ReplicationConfigurationDeleteReplicationArgs) ToReplicationConfigurationDeleteReplicationPtrOutput() ReplicationConfigurationDeleteReplicationPtrOutput {
+	return i.ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationDeleteReplicationArgs) ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDeleteReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationDeleteReplicationOutput).ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(ctx)
+}
+
+// ReplicationConfigurationDeleteReplicationPtrInput is an input type that accepts ReplicationConfigurationDeleteReplicationArgs, ReplicationConfigurationDeleteReplicationPtr and ReplicationConfigurationDeleteReplicationPtrOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationDeleteReplicationPtrInput` via:
+//
+//	        ReplicationConfigurationDeleteReplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicationConfigurationDeleteReplicationPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationDeleteReplicationPtrOutput() ReplicationConfigurationDeleteReplicationPtrOutput
+	ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(context.Context) ReplicationConfigurationDeleteReplicationPtrOutput
+}
+
+type replicationConfigurationDeleteReplicationPtrType ReplicationConfigurationDeleteReplicationArgs
+
+func ReplicationConfigurationDeleteReplicationPtr(v *ReplicationConfigurationDeleteReplicationArgs) ReplicationConfigurationDeleteReplicationPtrInput {
+	return (*replicationConfigurationDeleteReplicationPtrType)(v)
+}
+
+func (*replicationConfigurationDeleteReplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationDeleteReplication)(nil)).Elem()
+}
+
+func (i *replicationConfigurationDeleteReplicationPtrType) ToReplicationConfigurationDeleteReplicationPtrOutput() ReplicationConfigurationDeleteReplicationPtrOutput {
+	return i.ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationConfigurationDeleteReplicationPtrType) ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDeleteReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationDeleteReplicationPtrOutput)
+}
+
+type ReplicationConfigurationDeleteReplicationOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationDeleteReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationDeleteReplication)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationDeleteReplicationOutput) ToReplicationConfigurationDeleteReplicationOutput() ReplicationConfigurationDeleteReplicationOutput {
+	return o
+}
+
+func (o ReplicationConfigurationDeleteReplicationOutput) ToReplicationConfigurationDeleteReplicationOutputWithContext(ctx context.Context) ReplicationConfigurationDeleteReplicationOutput {
+	return o
+}
+
+func (o ReplicationConfigurationDeleteReplicationOutput) ToReplicationConfigurationDeleteReplicationPtrOutput() ReplicationConfigurationDeleteReplicationPtrOutput {
+	return o.ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationDeleteReplicationOutput) ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDeleteReplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationDeleteReplication) *ReplicationConfigurationDeleteReplication {
+		return &v
+	}).(ReplicationConfigurationDeleteReplicationPtrOutput)
+}
+
+// Whether image deletions and image tag removals in the source registry are replicated to the replication destinations.
+func (o ReplicationConfigurationDeleteReplicationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReplicationConfigurationDeleteReplication) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ReplicationConfigurationDeleteReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationDeleteReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationDeleteReplication)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationDeleteReplicationPtrOutput) ToReplicationConfigurationDeleteReplicationPtrOutput() ReplicationConfigurationDeleteReplicationPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationDeleteReplicationPtrOutput) ToReplicationConfigurationDeleteReplicationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDeleteReplicationPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationDeleteReplicationPtrOutput) Elem() ReplicationConfigurationDeleteReplicationOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationDeleteReplication) ReplicationConfigurationDeleteReplication {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationDeleteReplication
+		return ret
+	}).(ReplicationConfigurationDeleteReplicationOutput)
+}
+
+// Whether image deletions and image tag removals in the source registry are replicated to the replication destinations.
+func (o ReplicationConfigurationDeleteReplicationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationDeleteReplication) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // An array of objects representing the destination for a replication rule.
 type ReplicationConfigurationReplicationDestination struct {
 	// The Region to replicate to.
@@ -437,6 +574,7 @@ func (o ReplicationConfigurationReplicationDestinationArrayOutput) Index(i pulum
 
 // An array of objects representing the replication destinations and repository filters for a replication configuration.
 type ReplicationConfigurationReplicationRule struct {
+	DeleteReplication *ReplicationConfigurationDeleteReplication `pulumi:"deleteReplication"`
 	// An array of objects representing the destination for a replication rule.
 	Destinations []ReplicationConfigurationReplicationDestination `pulumi:"destinations"`
 	// An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
@@ -456,6 +594,7 @@ type ReplicationConfigurationReplicationRuleInput interface {
 
 // An array of objects representing the replication destinations and repository filters for a replication configuration.
 type ReplicationConfigurationReplicationRuleArgs struct {
+	DeleteReplication ReplicationConfigurationDeleteReplicationPtrInput `pulumi:"deleteReplication"`
 	// An array of objects representing the destination for a replication rule.
 	Destinations ReplicationConfigurationReplicationDestinationArrayInput `pulumi:"destinations"`
 	// An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
@@ -512,6 +651,12 @@ func (o ReplicationConfigurationReplicationRuleOutput) ToReplicationConfiguratio
 
 func (o ReplicationConfigurationReplicationRuleOutput) ToReplicationConfigurationReplicationRuleOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationRuleOutput {
 	return o
+}
+
+func (o ReplicationConfigurationReplicationRuleOutput) DeleteReplication() ReplicationConfigurationDeleteReplicationPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationRule) *ReplicationConfigurationDeleteReplication {
+		return v.DeleteReplication
+	}).(ReplicationConfigurationDeleteReplicationPtrOutput)
 }
 
 // An array of objects representing the destination for a replication rule.
@@ -1922,6 +2067,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationScanningRuleInput)(nil)).Elem(), RegistryScanningConfigurationScanningRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationScanningRuleArrayInput)(nil)).Elem(), RegistryScanningConfigurationScanningRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTypeInput)(nil)).Elem(), ReplicationConfigurationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationDeleteReplicationInput)(nil)).Elem(), ReplicationConfigurationDeleteReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationDeleteReplicationPtrInput)(nil)).Elem(), ReplicationConfigurationDeleteReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationDestinationInput)(nil)).Elem(), ReplicationConfigurationReplicationDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationDestinationArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationRuleInput)(nil)).Elem(), ReplicationConfigurationReplicationRuleArgs{})
@@ -1952,6 +2099,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryScanningConfigurationScanningRuleArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTypePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationDeleteReplicationOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationDeleteReplicationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleOutput{})

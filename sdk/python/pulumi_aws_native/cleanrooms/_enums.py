@@ -100,6 +100,7 @@ class AnalysisTemplateFormat(_builtins.str, Enum):
     """
     SQL = "SQL"
     PYSPARK10 = "PYSPARK_1_0"
+    PYSPARK20 = "PYSPARK_2_0"
 
 
 @pulumi.type_token("aws-native:cleanrooms:AnalysisTemplateSyntheticDataColumnPropertiesColumnType")

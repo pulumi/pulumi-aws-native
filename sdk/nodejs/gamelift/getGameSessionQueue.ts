@@ -42,6 +42,10 @@ export interface GetGameSessionQueueResult {
      */
     readonly filterConfiguration?: outputs.gamelift.GameSessionQueueFilterConfiguration;
     /**
+     * A policy that determines where a game session queue's placement logs are delivered.
+     */
+    readonly logConfiguration?: outputs.gamelift.GameSessionQueueLogConfiguration;
+    /**
      * An SNS topic ARN that is set up to receive game session placement notifications.
      */
     readonly notificationTarget?: string;

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGameSessionQueueResult:
-    def __init__(__self__, arn=None, custom_event_data=None, destinations=None, filter_configuration=None, notification_target=None, player_latency_policies=None, priority_configuration=None, tags=None, timeout_in_seconds=None):
+    def __init__(__self__, arn=None, custom_event_data=None, destinations=None, filter_configuration=None, log_configuration=None, notification_target=None, player_latency_policies=None, priority_configuration=None, tags=None, timeout_in_seconds=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetGameSessionQueueResult:
         if filter_configuration and not isinstance(filter_configuration, dict):
             raise TypeError("Expected argument 'filter_configuration' to be a dict")
         pulumi.set(__self__, "filter_configuration", filter_configuration)
+        if log_configuration and not isinstance(log_configuration, dict):
+            raise TypeError("Expected argument 'log_configuration' to be a dict")
+        pulumi.set(__self__, "log_configuration", log_configuration)
         if notification_target and not isinstance(notification_target, str):
             raise TypeError("Expected argument 'notification_target' to be a str")
         pulumi.set(__self__, "notification_target", notification_target)
@@ -86,6 +89,14 @@ class GetGameSessionQueueResult:
         A list of locations where a queue is allowed to place new game sessions.
         """
         return pulumi.get(self, "filter_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.GameSessionQueueLogConfiguration']:
+        """
+        A policy that determines where a game session queue's placement logs are delivered.
+        """
+        return pulumi.get(self, "log_configuration")
 
     @_builtins.property
     @pulumi.getter(name="notificationTarget")
@@ -138,6 +149,7 @@ class AwaitableGetGameSessionQueueResult(GetGameSessionQueueResult):
             custom_event_data=self.custom_event_data,
             destinations=self.destinations,
             filter_configuration=self.filter_configuration,
+            log_configuration=self.log_configuration,
             notification_target=self.notification_target,
             player_latency_policies=self.player_latency_policies,
             priority_configuration=self.priority_configuration,
@@ -162,6 +174,7 @@ def get_game_session_queue(name: Optional[_builtins.str] = None,
         custom_event_data=pulumi.get(__ret__, 'custom_event_data'),
         destinations=pulumi.get(__ret__, 'destinations'),
         filter_configuration=pulumi.get(__ret__, 'filter_configuration'),
+        log_configuration=pulumi.get(__ret__, 'log_configuration'),
         notification_target=pulumi.get(__ret__, 'notification_target'),
         player_latency_policies=pulumi.get(__ret__, 'player_latency_policies'),
         priority_configuration=pulumi.get(__ret__, 'priority_configuration'),
@@ -183,6 +196,7 @@ def get_game_session_queue_output(name: pulumi.Input[Optional[_builtins.str]] = 
         custom_event_data=pulumi.get(__response__, 'custom_event_data'),
         destinations=pulumi.get(__response__, 'destinations'),
         filter_configuration=pulumi.get(__response__, 'filter_configuration'),
+        log_configuration=pulumi.get(__response__, 'log_configuration'),
         notification_target=pulumi.get(__response__, 'notification_target'),
         player_latency_policies=pulumi.get(__response__, 'player_latency_policies'),
         priority_configuration=pulumi.get(__response__, 'priority_configuration'),

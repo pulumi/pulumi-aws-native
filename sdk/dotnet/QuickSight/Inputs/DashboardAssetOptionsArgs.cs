@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAssetOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customActionDefaults")]
+        public Input<Inputs.DashboardVisualCustomActionDefaultsArgs>? CustomActionDefaults { get; set; }
+
         [Input("excludedDataSetArns")]
         private InputList<string>? _excludedDataSetArns;
 
@@ -35,6 +38,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
+
+        [Input("visualMessages")]
+        public Input<Inputs.DashboardVisualMessagesArgs>? VisualMessages { get; set; }
 
         /// <summary>
         /// Determines the week start day for an analysis.

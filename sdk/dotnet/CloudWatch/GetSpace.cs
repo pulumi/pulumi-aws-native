@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CloudWatch
     public static class GetSpace
     {
         /// <summary>
-        /// Resource type definition for AWS::CloudWatch::Space
+        /// Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
         /// </summary>
         public static Task<GetSpaceResult> InvokeAsync(GetSpaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpaceResult>("aws-native:cloudwatch:getSpace", args ?? new GetSpaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::CloudWatch::Space
+        /// Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
         /// </summary>
         public static Output<GetSpaceResult> Invoke(GetSpaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpaceResult>("aws-native:cloudwatch:getSpace", args ?? new GetSpaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::CloudWatch::Space
+        /// Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
         /// </summary>
         public static Output<GetSpaceResult> Invoke(GetSpaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpaceResult>("aws-native:cloudwatch:getSpace", args ?? new GetSpaceInvokeArgs(), options.WithDefaults());
@@ -68,27 +68,27 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The time the space was created.
+        /// The timestamp when the space was created.
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// The encryption configuration for the space.
+        /// How the space's data at rest is encrypted. Always populated.
         /// </summary>
         public readonly Outputs.SpaceEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
-        /// The name of the space.
+        /// A name that identifies the space.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The AWS account that owns the space.
+        /// AWS account ID that owns this space.
         /// </summary>
         public readonly string? OwnerAccountId;
         /// <summary>
-        /// The AWS Region the space resides in.
+        /// The region where this space was created.
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// The unique identifier of the space.
+        /// The unique ID of the space.
         /// </summary>
         public readonly string? SpaceId;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The time the space was last updated.
+        /// The timestamp when the space was last updated.
         /// </summary>
         public readonly string? UpdatedAt;
 

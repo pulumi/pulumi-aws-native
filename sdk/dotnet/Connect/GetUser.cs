@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? RoutingProfileArn;
         /// <summary>
-        /// One or more security profile arns for the user
+        /// One or more customer-managed or AWS-managed security profile ARNs for the user.
         /// </summary>
         public readonly ImmutableArray<string> SecurityProfileArns;
         /// <summary>

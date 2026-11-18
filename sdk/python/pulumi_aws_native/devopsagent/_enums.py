@@ -13,6 +13,7 @@ __all__ = [
     'AssociationGitHubConfigurationOwnerType',
     'AssociationMcpServerGrafanaConfigurationToolsItem',
     'AssociationSourceAwsConfigurationAccountType',
+    'AssociationTriggerFilterGroupEventsItem',
     'PrivateConnectionServiceManagedModeDnsResolution',
     'PrivateConnectionServiceManagedModeIpAddressType',
     'PrivateConnectionStatus',
@@ -99,6 +100,12 @@ class AssociationSourceAwsConfigurationAccountType(_builtins.str, Enum):
     Account Type 'source' for DevOpsAgent monitoring
     """
     SOURCE = "source"
+
+
+@pulumi.type_token("aws-native:devopsagent:AssociationTriggerFilterGroupEventsItem")
+class AssociationTriggerFilterGroupEventsItem(_builtins.str, Enum):
+    PULL_REQUEST_READY_FOR_REVIEW = "PULL_REQUEST_READY_FOR_REVIEW"
+    PULL_REQUEST_DRAFT = "PULL_REQUEST_DRAFT"
 
 
 @pulumi.type_token("aws-native:devopsagent:PrivateConnectionServiceManagedModeDnsResolution")

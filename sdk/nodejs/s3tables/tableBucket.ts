@@ -51,6 +51,7 @@ export class TableBucket extends pulumi.CustomResource {
      * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.s3tables.TableBucketLoggingConfiguration | undefined>;
     declare public readonly metricsConfiguration: pulumi.Output<outputs.s3tables.TableBucketMetricsConfiguration | undefined>;
     declare public readonly replicationConfiguration: pulumi.Output<outputs.s3tables.TableBucketReplicationConfiguration | undefined>;
     /**
@@ -86,6 +87,7 @@ export class TableBucket extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
             resourceInputs["metricsConfiguration"] = args?.metricsConfiguration;
             resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
             resourceInputs["storageClassConfiguration"] = args?.storageClassConfiguration;
@@ -95,6 +97,7 @@ export class TableBucket extends pulumi.CustomResource {
             resourceInputs["tableBucketArn"] = undefined /*out*/;
         } else {
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["metricsConfiguration"] = undefined /*out*/;
             resourceInputs["replicationConfiguration"] = undefined /*out*/;
             resourceInputs["storageClassConfiguration"] = undefined /*out*/;
@@ -118,6 +121,7 @@ export interface TableBucketArgs {
      * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs | undefined>;
+    loggingConfiguration?: pulumi.Input<inputs.s3tables.TableBucketLoggingConfigurationArgs | undefined>;
     metricsConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMetricsConfigurationArgs | undefined>;
     replicationConfiguration?: pulumi.Input<inputs.s3tables.TableBucketReplicationConfigurationArgs | undefined>;
     /**

@@ -28,11 +28,13 @@ class GlobalResolverArgs:
                  ip_address_type: pulumi.Input[Optional['GlobalResolverIpAddressType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  observability_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_status: pulumi.Input[Optional['GlobalResolverPublicIpStatus']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalResolver resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
+        :param pulumi.Input['GlobalResolverPublicIpStatus'] public_ip_status: Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
         """
         pulumi.set(__self__, "regions", regions)
         if client_token is not None:
@@ -45,6 +47,8 @@ class GlobalResolverArgs:
             pulumi.set(__self__, "name", name)
         if observability_region is not None:
             pulumi.set(__self__, "observability_region", observability_region)
+        if public_ip_status is not None:
+            pulumi.set(__self__, "public_ip_status", public_ip_status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -106,6 +110,18 @@ class GlobalResolverArgs:
         pulumi.set(self, "observability_region", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicIpStatus")
+    def public_ip_status(self) -> pulumi.Input[Optional['GlobalResolverPublicIpStatus']]:
+        """
+        Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+        """
+        return pulumi.get(self, "public_ip_status")
+
+    @public_ip_status.setter
+    def public_ip_status(self, value: pulumi.Input[Optional['GlobalResolverPublicIpStatus']]):
+        pulumi.set(self, "public_ip_status", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -126,6 +142,7 @@ class GlobalResolver(pulumi.CustomResource):
                  ip_address_type: pulumi.Input[Optional['GlobalResolverIpAddressType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  observability_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_status: pulumi.Input[Optional['GlobalResolverPublicIpStatus']] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
@@ -134,6 +151,7 @@ class GlobalResolver(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['GlobalResolverPublicIpStatus'] public_ip_status: Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
         """
         ...
@@ -165,6 +183,7 @@ class GlobalResolver(pulumi.CustomResource):
                  ip_address_type: pulumi.Input[Optional['GlobalResolverIpAddressType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  observability_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_status: pulumi.Input[Optional['GlobalResolverPublicIpStatus']] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
@@ -181,6 +200,7 @@ class GlobalResolver(pulumi.CustomResource):
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["name"] = name
             __props__.__dict__["observability_region"] = observability_region
+            __props__.__dict__["public_ip_status"] = public_ip_status
             if regions is None and not opts.urn:
                 raise TypeError("Missing required property 'regions'")
             __props__.__dict__["regions"] = regions
@@ -228,6 +248,7 @@ class GlobalResolver(pulumi.CustomResource):
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["observability_region"] = None
+        __props__.__dict__["public_ip_status"] = None
         __props__.__dict__["regions"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -294,6 +315,14 @@ class GlobalResolver(pulumi.CustomResource):
     @pulumi.getter(name="observabilityRegion")
     def observability_region(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "observability_region")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpStatus")
+    def public_ip_status(self) -> pulumi.Output[Optional['GlobalResolverPublicIpStatus']]:
+        """
+        Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+        """
+        return pulumi.get(self, "public_ip_status")
 
     @_builtins.property
     @pulumi.getter

@@ -60,7 +60,7 @@ export class CustomVerificationEmailTemplate extends pulumi.CustomResource {
      */
     declare public readonly successRedirectionUrl: pulumi.Output<string>;
     /**
-     * The tags (keys and values) associated with the tenant.
+     * The tags (keys and values) associated with the custom verification email template.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -142,7 +142,7 @@ export interface CustomVerificationEmailTemplateArgs {
      */
     successRedirectionUrl: pulumi.Input<string>;
     /**
-     * The tags (keys and values) associated with the tenant.
+     * The tags (keys and values) associated with the custom verification email template.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**

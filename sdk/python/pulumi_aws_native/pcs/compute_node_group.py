@@ -29,11 +29,14 @@ class ComputeNodeGroupArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  ami_id: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_launch_template: pulumi.Input[Optional['CustomLaunchTemplatePropertiesArgs']] = None,
+                 launch_template_mode: pulumi.Input[Optional['ComputeNodeGroupLaunchTemplateMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_lifecycle_actions: pulumi.Input[Optional['ComputeNodeGroupNodeLifecycleActionsArgs']] = None,
                  purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  slurm_configuration: pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']] = None,
                  spot_options: pulumi.Input[Optional['SpotOptionsPropertiesArgs']] = None,
+                 ssh_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComputeNodeGroup resource.
@@ -45,10 +48,13 @@ class ComputeNodeGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
         :param pulumi.Input[_builtins.str] ami_id: The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances. If not provided, AWS PCS uses the AMI ID specified in the custom launch template.
         :param pulumi.Input['CustomLaunchTemplatePropertiesArgs'] custom_launch_template: An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
+        :param pulumi.Input['ComputeNodeGroupLaunchTemplateMode'] launch_template_mode: How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
         :param pulumi.Input[_builtins.str] name: The name that identifies the compute node group.
         :param pulumi.Input['ComputeNodeGroupPurchaseOption'] purchase_option: Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
         :param pulumi.Input['SlurmConfigurationPropertiesArgs'] slurm_configuration: Additional options related to the Slurm scheduler.
         :param pulumi.Input['SpotOptionsPropertiesArgs'] spot_options: Additional configuration when you specify SPOT as the purchase option.
+        :param pulumi.Input[_builtins.str] ssh_key_name: The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -60,16 +66,22 @@ class ComputeNodeGroupArgs:
             pulumi.set(__self__, "ami_id", ami_id)
         if custom_launch_template is not None:
             pulumi.set(__self__, "custom_launch_template", custom_launch_template)
+        if launch_template_mode is not None:
+            pulumi.set(__self__, "launch_template_mode", launch_template_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if node_lifecycle_actions is not None:
             pulumi.set(__self__, "node_lifecycle_actions", node_lifecycle_actions)
         if purchase_option is not None:
             pulumi.set(__self__, "purchase_option", purchase_option)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if slurm_configuration is not None:
             pulumi.set(__self__, "slurm_configuration", slurm_configuration)
         if spot_options is not None:
             pulumi.set(__self__, "spot_options", spot_options)
+        if ssh_key_name is not None:
+            pulumi.set(__self__, "ssh_key_name", ssh_key_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -158,6 +170,18 @@ class ComputeNodeGroupArgs:
         pulumi.set(self, "custom_launch_template", value)
 
     @_builtins.property
+    @pulumi.getter(name="launchTemplateMode")
+    def launch_template_mode(self) -> pulumi.Input[Optional['ComputeNodeGroupLaunchTemplateMode']]:
+        """
+        How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+        """
+        return pulumi.get(self, "launch_template_mode")
+
+    @launch_template_mode.setter
+    def launch_template_mode(self, value: pulumi.Input[Optional['ComputeNodeGroupLaunchTemplateMode']]):
+        pulumi.set(self, "launch_template_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -191,6 +215,18 @@ class ComputeNodeGroupArgs:
         pulumi.set(self, "purchase_option", value)
 
     @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
     @pulumi.getter(name="slurmConfiguration")
     def slurm_configuration(self) -> pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']]:
         """
@@ -213,6 +249,18 @@ class ComputeNodeGroupArgs:
     @spot_options.setter
     def spot_options(self, value: pulumi.Input[Optional['SpotOptionsPropertiesArgs']]):
         pulumi.set(self, "spot_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sshKeyName")
+    def ssh_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+        """
+        return pulumi.get(self, "ssh_key_name")
+
+    @ssh_key_name.setter
+    def ssh_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssh_key_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -238,12 +286,15 @@ class ComputeNodeGroup(pulumi.CustomResource):
                  custom_launch_template: pulumi.Input[Optional[Union['CustomLaunchTemplatePropertiesArgs', 'CustomLaunchTemplatePropertiesArgsDict', 'outputs.CustomLaunchTemplateProperties']]] = None,
                  iam_instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict', 'outputs.ComputeNodeGroupInstanceConfig']]]]] = None,
+                 launch_template_mode: pulumi.Input[Optional['ComputeNodeGroupLaunchTemplateMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_lifecycle_actions: pulumi.Input[Optional[Union['ComputeNodeGroupNodeLifecycleActionsArgs', 'ComputeNodeGroupNodeLifecycleActionsArgsDict', 'outputs.ComputeNodeGroupNodeLifecycleActions']]] = None,
                  purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
                  scaling_configuration: pulumi.Input[Optional[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict', 'outputs.ScalingConfigurationProperties']]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']]] = None,
                  spot_options: pulumi.Input[Optional[Union['SpotOptionsPropertiesArgs', 'SpotOptionsPropertiesArgsDict', 'outputs.SpotOptionsProperties']]] = None,
+                 ssh_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -257,11 +308,14 @@ class ComputeNodeGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['CustomLaunchTemplatePropertiesArgs', 'CustomLaunchTemplatePropertiesArgsDict', 'outputs.CustomLaunchTemplateProperties']] custom_launch_template: An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
         :param pulumi.Input[_builtins.str] iam_instance_profile_arn: The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict', 'outputs.ComputeNodeGroupInstanceConfig']]]] instance_configs: A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
+        :param pulumi.Input['ComputeNodeGroupLaunchTemplateMode'] launch_template_mode: How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
         :param pulumi.Input[_builtins.str] name: The name that identifies the compute node group.
         :param pulumi.Input['ComputeNodeGroupPurchaseOption'] purchase_option: Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         :param pulumi.Input[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict', 'outputs.ScalingConfigurationProperties']] scaling_configuration: Specifies the boundaries of the compute node group auto scaling.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
         :param pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']] slurm_configuration: Additional options related to the Slurm scheduler.
         :param pulumi.Input[Union['SpotOptionsPropertiesArgs', 'SpotOptionsPropertiesArgsDict', 'outputs.SpotOptionsProperties']] spot_options: Additional configuration when you specify SPOT as the purchase option.
+        :param pulumi.Input[_builtins.str] ssh_key_name: The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
@@ -294,12 +348,15 @@ class ComputeNodeGroup(pulumi.CustomResource):
                  custom_launch_template: pulumi.Input[Optional[Union['CustomLaunchTemplatePropertiesArgs', 'CustomLaunchTemplatePropertiesArgsDict', 'outputs.CustomLaunchTemplateProperties']]] = None,
                  iam_instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict', 'outputs.ComputeNodeGroupInstanceConfig']]]]] = None,
+                 launch_template_mode: pulumi.Input[Optional['ComputeNodeGroupLaunchTemplateMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_lifecycle_actions: pulumi.Input[Optional[Union['ComputeNodeGroupNodeLifecycleActionsArgs', 'ComputeNodeGroupNodeLifecycleActionsArgsDict', 'outputs.ComputeNodeGroupNodeLifecycleActions']]] = None,
                  purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
                  scaling_configuration: pulumi.Input[Optional[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict', 'outputs.ScalingConfigurationProperties']]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']]] = None,
                  spot_options: pulumi.Input[Optional[Union['SpotOptionsPropertiesArgs', 'SpotOptionsPropertiesArgsDict', 'outputs.SpotOptionsProperties']]] = None,
+                 ssh_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -322,14 +379,17 @@ class ComputeNodeGroup(pulumi.CustomResource):
             if instance_configs is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_configs'")
             __props__.__dict__["instance_configs"] = instance_configs
+            __props__.__dict__["launch_template_mode"] = launch_template_mode
             __props__.__dict__["name"] = name
             __props__.__dict__["node_lifecycle_actions"] = node_lifecycle_actions
             __props__.__dict__["purchase_option"] = purchase_option
             if scaling_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_configuration'")
             __props__.__dict__["scaling_configuration"] = scaling_configuration
+            __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["slurm_configuration"] = slurm_configuration
             __props__.__dict__["spot_options"] = spot_options
+            __props__.__dict__["ssh_key_name"] = ssh_key_name
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -370,12 +430,15 @@ class ComputeNodeGroup(pulumi.CustomResource):
         __props__.__dict__["error_info"] = None
         __props__.__dict__["iam_instance_profile_arn"] = None
         __props__.__dict__["instance_configs"] = None
+        __props__.__dict__["launch_template_mode"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["node_lifecycle_actions"] = None
         __props__.__dict__["purchase_option"] = None
         __props__.__dict__["scaling_configuration"] = None
+        __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["slurm_configuration"] = None
         __props__.__dict__["spot_options"] = None
+        __props__.__dict__["ssh_key_name"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
@@ -452,6 +515,14 @@ class ComputeNodeGroup(pulumi.CustomResource):
         return pulumi.get(self, "instance_configs")
 
     @_builtins.property
+    @pulumi.getter(name="launchTemplateMode")
+    def launch_template_mode(self) -> pulumi.Output[Optional['ComputeNodeGroupLaunchTemplateMode']]:
+        """
+        How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+        """
+        return pulumi.get(self, "launch_template_mode")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -481,6 +552,14 @@ class ComputeNodeGroup(pulumi.CustomResource):
         return pulumi.get(self, "scaling_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
     @pulumi.getter(name="slurmConfiguration")
     def slurm_configuration(self) -> pulumi.Output[Optional['outputs.SlurmConfigurationProperties']]:
         """
@@ -495,6 +574,14 @@ class ComputeNodeGroup(pulumi.CustomResource):
         Additional configuration when you specify SPOT as the purchase option.
         """
         return pulumi.get(self, "spot_options")
+
+    @_builtins.property
+    @pulumi.getter(name="sshKeyName")
+    def ssh_key_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+        """
+        return pulumi.get(self, "ssh_key_name")
 
     @_builtins.property
     @pulumi.getter

@@ -23,7 +23,7 @@ type CustomVerificationEmailTemplate struct {
 	FromEmailAddress pulumi.StringOutput `pulumi:"fromEmailAddress"`
 	// The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 	SuccessRedirectionUrl pulumi.StringOutput `pulumi:"successRedirectionUrl"`
-	// The tags (keys and values) associated with the tenant.
+	// The tags (keys and values) associated with the custom verification email template.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations.
 	TemplateContent pulumi.StringOutput `pulumi:"templateContent"`
@@ -104,7 +104,7 @@ type customVerificationEmailTemplateArgs struct {
 	FromEmailAddress string `pulumi:"fromEmailAddress"`
 	// The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 	SuccessRedirectionUrl string `pulumi:"successRedirectionUrl"`
-	// The tags (keys and values) associated with the tenant.
+	// The tags (keys and values) associated with the custom verification email template.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations.
 	TemplateContent string `pulumi:"templateContent"`
@@ -122,7 +122,7 @@ type CustomVerificationEmailTemplateArgs struct {
 	FromEmailAddress pulumi.StringInput
 	// The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 	SuccessRedirectionUrl pulumi.StringInput
-	// The tags (keys and values) associated with the tenant.
+	// The tags (keys and values) associated with the custom verification email template.
 	Tags aws.TagArrayInput
 	// The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations.
 	TemplateContent pulumi.StringInput
@@ -184,7 +184,7 @@ func (o CustomVerificationEmailTemplateOutput) SuccessRedirectionUrl() pulumi.St
 	return o.ApplyT(func(v *CustomVerificationEmailTemplate) pulumi.StringOutput { return v.SuccessRedirectionUrl }).(pulumi.StringOutput)
 }
 
-// The tags (keys and values) associated with the tenant.
+// The tags (keys and values) associated with the custom verification email template.
 func (o CustomVerificationEmailTemplateOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CustomVerificationEmailTemplate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

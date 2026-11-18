@@ -576,6 +576,223 @@ func (o AgentGoalPillarArrayOutput) Index(i pulumi.IntInput) AgentGoalPillarOutp
 	}).(AgentGoalPillarOutput)
 }
 
+// A Well-Architected pillar the Agent Organizational Profile focuses on.
+type AgentOrganizationalProfilePillar string
+
+const (
+	AgentOrganizationalProfilePillarCostOptimization      = AgentOrganizationalProfilePillar("COST_OPTIMIZATION")
+	AgentOrganizationalProfilePillarSecurity              = AgentOrganizationalProfilePillar("SECURITY")
+	AgentOrganizationalProfilePillarResilience            = AgentOrganizationalProfilePillar("RESILIENCE")
+	AgentOrganizationalProfilePillarPerformance           = AgentOrganizationalProfilePillar("PERFORMANCE")
+	AgentOrganizationalProfilePillarOperationalExcellence = AgentOrganizationalProfilePillar("OPERATIONAL_EXCELLENCE")
+)
+
+func (AgentOrganizationalProfilePillar) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentOrganizationalProfilePillar)(nil)).Elem()
+}
+
+func (e AgentOrganizationalProfilePillar) ToAgentOrganizationalProfilePillarOutput() AgentOrganizationalProfilePillarOutput {
+	return pulumi.ToOutput(e).(AgentOrganizationalProfilePillarOutput)
+}
+
+func (e AgentOrganizationalProfilePillar) ToAgentOrganizationalProfilePillarOutputWithContext(ctx context.Context) AgentOrganizationalProfilePillarOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentOrganizationalProfilePillarOutput)
+}
+
+func (e AgentOrganizationalProfilePillar) ToAgentOrganizationalProfilePillarPtrOutput() AgentOrganizationalProfilePillarPtrOutput {
+	return e.ToAgentOrganizationalProfilePillarPtrOutputWithContext(context.Background())
+}
+
+func (e AgentOrganizationalProfilePillar) ToAgentOrganizationalProfilePillarPtrOutputWithContext(ctx context.Context) AgentOrganizationalProfilePillarPtrOutput {
+	return AgentOrganizationalProfilePillar(e).ToAgentOrganizationalProfilePillarOutputWithContext(ctx).ToAgentOrganizationalProfilePillarPtrOutputWithContext(ctx)
+}
+
+func (e AgentOrganizationalProfilePillar) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentOrganizationalProfilePillar) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentOrganizationalProfilePillar) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentOrganizationalProfilePillar) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentOrganizationalProfilePillarOutput struct{ *pulumi.OutputState }
+
+func (AgentOrganizationalProfilePillarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentOrganizationalProfilePillar)(nil)).Elem()
+}
+
+func (o AgentOrganizationalProfilePillarOutput) ToAgentOrganizationalProfilePillarOutput() AgentOrganizationalProfilePillarOutput {
+	return o
+}
+
+func (o AgentOrganizationalProfilePillarOutput) ToAgentOrganizationalProfilePillarOutputWithContext(ctx context.Context) AgentOrganizationalProfilePillarOutput {
+	return o
+}
+
+func (o AgentOrganizationalProfilePillarOutput) ToAgentOrganizationalProfilePillarPtrOutput() AgentOrganizationalProfilePillarPtrOutput {
+	return o.ToAgentOrganizationalProfilePillarPtrOutputWithContext(context.Background())
+}
+
+func (o AgentOrganizationalProfilePillarOutput) ToAgentOrganizationalProfilePillarPtrOutputWithContext(ctx context.Context) AgentOrganizationalProfilePillarPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentOrganizationalProfilePillar) *AgentOrganizationalProfilePillar {
+		return &v
+	}).(AgentOrganizationalProfilePillarPtrOutput)
+}
+
+func (o AgentOrganizationalProfilePillarOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentOrganizationalProfilePillarOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentOrganizationalProfilePillar) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentOrganizationalProfilePillarOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentOrganizationalProfilePillarOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentOrganizationalProfilePillar) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentOrganizationalProfilePillarPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentOrganizationalProfilePillarPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentOrganizationalProfilePillar)(nil)).Elem()
+}
+
+func (o AgentOrganizationalProfilePillarPtrOutput) ToAgentOrganizationalProfilePillarPtrOutput() AgentOrganizationalProfilePillarPtrOutput {
+	return o
+}
+
+func (o AgentOrganizationalProfilePillarPtrOutput) ToAgentOrganizationalProfilePillarPtrOutputWithContext(ctx context.Context) AgentOrganizationalProfilePillarPtrOutput {
+	return o
+}
+
+func (o AgentOrganizationalProfilePillarPtrOutput) Elem() AgentOrganizationalProfilePillarOutput {
+	return o.ApplyT(func(v *AgentOrganizationalProfilePillar) AgentOrganizationalProfilePillar {
+		if v != nil {
+			return *v
+		}
+		var ret AgentOrganizationalProfilePillar
+		return ret
+	}).(AgentOrganizationalProfilePillarOutput)
+}
+
+func (o AgentOrganizationalProfilePillarPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentOrganizationalProfilePillarPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentOrganizationalProfilePillar) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentOrganizationalProfilePillarInput is an input type that accepts values of the AgentOrganizationalProfilePillar enum
+// A concrete instance of `AgentOrganizationalProfilePillarInput` can be one of the following:
+//
+//	AgentOrganizationalProfilePillarCostOptimization
+//	AgentOrganizationalProfilePillarSecurity
+//	AgentOrganizationalProfilePillarResilience
+//	AgentOrganizationalProfilePillarPerformance
+//	AgentOrganizationalProfilePillarOperationalExcellence
+type AgentOrganizationalProfilePillarInput interface {
+	pulumi.Input
+
+	ToAgentOrganizationalProfilePillarOutput() AgentOrganizationalProfilePillarOutput
+	ToAgentOrganizationalProfilePillarOutputWithContext(context.Context) AgentOrganizationalProfilePillarOutput
+}
+
+var agentOrganizationalProfilePillarPtrType = reflect.TypeOf((**AgentOrganizationalProfilePillar)(nil)).Elem()
+
+type AgentOrganizationalProfilePillarPtrInput interface {
+	pulumi.Input
+
+	ToAgentOrganizationalProfilePillarPtrOutput() AgentOrganizationalProfilePillarPtrOutput
+	ToAgentOrganizationalProfilePillarPtrOutputWithContext(context.Context) AgentOrganizationalProfilePillarPtrOutput
+}
+
+type agentOrganizationalProfilePillarPtr string
+
+func AgentOrganizationalProfilePillarPtr(v string) AgentOrganizationalProfilePillarPtrInput {
+	return (*agentOrganizationalProfilePillarPtr)(&v)
+}
+
+func (*agentOrganizationalProfilePillarPtr) ElementType() reflect.Type {
+	return agentOrganizationalProfilePillarPtrType
+}
+
+func (in *agentOrganizationalProfilePillarPtr) ToAgentOrganizationalProfilePillarPtrOutput() AgentOrganizationalProfilePillarPtrOutput {
+	return pulumi.ToOutput(in).(AgentOrganizationalProfilePillarPtrOutput)
+}
+
+func (in *agentOrganizationalProfilePillarPtr) ToAgentOrganizationalProfilePillarPtrOutputWithContext(ctx context.Context) AgentOrganizationalProfilePillarPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentOrganizationalProfilePillarPtrOutput)
+}
+
+// AgentOrganizationalProfilePillarArrayInput is an input type that accepts AgentOrganizationalProfilePillarArray and AgentOrganizationalProfilePillarArrayOutput values.
+// You can construct a concrete instance of `AgentOrganizationalProfilePillarArrayInput` via:
+//
+//	AgentOrganizationalProfilePillarArray{ AgentOrganizationalProfilePillarArgs{...} }
+type AgentOrganizationalProfilePillarArrayInput interface {
+	pulumi.Input
+
+	ToAgentOrganizationalProfilePillarArrayOutput() AgentOrganizationalProfilePillarArrayOutput
+	ToAgentOrganizationalProfilePillarArrayOutputWithContext(context.Context) AgentOrganizationalProfilePillarArrayOutput
+}
+
+type AgentOrganizationalProfilePillarArray []AgentOrganizationalProfilePillar
+
+func (AgentOrganizationalProfilePillarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentOrganizationalProfilePillar)(nil)).Elem()
+}
+
+func (i AgentOrganizationalProfilePillarArray) ToAgentOrganizationalProfilePillarArrayOutput() AgentOrganizationalProfilePillarArrayOutput {
+	return i.ToAgentOrganizationalProfilePillarArrayOutputWithContext(context.Background())
+}
+
+func (i AgentOrganizationalProfilePillarArray) ToAgentOrganizationalProfilePillarArrayOutputWithContext(ctx context.Context) AgentOrganizationalProfilePillarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentOrganizationalProfilePillarArrayOutput)
+}
+
+type AgentOrganizationalProfilePillarArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentOrganizationalProfilePillarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentOrganizationalProfilePillar)(nil)).Elem()
+}
+
+func (o AgentOrganizationalProfilePillarArrayOutput) ToAgentOrganizationalProfilePillarArrayOutput() AgentOrganizationalProfilePillarArrayOutput {
+	return o
+}
+
+func (o AgentOrganizationalProfilePillarArrayOutput) ToAgentOrganizationalProfilePillarArrayOutputWithContext(ctx context.Context) AgentOrganizationalProfilePillarArrayOutput {
+	return o
+}
+
+func (o AgentOrganizationalProfilePillarArrayOutput) Index(i pulumi.IntInput) AgentOrganizationalProfilePillarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentOrganizationalProfilePillar {
+		return vs[0].([]AgentOrganizationalProfilePillar)[vs[1].(int)]
+	}).(AgentOrganizationalProfilePillarOutput)
+}
+
 // A Well-Architected pillar the Agent Profile focuses on.
 type AgentProfilePillar string
 
@@ -1524,6 +1741,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentGoalPillarInput)(nil)).Elem(), AgentGoalPillar("COST_OPTIMIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentGoalPillarPtrInput)(nil)).Elem(), AgentGoalPillar("COST_OPTIMIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentGoalPillarArrayInput)(nil)).Elem(), AgentGoalPillarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentOrganizationalProfilePillarInput)(nil)).Elem(), AgentOrganizationalProfilePillar("COST_OPTIMIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentOrganizationalProfilePillarPtrInput)(nil)).Elem(), AgentOrganizationalProfilePillar("COST_OPTIMIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentOrganizationalProfilePillarArrayInput)(nil)).Elem(), AgentOrganizationalProfilePillarArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentProfilePillarInput)(nil)).Elem(), AgentProfilePillar("COST_OPTIMIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentProfilePillarPtrInput)(nil)).Elem(), AgentProfilePillar("COST_OPTIMIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentProfilePillarArrayInput)(nil)).Elem(), AgentProfilePillarArray{})
@@ -1543,6 +1763,9 @@ func init() {
 	pulumi.RegisterOutputType(AgentGoalPillarOutput{})
 	pulumi.RegisterOutputType(AgentGoalPillarPtrOutput{})
 	pulumi.RegisterOutputType(AgentGoalPillarArrayOutput{})
+	pulumi.RegisterOutputType(AgentOrganizationalProfilePillarOutput{})
+	pulumi.RegisterOutputType(AgentOrganizationalProfilePillarPtrOutput{})
+	pulumi.RegisterOutputType(AgentOrganizationalProfilePillarArrayOutput{})
 	pulumi.RegisterOutputType(AgentProfilePillarOutput{})
 	pulumi.RegisterOutputType(AgentProfilePillarPtrOutput{})
 	pulumi.RegisterOutputType(AgentProfilePillarArrayOutput{})

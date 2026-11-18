@@ -15,6 +15,11 @@ export type AccessToken = import("./accessToken").AccessToken;
 export const AccessToken: typeof import("./accessToken").AccessToken = null as any;
 utilities.lazyLoad(exports, ["AccessToken"], () => require("./accessToken"));
 
+export { CoreNetworkEndpointArgs } from "./coreNetworkEndpoint";
+export type CoreNetworkEndpoint = import("./coreNetworkEndpoint").CoreNetworkEndpoint;
+export const CoreNetworkEndpoint: typeof import("./coreNetworkEndpoint").CoreNetworkEndpoint = null as any;
+utilities.lazyLoad(exports, ["CoreNetworkEndpoint"], () => require("./coreNetworkEndpoint"));
+
 export { DnsViewArgs } from "./dnsView";
 export type DnsView = import("./dnsView").DnsView;
 export const DnsView: typeof import("./dnsView").DnsView = null as any;
@@ -39,6 +44,11 @@ export { GetAccessTokenArgs, GetAccessTokenResult, GetAccessTokenOutputArgs } fr
 export const getAccessToken: typeof import("./getAccessToken").getAccessToken = null as any;
 export const getAccessTokenOutput: typeof import("./getAccessToken").getAccessTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getAccessToken","getAccessTokenOutput"], () => require("./getAccessToken"));
+
+export { GetCoreNetworkEndpointArgs, GetCoreNetworkEndpointResult, GetCoreNetworkEndpointOutputArgs } from "./getCoreNetworkEndpoint";
+export const getCoreNetworkEndpoint: typeof import("./getCoreNetworkEndpoint").getCoreNetworkEndpoint = null as any;
+export const getCoreNetworkEndpointOutput: typeof import("./getCoreNetworkEndpoint").getCoreNetworkEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getCoreNetworkEndpoint","getCoreNetworkEndpointOutput"], () => require("./getCoreNetworkEndpoint"));
 
 export { GetDnsViewArgs, GetDnsViewResult, GetDnsViewOutputArgs } from "./getDnsView";
 export const getDnsView: typeof import("./getDnsView").getDnsView = null as any;
@@ -87,6 +97,8 @@ const _module = {
                 return new AccessSource(name, <any>undefined, { urn })
             case "aws-native:route53globalresolver:AccessToken":
                 return new AccessToken(name, <any>undefined, { urn })
+            case "aws-native:route53globalresolver:CoreNetworkEndpoint":
+                return new CoreNetworkEndpoint(name, <any>undefined, { urn })
             case "aws-native:route53globalresolver:DnsView":
                 return new DnsView(name, <any>undefined, { urn })
             case "aws-native:route53globalresolver:FirewallDomainList":

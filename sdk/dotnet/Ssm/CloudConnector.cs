@@ -102,6 +102,8 @@ namespace Pulumi.AwsNative.Ssm
                 {
                     "configConnectorArn",
                     "configuration.azureConfiguration.tenantId",
+                    "configuration.gcpConfiguration.organizationId",
+                    "configuration.gcpConfiguration.serviceAccountEmail",
                     "roleArn",
                 },
             };

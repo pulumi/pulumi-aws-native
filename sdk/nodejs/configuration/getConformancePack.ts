@@ -41,10 +41,12 @@ export interface GetConformancePackResult {
      * The prefix for delivery S3 bucket.
      */
     readonly deliveryS3KeyPrefix?: string;
+    readonly scope?: outputs.configuration.ConformancePackScope;
     /**
      * The tags for the conformance pack.
      */
     readonly tags?: outputs.Tag[];
+    readonly type?: enums.configuration.ConformancePackType;
 }
 /**
  * A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.

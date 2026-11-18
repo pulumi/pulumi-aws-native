@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("targetRoleArn")]
         public Output<string?> TargetRoleArn { get; private set; } = null!;
 
+        [Output("workloadIdentityConfig")]
+        public Output<Outputs.PodIdentityAssociationWorkloadIdentityConfig?> WorkloadIdentityConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PodIdentityAssociation resource with the given unique name, arguments, and options.
@@ -185,6 +188,9 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("targetRoleArn")]
         public Input<string>? TargetRoleArn { get; set; }
+
+        [Input("workloadIdentityConfig")]
+        public Input<Inputs.PodIdentityAssociationWorkloadIdentityConfigArgs>? WorkloadIdentityConfig { get; set; }
 
         public PodIdentityAssociationArgs()
         {

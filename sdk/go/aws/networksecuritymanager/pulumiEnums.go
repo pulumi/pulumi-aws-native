@@ -10,6 +10,98 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The status of the deployment.
+type DeploymentStatus string
+
+const (
+	DeploymentStatusDraft    = DeploymentStatus("DRAFT")
+	DeploymentStatusActive   = DeploymentStatus("ACTIVE")
+	DeploymentStatusDisabled = DeploymentStatus("DISABLED")
+)
+
+type DeploymentStatusOutput struct{ *pulumi.OutputState }
+
+func (DeploymentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentStatus)(nil)).Elem()
+}
+
+func (o DeploymentStatusOutput) ToDeploymentStatusOutput() DeploymentStatusOutput {
+	return o
+}
+
+func (o DeploymentStatusOutput) ToDeploymentStatusOutputWithContext(ctx context.Context) DeploymentStatusOutput {
+	return o
+}
+
+func (o DeploymentStatusOutput) ToDeploymentStatusPtrOutput() DeploymentStatusPtrOutput {
+	return o.ToDeploymentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentStatusOutput) ToDeploymentStatusPtrOutputWithContext(ctx context.Context) DeploymentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentStatus) *DeploymentStatus {
+		return &v
+	}).(DeploymentStatusPtrOutput)
+}
+
+func (o DeploymentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeploymentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeploymentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentStatus)(nil)).Elem()
+}
+
+func (o DeploymentStatusPtrOutput) ToDeploymentStatusPtrOutput() DeploymentStatusPtrOutput {
+	return o
+}
+
+func (o DeploymentStatusPtrOutput) ToDeploymentStatusPtrOutputWithContext(ctx context.Context) DeploymentStatusPtrOutput {
+	return o
+}
+
+func (o DeploymentStatusPtrOutput) Elem() DeploymentStatusOutput {
+	return o.ApplyT(func(v *DeploymentStatus) DeploymentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentStatus
+		return ret
+	}).(DeploymentStatusOutput)
+}
+
+func (o DeploymentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeploymentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of firewall.
 type PolicyFirewallType string
 
@@ -1389,6 +1481,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTypePtrInput)(nil)).Elem(), RuleType("CONFIGURATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFirewallTypeInput)(nil)).Elem(), TemplateFirewallType("WAF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFirewallTypePtrInput)(nil)).Elem(), TemplateFirewallType("WAF"))
+	pulumi.RegisterOutputType(DeploymentStatusOutput{})
+	pulumi.RegisterOutputType(DeploymentStatusPtrOutput{})
 	pulumi.RegisterOutputType(PolicyFirewallTypeOutput{})
 	pulumi.RegisterOutputType(PolicyFirewallTypePtrOutput{})
 	pulumi.RegisterOutputType(PolicyStatusOutput{})

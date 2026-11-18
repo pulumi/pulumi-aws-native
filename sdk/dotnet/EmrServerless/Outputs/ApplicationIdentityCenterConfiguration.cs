@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
         /// The IAM IdentityCenter instance arn
         /// </summary>
         public readonly string? IdentityCenterInstanceArn;
+        /// <summary>
+        /// Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+        /// </summary>
+        public readonly bool? UserBackgroundSessionsEnabled;
 
         [OutputConstructor]
-        private ApplicationIdentityCenterConfiguration(string? identityCenterInstanceArn)
+        private ApplicationIdentityCenterConfiguration(
+            string? identityCenterInstanceArn,
+
+            bool? userBackgroundSessionsEnabled)
         {
             IdentityCenterInstanceArn = identityCenterInstanceArn;
+            UserBackgroundSessionsEnabled = userBackgroundSessionsEnabled;
         }
     }
 }

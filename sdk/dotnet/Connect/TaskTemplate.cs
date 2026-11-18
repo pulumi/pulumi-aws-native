@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<string?> ContactFlowArn { get; private set; } = null!;
 
         /// <summary>
+        /// The contact hooks for the task template.
+        /// </summary>
+        [Output("contactHooks")]
+        public Output<Outputs.ContactHooksProperties?> ContactHooks { get; private set; } = null!;
+
+        /// <summary>
         /// The default values for fields when a task is created by referencing this template.
         /// </summary>
         [Output("defaults")]
@@ -149,6 +155,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("contactFlowArn")]
         public Input<string>? ContactFlowArn { get; set; }
+
+        /// <summary>
+        /// The contact hooks for the task template.
+        /// </summary>
+        [Input("contactHooks")]
+        public Input<Inputs.ContactHooksPropertiesArgs>? ContactHooks { get; set; }
 
         [Input("defaults")]
         private InputList<Inputs.TaskTemplateDefaultFieldValueArgs>? _defaults;

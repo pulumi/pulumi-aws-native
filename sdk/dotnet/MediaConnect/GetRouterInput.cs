@@ -118,6 +118,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The current state of the router input.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.RouterInputState? State;
+        public readonly object? StreamDetails;
         /// <summary>
         /// Key-value pairs that can be used to tag and organize this router input.
         /// </summary>
@@ -169,6 +170,8 @@ namespace Pulumi.AwsNative.MediaConnect
 
             Pulumi.AwsNative.MediaConnect.RouterInputState? state,
 
+            object? streamDetails,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.MediaConnect.RouterInputTier? tier,
@@ -193,6 +196,7 @@ namespace Pulumi.AwsNative.MediaConnect
             RoutedOutputs = routedOutputs;
             RoutingScope = routingScope;
             State = state;
+            StreamDetails = streamDetails;
             Tags = tags;
             Tier = tier;
             TransitEncryption = transitEncryption;

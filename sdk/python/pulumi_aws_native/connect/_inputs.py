@@ -20,6 +20,8 @@ __all__ = [
     'AttributeConfigurationPropertiesArgsDict',
     'ConstraintsPropertiesArgs',
     'ConstraintsPropertiesArgsDict',
+    'ContactHooksPropertiesArgs',
+    'ContactHooksPropertiesArgsDict',
     'DataTableRecordPropertiesArgs',
     'DataTableRecordPropertiesArgsDict',
     'DataTableRecordValueArgs',
@@ -206,6 +208,10 @@ __all__ = [
     'RuleNotificationContentArgsDict',
     'RuleNotificationRecipientTypeArgs',
     'RuleNotificationRecipientTypeArgsDict',
+    'RulePreEvaluationFilterArgs',
+    'RulePreEvaluationFilterArgsDict',
+    'RulePreEvaluationFiltersArgs',
+    'RulePreEvaluationFiltersArgsDict',
     'RuleReferenceArgs',
     'RuleReferenceArgsDict',
     'RuleSendInAppNotificationActionArgs',
@@ -436,6 +442,40 @@ class ConstraintsPropertiesArgs:
     @required_fields.setter
     def required_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]]):
         pulumi.set(self, "required_fields", value)
+
+
+class ContactHooksPropertiesArgsDict(TypedDict):
+    """
+    The contact hooks for the task template.
+    """
+    wrap_up_flow_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+    """
+
+@pulumi.input_type
+class ContactHooksPropertiesArgs:
+    def __init__(__self__, *,
+                 wrap_up_flow_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The contact hooks for the task template.
+
+        :param pulumi.Input[_builtins.str] wrap_up_flow_arn: The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+        """
+        if wrap_up_flow_arn is not None:
+            pulumi.set(__self__, "wrap_up_flow_arn", wrap_up_flow_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="wrapUpFlowArn")
+    def wrap_up_flow_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+        """
+        return pulumi.get(self, "wrap_up_flow_arn")
+
+    @wrap_up_flow_arn.setter
+    def wrap_up_flow_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "wrap_up_flow_arn", value)
 
 
 class DataTableRecordPropertiesArgsDict(TypedDict):
@@ -6291,6 +6331,139 @@ class RuleNotificationRecipientTypeArgs:
     @user_tags.setter
     def user_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_tags", value)
+
+
+class RulePreEvaluationFilterArgsDict(TypedDict):
+    filter_key: pulumi.Input[_builtins.str]
+    """
+    The key of the filter.
+    """
+    filter_type: pulumi.Input['RulePreEvaluationFilterFilterType']
+    """
+    The type of the filter.
+    """
+    filter_value: pulumi.Input[_builtins.str]
+    """
+    The value of the filter.
+    """
+    operator: pulumi.Input['RulePreEvaluationFilterOperator']
+    """
+    The comparison operator for the filter.
+    """
+    resource_type: pulumi.Input['RulePreEvaluationFilterResourceType']
+    """
+    The type of resource the filter applies to.
+    """
+
+@pulumi.input_type
+class RulePreEvaluationFilterArgs:
+    def __init__(__self__, *,
+                 filter_key: pulumi.Input[_builtins.str],
+                 filter_type: pulumi.Input['RulePreEvaluationFilterFilterType'],
+                 filter_value: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input['RulePreEvaluationFilterOperator'],
+                 resource_type: pulumi.Input['RulePreEvaluationFilterResourceType']):
+        """
+        :param pulumi.Input[_builtins.str] filter_key: The key of the filter.
+        :param pulumi.Input['RulePreEvaluationFilterFilterType'] filter_type: The type of the filter.
+        :param pulumi.Input[_builtins.str] filter_value: The value of the filter.
+        :param pulumi.Input['RulePreEvaluationFilterOperator'] operator: The comparison operator for the filter.
+        :param pulumi.Input['RulePreEvaluationFilterResourceType'] resource_type: The type of resource the filter applies to.
+        """
+        pulumi.set(__self__, "filter_key", filter_key)
+        pulumi.set(__self__, "filter_type", filter_type)
+        pulumi.set(__self__, "filter_value", filter_value)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="filterKey")
+    def filter_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key of the filter.
+        """
+        return pulumi.get(self, "filter_key")
+
+    @filter_key.setter
+    def filter_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "filter_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> pulumi.Input['RulePreEvaluationFilterFilterType']:
+        """
+        The type of the filter.
+        """
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: pulumi.Input['RulePreEvaluationFilterFilterType']):
+        pulumi.set(self, "filter_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterValue")
+    def filter_value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value of the filter.
+        """
+        return pulumi.get(self, "filter_value")
+
+    @filter_value.setter
+    def filter_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "filter_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input['RulePreEvaluationFilterOperator']:
+        """
+        The comparison operator for the filter.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input['RulePreEvaluationFilterOperator']):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input['RulePreEvaluationFilterResourceType']:
+        """
+        The type of resource the filter applies to.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input['RulePreEvaluationFilterResourceType']):
+        pulumi.set(self, "resource_type", value)
+
+
+class RulePreEvaluationFiltersArgsDict(TypedDict):
+    and_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulePreEvaluationFilterArgsDict']]]]]
+    """
+    A list of filter conditions that are combined with AND logic.
+    """
+
+@pulumi.input_type
+class RulePreEvaluationFiltersArgs:
+    def __init__(__self__, *,
+                 and_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['RulePreEvaluationFilterArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RulePreEvaluationFilterArgs']]] and_conditions: A list of filter conditions that are combined with AND logic.
+        """
+        if and_conditions is not None:
+            pulumi.set(__self__, "and_conditions", and_conditions)
+
+    @_builtins.property
+    @pulumi.getter(name="andConditions")
+    def and_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RulePreEvaluationFilterArgs']]]]:
+        """
+        A list of filter conditions that are combined with AND logic.
+        """
+        return pulumi.get(self, "and_conditions")
+
+    @and_conditions.setter
+    def and_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RulePreEvaluationFilterArgs']]]]):
+        pulumi.set(self, "and_conditions", value)
 
 
 class RuleReferenceArgsDict(TypedDict):

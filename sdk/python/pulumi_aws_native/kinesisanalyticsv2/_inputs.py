@@ -68,6 +68,12 @@ __all__ = [
     'ApplicationZeppelinApplicationConfigurationArgsDict',
     'ApplicationZeppelinMonitoringConfigurationArgs',
     'ApplicationZeppelinMonitoringConfigurationArgsDict',
+    'SnapshotEncryptionConfigurationDescriptionArgs',
+    'SnapshotEncryptionConfigurationDescriptionArgsDict',
+    'SnapshotImportSourceConfigurationArgs',
+    'SnapshotImportSourceConfigurationArgsDict',
+    'SnapshotS3PrefixLocationArgs',
+    'SnapshotS3PrefixLocationArgsDict',
 ]
 
 class ApplicationCatalogConfigurationArgsDict(TypedDict):
@@ -1672,5 +1678,201 @@ class ApplicationZeppelinMonitoringConfigurationArgs:
     @log_level.setter
     def log_level(self, value: pulumi.Input[Optional['ApplicationZeppelinMonitoringConfigurationLogLevel']]):
         pulumi.set(self, "log_level", value)
+
+
+class SnapshotEncryptionConfigurationDescriptionArgsDict(TypedDict):
+    """
+    A KMS encryption configuration for snapshot data: the key type, and the key when it is a customer managed key.
+    """
+    key_type: pulumi.Input['SnapshotEncryptionConfigurationDescriptionKeyType']
+    """
+    The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+    """
+    key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+    """
+
+@pulumi.input_type
+class SnapshotEncryptionConfigurationDescriptionArgs:
+    def __init__(__self__, *,
+                 key_type: pulumi.Input['SnapshotEncryptionConfigurationDescriptionKeyType'],
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A KMS encryption configuration for snapshot data: the key type, and the key when it is a customer managed key.
+
+        :param pulumi.Input['SnapshotEncryptionConfigurationDescriptionKeyType'] key_type: The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+        :param pulumi.Input[_builtins.str] key_id: The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+        """
+        pulumi.set(__self__, "key_type", key_type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input['SnapshotEncryptionConfigurationDescriptionKeyType']:
+        """
+        The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input['SnapshotEncryptionConfigurationDescriptionKeyType']):
+        pulumi.set(self, "key_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_id", value)
+
+
+class SnapshotImportSourceConfigurationArgsDict(TypedDict):
+    """
+    The Amazon S3 location to import a snapshot from, and the role the service assumes to read it.
+    """
+    import_role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+    """
+    source_s3_prefix_location: pulumi.Input['SnapshotS3PrefixLocationArgsDict']
+    """
+    The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+    """
+    source_type: pulumi.Input['SnapshotImportSourceConfigurationSourceType']
+    """
+    The type of storage the snapshot is imported from.
+    """
+    source_encryption_configuration: NotRequired[pulumi.Input[Optional['SnapshotEncryptionConfigurationDescriptionArgsDict']]]
+    """
+    The encryption of the snapshot files in Amazon S3.
+    """
+
+@pulumi.input_type
+class SnapshotImportSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 import_role_arn: pulumi.Input[_builtins.str],
+                 source_s3_prefix_location: pulumi.Input['SnapshotS3PrefixLocationArgs'],
+                 source_type: pulumi.Input['SnapshotImportSourceConfigurationSourceType'],
+                 source_encryption_configuration: pulumi.Input[Optional['SnapshotEncryptionConfigurationDescriptionArgs']] = None):
+        """
+        The Amazon S3 location to import a snapshot from, and the role the service assumes to read it.
+
+        :param pulumi.Input[_builtins.str] import_role_arn: The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+        :param pulumi.Input['SnapshotS3PrefixLocationArgs'] source_s3_prefix_location: The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+        :param pulumi.Input['SnapshotImportSourceConfigurationSourceType'] source_type: The type of storage the snapshot is imported from.
+        :param pulumi.Input['SnapshotEncryptionConfigurationDescriptionArgs'] source_encryption_configuration: The encryption of the snapshot files in Amazon S3.
+        """
+        pulumi.set(__self__, "import_role_arn", import_role_arn)
+        pulumi.set(__self__, "source_s3_prefix_location", source_s3_prefix_location)
+        pulumi.set(__self__, "source_type", source_type)
+        if source_encryption_configuration is not None:
+            pulumi.set(__self__, "source_encryption_configuration", source_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="importRoleArn")
+    def import_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+        """
+        return pulumi.get(self, "import_role_arn")
+
+    @import_role_arn.setter
+    def import_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "import_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceS3PrefixLocation")
+    def source_s3_prefix_location(self) -> pulumi.Input['SnapshotS3PrefixLocationArgs']:
+        """
+        The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+        """
+        return pulumi.get(self, "source_s3_prefix_location")
+
+    @source_s3_prefix_location.setter
+    def source_s3_prefix_location(self, value: pulumi.Input['SnapshotS3PrefixLocationArgs']):
+        pulumi.set(self, "source_s3_prefix_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> pulumi.Input['SnapshotImportSourceConfigurationSourceType']:
+        """
+        The type of storage the snapshot is imported from.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: pulumi.Input['SnapshotImportSourceConfigurationSourceType']):
+        pulumi.set(self, "source_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceEncryptionConfiguration")
+    def source_encryption_configuration(self) -> pulumi.Input[Optional['SnapshotEncryptionConfigurationDescriptionArgs']]:
+        """
+        The encryption of the snapshot files in Amazon S3.
+        """
+        return pulumi.get(self, "source_encryption_configuration")
+
+    @source_encryption_configuration.setter
+    def source_encryption_configuration(self, value: pulumi.Input[Optional['SnapshotEncryptionConfigurationDescriptionArgs']]):
+        pulumi.set(self, "source_encryption_configuration", value)
+
+
+class SnapshotS3PrefixLocationArgsDict(TypedDict):
+    """
+    An Amazon S3 prefix location.
+    """
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the S3 bucket.
+    """
+    key_prefix: pulumi.Input[_builtins.str]
+    """
+    The S3 key prefix.
+    """
+
+@pulumi.input_type
+class SnapshotS3PrefixLocationArgs:
+    def __init__(__self__, *,
+                 bucket_arn: pulumi.Input[_builtins.str],
+                 key_prefix: pulumi.Input[_builtins.str]):
+        """
+        An Amazon S3 prefix location.
+
+        :param pulumi.Input[_builtins.str] bucket_arn: The ARN of the S3 bucket.
+        :param pulumi.Input[_builtins.str] key_prefix: The S3 key prefix.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 key prefix.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_prefix", value)
 
 

@@ -42,10 +42,22 @@ __all__ = [
     'MicrovmImageCpuConfigurationArchitecture',
     'MicrovmImageHookState',
     'MicrovmImageState',
+    'NetworkConnectorElasticIpConfigurationType',
     'NetworkConnectorState',
     'NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem',
     'NetworkConnectorVpcEgressConfigurationNetworkProtocol',
     'PermissionFunctionUrlAuthType',
+    'RuntimeAliasCompatibilityArchitecturesItem',
+    'RuntimeAliasCompatibilityIntegrationModelsItem',
+    'RuntimeAliasCompatibilityManagedInstances',
+    'RuntimeAliasReleaseLifecycleReleaseState',
+    'RuntimeAliasState',
+    'RuntimeReleaseLifecycleReleaseState',
+    'RuntimeState',
+    'RuntimeVersionCompatibilityArchitecturesItem',
+    'RuntimeVersionCompatibilityIntegrationModelsItem',
+    'RuntimeVersionCompatibilityManagedInstances',
+    'RuntimeVersionState',
     'UrlAllowMethodsItem',
     'UrlAuthType',
     'UrlInvokeMode',
@@ -387,6 +399,7 @@ class MicrovmImageAdditionalOsCapabilitiesItem(_builtins.str, Enum):
 @pulumi.type_token("aws-native:lambda:MicrovmImageCpuConfigurationArchitecture")
 class MicrovmImageCpuConfigurationArchitecture(_builtins.str, Enum):
     ARM64 = "ARM_64"
+    X8664 = "X86_64"
 
 
 @pulumi.type_token("aws-native:lambda:MicrovmImageHookState")
@@ -406,6 +419,15 @@ class MicrovmImageState(_builtins.str, Enum):
     DELETING = "DELETING"
     DELETE_FAILED = "DELETE_FAILED"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:lambda:NetworkConnectorElasticIpConfigurationType")
+class NetworkConnectorElasticIpConfigurationType(_builtins.str, Enum):
+    """
+    The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+    """
+    NONE = "None"
+    SERVICE_MANAGED = "ServiceManaged"
 
 
 @pulumi.type_token("aws-native:lambda:NetworkConnectorState")
@@ -443,6 +465,98 @@ class PermissionFunctionUrlAuthType(_builtins.str, Enum):
     """
     AWS_IAM = "AWS_IAM"
     NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeAliasCompatibilityArchitecturesItem")
+class RuntimeAliasCompatibilityArchitecturesItem(_builtins.str, Enum):
+    X8664 = "x86_64"
+    ARM64 = "arm64"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeAliasCompatibilityIntegrationModelsItem")
+class RuntimeAliasCompatibilityIntegrationModelsItem(_builtins.str, Enum):
+    RUNTIME_API = "RuntimeAPI"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeAliasCompatibilityManagedInstances")
+class RuntimeAliasCompatibilityManagedInstances(_builtins.str, Enum):
+    SUPPORTED = "Supported"
+    NOT_SUPPORTED = "NotSupported"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeAliasReleaseLifecycleReleaseState")
+class RuntimeAliasReleaseLifecycleReleaseState(_builtins.str, Enum):
+    """
+    The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+    """
+    PREVIEW = "PREVIEW"
+    GA = "GA"
+    DEPRECATED = "DEPRECATED"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeAliasState")
+class RuntimeAliasState(_builtins.str, Enum):
+    """
+    The lifecycle state of the runtime alias.
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    PENDING_DELETION = "PENDING_DELETION"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeReleaseLifecycleReleaseState")
+class RuntimeReleaseLifecycleReleaseState(_builtins.str, Enum):
+    """
+    The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+    """
+    PREVIEW = "PREVIEW"
+    GA = "GA"
+    DEPRECATED = "DEPRECATED"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeState")
+class RuntimeState(_builtins.str, Enum):
+    """
+    The lifecycle state of the runtime.
+    """
+    ACTIVE = "ACTIVE"
+    PENDING_DELETION = "PENDING_DELETION"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeVersionCompatibilityArchitecturesItem")
+class RuntimeVersionCompatibilityArchitecturesItem(_builtins.str, Enum):
+    X8664 = "x86_64"
+    ARM64 = "arm64"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeVersionCompatibilityIntegrationModelsItem")
+class RuntimeVersionCompatibilityIntegrationModelsItem(_builtins.str, Enum):
+    RUNTIME_API = "RuntimeAPI"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeVersionCompatibilityManagedInstances")
+class RuntimeVersionCompatibilityManagedInstances(_builtins.str, Enum):
+    """
+    Whether the runtime version supports managed instances.
+    """
+    SUPPORTED = "Supported"
+    NOT_SUPPORTED = "NotSupported"
+
+
+@pulumi.type_token("aws-native:lambda:RuntimeVersionState")
+class RuntimeVersionState(_builtins.str, Enum):
+    """
+    The lifecycle state of the runtime version.
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+    PENDING_DELETION = "PENDING_DELETION"
 
 
 @pulumi.type_token("aws-native:lambda:UrlAllowMethodsItem")

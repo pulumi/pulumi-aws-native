@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// The service generated unique identifier of the InfluxDB cluster containing this instance.
+        /// </summary>
+        public readonly string? DbClusterId;
+        /// <summary>
         /// The compute instance of the InfluxDB instance.
         /// </summary>
         public readonly Pulumi.AwsNative.Timestream.InfluxDbInstanceDbInstanceType? DbInstanceType;
@@ -140,6 +144,8 @@ namespace Pulumi.AwsNative.Timestream
 
             string? availabilityZone,
 
+            string? dbClusterId,
+
             Pulumi.AwsNative.Timestream.InfluxDbInstanceDbInstanceType? dbInstanceType,
 
             string? dbParameterGroupIdentifier,
@@ -171,6 +177,7 @@ namespace Pulumi.AwsNative.Timestream
             AllocatedStorage = allocatedStorage;
             Arn = arn;
             AvailabilityZone = availabilityZone;
+            DbClusterId = dbClusterId;
             DbInstanceType = dbInstanceType;
             DbParameterGroupIdentifier = dbParameterGroupIdentifier;
             DbStorageType = dbStorageType;

@@ -10,15 +10,15 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "timestream-influxdb:GetDbCluster", "timestream-influxdb:ListTagsForResource" ],
+      "permissions" : [ "timestream-influxdb:GetDbCluster", "timestream-influxdb:ListDbInstancesForCluster", "timestream-influxdb:ListTagsForResource" ],
       "timeoutInMinutes" : 2160
     },
     "create" : {
-      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:CreateDbInstance", "timestream-influxdb:CreateDbParameterGroup", "timestream-influxdb:GetDbCluster", "timestream-influxdb:GetDbParameterGroup", "timestream-influxdb:ListDbClusters", "timestream-influxdb:CreateDbCluster", "timestream-influxdb:TagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "ec2:DescribeRouteTables", "ec2:DescribeVpcEndpoints", "iam:CreateServiceLinkedRole" ],
+      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:CreateDbInstance", "timestream-influxdb:CreateDbParameterGroup", "timestream-influxdb:GetDbCluster", "timestream-influxdb:GetDbParameterGroup", "timestream-influxdb:ListDbClusters", "timestream-influxdb:ListDbInstancesForCluster", "timestream-influxdb:CreateDbCluster", "timestream-influxdb:TagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "ec2:DescribeRouteTables", "ec2:DescribeVpcEndpoints", "iam:CreateServiceLinkedRole", "kms:DescribeKey", "kms:CreateGrant" ],
       "timeoutInMinutes" : 2160
     },
     "update" : {
-      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:UpdateDbInstance", "timestream-influxdb:GetDbCluster", "timestream-influxdb:ListDbClusters", "timestream-influxdb:UpdateDbCluster", "timestream-influxdb:TagResource", "timestream-influxdb:UntagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcEndpoints", "ec2:DescribeVpcs" ],
+      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:UpdateDbInstance", "timestream-influxdb:GetDbCluster", "timestream-influxdb:ListDbClusters", "timestream-influxdb:ListDbInstancesForCluster", "timestream-influxdb:UpdateDbCluster", "timestream-influxdb:TagResource", "timestream-influxdb:UntagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcEndpoints", "ec2:DescribeVpcs" ],
       "timeoutInMinutes" : 2160
     },
     "list" : {
@@ -31,10 +31,10 @@
     }
   },
   "typeName" : "AWS::Timestream::InfluxDBCluster",
-  "readOnlyProperties" : [ "/properties/Status", "/properties/Arn", "/properties/Id", "/properties/Endpoint", "/properties/ReaderEndpoint", "/properties/InfluxAuthParametersSecretArn", "/properties/EngineType", "/properties/NextMaintenanceTime" ],
+  "readOnlyProperties" : [ "/properties/Status", "/properties/Arn", "/properties/Id", "/properties/Endpoint", "/properties/ReaderEndpoint", "/properties/InfluxAuthParametersSecretArn", "/properties/EngineType", "/properties/NextMaintenanceTime", "/properties/EffectiveDbParameterGroupIdentifier", "/properties/MemberCount", "/properties/MemberModeCounts" ],
   "description" : "The AWS::Timestream::InfluxDBCluster resource creates an InfluxDB cluster.",
   "writeOnlyProperties" : [ "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket", "/properties/VpcSubnetIds", "/properties/VpcSecurityGroupIds", "/properties/PubliclyAccessible", "/properties/DbStorageType", "/properties/AllocatedStorage", "/properties/DeploymentType", "/properties/NetworkType" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket", "/properties/VpcSubnetIds", "/properties/VpcSecurityGroupIds", "/properties/PubliclyAccessible", "/properties/DbStorageType", "/properties/AllocatedStorage", "/properties/DeploymentType", "/properties/NetworkType", "/properties/KmsKeyId" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Id" ],
   "definitions" : {
@@ -57,6 +57,24 @@
         }
       },
       "required" : [ "Key" ]
+    },
+    "MemberModeCount" : {
+      "description" : "The number of DB cluster members reporting one instance mode.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Mode" : {
+          "description" : "The instance mode reported by DB cluster members.",
+          "type" : "string",
+          "enum" : [ "PRIMARY", "STANDBY", "REPLICA", "INGEST", "QUERY", "COMPACT", "PROCESS" ]
+        },
+        "Count" : {
+          "description" : "The number of DB cluster members reporting this instance mode.",
+          "type" : "integer",
+          "minimum" : 1
+        }
+      },
+      "required" : [ "Mode", "Count" ]
     },
     "MaintenanceSchedule" : {
       "description" : "The maintenance schedule for the InfluxDB cluster.",
@@ -89,7 +107,7 @@
       "maxLength" : 64
     },
     "InfluxAuthParametersSecretArn" : {
-      "pattern" : "^arn:[a-z]*:secretsmanager:[a-z\\-0-9]*:[0-9]*:secret:[a-zA-Z0-9\\-]*",
+      "pattern" : "^arn:aws[a-z\\-]*:secretsmanager:[a-z\\-0-9]*:[0-9]*:secret:[a-zA-Z0-9\\-]*",
       "description" : "The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB cluster.",
       "type" : "string"
     },
@@ -104,6 +122,13 @@
       "type" : "string",
       "enum" : [ "db.influx.medium", "db.influx.large", "db.influx.xlarge", "db.influx.2xlarge", "db.influx.4xlarge", "db.influx.8xlarge", "db.influx.12xlarge", "db.influx.16xlarge", "db.influx.24xlarge" ]
     },
+    "EffectiveDbParameterGroupIdentifier" : {
+      "minLength" : 3,
+      "pattern" : "^[a-zA-Z0-9]+$",
+      "description" : "The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.",
+      "type" : "string",
+      "maxLength" : 64
+    },
     "VpcSubnetIds" : {
       "minItems" : 1,
       "maxItems" : 3,
@@ -112,6 +137,15 @@
       "type" : "array",
       "items" : {
         "type" : "string"
+      }
+    },
+    "MemberModeCounts" : {
+      "maxItems" : 7,
+      "description" : "DB cluster member counts grouped by instance mode.",
+      "insertionOrder" : true,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/MemberModeCount"
       }
     },
     "DeploymentType" : {
@@ -184,6 +218,18 @@
       "description" : "Status of the InfluxDB cluster.",
       "type" : "string",
       "enum" : [ "CREATING", "UPDATING", "UPDATING_INSTANCE_TYPE", "MAINTENANCE", "DELETING", "AVAILABLE", "REBOOTING", "REBOOT_FAILED", "PARTIALLY_AVAILABLE", "FAILED", "DELETED" ]
+    },
+    "KmsKeyId" : {
+      "minLength" : 1,
+      "pattern" : "^[a-zA-Z0-9:/_\\-]+$",
+      "description" : "The customer managed key used to encrypt data in the InfluxDB cluster.",
+      "type" : "string",
+      "maxLength" : 2048
+    },
+    "MemberCount" : {
+      "description" : "The number of DB instances that belong to the InfluxDB cluster.",
+      "type" : "integer",
+      "minimum" : 0
     },
     "FailoverMode" : {
       "description" : "Failover mode of the InfluxDB cluster.",

@@ -45,7 +45,7 @@ class UserArgs:
 
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] routing_profile_arn: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_arns: One or more security profile arns for the user
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_arns: One or more customer-managed or AWS-managed security profile ARNs for the user.
         :param pulumi.Input[Sequence[pulumi.Input['UserAfterContactWorkConfigPerChannelArgs']]] after_contact_work_configs: After Contact Work configurations of a user.
         :param pulumi.Input[Sequence[pulumi.Input['UserAutoAcceptConfigArgs']]] auto_accept_configs: Auto-accept configurations of a user.
         :param pulumi.Input[_builtins.str] directory_user_id: The identifier of the user account in the directory used for identity management.
@@ -118,7 +118,7 @@ class UserArgs:
     @pulumi.getter(name="securityProfileArns")
     def security_profile_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        One or more security profile arns for the user
+        One or more customer-managed or AWS-managed security profile ARNs for the user.
         """
         return pulumi.get(self, "security_profile_arns")
 
@@ -322,7 +322,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict', 'outputs.UserPhoneConfig']] phone_config: The phone settings for the user.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPhoneNumberConfigArgs', 'UserPhoneNumberConfigArgsDict', 'outputs.UserPhoneNumberConfig']]]] phone_number_configs: Phone Number configurations of a user.
         :param pulumi.Input[_builtins.str] routing_profile_arn: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_arns: One or more security profile arns for the user
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_arns: One or more customer-managed or AWS-managed security profile ARNs for the user.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserProficiencyArgs', 'UserProficiencyArgsDict', 'outputs.UserProficiency']]]] user_proficiencies: One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
         :param pulumi.Input[_builtins.str] username: The user name for the account.
@@ -539,7 +539,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="securityProfileArns")
     def security_profile_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        One or more security profile arns for the user
+        One or more customer-managed or AWS-managed security profile ARNs for the user.
         """
         return pulumi.get(self, "security_profile_arns")
 

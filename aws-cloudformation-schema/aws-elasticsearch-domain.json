@@ -2,89 +2,88 @@
   "typeName" : "AWS::Elasticsearch::Domain",
   "description" : "Resource Type definition for AWS::Elasticsearch::Domain",
   "additionalProperties" : false,
-  "properties" : {
-    "ElasticsearchClusterConfig" : {
-      "$ref" : "#/definitions/ElasticsearchClusterConfig"
-    },
-    "DomainName" : {
-      "type" : "string"
-    },
-    "ElasticsearchVersion" : {
-      "type" : "string"
-    },
-    "LogPublishingOptions" : {
-      "type" : "object",
-      "patternProperties" : {
-        "[a-zA-Z0-9]+" : {
-          "$ref" : "#/definitions/LogPublishingOption"
-        }
-      }
-    },
-    "SnapshotOptions" : {
-      "$ref" : "#/definitions/SnapshotOptions"
-    },
-    "VPCOptions" : {
-      "$ref" : "#/definitions/VPCOptions"
-    },
-    "NodeToNodeEncryptionOptions" : {
-      "$ref" : "#/definitions/NodeToNodeEncryptionOptions"
-    },
-    "AccessPolicies" : {
-      "type" : "object"
-    },
-    "DomainEndpointOptions" : {
-      "$ref" : "#/definitions/DomainEndpointOptions"
-    },
-    "DomainArn" : {
-      "type" : "string"
-    },
-    "CognitoOptions" : {
-      "$ref" : "#/definitions/CognitoOptions"
-    },
-    "AdvancedOptions" : {
-      "type" : "object",
-      "patternProperties" : {
-        "[a-zA-Z0-9]+" : {
-          "type" : "string"
-        }
-      }
-    },
-    "AdvancedSecurityOptions" : {
-      "$ref" : "#/definitions/AdvancedSecurityOptionsInput"
-    },
-    "DomainEndpoint" : {
-      "type" : "string"
-    },
-    "EBSOptions" : {
-      "$ref" : "#/definitions/EBSOptions"
-    },
-    "Id" : {
-      "type" : "string"
-    },
-    "Arn" : {
-      "type" : "string"
-    },
-    "EncryptionAtRestOptions" : {
-      "$ref" : "#/definitions/EncryptionAtRestOptions"
-    },
-    "Tags" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/Tag"
-      }
-    }
-  },
   "definitions" : {
-    "LogPublishingOption" : {
+    "AdvancedSecurityOptionsInput" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "CloudWatchLogsLogGroupArn" : {
-          "type" : "string"
-        },
         "Enabled" : {
           "type" : "boolean"
+        },
+        "MasterUserOptions" : {
+          "$ref" : "#/definitions/MasterUserOptions"
+        },
+        "AnonymousAuthEnabled" : {
+          "type" : "boolean"
+        },
+        "InternalUserDatabaseEnabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "CognitoOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "IdentityPoolId" : {
+          "type" : "string"
+        },
+        "UserPoolId" : {
+          "type" : "string"
+        },
+        "RoleArn" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ColdStorageOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "DomainEndpointOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CustomEndpointCertificateArn" : {
+          "type" : "string"
+        },
+        "CustomEndpointEnabled" : {
+          "type" : "boolean"
+        },
+        "EnforceHTTPS" : {
+          "type" : "boolean"
+        },
+        "CustomEndpoint" : {
+          "type" : "string"
+        },
+        "TLSSecurityPolicy" : {
+          "type" : "string"
+        }
+      }
+    },
+    "EBSOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EBSEnabled" : {
+          "type" : "boolean"
+        },
+        "VolumeType" : {
+          "type" : "string"
+        },
+        "Iops" : {
+          "type" : "integer"
+        },
+        "VolumeSize" : {
+          "type" : "integer"
         }
       }
     },
@@ -127,132 +126,6 @@
         }
       }
     },
-    "VPCOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "SecurityGroupIds" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "SubnetIds" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
-    },
-    "SnapshotOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "AutomatedSnapshotStartHour" : {
-          "type" : "integer"
-        }
-      }
-    },
-    "ZoneAwarenessConfig" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "AvailabilityZoneCount" : {
-          "type" : "integer"
-        }
-      }
-    },
-    "NodeToNodeEncryptionOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      }
-    },
-    "ColdStorageOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      }
-    },
-    "DomainEndpointOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "CustomEndpointCertificateArn" : {
-          "type" : "string"
-        },
-        "CustomEndpointEnabled" : {
-          "type" : "boolean"
-        },
-        "EnforceHTTPS" : {
-          "type" : "boolean"
-        },
-        "CustomEndpoint" : {
-          "type" : "string"
-        },
-        "TLSSecurityPolicy" : {
-          "type" : "string"
-        }
-      }
-    },
-    "CognitoOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
-        "IdentityPoolId" : {
-          "type" : "string"
-        },
-        "UserPoolId" : {
-          "type" : "string"
-        },
-        "RoleArn" : {
-          "type" : "string"
-        }
-      }
-    },
-    "EBSOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "EBSEnabled" : {
-          "type" : "boolean"
-        },
-        "VolumeType" : {
-          "type" : "string"
-        },
-        "Iops" : {
-          "type" : "integer"
-        },
-        "VolumeSize" : {
-          "type" : "integer"
-        }
-      }
-    },
-    "Tag" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Value" : {
-          "type" : "string"
-        },
-        "Key" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Value", "Key" ]
-    },
     "EncryptionAtRestOptions" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -260,6 +133,27 @@
         "KmsKeyId" : {
           "type" : "string"
         },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "LogPublishingOption" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CloudWatchLogsLogGroupArn" : {
+          "type" : "string"
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "NodeToNodeEncryptionOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
         "Enabled" : {
           "type" : "boolean"
         }
@@ -280,26 +174,158 @@
         }
       }
     },
-    "AdvancedSecurityOptionsInput" : {
+    "SnapshotOptions" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
+        "AutomatedSnapshotStartHour" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
         },
-        "MasterUserOptions" : {
-          "$ref" : "#/definitions/MasterUserOptions"
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
+    },
+    "VPCOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SecurityGroupIds" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         },
-        "AnonymousAuthEnabled" : {
-          "type" : "boolean"
-        },
-        "InternalUserDatabaseEnabled" : {
-          "type" : "boolean"
+        "SubnetIds" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "ZoneAwarenessConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AvailabilityZoneCount" : {
+          "type" : "integer"
         }
       }
     }
   },
+  "properties" : {
+    "AccessPolicies" : {
+      "type" : "object"
+    },
+    "AdvancedOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "patternProperties" : {
+        "[a-zA-Z0-9]+" : {
+          "type" : "string"
+        }
+      }
+    },
+    "AdvancedSecurityOptions" : {
+      "$ref" : "#/definitions/AdvancedSecurityOptionsInput"
+    },
+    "Arn" : {
+      "type" : "string"
+    },
+    "CognitoOptions" : {
+      "$ref" : "#/definitions/CognitoOptions"
+    },
+    "DomainArn" : {
+      "type" : "string"
+    },
+    "DomainEndpoint" : {
+      "type" : "string"
+    },
+    "DomainEndpointOptions" : {
+      "$ref" : "#/definitions/DomainEndpointOptions"
+    },
+    "DomainName" : {
+      "type" : "string"
+    },
+    "EBSOptions" : {
+      "$ref" : "#/definitions/EBSOptions"
+    },
+    "ElasticsearchClusterConfig" : {
+      "$ref" : "#/definitions/ElasticsearchClusterConfig"
+    },
+    "ElasticsearchVersion" : {
+      "type" : "string"
+    },
+    "EncryptionAtRestOptions" : {
+      "$ref" : "#/definitions/EncryptionAtRestOptions"
+    },
+    "LogPublishingOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "patternProperties" : {
+        "[a-zA-Z0-9]+" : {
+          "$ref" : "#/definitions/LogPublishingOption"
+        }
+      }
+    },
+    "NodeToNodeEncryptionOptions" : {
+      "$ref" : "#/definitions/NodeToNodeEncryptionOptions"
+    },
+    "SnapshotOptions" : {
+      "$ref" : "#/definitions/SnapshotOptions"
+    },
+    "Tags" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    },
+    "VPCOptions" : {
+      "$ref" : "#/definitions/VPCOptions"
+    }
+  },
   "createOnlyProperties" : [ "/properties/DomainName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/DomainArn", "/properties/DomainEndpoint", "/properties/Arn" ]
+  "conditionalCreateOnlyProperties" : [ "/properties/AdvancedSecurityOptions", "/properties/ElasticsearchVersion", "/properties/EncryptionAtRestOptions", "/properties/NodeToNodeEncryptionOptions", "/properties/VPCOptions" ],
+  "primaryIdentifier" : [ "/properties/DomainName" ],
+  "writeOnlyProperties" : [ "/properties/AdvancedSecurityOptions/MasterUserOptions" ],
+  "readOnlyProperties" : [ "/properties/DomainArn", "/properties/DomainEndpoint", "/properties/Arn" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "es:AddTags", "es:RemoveTags", "es:ListTags" ]
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "acm:DescribeCertificate", "es:CreateElasticsearchDomain", "es:DescribeElasticsearchDomain", "es:AddTags", "es:ListTags" ]
+    },
+    "read" : {
+      "permissions" : [ "es:DescribeElasticsearchDomain", "es:ListTags" ]
+    },
+    "update" : {
+      "permissions" : [ "acm:DescribeCertificate", "es:UpgradeElasticsearchDomain", "es:UpdateElasticsearchDomainConfig", "es:DescribeElasticsearchDomain", "es:AddTags", "es:RemoveTags", "es:ListTags" ],
+      "timeoutInMinutes" : 270
+    },
+    "delete" : {
+      "permissions" : [ "es:DeleteElasticsearchDomain", "es:DescribeElasticsearchDomain" ]
+    },
+    "list" : {
+      "permissions" : [ "es:ListDomainNames", "es:DescribeElasticsearchDomains" ]
+    }
+  }
 }

@@ -9,9 +9,11 @@ import typing
 from ._enums import *
 from .association import *
 from .cloud_connector import *
+from .default_host_management_configuration import *
 from .document import *
 from .get_association import *
 from .get_cloud_connector import *
+from .get_default_host_management_configuration import *
 from .get_document import *
 from .get_maintenance_window import *
 from .get_maintenance_window_target import *

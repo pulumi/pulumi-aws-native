@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.DevOpsAgent
         public Output<string> AssociationId { get; private set; } = null!;
 
         /// <summary>
+        /// Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+        /// </summary>
+        [Output("capabilities")]
+        public Output<Outputs.AssociationCapabilities?> Capabilities { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration that directs how AgentSpace interacts with the given service
         /// </summary>
         [Output("configuration")]
@@ -111,6 +117,12 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// </summary>
         [Input("agentSpaceId", required: true)]
         public Input<string> AgentSpaceId { get; set; } = null!;
+
+        /// <summary>
+        /// Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+        /// </summary>
+        [Input("capabilities")]
+        public Input<Inputs.AssociationCapabilitiesArgs>? Capabilities { get; set; }
 
         /// <summary>
         /// The configuration that directs how AgentSpace interacts with the given service

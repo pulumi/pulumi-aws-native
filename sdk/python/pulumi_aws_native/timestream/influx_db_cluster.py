@@ -31,6 +31,7 @@ class InfluxDbClusterArgs:
                  db_storage_type: pulumi.Input[Optional['InfluxDbClusterDbStorageType']] = None,
                  deployment_type: pulumi.Input[Optional['InfluxDbClusterDeploymentType']] = None,
                  failover_mode: pulumi.Input[Optional['InfluxDbClusterFailoverMode']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_configuration: pulumi.Input[Optional['LogDeliveryConfigurationPropertiesArgs']] = None,
                  maintenance_schedule: pulumi.Input[Optional['InfluxDbClusterMaintenanceScheduleArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -53,6 +54,7 @@ class InfluxDbClusterArgs:
         :param pulumi.Input['InfluxDbClusterDbStorageType'] db_storage_type: The storage type of the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterDeploymentType'] deployment_type: Deployment type of the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterFailoverMode'] failover_mode: Failover mode of the InfluxDB cluster.
+        :param pulumi.Input[_builtins.str] kms_key_id: The customer managed key used to encrypt data in the InfluxDB cluster.
         :param pulumi.Input['LogDeliveryConfigurationPropertiesArgs'] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterMaintenanceScheduleArgs'] maintenance_schedule: The maintenance schedule for the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] name: The unique name that is associated with the InfluxDB cluster.
@@ -80,6 +82,8 @@ class InfluxDbClusterArgs:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if failover_mode is not None:
             pulumi.set(__self__, "failover_mode", failover_mode)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_delivery_configuration is not None:
             pulumi.set(__self__, "log_delivery_configuration", log_delivery_configuration)
         if maintenance_schedule is not None:
@@ -188,6 +192,18 @@ class InfluxDbClusterArgs:
     @failover_mode.setter
     def failover_mode(self, value: pulumi.Input[Optional['InfluxDbClusterFailoverMode']]):
         pulumi.set(self, "failover_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The customer managed key used to encrypt data in the InfluxDB cluster.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logDeliveryConfiguration")
@@ -347,6 +363,7 @@ class InfluxDbCluster(pulumi.CustomResource):
                  db_storage_type: pulumi.Input[Optional['InfluxDbClusterDbStorageType']] = None,
                  deployment_type: pulumi.Input[Optional['InfluxDbClusterDeploymentType']] = None,
                  failover_mode: pulumi.Input[Optional['InfluxDbClusterFailoverMode']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_configuration: pulumi.Input[Optional[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict', 'outputs.LogDeliveryConfigurationProperties']]] = None,
                  maintenance_schedule: pulumi.Input[Optional[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict', 'outputs.InfluxDbClusterMaintenanceSchedule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -372,6 +389,7 @@ class InfluxDbCluster(pulumi.CustomResource):
         :param pulumi.Input['InfluxDbClusterDbStorageType'] db_storage_type: The storage type of the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterDeploymentType'] deployment_type: Deployment type of the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterFailoverMode'] failover_mode: Failover mode of the InfluxDB cluster.
+        :param pulumi.Input[_builtins.str] kms_key_id: The customer managed key used to encrypt data in the InfluxDB cluster.
         :param pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict', 'outputs.LogDeliveryConfigurationProperties']] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB cluster.
         :param pulumi.Input[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict', 'outputs.InfluxDbClusterMaintenanceSchedule']] maintenance_schedule: The maintenance schedule for the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] name: The unique name that is associated with the InfluxDB cluster.
@@ -416,6 +434,7 @@ class InfluxDbCluster(pulumi.CustomResource):
                  db_storage_type: pulumi.Input[Optional['InfluxDbClusterDbStorageType']] = None,
                  deployment_type: pulumi.Input[Optional['InfluxDbClusterDeploymentType']] = None,
                  failover_mode: pulumi.Input[Optional['InfluxDbClusterFailoverMode']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_configuration: pulumi.Input[Optional[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict', 'outputs.LogDeliveryConfigurationProperties']]] = None,
                  maintenance_schedule: pulumi.Input[Optional[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict', 'outputs.InfluxDbClusterMaintenanceSchedule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -444,6 +463,7 @@ class InfluxDbCluster(pulumi.CustomResource):
             __props__.__dict__["db_storage_type"] = db_storage_type
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["failover_mode"] = failover_mode
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_delivery_configuration"] = log_delivery_configuration
             __props__.__dict__["maintenance_schedule"] = maintenance_schedule
             __props__.__dict__["name"] = name
@@ -458,13 +478,16 @@ class InfluxDbCluster(pulumi.CustomResource):
             __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["effective_db_parameter_group_identifier"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["engine_type"] = None
             __props__.__dict__["influx_auth_parameters_secret_arn"] = None
+            __props__.__dict__["member_count"] = None
+            __props__.__dict__["member_mode_counts"] = None
             __props__.__dict__["next_maintenance_time"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocatedStorage", "bucket", "dbStorageType", "deploymentType", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocatedStorage", "bucket", "dbStorageType", "deploymentType", "kmsKeyId", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InfluxDbCluster, __self__).__init__(
             'aws-native:timestream:InfluxDbCluster',
@@ -496,12 +519,16 @@ class InfluxDbCluster(pulumi.CustomResource):
         __props__.__dict__["db_parameter_group_identifier"] = None
         __props__.__dict__["db_storage_type"] = None
         __props__.__dict__["deployment_type"] = None
+        __props__.__dict__["effective_db_parameter_group_identifier"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["engine_type"] = None
         __props__.__dict__["failover_mode"] = None
         __props__.__dict__["influx_auth_parameters_secret_arn"] = None
+        __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["log_delivery_configuration"] = None
         __props__.__dict__["maintenance_schedule"] = None
+        __props__.__dict__["member_count"] = None
+        __props__.__dict__["member_mode_counts"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_type"] = None
         __props__.__dict__["next_maintenance_time"] = None
@@ -588,6 +615,14 @@ class InfluxDbCluster(pulumi.CustomResource):
         return pulumi.get(self, "deployment_type")
 
     @_builtins.property
+    @pulumi.getter(name="effectiveDbParameterGroupIdentifier")
+    def effective_db_parameter_group_identifier(self) -> pulumi.Output[_builtins.str]:
+        """
+        The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+        """
+        return pulumi.get(self, "effective_db_parameter_group_identifier")
+
+    @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
         """
@@ -620,6 +655,14 @@ class InfluxDbCluster(pulumi.CustomResource):
         return pulumi.get(self, "influx_auth_parameters_secret_arn")
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The customer managed key used to encrypt data in the InfluxDB cluster.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
     @pulumi.getter(name="logDeliveryConfiguration")
     def log_delivery_configuration(self) -> pulumi.Output[Optional['outputs.LogDeliveryConfigurationProperties']]:
         """
@@ -634,6 +677,22 @@ class InfluxDbCluster(pulumi.CustomResource):
         The maintenance schedule for the InfluxDB cluster.
         """
         return pulumi.get(self, "maintenance_schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="memberCount")
+    def member_count(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of DB instances that belong to the InfluxDB cluster.
+        """
+        return pulumi.get(self, "member_count")
+
+    @_builtins.property
+    @pulumi.getter(name="memberModeCounts")
+    def member_mode_counts(self) -> pulumi.Output[Sequence['outputs.InfluxDbClusterMemberModeCount']]:
+        """
+        DB cluster member counts grouped by instance mode.
+        """
+        return pulumi.get(self, "member_mode_counts")
 
     @_builtins.property
     @pulumi.getter

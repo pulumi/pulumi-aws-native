@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public readonly string? SuccessRedirectionUrl;
         /// <summary>
-        /// The tags (keys and values) associated with the tenant.
+        /// The tags (keys and values) associated with the custom verification email template.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

@@ -89,6 +89,10 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// Key Management Service key used to encrypt the collection.
         /// </summary>
         public readonly string? KmsKeyArn;
+        /// <summary>
+        /// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.CollectionVectorOptions? VectorOptions;
 
         [OutputConstructor]
@@ -109,6 +113,8 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
             string? kmsKeyArn,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.CollectionVectorOptions? vectorOptions)
         {
             Arn = arn;
@@ -119,6 +125,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
             FipsEndpoints = fipsEndpoints;
             Id = id;
             KmsKeyArn = kmsKeyArn;
+            Tags = tags;
             VectorOptions = vectorOptions;
         }
     }

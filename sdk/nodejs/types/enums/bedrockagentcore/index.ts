@@ -545,6 +545,7 @@ export type HarnessNetworkConfigurationNetworkMode = (typeof HarnessNetworkConfi
 export const HarnessOAuthCredentialProviderGrantType = {
     ClientCredentials: "CLIENT_CREDENTIALS",
     AuthorizationCode: "AUTHORIZATION_CODE",
+    TokenExchange: "TOKEN_EXCHANGE",
 } as const;
 
 export type HarnessOAuthCredentialProviderGrantType = (typeof HarnessOAuthCredentialProviderGrantType)[keyof typeof HarnessOAuthCredentialProviderGrantType];
@@ -1070,13 +1071,13 @@ export const PaymentManagerAuthorizerType = {
  */
 export type PaymentManagerAuthorizerType = (typeof PaymentManagerAuthorizerType)[keyof typeof PaymentManagerAuthorizerType];
 
-export const PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator = {
+export const PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator = {
     Equals: "EQUALS",
     Contains: "CONTAINS",
     ContainsAny: "CONTAINS_ANY",
 } as const;
 
-export type PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator = (typeof PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator)[keyof typeof PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator];
+export type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator = (typeof PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator)[keyof typeof PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator];
 
 export const PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType = {
     String: "STRING",

@@ -32,6 +32,8 @@ type LookupAssociationArgs struct {
 type LookupAssociationResult struct {
 	// The unique identifier of the association
 	AssociationId *string `pulumi:"associationId"`
+	// Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+	Capabilities *AssociationCapabilities `pulumi:"capabilities"`
 	// The configuration that directs how AgentSpace interacts with the given service
 	Configuration *AssociationServiceConfiguration `pulumi:"configuration"`
 	// The timestamp when the association was created
@@ -75,6 +77,11 @@ func (o LookupAssociationResultOutput) ToLookupAssociationResultOutputWithContex
 // The unique identifier of the association
 func (o LookupAssociationResultOutput) AssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
+}
+
+// Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+func (o LookupAssociationResultOutput) Capabilities() AssociationCapabilitiesPtrOutput {
+	return o.ApplyT(func(v LookupAssociationResult) *AssociationCapabilities { return v.Capabilities }).(AssociationCapabilitiesPtrOutput)
 }
 
 // The configuration that directs how AgentSpace interacts with the given service

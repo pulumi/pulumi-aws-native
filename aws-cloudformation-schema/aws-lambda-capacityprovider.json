@@ -319,7 +319,8 @@
       "permissions" : [ "lambda:UpdateCapacityProvider", "lambda:TagResource", "lambda:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "lambda:DeleteCapacityProvider", "lambda:GetCapacityProvider" ]
+      "permissions" : [ "lambda:DeleteCapacityProvider", "lambda:GetCapacityProvider" ],
+      "timeoutInMinutes" : 150
     },
     "list" : {
       "handlerSchema" : {

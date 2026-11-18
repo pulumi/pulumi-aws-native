@@ -2483,6 +2483,95 @@ func (o UserPoolClientRefreshTokenRotationPtrOutput) RetryGracePeriodSeconds() p
 	}).(pulumi.IntPtrOutput)
 }
 
+// Managed login single sign-on session settings for the app client.
+type UserPoolClientSessionConfigurationAttachmentSsoSession struct {
+	// The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+	MaxValidityMinutes int `pulumi:"maxValidityMinutes"`
+}
+
+// UserPoolClientSessionConfigurationAttachmentSsoSessionInput is an input type that accepts UserPoolClientSessionConfigurationAttachmentSsoSessionArgs and UserPoolClientSessionConfigurationAttachmentSsoSessionOutput values.
+// You can construct a concrete instance of `UserPoolClientSessionConfigurationAttachmentSsoSessionInput` via:
+//
+//	UserPoolClientSessionConfigurationAttachmentSsoSessionArgs{...}
+type UserPoolClientSessionConfigurationAttachmentSsoSessionInput interface {
+	pulumi.Input
+
+	ToUserPoolClientSessionConfigurationAttachmentSsoSessionOutput() UserPoolClientSessionConfigurationAttachmentSsoSessionOutput
+	ToUserPoolClientSessionConfigurationAttachmentSsoSessionOutputWithContext(context.Context) UserPoolClientSessionConfigurationAttachmentSsoSessionOutput
+}
+
+// Managed login single sign-on session settings for the app client.
+type UserPoolClientSessionConfigurationAttachmentSsoSessionArgs struct {
+	// The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+	MaxValidityMinutes pulumi.IntInput `pulumi:"maxValidityMinutes"`
+}
+
+func (UserPoolClientSessionConfigurationAttachmentSsoSessionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientSessionConfigurationAttachmentSsoSession)(nil)).Elem()
+}
+
+func (i UserPoolClientSessionConfigurationAttachmentSsoSessionArgs) ToUserPoolClientSessionConfigurationAttachmentSsoSessionOutput() UserPoolClientSessionConfigurationAttachmentSsoSessionOutput {
+	return i.ToUserPoolClientSessionConfigurationAttachmentSsoSessionOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientSessionConfigurationAttachmentSsoSessionArgs) ToUserPoolClientSessionConfigurationAttachmentSsoSessionOutputWithContext(ctx context.Context) UserPoolClientSessionConfigurationAttachmentSsoSessionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientSessionConfigurationAttachmentSsoSessionOutput)
+}
+
+// Managed login single sign-on session settings for the app client.
+type UserPoolClientSessionConfigurationAttachmentSsoSessionOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientSessionConfigurationAttachmentSsoSessionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientSessionConfigurationAttachmentSsoSession)(nil)).Elem()
+}
+
+func (o UserPoolClientSessionConfigurationAttachmentSsoSessionOutput) ToUserPoolClientSessionConfigurationAttachmentSsoSessionOutput() UserPoolClientSessionConfigurationAttachmentSsoSessionOutput {
+	return o
+}
+
+func (o UserPoolClientSessionConfigurationAttachmentSsoSessionOutput) ToUserPoolClientSessionConfigurationAttachmentSsoSessionOutputWithContext(ctx context.Context) UserPoolClientSessionConfigurationAttachmentSsoSessionOutput {
+	return o
+}
+
+// The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+func (o UserPoolClientSessionConfigurationAttachmentSsoSessionOutput) MaxValidityMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v UserPoolClientSessionConfigurationAttachmentSsoSession) int { return v.MaxValidityMinutes }).(pulumi.IntOutput)
+}
+
+type UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientSessionConfigurationAttachmentSsoSession)(nil)).Elem()
+}
+
+func (o UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput) ToUserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput() UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput {
+	return o
+}
+
+func (o UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput) ToUserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutputWithContext(ctx context.Context) UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput {
+	return o
+}
+
+func (o UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput) Elem() UserPoolClientSessionConfigurationAttachmentSsoSessionOutput {
+	return o.ApplyT(func(v *UserPoolClientSessionConfigurationAttachmentSsoSession) UserPoolClientSessionConfigurationAttachmentSsoSession {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolClientSessionConfigurationAttachmentSsoSession
+		return ret
+	}).(UserPoolClientSessionConfigurationAttachmentSsoSessionOutput)
+}
+
+// The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+func (o UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput) MaxValidityMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientSessionConfigurationAttachmentSsoSession) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxValidityMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 type UserPoolClientTokenValidityUnits struct {
 	// A time unit for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is `hours` . `AccessTokenValidity` duration can range from five minutes to one day.
 	AccessToken *string `pulumi:"accessToken"`
@@ -9168,6 +9257,95 @@ func (o UserPoolSchemaAttributeArrayOutput) Index(i pulumi.IntInput) UserPoolSch
 	}).(UserPoolSchemaAttributeOutput)
 }
 
+// Token session settings that apply to every app client in the user pool.
+type UserPoolSessionConfigurationAttachmentTokenSession struct {
+	// The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+	MaxPerUser int `pulumi:"maxPerUser"`
+}
+
+// UserPoolSessionConfigurationAttachmentTokenSessionInput is an input type that accepts UserPoolSessionConfigurationAttachmentTokenSessionArgs and UserPoolSessionConfigurationAttachmentTokenSessionOutput values.
+// You can construct a concrete instance of `UserPoolSessionConfigurationAttachmentTokenSessionInput` via:
+//
+//	UserPoolSessionConfigurationAttachmentTokenSessionArgs{...}
+type UserPoolSessionConfigurationAttachmentTokenSessionInput interface {
+	pulumi.Input
+
+	ToUserPoolSessionConfigurationAttachmentTokenSessionOutput() UserPoolSessionConfigurationAttachmentTokenSessionOutput
+	ToUserPoolSessionConfigurationAttachmentTokenSessionOutputWithContext(context.Context) UserPoolSessionConfigurationAttachmentTokenSessionOutput
+}
+
+// Token session settings that apply to every app client in the user pool.
+type UserPoolSessionConfigurationAttachmentTokenSessionArgs struct {
+	// The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+	MaxPerUser pulumi.IntInput `pulumi:"maxPerUser"`
+}
+
+func (UserPoolSessionConfigurationAttachmentTokenSessionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSessionConfigurationAttachmentTokenSession)(nil)).Elem()
+}
+
+func (i UserPoolSessionConfigurationAttachmentTokenSessionArgs) ToUserPoolSessionConfigurationAttachmentTokenSessionOutput() UserPoolSessionConfigurationAttachmentTokenSessionOutput {
+	return i.ToUserPoolSessionConfigurationAttachmentTokenSessionOutputWithContext(context.Background())
+}
+
+func (i UserPoolSessionConfigurationAttachmentTokenSessionArgs) ToUserPoolSessionConfigurationAttachmentTokenSessionOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentTokenSessionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSessionConfigurationAttachmentTokenSessionOutput)
+}
+
+// Token session settings that apply to every app client in the user pool.
+type UserPoolSessionConfigurationAttachmentTokenSessionOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSessionConfigurationAttachmentTokenSessionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSessionConfigurationAttachmentTokenSession)(nil)).Elem()
+}
+
+func (o UserPoolSessionConfigurationAttachmentTokenSessionOutput) ToUserPoolSessionConfigurationAttachmentTokenSessionOutput() UserPoolSessionConfigurationAttachmentTokenSessionOutput {
+	return o
+}
+
+func (o UserPoolSessionConfigurationAttachmentTokenSessionOutput) ToUserPoolSessionConfigurationAttachmentTokenSessionOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentTokenSessionOutput {
+	return o
+}
+
+// The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+func (o UserPoolSessionConfigurationAttachmentTokenSessionOutput) MaxPerUser() pulumi.IntOutput {
+	return o.ApplyT(func(v UserPoolSessionConfigurationAttachmentTokenSession) int { return v.MaxPerUser }).(pulumi.IntOutput)
+}
+
+type UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolSessionConfigurationAttachmentTokenSession)(nil)).Elem()
+}
+
+func (o UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput) ToUserPoolSessionConfigurationAttachmentTokenSessionPtrOutput() UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput {
+	return o
+}
+
+func (o UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput) ToUserPoolSessionConfigurationAttachmentTokenSessionPtrOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput {
+	return o
+}
+
+func (o UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput) Elem() UserPoolSessionConfigurationAttachmentTokenSessionOutput {
+	return o.ApplyT(func(v *UserPoolSessionConfigurationAttachmentTokenSession) UserPoolSessionConfigurationAttachmentTokenSession {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolSessionConfigurationAttachmentTokenSession
+		return ret
+	}).(UserPoolSessionConfigurationAttachmentTokenSessionOutput)
+}
+
+// The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+func (o UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput) MaxPerUser() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolSessionConfigurationAttachmentTokenSession) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPerUser
+	}).(pulumi.IntPtrOutput)
+}
+
 type UserPoolSignInPolicy struct {
 	// The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
 	//
@@ -10360,6 +10538,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientAnalyticsConfigurationPtrInput)(nil)).Elem(), UserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationPtrInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientSessionConfigurationAttachmentSsoSessionInput)(nil)).Elem(), UserPoolClientSessionConfigurationAttachmentSsoSessionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientTokenValidityUnitsInput)(nil)).Elem(), UserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientTokenValidityUnitsPtrInput)(nil)).Elem(), UserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomEmailSenderInput)(nil)).Elem(), UserPoolCustomEmailSenderArgs{})
@@ -10434,6 +10613,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrInput)(nil)).Elem(), UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSchemaAttributeInput)(nil)).Elem(), UserPoolSchemaAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSchemaAttributeArrayInput)(nil)).Elem(), UserPoolSchemaAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSessionConfigurationAttachmentTokenSessionInput)(nil)).Elem(), UserPoolSessionConfigurationAttachmentTokenSessionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSignInPolicyInput)(nil)).Elem(), UserPoolSignInPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSignInPolicyPtrInput)(nil)).Elem(), UserPoolSignInPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSmsConfigurationInput)(nil)).Elem(), UserPoolSmsConfigurationArgs{})
@@ -10482,6 +10662,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationOutput{})
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolClientSessionConfigurationAttachmentSsoSessionOutput{})
+	pulumi.RegisterOutputType(UserPoolClientSessionConfigurationAttachmentSsoSessionPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsOutput{})
 	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolCustomEmailSenderOutput{})
@@ -10556,6 +10738,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSchemaAttributeOutput{})
 	pulumi.RegisterOutputType(UserPoolSchemaAttributeArrayOutput{})
+	pulumi.RegisterOutputType(UserPoolSessionConfigurationAttachmentTokenSessionOutput{})
+	pulumi.RegisterOutputType(UserPoolSessionConfigurationAttachmentTokenSessionPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSignInPolicyOutput{})
 	pulumi.RegisterOutputType(UserPoolSignInPolicyPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSmsConfigurationOutput{})

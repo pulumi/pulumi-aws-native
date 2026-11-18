@@ -5,7 +5,7 @@
   "definitions" : {
     "TopicRuleDestinationStatus" : {
       "type" : "string",
-      "enum" : [ "ENABLED", "IN_PROGRESS", "DISABLED" ]
+      "enum" : [ "ENABLED", "IN_PROGRESS", "DISABLED", "ERROR" ]
     },
     "HttpUrlDestinationSummary" : {
       "type" : "object",

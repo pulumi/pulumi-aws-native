@@ -17,7 +17,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'InfluxDbBackupClusterConfiguration',
+    'InfluxDbBackupLogDeliveryConfiguration',
+    'InfluxDbBackupMaintenanceSchedule',
+    'InfluxDbBackupS3Configuration',
     'InfluxDbClusterMaintenanceSchedule',
+    'InfluxDbClusterMemberModeCount',
     'InfluxDbInstanceMaintenanceSchedule',
     'LogDeliveryConfigurationProperties',
     'LogDeliveryConfigurationPropertiesS3ConfigurationProperties',
@@ -39,6 +44,212 @@ __all__ = [
     'SchemaProperties',
     'TablePartitionKey',
 ]
+
+@pulumi.output_type
+class InfluxDbBackupClusterConfiguration(dict):
+    """
+    The cluster configuration of the resource at the time of backup.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dedicatedCompactor":
+            suggest = "dedicated_compactor"
+        elif key == "ingestQueryInstances":
+            suggest = "ingest_query_instances"
+        elif key == "queryOnlyInstances":
+            suggest = "query_only_instances"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfluxDbBackupClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfluxDbBackupClusterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfluxDbBackupClusterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dedicated_compactor: Optional[_builtins.bool] = None,
+                 ingest_query_instances: Optional[_builtins.int] = None,
+                 query_only_instances: Optional[_builtins.int] = None):
+        """
+        The cluster configuration of the resource at the time of backup.
+
+        :param _builtins.bool dedicated_compactor: Indicates if the compactor instance is a standalone instance or not.
+        :param _builtins.int ingest_query_instances: The number of ingest and query instances in the cluster.
+        :param _builtins.int query_only_instances: The number of query-only instances in the cluster.
+        """
+        if dedicated_compactor is not None:
+            pulumi.set(__self__, "dedicated_compactor", dedicated_compactor)
+        if ingest_query_instances is not None:
+            pulumi.set(__self__, "ingest_query_instances", ingest_query_instances)
+        if query_only_instances is not None:
+            pulumi.set(__self__, "query_only_instances", query_only_instances)
+
+    @_builtins.property
+    @pulumi.getter(name="dedicatedCompactor")
+    def dedicated_compactor(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if the compactor instance is a standalone instance or not.
+        """
+        return pulumi.get(self, "dedicated_compactor")
+
+    @_builtins.property
+    @pulumi.getter(name="ingestQueryInstances")
+    def ingest_query_instances(self) -> Optional[_builtins.int]:
+        """
+        The number of ingest and query instances in the cluster.
+        """
+        return pulumi.get(self, "ingest_query_instances")
+
+    @_builtins.property
+    @pulumi.getter(name="queryOnlyInstances")
+    def query_only_instances(self) -> Optional[_builtins.int]:
+        """
+        The number of query-only instances in the cluster.
+        """
+        return pulumi.get(self, "query_only_instances")
+
+
+@pulumi.output_type
+class InfluxDbBackupLogDeliveryConfiguration(dict):
+    """
+    The log delivery configuration of the resource at the time of backup.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfluxDbBackupLogDeliveryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfluxDbBackupLogDeliveryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfluxDbBackupLogDeliveryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_configuration: 'outputs.InfluxDbBackupS3Configuration'):
+        """
+        The log delivery configuration of the resource at the time of backup.
+        """
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.InfluxDbBackupS3Configuration':
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class InfluxDbBackupMaintenanceSchedule(dict):
+    """
+    The maintenance schedule of the resource at the time of backup.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredMaintenanceWindow":
+            suggest = "preferred_maintenance_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfluxDbBackupMaintenanceSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfluxDbBackupMaintenanceSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfluxDbBackupMaintenanceSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preferred_maintenance_window: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        The maintenance schedule of the resource at the time of backup.
+
+        :param _builtins.str preferred_maintenance_window: The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM.
+        :param _builtins.str timezone: The IANA timezone identifier for the maintenance window.
+        """
+        pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> _builtins.str:
+        """
+        The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM.
+        """
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        The IANA timezone identifier for the maintenance window.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class InfluxDbBackupS3Configuration(dict):
+    """
+    Configuration for S3 bucket log delivery.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfluxDbBackupS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfluxDbBackupS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfluxDbBackupS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: _builtins.str,
+                 enabled: _builtins.bool):
+        """
+        Configuration for S3 bucket log delivery.
+
+        :param _builtins.str bucket_name: The name of the S3 bucket to deliver logs to.
+        :param _builtins.bool enabled: Indicates whether log delivery to the S3 bucket is enabled.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> _builtins.str:
+        """
+        The name of the S3 bucket to deliver logs to.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Indicates whether log delivery to the S3 bucket is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class InfluxDbClusterMaintenanceSchedule(dict):
@@ -89,6 +300,40 @@ class InfluxDbClusterMaintenanceSchedule(dict):
         The IANA timezone identifier for the maintenance schedule.
         """
         return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class InfluxDbClusterMemberModeCount(dict):
+    """
+    The number of DB cluster members reporting one instance mode.
+    """
+    def __init__(__self__, *,
+                 count: _builtins.int,
+                 mode: 'InfluxDbClusterMemberModeCountMode'):
+        """
+        The number of DB cluster members reporting one instance mode.
+
+        :param _builtins.int count: The number of DB cluster members reporting this instance mode.
+        :param 'InfluxDbClusterMemberModeCountMode' mode: The instance mode reported by DB cluster members.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> _builtins.int:
+        """
+        The number of DB cluster members reporting this instance mode.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> 'InfluxDbClusterMemberModeCountMode':
+        """
+        The instance mode reported by DB cluster members.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

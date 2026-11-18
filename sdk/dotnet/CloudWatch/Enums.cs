@@ -261,6 +261,196 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
     /// <summary>
+    /// The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertConditionComparator : IEquatable<AlertConditionComparator>
+    {
+        private readonly string _value;
+
+        private AlertConditionComparator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertConditionComparator Gt { get; } = new AlertConditionComparator("GT");
+        public static AlertConditionComparator Lt { get; } = new AlertConditionComparator("LT");
+        public static AlertConditionComparator Gte { get; } = new AlertConditionComparator("GTE");
+        public static AlertConditionComparator Lte { get; } = new AlertConditionComparator("LTE");
+
+        public static bool operator ==(AlertConditionComparator left, AlertConditionComparator right) => left.Equals(right);
+        public static bool operator !=(AlertConditionComparator left, AlertConditionComparator right) => !left.Equals(right);
+
+        public static explicit operator string(AlertConditionComparator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertConditionComparator other && Equals(other);
+        public bool Equals(AlertConditionComparator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertConditionThresholdMode : IEquatable<AlertConditionThresholdMode>
+    {
+        private readonly string _value;
+
+        private AlertConditionThresholdMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertConditionThresholdMode CountOfResults { get; } = new AlertConditionThresholdMode("COUNT_OF_RESULTS");
+        public static AlertConditionThresholdMode FieldValue { get; } = new AlertConditionThresholdMode("FIELD_VALUE");
+
+        public static bool operator ==(AlertConditionThresholdMode left, AlertConditionThresholdMode right) => left.Equals(right);
+        public static bool operator !=(AlertConditionThresholdMode left, AlertConditionThresholdMode right) => !left.Equals(right);
+
+        public static explicit operator string(AlertConditionThresholdMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertConditionThresholdMode other && Equals(other);
+        public bool Equals(AlertConditionThresholdMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertNoDataTreatAs : IEquatable<AlertNoDataTreatAs>
+    {
+        private readonly string _value;
+
+        private AlertNoDataTreatAs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertNoDataTreatAs Ok { get; } = new AlertNoDataTreatAs("OK");
+        public static AlertNoDataTreatAs Warning { get; } = new AlertNoDataTreatAs("WARNING");
+        public static AlertNoDataTreatAs Critical { get; } = new AlertNoDataTreatAs("CRITICAL");
+        public static AlertNoDataTreatAs Nodata { get; } = new AlertNoDataTreatAs("NODATA");
+
+        public static bool operator ==(AlertNoDataTreatAs left, AlertNoDataTreatAs right) => left.Equals(right);
+        public static bool operator !=(AlertNoDataTreatAs left, AlertNoDataTreatAs right) => !left.Equals(right);
+
+        public static explicit operator string(AlertNoDataTreatAs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertNoDataTreatAs other && Equals(other);
+        public bool Equals(AlertNoDataTreatAs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The query language. Valid values: SQL, PROMQL.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertQueryLanguage : IEquatable<AlertQueryLanguage>
+    {
+        private readonly string _value;
+
+        private AlertQueryLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertQueryLanguage Sql { get; } = new AlertQueryLanguage("SQL");
+        public static AlertQueryLanguage Promql { get; } = new AlertQueryLanguage("PROMQL");
+
+        public static bool operator ==(AlertQueryLanguage left, AlertQueryLanguage right) => left.Equals(right);
+        public static bool operator !=(AlertQueryLanguage left, AlertQueryLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(AlertQueryLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertQueryLanguage other && Equals(other);
+        public bool Equals(AlertQueryLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The target type. Valid values: sns, slack, pagerduty.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertTargetType : IEquatable<AlertTargetType>
+    {
+        private readonly string _value;
+
+        private AlertTargetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertTargetType Sns { get; } = new AlertTargetType("sns");
+        public static AlertTargetType Slack { get; } = new AlertTargetType("slack");
+        public static AlertTargetType Pagerduty { get; } = new AlertTargetType("pagerduty");
+
+        public static bool operator ==(AlertTargetType left, AlertTargetType right) => left.Equals(right);
+        public static bool operator !=(AlertTargetType left, AlertTargetType right) => !left.Equals(right);
+
+        public static explicit operator string(AlertTargetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertTargetType other && Equals(other);
+        public bool Equals(AlertTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AlertTriggerStateValuesItem : IEquatable<AlertTriggerStateValuesItem>
+    {
+        private readonly string _value;
+
+        private AlertTriggerStateValuesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertTriggerStateValuesItem Ok { get; } = new AlertTriggerStateValuesItem("OK");
+        public static AlertTriggerStateValuesItem Warning { get; } = new AlertTriggerStateValuesItem("WARNING");
+        public static AlertTriggerStateValuesItem Critical { get; } = new AlertTriggerStateValuesItem("CRITICAL");
+        public static AlertTriggerStateValuesItem Nodata { get; } = new AlertTriggerStateValuesItem("NODATA");
+
+        public static bool operator ==(AlertTriggerStateValuesItem left, AlertTriggerStateValuesItem right) => left.Equals(right);
+        public static bool operator !=(AlertTriggerStateValuesItem left, AlertTriggerStateValuesItem right) => !left.Equals(right);
+
+        public static explicit operator string(AlertTriggerStateValuesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertTriggerStateValuesItem other && Equals(other);
+        public bool Equals(AlertTriggerStateValuesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Who manages the grant.
     /// </summary>
     [EnumType]
@@ -570,6 +760,38 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
     /// <summary>
+    /// The query language of Expression.
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricDataQueryDefinitionType : IEquatable<MetricDataQueryDefinitionType>
+    {
+        private readonly string _value;
+
+        private MetricDataQueryDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricDataQueryDefinitionType Promql { get; } = new MetricDataQueryDefinitionType("PROMQL");
+        public static MetricDataQueryDefinitionType Sql { get; } = new MetricDataQueryDefinitionType("SQL");
+        public static MetricDataQueryDefinitionType MetricMath { get; } = new MetricDataQueryDefinitionType("METRIC_MATH");
+
+        public static bool operator ==(MetricDataQueryDefinitionType left, MetricDataQueryDefinitionType right) => left.Equals(right);
+        public static bool operator !=(MetricDataQueryDefinitionType left, MetricDataQueryDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(MetricDataQueryDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricDataQueryDefinitionType other && Equals(other);
+        public bool Equals(MetricDataQueryDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Current status of OTel enrichment (RUNNING or STOPPED).
     /// </summary>
     [EnumType]
@@ -601,7 +823,7 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
     /// <summary>
-    /// Whether the space is encrypted with an AWS owned key or a customer managed key.
+    /// Which kind of key to use. Required.
     /// </summary>
     [EnumType]
     public readonly struct SpaceEncryptionConfigurationEncryptionStrategy : IEquatable<SpaceEncryptionConfigurationEncryptionStrategy>

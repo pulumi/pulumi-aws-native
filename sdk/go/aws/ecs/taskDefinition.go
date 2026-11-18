@@ -365,7 +365,8 @@ type TaskDefinition struct {
 	// The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//  IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang.
-	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
+	TaskRoleArn                   pulumi.StringPtrOutput                               `pulumi:"taskRoleArn"`
+	TrustedExecutionConfiguration TaskDefinitionTrustedExecutionConfigurationPtrOutput `pulumi:"trustedExecutionConfiguration"`
 	// The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
 	Volumes TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
@@ -513,7 +514,8 @@ type taskDefinitionArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//  IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang.
-	TaskRoleArn *string `pulumi:"taskRoleArn"`
+	TaskRoleArn                   *string                                      `pulumi:"taskRoleArn"`
+	TrustedExecutionConfiguration *TaskDefinitionTrustedExecutionConfiguration `pulumi:"trustedExecutionConfiguration"`
 	// The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
@@ -597,7 +599,8 @@ type TaskDefinitionArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//  IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang.
-	TaskRoleArn pulumi.StringPtrInput
+	TaskRoleArn                   pulumi.StringPtrInput
+	TrustedExecutionConfiguration TaskDefinitionTrustedExecutionConfigurationPtrInput
 	// The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
 	Volumes TaskDefinitionVolumeArrayInput
@@ -781,6 +784,12 @@ func (o TaskDefinitionOutput) TaskDefinitionArn() pulumi.StringOutput {
 //	 String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang.
 func (o TaskDefinitionOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionOutput) TrustedExecutionConfiguration() TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+		return v.TrustedExecutionConfiguration
+	}).(TaskDefinitionTrustedExecutionConfigurationPtrOutput)
 }
 
 // The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.

@@ -527,7 +527,9 @@ func (o ListenerWeightedTargetGroupArrayOutput) Index(i pulumi.IntInput) Listene
 	}).(ListenerWeightedTargetGroupOutput)
 }
 
+// The CIDR ranges that make up a CIDR resource configuration. Only valid when ResourceConfigurationType is CIDR, and the resource gateway must have ResourceConfigDnsResolution set to IN_VPC.
 type ResourceConfigurationCidrResource struct {
+	// The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
 	CidrRanges []string `pulumi:"cidrRanges"`
 }
 
@@ -542,7 +544,9 @@ type ResourceConfigurationCidrResourceInput interface {
 	ToResourceConfigurationCidrResourceOutputWithContext(context.Context) ResourceConfigurationCidrResourceOutput
 }
 
+// The CIDR ranges that make up a CIDR resource configuration. Only valid when ResourceConfigurationType is CIDR, and the resource gateway must have ResourceConfigDnsResolution set to IN_VPC.
 type ResourceConfigurationCidrResourceArgs struct {
+	// The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
 	CidrRanges pulumi.StringArrayInput `pulumi:"cidrRanges"`
 }
 
@@ -599,6 +603,7 @@ func (i *resourceConfigurationCidrResourcePtrType) ToResourceConfigurationCidrRe
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationCidrResourcePtrOutput)
 }
 
+// The CIDR ranges that make up a CIDR resource configuration. Only valid when ResourceConfigurationType is CIDR, and the resource gateway must have ResourceConfigDnsResolution set to IN_VPC.
 type ResourceConfigurationCidrResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceConfigurationCidrResourceOutput) ElementType() reflect.Type {
@@ -623,6 +628,7 @@ func (o ResourceConfigurationCidrResourceOutput) ToResourceConfigurationCidrReso
 	}).(ResourceConfigurationCidrResourcePtrOutput)
 }
 
+// The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
 func (o ResourceConfigurationCidrResourceOutput) CidrRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceConfigurationCidrResource) []string { return v.CidrRanges }).(pulumi.StringArrayOutput)
 }
@@ -651,6 +657,7 @@ func (o ResourceConfigurationCidrResourcePtrOutput) Elem() ResourceConfiguration
 	}).(ResourceConfigurationCidrResourceOutput)
 }
 
+// The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
 func (o ResourceConfigurationCidrResourcePtrOutput) CidrRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceConfigurationCidrResource) []string {
 		if v == nil {

@@ -25,6 +25,8 @@ type Workflow struct {
 	OnExceptionSteps WorkflowStepArrayOutput `pulumi:"onExceptionSteps"`
 	// Specifies the details for the steps that are in the specified workflow.
 	Steps WorkflowStepArrayOutput `pulumi:"steps"`
+	// Specifies the log destinations for the workflow.
+	StructuredLogDestinations pulumi.StringArrayOutput `pulumi:"structuredLogDestinations"`
 	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A unique identifier for the workflow.
@@ -45,6 +47,7 @@ func NewWorkflow(ctx *pulumi.Context,
 		"description",
 		"onExceptionSteps[*]",
 		"steps[*]",
+		"structuredLogDestinations[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -92,6 +95,8 @@ type workflowArgs struct {
 	OnExceptionSteps []WorkflowStep `pulumi:"onExceptionSteps"`
 	// Specifies the details for the steps that are in the specified workflow.
 	Steps []WorkflowStep `pulumi:"steps"`
+	// Specifies the log destinations for the workflow.
+	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -104,6 +109,8 @@ type WorkflowArgs struct {
 	OnExceptionSteps WorkflowStepArrayInput
 	// Specifies the details for the steps that are in the specified workflow.
 	Steps WorkflowStepArrayInput
+	// Specifies the log destinations for the workflow.
+	StructuredLogDestinations pulumi.StringArrayInput
 	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
 	Tags aws.TagArrayInput
 }
@@ -163,6 +170,11 @@ func (o WorkflowOutput) OnExceptionSteps() WorkflowStepArrayOutput {
 // Specifies the details for the steps that are in the specified workflow.
 func (o WorkflowOutput) Steps() WorkflowStepArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowStepArrayOutput { return v.Steps }).(WorkflowStepArrayOutput)
+}
+
+// Specifies the log destinations for the workflow.
+func (o WorkflowOutput) StructuredLogDestinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringArrayOutput { return v.StructuredLogDestinations }).(pulumi.StringArrayOutput)
 }
 
 // Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.

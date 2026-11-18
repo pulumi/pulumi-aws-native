@@ -13,11 +13,53 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'ClusterMetricGroup',
     'EncryptionDetailsProperties',
     'MultiRegionPropertiesProperties',
 ]
+
+@pulumi.output_type
+class ClusterMetricGroup(dict):
+    """
+    An Advanced monitoring metric group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricGroup":
+            suggest = "metric_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMetricGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMetricGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMetricGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_group: 'ClusterMetricGroupMetricGroup'):
+        """
+        An Advanced monitoring metric group.
+
+        :param 'ClusterMetricGroupMetricGroup' metric_group: The name of the metric group. Valid values: STATEMENT_STATISTICS.
+        """
+        pulumi.set(__self__, "metric_group", metric_group)
+
+    @_builtins.property
+    @pulumi.getter(name="metricGroup")
+    def metric_group(self) -> 'ClusterMetricGroupMetricGroup':
+        """
+        The name of the metric group. Valid values: STATEMENT_STATISTICS.
+        """
+        return pulumi.get(self, "metric_group")
+
 
 @pulumi.output_type
 class EncryptionDetailsProperties(dict):

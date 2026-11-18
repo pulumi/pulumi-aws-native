@@ -342,6 +342,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      *   String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang.
      */
     declare public readonly taskRoleArn: pulumi.Output<string | undefined>;
+    declare public readonly trustedExecutionConfiguration: pulumi.Output<outputs.ecs.TaskDefinitionTrustedExecutionConfiguration | undefined>;
     /**
      * The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
@@ -376,6 +377,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["runtimePlatform"] = args?.runtimePlatform;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["taskRoleArn"] = args?.taskRoleArn;
+            resourceInputs["trustedExecutionConfiguration"] = args?.trustedExecutionConfiguration;
             resourceInputs["volumes"] = args?.volumes;
             resourceInputs["taskDefinitionArn"] = undefined /*out*/;
         } else {
@@ -397,6 +399,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["taskDefinitionArn"] = undefined /*out*/;
             resourceInputs["taskRoleArn"] = undefined /*out*/;
+            resourceInputs["trustedExecutionConfiguration"] = undefined /*out*/;
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -519,6 +522,7 @@ export interface TaskDefinitionArgs {
      *   String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang.
      */
     taskRoleArn?: pulumi.Input<string | undefined>;
+    trustedExecutionConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionTrustedExecutionConfigurationArgs | undefined>;
     /**
      * The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.

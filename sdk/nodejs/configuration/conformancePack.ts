@@ -95,6 +95,8 @@ export class ConformancePack extends pulumi.CustomResource {
      * The prefix for delivery S3 bucket.
      */
     declare public readonly deliveryS3KeyPrefix: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.configuration.ConformancePackScope | undefined>;
+    declare public readonly source: pulumi.Output<outputs.configuration.ConformancePackSource | undefined>;
     /**
      * The tags for the conformance pack.
      */
@@ -111,6 +113,7 @@ export class ConformancePack extends pulumi.CustomResource {
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
     declare public readonly templateSsmDocumentDetails: pulumi.Output<outputs.configuration.TemplateSsmDocumentDetailsProperties | undefined>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.configuration.ConformancePackType>;
 
     /**
      * Create a ConformancePack resource with the given unique name, arguments, and options.
@@ -127,24 +130,30 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["conformancePackName"] = args?.conformancePackName;
             resourceInputs["deliveryS3Bucket"] = args?.deliveryS3Bucket;
             resourceInputs["deliveryS3KeyPrefix"] = args?.deliveryS3KeyPrefix;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["source"] = args?.source;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["templateBody"] = args?.templateBody;
             resourceInputs["templateS3Uri"] = args?.templateS3Uri;
             resourceInputs["templateSsmDocumentDetails"] = args?.templateSsmDocumentDetails;
             resourceInputs["conformancePackArn"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["conformancePackArn"] = undefined /*out*/;
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["conformancePackName"] = undefined /*out*/;
             resourceInputs["deliveryS3Bucket"] = undefined /*out*/;
             resourceInputs["deliveryS3KeyPrefix"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateBody"] = undefined /*out*/;
             resourceInputs["templateS3Uri"] = undefined /*out*/;
             resourceInputs["templateSsmDocumentDetails"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["conformancePackName"] };
+        const replaceOnChanges = { replaceOnChanges: ["conformancePackName", "source"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConformancePack.__pulumiType, name, resourceInputs, opts);
     }
@@ -170,6 +179,8 @@ export interface ConformancePackArgs {
      * The prefix for delivery S3 bucket.
      */
     deliveryS3KeyPrefix?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<inputs.configuration.ConformancePackScopeArgs | undefined>;
+    source?: pulumi.Input<inputs.configuration.ConformancePackSourceArgs | undefined>;
     /**
      * The tags for the conformance pack.
      */

@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        [Output("filter")]
+        public Output<Outputs.CalculatedAttributeDefinitionFilter?> Filter { get; private set; } = null!;
+
         /// <summary>
         /// The timestamp of when the calculated attribute definition was most recently edited.
         /// </summary>
@@ -120,6 +123,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
                     "conditions.range.timestampFormat",
                     "conditions.range.timestampSource",
                     "domainName",
+                    "filter",
                     "statistic",
                     "useHistoricalData",
                 },
@@ -180,6 +184,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
+
+        [Input("filter")]
+        public Input<Inputs.CalculatedAttributeDefinitionFilterArgs>? Filter { get; set; }
 
         /// <summary>
         /// The aggregation operation to perform for the calculated attribute.

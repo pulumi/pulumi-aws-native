@@ -37,6 +37,7 @@ export interface GetResourceGatewayResult {
      * The number of IPv4 addresses to allocate per ENI for the resource gateway
      */
     readonly ipv4AddressesPerEni?: number;
+    readonly resourceConfigDnsResolution?: enums.vpclattice.ResourceGatewayResourceConfigDnsResolution;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
      */

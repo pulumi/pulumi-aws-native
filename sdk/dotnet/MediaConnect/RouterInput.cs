@@ -114,6 +114,9 @@ namespace Pulumi.AwsNative.MediaConnect
         [Output("state")]
         public Output<Pulumi.AwsNative.MediaConnect.RouterInputState> State { get; private set; } = null!;
 
+        [Output("streamDetails")]
+        public Output<object> StreamDetails { get; private set; } = null!;
+
         /// <summary>
         /// Key-value pairs that can be used to tag and organize this router input.
         /// </summary>

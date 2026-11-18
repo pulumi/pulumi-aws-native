@@ -100,6 +100,10 @@ export class Trail extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+     */
+    declare public readonly recursiveLogging: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
      */
     declare public readonly s3BucketName: pulumi.Output<string>;
@@ -159,6 +163,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isMultiRegionTrail"] = args?.isMultiRegionTrail;
             resourceInputs["isOrganizationTrail"] = args?.isOrganizationTrail;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["recursiveLogging"] = args?.recursiveLogging;
             resourceInputs["s3BucketName"] = args?.s3BucketName;
             resourceInputs["s3KeyPrefix"] = args?.s3KeyPrefix;
             resourceInputs["snsTopicName"] = args?.snsTopicName;
@@ -180,6 +185,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isMultiRegionTrail"] = undefined /*out*/;
             resourceInputs["isOrganizationTrail"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["recursiveLogging"] = undefined /*out*/;
             resourceInputs["s3BucketName"] = undefined /*out*/;
             resourceInputs["s3KeyPrefix"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;
@@ -246,6 +252,10 @@ export interface TrailArgs {
      * Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+     */
+    recursiveLogging?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
      */

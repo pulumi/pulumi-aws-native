@@ -87,6 +87,70 @@ export const AlarmMuteRuleStatus = {
  */
 export type AlarmMuteRuleStatus = (typeof AlarmMuteRuleStatus)[keyof typeof AlarmMuteRuleStatus];
 
+export const AlertConditionComparator = {
+    Gt: "GT",
+    Lt: "LT",
+    Gte: "GTE",
+    Lte: "LTE",
+} as const;
+
+/**
+ * The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+ */
+export type AlertConditionComparator = (typeof AlertConditionComparator)[keyof typeof AlertConditionComparator];
+
+export const AlertConditionThresholdMode = {
+    CountOfResults: "COUNT_OF_RESULTS",
+    FieldValue: "FIELD_VALUE",
+} as const;
+
+/**
+ * How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+ */
+export type AlertConditionThresholdMode = (typeof AlertConditionThresholdMode)[keyof typeof AlertConditionThresholdMode];
+
+export const AlertNoDataTreatAs = {
+    Ok: "OK",
+    Warning: "WARNING",
+    Critical: "CRITICAL",
+    Nodata: "NODATA",
+} as const;
+
+/**
+ * The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+ */
+export type AlertNoDataTreatAs = (typeof AlertNoDataTreatAs)[keyof typeof AlertNoDataTreatAs];
+
+export const AlertQueryLanguage = {
+    Sql: "SQL",
+    Promql: "PROMQL",
+} as const;
+
+/**
+ * The query language. Valid values: SQL, PROMQL.
+ */
+export type AlertQueryLanguage = (typeof AlertQueryLanguage)[keyof typeof AlertQueryLanguage];
+
+export const AlertTargetType = {
+    Sns: "sns",
+    Slack: "slack",
+    Pagerduty: "pagerduty",
+} as const;
+
+/**
+ * The target type. Valid values: sns, slack, pagerduty.
+ */
+export type AlertTargetType = (typeof AlertTargetType)[keyof typeof AlertTargetType];
+
+export const AlertTriggerStateValuesItem = {
+    Ok: "OK",
+    Warning: "WARNING",
+    Critical: "CRITICAL",
+    Nodata: "NODATA",
+} as const;
+
+export type AlertTriggerStateValuesItem = (typeof AlertTriggerStateValuesItem)[keyof typeof AlertTriggerStateValuesItem];
+
 export const DomainAccessGrantForOrganizationGrantType = {
     ServiceManaged: "SERVICE_MANAGED",
     CustomerManaged: "CUSTOMER_MANAGED",
@@ -186,6 +250,17 @@ export const IntegrationType = {
  */
 export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
 
+export const MetricDataQueryDefinitionType = {
+    Promql: "PROMQL",
+    Sql: "SQL",
+    MetricMath: "METRIC_MATH",
+} as const;
+
+/**
+ * The query language of Expression.
+ */
+export type MetricDataQueryDefinitionType = (typeof MetricDataQueryDefinitionType)[keyof typeof MetricDataQueryDefinitionType];
+
 export const OTelEnrichmentStatus = {
     Running: "RUNNING",
     Stopped: "STOPPED",
@@ -202,7 +277,7 @@ export const SpaceEncryptionConfigurationEncryptionStrategy = {
 } as const;
 
 /**
- * Whether the space is encrypted with an AWS owned key or a customer managed key.
+ * Which kind of key to use. Required.
  */
 export type SpaceEncryptionConfigurationEncryptionStrategy = (typeof SpaceEncryptionConfigurationEncryptionStrategy)[keyof typeof SpaceEncryptionConfigurationEncryptionStrategy];
 

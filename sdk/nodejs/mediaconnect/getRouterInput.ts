@@ -80,6 +80,7 @@ export interface GetRouterInputResult {
      * The current state of the router input.
      */
     readonly state?: enums.mediaconnect.RouterInputState;
+    readonly streamDetails?: outputs.mediaconnect.RouterInputStreamDetails0Properties | outputs.mediaconnect.RouterInputStreamDetails1Properties | outputs.mediaconnect.RouterInputStreamDetails2Properties | outputs.mediaconnect.RouterInputStreamDetails3Properties | outputs.mediaconnect.RouterInputStreamDetails4Properties | outputs.mediaconnect.RouterInputStreamDetails5Properties;
     /**
      * Key-value pairs that can be used to tag and organize this router input.
      */

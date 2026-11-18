@@ -14,12 +14,12 @@
     "ResourceType" : {
       "description" : "Resource Type associated with the Telemetry Rule",
       "type" : "string",
-      "enum" : [ "AWS::EC2::VPC", "AWS::WAFv2::WebACL", "AWS::CloudTrail", "AWS::EKS::Cluster", "AWS::ElasticLoadBalancingV2::LoadBalancer", "AWS::EC2::Instance", "AWS::BedrockAgentCore::Runtime", "AWS::BedrockAgentCore::Browser", "AWS::BedrockAgentCore::CodeInterpreter", "AWS::SecurityHub::Hub", "AWS::SecurityHub::HubV2", "AWS::S3::Bucket", "AWS::MSK::Cluster", "AWS::CloudFront::Distribution", "AWS::CloudWatch::OTelEnrichment", "AWS::Bedrock::KnowledgeBase", "AWS::BedrockAgentCore::Memory", "AWS::BedrockAgentCore::Gateway", "AWS::BedrockAgentCore::WorkloadIdentity" ]
+      "enum" : [ "AWS::EC2::VPC", "AWS::WAFv2::WebACL", "AWS::CloudTrail", "AWS::EKS::Cluster", "AWS::ElasticLoadBalancingV2::LoadBalancer", "AWS::EC2::Instance", "AWS::BedrockAgentCore::Runtime", "AWS::BedrockAgentCore::Browser", "AWS::BedrockAgentCore::CodeInterpreter", "AWS::SecurityHub::Hub", "AWS::SecurityHub::HubV2", "AWS::S3::Bucket", "AWS::MSK::Cluster", "AWS::CloudFront::Distribution", "AWS::CloudWatch::OTelEnrichment", "AWS::Bedrock::KnowledgeBase", "AWS::BedrockAgentCore::Memory", "AWS::BedrockAgentCore::Gateway", "AWS::BedrockAgentCore::WorkloadIdentity", "AWS::BedrockAgentCore::PaymentManager", "AWS::XRay::TransactionSearchConfig" ]
     },
     "TelemetryType" : {
       "description" : "Telemetry Type associated with the Telemetry Rule",
       "type" : "string",
-      "enum" : [ "Logs", "Traces", "Metrics" ]
+      "enum" : [ "Logs", "Traces", "Metrics", "Insights" ]
     },
     "Scope" : {
       "description" : "Selection Criteria on scope level for rule application",

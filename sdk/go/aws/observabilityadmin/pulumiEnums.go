@@ -1863,6 +1863,7 @@ const (
 	OrganizationTelemetryRuleResourceTypeAwsmskCluster                         = OrganizationTelemetryRuleResourceType("AWS::MSK::Cluster")
 	OrganizationTelemetryRuleResourceTypeAwsCloudFrontDistribution             = OrganizationTelemetryRuleResourceType("AWS::CloudFront::Distribution")
 	OrganizationTelemetryRuleResourceTypeAwsCloudWatchOTelEnrichment           = OrganizationTelemetryRuleResourceType("AWS::CloudWatch::OTelEnrichment")
+	OrganizationTelemetryRuleResourceTypeAwsxRayTransactionSearchConfig        = OrganizationTelemetryRuleResourceType("AWS::XRay::TransactionSearchConfig")
 )
 
 func (OrganizationTelemetryRuleResourceType) ElementType() reflect.Type {
@@ -1999,6 +2000,7 @@ func (o OrganizationTelemetryRuleResourceTypePtrOutput) ToStringPtrOutputWithCon
 //	OrganizationTelemetryRuleResourceTypeAwsmskCluster
 //	OrganizationTelemetryRuleResourceTypeAwsCloudFrontDistribution
 //	OrganizationTelemetryRuleResourceTypeAwsCloudWatchOTelEnrichment
+//	OrganizationTelemetryRuleResourceTypeAwsxRayTransactionSearchConfig
 type OrganizationTelemetryRuleResourceTypeInput interface {
 	pulumi.Input
 
@@ -2478,8 +2480,10 @@ func (o OrganizationTelemetryRuleTelemetrySourceTypeArrayOutput) Index(i pulumi.
 type OrganizationTelemetryRuleTelemetryType string
 
 const (
-	OrganizationTelemetryRuleTelemetryTypeLogs    = OrganizationTelemetryRuleTelemetryType("Logs")
-	OrganizationTelemetryRuleTelemetryTypeMetrics = OrganizationTelemetryRuleTelemetryType("Metrics")
+	OrganizationTelemetryRuleTelemetryTypeLogs     = OrganizationTelemetryRuleTelemetryType("Logs")
+	OrganizationTelemetryRuleTelemetryTypeTraces   = OrganizationTelemetryRuleTelemetryType("Traces")
+	OrganizationTelemetryRuleTelemetryTypeMetrics  = OrganizationTelemetryRuleTelemetryType("Metrics")
+	OrganizationTelemetryRuleTelemetryTypeInsights = OrganizationTelemetryRuleTelemetryType("Insights")
 )
 
 func (OrganizationTelemetryRuleTelemetryType) ElementType() reflect.Type {
@@ -2605,7 +2609,9 @@ func (o OrganizationTelemetryRuleTelemetryTypePtrOutput) ToStringPtrOutputWithCo
 // A concrete instance of `OrganizationTelemetryRuleTelemetryTypeInput` can be one of the following:
 //
 //	OrganizationTelemetryRuleTelemetryTypeLogs
+//	OrganizationTelemetryRuleTelemetryTypeTraces
 //	OrganizationTelemetryRuleTelemetryTypeMetrics
+//	OrganizationTelemetryRuleTelemetryTypeInsights
 type OrganizationTelemetryRuleTelemetryTypeInput interface {
 	pulumi.Input
 
@@ -4349,6 +4355,8 @@ const (
 	TelemetryRuleResourceTypeAwsBedrockAgentCoreMemory             = TelemetryRuleResourceType("AWS::BedrockAgentCore::Memory")
 	TelemetryRuleResourceTypeAwsBedrockAgentCoreGateway            = TelemetryRuleResourceType("AWS::BedrockAgentCore::Gateway")
 	TelemetryRuleResourceTypeAwsBedrockAgentCoreWorkloadIdentity   = TelemetryRuleResourceType("AWS::BedrockAgentCore::WorkloadIdentity")
+	TelemetryRuleResourceTypeAwsBedrockAgentCorePaymentManager     = TelemetryRuleResourceType("AWS::BedrockAgentCore::PaymentManager")
+	TelemetryRuleResourceTypeAwsxRayTransactionSearchConfig        = TelemetryRuleResourceType("AWS::XRay::TransactionSearchConfig")
 )
 
 func (TelemetryRuleResourceType) ElementType() reflect.Type {
@@ -4492,6 +4500,8 @@ func (o TelemetryRuleResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 //	TelemetryRuleResourceTypeAwsBedrockAgentCoreMemory
 //	TelemetryRuleResourceTypeAwsBedrockAgentCoreGateway
 //	TelemetryRuleResourceTypeAwsBedrockAgentCoreWorkloadIdentity
+//	TelemetryRuleResourceTypeAwsBedrockAgentCorePaymentManager
+//	TelemetryRuleResourceTypeAwsxRayTransactionSearchConfig
 type TelemetryRuleResourceTypeInput interface {
 	pulumi.Input
 
@@ -4975,9 +4985,10 @@ func (o TelemetryRuleTelemetrySourceTypeArrayOutput) Index(i pulumi.IntInput) Te
 type TelemetryRuleTelemetryType string
 
 const (
-	TelemetryRuleTelemetryTypeLogs    = TelemetryRuleTelemetryType("Logs")
-	TelemetryRuleTelemetryTypeTraces  = TelemetryRuleTelemetryType("Traces")
-	TelemetryRuleTelemetryTypeMetrics = TelemetryRuleTelemetryType("Metrics")
+	TelemetryRuleTelemetryTypeLogs     = TelemetryRuleTelemetryType("Logs")
+	TelemetryRuleTelemetryTypeTraces   = TelemetryRuleTelemetryType("Traces")
+	TelemetryRuleTelemetryTypeMetrics  = TelemetryRuleTelemetryType("Metrics")
+	TelemetryRuleTelemetryTypeInsights = TelemetryRuleTelemetryType("Insights")
 )
 
 func (TelemetryRuleTelemetryType) ElementType() reflect.Type {
@@ -5105,6 +5116,7 @@ func (o TelemetryRuleTelemetryTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 //	TelemetryRuleTelemetryTypeLogs
 //	TelemetryRuleTelemetryTypeTraces
 //	TelemetryRuleTelemetryTypeMetrics
+//	TelemetryRuleTelemetryTypeInsights
 type TelemetryRuleTelemetryTypeInput interface {
 	pulumi.Input
 

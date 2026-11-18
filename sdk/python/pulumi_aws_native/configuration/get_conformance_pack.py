@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetConformancePackResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConformancePackResult:
-    def __init__(__self__, conformance_pack_arn=None, conformance_pack_input_parameters=None, delivery_s3_bucket=None, delivery_s3_key_prefix=None, tags=None):
+    def __init__(__self__, conformance_pack_arn=None, conformance_pack_input_parameters=None, delivery_s3_bucket=None, delivery_s3_key_prefix=None, scope=None, tags=None, type=None):
         if conformance_pack_arn and not isinstance(conformance_pack_arn, str):
             raise TypeError("Expected argument 'conformance_pack_arn' to be a str")
         pulumi.set(__self__, "conformance_pack_arn", conformance_pack_arn)
@@ -38,9 +39,15 @@ class GetConformancePackResult:
         if delivery_s3_key_prefix and not isinstance(delivery_s3_key_prefix, str):
             raise TypeError("Expected argument 'delivery_s3_key_prefix' to be a str")
         pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
+        if scope and not isinstance(scope, dict):
+            raise TypeError("Expected argument 'scope' to be a dict")
+        pulumi.set(__self__, "scope", scope)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="conformancePackArn")
@@ -76,11 +83,21 @@ class GetConformancePackResult:
 
     @_builtins.property
     @pulumi.getter
+    def scope(self) -> Optional['outputs.ConformancePackScope']:
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The tags for the conformance pack.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['ConformancePackType']:
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetConformancePackResult(GetConformancePackResult):
@@ -93,7 +110,9 @@ class AwaitableGetConformancePackResult(GetConformancePackResult):
             conformance_pack_input_parameters=self.conformance_pack_input_parameters,
             delivery_s3_bucket=self.delivery_s3_bucket,
             delivery_s3_key_prefix=self.delivery_s3_key_prefix,
-            tags=self.tags)
+            scope=self.scope,
+            tags=self.tags,
+            type=self.type)
 
 
 def get_conformance_pack(conformance_pack_name: Optional[_builtins.str] = None,
@@ -113,7 +132,9 @@ def get_conformance_pack(conformance_pack_name: Optional[_builtins.str] = None,
         conformance_pack_input_parameters=pulumi.get(__ret__, 'conformance_pack_input_parameters'),
         delivery_s3_bucket=pulumi.get(__ret__, 'delivery_s3_bucket'),
         delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'),
-        tags=pulumi.get(__ret__, 'tags'))
+        scope=pulumi.get(__ret__, 'scope'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 def get_conformance_pack_output(conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConformancePackResult]:
     """
@@ -130,4 +151,6 @@ def get_conformance_pack_output(conformance_pack_name: pulumi.Input[Optional[_bu
         conformance_pack_input_parameters=pulumi.get(__response__, 'conformance_pack_input_parameters'),
         delivery_s3_bucket=pulumi.get(__response__, 'delivery_s3_bucket'),
         delivery_s3_key_prefix=pulumi.get(__response__, 'delivery_s3_key_prefix'),
-        tags=pulumi.get(__response__, 'tags')))
+        scope=pulumi.get(__response__, 'scope'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

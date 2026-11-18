@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Artifact{}
 	case "aws-native:sagemaker:Cluster":
 		r = &Cluster{}
+	case "aws-native:sagemaker:ClusterSchedulerConfig":
+		r = &ClusterSchedulerConfig{}
 	case "aws-native:sagemaker:CodeRepository":
 		r = &CodeRepository{}
 	case "aws-native:sagemaker:ComputeQuota":
@@ -57,6 +59,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Experiment{}
 	case "aws-native:sagemaker:ExperimentTrialComponent":
 		r = &ExperimentTrialComponent{}
+	case "aws-native:sagemaker:Extension":
+		r = &Extension{}
 	case "aws-native:sagemaker:FeatureGroup":
 		r = &FeatureGroup{}
 	case "aws-native:sagemaker:Hub":

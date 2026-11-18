@@ -7259,6 +7259,13 @@ type ReplicationConfigTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ReplicationInstanceTag struct {
+	// A key is the required name of the tag. The string value can be 1-128 Unicode characters in length and can't be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+	Key string `pulumi:"key"`
+	// A value is the optional value of the tag. The string value can be 1-256 Unicode characters in length and can't be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+	Value string `pulumi:"value"`
+}
+
 type ReplicationSubnetGroupTag struct {
 	// A key is the required name of the tag. The string value can be 1-128 Unicode characters in length and can't be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 	Key string `pulumi:"key"`
@@ -9219,10 +9226,14 @@ func (o SettingsPropertiesMySqlSettingsPropertiesPtrOutput) SslMode() DataProvid
 
 // OracleSettings property identifier.
 type SettingsPropertiesOracleSettingsProperties struct {
-	AsmServer                                       *string                     `pulumi:"asmServer"`
-	CertificateArn                                  *string                     `pulumi:"certificateArn"`
-	DatabaseName                                    string                      `pulumi:"databaseName"`
-	Port                                            int                         `pulumi:"port"`
+	AsmServer      *string `pulumi:"asmServer"`
+	CertificateArn *string `pulumi:"certificateArn"`
+	DatabaseName   string  `pulumi:"databaseName"`
+	Port           int     `pulumi:"port"`
+	// The ARN for the role the application uses to access its Amazon S3 bucket.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+	S3Path                                          *string                     `pulumi:"s3Path"`
 	SecretsManagerOracleAsmAccessRoleArn            *string                     `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
 	SecretsManagerOracleAsmSecretId                 *string                     `pulumi:"secretsManagerOracleAsmSecretId"`
 	SecretsManagerSecurityDbEncryptionAccessRoleArn *string                     `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
@@ -9244,10 +9255,14 @@ type SettingsPropertiesOracleSettingsPropertiesInput interface {
 
 // OracleSettings property identifier.
 type SettingsPropertiesOracleSettingsPropertiesArgs struct {
-	AsmServer                                       pulumi.StringPtrInput            `pulumi:"asmServer"`
-	CertificateArn                                  pulumi.StringPtrInput            `pulumi:"certificateArn"`
-	DatabaseName                                    pulumi.StringInput               `pulumi:"databaseName"`
-	Port                                            pulumi.IntInput                  `pulumi:"port"`
+	AsmServer      pulumi.StringPtrInput `pulumi:"asmServer"`
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	DatabaseName   pulumi.StringInput    `pulumi:"databaseName"`
+	Port           pulumi.IntInput       `pulumi:"port"`
+	// The ARN for the role the application uses to access its Amazon S3 bucket.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+	S3Path                                          pulumi.StringPtrInput            `pulumi:"s3Path"`
 	SecretsManagerOracleAsmAccessRoleArn            pulumi.StringPtrInput            `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
 	SecretsManagerOracleAsmSecretId                 pulumi.StringPtrInput            `pulumi:"secretsManagerOracleAsmSecretId"`
 	SecretsManagerSecurityDbEncryptionAccessRoleArn pulumi.StringPtrInput            `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
@@ -9350,6 +9365,16 @@ func (o SettingsPropertiesOracleSettingsPropertiesOutput) Port() pulumi.IntOutpu
 	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The ARN for the role the application uses to access its Amazon S3 bucket.
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
 func (o SettingsPropertiesOracleSettingsPropertiesOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string {
 		return v.SecretsManagerOracleAsmAccessRoleArn
@@ -9438,6 +9463,26 @@ func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) Port() pulumi.IntPt
 		}
 		return &v.Port
 	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN for the role the application uses to access its Amazon S3 bucket.
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {

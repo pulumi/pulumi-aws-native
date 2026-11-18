@@ -87,6 +87,12 @@ namespace Pulumi.AwsNative.MediaConnect
         [Output("protocol")]
         public Output<Pulumi.AwsNative.MediaConnect.FlowSourceProtocol?> Protocol { get; private set; } = null!;
 
+        [Output("rtmpPushDetails")]
+        public Output<Outputs.FlowSourceRtmpPushDetails> RtmpPushDetails { get; private set; } = null!;
+
+        [Output("rtmpPushSettings")]
+        public Output<Outputs.FlowSourceRtmpPushSettings?> RtmpPushSettings { get; private set; } = null!;
+
         /// <summary>
         /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
         /// </summary>
@@ -263,6 +269,9 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("protocol")]
         public Input<Pulumi.AwsNative.MediaConnect.FlowSourceProtocol>? Protocol { get; set; }
+
+        [Input("rtmpPushSettings")]
+        public Input<Inputs.FlowSourceRtmpPushSettingsArgs>? RtmpPushSettings { get; set; }
 
         /// <summary>
         /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.

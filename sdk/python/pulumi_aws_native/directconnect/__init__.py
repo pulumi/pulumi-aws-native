@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .connection import *
 from .direct_connect_gateway import *
 from .direct_connect_gateway_association import *
@@ -15,10 +16,12 @@ from .get_direct_connect_gateway_association import *
 from .get_lag import *
 from .get_private_virtual_interface import *
 from .get_public_virtual_interface import *
+from .get_resiliency_group import *
 from .get_transit_virtual_interface import *
 from .lag import *
 from .private_virtual_interface import *
 from .public_virtual_interface import *
+from .resiliency_group import *
 from .transit_virtual_interface import *
 from ._inputs import *
 from . import outputs

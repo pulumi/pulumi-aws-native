@@ -54,7 +54,6 @@ func NewResourceGateway(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"ipAddressType",
 		"name",
-		"resourceConfigDnsResolution",
 		"subnetIds[*]",
 		"vpcIdentifier",
 	})

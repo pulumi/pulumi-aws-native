@@ -79,6 +79,7 @@ class CloudWatchAlarmTemplateTargetResourceType(_builtins.str, Enum):
     The resource type this template should dynamically generate cloudwatch metric alarms for.
     """
     CLOUDFRONT_DISTRIBUTION = "CLOUDFRONT_DISTRIBUTION"
+    ELEMENTAL_INFERENCE_FEED = "ELEMENTAL_INFERENCE_FEED"
     MEDIALIVE_MULTIPLEX = "MEDIALIVE_MULTIPLEX"
     MEDIALIVE_CHANNEL = "MEDIALIVE_CHANNEL"
     MEDIALIVE_INPUT_DEVICE = "MEDIALIVE_INPUT_DEVICE"

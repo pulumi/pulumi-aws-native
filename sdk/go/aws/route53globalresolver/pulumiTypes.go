@@ -4,7 +4,11 @@
 package route53globalresolver
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -15,6 +19,141 @@ type AccessSourceTag struct {
 }
 
 type AccessTokenTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// A private DNS IP address of the core network endpoint. Specify exactly one of Ipv4Address or Ipv6Address. The IP address is the key of the entry: changing it adds the new address and then removes the old one.
+type CoreNetworkEndpointIpAddress struct {
+	// Lowercase DNS label for the IP address. The service appends the endpoint ID to build the DNS name. The label of an existing IP address cannot be changed; to use a new label, change the IP address too.
+	DnsLabel    string  `pulumi:"dnsLabel"`
+	Ipv4Address *string `pulumi:"ipv4Address"`
+	Ipv6Address *string `pulumi:"ipv6Address"`
+	// ALL to serve the IP address in every available region of the endpoint, or REGIONAL to serve it only in Regions.
+	RegionScope CoreNetworkEndpointRegionScope `pulumi:"regionScope"`
+	// Regions that serve the IP address. Required when RegionScope is REGIONAL and not allowed when it is ALL. Must be a subset of AvailableRegions.
+	Regions []string `pulumi:"regions"`
+}
+
+// CoreNetworkEndpointIpAddressInput is an input type that accepts CoreNetworkEndpointIpAddressArgs and CoreNetworkEndpointIpAddressOutput values.
+// You can construct a concrete instance of `CoreNetworkEndpointIpAddressInput` via:
+//
+//	CoreNetworkEndpointIpAddressArgs{...}
+type CoreNetworkEndpointIpAddressInput interface {
+	pulumi.Input
+
+	ToCoreNetworkEndpointIpAddressOutput() CoreNetworkEndpointIpAddressOutput
+	ToCoreNetworkEndpointIpAddressOutputWithContext(context.Context) CoreNetworkEndpointIpAddressOutput
+}
+
+// A private DNS IP address of the core network endpoint. Specify exactly one of Ipv4Address or Ipv6Address. The IP address is the key of the entry: changing it adds the new address and then removes the old one.
+type CoreNetworkEndpointIpAddressArgs struct {
+	// Lowercase DNS label for the IP address. The service appends the endpoint ID to build the DNS name. The label of an existing IP address cannot be changed; to use a new label, change the IP address too.
+	DnsLabel    pulumi.StringInput    `pulumi:"dnsLabel"`
+	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
+	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
+	// ALL to serve the IP address in every available region of the endpoint, or REGIONAL to serve it only in Regions.
+	RegionScope CoreNetworkEndpointRegionScopeInput `pulumi:"regionScope"`
+	// Regions that serve the IP address. Required when RegionScope is REGIONAL and not allowed when it is ALL. Must be a subset of AvailableRegions.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+}
+
+func (CoreNetworkEndpointIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkEndpointIpAddress)(nil)).Elem()
+}
+
+func (i CoreNetworkEndpointIpAddressArgs) ToCoreNetworkEndpointIpAddressOutput() CoreNetworkEndpointIpAddressOutput {
+	return i.ToCoreNetworkEndpointIpAddressOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkEndpointIpAddressArgs) ToCoreNetworkEndpointIpAddressOutputWithContext(ctx context.Context) CoreNetworkEndpointIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkEndpointIpAddressOutput)
+}
+
+// CoreNetworkEndpointIpAddressArrayInput is an input type that accepts CoreNetworkEndpointIpAddressArray and CoreNetworkEndpointIpAddressArrayOutput values.
+// You can construct a concrete instance of `CoreNetworkEndpointIpAddressArrayInput` via:
+//
+//	CoreNetworkEndpointIpAddressArray{ CoreNetworkEndpointIpAddressArgs{...} }
+type CoreNetworkEndpointIpAddressArrayInput interface {
+	pulumi.Input
+
+	ToCoreNetworkEndpointIpAddressArrayOutput() CoreNetworkEndpointIpAddressArrayOutput
+	ToCoreNetworkEndpointIpAddressArrayOutputWithContext(context.Context) CoreNetworkEndpointIpAddressArrayOutput
+}
+
+type CoreNetworkEndpointIpAddressArray []CoreNetworkEndpointIpAddressInput
+
+func (CoreNetworkEndpointIpAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkEndpointIpAddress)(nil)).Elem()
+}
+
+func (i CoreNetworkEndpointIpAddressArray) ToCoreNetworkEndpointIpAddressArrayOutput() CoreNetworkEndpointIpAddressArrayOutput {
+	return i.ToCoreNetworkEndpointIpAddressArrayOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkEndpointIpAddressArray) ToCoreNetworkEndpointIpAddressArrayOutputWithContext(ctx context.Context) CoreNetworkEndpointIpAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkEndpointIpAddressArrayOutput)
+}
+
+// A private DNS IP address of the core network endpoint. Specify exactly one of Ipv4Address or Ipv6Address. The IP address is the key of the entry: changing it adds the new address and then removes the old one.
+type CoreNetworkEndpointIpAddressOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkEndpointIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkEndpointIpAddress)(nil)).Elem()
+}
+
+func (o CoreNetworkEndpointIpAddressOutput) ToCoreNetworkEndpointIpAddressOutput() CoreNetworkEndpointIpAddressOutput {
+	return o
+}
+
+func (o CoreNetworkEndpointIpAddressOutput) ToCoreNetworkEndpointIpAddressOutputWithContext(ctx context.Context) CoreNetworkEndpointIpAddressOutput {
+	return o
+}
+
+// Lowercase DNS label for the IP address. The service appends the endpoint ID to build the DNS name. The label of an existing IP address cannot be changed; to use a new label, change the IP address too.
+func (o CoreNetworkEndpointIpAddressOutput) DnsLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v CoreNetworkEndpointIpAddress) string { return v.DnsLabel }).(pulumi.StringOutput)
+}
+
+func (o CoreNetworkEndpointIpAddressOutput) Ipv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkEndpointIpAddress) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
+}
+
+func (o CoreNetworkEndpointIpAddressOutput) Ipv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkEndpointIpAddress) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
+}
+
+// ALL to serve the IP address in every available region of the endpoint, or REGIONAL to serve it only in Regions.
+func (o CoreNetworkEndpointIpAddressOutput) RegionScope() CoreNetworkEndpointRegionScopeOutput {
+	return o.ApplyT(func(v CoreNetworkEndpointIpAddress) CoreNetworkEndpointRegionScope { return v.RegionScope }).(CoreNetworkEndpointRegionScopeOutput)
+}
+
+// Regions that serve the IP address. Required when RegionScope is REGIONAL and not allowed when it is ALL. Must be a subset of AvailableRegions.
+func (o CoreNetworkEndpointIpAddressOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkEndpointIpAddress) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type CoreNetworkEndpointIpAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkEndpointIpAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkEndpointIpAddress)(nil)).Elem()
+}
+
+func (o CoreNetworkEndpointIpAddressArrayOutput) ToCoreNetworkEndpointIpAddressArrayOutput() CoreNetworkEndpointIpAddressArrayOutput {
+	return o
+}
+
+func (o CoreNetworkEndpointIpAddressArrayOutput) ToCoreNetworkEndpointIpAddressArrayOutputWithContext(ctx context.Context) CoreNetworkEndpointIpAddressArrayOutput {
+	return o
+}
+
+func (o CoreNetworkEndpointIpAddressArrayOutput) Index(i pulumi.IntInput) CoreNetworkEndpointIpAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CoreNetworkEndpointIpAddress {
+		return vs[0].([]CoreNetworkEndpointIpAddress)[vs[1].(int)]
+	}).(CoreNetworkEndpointIpAddressOutput)
+}
+
+type CoreNetworkEndpointTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
@@ -35,4 +174,8 @@ type GlobalResolverTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkEndpointIpAddressInput)(nil)).Elem(), CoreNetworkEndpointIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkEndpointIpAddressArrayInput)(nil)).Elem(), CoreNetworkEndpointIpAddressArray{})
+	pulumi.RegisterOutputType(CoreNetworkEndpointIpAddressOutput{})
+	pulumi.RegisterOutputType(CoreNetworkEndpointIpAddressArrayOutput{})
 }

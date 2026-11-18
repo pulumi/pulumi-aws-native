@@ -132,6 +132,8 @@ __all__ = [
     'NodegroupUpdateConfigArgsDict',
     'NodegroupWarmPoolConfigArgs',
     'NodegroupWarmPoolConfigArgsDict',
+    'PodIdentityAssociationWorkloadIdentityConfigArgs',
+    'PodIdentityAssociationWorkloadIdentityConfigArgsDict',
 ]
 
 class AccessEntryAccessPolicyArgsDict(TypedDict):
@@ -824,11 +826,11 @@ class ClusterActiveCertificateAuthorityArgs:
 
 class ClusterBlockStorageArgsDict(TypedDict):
     """
-    Todo: add description
+    Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
     """
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Todo: add description
+    Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
     """
 
 @pulumi.input_type
@@ -836,9 +838,9 @@ class ClusterBlockStorageArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        Todo: add description
+        Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 
-        :param pulumi.Input[_builtins.bool] enabled: Todo: add description
+        :param pulumi.Input[_builtins.bool] enabled: Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -847,7 +849,7 @@ class ClusterBlockStorageArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Todo: add description
+        Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
         """
         return pulumi.get(self, "enabled")
 
@@ -905,19 +907,19 @@ class ClusterCertificateAuthorityArgs:
 
 class ClusterComputeConfigArgsDict(TypedDict):
     """
-    Todo: add description
+    Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
     """
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Todo: add description
+    Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
     """
     node_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Todo: add description
+    Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
     """
     node_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Todo: add description
+    The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
     """
 
 @pulumi.input_type
@@ -927,11 +929,11 @@ class ClusterComputeConfigArgs:
                  node_pools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  node_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        Todo: add description
+        Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
 
-        :param pulumi.Input[_builtins.bool] enabled: Todo: add description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] node_pools: Todo: add description
-        :param pulumi.Input[_builtins.str] node_role_arn: Todo: add description
+        :param pulumi.Input[_builtins.bool] enabled: Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] node_pools: Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
+        :param pulumi.Input[_builtins.str] node_role_arn: The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -944,7 +946,7 @@ class ClusterComputeConfigArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Todo: add description
+        Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
         """
         return pulumi.get(self, "enabled")
 
@@ -956,7 +958,7 @@ class ClusterComputeConfigArgs:
     @pulumi.getter(name="nodePools")
     def node_pools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Todo: add description
+        Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
         """
         return pulumi.get(self, "node_pools")
 
@@ -968,7 +970,7 @@ class ClusterComputeConfigArgs:
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Todo: add description
+        The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
         """
         return pulumi.get(self, "node_role_arn")
 
@@ -1067,11 +1069,11 @@ class ClusterControlPlaneScalingConfigArgs:
 
 class ClusterElasticLoadBalancingArgsDict(TypedDict):
     """
-    Todo: add description
+    Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.
     """
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Todo: add description
+    Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
     """
     gateway_api: NotRequired[pulumi.Input[Optional['ClusterGatewayApiArgsDict']]]
     """
@@ -1084,9 +1086,9 @@ class ClusterElasticLoadBalancingArgs:
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  gateway_api: pulumi.Input[Optional['ClusterGatewayApiArgs']] = None):
         """
-        Todo: add description
+        Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.
 
-        :param pulumi.Input[_builtins.bool] enabled: Todo: add description
+        :param pulumi.Input[_builtins.bool] enabled: Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
         :param pulumi.Input['ClusterGatewayApiArgs'] gateway_api: The Gateway API configuration for the cluster.
         """
         if enabled is not None:
@@ -1098,7 +1100,7 @@ class ClusterElasticLoadBalancingArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Todo: add description
+        Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
         """
         return pulumi.get(self, "enabled")
 
@@ -1425,7 +1427,7 @@ class ClusterKubernetesNetworkConfigArgsDict(TypedDict):
     """
     elastic_load_balancing: NotRequired[pulumi.Input[Optional['ClusterElasticLoadBalancingArgsDict']]]
     """
-    Todo: add description
+    Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
     """
     ip_family: NotRequired[pulumi.Input[Optional['ClusterKubernetesNetworkConfigIpFamily']]]
     """
@@ -1450,7 +1452,7 @@ class ClusterKubernetesNetworkConfigArgs:
         """
         The Kubernetes network configuration for the cluster.
 
-        :param pulumi.Input['ClusterElasticLoadBalancingArgs'] elastic_load_balancing: Todo: add description
+        :param pulumi.Input['ClusterElasticLoadBalancingArgs'] elastic_load_balancing: Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
         :param pulumi.Input['ClusterKubernetesNetworkConfigIpFamily'] ip_family: Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
         :param pulumi.Input[_builtins.str] service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC.
         :param pulumi.Input[_builtins.str] service_ipv6_cidr: The CIDR block to assign Kubernetes service IP addresses from.
@@ -1468,7 +1470,7 @@ class ClusterKubernetesNetworkConfigArgs:
     @pulumi.getter(name="elasticLoadBalancing")
     def elastic_load_balancing(self) -> pulumi.Input[Optional['ClusterElasticLoadBalancingArgs']]:
         """
-        Todo: add description
+        Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
         """
         return pulumi.get(self, "elastic_load_balancing")
 
@@ -2239,11 +2241,11 @@ class ClusterServiceNodePortRangeArgs:
 
 class ClusterStorageConfigArgsDict(TypedDict):
     """
-    Todo: add description
+    Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.
     """
     block_storage: NotRequired[pulumi.Input[Optional['ClusterBlockStorageArgsDict']]]
     """
-    Todo: add description
+    Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
     """
 
 @pulumi.input_type
@@ -2251,9 +2253,9 @@ class ClusterStorageConfigArgs:
     def __init__(__self__, *,
                  block_storage: pulumi.Input[Optional['ClusterBlockStorageArgs']] = None):
         """
-        Todo: add description
+        Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.
 
-        :param pulumi.Input['ClusterBlockStorageArgs'] block_storage: Todo: add description
+        :param pulumi.Input['ClusterBlockStorageArgs'] block_storage: Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
         """
         if block_storage is not None:
             pulumi.set(__self__, "block_storage", block_storage)
@@ -2262,7 +2264,7 @@ class ClusterStorageConfigArgs:
     @pulumi.getter(name="blockStorage")
     def block_storage(self) -> pulumi.Input[Optional['ClusterBlockStorageArgs']]:
         """
-        Todo: add description
+        Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
         """
         return pulumi.get(self, "block_storage")
 
@@ -3429,5 +3431,78 @@ class NodegroupWarmPoolConfigArgs:
     @reuse_on_scale_in.setter
     def reuse_on_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reuse_on_scale_in", value)
+
+
+class PodIdentityAssociationWorkloadIdentityConfigArgsDict(TypedDict):
+    """
+    The workload identity configuration of the pod identity association. When enabled, the association also provisions a SPIFFE identity for the workload. Setting Enabled to false disables workload identity and keeps the ARNs. Removing the property from the template leaves the association unchanged; set Enabled to false to disable workload identity.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.
+    """
+    provider_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.
+    """
+    template_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.
+    """
+
+@pulumi.input_type
+class PodIdentityAssociationWorkloadIdentityConfigArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The workload identity configuration of the pod identity association. When enabled, the association also provisions a SPIFFE identity for the workload. Setting Enabled to false disables workload identity and keeps the ARNs. Removing the property from the template leaves the association unchanged; set Enabled to false to disable workload identity.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.
+        :param pulumi.Input[_builtins.str] provider_arn: The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.
+        :param pulumi.Input[_builtins.str] template_arn: The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if provider_arn is not None:
+            pulumi.set(__self__, "provider_arn", provider_arn)
+        if template_arn is not None:
+            pulumi.set(__self__, "template_arn", template_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerArn")
+    def provider_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.
+        """
+        return pulumi.get(self, "provider_arn")
+
+    @provider_arn.setter
+    def provider_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateArn")
+    def template_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.
+        """
+        return pulumi.get(self, "template_arn")
+
+    @template_arn.setter
+    def template_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "template_arn", value)
 
 

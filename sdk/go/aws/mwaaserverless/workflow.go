@@ -22,6 +22,7 @@ type Workflow struct {
 	DefinitionS3Location    WorkflowS3LocationOutput                 `pulumi:"definitionS3Location"`
 	Description             pulumi.StringPtrOutput                   `pulumi:"description"`
 	EncryptionConfiguration WorkflowEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
+	Environment             WorkflowEnvironmentPtrOutput             `pulumi:"environment"`
 	LoggingConfiguration    WorkflowLoggingConfigurationPtrOutput    `pulumi:"loggingConfiguration"`
 	ModifiedAt              pulumi.StringOutput                      `pulumi:"modifiedAt"`
 	Name                    pulumi.StringPtrOutput                   `pulumi:"name"`
@@ -96,6 +97,7 @@ type workflowArgs struct {
 	DefinitionS3Location    WorkflowS3Location               `pulumi:"definitionS3Location"`
 	Description             *string                          `pulumi:"description"`
 	EncryptionConfiguration *WorkflowEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	Environment             *WorkflowEnvironment             `pulumi:"environment"`
 	LoggingConfiguration    *WorkflowLoggingConfiguration    `pulumi:"loggingConfiguration"`
 	Name                    *string                          `pulumi:"name"`
 	NetworkConfiguration    *WorkflowNetworkConfiguration    `pulumi:"networkConfiguration"`
@@ -110,6 +112,7 @@ type WorkflowArgs struct {
 	DefinitionS3Location    WorkflowS3LocationInput
 	Description             pulumi.StringPtrInput
 	EncryptionConfiguration WorkflowEncryptionConfigurationPtrInput
+	Environment             WorkflowEnvironmentPtrInput
 	LoggingConfiguration    WorkflowLoggingConfigurationPtrInput
 	Name                    pulumi.StringPtrInput
 	NetworkConfiguration    WorkflowNetworkConfigurationPtrInput
@@ -177,6 +180,10 @@ func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
 
 func (o WorkflowOutput) EncryptionConfiguration() WorkflowEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(WorkflowEncryptionConfigurationPtrOutput)
+}
+
+func (o WorkflowOutput) Environment() WorkflowEnvironmentPtrOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowEnvironmentPtrOutput { return v.Environment }).(WorkflowEnvironmentPtrOutput)
 }
 
 func (o WorkflowOutput) LoggingConfiguration() WorkflowLoggingConfigurationPtrOutput {

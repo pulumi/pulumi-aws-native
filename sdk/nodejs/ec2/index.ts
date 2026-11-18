@@ -35,10 +35,20 @@ export type ClientVpnAuthorizationRule = import("./clientVpnAuthorizationRule").
 export const ClientVpnAuthorizationRule: typeof import("./clientVpnAuthorizationRule").ClientVpnAuthorizationRule = null as any;
 utilities.lazyLoad(exports, ["ClientVpnAuthorizationRule"], () => require("./clientVpnAuthorizationRule"));
 
+export { ClientVpnEndpointArgs } from "./clientVpnEndpoint";
+export type ClientVpnEndpoint = import("./clientVpnEndpoint").ClientVpnEndpoint;
+export const ClientVpnEndpoint: typeof import("./clientVpnEndpoint").ClientVpnEndpoint = null as any;
+utilities.lazyLoad(exports, ["ClientVpnEndpoint"], () => require("./clientVpnEndpoint"));
+
 export { ClientVpnRouteArgs } from "./clientVpnRoute";
 export type ClientVpnRoute = import("./clientVpnRoute").ClientVpnRoute;
 export const ClientVpnRoute: typeof import("./clientVpnRoute").ClientVpnRoute = null as any;
 utilities.lazyLoad(exports, ["ClientVpnRoute"], () => require("./clientVpnRoute"));
+
+export { ClientVpnTargetNetworkAssociationArgs } from "./clientVpnTargetNetworkAssociation";
+export type ClientVpnTargetNetworkAssociation = import("./clientVpnTargetNetworkAssociation").ClientVpnTargetNetworkAssociation;
+export const ClientVpnTargetNetworkAssociation: typeof import("./clientVpnTargetNetworkAssociation").ClientVpnTargetNetworkAssociation = null as any;
+utilities.lazyLoad(exports, ["ClientVpnTargetNetworkAssociation"], () => require("./clientVpnTargetNetworkAssociation"));
 
 export { CustomerGatewayArgs } from "./customerGateway";
 export type CustomerGateway = import("./customerGateway").CustomerGateway;
@@ -74,6 +84,16 @@ export { EnclaveCertificateIamRoleAssociationArgs } from "./enclaveCertificateIa
 export type EnclaveCertificateIamRoleAssociation = import("./enclaveCertificateIamRoleAssociation").EnclaveCertificateIamRoleAssociation;
 export const EnclaveCertificateIamRoleAssociation: typeof import("./enclaveCertificateIamRoleAssociation").EnclaveCertificateIamRoleAssociation = null as any;
 utilities.lazyLoad(exports, ["EnclaveCertificateIamRoleAssociation"], () => require("./enclaveCertificateIamRoleAssociation"));
+
+export { FcaPolicyArgs } from "./fcaPolicy";
+export type FcaPolicy = import("./fcaPolicy").FcaPolicy;
+export const FcaPolicy: typeof import("./fcaPolicy").FcaPolicy = null as any;
+utilities.lazyLoad(exports, ["FcaPolicy"], () => require("./fcaPolicy"));
+
+export { FcaPolicyAssociationArgs } from "./fcaPolicyAssociation";
+export type FcaPolicyAssociation = import("./fcaPolicyAssociation").FcaPolicyAssociation;
+export const FcaPolicyAssociation: typeof import("./fcaPolicyAssociation").FcaPolicyAssociation = null as any;
+utilities.lazyLoad(exports, ["FcaPolicyAssociation"], () => require("./fcaPolicyAssociation"));
 
 export { FlowLogArgs } from "./flowLog";
 export type FlowLog = import("./flowLog").FlowLog;
@@ -120,10 +140,20 @@ export const getClientVpnAuthorizationRule: typeof import("./getClientVpnAuthori
 export const getClientVpnAuthorizationRuleOutput: typeof import("./getClientVpnAuthorizationRule").getClientVpnAuthorizationRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getClientVpnAuthorizationRule","getClientVpnAuthorizationRuleOutput"], () => require("./getClientVpnAuthorizationRule"));
 
+export { GetClientVpnEndpointArgs, GetClientVpnEndpointResult, GetClientVpnEndpointOutputArgs } from "./getClientVpnEndpoint";
+export const getClientVpnEndpoint: typeof import("./getClientVpnEndpoint").getClientVpnEndpoint = null as any;
+export const getClientVpnEndpointOutput: typeof import("./getClientVpnEndpoint").getClientVpnEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getClientVpnEndpoint","getClientVpnEndpointOutput"], () => require("./getClientVpnEndpoint"));
+
 export { GetClientVpnRouteArgs, GetClientVpnRouteResult, GetClientVpnRouteOutputArgs } from "./getClientVpnRoute";
 export const getClientVpnRoute: typeof import("./getClientVpnRoute").getClientVpnRoute = null as any;
 export const getClientVpnRouteOutput: typeof import("./getClientVpnRoute").getClientVpnRouteOutput = null as any;
 utilities.lazyLoad(exports, ["getClientVpnRoute","getClientVpnRouteOutput"], () => require("./getClientVpnRoute"));
+
+export { GetClientVpnTargetNetworkAssociationArgs, GetClientVpnTargetNetworkAssociationResult, GetClientVpnTargetNetworkAssociationOutputArgs } from "./getClientVpnTargetNetworkAssociation";
+export const getClientVpnTargetNetworkAssociation: typeof import("./getClientVpnTargetNetworkAssociation").getClientVpnTargetNetworkAssociation = null as any;
+export const getClientVpnTargetNetworkAssociationOutput: typeof import("./getClientVpnTargetNetworkAssociation").getClientVpnTargetNetworkAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getClientVpnTargetNetworkAssociation","getClientVpnTargetNetworkAssociationOutput"], () => require("./getClientVpnTargetNetworkAssociation"));
 
 export { GetCustomerGatewayArgs, GetCustomerGatewayResult, GetCustomerGatewayOutputArgs } from "./getCustomerGateway";
 export const getCustomerGateway: typeof import("./getCustomerGateway").getCustomerGateway = null as any;
@@ -159,6 +189,16 @@ export { GetEnclaveCertificateIamRoleAssociationArgs, GetEnclaveCertificateIamRo
 export const getEnclaveCertificateIamRoleAssociation: typeof import("./getEnclaveCertificateIamRoleAssociation").getEnclaveCertificateIamRoleAssociation = null as any;
 export const getEnclaveCertificateIamRoleAssociationOutput: typeof import("./getEnclaveCertificateIamRoleAssociation").getEnclaveCertificateIamRoleAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getEnclaveCertificateIamRoleAssociation","getEnclaveCertificateIamRoleAssociationOutput"], () => require("./getEnclaveCertificateIamRoleAssociation"));
+
+export { GetFcaPolicyArgs, GetFcaPolicyResult, GetFcaPolicyOutputArgs } from "./getFcaPolicy";
+export const getFcaPolicy: typeof import("./getFcaPolicy").getFcaPolicy = null as any;
+export const getFcaPolicyOutput: typeof import("./getFcaPolicy").getFcaPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getFcaPolicy","getFcaPolicyOutput"], () => require("./getFcaPolicy"));
+
+export { GetFcaPolicyAssociationArgs, GetFcaPolicyAssociationResult, GetFcaPolicyAssociationOutputArgs } from "./getFcaPolicyAssociation";
+export const getFcaPolicyAssociation: typeof import("./getFcaPolicyAssociation").getFcaPolicyAssociation = null as any;
+export const getFcaPolicyAssociationOutput: typeof import("./getFcaPolicyAssociation").getFcaPolicyAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getFcaPolicyAssociation","getFcaPolicyAssociationOutput"], () => require("./getFcaPolicyAssociation"));
 
 export { GetFlowLogArgs, GetFlowLogResult, GetFlowLogOutputArgs } from "./getFlowLog";
 export const getFlowLog: typeof import("./getFlowLog").getFlowLog = null as any;
@@ -524,6 +564,11 @@ export { GetTransitGatewayMulticastGroupSourceArgs, GetTransitGatewayMulticastGr
 export const getTransitGatewayMulticastGroupSource: typeof import("./getTransitGatewayMulticastGroupSource").getTransitGatewayMulticastGroupSource = null as any;
 export const getTransitGatewayMulticastGroupSourceOutput: typeof import("./getTransitGatewayMulticastGroupSource").getTransitGatewayMulticastGroupSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitGatewayMulticastGroupSource","getTransitGatewayMulticastGroupSourceOutput"], () => require("./getTransitGatewayMulticastGroupSource"));
+
+export { GetTransitGatewayNetworkFunctionAttachmentArgs, GetTransitGatewayNetworkFunctionAttachmentResult, GetTransitGatewayNetworkFunctionAttachmentOutputArgs } from "./getTransitGatewayNetworkFunctionAttachment";
+export const getTransitGatewayNetworkFunctionAttachment: typeof import("./getTransitGatewayNetworkFunctionAttachment").getTransitGatewayNetworkFunctionAttachment = null as any;
+export const getTransitGatewayNetworkFunctionAttachmentOutput: typeof import("./getTransitGatewayNetworkFunctionAttachment").getTransitGatewayNetworkFunctionAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayNetworkFunctionAttachment","getTransitGatewayNetworkFunctionAttachmentOutput"], () => require("./getTransitGatewayNetworkFunctionAttachment"));
 
 export { GetTransitGatewayPeeringAttachmentArgs, GetTransitGatewayPeeringAttachmentResult, GetTransitGatewayPeeringAttachmentOutputArgs } from "./getTransitGatewayPeeringAttachment";
 export const getTransitGatewayPeeringAttachment: typeof import("./getTransitGatewayPeeringAttachment").getTransitGatewayPeeringAttachment = null as any;
@@ -1015,6 +1060,11 @@ export type TransitGatewayMulticastGroupSource = import("./transitGatewayMultica
 export const TransitGatewayMulticastGroupSource: typeof import("./transitGatewayMulticastGroupSource").TransitGatewayMulticastGroupSource = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayMulticastGroupSource"], () => require("./transitGatewayMulticastGroupSource"));
 
+export { TransitGatewayNetworkFunctionAttachmentArgs } from "./transitGatewayNetworkFunctionAttachment";
+export type TransitGatewayNetworkFunctionAttachment = import("./transitGatewayNetworkFunctionAttachment").TransitGatewayNetworkFunctionAttachment;
+export const TransitGatewayNetworkFunctionAttachment: typeof import("./transitGatewayNetworkFunctionAttachment").TransitGatewayNetworkFunctionAttachment = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayNetworkFunctionAttachment"], () => require("./transitGatewayNetworkFunctionAttachment"));
+
 export { TransitGatewayPeeringAttachmentArgs } from "./transitGatewayPeeringAttachment";
 export type TransitGatewayPeeringAttachment = import("./transitGatewayPeeringAttachment").TransitGatewayPeeringAttachment;
 export const TransitGatewayPeeringAttachment: typeof import("./transitGatewayPeeringAttachment").TransitGatewayPeeringAttachment = null as any;
@@ -1190,8 +1240,12 @@ const _module = {
                 return new CarrierGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:ClientVpnAuthorizationRule":
                 return new ClientVpnAuthorizationRule(name, <any>undefined, { urn })
+            case "aws-native:ec2:ClientVpnEndpoint":
+                return new ClientVpnEndpoint(name, <any>undefined, { urn })
             case "aws-native:ec2:ClientVpnRoute":
                 return new ClientVpnRoute(name, <any>undefined, { urn })
+            case "aws-native:ec2:ClientVpnTargetNetworkAssociation":
+                return new ClientVpnTargetNetworkAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:CustomerGateway":
                 return new CustomerGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:DhcpOptions":
@@ -1206,6 +1260,10 @@ const _module = {
                 return new EipAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:EnclaveCertificateIamRoleAssociation":
                 return new EnclaveCertificateIamRoleAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:FcaPolicy":
+                return new FcaPolicy(name, <any>undefined, { urn })
+            case "aws-native:ec2:FcaPolicyAssociation":
+                return new FcaPolicyAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
             case "aws-native:ec2:FpgaImage":
@@ -1358,6 +1416,8 @@ const _module = {
                 return new TransitGatewayMulticastGroupMember(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayMulticastGroupSource":
                 return new TransitGatewayMulticastGroupSource(name, <any>undefined, { urn })
+            case "aws-native:ec2:TransitGatewayNetworkFunctionAttachment":
+                return new TransitGatewayNetworkFunctionAttachment(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayPeeringAttachment":
                 return new TransitGatewayPeeringAttachment(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayPolicyTable":

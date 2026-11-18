@@ -110,6 +110,7 @@ export class RouterInput extends pulumi.CustomResource {
      * The current state of the router input.
      */
     declare public /*out*/ readonly state: pulumi.Output<enums.mediaconnect.RouterInputState>;
+    declare public /*out*/ readonly streamDetails: pulumi.Output<outputs.mediaconnect.RouterInputStreamDetails0Properties | outputs.mediaconnect.RouterInputStreamDetails1Properties | outputs.mediaconnect.RouterInputStreamDetails2Properties | outputs.mediaconnect.RouterInputStreamDetails3Properties | outputs.mediaconnect.RouterInputStreamDetails4Properties | outputs.mediaconnect.RouterInputStreamDetails5Properties>;
     /**
      * Key-value pairs that can be used to tag and organize this router input.
      */
@@ -171,6 +172,7 @@ export class RouterInput extends pulumi.CustomResource {
             resourceInputs["maintenanceType"] = undefined /*out*/;
             resourceInputs["routedOutputs"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["streamDetails"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -191,6 +193,7 @@ export class RouterInput extends pulumi.CustomResource {
             resourceInputs["routedOutputs"] = undefined /*out*/;
             resourceInputs["routingScope"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["streamDetails"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tier"] = undefined /*out*/;
             resourceInputs["transitEncryption"] = undefined /*out*/;

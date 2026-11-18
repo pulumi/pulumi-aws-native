@@ -357,6 +357,7 @@ export type MicrovmImageAdditionalOsCapabilitiesItem = (typeof MicrovmImageAddit
 
 export const MicrovmImageCpuConfigurationArchitecture = {
     Arm64: "ARM_64",
+    X8664: "X86_64",
 } as const;
 
 export type MicrovmImageCpuConfigurationArchitecture = (typeof MicrovmImageCpuConfigurationArchitecture)[keyof typeof MicrovmImageCpuConfigurationArchitecture];
@@ -381,6 +382,16 @@ export const MicrovmImageState = {
 } as const;
 
 export type MicrovmImageState = (typeof MicrovmImageState)[keyof typeof MicrovmImageState];
+
+export const NetworkConnectorElasticIpConfigurationType = {
+    None: "None",
+    ServiceManaged: "ServiceManaged",
+} as const;
+
+/**
+ * The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+ */
+export type NetworkConnectorElasticIpConfigurationType = (typeof NetworkConnectorElasticIpConfigurationType)[keyof typeof NetworkConnectorElasticIpConfigurationType];
 
 export const NetworkConnectorState = {
     Pending: "PENDING",
@@ -422,6 +433,109 @@ export const PermissionFunctionUrlAuthType = {
  * The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
  */
 export type PermissionFunctionUrlAuthType = (typeof PermissionFunctionUrlAuthType)[keyof typeof PermissionFunctionUrlAuthType];
+
+export const RuntimeAliasCompatibilityArchitecturesItem = {
+    X8664: "x86_64",
+    Arm64: "arm64",
+} as const;
+
+export type RuntimeAliasCompatibilityArchitecturesItem = (typeof RuntimeAliasCompatibilityArchitecturesItem)[keyof typeof RuntimeAliasCompatibilityArchitecturesItem];
+
+export const RuntimeAliasCompatibilityIntegrationModelsItem = {
+    RuntimeApi: "RuntimeAPI",
+} as const;
+
+export type RuntimeAliasCompatibilityIntegrationModelsItem = (typeof RuntimeAliasCompatibilityIntegrationModelsItem)[keyof typeof RuntimeAliasCompatibilityIntegrationModelsItem];
+
+export const RuntimeAliasCompatibilityManagedInstances = {
+    Supported: "Supported",
+    NotSupported: "NotSupported",
+} as const;
+
+export type RuntimeAliasCompatibilityManagedInstances = (typeof RuntimeAliasCompatibilityManagedInstances)[keyof typeof RuntimeAliasCompatibilityManagedInstances];
+
+export const RuntimeAliasReleaseLifecycleReleaseState = {
+    Preview: "PREVIEW",
+    Ga: "GA",
+    Deprecated: "DEPRECATED",
+} as const;
+
+/**
+ * The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+ */
+export type RuntimeAliasReleaseLifecycleReleaseState = (typeof RuntimeAliasReleaseLifecycleReleaseState)[keyof typeof RuntimeAliasReleaseLifecycleReleaseState];
+
+export const RuntimeAliasState = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    PendingDeletion: "PENDING_DELETION",
+} as const;
+
+/**
+ * The lifecycle state of the runtime alias.
+ */
+export type RuntimeAliasState = (typeof RuntimeAliasState)[keyof typeof RuntimeAliasState];
+
+export const RuntimeReleaseLifecycleReleaseState = {
+    Preview: "PREVIEW",
+    Ga: "GA",
+    Deprecated: "DEPRECATED",
+} as const;
+
+/**
+ * The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+ */
+export type RuntimeReleaseLifecycleReleaseState = (typeof RuntimeReleaseLifecycleReleaseState)[keyof typeof RuntimeReleaseLifecycleReleaseState];
+
+export const RuntimeState = {
+    Active: "ACTIVE",
+    PendingDeletion: "PENDING_DELETION",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The lifecycle state of the runtime.
+ */
+export type RuntimeState = (typeof RuntimeState)[keyof typeof RuntimeState];
+
+export const RuntimeVersionCompatibilityArchitecturesItem = {
+    X8664: "x86_64",
+    Arm64: "arm64",
+} as const;
+
+export type RuntimeVersionCompatibilityArchitecturesItem = (typeof RuntimeVersionCompatibilityArchitecturesItem)[keyof typeof RuntimeVersionCompatibilityArchitecturesItem];
+
+export const RuntimeVersionCompatibilityIntegrationModelsItem = {
+    RuntimeApi: "RuntimeAPI",
+} as const;
+
+export type RuntimeVersionCompatibilityIntegrationModelsItem = (typeof RuntimeVersionCompatibilityIntegrationModelsItem)[keyof typeof RuntimeVersionCompatibilityIntegrationModelsItem];
+
+export const RuntimeVersionCompatibilityManagedInstances = {
+    Supported: "Supported",
+    NotSupported: "NotSupported",
+} as const;
+
+/**
+ * Whether the runtime version supports managed instances.
+ */
+export type RuntimeVersionCompatibilityManagedInstances = (typeof RuntimeVersionCompatibilityManagedInstances)[keyof typeof RuntimeVersionCompatibilityManagedInstances];
+
+export const RuntimeVersionState = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Failed: "FAILED",
+    Deleting: "DELETING",
+    PendingDeletion: "PENDING_DELETION",
+} as const;
+
+/**
+ * The lifecycle state of the runtime version.
+ */
+export type RuntimeVersionState = (typeof RuntimeVersionState)[keyof typeof RuntimeVersionState];
 
 export const UrlAllowMethodsItem = {
     Get: "GET",

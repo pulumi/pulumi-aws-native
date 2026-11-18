@@ -151,6 +151,10 @@ export class GameSessionQueue extends pulumi.CustomResource {
      */
     declare public readonly filterConfiguration: pulumi.Output<outputs.gamelift.GameSessionQueueFilterConfiguration | undefined>;
     /**
+     * A policy that determines where a game session queue's placement logs are delivered.
+     */
+    declare public readonly logConfiguration: pulumi.Output<outputs.gamelift.GameSessionQueueLogConfiguration | undefined>;
+    /**
      * A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -189,6 +193,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
             resourceInputs["customEventData"] = args?.customEventData;
             resourceInputs["destinations"] = args?.destinations;
             resourceInputs["filterConfiguration"] = args?.filterConfiguration;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["notificationTarget"] = args?.notificationTarget;
             resourceInputs["playerLatencyPolicies"] = args?.playerLatencyPolicies;
@@ -201,6 +206,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
             resourceInputs["customEventData"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["filterConfiguration"] = undefined /*out*/;
+            resourceInputs["logConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notificationTarget"] = undefined /*out*/;
             resourceInputs["playerLatencyPolicies"] = undefined /*out*/;
@@ -231,6 +237,10 @@ export interface GameSessionQueueArgs {
      * A list of locations where a queue is allowed to place new game sessions.
      */
     filterConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueueFilterConfigurationArgs | undefined>;
+    /**
+     * A policy that determines where a game session queue's placement logs are delivered.
+     */
+    logConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueueLogConfigurationArgs | undefined>;
     /**
      * A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
      */

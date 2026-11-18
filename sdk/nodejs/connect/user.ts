@@ -92,7 +92,7 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly routingProfileArn: pulumi.Output<string>;
     /**
-     * One or more security profile arns for the user
+     * One or more customer-managed or AWS-managed security profile ARNs for the user.
      */
     declare public readonly securityProfileArns: pulumi.Output<string[]>;
     /**
@@ -226,7 +226,7 @@ export interface UserArgs {
      */
     routingProfileArn: pulumi.Input<string>;
     /**
-     * One or more security profile arns for the user
+     * One or more customer-managed or AWS-managed security profile ARNs for the user.
      */
     securityProfileArns: pulumi.Input<pulumi.Input<string>[]>;
     /**

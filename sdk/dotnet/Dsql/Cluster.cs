@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Dsql
         public Output<string?> KmsEncryptionKey { get; private set; } = null!;
 
         /// <summary>
+        /// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+        /// </summary>
+        [Output("metricGroups")]
+        public Output<ImmutableArray<Outputs.ClusterMetricGroup>> MetricGroups { get; private set; } = null!;
+
+        /// <summary>
         /// The Multi-region properties associated to this cluster.
         /// </summary>
         [Output("multiRegionProperties")]
@@ -155,6 +161,18 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         [Input("kmsEncryptionKey")]
         public Input<string>? KmsEncryptionKey { get; set; }
+
+        [Input("metricGroups")]
+        private InputList<Inputs.ClusterMetricGroupArgs>? _metricGroups;
+
+        /// <summary>
+        /// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+        /// </summary>
+        public InputList<Inputs.ClusterMetricGroupArgs> MetricGroups
+        {
+            get => _metricGroups ?? (_metricGroups = new InputList<Inputs.ClusterMetricGroupArgs>());
+            set => _metricGroups = value;
+        }
 
         /// <summary>
         /// The Multi-region properties associated to this cluster.

@@ -80,6 +80,10 @@ export class InfluxDbCluster extends pulumi.CustomResource {
      */
     declare public readonly deploymentType: pulumi.Output<enums.timestream.InfluxDbClusterDeploymentType | undefined>;
     /**
+     * The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+     */
+    declare public /*out*/ readonly effectiveDbParameterGroupIdentifier: pulumi.Output<string>;
+    /**
      * The connection endpoint for the InfluxDB cluster.
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
@@ -96,6 +100,10 @@ export class InfluxDbCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly influxAuthParametersSecretArn: pulumi.Output<string>;
     /**
+     * The customer managed key used to encrypt data in the InfluxDB cluster.
+     */
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    /**
      * Configuration for sending logs to customer account from the InfluxDB cluster.
      */
     declare public readonly logDeliveryConfiguration: pulumi.Output<outputs.timestream.LogDeliveryConfigurationProperties | undefined>;
@@ -103,6 +111,14 @@ export class InfluxDbCluster extends pulumi.CustomResource {
      * The maintenance schedule for the InfluxDB cluster.
      */
     declare public readonly maintenanceSchedule: pulumi.Output<outputs.timestream.InfluxDbClusterMaintenanceSchedule | undefined>;
+    /**
+     * The number of DB instances that belong to the InfluxDB cluster.
+     */
+    declare public /*out*/ readonly memberCount: pulumi.Output<number>;
+    /**
+     * DB cluster member counts grouped by instance mode.
+     */
+    declare public /*out*/ readonly memberModeCounts: pulumi.Output<outputs.timestream.InfluxDbClusterMemberModeCount[]>;
     /**
      * The unique name that is associated with the InfluxDB cluster.
      */
@@ -174,6 +190,7 @@ export class InfluxDbCluster extends pulumi.CustomResource {
             resourceInputs["dbStorageType"] = args?.dbStorageType;
             resourceInputs["deploymentType"] = args?.deploymentType;
             resourceInputs["failoverMode"] = args?.failoverMode;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["logDeliveryConfiguration"] = args?.logDeliveryConfiguration;
             resourceInputs["maintenanceSchedule"] = args?.maintenanceSchedule;
             resourceInputs["name"] = args?.name;
@@ -188,9 +205,12 @@ export class InfluxDbCluster extends pulumi.CustomResource {
             resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["effectiveDbParameterGroupIdentifier"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineType"] = undefined /*out*/;
             resourceInputs["influxAuthParametersSecretArn"] = undefined /*out*/;
+            resourceInputs["memberCount"] = undefined /*out*/;
+            resourceInputs["memberModeCounts"] = undefined /*out*/;
             resourceInputs["nextMaintenanceTime"] = undefined /*out*/;
             resourceInputs["readerEndpoint"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -203,12 +223,16 @@ export class InfluxDbCluster extends pulumi.CustomResource {
             resourceInputs["dbParameterGroupIdentifier"] = undefined /*out*/;
             resourceInputs["dbStorageType"] = undefined /*out*/;
             resourceInputs["deploymentType"] = undefined /*out*/;
+            resourceInputs["effectiveDbParameterGroupIdentifier"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineType"] = undefined /*out*/;
             resourceInputs["failoverMode"] = undefined /*out*/;
             resourceInputs["influxAuthParametersSecretArn"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["logDeliveryConfiguration"] = undefined /*out*/;
             resourceInputs["maintenanceSchedule"] = undefined /*out*/;
+            resourceInputs["memberCount"] = undefined /*out*/;
+            resourceInputs["memberModeCounts"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["nextMaintenanceTime"] = undefined /*out*/;
@@ -224,7 +248,7 @@ export class InfluxDbCluster extends pulumi.CustomResource {
             resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["allocatedStorage", "bucket", "dbStorageType", "deploymentType", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["allocatedStorage", "bucket", "dbStorageType", "deploymentType", "kmsKeyId", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InfluxDbCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -262,6 +286,10 @@ export interface InfluxDbClusterArgs {
      * Failover mode of the InfluxDB cluster.
      */
     failoverMode?: pulumi.Input<enums.timestream.InfluxDbClusterFailoverMode | undefined>;
+    /**
+     * The customer managed key used to encrypt data in the InfluxDB cluster.
+     */
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Configuration for sending logs to customer account from the InfluxDB cluster.
      */

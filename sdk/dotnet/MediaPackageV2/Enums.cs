@@ -301,6 +301,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     [EnumType]
+    public readonly struct OriginEndpointDashBandwidthReportingMode : IEquatable<OriginEndpointDashBandwidthReportingMode>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashBandwidthReportingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashBandwidthReportingMode Average { get; } = new OriginEndpointDashBandwidthReportingMode("AVERAGE");
+        public static OriginEndpointDashBandwidthReportingMode Max { get; } = new OriginEndpointDashBandwidthReportingMode("MAX");
+
+        public static bool operator ==(OriginEndpointDashBandwidthReportingMode left, OriginEndpointDashBandwidthReportingMode right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashBandwidthReportingMode left, OriginEndpointDashBandwidthReportingMode right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashBandwidthReportingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashBandwidthReportingMode other && Equals(other);
+        public bool Equals(OriginEndpointDashBandwidthReportingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointDashCompactness : IEquatable<OriginEndpointDashCompactness>
     {
         private readonly string _value;

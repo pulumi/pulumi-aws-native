@@ -160,6 +160,7 @@ class OrganizationTelemetryRuleResourceType(_builtins.str, Enum):
     AWSMSK_CLUSTER = "AWS::MSK::Cluster"
     AWS_CLOUD_FRONT_DISTRIBUTION = "AWS::CloudFront::Distribution"
     AWS_CLOUD_WATCH_O_TEL_ENRICHMENT = "AWS::CloudWatch::OTelEnrichment"
+    AWSX_RAY_TRANSACTION_SEARCH_CONFIG = "AWS::XRay::TransactionSearchConfig"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem")
@@ -193,7 +194,9 @@ class OrganizationTelemetryRuleTelemetryType(_builtins.str, Enum):
     Telemetry Type associated with the Organization Telemetry Rule
     """
     LOGS = "Logs"
+    TRACES = "Traces"
     METRICS = "Metrics"
+    INSIGHTS = "Insights"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleWafLogType")
@@ -324,6 +327,8 @@ class TelemetryRuleResourceType(_builtins.str, Enum):
     AWS_BEDROCK_AGENT_CORE_MEMORY = "AWS::BedrockAgentCore::Memory"
     AWS_BEDROCK_AGENT_CORE_GATEWAY = "AWS::BedrockAgentCore::Gateway"
     AWS_BEDROCK_AGENT_CORE_WORKLOAD_IDENTITY = "AWS::BedrockAgentCore::WorkloadIdentity"
+    AWS_BEDROCK_AGENT_CORE_PAYMENT_MANAGER = "AWS::BedrockAgentCore::PaymentManager"
+    AWSX_RAY_TRANSACTION_SEARCH_CONFIG = "AWS::XRay::TransactionSearchConfig"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem")
@@ -361,6 +366,7 @@ class TelemetryRuleTelemetryType(_builtins.str, Enum):
     LOGS = "Logs"
     TRACES = "Traces"
     METRICS = "Metrics"
+    INSIGHTS = "Insights"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleWafLogType")

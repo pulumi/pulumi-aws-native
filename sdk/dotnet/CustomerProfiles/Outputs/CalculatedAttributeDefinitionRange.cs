@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         /// <summary>
         /// The unit of time.
         /// </summary>
-        public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit Unit;
+        public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit? Unit;
         /// <summary>
         /// The amount of time of the specified unit.
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
 
             string? timestampSource,
 
-            Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit unit,
+            Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit? unit,
 
             int? value,
 

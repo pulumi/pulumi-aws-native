@@ -29,6 +29,7 @@ export interface GetTableBucketResult {
      * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
      */
     readonly encryptionConfiguration?: outputs.s3tables.TableBucketEncryptionConfiguration;
+    readonly loggingConfiguration?: outputs.s3tables.TableBucketLoggingConfiguration;
     readonly metricsConfiguration?: outputs.s3tables.TableBucketMetricsConfiguration;
     readonly replicationConfiguration?: outputs.s3tables.TableBucketReplicationConfiguration;
     /**

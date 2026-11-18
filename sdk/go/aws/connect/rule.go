@@ -24,12 +24,14 @@ type Rule struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the rule.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                 pulumi.StringOutput               `pulumi:"name"`
+	PreEvaluationFilters RulePreEvaluationFiltersPtrOutput `pulumi:"preEvaluationFilters"`
 	// The publish status of the rule.
 	//  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatusOutput `pulumi:"publishStatus"`
 	// The Amazon Resource Name (ARN) of the rule.
-	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
+	RuleArn             pulumi.StringOutput                `pulumi:"ruleArn"`
+	RuleCapabilityTiers RuleCapabilityTiersItemArrayOutput `pulumi:"ruleCapabilityTiers"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The event source to trigger the rule.
@@ -109,7 +111,8 @@ type ruleArgs struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the rule.
-	Name *string `pulumi:"name"`
+	Name                 *string                   `pulumi:"name"`
+	PreEvaluationFilters *RulePreEvaluationFilters `pulumi:"preEvaluationFilters"`
 	// The publish status of the rule.
 	//  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatus `pulumi:"publishStatus"`
@@ -128,7 +131,8 @@ type RuleArgs struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn pulumi.StringInput
 	// The name of the rule.
-	Name pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	PreEvaluationFilters RulePreEvaluationFiltersPtrInput
 	// The publish status of the rule.
 	//  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatusInput
@@ -195,6 +199,10 @@ func (o RuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o RuleOutput) PreEvaluationFilters() RulePreEvaluationFiltersPtrOutput {
+	return o.ApplyT(func(v *Rule) RulePreEvaluationFiltersPtrOutput { return v.PreEvaluationFilters }).(RulePreEvaluationFiltersPtrOutput)
+}
+
 // The publish status of the rule.
 //
 //	*Allowed values*: ``DRAFT`` | ``PUBLISHED``
@@ -205,6 +213,10 @@ func (o RuleOutput) PublishStatus() RulePublishStatusOutput {
 // The Amazon Resource Name (ARN) of the rule.
 func (o RuleOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
+}
+
+func (o RuleOutput) RuleCapabilityTiers() RuleCapabilityTiersItemArrayOutput {
+	return o.ApplyT(func(v *Rule) RuleCapabilityTiersItemArrayOutput { return v.RuleCapabilityTiers }).(RuleCapabilityTiersItemArrayOutput)
 }
 
 // The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.

@@ -75,7 +75,7 @@
     "ResourceType" : {
       "description" : "The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.",
       "type" : "string",
-      "enum" : [ "NetworkInterface", "Subnet", "VPC", "TransitGateway", "TransitGatewayAttachment", "RegionalNatGateway" ]
+      "enum" : [ "NetworkInterface", "Subnet", "VPC", "TransitGateway", "TransitGatewayAttachment", "RegionalNatGateway", "CoreNetwork", "CoreNetworkEdge", "CoreNetworkAttachment" ]
     },
     "Tags" : {
       "description" : "The tags to apply to the flow logs.",
@@ -130,7 +130,7 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "autoscaling:DescribeTags", "ec2:CreateFlowLogs", "ec2:DescribeFlowLogs", "ec2:DescribeTags", "ec2:CreateTags", "iam:CreateServiceLinkedRole", "iam:PassRole", "logs:CreateLogDelivery", "s3:GetBucketPolicy", "s3:PutBucketPolicy" ]
+      "permissions" : [ "autoscaling:DescribeTags", "ec2:CreateFlowLogs", "ec2:DescribeFlowLogs", "ec2:DescribeTags", "ec2:CreateTags", "iam:CreateServiceLinkedRole", "iam:PassRole", "logs:CreateLogDelivery", "networkmanager:GetCoreNetwork", "s3:GetBucketPolicy", "s3:PutBucketPolicy" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeFlowLogs" ]

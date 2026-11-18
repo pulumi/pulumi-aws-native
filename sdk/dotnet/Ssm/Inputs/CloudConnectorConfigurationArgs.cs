@@ -11,12 +11,15 @@ namespace Pulumi.AwsNative.Ssm.Inputs
 {
 
     /// <summary>
-    /// The configuration for the cloud connector. Currently supports Azure.
+    /// The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
     /// </summary>
     public sealed class CloudConnectorConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("azureConfiguration", required: true)]
-        public Input<Inputs.CloudConnectorAzureConfigurationArgs> AzureConfiguration { get; set; } = null!;
+        [Input("azureConfiguration")]
+        public Input<Inputs.CloudConnectorAzureConfigurationArgs>? AzureConfiguration { get; set; }
+
+        [Input("gcpConfiguration")]
+        public Input<Inputs.CloudConnectorGcpConfigurationArgs>? GcpConfiguration { get; set; }
 
         public CloudConnectorConfigurationArgs()
         {

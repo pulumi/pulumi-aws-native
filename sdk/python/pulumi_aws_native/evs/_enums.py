@@ -49,6 +49,8 @@ class EnvironmentHostInfoForCreateInstanceType(_builtins.str, Enum):
     I4I_METAL = "i4i.metal"
     I7I_METAL24XL = "i7i.metal-24xl"
     I7I_METAL48XL = "i7i.metal-48xl"
+    R7I_METAL24XL = "r7i.metal-24xl"
+    R7I_METAL48XL = "r7i.metal-48xl"
 
 
 @pulumi.type_token("aws-native:evs:EnvironmentState")

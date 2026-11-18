@@ -43,6 +43,7 @@ __all__ = [
     'PentestAuthentication',
     'PentestCaCertificateSource',
     'PentestCiCdConfiguration',
+    'PentestClientCertificate',
     'PentestCloudWatchLog',
     'PentestCustomHeader',
     'PentestDocumentInfo',
@@ -1512,7 +1513,9 @@ class PentestAssets(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "integratedRepositories":
+        if key == "clientCertificates":
+            suggest = "client_certificates"
+        elif key == "integratedRepositories":
             suggest = "integrated_repositories"
         elif key == "sourceCode":
             suggest = "source_code"
@@ -1532,6 +1535,7 @@ class PentestAssets(dict):
 
     def __init__(__self__, *,
                  actors: Optional[Sequence['outputs.PentestActor']] = None,
+                 client_certificates: Optional[Sequence['outputs.PentestClientCertificate']] = None,
                  documents: Optional[Sequence['outputs.PentestDocumentInfo']] = None,
                  endpoints: Optional[Sequence['outputs.PentestEndpoint']] = None,
                  integrated_repositories: Optional[Sequence['outputs.PentestIntegratedRepository']] = None,
@@ -1541,6 +1545,7 @@ class PentestAssets(dict):
         Collection of assets to be tested during the pentest
 
         :param Sequence['PentestActor'] actors: List of actors used during testing
+        :param Sequence['PentestClientCertificate'] client_certificates: Client certificates that AWS Security Agent presents to target hosts that require mutual TLS (mTLS)
         :param Sequence['PentestDocumentInfo'] documents: List of documents providing additional context for the pentest
         :param Sequence['PentestEndpoint'] endpoints: List of endpoints to test
         :param Sequence['PentestIntegratedRepository'] integrated_repositories: List of repositories connected via provider integrations
@@ -1549,6 +1554,8 @@ class PentestAssets(dict):
         """
         if actors is not None:
             pulumi.set(__self__, "actors", actors)
+        if client_certificates is not None:
+            pulumi.set(__self__, "client_certificates", client_certificates)
         if documents is not None:
             pulumi.set(__self__, "documents", documents)
         if endpoints is not None:
@@ -1567,6 +1574,14 @@ class PentestAssets(dict):
         List of actors used during testing
         """
         return pulumi.get(self, "actors")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificates")
+    def client_certificates(self) -> Optional[Sequence['outputs.PentestClientCertificate']]:
+        """
+        Client certificates that AWS Security Agent presents to target hosts that require mutual TLS (mTLS)
+        """
+        return pulumi.get(self, "client_certificates")
 
     @_builtins.property
     @pulumi.getter
@@ -1752,6 +1767,68 @@ class PentestCiCdConfiguration(dict):
         Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class PentestClientCertificate(dict):
+    """
+    Client certificate presented during the TLS handshake to the hosts it applies to
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PentestClientCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PentestClientCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PentestClientCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 origins: Sequence[_builtins.str],
+                 secret_arn: _builtins.str):
+        """
+        Client certificate presented during the TLS handshake to the hosts it applies to
+
+        :param _builtins.str name: Name of the client certificate, unique within the pentest
+        :param Sequence[_builtins.str] origins: Target hosts the certificate applies to, as https://host[:port] origins
+        :param _builtins.str secret_arn: ARN of the Secrets Manager secret that holds the certificate and private key
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origins", origins)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the client certificate, unique within the pentest
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def origins(self) -> Sequence[_builtins.str]:
+        """
+        Target hosts the certificate applies to, as https://host[:port] origins
+        """
+        return pulumi.get(self, "origins")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        ARN of the Secrets Manager secret that holds the certificate and private key
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type

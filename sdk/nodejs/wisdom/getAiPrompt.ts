@@ -46,6 +46,7 @@ export interface GetAiPromptResult {
      * The description of the AI Prompt.
      */
     readonly description?: string;
+    readonly inferenceConfiguration?: outputs.wisdom.AiPromptAiPromptInferenceConfiguration;
     /**
      * The identifier of the model used for this AI Prompt. The following model Ids are supported:
      *

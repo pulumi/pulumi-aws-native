@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigurationProfileResult:
-    def __init__(__self__, configuration_profile_id=None, description=None, kms_key_arn=None, kms_key_identifier=None, name=None, retrieval_role_arn=None, tags=None, validators=None):
+    def __init__(__self__, configuration_profile_id=None, description=None, kms_key_arn=None, kms_key_identifier=None, name=None, retrieval_role_arn=None, tags=None, type=None, validators=None):
         if configuration_profile_id and not isinstance(configuration_profile_id, str):
             raise TypeError("Expected argument 'configuration_profile_id' to be a str")
         pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
@@ -47,6 +47,9 @@ class GetConfigurationProfileResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
         if validators and not isinstance(validators, list):
             raise TypeError("Expected argument 'validators' to be a list")
         pulumi.set(__self__, "validators", validators)
@@ -109,6 +112,14 @@ class GetConfigurationProfileResult:
 
     @_builtins.property
     @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
     def validators(self) -> Optional[Sequence['outputs.ConfigurationProfileValidators']]:
         """
         A list of methods for validating the configuration.
@@ -129,6 +140,7 @@ class AwaitableGetConfigurationProfileResult(GetConfigurationProfileResult):
             name=self.name,
             retrieval_role_arn=self.retrieval_role_arn,
             tags=self.tags,
+            type=self.type,
             validators=self.validators)
 
 
@@ -155,6 +167,7 @@ def get_configuration_profile(application_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         retrieval_role_arn=pulumi.get(__ret__, 'retrieval_role_arn'),
         tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
         validators=pulumi.get(__ret__, 'validators'))
 def get_configuration_profile_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -178,4 +191,5 @@ def get_configuration_profile_output(application_id: pulumi.Input[Optional[_buil
         name=pulumi.get(__response__, 'name'),
         retrieval_role_arn=pulumi.get(__response__, 'retrieval_role_arn'),
         tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
         validators=pulumi.get(__response__, 'validators')))

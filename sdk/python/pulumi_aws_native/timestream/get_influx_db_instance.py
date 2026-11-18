@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInfluxDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, arn=None, availability_zone=None, db_instance_type=None, db_parameter_group_identifier=None, db_storage_type=None, deployment_type=None, endpoint=None, id=None, influx_auth_parameters_secret_arn=None, log_delivery_configuration=None, maintenance_schedule=None, next_maintenance_time=None, port=None, secondary_availability_zone=None, status=None, tags=None):
+    def __init__(__self__, allocated_storage=None, arn=None, availability_zone=None, db_cluster_id=None, db_instance_type=None, db_parameter_group_identifier=None, db_storage_type=None, deployment_type=None, endpoint=None, id=None, influx_auth_parameters_secret_arn=None, log_delivery_configuration=None, maintenance_schedule=None, next_maintenance_time=None, port=None, secondary_availability_zone=None, status=None, tags=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -36,6 +36,9 @@ class GetInfluxDbInstanceResult:
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if db_cluster_id and not isinstance(db_cluster_id, str):
+            raise TypeError("Expected argument 'db_cluster_id' to be a str")
+        pulumi.set(__self__, "db_cluster_id", db_cluster_id)
         if db_instance_type and not isinstance(db_instance_type, str):
             raise TypeError("Expected argument 'db_instance_type' to be a str")
         pulumi.set(__self__, "db_instance_type", db_instance_type)
@@ -102,6 +105,14 @@ class GetInfluxDbInstanceResult:
         The Availability Zone (AZ) where the InfluxDB instance is created.
         """
         return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="dbClusterId")
+    def db_cluster_id(self) -> Optional[_builtins.str]:
+        """
+        The service generated unique identifier of the InfluxDB cluster containing this instance.
+        """
+        return pulumi.get(self, "db_cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceType")
@@ -225,6 +236,7 @@ class AwaitableGetInfluxDbInstanceResult(GetInfluxDbInstanceResult):
             allocated_storage=self.allocated_storage,
             arn=self.arn,
             availability_zone=self.availability_zone,
+            db_cluster_id=self.db_cluster_id,
             db_instance_type=self.db_instance_type,
             db_parameter_group_identifier=self.db_parameter_group_identifier,
             db_storage_type=self.db_storage_type,
@@ -257,6 +269,7 @@ def get_influx_db_instance(id: Optional[_builtins.str] = None,
         allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
         arn=pulumi.get(__ret__, 'arn'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        db_cluster_id=pulumi.get(__ret__, 'db_cluster_id'),
         db_instance_type=pulumi.get(__ret__, 'db_instance_type'),
         db_parameter_group_identifier=pulumi.get(__ret__, 'db_parameter_group_identifier'),
         db_storage_type=pulumi.get(__ret__, 'db_storage_type'),
@@ -286,6 +299,7 @@ def get_influx_db_instance_output(id: pulumi.Input[Optional[_builtins.str]] = No
         allocated_storage=pulumi.get(__response__, 'allocated_storage'),
         arn=pulumi.get(__response__, 'arn'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
+        db_cluster_id=pulumi.get(__response__, 'db_cluster_id'),
         db_instance_type=pulumi.get(__response__, 'db_instance_type'),
         db_parameter_group_identifier=pulumi.get(__response__, 'db_parameter_group_identifier'),
         db_storage_type=pulumi.get(__response__, 'db_storage_type'),

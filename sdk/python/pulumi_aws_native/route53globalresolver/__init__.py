@@ -9,11 +9,13 @@ import typing
 from ._enums import *
 from .access_source import *
 from .access_token import *
+from .core_network_endpoint import *
 from .dns_view import *
 from .firewall_domain_list import *
 from .firewall_rule import *
 from .get_access_source import *
 from .get_access_token import *
+from .get_core_network_endpoint import *
 from .get_dns_view import *
 from .get_firewall_domain_list import *
 from .get_firewall_rule import *
@@ -21,3 +23,5 @@ from .get_global_resolver import *
 from .get_hosted_zone_association import *
 from .global_resolver import *
 from .hosted_zone_association import *
+from ._inputs import *
+from . import outputs

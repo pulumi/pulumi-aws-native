@@ -20,6 +20,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
             set => _headers = value;
         }
 
+        /// <summary>
+        /// How the harness authenticates to this MCP endpoint. Defaults to None if omitted.
+        /// </summary>
+        [Input("outboundAuth")]
+        public Input<Inputs.HarnessRemoteMcpOutboundAuthArgs>? OutboundAuth { get; set; }
+
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

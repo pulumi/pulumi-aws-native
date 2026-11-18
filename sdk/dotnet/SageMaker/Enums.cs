@@ -696,6 +696,109 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// When enabled, entities borrow idle compute based on assigned FairShareWeight.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSchedulerConfigSchedulerConfigFairShare : IEquatable<ClusterSchedulerConfigSchedulerConfigFairShare>
+    {
+        private readonly string _value;
+
+        private ClusterSchedulerConfigSchedulerConfigFairShare(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSchedulerConfigSchedulerConfigFairShare Enabled { get; } = new ClusterSchedulerConfigSchedulerConfigFairShare("Enabled");
+        public static ClusterSchedulerConfigSchedulerConfigFairShare Disabled { get; } = new ClusterSchedulerConfigSchedulerConfigFairShare("Disabled");
+
+        public static bool operator ==(ClusterSchedulerConfigSchedulerConfigFairShare left, ClusterSchedulerConfigSchedulerConfigFairShare right) => left.Equals(right);
+        public static bool operator !=(ClusterSchedulerConfigSchedulerConfigFairShare left, ClusterSchedulerConfigSchedulerConfigFairShare right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSchedulerConfigSchedulerConfigFairShare value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSchedulerConfigSchedulerConfigFairShare other && Equals(other);
+        public bool Equals(ClusterSchedulerConfigSchedulerConfigFairShare other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Configuration for sharing idle compute resources across entities.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSchedulerConfigSchedulerConfigIdleResourceSharing : IEquatable<ClusterSchedulerConfigSchedulerConfigIdleResourceSharing>
+    {
+        private readonly string _value;
+
+        private ClusterSchedulerConfigSchedulerConfigIdleResourceSharing(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSchedulerConfigSchedulerConfigIdleResourceSharing Enabled { get; } = new ClusterSchedulerConfigSchedulerConfigIdleResourceSharing("Enabled");
+        public static ClusterSchedulerConfigSchedulerConfigIdleResourceSharing Disabled { get; } = new ClusterSchedulerConfigSchedulerConfigIdleResourceSharing("Disabled");
+
+        public static bool operator ==(ClusterSchedulerConfigSchedulerConfigIdleResourceSharing left, ClusterSchedulerConfigSchedulerConfigIdleResourceSharing right) => left.Equals(right);
+        public static bool operator !=(ClusterSchedulerConfigSchedulerConfigIdleResourceSharing left, ClusterSchedulerConfigSchedulerConfigIdleResourceSharing right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSchedulerConfigSchedulerConfigIdleResourceSharing value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSchedulerConfigSchedulerConfigIdleResourceSharing other && Equals(other);
+        public bool Equals(ClusterSchedulerConfigSchedulerConfigIdleResourceSharing other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the cluster policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSchedulerConfigStatus : IEquatable<ClusterSchedulerConfigStatus>
+    {
+        private readonly string _value;
+
+        private ClusterSchedulerConfigStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSchedulerConfigStatus Creating { get; } = new ClusterSchedulerConfigStatus("Creating");
+        public static ClusterSchedulerConfigStatus CreateFailed { get; } = new ClusterSchedulerConfigStatus("CreateFailed");
+        public static ClusterSchedulerConfigStatus CreateRollbackFailed { get; } = new ClusterSchedulerConfigStatus("CreateRollbackFailed");
+        public static ClusterSchedulerConfigStatus Created { get; } = new ClusterSchedulerConfigStatus("Created");
+        public static ClusterSchedulerConfigStatus Updating { get; } = new ClusterSchedulerConfigStatus("Updating");
+        public static ClusterSchedulerConfigStatus UpdateFailed { get; } = new ClusterSchedulerConfigStatus("UpdateFailed");
+        public static ClusterSchedulerConfigStatus UpdateRollbackFailed { get; } = new ClusterSchedulerConfigStatus("UpdateRollbackFailed");
+        public static ClusterSchedulerConfigStatus Updated { get; } = new ClusterSchedulerConfigStatus("Updated");
+        public static ClusterSchedulerConfigStatus Deleting { get; } = new ClusterSchedulerConfigStatus("Deleting");
+        public static ClusterSchedulerConfigStatus DeleteFailed { get; } = new ClusterSchedulerConfigStatus("DeleteFailed");
+        public static ClusterSchedulerConfigStatus DeleteRollbackFailed { get; } = new ClusterSchedulerConfigStatus("DeleteRollbackFailed");
+        public static ClusterSchedulerConfigStatus Deleted { get; } = new ClusterSchedulerConfigStatus("Deleted");
+
+        public static bool operator ==(ClusterSchedulerConfigStatus left, ClusterSchedulerConfigStatus right) => left.Equals(right);
+        public static bool operator !=(ClusterSchedulerConfigStatus left, ClusterSchedulerConfigStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSchedulerConfigStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSchedulerConfigStatus other && Equals(other);
+        public bool Equals(ClusterSchedulerConfigStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
     /// </summary>
     [EnumType]
@@ -1945,6 +2048,43 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainUserSettingsStudioWebPortal other && Equals(other);
         public bool Equals(DomainUserSettingsStudioWebPortal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the extension. CloudFormation doesn't wait for the extension to finish installing or updating on the cluster nodes. To check progress, use Status and NodeSummary.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtensionStatus : IEquatable<ExtensionStatus>
+    {
+        private readonly string _value;
+
+        private ExtensionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtensionStatus Creating { get; } = new ExtensionStatus("Creating");
+        public static ExtensionStatus Active { get; } = new ExtensionStatus("Active");
+        public static ExtensionStatus CreateFailed { get; } = new ExtensionStatus("CreateFailed");
+        public static ExtensionStatus Updating { get; } = new ExtensionStatus("Updating");
+        public static ExtensionStatus Deleting { get; } = new ExtensionStatus("Deleting");
+        public static ExtensionStatus DeleteFailed { get; } = new ExtensionStatus("DeleteFailed");
+        public static ExtensionStatus Degraded { get; } = new ExtensionStatus("Degraded");
+        public static ExtensionStatus UpdateFailed { get; } = new ExtensionStatus("UpdateFailed");
+
+        public static bool operator ==(ExtensionStatus left, ExtensionStatus right) => left.Equals(right);
+        public static bool operator !=(ExtensionStatus left, ExtensionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ExtensionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtensionStatus other && Equals(other);
+        public bool Equals(ExtensionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

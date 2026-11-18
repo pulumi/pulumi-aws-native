@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem> AssociatedComputeResourceTypes;
+        public readonly Outputs.NetworkConnectorElasticIpConfiguration? ElasticIpConfiguration;
         /// <summary>
         /// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
         /// </summary>
@@ -37,6 +38,8 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         private NetworkConnectorVpcEgressConfiguration(
             ImmutableArray<Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem> associatedComputeResourceTypes,
 
+            Outputs.NetworkConnectorElasticIpConfiguration? elasticIpConfiguration,
+
             Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol networkProtocol,
 
             ImmutableArray<string> securityGroupIds,
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
             ImmutableArray<string> subnetIds)
         {
             AssociatedComputeResourceTypes = associatedComputeResourceTypes;
+            ElasticIpConfiguration = elasticIpConfiguration;
             NetworkProtocol = networkProtocol;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;

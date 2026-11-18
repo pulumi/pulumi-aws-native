@@ -269,6 +269,172 @@ func (in *catalogAllowFullTableExternalDataAccessPtr) ToCatalogAllowFullTableExt
 	return pulumi.ToOutputWithContext(ctx, in).(CatalogAllowFullTableExternalDataAccessPtrOutput)
 }
 
+// Whether asset synchronization is enabled.
+type CatalogAssetsSyncConfigurationStatus string
+
+const (
+	CatalogAssetsSyncConfigurationStatusEnabled  = CatalogAssetsSyncConfigurationStatus("ENABLED")
+	CatalogAssetsSyncConfigurationStatusDisabled = CatalogAssetsSyncConfigurationStatus("DISABLED")
+)
+
+func (CatalogAssetsSyncConfigurationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogAssetsSyncConfigurationStatus)(nil)).Elem()
+}
+
+func (e CatalogAssetsSyncConfigurationStatus) ToCatalogAssetsSyncConfigurationStatusOutput() CatalogAssetsSyncConfigurationStatusOutput {
+	return pulumi.ToOutput(e).(CatalogAssetsSyncConfigurationStatusOutput)
+}
+
+func (e CatalogAssetsSyncConfigurationStatus) ToCatalogAssetsSyncConfigurationStatusOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CatalogAssetsSyncConfigurationStatusOutput)
+}
+
+func (e CatalogAssetsSyncConfigurationStatus) ToCatalogAssetsSyncConfigurationStatusPtrOutput() CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return e.ToCatalogAssetsSyncConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogAssetsSyncConfigurationStatus) ToCatalogAssetsSyncConfigurationStatusPtrOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return CatalogAssetsSyncConfigurationStatus(e).ToCatalogAssetsSyncConfigurationStatusOutputWithContext(ctx).ToCatalogAssetsSyncConfigurationStatusPtrOutputWithContext(ctx)
+}
+
+func (e CatalogAssetsSyncConfigurationStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogAssetsSyncConfigurationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogAssetsSyncConfigurationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogAssetsSyncConfigurationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CatalogAssetsSyncConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (CatalogAssetsSyncConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogAssetsSyncConfigurationStatus)(nil)).Elem()
+}
+
+func (o CatalogAssetsSyncConfigurationStatusOutput) ToCatalogAssetsSyncConfigurationStatusOutput() CatalogAssetsSyncConfigurationStatusOutput {
+	return o
+}
+
+func (o CatalogAssetsSyncConfigurationStatusOutput) ToCatalogAssetsSyncConfigurationStatusOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationStatusOutput {
+	return o
+}
+
+func (o CatalogAssetsSyncConfigurationStatusOutput) ToCatalogAssetsSyncConfigurationStatusPtrOutput() CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return o.ToCatalogAssetsSyncConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogAssetsSyncConfigurationStatusOutput) ToCatalogAssetsSyncConfigurationStatusPtrOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogAssetsSyncConfigurationStatus) *CatalogAssetsSyncConfigurationStatus {
+		return &v
+	}).(CatalogAssetsSyncConfigurationStatusPtrOutput)
+}
+
+func (o CatalogAssetsSyncConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CatalogAssetsSyncConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogAssetsSyncConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogAssetsSyncConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogAssetsSyncConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogAssetsSyncConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogAssetsSyncConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogAssetsSyncConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogAssetsSyncConfigurationStatus)(nil)).Elem()
+}
+
+func (o CatalogAssetsSyncConfigurationStatusPtrOutput) ToCatalogAssetsSyncConfigurationStatusPtrOutput() CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o CatalogAssetsSyncConfigurationStatusPtrOutput) ToCatalogAssetsSyncConfigurationStatusPtrOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o CatalogAssetsSyncConfigurationStatusPtrOutput) Elem() CatalogAssetsSyncConfigurationStatusOutput {
+	return o.ApplyT(func(v *CatalogAssetsSyncConfigurationStatus) CatalogAssetsSyncConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogAssetsSyncConfigurationStatus
+		return ret
+	}).(CatalogAssetsSyncConfigurationStatusOutput)
+}
+
+func (o CatalogAssetsSyncConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogAssetsSyncConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CatalogAssetsSyncConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CatalogAssetsSyncConfigurationStatusInput is an input type that accepts values of the CatalogAssetsSyncConfigurationStatus enum
+// A concrete instance of `CatalogAssetsSyncConfigurationStatusInput` can be one of the following:
+//
+//	CatalogAssetsSyncConfigurationStatusEnabled
+//	CatalogAssetsSyncConfigurationStatusDisabled
+type CatalogAssetsSyncConfigurationStatusInput interface {
+	pulumi.Input
+
+	ToCatalogAssetsSyncConfigurationStatusOutput() CatalogAssetsSyncConfigurationStatusOutput
+	ToCatalogAssetsSyncConfigurationStatusOutputWithContext(context.Context) CatalogAssetsSyncConfigurationStatusOutput
+}
+
+var catalogAssetsSyncConfigurationStatusPtrType = reflect.TypeOf((**CatalogAssetsSyncConfigurationStatus)(nil)).Elem()
+
+type CatalogAssetsSyncConfigurationStatusPtrInput interface {
+	pulumi.Input
+
+	ToCatalogAssetsSyncConfigurationStatusPtrOutput() CatalogAssetsSyncConfigurationStatusPtrOutput
+	ToCatalogAssetsSyncConfigurationStatusPtrOutputWithContext(context.Context) CatalogAssetsSyncConfigurationStatusPtrOutput
+}
+
+type catalogAssetsSyncConfigurationStatusPtr string
+
+func CatalogAssetsSyncConfigurationStatusPtr(v string) CatalogAssetsSyncConfigurationStatusPtrInput {
+	return (*catalogAssetsSyncConfigurationStatusPtr)(&v)
+}
+
+func (*catalogAssetsSyncConfigurationStatusPtr) ElementType() reflect.Type {
+	return catalogAssetsSyncConfigurationStatusPtrType
+}
+
+func (in *catalogAssetsSyncConfigurationStatusPtr) ToCatalogAssetsSyncConfigurationStatusPtrOutput() CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return pulumi.ToOutput(in).(CatalogAssetsSyncConfigurationStatusPtrOutput)
+}
+
+func (in *catalogAssetsSyncConfigurationStatusPtr) ToCatalogAssetsSyncConfigurationStatusPtrOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CatalogAssetsSyncConfigurationStatusPtrOutput)
+}
+
 // Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
 type CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess string
 
@@ -433,6 +599,340 @@ func (in *catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtr) To
 
 func (in *catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtr) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput)
+}
+
+// Whether lineage synchronization is enabled.
+type CatalogLineageSyncConfigurationStatus string
+
+const (
+	CatalogLineageSyncConfigurationStatusEnabled  = CatalogLineageSyncConfigurationStatus("ENABLED")
+	CatalogLineageSyncConfigurationStatusDisabled = CatalogLineageSyncConfigurationStatus("DISABLED")
+)
+
+func (CatalogLineageSyncConfigurationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogLineageSyncConfigurationStatus)(nil)).Elem()
+}
+
+func (e CatalogLineageSyncConfigurationStatus) ToCatalogLineageSyncConfigurationStatusOutput() CatalogLineageSyncConfigurationStatusOutput {
+	return pulumi.ToOutput(e).(CatalogLineageSyncConfigurationStatusOutput)
+}
+
+func (e CatalogLineageSyncConfigurationStatus) ToCatalogLineageSyncConfigurationStatusOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CatalogLineageSyncConfigurationStatusOutput)
+}
+
+func (e CatalogLineageSyncConfigurationStatus) ToCatalogLineageSyncConfigurationStatusPtrOutput() CatalogLineageSyncConfigurationStatusPtrOutput {
+	return e.ToCatalogLineageSyncConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogLineageSyncConfigurationStatus) ToCatalogLineageSyncConfigurationStatusPtrOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationStatusPtrOutput {
+	return CatalogLineageSyncConfigurationStatus(e).ToCatalogLineageSyncConfigurationStatusOutputWithContext(ctx).ToCatalogLineageSyncConfigurationStatusPtrOutputWithContext(ctx)
+}
+
+func (e CatalogLineageSyncConfigurationStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogLineageSyncConfigurationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogLineageSyncConfigurationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogLineageSyncConfigurationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CatalogLineageSyncConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (CatalogLineageSyncConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogLineageSyncConfigurationStatus)(nil)).Elem()
+}
+
+func (o CatalogLineageSyncConfigurationStatusOutput) ToCatalogLineageSyncConfigurationStatusOutput() CatalogLineageSyncConfigurationStatusOutput {
+	return o
+}
+
+func (o CatalogLineageSyncConfigurationStatusOutput) ToCatalogLineageSyncConfigurationStatusOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationStatusOutput {
+	return o
+}
+
+func (o CatalogLineageSyncConfigurationStatusOutput) ToCatalogLineageSyncConfigurationStatusPtrOutput() CatalogLineageSyncConfigurationStatusPtrOutput {
+	return o.ToCatalogLineageSyncConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogLineageSyncConfigurationStatusOutput) ToCatalogLineageSyncConfigurationStatusPtrOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogLineageSyncConfigurationStatus) *CatalogLineageSyncConfigurationStatus {
+		return &v
+	}).(CatalogLineageSyncConfigurationStatusPtrOutput)
+}
+
+func (o CatalogLineageSyncConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CatalogLineageSyncConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogLineageSyncConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogLineageSyncConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogLineageSyncConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogLineageSyncConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogLineageSyncConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogLineageSyncConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogLineageSyncConfigurationStatus)(nil)).Elem()
+}
+
+func (o CatalogLineageSyncConfigurationStatusPtrOutput) ToCatalogLineageSyncConfigurationStatusPtrOutput() CatalogLineageSyncConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o CatalogLineageSyncConfigurationStatusPtrOutput) ToCatalogLineageSyncConfigurationStatusPtrOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o CatalogLineageSyncConfigurationStatusPtrOutput) Elem() CatalogLineageSyncConfigurationStatusOutput {
+	return o.ApplyT(func(v *CatalogLineageSyncConfigurationStatus) CatalogLineageSyncConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogLineageSyncConfigurationStatus
+		return ret
+	}).(CatalogLineageSyncConfigurationStatusOutput)
+}
+
+func (o CatalogLineageSyncConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogLineageSyncConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CatalogLineageSyncConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CatalogLineageSyncConfigurationStatusInput is an input type that accepts values of the CatalogLineageSyncConfigurationStatus enum
+// A concrete instance of `CatalogLineageSyncConfigurationStatusInput` can be one of the following:
+//
+//	CatalogLineageSyncConfigurationStatusEnabled
+//	CatalogLineageSyncConfigurationStatusDisabled
+type CatalogLineageSyncConfigurationStatusInput interface {
+	pulumi.Input
+
+	ToCatalogLineageSyncConfigurationStatusOutput() CatalogLineageSyncConfigurationStatusOutput
+	ToCatalogLineageSyncConfigurationStatusOutputWithContext(context.Context) CatalogLineageSyncConfigurationStatusOutput
+}
+
+var catalogLineageSyncConfigurationStatusPtrType = reflect.TypeOf((**CatalogLineageSyncConfigurationStatus)(nil)).Elem()
+
+type CatalogLineageSyncConfigurationStatusPtrInput interface {
+	pulumi.Input
+
+	ToCatalogLineageSyncConfigurationStatusPtrOutput() CatalogLineageSyncConfigurationStatusPtrOutput
+	ToCatalogLineageSyncConfigurationStatusPtrOutputWithContext(context.Context) CatalogLineageSyncConfigurationStatusPtrOutput
+}
+
+type catalogLineageSyncConfigurationStatusPtr string
+
+func CatalogLineageSyncConfigurationStatusPtr(v string) CatalogLineageSyncConfigurationStatusPtrInput {
+	return (*catalogLineageSyncConfigurationStatusPtr)(&v)
+}
+
+func (*catalogLineageSyncConfigurationStatusPtr) ElementType() reflect.Type {
+	return catalogLineageSyncConfigurationStatusPtrType
+}
+
+func (in *catalogLineageSyncConfigurationStatusPtr) ToCatalogLineageSyncConfigurationStatusPtrOutput() CatalogLineageSyncConfigurationStatusPtrOutput {
+	return pulumi.ToOutput(in).(CatalogLineageSyncConfigurationStatusPtrOutput)
+}
+
+func (in *catalogLineageSyncConfigurationStatusPtr) ToCatalogLineageSyncConfigurationStatusPtrOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CatalogLineageSyncConfigurationStatusPtrOutput)
+}
+
+// The provisioning state of the crawler.
+type CatalogManagedCrawlerDetailsStatus string
+
+const (
+	CatalogManagedCrawlerDetailsStatusProvisioning = CatalogManagedCrawlerDetailsStatus("PROVISIONING")
+	CatalogManagedCrawlerDetailsStatusProvisioned  = CatalogManagedCrawlerDetailsStatus("PROVISIONED")
+	CatalogManagedCrawlerDetailsStatusFailed       = CatalogManagedCrawlerDetailsStatus("FAILED")
+)
+
+func (CatalogManagedCrawlerDetailsStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogManagedCrawlerDetailsStatus)(nil)).Elem()
+}
+
+func (e CatalogManagedCrawlerDetailsStatus) ToCatalogManagedCrawlerDetailsStatusOutput() CatalogManagedCrawlerDetailsStatusOutput {
+	return pulumi.ToOutput(e).(CatalogManagedCrawlerDetailsStatusOutput)
+}
+
+func (e CatalogManagedCrawlerDetailsStatus) ToCatalogManagedCrawlerDetailsStatusOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CatalogManagedCrawlerDetailsStatusOutput)
+}
+
+func (e CatalogManagedCrawlerDetailsStatus) ToCatalogManagedCrawlerDetailsStatusPtrOutput() CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return e.ToCatalogManagedCrawlerDetailsStatusPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogManagedCrawlerDetailsStatus) ToCatalogManagedCrawlerDetailsStatusPtrOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return CatalogManagedCrawlerDetailsStatus(e).ToCatalogManagedCrawlerDetailsStatusOutputWithContext(ctx).ToCatalogManagedCrawlerDetailsStatusPtrOutputWithContext(ctx)
+}
+
+func (e CatalogManagedCrawlerDetailsStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogManagedCrawlerDetailsStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogManagedCrawlerDetailsStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogManagedCrawlerDetailsStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CatalogManagedCrawlerDetailsStatusOutput struct{ *pulumi.OutputState }
+
+func (CatalogManagedCrawlerDetailsStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogManagedCrawlerDetailsStatus)(nil)).Elem()
+}
+
+func (o CatalogManagedCrawlerDetailsStatusOutput) ToCatalogManagedCrawlerDetailsStatusOutput() CatalogManagedCrawlerDetailsStatusOutput {
+	return o
+}
+
+func (o CatalogManagedCrawlerDetailsStatusOutput) ToCatalogManagedCrawlerDetailsStatusOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsStatusOutput {
+	return o
+}
+
+func (o CatalogManagedCrawlerDetailsStatusOutput) ToCatalogManagedCrawlerDetailsStatusPtrOutput() CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return o.ToCatalogManagedCrawlerDetailsStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogManagedCrawlerDetailsStatusOutput) ToCatalogManagedCrawlerDetailsStatusPtrOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogManagedCrawlerDetailsStatus) *CatalogManagedCrawlerDetailsStatus {
+		return &v
+	}).(CatalogManagedCrawlerDetailsStatusPtrOutput)
+}
+
+func (o CatalogManagedCrawlerDetailsStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CatalogManagedCrawlerDetailsStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogManagedCrawlerDetailsStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogManagedCrawlerDetailsStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogManagedCrawlerDetailsStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogManagedCrawlerDetailsStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogManagedCrawlerDetailsStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogManagedCrawlerDetailsStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogManagedCrawlerDetailsStatus)(nil)).Elem()
+}
+
+func (o CatalogManagedCrawlerDetailsStatusPtrOutput) ToCatalogManagedCrawlerDetailsStatusPtrOutput() CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return o
+}
+
+func (o CatalogManagedCrawlerDetailsStatusPtrOutput) ToCatalogManagedCrawlerDetailsStatusPtrOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return o
+}
+
+func (o CatalogManagedCrawlerDetailsStatusPtrOutput) Elem() CatalogManagedCrawlerDetailsStatusOutput {
+	return o.ApplyT(func(v *CatalogManagedCrawlerDetailsStatus) CatalogManagedCrawlerDetailsStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogManagedCrawlerDetailsStatus
+		return ret
+	}).(CatalogManagedCrawlerDetailsStatusOutput)
+}
+
+func (o CatalogManagedCrawlerDetailsStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogManagedCrawlerDetailsStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CatalogManagedCrawlerDetailsStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CatalogManagedCrawlerDetailsStatusInput is an input type that accepts values of the CatalogManagedCrawlerDetailsStatus enum
+// A concrete instance of `CatalogManagedCrawlerDetailsStatusInput` can be one of the following:
+//
+//	CatalogManagedCrawlerDetailsStatusProvisioning
+//	CatalogManagedCrawlerDetailsStatusProvisioned
+//	CatalogManagedCrawlerDetailsStatusFailed
+type CatalogManagedCrawlerDetailsStatusInput interface {
+	pulumi.Input
+
+	ToCatalogManagedCrawlerDetailsStatusOutput() CatalogManagedCrawlerDetailsStatusOutput
+	ToCatalogManagedCrawlerDetailsStatusOutputWithContext(context.Context) CatalogManagedCrawlerDetailsStatusOutput
+}
+
+var catalogManagedCrawlerDetailsStatusPtrType = reflect.TypeOf((**CatalogManagedCrawlerDetailsStatus)(nil)).Elem()
+
+type CatalogManagedCrawlerDetailsStatusPtrInput interface {
+	pulumi.Input
+
+	ToCatalogManagedCrawlerDetailsStatusPtrOutput() CatalogManagedCrawlerDetailsStatusPtrOutput
+	ToCatalogManagedCrawlerDetailsStatusPtrOutputWithContext(context.Context) CatalogManagedCrawlerDetailsStatusPtrOutput
+}
+
+type catalogManagedCrawlerDetailsStatusPtr string
+
+func CatalogManagedCrawlerDetailsStatusPtr(v string) CatalogManagedCrawlerDetailsStatusPtrInput {
+	return (*catalogManagedCrawlerDetailsStatusPtr)(&v)
+}
+
+func (*catalogManagedCrawlerDetailsStatusPtr) ElementType() reflect.Type {
+	return catalogManagedCrawlerDetailsStatusPtrType
+}
+
+func (in *catalogManagedCrawlerDetailsStatusPtr) ToCatalogManagedCrawlerDetailsStatusPtrOutput() CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return pulumi.ToOutput(in).(CatalogManagedCrawlerDetailsStatusPtrOutput)
+}
+
+func (in *catalogManagedCrawlerDetailsStatusPtr) ToCatalogManagedCrawlerDetailsStatusPtrOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CatalogManagedCrawlerDetailsStatusPtrOutput)
 }
 
 // Specifies whether to overwrite child resource permissions with the default permissions.
@@ -3907,19 +4407,29 @@ func (in *connectionTypeSourceConfigurationRequestMethodPtr) ToConnectionTypeSou
 type JobWorkerType string
 
 const (
-	JobWorkerTypeStandard = JobWorkerType("Standard")
-	JobWorkerTypeG1x      = JobWorkerType("G.1X")
-	JobWorkerTypeG2x      = JobWorkerType("G.2X")
-	JobWorkerTypeG025x    = JobWorkerType("G.025X")
-	JobWorkerTypeG4x      = JobWorkerType("G.4X")
-	JobWorkerTypeG8x      = JobWorkerType("G.8X")
-	JobWorkerTypeZ2x      = JobWorkerType("Z.2X")
-	JobWorkerTypeG12x     = JobWorkerType("G.12X")
-	JobWorkerTypeG16x     = JobWorkerType("G.16X")
-	JobWorkerTypeR1x      = JobWorkerType("R.1X")
-	JobWorkerTypeR2x      = JobWorkerType("R.2X")
-	JobWorkerTypeR4x      = JobWorkerType("R.4X")
-	JobWorkerTypeR8x      = JobWorkerType("R.8X")
+	JobWorkerTypeStandard     = JobWorkerType("Standard")
+	JobWorkerTypeG1x          = JobWorkerType("G.1X")
+	JobWorkerTypeG2x          = JobWorkerType("G.2X")
+	JobWorkerTypeG025x        = JobWorkerType("G.025X")
+	JobWorkerTypeG4x          = JobWorkerType("G.4X")
+	JobWorkerTypeG8x          = JobWorkerType("G.8X")
+	JobWorkerTypeZ2x          = JobWorkerType("Z.2X")
+	JobWorkerTypeG12x         = JobWorkerType("G.12X")
+	JobWorkerTypeG16x         = JobWorkerType("G.16X")
+	JobWorkerTypeR1x          = JobWorkerType("R.1X")
+	JobWorkerTypeR2x          = JobWorkerType("R.2X")
+	JobWorkerTypeR4x          = JobWorkerType("R.4X")
+	JobWorkerTypeR8x          = JobWorkerType("R.8X")
+	JobWorkerTypeG1xGraviton  = JobWorkerType("G.1X.GRAVITON")
+	JobWorkerTypeG2xGraviton  = JobWorkerType("G.2X.GRAVITON")
+	JobWorkerTypeG4xGraviton  = JobWorkerType("G.4X.GRAVITON")
+	JobWorkerTypeG8xGraviton  = JobWorkerType("G.8X.GRAVITON")
+	JobWorkerTypeG12xGraviton = JobWorkerType("G.12X.GRAVITON")
+	JobWorkerTypeG16xGraviton = JobWorkerType("G.16X.GRAVITON")
+	JobWorkerTypeR1xGraviton  = JobWorkerType("R.1X.GRAVITON")
+	JobWorkerTypeR2xGraviton  = JobWorkerType("R.2X.GRAVITON")
+	JobWorkerTypeR4xGraviton  = JobWorkerType("R.4X.GRAVITON")
+	JobWorkerTypeR8xGraviton  = JobWorkerType("R.8X.GRAVITON")
 )
 
 func (JobWorkerType) ElementType() reflect.Type {
@@ -4057,6 +4567,16 @@ func (o JobWorkerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	JobWorkerTypeR2x
 //	JobWorkerTypeR4x
 //	JobWorkerTypeR8x
+//	JobWorkerTypeG1xGraviton
+//	JobWorkerTypeG2xGraviton
+//	JobWorkerTypeG4xGraviton
+//	JobWorkerTypeG8xGraviton
+//	JobWorkerTypeG12xGraviton
+//	JobWorkerTypeG16xGraviton
+//	JobWorkerTypeR1xGraviton
+//	JobWorkerTypeR2xGraviton
+//	JobWorkerTypeR4xGraviton
+//	JobWorkerTypeR8xGraviton
 type JobWorkerTypeInput interface {
 	pulumi.Input
 
@@ -5215,8 +5735,14 @@ func (in *userDefinedFunctionResourceUriResourceTypePtr) ToUserDefinedFunctionRe
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAllowFullTableExternalDataAccessInput)(nil)).Elem(), CatalogAllowFullTableExternalDataAccess("True"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAllowFullTableExternalDataAccessPtrInput)(nil)).Elem(), CatalogAllowFullTableExternalDataAccess("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAssetsSyncConfigurationStatusInput)(nil)).Elem(), CatalogAssetsSyncConfigurationStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAssetsSyncConfigurationStatusPtrInput)(nil)).Elem(), CatalogAssetsSyncConfigurationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess("True"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogLineageSyncConfigurationStatusInput)(nil)).Elem(), CatalogLineageSyncConfigurationStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogLineageSyncConfigurationStatusPtrInput)(nil)).Elem(), CatalogLineageSyncConfigurationStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogManagedCrawlerDetailsStatusInput)(nil)).Elem(), CatalogManagedCrawlerDetailsStatus("PROVISIONING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogManagedCrawlerDetailsStatusPtrInput)(nil)).Elem(), CatalogManagedCrawlerDetailsStatus("PROVISIONING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogOverwriteChildResourcePermissionsWithDefaultInput)(nil)).Elem(), CatalogOverwriteChildResourcePermissionsWithDefault("Accept"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogOverwriteChildResourcePermissionsWithDefaultPtrInput)(nil)).Elem(), CatalogOverwriteChildResourcePermissionsWithDefault("Accept"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItemInput)(nil)).Elem(), CatalogPrincipalPermissionsPermissionsItem("ALL"))
@@ -5277,8 +5803,14 @@ func init() {
 	pulumi.RegisterOutputType(BlueprintStatusPtrOutput{})
 	pulumi.RegisterOutputType(CatalogAllowFullTableExternalDataAccessOutput{})
 	pulumi.RegisterOutputType(CatalogAllowFullTableExternalDataAccessPtrOutput{})
+	pulumi.RegisterOutputType(CatalogAssetsSyncConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(CatalogAssetsSyncConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput{})
+	pulumi.RegisterOutputType(CatalogLineageSyncConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(CatalogLineageSyncConfigurationStatusPtrOutput{})
+	pulumi.RegisterOutputType(CatalogManagedCrawlerDetailsStatusOutput{})
+	pulumi.RegisterOutputType(CatalogManagedCrawlerDetailsStatusPtrOutput{})
 	pulumi.RegisterOutputType(CatalogOverwriteChildResourcePermissionsWithDefaultOutput{})
 	pulumi.RegisterOutputType(CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput{})
 	pulumi.RegisterOutputType(CatalogPrincipalPermissionsPermissionsItemOutput{})

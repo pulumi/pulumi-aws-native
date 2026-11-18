@@ -48,9 +48,21 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+     */
+    declare public /*out*/ readonly accepterAllowMultipathResilience: pulumi.Output<boolean>;
+    /**
      * The time the transit gateway peering attachment was created.
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    /**
+     * The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)
+     */
+    declare public /*out*/ readonly multipathResilienceStatus: pulumi.Output<string>;
+    /**
+     * Options for transit gateway peering attachment
+     */
+    declare public readonly options: pulumi.Output<outputs.ec2.TransitGatewayPeeringAttachmentOptions | undefined>;
     /**
      * The ID of the peer account
      */
@@ -63,6 +75,14 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
      * The ID of the peer transit gateway.
      */
     declare public readonly peerTransitGatewayId: pulumi.Output<string>;
+    /**
+     * Whether the requester side of the peering attachment has opted in to MultipathResilience.
+     */
+    declare public /*out*/ readonly requesterAllowMultipathResilience: pulumi.Output<boolean>;
+    /**
+     * The MultipathResilience mode chosen by the requester side of the peering attachment.
+     */
+    declare public /*out*/ readonly requesterMultipathResilienceMode: pulumi.Output<string>;
     /**
      * The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
      */
@@ -107,20 +127,30 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
             if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
+            resourceInputs["options"] = args?.options;
             resourceInputs["peerAccountId"] = args?.peerAccountId;
             resourceInputs["peerRegion"] = args?.peerRegion;
             resourceInputs["peerTransitGatewayId"] = args?.peerTransitGatewayId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["accepterAllowMultipathResilience"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["multipathResilienceStatus"] = undefined /*out*/;
+            resourceInputs["requesterAllowMultipathResilience"] = undefined /*out*/;
+            resourceInputs["requesterMultipathResilienceMode"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
         } else {
+            resourceInputs["accepterAllowMultipathResilience"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["multipathResilienceStatus"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
             resourceInputs["peerAccountId"] = undefined /*out*/;
             resourceInputs["peerRegion"] = undefined /*out*/;
             resourceInputs["peerTransitGatewayId"] = undefined /*out*/;
+            resourceInputs["requesterAllowMultipathResilience"] = undefined /*out*/;
+            resourceInputs["requesterMultipathResilienceMode"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -138,6 +168,10 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a TransitGatewayPeeringAttachment resource.
  */
 export interface TransitGatewayPeeringAttachmentArgs {
+    /**
+     * Options for transit gateway peering attachment
+     */
+    options?: pulumi.Input<inputs.ec2.TransitGatewayPeeringAttachmentOptionsArgs | undefined>;
     /**
      * The ID of the peer account
      */

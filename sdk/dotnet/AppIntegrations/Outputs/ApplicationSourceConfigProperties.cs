@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.AppIntegrations.Outputs
         /// <summary>
         /// The external URL source for the application.
         /// </summary>
-        public readonly Outputs.ApplicationExternalUrlConfig ExternalUrlConfig;
+        public readonly Outputs.ApplicationExternalUrlConfig? ExternalUrlConfig;
 
         [OutputConstructor]
-        private ApplicationSourceConfigProperties(Outputs.ApplicationExternalUrlConfig externalUrlConfig)
+        private ApplicationSourceConfigProperties(Outputs.ApplicationExternalUrlConfig? externalUrlConfig)
         {
             ExternalUrlConfig = externalUrlConfig;
         }

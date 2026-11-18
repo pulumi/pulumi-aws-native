@@ -80,6 +80,18 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModificationErrors: pulumi.Output<string[]>;
     /**
+     * The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+     */
+    declare public readonly natGatewayRules: pulumi.Output<outputs.networkmanager.VpcAttachmentNatRule[] | undefined>;
+    /**
+     * Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+     */
+    declare public readonly natGatewaySupport: pulumi.Output<enums.networkmanager.VpcAttachmentNatGatewaySupport | undefined>;
+    /**
+     * Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On VPC attachments this is always true and is not configurable. Not available in AWS GovCloud (US).
+     */
+    declare public /*out*/ readonly natSystemRouteSupport: pulumi.Output<boolean>;
+    /**
      * The name of the network function group attachment.
      */
     declare public /*out*/ readonly networkFunctionGroupName: pulumi.Output<string>;
@@ -153,6 +165,8 @@ export class VpcAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcArn'");
             }
             resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["natGatewayRules"] = args?.natGatewayRules;
+            resourceInputs["natGatewaySupport"] = args?.natGatewaySupport;
             resourceInputs["options"] = args?.options;
             resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["subnetArns"] = args?.subnetArns;
@@ -165,6 +179,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
             resourceInputs["lastModificationErrors"] = undefined /*out*/;
+            resourceInputs["natSystemRouteSupport"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
@@ -182,6 +197,9 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
             resourceInputs["lastModificationErrors"] = undefined /*out*/;
+            resourceInputs["natGatewayRules"] = undefined /*out*/;
+            resourceInputs["natGatewaySupport"] = undefined /*out*/;
+            resourceInputs["natSystemRouteSupport"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["options"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
@@ -211,6 +229,14 @@ export interface VpcAttachmentArgs {
      * The ID of a core network for the VPC attachment.
      */
     coreNetworkId: pulumi.Input<string>;
+    /**
+     * The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+     */
+    natGatewayRules?: pulumi.Input<pulumi.Input<inputs.networkmanager.VpcAttachmentNatRuleArgs>[] | undefined>;
+    /**
+     * Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+     */
+    natGatewaySupport?: pulumi.Input<enums.networkmanager.VpcAttachmentNatGatewaySupport | undefined>;
     /**
      * Vpc options of the attachment.
      */

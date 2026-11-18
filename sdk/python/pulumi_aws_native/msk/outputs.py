@@ -36,6 +36,7 @@ __all__ = [
     'ChannelStateInfo',
     'ChannelTableCreation',
     'ChannelTopicConfiguration',
+    'ClusterAuthorizerLogs',
     'ClusterBrokerLogs',
     'ClusterBrokerNodeGroupInfo',
     'ClusterClientAuthentication',
@@ -1163,6 +1164,52 @@ class ChannelTopicConfiguration(dict):
 
 
 @pulumi.output_type
+class ClusterAuthorizerLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogs":
+            suggest = "cloud_watch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAuthorizerLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAuthorizerLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAuthorizerLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs: Optional['outputs.ClusterCloudWatchLogs'] = None,
+                 firehose: Optional['outputs.ClusterFirehose'] = None,
+                 s3: Optional['outputs.ClusterS3'] = None):
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> Optional['outputs.ClusterCloudWatchLogs']:
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @_builtins.property
+    @pulumi.getter
+    def firehose(self) -> Optional['outputs.ClusterFirehose']:
+        return pulumi.get(self, "firehose")
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.ClusterS3']:
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
 class ClusterBrokerLogs(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1235,6 +1282,8 @@ class ClusterBrokerNodeGroupInfo(dict):
             suggest = "security_groups"
         elif key == "storageInfo":
             suggest = "storage_info"
+        elif key == "topicReassignment":
+            suggest = "topic_reassignment"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterBrokerNodeGroupInfo. Access the value via the '{suggest}' property getter instead.")
@@ -1253,7 +1302,8 @@ class ClusterBrokerNodeGroupInfo(dict):
                  broker_az_distribution: Optional[_builtins.str] = None,
                  connectivity_info: Optional['outputs.ClusterConnectivityInfo'] = None,
                  security_groups: Optional[Sequence[_builtins.str]] = None,
-                 storage_info: Optional['outputs.ClusterStorageInfo'] = None):
+                 storage_info: Optional['outputs.ClusterStorageInfo'] = None,
+                 topic_reassignment: Optional['ClusterBrokerNodeGroupInfoTopicReassignment'] = None):
         """
         :param Sequence[_builtins.str] client_subnets: The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
                
@@ -1290,6 +1340,8 @@ class ClusterBrokerNodeGroupInfo(dict):
             pulumi.set(__self__, "security_groups", security_groups)
         if storage_info is not None:
             pulumi.set(__self__, "storage_info", storage_info)
+        if topic_reassignment is not None:
+            pulumi.set(__self__, "topic_reassignment", topic_reassignment)
 
     @_builtins.property
     @pulumi.getter(name="clientSubnets")
@@ -1356,6 +1408,11 @@ class ClusterBrokerNodeGroupInfo(dict):
         Contains information about storage volumes attached to Amazon MSK broker nodes.
         """
         return pulumi.get(self, "storage_info")
+
+    @_builtins.property
+    @pulumi.getter(name="topicReassignment")
+    def topic_reassignment(self) -> Optional['ClusterBrokerNodeGroupInfoTopicReassignment']:
+        return pulumi.get(self, "topic_reassignment")
 
 
 @pulumi.output_type
@@ -1843,7 +1900,9 @@ class ClusterLoggingInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "brokerLogs":
+        if key == "authorizerLogs":
+            suggest = "authorizer_logs"
+        elif key == "brokerLogs":
             suggest = "broker_logs"
 
         if suggest:
@@ -1858,15 +1917,24 @@ class ClusterLoggingInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 broker_logs: 'outputs.ClusterBrokerLogs'):
+                 authorizer_logs: Optional['outputs.ClusterAuthorizerLogs'] = None,
+                 broker_logs: Optional['outputs.ClusterBrokerLogs'] = None):
         """
         :param 'ClusterBrokerLogs' broker_logs: You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
         """
-        pulumi.set(__self__, "broker_logs", broker_logs)
+        if authorizer_logs is not None:
+            pulumi.set(__self__, "authorizer_logs", authorizer_logs)
+        if broker_logs is not None:
+            pulumi.set(__self__, "broker_logs", broker_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizerLogs")
+    def authorizer_logs(self) -> Optional['outputs.ClusterAuthorizerLogs']:
+        return pulumi.get(self, "authorizer_logs")
 
     @_builtins.property
     @pulumi.getter(name="brokerLogs")
-    def broker_logs(self) -> 'outputs.ClusterBrokerLogs':
+    def broker_logs(self) -> Optional['outputs.ClusterBrokerLogs']:
         """
         You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
         """

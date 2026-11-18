@@ -52,6 +52,10 @@ export class VpcEndpointServicePermissions extends pulumi.CustomResource {
      * The ID of the service.
      */
     declare public readonly serviceId: pulumi.Output<string>;
+    /**
+     * The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+     */
+    declare public readonly transitGatewayAttachmentAllowedPrincipals: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VpcEndpointServicePermissions resource with the given unique name, arguments, and options.
@@ -69,9 +73,11 @@ export class VpcEndpointServicePermissions extends pulumi.CustomResource {
             }
             resourceInputs["allowedPrincipals"] = args?.allowedPrincipals;
             resourceInputs["serviceId"] = args?.serviceId;
+            resourceInputs["transitGatewayAttachmentAllowedPrincipals"] = args?.transitGatewayAttachmentAllowedPrincipals;
         } else {
             resourceInputs["allowedPrincipals"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentAllowedPrincipals"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["serviceId"] };
@@ -92,4 +98,8 @@ export interface VpcEndpointServicePermissionsArgs {
      * The ID of the service.
      */
     serviceId: pulumi.Input<string>;
+    /**
+     * The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+     */
+    transitGatewayAttachmentAllowedPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

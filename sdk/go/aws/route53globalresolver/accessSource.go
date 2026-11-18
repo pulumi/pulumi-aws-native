@@ -17,18 +17,23 @@ import (
 type AccessSource struct {
 	pulumi.CustomResourceState
 
-	AccessSourceId pulumi.StringOutput                `pulumi:"accessSourceId"`
-	Arn            pulumi.StringOutput                `pulumi:"arn"`
-	Cidr           pulumi.StringOutput                `pulumi:"cidr"`
-	ClientToken    pulumi.StringPtrOutput             `pulumi:"clientToken"`
-	CreatedAt      pulumi.StringOutput                `pulumi:"createdAt"`
-	DnsViewId      pulumi.StringOutput                `pulumi:"dnsViewId"`
-	IpAddressType  AccessSourceIpAddressTypePtrOutput `pulumi:"ipAddressType"`
-	Name           pulumi.StringPtrOutput             `pulumi:"name"`
-	Protocol       AccessSourceDnsProtocolOutput      `pulumi:"protocol"`
-	Status         AccessSourceCrResourceStatusOutput `pulumi:"status"`
-	Tags           aws.TagArrayOutput                 `pulumi:"tags"`
-	UpdatedAt      pulumi.StringOutput                `pulumi:"updatedAt"`
+	AccessSourceId pulumi.StringOutput `pulumi:"accessSourceId"`
+	Arn            pulumi.StringOutput `pulumi:"arn"`
+	// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+	Cidr        pulumi.StringPtrOutput `pulumi:"cidr"`
+	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
+	// The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+	CoreNetworkEndpointId pulumi.StringPtrOutput             `pulumi:"coreNetworkEndpointId"`
+	CreatedAt             pulumi.StringOutput                `pulumi:"createdAt"`
+	DnsViewId             pulumi.StringOutput                `pulumi:"dnsViewId"`
+	IpAddressType         AccessSourceIpAddressTypePtrOutput `pulumi:"ipAddressType"`
+	Name                  pulumi.StringPtrOutput             `pulumi:"name"`
+	Protocol              AccessSourceDnsProtocolOutput      `pulumi:"protocol"`
+	// The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+	Segment   pulumi.StringPtrOutput             `pulumi:"segment"`
+	Status    AccessSourceCrResourceStatusOutput `pulumi:"status"`
+	Tags      aws.TagArrayOutput                 `pulumi:"tags"`
+	UpdatedAt pulumi.StringOutput                `pulumi:"updatedAt"`
 }
 
 // NewAccessSource registers a new resource with the given unique name, arguments, and options.
@@ -38,9 +43,6 @@ func NewAccessSource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Cidr == nil {
-		return nil, errors.New("invalid value for required argument 'Cidr'")
-	}
 	if args.DnsViewId == nil {
 		return nil, errors.New("invalid value for required argument 'DnsViewId'")
 	}
@@ -49,7 +51,9 @@ func NewAccessSource(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"clientToken",
+		"coreNetworkEndpointId",
 		"dnsViewId",
+		"segment",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -91,24 +95,34 @@ func AccessSourceExists(ctx *pulumi.Context,
 }
 
 type accessSourceArgs struct {
-	Cidr          string                     `pulumi:"cidr"`
-	ClientToken   *string                    `pulumi:"clientToken"`
-	DnsViewId     string                     `pulumi:"dnsViewId"`
-	IpAddressType *AccessSourceIpAddressType `pulumi:"ipAddressType"`
-	Name          *string                    `pulumi:"name"`
-	Protocol      AccessSourceDnsProtocol    `pulumi:"protocol"`
-	Tags          []aws.Tag                  `pulumi:"tags"`
+	// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+	Cidr        *string `pulumi:"cidr"`
+	ClientToken *string `pulumi:"clientToken"`
+	// The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+	CoreNetworkEndpointId *string                    `pulumi:"coreNetworkEndpointId"`
+	DnsViewId             string                     `pulumi:"dnsViewId"`
+	IpAddressType         *AccessSourceIpAddressType `pulumi:"ipAddressType"`
+	Name                  *string                    `pulumi:"name"`
+	Protocol              AccessSourceDnsProtocol    `pulumi:"protocol"`
+	// The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+	Segment *string   `pulumi:"segment"`
+	Tags    []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessSource resource.
 type AccessSourceArgs struct {
-	Cidr          pulumi.StringInput
-	ClientToken   pulumi.StringPtrInput
-	DnsViewId     pulumi.StringInput
-	IpAddressType AccessSourceIpAddressTypePtrInput
-	Name          pulumi.StringPtrInput
-	Protocol      AccessSourceDnsProtocolInput
-	Tags          aws.TagArrayInput
+	// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+	Cidr        pulumi.StringPtrInput
+	ClientToken pulumi.StringPtrInput
+	// The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+	CoreNetworkEndpointId pulumi.StringPtrInput
+	DnsViewId             pulumi.StringInput
+	IpAddressType         AccessSourceIpAddressTypePtrInput
+	Name                  pulumi.StringPtrInput
+	Protocol              AccessSourceDnsProtocolInput
+	// The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+	Segment pulumi.StringPtrInput
+	Tags    aws.TagArrayInput
 }
 
 func (AccessSourceArgs) ElementType() reflect.Type {
@@ -156,12 +170,18 @@ func (o AccessSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o AccessSourceOutput) Cidr() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessSource) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
+// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+func (o AccessSourceOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessSource) pulumi.StringPtrOutput { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
 func (o AccessSourceOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessSource) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+func (o AccessSourceOutput) CoreNetworkEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessSource) pulumi.StringPtrOutput { return v.CoreNetworkEndpointId }).(pulumi.StringPtrOutput)
 }
 
 func (o AccessSourceOutput) CreatedAt() pulumi.StringOutput {
@@ -182,6 +202,11 @@ func (o AccessSourceOutput) Name() pulumi.StringPtrOutput {
 
 func (o AccessSourceOutput) Protocol() AccessSourceDnsProtocolOutput {
 	return o.ApplyT(func(v *AccessSource) AccessSourceDnsProtocolOutput { return v.Protocol }).(AccessSourceDnsProtocolOutput)
+}
+
+// The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+func (o AccessSourceOutput) Segment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessSource) pulumi.StringPtrOutput { return v.Segment }).(pulumi.StringPtrOutput)
 }
 
 func (o AccessSourceOutput) Status() AccessSourceCrResourceStatusOutput {

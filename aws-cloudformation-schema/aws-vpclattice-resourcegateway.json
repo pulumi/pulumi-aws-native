@@ -15,7 +15,8 @@
       "permissions" : [ "vpc-lattice:CreateResourceGateway", "vpc-lattice:GetResourceGateway", "vpc-lattice:TagResource", "vpc-lattice:ListTagsForResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
     },
     "update" : {
-      "permissions" : [ "vpc-lattice:UpdateResourceGateway", "vpc-lattice:GetResourceGateway", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "vpc-lattice:ListTagsForResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
+      "permissions" : [ "vpc-lattice:UpdateResourceGateway", "vpc-lattice:GetResourceGateway", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "vpc-lattice:ListTagsForResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ],
+      "timeoutInMinutes" : 720
     },
     "list" : {
       "permissions" : [ "vpc-lattice:ListResourceGateways" ]
@@ -28,7 +29,7 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "description" : "Creates a resource gateway for a service.",
   "additionalIdentifiers" : [ [ "/properties/Id" ] ],
-  "createOnlyProperties" : [ "/properties/VpcIdentifier", "/properties/SubnetIds", "/properties/IpAddressType", "/properties/Name", "/properties/ResourceConfigDnsResolution" ],
+  "createOnlyProperties" : [ "/properties/VpcIdentifier", "/properties/SubnetIds", "/properties/IpAddressType", "/properties/Name" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
   "definitions" : {

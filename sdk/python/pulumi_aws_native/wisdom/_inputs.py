@@ -126,6 +126,8 @@ __all__ = [
     'AiGuardrailGuardrailTopicConfigArgsDict',
     'AiGuardrailGuardrailWordConfigArgs',
     'AiGuardrailGuardrailWordConfigArgsDict',
+    'AiPromptAiPromptInferenceConfigurationArgs',
+    'AiPromptAiPromptInferenceConfigurationArgsDict',
     'AiPromptAiPromptTemplateConfigurationArgs',
     'AiPromptAiPromptTemplateConfigurationArgsDict',
     'AiPromptTextFullAiPromptEditTemplateConfigurationArgs',
@@ -2727,6 +2729,65 @@ class AiGuardrailGuardrailWordConfigArgs:
     @text.setter
     def text(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "text", value)
+
+
+class AiPromptAiPromptInferenceConfigurationArgsDict(TypedDict):
+    max_tokens_to_sample: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    top_k: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    top_p: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+
+@pulumi.input_type
+class AiPromptAiPromptInferenceConfigurationArgs:
+    def __init__(__self__, *,
+                 max_tokens_to_sample: pulumi.Input[Optional[_builtins.int]] = None,
+                 temperature: pulumi.Input[Optional[_builtins.float]] = None,
+                 top_k: pulumi.Input[Optional[_builtins.int]] = None,
+                 top_p: pulumi.Input[Optional[_builtins.float]] = None):
+        if max_tokens_to_sample is not None:
+            pulumi.set(__self__, "max_tokens_to_sample", max_tokens_to_sample)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_k is not None:
+            pulumi.set(__self__, "top_k", top_k)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokensToSample")
+    def max_tokens_to_sample(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "max_tokens_to_sample")
+
+    @max_tokens_to_sample.setter
+    def max_tokens_to_sample(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_tokens_to_sample", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "temperature", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "top_k")
+
+    @top_k.setter
+    def top_k(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "top_k", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "top_p", value)
 
 
 class AiPromptAiPromptTemplateConfigurationArgsDict(TypedDict):

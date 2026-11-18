@@ -21,6 +21,8 @@ type VpcPeeringConnection struct {
 	AssumeRoleRegion pulumi.StringPtrOutput `pulumi:"assumeRoleRegion"`
 	// The ID of the peering connection.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+	MultipathResilienceStatus VpcPeeringConnectionMultipathResilienceStatusOutput `pulumi:"multipathResilienceStatus"`
 	// The AWS account ID of the owner of the accepter VPC.
 	PeerOwnerId pulumi.StringPtrOutput `pulumi:"peerOwnerId"`
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
@@ -29,10 +31,14 @@ type VpcPeeringConnection struct {
 	PeerRoleArn pulumi.StringPtrOutput `pulumi:"peerRoleArn"`
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
+	// The VPC peering connection options corresponding to the accepter side of the connection.
+	PeerVpcPeeringConnectionOptions VpcPeeringConnectionOptionsPtrOutput `pulumi:"peerVpcPeeringConnectionOptions"`
 	// Any tags assigned to the resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	// The VPC peering connection options corresponding to the requester side of the connection.
+	VpcPeeringConnectionOptions VpcPeeringConnectionOptionsPtrOutput `pulumi:"vpcPeeringConnectionOptions"`
 }
 
 // NewVpcPeeringConnection registers a new resource with the given unique name, arguments, and options.
@@ -104,10 +110,14 @@ type vpcPeeringConnectionArgs struct {
 	PeerRoleArn *string `pulumi:"peerRoleArn"`
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId string `pulumi:"peerVpcId"`
+	// The VPC peering connection options corresponding to the accepter side of the connection.
+	PeerVpcPeeringConnectionOptions *VpcPeeringConnectionOptions `pulumi:"peerVpcPeeringConnectionOptions"`
 	// Any tags assigned to the resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
+	// The VPC peering connection options corresponding to the requester side of the connection.
+	VpcPeeringConnectionOptions *VpcPeeringConnectionOptions `pulumi:"vpcPeeringConnectionOptions"`
 }
 
 // The set of arguments for constructing a VpcPeeringConnection resource.
@@ -122,10 +132,14 @@ type VpcPeeringConnectionArgs struct {
 	PeerRoleArn pulumi.StringPtrInput
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId pulumi.StringInput
+	// The VPC peering connection options corresponding to the accepter side of the connection.
+	PeerVpcPeeringConnectionOptions VpcPeeringConnectionOptionsPtrInput
 	// Any tags assigned to the resource.
 	Tags aws.TagArrayInput
 	// The ID of the VPC.
 	VpcId pulumi.StringInput
+	// The VPC peering connection options corresponding to the requester side of the connection.
+	VpcPeeringConnectionOptions VpcPeeringConnectionOptionsPtrInput
 }
 
 func (VpcPeeringConnectionArgs) ElementType() reflect.Type {
@@ -175,6 +189,13 @@ func (o VpcPeeringConnectionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+func (o VpcPeeringConnectionOutput) MultipathResilienceStatus() VpcPeeringConnectionMultipathResilienceStatusOutput {
+	return o.ApplyT(func(v *VpcPeeringConnection) VpcPeeringConnectionMultipathResilienceStatusOutput {
+		return v.MultipathResilienceStatus
+	}).(VpcPeeringConnectionMultipathResilienceStatusOutput)
+}
+
 // The AWS account ID of the owner of the accepter VPC.
 func (o VpcPeeringConnectionOutput) PeerOwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringPtrOutput { return v.PeerOwnerId }).(pulumi.StringPtrOutput)
@@ -195,6 +216,13 @@ func (o VpcPeeringConnectionOutput) PeerVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
 }
 
+// The VPC peering connection options corresponding to the accepter side of the connection.
+func (o VpcPeeringConnectionOutput) PeerVpcPeeringConnectionOptions() VpcPeeringConnectionOptionsPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnection) VpcPeeringConnectionOptionsPtrOutput {
+		return v.PeerVpcPeeringConnectionOptions
+	}).(VpcPeeringConnectionOptionsPtrOutput)
+}
+
 // Any tags assigned to the resource.
 func (o VpcPeeringConnectionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
@@ -203,6 +231,13 @@ func (o VpcPeeringConnectionOutput) Tags() aws.TagArrayOutput {
 // The ID of the VPC.
 func (o VpcPeeringConnectionOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
+// The VPC peering connection options corresponding to the requester side of the connection.
+func (o VpcPeeringConnectionOutput) VpcPeeringConnectionOptions() VpcPeeringConnectionOptionsPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnection) VpcPeeringConnectionOptionsPtrOutput {
+		return v.VpcPeeringConnectionOptions
+	}).(VpcPeeringConnectionOptionsPtrOutput)
 }
 
 func init() {

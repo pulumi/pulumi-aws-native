@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.PaymentCryptography.Outputs
         /// <summary>
         /// The ARN of the AWS KMS key that protects the replica in this region.
         /// </summary>
-        public readonly string? KmsKeyArn;
+        public readonly string? KmsEncryptionKeyArn;
         /// <summary>
         /// The AWS KMS key requested for this region, when replication failed before its ARN was known.
         /// </summary>
-        public readonly string? KmsKeyId;
+        public readonly string? KmsEncryptionKeyId;
         /// <summary>
         /// The current status of key replication in this AWS Region .
         /// 
@@ -36,16 +36,16 @@ namespace Pulumi.AwsNative.PaymentCryptography.Outputs
 
         [OutputConstructor]
         private KeyReplicationStatusType(
-            string? kmsKeyArn,
+            string? kmsEncryptionKeyArn,
 
-            string? kmsKeyId,
+            string? kmsEncryptionKeyId,
 
             Pulumi.AwsNative.PaymentCryptography.KeyReplicationState status,
 
             string? statusMessage)
         {
-            KmsKeyArn = kmsKeyArn;
-            KmsKeyId = kmsKeyId;
+            KmsEncryptionKeyArn = kmsEncryptionKeyArn;
+            KmsEncryptionKeyId = kmsEncryptionKeyId;
             Status = status;
             StatusMessage = statusMessage;
         }

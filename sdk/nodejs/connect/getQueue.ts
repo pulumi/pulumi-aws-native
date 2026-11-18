@@ -70,7 +70,7 @@ export interface GetQueueResult {
      */
     readonly queueArn?: string;
     /**
-     * The quick connects available to agents who are working the queue.
+     * The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
      */
     readonly quickConnectArns?: string[];
     /**

@@ -40,7 +40,9 @@ type FlowSource struct {
 	// The name of the source.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The protocol that is used by the source.
-	Protocol FlowSourceProtocolPtrOutput `pulumi:"protocol"`
+	Protocol         FlowSourceProtocolPtrOutput         `pulumi:"protocol"`
+	RtmpPushDetails  FlowSourceRtmpPushDetailsOutput     `pulumi:"rtmpPushDetails"`
+	RtmpPushSettings FlowSourceRtmpPushSettingsPtrOutput `pulumi:"rtmpPushSettings"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
 	SenderControlPort pulumi.IntPtrOutput `pulumi:"senderControlPort"`
 	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
@@ -142,7 +144,8 @@ type flowSourceArgs struct {
 	// The name of the source.
 	Name *string `pulumi:"name"`
 	// The protocol that is used by the source.
-	Protocol *FlowSourceProtocol `pulumi:"protocol"`
+	Protocol         *FlowSourceProtocol         `pulumi:"protocol"`
+	RtmpPushSettings *FlowSourceRtmpPushSettings `pulumi:"rtmpPushSettings"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
 	SenderControlPort *int `pulumi:"senderControlPort"`
 	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
@@ -184,7 +187,8 @@ type FlowSourceArgs struct {
 	// The name of the source.
 	Name pulumi.StringPtrInput
 	// The protocol that is used by the source.
-	Protocol FlowSourceProtocolPtrInput
+	Protocol         FlowSourceProtocolPtrInput
+	RtmpPushSettings FlowSourceRtmpPushSettingsPtrInput
 	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
 	SenderControlPort pulumi.IntPtrInput
 	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
@@ -298,6 +302,14 @@ func (o FlowSourceOutput) Name() pulumi.StringOutput {
 // The protocol that is used by the source.
 func (o FlowSourceOutput) Protocol() FlowSourceProtocolPtrOutput {
 	return o.ApplyT(func(v *FlowSource) FlowSourceProtocolPtrOutput { return v.Protocol }).(FlowSourceProtocolPtrOutput)
+}
+
+func (o FlowSourceOutput) RtmpPushDetails() FlowSourceRtmpPushDetailsOutput {
+	return o.ApplyT(func(v *FlowSource) FlowSourceRtmpPushDetailsOutput { return v.RtmpPushDetails }).(FlowSourceRtmpPushDetailsOutput)
+}
+
+func (o FlowSourceOutput) RtmpPushSettings() FlowSourceRtmpPushSettingsPtrOutput {
+	return o.ApplyT(func(v *FlowSource) FlowSourceRtmpPushSettingsPtrOutput { return v.RtmpPushSettings }).(FlowSourceRtmpPushSettingsPtrOutput)
 }
 
 // The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.

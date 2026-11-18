@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
+    /// The type of the conformance pack. CUSTOM for a conformance pack whose Config rules are managed by the customer; MANAGED for a managed conformance pack whose Config rules are managed by AWS.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConformancePackType : IEquatable<ConformancePackType>
+    {
+        private readonly string _value;
+
+        private ConformancePackType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConformancePackType Custom { get; } = new ConformancePackType("CUSTOM");
+        public static ConformancePackType Managed { get; } = new ConformancePackType("MANAGED");
+
+        public static bool operator ==(ConformancePackType left, ConformancePackType right) => left.Equals(right);
+        public static bool operator !=(ConformancePackType left, ConformancePackType right) => !left.Equals(right);
+
+        public static explicit operator string(ConformancePackType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConformancePackType other && Equals(other);
+        public bool Equals(ConformancePackType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The frequency with which AWS Config delivers configuration snapshots.
     /// </summary>
     [EnumType]

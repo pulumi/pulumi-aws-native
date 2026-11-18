@@ -15,6 +15,11 @@ export const getDatabase: typeof import("./getDatabase").getDatabase = null as a
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
+export { GetInfluxDbBackupArgs, GetInfluxDbBackupResult, GetInfluxDbBackupOutputArgs } from "./getInfluxDbBackup";
+export const getInfluxDbBackup: typeof import("./getInfluxDbBackup").getInfluxDbBackup = null as any;
+export const getInfluxDbBackupOutput: typeof import("./getInfluxDbBackup").getInfluxDbBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getInfluxDbBackup","getInfluxDbBackupOutput"], () => require("./getInfluxDbBackup"));
+
 export { GetInfluxDbClusterArgs, GetInfluxDbClusterResult, GetInfluxDbClusterOutputArgs } from "./getInfluxDbCluster";
 export const getInfluxDbCluster: typeof import("./getInfluxDbCluster").getInfluxDbCluster = null as any;
 export const getInfluxDbClusterOutput: typeof import("./getInfluxDbCluster").getInfluxDbClusterOutput = null as any;
@@ -34,6 +39,11 @@ export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
 export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
 utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+
+export { InfluxDbBackupArgs } from "./influxDbBackup";
+export type InfluxDbBackup = import("./influxDbBackup").InfluxDbBackup;
+export const InfluxDbBackup: typeof import("./influxDbBackup").InfluxDbBackup = null as any;
+utilities.lazyLoad(exports, ["InfluxDbBackup"], () => require("./influxDbBackup"));
 
 export { InfluxDbClusterArgs } from "./influxDbCluster";
 export type InfluxDbCluster = import("./influxDbCluster").InfluxDbCluster;
@@ -65,6 +75,8 @@ const _module = {
         switch (type) {
             case "aws-native:timestream:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "aws-native:timestream:InfluxDbBackup":
+                return new InfluxDbBackup(name, <any>undefined, { urn })
             case "aws-native:timestream:InfluxDbCluster":
                 return new InfluxDbCluster(name, <any>undefined, { urn })
             case "aws-native:timestream:InfluxDbInstance":

@@ -371,7 +371,7 @@ class Catalog(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[_builtins.int]:
+    def create_time(self) -> pulumi.Output[_builtins.str]:
         """
         The time at which the catalog was created.
         """
@@ -437,7 +437,7 @@ class Catalog(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[_builtins.int]:
+    def update_time(self) -> pulumi.Output[_builtins.str]:
         """
         The time at which the catalog was last updated.
         """

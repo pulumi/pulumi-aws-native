@@ -70,6 +70,13 @@ export const ChannelValueConverter = {
  */
 export type ChannelValueConverter = (typeof ChannelValueConverter)[keyof typeof ChannelValueConverter];
 
+export const ClusterBrokerNodeGroupInfoTopicReassignment = {
+    Auto: "AUTO",
+    Manual: "MANUAL",
+} as const;
+
+export type ClusterBrokerNodeGroupInfoTopicReassignment = (typeof ClusterBrokerNodeGroupInfoTopicReassignment)[keyof typeof ClusterBrokerNodeGroupInfoTopicReassignment];
+
 export const ClusterEncryptionInTransitClientBroker = {
     Tls: "TLS",
     TlsPlaintext: "TLS_PLAINTEXT",

@@ -34,12 +34,14 @@ type LookupRuleResult struct {
 	// The conditions of the rule.
 	Function *string `pulumi:"function"`
 	// The name of the rule.
-	Name *string `pulumi:"name"`
+	Name                 *string                   `pulumi:"name"`
+	PreEvaluationFilters *RulePreEvaluationFilters `pulumi:"preEvaluationFilters"`
 	// The publish status of the rule.
 	//  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus *RulePublishStatus `pulumi:"publishStatus"`
 	// The Amazon Resource Name (ARN) of the rule.
-	RuleArn *string `pulumi:"ruleArn"`
+	RuleArn             *string                   `pulumi:"ruleArn"`
+	RuleCapabilityTiers []RuleCapabilityTiersItem `pulumi:"ruleCapabilityTiers"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -87,6 +89,10 @@ func (o LookupRuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupRuleResultOutput) PreEvaluationFilters() RulePreEvaluationFiltersPtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *RulePreEvaluationFilters { return v.PreEvaluationFilters }).(RulePreEvaluationFiltersPtrOutput)
+}
+
 // The publish status of the rule.
 //
 //	*Allowed values*: ``DRAFT`` | ``PUBLISHED``
@@ -97,6 +103,10 @@ func (o LookupRuleResultOutput) PublishStatus() RulePublishStatusPtrOutput {
 // The Amazon Resource Name (ARN) of the rule.
 func (o LookupRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRuleResultOutput) RuleCapabilityTiers() RuleCapabilityTiersItemArrayOutput {
+	return o.ApplyT(func(v LookupRuleResult) []RuleCapabilityTiersItem { return v.RuleCapabilityTiers }).(RuleCapabilityTiersItemArrayOutput)
 }
 
 // The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.

@@ -50,6 +50,11 @@ export const getPublicVirtualInterface: typeof import("./getPublicVirtualInterfa
 export const getPublicVirtualInterfaceOutput: typeof import("./getPublicVirtualInterface").getPublicVirtualInterfaceOutput = null as any;
 utilities.lazyLoad(exports, ["getPublicVirtualInterface","getPublicVirtualInterfaceOutput"], () => require("./getPublicVirtualInterface"));
 
+export { GetResiliencyGroupArgs, GetResiliencyGroupResult, GetResiliencyGroupOutputArgs } from "./getResiliencyGroup";
+export const getResiliencyGroup: typeof import("./getResiliencyGroup").getResiliencyGroup = null as any;
+export const getResiliencyGroupOutput: typeof import("./getResiliencyGroup").getResiliencyGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getResiliencyGroup","getResiliencyGroupOutput"], () => require("./getResiliencyGroup"));
+
 export { GetTransitVirtualInterfaceArgs, GetTransitVirtualInterfaceResult, GetTransitVirtualInterfaceOutputArgs } from "./getTransitVirtualInterface";
 export const getTransitVirtualInterface: typeof import("./getTransitVirtualInterface").getTransitVirtualInterface = null as any;
 export const getTransitVirtualInterfaceOutput: typeof import("./getTransitVirtualInterface").getTransitVirtualInterfaceOutput = null as any;
@@ -70,11 +75,19 @@ export type PublicVirtualInterface = import("./publicVirtualInterface").PublicVi
 export const PublicVirtualInterface: typeof import("./publicVirtualInterface").PublicVirtualInterface = null as any;
 utilities.lazyLoad(exports, ["PublicVirtualInterface"], () => require("./publicVirtualInterface"));
 
+export { ResiliencyGroupArgs } from "./resiliencyGroup";
+export type ResiliencyGroup = import("./resiliencyGroup").ResiliencyGroup;
+export const ResiliencyGroup: typeof import("./resiliencyGroup").ResiliencyGroup = null as any;
+utilities.lazyLoad(exports, ["ResiliencyGroup"], () => require("./resiliencyGroup"));
+
 export { TransitVirtualInterfaceArgs } from "./transitVirtualInterface";
 export type TransitVirtualInterface = import("./transitVirtualInterface").TransitVirtualInterface;
 export const TransitVirtualInterface: typeof import("./transitVirtualInterface").TransitVirtualInterface = null as any;
 utilities.lazyLoad(exports, ["TransitVirtualInterface"], () => require("./transitVirtualInterface"));
 
+
+// Export enums:
+export * from "../types/enums/directconnect";
 
 const _module = {
     version: utilities.getVersion(),
@@ -92,6 +105,8 @@ const _module = {
                 return new PrivateVirtualInterface(name, <any>undefined, { urn })
             case "aws-native:directconnect:PublicVirtualInterface":
                 return new PublicVirtualInterface(name, <any>undefined, { urn })
+            case "aws-native:directconnect:ResiliencyGroup":
+                return new ResiliencyGroup(name, <any>undefined, { urn })
             case "aws-native:directconnect:TransitVirtualInterface":
                 return new TransitVirtualInterface(name, <any>undefined, { urn })
             default:

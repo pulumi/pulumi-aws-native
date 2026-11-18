@@ -942,6 +942,171 @@ func (in *channelValueConverterPtr) ToChannelValueConverterPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelValueConverterPtrOutput)
 }
 
+type ClusterBrokerNodeGroupInfoTopicReassignment string
+
+const (
+	ClusterBrokerNodeGroupInfoTopicReassignmentAuto   = ClusterBrokerNodeGroupInfoTopicReassignment("AUTO")
+	ClusterBrokerNodeGroupInfoTopicReassignmentManual = ClusterBrokerNodeGroupInfoTopicReassignment("MANUAL")
+)
+
+func (ClusterBrokerNodeGroupInfoTopicReassignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoTopicReassignment)(nil)).Elem()
+}
+
+func (e ClusterBrokerNodeGroupInfoTopicReassignment) ToClusterBrokerNodeGroupInfoTopicReassignmentOutput() ClusterBrokerNodeGroupInfoTopicReassignmentOutput {
+	return pulumi.ToOutput(e).(ClusterBrokerNodeGroupInfoTopicReassignmentOutput)
+}
+
+func (e ClusterBrokerNodeGroupInfoTopicReassignment) ToClusterBrokerNodeGroupInfoTopicReassignmentOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoTopicReassignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterBrokerNodeGroupInfoTopicReassignmentOutput)
+}
+
+func (e ClusterBrokerNodeGroupInfoTopicReassignment) ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput() ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return e.ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterBrokerNodeGroupInfoTopicReassignment) ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return ClusterBrokerNodeGroupInfoTopicReassignment(e).ToClusterBrokerNodeGroupInfoTopicReassignmentOutputWithContext(ctx).ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutputWithContext(ctx)
+}
+
+func (e ClusterBrokerNodeGroupInfoTopicReassignment) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterBrokerNodeGroupInfoTopicReassignment) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterBrokerNodeGroupInfoTopicReassignment) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterBrokerNodeGroupInfoTopicReassignment) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterBrokerNodeGroupInfoTopicReassignmentOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoTopicReassignment)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ToClusterBrokerNodeGroupInfoTopicReassignmentOutput() ClusterBrokerNodeGroupInfoTopicReassignmentOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ToClusterBrokerNodeGroupInfoTopicReassignmentOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoTopicReassignmentOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput() ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoTopicReassignment) *ClusterBrokerNodeGroupInfoTopicReassignment {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterBrokerNodeGroupInfoTopicReassignment) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterBrokerNodeGroupInfoTopicReassignment) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoTopicReassignment)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput) ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput() ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput) ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput) Elem() ClusterBrokerNodeGroupInfoTopicReassignmentOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoTopicReassignment) ClusterBrokerNodeGroupInfoTopicReassignment {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoTopicReassignment
+		return ret
+	}).(ClusterBrokerNodeGroupInfoTopicReassignmentOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterBrokerNodeGroupInfoTopicReassignment) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterBrokerNodeGroupInfoTopicReassignmentInput is an input type that accepts values of the ClusterBrokerNodeGroupInfoTopicReassignment enum
+// A concrete instance of `ClusterBrokerNodeGroupInfoTopicReassignmentInput` can be one of the following:
+//
+//	ClusterBrokerNodeGroupInfoTopicReassignmentAuto
+//	ClusterBrokerNodeGroupInfoTopicReassignmentManual
+type ClusterBrokerNodeGroupInfoTopicReassignmentInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoTopicReassignmentOutput() ClusterBrokerNodeGroupInfoTopicReassignmentOutput
+	ToClusterBrokerNodeGroupInfoTopicReassignmentOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoTopicReassignmentOutput
+}
+
+var clusterBrokerNodeGroupInfoTopicReassignmentPtrType = reflect.TypeOf((**ClusterBrokerNodeGroupInfoTopicReassignment)(nil)).Elem()
+
+type ClusterBrokerNodeGroupInfoTopicReassignmentPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput() ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput
+	ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoTopicReassignmentPtr string
+
+func ClusterBrokerNodeGroupInfoTopicReassignmentPtr(v string) ClusterBrokerNodeGroupInfoTopicReassignmentPtrInput {
+	return (*clusterBrokerNodeGroupInfoTopicReassignmentPtr)(&v)
+}
+
+func (*clusterBrokerNodeGroupInfoTopicReassignmentPtr) ElementType() reflect.Type {
+	return clusterBrokerNodeGroupInfoTopicReassignmentPtrType
+}
+
+func (in *clusterBrokerNodeGroupInfoTopicReassignmentPtr) ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput() ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return pulumi.ToOutput(in).(ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput)
+}
+
+func (in *clusterBrokerNodeGroupInfoTopicReassignmentPtr) ToClusterBrokerNodeGroupInfoTopicReassignmentPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput)
+}
+
 // Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
 //
 // - `TLS` : Indicates that client-broker communication is enabled with TLS only.
@@ -3295,6 +3460,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3StorageClassPtrInput)(nil)).Elem(), ChannelS3StorageClass("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelValueConverterInput)(nil)).Elem(), ChannelValueConverter("BYTE_ARRAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelValueConverterPtrInput)(nil)).Elem(), ChannelValueConverter("BYTE_ARRAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoTopicReassignmentInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoTopicReassignment("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoTopicReassignmentPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoTopicReassignment("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitClientBrokerInput)(nil)).Elem(), ClusterEncryptionInTransitClientBroker("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitClientBrokerPtrInput)(nil)).Elem(), ClusterEncryptionInTransitClientBroker("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
@@ -3335,6 +3502,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelStatusPtrOutput{})
 	pulumi.RegisterOutputType(ChannelValueConverterOutput{})
 	pulumi.RegisterOutputType(ChannelValueConverterPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoTopicReassignmentOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringOutput{})

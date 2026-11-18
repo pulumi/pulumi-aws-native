@@ -91,6 +91,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      * The Target Role Arn of the pod identity association.
      */
     declare public readonly targetRoleArn: pulumi.Output<string | undefined>;
+    declare public readonly workloadIdentityConfig: pulumi.Output<outputs.eks.PodIdentityAssociationWorkloadIdentityConfig | undefined>;
 
     /**
      * Create a PodIdentityAssociation resource with the given unique name, arguments, and options.
@@ -123,6 +124,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["serviceAccount"] = args?.serviceAccount;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["targetRoleArn"] = args?.targetRoleArn;
+            resourceInputs["workloadIdentityConfig"] = args?.workloadIdentityConfig;
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;
@@ -138,6 +140,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["serviceAccount"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetRoleArn"] = undefined /*out*/;
+            resourceInputs["workloadIdentityConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["clusterName", "namespace", "serviceAccount"] };
@@ -182,4 +185,5 @@ export interface PodIdentityAssociationArgs {
      * The Target Role Arn of the pod identity association.
      */
     targetRoleArn?: pulumi.Input<string | undefined>;
+    workloadIdentityConfig?: pulumi.Input<inputs.eks.PodIdentityAssociationWorkloadIdentityConfigArgs | undefined>;
 }

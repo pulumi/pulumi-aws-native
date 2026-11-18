@@ -84,6 +84,10 @@ export class MicrovmImage extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly imageArn: pulumi.Output<string>;
     /**
+     * The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.
+     */
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
+    /**
      * The latest active version of the MicroVM image.
      */
     declare public /*out*/ readonly latestActiveImageVersion: pulumi.Output<string>;
@@ -170,6 +174,7 @@ export class MicrovmImage extends pulumi.CustomResource {
             resourceInputs["egressNetworkConnectors"] = args?.egressNetworkConnectors;
             resourceInputs["environmentVariables"] = args?.environmentVariables;
             resourceInputs["hooks"] = args?.hooks;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
             resourceInputs["logging"] = args?.logging;
             resourceInputs["name"] = args?.name;
             resourceInputs["resources"] = args?.resources;
@@ -193,6 +198,7 @@ export class MicrovmImage extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = undefined /*out*/;
             resourceInputs["hooks"] = undefined /*out*/;
             resourceInputs["imageArn"] = undefined /*out*/;
+            resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
             resourceInputs["latestActiveImageVersion"] = undefined /*out*/;
             resourceInputs["latestFailedImageVersion"] = undefined /*out*/;
             resourceInputs["logging"] = undefined /*out*/;
@@ -241,6 +247,10 @@ export interface MicrovmImageArgs {
      */
     environmentVariables: pulumi.Input<pulumi.Input<inputs.lambda.MicrovmImageEnvironmentVariableArgs>[]>;
     hooks: pulumi.Input<inputs.lambda.HooksArgs>;
+    /**
+     * The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Configuration for MicroVM image logging.
      */

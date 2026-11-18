@@ -23,10 +23,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcEndpointServicePermissionsResult:
-    def __init__(__self__, allowed_principals=None):
+    def __init__(__self__, allowed_principals=None, transit_gateway_attachment_allowed_principals=None):
         if allowed_principals and not isinstance(allowed_principals, list):
             raise TypeError("Expected argument 'allowed_principals' to be a list")
         pulumi.set(__self__, "allowed_principals", allowed_principals)
+        if transit_gateway_attachment_allowed_principals and not isinstance(transit_gateway_attachment_allowed_principals, list):
+            raise TypeError("Expected argument 'transit_gateway_attachment_allowed_principals' to be a list")
+        pulumi.set(__self__, "transit_gateway_attachment_allowed_principals", transit_gateway_attachment_allowed_principals)
 
     @_builtins.property
     @pulumi.getter(name="allowedPrincipals")
@@ -36,6 +39,14 @@ class GetVpcEndpointServicePermissionsResult:
         """
         return pulumi.get(self, "allowed_principals")
 
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentAllowedPrincipals")
+    def transit_gateway_attachment_allowed_principals(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_allowed_principals")
+
 
 class AwaitableGetVpcEndpointServicePermissionsResult(GetVpcEndpointServicePermissionsResult):
     # pylint: disable=using-constant-test
@@ -43,7 +54,8 @@ class AwaitableGetVpcEndpointServicePermissionsResult(GetVpcEndpointServicePermi
         if False:
             yield self
         return GetVpcEndpointServicePermissionsResult(
-            allowed_principals=self.allowed_principals)
+            allowed_principals=self.allowed_principals,
+            transit_gateway_attachment_allowed_principals=self.transit_gateway_attachment_allowed_principals)
 
 
 def get_vpc_endpoint_service_permissions(service_id: Optional[_builtins.str] = None,
@@ -59,7 +71,8 @@ def get_vpc_endpoint_service_permissions(service_id: Optional[_builtins.str] = N
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVpcEndpointServicePermissions', __args__, opts=opts, typ=GetVpcEndpointServicePermissionsResult).value
 
     return AwaitableGetVpcEndpointServicePermissionsResult(
-        allowed_principals=pulumi.get(__ret__, 'allowed_principals'))
+        allowed_principals=pulumi.get(__ret__, 'allowed_principals'),
+        transit_gateway_attachment_allowed_principals=pulumi.get(__ret__, 'transit_gateway_attachment_allowed_principals'))
 def get_vpc_endpoint_service_permissions_output(service_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServicePermissionsResult]:
     """
@@ -72,4 +85,5 @@ def get_vpc_endpoint_service_permissions_output(service_id: pulumi.Input[Optiona
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcEndpointServicePermissions', __args__, opts=opts, typ=GetVpcEndpointServicePermissionsResult)
     return __ret__.apply(lambda __response__: GetVpcEndpointServicePermissionsResult(
-        allowed_principals=pulumi.get(__response__, 'allowed_principals')))
+        allowed_principals=pulumi.get(__response__, 'allowed_principals'),
+        transit_gateway_attachment_allowed_principals=pulumi.get(__response__, 'transit_gateway_attachment_allowed_principals')))

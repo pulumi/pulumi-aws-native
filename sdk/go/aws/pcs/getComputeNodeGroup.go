@@ -39,16 +39,22 @@ type LookupComputeNodeGroupResult struct {
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
 	IamInstanceProfileArn *string `pulumi:"iamInstanceProfileArn"`
 	// The generated unique ID of the compute node group.
-	Id                   *string                               `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+	LaunchTemplateMode   *ComputeNodeGroupLaunchTemplateMode   `pulumi:"launchTemplateMode"`
 	NodeLifecycleActions *ComputeNodeGroupNodeLifecycleActions `pulumi:"nodeLifecycleActions"`
 	// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 	PurchaseOption *ComputeNodeGroupPurchaseOption `pulumi:"purchaseOption"`
 	// Specifies the boundaries of the compute node group auto scaling.
 	ScalingConfiguration *ScalingConfigurationProperties `pulumi:"scalingConfiguration"`
+	// The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Additional options related to the Slurm scheduler.
 	SlurmConfiguration *SlurmConfigurationProperties `pulumi:"slurmConfiguration"`
 	// Additional configuration when you specify SPOT as the purchase option.
 	SpotOptions *SpotOptionsProperties `pulumi:"spotOptions"`
+	// The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+	SshKeyName *string `pulumi:"sshKeyName"`
 	// The provisioning status of the compute node group. The provisioning status doesn't indicate the overall health of the compute node group.
 	Status *ComputeNodeGroupStatus `pulumi:"status"`
 	// The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
@@ -115,6 +121,11 @@ func (o LookupComputeNodeGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComputeNodeGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+func (o LookupComputeNodeGroupResultOutput) LaunchTemplateMode() ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return o.ApplyT(func(v LookupComputeNodeGroupResult) *ComputeNodeGroupLaunchTemplateMode { return v.LaunchTemplateMode }).(ComputeNodeGroupLaunchTemplateModePtrOutput)
+}
+
 func (o LookupComputeNodeGroupResultOutput) NodeLifecycleActions() ComputeNodeGroupNodeLifecycleActionsPtrOutput {
 	return o.ApplyT(func(v LookupComputeNodeGroupResult) *ComputeNodeGroupNodeLifecycleActions {
 		return v.NodeLifecycleActions
@@ -131,6 +142,11 @@ func (o LookupComputeNodeGroupResultOutput) ScalingConfiguration() ScalingConfig
 	return o.ApplyT(func(v LookupComputeNodeGroupResult) *ScalingConfigurationProperties { return v.ScalingConfiguration }).(ScalingConfigurationPropertiesPtrOutput)
 }
 
+// The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+func (o LookupComputeNodeGroupResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupComputeNodeGroupResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
 // Additional options related to the Slurm scheduler.
 func (o LookupComputeNodeGroupResultOutput) SlurmConfiguration() SlurmConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupComputeNodeGroupResult) *SlurmConfigurationProperties { return v.SlurmConfiguration }).(SlurmConfigurationPropertiesPtrOutput)
@@ -139,6 +155,11 @@ func (o LookupComputeNodeGroupResultOutput) SlurmConfiguration() SlurmConfigurat
 // Additional configuration when you specify SPOT as the purchase option.
 func (o LookupComputeNodeGroupResultOutput) SpotOptions() SpotOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupComputeNodeGroupResult) *SpotOptionsProperties { return v.SpotOptions }).(SpotOptionsPropertiesPtrOutput)
+}
+
+// The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+func (o LookupComputeNodeGroupResultOutput) SshKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComputeNodeGroupResult) *string { return v.SshKeyName }).(pulumi.StringPtrOutput)
 }
 
 // The provisioning status of the compute node group. The provisioning status doesn't indicate the overall health of the compute node group.

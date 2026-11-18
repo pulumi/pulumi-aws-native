@@ -77,6 +77,7 @@
       "properties" : {
         "UserTags" : {
           "description" : "The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }. CON users with the specified tags will be notified.",
+          "type" : "object",
           "patternProperties" : {
             "^.{1,128}$" : {
               "type" : "string"
@@ -166,6 +167,7 @@
         },
         "References" : {
           "description" : "Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)",
+          "type" : "object",
           "patternProperties" : {
             "^.+$" : {
               "$ref" : "#/definitions/Reference"
@@ -593,6 +595,52 @@
       },
       "minItems" : 1,
       "maxItems" : 1
+    },
+    "PreEvaluationFilter" : {
+      "description" : "",
+      "type" : "object",
+      "properties" : {
+        "ResourceType" : {
+          "description" : "The type of resource the filter applies to.",
+          "type" : "string",
+          "enum" : [ "CONTACT", "CONTACT_EVALUATION" ]
+        },
+        "FilterType" : {
+          "description" : "The type of the filter.",
+          "type" : "string",
+          "enum" : [ "TAG" ]
+        },
+        "FilterKey" : {
+          "description" : "The key of the filter.",
+          "type" : "string"
+        },
+        "FilterValue" : {
+          "description" : "The value of the filter.",
+          "type" : "string"
+        },
+        "Operator" : {
+          "description" : "The comparison operator for the filter.",
+          "type" : "string",
+          "enum" : [ "EQUALS" ]
+        }
+      },
+      "required" : [ "ResourceType", "FilterType", "FilterKey", "FilterValue", "Operator" ],
+      "additionalProperties" : false
+    },
+    "PreEvaluationFilters" : {
+      "description" : "",
+      "type" : "object",
+      "properties" : {
+        "AndConditions" : {
+          "description" : "A list of filter conditions that are combined with AND logic.",
+          "type" : "array",
+          "insertionOrder" : true,
+          "items" : {
+            "$ref" : "#/definitions/PreEvaluationFilter"
+          }
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -637,6 +685,20 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "PreEvaluationFilters" : {
+      "description" : "",
+      "$ref" : "#/definitions/PreEvaluationFilters"
+    },
+    "RuleCapabilityTiers" : {
+      "description" : "",
+      "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
+      "items" : {
+        "type" : "string",
+        "enum" : [ "GenerativeAI" ]
+      }
     }
   },
   "required" : [ "Name", "InstanceArn", "TriggerEventSource", "Function", "Actions", "PublishStatus" ],
@@ -675,7 +737,7 @@
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/RuleArn" ],
-  "readOnlyProperties" : [ "/properties/RuleArn" ],
+  "readOnlyProperties" : [ "/properties/RuleArn", "/properties/RuleCapabilityTiers" ],
   "createOnlyProperties" : [ "/properties/TriggerEventSource", "/properties/InstanceArn" ],
   "replacementStrategy" : "delete_then_create"
 }

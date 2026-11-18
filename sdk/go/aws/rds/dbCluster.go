@@ -411,7 +411,8 @@ type DbCluster struct {
 	// A list of EC2 VPC security groups to associate with this DB cluster.
 	//  If you plan to update the resource, don't specify VPC security groups in a shared VPC.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
-	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds      pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
+	WithExpressConfiguration pulumi.BoolPtrOutput     `pulumi:"withExpressConfiguration"`
 }
 
 // NewDbCluster registers a new resource with the given unique name, arguments, and options.
@@ -438,6 +439,7 @@ func NewDbCluster(ctx *pulumi.Context,
 		"sourceRegion",
 		"storageEncrypted",
 		"useLatestRestorableTime",
+		"withExpressConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -846,7 +848,8 @@ type dbClusterArgs struct {
 	// A list of EC2 VPC security groups to associate with this DB cluster.
 	//  If you plan to update the resource, don't specify VPC security groups in a shared VPC.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds      []string `pulumi:"vpcSecurityGroupIds"`
+	WithExpressConfiguration *bool    `pulumi:"withExpressConfiguration"`
 }
 
 // The set of arguments for constructing a DbCluster resource.
@@ -1218,7 +1221,8 @@ type DbClusterArgs struct {
 	// A list of EC2 VPC security groups to associate with this DB cluster.
 	//  If you plan to update the resource, don't specify VPC security groups in a shared VPC.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
-	VpcSecurityGroupIds pulumi.StringArrayInput
+	VpcSecurityGroupIds      pulumi.StringArrayInput
+	WithExpressConfiguration pulumi.BoolPtrInput
 }
 
 func (DbClusterArgs) ElementType() reflect.Type {
@@ -1897,6 +1901,10 @@ func (o DbClusterOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
 //	Valid for: Aurora DB clusters and Multi-AZ DB clusters
 func (o DbClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o DbClusterOutput) WithExpressConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.WithExpressConfiguration }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

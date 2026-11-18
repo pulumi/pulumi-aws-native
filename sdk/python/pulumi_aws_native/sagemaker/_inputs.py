@@ -134,6 +134,10 @@ __all__ = [
     'ClusterRollingUpdatePolicyArgsDict',
     'ClusterScheduledUpdateConfigArgs',
     'ClusterScheduledUpdateConfigArgsDict',
+    'ClusterSchedulerConfigPriorityClassArgs',
+    'ClusterSchedulerConfigPriorityClassArgsDict',
+    'ClusterSchedulerConfigSchedulerConfigArgs',
+    'ClusterSchedulerConfigSchedulerConfigArgsDict',
     'ClusterSharedEnvironmentConfigArgs',
     'ClusterSharedEnvironmentConfigArgsDict',
     'ClusterSlurmConfigArgs',
@@ -4290,6 +4294,132 @@ class ClusterScheduledUpdateConfigArgs:
     @deployment_config.setter
     def deployment_config(self, value: pulumi.Input[Optional['ClusterDeploymentConfigArgs']]):
         pulumi.set(self, "deployment_config", value)
+
+
+class ClusterSchedulerConfigPriorityClassArgsDict(TypedDict):
+    """
+    Priority class configuration.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the priority class.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Weight of the priority class. Range 0-100, default 0.
+    """
+
+@pulumi.input_type
+class ClusterSchedulerConfigPriorityClassArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 weight: pulumi.Input[_builtins.int]):
+        """
+        Priority class configuration.
+
+        :param pulumi.Input[_builtins.str] name: Name of the priority class.
+        :param pulumi.Input[_builtins.int] weight: Weight of the priority class. Range 0-100, default 0.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the priority class.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[_builtins.int]:
+        """
+        Weight of the priority class. Range 0-100, default 0.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "weight", value)
+
+
+class ClusterSchedulerConfigSchedulerConfigArgsDict(TypedDict):
+    """
+    Cluster policy configuration.
+    """
+    fair_share: NotRequired[pulumi.Input[Optional['ClusterSchedulerConfigSchedulerConfigFairShare']]]
+    """
+    When enabled, entities borrow idle compute based on assigned FairShareWeight.
+    """
+    idle_resource_sharing: NotRequired[pulumi.Input[Optional['ClusterSchedulerConfigSchedulerConfigIdleResourceSharing']]]
+    """
+    Configuration for sharing idle compute resources across entities.
+    """
+    priority_classes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterSchedulerConfigPriorityClassArgsDict']]]]]
+    """
+    List of priority class configurations.
+    """
+
+@pulumi.input_type
+class ClusterSchedulerConfigSchedulerConfigArgs:
+    def __init__(__self__, *,
+                 fair_share: pulumi.Input[Optional['ClusterSchedulerConfigSchedulerConfigFairShare']] = None,
+                 idle_resource_sharing: pulumi.Input[Optional['ClusterSchedulerConfigSchedulerConfigIdleResourceSharing']] = None,
+                 priority_classes: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterSchedulerConfigPriorityClassArgs']]]] = None):
+        """
+        Cluster policy configuration.
+
+        :param pulumi.Input['ClusterSchedulerConfigSchedulerConfigFairShare'] fair_share: When enabled, entities borrow idle compute based on assigned FairShareWeight.
+        :param pulumi.Input['ClusterSchedulerConfigSchedulerConfigIdleResourceSharing'] idle_resource_sharing: Configuration for sharing idle compute resources across entities.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterSchedulerConfigPriorityClassArgs']]] priority_classes: List of priority class configurations.
+        """
+        if fair_share is not None:
+            pulumi.set(__self__, "fair_share", fair_share)
+        if idle_resource_sharing is not None:
+            pulumi.set(__self__, "idle_resource_sharing", idle_resource_sharing)
+        if priority_classes is not None:
+            pulumi.set(__self__, "priority_classes", priority_classes)
+
+    @_builtins.property
+    @pulumi.getter(name="fairShare")
+    def fair_share(self) -> pulumi.Input[Optional['ClusterSchedulerConfigSchedulerConfigFairShare']]:
+        """
+        When enabled, entities borrow idle compute based on assigned FairShareWeight.
+        """
+        return pulumi.get(self, "fair_share")
+
+    @fair_share.setter
+    def fair_share(self, value: pulumi.Input[Optional['ClusterSchedulerConfigSchedulerConfigFairShare']]):
+        pulumi.set(self, "fair_share", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idleResourceSharing")
+    def idle_resource_sharing(self) -> pulumi.Input[Optional['ClusterSchedulerConfigSchedulerConfigIdleResourceSharing']]:
+        """
+        Configuration for sharing idle compute resources across entities.
+        """
+        return pulumi.get(self, "idle_resource_sharing")
+
+    @idle_resource_sharing.setter
+    def idle_resource_sharing(self, value: pulumi.Input[Optional['ClusterSchedulerConfigSchedulerConfigIdleResourceSharing']]):
+        pulumi.set(self, "idle_resource_sharing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="priorityClasses")
+    def priority_classes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterSchedulerConfigPriorityClassArgs']]]]:
+        """
+        List of priority class configurations.
+        """
+        return pulumi.get(self, "priority_classes")
+
+    @priority_classes.setter
+    def priority_classes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterSchedulerConfigPriorityClassArgs']]]]):
+        pulumi.set(self, "priority_classes", value)
 
 
 class ClusterSharedEnvironmentConfigArgsDict(TypedDict):

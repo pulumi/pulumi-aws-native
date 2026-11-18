@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AcceptedPortfolioShareArgs } from "./acceptedPortfolioShare";
+export type AcceptedPortfolioShare = import("./acceptedPortfolioShare").AcceptedPortfolioShare;
+export const AcceptedPortfolioShare: typeof import("./acceptedPortfolioShare").AcceptedPortfolioShare = null as any;
+utilities.lazyLoad(exports, ["AcceptedPortfolioShare"], () => require("./acceptedPortfolioShare"));
+
 export { CloudFormationProductArgs } from "./cloudFormationProduct";
 export type CloudFormationProduct = import("./cloudFormationProduct").CloudFormationProduct;
 export const CloudFormationProduct: typeof import("./cloudFormationProduct").CloudFormationProduct = null as any;
@@ -143,6 +148,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:servicecatalog:AcceptedPortfolioShare":
+                return new AcceptedPortfolioShare(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:CloudFormationProduct":
                 return new CloudFormationProduct(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:CloudFormationProvisionedProduct":

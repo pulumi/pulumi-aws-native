@@ -15,6 +15,11 @@ export const getPrincipalPermissions: typeof import("./getPrincipalPermissions")
 export const getPrincipalPermissionsOutput: typeof import("./getPrincipalPermissions").getPrincipalPermissionsOutput = null as any;
 utilities.lazyLoad(exports, ["getPrincipalPermissions","getPrincipalPermissionsOutput"], () => require("./getPrincipalPermissions"));
 
+export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
+export const getResource: typeof import("./getResource").getResource = null as any;
+export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
+
 export { GetTagArgs, GetTagResult, GetTagOutputArgs } from "./getTag";
 export const getTag: typeof import("./getTag").getTag = null as any;
 export const getTagOutput: typeof import("./getTag").getTagOutput = null as any;
@@ -29,6 +34,11 @@ export { PrincipalPermissionsArgs } from "./principalPermissions";
 export type PrincipalPermissions = import("./principalPermissions").PrincipalPermissions;
 export const PrincipalPermissions: typeof import("./principalPermissions").PrincipalPermissions = null as any;
 utilities.lazyLoad(exports, ["PrincipalPermissions"], () => require("./principalPermissions"));
+
+export { ResourceArgs } from "./resource";
+export type Resource = import("./resource").Resource;
+export const Resource: typeof import("./resource").Resource = null as any;
+utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
 
 export { TagArgs } from "./tag";
 export type Tag = import("./tag").Tag;
@@ -52,6 +62,8 @@ const _module = {
                 return new DataCellsFilter(name, <any>undefined, { urn })
             case "aws-native:lakeformation:PrincipalPermissions":
                 return new PrincipalPermissions(name, <any>undefined, { urn })
+            case "aws-native:lakeformation:Resource":
+                return new Resource(name, <any>undefined, { urn })
             case "aws-native:lakeformation:Tag":
                 return new Tag(name, <any>undefined, { urn })
             case "aws-native:lakeformation:TagAssociation":

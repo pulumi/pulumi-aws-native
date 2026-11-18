@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with the Agent Organizational Profile.
+type AgentOrganizationalProfileTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // Defines an account, its in-scope regions, and the access role used to reach resources in that account.
 type AgentProfileAggregationConfiguration struct {
 	// The ARN of the IAM role used to access resources in this account.

@@ -1520,6 +1520,172 @@ func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbac
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
+// The blockchain chain to use with a connected account. Connected accounts are mainnet only.
+type RuleGroupConnectedAccountChain string
+
+const (
+	RuleGroupConnectedAccountChainBase   = RuleGroupConnectedAccountChain("BASE")
+	RuleGroupConnectedAccountChainSolana = RuleGroupConnectedAccountChain("SOLANA")
+)
+
+func (RuleGroupConnectedAccountChain) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupConnectedAccountChain)(nil)).Elem()
+}
+
+func (e RuleGroupConnectedAccountChain) ToRuleGroupConnectedAccountChainOutput() RuleGroupConnectedAccountChainOutput {
+	return pulumi.ToOutput(e).(RuleGroupConnectedAccountChainOutput)
+}
+
+func (e RuleGroupConnectedAccountChain) ToRuleGroupConnectedAccountChainOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupConnectedAccountChainOutput)
+}
+
+func (e RuleGroupConnectedAccountChain) ToRuleGroupConnectedAccountChainPtrOutput() RuleGroupConnectedAccountChainPtrOutput {
+	return e.ToRuleGroupConnectedAccountChainPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupConnectedAccountChain) ToRuleGroupConnectedAccountChainPtrOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainPtrOutput {
+	return RuleGroupConnectedAccountChain(e).ToRuleGroupConnectedAccountChainOutputWithContext(ctx).ToRuleGroupConnectedAccountChainPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupConnectedAccountChain) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupConnectedAccountChain) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupConnectedAccountChain) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupConnectedAccountChain) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupConnectedAccountChainOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupConnectedAccountChainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupConnectedAccountChain)(nil)).Elem()
+}
+
+func (o RuleGroupConnectedAccountChainOutput) ToRuleGroupConnectedAccountChainOutput() RuleGroupConnectedAccountChainOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountChainOutput) ToRuleGroupConnectedAccountChainOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountChainOutput) ToRuleGroupConnectedAccountChainPtrOutput() RuleGroupConnectedAccountChainPtrOutput {
+	return o.ToRuleGroupConnectedAccountChainPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupConnectedAccountChainOutput) ToRuleGroupConnectedAccountChainPtrOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupConnectedAccountChain) *RuleGroupConnectedAccountChain {
+		return &v
+	}).(RuleGroupConnectedAccountChainPtrOutput)
+}
+
+func (o RuleGroupConnectedAccountChainOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupConnectedAccountChainOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupConnectedAccountChain) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupConnectedAccountChainOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupConnectedAccountChainOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupConnectedAccountChain) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupConnectedAccountChainPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupConnectedAccountChainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupConnectedAccountChain)(nil)).Elem()
+}
+
+func (o RuleGroupConnectedAccountChainPtrOutput) ToRuleGroupConnectedAccountChainPtrOutput() RuleGroupConnectedAccountChainPtrOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountChainPtrOutput) ToRuleGroupConnectedAccountChainPtrOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainPtrOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountChainPtrOutput) Elem() RuleGroupConnectedAccountChainOutput {
+	return o.ApplyT(func(v *RuleGroupConnectedAccountChain) RuleGroupConnectedAccountChain {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupConnectedAccountChain
+		return ret
+	}).(RuleGroupConnectedAccountChainOutput)
+}
+
+func (o RuleGroupConnectedAccountChainPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupConnectedAccountChainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupConnectedAccountChain) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupConnectedAccountChainInput is an input type that accepts values of the RuleGroupConnectedAccountChain enum
+// A concrete instance of `RuleGroupConnectedAccountChainInput` can be one of the following:
+//
+//	RuleGroupConnectedAccountChainBase
+//	RuleGroupConnectedAccountChainSolana
+type RuleGroupConnectedAccountChainInput interface {
+	pulumi.Input
+
+	ToRuleGroupConnectedAccountChainOutput() RuleGroupConnectedAccountChainOutput
+	ToRuleGroupConnectedAccountChainOutputWithContext(context.Context) RuleGroupConnectedAccountChainOutput
+}
+
+var ruleGroupConnectedAccountChainPtrType = reflect.TypeOf((**RuleGroupConnectedAccountChain)(nil)).Elem()
+
+type RuleGroupConnectedAccountChainPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupConnectedAccountChainPtrOutput() RuleGroupConnectedAccountChainPtrOutput
+	ToRuleGroupConnectedAccountChainPtrOutputWithContext(context.Context) RuleGroupConnectedAccountChainPtrOutput
+}
+
+type ruleGroupConnectedAccountChainPtr string
+
+func RuleGroupConnectedAccountChainPtr(v string) RuleGroupConnectedAccountChainPtrInput {
+	return (*ruleGroupConnectedAccountChainPtr)(&v)
+}
+
+func (*ruleGroupConnectedAccountChainPtr) ElementType() reflect.Type {
+	return ruleGroupConnectedAccountChainPtrType
+}
+
+func (in *ruleGroupConnectedAccountChainPtr) ToRuleGroupConnectedAccountChainPtrOutput() RuleGroupConnectedAccountChainPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupConnectedAccountChainPtrOutput)
+}
+
+func (in *ruleGroupConnectedAccountChainPtr) ToRuleGroupConnectedAccountChainPtrOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupConnectedAccountChainPtrOutput)
+}
+
 // The cryptocurrency to use for payment.
 type RuleGroupCryptoCurrency string
 
@@ -5832,6 +5998,172 @@ func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehav
 
 func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclBodyParsingFallbackBehaviorPtrOutput)
+}
+
+// The blockchain chain to use with a connected account. Connected accounts are mainnet only.
+type WebAclConnectedAccountChain string
+
+const (
+	WebAclConnectedAccountChainBase   = WebAclConnectedAccountChain("BASE")
+	WebAclConnectedAccountChainSolana = WebAclConnectedAccountChain("SOLANA")
+)
+
+func (WebAclConnectedAccountChain) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclConnectedAccountChain)(nil)).Elem()
+}
+
+func (e WebAclConnectedAccountChain) ToWebAclConnectedAccountChainOutput() WebAclConnectedAccountChainOutput {
+	return pulumi.ToOutput(e).(WebAclConnectedAccountChainOutput)
+}
+
+func (e WebAclConnectedAccountChain) ToWebAclConnectedAccountChainOutputWithContext(ctx context.Context) WebAclConnectedAccountChainOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclConnectedAccountChainOutput)
+}
+
+func (e WebAclConnectedAccountChain) ToWebAclConnectedAccountChainPtrOutput() WebAclConnectedAccountChainPtrOutput {
+	return e.ToWebAclConnectedAccountChainPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclConnectedAccountChain) ToWebAclConnectedAccountChainPtrOutputWithContext(ctx context.Context) WebAclConnectedAccountChainPtrOutput {
+	return WebAclConnectedAccountChain(e).ToWebAclConnectedAccountChainOutputWithContext(ctx).ToWebAclConnectedAccountChainPtrOutputWithContext(ctx)
+}
+
+func (e WebAclConnectedAccountChain) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclConnectedAccountChain) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclConnectedAccountChain) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclConnectedAccountChain) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclConnectedAccountChainOutput struct{ *pulumi.OutputState }
+
+func (WebAclConnectedAccountChainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclConnectedAccountChain)(nil)).Elem()
+}
+
+func (o WebAclConnectedAccountChainOutput) ToWebAclConnectedAccountChainOutput() WebAclConnectedAccountChainOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountChainOutput) ToWebAclConnectedAccountChainOutputWithContext(ctx context.Context) WebAclConnectedAccountChainOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountChainOutput) ToWebAclConnectedAccountChainPtrOutput() WebAclConnectedAccountChainPtrOutput {
+	return o.ToWebAclConnectedAccountChainPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclConnectedAccountChainOutput) ToWebAclConnectedAccountChainPtrOutputWithContext(ctx context.Context) WebAclConnectedAccountChainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclConnectedAccountChain) *WebAclConnectedAccountChain {
+		return &v
+	}).(WebAclConnectedAccountChainPtrOutput)
+}
+
+func (o WebAclConnectedAccountChainOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclConnectedAccountChainOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclConnectedAccountChain) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclConnectedAccountChainOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclConnectedAccountChainOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclConnectedAccountChain) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclConnectedAccountChainPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclConnectedAccountChainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclConnectedAccountChain)(nil)).Elem()
+}
+
+func (o WebAclConnectedAccountChainPtrOutput) ToWebAclConnectedAccountChainPtrOutput() WebAclConnectedAccountChainPtrOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountChainPtrOutput) ToWebAclConnectedAccountChainPtrOutputWithContext(ctx context.Context) WebAclConnectedAccountChainPtrOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountChainPtrOutput) Elem() WebAclConnectedAccountChainOutput {
+	return o.ApplyT(func(v *WebAclConnectedAccountChain) WebAclConnectedAccountChain {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclConnectedAccountChain
+		return ret
+	}).(WebAclConnectedAccountChainOutput)
+}
+
+func (o WebAclConnectedAccountChainPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclConnectedAccountChainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclConnectedAccountChain) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclConnectedAccountChainInput is an input type that accepts values of the WebAclConnectedAccountChain enum
+// A concrete instance of `WebAclConnectedAccountChainInput` can be one of the following:
+//
+//	WebAclConnectedAccountChainBase
+//	WebAclConnectedAccountChainSolana
+type WebAclConnectedAccountChainInput interface {
+	pulumi.Input
+
+	ToWebAclConnectedAccountChainOutput() WebAclConnectedAccountChainOutput
+	ToWebAclConnectedAccountChainOutputWithContext(context.Context) WebAclConnectedAccountChainOutput
+}
+
+var webAclConnectedAccountChainPtrType = reflect.TypeOf((**WebAclConnectedAccountChain)(nil)).Elem()
+
+type WebAclConnectedAccountChainPtrInput interface {
+	pulumi.Input
+
+	ToWebAclConnectedAccountChainPtrOutput() WebAclConnectedAccountChainPtrOutput
+	ToWebAclConnectedAccountChainPtrOutputWithContext(context.Context) WebAclConnectedAccountChainPtrOutput
+}
+
+type webAclConnectedAccountChainPtr string
+
+func WebAclConnectedAccountChainPtr(v string) WebAclConnectedAccountChainPtrInput {
+	return (*webAclConnectedAccountChainPtr)(&v)
+}
+
+func (*webAclConnectedAccountChainPtr) ElementType() reflect.Type {
+	return webAclConnectedAccountChainPtrType
+}
+
+func (in *webAclConnectedAccountChainPtr) ToWebAclConnectedAccountChainPtrOutput() WebAclConnectedAccountChainPtrOutput {
+	return pulumi.ToOutput(in).(WebAclConnectedAccountChainPtrOutput)
+}
+
+func (in *webAclConnectedAccountChainPtr) ToWebAclConnectedAccountChainPtrOutputWithContext(ctx context.Context) WebAclConnectedAccountChainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclConnectedAccountChainPtrOutput)
 }
 
 // The cryptocurrency to use for payment.
@@ -10415,6 +10747,7 @@ func (in *webAclSizeConstraintStatementComparisonOperatorPtr) ToWebAclSizeConstr
 type WebAclSizeInspectionLimit string
 
 const (
+	WebAclSizeInspectionLimitKb8  = WebAclSizeInspectionLimit("KB_8")
 	WebAclSizeInspectionLimitKb16 = WebAclSizeInspectionLimit("KB_16")
 	WebAclSizeInspectionLimitKb32 = WebAclSizeInspectionLimit("KB_32")
 	WebAclSizeInspectionLimitKb48 = WebAclSizeInspectionLimit("KB_48")
@@ -10543,6 +10876,7 @@ func (o WebAclSizeInspectionLimitPtrOutput) ToStringPtrOutputWithContext(ctx con
 // WebAclSizeInspectionLimitInput is an input type that accepts values of the WebAclSizeInspectionLimit enum
 // A concrete instance of `WebAclSizeInspectionLimitInput` can be one of the following:
 //
+//	WebAclSizeInspectionLimitKb8
 //	WebAclSizeInspectionLimitKb16
 //	WebAclSizeInspectionLimitKb32
 //	WebAclSizeInspectionLimitKb48
@@ -11165,6 +11499,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBlockchainChainPtrInput)(nil)).Elem(), RuleGroupBlockchainChain("BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyParsingFallbackBehaviorInput)(nil)).Elem(), RuleGroupBodyParsingFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupBodyParsingFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupConnectedAccountChainInput)(nil)).Elem(), RuleGroupConnectedAccountChain("BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupConnectedAccountChainPtrInput)(nil)).Elem(), RuleGroupConnectedAccountChain("BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCryptoCurrencyInput)(nil)).Elem(), RuleGroupCryptoCurrency("USDC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCryptoCurrencyPtrInput)(nil)).Elem(), RuleGroupCryptoCurrency("USDC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCurrencyModeInput)(nil)).Elem(), RuleGroupCurrencyMode("REAL"))
@@ -11215,6 +11551,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBlockchainChainPtrInput)(nil)).Elem(), WebAclBlockchainChain("BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBodyParsingFallbackBehaviorInput)(nil)).Elem(), WebAclBodyParsingFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), WebAclBodyParsingFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclConnectedAccountChainInput)(nil)).Elem(), WebAclConnectedAccountChain("BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclConnectedAccountChainPtrInput)(nil)).Elem(), WebAclConnectedAccountChain("BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCryptoCurrencyInput)(nil)).Elem(), WebAclCryptoCurrency("USDC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCryptoCurrencyPtrInput)(nil)).Elem(), WebAclCryptoCurrency("USDC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCurrencyModeInput)(nil)).Elem(), WebAclCurrencyMode("REAL"))
@@ -11269,8 +11607,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityToActPtrInput)(nil)).Elem(), WebAclSensitivityToAct("LOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperatorInput)(nil)).Elem(), WebAclSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), WebAclSizeConstraintStatementComparisonOperator("EQ"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeInspectionLimitInput)(nil)).Elem(), WebAclSizeInspectionLimit("KB_16"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeInspectionLimitPtrInput)(nil)).Elem(), WebAclSizeInspectionLimit("KB_16"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeInspectionLimitInput)(nil)).Elem(), WebAclSizeInspectionLimit("KB_8"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeInspectionLimitPtrInput)(nil)).Elem(), WebAclSizeInspectionLimit("KB_8"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypeInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypePtrInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUriFragmentFallbackBehaviorInput)(nil)).Elem(), WebAclUriFragmentFallbackBehavior("MATCH"))
@@ -11295,6 +11633,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupBlockchainChainPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyParsingFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyParsingFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupConnectedAccountChainOutput{})
+	pulumi.RegisterOutputType(RuleGroupConnectedAccountChainPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCryptoCurrencyOutput{})
 	pulumi.RegisterOutputType(RuleGroupCryptoCurrencyPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCurrencyModeOutput{})
@@ -11345,6 +11685,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclBlockchainChainPtrOutput{})
 	pulumi.RegisterOutputType(WebAclBodyParsingFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(WebAclBodyParsingFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclConnectedAccountChainOutput{})
+	pulumi.RegisterOutputType(WebAclConnectedAccountChainPtrOutput{})
 	pulumi.RegisterOutputType(WebAclCryptoCurrencyOutput{})
 	pulumi.RegisterOutputType(WebAclCryptoCurrencyPtrOutput{})
 	pulumi.RegisterOutputType(WebAclCurrencyModeOutput{})

@@ -15,6 +15,16 @@ export const getApplication: typeof import("./getApplication").getApplication = 
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
 
 // Export enums:
 export * from "../types/enums/kinesisanalyticsv2";
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:kinesisanalyticsv2:Application":
                 return new Application(name, <any>undefined, { urn })
+            case "aws-native:kinesisanalyticsv2:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

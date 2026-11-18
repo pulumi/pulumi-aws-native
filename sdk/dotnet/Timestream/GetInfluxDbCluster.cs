@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         public readonly string? DbParameterGroupIdentifier;
         /// <summary>
+        /// The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+        /// </summary>
+        public readonly string? EffectiveDbParameterGroupIdentifier;
+        /// <summary>
         /// The connection endpoint for the InfluxDB cluster.
         /// </summary>
         public readonly string? Endpoint;
@@ -103,6 +107,14 @@ namespace Pulumi.AwsNative.Timestream
         /// The maintenance schedule for the InfluxDB cluster.
         /// </summary>
         public readonly Outputs.InfluxDbClusterMaintenanceSchedule? MaintenanceSchedule;
+        /// <summary>
+        /// The number of DB instances that belong to the InfluxDB cluster.
+        /// </summary>
+        public readonly int? MemberCount;
+        /// <summary>
+        /// DB cluster member counts grouped by instance mode.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InfluxDbClusterMemberModeCount> MemberModeCounts;
         /// <summary>
         /// The timestamp of the next scheduled maintenance event.
         /// </summary>
@@ -132,6 +144,8 @@ namespace Pulumi.AwsNative.Timestream
 
             string? dbParameterGroupIdentifier,
 
+            string? effectiveDbParameterGroupIdentifier,
+
             string? endpoint,
 
             Pulumi.AwsNative.Timestream.InfluxDbClusterEngineType? engineType,
@@ -146,6 +160,10 @@ namespace Pulumi.AwsNative.Timestream
 
             Outputs.InfluxDbClusterMaintenanceSchedule? maintenanceSchedule,
 
+            int? memberCount,
+
+            ImmutableArray<Outputs.InfluxDbClusterMemberModeCount> memberModeCounts,
+
             string? nextMaintenanceTime,
 
             int? port,
@@ -159,6 +177,7 @@ namespace Pulumi.AwsNative.Timestream
             Arn = arn;
             DbInstanceType = dbInstanceType;
             DbParameterGroupIdentifier = dbParameterGroupIdentifier;
+            EffectiveDbParameterGroupIdentifier = effectiveDbParameterGroupIdentifier;
             Endpoint = endpoint;
             EngineType = engineType;
             FailoverMode = failoverMode;
@@ -166,6 +185,8 @@ namespace Pulumi.AwsNative.Timestream
             InfluxAuthParametersSecretArn = influxAuthParametersSecretArn;
             LogDeliveryConfiguration = logDeliveryConfiguration;
             MaintenanceSchedule = maintenanceSchedule;
+            MemberCount = memberCount;
+            MemberModeCounts = memberModeCounts;
             NextMaintenanceTime = nextMaintenanceTime;
             Port = port;
             ReaderEndpoint = readerEndpoint;

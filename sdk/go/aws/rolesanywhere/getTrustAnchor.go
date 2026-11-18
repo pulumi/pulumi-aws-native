@@ -29,6 +29,7 @@ type LookupTrustAnchorArgs struct {
 }
 
 type LookupTrustAnchorResult struct {
+	CrlDpRevocationEnabled *bool `pulumi:"crlDpRevocationEnabled"`
 	// Indicates whether the trust anchor is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the trust anchor.
@@ -71,6 +72,10 @@ func (o LookupTrustAnchorResultOutput) ToLookupTrustAnchorResultOutput() LookupT
 
 func (o LookupTrustAnchorResultOutput) ToLookupTrustAnchorResultOutputWithContext(ctx context.Context) LookupTrustAnchorResultOutput {
 	return o
+}
+
+func (o LookupTrustAnchorResultOutput) CrlDpRevocationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTrustAnchorResult) *bool { return v.CrlDpRevocationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether the trust anchor is enabled.

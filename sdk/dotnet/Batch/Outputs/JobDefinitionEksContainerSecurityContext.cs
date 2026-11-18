@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false` .
         /// </summary>
         public readonly bool? AllowPrivilegeEscalation;
+        public readonly Outputs.JobDefinitionEksContainerLinuxCapabilities? Capabilities;
         /// <summary>
         /// When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
         /// </summary>
@@ -37,10 +38,13 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// When this parameter is specified, the container is run as the specified user ID ( `uid` ). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to `RunAsUser` and `MustRanAs` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
         /// </summary>
         public readonly int? RunAsUser;
+        public readonly Outputs.JobDefinitionEksSeccompProfile? SeccompProfile;
 
         [OutputConstructor]
         private JobDefinitionEksContainerSecurityContext(
             bool? allowPrivilegeEscalation,
+
+            Outputs.JobDefinitionEksContainerLinuxCapabilities? capabilities,
 
             bool? privileged,
 
@@ -50,14 +54,18 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             bool? runAsNonRoot,
 
-            int? runAsUser)
+            int? runAsUser,
+
+            Outputs.JobDefinitionEksSeccompProfile? seccompProfile)
         {
             AllowPrivilegeEscalation = allowPrivilegeEscalation;
+            Capabilities = capabilities;
             Privileged = privileged;
             ReadOnlyRootFilesystem = readOnlyRootFilesystem;
             RunAsGroup = runAsGroup;
             RunAsNonRoot = runAsNonRoot;
             RunAsUser = runAsUser;
+            SeccompProfile = seccompProfile;
         }
     }
 }

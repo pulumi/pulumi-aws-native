@@ -15,6 +15,7 @@ __all__ = [
     'UserPoolClientRefreshTokenRotationFeature',
     'UserPoolEncryptionKeyType',
     'UserPoolIssuerConfigurationType',
+    'UserPoolSessionConfigurationAttachmentUserSessionTracking',
     'UserPoolTier',
     'UserPoolWebAuthnFactorConfiguration',
 ]
@@ -84,6 +85,15 @@ class UserPoolEncryptionKeyType(_builtins.str, Enum):
 class UserPoolIssuerConfigurationType(_builtins.str, Enum):
     ORIGINAL = "ORIGINAL"
     UPDATED = "UPDATED"
+
+
+@pulumi.type_token("aws-native:cognito:UserPoolSessionConfigurationAttachmentUserSessionTracking")
+class UserPoolSessionConfigurationAttachmentUserSessionTracking(_builtins.str, Enum):
+    """
+    Whether server-side user session tracking is enabled for the user pool. Requires the ESSENTIALS or PLUS feature plan.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:cognito:UserPoolTier")

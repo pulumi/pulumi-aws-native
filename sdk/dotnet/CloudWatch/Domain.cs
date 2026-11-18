@@ -10,15 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
-    /// The account-level boundary for CloudWatch Omni. A domain configures the
-    /// identity providers users sign in through and exposes the endpoint URLs used
-    /// to reach CloudWatch Omni. Spaces are created within a domain.
+    /// Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudwatch:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// The Amazon Resource Name (ARN) of the domain.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -53,6 +51,9 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("identityCenterApplicationArn")]
         public Output<string> IdentityCenterApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Identity provider configuration for the domain.
+        /// </summary>
         [Output("identityProviderConfiguration")]
         public Output<Outputs.DomainIdentityProviderConfiguration?> IdentityProviderConfiguration { get; private set; } = null!;
 
@@ -137,6 +138,9 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identity provider configuration for the domain.
+        /// </summary>
         [Input("identityProviderConfiguration")]
         public Input<Inputs.DomainIdentityProviderConfigurationArgs>? IdentityProviderConfiguration { get; set; }
 

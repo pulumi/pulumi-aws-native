@@ -63,6 +63,7 @@ export class Rule extends pulumi.CustomResource {
      * The name of the rule.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly preEvaluationFilters: pulumi.Output<outputs.connect.RulePreEvaluationFilters | undefined>;
     /**
      * The publish status of the rule.
      *  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
@@ -72,6 +73,7 @@ export class Rule extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the rule.
      */
     declare public /*out*/ readonly ruleArn: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleCapabilityTiers: pulumi.Output<enums.connect.RuleCapabilityTiersItem[]>;
     /**
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
@@ -111,17 +113,21 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["function"] = args?.function;
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["name"] = args?.name;
+            resourceInputs["preEvaluationFilters"] = args?.preEvaluationFilters;
             resourceInputs["publishStatus"] = args?.publishStatus;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["triggerEventSource"] = args?.triggerEventSource;
             resourceInputs["ruleArn"] = undefined /*out*/;
+            resourceInputs["ruleCapabilityTiers"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["function"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["preEvaluationFilters"] = undefined /*out*/;
             resourceInputs["publishStatus"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;
+            resourceInputs["ruleCapabilityTiers"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["triggerEventSource"] = undefined /*out*/;
         }
@@ -152,6 +158,7 @@ export interface RuleArgs {
      * The name of the rule.
      */
     name?: pulumi.Input<string | undefined>;
+    preEvaluationFilters?: pulumi.Input<inputs.connect.RulePreEvaluationFiltersArgs | undefined>;
     /**
      * The publish status of the rule.
      *  *Allowed values*: ``DRAFT`` | ``PUBLISHED``

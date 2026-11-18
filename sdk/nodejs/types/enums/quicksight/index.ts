@@ -1155,6 +1155,14 @@ export const AnalysisVisualCustomActionTrigger = {
 
 export type AnalysisVisualCustomActionTrigger = (typeof AnalysisVisualCustomActionTrigger)[keyof typeof AnalysisVisualCustomActionTrigger];
 
+export const AnalysisVisualHighlightTrigger = {
+    DataPointClick: "DATA_POINT_CLICK",
+    DataPointHover: "DATA_POINT_HOVER",
+    None: "NONE",
+} as const;
+
+export type AnalysisVisualHighlightTrigger = (typeof AnalysisVisualHighlightTrigger)[keyof typeof AnalysisVisualHighlightTrigger];
+
 export const AnalysisWidgetStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -2302,6 +2310,14 @@ export const DashboardVisualCustomActionTrigger = {
 } as const;
 
 export type DashboardVisualCustomActionTrigger = (typeof DashboardVisualCustomActionTrigger)[keyof typeof DashboardVisualCustomActionTrigger];
+
+export const DashboardVisualHighlightTrigger = {
+    DataPointClick: "DATA_POINT_CLICK",
+    DataPointHover: "DATA_POINT_HOVER",
+    None: "NONE",
+} as const;
+
+export type DashboardVisualHighlightTrigger = (typeof DashboardVisualHighlightTrigger)[keyof typeof DashboardVisualHighlightTrigger];
 
 export const DashboardWidgetStatus = {
     Enabled: "ENABLED",
@@ -3914,6 +3930,14 @@ export const TemplateVisualCustomActionTrigger = {
 } as const;
 
 export type TemplateVisualCustomActionTrigger = (typeof TemplateVisualCustomActionTrigger)[keyof typeof TemplateVisualCustomActionTrigger];
+
+export const TemplateVisualHighlightTrigger = {
+    DataPointClick: "DATA_POINT_CLICK",
+    DataPointHover: "DATA_POINT_HOVER",
+    None: "NONE",
+} as const;
+
+export type TemplateVisualHighlightTrigger = (typeof TemplateVisualHighlightTrigger)[keyof typeof TemplateVisualHighlightTrigger];
 
 export const TemplateWidgetStatus = {
     Enabled: "ENABLED",

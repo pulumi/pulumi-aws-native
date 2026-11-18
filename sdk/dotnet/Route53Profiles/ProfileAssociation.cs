@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Route53Profiles
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+        /// </summary>
+        [Output("priority")]
+        public Output<int?> Priority { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the  profile that you associated with the resource that is specified by ResourceId.
         /// </summary>
         [Output("profileId")]
@@ -113,6 +119,12 @@ namespace Pulumi.AwsNative.Route53Profiles
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
 
         /// <summary>
         /// The ID of the  profile that you associated with the resource that is specified by ResourceId.

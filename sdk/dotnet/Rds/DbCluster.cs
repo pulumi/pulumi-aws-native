@@ -672,6 +672,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
 
+        [Output("withExpressConfiguration")]
+        public Output<bool?> WithExpressConfiguration { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DbCluster resource with the given unique name, arguments, and options.
@@ -713,6 +716,7 @@ namespace Pulumi.AwsNative.Rds
                     "sourceRegion",
                     "storageEncrypted",
                     "useLatestRestorableTime",
+                    "withExpressConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -1377,6 +1381,9 @@ namespace Pulumi.AwsNative.Rds
             get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
             set => _vpcSecurityGroupIds = value;
         }
+
+        [Input("withExpressConfiguration")]
+        public Input<bool>? WithExpressConfiguration { get; set; }
 
         public DbClusterArgs()
         {

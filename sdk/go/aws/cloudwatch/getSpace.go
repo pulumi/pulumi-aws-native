@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::CloudWatch::Space
+// Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
 func LookupSpace(ctx *pulumi.Context, args *LookupSpaceArgs, opts ...pulumi.InvokeOption) (*LookupSpaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSpaceResult
@@ -31,23 +31,23 @@ type LookupSpaceArgs struct {
 type LookupSpaceResult struct {
 	// The Amazon Resource Name (ARN) of the space.
 	Arn *string `pulumi:"arn"`
-	// The time the space was created.
+	// The timestamp when the space was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The encryption configuration for the space.
+	// How the space's data at rest is encrypted. Always populated.
 	EncryptionConfiguration *SpaceEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The name of the space.
+	// A name that identifies the space.
 	Name *string `pulumi:"name"`
-	// The AWS account that owns the space.
+	// AWS account ID that owns this space.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The AWS Region the space resides in.
+	// The region where this space was created.
 	Region *string `pulumi:"region"`
-	// The unique identifier of the space.
+	// The unique ID of the space.
 	SpaceId *string `pulumi:"spaceId"`
 	// The status of the space.
 	Status *SpaceStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The time the space was last updated.
+	// The timestamp when the space was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
@@ -84,32 +84,32 @@ func (o LookupSpaceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The time the space was created.
+// The timestamp when the space was created.
 func (o LookupSpaceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The encryption configuration for the space.
+// How the space's data at rest is encrypted. Always populated.
 func (o LookupSpaceResultOutput) EncryptionConfiguration() SpaceEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *SpaceEncryptionConfiguration { return v.EncryptionConfiguration }).(SpaceEncryptionConfigurationPtrOutput)
 }
 
-// The name of the space.
+// A name that identifies the space.
 func (o LookupSpaceResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The AWS account that owns the space.
+// AWS account ID that owns this space.
 func (o LookupSpaceResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region the space resides in.
+// The region where this space was created.
 func (o LookupSpaceResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier of the space.
+// The unique ID of the space.
 func (o LookupSpaceResultOutput) SpaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.SpaceId }).(pulumi.StringPtrOutput)
 }
@@ -124,7 +124,7 @@ func (o LookupSpaceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupSpaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The time the space was last updated.
+// The timestamp when the space was last updated.
 func (o LookupSpaceResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

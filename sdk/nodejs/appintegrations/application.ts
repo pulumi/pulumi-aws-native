@@ -64,6 +64,10 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly applicationType: pulumi.Output<enums.appintegrations.ApplicationType | undefined>;
     /**
+     * The authentication configuration. Required when ApplicationType is A2A_SERVER.
+     */
+    declare public readonly authConfig: pulumi.Output<outputs.appintegrations.ApplicationAuthConfig | undefined>;
+    /**
      * The id of the application.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
@@ -83,6 +87,14 @@ export class Application extends pulumi.CustomResource {
      * Indicates if the application is a service
      */
     declare public readonly isService: pulumi.Output<boolean | undefined>;
+    /**
+     * The region in which the application was last modified.
+     */
+    declare public /*out*/ readonly lastModifiedRegion: pulumi.Output<string>;
+    /**
+     * The time when the application was last modified.
+     */
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The name of the application.
      */
@@ -120,6 +132,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationConfig"] = args?.applicationConfig;
             resourceInputs["applicationSourceConfig"] = args?.applicationSourceConfig;
             resourceInputs["applicationType"] = args?.applicationType;
+            resourceInputs["authConfig"] = args?.authConfig;
             resourceInputs["description"] = args?.description;
             resourceInputs["iframeConfig"] = args?.iframeConfig;
             resourceInputs["initializationTimeout"] = args?.initializationTimeout;
@@ -130,16 +143,21 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["lastModifiedRegion"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationConfig"] = undefined /*out*/;
             resourceInputs["applicationSourceConfig"] = undefined /*out*/;
             resourceInputs["applicationType"] = undefined /*out*/;
+            resourceInputs["authConfig"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["iframeConfig"] = undefined /*out*/;
             resourceInputs["initializationTimeout"] = undefined /*out*/;
             resourceInputs["isService"] = undefined /*out*/;
+            resourceInputs["lastModifiedRegion"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["permissions"] = undefined /*out*/;
@@ -166,6 +184,10 @@ export interface ApplicationArgs {
      * The type of application
      */
     applicationType?: pulumi.Input<enums.appintegrations.ApplicationType | undefined>;
+    /**
+     * The authentication configuration. Required when ApplicationType is A2A_SERVER.
+     */
+    authConfig?: pulumi.Input<inputs.appintegrations.ApplicationAuthConfigArgs | undefined>;
     /**
      * The application description.
      */

@@ -31,8 +31,11 @@ __all__ = [
     'ConfigurationRecorderRecordingModeOverride',
     'ConfigurationRecorderRecordingStrategy',
     'ConformancePackInputParameter',
+    'ConformancePackScope',
+    'ConformancePackSource',
     'ConnectorAzureConnectorConfiguration',
     'ConnectorConfiguration',
+    'ConnectorGcpConnectorConfiguration',
     'DeliveryChannelConfigSnapshotDeliveryProperties',
     'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata',
     'OrganizationConfigRuleOrganizationCustomRuleMetadata',
@@ -950,6 +953,100 @@ class ConformancePackInputParameter(dict):
 
 
 @pulumi.output_type
+class ConformancePackScope(dict):
+    """
+    The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConformancePackScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConformancePackScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConformancePackScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_key: _builtins.str,
+                 tag_value: Optional[_builtins.str] = None):
+        """
+        The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+
+        :param _builtins.str tag_key: The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+        :param _builtins.str tag_value: The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+        """
+        pulumi.set(__self__, "tag_key", tag_key)
+        if tag_value is not None:
+            pulumi.set(__self__, "tag_value", tag_value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> _builtins.str:
+        """
+        The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+        """
+        return pulumi.get(self, "tag_key")
+
+    @_builtins.property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> Optional[_builtins.str]:
+        """
+        The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+        """
+        return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
+class ConformancePackSource(dict):
+    """
+    The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceIdentifier":
+            suggest = "source_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConformancePackSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConformancePackSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConformancePackSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_identifier: _builtins.str):
+        """
+        The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+
+        :param _builtins.str source_identifier: The identifier specifying which managed conformance pack is being deployed.
+        """
+        pulumi.set(__self__, "source_identifier", source_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> _builtins.str:
+        """
+        The identifier specifying which managed conformance pack is being deployed.
+        """
+        return pulumi.get(self, "source_identifier")
+
+
+@pulumi.output_type
 class ConnectorAzureConnectorConfiguration(dict):
     """
     Configuration for connecting to Microsoft Azure.
@@ -1005,17 +1102,21 @@ class ConnectorAzureConnectorConfiguration(dict):
 @pulumi.output_type
 class ConnectorConfiguration(dict):
     """
-    The configuration for the connector. Specify the third-party cloud provider configuration.
+    The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
     """
     def __init__(__self__, *,
-                 azure: Optional['outputs.ConnectorAzureConnectorConfiguration'] = None):
+                 azure: Optional['outputs.ConnectorAzureConnectorConfiguration'] = None,
+                 gcp: Optional['outputs.ConnectorGcpConnectorConfiguration'] = None):
         """
-        The configuration for the connector. Specify the third-party cloud provider configuration.
+        The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
 
         :param 'ConnectorAzureConnectorConfiguration' azure: The configuration for connecting to Microsoft Azure.
+        :param 'ConnectorGcpConnectorConfiguration' gcp: The configuration for connecting to Google Cloud.
         """
         if azure is not None:
             pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
 
     @_builtins.property
     @pulumi.getter
@@ -1024,6 +1125,81 @@ class ConnectorConfiguration(dict):
         The configuration for connecting to Microsoft Azure.
         """
         return pulumi.get(self, "azure")
+
+    @_builtins.property
+    @pulumi.getter
+    def gcp(self) -> Optional['outputs.ConnectorGcpConnectorConfiguration']:
+        """
+        The configuration for connecting to Google Cloud.
+        """
+        return pulumi.get(self, "gcp")
+
+
+@pulumi.output_type
+class ConnectorGcpConnectorConfiguration(dict):
+    """
+    Configuration for connecting to Google Cloud.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountEmail":
+            suggest = "service_account_email"
+        elif key == "workloadIdentityPoolProvider":
+            suggest = "workload_identity_pool_provider"
+        elif key == "gcpOrganizationId":
+            suggest = "gcp_organization_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorGcpConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorGcpConnectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorGcpConnectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_account_email: _builtins.str,
+                 workload_identity_pool_provider: _builtins.str,
+                 gcp_organization_id: Optional[_builtins.str] = None):
+        """
+        Configuration for connecting to Google Cloud.
+
+        :param _builtins.str service_account_email: The email address of the Google Cloud service account that AWS Config uses.
+        :param _builtins.str workload_identity_pool_provider: The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+        :param _builtins.str gcp_organization_id: The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+        """
+        pulumi.set(__self__, "service_account_email", service_account_email)
+        pulumi.set(__self__, "workload_identity_pool_provider", workload_identity_pool_provider)
+        if gcp_organization_id is not None:
+            pulumi.set(__self__, "gcp_organization_id", gcp_organization_id)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> _builtins.str:
+        """
+        The email address of the Google Cloud service account that AWS Config uses.
+        """
+        return pulumi.get(self, "service_account_email")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPoolProvider")
+    def workload_identity_pool_provider(self) -> _builtins.str:
+        """
+        The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+        """
+        return pulumi.get(self, "workload_identity_pool_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="gcpOrganizationId")
+    def gcp_organization_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+        """
+        return pulumi.get(self, "gcp_organization_id")
 
 
 @pulumi.output_type

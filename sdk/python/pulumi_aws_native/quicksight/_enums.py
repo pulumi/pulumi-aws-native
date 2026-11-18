@@ -142,6 +142,7 @@ __all__ = [
     'AnalysisVerticalTextAlignment',
     'AnalysisVisibility',
     'AnalysisVisualCustomActionTrigger',
+    'AnalysisVisualHighlightTrigger',
     'AnalysisWidgetStatus',
     'AnalysisWordCloudCloudLayout',
     'AnalysisWordCloudWordCasing',
@@ -281,6 +282,7 @@ __all__ = [
     'DashboardVerticalTextAlignment',
     'DashboardVisibility',
     'DashboardVisualCustomActionTrigger',
+    'DashboardVisualHighlightTrigger',
     'DashboardWidgetStatus',
     'DashboardWordCloudCloudLayout',
     'DashboardWordCloudWordCasing',
@@ -462,6 +464,7 @@ __all__ = [
     'TemplateVerticalTextAlignment',
     'TemplateVisibility',
     'TemplateVisualCustomActionTrigger',
+    'TemplateVisualHighlightTrigger',
     'TemplateWidgetStatus',
     'TemplateWordCloudCloudLayout',
     'TemplateWordCloudWordCasing',
@@ -1520,6 +1523,13 @@ class AnalysisVisualCustomActionTrigger(_builtins.str, Enum):
     DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisVisualHighlightTrigger")
+class AnalysisVisualHighlightTrigger(_builtins.str, Enum):
+    DATA_POINT_CLICK = "DATA_POINT_CLICK"
+    DATA_POINT_HOVER = "DATA_POINT_HOVER"
+    NONE = "NONE"
+
+
 @pulumi.type_token("aws-native:quicksight:AnalysisWidgetStatus")
 class AnalysisWidgetStatus(_builtins.str, Enum):
     ENABLED = "ENABLED"
@@ -2527,6 +2537,13 @@ class DashboardVisibility(_builtins.str, Enum):
 class DashboardVisualCustomActionTrigger(_builtins.str, Enum):
     DATA_POINT_CLICK = "DATA_POINT_CLICK"
     DATA_POINT_MENU = "DATA_POINT_MENU"
+
+
+@pulumi.type_token("aws-native:quicksight:DashboardVisualHighlightTrigger")
+class DashboardVisualHighlightTrigger(_builtins.str, Enum):
+    DATA_POINT_CLICK = "DATA_POINT_CLICK"
+    DATA_POINT_HOVER = "DATA_POINT_HOVER"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:quicksight:DashboardWidgetStatus")
@@ -3958,6 +3975,13 @@ class TemplateVisibility(_builtins.str, Enum):
 class TemplateVisualCustomActionTrigger(_builtins.str, Enum):
     DATA_POINT_CLICK = "DATA_POINT_CLICK"
     DATA_POINT_MENU = "DATA_POINT_MENU"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateVisualHighlightTrigger")
+class TemplateVisualHighlightTrigger(_builtins.str, Enum):
+    DATA_POINT_CLICK = "DATA_POINT_CLICK"
+    DATA_POINT_HOVER = "DATA_POINT_HOVER"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:quicksight:TemplateWidgetStatus")

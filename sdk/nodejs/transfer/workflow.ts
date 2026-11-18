@@ -64,6 +64,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     declare public readonly steps: pulumi.Output<outputs.transfer.WorkflowStep[]>;
     /**
+     * Specifies the log destinations for the workflow.
+     */
+    declare public readonly structuredLogDestinations: pulumi.Output<string[] | undefined>;
+    /**
      * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -89,6 +93,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["onExceptionSteps"] = args?.onExceptionSteps;
             resourceInputs["steps"] = args?.steps;
+            resourceInputs["structuredLogDestinations"] = args?.structuredLogDestinations;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
@@ -97,11 +102,12 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["onExceptionSteps"] = undefined /*out*/;
             resourceInputs["steps"] = undefined /*out*/;
+            resourceInputs["structuredLogDestinations"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "onExceptionSteps[*]", "steps[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "onExceptionSteps[*]", "steps[*]", "structuredLogDestinations[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Workflow.__pulumiType, name, resourceInputs, opts);
     }
@@ -123,6 +129,10 @@ export interface WorkflowArgs {
      * Specifies the details for the steps that are in the specified workflow.
      */
     steps: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStepArgs>[]>;
+    /**
+     * Specifies the log destinations for the workflow.
+     */
+    structuredLogDestinations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
      */

@@ -137,6 +137,40 @@ namespace Pulumi.AwsNative.WellArchitected
     }
 
     /// <summary>
+    /// A Well-Architected pillar the Agent Organizational Profile focuses on.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentOrganizationalProfilePillar : IEquatable<AgentOrganizationalProfilePillar>
+    {
+        private readonly string _value;
+
+        private AgentOrganizationalProfilePillar(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentOrganizationalProfilePillar CostOptimization { get; } = new AgentOrganizationalProfilePillar("COST_OPTIMIZATION");
+        public static AgentOrganizationalProfilePillar Security { get; } = new AgentOrganizationalProfilePillar("SECURITY");
+        public static AgentOrganizationalProfilePillar Resilience { get; } = new AgentOrganizationalProfilePillar("RESILIENCE");
+        public static AgentOrganizationalProfilePillar Performance { get; } = new AgentOrganizationalProfilePillar("PERFORMANCE");
+        public static AgentOrganizationalProfilePillar OperationalExcellence { get; } = new AgentOrganizationalProfilePillar("OPERATIONAL_EXCELLENCE");
+
+        public static bool operator ==(AgentOrganizationalProfilePillar left, AgentOrganizationalProfilePillar right) => left.Equals(right);
+        public static bool operator !=(AgentOrganizationalProfilePillar left, AgentOrganizationalProfilePillar right) => !left.Equals(right);
+
+        public static explicit operator string(AgentOrganizationalProfilePillar value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentOrganizationalProfilePillar other && Equals(other);
+        public bool Equals(AgentOrganizationalProfilePillar other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A Well-Architected pillar the Agent Profile focuses on.
     /// </summary>
     [EnumType]

@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, capacity_provider_config=None, code=None, code_signing_config_arn=None, dead_letter_config=None, description=None, durable_config=None, environment=None, ephemeral_storage=None, file_system_configs=None, function_scaling_config=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, accelerator_config=None, architectures=None, arn=None, capacity_provider_config=None, code=None, code_signing_config_arn=None, dead_letter_config=None, description=None, durable_config=None, environment=None, ephemeral_storage=None, file_system_configs=None, function_scaling_config=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_config=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+        if accelerator_config and not isinstance(accelerator_config, dict):
+            raise TypeError("Expected argument 'accelerator_config' to be a dict")
+        pulumi.set(__self__, "accelerator_config", accelerator_config)
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -93,6 +96,9 @@ class GetFunctionResult:
         if runtime and not isinstance(runtime, str):
             raise TypeError("Expected argument 'runtime' to be a str")
         pulumi.set(__self__, "runtime", runtime)
+        if runtime_config and not isinstance(runtime_config, dict):
+            raise TypeError("Expected argument 'runtime_config' to be a dict")
+        pulumi.set(__self__, "runtime_config", runtime_config)
         if runtime_management_config and not isinstance(runtime_management_config, dict):
             raise TypeError("Expected argument 'runtime_management_config' to be a dict")
         pulumi.set(__self__, "runtime_management_config", runtime_management_config)
@@ -111,6 +117,11 @@ class GetFunctionResult:
         if vpc_config and not isinstance(vpc_config, dict):
             raise TypeError("Expected argument 'vpc_config' to be a dict")
         pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter(name="acceleratorConfig")
+    def accelerator_config(self) -> Optional['outputs.FunctionAcceleratorConfig']:
+        return pulumi.get(self, "accelerator_config")
 
     @_builtins.property
     @pulumi.getter
@@ -303,6 +314,11 @@ class GetFunctionResult:
         return pulumi.get(self, "runtime")
 
     @_builtins.property
+    @pulumi.getter(name="runtimeConfig")
+    def runtime_config(self) -> Optional['outputs.FunctionRuntimeConfig']:
+        return pulumi.get(self, "runtime_config")
+
+    @_builtins.property
     @pulumi.getter(name="runtimeManagementConfig")
     def runtime_management_config(self) -> Optional['outputs.FunctionRuntimeManagementConfig']:
         """
@@ -355,6 +371,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
         if False:
             yield self
         return GetFunctionResult(
+            accelerator_config=self.accelerator_config,
             architectures=self.architectures,
             arn=self.arn,
             capacity_provider_config=self.capacity_provider_config,
@@ -377,6 +394,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             reserved_concurrent_executions=self.reserved_concurrent_executions,
             role=self.role,
             runtime=self.runtime,
+            runtime_config=self.runtime_config,
             runtime_management_config=self.runtime_management_config,
             snap_start_response=self.snap_start_response,
             tags=self.tags,
@@ -405,6 +423,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getFunction', __args__, opts=opts, typ=GetFunctionResult).value
 
     return AwaitableGetFunctionResult(
+        accelerator_config=pulumi.get(__ret__, 'accelerator_config'),
         architectures=pulumi.get(__ret__, 'architectures'),
         arn=pulumi.get(__ret__, 'arn'),
         capacity_provider_config=pulumi.get(__ret__, 'capacity_provider_config'),
@@ -427,6 +446,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         reserved_concurrent_executions=pulumi.get(__ret__, 'reserved_concurrent_executions'),
         role=pulumi.get(__ret__, 'role'),
         runtime=pulumi.get(__ret__, 'runtime'),
+        runtime_config=pulumi.get(__ret__, 'runtime_config'),
         runtime_management_config=pulumi.get(__ret__, 'runtime_management_config'),
         snap_start_response=pulumi.get(__ret__, 'snap_start_response'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -452,6 +472,7 @@ def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getFunction', __args__, opts=opts, typ=GetFunctionResult)
     return __ret__.apply(lambda __response__: GetFunctionResult(
+        accelerator_config=pulumi.get(__response__, 'accelerator_config'),
         architectures=pulumi.get(__response__, 'architectures'),
         arn=pulumi.get(__response__, 'arn'),
         capacity_provider_config=pulumi.get(__response__, 'capacity_provider_config'),
@@ -474,6 +495,7 @@ def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = N
         reserved_concurrent_executions=pulumi.get(__response__, 'reserved_concurrent_executions'),
         role=pulumi.get(__response__, 'role'),
         runtime=pulumi.get(__response__, 'runtime'),
+        runtime_config=pulumi.get(__response__, 'runtime_config'),
         runtime_management_config=pulumi.get(__response__, 'runtime_management_config'),
         snap_start_response=pulumi.get(__response__, 'snap_start_response'),
         tags=pulumi.get(__response__, 'tags'),

@@ -28,6 +28,7 @@ class TaskTemplateArgs:
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
                  constraints: pulumi.Input[Optional['ConstraintsPropertiesArgs']] = None,
                  contact_flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_hooks: pulumi.Input[Optional['ContactHooksPropertiesArgs']] = None,
                  defaults: pulumi.Input[Optional[Sequence[pulumi.Input['TaskTemplateDefaultFieldValueArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  fields: pulumi.Input[Optional[Sequence[pulumi.Input['TaskTemplateFieldArgs']]]] = None,
@@ -42,6 +43,7 @@ class TaskTemplateArgs:
         :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
         :param pulumi.Input['ConstraintsPropertiesArgs'] constraints: The constraints for the task template
         :param pulumi.Input[_builtins.str] contact_flow_arn: The identifier of the contact flow.
+        :param pulumi.Input['ContactHooksPropertiesArgs'] contact_hooks: The contact hooks for the task template.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateDefaultFieldValueArgs']]] defaults: The default values for fields when a task is created by referencing this template.
         :param pulumi.Input[_builtins.str] description: The description of the task template.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateFieldArgs']]] fields: The list of task template's fields
@@ -57,6 +59,8 @@ class TaskTemplateArgs:
             pulumi.set(__self__, "constraints", constraints)
         if contact_flow_arn is not None:
             pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+        if contact_hooks is not None:
+            pulumi.set(__self__, "contact_hooks", contact_hooks)
         if defaults is not None:
             pulumi.set(__self__, "defaults", defaults)
         if description is not None:
@@ -119,6 +123,18 @@ class TaskTemplateArgs:
     @contact_flow_arn.setter
     def contact_flow_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_flow_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contactHooks")
+    def contact_hooks(self) -> pulumi.Input[Optional['ContactHooksPropertiesArgs']]:
+        """
+        The contact hooks for the task template.
+        """
+        return pulumi.get(self, "contact_hooks")
+
+    @contact_hooks.setter
+    def contact_hooks(self, value: pulumi.Input[Optional['ContactHooksPropertiesArgs']]):
+        pulumi.set(self, "contact_hooks", value)
 
     @_builtins.property
     @pulumi.getter
@@ -214,6 +230,7 @@ class TaskTemplate(pulumi.CustomResource):
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
                  constraints: pulumi.Input[Optional[Union['ConstraintsPropertiesArgs', 'ConstraintsPropertiesArgsDict', 'outputs.ConstraintsProperties']]] = None,
                  contact_flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_hooks: pulumi.Input[Optional[Union['ContactHooksPropertiesArgs', 'ContactHooksPropertiesArgsDict', 'outputs.ContactHooksProperties']]] = None,
                  defaults: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskTemplateDefaultFieldValueArgs', 'TaskTemplateDefaultFieldValueArgsDict', 'outputs.TaskTemplateDefaultFieldValue']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict', 'outputs.TaskTemplateField']]]]] = None,
@@ -231,6 +248,7 @@ class TaskTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
         :param pulumi.Input[Union['ConstraintsPropertiesArgs', 'ConstraintsPropertiesArgsDict', 'outputs.ConstraintsProperties']] constraints: The constraints for the task template
         :param pulumi.Input[_builtins.str] contact_flow_arn: The identifier of the contact flow.
+        :param pulumi.Input[Union['ContactHooksPropertiesArgs', 'ContactHooksPropertiesArgsDict', 'outputs.ContactHooksProperties']] contact_hooks: The contact hooks for the task template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateDefaultFieldValueArgs', 'TaskTemplateDefaultFieldValueArgsDict', 'outputs.TaskTemplateDefaultFieldValue']]]] defaults: The default values for fields when a task is created by referencing this template.
         :param pulumi.Input[_builtins.str] description: The description of the task template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict', 'outputs.TaskTemplateField']]]] fields: The list of task template's fields
@@ -267,6 +285,7 @@ class TaskTemplate(pulumi.CustomResource):
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
                  constraints: pulumi.Input[Optional[Union['ConstraintsPropertiesArgs', 'ConstraintsPropertiesArgsDict', 'outputs.ConstraintsProperties']]] = None,
                  contact_flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_hooks: pulumi.Input[Optional[Union['ContactHooksPropertiesArgs', 'ContactHooksPropertiesArgsDict', 'outputs.ContactHooksProperties']]] = None,
                  defaults: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskTemplateDefaultFieldValueArgs', 'TaskTemplateDefaultFieldValueArgsDict', 'outputs.TaskTemplateDefaultFieldValue']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict', 'outputs.TaskTemplateField']]]]] = None,
@@ -287,6 +306,7 @@ class TaskTemplate(pulumi.CustomResource):
             __props__.__dict__["client_token"] = client_token
             __props__.__dict__["constraints"] = constraints
             __props__.__dict__["contact_flow_arn"] = contact_flow_arn
+            __props__.__dict__["contact_hooks"] = contact_hooks
             __props__.__dict__["defaults"] = defaults
             __props__.__dict__["description"] = description
             __props__.__dict__["fields"] = fields
@@ -324,6 +344,7 @@ class TaskTemplate(pulumi.CustomResource):
         __props__.__dict__["client_token"] = None
         __props__.__dict__["constraints"] = None
         __props__.__dict__["contact_flow_arn"] = None
+        __props__.__dict__["contact_hooks"] = None
         __props__.__dict__["defaults"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["fields"] = None
@@ -371,6 +392,14 @@ class TaskTemplate(pulumi.CustomResource):
         The identifier of the contact flow.
         """
         return pulumi.get(self, "contact_flow_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="contactHooks")
+    def contact_hooks(self) -> pulumi.Output[Optional['outputs.ContactHooksProperties']]:
+        """
+        The contact hooks for the task template.
+        """
+        return pulumi.get(self, "contact_hooks")
 
     @_builtins.property
     @pulumi.getter

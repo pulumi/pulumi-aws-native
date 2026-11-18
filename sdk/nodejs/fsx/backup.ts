@@ -58,7 +58,7 @@ export class Backup extends pulumi.CustomResource {
     /**
      * The ID of the file system to back up.
      */
-    declare public readonly fileSystemId: pulumi.Output<string>;
+    declare public readonly fileSystemId: pulumi.Output<string | undefined>;
     /**
      * The lifecycle status of the backup.
      */
@@ -83,13 +83,10 @@ export class Backup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BackupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: BackupArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.fileSystemId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fileSystemId'");
-            }
             resourceInputs["fileSystemId"] = args?.fileSystemId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["backupId"] = undefined /*out*/;
@@ -120,7 +117,7 @@ export interface BackupArgs {
     /**
      * The ID of the file system to back up.
      */
-    fileSystemId: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string | undefined>;
     /**
      * The tags to apply to the backup at backup creation.
      */

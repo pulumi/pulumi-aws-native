@@ -231,6 +231,37 @@ namespace Pulumi.AwsNative.Pcs
     }
 
     /// <summary>
+    /// How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeNodeGroupLaunchTemplateMode : IEquatable<ComputeNodeGroupLaunchTemplateMode>
+    {
+        private readonly string _value;
+
+        private ComputeNodeGroupLaunchTemplateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeNodeGroupLaunchTemplateMode Custom { get; } = new ComputeNodeGroupLaunchTemplateMode("CUSTOM");
+        public static ComputeNodeGroupLaunchTemplateMode Managed { get; } = new ComputeNodeGroupLaunchTemplateMode("MANAGED");
+
+        public static bool operator ==(ComputeNodeGroupLaunchTemplateMode left, ComputeNodeGroupLaunchTemplateMode right) => left.Equals(right);
+        public static bool operator !=(ComputeNodeGroupLaunchTemplateMode left, ComputeNodeGroupLaunchTemplateMode right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeNodeGroupLaunchTemplateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeNodeGroupLaunchTemplateMode other && Equals(other);
+        public bool Equals(ComputeNodeGroupLaunchTemplateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
     /// </summary>
     [EnumType]

@@ -64,10 +64,11 @@ export type ResourceConfigurationDnsResourceIpAddressType = (typeof ResourceConf
 
 export const ResourceConfigurationProtocolType = {
     Tcp: "TCP",
+    TcpUdp: "TCP_UDP",
 } as const;
 
 /**
- * (SINGLE, GROUP) The protocol accepted by the resource configuration.
+ * The protocol the resource configuration accepts. SINGLE and GROUP resource configurations support TCP. CIDR resource configurations support TCP and TCP_UDP; use TCP_UDP to carry UDP traffic such as DNS on port 53.
  */
 export type ResourceConfigurationProtocolType = (typeof ResourceConfigurationProtocolType)[keyof typeof ResourceConfigurationProtocolType];
 

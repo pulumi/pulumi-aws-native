@@ -52,6 +52,8 @@ __all__ = [
     'ChannelTableCreationArgsDict',
     'ChannelTopicConfigurationArgs',
     'ChannelTopicConfigurationArgsDict',
+    'ClusterAuthorizerLogsArgs',
+    'ClusterAuthorizerLogsArgsDict',
     'ClusterBrokerLogsArgs',
     'ClusterBrokerLogsArgsDict',
     'ClusterBrokerNodeGroupInfoArgs',
@@ -1238,6 +1240,52 @@ class ChannelTopicConfigurationArgs:
         pulumi.set(self, "record_schema", value)
 
 
+class ClusterAuthorizerLogsArgsDict(TypedDict):
+    cloud_watch_logs: NotRequired[pulumi.Input[Optional['ClusterCloudWatchLogsArgsDict']]]
+    firehose: NotRequired[pulumi.Input[Optional['ClusterFirehoseArgsDict']]]
+    s3: NotRequired[pulumi.Input[Optional['ClusterS3ArgsDict']]]
+
+@pulumi.input_type
+class ClusterAuthorizerLogsArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs: pulumi.Input[Optional['ClusterCloudWatchLogsArgs']] = None,
+                 firehose: pulumi.Input[Optional['ClusterFirehoseArgs']] = None,
+                 s3: pulumi.Input[Optional['ClusterS3Args']] = None):
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> pulumi.Input[Optional['ClusterCloudWatchLogsArgs']]:
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @cloud_watch_logs.setter
+    def cloud_watch_logs(self, value: pulumi.Input[Optional['ClusterCloudWatchLogsArgs']]):
+        pulumi.set(self, "cloud_watch_logs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def firehose(self) -> pulumi.Input[Optional['ClusterFirehoseArgs']]:
+        return pulumi.get(self, "firehose")
+
+    @firehose.setter
+    def firehose(self, value: pulumi.Input[Optional['ClusterFirehoseArgs']]):
+        pulumi.set(self, "firehose", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['ClusterS3Args']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['ClusterS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
 class ClusterBrokerLogsArgsDict(TypedDict):
     cloud_watch_logs: NotRequired[pulumi.Input[Optional['ClusterCloudWatchLogsArgsDict']]]
     firehose: NotRequired[pulumi.Input[Optional['ClusterFirehoseArgsDict']]]
@@ -1343,6 +1391,7 @@ class ClusterBrokerNodeGroupInfoArgsDict(TypedDict):
     """
     Contains information about storage volumes attached to Amazon MSK broker nodes.
     """
+    topic_reassignment: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoTopicReassignment']]]
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoArgs:
@@ -1352,7 +1401,8 @@ class ClusterBrokerNodeGroupInfoArgs:
                  broker_az_distribution: pulumi.Input[Optional[_builtins.str]] = None,
                  connectivity_info: pulumi.Input[Optional['ClusterConnectivityInfoArgs']] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_info: pulumi.Input[Optional['ClusterStorageInfoArgs']] = None):
+                 storage_info: pulumi.Input[Optional['ClusterStorageInfoArgs']] = None,
+                 topic_reassignment: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoTopicReassignment']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets to connect to in the client virtual private cloud (VPC). Amazon creates elastic network interfaces (ENIs) inside these subnets. Client applications use ENIs to produce and consume data.
                
@@ -1389,6 +1439,8 @@ class ClusterBrokerNodeGroupInfoArgs:
             pulumi.set(__self__, "security_groups", security_groups)
         if storage_info is not None:
             pulumi.set(__self__, "storage_info", storage_info)
+        if topic_reassignment is not None:
+            pulumi.set(__self__, "topic_reassignment", topic_reassignment)
 
     @_builtins.property
     @pulumi.getter(name="clientSubnets")
@@ -1479,6 +1531,15 @@ class ClusterBrokerNodeGroupInfoArgs:
     @storage_info.setter
     def storage_info(self, value: pulumi.Input[Optional['ClusterStorageInfoArgs']]):
         pulumi.set(self, "storage_info", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicReassignment")
+    def topic_reassignment(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoTopicReassignment']]:
+        return pulumi.get(self, "topic_reassignment")
+
+    @topic_reassignment.setter
+    def topic_reassignment(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoTopicReassignment']]):
+        pulumi.set(self, "topic_reassignment", value)
 
 
 class ClusterClientAuthenticationArgsDict(TypedDict):
@@ -2011,7 +2072,8 @@ class ClusterJmxExporterArgs:
 
 
 class ClusterLoggingInfoArgsDict(TypedDict):
-    broker_logs: pulumi.Input['ClusterBrokerLogsArgsDict']
+    authorizer_logs: NotRequired[pulumi.Input[Optional['ClusterAuthorizerLogsArgsDict']]]
+    broker_logs: NotRequired[pulumi.Input[Optional['ClusterBrokerLogsArgsDict']]]
     """
     You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
     """
@@ -2019,22 +2081,35 @@ class ClusterLoggingInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterLoggingInfoArgs:
     def __init__(__self__, *,
-                 broker_logs: pulumi.Input['ClusterBrokerLogsArgs']):
+                 authorizer_logs: pulumi.Input[Optional['ClusterAuthorizerLogsArgs']] = None,
+                 broker_logs: pulumi.Input[Optional['ClusterBrokerLogsArgs']] = None):
         """
         :param pulumi.Input['ClusterBrokerLogsArgs'] broker_logs: You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
         """
-        pulumi.set(__self__, "broker_logs", broker_logs)
+        if authorizer_logs is not None:
+            pulumi.set(__self__, "authorizer_logs", authorizer_logs)
+        if broker_logs is not None:
+            pulumi.set(__self__, "broker_logs", broker_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizerLogs")
+    def authorizer_logs(self) -> pulumi.Input[Optional['ClusterAuthorizerLogsArgs']]:
+        return pulumi.get(self, "authorizer_logs")
+
+    @authorizer_logs.setter
+    def authorizer_logs(self, value: pulumi.Input[Optional['ClusterAuthorizerLogsArgs']]):
+        pulumi.set(self, "authorizer_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="brokerLogs")
-    def broker_logs(self) -> pulumi.Input['ClusterBrokerLogsArgs']:
+    def broker_logs(self) -> pulumi.Input[Optional['ClusterBrokerLogsArgs']]:
         """
         You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
         """
         return pulumi.get(self, "broker_logs")
 
     @broker_logs.setter
-    def broker_logs(self, value: pulumi.Input['ClusterBrokerLogsArgs']):
+    def broker_logs(self, value: pulumi.Input[Optional['ClusterBrokerLogsArgs']]):
         pulumi.set(self, "broker_logs", value)
 
 

@@ -74,6 +74,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("metadata")]
         public Input<Inputs.JobDefinitionEksMetadataArgs>? Metadata { get; set; }
 
+        [Input("securityContext")]
+        public Input<Inputs.JobDefinitionEksPodSecurityContextArgs>? SecurityContext { get; set; }
+
         /// <summary>
         /// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
         /// </summary>

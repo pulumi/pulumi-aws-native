@@ -18,12 +18,15 @@ from ._enums import *
 
 __all__ = [
     'TableBucketEncryptionConfiguration',
+    'TableBucketLoggingConfiguration',
     'TableBucketMetricsConfiguration',
+    'TableBucketPartitionedPrefix',
     'TableBucketPolicyResourcePolicy',
     'TableBucketReplicationConfiguration',
     'TableBucketReplicationDestination',
     'TableBucketReplicationRule',
     'TableBucketStorageClassConfiguration',
+    'TableBucketTargetObjectKeyFormat',
     'TableBucketUnreferencedFileRemoval',
     'TableCompaction',
     'TableIcebergMetadata',
@@ -96,6 +99,68 @@ class TableBucketEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
+class TableBucketLoggingConfiguration(dict):
+    """
+    Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetBucket":
+            suggest = "target_bucket"
+        elif key == "targetObjectKeyFormat":
+            suggest = "target_object_key_format"
+        elif key == "targetPrefix":
+            suggest = "target_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBucketLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBucketLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBucketLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_bucket: _builtins.str,
+                 target_object_key_format: 'outputs.TableBucketTargetObjectKeyFormat',
+                 target_prefix: _builtins.str):
+        """
+        Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.
+
+        :param _builtins.str target_bucket: The name of the general purpose bucket that logs are delivered to. The bucket must be in the same AWS Region and owned by the same AWS account as the table bucket. The bucket can't use SSE-KMS or DSSE-KMS default encryption, can't have S3 Object Lock enabled, and can't have Requester Pays enabled. You can deliver logs from multiple table buckets to the same target bucket. In this case, choose a different TargetPrefix for each table bucket so that you can tell their log objects apart.
+        :param _builtins.str target_prefix: The prefix for the keys of the log objects that are delivered to the target bucket.
+        """
+        pulumi.set(__self__, "target_bucket", target_bucket)
+        pulumi.set(__self__, "target_object_key_format", target_object_key_format)
+        pulumi.set(__self__, "target_prefix", target_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="targetBucket")
+    def target_bucket(self) -> _builtins.str:
+        """
+        The name of the general purpose bucket that logs are delivered to. The bucket must be in the same AWS Region and owned by the same AWS account as the table bucket. The bucket can't use SSE-KMS or DSSE-KMS default encryption, can't have S3 Object Lock enabled, and can't have Requester Pays enabled. You can deliver logs from multiple table buckets to the same target bucket. In this case, choose a different TargetPrefix for each table bucket so that you can tell their log objects apart.
+        """
+        return pulumi.get(self, "target_bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="targetObjectKeyFormat")
+    def target_object_key_format(self) -> 'outputs.TableBucketTargetObjectKeyFormat':
+        return pulumi.get(self, "target_object_key_format")
+
+    @_builtins.property
+    @pulumi.getter(name="targetPrefix")
+    def target_prefix(self) -> _builtins.str:
+        """
+        The prefix for the keys of the log objects that are delivered to the target bucket.
+        """
+        return pulumi.get(self, "target_prefix")
+
+
+@pulumi.output_type
 class TableBucketMetricsConfiguration(dict):
     """
     Settings governing the Metric configuration for the table bucket.
@@ -117,6 +182,46 @@ class TableBucketMetricsConfiguration(dict):
         Indicates whether Metrics are enabled.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class TableBucketPartitionedPrefix(dict):
+    """
+    Amazon S3 keys for log objects are partitioned in the following format: [TargetPrefix][SourceAccountId]/[SourceRegion]/[SourceTableBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionDateSource":
+            suggest = "partition_date_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBucketPartitionedPrefix. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBucketPartitionedPrefix.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBucketPartitionedPrefix.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partition_date_source: 'TableBucketPartitionedPrefixPartitionDateSource'):
+        """
+        Amazon S3 keys for log objects are partitioned in the following format: [TargetPrefix][SourceAccountId]/[SourceRegion]/[SourceTableBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+
+        :param 'TableBucketPartitionedPrefixPartitionDateSource' partition_date_source: The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+        """
+        pulumi.set(__self__, "partition_date_source", partition_date_source)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionDateSource")
+    def partition_date_source(self) -> 'TableBucketPartitionedPrefixPartitionDateSource':
+        """
+        The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+        """
+        return pulumi.get(self, "partition_date_source")
 
 
 @pulumi.output_type
@@ -267,6 +372,41 @@ class TableBucketStorageClassConfiguration(dict):
         The storage class for the table bucket
         """
         return pulumi.get(self, "storage_class")
+
+
+@pulumi.output_type
+class TableBucketTargetObjectKeyFormat(dict):
+    """
+    The key format of the log objects. Only PartitionedPrefix is supported.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionedPrefix":
+            suggest = "partitioned_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBucketTargetObjectKeyFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBucketTargetObjectKeyFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBucketTargetObjectKeyFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partitioned_prefix: 'outputs.TableBucketPartitionedPrefix'):
+        """
+        The key format of the log objects. Only PartitionedPrefix is supported.
+        """
+        pulumi.set(__self__, "partitioned_prefix", partitioned_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionedPrefix")
+    def partitioned_prefix(self) -> 'outputs.TableBucketPartitionedPrefix':
+        return pulumi.get(self, "partitioned_prefix")
 
 
 @pulumi.output_type

@@ -3506,8 +3506,10 @@ func (o AnalysisArcOptionsPtrOutput) ArcThickness() AnalysisArcThicknessPtrOutpu
 }
 
 type AnalysisAssetOptions struct {
+	CustomActionDefaults *AnalysisVisualCustomActionDefaults `pulumi:"customActionDefaults"`
 	// Determines the timezone for the analysis.
-	Timezone *string `pulumi:"timezone"`
+	Timezone       *string                 `pulumi:"timezone"`
+	VisualMessages *AnalysisVisualMessages `pulumi:"visualMessages"`
 	// Determines the week start day for an analysis.
 	WeekStart *AnalysisDayOfTheWeek `pulumi:"weekStart"`
 }
@@ -3524,8 +3526,10 @@ type AnalysisAssetOptionsInput interface {
 }
 
 type AnalysisAssetOptionsArgs struct {
+	CustomActionDefaults AnalysisVisualCustomActionDefaultsPtrInput `pulumi:"customActionDefaults"`
 	// Determines the timezone for the analysis.
-	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	Timezone       pulumi.StringPtrInput          `pulumi:"timezone"`
+	VisualMessages AnalysisVisualMessagesPtrInput `pulumi:"visualMessages"`
 	// Determines the week start day for an analysis.
 	WeekStart AnalysisDayOfTheWeekPtrInput `pulumi:"weekStart"`
 }
@@ -3607,9 +3611,17 @@ func (o AnalysisAssetOptionsOutput) ToAnalysisAssetOptionsPtrOutputWithContext(c
 	}).(AnalysisAssetOptionsPtrOutput)
 }
 
+func (o AnalysisAssetOptionsOutput) CustomActionDefaults() AnalysisVisualCustomActionDefaultsPtrOutput {
+	return o.ApplyT(func(v AnalysisAssetOptions) *AnalysisVisualCustomActionDefaults { return v.CustomActionDefaults }).(AnalysisVisualCustomActionDefaultsPtrOutput)
+}
+
 // Determines the timezone for the analysis.
 func (o AnalysisAssetOptionsOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisAssetOptions) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisAssetOptionsOutput) VisualMessages() AnalysisVisualMessagesPtrOutput {
+	return o.ApplyT(func(v AnalysisAssetOptions) *AnalysisVisualMessages { return v.VisualMessages }).(AnalysisVisualMessagesPtrOutput)
 }
 
 // Determines the week start day for an analysis.
@@ -3641,6 +3653,15 @@ func (o AnalysisAssetOptionsPtrOutput) Elem() AnalysisAssetOptionsOutput {
 	}).(AnalysisAssetOptionsOutput)
 }
 
+func (o AnalysisAssetOptionsPtrOutput) CustomActionDefaults() AnalysisVisualCustomActionDefaultsPtrOutput {
+	return o.ApplyT(func(v *AnalysisAssetOptions) *AnalysisVisualCustomActionDefaults {
+		if v == nil {
+			return nil
+		}
+		return v.CustomActionDefaults
+	}).(AnalysisVisualCustomActionDefaultsPtrOutput)
+}
+
 // Determines the timezone for the analysis.
 func (o AnalysisAssetOptionsPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisAssetOptions) *string {
@@ -3649,6 +3670,15 @@ func (o AnalysisAssetOptionsPtrOutput) Timezone() pulumi.StringPtrOutput {
 		}
 		return v.Timezone
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisAssetOptionsPtrOutput) VisualMessages() AnalysisVisualMessagesPtrOutput {
+	return o.ApplyT(func(v *AnalysisAssetOptions) *AnalysisVisualMessages {
+		if v == nil {
+			return nil
+		}
+		return v.VisualMessages
+	}).(AnalysisVisualMessagesPtrOutput)
 }
 
 // Determines the week start day for an analysis.
@@ -81100,7 +81130,8 @@ type AnalysisSheetDefinition struct {
 	//
 	// - `PAGINATED` : Creates a sheet for a paginated report.
 	// - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
-	ContentType *AnalysisSheetContentType `pulumi:"contentType"`
+	ContentType          *AnalysisSheetContentType           `pulumi:"contentType"`
+	CustomActionDefaults *AnalysisVisualCustomActionDefaults `pulumi:"customActionDefaults"`
 	// A description of the sheet.
 	Description *string `pulumi:"description"`
 	// The list of filter controls that are on a sheet.
@@ -81147,7 +81178,8 @@ type AnalysisSheetDefinitionArgs struct {
 	//
 	// - `PAGINATED` : Creates a sheet for a paginated report.
 	// - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
-	ContentType AnalysisSheetContentTypePtrInput `pulumi:"contentType"`
+	ContentType          AnalysisSheetContentTypePtrInput           `pulumi:"contentType"`
+	CustomActionDefaults AnalysisVisualCustomActionDefaultsPtrInput `pulumi:"customActionDefaults"`
 	// A description of the sheet.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The list of filter controls that are on a sheet.
@@ -81235,6 +81267,10 @@ func (o AnalysisSheetDefinitionOutput) ToAnalysisSheetDefinitionOutputWithContex
 // - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
 func (o AnalysisSheetDefinitionOutput) ContentType() AnalysisSheetContentTypePtrOutput {
 	return o.ApplyT(func(v AnalysisSheetDefinition) *AnalysisSheetContentType { return v.ContentType }).(AnalysisSheetContentTypePtrOutput)
+}
+
+func (o AnalysisSheetDefinitionOutput) CustomActionDefaults() AnalysisVisualCustomActionDefaultsPtrOutput {
+	return o.ApplyT(func(v AnalysisSheetDefinition) *AnalysisVisualCustomActionDefaults { return v.CustomActionDefaults }).(AnalysisVisualCustomActionDefaultsPtrOutput)
 }
 
 // A description of the sheet.

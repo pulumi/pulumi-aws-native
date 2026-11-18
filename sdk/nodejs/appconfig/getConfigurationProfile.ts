@@ -59,6 +59,10 @@ export interface GetConfigurationProfileResult {
      */
     readonly tags?: outputs.Tag[];
     /**
+     * The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+     */
+    readonly type?: string;
+    /**
      * A list of methods for validating the configuration.
      */
     readonly validators?: outputs.appconfig.ConfigurationProfileValidators[];

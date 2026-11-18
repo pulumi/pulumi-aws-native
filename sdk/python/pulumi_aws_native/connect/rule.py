@@ -30,6 +30,7 @@ class RuleArgs:
                  publish_status: pulumi.Input['RulePublishStatus'],
                  trigger_event_source: pulumi.Input['RuleTriggerEventSourceArgs'],
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_evaluation_filters: pulumi.Input[Optional['RulePreEvaluationFiltersArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
@@ -50,6 +51,8 @@ class RuleArgs:
         pulumi.set(__self__, "trigger_event_source", trigger_event_source)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pre_evaluation_filters is not None:
+            pulumi.set(__self__, "pre_evaluation_filters", pre_evaluation_filters)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -127,6 +130,15 @@ class RuleArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="preEvaluationFilters")
+    def pre_evaluation_filters(self) -> pulumi.Input[Optional['RulePreEvaluationFiltersArgs']]:
+        return pulumi.get(self, "pre_evaluation_filters")
+
+    @pre_evaluation_filters.setter
+    def pre_evaluation_filters(self, value: pulumi.Input[Optional['RulePreEvaluationFiltersArgs']]):
+        pulumi.set(self, "pre_evaluation_filters", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -149,6 +161,7 @@ class Rule(pulumi.CustomResource):
                  function: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_evaluation_filters: pulumi.Input[Optional[Union['RulePreEvaluationFiltersArgs', 'RulePreEvaluationFiltersArgsDict', 'outputs.RulePreEvaluationFilters']]] = None,
                  publish_status: pulumi.Input[Optional['RulePublishStatus']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trigger_event_source: pulumi.Input[Optional[Union['RuleTriggerEventSourceArgs', 'RuleTriggerEventSourceArgsDict', 'outputs.RuleTriggerEventSource']]] = None,
@@ -195,6 +208,7 @@ class Rule(pulumi.CustomResource):
                  function: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_evaluation_filters: pulumi.Input[Optional[Union['RulePreEvaluationFiltersArgs', 'RulePreEvaluationFiltersArgsDict', 'outputs.RulePreEvaluationFilters']]] = None,
                  publish_status: pulumi.Input[Optional['RulePublishStatus']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trigger_event_source: pulumi.Input[Optional[Union['RuleTriggerEventSourceArgs', 'RuleTriggerEventSourceArgsDict', 'outputs.RuleTriggerEventSource']]] = None,
@@ -217,6 +231,7 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["pre_evaluation_filters"] = pre_evaluation_filters
             if publish_status is None and not opts.urn:
                 raise TypeError("Missing required property 'publish_status'")
             __props__.__dict__["publish_status"] = publish_status
@@ -225,6 +240,7 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'trigger_event_source'")
             __props__.__dict__["trigger_event_source"] = trigger_event_source
             __props__.__dict__["rule_arn"] = None
+            __props__.__dict__["rule_capability_tiers"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "triggerEventSource"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Rule, __self__).__init__(
@@ -253,8 +269,10 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["function"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["pre_evaluation_filters"] = None
         __props__.__dict__["publish_status"] = None
         __props__.__dict__["rule_arn"] = None
+        __props__.__dict__["rule_capability_tiers"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["trigger_event_source"] = None
         return Rule(resource_name, opts=opts, __props__=__props__)
@@ -298,6 +316,11 @@ class Rule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="preEvaluationFilters")
+    def pre_evaluation_filters(self) -> pulumi.Output[Optional['outputs.RulePreEvaluationFilters']]:
+        return pulumi.get(self, "pre_evaluation_filters")
+
+    @_builtins.property
     @pulumi.getter(name="publishStatus")
     def publish_status(self) -> pulumi.Output['RulePublishStatus']:
         """
@@ -313,6 +336,11 @@ class Rule(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the rule.
         """
         return pulumi.get(self, "rule_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleCapabilityTiers")
+    def rule_capability_tiers(self) -> pulumi.Output[Sequence['RuleCapabilityTiersItem']]:
+        return pulumi.get(self, "rule_capability_tiers")
 
     @_builtins.property
     @pulumi.getter

@@ -25,6 +25,7 @@ export interface GetTrustAnchorArgs {
 }
 
 export interface GetTrustAnchorResult {
+    readonly crlDpRevocationEnabled?: boolean;
     /**
      * Indicates whether the trust anchor is enabled.
      */

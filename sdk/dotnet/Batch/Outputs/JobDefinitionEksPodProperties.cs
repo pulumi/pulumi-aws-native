@@ -45,6 +45,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
         /// </summary>
         public readonly Outputs.JobDefinitionEksMetadata? Metadata;
+        public readonly Outputs.JobDefinitionEksPodSecurityContext? SecurityContext;
         /// <summary>
         /// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
         /// </summary>
@@ -72,6 +73,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             Outputs.JobDefinitionEksMetadata? metadata,
 
+            Outputs.JobDefinitionEksPodSecurityContext? securityContext,
+
             string? serviceAccountName,
 
             bool? shareProcessNamespace,
@@ -84,6 +87,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             ImagePullSecrets = imagePullSecrets;
             InitContainers = initContainers;
             Metadata = metadata;
+            SecurityContext = securityContext;
             ServiceAccountName = serviceAccountName;
             ShareProcessNamespace = shareProcessNamespace;
             Volumes = volumes;

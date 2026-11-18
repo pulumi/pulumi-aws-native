@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.AppIntegrations
 {
     [EnumType]
+    public readonly struct ApplicationAuthConfigAuthType : IEquatable<ApplicationAuthConfigAuthType>
+    {
+        private readonly string _value;
+
+        private ApplicationAuthConfigAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationAuthConfigAuthType ApiKey { get; } = new ApplicationAuthConfigAuthType("API_KEY");
+        public static ApplicationAuthConfigAuthType ConnectJwt { get; } = new ApplicationAuthConfigAuthType("CONNECT_JWT");
+
+        public static bool operator ==(ApplicationAuthConfigAuthType left, ApplicationAuthConfigAuthType right) => left.Equals(right);
+        public static bool operator !=(ApplicationAuthConfigAuthType left, ApplicationAuthConfigAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationAuthConfigAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationAuthConfigAuthType other && Equals(other);
+        public bool Equals(ApplicationAuthConfigAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ApplicationContactHandlingScope : IEquatable<ApplicationContactHandlingScope>
     {
         private readonly string _value;
@@ -51,6 +79,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         public static ApplicationType Standard { get; } = new ApplicationType("STANDARD");
         public static ApplicationType Service { get; } = new ApplicationType("SERVICE");
         public static ApplicationType McpServer { get; } = new ApplicationType("MCP_SERVER");
+        public static ApplicationType A2aServer { get; } = new ApplicationType("A2A_SERVER");
 
         public static bool operator ==(ApplicationType left, ApplicationType right) => left.Equals(right);
         public static bool operator !=(ApplicationType left, ApplicationType right) => !left.Equals(right);

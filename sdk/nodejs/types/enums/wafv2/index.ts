@@ -100,6 +100,16 @@ export const RuleGroupBodyParsingFallbackBehavior = {
  */
 export type RuleGroupBodyParsingFallbackBehavior = (typeof RuleGroupBodyParsingFallbackBehavior)[keyof typeof RuleGroupBodyParsingFallbackBehavior];
 
+export const RuleGroupConnectedAccountChain = {
+    Base: "BASE",
+    Solana: "SOLANA",
+} as const;
+
+/**
+ * The blockchain chain to use with a connected account. Connected accounts are mainnet only.
+ */
+export type RuleGroupConnectedAccountChain = (typeof RuleGroupConnectedAccountChain)[keyof typeof RuleGroupConnectedAccountChain];
+
 export const RuleGroupCryptoCurrency = {
     Usdc: "USDC",
 } as const;
@@ -464,6 +474,16 @@ export const WebAclBodyParsingFallbackBehavior = {
  */
 export type WebAclBodyParsingFallbackBehavior = (typeof WebAclBodyParsingFallbackBehavior)[keyof typeof WebAclBodyParsingFallbackBehavior];
 
+export const WebAclConnectedAccountChain = {
+    Base: "BASE",
+    Solana: "SOLANA",
+} as const;
+
+/**
+ * The blockchain chain to use with a connected account. Connected accounts are mainnet only.
+ */
+export type WebAclConnectedAccountChain = (typeof WebAclConnectedAccountChain)[keyof typeof WebAclConnectedAccountChain];
+
 export const WebAclCryptoCurrency = {
     Usdc: "USDC",
 } as const;
@@ -805,6 +825,7 @@ export const WebAclSizeConstraintStatementComparisonOperator = {
 export type WebAclSizeConstraintStatementComparisonOperator = (typeof WebAclSizeConstraintStatementComparisonOperator)[keyof typeof WebAclSizeConstraintStatementComparisonOperator];
 
 export const WebAclSizeInspectionLimit = {
+    Kb8: "KB_8",
     Kb16: "KB_16",
     Kb32: "KB_32",
     Kb48: "KB_48",

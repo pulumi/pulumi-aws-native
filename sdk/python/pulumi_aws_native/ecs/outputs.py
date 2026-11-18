@@ -58,6 +58,7 @@ __all__ = [
     'DaemonTaskDefinitionKeyValuePair',
     'DaemonTaskDefinitionLinuxParameters',
     'DaemonTaskDefinitionLogConfiguration',
+    'DaemonTaskDefinitionLogDriverVolumeConfiguration',
     'DaemonTaskDefinitionMountPoint',
     'DaemonTaskDefinitionRepositoryCredentials',
     'DaemonTaskDefinitionRestartPolicy',
@@ -110,6 +111,7 @@ __all__ = [
     'ServiceEbsTagSpecification',
     'ServiceForceNewDeployment',
     'ServiceGatewayConnector',
+    'ServiceGatewayConnectorDeregistrationDelay',
     'ServiceGatewayConnectorFilters',
     'ServiceGatewayConnectorHealthCheck',
     'ServiceGatewayConnectorHealthCheckMatcher',
@@ -164,6 +166,7 @@ __all__ = [
     'TaskDefinitionSharingStrategy',
     'TaskDefinitionSystemControl',
     'TaskDefinitionTmpfs',
+    'TaskDefinitionTrustedExecutionConfiguration',
     'TaskDefinitionUlimit',
     'TaskDefinitionVolume',
     'TaskDefinitionVolumeFrom',
@@ -448,6 +451,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
             suggest = "instance_requirements"
         elif key == "localStorageConfiguration":
             suggest = "local_storage_configuration"
+        elif key == "nitroEnclavesEnabled":
+            suggest = "nitro_enclaves_enabled"
         elif key == "storageConfiguration":
             suggest = "storage_configuration"
 
@@ -472,6 +477,7 @@ class CapacityProviderInstanceLaunchTemplate(dict):
                  instance_requirements: Optional['outputs.CapacityProviderInstanceRequirementsRequest'] = None,
                  local_storage_configuration: Optional['outputs.CapacityProviderManagedInstancesLocalStorageConfiguration'] = None,
                  monitoring: Optional['CapacityProviderManagedInstancesMonitoringOptions'] = None,
+                 nitro_enclaves_enabled: Optional[_builtins.bool] = None,
                  storage_configuration: Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration'] = None):
         """
         :param _builtins.str ec2_instance_profile_arn: The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
@@ -513,6 +519,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
             pulumi.set(__self__, "local_storage_configuration", local_storage_configuration)
         if monitoring is not None:
             pulumi.set(__self__, "monitoring", monitoring)
+        if nitro_enclaves_enabled is not None:
+            pulumi.set(__self__, "nitro_enclaves_enabled", nitro_enclaves_enabled)
         if storage_configuration is not None:
             pulumi.set(__self__, "storage_configuration", storage_configuration)
 
@@ -591,6 +599,11 @@ class CapacityProviderInstanceLaunchTemplate(dict):
         CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
         """
         return pulumi.get(self, "monitoring")
+
+    @_builtins.property
+    @pulumi.getter(name="nitroEnclavesEnabled")
+    def nitro_enclaves_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "nitro_enclaves_enabled")
 
     @_builtins.property
     @pulumi.getter(name="storageConfiguration")
@@ -3301,6 +3314,18 @@ class DaemonTaskDefinitionLogConfiguration(dict):
 
 
 @pulumi.output_type
+class DaemonTaskDefinitionLogDriverVolumeConfiguration(dict):
+    def __init__(__self__, *,
+                 driver: _builtins.str):
+        pulumi.set(__self__, "driver", driver)
+
+    @_builtins.property
+    @pulumi.getter
+    def driver(self) -> _builtins.str:
+        return pulumi.get(self, "driver")
+
+
+@pulumi.output_type
 class DaemonTaskDefinitionMountPoint(dict):
     """
     The details for a volume mount point that's used in a container definition.
@@ -3726,8 +3751,26 @@ class DaemonTaskDefinitionVolume(dict):
     """
     The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``s3filesVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDriverVolumeConfiguration":
+            suggest = "log_driver_volume_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Optional['outputs.DaemonTaskDefinitionHostVolumeProperties'] = None,
+                 log_driver_volume_configuration: Optional['outputs.DaemonTaskDefinitionLogDriverVolumeConfiguration'] = None,
                  name: Optional[_builtins.str] = None):
         """
         The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``s3filesVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
@@ -3742,6 +3785,8 @@ class DaemonTaskDefinitionVolume(dict):
         """
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if log_driver_volume_configuration is not None:
+            pulumi.set(__self__, "log_driver_volume_configuration", log_driver_volume_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -3753,6 +3798,11 @@ class DaemonTaskDefinitionVolume(dict):
          Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\\my\\path:C:\\my\\path`` and ``D:\\:D:\\``, but not ``D:\\my\\path:C:\\my\\path`` or ``D:\\:C:\\my\\path``.
         """
         return pulumi.get(self, "host")
+
+    @_builtins.property
+    @pulumi.getter(name="logDriverVolumeConfiguration")
+    def log_driver_volume_configuration(self) -> Optional['outputs.DaemonTaskDefinitionLogDriverVolumeConfiguration']:
+        return pulumi.get(self, "log_driver_volume_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -6736,6 +6786,8 @@ class ServiceGatewayConnector(dict):
         suggest = None
         if key == "portName":
             suggest = "port_name"
+        elif key == "deregistrationDelay":
+            suggest = "deregistration_delay"
         elif key == "healthCheck":
             suggest = "health_check"
 
@@ -6752,9 +6804,12 @@ class ServiceGatewayConnector(dict):
 
     def __init__(__self__, *,
                  port_name: _builtins.str,
+                 deregistration_delay: Optional['outputs.ServiceGatewayConnectorDeregistrationDelay'] = None,
                  filters: Optional['outputs.ServiceGatewayConnectorFilters'] = None,
                  health_check: Optional['outputs.ServiceGatewayConnectorHealthCheck'] = None):
         pulumi.set(__self__, "port_name", port_name)
+        if deregistration_delay is not None:
+            pulumi.set(__self__, "deregistration_delay", deregistration_delay)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
         if health_check is not None:
@@ -6766,6 +6821,11 @@ class ServiceGatewayConnector(dict):
         return pulumi.get(self, "port_name")
 
     @_builtins.property
+    @pulumi.getter(name="deregistrationDelay")
+    def deregistration_delay(self) -> Optional['outputs.ServiceGatewayConnectorDeregistrationDelay']:
+        return pulumi.get(self, "deregistration_delay")
+
+    @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional['outputs.ServiceGatewayConnectorFilters']:
         return pulumi.get(self, "filters")
@@ -6774,6 +6834,36 @@ class ServiceGatewayConnector(dict):
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional['outputs.ServiceGatewayConnectorHealthCheck']:
         return pulumi.get(self, "health_check")
+
+
+@pulumi.output_type
+class ServiceGatewayConnectorDeregistrationDelay(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceGatewayConnectorDeregistrationDelay. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceGatewayConnectorDeregistrationDelay.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceGatewayConnectorDeregistrationDelay.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timeout_seconds: Optional[_builtins.int] = None):
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "timeout_seconds")
 
 
 @pulumi.output_type
@@ -11142,6 +11232,55 @@ class TaskDefinitionTmpfs(dict):
          Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``
         """
         return pulumi.get(self, "mount_options")
+
+
+@pulumi.output_type
+class TaskDefinitionTrustedExecutionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isolationMode":
+            suggest = "isolation_mode"
+        elif key == "attestationPolicy":
+            suggest = "attestation_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionTrustedExecutionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionTrustedExecutionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionTrustedExecutionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 isolation_mode: 'TaskDefinitionTrustedExecutionConfigurationIsolationMode',
+                 attestation_policy: Optional[_builtins.str] = None):
+        """
+        :param 'TaskDefinitionTrustedExecutionConfigurationIsolationMode' isolation_mode: The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+        :param _builtins.str attestation_policy: A base64-encoded attestation policy that verifies the workload before the task runs. Only valid when IsolationMode is CONFIDENTIAL_SANDBOX.
+        """
+        pulumi.set(__self__, "isolation_mode", isolation_mode)
+        if attestation_policy is not None:
+            pulumi.set(__self__, "attestation_policy", attestation_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="isolationMode")
+    def isolation_mode(self) -> 'TaskDefinitionTrustedExecutionConfigurationIsolationMode':
+        """
+        The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+        """
+        return pulumi.get(self, "isolation_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="attestationPolicy")
+    def attestation_policy(self) -> Optional[_builtins.str]:
+        """
+        A base64-encoded attestation policy that verifies the workload before the task runs. Only valid when IsolationMode is CONFIDENTIAL_SANDBOX.
+        """
+        return pulumi.get(self, "attestation_policy")
 
 
 @pulumi.output_type

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
             set => _associatedComputeResourceTypes = value;
         }
 
+        [Input("elasticIpConfiguration")]
+        public Input<Inputs.NetworkConnectorElasticIpConfigurationArgs>? ElasticIpConfiguration { get; set; }
+
         /// <summary>
         /// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
         /// </summary>

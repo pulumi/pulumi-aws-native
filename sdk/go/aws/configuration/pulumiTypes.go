@@ -2257,6 +2257,305 @@ func (o ConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) Confo
 	}).(ConformancePackInputParameterOutput)
 }
 
+// The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+type ConformancePackScope struct {
+	// The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+	TagKey string `pulumi:"tagKey"`
+	// The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+	TagValue *string `pulumi:"tagValue"`
+}
+
+// ConformancePackScopeInput is an input type that accepts ConformancePackScopeArgs and ConformancePackScopeOutput values.
+// You can construct a concrete instance of `ConformancePackScopeInput` via:
+//
+//	ConformancePackScopeArgs{...}
+type ConformancePackScopeInput interface {
+	pulumi.Input
+
+	ToConformancePackScopeOutput() ConformancePackScopeOutput
+	ToConformancePackScopeOutputWithContext(context.Context) ConformancePackScopeOutput
+}
+
+// The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+type ConformancePackScopeArgs struct {
+	// The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+	TagKey pulumi.StringInput `pulumi:"tagKey"`
+	// The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+}
+
+func (ConformancePackScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackScope)(nil)).Elem()
+}
+
+func (i ConformancePackScopeArgs) ToConformancePackScopeOutput() ConformancePackScopeOutput {
+	return i.ToConformancePackScopeOutputWithContext(context.Background())
+}
+
+func (i ConformancePackScopeArgs) ToConformancePackScopeOutputWithContext(ctx context.Context) ConformancePackScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackScopeOutput)
+}
+
+func (i ConformancePackScopeArgs) ToConformancePackScopePtrOutput() ConformancePackScopePtrOutput {
+	return i.ToConformancePackScopePtrOutputWithContext(context.Background())
+}
+
+func (i ConformancePackScopeArgs) ToConformancePackScopePtrOutputWithContext(ctx context.Context) ConformancePackScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackScopeOutput).ToConformancePackScopePtrOutputWithContext(ctx)
+}
+
+// ConformancePackScopePtrInput is an input type that accepts ConformancePackScopeArgs, ConformancePackScopePtr and ConformancePackScopePtrOutput values.
+// You can construct a concrete instance of `ConformancePackScopePtrInput` via:
+//
+//	        ConformancePackScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConformancePackScopePtrInput interface {
+	pulumi.Input
+
+	ToConformancePackScopePtrOutput() ConformancePackScopePtrOutput
+	ToConformancePackScopePtrOutputWithContext(context.Context) ConformancePackScopePtrOutput
+}
+
+type conformancePackScopePtrType ConformancePackScopeArgs
+
+func ConformancePackScopePtr(v *ConformancePackScopeArgs) ConformancePackScopePtrInput {
+	return (*conformancePackScopePtrType)(v)
+}
+
+func (*conformancePackScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConformancePackScope)(nil)).Elem()
+}
+
+func (i *conformancePackScopePtrType) ToConformancePackScopePtrOutput() ConformancePackScopePtrOutput {
+	return i.ToConformancePackScopePtrOutputWithContext(context.Background())
+}
+
+func (i *conformancePackScopePtrType) ToConformancePackScopePtrOutputWithContext(ctx context.Context) ConformancePackScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackScopePtrOutput)
+}
+
+// The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+type ConformancePackScopeOutput struct{ *pulumi.OutputState }
+
+func (ConformancePackScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackScope)(nil)).Elem()
+}
+
+func (o ConformancePackScopeOutput) ToConformancePackScopeOutput() ConformancePackScopeOutput {
+	return o
+}
+
+func (o ConformancePackScopeOutput) ToConformancePackScopeOutputWithContext(ctx context.Context) ConformancePackScopeOutput {
+	return o
+}
+
+func (o ConformancePackScopeOutput) ToConformancePackScopePtrOutput() ConformancePackScopePtrOutput {
+	return o.ToConformancePackScopePtrOutputWithContext(context.Background())
+}
+
+func (o ConformancePackScopeOutput) ToConformancePackScopePtrOutputWithContext(ctx context.Context) ConformancePackScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConformancePackScope) *ConformancePackScope {
+		return &v
+	}).(ConformancePackScopePtrOutput)
+}
+
+// The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+func (o ConformancePackScopeOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ConformancePackScope) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+// The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+func (o ConformancePackScopeOutput) TagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConformancePackScope) *string { return v.TagValue }).(pulumi.StringPtrOutput)
+}
+
+type ConformancePackScopePtrOutput struct{ *pulumi.OutputState }
+
+func (ConformancePackScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConformancePackScope)(nil)).Elem()
+}
+
+func (o ConformancePackScopePtrOutput) ToConformancePackScopePtrOutput() ConformancePackScopePtrOutput {
+	return o
+}
+
+func (o ConformancePackScopePtrOutput) ToConformancePackScopePtrOutputWithContext(ctx context.Context) ConformancePackScopePtrOutput {
+	return o
+}
+
+func (o ConformancePackScopePtrOutput) Elem() ConformancePackScopeOutput {
+	return o.ApplyT(func(v *ConformancePackScope) ConformancePackScope {
+		if v != nil {
+			return *v
+		}
+		var ret ConformancePackScope
+		return ret
+	}).(ConformancePackScopeOutput)
+}
+
+// The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+func (o ConformancePackScopePtrOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConformancePackScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TagKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+func (o ConformancePackScopePtrOutput) TagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConformancePackScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+type ConformancePackSource struct {
+	// The identifier specifying which managed conformance pack is being deployed.
+	SourceIdentifier string `pulumi:"sourceIdentifier"`
+}
+
+// ConformancePackSourceInput is an input type that accepts ConformancePackSourceArgs and ConformancePackSourceOutput values.
+// You can construct a concrete instance of `ConformancePackSourceInput` via:
+//
+//	ConformancePackSourceArgs{...}
+type ConformancePackSourceInput interface {
+	pulumi.Input
+
+	ToConformancePackSourceOutput() ConformancePackSourceOutput
+	ToConformancePackSourceOutputWithContext(context.Context) ConformancePackSourceOutput
+}
+
+// The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+type ConformancePackSourceArgs struct {
+	// The identifier specifying which managed conformance pack is being deployed.
+	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
+}
+
+func (ConformancePackSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackSource)(nil)).Elem()
+}
+
+func (i ConformancePackSourceArgs) ToConformancePackSourceOutput() ConformancePackSourceOutput {
+	return i.ToConformancePackSourceOutputWithContext(context.Background())
+}
+
+func (i ConformancePackSourceArgs) ToConformancePackSourceOutputWithContext(ctx context.Context) ConformancePackSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackSourceOutput)
+}
+
+func (i ConformancePackSourceArgs) ToConformancePackSourcePtrOutput() ConformancePackSourcePtrOutput {
+	return i.ToConformancePackSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ConformancePackSourceArgs) ToConformancePackSourcePtrOutputWithContext(ctx context.Context) ConformancePackSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackSourceOutput).ToConformancePackSourcePtrOutputWithContext(ctx)
+}
+
+// ConformancePackSourcePtrInput is an input type that accepts ConformancePackSourceArgs, ConformancePackSourcePtr and ConformancePackSourcePtrOutput values.
+// You can construct a concrete instance of `ConformancePackSourcePtrInput` via:
+//
+//	        ConformancePackSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConformancePackSourcePtrInput interface {
+	pulumi.Input
+
+	ToConformancePackSourcePtrOutput() ConformancePackSourcePtrOutput
+	ToConformancePackSourcePtrOutputWithContext(context.Context) ConformancePackSourcePtrOutput
+}
+
+type conformancePackSourcePtrType ConformancePackSourceArgs
+
+func ConformancePackSourcePtr(v *ConformancePackSourceArgs) ConformancePackSourcePtrInput {
+	return (*conformancePackSourcePtrType)(v)
+}
+
+func (*conformancePackSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConformancePackSource)(nil)).Elem()
+}
+
+func (i *conformancePackSourcePtrType) ToConformancePackSourcePtrOutput() ConformancePackSourcePtrOutput {
+	return i.ToConformancePackSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *conformancePackSourcePtrType) ToConformancePackSourcePtrOutputWithContext(ctx context.Context) ConformancePackSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackSourcePtrOutput)
+}
+
+// The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+type ConformancePackSourceOutput struct{ *pulumi.OutputState }
+
+func (ConformancePackSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackSource)(nil)).Elem()
+}
+
+func (o ConformancePackSourceOutput) ToConformancePackSourceOutput() ConformancePackSourceOutput {
+	return o
+}
+
+func (o ConformancePackSourceOutput) ToConformancePackSourceOutputWithContext(ctx context.Context) ConformancePackSourceOutput {
+	return o
+}
+
+func (o ConformancePackSourceOutput) ToConformancePackSourcePtrOutput() ConformancePackSourcePtrOutput {
+	return o.ToConformancePackSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ConformancePackSourceOutput) ToConformancePackSourcePtrOutputWithContext(ctx context.Context) ConformancePackSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConformancePackSource) *ConformancePackSource {
+		return &v
+	}).(ConformancePackSourcePtrOutput)
+}
+
+// The identifier specifying which managed conformance pack is being deployed.
+func (o ConformancePackSourceOutput) SourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ConformancePackSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+}
+
+type ConformancePackSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ConformancePackSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConformancePackSource)(nil)).Elem()
+}
+
+func (o ConformancePackSourcePtrOutput) ToConformancePackSourcePtrOutput() ConformancePackSourcePtrOutput {
+	return o
+}
+
+func (o ConformancePackSourcePtrOutput) ToConformancePackSourcePtrOutputWithContext(ctx context.Context) ConformancePackSourcePtrOutput {
+	return o
+}
+
+func (o ConformancePackSourcePtrOutput) Elem() ConformancePackSourceOutput {
+	return o.ApplyT(func(v *ConformancePackSource) ConformancePackSource {
+		if v != nil {
+			return *v
+		}
+		var ret ConformancePackSource
+		return ret
+	}).(ConformancePackSourceOutput)
+}
+
+// The identifier specifying which managed conformance pack is being deployed.
+func (o ConformancePackSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConformancePackSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ConformancePackTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2424,10 +2723,12 @@ func (o ConnectorAzureConnectorConfigurationPtrOutput) TenantIdentifier() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration for the connector. Specify the third-party cloud provider configuration.
+// The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
 type ConnectorConfiguration struct {
 	// The configuration for connecting to Microsoft Azure.
 	Azure *ConnectorAzureConnectorConfiguration `pulumi:"azure"`
+	// The configuration for connecting to Google Cloud.
+	Gcp *ConnectorGcpConnectorConfiguration `pulumi:"gcp"`
 }
 
 // ConnectorConfigurationInput is an input type that accepts ConnectorConfigurationArgs and ConnectorConfigurationOutput values.
@@ -2441,10 +2742,12 @@ type ConnectorConfigurationInput interface {
 	ToConnectorConfigurationOutputWithContext(context.Context) ConnectorConfigurationOutput
 }
 
-// The configuration for the connector. Specify the third-party cloud provider configuration.
+// The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
 type ConnectorConfigurationArgs struct {
 	// The configuration for connecting to Microsoft Azure.
 	Azure ConnectorAzureConnectorConfigurationPtrInput `pulumi:"azure"`
+	// The configuration for connecting to Google Cloud.
+	Gcp ConnectorGcpConnectorConfigurationPtrInput `pulumi:"gcp"`
 }
 
 func (ConnectorConfigurationArgs) ElementType() reflect.Type {
@@ -2459,7 +2762,7 @@ func (i ConnectorConfigurationArgs) ToConnectorConfigurationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorConfigurationOutput)
 }
 
-// The configuration for the connector. Specify the third-party cloud provider configuration.
+// The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
 type ConnectorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorConfigurationOutput) ElementType() reflect.Type {
@@ -2477,6 +2780,189 @@ func (o ConnectorConfigurationOutput) ToConnectorConfigurationOutputWithContext(
 // The configuration for connecting to Microsoft Azure.
 func (o ConnectorConfigurationOutput) Azure() ConnectorAzureConnectorConfigurationPtrOutput {
 	return o.ApplyT(func(v ConnectorConfiguration) *ConnectorAzureConnectorConfiguration { return v.Azure }).(ConnectorAzureConnectorConfigurationPtrOutput)
+}
+
+// The configuration for connecting to Google Cloud.
+func (o ConnectorConfigurationOutput) Gcp() ConnectorGcpConnectorConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorConfiguration) *ConnectorGcpConnectorConfiguration { return v.Gcp }).(ConnectorGcpConnectorConfigurationPtrOutput)
+}
+
+// Configuration for connecting to Google Cloud.
+type ConnectorGcpConnectorConfiguration struct {
+	// The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+	GcpOrganizationId *string `pulumi:"gcpOrganizationId"`
+	// The email address of the Google Cloud service account that AWS Config uses.
+	ServiceAccountEmail string `pulumi:"serviceAccountEmail"`
+	// The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+	WorkloadIdentityPoolProvider string `pulumi:"workloadIdentityPoolProvider"`
+}
+
+// ConnectorGcpConnectorConfigurationInput is an input type that accepts ConnectorGcpConnectorConfigurationArgs and ConnectorGcpConnectorConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorGcpConnectorConfigurationInput` via:
+//
+//	ConnectorGcpConnectorConfigurationArgs{...}
+type ConnectorGcpConnectorConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorGcpConnectorConfigurationOutput() ConnectorGcpConnectorConfigurationOutput
+	ToConnectorGcpConnectorConfigurationOutputWithContext(context.Context) ConnectorGcpConnectorConfigurationOutput
+}
+
+// Configuration for connecting to Google Cloud.
+type ConnectorGcpConnectorConfigurationArgs struct {
+	// The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+	GcpOrganizationId pulumi.StringPtrInput `pulumi:"gcpOrganizationId"`
+	// The email address of the Google Cloud service account that AWS Config uses.
+	ServiceAccountEmail pulumi.StringInput `pulumi:"serviceAccountEmail"`
+	// The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+	WorkloadIdentityPoolProvider pulumi.StringInput `pulumi:"workloadIdentityPoolProvider"`
+}
+
+func (ConnectorGcpConnectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorGcpConnectorConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorGcpConnectorConfigurationArgs) ToConnectorGcpConnectorConfigurationOutput() ConnectorGcpConnectorConfigurationOutput {
+	return i.ToConnectorGcpConnectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorGcpConnectorConfigurationArgs) ToConnectorGcpConnectorConfigurationOutputWithContext(ctx context.Context) ConnectorGcpConnectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpConnectorConfigurationOutput)
+}
+
+func (i ConnectorGcpConnectorConfigurationArgs) ToConnectorGcpConnectorConfigurationPtrOutput() ConnectorGcpConnectorConfigurationPtrOutput {
+	return i.ToConnectorGcpConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorGcpConnectorConfigurationArgs) ToConnectorGcpConnectorConfigurationPtrOutputWithContext(ctx context.Context) ConnectorGcpConnectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpConnectorConfigurationOutput).ToConnectorGcpConnectorConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorGcpConnectorConfigurationPtrInput is an input type that accepts ConnectorGcpConnectorConfigurationArgs, ConnectorGcpConnectorConfigurationPtr and ConnectorGcpConnectorConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorGcpConnectorConfigurationPtrInput` via:
+//
+//	        ConnectorGcpConnectorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorGcpConnectorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorGcpConnectorConfigurationPtrOutput() ConnectorGcpConnectorConfigurationPtrOutput
+	ToConnectorGcpConnectorConfigurationPtrOutputWithContext(context.Context) ConnectorGcpConnectorConfigurationPtrOutput
+}
+
+type connectorGcpConnectorConfigurationPtrType ConnectorGcpConnectorConfigurationArgs
+
+func ConnectorGcpConnectorConfigurationPtr(v *ConnectorGcpConnectorConfigurationArgs) ConnectorGcpConnectorConfigurationPtrInput {
+	return (*connectorGcpConnectorConfigurationPtrType)(v)
+}
+
+func (*connectorGcpConnectorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorGcpConnectorConfiguration)(nil)).Elem()
+}
+
+func (i *connectorGcpConnectorConfigurationPtrType) ToConnectorGcpConnectorConfigurationPtrOutput() ConnectorGcpConnectorConfigurationPtrOutput {
+	return i.ToConnectorGcpConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorGcpConnectorConfigurationPtrType) ToConnectorGcpConnectorConfigurationPtrOutputWithContext(ctx context.Context) ConnectorGcpConnectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpConnectorConfigurationPtrOutput)
+}
+
+// Configuration for connecting to Google Cloud.
+type ConnectorGcpConnectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorGcpConnectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorGcpConnectorConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorGcpConnectorConfigurationOutput) ToConnectorGcpConnectorConfigurationOutput() ConnectorGcpConnectorConfigurationOutput {
+	return o
+}
+
+func (o ConnectorGcpConnectorConfigurationOutput) ToConnectorGcpConnectorConfigurationOutputWithContext(ctx context.Context) ConnectorGcpConnectorConfigurationOutput {
+	return o
+}
+
+func (o ConnectorGcpConnectorConfigurationOutput) ToConnectorGcpConnectorConfigurationPtrOutput() ConnectorGcpConnectorConfigurationPtrOutput {
+	return o.ToConnectorGcpConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorGcpConnectorConfigurationOutput) ToConnectorGcpConnectorConfigurationPtrOutputWithContext(ctx context.Context) ConnectorGcpConnectorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorGcpConnectorConfiguration) *ConnectorGcpConnectorConfiguration {
+		return &v
+	}).(ConnectorGcpConnectorConfigurationPtrOutput)
+}
+
+// The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+func (o ConnectorGcpConnectorConfigurationOutput) GcpOrganizationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorGcpConnectorConfiguration) *string { return v.GcpOrganizationId }).(pulumi.StringPtrOutput)
+}
+
+// The email address of the Google Cloud service account that AWS Config uses.
+func (o ConnectorGcpConnectorConfigurationOutput) ServiceAccountEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorGcpConnectorConfiguration) string { return v.ServiceAccountEmail }).(pulumi.StringOutput)
+}
+
+// The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+func (o ConnectorGcpConnectorConfigurationOutput) WorkloadIdentityPoolProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorGcpConnectorConfiguration) string { return v.WorkloadIdentityPoolProvider }).(pulumi.StringOutput)
+}
+
+type ConnectorGcpConnectorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorGcpConnectorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorGcpConnectorConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorGcpConnectorConfigurationPtrOutput) ToConnectorGcpConnectorConfigurationPtrOutput() ConnectorGcpConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorGcpConnectorConfigurationPtrOutput) ToConnectorGcpConnectorConfigurationPtrOutputWithContext(ctx context.Context) ConnectorGcpConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorGcpConnectorConfigurationPtrOutput) Elem() ConnectorGcpConnectorConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorGcpConnectorConfiguration) ConnectorGcpConnectorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorGcpConnectorConfiguration
+		return ret
+	}).(ConnectorGcpConnectorConfigurationOutput)
+}
+
+// The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+func (o ConnectorGcpConnectorConfigurationPtrOutput) GcpOrganizationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpConnectorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GcpOrganizationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email address of the Google Cloud service account that AWS Config uses.
+func (o ConnectorGcpConnectorConfigurationPtrOutput) ServiceAccountEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpConnectorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceAccountEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+func (o ConnectorGcpConnectorConfigurationPtrOutput) WorkloadIdentityPoolProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpConnectorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkloadIdentityPoolProvider
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -4120,9 +4606,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingStrategyPtrInput)(nil)).Elem(), ConfigurationRecorderRecordingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterInput)(nil)).Elem(), ConformancePackInputParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterArrayInput)(nil)).Elem(), ConformancePackInputParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackScopeInput)(nil)).Elem(), ConformancePackScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackScopePtrInput)(nil)).Elem(), ConformancePackScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackSourceInput)(nil)).Elem(), ConformancePackSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackSourcePtrInput)(nil)).Elem(), ConformancePackSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureConnectorConfigurationInput)(nil)).Elem(), ConnectorAzureConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureConnectorConfigurationPtrInput)(nil)).Elem(), ConnectorAzureConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorConfigurationInput)(nil)).Elem(), ConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorGcpConnectorConfigurationInput)(nil)).Elem(), ConnectorGcpConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorGcpConnectorConfigurationPtrInput)(nil)).Elem(), ConnectorGcpConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{})
@@ -4167,9 +4659,15 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
+	pulumi.RegisterOutputType(ConformancePackScopeOutput{})
+	pulumi.RegisterOutputType(ConformancePackScopePtrOutput{})
+	pulumi.RegisterOutputType(ConformancePackSourceOutput{})
+	pulumi.RegisterOutputType(ConformancePackSourcePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAzureConnectorConfigurationOutput{})
 	pulumi.RegisterOutputType(ConnectorAzureConnectorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorGcpConnectorConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorGcpConnectorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput{})

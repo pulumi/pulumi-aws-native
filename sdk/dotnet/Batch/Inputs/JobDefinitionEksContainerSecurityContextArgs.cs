@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("allowPrivilegeEscalation")]
         public Input<bool>? AllowPrivilegeEscalation { get; set; }
 
+        [Input("capabilities")]
+        public Input<Inputs.JobDefinitionEksContainerLinuxCapabilitiesArgs>? Capabilities { get; set; }
+
         /// <summary>
         /// When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
         /// </summary>
@@ -47,6 +50,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// </summary>
         [Input("runAsUser")]
         public Input<int>? RunAsUser { get; set; }
+
+        [Input("seccompProfile")]
+        public Input<Inputs.JobDefinitionEksSeccompProfileArgs>? SeccompProfile { get; set; }
 
         public JobDefinitionEksContainerSecurityContextArgs()
         {

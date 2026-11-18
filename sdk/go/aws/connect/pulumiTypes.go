@@ -374,6 +374,146 @@ type ContactFlowTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The contact hooks for the task template.
+type ContactHooksProperties struct {
+	// The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+	WrapUpFlowArn *string `pulumi:"wrapUpFlowArn"`
+}
+
+// ContactHooksPropertiesInput is an input type that accepts ContactHooksPropertiesArgs and ContactHooksPropertiesOutput values.
+// You can construct a concrete instance of `ContactHooksPropertiesInput` via:
+//
+//	ContactHooksPropertiesArgs{...}
+type ContactHooksPropertiesInput interface {
+	pulumi.Input
+
+	ToContactHooksPropertiesOutput() ContactHooksPropertiesOutput
+	ToContactHooksPropertiesOutputWithContext(context.Context) ContactHooksPropertiesOutput
+}
+
+// The contact hooks for the task template.
+type ContactHooksPropertiesArgs struct {
+	// The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+	WrapUpFlowArn pulumi.StringPtrInput `pulumi:"wrapUpFlowArn"`
+}
+
+func (ContactHooksPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactHooksProperties)(nil)).Elem()
+}
+
+func (i ContactHooksPropertiesArgs) ToContactHooksPropertiesOutput() ContactHooksPropertiesOutput {
+	return i.ToContactHooksPropertiesOutputWithContext(context.Background())
+}
+
+func (i ContactHooksPropertiesArgs) ToContactHooksPropertiesOutputWithContext(ctx context.Context) ContactHooksPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactHooksPropertiesOutput)
+}
+
+func (i ContactHooksPropertiesArgs) ToContactHooksPropertiesPtrOutput() ContactHooksPropertiesPtrOutput {
+	return i.ToContactHooksPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ContactHooksPropertiesArgs) ToContactHooksPropertiesPtrOutputWithContext(ctx context.Context) ContactHooksPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactHooksPropertiesOutput).ToContactHooksPropertiesPtrOutputWithContext(ctx)
+}
+
+// ContactHooksPropertiesPtrInput is an input type that accepts ContactHooksPropertiesArgs, ContactHooksPropertiesPtr and ContactHooksPropertiesPtrOutput values.
+// You can construct a concrete instance of `ContactHooksPropertiesPtrInput` via:
+//
+//	        ContactHooksPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContactHooksPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToContactHooksPropertiesPtrOutput() ContactHooksPropertiesPtrOutput
+	ToContactHooksPropertiesPtrOutputWithContext(context.Context) ContactHooksPropertiesPtrOutput
+}
+
+type contactHooksPropertiesPtrType ContactHooksPropertiesArgs
+
+func ContactHooksPropertiesPtr(v *ContactHooksPropertiesArgs) ContactHooksPropertiesPtrInput {
+	return (*contactHooksPropertiesPtrType)(v)
+}
+
+func (*contactHooksPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactHooksProperties)(nil)).Elem()
+}
+
+func (i *contactHooksPropertiesPtrType) ToContactHooksPropertiesPtrOutput() ContactHooksPropertiesPtrOutput {
+	return i.ToContactHooksPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *contactHooksPropertiesPtrType) ToContactHooksPropertiesPtrOutputWithContext(ctx context.Context) ContactHooksPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactHooksPropertiesPtrOutput)
+}
+
+// The contact hooks for the task template.
+type ContactHooksPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ContactHooksPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactHooksProperties)(nil)).Elem()
+}
+
+func (o ContactHooksPropertiesOutput) ToContactHooksPropertiesOutput() ContactHooksPropertiesOutput {
+	return o
+}
+
+func (o ContactHooksPropertiesOutput) ToContactHooksPropertiesOutputWithContext(ctx context.Context) ContactHooksPropertiesOutput {
+	return o
+}
+
+func (o ContactHooksPropertiesOutput) ToContactHooksPropertiesPtrOutput() ContactHooksPropertiesPtrOutput {
+	return o.ToContactHooksPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ContactHooksPropertiesOutput) ToContactHooksPropertiesPtrOutputWithContext(ctx context.Context) ContactHooksPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactHooksProperties) *ContactHooksProperties {
+		return &v
+	}).(ContactHooksPropertiesPtrOutput)
+}
+
+// The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+func (o ContactHooksPropertiesOutput) WrapUpFlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactHooksProperties) *string { return v.WrapUpFlowArn }).(pulumi.StringPtrOutput)
+}
+
+type ContactHooksPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ContactHooksPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactHooksProperties)(nil)).Elem()
+}
+
+func (o ContactHooksPropertiesPtrOutput) ToContactHooksPropertiesPtrOutput() ContactHooksPropertiesPtrOutput {
+	return o
+}
+
+func (o ContactHooksPropertiesPtrOutput) ToContactHooksPropertiesPtrOutputWithContext(ctx context.Context) ContactHooksPropertiesPtrOutput {
+	return o
+}
+
+func (o ContactHooksPropertiesPtrOutput) Elem() ContactHooksPropertiesOutput {
+	return o.ApplyT(func(v *ContactHooksProperties) ContactHooksProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ContactHooksProperties
+		return ret
+	}).(ContactHooksPropertiesOutput)
+}
+
+// The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+func (o ContactHooksPropertiesPtrOutput) WrapUpFlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactHooksProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WrapUpFlowArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataTableRecordProperties struct {
 	PrimaryValues []DataTableRecordValue `pulumi:"primaryValues"`
 	Values        []DataTableRecordValue `pulumi:"values"`
@@ -13952,6 +14092,276 @@ func (o RuleNotificationRecipientTypePtrOutput) UserTags() pulumi.StringMapOutpu
 	}).(pulumi.StringMapOutput)
 }
 
+type RulePreEvaluationFilter struct {
+	// The key of the filter.
+	FilterKey string `pulumi:"filterKey"`
+	// The type of the filter.
+	FilterType RulePreEvaluationFilterFilterType `pulumi:"filterType"`
+	// The value of the filter.
+	FilterValue string `pulumi:"filterValue"`
+	// The comparison operator for the filter.
+	Operator RulePreEvaluationFilterOperator `pulumi:"operator"`
+	// The type of resource the filter applies to.
+	ResourceType RulePreEvaluationFilterResourceType `pulumi:"resourceType"`
+}
+
+// RulePreEvaluationFilterInput is an input type that accepts RulePreEvaluationFilterArgs and RulePreEvaluationFilterOutput values.
+// You can construct a concrete instance of `RulePreEvaluationFilterInput` via:
+//
+//	RulePreEvaluationFilterArgs{...}
+type RulePreEvaluationFilterInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFilterOutput() RulePreEvaluationFilterOutput
+	ToRulePreEvaluationFilterOutputWithContext(context.Context) RulePreEvaluationFilterOutput
+}
+
+type RulePreEvaluationFilterArgs struct {
+	// The key of the filter.
+	FilterKey pulumi.StringInput `pulumi:"filterKey"`
+	// The type of the filter.
+	FilterType RulePreEvaluationFilterFilterTypeInput `pulumi:"filterType"`
+	// The value of the filter.
+	FilterValue pulumi.StringInput `pulumi:"filterValue"`
+	// The comparison operator for the filter.
+	Operator RulePreEvaluationFilterOperatorInput `pulumi:"operator"`
+	// The type of resource the filter applies to.
+	ResourceType RulePreEvaluationFilterResourceTypeInput `pulumi:"resourceType"`
+}
+
+func (RulePreEvaluationFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilter)(nil)).Elem()
+}
+
+func (i RulePreEvaluationFilterArgs) ToRulePreEvaluationFilterOutput() RulePreEvaluationFilterOutput {
+	return i.ToRulePreEvaluationFilterOutputWithContext(context.Background())
+}
+
+func (i RulePreEvaluationFilterArgs) ToRulePreEvaluationFilterOutputWithContext(ctx context.Context) RulePreEvaluationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePreEvaluationFilterOutput)
+}
+
+// RulePreEvaluationFilterArrayInput is an input type that accepts RulePreEvaluationFilterArray and RulePreEvaluationFilterArrayOutput values.
+// You can construct a concrete instance of `RulePreEvaluationFilterArrayInput` via:
+//
+//	RulePreEvaluationFilterArray{ RulePreEvaluationFilterArgs{...} }
+type RulePreEvaluationFilterArrayInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFilterArrayOutput() RulePreEvaluationFilterArrayOutput
+	ToRulePreEvaluationFilterArrayOutputWithContext(context.Context) RulePreEvaluationFilterArrayOutput
+}
+
+type RulePreEvaluationFilterArray []RulePreEvaluationFilterInput
+
+func (RulePreEvaluationFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulePreEvaluationFilter)(nil)).Elem()
+}
+
+func (i RulePreEvaluationFilterArray) ToRulePreEvaluationFilterArrayOutput() RulePreEvaluationFilterArrayOutput {
+	return i.ToRulePreEvaluationFilterArrayOutputWithContext(context.Background())
+}
+
+func (i RulePreEvaluationFilterArray) ToRulePreEvaluationFilterArrayOutputWithContext(ctx context.Context) RulePreEvaluationFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePreEvaluationFilterArrayOutput)
+}
+
+type RulePreEvaluationFilterOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilter)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFilterOutput) ToRulePreEvaluationFilterOutput() RulePreEvaluationFilterOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterOutput) ToRulePreEvaluationFilterOutputWithContext(ctx context.Context) RulePreEvaluationFilterOutput {
+	return o
+}
+
+// The key of the filter.
+func (o RulePreEvaluationFilterOutput) FilterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v RulePreEvaluationFilter) string { return v.FilterKey }).(pulumi.StringOutput)
+}
+
+// The type of the filter.
+func (o RulePreEvaluationFilterOutput) FilterType() RulePreEvaluationFilterFilterTypeOutput {
+	return o.ApplyT(func(v RulePreEvaluationFilter) RulePreEvaluationFilterFilterType { return v.FilterType }).(RulePreEvaluationFilterFilterTypeOutput)
+}
+
+// The value of the filter.
+func (o RulePreEvaluationFilterOutput) FilterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v RulePreEvaluationFilter) string { return v.FilterValue }).(pulumi.StringOutput)
+}
+
+// The comparison operator for the filter.
+func (o RulePreEvaluationFilterOutput) Operator() RulePreEvaluationFilterOperatorOutput {
+	return o.ApplyT(func(v RulePreEvaluationFilter) RulePreEvaluationFilterOperator { return v.Operator }).(RulePreEvaluationFilterOperatorOutput)
+}
+
+// The type of resource the filter applies to.
+func (o RulePreEvaluationFilterOutput) ResourceType() RulePreEvaluationFilterResourceTypeOutput {
+	return o.ApplyT(func(v RulePreEvaluationFilter) RulePreEvaluationFilterResourceType { return v.ResourceType }).(RulePreEvaluationFilterResourceTypeOutput)
+}
+
+type RulePreEvaluationFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulePreEvaluationFilter)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFilterArrayOutput) ToRulePreEvaluationFilterArrayOutput() RulePreEvaluationFilterArrayOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterArrayOutput) ToRulePreEvaluationFilterArrayOutputWithContext(ctx context.Context) RulePreEvaluationFilterArrayOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterArrayOutput) Index(i pulumi.IntInput) RulePreEvaluationFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulePreEvaluationFilter {
+		return vs[0].([]RulePreEvaluationFilter)[vs[1].(int)]
+	}).(RulePreEvaluationFilterOutput)
+}
+
+type RulePreEvaluationFilters struct {
+	// A list of filter conditions that are combined with AND logic.
+	AndConditions []RulePreEvaluationFilter `pulumi:"andConditions"`
+}
+
+// RulePreEvaluationFiltersInput is an input type that accepts RulePreEvaluationFiltersArgs and RulePreEvaluationFiltersOutput values.
+// You can construct a concrete instance of `RulePreEvaluationFiltersInput` via:
+//
+//	RulePreEvaluationFiltersArgs{...}
+type RulePreEvaluationFiltersInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFiltersOutput() RulePreEvaluationFiltersOutput
+	ToRulePreEvaluationFiltersOutputWithContext(context.Context) RulePreEvaluationFiltersOutput
+}
+
+type RulePreEvaluationFiltersArgs struct {
+	// A list of filter conditions that are combined with AND logic.
+	AndConditions RulePreEvaluationFilterArrayInput `pulumi:"andConditions"`
+}
+
+func (RulePreEvaluationFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilters)(nil)).Elem()
+}
+
+func (i RulePreEvaluationFiltersArgs) ToRulePreEvaluationFiltersOutput() RulePreEvaluationFiltersOutput {
+	return i.ToRulePreEvaluationFiltersOutputWithContext(context.Background())
+}
+
+func (i RulePreEvaluationFiltersArgs) ToRulePreEvaluationFiltersOutputWithContext(ctx context.Context) RulePreEvaluationFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePreEvaluationFiltersOutput)
+}
+
+func (i RulePreEvaluationFiltersArgs) ToRulePreEvaluationFiltersPtrOutput() RulePreEvaluationFiltersPtrOutput {
+	return i.ToRulePreEvaluationFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i RulePreEvaluationFiltersArgs) ToRulePreEvaluationFiltersPtrOutputWithContext(ctx context.Context) RulePreEvaluationFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePreEvaluationFiltersOutput).ToRulePreEvaluationFiltersPtrOutputWithContext(ctx)
+}
+
+// RulePreEvaluationFiltersPtrInput is an input type that accepts RulePreEvaluationFiltersArgs, RulePreEvaluationFiltersPtr and RulePreEvaluationFiltersPtrOutput values.
+// You can construct a concrete instance of `RulePreEvaluationFiltersPtrInput` via:
+//
+//	        RulePreEvaluationFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type RulePreEvaluationFiltersPtrInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFiltersPtrOutput() RulePreEvaluationFiltersPtrOutput
+	ToRulePreEvaluationFiltersPtrOutputWithContext(context.Context) RulePreEvaluationFiltersPtrOutput
+}
+
+type rulePreEvaluationFiltersPtrType RulePreEvaluationFiltersArgs
+
+func RulePreEvaluationFiltersPtr(v *RulePreEvaluationFiltersArgs) RulePreEvaluationFiltersPtrInput {
+	return (*rulePreEvaluationFiltersPtrType)(v)
+}
+
+func (*rulePreEvaluationFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePreEvaluationFilters)(nil)).Elem()
+}
+
+func (i *rulePreEvaluationFiltersPtrType) ToRulePreEvaluationFiltersPtrOutput() RulePreEvaluationFiltersPtrOutput {
+	return i.ToRulePreEvaluationFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *rulePreEvaluationFiltersPtrType) ToRulePreEvaluationFiltersPtrOutputWithContext(ctx context.Context) RulePreEvaluationFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePreEvaluationFiltersPtrOutput)
+}
+
+type RulePreEvaluationFiltersOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilters)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFiltersOutput) ToRulePreEvaluationFiltersOutput() RulePreEvaluationFiltersOutput {
+	return o
+}
+
+func (o RulePreEvaluationFiltersOutput) ToRulePreEvaluationFiltersOutputWithContext(ctx context.Context) RulePreEvaluationFiltersOutput {
+	return o
+}
+
+func (o RulePreEvaluationFiltersOutput) ToRulePreEvaluationFiltersPtrOutput() RulePreEvaluationFiltersPtrOutput {
+	return o.ToRulePreEvaluationFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFiltersOutput) ToRulePreEvaluationFiltersPtrOutputWithContext(ctx context.Context) RulePreEvaluationFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulePreEvaluationFilters) *RulePreEvaluationFilters {
+		return &v
+	}).(RulePreEvaluationFiltersPtrOutput)
+}
+
+// A list of filter conditions that are combined with AND logic.
+func (o RulePreEvaluationFiltersOutput) AndConditions() RulePreEvaluationFilterArrayOutput {
+	return o.ApplyT(func(v RulePreEvaluationFilters) []RulePreEvaluationFilter { return v.AndConditions }).(RulePreEvaluationFilterArrayOutput)
+}
+
+type RulePreEvaluationFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePreEvaluationFilters)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFiltersPtrOutput) ToRulePreEvaluationFiltersPtrOutput() RulePreEvaluationFiltersPtrOutput {
+	return o
+}
+
+func (o RulePreEvaluationFiltersPtrOutput) ToRulePreEvaluationFiltersPtrOutputWithContext(ctx context.Context) RulePreEvaluationFiltersPtrOutput {
+	return o
+}
+
+func (o RulePreEvaluationFiltersPtrOutput) Elem() RulePreEvaluationFiltersOutput {
+	return o.ApplyT(func(v *RulePreEvaluationFilters) RulePreEvaluationFilters {
+		if v != nil {
+			return *v
+		}
+		var ret RulePreEvaluationFilters
+		return ret
+	}).(RulePreEvaluationFiltersOutput)
+}
+
+// A list of filter conditions that are combined with AND logic.
+func (o RulePreEvaluationFiltersPtrOutput) AndConditions() RulePreEvaluationFilterArrayOutput {
+	return o.ApplyT(func(v *RulePreEvaluationFilters) []RulePreEvaluationFilter {
+		if v == nil {
+			return nil
+		}
+		return v.AndConditions
+	}).(RulePreEvaluationFilterArrayOutput)
+}
+
 // Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
 type RuleReference struct {
 	// The type of the reference. ``DATE`` must be of type Epoch timestamp.
@@ -21335,6 +21745,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AttributeConfigurationPropertiesPtrInput)(nil)).Elem(), AttributeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesPtrInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactHooksPropertiesInput)(nil)).Elem(), ContactHooksPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactHooksPropertiesPtrInput)(nil)).Elem(), ContactHooksPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordPropertiesInput)(nil)).Elem(), DataTableRecordPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordValueInput)(nil)).Elem(), DataTableRecordValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordValueArrayInput)(nil)).Elem(), DataTableRecordValueArray{})
@@ -21506,6 +21918,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationContentInput)(nil)).Elem(), RuleNotificationContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypeInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypePtrInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFilterInput)(nil)).Elem(), RulePreEvaluationFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFilterArrayInput)(nil)).Elem(), RulePreEvaluationFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFiltersInput)(nil)).Elem(), RulePreEvaluationFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFiltersPtrInput)(nil)).Elem(), RulePreEvaluationFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceInput)(nil)).Elem(), RuleReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceMapInput)(nil)).Elem(), RuleReferenceMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendInAppNotificationActionInput)(nil)).Elem(), RuleSendInAppNotificationActionArgs{})
@@ -21610,6 +22026,8 @@ func init() {
 	pulumi.RegisterOutputType(AttributeConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesOutput{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ContactHooksPropertiesOutput{})
+	pulumi.RegisterOutputType(ContactHooksPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataTableRecordPropertiesOutput{})
 	pulumi.RegisterOutputType(DataTableRecordPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataTableRecordValueOutput{})
@@ -21793,6 +22211,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleNotificationContentOutput{})
 	pulumi.RegisterOutputType(RuleNotificationRecipientTypeOutput{})
 	pulumi.RegisterOutputType(RuleNotificationRecipientTypePtrOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFilterOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFilterArrayOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFiltersOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFiltersPtrOutput{})
 	pulumi.RegisterOutputType(RuleReferenceOutput{})
 	pulumi.RegisterOutputType(RuleReferenceMapOutput{})
 	pulumi.RegisterOutputType(RuleSendInAppNotificationActionOutput{})

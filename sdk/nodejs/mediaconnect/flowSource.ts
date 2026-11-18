@@ -95,6 +95,8 @@ export class FlowSource extends pulumi.CustomResource {
      * The protocol that is used by the source.
      */
     declare public readonly protocol: pulumi.Output<enums.mediaconnect.FlowSourceProtocol | undefined>;
+    declare public /*out*/ readonly rtmpPushDetails: pulumi.Output<outputs.mediaconnect.FlowSourceRtmpPushDetails>;
+    declare public readonly rtmpPushSettings: pulumi.Output<outputs.mediaconnect.FlowSourceRtmpPushSettings | undefined>;
     /**
      * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
      */
@@ -164,6 +166,7 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["minLatency"] = args?.minLatency;
             resourceInputs["name"] = args?.name;
             resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["rtmpPushSettings"] = args?.rtmpPushSettings;
             resourceInputs["senderControlPort"] = args?.senderControlPort;
             resourceInputs["senderIpAddress"] = args?.senderIpAddress;
             resourceInputs["sourceListenerAddress"] = args?.sourceListenerAddress;
@@ -173,6 +176,7 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["vpcInterfaceName"] = args?.vpcInterfaceName;
             resourceInputs["whitelistCidr"] = args?.whitelistCidr;
             resourceInputs["ingestIp"] = undefined /*out*/;
+            resourceInputs["rtmpPushDetails"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
             resourceInputs["sourceIngestPort"] = undefined /*out*/;
         } else {
@@ -188,6 +192,8 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["minLatency"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["rtmpPushDetails"] = undefined /*out*/;
+            resourceInputs["rtmpPushSettings"] = undefined /*out*/;
             resourceInputs["senderControlPort"] = undefined /*out*/;
             resourceInputs["senderIpAddress"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
@@ -254,6 +260,7 @@ export interface FlowSourceArgs {
      * The protocol that is used by the source.
      */
     protocol?: pulumi.Input<enums.mediaconnect.FlowSourceProtocol | undefined>;
+    rtmpPushSettings?: pulumi.Input<inputs.mediaconnect.FlowSourceRtmpPushSettingsArgs | undefined>;
     /**
      * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
      */

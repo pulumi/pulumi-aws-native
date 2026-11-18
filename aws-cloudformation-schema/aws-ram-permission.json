@@ -22,7 +22,7 @@
       "permissions" : [ "ram:CreatePermission", "ram:TagResource" ]
     },
     "update" : {
-      "permissions" : [ "ram:CreatePermissionVersion", "ram:DeletePermissionVersion", "ram:SetDefaultPermissionVersion", "ram:GetPermission", "ram:ReplacePermissionAssociations", "ram:ListReplacePermissionAssociationsWork", "ram:ListPermissionVersions", "ram:UntagResource", "ram:TagResource" ]
+      "permissions" : [ "ram:CreatePermissionVersion", "ram:DeletePermissionVersion", "ram:SetDefaultPermissionVersion", "ram:GetPermission", "ram:ReplacePermissionAssociations", "ram:ListReplacePermissionAssociationsWork", "ram:ListPermissionVersions", "ram:UpdatePermission", "ram:UntagResource", "ram:TagResource" ]
     },
     "list" : {
       "permissions" : [ "ram:ListPermissions", "ram:ListPermissionVersions" ]

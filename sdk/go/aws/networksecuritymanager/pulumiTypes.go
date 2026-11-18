@@ -13,6 +13,346 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DeploymentAssociatedPolicy struct {
+	// ARN of the associated policy.
+	PolicyArn string `pulumi:"policyArn"`
+}
+
+// DeploymentAssociatedPolicyInput is an input type that accepts DeploymentAssociatedPolicyArgs and DeploymentAssociatedPolicyOutput values.
+// You can construct a concrete instance of `DeploymentAssociatedPolicyInput` via:
+//
+//	DeploymentAssociatedPolicyArgs{...}
+type DeploymentAssociatedPolicyInput interface {
+	pulumi.Input
+
+	ToDeploymentAssociatedPolicyOutput() DeploymentAssociatedPolicyOutput
+	ToDeploymentAssociatedPolicyOutputWithContext(context.Context) DeploymentAssociatedPolicyOutput
+}
+
+type DeploymentAssociatedPolicyArgs struct {
+	// ARN of the associated policy.
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
+}
+
+func (DeploymentAssociatedPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAssociatedPolicy)(nil)).Elem()
+}
+
+func (i DeploymentAssociatedPolicyArgs) ToDeploymentAssociatedPolicyOutput() DeploymentAssociatedPolicyOutput {
+	return i.ToDeploymentAssociatedPolicyOutputWithContext(context.Background())
+}
+
+func (i DeploymentAssociatedPolicyArgs) ToDeploymentAssociatedPolicyOutputWithContext(ctx context.Context) DeploymentAssociatedPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAssociatedPolicyOutput)
+}
+
+// DeploymentAssociatedPolicyArrayInput is an input type that accepts DeploymentAssociatedPolicyArray and DeploymentAssociatedPolicyArrayOutput values.
+// You can construct a concrete instance of `DeploymentAssociatedPolicyArrayInput` via:
+//
+//	DeploymentAssociatedPolicyArray{ DeploymentAssociatedPolicyArgs{...} }
+type DeploymentAssociatedPolicyArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentAssociatedPolicyArrayOutput() DeploymentAssociatedPolicyArrayOutput
+	ToDeploymentAssociatedPolicyArrayOutputWithContext(context.Context) DeploymentAssociatedPolicyArrayOutput
+}
+
+type DeploymentAssociatedPolicyArray []DeploymentAssociatedPolicyInput
+
+func (DeploymentAssociatedPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentAssociatedPolicy)(nil)).Elem()
+}
+
+func (i DeploymentAssociatedPolicyArray) ToDeploymentAssociatedPolicyArrayOutput() DeploymentAssociatedPolicyArrayOutput {
+	return i.ToDeploymentAssociatedPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentAssociatedPolicyArray) ToDeploymentAssociatedPolicyArrayOutputWithContext(ctx context.Context) DeploymentAssociatedPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAssociatedPolicyArrayOutput)
+}
+
+type DeploymentAssociatedPolicyOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAssociatedPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAssociatedPolicy)(nil)).Elem()
+}
+
+func (o DeploymentAssociatedPolicyOutput) ToDeploymentAssociatedPolicyOutput() DeploymentAssociatedPolicyOutput {
+	return o
+}
+
+func (o DeploymentAssociatedPolicyOutput) ToDeploymentAssociatedPolicyOutputWithContext(ctx context.Context) DeploymentAssociatedPolicyOutput {
+	return o
+}
+
+// ARN of the associated policy.
+func (o DeploymentAssociatedPolicyOutput) PolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAssociatedPolicy) string { return v.PolicyArn }).(pulumi.StringOutput)
+}
+
+type DeploymentAssociatedPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAssociatedPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentAssociatedPolicy)(nil)).Elem()
+}
+
+func (o DeploymentAssociatedPolicyArrayOutput) ToDeploymentAssociatedPolicyArrayOutput() DeploymentAssociatedPolicyArrayOutput {
+	return o
+}
+
+func (o DeploymentAssociatedPolicyArrayOutput) ToDeploymentAssociatedPolicyArrayOutputWithContext(ctx context.Context) DeploymentAssociatedPolicyArrayOutput {
+	return o
+}
+
+func (o DeploymentAssociatedPolicyArrayOutput) Index(i pulumi.IntInput) DeploymentAssociatedPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentAssociatedPolicy {
+		return vs[0].([]DeploymentAssociatedPolicy)[vs[1].(int)]
+	}).(DeploymentAssociatedPolicyOutput)
+}
+
+type DeploymentAssociatedScope struct {
+	// ARN of the associated scope.
+	ScopeArn string `pulumi:"scopeArn"`
+}
+
+// DeploymentAssociatedScopeInput is an input type that accepts DeploymentAssociatedScopeArgs and DeploymentAssociatedScopeOutput values.
+// You can construct a concrete instance of `DeploymentAssociatedScopeInput` via:
+//
+//	DeploymentAssociatedScopeArgs{...}
+type DeploymentAssociatedScopeInput interface {
+	pulumi.Input
+
+	ToDeploymentAssociatedScopeOutput() DeploymentAssociatedScopeOutput
+	ToDeploymentAssociatedScopeOutputWithContext(context.Context) DeploymentAssociatedScopeOutput
+}
+
+type DeploymentAssociatedScopeArgs struct {
+	// ARN of the associated scope.
+	ScopeArn pulumi.StringInput `pulumi:"scopeArn"`
+}
+
+func (DeploymentAssociatedScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAssociatedScope)(nil)).Elem()
+}
+
+func (i DeploymentAssociatedScopeArgs) ToDeploymentAssociatedScopeOutput() DeploymentAssociatedScopeOutput {
+	return i.ToDeploymentAssociatedScopeOutputWithContext(context.Background())
+}
+
+func (i DeploymentAssociatedScopeArgs) ToDeploymentAssociatedScopeOutputWithContext(ctx context.Context) DeploymentAssociatedScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAssociatedScopeOutput)
+}
+
+// DeploymentAssociatedScopeArrayInput is an input type that accepts DeploymentAssociatedScopeArray and DeploymentAssociatedScopeArrayOutput values.
+// You can construct a concrete instance of `DeploymentAssociatedScopeArrayInput` via:
+//
+//	DeploymentAssociatedScopeArray{ DeploymentAssociatedScopeArgs{...} }
+type DeploymentAssociatedScopeArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentAssociatedScopeArrayOutput() DeploymentAssociatedScopeArrayOutput
+	ToDeploymentAssociatedScopeArrayOutputWithContext(context.Context) DeploymentAssociatedScopeArrayOutput
+}
+
+type DeploymentAssociatedScopeArray []DeploymentAssociatedScopeInput
+
+func (DeploymentAssociatedScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentAssociatedScope)(nil)).Elem()
+}
+
+func (i DeploymentAssociatedScopeArray) ToDeploymentAssociatedScopeArrayOutput() DeploymentAssociatedScopeArrayOutput {
+	return i.ToDeploymentAssociatedScopeArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentAssociatedScopeArray) ToDeploymentAssociatedScopeArrayOutputWithContext(ctx context.Context) DeploymentAssociatedScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAssociatedScopeArrayOutput)
+}
+
+type DeploymentAssociatedScopeOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAssociatedScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAssociatedScope)(nil)).Elem()
+}
+
+func (o DeploymentAssociatedScopeOutput) ToDeploymentAssociatedScopeOutput() DeploymentAssociatedScopeOutput {
+	return o
+}
+
+func (o DeploymentAssociatedScopeOutput) ToDeploymentAssociatedScopeOutputWithContext(ctx context.Context) DeploymentAssociatedScopeOutput {
+	return o
+}
+
+// ARN of the associated scope.
+func (o DeploymentAssociatedScopeOutput) ScopeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAssociatedScope) string { return v.ScopeArn }).(pulumi.StringOutput)
+}
+
+type DeploymentAssociatedScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAssociatedScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentAssociatedScope)(nil)).Elem()
+}
+
+func (o DeploymentAssociatedScopeArrayOutput) ToDeploymentAssociatedScopeArrayOutput() DeploymentAssociatedScopeArrayOutput {
+	return o
+}
+
+func (o DeploymentAssociatedScopeArrayOutput) ToDeploymentAssociatedScopeArrayOutputWithContext(ctx context.Context) DeploymentAssociatedScopeArrayOutput {
+	return o
+}
+
+func (o DeploymentAssociatedScopeArrayOutput) Index(i pulumi.IntInput) DeploymentAssociatedScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentAssociatedScope {
+		return vs[0].([]DeploymentAssociatedScope)[vs[1].(int)]
+	}).(DeploymentAssociatedScopeOutput)
+}
+
+// Configuration settings for the deployment.
+type DeploymentConfiguration struct {
+	// Whether cross-account visibility is enabled for the deployment.
+	EnableCrossAccountVisibility bool `pulumi:"enableCrossAccountVisibility"`
+}
+
+// DeploymentConfigurationInput is an input type that accepts DeploymentConfigurationArgs and DeploymentConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationInput` via:
+//
+//	DeploymentConfigurationArgs{...}
+type DeploymentConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationOutput() DeploymentConfigurationOutput
+	ToDeploymentConfigurationOutputWithContext(context.Context) DeploymentConfigurationOutput
+}
+
+// Configuration settings for the deployment.
+type DeploymentConfigurationArgs struct {
+	// Whether cross-account visibility is enabled for the deployment.
+	EnableCrossAccountVisibility pulumi.BoolInput `pulumi:"enableCrossAccountVisibility"`
+}
+
+func (DeploymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfiguration)(nil)).Elem()
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationOutput() DeploymentConfigurationOutput {
+	return i.ToDeploymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationOutputWithContext(ctx context.Context) DeploymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationOutput)
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return i.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationOutput).ToDeploymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeploymentConfigurationPtrInput is an input type that accepts DeploymentConfigurationArgs, DeploymentConfigurationPtr and DeploymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationPtrInput` via:
+//
+//	        DeploymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput
+	ToDeploymentConfigurationPtrOutputWithContext(context.Context) DeploymentConfigurationPtrOutput
+}
+
+type deploymentConfigurationPtrType DeploymentConfigurationArgs
+
+func DeploymentConfigurationPtr(v *DeploymentConfigurationArgs) DeploymentConfigurationPtrInput {
+	return (*deploymentConfigurationPtrType)(v)
+}
+
+func (*deploymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfiguration)(nil)).Elem()
+}
+
+func (i *deploymentConfigurationPtrType) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return i.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentConfigurationPtrType) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationPtrOutput)
+}
+
+// Configuration settings for the deployment.
+type DeploymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationOutput() DeploymentConfigurationOutput {
+	return o
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationOutputWithContext(ctx context.Context) DeploymentConfigurationOutput {
+	return o
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return o.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfiguration) *DeploymentConfiguration {
+		return &v
+	}).(DeploymentConfigurationPtrOutput)
+}
+
+// Whether cross-account visibility is enabled for the deployment.
+func (o DeploymentConfigurationOutput) EnableCrossAccountVisibility() pulumi.BoolOutput {
+	return o.ApplyT(func(v DeploymentConfiguration) bool { return v.EnableCrossAccountVisibility }).(pulumi.BoolOutput)
+}
+
+type DeploymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationPtrOutput) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigurationPtrOutput) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigurationPtrOutput) Elem() DeploymentConfigurationOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) DeploymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfiguration
+		return ret
+	}).(DeploymentConfigurationOutput)
+}
+
+// Whether cross-account visibility is enabled for the deployment.
+func (o DeploymentConfigurationPtrOutput) EnableCrossAccountVisibility() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableCrossAccountVisibility
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DeploymentTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Associates either a template or a rule with a policy.
 type PolicyAssociatedTemplateAndRule struct {
 	// ARN of the associated rule.
@@ -531,6 +871,12 @@ type TemplateTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAssociatedPolicyInput)(nil)).Elem(), DeploymentAssociatedPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAssociatedPolicyArrayInput)(nil)).Elem(), DeploymentAssociatedPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAssociatedScopeInput)(nil)).Elem(), DeploymentAssociatedScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAssociatedScopeArrayInput)(nil)).Elem(), DeploymentAssociatedScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationInput)(nil)).Elem(), DeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationPtrInput)(nil)).Elem(), DeploymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssociatedTemplateAndRuleInput)(nil)).Elem(), PolicyAssociatedTemplateAndRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssociatedTemplateAndRuleArrayInput)(nil)).Elem(), PolicyAssociatedTemplateAndRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyConfigurationInput)(nil)).Elem(), PolicyConfigurationArgs{})
@@ -538,6 +884,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyWafConfigPtrInput)(nil)).Elem(), PolicyWafConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAssociatedRuleInput)(nil)).Elem(), TemplateAssociatedRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAssociatedRuleArrayInput)(nil)).Elem(), TemplateAssociatedRuleArray{})
+	pulumi.RegisterOutputType(DeploymentAssociatedPolicyOutput{})
+	pulumi.RegisterOutputType(DeploymentAssociatedPolicyArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentAssociatedScopeOutput{})
+	pulumi.RegisterOutputType(DeploymentAssociatedScopeArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyAssociatedTemplateAndRuleOutput{})
 	pulumi.RegisterOutputType(PolicyAssociatedTemplateAndRuleArrayOutput{})
 	pulumi.RegisterOutputType(PolicyConfigurationOutput{})

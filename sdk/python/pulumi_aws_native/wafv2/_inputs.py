@@ -50,6 +50,12 @@ __all__ = [
     'RuleGroupChallengeActionArgsDict',
     'RuleGroupChallengeConfigArgs',
     'RuleGroupChallengeConfigArgsDict',
+    'RuleGroupConnectedAccountChainConfigArgs',
+    'RuleGroupConnectedAccountChainConfigArgsDict',
+    'RuleGroupConnectedAccountConfigArgs',
+    'RuleGroupConnectedAccountConfigArgsDict',
+    'RuleGroupConnectedAccountPriceArgs',
+    'RuleGroupConnectedAccountPriceArgsDict',
     'RuleGroupCookieMatchPatternArgs',
     'RuleGroupCookieMatchPatternArgsDict',
     'RuleGroupCookiesArgs',
@@ -200,10 +206,18 @@ __all__ = [
     'WebAclChallengeActionArgsDict',
     'WebAclChallengeConfigArgs',
     'WebAclChallengeConfigArgsDict',
+    'WebAclChallengeJavascriptSdkInjectionConfigArgs',
+    'WebAclChallengeJavascriptSdkInjectionConfigArgsDict',
     'WebAclClientSideActionArgs',
     'WebAclClientSideActionArgsDict',
     'WebAclClientSideActionConfigArgs',
     'WebAclClientSideActionConfigArgsDict',
+    'WebAclConnectedAccountChainConfigArgs',
+    'WebAclConnectedAccountChainConfigArgsDict',
+    'WebAclConnectedAccountConfigArgs',
+    'WebAclConnectedAccountConfigArgsDict',
+    'WebAclConnectedAccountPriceArgs',
+    'WebAclConnectedAccountPriceArgsDict',
     'WebAclCookieMatchPatternArgs',
     'WebAclCookieMatchPatternArgsDict',
     'WebAclCookiesArgs',
@@ -1314,6 +1328,117 @@ class RuleGroupChallengeConfigArgs:
     @immunity_time_property.setter
     def immunity_time_property(self, value: pulumi.Input[Optional['RuleGroupImmunityTimePropertyArgs']]):
         pulumi.set(self, "immunity_time_property", value)
+
+
+class RuleGroupConnectedAccountChainConfigArgsDict(TypedDict):
+    """
+    Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+    """
+    chain: pulumi.Input['RuleGroupConnectedAccountChain']
+    prices: pulumi.Input[Sequence[pulumi.Input['RuleGroupConnectedAccountPriceArgsDict']]]
+
+@pulumi.input_type
+class RuleGroupConnectedAccountChainConfigArgs:
+    def __init__(__self__, *,
+                 chain: pulumi.Input['RuleGroupConnectedAccountChain'],
+                 prices: pulumi.Input[Sequence[pulumi.Input['RuleGroupConnectedAccountPriceArgs']]]):
+        """
+        Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> pulumi.Input['RuleGroupConnectedAccountChain']:
+        return pulumi.get(self, "chain")
+
+    @chain.setter
+    def chain(self, value: pulumi.Input['RuleGroupConnectedAccountChain']):
+        pulumi.set(self, "chain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupConnectedAccountPriceArgs']]]:
+        return pulumi.get(self, "prices")
+
+    @prices.setter
+    def prices(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupConnectedAccountPriceArgs']]]):
+        pulumi.set(self, "prices", value)
+
+
+class RuleGroupConnectedAccountConfigArgsDict(TypedDict):
+    """
+    Configuration for a single connected account and the chains it accepts payment on.
+    """
+    connected_account_arn: pulumi.Input[_builtins.str]
+    payment_networks: pulumi.Input[Sequence[pulumi.Input['RuleGroupConnectedAccountChainConfigArgsDict']]]
+
+@pulumi.input_type
+class RuleGroupConnectedAccountConfigArgs:
+    def __init__(__self__, *,
+                 connected_account_arn: pulumi.Input[_builtins.str],
+                 payment_networks: pulumi.Input[Sequence[pulumi.Input['RuleGroupConnectedAccountChainConfigArgs']]]):
+        """
+        Configuration for a single connected account and the chains it accepts payment on.
+        """
+        pulumi.set(__self__, "connected_account_arn", connected_account_arn)
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedAccountArn")
+    def connected_account_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "connected_account_arn")
+
+    @connected_account_arn.setter
+    def connected_account_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connected_account_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupConnectedAccountChainConfigArgs']]]:
+        return pulumi.get(self, "payment_networks")
+
+    @payment_networks.setter
+    def payment_networks(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupConnectedAccountChainConfigArgs']]]):
+        pulumi.set(self, "payment_networks", value)
+
+
+class RuleGroupConnectedAccountPriceArgsDict(TypedDict):
+    """
+    A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+    """
+    amount: pulumi.Input[_builtins.str]
+    currency: pulumi.Input['RuleGroupCryptoCurrency']
+
+@pulumi.input_type
+class RuleGroupConnectedAccountPriceArgs:
+    def __init__(__self__, *,
+                 amount: pulumi.Input[_builtins.str],
+                 currency: pulumi.Input['RuleGroupCryptoCurrency']):
+        """
+        A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> pulumi.Input['RuleGroupCryptoCurrency']:
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: pulumi.Input['RuleGroupCryptoCurrency']):
+        pulumi.set(self, "currency", value)
 
 
 class RuleGroupCookieMatchPatternArgsDict(TypedDict):
@@ -3256,21 +3381,34 @@ class RuleGroupMonetizationConfigArgsDict(TypedDict):
     """
     Configures monetization for the web ACL or rule group.
     """
+    connected_account_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupConnectedAccountConfigArgsDict']]]]]
     crypto_config: NotRequired[pulumi.Input[Optional['RuleGroupCryptoConfigArgsDict']]]
     currency_mode: NotRequired[pulumi.Input[Optional['RuleGroupCurrencyMode']]]
 
 @pulumi.input_type
 class RuleGroupMonetizationConfigArgs:
     def __init__(__self__, *,
+                 connected_account_configs: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupConnectedAccountConfigArgs']]]] = None,
                  crypto_config: pulumi.Input[Optional['RuleGroupCryptoConfigArgs']] = None,
                  currency_mode: pulumi.Input[Optional['RuleGroupCurrencyMode']] = None):
         """
         Configures monetization for the web ACL or rule group.
         """
+        if connected_account_configs is not None:
+            pulumi.set(__self__, "connected_account_configs", connected_account_configs)
         if crypto_config is not None:
             pulumi.set(__self__, "crypto_config", crypto_config)
         if currency_mode is not None:
             pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedAccountConfigs")
+    def connected_account_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupConnectedAccountConfigArgs']]]]:
+        return pulumi.get(self, "connected_account_configs")
+
+    @connected_account_configs.setter
+    def connected_account_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupConnectedAccountConfigArgs']]]]):
+        pulumi.set(self, "connected_account_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="cryptoConfig")
@@ -6076,6 +6214,7 @@ class WebAclAssociationConfigArgsDict(TypedDict):
     """
     AssociationConfig for body inspection
     """
+    challenge_javascript_sdk_injection: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclChallengeJavascriptSdkInjectionConfigArgsDict']]]]]
     request_body: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgsDict']]]]]
     """
     Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
@@ -6090,6 +6229,7 @@ class WebAclAssociationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class WebAclAssociationConfigArgs:
     def __init__(__self__, *,
+                 challenge_javascript_sdk_injection: pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclChallengeJavascriptSdkInjectionConfigArgs']]]] = None,
                  request_body: pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgs']]]] = None):
         """
         AssociationConfig for body inspection
@@ -6102,8 +6242,19 @@ class WebAclAssociationConfigArgs:
                
                For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         """
+        if challenge_javascript_sdk_injection is not None:
+            pulumi.set(__self__, "challenge_javascript_sdk_injection", challenge_javascript_sdk_injection)
         if request_body is not None:
             pulumi.set(__self__, "request_body", request_body)
+
+    @_builtins.property
+    @pulumi.getter(name="challengeJavascriptSdkInjection")
+    def challenge_javascript_sdk_injection(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclChallengeJavascriptSdkInjectionConfigArgs']]]]:
+        return pulumi.get(self, "challenge_javascript_sdk_injection")
+
+    @challenge_javascript_sdk_injection.setter
+    def challenge_javascript_sdk_injection(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclChallengeJavascriptSdkInjectionConfigArgs']]]]):
+        pulumi.set(self, "challenge_javascript_sdk_injection", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBody")
@@ -7004,6 +7155,21 @@ class WebAclChallengeConfigArgs:
         pulumi.set(self, "immunity_time_property", value)
 
 
+class WebAclChallengeJavascriptSdkInjectionConfigArgsDict(TypedDict):
+    """
+    Configures the challenge JavaScript SDK injection for the associated resource.
+    """
+    pass
+
+@pulumi.input_type
+class WebAclChallengeJavascriptSdkInjectionConfigArgs:
+    def __init__(__self__):
+        """
+        Configures the challenge JavaScript SDK injection for the associated resource.
+        """
+        pass
+
+
 class WebAclClientSideActionArgsDict(TypedDict):
     """
     Client side action config for AntiDDOS AMR.
@@ -7216,6 +7382,117 @@ class WebAclClientSideActionConfigArgs:
     @challenge.setter
     def challenge(self, value: pulumi.Input['WebAclClientSideActionArgs']):
         pulumi.set(self, "challenge", value)
+
+
+class WebAclConnectedAccountChainConfigArgsDict(TypedDict):
+    """
+    Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+    """
+    chain: pulumi.Input['WebAclConnectedAccountChain']
+    prices: pulumi.Input[Sequence[pulumi.Input['WebAclConnectedAccountPriceArgsDict']]]
+
+@pulumi.input_type
+class WebAclConnectedAccountChainConfigArgs:
+    def __init__(__self__, *,
+                 chain: pulumi.Input['WebAclConnectedAccountChain'],
+                 prices: pulumi.Input[Sequence[pulumi.Input['WebAclConnectedAccountPriceArgs']]]):
+        """
+        Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> pulumi.Input['WebAclConnectedAccountChain']:
+        return pulumi.get(self, "chain")
+
+    @chain.setter
+    def chain(self, value: pulumi.Input['WebAclConnectedAccountChain']):
+        pulumi.set(self, "chain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclConnectedAccountPriceArgs']]]:
+        return pulumi.get(self, "prices")
+
+    @prices.setter
+    def prices(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclConnectedAccountPriceArgs']]]):
+        pulumi.set(self, "prices", value)
+
+
+class WebAclConnectedAccountConfigArgsDict(TypedDict):
+    """
+    Configuration for a single connected account and the chains it accepts payment on.
+    """
+    connected_account_arn: pulumi.Input[_builtins.str]
+    payment_networks: pulumi.Input[Sequence[pulumi.Input['WebAclConnectedAccountChainConfigArgsDict']]]
+
+@pulumi.input_type
+class WebAclConnectedAccountConfigArgs:
+    def __init__(__self__, *,
+                 connected_account_arn: pulumi.Input[_builtins.str],
+                 payment_networks: pulumi.Input[Sequence[pulumi.Input['WebAclConnectedAccountChainConfigArgs']]]):
+        """
+        Configuration for a single connected account and the chains it accepts payment on.
+        """
+        pulumi.set(__self__, "connected_account_arn", connected_account_arn)
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedAccountArn")
+    def connected_account_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "connected_account_arn")
+
+    @connected_account_arn.setter
+    def connected_account_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connected_account_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclConnectedAccountChainConfigArgs']]]:
+        return pulumi.get(self, "payment_networks")
+
+    @payment_networks.setter
+    def payment_networks(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclConnectedAccountChainConfigArgs']]]):
+        pulumi.set(self, "payment_networks", value)
+
+
+class WebAclConnectedAccountPriceArgsDict(TypedDict):
+    """
+    A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+    """
+    amount: pulumi.Input[_builtins.str]
+    currency: pulumi.Input['WebAclCryptoCurrency']
+
+@pulumi.input_type
+class WebAclConnectedAccountPriceArgs:
+    def __init__(__self__, *,
+                 amount: pulumi.Input[_builtins.str],
+                 currency: pulumi.Input['WebAclCryptoCurrency']):
+        """
+        A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> pulumi.Input['WebAclCryptoCurrency']:
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: pulumi.Input['WebAclCryptoCurrency']):
+        pulumi.set(self, "currency", value)
 
 
 class WebAclCookieMatchPatternArgsDict(TypedDict):
@@ -9751,21 +10028,34 @@ class WebAclMonetizationConfigArgsDict(TypedDict):
     """
     Configures monetization for the web ACL or rule group.
     """
+    connected_account_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebAclConnectedAccountConfigArgsDict']]]]]
     crypto_config: NotRequired[pulumi.Input[Optional['WebAclCryptoConfigArgsDict']]]
     currency_mode: NotRequired[pulumi.Input[Optional['WebAclCurrencyMode']]]
 
 @pulumi.input_type
 class WebAclMonetizationConfigArgs:
     def __init__(__self__, *,
+                 connected_account_configs: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclConnectedAccountConfigArgs']]]] = None,
                  crypto_config: pulumi.Input[Optional['WebAclCryptoConfigArgs']] = None,
                  currency_mode: pulumi.Input[Optional['WebAclCurrencyMode']] = None):
         """
         Configures monetization for the web ACL or rule group.
         """
+        if connected_account_configs is not None:
+            pulumi.set(__self__, "connected_account_configs", connected_account_configs)
         if crypto_config is not None:
             pulumi.set(__self__, "crypto_config", crypto_config)
         if currency_mode is not None:
             pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedAccountConfigs")
+    def connected_account_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclConnectedAccountConfigArgs']]]]:
+        return pulumi.get(self, "connected_account_configs")
+
+    @connected_account_configs.setter
+    def connected_account_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclConnectedAccountConfigArgs']]]]):
+        pulumi.set(self, "connected_account_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="cryptoConfig")

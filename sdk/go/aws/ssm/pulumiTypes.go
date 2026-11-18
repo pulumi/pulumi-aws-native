@@ -494,6 +494,47 @@ func (i CloudConnectorAzureConfigurationArgs) ToCloudConnectorAzureConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorAzureConfigurationOutput)
 }
 
+func (i CloudConnectorAzureConfigurationArgs) ToCloudConnectorAzureConfigurationPtrOutput() CloudConnectorAzureConfigurationPtrOutput {
+	return i.ToCloudConnectorAzureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorAzureConfigurationArgs) ToCloudConnectorAzureConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorAzureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorAzureConfigurationOutput).ToCloudConnectorAzureConfigurationPtrOutputWithContext(ctx)
+}
+
+// CloudConnectorAzureConfigurationPtrInput is an input type that accepts CloudConnectorAzureConfigurationArgs, CloudConnectorAzureConfigurationPtr and CloudConnectorAzureConfigurationPtrOutput values.
+// You can construct a concrete instance of `CloudConnectorAzureConfigurationPtrInput` via:
+//
+//	        CloudConnectorAzureConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudConnectorAzureConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCloudConnectorAzureConfigurationPtrOutput() CloudConnectorAzureConfigurationPtrOutput
+	ToCloudConnectorAzureConfigurationPtrOutputWithContext(context.Context) CloudConnectorAzureConfigurationPtrOutput
+}
+
+type cloudConnectorAzureConfigurationPtrType CloudConnectorAzureConfigurationArgs
+
+func CloudConnectorAzureConfigurationPtr(v *CloudConnectorAzureConfigurationArgs) CloudConnectorAzureConfigurationPtrInput {
+	return (*cloudConnectorAzureConfigurationPtrType)(v)
+}
+
+func (*cloudConnectorAzureConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorAzureConfiguration)(nil)).Elem()
+}
+
+func (i *cloudConnectorAzureConfigurationPtrType) ToCloudConnectorAzureConfigurationPtrOutput() CloudConnectorAzureConfigurationPtrOutput {
+	return i.ToCloudConnectorAzureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudConnectorAzureConfigurationPtrType) ToCloudConnectorAzureConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorAzureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorAzureConfigurationPtrOutput)
+}
+
 // Configuration for connecting to Azure.
 type CloudConnectorAzureConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -507,6 +548,16 @@ func (o CloudConnectorAzureConfigurationOutput) ToCloudConnectorAzureConfigurati
 
 func (o CloudConnectorAzureConfigurationOutput) ToCloudConnectorAzureConfigurationOutputWithContext(ctx context.Context) CloudConnectorAzureConfigurationOutput {
 	return o
+}
+
+func (o CloudConnectorAzureConfigurationOutput) ToCloudConnectorAzureConfigurationPtrOutput() CloudConnectorAzureConfigurationPtrOutput {
+	return o.ToCloudConnectorAzureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CloudConnectorAzureConfigurationOutput) ToCloudConnectorAzureConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorAzureConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudConnectorAzureConfiguration) *CloudConnectorAzureConfiguration {
+		return &v
+	}).(CloudConnectorAzureConfigurationPtrOutput)
 }
 
 // The display name of the Azure AD application.
@@ -715,9 +766,10 @@ func (o CloudConnectorAzureSubscriptionArrayOutput) Index(i pulumi.IntInput) Clo
 	}).(CloudConnectorAzureSubscriptionOutput)
 }
 
-// The configuration for the cloud connector. Currently supports Azure.
+// The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
 type CloudConnectorConfiguration struct {
-	AzureConfiguration CloudConnectorAzureConfiguration `pulumi:"azureConfiguration"`
+	AzureConfiguration *CloudConnectorAzureConfiguration `pulumi:"azureConfiguration"`
+	GcpConfiguration   *CloudConnectorGcpConfiguration   `pulumi:"gcpConfiguration"`
 }
 
 // CloudConnectorConfigurationInput is an input type that accepts CloudConnectorConfigurationArgs and CloudConnectorConfigurationOutput values.
@@ -731,9 +783,10 @@ type CloudConnectorConfigurationInput interface {
 	ToCloudConnectorConfigurationOutputWithContext(context.Context) CloudConnectorConfigurationOutput
 }
 
-// The configuration for the cloud connector. Currently supports Azure.
+// The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
 type CloudConnectorConfigurationArgs struct {
-	AzureConfiguration CloudConnectorAzureConfigurationInput `pulumi:"azureConfiguration"`
+	AzureConfiguration CloudConnectorAzureConfigurationPtrInput `pulumi:"azureConfiguration"`
+	GcpConfiguration   CloudConnectorGcpConfigurationPtrInput   `pulumi:"gcpConfiguration"`
 }
 
 func (CloudConnectorConfigurationArgs) ElementType() reflect.Type {
@@ -748,7 +801,7 @@ func (i CloudConnectorConfigurationArgs) ToCloudConnectorConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorConfigurationOutput)
 }
 
-// The configuration for the cloud connector. Currently supports Azure.
+// The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
 type CloudConnectorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CloudConnectorConfigurationOutput) ElementType() reflect.Type {
@@ -763,8 +816,12 @@ func (o CloudConnectorConfigurationOutput) ToCloudConnectorConfigurationOutputWi
 	return o
 }
 
-func (o CloudConnectorConfigurationOutput) AzureConfiguration() CloudConnectorAzureConfigurationOutput {
-	return o.ApplyT(func(v CloudConnectorConfiguration) CloudConnectorAzureConfiguration { return v.AzureConfiguration }).(CloudConnectorAzureConfigurationOutput)
+func (o CloudConnectorConfigurationOutput) AzureConfiguration() CloudConnectorAzureConfigurationPtrOutput {
+	return o.ApplyT(func(v CloudConnectorConfiguration) *CloudConnectorAzureConfiguration { return v.AzureConfiguration }).(CloudConnectorAzureConfigurationPtrOutput)
+}
+
+func (o CloudConnectorConfigurationOutput) GcpConfiguration() CloudConnectorGcpConfigurationPtrOutput {
+	return o.ApplyT(func(v CloudConnectorConfiguration) *CloudConnectorGcpConfiguration { return v.GcpConfiguration }).(CloudConnectorGcpConfigurationPtrOutput)
 }
 
 type CloudConnectorConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -796,8 +853,17 @@ func (o CloudConnectorConfigurationPtrOutput) AzureConfiguration() CloudConnecto
 		if v == nil {
 			return nil
 		}
-		return &v.AzureConfiguration
+		return v.AzureConfiguration
 	}).(CloudConnectorAzureConfigurationPtrOutput)
+}
+
+func (o CloudConnectorConfigurationPtrOutput) GcpConfiguration() CloudConnectorGcpConfigurationPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorConfiguration) *CloudConnectorGcpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GcpConfiguration
+	}).(CloudConnectorGcpConfigurationPtrOutput)
 }
 
 // The targets for the cloud connector. If omitted, the entire tenant is targeted.
@@ -938,6 +1004,448 @@ func (o CloudConnectorConfigurationTargetsPtrOutput) Subscriptions() CloudConnec
 		}
 		return v.Subscriptions
 	}).(CloudConnectorAzureSubscriptionArrayOutput)
+}
+
+// Configuration for connecting to Google Cloud.
+type CloudConnectorGcpConfiguration struct {
+	// The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+	OrganizationId *string `pulumi:"organizationId"`
+	// The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+	ServiceAccountEmail string                                 `pulumi:"serviceAccountEmail"`
+	Targets             *CloudConnectorGcpConfigurationTargets `pulumi:"targets"`
+	// The resource name of the workload identity pool provider that trusts the connector's IAM role.
+	WorkloadIdentityPoolProvider string `pulumi:"workloadIdentityPoolProvider"`
+}
+
+// CloudConnectorGcpConfigurationInput is an input type that accepts CloudConnectorGcpConfigurationArgs and CloudConnectorGcpConfigurationOutput values.
+// You can construct a concrete instance of `CloudConnectorGcpConfigurationInput` via:
+//
+//	CloudConnectorGcpConfigurationArgs{...}
+type CloudConnectorGcpConfigurationInput interface {
+	pulumi.Input
+
+	ToCloudConnectorGcpConfigurationOutput() CloudConnectorGcpConfigurationOutput
+	ToCloudConnectorGcpConfigurationOutputWithContext(context.Context) CloudConnectorGcpConfigurationOutput
+}
+
+// Configuration for connecting to Google Cloud.
+type CloudConnectorGcpConfigurationArgs struct {
+	// The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+	OrganizationId pulumi.StringPtrInput `pulumi:"organizationId"`
+	// The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+	ServiceAccountEmail pulumi.StringInput                            `pulumi:"serviceAccountEmail"`
+	Targets             CloudConnectorGcpConfigurationTargetsPtrInput `pulumi:"targets"`
+	// The resource name of the workload identity pool provider that trusts the connector's IAM role.
+	WorkloadIdentityPoolProvider pulumi.StringInput `pulumi:"workloadIdentityPoolProvider"`
+}
+
+func (CloudConnectorGcpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorGcpConfiguration)(nil)).Elem()
+}
+
+func (i CloudConnectorGcpConfigurationArgs) ToCloudConnectorGcpConfigurationOutput() CloudConnectorGcpConfigurationOutput {
+	return i.ToCloudConnectorGcpConfigurationOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorGcpConfigurationArgs) ToCloudConnectorGcpConfigurationOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorGcpConfigurationOutput)
+}
+
+func (i CloudConnectorGcpConfigurationArgs) ToCloudConnectorGcpConfigurationPtrOutput() CloudConnectorGcpConfigurationPtrOutput {
+	return i.ToCloudConnectorGcpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorGcpConfigurationArgs) ToCloudConnectorGcpConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorGcpConfigurationOutput).ToCloudConnectorGcpConfigurationPtrOutputWithContext(ctx)
+}
+
+// CloudConnectorGcpConfigurationPtrInput is an input type that accepts CloudConnectorGcpConfigurationArgs, CloudConnectorGcpConfigurationPtr and CloudConnectorGcpConfigurationPtrOutput values.
+// You can construct a concrete instance of `CloudConnectorGcpConfigurationPtrInput` via:
+//
+//	        CloudConnectorGcpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudConnectorGcpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCloudConnectorGcpConfigurationPtrOutput() CloudConnectorGcpConfigurationPtrOutput
+	ToCloudConnectorGcpConfigurationPtrOutputWithContext(context.Context) CloudConnectorGcpConfigurationPtrOutput
+}
+
+type cloudConnectorGcpConfigurationPtrType CloudConnectorGcpConfigurationArgs
+
+func CloudConnectorGcpConfigurationPtr(v *CloudConnectorGcpConfigurationArgs) CloudConnectorGcpConfigurationPtrInput {
+	return (*cloudConnectorGcpConfigurationPtrType)(v)
+}
+
+func (*cloudConnectorGcpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorGcpConfiguration)(nil)).Elem()
+}
+
+func (i *cloudConnectorGcpConfigurationPtrType) ToCloudConnectorGcpConfigurationPtrOutput() CloudConnectorGcpConfigurationPtrOutput {
+	return i.ToCloudConnectorGcpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudConnectorGcpConfigurationPtrType) ToCloudConnectorGcpConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorGcpConfigurationPtrOutput)
+}
+
+// Configuration for connecting to Google Cloud.
+type CloudConnectorGcpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorGcpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorGcpConfiguration)(nil)).Elem()
+}
+
+func (o CloudConnectorGcpConfigurationOutput) ToCloudConnectorGcpConfigurationOutput() CloudConnectorGcpConfigurationOutput {
+	return o
+}
+
+func (o CloudConnectorGcpConfigurationOutput) ToCloudConnectorGcpConfigurationOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationOutput {
+	return o
+}
+
+func (o CloudConnectorGcpConfigurationOutput) ToCloudConnectorGcpConfigurationPtrOutput() CloudConnectorGcpConfigurationPtrOutput {
+	return o.ToCloudConnectorGcpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CloudConnectorGcpConfigurationOutput) ToCloudConnectorGcpConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudConnectorGcpConfiguration) *CloudConnectorGcpConfiguration {
+		return &v
+	}).(CloudConnectorGcpConfigurationPtrOutput)
+}
+
+// The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+func (o CloudConnectorGcpConfigurationOutput) OrganizationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudConnectorGcpConfiguration) *string { return v.OrganizationId }).(pulumi.StringPtrOutput)
+}
+
+// The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+func (o CloudConnectorGcpConfigurationOutput) ServiceAccountEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudConnectorGcpConfiguration) string { return v.ServiceAccountEmail }).(pulumi.StringOutput)
+}
+
+func (o CloudConnectorGcpConfigurationOutput) Targets() CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return o.ApplyT(func(v CloudConnectorGcpConfiguration) *CloudConnectorGcpConfigurationTargets { return v.Targets }).(CloudConnectorGcpConfigurationTargetsPtrOutput)
+}
+
+// The resource name of the workload identity pool provider that trusts the connector's IAM role.
+func (o CloudConnectorGcpConfigurationOutput) WorkloadIdentityPoolProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudConnectorGcpConfiguration) string { return v.WorkloadIdentityPoolProvider }).(pulumi.StringOutput)
+}
+
+type CloudConnectorGcpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorGcpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorGcpConfiguration)(nil)).Elem()
+}
+
+func (o CloudConnectorGcpConfigurationPtrOutput) ToCloudConnectorGcpConfigurationPtrOutput() CloudConnectorGcpConfigurationPtrOutput {
+	return o
+}
+
+func (o CloudConnectorGcpConfigurationPtrOutput) ToCloudConnectorGcpConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationPtrOutput {
+	return o
+}
+
+func (o CloudConnectorGcpConfigurationPtrOutput) Elem() CloudConnectorGcpConfigurationOutput {
+	return o.ApplyT(func(v *CloudConnectorGcpConfiguration) CloudConnectorGcpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CloudConnectorGcpConfiguration
+		return ret
+	}).(CloudConnectorGcpConfigurationOutput)
+}
+
+// The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+func (o CloudConnectorGcpConfigurationPtrOutput) OrganizationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorGcpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+func (o CloudConnectorGcpConfigurationPtrOutput) ServiceAccountEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorGcpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceAccountEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CloudConnectorGcpConfigurationPtrOutput) Targets() CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorGcpConfiguration) *CloudConnectorGcpConfigurationTargets {
+		if v == nil {
+			return nil
+		}
+		return v.Targets
+	}).(CloudConnectorGcpConfigurationTargetsPtrOutput)
+}
+
+// The resource name of the workload identity pool provider that trusts the connector's IAM role.
+func (o CloudConnectorGcpConfigurationPtrOutput) WorkloadIdentityPoolProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorGcpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkloadIdentityPoolProvider
+	}).(pulumi.StringPtrOutput)
+}
+
+// The targets for the cloud connector. If omitted, the entire organization is targeted.
+type CloudConnectorGcpConfigurationTargets struct {
+	// List of GCP projects.
+	Projects []CloudConnectorGcpProject `pulumi:"projects"`
+}
+
+// CloudConnectorGcpConfigurationTargetsInput is an input type that accepts CloudConnectorGcpConfigurationTargetsArgs and CloudConnectorGcpConfigurationTargetsOutput values.
+// You can construct a concrete instance of `CloudConnectorGcpConfigurationTargetsInput` via:
+//
+//	CloudConnectorGcpConfigurationTargetsArgs{...}
+type CloudConnectorGcpConfigurationTargetsInput interface {
+	pulumi.Input
+
+	ToCloudConnectorGcpConfigurationTargetsOutput() CloudConnectorGcpConfigurationTargetsOutput
+	ToCloudConnectorGcpConfigurationTargetsOutputWithContext(context.Context) CloudConnectorGcpConfigurationTargetsOutput
+}
+
+// The targets for the cloud connector. If omitted, the entire organization is targeted.
+type CloudConnectorGcpConfigurationTargetsArgs struct {
+	// List of GCP projects.
+	Projects CloudConnectorGcpProjectArrayInput `pulumi:"projects"`
+}
+
+func (CloudConnectorGcpConfigurationTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorGcpConfigurationTargets)(nil)).Elem()
+}
+
+func (i CloudConnectorGcpConfigurationTargetsArgs) ToCloudConnectorGcpConfigurationTargetsOutput() CloudConnectorGcpConfigurationTargetsOutput {
+	return i.ToCloudConnectorGcpConfigurationTargetsOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorGcpConfigurationTargetsArgs) ToCloudConnectorGcpConfigurationTargetsOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorGcpConfigurationTargetsOutput)
+}
+
+func (i CloudConnectorGcpConfigurationTargetsArgs) ToCloudConnectorGcpConfigurationTargetsPtrOutput() CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return i.ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorGcpConfigurationTargetsArgs) ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorGcpConfigurationTargetsOutput).ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(ctx)
+}
+
+// CloudConnectorGcpConfigurationTargetsPtrInput is an input type that accepts CloudConnectorGcpConfigurationTargetsArgs, CloudConnectorGcpConfigurationTargetsPtr and CloudConnectorGcpConfigurationTargetsPtrOutput values.
+// You can construct a concrete instance of `CloudConnectorGcpConfigurationTargetsPtrInput` via:
+//
+//	        CloudConnectorGcpConfigurationTargetsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudConnectorGcpConfigurationTargetsPtrInput interface {
+	pulumi.Input
+
+	ToCloudConnectorGcpConfigurationTargetsPtrOutput() CloudConnectorGcpConfigurationTargetsPtrOutput
+	ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(context.Context) CloudConnectorGcpConfigurationTargetsPtrOutput
+}
+
+type cloudConnectorGcpConfigurationTargetsPtrType CloudConnectorGcpConfigurationTargetsArgs
+
+func CloudConnectorGcpConfigurationTargetsPtr(v *CloudConnectorGcpConfigurationTargetsArgs) CloudConnectorGcpConfigurationTargetsPtrInput {
+	return (*cloudConnectorGcpConfigurationTargetsPtrType)(v)
+}
+
+func (*cloudConnectorGcpConfigurationTargetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorGcpConfigurationTargets)(nil)).Elem()
+}
+
+func (i *cloudConnectorGcpConfigurationTargetsPtrType) ToCloudConnectorGcpConfigurationTargetsPtrOutput() CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return i.ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudConnectorGcpConfigurationTargetsPtrType) ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorGcpConfigurationTargetsPtrOutput)
+}
+
+// The targets for the cloud connector. If omitted, the entire organization is targeted.
+type CloudConnectorGcpConfigurationTargetsOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorGcpConfigurationTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorGcpConfigurationTargets)(nil)).Elem()
+}
+
+func (o CloudConnectorGcpConfigurationTargetsOutput) ToCloudConnectorGcpConfigurationTargetsOutput() CloudConnectorGcpConfigurationTargetsOutput {
+	return o
+}
+
+func (o CloudConnectorGcpConfigurationTargetsOutput) ToCloudConnectorGcpConfigurationTargetsOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationTargetsOutput {
+	return o
+}
+
+func (o CloudConnectorGcpConfigurationTargetsOutput) ToCloudConnectorGcpConfigurationTargetsPtrOutput() CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return o.ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(context.Background())
+}
+
+func (o CloudConnectorGcpConfigurationTargetsOutput) ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudConnectorGcpConfigurationTargets) *CloudConnectorGcpConfigurationTargets {
+		return &v
+	}).(CloudConnectorGcpConfigurationTargetsPtrOutput)
+}
+
+// List of GCP projects.
+func (o CloudConnectorGcpConfigurationTargetsOutput) Projects() CloudConnectorGcpProjectArrayOutput {
+	return o.ApplyT(func(v CloudConnectorGcpConfigurationTargets) []CloudConnectorGcpProject { return v.Projects }).(CloudConnectorGcpProjectArrayOutput)
+}
+
+type CloudConnectorGcpConfigurationTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorGcpConfigurationTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorGcpConfigurationTargets)(nil)).Elem()
+}
+
+func (o CloudConnectorGcpConfigurationTargetsPtrOutput) ToCloudConnectorGcpConfigurationTargetsPtrOutput() CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return o
+}
+
+func (o CloudConnectorGcpConfigurationTargetsPtrOutput) ToCloudConnectorGcpConfigurationTargetsPtrOutputWithContext(ctx context.Context) CloudConnectorGcpConfigurationTargetsPtrOutput {
+	return o
+}
+
+func (o CloudConnectorGcpConfigurationTargetsPtrOutput) Elem() CloudConnectorGcpConfigurationTargetsOutput {
+	return o.ApplyT(func(v *CloudConnectorGcpConfigurationTargets) CloudConnectorGcpConfigurationTargets {
+		if v != nil {
+			return *v
+		}
+		var ret CloudConnectorGcpConfigurationTargets
+		return ret
+	}).(CloudConnectorGcpConfigurationTargetsOutput)
+}
+
+// List of GCP projects.
+func (o CloudConnectorGcpConfigurationTargetsPtrOutput) Projects() CloudConnectorGcpProjectArrayOutput {
+	return o.ApplyT(func(v *CloudConnectorGcpConfigurationTargets) []CloudConnectorGcpProject {
+		if v == nil {
+			return nil
+		}
+		return v.Projects
+	}).(CloudConnectorGcpProjectArrayOutput)
+}
+
+// A GCP project with its ID and optional display name.
+type CloudConnectorGcpProject struct {
+	// The display name of the GCP project.
+	ProjectDisplayName *string `pulumi:"projectDisplayName"`
+	// The GCP project ID.
+	ProjectId string `pulumi:"projectId"`
+}
+
+// CloudConnectorGcpProjectInput is an input type that accepts CloudConnectorGcpProjectArgs and CloudConnectorGcpProjectOutput values.
+// You can construct a concrete instance of `CloudConnectorGcpProjectInput` via:
+//
+//	CloudConnectorGcpProjectArgs{...}
+type CloudConnectorGcpProjectInput interface {
+	pulumi.Input
+
+	ToCloudConnectorGcpProjectOutput() CloudConnectorGcpProjectOutput
+	ToCloudConnectorGcpProjectOutputWithContext(context.Context) CloudConnectorGcpProjectOutput
+}
+
+// A GCP project with its ID and optional display name.
+type CloudConnectorGcpProjectArgs struct {
+	// The display name of the GCP project.
+	ProjectDisplayName pulumi.StringPtrInput `pulumi:"projectDisplayName"`
+	// The GCP project ID.
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+}
+
+func (CloudConnectorGcpProjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorGcpProject)(nil)).Elem()
+}
+
+func (i CloudConnectorGcpProjectArgs) ToCloudConnectorGcpProjectOutput() CloudConnectorGcpProjectOutput {
+	return i.ToCloudConnectorGcpProjectOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorGcpProjectArgs) ToCloudConnectorGcpProjectOutputWithContext(ctx context.Context) CloudConnectorGcpProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorGcpProjectOutput)
+}
+
+// CloudConnectorGcpProjectArrayInput is an input type that accepts CloudConnectorGcpProjectArray and CloudConnectorGcpProjectArrayOutput values.
+// You can construct a concrete instance of `CloudConnectorGcpProjectArrayInput` via:
+//
+//	CloudConnectorGcpProjectArray{ CloudConnectorGcpProjectArgs{...} }
+type CloudConnectorGcpProjectArrayInput interface {
+	pulumi.Input
+
+	ToCloudConnectorGcpProjectArrayOutput() CloudConnectorGcpProjectArrayOutput
+	ToCloudConnectorGcpProjectArrayOutputWithContext(context.Context) CloudConnectorGcpProjectArrayOutput
+}
+
+type CloudConnectorGcpProjectArray []CloudConnectorGcpProjectInput
+
+func (CloudConnectorGcpProjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudConnectorGcpProject)(nil)).Elem()
+}
+
+func (i CloudConnectorGcpProjectArray) ToCloudConnectorGcpProjectArrayOutput() CloudConnectorGcpProjectArrayOutput {
+	return i.ToCloudConnectorGcpProjectArrayOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorGcpProjectArray) ToCloudConnectorGcpProjectArrayOutputWithContext(ctx context.Context) CloudConnectorGcpProjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorGcpProjectArrayOutput)
+}
+
+// A GCP project with its ID and optional display name.
+type CloudConnectorGcpProjectOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorGcpProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorGcpProject)(nil)).Elem()
+}
+
+func (o CloudConnectorGcpProjectOutput) ToCloudConnectorGcpProjectOutput() CloudConnectorGcpProjectOutput {
+	return o
+}
+
+func (o CloudConnectorGcpProjectOutput) ToCloudConnectorGcpProjectOutputWithContext(ctx context.Context) CloudConnectorGcpProjectOutput {
+	return o
+}
+
+// The display name of the GCP project.
+func (o CloudConnectorGcpProjectOutput) ProjectDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudConnectorGcpProject) *string { return v.ProjectDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The GCP project ID.
+func (o CloudConnectorGcpProjectOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudConnectorGcpProject) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+type CloudConnectorGcpProjectArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorGcpProjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudConnectorGcpProject)(nil)).Elem()
+}
+
+func (o CloudConnectorGcpProjectArrayOutput) ToCloudConnectorGcpProjectArrayOutput() CloudConnectorGcpProjectArrayOutput {
+	return o
+}
+
+func (o CloudConnectorGcpProjectArrayOutput) ToCloudConnectorGcpProjectArrayOutputWithContext(ctx context.Context) CloudConnectorGcpProjectArrayOutput {
+	return o
+}
+
+func (o CloudConnectorGcpProjectArrayOutput) Index(i pulumi.IntInput) CloudConnectorGcpProjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudConnectorGcpProject {
+		return vs[0].([]CloudConnectorGcpProject)[vs[1].(int)]
+	}).(CloudConnectorGcpProjectOutput)
 }
 
 type CloudConnectorTag struct {
@@ -4343,11 +4851,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTargetInput)(nil)).Elem(), AssociationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTargetArrayInput)(nil)).Elem(), AssociationTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorAzureConfigurationInput)(nil)).Elem(), CloudConnectorAzureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorAzureConfigurationPtrInput)(nil)).Elem(), CloudConnectorAzureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorAzureSubscriptionInput)(nil)).Elem(), CloudConnectorAzureSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorAzureSubscriptionArrayInput)(nil)).Elem(), CloudConnectorAzureSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorConfigurationInput)(nil)).Elem(), CloudConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorConfigurationTargetsInput)(nil)).Elem(), CloudConnectorConfigurationTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorConfigurationTargetsPtrInput)(nil)).Elem(), CloudConnectorConfigurationTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorGcpConfigurationInput)(nil)).Elem(), CloudConnectorGcpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorGcpConfigurationPtrInput)(nil)).Elem(), CloudConnectorGcpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorGcpConfigurationTargetsInput)(nil)).Elem(), CloudConnectorGcpConfigurationTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorGcpConfigurationTargetsPtrInput)(nil)).Elem(), CloudConnectorGcpConfigurationTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorGcpProjectInput)(nil)).Elem(), CloudConnectorGcpProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorGcpProjectArrayInput)(nil)).Elem(), CloudConnectorGcpProjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceInput)(nil)).Elem(), DocumentAttachmentsSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceArrayInput)(nil)).Elem(), DocumentAttachmentsSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentRequiresInput)(nil)).Elem(), DocumentRequiresArgs{})
@@ -4402,6 +4917,12 @@ func init() {
 	pulumi.RegisterOutputType(CloudConnectorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CloudConnectorConfigurationTargetsOutput{})
 	pulumi.RegisterOutputType(CloudConnectorConfigurationTargetsPtrOutput{})
+	pulumi.RegisterOutputType(CloudConnectorGcpConfigurationOutput{})
+	pulumi.RegisterOutputType(CloudConnectorGcpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CloudConnectorGcpConfigurationTargetsOutput{})
+	pulumi.RegisterOutputType(CloudConnectorGcpConfigurationTargetsPtrOutput{})
+	pulumi.RegisterOutputType(CloudConnectorGcpProjectOutput{})
+	pulumi.RegisterOutputType(CloudConnectorGcpProjectArrayOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
 	pulumi.RegisterOutputType(DocumentRequiresOutput{})

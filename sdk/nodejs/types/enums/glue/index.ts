@@ -24,6 +24,16 @@ export const CatalogAllowFullTableExternalDataAccess = {
  */
 export type CatalogAllowFullTableExternalDataAccess = (typeof CatalogAllowFullTableExternalDataAccess)[keyof typeof CatalogAllowFullTableExternalDataAccess];
 
+export const CatalogAssetsSyncConfigurationStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether asset synchronization is enabled.
+ */
+export type CatalogAssetsSyncConfigurationStatus = (typeof CatalogAssetsSyncConfigurationStatus)[keyof typeof CatalogAssetsSyncConfigurationStatus];
+
 export const CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess = {
     True: "True",
     False: "False",
@@ -33,6 +43,27 @@ export const CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess = {
  * Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
  */
 export type CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess = (typeof CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess)[keyof typeof CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess];
+
+export const CatalogLineageSyncConfigurationStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether lineage synchronization is enabled.
+ */
+export type CatalogLineageSyncConfigurationStatus = (typeof CatalogLineageSyncConfigurationStatus)[keyof typeof CatalogLineageSyncConfigurationStatus];
+
+export const CatalogManagedCrawlerDetailsStatus = {
+    Provisioning: "PROVISIONING",
+    Provisioned: "PROVISIONED",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The provisioning state of the crawler.
+ */
+export type CatalogManagedCrawlerDetailsStatus = (typeof CatalogManagedCrawlerDetailsStatus)[keyof typeof CatalogManagedCrawlerDetailsStatus];
 
 export const CatalogOverwriteChildResourcePermissionsWithDefault = {
     Accept: "Accept",
@@ -257,6 +288,16 @@ export const JobWorkerType = {
     R2x: "R.2X",
     R4x: "R.4X",
     R8x: "R.8X",
+    G1xGraviton: "G.1X.GRAVITON",
+    G2xGraviton: "G.2X.GRAVITON",
+    G4xGraviton: "G.4X.GRAVITON",
+    G8xGraviton: "G.8X.GRAVITON",
+    G12xGraviton: "G.12X.GRAVITON",
+    G16xGraviton: "G.16X.GRAVITON",
+    R1xGraviton: "R.1X.GRAVITON",
+    R2xGraviton: "R.2X.GRAVITON",
+    R4xGraviton: "R.4X.GRAVITON",
+    R8xGraviton: "R.8X.GRAVITON",
 } as const;
 
 /**

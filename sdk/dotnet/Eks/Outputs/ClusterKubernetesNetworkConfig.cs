@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Eks.Outputs
     public sealed class ClusterKubernetesNetworkConfig
     {
         /// <summary>
-        /// Todo: add description
+        /// Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
         /// </summary>
         public readonly Outputs.ClusterElasticLoadBalancing? ElasticLoadBalancing;
         /// <summary>

@@ -51,6 +51,10 @@ export interface GetCollectionResult {
      * Key Management Service key used to encrypt the collection.
      */
     readonly kmsKeyArn?: string;
+    /**
+     * List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
+     */
+    readonly tags?: outputs.Tag[];
     readonly vectorOptions?: outputs.opensearchserverless.CollectionVectorOptions;
 }
 /**

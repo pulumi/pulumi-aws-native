@@ -20,16 +20,20 @@ __all__ = ['VpcEndpointServicePermissionsArgs', 'VpcEndpointServicePermissions']
 class VpcEndpointServicePermissionsArgs:
     def __init__(__self__, *,
                  service_id: pulumi.Input[_builtins.str],
-                 allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 transit_gateway_attachment_allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpointServicePermissions resource.
 
         :param pulumi.Input[_builtins.str] service_id: The ID of the service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transit_gateway_attachment_allowed_principals: The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
         """
         pulumi.set(__self__, "service_id", service_id)
         if allowed_principals is not None:
             pulumi.set(__self__, "allowed_principals", allowed_principals)
+        if transit_gateway_attachment_allowed_principals is not None:
+            pulumi.set(__self__, "transit_gateway_attachment_allowed_principals", transit_gateway_attachment_allowed_principals)
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
@@ -55,6 +59,18 @@ class VpcEndpointServicePermissionsArgs:
     def allowed_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_principals", value)
 
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentAllowedPrincipals")
+    def transit_gateway_attachment_allowed_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_allowed_principals")
+
+    @transit_gateway_attachment_allowed_principals.setter
+    def transit_gateway_attachment_allowed_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transit_gateway_attachment_allowed_principals", value)
+
 
 @pulumi.type_token("aws-native:ec2:VpcEndpointServicePermissions")
 class VpcEndpointServicePermissions(pulumi.CustomResource):
@@ -64,6 +80,7 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
@@ -72,6 +89,7 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
         :param pulumi.Input[_builtins.str] service_id: The ID of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transit_gateway_attachment_allowed_principals: The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
         """
         ...
     @overload
@@ -99,6 +117,7 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -112,6 +131,7 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
             if service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_id'")
             __props__.__dict__["service_id"] = service_id
+            __props__.__dict__["transit_gateway_attachment_allowed_principals"] = transit_gateway_attachment_allowed_principals
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serviceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcEndpointServicePermissions, __self__).__init__(
@@ -138,6 +158,7 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
 
         __props__.__dict__["allowed_principals"] = None
         __props__.__dict__["service_id"] = None
+        __props__.__dict__["transit_gateway_attachment_allowed_principals"] = None
         return VpcEndpointServicePermissions(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -161,4 +182,12 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
         The ID of the service.
         """
         return pulumi.get(self, "service_id")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentAllowedPrincipals")
+    def transit_gateway_attachment_allowed_principals(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_allowed_principals")
 

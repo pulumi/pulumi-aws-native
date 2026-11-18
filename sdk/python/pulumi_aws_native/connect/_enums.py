@@ -64,6 +64,10 @@ __all__ = [
     'RoutingProfileChannel',
     'RuleAssignSlaActionCaseSlaConfigurationPropertiesType',
     'RuleAssignSlaActionSlaAssignmentType',
+    'RuleCapabilityTiersItem',
+    'RulePreEvaluationFilterFilterType',
+    'RulePreEvaluationFilterOperator',
+    'RulePreEvaluationFilterResourceType',
     'RulePublishStatus',
     'RuleReferenceType',
     'RuleSendInAppNotificationActionPriority',
@@ -244,6 +248,102 @@ class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
     KO_KR = "ko-KR"
     ZH_CN = "zh-CN"
     MS_MY = "ms-MY"
+    AF_ZA = "af-ZA"
+    SQ_AL = "sq-AL"
+    AM_ET = "am-ET"
+    AR_AE = "ar-AE"
+    AR_SA = "ar-SA"
+    HY_AM = "hy-AM"
+    EU_ES = "eu-ES"
+    BE_BY = "be-BY"
+    BS_BA = "bs-BA"
+    BG_BG = "bg-BG"
+    CA_ES = "ca-ES"
+    CKB_IR = "ckb-IR"
+    CKB_IQ = "ckb-IQ"
+    ZH_TW = "zh-TW"
+    HR_HR = "hr-HR"
+    CS_CZ = "cs-CZ"
+    DA_DK = "da-DK"
+    NL_BE = "nl-BE"
+    NL_NL = "nl-NL"
+    EN_AU = "en-AU"
+    EN_IN = "en-IN"
+    EN_IE = "en-IE"
+    EN_NZ = "en-NZ"
+    EN_AB = "en-AB"
+    EN_SG = "en-SG"
+    EN_ZA = "en-ZA"
+    EN_GB = "en-GB"
+    EN_WL = "en-WL"
+    FA_IR = "fa-IR"
+    FA_AF = "fa-AF"
+    FI_FI = "fi-FI"
+    FR_BE = "fr-BE"
+    FR_CA = "fr-CA"
+    GA_IE = "ga-IE"
+    GL_ES = "gl-ES"
+    KA_GE = "ka-GE"
+    DE_AT = "de-AT"
+    DE_CH = "de-CH"
+    EL_GR = "el-GR"
+    GU_IN = "gu-IN"
+    HT_HT = "ht-HT"
+    HE_IL = "he-IL"
+    HI_IN = "hi-IN"
+    HU_HU = "hu-HU"
+    IS_IS = "is-IS"
+    ID_ID = "id-ID"
+    JV_ID = "jv-ID"
+    KM_KH = "km-KH"
+    KN_IN = "kn-IN"
+    KK_KZ = "kk-KZ"
+    LO_LA = "lo-LA"
+    LV_LV = "lv-LV"
+    LT_LT = "lt-LT"
+    MK_MK = "mk-MK"
+    ML_IN = "ml-IN"
+    MR_IN = "mr-IN"
+    NE_NP = "ne-NP"
+    NO_NO = "no-NO"
+    OR_IN = "or-IN"
+    PS_AF = "ps-AF"
+    PL_PL = "pl-PL"
+    PT_PT = "pt-PT"
+    PA_IN = "pa-IN"
+    RO_RO = "ro-RO"
+    RU_RU = "ru-RU"
+    SR_RS = "sr-RS"
+    SI_LK = "si-LK"
+    SK_SK = "sk-SK"
+    SL_SI = "sl-SI"
+    ES_MX = "es-MX"
+    ES_US = "es-US"
+    SU_ID = "su-ID"
+    SW_BI = "sw-BI"
+    SW_KE = "sw-KE"
+    SW_RW = "sw-RW"
+    SW_TZ = "sw-TZ"
+    SW_UG = "sw-UG"
+    SV_SE = "sv-SE"
+    TL_PH = "tl-PH"
+    TA_IN = "ta-IN"
+    TE_IN = "te-IN"
+    TH_TH = "th-TH"
+    TR_TR = "tr-TR"
+    UK_UA = "uk-UA"
+    UZ_UZ = "uz-UZ"
+    VI_VN = "vi-VN"
+    ZU_ZA = "zu-ZA"
+    MY_MM = "my-MM"
+    SO_SO = "so-SO"
+    YUE_HK = "yue-HK"
+    ET_EE = "et-EE"
+    HMN = "hmn"
+    LG_UG = "lg-UG"
+    CY_GB = "cy-GB"
+    XH_ZA = "xh-ZA"
+    BN_BD = "bn-BD"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormMetricConfigurationMetricType")
@@ -673,6 +773,36 @@ class RuleAssignSlaActionCaseSlaConfigurationPropertiesType(_builtins.str, Enum)
 @pulumi.type_token("aws-native:connect:RuleAssignSlaActionSlaAssignmentType")
 class RuleAssignSlaActionSlaAssignmentType(_builtins.str, Enum):
     CASES = "CASES"
+
+
+@pulumi.type_token("aws-native:connect:RuleCapabilityTiersItem")
+class RuleCapabilityTiersItem(_builtins.str, Enum):
+    GENERATIVE_AI = "GenerativeAI"
+
+
+@pulumi.type_token("aws-native:connect:RulePreEvaluationFilterFilterType")
+class RulePreEvaluationFilterFilterType(_builtins.str, Enum):
+    """
+    The type of the filter.
+    """
+    TAG = "TAG"
+
+
+@pulumi.type_token("aws-native:connect:RulePreEvaluationFilterOperator")
+class RulePreEvaluationFilterOperator(_builtins.str, Enum):
+    """
+    The comparison operator for the filter.
+    """
+    EQUALS = "EQUALS"
+
+
+@pulumi.type_token("aws-native:connect:RulePreEvaluationFilterResourceType")
+class RulePreEvaluationFilterResourceType(_builtins.str, Enum):
+    """
+    The type of resource the filter applies to.
+    """
+    CONTACT = "CONTACT"
+    CONTACT_EVALUATION = "CONTACT_EVALUATION"
 
 
 @pulumi.type_token("aws-native:connect:RulePublishStatus")

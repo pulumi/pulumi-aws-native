@@ -7,9 +7,16 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ApplicationAuthConfigAuthType',
     'ApplicationContactHandlingScope',
     'ApplicationType',
 ]
+
+
+@pulumi.type_token("aws-native:appintegrations:ApplicationAuthConfigAuthType")
+class ApplicationAuthConfigAuthType(_builtins.str, Enum):
+    API_KEY = "API_KEY"
+    CONNECT_JWT = "CONNECT_JWT"
 
 
 @pulumi.type_token("aws-native:appintegrations:ApplicationContactHandlingScope")
@@ -26,3 +33,4 @@ class ApplicationType(_builtins.str, Enum):
     STANDARD = "STANDARD"
     SERVICE = "SERVICE"
     MCP_SERVER = "MCP_SERVER"
+    A2A_SERVER = "A2A_SERVER"

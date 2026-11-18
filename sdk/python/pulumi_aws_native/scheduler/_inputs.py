@@ -26,6 +26,10 @@ __all__ = [
     'ScheduleEcsParametersArgsDict',
     'ScheduleEventBridgeParametersArgs',
     'ScheduleEventBridgeParametersArgsDict',
+    'ScheduleEventBridgePutEventsV2ParametersArgs',
+    'ScheduleEventBridgePutEventsV2ParametersArgsDict',
+    'ScheduleEventBridgePutRawEventsParametersArgs',
+    'ScheduleEventBridgePutRawEventsParametersArgsDict',
     'ScheduleFlexibleTimeWindowArgs',
     'ScheduleFlexibleTimeWindowArgsDict',
     'ScheduleKinesisParametersArgs',
@@ -573,6 +577,84 @@ class ScheduleEventBridgeParametersArgs:
         pulumi.set(self, "source", value)
 
 
+class ScheduleEventBridgePutEventsV2ParametersArgsDict(TypedDict):
+    """
+    EventBridge PutEvent V2 predefined target type
+    """
+    detail_type: pulumi.Input[_builtins.str]
+    """
+    Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    The source of the event.
+    """
+
+@pulumi.input_type
+class ScheduleEventBridgePutEventsV2ParametersArgs:
+    def __init__(__self__, *,
+                 detail_type: pulumi.Input[_builtins.str],
+                 source: pulumi.Input[_builtins.str]):
+        """
+        EventBridge PutEvent V2 predefined target type
+
+        :param pulumi.Input[_builtins.str] detail_type: Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+        :param pulumi.Input[_builtins.str] source: The source of the event.
+        """
+        pulumi.set(__self__, "detail_type", detail_type)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="detailType")
+    def detail_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+        """
+        return pulumi.get(self, "detail_type")
+
+    @detail_type.setter
+    def detail_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "detail_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The source of the event.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+
+class ScheduleEventBridgePutRawEventsParametersArgsDict(TypedDict):
+    """
+    EventBridge PutRawEvent predefined target type
+    """
+    metadata: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class ScheduleEventBridgePutRawEventsParametersArgs:
+    def __init__(__self__, *,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        EventBridge PutRawEvent predefined target type
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metadata", value)
+
+
 class ScheduleFlexibleTimeWindowArgsDict(TypedDict):
     """
     Flexible time window allows configuration of a window within which a schedule can be invoked
@@ -1005,6 +1087,8 @@ class ScheduleTargetArgsDict(TypedDict):
     """
     The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
     """
+    event_bridge_put_events_v2_parameters: NotRequired[pulumi.Input[Optional['ScheduleEventBridgePutEventsV2ParametersArgsDict']]]
+    event_bridge_put_raw_events_parameters: NotRequired[pulumi.Input[Optional['ScheduleEventBridgePutRawEventsParametersArgsDict']]]
     input: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
@@ -1034,6 +1118,8 @@ class ScheduleTargetArgs:
                  dead_letter_config: pulumi.Input[Optional['ScheduleDeadLetterConfigArgs']] = None,
                  ecs_parameters: pulumi.Input[Optional['ScheduleEcsParametersArgs']] = None,
                  event_bridge_parameters: pulumi.Input[Optional['ScheduleEventBridgeParametersArgs']] = None,
+                 event_bridge_put_events_v2_parameters: pulumi.Input[Optional['ScheduleEventBridgePutEventsV2ParametersArgs']] = None,
+                 event_bridge_put_raw_events_parameters: pulumi.Input[Optional['ScheduleEventBridgePutRawEventsParametersArgs']] = None,
                  input: pulumi.Input[Optional[_builtins.str]] = None,
                  kinesis_parameters: pulumi.Input[Optional['ScheduleKinesisParametersArgs']] = None,
                  retry_policy: pulumi.Input[Optional['ScheduleRetryPolicyArgs']] = None,
@@ -1061,6 +1147,10 @@ class ScheduleTargetArgs:
             pulumi.set(__self__, "ecs_parameters", ecs_parameters)
         if event_bridge_parameters is not None:
             pulumi.set(__self__, "event_bridge_parameters", event_bridge_parameters)
+        if event_bridge_put_events_v2_parameters is not None:
+            pulumi.set(__self__, "event_bridge_put_events_v2_parameters", event_bridge_put_events_v2_parameters)
+        if event_bridge_put_raw_events_parameters is not None:
+            pulumi.set(__self__, "event_bridge_put_raw_events_parameters", event_bridge_put_raw_events_parameters)
         if input is not None:
             pulumi.set(__self__, "input", input)
         if kinesis_parameters is not None:
@@ -1131,6 +1221,24 @@ class ScheduleTargetArgs:
     @event_bridge_parameters.setter
     def event_bridge_parameters(self, value: pulumi.Input[Optional['ScheduleEventBridgeParametersArgs']]):
         pulumi.set(self, "event_bridge_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventBridgePutEventsV2Parameters")
+    def event_bridge_put_events_v2_parameters(self) -> pulumi.Input[Optional['ScheduleEventBridgePutEventsV2ParametersArgs']]:
+        return pulumi.get(self, "event_bridge_put_events_v2_parameters")
+
+    @event_bridge_put_events_v2_parameters.setter
+    def event_bridge_put_events_v2_parameters(self, value: pulumi.Input[Optional['ScheduleEventBridgePutEventsV2ParametersArgs']]):
+        pulumi.set(self, "event_bridge_put_events_v2_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventBridgePutRawEventsParameters")
+    def event_bridge_put_raw_events_parameters(self) -> pulumi.Input[Optional['ScheduleEventBridgePutRawEventsParametersArgs']]:
+        return pulumi.get(self, "event_bridge_put_raw_events_parameters")
+
+    @event_bridge_put_raw_events_parameters.setter
+    def event_bridge_put_raw_events_parameters(self, value: pulumi.Input[Optional['ScheduleEventBridgePutRawEventsParametersArgs']]):
+        pulumi.set(self, "event_bridge_put_raw_events_parameters", value)
 
     @_builtins.property
     @pulumi.getter

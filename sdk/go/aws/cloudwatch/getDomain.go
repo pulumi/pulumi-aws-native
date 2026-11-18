@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The account-level boundary for CloudWatch Omni. A domain configures the
-// identity providers users sign in through and exposes the endpoint URLs used
-// to reach CloudWatch Omni. Spaces are created within a domain.
+// Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainResult
@@ -26,12 +24,12 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 }
 
 type LookupDomainArgs struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// The Amazon Resource Name (ARN) of the domain.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupDomainResult struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// The Amazon Resource Name (ARN) of the domain.
 	Arn *string `pulumi:"arn"`
 	// The timestamp when the domain was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -42,7 +40,8 @@ type LookupDomainResult struct {
 	// The unique ID of the domain.
 	DomainId *string `pulumi:"domainId"`
 	// The ARN of the Identity Center application. Absent for IAM-only domains.
-	IdentityCenterApplicationArn  *string                              `pulumi:"identityCenterApplicationArn"`
+	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
+	// Identity provider configuration for the domain.
 	IdentityProviderConfiguration *DomainIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
 	// The identity providers configured for the domain.
 	IdentityProviders []DomainIdentityProvidersItem `pulumi:"identityProviders"`
@@ -64,7 +63,7 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 }
 
 type LookupDomainOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// The Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -86,7 +85,7 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// The Amazon Resource Name (ARN) of the domain.
 func (o LookupDomainResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -116,6 +115,7 @@ func (o LookupDomainResultOutput) IdentityCenterApplicationArn() pulumi.StringPt
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// Identity provider configuration for the domain.
 func (o LookupDomainResultOutput) IdentityProviderConfiguration() DomainIdentityProviderConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainIdentityProviderConfiguration {
 		return v.IdentityProviderConfiguration

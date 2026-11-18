@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.S3Tables
         /// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
         /// </summary>
         public readonly Outputs.TableBucketEncryptionConfiguration? EncryptionConfiguration;
+        public readonly Outputs.TableBucketLoggingConfiguration? LoggingConfiguration;
         public readonly Outputs.TableBucketMetricsConfiguration? MetricsConfiguration;
         public readonly Outputs.TableBucketReplicationConfiguration? ReplicationConfiguration;
         /// <summary>
@@ -90,6 +91,8 @@ namespace Pulumi.AwsNative.S3Tables
         private GetTableBucketResult(
             Outputs.TableBucketEncryptionConfiguration? encryptionConfiguration,
 
+            Outputs.TableBucketLoggingConfiguration? loggingConfiguration,
+
             Outputs.TableBucketMetricsConfiguration? metricsConfiguration,
 
             Outputs.TableBucketReplicationConfiguration? replicationConfiguration,
@@ -103,6 +106,7 @@ namespace Pulumi.AwsNative.S3Tables
             Outputs.TableBucketUnreferencedFileRemoval? unreferencedFileRemoval)
         {
             EncryptionConfiguration = encryptionConfiguration;
+            LoggingConfiguration = loggingConfiguration;
             MetricsConfiguration = metricsConfiguration;
             ReplicationConfiguration = replicationConfiguration;
             StorageClassConfiguration = storageClassConfiguration;

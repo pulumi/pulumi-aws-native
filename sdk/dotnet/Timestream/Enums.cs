@@ -8,6 +8,272 @@ using Pulumi;
 namespace Pulumi.AwsNative.Timestream
 {
     /// <summary>
+    /// The DB instance type of the resource at the time of backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbBackupDbInstanceType : IEquatable<InfluxDbBackupDbInstanceType>
+    {
+        private readonly string _value;
+
+        private InfluxDbBackupDbInstanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbBackupDbInstanceType DbInfluxMedium { get; } = new InfluxDbBackupDbInstanceType("db.influx.medium");
+        public static InfluxDbBackupDbInstanceType DbInfluxLarge { get; } = new InfluxDbBackupDbInstanceType("db.influx.large");
+        public static InfluxDbBackupDbInstanceType DbInfluxXlarge { get; } = new InfluxDbBackupDbInstanceType("db.influx.xlarge");
+        public static InfluxDbBackupDbInstanceType DbInflux2xlarge { get; } = new InfluxDbBackupDbInstanceType("db.influx.2xlarge");
+        public static InfluxDbBackupDbInstanceType DbInflux4xlarge { get; } = new InfluxDbBackupDbInstanceType("db.influx.4xlarge");
+        public static InfluxDbBackupDbInstanceType DbInflux8xlarge { get; } = new InfluxDbBackupDbInstanceType("db.influx.8xlarge");
+        public static InfluxDbBackupDbInstanceType DbInflux12xlarge { get; } = new InfluxDbBackupDbInstanceType("db.influx.12xlarge");
+        public static InfluxDbBackupDbInstanceType DbInflux16xlarge { get; } = new InfluxDbBackupDbInstanceType("db.influx.16xlarge");
+        public static InfluxDbBackupDbInstanceType DbInflux24xlarge { get; } = new InfluxDbBackupDbInstanceType("db.influx.24xlarge");
+
+        public static bool operator ==(InfluxDbBackupDbInstanceType left, InfluxDbBackupDbInstanceType right) => left.Equals(right);
+        public static bool operator !=(InfluxDbBackupDbInstanceType left, InfluxDbBackupDbInstanceType right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbBackupDbInstanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbBackupDbInstanceType other && Equals(other);
+        public bool Equals(InfluxDbBackupDbInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The storage type of the resource at the time of backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbBackupDbStorageType : IEquatable<InfluxDbBackupDbStorageType>
+    {
+        private readonly string _value;
+
+        private InfluxDbBackupDbStorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbBackupDbStorageType InfluxIoIncludedT1 { get; } = new InfluxDbBackupDbStorageType("InfluxIOIncludedT1");
+        public static InfluxDbBackupDbStorageType InfluxIoIncludedT2 { get; } = new InfluxDbBackupDbStorageType("InfluxIOIncludedT2");
+        public static InfluxDbBackupDbStorageType InfluxIoIncludedT3 { get; } = new InfluxDbBackupDbStorageType("InfluxIOIncludedT3");
+
+        public static bool operator ==(InfluxDbBackupDbStorageType left, InfluxDbBackupDbStorageType right) => left.Equals(right);
+        public static bool operator !=(InfluxDbBackupDbStorageType left, InfluxDbBackupDbStorageType right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbBackupDbStorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbBackupDbStorageType other && Equals(other);
+        public bool Equals(InfluxDbBackupDbStorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The deployment type of the resource that the backup was created from.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbBackupDeploymentType : IEquatable<InfluxDbBackupDeploymentType>
+    {
+        private readonly string _value;
+
+        private InfluxDbBackupDeploymentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbBackupDeploymentType SingleAz { get; } = new InfluxDbBackupDeploymentType("SINGLE_AZ");
+        public static InfluxDbBackupDeploymentType WithMultiazStandby { get; } = new InfluxDbBackupDeploymentType("WITH_MULTIAZ_STANDBY");
+        public static InfluxDbBackupDeploymentType MultiNodeReadReplicas { get; } = new InfluxDbBackupDeploymentType("MULTI_NODE_READ_REPLICAS");
+
+        public static bool operator ==(InfluxDbBackupDeploymentType left, InfluxDbBackupDeploymentType right) => left.Equals(right);
+        public static bool operator !=(InfluxDbBackupDeploymentType left, InfluxDbBackupDeploymentType right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbBackupDeploymentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbBackupDeploymentType other && Equals(other);
+        public bool Equals(InfluxDbBackupDeploymentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The engine type of the resource that the backup was created from.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbBackupEngineType : IEquatable<InfluxDbBackupEngineType>
+    {
+        private readonly string _value;
+
+        private InfluxDbBackupEngineType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbBackupEngineType InfluxdbV2 { get; } = new InfluxDbBackupEngineType("INFLUXDB_V2");
+        public static InfluxDbBackupEngineType InfluxdbV3Core { get; } = new InfluxDbBackupEngineType("INFLUXDB_V3_CORE");
+        public static InfluxDbBackupEngineType InfluxdbV3Enterprise { get; } = new InfluxDbBackupEngineType("INFLUXDB_V3_ENTERPRISE");
+
+        public static bool operator ==(InfluxDbBackupEngineType left, InfluxDbBackupEngineType right) => left.Equals(right);
+        public static bool operator !=(InfluxDbBackupEngineType left, InfluxDbBackupEngineType right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbBackupEngineType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbBackupEngineType other && Equals(other);
+        public bool Equals(InfluxDbBackupEngineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The failover mode of the resource at the time of backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbBackupFailoverMode : IEquatable<InfluxDbBackupFailoverMode>
+    {
+        private readonly string _value;
+
+        private InfluxDbBackupFailoverMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbBackupFailoverMode Automatic { get; } = new InfluxDbBackupFailoverMode("AUTOMATIC");
+        public static InfluxDbBackupFailoverMode NoFailover { get; } = new InfluxDbBackupFailoverMode("NO_FAILOVER");
+
+        public static bool operator ==(InfluxDbBackupFailoverMode left, InfluxDbBackupFailoverMode right) => left.Equals(right);
+        public static bool operator !=(InfluxDbBackupFailoverMode left, InfluxDbBackupFailoverMode right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbBackupFailoverMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbBackupFailoverMode other && Equals(other);
+        public bool Equals(InfluxDbBackupFailoverMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network type of the resource at the time of backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbBackupNetworkType : IEquatable<InfluxDbBackupNetworkType>
+    {
+        private readonly string _value;
+
+        private InfluxDbBackupNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbBackupNetworkType Ipv4 { get; } = new InfluxDbBackupNetworkType("IPV4");
+        public static InfluxDbBackupNetworkType Dual { get; } = new InfluxDbBackupNetworkType("DUAL");
+
+        public static bool operator ==(InfluxDbBackupNetworkType left, InfluxDbBackupNetworkType right) => left.Equals(right);
+        public static bool operator !=(InfluxDbBackupNetworkType left, InfluxDbBackupNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbBackupNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbBackupNetworkType other && Equals(other);
+        public bool Equals(InfluxDbBackupNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbBackupStatus : IEquatable<InfluxDbBackupStatus>
+    {
+        private readonly string _value;
+
+        private InfluxDbBackupStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbBackupStatus InProgress { get; } = new InfluxDbBackupStatus("IN_PROGRESS");
+        public static InfluxDbBackupStatus Completed { get; } = new InfluxDbBackupStatus("COMPLETED");
+        public static InfluxDbBackupStatus Failed { get; } = new InfluxDbBackupStatus("FAILED");
+        public static InfluxDbBackupStatus Deleting { get; } = new InfluxDbBackupStatus("DELETING");
+        public static InfluxDbBackupStatus Deleted { get; } = new InfluxDbBackupStatus("DELETED");
+
+        public static bool operator ==(InfluxDbBackupStatus left, InfluxDbBackupStatus right) => left.Equals(right);
+        public static bool operator !=(InfluxDbBackupStatus left, InfluxDbBackupStatus right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbBackupStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbBackupStatus other && Equals(other);
+        public bool Equals(InfluxDbBackupStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of backup. Backups created through this resource type are always ON_DEMAND.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbBackupType : IEquatable<InfluxDbBackupType>
+    {
+        private readonly string _value;
+
+        private InfluxDbBackupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbBackupType Hourly { get; } = new InfluxDbBackupType("HOURLY");
+        public static InfluxDbBackupType Daily { get; } = new InfluxDbBackupType("DAILY");
+        public static InfluxDbBackupType Weekly { get; } = new InfluxDbBackupType("WEEKLY");
+        public static InfluxDbBackupType Monthly { get; } = new InfluxDbBackupType("MONTHLY");
+        public static InfluxDbBackupType CustomSchedule { get; } = new InfluxDbBackupType("CUSTOM_SCHEDULE");
+        public static InfluxDbBackupType OnDemand { get; } = new InfluxDbBackupType("ON_DEMAND");
+        public static InfluxDbBackupType Continuous { get; } = new InfluxDbBackupType("CONTINUOUS");
+
+        public static bool operator ==(InfluxDbBackupType left, InfluxDbBackupType right) => left.Equals(right);
+        public static bool operator !=(InfluxDbBackupType left, InfluxDbBackupType right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbBackupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbBackupType other && Equals(other);
+        public bool Equals(InfluxDbBackupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The compute instance of the InfluxDB cluster.
     /// </summary>
     [EnumType]
@@ -163,6 +429,42 @@ namespace Pulumi.AwsNative.Timestream
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InfluxDbClusterFailoverMode other && Equals(other);
         public bool Equals(InfluxDbClusterFailoverMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The instance mode reported by DB cluster members.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfluxDbClusterMemberModeCountMode : IEquatable<InfluxDbClusterMemberModeCountMode>
+    {
+        private readonly string _value;
+
+        private InfluxDbClusterMemberModeCountMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfluxDbClusterMemberModeCountMode Primary { get; } = new InfluxDbClusterMemberModeCountMode("PRIMARY");
+        public static InfluxDbClusterMemberModeCountMode Standby { get; } = new InfluxDbClusterMemberModeCountMode("STANDBY");
+        public static InfluxDbClusterMemberModeCountMode Replica { get; } = new InfluxDbClusterMemberModeCountMode("REPLICA");
+        public static InfluxDbClusterMemberModeCountMode Ingest { get; } = new InfluxDbClusterMemberModeCountMode("INGEST");
+        public static InfluxDbClusterMemberModeCountMode Query { get; } = new InfluxDbClusterMemberModeCountMode("QUERY");
+        public static InfluxDbClusterMemberModeCountMode Compact { get; } = new InfluxDbClusterMemberModeCountMode("COMPACT");
+        public static InfluxDbClusterMemberModeCountMode Process { get; } = new InfluxDbClusterMemberModeCountMode("PROCESS");
+
+        public static bool operator ==(InfluxDbClusterMemberModeCountMode left, InfluxDbClusterMemberModeCountMode right) => left.Equals(right);
+        public static bool operator !=(InfluxDbClusterMemberModeCountMode left, InfluxDbClusterMemberModeCountMode right) => !left.Equals(right);
+
+        public static explicit operator string(InfluxDbClusterMemberModeCountMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfluxDbClusterMemberModeCountMode other && Equals(other);
+        public bool Equals(InfluxDbClusterMemberModeCountMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

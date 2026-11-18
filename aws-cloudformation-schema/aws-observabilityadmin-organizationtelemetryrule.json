@@ -14,12 +14,12 @@
     "ResourceType" : {
       "description" : "Resource Type associated with the Organization Telemetry Rule",
       "type" : "string",
-      "enum" : [ "AWS::EC2::VPC", "AWS::WAFv2::WebACL", "AWS::CloudTrail", "AWS::EKS::Cluster", "AWS::ElasticLoadBalancingV2::LoadBalancer", "AWS::EC2::Instance", "AWS::SecurityHub::Hub", "AWS::SecurityHub::HubV2", "AWS::S3::Bucket", "AWS::MSK::Cluster", "AWS::CloudFront::Distribution", "AWS::CloudWatch::OTelEnrichment" ]
+      "enum" : [ "AWS::EC2::VPC", "AWS::WAFv2::WebACL", "AWS::CloudTrail", "AWS::EKS::Cluster", "AWS::ElasticLoadBalancingV2::LoadBalancer", "AWS::EC2::Instance", "AWS::SecurityHub::Hub", "AWS::SecurityHub::HubV2", "AWS::S3::Bucket", "AWS::MSK::Cluster", "AWS::CloudFront::Distribution", "AWS::CloudWatch::OTelEnrichment", "AWS::XRay::TransactionSearchConfig" ]
     },
     "TelemetryType" : {
       "description" : "Telemetry Type associated with the Organization Telemetry Rule",
       "type" : "string",
-      "enum" : [ "Logs", "Metrics" ]
+      "enum" : [ "Logs", "Traces", "Metrics", "Insights" ]
     },
     "Scope" : {
       "description" : "Selection Criteria on scope level for rule application",

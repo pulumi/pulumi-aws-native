@@ -29,8 +29,16 @@ type LookupTransitGatewayPeeringAttachmentArgs struct {
 }
 
 type LookupTransitGatewayPeeringAttachmentResult struct {
+	// Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+	AccepterAllowMultipathResilience *bool `pulumi:"accepterAllowMultipathResilience"`
 	// The time the transit gateway peering attachment was created.
 	CreationTime *string `pulumi:"creationTime"`
+	// The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)
+	MultipathResilienceStatus *string `pulumi:"multipathResilienceStatus"`
+	// Whether the requester side of the peering attachment has opted in to MultipathResilience.
+	RequesterAllowMultipathResilience *bool `pulumi:"requesterAllowMultipathResilience"`
+	// The MultipathResilience mode chosen by the requester side of the peering attachment.
+	RequesterMultipathResilienceMode *string `pulumi:"requesterMultipathResilienceMode"`
 	// The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
 	State *string `pulumi:"state"`
 	// The status of the transit gateway peering attachment.
@@ -69,9 +77,29 @@ func (o LookupTransitGatewayPeeringAttachmentResultOutput) ToLookupTransitGatewa
 	return o
 }
 
+// Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+func (o LookupTransitGatewayPeeringAttachmentResultOutput) AccepterAllowMultipathResilience() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayPeeringAttachmentResult) *bool { return v.AccepterAllowMultipathResilience }).(pulumi.BoolPtrOutput)
+}
+
 // The time the transit gateway peering attachment was created.
 func (o LookupTransitGatewayPeeringAttachmentResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayPeeringAttachmentResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)
+func (o LookupTransitGatewayPeeringAttachmentResultOutput) MultipathResilienceStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayPeeringAttachmentResult) *string { return v.MultipathResilienceStatus }).(pulumi.StringPtrOutput)
+}
+
+// Whether the requester side of the peering attachment has opted in to MultipathResilience.
+func (o LookupTransitGatewayPeeringAttachmentResultOutput) RequesterAllowMultipathResilience() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayPeeringAttachmentResult) *bool { return v.RequesterAllowMultipathResilience }).(pulumi.BoolPtrOutput)
+}
+
+// The MultipathResilience mode chosen by the requester side of the peering attachment.
+func (o LookupTransitGatewayPeeringAttachmentResultOutput) RequesterMultipathResilienceMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayPeeringAttachmentResult) *string { return v.RequesterMultipathResilienceMode }).(pulumi.StringPtrOutput)
 }
 
 // The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.

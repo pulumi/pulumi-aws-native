@@ -20,6 +20,7 @@ __all__ = [
     'WorkflowCode',
     'WorkflowCodeS3Location',
     'WorkflowEncryptionConfiguration',
+    'WorkflowEnvironment',
     'WorkflowLoggingConfiguration',
     'WorkflowNetworkConfiguration',
     'WorkflowS3Location',
@@ -143,6 +144,24 @@ class WorkflowEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class WorkflowEnvironment(dict):
+    """
+    Contains the environment variables that tasks in a workflow use during execution.
+    """
+    def __init__(__self__, *,
+                 variables: Mapping[str, _builtins.str]):
+        """
+        Contains the environment variables that tasks in a workflow use during execution.
+        """
+        pulumi.set(__self__, "variables", variables)
+
+    @_builtins.property
+    @pulumi.getter
+    def variables(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "variables")
 
 
 @pulumi.output_type

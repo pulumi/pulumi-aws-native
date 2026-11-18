@@ -28,6 +28,8 @@ type Cluster struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// The KMS key that encrypts data on the cluster.
 	KmsEncryptionKey pulumi.StringPtrOutput `pulumi:"kmsEncryptionKey"`
+	// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+	MetricGroups ClusterMetricGroupArrayOutput `pulumi:"metricGroups"`
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties MultiRegionPropertiesPropertiesPtrOutput `pulumi:"multiRegionProperties"`
 	// The IAM policy applied to the cluster resource.
@@ -96,6 +98,8 @@ type clusterArgs struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// The KMS key that encrypts data on the cluster.
 	KmsEncryptionKey *string `pulumi:"kmsEncryptionKey"`
+	// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+	MetricGroups []ClusterMetricGroup `pulumi:"metricGroups"`
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties *MultiRegionPropertiesProperties `pulumi:"multiRegionProperties"`
 	// The IAM policy applied to the cluster resource.
@@ -110,6 +114,8 @@ type ClusterArgs struct {
 	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// The KMS key that encrypts data on the cluster.
 	KmsEncryptionKey pulumi.StringPtrInput
+	// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+	MetricGroups ClusterMetricGroupArrayInput
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties MultiRegionPropertiesPropertiesPtrInput
 	// The IAM policy applied to the cluster resource.
@@ -183,6 +189,11 @@ func (o ClusterOutput) Identifier() pulumi.StringOutput {
 // The KMS key that encrypts data on the cluster.
 func (o ClusterOutput) KmsEncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsEncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+func (o ClusterOutput) MetricGroups() ClusterMetricGroupArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterMetricGroupArrayOutput { return v.MetricGroups }).(ClusterMetricGroupArrayOutput)
 }
 
 // The Multi-region properties associated to this cluster.

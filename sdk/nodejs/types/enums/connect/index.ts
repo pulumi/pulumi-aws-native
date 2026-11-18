@@ -166,6 +166,102 @@ export const EvaluationFormLanguageConfigurationFormLanguage = {
     KoKr: "ko-KR",
     ZhCn: "zh-CN",
     MsMy: "ms-MY",
+    AfZa: "af-ZA",
+    SqAl: "sq-AL",
+    AmEt: "am-ET",
+    ArAe: "ar-AE",
+    ArSa: "ar-SA",
+    HyAm: "hy-AM",
+    EuEs: "eu-ES",
+    BeBy: "be-BY",
+    BsBa: "bs-BA",
+    BgBg: "bg-BG",
+    CaEs: "ca-ES",
+    CkbIr: "ckb-IR",
+    CkbIq: "ckb-IQ",
+    ZhTw: "zh-TW",
+    HrHr: "hr-HR",
+    CsCz: "cs-CZ",
+    DaDk: "da-DK",
+    NlBe: "nl-BE",
+    NlNl: "nl-NL",
+    EnAu: "en-AU",
+    EnIn: "en-IN",
+    EnIe: "en-IE",
+    EnNz: "en-NZ",
+    EnAb: "en-AB",
+    EnSg: "en-SG",
+    EnZa: "en-ZA",
+    EnGb: "en-GB",
+    EnWl: "en-WL",
+    FaIr: "fa-IR",
+    FaAf: "fa-AF",
+    FiFi: "fi-FI",
+    FrBe: "fr-BE",
+    FrCa: "fr-CA",
+    GaIe: "ga-IE",
+    GlEs: "gl-ES",
+    KaGe: "ka-GE",
+    DeAt: "de-AT",
+    DeCh: "de-CH",
+    ElGr: "el-GR",
+    GuIn: "gu-IN",
+    HtHt: "ht-HT",
+    HeIl: "he-IL",
+    HiIn: "hi-IN",
+    HuHu: "hu-HU",
+    IsIs: "is-IS",
+    IdId: "id-ID",
+    JvId: "jv-ID",
+    KmKh: "km-KH",
+    KnIn: "kn-IN",
+    KkKz: "kk-KZ",
+    LoLa: "lo-LA",
+    LvLv: "lv-LV",
+    LtLt: "lt-LT",
+    MkMk: "mk-MK",
+    MlIn: "ml-IN",
+    MrIn: "mr-IN",
+    NeNp: "ne-NP",
+    NoNo: "no-NO",
+    OrIn: "or-IN",
+    PsAf: "ps-AF",
+    PlPl: "pl-PL",
+    PtPt: "pt-PT",
+    PaIn: "pa-IN",
+    RoRo: "ro-RO",
+    RuRu: "ru-RU",
+    SrRs: "sr-RS",
+    SiLk: "si-LK",
+    SkSk: "sk-SK",
+    SlSi: "sl-SI",
+    EsMx: "es-MX",
+    EsUs: "es-US",
+    SuId: "su-ID",
+    SwBi: "sw-BI",
+    SwKe: "sw-KE",
+    SwRw: "sw-RW",
+    SwTz: "sw-TZ",
+    SwUg: "sw-UG",
+    SvSe: "sv-SE",
+    TlPh: "tl-PH",
+    TaIn: "ta-IN",
+    TeIn: "te-IN",
+    ThTh: "th-TH",
+    TrTr: "tr-TR",
+    UkUa: "uk-UA",
+    UzUz: "uz-UZ",
+    ViVn: "vi-VN",
+    ZuZa: "zu-ZA",
+    MyMm: "my-MM",
+    SoSo: "so-SO",
+    YueHk: "yue-HK",
+    EtEe: "et-EE",
+    Hmn: "hmn",
+    LgUg: "lg-UG",
+    CyGb: "cy-GB",
+    XhZa: "xh-ZA",
+    BnBd: "bn-BD",
 } as const;
 
 /**
@@ -643,6 +739,40 @@ export const RuleAssignSlaActionSlaAssignmentType = {
 } as const;
 
 export type RuleAssignSlaActionSlaAssignmentType = (typeof RuleAssignSlaActionSlaAssignmentType)[keyof typeof RuleAssignSlaActionSlaAssignmentType];
+
+export const RuleCapabilityTiersItem = {
+    GenerativeAi: "GenerativeAI",
+} as const;
+
+export type RuleCapabilityTiersItem = (typeof RuleCapabilityTiersItem)[keyof typeof RuleCapabilityTiersItem];
+
+export const RulePreEvaluationFilterFilterType = {
+    Tag: "TAG",
+} as const;
+
+/**
+ * The type of the filter.
+ */
+export type RulePreEvaluationFilterFilterType = (typeof RulePreEvaluationFilterFilterType)[keyof typeof RulePreEvaluationFilterFilterType];
+
+export const RulePreEvaluationFilterOperator = {
+    Equals: "EQUALS",
+} as const;
+
+/**
+ * The comparison operator for the filter.
+ */
+export type RulePreEvaluationFilterOperator = (typeof RulePreEvaluationFilterOperator)[keyof typeof RulePreEvaluationFilterOperator];
+
+export const RulePreEvaluationFilterResourceType = {
+    Contact: "CONTACT",
+    ContactEvaluation: "CONTACT_EVALUATION",
+} as const;
+
+/**
+ * The type of resource the filter applies to.
+ */
+export type RulePreEvaluationFilterResourceType = (typeof RulePreEvaluationFilterResourceType)[keyof typeof RulePreEvaluationFilterResourceType];
 
 export const RulePublishStatus = {
     Draft: "DRAFT",

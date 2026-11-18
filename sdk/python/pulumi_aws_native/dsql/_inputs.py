@@ -13,11 +13,47 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'ClusterMetricGroupArgs',
+    'ClusterMetricGroupArgsDict',
     'MultiRegionPropertiesPropertiesArgs',
     'MultiRegionPropertiesPropertiesArgsDict',
 ]
+
+class ClusterMetricGroupArgsDict(TypedDict):
+    """
+    An Advanced monitoring metric group.
+    """
+    metric_group: pulumi.Input['ClusterMetricGroupMetricGroup']
+    """
+    The name of the metric group. Valid values: STATEMENT_STATISTICS.
+    """
+
+@pulumi.input_type
+class ClusterMetricGroupArgs:
+    def __init__(__self__, *,
+                 metric_group: pulumi.Input['ClusterMetricGroupMetricGroup']):
+        """
+        An Advanced monitoring metric group.
+
+        :param pulumi.Input['ClusterMetricGroupMetricGroup'] metric_group: The name of the metric group. Valid values: STATEMENT_STATISTICS.
+        """
+        pulumi.set(__self__, "metric_group", metric_group)
+
+    @_builtins.property
+    @pulumi.getter(name="metricGroup")
+    def metric_group(self) -> pulumi.Input['ClusterMetricGroupMetricGroup']:
+        """
+        The name of the metric group. Valid values: STATEMENT_STATISTICS.
+        """
+        return pulumi.get(self, "metric_group")
+
+    @metric_group.setter
+    def metric_group(self, value: pulumi.Input['ClusterMetricGroupMetricGroup']):
+        pulumi.set(self, "metric_group", value)
+
 
 class MultiRegionPropertiesPropertiesArgsDict(TypedDict):
     """

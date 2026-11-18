@@ -33,6 +33,15 @@ __all__ = [
     'AlarmTagsPropagation',
     'AlarmWallClockWindow',
     'AlarmWarmUpConfiguration',
+    'AlertCondition',
+    'AlertEvaluation',
+    'AlertNoData',
+    'AlertNotificationRule',
+    'AlertQuery',
+    'AlertRule',
+    'AlertTarget',
+    'AlertTelemetryRule',
+    'AlertTrigger',
     'CompositeAlarmActionConfiguration',
     'CompositeAlarmAlarmTagsPropagation',
     'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipal',
@@ -1008,6 +1017,443 @@ class AlarmWarmUpConfiguration(dict):
          You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
         """
         return pulumi.get(self, "warm_up_period_duration_in_minutes")
+
+
+@pulumi.output_type
+class AlertCondition(dict):
+    """
+    The thresholds that set the alert's state. Specify at least one of WarningThreshold and CriticalThreshold.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "criticalThreshold":
+            suggest = "critical_threshold"
+        elif key == "thresholdField":
+            suggest = "threshold_field"
+        elif key == "thresholdMode":
+            suggest = "threshold_mode"
+        elif key == "warningThreshold":
+            suggest = "warning_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparator: Optional['AlertConditionComparator'] = None,
+                 critical_threshold: Optional[_builtins.float] = None,
+                 threshold_field: Optional[_builtins.str] = None,
+                 threshold_mode: Optional['AlertConditionThresholdMode'] = None,
+                 warning_threshold: Optional[_builtins.float] = None):
+        """
+        The thresholds that set the alert's state. Specify at least one of WarningThreshold and CriticalThreshold.
+
+        :param 'AlertConditionComparator' comparator: The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+        :param _builtins.float critical_threshold: The value at which the alert enters the CRITICAL state.
+        :param _builtins.str threshold_field: The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+        :param 'AlertConditionThresholdMode' threshold_mode: How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+        :param _builtins.float warning_threshold: The value at which the alert enters the WARNING state.
+        """
+        if comparator is not None:
+            pulumi.set(__self__, "comparator", comparator)
+        if critical_threshold is not None:
+            pulumi.set(__self__, "critical_threshold", critical_threshold)
+        if threshold_field is not None:
+            pulumi.set(__self__, "threshold_field", threshold_field)
+        if threshold_mode is not None:
+            pulumi.set(__self__, "threshold_mode", threshold_mode)
+        if warning_threshold is not None:
+            pulumi.set(__self__, "warning_threshold", warning_threshold)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparator(self) -> Optional['AlertConditionComparator']:
+        """
+        The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+        """
+        return pulumi.get(self, "comparator")
+
+    @_builtins.property
+    @pulumi.getter(name="criticalThreshold")
+    def critical_threshold(self) -> Optional[_builtins.float]:
+        """
+        The value at which the alert enters the CRITICAL state.
+        """
+        return pulumi.get(self, "critical_threshold")
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdField")
+    def threshold_field(self) -> Optional[_builtins.str]:
+        """
+        The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+        """
+        return pulumi.get(self, "threshold_field")
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdMode")
+    def threshold_mode(self) -> Optional['AlertConditionThresholdMode']:
+        """
+        How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+        """
+        return pulumi.get(self, "threshold_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="warningThreshold")
+    def warning_threshold(self) -> Optional[_builtins.float]:
+        """
+        The value at which the alert enters the WARNING state.
+        """
+        return pulumi.get(self, "warning_threshold")
+
+
+@pulumi.output_type
+class AlertEvaluation(dict):
+    """
+    How often the alert is evaluated, and how long a change must last before the state changes.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalSeconds":
+            suggest = "interval_seconds"
+        elif key == "pendingDurationSeconds":
+            suggest = "pending_duration_seconds"
+        elif key == "recoveryDurationSeconds":
+            suggest = "recovery_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertEvaluation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertEvaluation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertEvaluation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval_seconds: _builtins.int,
+                 pending_duration_seconds: Optional[_builtins.int] = None,
+                 recovery_duration_seconds: Optional[_builtins.int] = None):
+        """
+        How often the alert is evaluated, and how long a change must last before the state changes.
+
+        :param _builtins.int interval_seconds: The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+        :param _builtins.int pending_duration_seconds: How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+        :param _builtins.int recovery_duration_seconds: How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+        """
+        pulumi.set(__self__, "interval_seconds", interval_seconds)
+        if pending_duration_seconds is not None:
+            pulumi.set(__self__, "pending_duration_seconds", pending_duration_seconds)
+        if recovery_duration_seconds is not None:
+            pulumi.set(__self__, "recovery_duration_seconds", recovery_duration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> _builtins.int:
+        """
+        The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingDurationSeconds")
+    def pending_duration_seconds(self) -> Optional[_builtins.int]:
+        """
+        How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+        """
+        return pulumi.get(self, "pending_duration_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryDurationSeconds")
+    def recovery_duration_seconds(self) -> Optional[_builtins.int]:
+        """
+        How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+        """
+        return pulumi.get(self, "recovery_duration_seconds")
+
+
+@pulumi.output_type
+class AlertNoData(dict):
+    """
+    How the alert behaves when an evaluation returns no data. If omitted, the alert reports NODATA.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "treatAs":
+            suggest = "treat_as"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertNoData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertNoData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertNoData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 treat_as: 'AlertNoDataTreatAs'):
+        """
+        How the alert behaves when an evaluation returns no data. If omitted, the alert reports NODATA.
+
+        :param 'AlertNoDataTreatAs' treat_as: The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+        """
+        pulumi.set(__self__, "treat_as", treat_as)
+
+    @_builtins.property
+    @pulumi.getter(name="treatAs")
+    def treat_as(self) -> 'AlertNoDataTreatAs':
+        """
+        The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+        """
+        return pulumi.get(self, "treat_as")
+
+
+@pulumi.output_type
+class AlertNotificationRule(dict):
+    """
+    A notification rule: which alert states trigger it, and where the notification is sent.
+    """
+    def __init__(__self__, *,
+                 target: 'outputs.AlertTarget',
+                 trigger: 'outputs.AlertTrigger'):
+        """
+        A notification rule: which alert states trigger it, and where the notification is sent.
+        """
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> 'outputs.AlertTarget':
+        return pulumi.get(self, "target")
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> 'outputs.AlertTrigger':
+        return pulumi.get(self, "trigger")
+
+
+@pulumi.output_type
+class AlertQuery(dict):
+    """
+    The query the alert runs, and the language it is written in.
+    """
+    def __init__(__self__, *,
+                 expression: _builtins.str,
+                 language: 'AlertQueryLanguage'):
+        """
+        The query the alert runs, and the language it is written in.
+
+        :param _builtins.str expression: The query expression. For PromQL, the series value is returned in a field named value.
+        :param 'AlertQueryLanguage' language: The query language. Valid values: SQL, PROMQL.
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "language", language)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        The query expression. For PromQL, the series value is returned in a field named value.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> 'AlertQueryLanguage':
+        """
+        The query language. Valid values: SQL, PROMQL.
+        """
+        return pulumi.get(self, "language")
+
+
+@pulumi.output_type
+class AlertRule(dict):
+    """
+    The rule that defines how the alert is evaluated.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "telemetryRule":
+            suggest = "telemetry_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 telemetry_rule: 'outputs.AlertTelemetryRule'):
+        """
+        The rule that defines how the alert is evaluated.
+        """
+        pulumi.set(__self__, "telemetry_rule", telemetry_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetryRule")
+    def telemetry_rule(self) -> 'outputs.AlertTelemetryRule':
+        return pulumi.get(self, "telemetry_rule")
+
+
+@pulumi.output_type
+class AlertTarget(dict):
+    """
+    Where the notification is sent.
+    """
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 type: 'AlertTargetType',
+                 metadata: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Where the notification is sent.
+
+        :param _builtins.str arn: The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+        :param 'AlertTargetType' type: The target type. Valid values: sns, slack, pagerduty.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "type", type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'AlertTargetType':
+        """
+        The target type. Valid values: sns, slack, pagerduty.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class AlertTelemetryRule(dict):
+    """
+    A rule that queries telemetry, evaluates the result against a condition, and sets how missing data is handled.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noData":
+            suggest = "no_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertTelemetryRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertTelemetryRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertTelemetryRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: 'outputs.AlertCondition',
+                 evaluation: 'outputs.AlertEvaluation',
+                 query: 'outputs.AlertQuery',
+                 no_data: Optional['outputs.AlertNoData'] = None):
+        """
+        A rule that queries telemetry, evaluates the result against a condition, and sets how missing data is handled.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "evaluation", evaluation)
+        pulumi.set(__self__, "query", query)
+        if no_data is not None:
+            pulumi.set(__self__, "no_data", no_data)
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> 'outputs.AlertCondition':
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluation(self) -> 'outputs.AlertEvaluation':
+        return pulumi.get(self, "evaluation")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> 'outputs.AlertQuery':
+        return pulumi.get(self, "query")
+
+    @_builtins.property
+    @pulumi.getter(name="noData")
+    def no_data(self) -> Optional['outputs.AlertNoData']:
+        return pulumi.get(self, "no_data")
+
+
+@pulumi.output_type
+class AlertTrigger(dict):
+    """
+    The alert states that trigger the notification rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stateValues":
+            suggest = "state_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state_values: Optional[Sequence['AlertTriggerStateValuesItem']] = None):
+        """
+        The alert states that trigger the notification rule.
+
+        :param Sequence['AlertTriggerStateValuesItem'] state_values: The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+        """
+        if state_values is not None:
+            pulumi.set(__self__, "state_values", state_values)
+
+    @_builtins.property
+    @pulumi.getter(name="stateValues")
+    def state_values(self) -> Optional[Sequence['AlertTriggerStateValuesItem']]:
+        """
+        The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+        """
+        return pulumi.get(self, "state_values")
 
 
 @pulumi.output_type
@@ -2203,8 +2649,8 @@ class SpaceEncryptionConfiguration(dict):
         """
         The encryption configuration for the space.
 
-        :param 'SpaceEncryptionConfigurationEncryptionStrategy' encryption_strategy: Whether the space is encrypted with an AWS owned key or a customer managed key.
-        :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+        :param 'SpaceEncryptionConfigurationEncryptionStrategy' encryption_strategy: Which kind of key to use. Required.
+        :param _builtins.str kms_key_arn: Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
         """
         pulumi.set(__self__, "encryption_strategy", encryption_strategy)
         if kms_key_arn is not None:
@@ -2214,7 +2660,7 @@ class SpaceEncryptionConfiguration(dict):
     @pulumi.getter(name="encryptionStrategy")
     def encryption_strategy(self) -> 'SpaceEncryptionConfigurationEncryptionStrategy':
         """
-        Whether the space is encrypted with an AWS owned key or a customer managed key.
+        Which kind of key to use. Required.
         """
         return pulumi.get(self, "encryption_strategy")
 
@@ -2222,7 +2668,7 @@ class SpaceEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+        Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
         """
         return pulumi.get(self, "kms_key_arn")
 

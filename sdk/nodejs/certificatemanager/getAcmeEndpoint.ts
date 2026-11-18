@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+ * Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
  */
 export function getAcmeEndpoint(args: GetAcmeEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetAcmeEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,7 +44,7 @@ export interface GetAcmeEndpointResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+ * Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
  */
 export function getAcmeEndpointOutput(args: GetAcmeEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAcmeEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

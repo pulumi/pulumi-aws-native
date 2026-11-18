@@ -71,7 +71,7 @@ class GetDomainResult:
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        The Amazon Resource Name (ARN) of the domain.
         """
         return pulumi.get(self, "arn")
 
@@ -118,6 +118,9 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="identityProviderConfiguration")
     def identity_provider_configuration(self) -> Optional['outputs.DomainIdentityProviderConfiguration']:
+        """
+        Identity provider configuration for the domain.
+        """
         return pulumi.get(self, "identity_provider_configuration")
 
     @_builtins.property
@@ -193,11 +196,9 @@ class AwaitableGetDomainResult(GetDomainResult):
 def get_domain(arn: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    The account-level boundary for CloudWatch Omni. A domain configures the
-    identity providers users sign in through and exposes the endpoint URLs used
-    to reach CloudWatch Omni. Spaces are created within a domain.
+    Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
 
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource.
+    :param _builtins.str arn: The Amazon Resource Name (ARN) of the domain.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -221,11 +222,9 @@ def get_domain(arn: Optional[_builtins.str] = None,
 def get_domain_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
-    The account-level boundary for CloudWatch Omni. A domain configures the
-    identity providers users sign in through and exposes the endpoint URLs used
-    to reach CloudWatch Omni. Spaces are created within a domain.
+    Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
 
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource.
+    :param _builtins.str arn: The Amazon Resource Name (ARN) of the domain.
     """
     __args__ = dict()
     __args__['arn'] = arn

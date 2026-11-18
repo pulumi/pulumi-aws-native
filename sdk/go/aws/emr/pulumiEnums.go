@@ -10,6 +10,2083 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+type ClusterCloudWatchAlarmDefinitionComparisonOperator string
+
+const (
+	ClusterCloudWatchAlarmDefinitionComparisonOperatorGreaterThanOrEqual = ClusterCloudWatchAlarmDefinitionComparisonOperator("GREATER_THAN_OR_EQUAL")
+	ClusterCloudWatchAlarmDefinitionComparisonOperatorGreaterThan        = ClusterCloudWatchAlarmDefinitionComparisonOperator("GREATER_THAN")
+	ClusterCloudWatchAlarmDefinitionComparisonOperatorLessThan           = ClusterCloudWatchAlarmDefinitionComparisonOperator("LESS_THAN")
+	ClusterCloudWatchAlarmDefinitionComparisonOperatorLessThanOrEqual    = ClusterCloudWatchAlarmDefinitionComparisonOperator("LESS_THAN_OR_EQUAL")
+)
+
+func (ClusterCloudWatchAlarmDefinitionComparisonOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionComparisonOperator)(nil)).Elem()
+}
+
+func (e ClusterCloudWatchAlarmDefinitionComparisonOperator) ToClusterCloudWatchAlarmDefinitionComparisonOperatorOutput() ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput {
+	return pulumi.ToOutput(e).(ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionComparisonOperator) ToClusterCloudWatchAlarmDefinitionComparisonOperatorOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionComparisonOperator) ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput() ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput {
+	return e.ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterCloudWatchAlarmDefinitionComparisonOperator) ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput {
+	return ClusterCloudWatchAlarmDefinitionComparisonOperator(e).ToClusterCloudWatchAlarmDefinitionComparisonOperatorOutputWithContext(ctx).ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutputWithContext(ctx)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionComparisonOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterCloudWatchAlarmDefinitionComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionComparisonOperator)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ToClusterCloudWatchAlarmDefinitionComparisonOperatorOutput() ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ToClusterCloudWatchAlarmDefinitionComparisonOperatorOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput() ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput {
+	return o.ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudWatchAlarmDefinitionComparisonOperator) *ClusterCloudWatchAlarmDefinitionComparisonOperator {
+		return &v
+	}).(ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCloudWatchAlarmDefinitionComparisonOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCloudWatchAlarmDefinitionComparisonOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCloudWatchAlarmDefinitionComparisonOperator)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput) ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput() ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput) ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput) Elem() ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchAlarmDefinitionComparisonOperator) ClusterCloudWatchAlarmDefinitionComparisonOperator {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudWatchAlarmDefinitionComparisonOperator
+		return ret
+	}).(ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterCloudWatchAlarmDefinitionComparisonOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterCloudWatchAlarmDefinitionComparisonOperatorInput is an input type that accepts values of the ClusterCloudWatchAlarmDefinitionComparisonOperator enum
+// A concrete instance of `ClusterCloudWatchAlarmDefinitionComparisonOperatorInput` can be one of the following:
+//
+//	ClusterCloudWatchAlarmDefinitionComparisonOperatorGreaterThanOrEqual
+//	ClusterCloudWatchAlarmDefinitionComparisonOperatorGreaterThan
+//	ClusterCloudWatchAlarmDefinitionComparisonOperatorLessThan
+//	ClusterCloudWatchAlarmDefinitionComparisonOperatorLessThanOrEqual
+type ClusterCloudWatchAlarmDefinitionComparisonOperatorInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchAlarmDefinitionComparisonOperatorOutput() ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput
+	ToClusterCloudWatchAlarmDefinitionComparisonOperatorOutputWithContext(context.Context) ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput
+}
+
+var clusterCloudWatchAlarmDefinitionComparisonOperatorPtrType = reflect.TypeOf((**ClusterCloudWatchAlarmDefinitionComparisonOperator)(nil)).Elem()
+
+type ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput() ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput
+	ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutputWithContext(context.Context) ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput
+}
+
+type clusterCloudWatchAlarmDefinitionComparisonOperatorPtr string
+
+func ClusterCloudWatchAlarmDefinitionComparisonOperatorPtr(v string) ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrInput {
+	return (*clusterCloudWatchAlarmDefinitionComparisonOperatorPtr)(&v)
+}
+
+func (*clusterCloudWatchAlarmDefinitionComparisonOperatorPtr) ElementType() reflect.Type {
+	return clusterCloudWatchAlarmDefinitionComparisonOperatorPtrType
+}
+
+func (in *clusterCloudWatchAlarmDefinitionComparisonOperatorPtr) ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput() ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput {
+	return pulumi.ToOutput(in).(ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput)
+}
+
+func (in *clusterCloudWatchAlarmDefinitionComparisonOperatorPtr) ToClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput)
+}
+
+// The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+type ClusterCloudWatchAlarmDefinitionStatistic string
+
+const (
+	ClusterCloudWatchAlarmDefinitionStatisticSampleCount = ClusterCloudWatchAlarmDefinitionStatistic("SAMPLE_COUNT")
+	ClusterCloudWatchAlarmDefinitionStatisticAverage     = ClusterCloudWatchAlarmDefinitionStatistic("AVERAGE")
+	ClusterCloudWatchAlarmDefinitionStatisticSum         = ClusterCloudWatchAlarmDefinitionStatistic("SUM")
+	ClusterCloudWatchAlarmDefinitionStatisticMinimum     = ClusterCloudWatchAlarmDefinitionStatistic("MINIMUM")
+	ClusterCloudWatchAlarmDefinitionStatisticMaximum     = ClusterCloudWatchAlarmDefinitionStatistic("MAXIMUM")
+)
+
+func (ClusterCloudWatchAlarmDefinitionStatistic) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionStatistic)(nil)).Elem()
+}
+
+func (e ClusterCloudWatchAlarmDefinitionStatistic) ToClusterCloudWatchAlarmDefinitionStatisticOutput() ClusterCloudWatchAlarmDefinitionStatisticOutput {
+	return pulumi.ToOutput(e).(ClusterCloudWatchAlarmDefinitionStatisticOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionStatistic) ToClusterCloudWatchAlarmDefinitionStatisticOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionStatisticOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterCloudWatchAlarmDefinitionStatisticOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionStatistic) ToClusterCloudWatchAlarmDefinitionStatisticPtrOutput() ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return e.ToClusterCloudWatchAlarmDefinitionStatisticPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterCloudWatchAlarmDefinitionStatistic) ToClusterCloudWatchAlarmDefinitionStatisticPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return ClusterCloudWatchAlarmDefinitionStatistic(e).ToClusterCloudWatchAlarmDefinitionStatisticOutputWithContext(ctx).ToClusterCloudWatchAlarmDefinitionStatisticPtrOutputWithContext(ctx)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionStatistic) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionStatistic) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionStatistic) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterCloudWatchAlarmDefinitionStatistic) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterCloudWatchAlarmDefinitionStatisticOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchAlarmDefinitionStatisticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionStatistic)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticOutput) ToClusterCloudWatchAlarmDefinitionStatisticOutput() ClusterCloudWatchAlarmDefinitionStatisticOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticOutput) ToClusterCloudWatchAlarmDefinitionStatisticOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionStatisticOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticOutput) ToClusterCloudWatchAlarmDefinitionStatisticPtrOutput() ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return o.ToClusterCloudWatchAlarmDefinitionStatisticPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticOutput) ToClusterCloudWatchAlarmDefinitionStatisticPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudWatchAlarmDefinitionStatistic) *ClusterCloudWatchAlarmDefinitionStatistic {
+		return &v
+	}).(ClusterCloudWatchAlarmDefinitionStatisticPtrOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCloudWatchAlarmDefinitionStatistic) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCloudWatchAlarmDefinitionStatistic) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterCloudWatchAlarmDefinitionStatisticPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchAlarmDefinitionStatisticPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCloudWatchAlarmDefinitionStatistic)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticPtrOutput) ToClusterCloudWatchAlarmDefinitionStatisticPtrOutput() ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticPtrOutput) ToClusterCloudWatchAlarmDefinitionStatisticPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticPtrOutput) Elem() ClusterCloudWatchAlarmDefinitionStatisticOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchAlarmDefinitionStatistic) ClusterCloudWatchAlarmDefinitionStatistic {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudWatchAlarmDefinitionStatistic
+		return ret
+	}).(ClusterCloudWatchAlarmDefinitionStatisticOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionStatisticPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterCloudWatchAlarmDefinitionStatistic) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterCloudWatchAlarmDefinitionStatisticInput is an input type that accepts values of the ClusterCloudWatchAlarmDefinitionStatistic enum
+// A concrete instance of `ClusterCloudWatchAlarmDefinitionStatisticInput` can be one of the following:
+//
+//	ClusterCloudWatchAlarmDefinitionStatisticSampleCount
+//	ClusterCloudWatchAlarmDefinitionStatisticAverage
+//	ClusterCloudWatchAlarmDefinitionStatisticSum
+//	ClusterCloudWatchAlarmDefinitionStatisticMinimum
+//	ClusterCloudWatchAlarmDefinitionStatisticMaximum
+type ClusterCloudWatchAlarmDefinitionStatisticInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchAlarmDefinitionStatisticOutput() ClusterCloudWatchAlarmDefinitionStatisticOutput
+	ToClusterCloudWatchAlarmDefinitionStatisticOutputWithContext(context.Context) ClusterCloudWatchAlarmDefinitionStatisticOutput
+}
+
+var clusterCloudWatchAlarmDefinitionStatisticPtrType = reflect.TypeOf((**ClusterCloudWatchAlarmDefinitionStatistic)(nil)).Elem()
+
+type ClusterCloudWatchAlarmDefinitionStatisticPtrInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchAlarmDefinitionStatisticPtrOutput() ClusterCloudWatchAlarmDefinitionStatisticPtrOutput
+	ToClusterCloudWatchAlarmDefinitionStatisticPtrOutputWithContext(context.Context) ClusterCloudWatchAlarmDefinitionStatisticPtrOutput
+}
+
+type clusterCloudWatchAlarmDefinitionStatisticPtr string
+
+func ClusterCloudWatchAlarmDefinitionStatisticPtr(v string) ClusterCloudWatchAlarmDefinitionStatisticPtrInput {
+	return (*clusterCloudWatchAlarmDefinitionStatisticPtr)(&v)
+}
+
+func (*clusterCloudWatchAlarmDefinitionStatisticPtr) ElementType() reflect.Type {
+	return clusterCloudWatchAlarmDefinitionStatisticPtrType
+}
+
+func (in *clusterCloudWatchAlarmDefinitionStatisticPtr) ToClusterCloudWatchAlarmDefinitionStatisticPtrOutput() ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return pulumi.ToOutput(in).(ClusterCloudWatchAlarmDefinitionStatisticPtrOutput)
+}
+
+func (in *clusterCloudWatchAlarmDefinitionStatisticPtr) ToClusterCloudWatchAlarmDefinitionStatisticPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterCloudWatchAlarmDefinitionStatisticPtrOutput)
+}
+
+// The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+type ClusterCloudWatchAlarmDefinitionUnit string
+
+const (
+	ClusterCloudWatchAlarmDefinitionUnitNone               = ClusterCloudWatchAlarmDefinitionUnit("NONE")
+	ClusterCloudWatchAlarmDefinitionUnitSeconds            = ClusterCloudWatchAlarmDefinitionUnit("SECONDS")
+	ClusterCloudWatchAlarmDefinitionUnitMicroSeconds       = ClusterCloudWatchAlarmDefinitionUnit("MICRO_SECONDS")
+	ClusterCloudWatchAlarmDefinitionUnitMilliSeconds       = ClusterCloudWatchAlarmDefinitionUnit("MILLI_SECONDS")
+	ClusterCloudWatchAlarmDefinitionUnitBytes              = ClusterCloudWatchAlarmDefinitionUnit("BYTES")
+	ClusterCloudWatchAlarmDefinitionUnitKiloBytes          = ClusterCloudWatchAlarmDefinitionUnit("KILO_BYTES")
+	ClusterCloudWatchAlarmDefinitionUnitMegaBytes          = ClusterCloudWatchAlarmDefinitionUnit("MEGA_BYTES")
+	ClusterCloudWatchAlarmDefinitionUnitGigaBytes          = ClusterCloudWatchAlarmDefinitionUnit("GIGA_BYTES")
+	ClusterCloudWatchAlarmDefinitionUnitTeraBytes          = ClusterCloudWatchAlarmDefinitionUnit("TERA_BYTES")
+	ClusterCloudWatchAlarmDefinitionUnitBits               = ClusterCloudWatchAlarmDefinitionUnit("BITS")
+	ClusterCloudWatchAlarmDefinitionUnitKiloBits           = ClusterCloudWatchAlarmDefinitionUnit("KILO_BITS")
+	ClusterCloudWatchAlarmDefinitionUnitMegaBits           = ClusterCloudWatchAlarmDefinitionUnit("MEGA_BITS")
+	ClusterCloudWatchAlarmDefinitionUnitGigaBits           = ClusterCloudWatchAlarmDefinitionUnit("GIGA_BITS")
+	ClusterCloudWatchAlarmDefinitionUnitTeraBits           = ClusterCloudWatchAlarmDefinitionUnit("TERA_BITS")
+	ClusterCloudWatchAlarmDefinitionUnitPercent            = ClusterCloudWatchAlarmDefinitionUnit("PERCENT")
+	ClusterCloudWatchAlarmDefinitionUnitCount              = ClusterCloudWatchAlarmDefinitionUnit("COUNT")
+	ClusterCloudWatchAlarmDefinitionUnitBytesPerSecond     = ClusterCloudWatchAlarmDefinitionUnit("BYTES_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitKiloBytesPerSecond = ClusterCloudWatchAlarmDefinitionUnit("KILO_BYTES_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitMegaBytesPerSecond = ClusterCloudWatchAlarmDefinitionUnit("MEGA_BYTES_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitGigaBytesPerSecond = ClusterCloudWatchAlarmDefinitionUnit("GIGA_BYTES_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitTeraBytesPerSecond = ClusterCloudWatchAlarmDefinitionUnit("TERA_BYTES_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitBitsPerSecond      = ClusterCloudWatchAlarmDefinitionUnit("BITS_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitKiloBitsPerSecond  = ClusterCloudWatchAlarmDefinitionUnit("KILO_BITS_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitMegaBitsPerSecond  = ClusterCloudWatchAlarmDefinitionUnit("MEGA_BITS_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitGigaBitsPerSecond  = ClusterCloudWatchAlarmDefinitionUnit("GIGA_BITS_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitTeraBitsPerSecond  = ClusterCloudWatchAlarmDefinitionUnit("TERA_BITS_PER_SECOND")
+	ClusterCloudWatchAlarmDefinitionUnitCountPerSecond     = ClusterCloudWatchAlarmDefinitionUnit("COUNT_PER_SECOND")
+)
+
+func (ClusterCloudWatchAlarmDefinitionUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionUnit)(nil)).Elem()
+}
+
+func (e ClusterCloudWatchAlarmDefinitionUnit) ToClusterCloudWatchAlarmDefinitionUnitOutput() ClusterCloudWatchAlarmDefinitionUnitOutput {
+	return pulumi.ToOutput(e).(ClusterCloudWatchAlarmDefinitionUnitOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionUnit) ToClusterCloudWatchAlarmDefinitionUnitOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterCloudWatchAlarmDefinitionUnitOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionUnit) ToClusterCloudWatchAlarmDefinitionUnitPtrOutput() ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return e.ToClusterCloudWatchAlarmDefinitionUnitPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterCloudWatchAlarmDefinitionUnit) ToClusterCloudWatchAlarmDefinitionUnitPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return ClusterCloudWatchAlarmDefinitionUnit(e).ToClusterCloudWatchAlarmDefinitionUnitOutputWithContext(ctx).ToClusterCloudWatchAlarmDefinitionUnitPtrOutputWithContext(ctx)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterCloudWatchAlarmDefinitionUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterCloudWatchAlarmDefinitionUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterCloudWatchAlarmDefinitionUnitOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchAlarmDefinitionUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionUnit)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitOutput) ToClusterCloudWatchAlarmDefinitionUnitOutput() ClusterCloudWatchAlarmDefinitionUnitOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitOutput) ToClusterCloudWatchAlarmDefinitionUnitOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionUnitOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitOutput) ToClusterCloudWatchAlarmDefinitionUnitPtrOutput() ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return o.ToClusterCloudWatchAlarmDefinitionUnitPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitOutput) ToClusterCloudWatchAlarmDefinitionUnitPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudWatchAlarmDefinitionUnit) *ClusterCloudWatchAlarmDefinitionUnit {
+		return &v
+	}).(ClusterCloudWatchAlarmDefinitionUnitPtrOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCloudWatchAlarmDefinitionUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCloudWatchAlarmDefinitionUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterCloudWatchAlarmDefinitionUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchAlarmDefinitionUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCloudWatchAlarmDefinitionUnit)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitPtrOutput) ToClusterCloudWatchAlarmDefinitionUnitPtrOutput() ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitPtrOutput) ToClusterCloudWatchAlarmDefinitionUnitPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitPtrOutput) Elem() ClusterCloudWatchAlarmDefinitionUnitOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchAlarmDefinitionUnit) ClusterCloudWatchAlarmDefinitionUnit {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudWatchAlarmDefinitionUnit
+		return ret
+	}).(ClusterCloudWatchAlarmDefinitionUnitOutput)
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchAlarmDefinitionUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterCloudWatchAlarmDefinitionUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterCloudWatchAlarmDefinitionUnitInput is an input type that accepts values of the ClusterCloudWatchAlarmDefinitionUnit enum
+// A concrete instance of `ClusterCloudWatchAlarmDefinitionUnitInput` can be one of the following:
+//
+//	ClusterCloudWatchAlarmDefinitionUnitNone
+//	ClusterCloudWatchAlarmDefinitionUnitSeconds
+//	ClusterCloudWatchAlarmDefinitionUnitMicroSeconds
+//	ClusterCloudWatchAlarmDefinitionUnitMilliSeconds
+//	ClusterCloudWatchAlarmDefinitionUnitBytes
+//	ClusterCloudWatchAlarmDefinitionUnitKiloBytes
+//	ClusterCloudWatchAlarmDefinitionUnitMegaBytes
+//	ClusterCloudWatchAlarmDefinitionUnitGigaBytes
+//	ClusterCloudWatchAlarmDefinitionUnitTeraBytes
+//	ClusterCloudWatchAlarmDefinitionUnitBits
+//	ClusterCloudWatchAlarmDefinitionUnitKiloBits
+//	ClusterCloudWatchAlarmDefinitionUnitMegaBits
+//	ClusterCloudWatchAlarmDefinitionUnitGigaBits
+//	ClusterCloudWatchAlarmDefinitionUnitTeraBits
+//	ClusterCloudWatchAlarmDefinitionUnitPercent
+//	ClusterCloudWatchAlarmDefinitionUnitCount
+//	ClusterCloudWatchAlarmDefinitionUnitBytesPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitKiloBytesPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitMegaBytesPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitGigaBytesPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitTeraBytesPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitBitsPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitKiloBitsPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitMegaBitsPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitGigaBitsPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitTeraBitsPerSecond
+//	ClusterCloudWatchAlarmDefinitionUnitCountPerSecond
+type ClusterCloudWatchAlarmDefinitionUnitInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchAlarmDefinitionUnitOutput() ClusterCloudWatchAlarmDefinitionUnitOutput
+	ToClusterCloudWatchAlarmDefinitionUnitOutputWithContext(context.Context) ClusterCloudWatchAlarmDefinitionUnitOutput
+}
+
+var clusterCloudWatchAlarmDefinitionUnitPtrType = reflect.TypeOf((**ClusterCloudWatchAlarmDefinitionUnit)(nil)).Elem()
+
+type ClusterCloudWatchAlarmDefinitionUnitPtrInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchAlarmDefinitionUnitPtrOutput() ClusterCloudWatchAlarmDefinitionUnitPtrOutput
+	ToClusterCloudWatchAlarmDefinitionUnitPtrOutputWithContext(context.Context) ClusterCloudWatchAlarmDefinitionUnitPtrOutput
+}
+
+type clusterCloudWatchAlarmDefinitionUnitPtr string
+
+func ClusterCloudWatchAlarmDefinitionUnitPtr(v string) ClusterCloudWatchAlarmDefinitionUnitPtrInput {
+	return (*clusterCloudWatchAlarmDefinitionUnitPtr)(&v)
+}
+
+func (*clusterCloudWatchAlarmDefinitionUnitPtr) ElementType() reflect.Type {
+	return clusterCloudWatchAlarmDefinitionUnitPtrType
+}
+
+func (in *clusterCloudWatchAlarmDefinitionUnitPtr) ToClusterCloudWatchAlarmDefinitionUnitPtrOutput() ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return pulumi.ToOutput(in).(ClusterCloudWatchAlarmDefinitionUnitPtrOutput)
+}
+
+func (in *clusterCloudWatchAlarmDefinitionUnitPtr) ToClusterCloudWatchAlarmDefinitionUnitPtrOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterCloudWatchAlarmDefinitionUnitPtrOutput)
+}
+
+// The unit type used for specifying a managed scaling policy.
+type ClusterComputeLimitsUnitType string
+
+const (
+	ClusterComputeLimitsUnitTypeInstanceFleetUnits = ClusterComputeLimitsUnitType("InstanceFleetUnits")
+	ClusterComputeLimitsUnitTypeInstances          = ClusterComputeLimitsUnitType("Instances")
+	ClusterComputeLimitsUnitTypeVcpu               = ClusterComputeLimitsUnitType("VCPU")
+)
+
+func (ClusterComputeLimitsUnitType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterComputeLimitsUnitType)(nil)).Elem()
+}
+
+func (e ClusterComputeLimitsUnitType) ToClusterComputeLimitsUnitTypeOutput() ClusterComputeLimitsUnitTypeOutput {
+	return pulumi.ToOutput(e).(ClusterComputeLimitsUnitTypeOutput)
+}
+
+func (e ClusterComputeLimitsUnitType) ToClusterComputeLimitsUnitTypeOutputWithContext(ctx context.Context) ClusterComputeLimitsUnitTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterComputeLimitsUnitTypeOutput)
+}
+
+func (e ClusterComputeLimitsUnitType) ToClusterComputeLimitsUnitTypePtrOutput() ClusterComputeLimitsUnitTypePtrOutput {
+	return e.ToClusterComputeLimitsUnitTypePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterComputeLimitsUnitType) ToClusterComputeLimitsUnitTypePtrOutputWithContext(ctx context.Context) ClusterComputeLimitsUnitTypePtrOutput {
+	return ClusterComputeLimitsUnitType(e).ToClusterComputeLimitsUnitTypeOutputWithContext(ctx).ToClusterComputeLimitsUnitTypePtrOutputWithContext(ctx)
+}
+
+func (e ClusterComputeLimitsUnitType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterComputeLimitsUnitType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterComputeLimitsUnitType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterComputeLimitsUnitType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterComputeLimitsUnitTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterComputeLimitsUnitTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterComputeLimitsUnitType)(nil)).Elem()
+}
+
+func (o ClusterComputeLimitsUnitTypeOutput) ToClusterComputeLimitsUnitTypeOutput() ClusterComputeLimitsUnitTypeOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsUnitTypeOutput) ToClusterComputeLimitsUnitTypeOutputWithContext(ctx context.Context) ClusterComputeLimitsUnitTypeOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsUnitTypeOutput) ToClusterComputeLimitsUnitTypePtrOutput() ClusterComputeLimitsUnitTypePtrOutput {
+	return o.ToClusterComputeLimitsUnitTypePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterComputeLimitsUnitTypeOutput) ToClusterComputeLimitsUnitTypePtrOutputWithContext(ctx context.Context) ClusterComputeLimitsUnitTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterComputeLimitsUnitType) *ClusterComputeLimitsUnitType {
+		return &v
+	}).(ClusterComputeLimitsUnitTypePtrOutput)
+}
+
+func (o ClusterComputeLimitsUnitTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterComputeLimitsUnitTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterComputeLimitsUnitType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterComputeLimitsUnitTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterComputeLimitsUnitTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterComputeLimitsUnitType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterComputeLimitsUnitTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterComputeLimitsUnitTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterComputeLimitsUnitType)(nil)).Elem()
+}
+
+func (o ClusterComputeLimitsUnitTypePtrOutput) ToClusterComputeLimitsUnitTypePtrOutput() ClusterComputeLimitsUnitTypePtrOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsUnitTypePtrOutput) ToClusterComputeLimitsUnitTypePtrOutputWithContext(ctx context.Context) ClusterComputeLimitsUnitTypePtrOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsUnitTypePtrOutput) Elem() ClusterComputeLimitsUnitTypeOutput {
+	return o.ApplyT(func(v *ClusterComputeLimitsUnitType) ClusterComputeLimitsUnitType {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterComputeLimitsUnitType
+		return ret
+	}).(ClusterComputeLimitsUnitTypeOutput)
+}
+
+func (o ClusterComputeLimitsUnitTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterComputeLimitsUnitTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterComputeLimitsUnitType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterComputeLimitsUnitTypeInput is an input type that accepts values of the ClusterComputeLimitsUnitType enum
+// A concrete instance of `ClusterComputeLimitsUnitTypeInput` can be one of the following:
+//
+//	ClusterComputeLimitsUnitTypeInstanceFleetUnits
+//	ClusterComputeLimitsUnitTypeInstances
+//	ClusterComputeLimitsUnitTypeVcpu
+type ClusterComputeLimitsUnitTypeInput interface {
+	pulumi.Input
+
+	ToClusterComputeLimitsUnitTypeOutput() ClusterComputeLimitsUnitTypeOutput
+	ToClusterComputeLimitsUnitTypeOutputWithContext(context.Context) ClusterComputeLimitsUnitTypeOutput
+}
+
+var clusterComputeLimitsUnitTypePtrType = reflect.TypeOf((**ClusterComputeLimitsUnitType)(nil)).Elem()
+
+type ClusterComputeLimitsUnitTypePtrInput interface {
+	pulumi.Input
+
+	ToClusterComputeLimitsUnitTypePtrOutput() ClusterComputeLimitsUnitTypePtrOutput
+	ToClusterComputeLimitsUnitTypePtrOutputWithContext(context.Context) ClusterComputeLimitsUnitTypePtrOutput
+}
+
+type clusterComputeLimitsUnitTypePtr string
+
+func ClusterComputeLimitsUnitTypePtr(v string) ClusterComputeLimitsUnitTypePtrInput {
+	return (*clusterComputeLimitsUnitTypePtr)(&v)
+}
+
+func (*clusterComputeLimitsUnitTypePtr) ElementType() reflect.Type {
+	return clusterComputeLimitsUnitTypePtrType
+}
+
+func (in *clusterComputeLimitsUnitTypePtr) ToClusterComputeLimitsUnitTypePtrOutput() ClusterComputeLimitsUnitTypePtrOutput {
+	return pulumi.ToOutput(in).(ClusterComputeLimitsUnitTypePtrOutput)
+}
+
+func (in *clusterComputeLimitsUnitTypePtr) ToClusterComputeLimitsUnitTypePtrOutputWithContext(ctx context.Context) ClusterComputeLimitsUnitTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterComputeLimitsUnitTypePtrOutput)
+}
+
+// Market type of the EC2 instances used to create a cluster node.
+type ClusterInstanceGroupConfigMarket string
+
+const (
+	ClusterInstanceGroupConfigMarketOnDemand = ClusterInstanceGroupConfigMarket("ON_DEMAND")
+	ClusterInstanceGroupConfigMarketSpot     = ClusterInstanceGroupConfigMarket("SPOT")
+)
+
+func (ClusterInstanceGroupConfigMarket) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceGroupConfigMarket)(nil)).Elem()
+}
+
+func (e ClusterInstanceGroupConfigMarket) ToClusterInstanceGroupConfigMarketOutput() ClusterInstanceGroupConfigMarketOutput {
+	return pulumi.ToOutput(e).(ClusterInstanceGroupConfigMarketOutput)
+}
+
+func (e ClusterInstanceGroupConfigMarket) ToClusterInstanceGroupConfigMarketOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigMarketOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterInstanceGroupConfigMarketOutput)
+}
+
+func (e ClusterInstanceGroupConfigMarket) ToClusterInstanceGroupConfigMarketPtrOutput() ClusterInstanceGroupConfigMarketPtrOutput {
+	return e.ToClusterInstanceGroupConfigMarketPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterInstanceGroupConfigMarket) ToClusterInstanceGroupConfigMarketPtrOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigMarketPtrOutput {
+	return ClusterInstanceGroupConfigMarket(e).ToClusterInstanceGroupConfigMarketOutputWithContext(ctx).ToClusterInstanceGroupConfigMarketPtrOutputWithContext(ctx)
+}
+
+func (e ClusterInstanceGroupConfigMarket) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterInstanceGroupConfigMarket) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterInstanceGroupConfigMarket) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterInstanceGroupConfigMarket) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterInstanceGroupConfigMarketOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceGroupConfigMarketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceGroupConfigMarket)(nil)).Elem()
+}
+
+func (o ClusterInstanceGroupConfigMarketOutput) ToClusterInstanceGroupConfigMarketOutput() ClusterInstanceGroupConfigMarketOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigMarketOutput) ToClusterInstanceGroupConfigMarketOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigMarketOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigMarketOutput) ToClusterInstanceGroupConfigMarketPtrOutput() ClusterInstanceGroupConfigMarketPtrOutput {
+	return o.ToClusterInstanceGroupConfigMarketPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceGroupConfigMarketOutput) ToClusterInstanceGroupConfigMarketPtrOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigMarketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstanceGroupConfigMarket) *ClusterInstanceGroupConfigMarket {
+		return &v
+	}).(ClusterInstanceGroupConfigMarketPtrOutput)
+}
+
+func (o ClusterInstanceGroupConfigMarketOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceGroupConfigMarketOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterInstanceGroupConfigMarket) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupConfigMarketOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceGroupConfigMarketOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterInstanceGroupConfigMarket) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterInstanceGroupConfigMarketPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceGroupConfigMarketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceGroupConfigMarket)(nil)).Elem()
+}
+
+func (o ClusterInstanceGroupConfigMarketPtrOutput) ToClusterInstanceGroupConfigMarketPtrOutput() ClusterInstanceGroupConfigMarketPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigMarketPtrOutput) ToClusterInstanceGroupConfigMarketPtrOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigMarketPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigMarketPtrOutput) Elem() ClusterInstanceGroupConfigMarketOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfigMarket) ClusterInstanceGroupConfigMarket {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstanceGroupConfigMarket
+		return ret
+	}).(ClusterInstanceGroupConfigMarketOutput)
+}
+
+func (o ClusterInstanceGroupConfigMarketPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceGroupConfigMarketPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterInstanceGroupConfigMarket) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterInstanceGroupConfigMarketInput is an input type that accepts values of the ClusterInstanceGroupConfigMarket enum
+// A concrete instance of `ClusterInstanceGroupConfigMarketInput` can be one of the following:
+//
+//	ClusterInstanceGroupConfigMarketOnDemand
+//	ClusterInstanceGroupConfigMarketSpot
+type ClusterInstanceGroupConfigMarketInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupConfigMarketOutput() ClusterInstanceGroupConfigMarketOutput
+	ToClusterInstanceGroupConfigMarketOutputWithContext(context.Context) ClusterInstanceGroupConfigMarketOutput
+}
+
+var clusterInstanceGroupConfigMarketPtrType = reflect.TypeOf((**ClusterInstanceGroupConfigMarket)(nil)).Elem()
+
+type ClusterInstanceGroupConfigMarketPtrInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupConfigMarketPtrOutput() ClusterInstanceGroupConfigMarketPtrOutput
+	ToClusterInstanceGroupConfigMarketPtrOutputWithContext(context.Context) ClusterInstanceGroupConfigMarketPtrOutput
+}
+
+type clusterInstanceGroupConfigMarketPtr string
+
+func ClusterInstanceGroupConfigMarketPtr(v string) ClusterInstanceGroupConfigMarketPtrInput {
+	return (*clusterInstanceGroupConfigMarketPtr)(&v)
+}
+
+func (*clusterInstanceGroupConfigMarketPtr) ElementType() reflect.Type {
+	return clusterInstanceGroupConfigMarketPtrType
+}
+
+func (in *clusterInstanceGroupConfigMarketPtr) ToClusterInstanceGroupConfigMarketPtrOutput() ClusterInstanceGroupConfigMarketPtrOutput {
+	return pulumi.ToOutput(in).(ClusterInstanceGroupConfigMarketPtrOutput)
+}
+
+func (in *clusterInstanceGroupConfigMarketPtr) ToClusterInstanceGroupConfigMarketPtrOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigMarketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterInstanceGroupConfigMarketPtrOutput)
+}
+
+// Role of the instance in the cluster.
+type ClusterPlacementGroupConfigInstanceRole string
+
+const (
+	ClusterPlacementGroupConfigInstanceRoleMaster = ClusterPlacementGroupConfigInstanceRole("MASTER")
+	ClusterPlacementGroupConfigInstanceRoleCore   = ClusterPlacementGroupConfigInstanceRole("CORE")
+	ClusterPlacementGroupConfigInstanceRoleTask   = ClusterPlacementGroupConfigInstanceRole("TASK")
+)
+
+func (ClusterPlacementGroupConfigInstanceRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfigInstanceRole)(nil)).Elem()
+}
+
+func (e ClusterPlacementGroupConfigInstanceRole) ToClusterPlacementGroupConfigInstanceRoleOutput() ClusterPlacementGroupConfigInstanceRoleOutput {
+	return pulumi.ToOutput(e).(ClusterPlacementGroupConfigInstanceRoleOutput)
+}
+
+func (e ClusterPlacementGroupConfigInstanceRole) ToClusterPlacementGroupConfigInstanceRoleOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigInstanceRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterPlacementGroupConfigInstanceRoleOutput)
+}
+
+func (e ClusterPlacementGroupConfigInstanceRole) ToClusterPlacementGroupConfigInstanceRolePtrOutput() ClusterPlacementGroupConfigInstanceRolePtrOutput {
+	return e.ToClusterPlacementGroupConfigInstanceRolePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterPlacementGroupConfigInstanceRole) ToClusterPlacementGroupConfigInstanceRolePtrOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigInstanceRolePtrOutput {
+	return ClusterPlacementGroupConfigInstanceRole(e).ToClusterPlacementGroupConfigInstanceRoleOutputWithContext(ctx).ToClusterPlacementGroupConfigInstanceRolePtrOutputWithContext(ctx)
+}
+
+func (e ClusterPlacementGroupConfigInstanceRole) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterPlacementGroupConfigInstanceRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterPlacementGroupConfigInstanceRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterPlacementGroupConfigInstanceRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterPlacementGroupConfigInstanceRoleOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigInstanceRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfigInstanceRole)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigInstanceRoleOutput) ToClusterPlacementGroupConfigInstanceRoleOutput() ClusterPlacementGroupConfigInstanceRoleOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigInstanceRoleOutput) ToClusterPlacementGroupConfigInstanceRoleOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigInstanceRoleOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigInstanceRoleOutput) ToClusterPlacementGroupConfigInstanceRolePtrOutput() ClusterPlacementGroupConfigInstanceRolePtrOutput {
+	return o.ToClusterPlacementGroupConfigInstanceRolePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementGroupConfigInstanceRoleOutput) ToClusterPlacementGroupConfigInstanceRolePtrOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigInstanceRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPlacementGroupConfigInstanceRole) *ClusterPlacementGroupConfigInstanceRole {
+		return &v
+	}).(ClusterPlacementGroupConfigInstanceRolePtrOutput)
+}
+
+func (o ClusterPlacementGroupConfigInstanceRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementGroupConfigInstanceRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPlacementGroupConfigInstanceRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterPlacementGroupConfigInstanceRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementGroupConfigInstanceRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPlacementGroupConfigInstanceRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterPlacementGroupConfigInstanceRolePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigInstanceRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPlacementGroupConfigInstanceRole)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigInstanceRolePtrOutput) ToClusterPlacementGroupConfigInstanceRolePtrOutput() ClusterPlacementGroupConfigInstanceRolePtrOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigInstanceRolePtrOutput) ToClusterPlacementGroupConfigInstanceRolePtrOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigInstanceRolePtrOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigInstanceRolePtrOutput) Elem() ClusterPlacementGroupConfigInstanceRoleOutput {
+	return o.ApplyT(func(v *ClusterPlacementGroupConfigInstanceRole) ClusterPlacementGroupConfigInstanceRole {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPlacementGroupConfigInstanceRole
+		return ret
+	}).(ClusterPlacementGroupConfigInstanceRoleOutput)
+}
+
+func (o ClusterPlacementGroupConfigInstanceRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementGroupConfigInstanceRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterPlacementGroupConfigInstanceRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterPlacementGroupConfigInstanceRoleInput is an input type that accepts values of the ClusterPlacementGroupConfigInstanceRole enum
+// A concrete instance of `ClusterPlacementGroupConfigInstanceRoleInput` can be one of the following:
+//
+//	ClusterPlacementGroupConfigInstanceRoleMaster
+//	ClusterPlacementGroupConfigInstanceRoleCore
+//	ClusterPlacementGroupConfigInstanceRoleTask
+type ClusterPlacementGroupConfigInstanceRoleInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigInstanceRoleOutput() ClusterPlacementGroupConfigInstanceRoleOutput
+	ToClusterPlacementGroupConfigInstanceRoleOutputWithContext(context.Context) ClusterPlacementGroupConfigInstanceRoleOutput
+}
+
+var clusterPlacementGroupConfigInstanceRolePtrType = reflect.TypeOf((**ClusterPlacementGroupConfigInstanceRole)(nil)).Elem()
+
+type ClusterPlacementGroupConfigInstanceRolePtrInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigInstanceRolePtrOutput() ClusterPlacementGroupConfigInstanceRolePtrOutput
+	ToClusterPlacementGroupConfigInstanceRolePtrOutputWithContext(context.Context) ClusterPlacementGroupConfigInstanceRolePtrOutput
+}
+
+type clusterPlacementGroupConfigInstanceRolePtr string
+
+func ClusterPlacementGroupConfigInstanceRolePtr(v string) ClusterPlacementGroupConfigInstanceRolePtrInput {
+	return (*clusterPlacementGroupConfigInstanceRolePtr)(&v)
+}
+
+func (*clusterPlacementGroupConfigInstanceRolePtr) ElementType() reflect.Type {
+	return clusterPlacementGroupConfigInstanceRolePtrType
+}
+
+func (in *clusterPlacementGroupConfigInstanceRolePtr) ToClusterPlacementGroupConfigInstanceRolePtrOutput() ClusterPlacementGroupConfigInstanceRolePtrOutput {
+	return pulumi.ToOutput(in).(ClusterPlacementGroupConfigInstanceRolePtrOutput)
+}
+
+func (in *clusterPlacementGroupConfigInstanceRolePtr) ToClusterPlacementGroupConfigInstanceRolePtrOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigInstanceRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterPlacementGroupConfigInstanceRolePtrOutput)
+}
+
+// Amazon EC2 Placement Group strategy associated with instance role.
+type ClusterPlacementGroupConfigPlacementStrategy string
+
+const (
+	ClusterPlacementGroupConfigPlacementStrategySpread    = ClusterPlacementGroupConfigPlacementStrategy("SPREAD")
+	ClusterPlacementGroupConfigPlacementStrategyPartition = ClusterPlacementGroupConfigPlacementStrategy("PARTITION")
+	ClusterPlacementGroupConfigPlacementStrategyCluster   = ClusterPlacementGroupConfigPlacementStrategy("CLUSTER")
+	ClusterPlacementGroupConfigPlacementStrategyNone      = ClusterPlacementGroupConfigPlacementStrategy("NONE")
+)
+
+func (ClusterPlacementGroupConfigPlacementStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfigPlacementStrategy)(nil)).Elem()
+}
+
+func (e ClusterPlacementGroupConfigPlacementStrategy) ToClusterPlacementGroupConfigPlacementStrategyOutput() ClusterPlacementGroupConfigPlacementStrategyOutput {
+	return pulumi.ToOutput(e).(ClusterPlacementGroupConfigPlacementStrategyOutput)
+}
+
+func (e ClusterPlacementGroupConfigPlacementStrategy) ToClusterPlacementGroupConfigPlacementStrategyOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigPlacementStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterPlacementGroupConfigPlacementStrategyOutput)
+}
+
+func (e ClusterPlacementGroupConfigPlacementStrategy) ToClusterPlacementGroupConfigPlacementStrategyPtrOutput() ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return e.ToClusterPlacementGroupConfigPlacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterPlacementGroupConfigPlacementStrategy) ToClusterPlacementGroupConfigPlacementStrategyPtrOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return ClusterPlacementGroupConfigPlacementStrategy(e).ToClusterPlacementGroupConfigPlacementStrategyOutputWithContext(ctx).ToClusterPlacementGroupConfigPlacementStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ClusterPlacementGroupConfigPlacementStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterPlacementGroupConfigPlacementStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterPlacementGroupConfigPlacementStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterPlacementGroupConfigPlacementStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterPlacementGroupConfigPlacementStrategyOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigPlacementStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfigPlacementStrategy)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyOutput) ToClusterPlacementGroupConfigPlacementStrategyOutput() ClusterPlacementGroupConfigPlacementStrategyOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyOutput) ToClusterPlacementGroupConfigPlacementStrategyOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigPlacementStrategyOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyOutput) ToClusterPlacementGroupConfigPlacementStrategyPtrOutput() ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return o.ToClusterPlacementGroupConfigPlacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyOutput) ToClusterPlacementGroupConfigPlacementStrategyPtrOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPlacementGroupConfigPlacementStrategy) *ClusterPlacementGroupConfigPlacementStrategy {
+		return &v
+	}).(ClusterPlacementGroupConfigPlacementStrategyPtrOutput)
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPlacementGroupConfigPlacementStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPlacementGroupConfigPlacementStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterPlacementGroupConfigPlacementStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigPlacementStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPlacementGroupConfigPlacementStrategy)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyPtrOutput) ToClusterPlacementGroupConfigPlacementStrategyPtrOutput() ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyPtrOutput) ToClusterPlacementGroupConfigPlacementStrategyPtrOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyPtrOutput) Elem() ClusterPlacementGroupConfigPlacementStrategyOutput {
+	return o.ApplyT(func(v *ClusterPlacementGroupConfigPlacementStrategy) ClusterPlacementGroupConfigPlacementStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPlacementGroupConfigPlacementStrategy
+		return ret
+	}).(ClusterPlacementGroupConfigPlacementStrategyOutput)
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementGroupConfigPlacementStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterPlacementGroupConfigPlacementStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterPlacementGroupConfigPlacementStrategyInput is an input type that accepts values of the ClusterPlacementGroupConfigPlacementStrategy enum
+// A concrete instance of `ClusterPlacementGroupConfigPlacementStrategyInput` can be one of the following:
+//
+//	ClusterPlacementGroupConfigPlacementStrategySpread
+//	ClusterPlacementGroupConfigPlacementStrategyPartition
+//	ClusterPlacementGroupConfigPlacementStrategyCluster
+//	ClusterPlacementGroupConfigPlacementStrategyNone
+type ClusterPlacementGroupConfigPlacementStrategyInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigPlacementStrategyOutput() ClusterPlacementGroupConfigPlacementStrategyOutput
+	ToClusterPlacementGroupConfigPlacementStrategyOutputWithContext(context.Context) ClusterPlacementGroupConfigPlacementStrategyOutput
+}
+
+var clusterPlacementGroupConfigPlacementStrategyPtrType = reflect.TypeOf((**ClusterPlacementGroupConfigPlacementStrategy)(nil)).Elem()
+
+type ClusterPlacementGroupConfigPlacementStrategyPtrInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigPlacementStrategyPtrOutput() ClusterPlacementGroupConfigPlacementStrategyPtrOutput
+	ToClusterPlacementGroupConfigPlacementStrategyPtrOutputWithContext(context.Context) ClusterPlacementGroupConfigPlacementStrategyPtrOutput
+}
+
+type clusterPlacementGroupConfigPlacementStrategyPtr string
+
+func ClusterPlacementGroupConfigPlacementStrategyPtr(v string) ClusterPlacementGroupConfigPlacementStrategyPtrInput {
+	return (*clusterPlacementGroupConfigPlacementStrategyPtr)(&v)
+}
+
+func (*clusterPlacementGroupConfigPlacementStrategyPtr) ElementType() reflect.Type {
+	return clusterPlacementGroupConfigPlacementStrategyPtrType
+}
+
+func (in *clusterPlacementGroupConfigPlacementStrategyPtr) ToClusterPlacementGroupConfigPlacementStrategyPtrOutput() ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ClusterPlacementGroupConfigPlacementStrategyPtrOutput)
+}
+
+func (in *clusterPlacementGroupConfigPlacementStrategyPtr) ToClusterPlacementGroupConfigPlacementStrategyPtrOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterPlacementGroupConfigPlacementStrategyPtrOutput)
+}
+
+// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
+type ClusterScaleDownBehavior string
+
+const (
+	ClusterScaleDownBehaviorTerminateAtInstanceHour   = ClusterScaleDownBehavior("TERMINATE_AT_INSTANCE_HOUR")
+	ClusterScaleDownBehaviorTerminateAtTaskCompletion = ClusterScaleDownBehavior("TERMINATE_AT_TASK_COMPLETION")
+)
+
+func (ClusterScaleDownBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScaleDownBehavior)(nil)).Elem()
+}
+
+func (e ClusterScaleDownBehavior) ToClusterScaleDownBehaviorOutput() ClusterScaleDownBehaviorOutput {
+	return pulumi.ToOutput(e).(ClusterScaleDownBehaviorOutput)
+}
+
+func (e ClusterScaleDownBehavior) ToClusterScaleDownBehaviorOutputWithContext(ctx context.Context) ClusterScaleDownBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterScaleDownBehaviorOutput)
+}
+
+func (e ClusterScaleDownBehavior) ToClusterScaleDownBehaviorPtrOutput() ClusterScaleDownBehaviorPtrOutput {
+	return e.ToClusterScaleDownBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterScaleDownBehavior) ToClusterScaleDownBehaviorPtrOutputWithContext(ctx context.Context) ClusterScaleDownBehaviorPtrOutput {
+	return ClusterScaleDownBehavior(e).ToClusterScaleDownBehaviorOutputWithContext(ctx).ToClusterScaleDownBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e ClusterScaleDownBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterScaleDownBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterScaleDownBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterScaleDownBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterScaleDownBehaviorOutput struct{ *pulumi.OutputState }
+
+func (ClusterScaleDownBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScaleDownBehavior)(nil)).Elem()
+}
+
+func (o ClusterScaleDownBehaviorOutput) ToClusterScaleDownBehaviorOutput() ClusterScaleDownBehaviorOutput {
+	return o
+}
+
+func (o ClusterScaleDownBehaviorOutput) ToClusterScaleDownBehaviorOutputWithContext(ctx context.Context) ClusterScaleDownBehaviorOutput {
+	return o
+}
+
+func (o ClusterScaleDownBehaviorOutput) ToClusterScaleDownBehaviorPtrOutput() ClusterScaleDownBehaviorPtrOutput {
+	return o.ToClusterScaleDownBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScaleDownBehaviorOutput) ToClusterScaleDownBehaviorPtrOutputWithContext(ctx context.Context) ClusterScaleDownBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterScaleDownBehavior) *ClusterScaleDownBehavior {
+		return &v
+	}).(ClusterScaleDownBehaviorPtrOutput)
+}
+
+func (o ClusterScaleDownBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterScaleDownBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterScaleDownBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterScaleDownBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScaleDownBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterScaleDownBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterScaleDownBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterScaleDownBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScaleDownBehavior)(nil)).Elem()
+}
+
+func (o ClusterScaleDownBehaviorPtrOutput) ToClusterScaleDownBehaviorPtrOutput() ClusterScaleDownBehaviorPtrOutput {
+	return o
+}
+
+func (o ClusterScaleDownBehaviorPtrOutput) ToClusterScaleDownBehaviorPtrOutputWithContext(ctx context.Context) ClusterScaleDownBehaviorPtrOutput {
+	return o
+}
+
+func (o ClusterScaleDownBehaviorPtrOutput) Elem() ClusterScaleDownBehaviorOutput {
+	return o.ApplyT(func(v *ClusterScaleDownBehavior) ClusterScaleDownBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterScaleDownBehavior
+		return ret
+	}).(ClusterScaleDownBehaviorOutput)
+}
+
+func (o ClusterScaleDownBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScaleDownBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterScaleDownBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterScaleDownBehaviorInput is an input type that accepts values of the ClusterScaleDownBehavior enum
+// A concrete instance of `ClusterScaleDownBehaviorInput` can be one of the following:
+//
+//	ClusterScaleDownBehaviorTerminateAtInstanceHour
+//	ClusterScaleDownBehaviorTerminateAtTaskCompletion
+type ClusterScaleDownBehaviorInput interface {
+	pulumi.Input
+
+	ToClusterScaleDownBehaviorOutput() ClusterScaleDownBehaviorOutput
+	ToClusterScaleDownBehaviorOutputWithContext(context.Context) ClusterScaleDownBehaviorOutput
+}
+
+var clusterScaleDownBehaviorPtrType = reflect.TypeOf((**ClusterScaleDownBehavior)(nil)).Elem()
+
+type ClusterScaleDownBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToClusterScaleDownBehaviorPtrOutput() ClusterScaleDownBehaviorPtrOutput
+	ToClusterScaleDownBehaviorPtrOutputWithContext(context.Context) ClusterScaleDownBehaviorPtrOutput
+}
+
+type clusterScaleDownBehaviorPtr string
+
+func ClusterScaleDownBehaviorPtr(v string) ClusterScaleDownBehaviorPtrInput {
+	return (*clusterScaleDownBehaviorPtr)(&v)
+}
+
+func (*clusterScaleDownBehaviorPtr) ElementType() reflect.Type {
+	return clusterScaleDownBehaviorPtrType
+}
+
+func (in *clusterScaleDownBehaviorPtr) ToClusterScaleDownBehaviorPtrOutput() ClusterScaleDownBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(ClusterScaleDownBehaviorPtrOutput)
+}
+
+func (in *clusterScaleDownBehaviorPtr) ToClusterScaleDownBehaviorPtrOutputWithContext(ctx context.Context) ClusterScaleDownBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterScaleDownBehaviorPtrOutput)
+}
+
+// Not available for instance groups. Instance groups use the market type specified for the group.
+type ClusterScalingActionMarket string
+
+const (
+	ClusterScalingActionMarketOnDemand = ClusterScalingActionMarket("ON_DEMAND")
+	ClusterScalingActionMarketSpot     = ClusterScalingActionMarket("SPOT")
+)
+
+func (ClusterScalingActionMarket) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingActionMarket)(nil)).Elem()
+}
+
+func (e ClusterScalingActionMarket) ToClusterScalingActionMarketOutput() ClusterScalingActionMarketOutput {
+	return pulumi.ToOutput(e).(ClusterScalingActionMarketOutput)
+}
+
+func (e ClusterScalingActionMarket) ToClusterScalingActionMarketOutputWithContext(ctx context.Context) ClusterScalingActionMarketOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterScalingActionMarketOutput)
+}
+
+func (e ClusterScalingActionMarket) ToClusterScalingActionMarketPtrOutput() ClusterScalingActionMarketPtrOutput {
+	return e.ToClusterScalingActionMarketPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterScalingActionMarket) ToClusterScalingActionMarketPtrOutputWithContext(ctx context.Context) ClusterScalingActionMarketPtrOutput {
+	return ClusterScalingActionMarket(e).ToClusterScalingActionMarketOutputWithContext(ctx).ToClusterScalingActionMarketPtrOutputWithContext(ctx)
+}
+
+func (e ClusterScalingActionMarket) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterScalingActionMarket) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterScalingActionMarket) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterScalingActionMarket) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterScalingActionMarketOutput struct{ *pulumi.OutputState }
+
+func (ClusterScalingActionMarketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingActionMarket)(nil)).Elem()
+}
+
+func (o ClusterScalingActionMarketOutput) ToClusterScalingActionMarketOutput() ClusterScalingActionMarketOutput {
+	return o
+}
+
+func (o ClusterScalingActionMarketOutput) ToClusterScalingActionMarketOutputWithContext(ctx context.Context) ClusterScalingActionMarketOutput {
+	return o
+}
+
+func (o ClusterScalingActionMarketOutput) ToClusterScalingActionMarketPtrOutput() ClusterScalingActionMarketPtrOutput {
+	return o.ToClusterScalingActionMarketPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScalingActionMarketOutput) ToClusterScalingActionMarketPtrOutputWithContext(ctx context.Context) ClusterScalingActionMarketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterScalingActionMarket) *ClusterScalingActionMarket {
+		return &v
+	}).(ClusterScalingActionMarketPtrOutput)
+}
+
+func (o ClusterScalingActionMarketOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterScalingActionMarketOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterScalingActionMarket) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterScalingActionMarketOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScalingActionMarketOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterScalingActionMarket) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterScalingActionMarketPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterScalingActionMarketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScalingActionMarket)(nil)).Elem()
+}
+
+func (o ClusterScalingActionMarketPtrOutput) ToClusterScalingActionMarketPtrOutput() ClusterScalingActionMarketPtrOutput {
+	return o
+}
+
+func (o ClusterScalingActionMarketPtrOutput) ToClusterScalingActionMarketPtrOutputWithContext(ctx context.Context) ClusterScalingActionMarketPtrOutput {
+	return o
+}
+
+func (o ClusterScalingActionMarketPtrOutput) Elem() ClusterScalingActionMarketOutput {
+	return o.ApplyT(func(v *ClusterScalingActionMarket) ClusterScalingActionMarket {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterScalingActionMarket
+		return ret
+	}).(ClusterScalingActionMarketOutput)
+}
+
+func (o ClusterScalingActionMarketPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScalingActionMarketPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterScalingActionMarket) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterScalingActionMarketInput is an input type that accepts values of the ClusterScalingActionMarket enum
+// A concrete instance of `ClusterScalingActionMarketInput` can be one of the following:
+//
+//	ClusterScalingActionMarketOnDemand
+//	ClusterScalingActionMarketSpot
+type ClusterScalingActionMarketInput interface {
+	pulumi.Input
+
+	ToClusterScalingActionMarketOutput() ClusterScalingActionMarketOutput
+	ToClusterScalingActionMarketOutputWithContext(context.Context) ClusterScalingActionMarketOutput
+}
+
+var clusterScalingActionMarketPtrType = reflect.TypeOf((**ClusterScalingActionMarket)(nil)).Elem()
+
+type ClusterScalingActionMarketPtrInput interface {
+	pulumi.Input
+
+	ToClusterScalingActionMarketPtrOutput() ClusterScalingActionMarketPtrOutput
+	ToClusterScalingActionMarketPtrOutputWithContext(context.Context) ClusterScalingActionMarketPtrOutput
+}
+
+type clusterScalingActionMarketPtr string
+
+func ClusterScalingActionMarketPtr(v string) ClusterScalingActionMarketPtrInput {
+	return (*clusterScalingActionMarketPtr)(&v)
+}
+
+func (*clusterScalingActionMarketPtr) ElementType() reflect.Type {
+	return clusterScalingActionMarketPtrType
+}
+
+func (in *clusterScalingActionMarketPtr) ToClusterScalingActionMarketPtrOutput() ClusterScalingActionMarketPtrOutput {
+	return pulumi.ToOutput(in).(ClusterScalingActionMarketPtrOutput)
+}
+
+func (in *clusterScalingActionMarketPtr) ToClusterScalingActionMarketPtrOutputWithContext(ctx context.Context) ClusterScalingActionMarketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterScalingActionMarketPtrOutput)
+}
+
+// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+type ClusterSimpleScalingPolicyConfigurationAdjustmentType string
+
+const (
+	ClusterSimpleScalingPolicyConfigurationAdjustmentTypeChangeInCapacity        = ClusterSimpleScalingPolicyConfigurationAdjustmentType("CHANGE_IN_CAPACITY")
+	ClusterSimpleScalingPolicyConfigurationAdjustmentTypeExactCapacity           = ClusterSimpleScalingPolicyConfigurationAdjustmentType("EXACT_CAPACITY")
+	ClusterSimpleScalingPolicyConfigurationAdjustmentTypePercentChangeInCapacity = ClusterSimpleScalingPolicyConfigurationAdjustmentType("PERCENT_CHANGE_IN_CAPACITY")
+)
+
+func (ClusterSimpleScalingPolicyConfigurationAdjustmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSimpleScalingPolicyConfigurationAdjustmentType)(nil)).Elem()
+}
+
+func (e ClusterSimpleScalingPolicyConfigurationAdjustmentType) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput() ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput {
+	return pulumi.ToOutput(e).(ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput)
+}
+
+func (e ClusterSimpleScalingPolicyConfigurationAdjustmentType) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutputWithContext(ctx context.Context) ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput)
+}
+
+func (e ClusterSimpleScalingPolicyConfigurationAdjustmentType) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput() ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return e.ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSimpleScalingPolicyConfigurationAdjustmentType) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutputWithContext(ctx context.Context) ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return ClusterSimpleScalingPolicyConfigurationAdjustmentType(e).ToClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutputWithContext(ctx).ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutputWithContext(ctx)
+}
+
+func (e ClusterSimpleScalingPolicyConfigurationAdjustmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSimpleScalingPolicyConfigurationAdjustmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSimpleScalingPolicyConfigurationAdjustmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSimpleScalingPolicyConfigurationAdjustmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSimpleScalingPolicyConfigurationAdjustmentType)(nil)).Elem()
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput() ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput {
+	return o
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutputWithContext(ctx context.Context) ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput {
+	return o
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput() ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return o.ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutputWithContext(ctx context.Context) ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSimpleScalingPolicyConfigurationAdjustmentType) *ClusterSimpleScalingPolicyConfigurationAdjustmentType {
+		return &v
+	}).(ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput)
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSimpleScalingPolicyConfigurationAdjustmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSimpleScalingPolicyConfigurationAdjustmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSimpleScalingPolicyConfigurationAdjustmentType)(nil)).Elem()
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput() ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return o
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutputWithContext(ctx context.Context) ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return o
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput) Elem() ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput {
+	return o.ApplyT(func(v *ClusterSimpleScalingPolicyConfigurationAdjustmentType) ClusterSimpleScalingPolicyConfigurationAdjustmentType {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSimpleScalingPolicyConfigurationAdjustmentType
+		return ret
+	}).(ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput)
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSimpleScalingPolicyConfigurationAdjustmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterSimpleScalingPolicyConfigurationAdjustmentTypeInput is an input type that accepts values of the ClusterSimpleScalingPolicyConfigurationAdjustmentType enum
+// A concrete instance of `ClusterSimpleScalingPolicyConfigurationAdjustmentTypeInput` can be one of the following:
+//
+//	ClusterSimpleScalingPolicyConfigurationAdjustmentTypeChangeInCapacity
+//	ClusterSimpleScalingPolicyConfigurationAdjustmentTypeExactCapacity
+//	ClusterSimpleScalingPolicyConfigurationAdjustmentTypePercentChangeInCapacity
+type ClusterSimpleScalingPolicyConfigurationAdjustmentTypeInput interface {
+	pulumi.Input
+
+	ToClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput() ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput
+	ToClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutputWithContext(context.Context) ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput
+}
+
+var clusterSimpleScalingPolicyConfigurationAdjustmentTypePtrType = reflect.TypeOf((**ClusterSimpleScalingPolicyConfigurationAdjustmentType)(nil)).Elem()
+
+type ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrInput interface {
+	pulumi.Input
+
+	ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput() ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput
+	ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutputWithContext(context.Context) ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput
+}
+
+type clusterSimpleScalingPolicyConfigurationAdjustmentTypePtr string
+
+func ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtr(v string) ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrInput {
+	return (*clusterSimpleScalingPolicyConfigurationAdjustmentTypePtr)(&v)
+}
+
+func (*clusterSimpleScalingPolicyConfigurationAdjustmentTypePtr) ElementType() reflect.Type {
+	return clusterSimpleScalingPolicyConfigurationAdjustmentTypePtrType
+}
+
+func (in *clusterSimpleScalingPolicyConfigurationAdjustmentTypePtr) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput() ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return pulumi.ToOutput(in).(ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput)
+}
+
+func (in *clusterSimpleScalingPolicyConfigurationAdjustmentTypePtr) ToClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutputWithContext(ctx context.Context) ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput)
+}
+
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+type ClusterSpotProvisioningSpecificationTimeoutAction string
+
+const (
+	ClusterSpotProvisioningSpecificationTimeoutActionSwitchToOnDemand = ClusterSpotProvisioningSpecificationTimeoutAction("SWITCH_TO_ON_DEMAND")
+	ClusterSpotProvisioningSpecificationTimeoutActionTerminateCluster = ClusterSpotProvisioningSpecificationTimeoutAction("TERMINATE_CLUSTER")
+)
+
+func (ClusterSpotProvisioningSpecificationTimeoutAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSpotProvisioningSpecificationTimeoutAction)(nil)).Elem()
+}
+
+func (e ClusterSpotProvisioningSpecificationTimeoutAction) ToClusterSpotProvisioningSpecificationTimeoutActionOutput() ClusterSpotProvisioningSpecificationTimeoutActionOutput {
+	return pulumi.ToOutput(e).(ClusterSpotProvisioningSpecificationTimeoutActionOutput)
+}
+
+func (e ClusterSpotProvisioningSpecificationTimeoutAction) ToClusterSpotProvisioningSpecificationTimeoutActionOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationTimeoutActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterSpotProvisioningSpecificationTimeoutActionOutput)
+}
+
+func (e ClusterSpotProvisioningSpecificationTimeoutAction) ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutput() ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return e.ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSpotProvisioningSpecificationTimeoutAction) ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return ClusterSpotProvisioningSpecificationTimeoutAction(e).ToClusterSpotProvisioningSpecificationTimeoutActionOutputWithContext(ctx).ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutputWithContext(ctx)
+}
+
+func (e ClusterSpotProvisioningSpecificationTimeoutAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSpotProvisioningSpecificationTimeoutAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSpotProvisioningSpecificationTimeoutAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSpotProvisioningSpecificationTimeoutAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterSpotProvisioningSpecificationTimeoutActionOutput struct{ *pulumi.OutputState }
+
+func (ClusterSpotProvisioningSpecificationTimeoutActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSpotProvisioningSpecificationTimeoutAction)(nil)).Elem()
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionOutput) ToClusterSpotProvisioningSpecificationTimeoutActionOutput() ClusterSpotProvisioningSpecificationTimeoutActionOutput {
+	return o
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionOutput) ToClusterSpotProvisioningSpecificationTimeoutActionOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationTimeoutActionOutput {
+	return o
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionOutput) ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutput() ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return o.ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionOutput) ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSpotProvisioningSpecificationTimeoutAction) *ClusterSpotProvisioningSpecificationTimeoutAction {
+		return &v
+	}).(ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput)
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSpotProvisioningSpecificationTimeoutAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSpotProvisioningSpecificationTimeoutAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSpotProvisioningSpecificationTimeoutAction)(nil)).Elem()
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput) ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutput() ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return o
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput) ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return o
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput) Elem() ClusterSpotProvisioningSpecificationTimeoutActionOutput {
+	return o.ApplyT(func(v *ClusterSpotProvisioningSpecificationTimeoutAction) ClusterSpotProvisioningSpecificationTimeoutAction {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSpotProvisioningSpecificationTimeoutAction
+		return ret
+	}).(ClusterSpotProvisioningSpecificationTimeoutActionOutput)
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSpotProvisioningSpecificationTimeoutAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterSpotProvisioningSpecificationTimeoutActionInput is an input type that accepts values of the ClusterSpotProvisioningSpecificationTimeoutAction enum
+// A concrete instance of `ClusterSpotProvisioningSpecificationTimeoutActionInput` can be one of the following:
+//
+//	ClusterSpotProvisioningSpecificationTimeoutActionSwitchToOnDemand
+//	ClusterSpotProvisioningSpecificationTimeoutActionTerminateCluster
+type ClusterSpotProvisioningSpecificationTimeoutActionInput interface {
+	pulumi.Input
+
+	ToClusterSpotProvisioningSpecificationTimeoutActionOutput() ClusterSpotProvisioningSpecificationTimeoutActionOutput
+	ToClusterSpotProvisioningSpecificationTimeoutActionOutputWithContext(context.Context) ClusterSpotProvisioningSpecificationTimeoutActionOutput
+}
+
+var clusterSpotProvisioningSpecificationTimeoutActionPtrType = reflect.TypeOf((**ClusterSpotProvisioningSpecificationTimeoutAction)(nil)).Elem()
+
+type ClusterSpotProvisioningSpecificationTimeoutActionPtrInput interface {
+	pulumi.Input
+
+	ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutput() ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput
+	ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutputWithContext(context.Context) ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput
+}
+
+type clusterSpotProvisioningSpecificationTimeoutActionPtr string
+
+func ClusterSpotProvisioningSpecificationTimeoutActionPtr(v string) ClusterSpotProvisioningSpecificationTimeoutActionPtrInput {
+	return (*clusterSpotProvisioningSpecificationTimeoutActionPtr)(&v)
+}
+
+func (*clusterSpotProvisioningSpecificationTimeoutActionPtr) ElementType() reflect.Type {
+	return clusterSpotProvisioningSpecificationTimeoutActionPtrType
+}
+
+func (in *clusterSpotProvisioningSpecificationTimeoutActionPtr) ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutput() ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return pulumi.ToOutput(in).(ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput)
+}
+
+func (in *clusterSpotProvisioningSpecificationTimeoutActionPtr) ToClusterSpotProvisioningSpecificationTimeoutActionPtrOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput)
+}
+
+// The action to take when the step fails. Use one of the following values:
+//
+//	   TERMINATE_CLUSTER - Shuts down the cluster.
+//
+//	   CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+//
+//	   CONTINUE - Continues to the next step in the queue.
+//
+//	   TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+//	If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+//
+// If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+type ClusterStepConfigActionOnFailure string
+
+const (
+	ClusterStepConfigActionOnFailureCancelAndWait    = ClusterStepConfigActionOnFailure("CANCEL_AND_WAIT")
+	ClusterStepConfigActionOnFailureContinue         = ClusterStepConfigActionOnFailure("CONTINUE")
+	ClusterStepConfigActionOnFailureTerminateCluster = ClusterStepConfigActionOnFailure("TERMINATE_CLUSTER")
+	ClusterStepConfigActionOnFailureTerminateJobFlow = ClusterStepConfigActionOnFailure("TERMINATE_JOB_FLOW")
+)
+
+func (ClusterStepConfigActionOnFailure) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStepConfigActionOnFailure)(nil)).Elem()
+}
+
+func (e ClusterStepConfigActionOnFailure) ToClusterStepConfigActionOnFailureOutput() ClusterStepConfigActionOnFailureOutput {
+	return pulumi.ToOutput(e).(ClusterStepConfigActionOnFailureOutput)
+}
+
+func (e ClusterStepConfigActionOnFailure) ToClusterStepConfigActionOnFailureOutputWithContext(ctx context.Context) ClusterStepConfigActionOnFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterStepConfigActionOnFailureOutput)
+}
+
+func (e ClusterStepConfigActionOnFailure) ToClusterStepConfigActionOnFailurePtrOutput() ClusterStepConfigActionOnFailurePtrOutput {
+	return e.ToClusterStepConfigActionOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterStepConfigActionOnFailure) ToClusterStepConfigActionOnFailurePtrOutputWithContext(ctx context.Context) ClusterStepConfigActionOnFailurePtrOutput {
+	return ClusterStepConfigActionOnFailure(e).ToClusterStepConfigActionOnFailureOutputWithContext(ctx).ToClusterStepConfigActionOnFailurePtrOutputWithContext(ctx)
+}
+
+func (e ClusterStepConfigActionOnFailure) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterStepConfigActionOnFailure) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterStepConfigActionOnFailure) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterStepConfigActionOnFailure) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterStepConfigActionOnFailureOutput struct{ *pulumi.OutputState }
+
+func (ClusterStepConfigActionOnFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStepConfigActionOnFailure)(nil)).Elem()
+}
+
+func (o ClusterStepConfigActionOnFailureOutput) ToClusterStepConfigActionOnFailureOutput() ClusterStepConfigActionOnFailureOutput {
+	return o
+}
+
+func (o ClusterStepConfigActionOnFailureOutput) ToClusterStepConfigActionOnFailureOutputWithContext(ctx context.Context) ClusterStepConfigActionOnFailureOutput {
+	return o
+}
+
+func (o ClusterStepConfigActionOnFailureOutput) ToClusterStepConfigActionOnFailurePtrOutput() ClusterStepConfigActionOnFailurePtrOutput {
+	return o.ToClusterStepConfigActionOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStepConfigActionOnFailureOutput) ToClusterStepConfigActionOnFailurePtrOutputWithContext(ctx context.Context) ClusterStepConfigActionOnFailurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterStepConfigActionOnFailure) *ClusterStepConfigActionOnFailure {
+		return &v
+	}).(ClusterStepConfigActionOnFailurePtrOutput)
+}
+
+func (o ClusterStepConfigActionOnFailureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterStepConfigActionOnFailureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterStepConfigActionOnFailure) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterStepConfigActionOnFailureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStepConfigActionOnFailureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterStepConfigActionOnFailure) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterStepConfigActionOnFailurePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterStepConfigActionOnFailurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterStepConfigActionOnFailure)(nil)).Elem()
+}
+
+func (o ClusterStepConfigActionOnFailurePtrOutput) ToClusterStepConfigActionOnFailurePtrOutput() ClusterStepConfigActionOnFailurePtrOutput {
+	return o
+}
+
+func (o ClusterStepConfigActionOnFailurePtrOutput) ToClusterStepConfigActionOnFailurePtrOutputWithContext(ctx context.Context) ClusterStepConfigActionOnFailurePtrOutput {
+	return o
+}
+
+func (o ClusterStepConfigActionOnFailurePtrOutput) Elem() ClusterStepConfigActionOnFailureOutput {
+	return o.ApplyT(func(v *ClusterStepConfigActionOnFailure) ClusterStepConfigActionOnFailure {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterStepConfigActionOnFailure
+		return ret
+	}).(ClusterStepConfigActionOnFailureOutput)
+}
+
+func (o ClusterStepConfigActionOnFailurePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStepConfigActionOnFailurePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterStepConfigActionOnFailure) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterStepConfigActionOnFailureInput is an input type that accepts values of the ClusterStepConfigActionOnFailure enum
+// A concrete instance of `ClusterStepConfigActionOnFailureInput` can be one of the following:
+//
+//	ClusterStepConfigActionOnFailureCancelAndWait
+//	ClusterStepConfigActionOnFailureContinue
+//	ClusterStepConfigActionOnFailureTerminateCluster
+//	ClusterStepConfigActionOnFailureTerminateJobFlow
+type ClusterStepConfigActionOnFailureInput interface {
+	pulumi.Input
+
+	ToClusterStepConfigActionOnFailureOutput() ClusterStepConfigActionOnFailureOutput
+	ToClusterStepConfigActionOnFailureOutputWithContext(context.Context) ClusterStepConfigActionOnFailureOutput
+}
+
+var clusterStepConfigActionOnFailurePtrType = reflect.TypeOf((**ClusterStepConfigActionOnFailure)(nil)).Elem()
+
+type ClusterStepConfigActionOnFailurePtrInput interface {
+	pulumi.Input
+
+	ToClusterStepConfigActionOnFailurePtrOutput() ClusterStepConfigActionOnFailurePtrOutput
+	ToClusterStepConfigActionOnFailurePtrOutputWithContext(context.Context) ClusterStepConfigActionOnFailurePtrOutput
+}
+
+type clusterStepConfigActionOnFailurePtr string
+
+func ClusterStepConfigActionOnFailurePtr(v string) ClusterStepConfigActionOnFailurePtrInput {
+	return (*clusterStepConfigActionOnFailurePtr)(&v)
+}
+
+func (*clusterStepConfigActionOnFailurePtr) ElementType() reflect.Type {
+	return clusterStepConfigActionOnFailurePtrType
+}
+
+func (in *clusterStepConfigActionOnFailurePtr) ToClusterStepConfigActionOnFailurePtrOutput() ClusterStepConfigActionOnFailurePtrOutput {
+	return pulumi.ToOutput(in).(ClusterStepConfigActionOnFailurePtrOutput)
+}
+
+func (in *clusterStepConfigActionOnFailurePtr) ToClusterStepConfigActionOnFailurePtrOutputWithContext(ctx context.Context) ClusterStepConfigActionOnFailurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterStepConfigActionOnFailurePtrOutput)
+}
+
 // Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
 type StudioAuthMode string
 
@@ -509,12 +2586,60 @@ func (in *studioSessionMappingIdentityTypePtr) ToStudioSessionMappingIdentityTyp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionComparisonOperatorInput)(nil)).Elem(), ClusterCloudWatchAlarmDefinitionComparisonOperator("GREATER_THAN_OR_EQUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrInput)(nil)).Elem(), ClusterCloudWatchAlarmDefinitionComparisonOperator("GREATER_THAN_OR_EQUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionStatisticInput)(nil)).Elem(), ClusterCloudWatchAlarmDefinitionStatistic("SAMPLE_COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionStatisticPtrInput)(nil)).Elem(), ClusterCloudWatchAlarmDefinitionStatistic("SAMPLE_COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionUnitInput)(nil)).Elem(), ClusterCloudWatchAlarmDefinitionUnit("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionUnitPtrInput)(nil)).Elem(), ClusterCloudWatchAlarmDefinitionUnit("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeLimitsUnitTypeInput)(nil)).Elem(), ClusterComputeLimitsUnitType("InstanceFleetUnits"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeLimitsUnitTypePtrInput)(nil)).Elem(), ClusterComputeLimitsUnitType("InstanceFleetUnits"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupConfigMarketInput)(nil)).Elem(), ClusterInstanceGroupConfigMarket("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupConfigMarketPtrInput)(nil)).Elem(), ClusterInstanceGroupConfigMarket("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigInstanceRoleInput)(nil)).Elem(), ClusterPlacementGroupConfigInstanceRole("MASTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigInstanceRolePtrInput)(nil)).Elem(), ClusterPlacementGroupConfigInstanceRole("MASTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigPlacementStrategyInput)(nil)).Elem(), ClusterPlacementGroupConfigPlacementStrategy("SPREAD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigPlacementStrategyPtrInput)(nil)).Elem(), ClusterPlacementGroupConfigPlacementStrategy("SPREAD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScaleDownBehaviorInput)(nil)).Elem(), ClusterScaleDownBehavior("TERMINATE_AT_INSTANCE_HOUR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScaleDownBehaviorPtrInput)(nil)).Elem(), ClusterScaleDownBehavior("TERMINATE_AT_INSTANCE_HOUR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingActionMarketInput)(nil)).Elem(), ClusterScalingActionMarket("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingActionMarketPtrInput)(nil)).Elem(), ClusterScalingActionMarket("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSimpleScalingPolicyConfigurationAdjustmentTypeInput)(nil)).Elem(), ClusterSimpleScalingPolicyConfigurationAdjustmentType("CHANGE_IN_CAPACITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrInput)(nil)).Elem(), ClusterSimpleScalingPolicyConfigurationAdjustmentType("CHANGE_IN_CAPACITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotProvisioningSpecificationTimeoutActionInput)(nil)).Elem(), ClusterSpotProvisioningSpecificationTimeoutAction("SWITCH_TO_ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotProvisioningSpecificationTimeoutActionPtrInput)(nil)).Elem(), ClusterSpotProvisioningSpecificationTimeoutAction("SWITCH_TO_ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepConfigActionOnFailureInput)(nil)).Elem(), ClusterStepConfigActionOnFailure("CANCEL_AND_WAIT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepConfigActionOnFailurePtrInput)(nil)).Elem(), ClusterStepConfigActionOnFailure("CANCEL_AND_WAIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioAuthModeInput)(nil)).Elem(), StudioAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioAuthModePtrInput)(nil)).Elem(), StudioAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioIdcUserAssignmentInput)(nil)).Elem(), StudioIdcUserAssignment("REQUIRED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioIdcUserAssignmentPtrInput)(nil)).Elem(), StudioIdcUserAssignment("REQUIRED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingIdentityTypeInput)(nil)).Elem(), StudioSessionMappingIdentityType("USER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingIdentityTypePtrInput)(nil)).Elem(), StudioSessionMappingIdentityType("USER"))
+	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput{})
+	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionComparisonOperatorPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionStatisticOutput{})
+	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionStatisticPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionUnitOutput{})
+	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionUnitPtrOutput{})
+	pulumi.RegisterOutputType(ClusterComputeLimitsUnitTypeOutput{})
+	pulumi.RegisterOutputType(ClusterComputeLimitsUnitTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceGroupConfigMarketOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceGroupConfigMarketPtrOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigInstanceRoleOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigInstanceRolePtrOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigPlacementStrategyOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigPlacementStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterScaleDownBehaviorOutput{})
+	pulumi.RegisterOutputType(ClusterScaleDownBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(ClusterScalingActionMarketOutput{})
+	pulumi.RegisterOutputType(ClusterScalingActionMarketPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSimpleScalingPolicyConfigurationAdjustmentTypeOutput{})
+	pulumi.RegisterOutputType(ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterSpotProvisioningSpecificationTimeoutActionOutput{})
+	pulumi.RegisterOutputType(ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput{})
+	pulumi.RegisterOutputType(ClusterStepConfigActionOnFailureOutput{})
+	pulumi.RegisterOutputType(ClusterStepConfigActionOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(StudioAuthModeOutput{})
 	pulumi.RegisterOutputType(StudioAuthModePtrOutput{})
 	pulumi.RegisterOutputType(StudioIdcUserAssignmentOutput{})

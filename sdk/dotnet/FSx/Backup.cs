@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.FSx
         /// The ID of the file system to back up.
         /// </summary>
         [Output("fileSystemId")]
-        public Output<string> FileSystemId { get; private set; } = null!;
+        public Output<string?> FileSystemId { get; private set; } = null!;
 
         /// <summary>
         /// The lifecycle status of the backup.
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.FSx
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Backup(string name, BackupArgs args, CustomResourceOptions? options = null)
+        public Backup(string name, BackupArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:fsx:Backup", name, args ?? new BackupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -109,8 +109,8 @@ namespace Pulumi.AwsNative.FSx
         /// <summary>
         /// The ID of the file system to back up.
         /// </summary>
-        [Input("fileSystemId", required: true)]
-        public Input<string> FileSystemId { get; set; } = null!;
+        [Input("fileSystemId")]
+        public Input<string>? FileSystemId { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

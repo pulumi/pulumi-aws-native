@@ -95,6 +95,7 @@ namespace Pulumi.AwsNative.Eks
         /// The Target Role Arn of the pod identity association.
         /// </summary>
         public readonly string? TargetRoleArn;
+        public readonly Outputs.PodIdentityAssociationWorkloadIdentityConfig? WorkloadIdentityConfig;
 
         [OutputConstructor]
         private GetPodIdentityAssociationResult(
@@ -112,7 +113,9 @@ namespace Pulumi.AwsNative.Eks
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
-            string? targetRoleArn)
+            string? targetRoleArn,
+
+            Outputs.PodIdentityAssociationWorkloadIdentityConfig? workloadIdentityConfig)
         {
             AssociationArn = associationArn;
             AssociationId = associationId;
@@ -122,6 +125,7 @@ namespace Pulumi.AwsNative.Eks
             RoleArn = roleArn;
             Tags = tags;
             TargetRoleArn = targetRoleArn;
+            WorkloadIdentityConfig = workloadIdentityConfig;
         }
     }
 }

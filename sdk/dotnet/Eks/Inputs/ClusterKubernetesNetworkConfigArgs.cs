@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Eks.Inputs
     public sealed class ClusterKubernetesNetworkConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Todo: add description
+        /// Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
         /// </summary>
         [Input("elasticLoadBalancing")]
         public Input<Inputs.ClusterElasticLoadBalancingArgs>? ElasticLoadBalancing { get; set; }

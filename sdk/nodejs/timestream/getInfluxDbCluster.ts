@@ -38,6 +38,10 @@ export interface GetInfluxDbClusterResult {
      */
     readonly dbParameterGroupIdentifier?: string;
     /**
+     * The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+     */
+    readonly effectiveDbParameterGroupIdentifier?: string;
+    /**
      * The connection endpoint for the InfluxDB cluster.
      */
     readonly endpoint?: string;
@@ -65,6 +69,14 @@ export interface GetInfluxDbClusterResult {
      * The maintenance schedule for the InfluxDB cluster.
      */
     readonly maintenanceSchedule?: outputs.timestream.InfluxDbClusterMaintenanceSchedule;
+    /**
+     * The number of DB instances that belong to the InfluxDB cluster.
+     */
+    readonly memberCount?: number;
+    /**
+     * DB cluster member counts grouped by instance mode.
+     */
+    readonly memberModeCounts?: outputs.timestream.InfluxDbClusterMemberModeCount[];
     /**
      * The timestamp of the next scheduled maintenance event.
      */

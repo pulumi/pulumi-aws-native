@@ -67,11 +67,19 @@ namespace Pulumi.AwsNative.Ec2
         /// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
         /// </summary>
         public readonly ImmutableArray<string> AllowedPrincipals;
+        /// <summary>
+        /// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+        /// </summary>
+        public readonly ImmutableArray<string> TransitGatewayAttachmentAllowedPrincipals;
 
         [OutputConstructor]
-        private GetVpcEndpointServicePermissionsResult(ImmutableArray<string> allowedPrincipals)
+        private GetVpcEndpointServicePermissionsResult(
+            ImmutableArray<string> allowedPrincipals,
+
+            ImmutableArray<string> transitGatewayAttachmentAllowedPrincipals)
         {
             AllowedPrincipals = allowedPrincipals;
+            TransitGatewayAttachmentAllowedPrincipals = transitGatewayAttachmentAllowedPrincipals;
         }
     }
 }

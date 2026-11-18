@@ -22,6 +22,8 @@ __all__ = [
     'WorkflowCodeS3LocationArgsDict',
     'WorkflowEncryptionConfigurationArgs',
     'WorkflowEncryptionConfigurationArgsDict',
+    'WorkflowEnvironmentArgs',
+    'WorkflowEnvironmentArgsDict',
     'WorkflowLoggingConfigurationArgs',
     'WorkflowLoggingConfigurationArgsDict',
     'WorkflowNetworkConfigurationArgs',
@@ -130,6 +132,31 @@ class WorkflowEncryptionConfigurationArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+class WorkflowEnvironmentArgsDict(TypedDict):
+    """
+    Contains the environment variables that tasks in a workflow use during execution.
+    """
+    variables: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class WorkflowEnvironmentArgs:
+    def __init__(__self__, *,
+                 variables: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
+        """
+        Contains the environment variables that tasks in a workflow use during execution.
+        """
+        pulumi.set(__self__, "variables", variables)
+
+    @_builtins.property
+    @pulumi.getter
+    def variables(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "variables", value)
 
 
 class WorkflowLoggingConfigurationArgsDict(TypedDict):

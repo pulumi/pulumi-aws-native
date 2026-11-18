@@ -203,7 +203,7 @@ class CloudConnector(pulumi.CustomResource):
             __props__.__dict__["cloud_connector_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configConnectorArn", "configuration.azureConfiguration.tenantId", "roleArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configConnectorArn", "configuration.azureConfiguration.tenantId", "configuration.gcpConfiguration.organizationId", "configuration.gcpConfiguration.serviceAccountEmail", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CloudConnector, __self__).__init__(
             'aws-native:ssm:CloudConnector',

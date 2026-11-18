@@ -43,6 +43,10 @@ type LookupSiteToSiteVpnAttachmentResult struct {
 	EdgeLocation *string `pulumi:"edgeLocation"`
 	// Errors from the last modification of the attachment.
 	LastModificationErrors []string `pulumi:"lastModificationErrors"`
+	// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+	NatGatewaySupport *SiteToSiteVpnAttachmentNatGatewaySupport `pulumi:"natGatewaySupport"`
+	// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. Configurable on BGP Site-to-Site VPN attachments. Always false and not configurable for static VPN attachments. If omitted, a new NAT gateway configuration uses the service default for the attachment and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
+	NatSystemRouteSupport *bool `pulumi:"natSystemRouteSupport"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
@@ -124,6 +128,18 @@ func (o LookupSiteToSiteVpnAttachmentResultOutput) EdgeLocation() pulumi.StringP
 // Errors from the last modification of the attachment.
 func (o LookupSiteToSiteVpnAttachmentResultOutput) LastModificationErrors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) []string { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
+}
+
+// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+func (o LookupSiteToSiteVpnAttachmentResultOutput) NatGatewaySupport() SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) *SiteToSiteVpnAttachmentNatGatewaySupport {
+		return v.NatGatewaySupport
+	}).(SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput)
+}
+
+// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. Configurable on BGP Site-to-Site VPN attachments. Always false and not configurable for static VPN attachments. If omitted, a new NAT gateway configuration uses the service default for the attachment and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
+func (o LookupSiteToSiteVpnAttachmentResultOutput) NatSystemRouteSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) *bool { return v.NatSystemRouteSupport }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the network function group attachment.

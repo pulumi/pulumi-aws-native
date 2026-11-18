@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApplicationAuthConfigAuthType = {
+    ApiKey: "API_KEY",
+    ConnectJwt: "CONNECT_JWT",
+} as const;
+
+export type ApplicationAuthConfigAuthType = (typeof ApplicationAuthConfigAuthType)[keyof typeof ApplicationAuthConfigAuthType];
+
 export const ApplicationContactHandlingScope = {
     CrossContacts: "CROSS_CONTACTS",
     PerContact: "PER_CONTACT",
@@ -13,6 +20,7 @@ export const ApplicationType = {
     Standard: "STANDARD",
     Service: "SERVICE",
     McpServer: "MCP_SERVER",
+    A2aServer: "A2A_SERVER",
 } as const;
 
 /**

@@ -229,6 +229,8 @@ if typing.TYPE_CHECKING:
     elasticloadbalancing = __elasticloadbalancing
     import pulumi_aws_native.elasticloadbalancingv2 as __elasticloadbalancingv2
     elasticloadbalancingv2 = __elasticloadbalancingv2
+    import pulumi_aws_native.elasticsearch as __elasticsearch
+    elasticsearch = __elasticsearch
     import pulumi_aws_native.elementalinference as __elementalinference
     elementalinference = __elementalinference
     import pulumi_aws_native.emr as __emr
@@ -707,6 +709,7 @@ else:
     elasticbeanstalk = _utilities.lazy_import('pulumi_aws_native.elasticbeanstalk')
     elasticloadbalancing = _utilities.lazy_import('pulumi_aws_native.elasticloadbalancing')
     elasticloadbalancingv2 = _utilities.lazy_import('pulumi_aws_native.elasticloadbalancingv2')
+    elasticsearch = _utilities.lazy_import('pulumi_aws_native.elasticsearch')
     elementalinference = _utilities.lazy_import('pulumi_aws_native.elementalinference')
     emr = _utilities.lazy_import('pulumi_aws_native.emr')
     emrcontainers = _utilities.lazy_import('pulumi_aws_native.emrcontainers')
@@ -1179,6 +1182,7 @@ _utilities.register(
    "aws-native:athena:DataCatalog": "DataCatalog",
    "aws-native:athena:NamedQuery": "NamedQuery",
    "aws-native:athena:PreparedStatement": "PreparedStatement",
+   "aws-native:athena:SystemTables": "SystemTables",
    "aws-native:athena:WorkGroup": "WorkGroup"
   }
  },
@@ -1569,6 +1573,7 @@ _utilities.register(
    "aws-native:cloudwatch:AccessProfile": "AccessProfile",
    "aws-native:cloudwatch:Alarm": "Alarm",
    "aws-native:cloudwatch:AlarmMuteRule": "AlarmMuteRule",
+   "aws-native:cloudwatch:Alert": "Alert",
    "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
    "aws-native:cloudwatch:Dashboard": "Dashboard",
    "aws-native:cloudwatch:Domain": "Domain",
@@ -1577,6 +1582,7 @@ _utilities.register(
    "aws-native:cloudwatch:InsightRule": "InsightRule",
    "aws-native:cloudwatch:Integration": "Integration",
    "aws-native:cloudwatch:LogAlarm": "LogAlarm",
+   "aws-native:cloudwatch:MetricDataQueryDefinition": "MetricDataQueryDefinition",
    "aws-native:cloudwatch:MetricStream": "MetricStream",
    "aws-native:cloudwatch:OTelEnrichment": "OTelEnrichment",
    "aws-native:cloudwatch:OmniDashboard": "OmniDashboard",
@@ -1690,6 +1696,7 @@ _utilities.register(
    "aws-native:cognito:Terms": "Terms",
    "aws-native:cognito:UserPool": "UserPool",
    "aws-native:cognito:UserPoolClient": "UserPoolClient",
+   "aws-native:cognito:UserPoolClientSessionConfigurationAttachment": "UserPoolClientSessionConfigurationAttachment",
    "aws-native:cognito:UserPoolDomain": "UserPoolDomain",
    "aws-native:cognito:UserPoolGroup": "UserPoolGroup",
    "aws-native:cognito:UserPoolIdentityProvider": "UserPoolIdentityProvider",
@@ -1697,6 +1704,7 @@ _utilities.register(
    "aws-native:cognito:UserPoolReplica": "UserPoolReplica",
    "aws-native:cognito:UserPoolResourceServer": "UserPoolResourceServer",
    "aws-native:cognito:UserPoolRiskConfigurationAttachment": "UserPoolRiskConfigurationAttachment",
+   "aws-native:cognito:UserPoolSessionConfigurationAttachment": "UserPoolSessionConfigurationAttachment",
    "aws-native:cognito:UserPoolUiCustomizationAttachment": "UserPoolUiCustomizationAttachment",
    "aws-native:cognito:UserPoolUser": "UserPoolUser",
    "aws-native:cognito:UserPoolUserToGroupAttachment": "UserPoolUserToGroupAttachment"
@@ -1825,6 +1833,7 @@ _utilities.register(
    "aws-native:customerprofiles:Integration": "Integration",
    "aws-native:customerprofiles:ObjectType": "ObjectType",
    "aws-native:customerprofiles:Recommender": "Recommender",
+   "aws-native:customerprofiles:RecommenderFilter": "RecommenderFilter",
    "aws-native:customerprofiles:RecommenderSchema": "RecommenderSchema",
    "aws-native:customerprofiles:SegmentDefinition": "SegmentDefinition"
   }
@@ -1909,6 +1918,7 @@ _utilities.register(
   "mod": "dax",
   "fqn": "pulumi_aws_native.dax",
   "classes": {
+   "aws-native:dax:Cluster": "Cluster",
    "aws-native:dax:ParameterGroup": "ParameterGroup",
    "aws-native:dax:SubnetGroup": "SubnetGroup"
   }
@@ -1991,6 +2001,7 @@ _utilities.register(
    "aws-native:directconnect:Lag": "Lag",
    "aws-native:directconnect:PrivateVirtualInterface": "PrivateVirtualInterface",
    "aws-native:directconnect:PublicVirtualInterface": "PublicVirtualInterface",
+   "aws-native:directconnect:ResiliencyGroup": "ResiliencyGroup",
    "aws-native:directconnect:TransitVirtualInterface": "TransitVirtualInterface"
   }
  },
@@ -2024,6 +2035,7 @@ _utilities.register(
    "aws-native:dms:InstanceProfile": "InstanceProfile",
    "aws-native:dms:MigrationProject": "MigrationProject",
    "aws-native:dms:ReplicationConfig": "ReplicationConfig",
+   "aws-native:dms:ReplicationInstance": "ReplicationInstance",
    "aws-native:dms:ReplicationSubnetGroup": "ReplicationSubnetGroup",
    "aws-native:dms:ReplicationTask": "ReplicationTask"
   }
@@ -2034,6 +2046,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.docdb",
   "classes": {
    "aws-native:docdb:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:docdb:DbInstance": "DbInstance",
    "aws-native:docdb:DbSubnetGroup": "DbSubnetGroup",
    "aws-native:docdb:EventSubscription": "EventSubscription",
    "aws-native:docdb:GlobalCluster": "GlobalCluster"
@@ -2088,7 +2101,9 @@ _utilities.register(
    "aws-native:ec2:CapacityReservationFleet": "CapacityReservationFleet",
    "aws-native:ec2:CarrierGateway": "CarrierGateway",
    "aws-native:ec2:ClientVpnAuthorizationRule": "ClientVpnAuthorizationRule",
+   "aws-native:ec2:ClientVpnEndpoint": "ClientVpnEndpoint",
    "aws-native:ec2:ClientVpnRoute": "ClientVpnRoute",
+   "aws-native:ec2:ClientVpnTargetNetworkAssociation": "ClientVpnTargetNetworkAssociation",
    "aws-native:ec2:CustomerGateway": "CustomerGateway",
    "aws-native:ec2:DhcpOptions": "DhcpOptions",
    "aws-native:ec2:Ec2Fleet": "Ec2Fleet",
@@ -2096,6 +2111,8 @@ _utilities.register(
    "aws-native:ec2:Eip": "Eip",
    "aws-native:ec2:EipAssociation": "EipAssociation",
    "aws-native:ec2:EnclaveCertificateIamRoleAssociation": "EnclaveCertificateIamRoleAssociation",
+   "aws-native:ec2:FcaPolicy": "FcaPolicy",
+   "aws-native:ec2:FcaPolicyAssociation": "FcaPolicyAssociation",
    "aws-native:ec2:FlowLog": "FlowLog",
    "aws-native:ec2:FpgaImage": "FpgaImage",
    "aws-native:ec2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
@@ -2172,6 +2189,7 @@ _utilities.register(
    "aws-native:ec2:TransitGatewayMulticastDomainAssociation": "TransitGatewayMulticastDomainAssociation",
    "aws-native:ec2:TransitGatewayMulticastGroupMember": "TransitGatewayMulticastGroupMember",
    "aws-native:ec2:TransitGatewayMulticastGroupSource": "TransitGatewayMulticastGroupSource",
+   "aws-native:ec2:TransitGatewayNetworkFunctionAttachment": "TransitGatewayNetworkFunctionAttachment",
    "aws-native:ec2:TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachment",
    "aws-native:ec2:TransitGatewayPolicyTable": "TransitGatewayPolicyTable",
    "aws-native:ec2:TransitGatewayPolicyTableAssociation": "TransitGatewayPolicyTableAssociation",
@@ -2316,6 +2334,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "elasticsearch",
+  "fqn": "pulumi_aws_native.elasticsearch",
+  "classes": {
+   "aws-native:elasticsearch:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "elementalinference",
   "fqn": "pulumi_aws_native.elementalinference",
   "classes": {
@@ -2328,6 +2354,7 @@ _utilities.register(
   "mod": "emr",
   "fqn": "pulumi_aws_native.emr",
   "classes": {
+   "aws-native:emr:Cluster": "Cluster",
    "aws-native:emr:InstanceFleetConfig": "InstanceFleetConfig",
    "aws-native:emr:InstanceGroupConfig": "InstanceGroupConfig",
    "aws-native:emr:SecurityConfiguration": "SecurityConfiguration",
@@ -2936,7 +2963,8 @@ _utilities.register(
   "mod": "kinesisanalyticsv2",
   "fqn": "pulumi_aws_native.kinesisanalyticsv2",
   "classes": {
-   "aws-native:kinesisanalyticsv2:Application": "Application"
+   "aws-native:kinesisanalyticsv2:Application": "Application",
+   "aws-native:kinesisanalyticsv2:Snapshot": "Snapshot"
   }
  },
  {
@@ -2973,6 +3001,7 @@ _utilities.register(
   "classes": {
    "aws-native:lakeformation:DataCellsFilter": "DataCellsFilter",
    "aws-native:lakeformation:PrincipalPermissions": "PrincipalPermissions",
+   "aws-native:lakeformation:Resource": "Resource",
    "aws-native:lakeformation:Tag": "Tag",
    "aws-native:lakeformation:TagAssociation": "TagAssociation"
   }
@@ -2994,6 +3023,9 @@ _utilities.register(
    "aws-native:lambda:NetworkConnector": "NetworkConnector",
    "aws-native:lambda:Permission": "Permission",
    "aws-native:lambda:ResourcePolicy": "ResourcePolicy",
+   "aws-native:lambda:Runtime": "Runtime",
+   "aws-native:lambda:RuntimeAlias": "RuntimeAlias",
+   "aws-native:lambda:RuntimeVersion": "RuntimeVersion",
    "aws-native:lambda:Url": "Url",
    "aws-native:lambda:Version": "Version",
    "aws-native:lambda:WebFunction": "WebFunction",
@@ -3334,6 +3366,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.networkflowmonitor",
   "classes": {
    "aws-native:networkflowmonitor:Monitor": "Monitor",
+   "aws-native:networkflowmonitor:PerformanceMonitor": "PerformanceMonitor",
    "aws-native:networkflowmonitor:Scope": "Scope"
   }
  },
@@ -3345,6 +3378,8 @@ _utilities.register(
    "aws-native:networkmanager:ConnectAttachment": "ConnectAttachment",
    "aws-native:networkmanager:ConnectPeer": "ConnectPeer",
    "aws-native:networkmanager:Connection": "Connection",
+   "aws-native:networkmanager:ContextStore": "ContextStore",
+   "aws-native:networkmanager:ContextStoreAssociation": "ContextStoreAssociation",
    "aws-native:networkmanager:CoreNetwork": "CoreNetwork",
    "aws-native:networkmanager:CoreNetworkPrefixListAssociation": "CoreNetworkPrefixListAssociation",
    "aws-native:networkmanager:CustomerGatewayAssociation": "CustomerGatewayAssociation",
@@ -3375,6 +3410,7 @@ _utilities.register(
   "mod": "networksecuritymanager",
   "fqn": "pulumi_aws_native.networksecuritymanager",
   "classes": {
+   "aws-native:networksecuritymanager:Deployment": "Deployment",
    "aws-native:networksecuritymanager:Policy": "Policy",
    "aws-native:networksecuritymanager:Rule": "Rule",
    "aws-native:networksecuritymanager:Scope": "Scope",
@@ -3501,7 +3537,8 @@ _utilities.register(
   "mod": "osis",
   "fqn": "pulumi_aws_native.osis",
   "classes": {
-   "aws-native:osis:Pipeline": "Pipeline"
+   "aws-native:osis:Pipeline": "Pipeline",
+   "aws-native:osis:PipelineEndpoint": "PipelineEndpoint"
   }
  },
  {
@@ -3849,9 +3886,12 @@ _utilities.register(
    "aws-native:route53:DelegationSet": "DelegationSet",
    "aws-native:route53:Dnssec": "Dnssec",
    "aws-native:route53:HealthCheck": "HealthCheck",
+   "aws-native:route53:HealthCheckSource": "HealthCheckSource",
    "aws-native:route53:HostedZone": "HostedZone",
    "aws-native:route53:KeySigningKey": "KeySigningKey",
+   "aws-native:route53:QueryLoggingConfig": "QueryLoggingConfig",
    "aws-native:route53:RecordSet": "RecordSet",
+   "aws-native:route53:RecordSetProtection": "RecordSetProtection",
    "aws-native:route53:TrafficPolicy": "TrafficPolicy"
   }
  },
@@ -3862,6 +3902,7 @@ _utilities.register(
   "classes": {
    "aws-native:route53globalresolver:AccessSource": "AccessSource",
    "aws-native:route53globalresolver:AccessToken": "AccessToken",
+   "aws-native:route53globalresolver:CoreNetworkEndpoint": "CoreNetworkEndpoint",
    "aws-native:route53globalresolver:DnsView": "DnsView",
    "aws-native:route53globalresolver:FirewallDomainList": "FirewallDomainList",
    "aws-native:route53globalresolver:FirewallRule": "FirewallRule",
@@ -4033,6 +4074,7 @@ _utilities.register(
    "aws-native:sagemaker:AppImageConfig": "AppImageConfig",
    "aws-native:sagemaker:Artifact": "Artifact",
    "aws-native:sagemaker:Cluster": "Cluster",
+   "aws-native:sagemaker:ClusterSchedulerConfig": "ClusterSchedulerConfig",
    "aws-native:sagemaker:CodeRepository": "CodeRepository",
    "aws-native:sagemaker:ComputeQuota": "ComputeQuota",
    "aws-native:sagemaker:Context": "Context",
@@ -4044,6 +4086,7 @@ _utilities.register(
    "aws-native:sagemaker:EndpointConfig": "EndpointConfig",
    "aws-native:sagemaker:Experiment": "Experiment",
    "aws-native:sagemaker:ExperimentTrialComponent": "ExperimentTrialComponent",
+   "aws-native:sagemaker:Extension": "Extension",
    "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
    "aws-native:sagemaker:Hub": "Hub",
    "aws-native:sagemaker:HumanTaskUi": "HumanTaskUi",
@@ -4166,6 +4209,7 @@ _utilities.register(
   "mod": "servicecatalog",
   "fqn": "pulumi_aws_native.servicecatalog",
   "classes": {
+   "aws-native:servicecatalog:AcceptedPortfolioShare": "AcceptedPortfolioShare",
    "aws-native:servicecatalog:CloudFormationProduct": "CloudFormationProduct",
    "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
    "aws-native:servicecatalog:LaunchNotificationConstraint": "LaunchNotificationConstraint",
@@ -4309,6 +4353,7 @@ _utilities.register(
   "classes": {
    "aws-native:ssm:Association": "Association",
    "aws-native:ssm:CloudConnector": "CloudConnector",
+   "aws-native:ssm:DefaultHostManagementConfiguration": "DefaultHostManagementConfiguration",
    "aws-native:ssm:Document": "Document",
    "aws-native:ssm:MaintenanceWindow": "MaintenanceWindow",
    "aws-native:ssm:MaintenanceWindowTarget": "MaintenanceWindowTarget",
@@ -4443,6 +4488,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.timestream",
   "classes": {
    "aws-native:timestream:Database": "Database",
+   "aws-native:timestream:InfluxDbBackup": "InfluxDbBackup",
    "aws-native:timestream:InfluxDbCluster": "InfluxDbCluster",
    "aws-native:timestream:InfluxDbInstance": "InfluxDbInstance",
    "aws-native:timestream:ScheduledQuery": "ScheduledQuery",
@@ -4554,7 +4600,9 @@ _utilities.register(
   "classes": {
    "aws-native:wellarchitected:AgentContext": "AgentContext",
    "aws-native:wellarchitected:AgentGoal": "AgentGoal",
+   "aws-native:wellarchitected:AgentOrganizationalProfile": "AgentOrganizationalProfile",
    "aws-native:wellarchitected:AgentProfile": "AgentProfile",
+   "aws-native:wellarchitected:AgentProfilePolicy": "AgentProfilePolicy",
    "aws-native:wellarchitected:Lens": "Lens",
    "aws-native:wellarchitected:Profile": "Profile",
    "aws-native:wellarchitected:ReviewTemplate": "ReviewTemplate",

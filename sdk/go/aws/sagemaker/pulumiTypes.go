@@ -8542,6 +8542,253 @@ func (o ClusterScheduledUpdateConfigPtrOutput) ScheduleExpression() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Priority class configuration.
+type ClusterSchedulerConfigPriorityClass struct {
+	// Name of the priority class.
+	Name string `pulumi:"name"`
+	// Weight of the priority class. Range 0-100, default 0.
+	Weight int `pulumi:"weight"`
+}
+
+// ClusterSchedulerConfigPriorityClassInput is an input type that accepts ClusterSchedulerConfigPriorityClassArgs and ClusterSchedulerConfigPriorityClassOutput values.
+// You can construct a concrete instance of `ClusterSchedulerConfigPriorityClassInput` via:
+//
+//	ClusterSchedulerConfigPriorityClassArgs{...}
+type ClusterSchedulerConfigPriorityClassInput interface {
+	pulumi.Input
+
+	ToClusterSchedulerConfigPriorityClassOutput() ClusterSchedulerConfigPriorityClassOutput
+	ToClusterSchedulerConfigPriorityClassOutputWithContext(context.Context) ClusterSchedulerConfigPriorityClassOutput
+}
+
+// Priority class configuration.
+type ClusterSchedulerConfigPriorityClassArgs struct {
+	// Name of the priority class.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Weight of the priority class. Range 0-100, default 0.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (ClusterSchedulerConfigPriorityClassArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigPriorityClass)(nil)).Elem()
+}
+
+func (i ClusterSchedulerConfigPriorityClassArgs) ToClusterSchedulerConfigPriorityClassOutput() ClusterSchedulerConfigPriorityClassOutput {
+	return i.ToClusterSchedulerConfigPriorityClassOutputWithContext(context.Background())
+}
+
+func (i ClusterSchedulerConfigPriorityClassArgs) ToClusterSchedulerConfigPriorityClassOutputWithContext(ctx context.Context) ClusterSchedulerConfigPriorityClassOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSchedulerConfigPriorityClassOutput)
+}
+
+// ClusterSchedulerConfigPriorityClassArrayInput is an input type that accepts ClusterSchedulerConfigPriorityClassArray and ClusterSchedulerConfigPriorityClassArrayOutput values.
+// You can construct a concrete instance of `ClusterSchedulerConfigPriorityClassArrayInput` via:
+//
+//	ClusterSchedulerConfigPriorityClassArray{ ClusterSchedulerConfigPriorityClassArgs{...} }
+type ClusterSchedulerConfigPriorityClassArrayInput interface {
+	pulumi.Input
+
+	ToClusterSchedulerConfigPriorityClassArrayOutput() ClusterSchedulerConfigPriorityClassArrayOutput
+	ToClusterSchedulerConfigPriorityClassArrayOutputWithContext(context.Context) ClusterSchedulerConfigPriorityClassArrayOutput
+}
+
+type ClusterSchedulerConfigPriorityClassArray []ClusterSchedulerConfigPriorityClassInput
+
+func (ClusterSchedulerConfigPriorityClassArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSchedulerConfigPriorityClass)(nil)).Elem()
+}
+
+func (i ClusterSchedulerConfigPriorityClassArray) ToClusterSchedulerConfigPriorityClassArrayOutput() ClusterSchedulerConfigPriorityClassArrayOutput {
+	return i.ToClusterSchedulerConfigPriorityClassArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterSchedulerConfigPriorityClassArray) ToClusterSchedulerConfigPriorityClassArrayOutputWithContext(ctx context.Context) ClusterSchedulerConfigPriorityClassArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSchedulerConfigPriorityClassArrayOutput)
+}
+
+// Priority class configuration.
+type ClusterSchedulerConfigPriorityClassOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigPriorityClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigPriorityClass)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigPriorityClassOutput) ToClusterSchedulerConfigPriorityClassOutput() ClusterSchedulerConfigPriorityClassOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigPriorityClassOutput) ToClusterSchedulerConfigPriorityClassOutputWithContext(ctx context.Context) ClusterSchedulerConfigPriorityClassOutput {
+	return o
+}
+
+// Name of the priority class.
+func (o ClusterSchedulerConfigPriorityClassOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterSchedulerConfigPriorityClass) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Weight of the priority class. Range 0-100, default 0.
+func (o ClusterSchedulerConfigPriorityClassOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterSchedulerConfigPriorityClass) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type ClusterSchedulerConfigPriorityClassArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigPriorityClassArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSchedulerConfigPriorityClass)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigPriorityClassArrayOutput) ToClusterSchedulerConfigPriorityClassArrayOutput() ClusterSchedulerConfigPriorityClassArrayOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigPriorityClassArrayOutput) ToClusterSchedulerConfigPriorityClassArrayOutputWithContext(ctx context.Context) ClusterSchedulerConfigPriorityClassArrayOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigPriorityClassArrayOutput) Index(i pulumi.IntInput) ClusterSchedulerConfigPriorityClassOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterSchedulerConfigPriorityClass {
+		return vs[0].([]ClusterSchedulerConfigPriorityClass)[vs[1].(int)]
+	}).(ClusterSchedulerConfigPriorityClassOutput)
+}
+
+// Cluster policy configuration.
+type ClusterSchedulerConfigSchedulerConfig struct {
+	// When enabled, entities borrow idle compute based on assigned FairShareWeight.
+	FairShare *ClusterSchedulerConfigSchedulerConfigFairShare `pulumi:"fairShare"`
+	// Configuration for sharing idle compute resources across entities.
+	IdleResourceSharing *ClusterSchedulerConfigSchedulerConfigIdleResourceSharing `pulumi:"idleResourceSharing"`
+	// List of priority class configurations.
+	PriorityClasses []ClusterSchedulerConfigPriorityClass `pulumi:"priorityClasses"`
+}
+
+// ClusterSchedulerConfigSchedulerConfigInput is an input type that accepts ClusterSchedulerConfigSchedulerConfigArgs and ClusterSchedulerConfigSchedulerConfigOutput values.
+// You can construct a concrete instance of `ClusterSchedulerConfigSchedulerConfigInput` via:
+//
+//	ClusterSchedulerConfigSchedulerConfigArgs{...}
+type ClusterSchedulerConfigSchedulerConfigInput interface {
+	pulumi.Input
+
+	ToClusterSchedulerConfigSchedulerConfigOutput() ClusterSchedulerConfigSchedulerConfigOutput
+	ToClusterSchedulerConfigSchedulerConfigOutputWithContext(context.Context) ClusterSchedulerConfigSchedulerConfigOutput
+}
+
+// Cluster policy configuration.
+type ClusterSchedulerConfigSchedulerConfigArgs struct {
+	// When enabled, entities borrow idle compute based on assigned FairShareWeight.
+	FairShare ClusterSchedulerConfigSchedulerConfigFairSharePtrInput `pulumi:"fairShare"`
+	// Configuration for sharing idle compute resources across entities.
+	IdleResourceSharing ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrInput `pulumi:"idleResourceSharing"`
+	// List of priority class configurations.
+	PriorityClasses ClusterSchedulerConfigPriorityClassArrayInput `pulumi:"priorityClasses"`
+}
+
+func (ClusterSchedulerConfigSchedulerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfig)(nil)).Elem()
+}
+
+func (i ClusterSchedulerConfigSchedulerConfigArgs) ToClusterSchedulerConfigSchedulerConfigOutput() ClusterSchedulerConfigSchedulerConfigOutput {
+	return i.ToClusterSchedulerConfigSchedulerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterSchedulerConfigSchedulerConfigArgs) ToClusterSchedulerConfigSchedulerConfigOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSchedulerConfigSchedulerConfigOutput)
+}
+
+// Cluster policy configuration.
+type ClusterSchedulerConfigSchedulerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigSchedulerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfig)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigOutput) ToClusterSchedulerConfigSchedulerConfigOutput() ClusterSchedulerConfigSchedulerConfigOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigOutput) ToClusterSchedulerConfigSchedulerConfigOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigOutput {
+	return o
+}
+
+// When enabled, entities borrow idle compute based on assigned FairShareWeight.
+func (o ClusterSchedulerConfigSchedulerConfigOutput) FairShare() ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return o.ApplyT(func(v ClusterSchedulerConfigSchedulerConfig) *ClusterSchedulerConfigSchedulerConfigFairShare {
+		return v.FairShare
+	}).(ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput)
+}
+
+// Configuration for sharing idle compute resources across entities.
+func (o ClusterSchedulerConfigSchedulerConfigOutput) IdleResourceSharing() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return o.ApplyT(func(v ClusterSchedulerConfigSchedulerConfig) *ClusterSchedulerConfigSchedulerConfigIdleResourceSharing {
+		return v.IdleResourceSharing
+	}).(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput)
+}
+
+// List of priority class configurations.
+func (o ClusterSchedulerConfigSchedulerConfigOutput) PriorityClasses() ClusterSchedulerConfigPriorityClassArrayOutput {
+	return o.ApplyT(func(v ClusterSchedulerConfigSchedulerConfig) []ClusterSchedulerConfigPriorityClass {
+		return v.PriorityClasses
+	}).(ClusterSchedulerConfigPriorityClassArrayOutput)
+}
+
+type ClusterSchedulerConfigSchedulerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigSchedulerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSchedulerConfigSchedulerConfig)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigPtrOutput) ToClusterSchedulerConfigSchedulerConfigPtrOutput() ClusterSchedulerConfigSchedulerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigPtrOutput) ToClusterSchedulerConfigSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigPtrOutput) Elem() ClusterSchedulerConfigSchedulerConfigOutput {
+	return o.ApplyT(func(v *ClusterSchedulerConfigSchedulerConfig) ClusterSchedulerConfigSchedulerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSchedulerConfigSchedulerConfig
+		return ret
+	}).(ClusterSchedulerConfigSchedulerConfigOutput)
+}
+
+// When enabled, entities borrow idle compute based on assigned FairShareWeight.
+func (o ClusterSchedulerConfigSchedulerConfigPtrOutput) FairShare() ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return o.ApplyT(func(v *ClusterSchedulerConfigSchedulerConfig) *ClusterSchedulerConfigSchedulerConfigFairShare {
+		if v == nil {
+			return nil
+		}
+		return v.FairShare
+	}).(ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput)
+}
+
+// Configuration for sharing idle compute resources across entities.
+func (o ClusterSchedulerConfigSchedulerConfigPtrOutput) IdleResourceSharing() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return o.ApplyT(func(v *ClusterSchedulerConfigSchedulerConfig) *ClusterSchedulerConfigSchedulerConfigIdleResourceSharing {
+		if v == nil {
+			return nil
+		}
+		return v.IdleResourceSharing
+	}).(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput)
+}
+
+// List of priority class configurations.
+func (o ClusterSchedulerConfigSchedulerConfigPtrOutput) PriorityClasses() ClusterSchedulerConfigPriorityClassArrayOutput {
+	return o.ApplyT(func(v *ClusterSchedulerConfigSchedulerConfig) []ClusterSchedulerConfigPriorityClass {
+		if v == nil {
+			return nil
+		}
+		return v.PriorityClasses
+	}).(ClusterSchedulerConfigPriorityClassArrayOutput)
+}
+
+type ClusterSchedulerConfigTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
 type ClusterSharedEnvironmentConfig struct {
 	FSxLustreConfig *ClusterFSxLustreConfig `pulumi:"fSxLustreConfig"`
@@ -23687,6 +23934,91 @@ func (o ExperimentTrialComponentStatusPtrOutput) PrimaryStatus() pulumi.StringPt
 
 type ExperimentTrialComponentTagsItems struct {
 	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// The number of cluster nodes that the extension applies to, and how many of them run the requested extension version.
+type ExtensionNodeSummary struct {
+	// The number of cluster nodes that run the requested extension version.
+	ActiveCount int `pulumi:"activeCount"`
+	// The number of cluster nodes that the extension applies to.
+	TotalCount int `pulumi:"totalCount"`
+}
+
+// The number of cluster nodes that the extension applies to, and how many of them run the requested extension version.
+type ExtensionNodeSummaryOutput struct{ *pulumi.OutputState }
+
+func (ExtensionNodeSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionNodeSummary)(nil)).Elem()
+}
+
+func (o ExtensionNodeSummaryOutput) ToExtensionNodeSummaryOutput() ExtensionNodeSummaryOutput {
+	return o
+}
+
+func (o ExtensionNodeSummaryOutput) ToExtensionNodeSummaryOutputWithContext(ctx context.Context) ExtensionNodeSummaryOutput {
+	return o
+}
+
+// The number of cluster nodes that run the requested extension version.
+func (o ExtensionNodeSummaryOutput) ActiveCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ExtensionNodeSummary) int { return v.ActiveCount }).(pulumi.IntOutput)
+}
+
+// The number of cluster nodes that the extension applies to.
+func (o ExtensionNodeSummaryOutput) TotalCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ExtensionNodeSummary) int { return v.TotalCount }).(pulumi.IntOutput)
+}
+
+type ExtensionNodeSummaryPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtensionNodeSummaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtensionNodeSummary)(nil)).Elem()
+}
+
+func (o ExtensionNodeSummaryPtrOutput) ToExtensionNodeSummaryPtrOutput() ExtensionNodeSummaryPtrOutput {
+	return o
+}
+
+func (o ExtensionNodeSummaryPtrOutput) ToExtensionNodeSummaryPtrOutputWithContext(ctx context.Context) ExtensionNodeSummaryPtrOutput {
+	return o
+}
+
+func (o ExtensionNodeSummaryPtrOutput) Elem() ExtensionNodeSummaryOutput {
+	return o.ApplyT(func(v *ExtensionNodeSummary) ExtensionNodeSummary {
+		if v != nil {
+			return *v
+		}
+		var ret ExtensionNodeSummary
+		return ret
+	}).(ExtensionNodeSummaryOutput)
+}
+
+// The number of cluster nodes that run the requested extension version.
+func (o ExtensionNodeSummaryPtrOutput) ActiveCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExtensionNodeSummary) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ActiveCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of cluster nodes that the extension applies to.
+func (o ExtensionNodeSummaryPtrOutput) TotalCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExtensionNodeSummary) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair that you can use to organize and track your extensions.
+type ExtensionTag struct {
+	// The tag key. Each key must be unique for the extension.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -65153,6 +65485,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyPtrInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigPtrInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSchedulerConfigPriorityClassInput)(nil)).Elem(), ClusterSchedulerConfigPriorityClassArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSchedulerConfigPriorityClassArrayInput)(nil)).Elem(), ClusterSchedulerConfigPriorityClassArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigInput)(nil)).Elem(), ClusterSchedulerConfigSchedulerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigInput)(nil)).Elem(), ClusterSharedEnvironmentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigPtrInput)(nil)).Elem(), ClusterSharedEnvironmentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigInput)(nil)).Elem(), ClusterSlurmConfigArgs{})
@@ -65933,6 +66268,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigPriorityClassOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigPriorityClassArrayOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigSchedulerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigSchedulerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigOutput{})
 	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSlurmConfigOutput{})
@@ -66111,6 +66450,8 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentTrialComponentMetadataPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTrialComponentStatusOutput{})
 	pulumi.RegisterOutputType(ExperimentTrialComponentStatusPtrOutput{})
+	pulumi.RegisterOutputType(ExtensionNodeSummaryOutput{})
+	pulumi.RegisterOutputType(ExtensionNodeSummaryPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupDataCatalogConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupDataCatalogConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})

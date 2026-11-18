@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Eks.Inputs
 {
 
     /// <summary>
-    /// Todo: add description
+    /// Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.
     /// </summary>
     public sealed class ClusterStorageConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Todo: add description
+        /// Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
         /// </summary>
         [Input("blockStorage")]
         public Input<Inputs.ClusterBlockStorageArgs>? BlockStorage { get; set; }

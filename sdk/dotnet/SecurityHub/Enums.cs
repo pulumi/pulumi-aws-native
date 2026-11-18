@@ -846,6 +846,7 @@ namespace Pulumi.AwsNative.SecurityHub
         public static FindingAggregatorRegionLinkingMode AllRegions { get; } = new FindingAggregatorRegionLinkingMode("ALL_REGIONS");
         public static FindingAggregatorRegionLinkingMode AllRegionsExceptSpecified { get; } = new FindingAggregatorRegionLinkingMode("ALL_REGIONS_EXCEPT_SPECIFIED");
         public static FindingAggregatorRegionLinkingMode SpecifiedRegions { get; } = new FindingAggregatorRegionLinkingMode("SPECIFIED_REGIONS");
+        public static FindingAggregatorRegionLinkingMode NoRegions { get; } = new FindingAggregatorRegionLinkingMode("NO_REGIONS");
 
         public static bool operator ==(FindingAggregatorRegionLinkingMode left, FindingAggregatorRegionLinkingMode right) => left.Equals(right);
         public static bool operator !=(FindingAggregatorRegionLinkingMode left, FindingAggregatorRegionLinkingMode right) => !left.Equals(right);

@@ -16,10 +16,28 @@ namespace Pulumi.AwsNative.Ec2
     public partial class TransitGatewayPeeringAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+        /// </summary>
+        [Output("accepterAllowMultipathResilience")]
+        public Output<bool> AccepterAllowMultipathResilience { get; private set; } = null!;
+
+        /// <summary>
         /// The time the transit gateway peering attachment was created.
         /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)
+        /// </summary>
+        [Output("multipathResilienceStatus")]
+        public Output<string> MultipathResilienceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Options for transit gateway peering attachment
+        /// </summary>
+        [Output("options")]
+        public Output<Outputs.TransitGatewayPeeringAttachmentOptions?> Options { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the peer account
@@ -38,6 +56,18 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("peerTransitGatewayId")]
         public Output<string> PeerTransitGatewayId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the requester side of the peering attachment has opted in to MultipathResilience.
+        /// </summary>
+        [Output("requesterAllowMultipathResilience")]
+        public Output<bool> RequesterAllowMultipathResilience { get; private set; } = null!;
+
+        /// <summary>
+        /// The MultipathResilience mode chosen by the requester side of the peering attachment.
+        /// </summary>
+        [Output("requesterMultipathResilienceMode")]
+        public Output<string> RequesterMultipathResilienceMode { get; private set; } = null!;
 
         /// <summary>
         /// The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
@@ -121,6 +151,12 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class TransitGatewayPeeringAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Options for transit gateway peering attachment
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.TransitGatewayPeeringAttachmentOptionsArgs>? Options { get; set; }
+
         /// <summary>
         /// The ID of the peer account
         /// </summary>

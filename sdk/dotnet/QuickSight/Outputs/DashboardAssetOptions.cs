@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAssetOptions
     {
+        public readonly Outputs.DashboardVisualCustomActionDefaults? CustomActionDefaults;
         /// <summary>
         /// A list of dataset ARNS to exclude from Dashboard Q&amp;A.
         /// </summary>
@@ -25,6 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// Determines the timezone for the analysis.
         /// </summary>
         public readonly string? Timezone;
+        public readonly Outputs.DashboardVisualMessages? VisualMessages;
         /// <summary>
         /// Determines the week start day for an analysis.
         /// </summary>
@@ -32,17 +34,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DashboardAssetOptions(
+            Outputs.DashboardVisualCustomActionDefaults? customActionDefaults,
+
             ImmutableArray<string> excludedDataSetArns,
 
             Pulumi.AwsNative.QuickSight.DashboardQBusinessInsightsStatus? qBusinessInsightsStatus,
 
             string? timezone,
 
+            Outputs.DashboardVisualMessages? visualMessages,
+
             Pulumi.AwsNative.QuickSight.DashboardDayOfTheWeek? weekStart)
         {
+            CustomActionDefaults = customActionDefaults;
             ExcludedDataSetArns = excludedDataSetArns;
             QBusinessInsightsStatus = qBusinessInsightsStatus;
             Timezone = timezone;
+            VisualMessages = visualMessages;
             WeekStart = weekStart;
         }
     }

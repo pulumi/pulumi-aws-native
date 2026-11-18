@@ -42,8 +42,8 @@ class GetCatalogResult:
         if create_table_default_permissions and not isinstance(create_table_default_permissions, list):
             raise TypeError("Expected argument 'create_table_default_permissions' to be a list")
         pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
-        if create_time and not isinstance(create_time, int):
-            raise TypeError("Expected argument 'create_time' to be a int")
+        if create_time and not isinstance(create_time, str):
+            raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -63,8 +63,8 @@ class GetCatalogResult:
         if target_redshift_catalog and not isinstance(target_redshift_catalog, dict):
             raise TypeError("Expected argument 'target_redshift_catalog' to be a dict")
         pulumi.set(__self__, "target_redshift_catalog", target_redshift_catalog)
-        if update_time and not isinstance(update_time, int):
-            raise TypeError("Expected argument 'update_time' to be a int")
+        if update_time and not isinstance(update_time, str):
+            raise TypeError("Expected argument 'update_time' to be a str")
         pulumi.set(__self__, "update_time", update_time)
 
     @_builtins.property
@@ -106,7 +106,7 @@ class GetCatalogResult:
 
     @_builtins.property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> Optional[_builtins.int]:
+    def create_time(self) -> Optional[_builtins.str]:
         """
         The time at which the catalog was created.
         """
@@ -156,7 +156,7 @@ class GetCatalogResult:
 
     @_builtins.property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> Optional[_builtins.int]:
+    def update_time(self) -> Optional[_builtins.str]:
         """
         The time at which the catalog was last updated.
         """

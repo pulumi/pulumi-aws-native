@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateVirtualInterface{}
 	case "aws-native:directconnect:PublicVirtualInterface":
 		r = &PublicVirtualInterface{}
+	case "aws-native:directconnect:ResiliencyGroup":
+		r = &ResiliencyGroup{}
 	case "aws-native:directconnect:TransitVirtualInterface":
 		r = &TransitVirtualInterface{}
 	default:

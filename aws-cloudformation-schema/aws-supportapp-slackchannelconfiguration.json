@@ -61,13 +61,13 @@
   "createOnlyProperties" : [ "/properties/TeamId", "/properties/ChannelId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "supportapp:CreateSlackChannelConfiguration", "supportapp:ListSlackChannelConfigurations" ]
+      "permissions" : [ "supportapp:CreateSlackChannelConfiguration", "supportapp:ListSlackChannelConfigurations", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "supportapp:ListSlackChannelConfigurations" ]
     },
     "update" : {
-      "permissions" : [ "supportapp:UpdateSlackChannelConfiguration", "supportapp:ListSlackChannelConfigurations" ]
+      "permissions" : [ "supportapp:UpdateSlackChannelConfiguration", "supportapp:ListSlackChannelConfigurations", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "supportapp:DeleteSlackChannelConfiguration", "supportapp:ListSlackChannelConfigurations" ]

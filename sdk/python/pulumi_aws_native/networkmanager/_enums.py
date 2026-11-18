@@ -7,8 +7,21 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ConnectAttachmentNatGatewaySupport',
     'ConnectionState',
+    'DirectConnectGatewayAttachmentNatGatewaySupport',
+    'SiteToSiteVpnAttachmentNatGatewaySupport',
+    'VpcAttachmentNatGatewaySupport',
 ]
+
+
+@pulumi.type_token("aws-native:networkmanager:ConnectAttachmentNatGatewaySupport")
+class ConnectAttachmentNatGatewaySupport(_builtins.str, Enum):
+    """
+    Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+    """
+    ENABLE = "ENABLE"
+    DISABLE = "DISABLE"
 
 
 @pulumi.type_token("aws-native:networkmanager:ConnectionState")
@@ -20,3 +33,30 @@ class ConnectionState(_builtins.str, Enum):
     AVAILABLE = "AVAILABLE"
     DELETING = "DELETING"
     UPDATING = "UPDATING"
+
+
+@pulumi.type_token("aws-native:networkmanager:DirectConnectGatewayAttachmentNatGatewaySupport")
+class DirectConnectGatewayAttachmentNatGatewaySupport(_builtins.str, Enum):
+    """
+    Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+    """
+    ENABLE = "ENABLE"
+    DISABLE = "DISABLE"
+
+
+@pulumi.type_token("aws-native:networkmanager:SiteToSiteVpnAttachmentNatGatewaySupport")
+class SiteToSiteVpnAttachmentNatGatewaySupport(_builtins.str, Enum):
+    """
+    Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+    """
+    ENABLE = "ENABLE"
+    DISABLE = "DISABLE"
+
+
+@pulumi.type_token("aws-native:networkmanager:VpcAttachmentNatGatewaySupport")
+class VpcAttachmentNatGatewaySupport(_builtins.str, Enum):
+    """
+    Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+    """
+    ENABLE = "ENABLE"
+    DISABLE = "DISABLE"

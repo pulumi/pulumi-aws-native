@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.MwaaServerless
         public readonly string? CreatedAt;
         public readonly Outputs.WorkflowS3Location? DefinitionS3Location;
         public readonly string? Description;
+        public readonly Outputs.WorkflowEnvironment? Environment;
         public readonly Outputs.WorkflowLoggingConfiguration? LoggingConfiguration;
         public readonly string? ModifiedAt;
         public readonly Outputs.WorkflowNetworkConfiguration? NetworkConfiguration;
@@ -84,6 +85,8 @@ namespace Pulumi.AwsNative.MwaaServerless
             Outputs.WorkflowS3Location? definitionS3Location,
 
             string? description,
+
+            Outputs.WorkflowEnvironment? environment,
 
             Outputs.WorkflowLoggingConfiguration? loggingConfiguration,
 
@@ -110,6 +113,7 @@ namespace Pulumi.AwsNative.MwaaServerless
             CreatedAt = createdAt;
             DefinitionS3Location = definitionS3Location;
             Description = description;
+            Environment = environment;
             LoggingConfiguration = loggingConfiguration;
             ModifiedAt = modifiedAt;
             NetworkConfiguration = networkConfiguration;

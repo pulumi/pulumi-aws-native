@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
 export { GetInstanceFleetConfigArgs, GetInstanceFleetConfigResult, GetInstanceFleetConfigOutputArgs } from "./getInstanceFleetConfig";
 export const getInstanceFleetConfig: typeof import("./getInstanceFleetConfig").getInstanceFleetConfig = null as any;
 export const getInstanceFleetConfigOutput: typeof import("./getInstanceFleetConfig").getInstanceFleetConfigOutput = null as any;
@@ -78,6 +88,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:emr:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
             case "aws-native:emr:InstanceFleetConfig":
                 return new InstanceFleetConfig(name, <any>undefined, { urn })
             case "aws-native:emr:InstanceGroupConfig":

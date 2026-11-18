@@ -16,16 +16,26 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CatalogAssetsSyncConfigurationArgs',
+    'CatalogAssetsSyncConfigurationArgsDict',
     'CatalogDataLakeAccessPropertiesArgs',
     'CatalogDataLakeAccessPropertiesArgsDict',
     'CatalogDataLakePrincipalArgs',
     'CatalogDataLakePrincipalArgsDict',
+    'CatalogErrorDetailArgs',
+    'CatalogErrorDetailArgsDict',
     'CatalogFederatedCatalogArgs',
     'CatalogFederatedCatalogArgsDict',
+    'CatalogLineageSyncConfigurationArgs',
+    'CatalogLineageSyncConfigurationArgsDict',
+    'CatalogManagedCrawlerDetailsArgs',
+    'CatalogManagedCrawlerDetailsArgsDict',
     'CatalogPrincipalPermissionsArgs',
     'CatalogPrincipalPermissionsArgsDict',
     'CatalogPropertiesArgs',
     'CatalogPropertiesArgsDict',
+    'CatalogSyncConfigurationArgs',
+    'CatalogSyncConfigurationArgsDict',
     'CatalogTargetRedshiftCatalogArgs',
     'CatalogTargetRedshiftCatalogArgsDict',
     'ClassifierCsvClassifierArgs',
@@ -280,6 +290,72 @@ __all__ = [
     'UserDefinedFunctionResourceUriArgsDict',
 ]
 
+class CatalogAssetsSyncConfigurationArgsDict(TypedDict):
+    """
+    Configuration for synchronizing assets from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing assets.
+    """
+    status: pulumi.Input['CatalogAssetsSyncConfigurationStatus']
+    """
+    Whether asset synchronization is enabled.
+    """
+    managed_crawler_details: NotRequired[pulumi.Input[Optional['CatalogManagedCrawlerDetailsArgsDict']]]
+    refresh_interval_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How often the crawler synchronizes assets, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+    """
+
+@pulumi.input_type
+class CatalogAssetsSyncConfigurationArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['CatalogAssetsSyncConfigurationStatus'],
+                 managed_crawler_details: pulumi.Input[Optional['CatalogManagedCrawlerDetailsArgs']] = None,
+                 refresh_interval_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Configuration for synchronizing assets from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing assets.
+
+        :param pulumi.Input['CatalogAssetsSyncConfigurationStatus'] status: Whether asset synchronization is enabled.
+        :param pulumi.Input[_builtins.int] refresh_interval_minutes: How often the crawler synchronizes assets, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+        """
+        pulumi.set(__self__, "status", status)
+        if managed_crawler_details is not None:
+            pulumi.set(__self__, "managed_crawler_details", managed_crawler_details)
+        if refresh_interval_minutes is not None:
+            pulumi.set(__self__, "refresh_interval_minutes", refresh_interval_minutes)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['CatalogAssetsSyncConfigurationStatus']:
+        """
+        Whether asset synchronization is enabled.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['CatalogAssetsSyncConfigurationStatus']):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedCrawlerDetails")
+    def managed_crawler_details(self) -> pulumi.Input[Optional['CatalogManagedCrawlerDetailsArgs']]:
+        return pulumi.get(self, "managed_crawler_details")
+
+    @managed_crawler_details.setter
+    def managed_crawler_details(self, value: pulumi.Input[Optional['CatalogManagedCrawlerDetailsArgs']]):
+        pulumi.set(self, "managed_crawler_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshIntervalMinutes")
+    def refresh_interval_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How often the crawler synchronizes assets, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+        """
+        return pulumi.get(self, "refresh_interval_minutes")
+
+    @refresh_interval_minutes.setter
+    def refresh_interval_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "refresh_interval_minutes", value)
+
+
 class CatalogDataLakeAccessPropertiesArgsDict(TypedDict):
     """
     Data lake access properties for the catalog.
@@ -488,6 +564,60 @@ class CatalogDataLakePrincipalArgs:
         pulumi.set(self, "data_lake_principal_identifier", value)
 
 
+class CatalogErrorDetailArgsDict(TypedDict):
+    """
+    Details about an error.
+    """
+    error_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The code associated with this error.
+    """
+    error_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A message describing the error.
+    """
+
+@pulumi.input_type
+class CatalogErrorDetailArgs:
+    def __init__(__self__, *,
+                 error_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Details about an error.
+
+        :param pulumi.Input[_builtins.str] error_code: The code associated with this error.
+        :param pulumi.Input[_builtins.str] error_message: A message describing the error.
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The code associated with this error.
+        """
+        return pulumi.get(self, "error_code")
+
+    @error_code.setter
+    def error_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "error_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A message describing the error.
+        """
+        return pulumi.get(self, "error_message")
+
+    @error_message.setter
+    def error_message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "error_message", value)
+
+
 class CatalogFederatedCatalogArgsDict(TypedDict):
     """
     A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
@@ -496,26 +626,38 @@ class CatalogFederatedCatalogArgsDict(TypedDict):
     """
     The name of the connection to an external data source.
     """
+    connection_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+    """
     identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique identifier for the federated catalog.
     """
+    sync_configuration: NotRequired[pulumi.Input[Optional['CatalogSyncConfigurationArgsDict']]]
 
 @pulumi.input_type
 class CatalogFederatedCatalogArgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identifier: pulumi.Input[Optional[_builtins.str]] = None):
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_configuration: pulumi.Input[Optional['CatalogSyncConfigurationArgs']] = None):
         """
         A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
 
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection to an external data source.
+        :param pulumi.Input[_builtins.str] connection_type: The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
         :param pulumi.Input[_builtins.str] identifier: A unique identifier for the federated catalog.
         """
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
+        if sync_configuration is not None:
+            pulumi.set(__self__, "sync_configuration", sync_configuration)
 
     @_builtins.property
     @pulumi.getter(name="connectionName")
@@ -530,6 +672,18 @@ class CatalogFederatedCatalogArgs:
         pulumi.set(self, "connection_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -540,6 +694,148 @@ class CatalogFederatedCatalogArgs:
     @identifier.setter
     def identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="syncConfiguration")
+    def sync_configuration(self) -> pulumi.Input[Optional['CatalogSyncConfigurationArgs']]:
+        return pulumi.get(self, "sync_configuration")
+
+    @sync_configuration.setter
+    def sync_configuration(self, value: pulumi.Input[Optional['CatalogSyncConfigurationArgs']]):
+        pulumi.set(self, "sync_configuration", value)
+
+
+class CatalogLineageSyncConfigurationArgsDict(TypedDict):
+    """
+    Configuration for synchronizing lineage from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing lineage.
+    """
+    status: pulumi.Input['CatalogLineageSyncConfigurationStatus']
+    """
+    Whether lineage synchronization is enabled.
+    """
+    managed_crawler_details: NotRequired[pulumi.Input[Optional['CatalogManagedCrawlerDetailsArgsDict']]]
+    refresh_interval_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How often the crawler synchronizes lineage, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+    """
+
+@pulumi.input_type
+class CatalogLineageSyncConfigurationArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['CatalogLineageSyncConfigurationStatus'],
+                 managed_crawler_details: pulumi.Input[Optional['CatalogManagedCrawlerDetailsArgs']] = None,
+                 refresh_interval_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Configuration for synchronizing lineage from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing lineage.
+
+        :param pulumi.Input['CatalogLineageSyncConfigurationStatus'] status: Whether lineage synchronization is enabled.
+        :param pulumi.Input[_builtins.int] refresh_interval_minutes: How often the crawler synchronizes lineage, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+        """
+        pulumi.set(__self__, "status", status)
+        if managed_crawler_details is not None:
+            pulumi.set(__self__, "managed_crawler_details", managed_crawler_details)
+        if refresh_interval_minutes is not None:
+            pulumi.set(__self__, "refresh_interval_minutes", refresh_interval_minutes)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['CatalogLineageSyncConfigurationStatus']:
+        """
+        Whether lineage synchronization is enabled.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['CatalogLineageSyncConfigurationStatus']):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedCrawlerDetails")
+    def managed_crawler_details(self) -> pulumi.Input[Optional['CatalogManagedCrawlerDetailsArgs']]:
+        return pulumi.get(self, "managed_crawler_details")
+
+    @managed_crawler_details.setter
+    def managed_crawler_details(self, value: pulumi.Input[Optional['CatalogManagedCrawlerDetailsArgs']]):
+        pulumi.set(self, "managed_crawler_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshIntervalMinutes")
+    def refresh_interval_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How often the crawler synchronizes lineage, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+        """
+        return pulumi.get(self, "refresh_interval_minutes")
+
+    @refresh_interval_minutes.setter
+    def refresh_interval_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "refresh_interval_minutes", value)
+
+
+class CatalogManagedCrawlerDetailsArgsDict(TypedDict):
+    """
+    The state of the crawler Glue manages on your behalf for a synchronization mode. Returned by the service; Glue rejects it as input.
+    """
+    crawler_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the crawler.
+    """
+    error: NotRequired[pulumi.Input[Optional['CatalogErrorDetailArgsDict']]]
+    status: NotRequired[pulumi.Input[Optional['CatalogManagedCrawlerDetailsStatus']]]
+    """
+    The provisioning state of the crawler.
+    """
+
+@pulumi.input_type
+class CatalogManagedCrawlerDetailsArgs:
+    def __init__(__self__, *,
+                 crawler_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 error: pulumi.Input[Optional['CatalogErrorDetailArgs']] = None,
+                 status: pulumi.Input[Optional['CatalogManagedCrawlerDetailsStatus']] = None):
+        """
+        The state of the crawler Glue manages on your behalf for a synchronization mode. Returned by the service; Glue rejects it as input.
+
+        :param pulumi.Input[_builtins.str] crawler_arn: The Amazon Resource Name (ARN) of the crawler.
+        :param pulumi.Input['CatalogManagedCrawlerDetailsStatus'] status: The provisioning state of the crawler.
+        """
+        if crawler_arn is not None:
+            pulumi.set(__self__, "crawler_arn", crawler_arn)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="crawlerArn")
+    def crawler_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the crawler.
+        """
+        return pulumi.get(self, "crawler_arn")
+
+    @crawler_arn.setter
+    def crawler_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "crawler_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> pulumi.Input[Optional['CatalogErrorDetailArgs']]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: pulumi.Input[Optional['CatalogErrorDetailArgs']]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['CatalogManagedCrawlerDetailsStatus']]:
+        """
+        The provisioning state of the crawler.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['CatalogManagedCrawlerDetailsStatus']]):
+        pulumi.set(self, "status", value)
 
 
 class CatalogPrincipalPermissionsArgsDict(TypedDict):
@@ -634,6 +930,65 @@ class CatalogPropertiesArgs:
     @data_lake_access_properties.setter
     def data_lake_access_properties(self, value: pulumi.Input[Optional['CatalogDataLakeAccessPropertiesArgs']]):
         pulumi.set(self, "data_lake_access_properties", value)
+
+
+class CatalogSyncConfigurationArgsDict(TypedDict):
+    """
+    Configuration for synchronizing a federated catalog with its external data source. Removing this property does not disable synchronization: Glue keeps the stored configuration for anything omitted from an update. To stop synchronizing, set the Status of each mode to DISABLED.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role, in the catalog owner's account, that the crawlers Glue manages on your behalf assume.
+    """
+    assets_sync_configuration: NotRequired[pulumi.Input[Optional['CatalogAssetsSyncConfigurationArgsDict']]]
+    lineage_sync_configuration: NotRequired[pulumi.Input[Optional['CatalogLineageSyncConfigurationArgsDict']]]
+
+@pulumi.input_type
+class CatalogSyncConfigurationArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[_builtins.str],
+                 assets_sync_configuration: pulumi.Input[Optional['CatalogAssetsSyncConfigurationArgs']] = None,
+                 lineage_sync_configuration: pulumi.Input[Optional['CatalogLineageSyncConfigurationArgs']] = None):
+        """
+        Configuration for synchronizing a federated catalog with its external data source. Removing this property does not disable synchronization: Glue keeps the stored configuration for anything omitted from an update. To stop synchronizing, set the Status of each mode to DISABLED.
+
+        :param pulumi.Input[_builtins.str] role_arn: The IAM role, in the catalog owner's account, that the crawlers Glue manages on your behalf assume.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if assets_sync_configuration is not None:
+            pulumi.set(__self__, "assets_sync_configuration", assets_sync_configuration)
+        if lineage_sync_configuration is not None:
+            pulumi.set(__self__, "lineage_sync_configuration", lineage_sync_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IAM role, in the catalog owner's account, that the crawlers Glue manages on your behalf assume.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assetsSyncConfiguration")
+    def assets_sync_configuration(self) -> pulumi.Input[Optional['CatalogAssetsSyncConfigurationArgs']]:
+        return pulumi.get(self, "assets_sync_configuration")
+
+    @assets_sync_configuration.setter
+    def assets_sync_configuration(self, value: pulumi.Input[Optional['CatalogAssetsSyncConfigurationArgs']]):
+        pulumi.set(self, "assets_sync_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineageSyncConfiguration")
+    def lineage_sync_configuration(self) -> pulumi.Input[Optional['CatalogLineageSyncConfigurationArgs']]:
+        return pulumi.get(self, "lineage_sync_configuration")
+
+    @lineage_sync_configuration.setter
+    def lineage_sync_configuration(self, value: pulumi.Input[Optional['CatalogLineageSyncConfigurationArgs']]):
+        pulumi.set(self, "lineage_sync_configuration", value)
 
 
 class CatalogTargetRedshiftCatalogArgsDict(TypedDict):

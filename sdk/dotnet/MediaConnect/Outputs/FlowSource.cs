@@ -80,6 +80,8 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// The decryption configuration for the flow source when router integration is enabled.
         /// </summary>
         public readonly Outputs.FlowTransitEncryption? RouterIntegrationTransitDecryption;
+        public readonly Outputs.FlowRtmpPushDetails? RtmpPushDetails;
+        public readonly Outputs.FlowRtmpPushSettings? RtmpPushSettings;
         /// <summary>
         /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
         /// </summary>
@@ -155,6 +157,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             Outputs.FlowTransitEncryption? routerIntegrationTransitDecryption,
 
+            Outputs.FlowRtmpPushDetails? rtmpPushDetails,
+
+            Outputs.FlowRtmpPushSettings? rtmpPushSettings,
+
             int? senderControlPort,
 
             string? senderIpAddress,
@@ -191,6 +197,8 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             Protocol = protocol;
             RouterIntegrationState = routerIntegrationState;
             RouterIntegrationTransitDecryption = routerIntegrationTransitDecryption;
+            RtmpPushDetails = rtmpPushDetails;
+            RtmpPushSettings = rtmpPushSettings;
             SenderControlPort = senderControlPort;
             SenderIpAddress = senderIpAddress;
             SourceArn = sourceArn;

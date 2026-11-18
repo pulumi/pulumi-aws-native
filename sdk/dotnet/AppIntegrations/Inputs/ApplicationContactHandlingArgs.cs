@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
 
     public sealed class ApplicationContactHandlingArgs : global::Pulumi.ResourceArgs
     {
-        [Input("scope", required: true)]
-        public Input<Pulumi.AwsNative.AppIntegrations.ApplicationContactHandlingScope> Scope { get; set; } = null!;
+        [Input("scope")]
+        public Input<Pulumi.AwsNative.AppIntegrations.ApplicationContactHandlingScope>? Scope { get; set; }
 
         public ApplicationContactHandlingArgs()
         {

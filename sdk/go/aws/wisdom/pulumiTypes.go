@@ -6458,6 +6458,184 @@ func (o AiGuardrailGuardrailWordConfigArrayOutput) Index(i pulumi.IntInput) AiGu
 	}).(AiGuardrailGuardrailWordConfigOutput)
 }
 
+type AiPromptAiPromptInferenceConfiguration struct {
+	MaxTokensToSample *int     `pulumi:"maxTokensToSample"`
+	Temperature       *float64 `pulumi:"temperature"`
+	TopK              *int     `pulumi:"topK"`
+	TopP              *float64 `pulumi:"topP"`
+}
+
+// AiPromptAiPromptInferenceConfigurationInput is an input type that accepts AiPromptAiPromptInferenceConfigurationArgs and AiPromptAiPromptInferenceConfigurationOutput values.
+// You can construct a concrete instance of `AiPromptAiPromptInferenceConfigurationInput` via:
+//
+//	AiPromptAiPromptInferenceConfigurationArgs{...}
+type AiPromptAiPromptInferenceConfigurationInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptInferenceConfigurationOutput() AiPromptAiPromptInferenceConfigurationOutput
+	ToAiPromptAiPromptInferenceConfigurationOutputWithContext(context.Context) AiPromptAiPromptInferenceConfigurationOutput
+}
+
+type AiPromptAiPromptInferenceConfigurationArgs struct {
+	MaxTokensToSample pulumi.IntPtrInput     `pulumi:"maxTokensToSample"`
+	Temperature       pulumi.Float64PtrInput `pulumi:"temperature"`
+	TopK              pulumi.IntPtrInput     `pulumi:"topK"`
+	TopP              pulumi.Float64PtrInput `pulumi:"topP"`
+}
+
+func (AiPromptAiPromptInferenceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptInferenceConfiguration)(nil)).Elem()
+}
+
+func (i AiPromptAiPromptInferenceConfigurationArgs) ToAiPromptAiPromptInferenceConfigurationOutput() AiPromptAiPromptInferenceConfigurationOutput {
+	return i.ToAiPromptAiPromptInferenceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiPromptAiPromptInferenceConfigurationArgs) ToAiPromptAiPromptInferenceConfigurationOutputWithContext(ctx context.Context) AiPromptAiPromptInferenceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiPromptAiPromptInferenceConfigurationOutput)
+}
+
+func (i AiPromptAiPromptInferenceConfigurationArgs) ToAiPromptAiPromptInferenceConfigurationPtrOutput() AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return i.ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AiPromptAiPromptInferenceConfigurationArgs) ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(ctx context.Context) AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiPromptAiPromptInferenceConfigurationOutput).ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AiPromptAiPromptInferenceConfigurationPtrInput is an input type that accepts AiPromptAiPromptInferenceConfigurationArgs, AiPromptAiPromptInferenceConfigurationPtr and AiPromptAiPromptInferenceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AiPromptAiPromptInferenceConfigurationPtrInput` via:
+//
+//	        AiPromptAiPromptInferenceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiPromptAiPromptInferenceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptInferenceConfigurationPtrOutput() AiPromptAiPromptInferenceConfigurationPtrOutput
+	ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(context.Context) AiPromptAiPromptInferenceConfigurationPtrOutput
+}
+
+type aiPromptAiPromptInferenceConfigurationPtrType AiPromptAiPromptInferenceConfigurationArgs
+
+func AiPromptAiPromptInferenceConfigurationPtr(v *AiPromptAiPromptInferenceConfigurationArgs) AiPromptAiPromptInferenceConfigurationPtrInput {
+	return (*aiPromptAiPromptInferenceConfigurationPtrType)(v)
+}
+
+func (*aiPromptAiPromptInferenceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiPromptAiPromptInferenceConfiguration)(nil)).Elem()
+}
+
+func (i *aiPromptAiPromptInferenceConfigurationPtrType) ToAiPromptAiPromptInferenceConfigurationPtrOutput() AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return i.ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *aiPromptAiPromptInferenceConfigurationPtrType) ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(ctx context.Context) AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiPromptAiPromptInferenceConfigurationPtrOutput)
+}
+
+type AiPromptAiPromptInferenceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptInferenceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptInferenceConfigurationOutput) ToAiPromptAiPromptInferenceConfigurationOutput() AiPromptAiPromptInferenceConfigurationOutput {
+	return o
+}
+
+func (o AiPromptAiPromptInferenceConfigurationOutput) ToAiPromptAiPromptInferenceConfigurationOutputWithContext(ctx context.Context) AiPromptAiPromptInferenceConfigurationOutput {
+	return o
+}
+
+func (o AiPromptAiPromptInferenceConfigurationOutput) ToAiPromptAiPromptInferenceConfigurationPtrOutput() AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return o.ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptInferenceConfigurationOutput) ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(ctx context.Context) AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiPromptAiPromptInferenceConfiguration) *AiPromptAiPromptInferenceConfiguration {
+		return &v
+	}).(AiPromptAiPromptInferenceConfigurationPtrOutput)
+}
+
+func (o AiPromptAiPromptInferenceConfigurationOutput) MaxTokensToSample() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AiPromptAiPromptInferenceConfiguration) *int { return v.MaxTokensToSample }).(pulumi.IntPtrOutput)
+}
+
+func (o AiPromptAiPromptInferenceConfigurationOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AiPromptAiPromptInferenceConfiguration) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
+}
+
+func (o AiPromptAiPromptInferenceConfigurationOutput) TopK() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AiPromptAiPromptInferenceConfiguration) *int { return v.TopK }).(pulumi.IntPtrOutput)
+}
+
+func (o AiPromptAiPromptInferenceConfigurationOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AiPromptAiPromptInferenceConfiguration) *float64 { return v.TopP }).(pulumi.Float64PtrOutput)
+}
+
+type AiPromptAiPromptInferenceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptInferenceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiPromptAiPromptInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptInferenceConfigurationPtrOutput) ToAiPromptAiPromptInferenceConfigurationPtrOutput() AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptInferenceConfigurationPtrOutput) ToAiPromptAiPromptInferenceConfigurationPtrOutputWithContext(ctx context.Context) AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptInferenceConfigurationPtrOutput) Elem() AiPromptAiPromptInferenceConfigurationOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptInferenceConfiguration) AiPromptAiPromptInferenceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AiPromptAiPromptInferenceConfiguration
+		return ret
+	}).(AiPromptAiPromptInferenceConfigurationOutput)
+}
+
+func (o AiPromptAiPromptInferenceConfigurationPtrOutput) MaxTokensToSample() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptInferenceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTokensToSample
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AiPromptAiPromptInferenceConfigurationPtrOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptInferenceConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o AiPromptAiPromptInferenceConfigurationPtrOutput) TopK() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptInferenceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TopK
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AiPromptAiPromptInferenceConfigurationPtrOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptInferenceConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
 type AiPromptAiPromptTemplateConfiguration struct {
 	TextFullAiPromptEditTemplateConfiguration *AiPromptTextFullAiPromptEditTemplateConfiguration `pulumi:"textFullAiPromptEditTemplateConfiguration"`
 }
@@ -13510,6 +13688,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailTopicConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailTopicConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailWordConfigInput)(nil)).Elem(), AiGuardrailGuardrailWordConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailWordConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailWordConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptInferenceConfigurationInput)(nil)).Elem(), AiPromptAiPromptInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptInferenceConfigurationPtrInput)(nil)).Elem(), AiPromptAiPromptInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateConfigurationInput)(nil)).Elem(), AiPromptAiPromptTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptTextFullAiPromptEditTemplateConfigurationInput)(nil)).Elem(), AiPromptTextFullAiPromptEditTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptTextFullAiPromptEditTemplateConfigurationPtrInput)(nil)).Elem(), AiPromptTextFullAiPromptEditTemplateConfigurationArgs{})
@@ -13689,6 +13869,8 @@ func init() {
 	pulumi.RegisterOutputType(AiGuardrailGuardrailTopicConfigArrayOutput{})
 	pulumi.RegisterOutputType(AiGuardrailGuardrailWordConfigOutput{})
 	pulumi.RegisterOutputType(AiGuardrailGuardrailWordConfigArrayOutput{})
+	pulumi.RegisterOutputType(AiPromptAiPromptInferenceConfigurationOutput{})
+	pulumi.RegisterOutputType(AiPromptAiPromptInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiPromptTextFullAiPromptEditTemplateConfigurationOutput{})

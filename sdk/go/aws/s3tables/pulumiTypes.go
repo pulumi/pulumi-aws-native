@@ -174,6 +174,182 @@ func (o TableBucketEncryptionConfigurationPtrOutput) SseAlgorithm() TableBucketE
 	}).(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput)
 }
 
+// Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.
+type TableBucketLoggingConfiguration struct {
+	// The name of the general purpose bucket that logs are delivered to. The bucket must be in the same AWS Region and owned by the same AWS account as the table bucket. The bucket can't use SSE-KMS or DSSE-KMS default encryption, can't have S3 Object Lock enabled, and can't have Requester Pays enabled. You can deliver logs from multiple table buckets to the same target bucket. In this case, choose a different TargetPrefix for each table bucket so that you can tell their log objects apart.
+	TargetBucket          string                           `pulumi:"targetBucket"`
+	TargetObjectKeyFormat TableBucketTargetObjectKeyFormat `pulumi:"targetObjectKeyFormat"`
+	// The prefix for the keys of the log objects that are delivered to the target bucket.
+	TargetPrefix string `pulumi:"targetPrefix"`
+}
+
+// TableBucketLoggingConfigurationInput is an input type that accepts TableBucketLoggingConfigurationArgs and TableBucketLoggingConfigurationOutput values.
+// You can construct a concrete instance of `TableBucketLoggingConfigurationInput` via:
+//
+//	TableBucketLoggingConfigurationArgs{...}
+type TableBucketLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToTableBucketLoggingConfigurationOutput() TableBucketLoggingConfigurationOutput
+	ToTableBucketLoggingConfigurationOutputWithContext(context.Context) TableBucketLoggingConfigurationOutput
+}
+
+// Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.
+type TableBucketLoggingConfigurationArgs struct {
+	// The name of the general purpose bucket that logs are delivered to. The bucket must be in the same AWS Region and owned by the same AWS account as the table bucket. The bucket can't use SSE-KMS or DSSE-KMS default encryption, can't have S3 Object Lock enabled, and can't have Requester Pays enabled. You can deliver logs from multiple table buckets to the same target bucket. In this case, choose a different TargetPrefix for each table bucket so that you can tell their log objects apart.
+	TargetBucket          pulumi.StringInput                    `pulumi:"targetBucket"`
+	TargetObjectKeyFormat TableBucketTargetObjectKeyFormatInput `pulumi:"targetObjectKeyFormat"`
+	// The prefix for the keys of the log objects that are delivered to the target bucket.
+	TargetPrefix pulumi.StringInput `pulumi:"targetPrefix"`
+}
+
+func (TableBucketLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketLoggingConfiguration)(nil)).Elem()
+}
+
+func (i TableBucketLoggingConfigurationArgs) ToTableBucketLoggingConfigurationOutput() TableBucketLoggingConfigurationOutput {
+	return i.ToTableBucketLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableBucketLoggingConfigurationArgs) ToTableBucketLoggingConfigurationOutputWithContext(ctx context.Context) TableBucketLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketLoggingConfigurationOutput)
+}
+
+func (i TableBucketLoggingConfigurationArgs) ToTableBucketLoggingConfigurationPtrOutput() TableBucketLoggingConfigurationPtrOutput {
+	return i.ToTableBucketLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableBucketLoggingConfigurationArgs) ToTableBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) TableBucketLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketLoggingConfigurationOutput).ToTableBucketLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableBucketLoggingConfigurationPtrInput is an input type that accepts TableBucketLoggingConfigurationArgs, TableBucketLoggingConfigurationPtr and TableBucketLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableBucketLoggingConfigurationPtrInput` via:
+//
+//	        TableBucketLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableBucketLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketLoggingConfigurationPtrOutput() TableBucketLoggingConfigurationPtrOutput
+	ToTableBucketLoggingConfigurationPtrOutputWithContext(context.Context) TableBucketLoggingConfigurationPtrOutput
+}
+
+type tableBucketLoggingConfigurationPtrType TableBucketLoggingConfigurationArgs
+
+func TableBucketLoggingConfigurationPtr(v *TableBucketLoggingConfigurationArgs) TableBucketLoggingConfigurationPtrInput {
+	return (*tableBucketLoggingConfigurationPtrType)(v)
+}
+
+func (*tableBucketLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *tableBucketLoggingConfigurationPtrType) ToTableBucketLoggingConfigurationPtrOutput() TableBucketLoggingConfigurationPtrOutput {
+	return i.ToTableBucketLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableBucketLoggingConfigurationPtrType) ToTableBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) TableBucketLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketLoggingConfigurationPtrOutput)
+}
+
+// Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.
+type TableBucketLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableBucketLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketLoggingConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketLoggingConfigurationOutput) ToTableBucketLoggingConfigurationOutput() TableBucketLoggingConfigurationOutput {
+	return o
+}
+
+func (o TableBucketLoggingConfigurationOutput) ToTableBucketLoggingConfigurationOutputWithContext(ctx context.Context) TableBucketLoggingConfigurationOutput {
+	return o
+}
+
+func (o TableBucketLoggingConfigurationOutput) ToTableBucketLoggingConfigurationPtrOutput() TableBucketLoggingConfigurationPtrOutput {
+	return o.ToTableBucketLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketLoggingConfigurationOutput) ToTableBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) TableBucketLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketLoggingConfiguration) *TableBucketLoggingConfiguration {
+		return &v
+	}).(TableBucketLoggingConfigurationPtrOutput)
+}
+
+// The name of the general purpose bucket that logs are delivered to. The bucket must be in the same AWS Region and owned by the same AWS account as the table bucket. The bucket can't use SSE-KMS or DSSE-KMS default encryption, can't have S3 Object Lock enabled, and can't have Requester Pays enabled. You can deliver logs from multiple table buckets to the same target bucket. In this case, choose a different TargetPrefix for each table bucket so that you can tell their log objects apart.
+func (o TableBucketLoggingConfigurationOutput) TargetBucket() pulumi.StringOutput {
+	return o.ApplyT(func(v TableBucketLoggingConfiguration) string { return v.TargetBucket }).(pulumi.StringOutput)
+}
+
+func (o TableBucketLoggingConfigurationOutput) TargetObjectKeyFormat() TableBucketTargetObjectKeyFormatOutput {
+	return o.ApplyT(func(v TableBucketLoggingConfiguration) TableBucketTargetObjectKeyFormat {
+		return v.TargetObjectKeyFormat
+	}).(TableBucketTargetObjectKeyFormatOutput)
+}
+
+// The prefix for the keys of the log objects that are delivered to the target bucket.
+func (o TableBucketLoggingConfigurationOutput) TargetPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v TableBucketLoggingConfiguration) string { return v.TargetPrefix }).(pulumi.StringOutput)
+}
+
+type TableBucketLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketLoggingConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketLoggingConfigurationPtrOutput) ToTableBucketLoggingConfigurationPtrOutput() TableBucketLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketLoggingConfigurationPtrOutput) ToTableBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) TableBucketLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketLoggingConfigurationPtrOutput) Elem() TableBucketLoggingConfigurationOutput {
+	return o.ApplyT(func(v *TableBucketLoggingConfiguration) TableBucketLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketLoggingConfiguration
+		return ret
+	}).(TableBucketLoggingConfigurationOutput)
+}
+
+// The name of the general purpose bucket that logs are delivered to. The bucket must be in the same AWS Region and owned by the same AWS account as the table bucket. The bucket can't use SSE-KMS or DSSE-KMS default encryption, can't have S3 Object Lock enabled, and can't have Requester Pays enabled. You can deliver logs from multiple table buckets to the same target bucket. In this case, choose a different TargetPrefix for each table bucket so that you can tell their log objects apart.
+func (o TableBucketLoggingConfigurationPtrOutput) TargetBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableBucketLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetBucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableBucketLoggingConfigurationPtrOutput) TargetObjectKeyFormat() TableBucketTargetObjectKeyFormatPtrOutput {
+	return o.ApplyT(func(v *TableBucketLoggingConfiguration) *TableBucketTargetObjectKeyFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetObjectKeyFormat
+	}).(TableBucketTargetObjectKeyFormatPtrOutput)
+}
+
+// The prefix for the keys of the log objects that are delivered to the target bucket.
+func (o TableBucketLoggingConfigurationPtrOutput) TargetPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableBucketLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 // Settings governing the Metric configuration for the table bucket.
 type TableBucketMetricsConfiguration struct {
 	// Indicates whether Metrics are enabled.
@@ -312,6 +488,148 @@ func (o TableBucketMetricsConfigurationPtrOutput) Status() TableBucketMetricsCon
 		}
 		return v.Status
 	}).(TableBucketMetricsConfigurationStatusPtrOutput)
+}
+
+// Amazon S3 keys for log objects are partitioned in the following format: [TargetPrefix][SourceAccountId]/[SourceRegion]/[SourceTableBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+type TableBucketPartitionedPrefix struct {
+	// The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+	PartitionDateSource TableBucketPartitionedPrefixPartitionDateSource `pulumi:"partitionDateSource"`
+}
+
+// TableBucketPartitionedPrefixInput is an input type that accepts TableBucketPartitionedPrefixArgs and TableBucketPartitionedPrefixOutput values.
+// You can construct a concrete instance of `TableBucketPartitionedPrefixInput` via:
+//
+//	TableBucketPartitionedPrefixArgs{...}
+type TableBucketPartitionedPrefixInput interface {
+	pulumi.Input
+
+	ToTableBucketPartitionedPrefixOutput() TableBucketPartitionedPrefixOutput
+	ToTableBucketPartitionedPrefixOutputWithContext(context.Context) TableBucketPartitionedPrefixOutput
+}
+
+// Amazon S3 keys for log objects are partitioned in the following format: [TargetPrefix][SourceAccountId]/[SourceRegion]/[SourceTableBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+type TableBucketPartitionedPrefixArgs struct {
+	// The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+	PartitionDateSource TableBucketPartitionedPrefixPartitionDateSourceInput `pulumi:"partitionDateSource"`
+}
+
+func (TableBucketPartitionedPrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketPartitionedPrefix)(nil)).Elem()
+}
+
+func (i TableBucketPartitionedPrefixArgs) ToTableBucketPartitionedPrefixOutput() TableBucketPartitionedPrefixOutput {
+	return i.ToTableBucketPartitionedPrefixOutputWithContext(context.Background())
+}
+
+func (i TableBucketPartitionedPrefixArgs) ToTableBucketPartitionedPrefixOutputWithContext(ctx context.Context) TableBucketPartitionedPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketPartitionedPrefixOutput)
+}
+
+func (i TableBucketPartitionedPrefixArgs) ToTableBucketPartitionedPrefixPtrOutput() TableBucketPartitionedPrefixPtrOutput {
+	return i.ToTableBucketPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i TableBucketPartitionedPrefixArgs) ToTableBucketPartitionedPrefixPtrOutputWithContext(ctx context.Context) TableBucketPartitionedPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketPartitionedPrefixOutput).ToTableBucketPartitionedPrefixPtrOutputWithContext(ctx)
+}
+
+// TableBucketPartitionedPrefixPtrInput is an input type that accepts TableBucketPartitionedPrefixArgs, TableBucketPartitionedPrefixPtr and TableBucketPartitionedPrefixPtrOutput values.
+// You can construct a concrete instance of `TableBucketPartitionedPrefixPtrInput` via:
+//
+//	        TableBucketPartitionedPrefixArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableBucketPartitionedPrefixPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketPartitionedPrefixPtrOutput() TableBucketPartitionedPrefixPtrOutput
+	ToTableBucketPartitionedPrefixPtrOutputWithContext(context.Context) TableBucketPartitionedPrefixPtrOutput
+}
+
+type tableBucketPartitionedPrefixPtrType TableBucketPartitionedPrefixArgs
+
+func TableBucketPartitionedPrefixPtr(v *TableBucketPartitionedPrefixArgs) TableBucketPartitionedPrefixPtrInput {
+	return (*tableBucketPartitionedPrefixPtrType)(v)
+}
+
+func (*tableBucketPartitionedPrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketPartitionedPrefix)(nil)).Elem()
+}
+
+func (i *tableBucketPartitionedPrefixPtrType) ToTableBucketPartitionedPrefixPtrOutput() TableBucketPartitionedPrefixPtrOutput {
+	return i.ToTableBucketPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *tableBucketPartitionedPrefixPtrType) ToTableBucketPartitionedPrefixPtrOutputWithContext(ctx context.Context) TableBucketPartitionedPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketPartitionedPrefixPtrOutput)
+}
+
+// Amazon S3 keys for log objects are partitioned in the following format: [TargetPrefix][SourceAccountId]/[SourceRegion]/[SourceTableBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+type TableBucketPartitionedPrefixOutput struct{ *pulumi.OutputState }
+
+func (TableBucketPartitionedPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketPartitionedPrefix)(nil)).Elem()
+}
+
+func (o TableBucketPartitionedPrefixOutput) ToTableBucketPartitionedPrefixOutput() TableBucketPartitionedPrefixOutput {
+	return o
+}
+
+func (o TableBucketPartitionedPrefixOutput) ToTableBucketPartitionedPrefixOutputWithContext(ctx context.Context) TableBucketPartitionedPrefixOutput {
+	return o
+}
+
+func (o TableBucketPartitionedPrefixOutput) ToTableBucketPartitionedPrefixPtrOutput() TableBucketPartitionedPrefixPtrOutput {
+	return o.ToTableBucketPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketPartitionedPrefixOutput) ToTableBucketPartitionedPrefixPtrOutputWithContext(ctx context.Context) TableBucketPartitionedPrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketPartitionedPrefix) *TableBucketPartitionedPrefix {
+		return &v
+	}).(TableBucketPartitionedPrefixPtrOutput)
+}
+
+// The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+func (o TableBucketPartitionedPrefixOutput) PartitionDateSource() TableBucketPartitionedPrefixPartitionDateSourceOutput {
+	return o.ApplyT(func(v TableBucketPartitionedPrefix) TableBucketPartitionedPrefixPartitionDateSource {
+		return v.PartitionDateSource
+	}).(TableBucketPartitionedPrefixPartitionDateSourceOutput)
+}
+
+type TableBucketPartitionedPrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketPartitionedPrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketPartitionedPrefix)(nil)).Elem()
+}
+
+func (o TableBucketPartitionedPrefixPtrOutput) ToTableBucketPartitionedPrefixPtrOutput() TableBucketPartitionedPrefixPtrOutput {
+	return o
+}
+
+func (o TableBucketPartitionedPrefixPtrOutput) ToTableBucketPartitionedPrefixPtrOutputWithContext(ctx context.Context) TableBucketPartitionedPrefixPtrOutput {
+	return o
+}
+
+func (o TableBucketPartitionedPrefixPtrOutput) Elem() TableBucketPartitionedPrefixOutput {
+	return o.ApplyT(func(v *TableBucketPartitionedPrefix) TableBucketPartitionedPrefix {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketPartitionedPrefix
+		return ret
+	}).(TableBucketPartitionedPrefixOutput)
+}
+
+// The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+func (o TableBucketPartitionedPrefixPtrOutput) PartitionDateSource() TableBucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return o.ApplyT(func(v *TableBucketPartitionedPrefix) *TableBucketPartitionedPrefixPartitionDateSource {
+		if v == nil {
+			return nil
+		}
+		return &v.PartitionDateSource
+	}).(TableBucketPartitionedPrefixPartitionDateSourcePtrOutput)
 }
 
 // A policy document containing permissions to add to the specified table bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
@@ -890,6 +1208,142 @@ type TableBucketTag struct {
 	Key string `pulumi:"key"`
 	// Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
 	Value string `pulumi:"value"`
+}
+
+// The key format of the log objects. Only PartitionedPrefix is supported.
+type TableBucketTargetObjectKeyFormat struct {
+	PartitionedPrefix TableBucketPartitionedPrefix `pulumi:"partitionedPrefix"`
+}
+
+// TableBucketTargetObjectKeyFormatInput is an input type that accepts TableBucketTargetObjectKeyFormatArgs and TableBucketTargetObjectKeyFormatOutput values.
+// You can construct a concrete instance of `TableBucketTargetObjectKeyFormatInput` via:
+//
+//	TableBucketTargetObjectKeyFormatArgs{...}
+type TableBucketTargetObjectKeyFormatInput interface {
+	pulumi.Input
+
+	ToTableBucketTargetObjectKeyFormatOutput() TableBucketTargetObjectKeyFormatOutput
+	ToTableBucketTargetObjectKeyFormatOutputWithContext(context.Context) TableBucketTargetObjectKeyFormatOutput
+}
+
+// The key format of the log objects. Only PartitionedPrefix is supported.
+type TableBucketTargetObjectKeyFormatArgs struct {
+	PartitionedPrefix TableBucketPartitionedPrefixInput `pulumi:"partitionedPrefix"`
+}
+
+func (TableBucketTargetObjectKeyFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketTargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (i TableBucketTargetObjectKeyFormatArgs) ToTableBucketTargetObjectKeyFormatOutput() TableBucketTargetObjectKeyFormatOutput {
+	return i.ToTableBucketTargetObjectKeyFormatOutputWithContext(context.Background())
+}
+
+func (i TableBucketTargetObjectKeyFormatArgs) ToTableBucketTargetObjectKeyFormatOutputWithContext(ctx context.Context) TableBucketTargetObjectKeyFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketTargetObjectKeyFormatOutput)
+}
+
+func (i TableBucketTargetObjectKeyFormatArgs) ToTableBucketTargetObjectKeyFormatPtrOutput() TableBucketTargetObjectKeyFormatPtrOutput {
+	return i.ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (i TableBucketTargetObjectKeyFormatArgs) ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) TableBucketTargetObjectKeyFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketTargetObjectKeyFormatOutput).ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(ctx)
+}
+
+// TableBucketTargetObjectKeyFormatPtrInput is an input type that accepts TableBucketTargetObjectKeyFormatArgs, TableBucketTargetObjectKeyFormatPtr and TableBucketTargetObjectKeyFormatPtrOutput values.
+// You can construct a concrete instance of `TableBucketTargetObjectKeyFormatPtrInput` via:
+//
+//	        TableBucketTargetObjectKeyFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableBucketTargetObjectKeyFormatPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketTargetObjectKeyFormatPtrOutput() TableBucketTargetObjectKeyFormatPtrOutput
+	ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(context.Context) TableBucketTargetObjectKeyFormatPtrOutput
+}
+
+type tableBucketTargetObjectKeyFormatPtrType TableBucketTargetObjectKeyFormatArgs
+
+func TableBucketTargetObjectKeyFormatPtr(v *TableBucketTargetObjectKeyFormatArgs) TableBucketTargetObjectKeyFormatPtrInput {
+	return (*tableBucketTargetObjectKeyFormatPtrType)(v)
+}
+
+func (*tableBucketTargetObjectKeyFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketTargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (i *tableBucketTargetObjectKeyFormatPtrType) ToTableBucketTargetObjectKeyFormatPtrOutput() TableBucketTargetObjectKeyFormatPtrOutput {
+	return i.ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *tableBucketTargetObjectKeyFormatPtrType) ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) TableBucketTargetObjectKeyFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketTargetObjectKeyFormatPtrOutput)
+}
+
+// The key format of the log objects. Only PartitionedPrefix is supported.
+type TableBucketTargetObjectKeyFormatOutput struct{ *pulumi.OutputState }
+
+func (TableBucketTargetObjectKeyFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketTargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (o TableBucketTargetObjectKeyFormatOutput) ToTableBucketTargetObjectKeyFormatOutput() TableBucketTargetObjectKeyFormatOutput {
+	return o
+}
+
+func (o TableBucketTargetObjectKeyFormatOutput) ToTableBucketTargetObjectKeyFormatOutputWithContext(ctx context.Context) TableBucketTargetObjectKeyFormatOutput {
+	return o
+}
+
+func (o TableBucketTargetObjectKeyFormatOutput) ToTableBucketTargetObjectKeyFormatPtrOutput() TableBucketTargetObjectKeyFormatPtrOutput {
+	return o.ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketTargetObjectKeyFormatOutput) ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) TableBucketTargetObjectKeyFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketTargetObjectKeyFormat) *TableBucketTargetObjectKeyFormat {
+		return &v
+	}).(TableBucketTargetObjectKeyFormatPtrOutput)
+}
+
+func (o TableBucketTargetObjectKeyFormatOutput) PartitionedPrefix() TableBucketPartitionedPrefixOutput {
+	return o.ApplyT(func(v TableBucketTargetObjectKeyFormat) TableBucketPartitionedPrefix { return v.PartitionedPrefix }).(TableBucketPartitionedPrefixOutput)
+}
+
+type TableBucketTargetObjectKeyFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketTargetObjectKeyFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketTargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (o TableBucketTargetObjectKeyFormatPtrOutput) ToTableBucketTargetObjectKeyFormatPtrOutput() TableBucketTargetObjectKeyFormatPtrOutput {
+	return o
+}
+
+func (o TableBucketTargetObjectKeyFormatPtrOutput) ToTableBucketTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) TableBucketTargetObjectKeyFormatPtrOutput {
+	return o
+}
+
+func (o TableBucketTargetObjectKeyFormatPtrOutput) Elem() TableBucketTargetObjectKeyFormatOutput {
+	return o.ApplyT(func(v *TableBucketTargetObjectKeyFormat) TableBucketTargetObjectKeyFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketTargetObjectKeyFormat
+		return ret
+	}).(TableBucketTargetObjectKeyFormatOutput)
+}
+
+func (o TableBucketTargetObjectKeyFormatPtrOutput) PartitionedPrefix() TableBucketPartitionedPrefixPtrOutput {
+	return o.ApplyT(func(v *TableBucketTargetObjectKeyFormat) *TableBucketPartitionedPrefix {
+		if v == nil {
+			return nil
+		}
+		return &v.PartitionedPrefix
+	}).(TableBucketPartitionedPrefixPtrOutput)
 }
 
 // Settings governing the Unreferenced File Removal maintenance action. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots.
@@ -3005,8 +3459,12 @@ type TableTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketLoggingConfigurationInput)(nil)).Elem(), TableBucketLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketLoggingConfigurationPtrInput)(nil)).Elem(), TableBucketLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationInput)(nil)).Elem(), TableBucketMetricsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationPtrInput)(nil)).Elem(), TableBucketMetricsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketPartitionedPrefixInput)(nil)).Elem(), TableBucketPartitionedPrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketPartitionedPrefixPtrInput)(nil)).Elem(), TableBucketPartitionedPrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketPolicyResourcePolicyInput)(nil)).Elem(), TableBucketPolicyResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationConfigurationInput)(nil)).Elem(), TableBucketReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationConfigurationPtrInput)(nil)).Elem(), TableBucketReplicationConfigurationArgs{})
@@ -3016,6 +3474,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationRuleArrayInput)(nil)).Elem(), TableBucketReplicationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketStorageClassConfigurationInput)(nil)).Elem(), TableBucketStorageClassConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketStorageClassConfigurationPtrInput)(nil)).Elem(), TableBucketStorageClassConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketTargetObjectKeyFormatInput)(nil)).Elem(), TableBucketTargetObjectKeyFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketTargetObjectKeyFormatPtrInput)(nil)).Elem(), TableBucketTargetObjectKeyFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionInput)(nil)).Elem(), TableCompactionArgs{})
@@ -3045,8 +3505,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStorageClassConfigurationPtrInput)(nil)).Elem(), TableStorageClassConfigurationArgs{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(TableBucketLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketMetricsConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketMetricsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketPartitionedPrefixOutput{})
+	pulumi.RegisterOutputType(TableBucketPartitionedPrefixPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketReplicationConfigurationOutput{})
@@ -3057,6 +3521,8 @@ func init() {
 	pulumi.RegisterOutputType(TableBucketReplicationRuleArrayOutput{})
 	pulumi.RegisterOutputType(TableBucketStorageClassConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketStorageClassConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketTargetObjectKeyFormatOutput{})
+	pulumi.RegisterOutputType(TableBucketTargetObjectKeyFormatPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalPtrOutput{})
 	pulumi.RegisterOutputType(TableCompactionOutput{})

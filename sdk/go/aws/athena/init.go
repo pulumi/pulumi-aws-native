@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NamedQuery{}
 	case "aws-native:athena:PreparedStatement":
 		r = &PreparedStatement{}
+	case "aws-native:athena:SystemTables":
+		r = &SystemTables{}
 	case "aws-native:athena:WorkGroup":
 		r = &WorkGroup{}
 	default:

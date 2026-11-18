@@ -20,6 +20,8 @@ type Association struct {
 	AgentSpaceId pulumi.StringOutput `pulumi:"agentSpaceId"`
 	// The unique identifier of the association
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	// Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+	Capabilities AssociationCapabilitiesPtrOutput `pulumi:"capabilities"`
 	// The configuration that directs how AgentSpace interacts with the given service
 	Configuration AssociationServiceConfigurationOutput `pulumi:"configuration"`
 	// The timestamp when the association was created
@@ -93,6 +95,8 @@ func AssociationExists(ctx *pulumi.Context,
 type associationArgs struct {
 	// The unique identifier of the AgentSpace
 	AgentSpaceId string `pulumi:"agentSpaceId"`
+	// Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+	Capabilities *AssociationCapabilities `pulumi:"capabilities"`
 	// The configuration that directs how AgentSpace interacts with the given service
 	Configuration AssociationServiceConfiguration `pulumi:"configuration"`
 	// Set of linked association IDs for parent-child relationships
@@ -105,6 +109,8 @@ type associationArgs struct {
 type AssociationArgs struct {
 	// The unique identifier of the AgentSpace
 	AgentSpaceId pulumi.StringInput
+	// Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+	Capabilities AssociationCapabilitiesPtrInput
 	// The configuration that directs how AgentSpace interacts with the given service
 	Configuration AssociationServiceConfigurationInput
 	// Set of linked association IDs for parent-child relationships
@@ -158,6 +164,11 @@ func (o AssociationOutput) AgentSpaceId() pulumi.StringOutput {
 // The unique identifier of the association
 func (o AssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
+}
+
+// Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+func (o AssociationOutput) Capabilities() AssociationCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *Association) AssociationCapabilitiesPtrOutput { return v.Capabilities }).(AssociationCapabilitiesPtrOutput)
 }
 
 // The configuration that directs how AgentSpace interacts with the given service

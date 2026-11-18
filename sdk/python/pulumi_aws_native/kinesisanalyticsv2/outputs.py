@@ -43,6 +43,11 @@ __all__ = [
     'ApplicationVpcConfiguration',
     'ApplicationZeppelinApplicationConfiguration',
     'ApplicationZeppelinMonitoringConfiguration',
+    'SnapshotEncryptionConfigurationDescription',
+    'SnapshotImportSourceConfiguration',
+    'SnapshotS3PrefixLocation',
+    'SnapshotSourceApplicationDescription',
+    'SnapshotSourceDescription',
 ]
 
 @pulumi.output_type
@@ -1603,5 +1608,304 @@ class ApplicationZeppelinMonitoringConfiguration(dict):
         The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
         """
         return pulumi.get(self, "log_level")
+
+
+@pulumi.output_type
+class SnapshotEncryptionConfigurationDescription(dict):
+    """
+    A KMS encryption configuration for snapshot data: the key type, and the key when it is a customer managed key.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyType":
+            suggest = "key_type"
+        elif key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotEncryptionConfigurationDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotEncryptionConfigurationDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotEncryptionConfigurationDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_type: 'SnapshotEncryptionConfigurationDescriptionKeyType',
+                 key_id: Optional[_builtins.str] = None):
+        """
+        A KMS encryption configuration for snapshot data: the key type, and the key when it is a customer managed key.
+
+        :param 'SnapshotEncryptionConfigurationDescriptionKeyType' key_type: The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+        :param _builtins.str key_id: The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+        """
+        pulumi.set(__self__, "key_type", key_type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> 'SnapshotEncryptionConfigurationDescriptionKeyType':
+        """
+        The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+        """
+        return pulumi.get(self, "key_type")
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+        """
+        return pulumi.get(self, "key_id")
+
+
+@pulumi.output_type
+class SnapshotImportSourceConfiguration(dict):
+    """
+    The Amazon S3 location to import a snapshot from, and the role the service assumes to read it.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "importRoleArn":
+            suggest = "import_role_arn"
+        elif key == "sourceS3PrefixLocation":
+            suggest = "source_s3_prefix_location"
+        elif key == "sourceType":
+            suggest = "source_type"
+        elif key == "sourceEncryptionConfiguration":
+            suggest = "source_encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotImportSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotImportSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotImportSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 import_role_arn: _builtins.str,
+                 source_s3_prefix_location: 'outputs.SnapshotS3PrefixLocation',
+                 source_type: 'SnapshotImportSourceConfigurationSourceType',
+                 source_encryption_configuration: Optional['outputs.SnapshotEncryptionConfigurationDescription'] = None):
+        """
+        The Amazon S3 location to import a snapshot from, and the role the service assumes to read it.
+
+        :param _builtins.str import_role_arn: The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+        :param 'SnapshotS3PrefixLocation' source_s3_prefix_location: The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+        :param 'SnapshotImportSourceConfigurationSourceType' source_type: The type of storage the snapshot is imported from.
+        :param 'SnapshotEncryptionConfigurationDescription' source_encryption_configuration: The encryption of the snapshot files in Amazon S3.
+        """
+        pulumi.set(__self__, "import_role_arn", import_role_arn)
+        pulumi.set(__self__, "source_s3_prefix_location", source_s3_prefix_location)
+        pulumi.set(__self__, "source_type", source_type)
+        if source_encryption_configuration is not None:
+            pulumi.set(__self__, "source_encryption_configuration", source_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="importRoleArn")
+    def import_role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+        """
+        return pulumi.get(self, "import_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceS3PrefixLocation")
+    def source_s3_prefix_location(self) -> 'outputs.SnapshotS3PrefixLocation':
+        """
+        The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+        """
+        return pulumi.get(self, "source_s3_prefix_location")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> 'SnapshotImportSourceConfigurationSourceType':
+        """
+        The type of storage the snapshot is imported from.
+        """
+        return pulumi.get(self, "source_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceEncryptionConfiguration")
+    def source_encryption_configuration(self) -> Optional['outputs.SnapshotEncryptionConfigurationDescription']:
+        """
+        The encryption of the snapshot files in Amazon S3.
+        """
+        return pulumi.get(self, "source_encryption_configuration")
+
+
+@pulumi.output_type
+class SnapshotS3PrefixLocation(dict):
+    """
+    An Amazon S3 prefix location.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "keyPrefix":
+            suggest = "key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotS3PrefixLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotS3PrefixLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotS3PrefixLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: _builtins.str,
+                 key_prefix: _builtins.str):
+        """
+        An Amazon S3 prefix location.
+
+        :param _builtins.str bucket_arn: The ARN of the S3 bucket.
+        :param _builtins.str key_prefix: The S3 key prefix.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> _builtins.str:
+        """
+        The ARN of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> _builtins.str:
+        """
+        The S3 key prefix.
+        """
+        return pulumi.get(self, "key_prefix")
+
+
+@pulumi.output_type
+class SnapshotSourceApplicationDescription(dict):
+    """
+    Details about the application the snapshot was taken from.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationCreationTimestamp":
+            suggest = "application_creation_timestamp"
+        elif key == "applicationName":
+            suggest = "application_name"
+        elif key == "applicationVersionId":
+            suggest = "application_version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotSourceApplicationDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotSourceApplicationDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotSourceApplicationDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_creation_timestamp: _builtins.str,
+                 application_name: _builtins.str,
+                 application_version_id: _builtins.int):
+        """
+        Details about the application the snapshot was taken from.
+
+        :param _builtins.str application_creation_timestamp: The time at which the source application was created.
+        :param _builtins.str application_name: The name of the source application.
+        :param _builtins.int application_version_id: The version of the source application captured in the snapshot.
+        """
+        pulumi.set(__self__, "application_creation_timestamp", application_creation_timestamp)
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "application_version_id", application_version_id)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationCreationTimestamp")
+    def application_creation_timestamp(self) -> _builtins.str:
+        """
+        The time at which the source application was created.
+        """
+        return pulumi.get(self, "application_creation_timestamp")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> _builtins.str:
+        """
+        The name of the source application.
+        """
+        return pulumi.get(self, "application_name")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationVersionId")
+    def application_version_id(self) -> _builtins.int:
+        """
+        The version of the source application captured in the snapshot.
+        """
+        return pulumi.get(self, "application_version_id")
+
+
+@pulumi.output_type
+class SnapshotSourceDescription(dict):
+    """
+    Details about the source (application and/or S3 location) the snapshot was taken from. Populated by DescribeSnapshot.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3PrefixLocation":
+            suggest = "s3_prefix_location"
+        elif key == "sourceApplicationDescription":
+            suggest = "source_application_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotSourceDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotSourceDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotSourceDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_prefix_location: Optional['outputs.SnapshotS3PrefixLocation'] = None,
+                 source_application_description: Optional['outputs.SnapshotSourceApplicationDescription'] = None):
+        """
+        Details about the source (application and/or S3 location) the snapshot was taken from. Populated by DescribeSnapshot.
+        """
+        if s3_prefix_location is not None:
+            pulumi.set(__self__, "s3_prefix_location", s3_prefix_location)
+        if source_application_description is not None:
+            pulumi.set(__self__, "source_application_description", source_application_description)
+
+    @_builtins.property
+    @pulumi.getter(name="s3PrefixLocation")
+    def s3_prefix_location(self) -> Optional['outputs.SnapshotS3PrefixLocation']:
+        return pulumi.get(self, "s3_prefix_location")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceApplicationDescription")
+    def source_application_description(self) -> Optional['outputs.SnapshotSourceApplicationDescription']:
+        return pulumi.get(self, "source_application_description")
 
 

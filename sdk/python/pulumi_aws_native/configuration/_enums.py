@@ -7,8 +7,18 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ConformancePackType',
     'DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency',
 ]
+
+
+@pulumi.type_token("aws-native:configuration:ConformancePackType")
+class ConformancePackType(_builtins.str, Enum):
+    """
+    The type of the conformance pack. CUSTOM for a conformance pack whose Config rules are managed by the customer; MANAGED for a managed conformance pack whose Config rules are managed by AWS.
+    """
+    CUSTOM = "CUSTOM"
+    MANAGED = "MANAGED"
 
 
 @pulumi.type_token("aws-native:configuration:DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency")

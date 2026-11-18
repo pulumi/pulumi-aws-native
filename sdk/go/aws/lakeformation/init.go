@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataCellsFilter{}
 	case "aws-native:lakeformation:PrincipalPermissions":
 		r = &PrincipalPermissions{}
+	case "aws-native:lakeformation:Resource":
+		r = &Resource{}
 	case "aws-native:lakeformation:Tag":
 		r = &Tag{}
 	case "aws-native:lakeformation:TagAssociation":

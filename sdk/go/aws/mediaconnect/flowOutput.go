@@ -56,6 +56,7 @@ type FlowOutputResource struct {
 	RouterIntegrationState FlowOutputRouterIntegrationStatePtrOutput `pulumi:"routerIntegrationState"`
 	// Encryption information.
 	RouterIntegrationTransitEncryption FlowOutputFlowTransitEncryptionPtrOutput `pulumi:"routerIntegrationTransitEncryption"`
+	RtmpPushSettings                   FlowOutputRtmpPushSettingsPtrOutput      `pulumi:"rtmpPushSettings"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency pulumi.IntPtrOutput `pulumi:"smoothingLatency"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -157,6 +158,7 @@ type flowOutputResourceArgs struct {
 	RouterIntegrationState *FlowOutputRouterIntegrationState `pulumi:"routerIntegrationState"`
 	// Encryption information.
 	RouterIntegrationTransitEncryption *FlowOutputFlowTransitEncryption `pulumi:"routerIntegrationTransitEncryption"`
+	RtmpPushSettings                   *FlowOutputRtmpPushSettings      `pulumi:"rtmpPushSettings"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency *int `pulumi:"smoothingLatency"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -206,6 +208,7 @@ type FlowOutputResourceArgs struct {
 	RouterIntegrationState FlowOutputRouterIntegrationStatePtrInput
 	// Encryption information.
 	RouterIntegrationTransitEncryption FlowOutputFlowTransitEncryptionPtrInput
+	RtmpPushSettings                   FlowOutputRtmpPushSettingsPtrInput
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency pulumi.IntPtrInput
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -356,6 +359,10 @@ func (o FlowOutputResourceOutput) RouterIntegrationTransitEncryption() FlowOutpu
 	return o.ApplyT(func(v *FlowOutputResource) FlowOutputFlowTransitEncryptionPtrOutput {
 		return v.RouterIntegrationTransitEncryption
 	}).(FlowOutputFlowTransitEncryptionPtrOutput)
+}
+
+func (o FlowOutputResourceOutput) RtmpPushSettings() FlowOutputRtmpPushSettingsPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputRtmpPushSettingsPtrOutput { return v.RtmpPushSettings }).(FlowOutputRtmpPushSettingsPtrOutput)
 }
 
 // The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.

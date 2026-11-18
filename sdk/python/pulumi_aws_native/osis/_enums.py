@@ -7,8 +7,22 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'PipelineEndpointStatus',
     'PipelineVpcOptionsVpcEndpointManagement',
 ]
+
+
+@pulumi.type_token("aws-native:osis:PipelineEndpointStatus")
+class PipelineEndpointStatus(_builtins.str, Enum):
+    """
+    The current status of the pipeline endpoint.
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    CREATE_FAILED = "CREATE_FAILED"
+    DELETING = "DELETING"
+    REVOKING = "REVOKING"
+    REVOKED = "REVOKED"
 
 
 @pulumi.type_token("aws-native:osis:PipelineVpcOptionsVpcEndpointManagement")

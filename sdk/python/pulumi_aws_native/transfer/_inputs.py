@@ -36,6 +36,8 @@ __all__ = [
     'ServerProxyConfigArgsDict',
     'ServerS3StorageOptionsArgs',
     'ServerS3StorageOptionsArgsDict',
+    'ServerSftpPortWithOptionsArgs',
+    'ServerSftpPortWithOptionsArgsDict',
     'ServerWorkflowDetailArgs',
     'ServerWorkflowDetailArgsDict',
     'ServerWorkflowDetailsArgs',
@@ -879,6 +881,7 @@ class ServerProtocolDetailsArgsDict(TypedDict):
 
     > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
     """
+    sftp_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServerSftpPortWithOptionsArgsDict']]]]]
     tls_session_resumption_mode: NotRequired[pulumi.Input[Optional['ServerTlsSessionResumptionMode']]]
     """
     A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
@@ -897,6 +900,7 @@ class ServerProtocolDetailsArgs:
                  passive_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  proxy_config: pulumi.Input[Optional['ServerProxyConfigArgs']] = None,
                  set_stat_option: pulumi.Input[Optional['ServerSetStatOption']] = None,
+                 sftp_ports: pulumi.Input[Optional[Sequence[pulumi.Input['ServerSftpPortWithOptionsArgs']]]] = None,
                  tls_session_resumption_mode: pulumi.Input[Optional['ServerTlsSessionResumptionMode']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]] as2_transports: List of `As2Transport` objects.
@@ -936,6 +940,8 @@ class ServerProtocolDetailsArgs:
             pulumi.set(__self__, "proxy_config", proxy_config)
         if set_stat_option is not None:
             pulumi.set(__self__, "set_stat_option", set_stat_option)
+        if sftp_ports is not None:
+            pulumi.set(__self__, "sftp_ports", sftp_ports)
         if tls_session_resumption_mode is not None:
             pulumi.set(__self__, "tls_session_resumption_mode", tls_session_resumption_mode)
 
@@ -1001,6 +1007,15 @@ class ServerProtocolDetailsArgs:
     @set_stat_option.setter
     def set_stat_option(self, value: pulumi.Input[Optional['ServerSetStatOption']]):
         pulumi.set(self, "set_stat_option", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sftpPorts")
+    def sftp_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerSftpPortWithOptionsArgs']]]]:
+        return pulumi.get(self, "sftp_ports")
+
+    @sftp_ports.setter
+    def sftp_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerSftpPortWithOptionsArgs']]]]):
+        pulumi.set(self, "sftp_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsSessionResumptionMode")
@@ -1083,6 +1098,38 @@ class ServerS3StorageOptionsArgs:
     @directory_listing_optimization.setter
     def directory_listing_optimization(self, value: pulumi.Input[Optional['ServerDirectoryListingOptimization']]):
         pulumi.set(self, "directory_listing_optimization", value)
+
+
+class ServerSftpPortWithOptionsArgsDict(TypedDict):
+    sftp_port: pulumi.Input[_builtins.int]
+    communication_mode: NotRequired[pulumi.Input[Optional['ServerCommunicationMode']]]
+
+@pulumi.input_type
+class ServerSftpPortWithOptionsArgs:
+    def __init__(__self__, *,
+                 sftp_port: pulumi.Input[_builtins.int],
+                 communication_mode: pulumi.Input[Optional['ServerCommunicationMode']] = None):
+        pulumi.set(__self__, "sftp_port", sftp_port)
+        if communication_mode is not None:
+            pulumi.set(__self__, "communication_mode", communication_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="sftpPort")
+    def sftp_port(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "sftp_port")
+
+    @sftp_port.setter
+    def sftp_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "sftp_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="communicationMode")
+    def communication_mode(self) -> pulumi.Input[Optional['ServerCommunicationMode']]:
+        return pulumi.get(self, "communication_mode")
+
+    @communication_mode.setter
+    def communication_mode(self, value: pulumi.Input[Optional['ServerCommunicationMode']]):
+        pulumi.set(self, "communication_mode", value)
 
 
 class ServerWorkflowDetailArgsDict(TypedDict):

@@ -14,6 +14,7 @@
   "primaryIdentifier" : [ "/properties/ServiceArn", "/properties/Cluster" ],
   "conditionalCreateOnlyProperties" : [ "/properties/LaunchType" ],
   "propertyTransform" : {
+    "/properties/PlacementStrategies/*/Field" : "Field $OR (Field = \"host\" ? \"instanceId\" : ($lowercase(Field) in [\"cpu\", \"memory\", \"gpu\"] ? $uppercase(Field) : Field))",
     "/properties/TaskDefinition" : "TaskDefinition $OR $join([\"arn:(aws)[-]{0,1}[a-z]{0,3}[-]{0,1}[a-z]{0,3}:ecs:[a-z0-9-]+:[0-9]{12}:task-definition/\", $contains(TaskDefinition,\":\")?TaskDefinition:$join([TaskDefinition, \":[0-9]+\"])])",
     "/properties/Role" : "Role $OR $join([\"arn:(aws)[-]{0,1}[a-z]{0,3}[-]{0,1}[a-z]{0,3}:iam::[0-9]{12}[:]role/{1}\", Role])"
   },
@@ -229,6 +230,18 @@
         }
       },
       "required" : [ "MetricNames", "ResolutionSeconds" ]
+    },
+    "GatewayConnectorDeregistrationDelay" : {
+      "description" : "",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "TimeoutSeconds" : {
+          "maximum" : 3600,
+          "type" : "integer",
+          "minimum" : 0
+        }
+      }
     },
     "ServiceVolumeConfiguration" : {
       "description" : "The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.",
@@ -685,6 +698,9 @@
         "Filters" : {
           "$ref" : "#/definitions/GatewayConnectorFilters"
         },
+        "DeregistrationDelay" : {
+          "$ref" : "#/definitions/GatewayConnectorDeregistrationDelay"
+        },
         "HealthCheck" : {
           "$ref" : "#/definitions/GatewayConnectorHealthCheck"
         },
@@ -1018,6 +1034,7 @@
     },
     "PlacementStrategies" : {
       "description" : "The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.\n  To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.",
+      "insertionOrder" : true,
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/PlacementStrategy"

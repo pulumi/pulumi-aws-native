@@ -70,7 +70,6 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "FileSystemId" ],
   "createOnlyProperties" : [ "/properties/FileSystemId" ],
   "readOnlyProperties" : [ "/properties/BackupId", "/properties/ResourceARN", "/properties/Lifecycle", "/properties/Type", "/properties/CreationTime" ],
   "primaryIdentifier" : [ "/properties/ResourceARN" ],

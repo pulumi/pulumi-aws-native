@@ -1061,6 +1061,162 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The mode of the association.
+    /// </summary>
+    [EnumType]
+    public readonly struct FcaPolicyAssociationAssociationMode : IEquatable<FcaPolicyAssociationAssociationMode>
+    {
+        private readonly string _value;
+
+        private FcaPolicyAssociationAssociationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FcaPolicyAssociationAssociationMode Direct { get; } = new FcaPolicyAssociationAssociationMode("direct");
+        public static FcaPolicyAssociationAssociationMode Scope { get; } = new FcaPolicyAssociationAssociationMode("scope");
+
+        public static bool operator ==(FcaPolicyAssociationAssociationMode left, FcaPolicyAssociationAssociationMode right) => left.Equals(right);
+        public static bool operator !=(FcaPolicyAssociationAssociationMode left, FcaPolicyAssociationAssociationMode right) => !left.Equals(right);
+
+        public static explicit operator string(FcaPolicyAssociationAssociationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FcaPolicyAssociationAssociationMode other && Equals(other);
+        public bool Equals(FcaPolicyAssociationAssociationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Associate by scope instead of directly. When set, NetworkResourceId is the ID of the scope (an account ID, a VPC ID, or a subnet ID) and the association covers every eligible network resource in that scope; when omitted, NetworkResourceId is a direct network resource (for example a NAT gateway or instance) and must match the policy's NetworkResourceType.
+    /// </summary>
+    [EnumType]
+    public readonly struct FcaPolicyAssociationNetworkResourceScopeType : IEquatable<FcaPolicyAssociationNetworkResourceScopeType>
+    {
+        private readonly string _value;
+
+        private FcaPolicyAssociationNetworkResourceScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FcaPolicyAssociationNetworkResourceScopeType Account { get; } = new FcaPolicyAssociationNetworkResourceScopeType("account");
+        public static FcaPolicyAssociationNetworkResourceScopeType Vpc { get; } = new FcaPolicyAssociationNetworkResourceScopeType("vpc");
+        public static FcaPolicyAssociationNetworkResourceScopeType Subnet { get; } = new FcaPolicyAssociationNetworkResourceScopeType("subnet");
+
+        public static bool operator ==(FcaPolicyAssociationNetworkResourceScopeType left, FcaPolicyAssociationNetworkResourceScopeType right) => left.Equals(right);
+        public static bool operator !=(FcaPolicyAssociationNetworkResourceScopeType left, FcaPolicyAssociationNetworkResourceScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(FcaPolicyAssociationNetworkResourceScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FcaPolicyAssociationNetworkResourceScopeType other && Equals(other);
+        public bool Equals(FcaPolicyAssociationNetworkResourceScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FcaPolicyDimensionListItem : IEquatable<FcaPolicyDimensionListItem>
+    {
+        private readonly string _value;
+
+        private FcaPolicyDimensionListItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FcaPolicyDimensionListItem DataTransfer { get; } = new FcaPolicyDimensionListItem("data-transfer");
+        public static FcaPolicyDimensionListItem DataProcessing { get; } = new FcaPolicyDimensionListItem("data-processing");
+
+        public static bool operator ==(FcaPolicyDimensionListItem left, FcaPolicyDimensionListItem right) => left.Equals(right);
+        public static bool operator !=(FcaPolicyDimensionListItem left, FcaPolicyDimensionListItem right) => !left.Equals(right);
+
+        public static explicit operator string(FcaPolicyDimensionListItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FcaPolicyDimensionListItem other && Equals(other);
+        public bool Equals(FcaPolicyDimensionListItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of network resource the FCA policy applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct FcaPolicyNetworkResourceType : IEquatable<FcaPolicyNetworkResourceType>
+    {
+        private readonly string _value;
+
+        private FcaPolicyNetworkResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FcaPolicyNetworkResourceType Natgw { get; } = new FcaPolicyNetworkResourceType("natgw");
+        public static FcaPolicyNetworkResourceType Pcx { get; } = new FcaPolicyNetworkResourceType("pcx");
+        public static FcaPolicyNetworkResourceType Ec2 { get; } = new FcaPolicyNetworkResourceType("ec2");
+
+        public static bool operator ==(FcaPolicyNetworkResourceType left, FcaPolicyNetworkResourceType right) => left.Equals(right);
+        public static bool operator !=(FcaPolicyNetworkResourceType left, FcaPolicyNetworkResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(FcaPolicyNetworkResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FcaPolicyNetworkResourceType other && Equals(other);
+        public bool Equals(FcaPolicyNetworkResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FcaPolicyReportingGranularityListItem : IEquatable<FcaPolicyReportingGranularityListItem>
+    {
+        private readonly string _value;
+
+        private FcaPolicyReportingGranularityListItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FcaPolicyReportingGranularityListItem Eni { get; } = new FcaPolicyReportingGranularityListItem("eni");
+        public static FcaPolicyReportingGranularityListItem Ec2 { get; } = new FcaPolicyReportingGranularityListItem("ec2");
+        public static FcaPolicyReportingGranularityListItem Subnet { get; } = new FcaPolicyReportingGranularityListItem("subnet");
+        public static FcaPolicyReportingGranularityListItem Vpc { get; } = new FcaPolicyReportingGranularityListItem("vpc");
+        public static FcaPolicyReportingGranularityListItem Account { get; } = new FcaPolicyReportingGranularityListItem("account");
+        public static FcaPolicyReportingGranularityListItem PeeringId { get; } = new FcaPolicyReportingGranularityListItem("peering-id");
+        public static FcaPolicyReportingGranularityListItem Cidr { get; } = new FcaPolicyReportingGranularityListItem("cidr");
+
+        public static bool operator ==(FcaPolicyReportingGranularityListItem left, FcaPolicyReportingGranularityListItem right) => left.Equals(right);
+        public static bool operator !=(FcaPolicyReportingGranularityListItem left, FcaPolicyReportingGranularityListItem right) => !left.Equals(right);
+
+        public static explicit operator string(FcaPolicyReportingGranularityListItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FcaPolicyReportingGranularityListItem other && Equals(other);
+        public bool Equals(FcaPolicyReportingGranularityListItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The format for the flow log. The default is `plain-text` .
     /// </summary>
     [EnumType]
@@ -1142,6 +1298,9 @@ namespace Pulumi.AwsNative.Ec2
         public static FlowLogResourceType TransitGateway { get; } = new FlowLogResourceType("TransitGateway");
         public static FlowLogResourceType TransitGatewayAttachment { get; } = new FlowLogResourceType("TransitGatewayAttachment");
         public static FlowLogResourceType RegionalNatGateway { get; } = new FlowLogResourceType("RegionalNatGateway");
+        public static FlowLogResourceType CoreNetwork { get; } = new FlowLogResourceType("CoreNetwork");
+        public static FlowLogResourceType CoreNetworkEdge { get; } = new FlowLogResourceType("CoreNetworkEdge");
+        public static FlowLogResourceType CoreNetworkAttachment { get; } = new FlowLogResourceType("CoreNetworkAttachment");
 
         public static bool operator ==(FlowLogResourceType left, FlowLogResourceType right) => left.Equals(right);
         public static bool operator !=(FlowLogResourceType left, FlowLogResourceType right) => !left.Equals(right);
@@ -3564,6 +3723,36 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+    /// </summary>
+    [EnumType]
+    public readonly struct TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode : IEquatable<TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode>
+    {
+        private readonly string _value;
+
+        private TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode AlwaysOn { get; } = new TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode("always-on");
+
+        public static bool operator ==(TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode left, TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode right) => left.Equals(right);
+        public static bool operator !=(TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode left, TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode right) => !left.Equals(right);
+
+        public static explicit operator string(TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode other && Equals(other);
+        public bool Equals(TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
     /// </summary>
     [EnumType]
@@ -4355,6 +4544,68 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpcEndpointType other && Equals(other);
         public bool Equals(VpcEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcPeeringConnectionMultipathResilienceStatus : IEquatable<VpcPeeringConnectionMultipathResilienceStatus>
+    {
+        private readonly string _value;
+
+        private VpcPeeringConnectionMultipathResilienceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcPeeringConnectionMultipathResilienceStatus Pending { get; } = new VpcPeeringConnectionMultipathResilienceStatus("pending");
+        public static VpcPeeringConnectionMultipathResilienceStatus Enabled { get; } = new VpcPeeringConnectionMultipathResilienceStatus("enabled");
+        public static VpcPeeringConnectionMultipathResilienceStatus Disabled { get; } = new VpcPeeringConnectionMultipathResilienceStatus("disabled");
+
+        public static bool operator ==(VpcPeeringConnectionMultipathResilienceStatus left, VpcPeeringConnectionMultipathResilienceStatus right) => left.Equals(right);
+        public static bool operator !=(VpcPeeringConnectionMultipathResilienceStatus left, VpcPeeringConnectionMultipathResilienceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(VpcPeeringConnectionMultipathResilienceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcPeeringConnectionMultipathResilienceStatus other && Equals(other);
+        public bool Equals(VpcPeeringConnectionMultipathResilienceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcPeeringConnectionOptionsMultipathResilienceMode : IEquatable<VpcPeeringConnectionOptionsMultipathResilienceMode>
+    {
+        private readonly string _value;
+
+        private VpcPeeringConnectionOptionsMultipathResilienceMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcPeeringConnectionOptionsMultipathResilienceMode AlwaysOn { get; } = new VpcPeeringConnectionOptionsMultipathResilienceMode("always-on");
+
+        public static bool operator ==(VpcPeeringConnectionOptionsMultipathResilienceMode left, VpcPeeringConnectionOptionsMultipathResilienceMode right) => left.Equals(right);
+        public static bool operator !=(VpcPeeringConnectionOptionsMultipathResilienceMode left, VpcPeeringConnectionOptionsMultipathResilienceMode right) => !left.Equals(right);
+
+        public static explicit operator string(VpcPeeringConnectionOptionsMultipathResilienceMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcPeeringConnectionOptionsMultipathResilienceMode other && Equals(other);
+        public bool Equals(VpcPeeringConnectionOptionsMultipathResilienceMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

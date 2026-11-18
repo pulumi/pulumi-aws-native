@@ -452,6 +452,7 @@ type CloudWatchAlarmTemplateTargetResourceType string
 
 const (
 	CloudWatchAlarmTemplateTargetResourceTypeCloudfrontDistribution           = CloudWatchAlarmTemplateTargetResourceType("CLOUDFRONT_DISTRIBUTION")
+	CloudWatchAlarmTemplateTargetResourceTypeElementalInferenceFeed           = CloudWatchAlarmTemplateTargetResourceType("ELEMENTAL_INFERENCE_FEED")
 	CloudWatchAlarmTemplateTargetResourceTypeMedialiveMultiplex               = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_MULTIPLEX")
 	CloudWatchAlarmTemplateTargetResourceTypeMedialiveChannel                 = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_CHANNEL")
 	CloudWatchAlarmTemplateTargetResourceTypeMedialiveInputDevice             = CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_INPUT_DEVICE")
@@ -585,6 +586,7 @@ func (o CloudWatchAlarmTemplateTargetResourceTypePtrOutput) ToStringPtrOutputWit
 // A concrete instance of `CloudWatchAlarmTemplateTargetResourceTypeInput` can be one of the following:
 //
 //	CloudWatchAlarmTemplateTargetResourceTypeCloudfrontDistribution
+//	CloudWatchAlarmTemplateTargetResourceTypeElementalInferenceFeed
 //	CloudWatchAlarmTemplateTargetResourceTypeMedialiveMultiplex
 //	CloudWatchAlarmTemplateTargetResourceTypeMedialiveChannel
 //	CloudWatchAlarmTemplateTargetResourceTypeMedialiveInputDevice

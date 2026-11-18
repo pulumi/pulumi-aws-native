@@ -114,7 +114,6 @@ namespace Pulumi.AwsNative.AppConfig
                 {
                     "applicationId",
                     "locationUri",
-                    "type",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

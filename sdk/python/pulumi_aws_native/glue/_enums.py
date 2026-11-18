@@ -9,7 +9,10 @@ from enum import Enum
 __all__ = [
     'BlueprintStatus',
     'CatalogAllowFullTableExternalDataAccess',
+    'CatalogAssetsSyncConfigurationStatus',
     'CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess',
+    'CatalogLineageSyncConfigurationStatus',
+    'CatalogManagedCrawlerDetailsStatus',
     'CatalogOverwriteChildResourcePermissionsWithDefault',
     'CatalogPrincipalPermissionsPermissionsItem',
     'ConnectionTypeClientCredentialsPropertiesContentType',
@@ -61,6 +64,15 @@ class CatalogAllowFullTableExternalDataAccess(_builtins.str, Enum):
     FALSE = "False"
 
 
+@pulumi.type_token("aws-native:glue:CatalogAssetsSyncConfigurationStatus")
+class CatalogAssetsSyncConfigurationStatus(_builtins.str, Enum):
+    """
+    Whether asset synchronization is enabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 @pulumi.type_token("aws-native:glue:CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess")
 class CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess(_builtins.str, Enum):
     """
@@ -68,6 +80,25 @@ class CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess(_builtins.
     """
     TRUE = "True"
     FALSE = "False"
+
+
+@pulumi.type_token("aws-native:glue:CatalogLineageSyncConfigurationStatus")
+class CatalogLineageSyncConfigurationStatus(_builtins.str, Enum):
+    """
+    Whether lineage synchronization is enabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:glue:CatalogManagedCrawlerDetailsStatus")
+class CatalogManagedCrawlerDetailsStatus(_builtins.str, Enum):
+    """
+    The provisioning state of the crawler.
+    """
+    PROVISIONING = "PROVISIONING"
+    PROVISIONED = "PROVISIONED"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:glue:CatalogOverwriteChildResourcePermissionsWithDefault")
@@ -277,6 +308,16 @@ class JobWorkerType(_builtins.str, Enum):
     R2X = "R.2X"
     R4X = "R.4X"
     R8X = "R.8X"
+    G1X_GRAVITON = "G.1X.GRAVITON"
+    G2X_GRAVITON = "G.2X.GRAVITON"
+    G4X_GRAVITON = "G.4X.GRAVITON"
+    G8X_GRAVITON = "G.8X.GRAVITON"
+    G12X_GRAVITON = "G.12X.GRAVITON"
+    G16X_GRAVITON = "G.16X.GRAVITON"
+    R1X_GRAVITON = "R.1X.GRAVITON"
+    R2X_GRAVITON = "R.2X.GRAVITON"
+    R4X_GRAVITON = "R.4X.GRAVITON"
+    R8X_GRAVITON = "R.8X.GRAVITON"
 
 
 @pulumi.type_token("aws-native:glue:SchemaCompatibility")

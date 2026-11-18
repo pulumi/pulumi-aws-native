@@ -13,6 +13,7 @@ __all__ = [
     'ChannelS3StorageClass',
     'ChannelStatus',
     'ChannelValueConverter',
+    'ClusterBrokerNodeGroupInfoTopicReassignment',
     'ClusterEncryptionInTransitClientBroker',
     'ClusterEnhancedMonitoring',
     'ClusterNetworkType',
@@ -90,6 +91,12 @@ class ChannelValueConverter(_builtins.str, Enum):
     JSON = "JSON"
     JSON_SCHEMA_GSR = "JSON_SCHEMA_GSR"
     STRING = "STRING"
+
+
+@pulumi.type_token("aws-native:msk:ClusterBrokerNodeGroupInfoTopicReassignment")
+class ClusterBrokerNodeGroupInfoTopicReassignment(_builtins.str, Enum):
+    AUTO = "AUTO"
+    MANUAL = "MANUAL"
 
 
 @pulumi.type_token("aws-native:msk:ClusterEncryptionInTransitClientBroker")

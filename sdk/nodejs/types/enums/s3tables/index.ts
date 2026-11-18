@@ -22,6 +22,16 @@ export const TableBucketMetricsConfigurationStatus = {
  */
 export type TableBucketMetricsConfigurationStatus = (typeof TableBucketMetricsConfigurationStatus)[keyof typeof TableBucketMetricsConfigurationStatus];
 
+export const TableBucketPartitionedPrefixPartitionDateSource = {
+    EventTime: "EventTime",
+    DeliveryTime: "DeliveryTime",
+} as const;
+
+/**
+ * The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+ */
+export type TableBucketPartitionedPrefixPartitionDateSource = (typeof TableBucketPartitionedPrefixPartitionDateSource)[keyof typeof TableBucketPartitionedPrefixPartitionDateSource];
+
 export const TableBucketStorageClassConfigurationStorageClass = {
     Standard: "STANDARD",
     IntelligentTiering: "INTELLIGENT_TIERING",

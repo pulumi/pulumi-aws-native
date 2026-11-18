@@ -49,7 +49,7 @@ type LookupUserResult struct {
 	PhoneNumberConfigs []UserPhoneNumberConfig `pulumi:"phoneNumberConfigs"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileArn *string `pulumi:"routingProfileArn"`
-	// One or more security profile arns for the user
+	// One or more customer-managed or AWS-managed security profile ARNs for the user.
 	SecurityProfileArns []string `pulumi:"securityProfileArns"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -141,7 +141,7 @@ func (o LookupUserResultOutput) RoutingProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.RoutingProfileArn }).(pulumi.StringPtrOutput)
 }
 
-// One or more security profile arns for the user
+// One or more customer-managed or AWS-managed security profile ARNs for the user.
 func (o LookupUserResultOutput) SecurityProfileArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.SecurityProfileArns }).(pulumi.StringArrayOutput)
 }

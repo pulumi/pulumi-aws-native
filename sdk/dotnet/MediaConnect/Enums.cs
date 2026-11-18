@@ -1419,6 +1419,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowOutputProtocol St2110Jpegxs { get; } = new FlowOutputProtocol("st2110-jpegxs");
         public static FlowOutputProtocol Cdi { get; } = new FlowOutputProtocol("cdi");
         public static FlowOutputProtocol NdiSpeedHq { get; } = new FlowOutputProtocol("ndi-speed-hq");
+        public static FlowOutputProtocol RtmpPush { get; } = new FlowOutputProtocol("rtmp-push");
 
         public static bool operator ==(FlowOutputProtocol left, FlowOutputProtocol right) => left.Equals(right);
         public static bool operator !=(FlowOutputProtocol left, FlowOutputProtocol right) => !left.Equals(right);
@@ -1456,6 +1457,33 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowOutputRouterIntegrationState other && Equals(other);
         public bool Equals(FlowOutputRouterIntegrationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowOutputTlsEncryptionType : IEquatable<FlowOutputTlsEncryptionType>
+    {
+        private readonly string _value;
+
+        private FlowOutputTlsEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowOutputTlsEncryptionType Public { get; } = new FlowOutputTlsEncryptionType("PUBLIC");
+
+        public static bool operator ==(FlowOutputTlsEncryptionType left, FlowOutputTlsEncryptionType right) => left.Equals(right);
+        public static bool operator !=(FlowOutputTlsEncryptionType left, FlowOutputTlsEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowOutputTlsEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowOutputTlsEncryptionType other && Equals(other);
+        public bool Equals(FlowOutputTlsEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1674,6 +1702,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowSourceProtocol St2110Jpegxs { get; } = new FlowSourceProtocol("st2110-jpegxs");
         public static FlowSourceProtocol Cdi { get; } = new FlowSourceProtocol("cdi");
         public static FlowSourceProtocol NdiSpeedHq { get; } = new FlowSourceProtocol("ndi-speed-hq");
+        public static FlowSourceProtocol RtmpPush { get; } = new FlowSourceProtocol("rtmp-push");
 
         public static bool operator ==(FlowSourceProtocol left, FlowSourceProtocol right) => left.Equals(right);
         public static bool operator !=(FlowSourceProtocol left, FlowSourceProtocol right) => !left.Equals(right);
@@ -2144,6 +2173,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static RouterInputProtocol Rist { get; } = new RouterInputProtocol("RIST");
         public static RouterInputProtocol SrtCaller { get; } = new RouterInputProtocol("SRT_CALLER");
         public static RouterInputProtocol SrtListener { get; } = new RouterInputProtocol("SRT_LISTENER");
+        public static RouterInputProtocol RtmpPush { get; } = new RouterInputProtocol("RTMP_PUSH");
 
         public static bool operator ==(RouterInputProtocol left, RouterInputProtocol right) => left.Equals(right);
         public static bool operator !=(RouterInputProtocol left, RouterInputProtocol right) => !left.Equals(right);
@@ -2208,6 +2238,34 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RouterInputRoutingScope other && Equals(other);
         public bool Equals(RouterInputRoutingScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputRtmpPushNamingType : IEquatable<RouterInputRtmpPushNamingType>
+    {
+        private readonly string _value;
+
+        private RouterInputRtmpPushNamingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputRtmpPushNamingType Manual { get; } = new RouterInputRtmpPushNamingType("MANUAL");
+        public static RouterInputRtmpPushNamingType Automatic { get; } = new RouterInputRtmpPushNamingType("AUTOMATIC");
+
+        public static bool operator ==(RouterInputRtmpPushNamingType left, RouterInputRtmpPushNamingType right) => left.Equals(right);
+        public static bool operator !=(RouterInputRtmpPushNamingType left, RouterInputRtmpPushNamingType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputRtmpPushNamingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputRtmpPushNamingType other && Equals(other);
+        public bool Equals(RouterInputRtmpPushNamingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

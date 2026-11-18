@@ -20,6 +20,16 @@ export type Connection = import("./connection").Connection;
 export const Connection: typeof import("./connection").Connection = null as any;
 utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
 
+export { ContextStoreArgs } from "./contextStore";
+export type ContextStore = import("./contextStore").ContextStore;
+export const ContextStore: typeof import("./contextStore").ContextStore = null as any;
+utilities.lazyLoad(exports, ["ContextStore"], () => require("./contextStore"));
+
+export { ContextStoreAssociationArgs } from "./contextStoreAssociation";
+export type ContextStoreAssociation = import("./contextStoreAssociation").ContextStoreAssociation;
+export const ContextStoreAssociation: typeof import("./contextStoreAssociation").ContextStoreAssociation = null as any;
+utilities.lazyLoad(exports, ["ContextStoreAssociation"], () => require("./contextStoreAssociation"));
+
 export { CoreNetworkArgs } from "./coreNetwork";
 export type CoreNetwork = import("./coreNetwork").CoreNetwork;
 export const CoreNetwork: typeof import("./coreNetwork").CoreNetwork = null as any;
@@ -59,6 +69,16 @@ export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from 
 export const getConnection: typeof import("./getConnection").getConnection = null as any;
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
+
+export { GetContextStoreArgs, GetContextStoreResult, GetContextStoreOutputArgs } from "./getContextStore";
+export const getContextStore: typeof import("./getContextStore").getContextStore = null as any;
+export const getContextStoreOutput: typeof import("./getContextStore").getContextStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getContextStore","getContextStoreOutput"], () => require("./getContextStore"));
+
+export { GetContextStoreAssociationArgs, GetContextStoreAssociationResult, GetContextStoreAssociationOutputArgs } from "./getContextStoreAssociation";
+export const getContextStoreAssociation: typeof import("./getContextStoreAssociation").getContextStoreAssociation = null as any;
+export const getContextStoreAssociationOutput: typeof import("./getContextStoreAssociation").getContextStoreAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getContextStoreAssociation","getContextStoreAssociationOutput"], () => require("./getContextStoreAssociation"));
 
 export { GetCoreNetworkArgs, GetCoreNetworkResult, GetCoreNetworkOutputArgs } from "./getCoreNetwork";
 export const getCoreNetwork: typeof import("./getCoreNetwork").getCoreNetwork = null as any;
@@ -169,6 +189,10 @@ const _module = {
                 return new ConnectPeer(name, <any>undefined, { urn })
             case "aws-native:networkmanager:Connection":
                 return new Connection(name, <any>undefined, { urn })
+            case "aws-native:networkmanager:ContextStore":
+                return new ContextStore(name, <any>undefined, { urn })
+            case "aws-native:networkmanager:ContextStoreAssociation":
+                return new ContextStoreAssociation(name, <any>undefined, { urn })
             case "aws-native:networkmanager:CoreNetwork":
                 return new CoreNetwork(name, <any>undefined, { urn })
             case "aws-native:networkmanager:CoreNetworkPrefixListAssociation":

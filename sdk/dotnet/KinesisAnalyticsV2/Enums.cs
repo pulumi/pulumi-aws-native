@@ -385,4 +385,236 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotEncryptionConfigurationDescriptionKeyType : IEquatable<SnapshotEncryptionConfigurationDescriptionKeyType>
+    {
+        private readonly string _value;
+
+        private SnapshotEncryptionConfigurationDescriptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotEncryptionConfigurationDescriptionKeyType AwsOwnedKey { get; } = new SnapshotEncryptionConfigurationDescriptionKeyType("AWS_OWNED_KEY");
+        public static SnapshotEncryptionConfigurationDescriptionKeyType CustomerManagedKey { get; } = new SnapshotEncryptionConfigurationDescriptionKeyType("CUSTOMER_MANAGED_KEY");
+
+        public static bool operator ==(SnapshotEncryptionConfigurationDescriptionKeyType left, SnapshotEncryptionConfigurationDescriptionKeyType right) => left.Equals(right);
+        public static bool operator !=(SnapshotEncryptionConfigurationDescriptionKeyType left, SnapshotEncryptionConfigurationDescriptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotEncryptionConfigurationDescriptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotEncryptionConfigurationDescriptionKeyType other && Equals(other);
+        public bool Equals(SnapshotEncryptionConfigurationDescriptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The format of the snapshot (CANONICAL). Sent to ImportSnapshot with ImportSourceConfiguration; with ApplicationName it may only be CANONICAL, the format CreateSnapshot produces. Returned by DescribeSnapshot. Immutable after create.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotFormat : IEquatable<SnapshotFormat>
+    {
+        private readonly string _value;
+
+        private SnapshotFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotFormat Canonical { get; } = new SnapshotFormat("CANONICAL");
+
+        public static bool operator ==(SnapshotFormat left, SnapshotFormat right) => left.Equals(right);
+        public static bool operator !=(SnapshotFormat left, SnapshotFormat right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotFormat other && Equals(other);
+        public bool Equals(SnapshotFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of storage the snapshot is imported from.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotImportSourceConfigurationSourceType : IEquatable<SnapshotImportSourceConfigurationSourceType>
+    {
+        private readonly string _value;
+
+        private SnapshotImportSourceConfigurationSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotImportSourceConfigurationSourceType S3 { get; } = new SnapshotImportSourceConfigurationSourceType("S3");
+
+        public static bool operator ==(SnapshotImportSourceConfigurationSourceType left, SnapshotImportSourceConfigurationSourceType right) => left.Equals(right);
+        public static bool operator !=(SnapshotImportSourceConfigurationSourceType left, SnapshotImportSourceConfigurationSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotImportSourceConfigurationSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotImportSourceConfigurationSourceType other && Equals(other);
+        public bool Equals(SnapshotImportSourceConfigurationSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the snapshot was initiated by the customer or by the service. Populated by DescribeSnapshot.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotInitiator : IEquatable<SnapshotInitiator>
+    {
+        private readonly string _value;
+
+        private SnapshotInitiator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotInitiator User { get; } = new SnapshotInitiator("USER");
+        public static SnapshotInitiator System { get; } = new SnapshotInitiator("SYSTEM");
+
+        public static bool operator ==(SnapshotInitiator left, SnapshotInitiator right) => left.Equals(right);
+        public static bool operator !=(SnapshotInitiator left, SnapshotInitiator right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotInitiator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotInitiator other && Equals(other);
+        public bool Equals(SnapshotInitiator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operation that initiated the snapshot. Populated by DescribeSnapshot.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotInitiatorOperation : IEquatable<SnapshotInitiatorOperation>
+    {
+        private readonly string _value;
+
+        private SnapshotInitiatorOperation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotInitiatorOperation CreateSnapshot { get; } = new SnapshotInitiatorOperation("CreateSnapshot");
+        public static SnapshotInitiatorOperation ImportSnapshot { get; } = new SnapshotInitiatorOperation("ImportSnapshot");
+        public static SnapshotInitiatorOperation SystemCreateSnapshot { get; } = new SnapshotInitiatorOperation("SystemCreateSnapshot");
+
+        public static bool operator ==(SnapshotInitiatorOperation left, SnapshotInitiatorOperation right) => left.Equals(right);
+        public static bool operator !=(SnapshotInitiatorOperation left, SnapshotInitiatorOperation right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotInitiatorOperation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotInitiatorOperation other && Equals(other);
+        public bool Equals(SnapshotInitiatorOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The runtime environment of the source application when the snapshot was taken with ApplicationName (CreateSnapshot), for example FLINK-1_20. Populated by DescribeSnapshot. Not returned for snapshots created with ImportSourceConfiguration (ImportSnapshot), which carry no runtime version.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotRuntimeEnvironment : IEquatable<SnapshotRuntimeEnvironment>
+    {
+        private readonly string _value;
+
+        private SnapshotRuntimeEnvironment(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotRuntimeEnvironment Sql10 { get; } = new SnapshotRuntimeEnvironment("SQL-1_0");
+        public static SnapshotRuntimeEnvironment Flink16 { get; } = new SnapshotRuntimeEnvironment("FLINK-1_6");
+        public static SnapshotRuntimeEnvironment Flink18 { get; } = new SnapshotRuntimeEnvironment("FLINK-1_8");
+        public static SnapshotRuntimeEnvironment ZeppelinFlink10 { get; } = new SnapshotRuntimeEnvironment("ZEPPELIN-FLINK-1_0");
+        public static SnapshotRuntimeEnvironment Flink111 { get; } = new SnapshotRuntimeEnvironment("FLINK-1_11");
+        public static SnapshotRuntimeEnvironment Flink113 { get; } = new SnapshotRuntimeEnvironment("FLINK-1_13");
+        public static SnapshotRuntimeEnvironment ZeppelinFlink20 { get; } = new SnapshotRuntimeEnvironment("ZEPPELIN-FLINK-2_0");
+        public static SnapshotRuntimeEnvironment Flink115 { get; } = new SnapshotRuntimeEnvironment("FLINK-1_15");
+        public static SnapshotRuntimeEnvironment ZeppelinFlink30 { get; } = new SnapshotRuntimeEnvironment("ZEPPELIN-FLINK-3_0");
+        public static SnapshotRuntimeEnvironment Flink118 { get; } = new SnapshotRuntimeEnvironment("FLINK-1_18");
+        public static SnapshotRuntimeEnvironment Flink119 { get; } = new SnapshotRuntimeEnvironment("FLINK-1_19");
+        public static SnapshotRuntimeEnvironment Flink120 { get; } = new SnapshotRuntimeEnvironment("FLINK-1_20");
+        public static SnapshotRuntimeEnvironment Flink21 { get; } = new SnapshotRuntimeEnvironment("FLINK-2_1");
+        public static SnapshotRuntimeEnvironment Flink22 { get; } = new SnapshotRuntimeEnvironment("FLINK-2_2");
+        public static SnapshotRuntimeEnvironment Flink23 { get; } = new SnapshotRuntimeEnvironment("FLINK-2_3");
+        public static SnapshotRuntimeEnvironment Flink24 { get; } = new SnapshotRuntimeEnvironment("FLINK-2_4");
+
+        public static bool operator ==(SnapshotRuntimeEnvironment left, SnapshotRuntimeEnvironment right) => left.Equals(right);
+        public static bool operator !=(SnapshotRuntimeEnvironment left, SnapshotRuntimeEnvironment right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotRuntimeEnvironment value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotRuntimeEnvironment other && Equals(other);
+        public bool Equals(SnapshotRuntimeEnvironment other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle status of the snapshot as reported by the service (CREATING, READY, DELETING, FAILED). Populated by DescribeSnapshot.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotStatus : IEquatable<SnapshotStatus>
+    {
+        private readonly string _value;
+
+        private SnapshotStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotStatus Creating { get; } = new SnapshotStatus("CREATING");
+        public static SnapshotStatus Ready { get; } = new SnapshotStatus("READY");
+        public static SnapshotStatus Deleting { get; } = new SnapshotStatus("DELETING");
+        public static SnapshotStatus Failed { get; } = new SnapshotStatus("FAILED");
+
+        public static bool operator ==(SnapshotStatus left, SnapshotStatus right) => left.Equals(right);
+        public static bool operator !=(SnapshotStatus left, SnapshotStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotStatus other && Equals(other);
+        public bool Equals(SnapshotStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

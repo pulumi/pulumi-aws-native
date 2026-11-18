@@ -18,6 +18,7 @@ type TableBucket struct {
 
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration  TableBucketEncryptionConfigurationPtrOutput  `pulumi:"encryptionConfiguration"`
+	LoggingConfiguration     TableBucketLoggingConfigurationPtrOutput     `pulumi:"loggingConfiguration"`
 	MetricsConfiguration     TableBucketMetricsConfigurationPtrOutput     `pulumi:"metricsConfiguration"`
 	ReplicationConfiguration TableBucketReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
 	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
@@ -84,6 +85,7 @@ func TableBucketExists(ctx *pulumi.Context,
 type tableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration  *TableBucketEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
+	LoggingConfiguration     *TableBucketLoggingConfiguration     `pulumi:"loggingConfiguration"`
 	MetricsConfiguration     *TableBucketMetricsConfiguration     `pulumi:"metricsConfiguration"`
 	ReplicationConfiguration *TableBucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
@@ -100,6 +102,7 @@ type tableBucketArgs struct {
 type TableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration  TableBucketEncryptionConfigurationPtrInput
+	LoggingConfiguration     TableBucketLoggingConfigurationPtrInput
 	MetricsConfiguration     TableBucketMetricsConfigurationPtrInput
 	ReplicationConfiguration TableBucketReplicationConfigurationPtrInput
 	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
@@ -152,6 +155,10 @@ func (o TableBucketOutput) ToTableBucketOutputWithContext(ctx context.Context) T
 // Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationPtrOutput)
+}
+
+func (o TableBucketOutput) LoggingConfiguration() TableBucketLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableBucket) TableBucketLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(TableBucketLoggingConfigurationPtrOutput)
 }
 
 func (o TableBucketOutput) MetricsConfiguration() TableBucketMetricsConfigurationPtrOutput {

@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetProfileAssociationResult:
-    def __init__(__self__, id=None, tags=None):
+    def __init__(__self__, id=None, priority=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
+        pulumi.set(__self__, "priority", priority)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -39,6 +42,14 @@ class GetProfileAssociationResult:
         Primary Identifier for  Profile Association
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> Optional[_builtins.int]:
+        """
+        The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+        """
+        return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter
@@ -56,6 +67,7 @@ class AwaitableGetProfileAssociationResult(GetProfileAssociationResult):
             yield self
         return GetProfileAssociationResult(
             id=self.id,
+            priority=self.priority,
             tags=self.tags)
 
 
@@ -73,6 +85,7 @@ def get_profile_association(id: Optional[_builtins.str] = None,
 
     return AwaitableGetProfileAssociationResult(
         id=pulumi.get(__ret__, 'id'),
+        priority=pulumi.get(__ret__, 'priority'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_profile_association_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileAssociationResult]:
@@ -87,4 +100,5 @@ def get_profile_association_output(id: pulumi.Input[Optional[_builtins.str]] = N
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53profiles:getProfileAssociation', __args__, opts=opts, typ=GetProfileAssociationResult)
     return __ret__.apply(lambda __response__: GetProfileAssociationResult(
         id=pulumi.get(__response__, 'id'),
+        priority=pulumi.get(__response__, 'priority'),
         tags=pulumi.get(__response__, 'tags')))

@@ -45,6 +45,8 @@ type LookupConfigurationProfileResult struct {
 	RetrievalRoleArn *string `pulumi:"retrievalRoleArn"`
 	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+	Type *string `pulumi:"type"`
 	// A list of methods for validating the configuration.
 	Validators []ConfigurationProfileValidators `pulumi:"validators"`
 }
@@ -112,6 +114,11 @@ func (o LookupConfigurationProfileResultOutput) RetrievalRoleArn() pulumi.String
 // Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 func (o LookupConfigurationProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+func (o LookupConfigurationProfileResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // A list of methods for validating the configuration.

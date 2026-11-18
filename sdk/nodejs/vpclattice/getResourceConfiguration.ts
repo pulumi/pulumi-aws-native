@@ -42,7 +42,7 @@ export interface GetResourceConfigurationResult {
      */
     readonly name?: string;
     /**
-     * (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+     * The port ranges the resource configuration listens on, as single ports or ranges (for example, 80 or 1001-2000). Applies to SINGLE, GROUP, CHILD, and CIDR resource configurations. For a CIDR resource configuration with ProtocolType TCP_UDP, these ranges cover both TCP and UDP traffic, so include port 53 to carry DNS to the network segment.
      */
     readonly portRanges?: string[];
     /**

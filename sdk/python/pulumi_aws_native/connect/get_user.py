@@ -160,7 +160,7 @@ class GetUserResult:
     @pulumi.getter(name="securityProfileArns")
     def security_profile_arns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        One or more security profile arns for the user
+        One or more customer-managed or AWS-managed security profile ARNs for the user.
         """
         return pulumi.get(self, "security_profile_arns")
 

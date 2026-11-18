@@ -13,6 +13,106 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// An Advanced monitoring metric group.
+type ClusterMetricGroup struct {
+	// The name of the metric group. Valid values: STATEMENT_STATISTICS.
+	MetricGroup ClusterMetricGroupMetricGroup `pulumi:"metricGroup"`
+}
+
+// ClusterMetricGroupInput is an input type that accepts ClusterMetricGroupArgs and ClusterMetricGroupOutput values.
+// You can construct a concrete instance of `ClusterMetricGroupInput` via:
+//
+//	ClusterMetricGroupArgs{...}
+type ClusterMetricGroupInput interface {
+	pulumi.Input
+
+	ToClusterMetricGroupOutput() ClusterMetricGroupOutput
+	ToClusterMetricGroupOutputWithContext(context.Context) ClusterMetricGroupOutput
+}
+
+// An Advanced monitoring metric group.
+type ClusterMetricGroupArgs struct {
+	// The name of the metric group. Valid values: STATEMENT_STATISTICS.
+	MetricGroup ClusterMetricGroupMetricGroupInput `pulumi:"metricGroup"`
+}
+
+func (ClusterMetricGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMetricGroup)(nil)).Elem()
+}
+
+func (i ClusterMetricGroupArgs) ToClusterMetricGroupOutput() ClusterMetricGroupOutput {
+	return i.ToClusterMetricGroupOutputWithContext(context.Background())
+}
+
+func (i ClusterMetricGroupArgs) ToClusterMetricGroupOutputWithContext(ctx context.Context) ClusterMetricGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMetricGroupOutput)
+}
+
+// ClusterMetricGroupArrayInput is an input type that accepts ClusterMetricGroupArray and ClusterMetricGroupArrayOutput values.
+// You can construct a concrete instance of `ClusterMetricGroupArrayInput` via:
+//
+//	ClusterMetricGroupArray{ ClusterMetricGroupArgs{...} }
+type ClusterMetricGroupArrayInput interface {
+	pulumi.Input
+
+	ToClusterMetricGroupArrayOutput() ClusterMetricGroupArrayOutput
+	ToClusterMetricGroupArrayOutputWithContext(context.Context) ClusterMetricGroupArrayOutput
+}
+
+type ClusterMetricGroupArray []ClusterMetricGroupInput
+
+func (ClusterMetricGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMetricGroup)(nil)).Elem()
+}
+
+func (i ClusterMetricGroupArray) ToClusterMetricGroupArrayOutput() ClusterMetricGroupArrayOutput {
+	return i.ToClusterMetricGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMetricGroupArray) ToClusterMetricGroupArrayOutputWithContext(ctx context.Context) ClusterMetricGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMetricGroupArrayOutput)
+}
+
+// An Advanced monitoring metric group.
+type ClusterMetricGroupOutput struct{ *pulumi.OutputState }
+
+func (ClusterMetricGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMetricGroup)(nil)).Elem()
+}
+
+func (o ClusterMetricGroupOutput) ToClusterMetricGroupOutput() ClusterMetricGroupOutput {
+	return o
+}
+
+func (o ClusterMetricGroupOutput) ToClusterMetricGroupOutputWithContext(ctx context.Context) ClusterMetricGroupOutput {
+	return o
+}
+
+// The name of the metric group. Valid values: STATEMENT_STATISTICS.
+func (o ClusterMetricGroupOutput) MetricGroup() ClusterMetricGroupMetricGroupOutput {
+	return o.ApplyT(func(v ClusterMetricGroup) ClusterMetricGroupMetricGroup { return v.MetricGroup }).(ClusterMetricGroupMetricGroupOutput)
+}
+
+type ClusterMetricGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMetricGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMetricGroup)(nil)).Elem()
+}
+
+func (o ClusterMetricGroupArrayOutput) ToClusterMetricGroupArrayOutput() ClusterMetricGroupArrayOutput {
+	return o
+}
+
+func (o ClusterMetricGroupArrayOutput) ToClusterMetricGroupArrayOutputWithContext(ctx context.Context) ClusterMetricGroupArrayOutput {
+	return o
+}
+
+func (o ClusterMetricGroupArrayOutput) Index(i pulumi.IntInput) ClusterMetricGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMetricGroup {
+		return vs[0].([]ClusterMetricGroup)[vs[1].(int)]
+	}).(ClusterMetricGroupOutput)
+}
+
 // A map of key and value pairs to use to tag your cluster.
 type ClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -275,8 +375,12 @@ func (o MultiRegionPropertiesPropertiesPtrOutput) WitnessRegion() pulumi.StringP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMetricGroupInput)(nil)).Elem(), ClusterMetricGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMetricGroupArrayInput)(nil)).Elem(), ClusterMetricGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionPropertiesPropertiesInput)(nil)).Elem(), MultiRegionPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionPropertiesPropertiesPtrInput)(nil)).Elem(), MultiRegionPropertiesPropertiesArgs{})
+	pulumi.RegisterOutputType(ClusterMetricGroupOutput{})
+	pulumi.RegisterOutputType(ClusterMetricGroupArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MultiRegionPropertiesPropertiesOutput{})

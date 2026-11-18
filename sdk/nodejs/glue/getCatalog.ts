@@ -45,7 +45,7 @@ export interface GetCatalogResult {
     /**
      * The time at which the catalog was created.
      */
-    readonly createTime?: number;
+    readonly createTime?: string;
     /**
      * A description of the catalog.
      */
@@ -67,7 +67,7 @@ export interface GetCatalogResult {
     /**
      * The time at which the catalog was last updated.
      */
-    readonly updateTime?: number;
+    readonly updateTime?: string;
 }
 /**
  * Creates a catalog in the Glue Data Catalog.

@@ -35,6 +35,8 @@ type LookupInfluxDbClusterResult struct {
 	DbInstanceType *InfluxDbClusterDbInstanceType `pulumi:"dbInstanceType"`
 	// The name of an existing InfluxDB parameter group.
 	DbParameterGroupIdentifier *string `pulumi:"dbParameterGroupIdentifier"`
+	// The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+	EffectiveDbParameterGroupIdentifier *string `pulumi:"effectiveDbParameterGroupIdentifier"`
 	// The connection endpoint for the InfluxDB cluster.
 	Endpoint *string `pulumi:"endpoint"`
 	// The engine type for the InfluxDB cluster.
@@ -49,6 +51,10 @@ type LookupInfluxDbClusterResult struct {
 	LogDeliveryConfiguration *LogDeliveryConfigurationProperties `pulumi:"logDeliveryConfiguration"`
 	// The maintenance schedule for the InfluxDB cluster.
 	MaintenanceSchedule *InfluxDbClusterMaintenanceSchedule `pulumi:"maintenanceSchedule"`
+	// The number of DB instances that belong to the InfluxDB cluster.
+	MemberCount *int `pulumi:"memberCount"`
+	// DB cluster member counts grouped by instance mode.
+	MemberModeCounts []InfluxDbClusterMemberModeCount `pulumi:"memberModeCounts"`
 	// The timestamp of the next scheduled maintenance event.
 	NextMaintenanceTime *string `pulumi:"nextMaintenanceTime"`
 	// The port number on which InfluxDB accepts connections.
@@ -104,6 +110,11 @@ func (o LookupInfluxDbClusterResultOutput) DbParameterGroupIdentifier() pulumi.S
 	return o.ApplyT(func(v LookupInfluxDbClusterResult) *string { return v.DbParameterGroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+func (o LookupInfluxDbClusterResultOutput) EffectiveDbParameterGroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbClusterResult) *string { return v.EffectiveDbParameterGroupIdentifier }).(pulumi.StringPtrOutput)
+}
+
 // The connection endpoint for the InfluxDB cluster.
 func (o LookupInfluxDbClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInfluxDbClusterResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
@@ -139,6 +150,16 @@ func (o LookupInfluxDbClusterResultOutput) LogDeliveryConfiguration() LogDeliver
 // The maintenance schedule for the InfluxDB cluster.
 func (o LookupInfluxDbClusterResultOutput) MaintenanceSchedule() InfluxDbClusterMaintenanceSchedulePtrOutput {
 	return o.ApplyT(func(v LookupInfluxDbClusterResult) *InfluxDbClusterMaintenanceSchedule { return v.MaintenanceSchedule }).(InfluxDbClusterMaintenanceSchedulePtrOutput)
+}
+
+// The number of DB instances that belong to the InfluxDB cluster.
+func (o LookupInfluxDbClusterResultOutput) MemberCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbClusterResult) *int { return v.MemberCount }).(pulumi.IntPtrOutput)
+}
+
+// DB cluster member counts grouped by instance mode.
+func (o LookupInfluxDbClusterResultOutput) MemberModeCounts() InfluxDbClusterMemberModeCountArrayOutput {
+	return o.ApplyT(func(v LookupInfluxDbClusterResult) []InfluxDbClusterMemberModeCount { return v.MemberModeCounts }).(InfluxDbClusterMemberModeCountArrayOutput)
 }
 
 // The timestamp of the next scheduled maintenance event.

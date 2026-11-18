@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AwsNative.NetworkSecurityManager
 {
     /// <summary>
+    /// The status of the deployment.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeploymentStatus : IEquatable<DeploymentStatus>
+    {
+        private readonly string _value;
+
+        private DeploymentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeploymentStatus Draft { get; } = new DeploymentStatus("DRAFT");
+        public static DeploymentStatus Active { get; } = new DeploymentStatus("ACTIVE");
+        public static DeploymentStatus Disabled { get; } = new DeploymentStatus("DISABLED");
+
+        public static bool operator ==(DeploymentStatus left, DeploymentStatus right) => left.Equals(right);
+        public static bool operator !=(DeploymentStatus left, DeploymentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DeploymentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeploymentStatus other && Equals(other);
+        public bool Equals(DeploymentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of firewall.
     /// </summary>
     [EnumType]

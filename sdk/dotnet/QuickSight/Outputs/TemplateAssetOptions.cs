@@ -13,10 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateAssetOptions
     {
+        public readonly Outputs.TemplateVisualCustomActionDefaults? CustomActionDefaults;
         /// <summary>
         /// Determines the timezone for the analysis.
         /// </summary>
         public readonly string? Timezone;
+        public readonly Outputs.TemplateVisualMessages? VisualMessages;
         /// <summary>
         /// Determines the week start day for an analysis.
         /// </summary>
@@ -24,11 +26,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateAssetOptions(
+            Outputs.TemplateVisualCustomActionDefaults? customActionDefaults,
+
             string? timezone,
+
+            Outputs.TemplateVisualMessages? visualMessages,
 
             Pulumi.AwsNative.QuickSight.TemplateDayOfTheWeek? weekStart)
         {
+            CustomActionDefaults = customActionDefaults;
             Timezone = timezone;
+            VisualMessages = visualMessages;
             WeekStart = weekStart;
         }
     }

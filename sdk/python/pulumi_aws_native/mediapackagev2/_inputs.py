@@ -565,6 +565,7 @@ class OriginEndpointDashManifestConfigurationArgsDict(TypedDict):
     """
     audio_timeline_pattern: NotRequired[pulumi.Input[Optional['OriginEndpointDashAudioTimelinePattern']]]
     availability_start_time_configuration: NotRequired[pulumi.Input[Optional['OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgsDict']]]
+    bandwidth_reporting_mode: NotRequired[pulumi.Input[Optional['OriginEndpointDashBandwidthReportingMode']]]
     base_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgsDict']]]]]
     """
     <p>The base URL to use for retrieving segments.</p>
@@ -643,6 +644,7 @@ class OriginEndpointDashManifestConfigurationArgs:
                  manifest_name: pulumi.Input[_builtins.str],
                  audio_timeline_pattern: pulumi.Input[Optional['OriginEndpointDashAudioTimelinePattern']] = None,
                  availability_start_time_configuration: pulumi.Input[Optional['OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs']] = None,
+                 bandwidth_reporting_mode: pulumi.Input[Optional['OriginEndpointDashBandwidthReportingMode']] = None,
                  base_urls: pulumi.Input[Optional[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]] = None,
                  compactness: pulumi.Input[Optional['OriginEndpointDashCompactness']] = None,
                  drm_signaling: pulumi.Input[Optional['OriginEndpointDashDrmSignaling']] = None,
@@ -692,6 +694,8 @@ class OriginEndpointDashManifestConfigurationArgs:
             pulumi.set(__self__, "audio_timeline_pattern", audio_timeline_pattern)
         if availability_start_time_configuration is not None:
             pulumi.set(__self__, "availability_start_time_configuration", availability_start_time_configuration)
+        if bandwidth_reporting_mode is not None:
+            pulumi.set(__self__, "bandwidth_reporting_mode", bandwidth_reporting_mode)
         if base_urls is not None:
             pulumi.set(__self__, "base_urls", base_urls)
         if compactness is not None:
@@ -756,6 +760,15 @@ class OriginEndpointDashManifestConfigurationArgs:
     @availability_start_time_configuration.setter
     def availability_start_time_configuration(self, value: pulumi.Input[Optional['OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs']]):
         pulumi.set(self, "availability_start_time_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthReportingMode")
+    def bandwidth_reporting_mode(self) -> pulumi.Input[Optional['OriginEndpointDashBandwidthReportingMode']]:
+        return pulumi.get(self, "bandwidth_reporting_mode")
+
+    @bandwidth_reporting_mode.setter
+    def bandwidth_reporting_mode(self, value: pulumi.Input[Optional['OriginEndpointDashBandwidthReportingMode']]):
+        pulumi.set(self, "bandwidth_reporting_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="baseUrls")

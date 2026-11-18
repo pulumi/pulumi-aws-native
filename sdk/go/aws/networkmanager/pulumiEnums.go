@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+type ConnectAttachmentNatGatewaySupport string
+
+const (
+	ConnectAttachmentNatGatewaySupportEnable  = ConnectAttachmentNatGatewaySupport("ENABLE")
+	ConnectAttachmentNatGatewaySupportDisable = ConnectAttachmentNatGatewaySupport("DISABLE")
+)
+
+func (ConnectAttachmentNatGatewaySupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (e ConnectAttachmentNatGatewaySupport) ToConnectAttachmentNatGatewaySupportOutput() ConnectAttachmentNatGatewaySupportOutput {
+	return pulumi.ToOutput(e).(ConnectAttachmentNatGatewaySupportOutput)
+}
+
+func (e ConnectAttachmentNatGatewaySupport) ToConnectAttachmentNatGatewaySupportOutputWithContext(ctx context.Context) ConnectAttachmentNatGatewaySupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectAttachmentNatGatewaySupportOutput)
+}
+
+func (e ConnectAttachmentNatGatewaySupport) ToConnectAttachmentNatGatewaySupportPtrOutput() ConnectAttachmentNatGatewaySupportPtrOutput {
+	return e.ToConnectAttachmentNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectAttachmentNatGatewaySupport) ToConnectAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) ConnectAttachmentNatGatewaySupportPtrOutput {
+	return ConnectAttachmentNatGatewaySupport(e).ToConnectAttachmentNatGatewaySupportOutputWithContext(ctx).ToConnectAttachmentNatGatewaySupportPtrOutputWithContext(ctx)
+}
+
+func (e ConnectAttachmentNatGatewaySupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectAttachmentNatGatewaySupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectAttachmentNatGatewaySupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectAttachmentNatGatewaySupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectAttachmentNatGatewaySupportOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentNatGatewaySupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (o ConnectAttachmentNatGatewaySupportOutput) ToConnectAttachmentNatGatewaySupportOutput() ConnectAttachmentNatGatewaySupportOutput {
+	return o
+}
+
+func (o ConnectAttachmentNatGatewaySupportOutput) ToConnectAttachmentNatGatewaySupportOutputWithContext(ctx context.Context) ConnectAttachmentNatGatewaySupportOutput {
+	return o
+}
+
+func (o ConnectAttachmentNatGatewaySupportOutput) ToConnectAttachmentNatGatewaySupportPtrOutput() ConnectAttachmentNatGatewaySupportPtrOutput {
+	return o.ToConnectAttachmentNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectAttachmentNatGatewaySupportOutput) ToConnectAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) ConnectAttachmentNatGatewaySupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectAttachmentNatGatewaySupport) *ConnectAttachmentNatGatewaySupport {
+		return &v
+	}).(ConnectAttachmentNatGatewaySupportPtrOutput)
+}
+
+func (o ConnectAttachmentNatGatewaySupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectAttachmentNatGatewaySupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectAttachmentNatGatewaySupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectAttachmentNatGatewaySupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectAttachmentNatGatewaySupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectAttachmentNatGatewaySupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectAttachmentNatGatewaySupportPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentNatGatewaySupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (o ConnectAttachmentNatGatewaySupportPtrOutput) ToConnectAttachmentNatGatewaySupportPtrOutput() ConnectAttachmentNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o ConnectAttachmentNatGatewaySupportPtrOutput) ToConnectAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) ConnectAttachmentNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o ConnectAttachmentNatGatewaySupportPtrOutput) Elem() ConnectAttachmentNatGatewaySupportOutput {
+	return o.ApplyT(func(v *ConnectAttachmentNatGatewaySupport) ConnectAttachmentNatGatewaySupport {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectAttachmentNatGatewaySupport
+		return ret
+	}).(ConnectAttachmentNatGatewaySupportOutput)
+}
+
+func (o ConnectAttachmentNatGatewaySupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectAttachmentNatGatewaySupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectAttachmentNatGatewaySupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectAttachmentNatGatewaySupportInput is an input type that accepts values of the ConnectAttachmentNatGatewaySupport enum
+// A concrete instance of `ConnectAttachmentNatGatewaySupportInput` can be one of the following:
+//
+//	ConnectAttachmentNatGatewaySupportEnable
+//	ConnectAttachmentNatGatewaySupportDisable
+type ConnectAttachmentNatGatewaySupportInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentNatGatewaySupportOutput() ConnectAttachmentNatGatewaySupportOutput
+	ToConnectAttachmentNatGatewaySupportOutputWithContext(context.Context) ConnectAttachmentNatGatewaySupportOutput
+}
+
+var connectAttachmentNatGatewaySupportPtrType = reflect.TypeOf((**ConnectAttachmentNatGatewaySupport)(nil)).Elem()
+
+type ConnectAttachmentNatGatewaySupportPtrInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentNatGatewaySupportPtrOutput() ConnectAttachmentNatGatewaySupportPtrOutput
+	ToConnectAttachmentNatGatewaySupportPtrOutputWithContext(context.Context) ConnectAttachmentNatGatewaySupportPtrOutput
+}
+
+type connectAttachmentNatGatewaySupportPtr string
+
+func ConnectAttachmentNatGatewaySupportPtr(v string) ConnectAttachmentNatGatewaySupportPtrInput {
+	return (*connectAttachmentNatGatewaySupportPtr)(&v)
+}
+
+func (*connectAttachmentNatGatewaySupportPtr) ElementType() reflect.Type {
+	return connectAttachmentNatGatewaySupportPtrType
+}
+
+func (in *connectAttachmentNatGatewaySupportPtr) ToConnectAttachmentNatGatewaySupportPtrOutput() ConnectAttachmentNatGatewaySupportPtrOutput {
+	return pulumi.ToOutput(in).(ConnectAttachmentNatGatewaySupportPtrOutput)
+}
+
+func (in *connectAttachmentNatGatewaySupportPtr) ToConnectAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) ConnectAttachmentNatGatewaySupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectAttachmentNatGatewaySupportPtrOutput)
+}
+
 // The state of the connection.
 type ConnectionStateEnum string
 
@@ -103,7 +269,521 @@ func (o ConnectionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+type DirectConnectGatewayAttachmentNatGatewaySupport string
+
+const (
+	DirectConnectGatewayAttachmentNatGatewaySupportEnable  = DirectConnectGatewayAttachmentNatGatewaySupport("ENABLE")
+	DirectConnectGatewayAttachmentNatGatewaySupportDisable = DirectConnectGatewayAttachmentNatGatewaySupport("DISABLE")
+)
+
+func (DirectConnectGatewayAttachmentNatGatewaySupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (e DirectConnectGatewayAttachmentNatGatewaySupport) ToDirectConnectGatewayAttachmentNatGatewaySupportOutput() DirectConnectGatewayAttachmentNatGatewaySupportOutput {
+	return pulumi.ToOutput(e).(DirectConnectGatewayAttachmentNatGatewaySupportOutput)
+}
+
+func (e DirectConnectGatewayAttachmentNatGatewaySupport) ToDirectConnectGatewayAttachmentNatGatewaySupportOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatGatewaySupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectConnectGatewayAttachmentNatGatewaySupportOutput)
+}
+
+func (e DirectConnectGatewayAttachmentNatGatewaySupport) ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutput() DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput {
+	return e.ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (e DirectConnectGatewayAttachmentNatGatewaySupport) ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput {
+	return DirectConnectGatewayAttachmentNatGatewaySupport(e).ToDirectConnectGatewayAttachmentNatGatewaySupportOutputWithContext(ctx).ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutputWithContext(ctx)
+}
+
+func (e DirectConnectGatewayAttachmentNatGatewaySupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectConnectGatewayAttachmentNatGatewaySupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectConnectGatewayAttachmentNatGatewaySupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectConnectGatewayAttachmentNatGatewaySupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectConnectGatewayAttachmentNatGatewaySupportOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentNatGatewaySupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportOutput) ToDirectConnectGatewayAttachmentNatGatewaySupportOutput() DirectConnectGatewayAttachmentNatGatewaySupportOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportOutput) ToDirectConnectGatewayAttachmentNatGatewaySupportOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatGatewaySupportOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportOutput) ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutput() DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput {
+	return o.ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportOutput) ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectConnectGatewayAttachmentNatGatewaySupport) *DirectConnectGatewayAttachmentNatGatewaySupport {
+		return &v
+	}).(DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput)
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectConnectGatewayAttachmentNatGatewaySupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectConnectGatewayAttachmentNatGatewaySupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectConnectGatewayAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput) ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutput() DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput) ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput) Elem() DirectConnectGatewayAttachmentNatGatewaySupportOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentNatGatewaySupport) DirectConnectGatewayAttachmentNatGatewaySupport {
+		if v != nil {
+			return *v
+		}
+		var ret DirectConnectGatewayAttachmentNatGatewaySupport
+		return ret
+	}).(DirectConnectGatewayAttachmentNatGatewaySupportOutput)
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectConnectGatewayAttachmentNatGatewaySupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectConnectGatewayAttachmentNatGatewaySupportInput is an input type that accepts values of the DirectConnectGatewayAttachmentNatGatewaySupport enum
+// A concrete instance of `DirectConnectGatewayAttachmentNatGatewaySupportInput` can be one of the following:
+//
+//	DirectConnectGatewayAttachmentNatGatewaySupportEnable
+//	DirectConnectGatewayAttachmentNatGatewaySupportDisable
+type DirectConnectGatewayAttachmentNatGatewaySupportInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentNatGatewaySupportOutput() DirectConnectGatewayAttachmentNatGatewaySupportOutput
+	ToDirectConnectGatewayAttachmentNatGatewaySupportOutputWithContext(context.Context) DirectConnectGatewayAttachmentNatGatewaySupportOutput
+}
+
+var directConnectGatewayAttachmentNatGatewaySupportPtrType = reflect.TypeOf((**DirectConnectGatewayAttachmentNatGatewaySupport)(nil)).Elem()
+
+type DirectConnectGatewayAttachmentNatGatewaySupportPtrInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutput() DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput
+	ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutputWithContext(context.Context) DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput
+}
+
+type directConnectGatewayAttachmentNatGatewaySupportPtr string
+
+func DirectConnectGatewayAttachmentNatGatewaySupportPtr(v string) DirectConnectGatewayAttachmentNatGatewaySupportPtrInput {
+	return (*directConnectGatewayAttachmentNatGatewaySupportPtr)(&v)
+}
+
+func (*directConnectGatewayAttachmentNatGatewaySupportPtr) ElementType() reflect.Type {
+	return directConnectGatewayAttachmentNatGatewaySupportPtrType
+}
+
+func (in *directConnectGatewayAttachmentNatGatewaySupportPtr) ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutput() DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput {
+	return pulumi.ToOutput(in).(DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput)
+}
+
+func (in *directConnectGatewayAttachmentNatGatewaySupportPtr) ToDirectConnectGatewayAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput)
+}
+
+// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+type SiteToSiteVpnAttachmentNatGatewaySupport string
+
+const (
+	SiteToSiteVpnAttachmentNatGatewaySupportEnable  = SiteToSiteVpnAttachmentNatGatewaySupport("ENABLE")
+	SiteToSiteVpnAttachmentNatGatewaySupportDisable = SiteToSiteVpnAttachmentNatGatewaySupport("DISABLE")
+)
+
+func (SiteToSiteVpnAttachmentNatGatewaySupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteToSiteVpnAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (e SiteToSiteVpnAttachmentNatGatewaySupport) ToSiteToSiteVpnAttachmentNatGatewaySupportOutput() SiteToSiteVpnAttachmentNatGatewaySupportOutput {
+	return pulumi.ToOutput(e).(SiteToSiteVpnAttachmentNatGatewaySupportOutput)
+}
+
+func (e SiteToSiteVpnAttachmentNatGatewaySupport) ToSiteToSiteVpnAttachmentNatGatewaySupportOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatGatewaySupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SiteToSiteVpnAttachmentNatGatewaySupportOutput)
+}
+
+func (e SiteToSiteVpnAttachmentNatGatewaySupport) ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutput() SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return e.ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (e SiteToSiteVpnAttachmentNatGatewaySupport) ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return SiteToSiteVpnAttachmentNatGatewaySupport(e).ToSiteToSiteVpnAttachmentNatGatewaySupportOutputWithContext(ctx).ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutputWithContext(ctx)
+}
+
+func (e SiteToSiteVpnAttachmentNatGatewaySupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SiteToSiteVpnAttachmentNatGatewaySupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SiteToSiteVpnAttachmentNatGatewaySupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SiteToSiteVpnAttachmentNatGatewaySupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SiteToSiteVpnAttachmentNatGatewaySupportOutput struct{ *pulumi.OutputState }
+
+func (SiteToSiteVpnAttachmentNatGatewaySupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteToSiteVpnAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportOutput) ToSiteToSiteVpnAttachmentNatGatewaySupportOutput() SiteToSiteVpnAttachmentNatGatewaySupportOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportOutput) ToSiteToSiteVpnAttachmentNatGatewaySupportOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatGatewaySupportOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportOutput) ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutput() SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return o.ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportOutput) ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteToSiteVpnAttachmentNatGatewaySupport) *SiteToSiteVpnAttachmentNatGatewaySupport {
+		return &v
+	}).(SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput)
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SiteToSiteVpnAttachmentNatGatewaySupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SiteToSiteVpnAttachmentNatGatewaySupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput struct{ *pulumi.OutputState }
+
+func (SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteToSiteVpnAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput) ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutput() SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput) ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput) Elem() SiteToSiteVpnAttachmentNatGatewaySupportOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachmentNatGatewaySupport) SiteToSiteVpnAttachmentNatGatewaySupport {
+		if v != nil {
+			return *v
+		}
+		var ret SiteToSiteVpnAttachmentNatGatewaySupport
+		return ret
+	}).(SiteToSiteVpnAttachmentNatGatewaySupportOutput)
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SiteToSiteVpnAttachmentNatGatewaySupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SiteToSiteVpnAttachmentNatGatewaySupportInput is an input type that accepts values of the SiteToSiteVpnAttachmentNatGatewaySupport enum
+// A concrete instance of `SiteToSiteVpnAttachmentNatGatewaySupportInput` can be one of the following:
+//
+//	SiteToSiteVpnAttachmentNatGatewaySupportEnable
+//	SiteToSiteVpnAttachmentNatGatewaySupportDisable
+type SiteToSiteVpnAttachmentNatGatewaySupportInput interface {
+	pulumi.Input
+
+	ToSiteToSiteVpnAttachmentNatGatewaySupportOutput() SiteToSiteVpnAttachmentNatGatewaySupportOutput
+	ToSiteToSiteVpnAttachmentNatGatewaySupportOutputWithContext(context.Context) SiteToSiteVpnAttachmentNatGatewaySupportOutput
+}
+
+var siteToSiteVpnAttachmentNatGatewaySupportPtrType = reflect.TypeOf((**SiteToSiteVpnAttachmentNatGatewaySupport)(nil)).Elem()
+
+type SiteToSiteVpnAttachmentNatGatewaySupportPtrInput interface {
+	pulumi.Input
+
+	ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutput() SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput
+	ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutputWithContext(context.Context) SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput
+}
+
+type siteToSiteVpnAttachmentNatGatewaySupportPtr string
+
+func SiteToSiteVpnAttachmentNatGatewaySupportPtr(v string) SiteToSiteVpnAttachmentNatGatewaySupportPtrInput {
+	return (*siteToSiteVpnAttachmentNatGatewaySupportPtr)(&v)
+}
+
+func (*siteToSiteVpnAttachmentNatGatewaySupportPtr) ElementType() reflect.Type {
+	return siteToSiteVpnAttachmentNatGatewaySupportPtrType
+}
+
+func (in *siteToSiteVpnAttachmentNatGatewaySupportPtr) ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutput() SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return pulumi.ToOutput(in).(SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput)
+}
+
+func (in *siteToSiteVpnAttachmentNatGatewaySupportPtr) ToSiteToSiteVpnAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput)
+}
+
+// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+type VpcAttachmentNatGatewaySupport string
+
+const (
+	VpcAttachmentNatGatewaySupportEnable  = VpcAttachmentNatGatewaySupport("ENABLE")
+	VpcAttachmentNatGatewaySupportDisable = VpcAttachmentNatGatewaySupport("DISABLE")
+)
+
+func (VpcAttachmentNatGatewaySupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (e VpcAttachmentNatGatewaySupport) ToVpcAttachmentNatGatewaySupportOutput() VpcAttachmentNatGatewaySupportOutput {
+	return pulumi.ToOutput(e).(VpcAttachmentNatGatewaySupportOutput)
+}
+
+func (e VpcAttachmentNatGatewaySupport) ToVpcAttachmentNatGatewaySupportOutputWithContext(ctx context.Context) VpcAttachmentNatGatewaySupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcAttachmentNatGatewaySupportOutput)
+}
+
+func (e VpcAttachmentNatGatewaySupport) ToVpcAttachmentNatGatewaySupportPtrOutput() VpcAttachmentNatGatewaySupportPtrOutput {
+	return e.ToVpcAttachmentNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (e VpcAttachmentNatGatewaySupport) ToVpcAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) VpcAttachmentNatGatewaySupportPtrOutput {
+	return VpcAttachmentNatGatewaySupport(e).ToVpcAttachmentNatGatewaySupportOutputWithContext(ctx).ToVpcAttachmentNatGatewaySupportPtrOutputWithContext(ctx)
+}
+
+func (e VpcAttachmentNatGatewaySupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcAttachmentNatGatewaySupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcAttachmentNatGatewaySupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcAttachmentNatGatewaySupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcAttachmentNatGatewaySupportOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentNatGatewaySupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (o VpcAttachmentNatGatewaySupportOutput) ToVpcAttachmentNatGatewaySupportOutput() VpcAttachmentNatGatewaySupportOutput {
+	return o
+}
+
+func (o VpcAttachmentNatGatewaySupportOutput) ToVpcAttachmentNatGatewaySupportOutputWithContext(ctx context.Context) VpcAttachmentNatGatewaySupportOutput {
+	return o
+}
+
+func (o VpcAttachmentNatGatewaySupportOutput) ToVpcAttachmentNatGatewaySupportPtrOutput() VpcAttachmentNatGatewaySupportPtrOutput {
+	return o.ToVpcAttachmentNatGatewaySupportPtrOutputWithContext(context.Background())
+}
+
+func (o VpcAttachmentNatGatewaySupportOutput) ToVpcAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) VpcAttachmentNatGatewaySupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachmentNatGatewaySupport) *VpcAttachmentNatGatewaySupport {
+		return &v
+	}).(VpcAttachmentNatGatewaySupportPtrOutput)
+}
+
+func (o VpcAttachmentNatGatewaySupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcAttachmentNatGatewaySupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcAttachmentNatGatewaySupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcAttachmentNatGatewaySupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcAttachmentNatGatewaySupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcAttachmentNatGatewaySupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcAttachmentNatGatewaySupportPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentNatGatewaySupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentNatGatewaySupport)(nil)).Elem()
+}
+
+func (o VpcAttachmentNatGatewaySupportPtrOutput) ToVpcAttachmentNatGatewaySupportPtrOutput() VpcAttachmentNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o VpcAttachmentNatGatewaySupportPtrOutput) ToVpcAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) VpcAttachmentNatGatewaySupportPtrOutput {
+	return o
+}
+
+func (o VpcAttachmentNatGatewaySupportPtrOutput) Elem() VpcAttachmentNatGatewaySupportOutput {
+	return o.ApplyT(func(v *VpcAttachmentNatGatewaySupport) VpcAttachmentNatGatewaySupport {
+		if v != nil {
+			return *v
+		}
+		var ret VpcAttachmentNatGatewaySupport
+		return ret
+	}).(VpcAttachmentNatGatewaySupportOutput)
+}
+
+func (o VpcAttachmentNatGatewaySupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcAttachmentNatGatewaySupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcAttachmentNatGatewaySupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcAttachmentNatGatewaySupportInput is an input type that accepts values of the VpcAttachmentNatGatewaySupport enum
+// A concrete instance of `VpcAttachmentNatGatewaySupportInput` can be one of the following:
+//
+//	VpcAttachmentNatGatewaySupportEnable
+//	VpcAttachmentNatGatewaySupportDisable
+type VpcAttachmentNatGatewaySupportInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentNatGatewaySupportOutput() VpcAttachmentNatGatewaySupportOutput
+	ToVpcAttachmentNatGatewaySupportOutputWithContext(context.Context) VpcAttachmentNatGatewaySupportOutput
+}
+
+var vpcAttachmentNatGatewaySupportPtrType = reflect.TypeOf((**VpcAttachmentNatGatewaySupport)(nil)).Elem()
+
+type VpcAttachmentNatGatewaySupportPtrInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentNatGatewaySupportPtrOutput() VpcAttachmentNatGatewaySupportPtrOutput
+	ToVpcAttachmentNatGatewaySupportPtrOutputWithContext(context.Context) VpcAttachmentNatGatewaySupportPtrOutput
+}
+
+type vpcAttachmentNatGatewaySupportPtr string
+
+func VpcAttachmentNatGatewaySupportPtr(v string) VpcAttachmentNatGatewaySupportPtrInput {
+	return (*vpcAttachmentNatGatewaySupportPtr)(&v)
+}
+
+func (*vpcAttachmentNatGatewaySupportPtr) ElementType() reflect.Type {
+	return vpcAttachmentNatGatewaySupportPtrType
+}
+
+func (in *vpcAttachmentNatGatewaySupportPtr) ToVpcAttachmentNatGatewaySupportPtrOutput() VpcAttachmentNatGatewaySupportPtrOutput {
+	return pulumi.ToOutput(in).(VpcAttachmentNatGatewaySupportPtrOutput)
+}
+
+func (in *vpcAttachmentNatGatewaySupportPtr) ToVpcAttachmentNatGatewaySupportPtrOutputWithContext(ctx context.Context) VpcAttachmentNatGatewaySupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcAttachmentNatGatewaySupportPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentNatGatewaySupportInput)(nil)).Elem(), ConnectAttachmentNatGatewaySupport("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentNatGatewaySupportPtrInput)(nil)).Elem(), ConnectAttachmentNatGatewaySupport("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentNatGatewaySupportInput)(nil)).Elem(), DirectConnectGatewayAttachmentNatGatewaySupport("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentNatGatewaySupportPtrInput)(nil)).Elem(), DirectConnectGatewayAttachmentNatGatewaySupport("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentNatGatewaySupportInput)(nil)).Elem(), SiteToSiteVpnAttachmentNatGatewaySupport("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentNatGatewaySupportPtrInput)(nil)).Elem(), SiteToSiteVpnAttachmentNatGatewaySupport("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentNatGatewaySupportInput)(nil)).Elem(), VpcAttachmentNatGatewaySupport("ENABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentNatGatewaySupportPtrInput)(nil)).Elem(), VpcAttachmentNatGatewaySupport("ENABLE"))
+	pulumi.RegisterOutputType(ConnectAttachmentNatGatewaySupportOutput{})
+	pulumi.RegisterOutputType(ConnectAttachmentNatGatewaySupportPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateEnumOutput{})
 	pulumi.RegisterOutputType(ConnectionStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentNatGatewaySupportOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentNatGatewaySupportPtrOutput{})
+	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentNatGatewaySupportOutput{})
+	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentNatGatewaySupportPtrOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentNatGatewaySupportOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentNatGatewaySupportPtrOutput{})
 }

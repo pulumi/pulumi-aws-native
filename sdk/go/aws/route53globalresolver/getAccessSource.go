@@ -28,16 +28,17 @@ type LookupAccessSourceArgs struct {
 }
 
 type LookupAccessSourceResult struct {
-	AccessSourceId *string                       `pulumi:"accessSourceId"`
-	Arn            *string                       `pulumi:"arn"`
-	Cidr           *string                       `pulumi:"cidr"`
-	CreatedAt      *string                       `pulumi:"createdAt"`
-	IpAddressType  *AccessSourceIpAddressType    `pulumi:"ipAddressType"`
-	Name           *string                       `pulumi:"name"`
-	Protocol       *AccessSourceDnsProtocol      `pulumi:"protocol"`
-	Status         *AccessSourceCrResourceStatus `pulumi:"status"`
-	Tags           []aws.Tag                     `pulumi:"tags"`
-	UpdatedAt      *string                       `pulumi:"updatedAt"`
+	AccessSourceId *string `pulumi:"accessSourceId"`
+	Arn            *string `pulumi:"arn"`
+	// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+	Cidr          *string                       `pulumi:"cidr"`
+	CreatedAt     *string                       `pulumi:"createdAt"`
+	IpAddressType *AccessSourceIpAddressType    `pulumi:"ipAddressType"`
+	Name          *string                       `pulumi:"name"`
+	Protocol      *AccessSourceDnsProtocol      `pulumi:"protocol"`
+	Status        *AccessSourceCrResourceStatus `pulumi:"status"`
+	Tags          []aws.Tag                     `pulumi:"tags"`
+	UpdatedAt     *string                       `pulumi:"updatedAt"`
 }
 
 func LookupAccessSourceOutput(ctx *pulumi.Context, args LookupAccessSourceOutputArgs, opts ...pulumi.InvokeOption) LookupAccessSourceResultOutput {
@@ -75,6 +76,7 @@ func (o LookupAccessSourceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessSourceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
 func (o LookupAccessSourceResultOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessSourceResult) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }

@@ -381,6 +381,131 @@ func (in *healthCheckConfigPropertiesTypePtr) ToHealthCheckConfigPropertiesTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckConfigPropertiesTypePtrOutput)
 }
 
+// <p>The current status of the health check source. The health check source status can have one of the following values:</p>
+//
+//	<dl>
+//	   <dt>CREATE_PENDING, CREATE_IN_PROGRESS</dt>
+//	   <dd>
+//	      <p>Route 53 is creating the source. Health checks that reference the source don't send requests yet.</p>
+//	   </dd>
+//	   <dt>CREATE_COMPLETED</dt>
+//	   <dd>
+//	      <p>The source is ready to use.</p>
+//	   </dd>
+//	   <dt>CREATE_FAILED</dt>
+//	   <dd>
+//	      <p>Route 53 couldn't create the source. <code>StatusReasonCode</code> and <code>StatusReason</code> explain why.</p>
+//	   </dd>
+//	   <dt>DELETE_PENDING, DELETE_IN_PROGRESS</dt>
+//	   <dd>
+//	      <p>Route 53 is deleting the source.</p>
+//	   </dd>
+//	   <dt>DELETE_COMPLETED</dt>
+//	   <dd>
+//	      <p>Route 53 has deleted the source.</p>
+//	   </dd>
+//	   <dt>DELETE_FAILED</dt>
+//	   <dd>
+//	      <p>Route 53 couldn't delete the source. <code>StatusReasonCode</code> and <code>StatusReason</code> explain why.</p>
+//	   </dd>
+//	</dl>
+//	<p>If the status is <code>CREATE_FAILED</code>, delete the source and create a new one. If the status is <code>DELETE_FAILED</code>, retry the <code>DeleteHealthCheckSource</code> request.</p>
+type HealthCheckSourceStatus string
+
+const (
+	HealthCheckSourceStatusCreatePending    = HealthCheckSourceStatus("CREATE_PENDING")
+	HealthCheckSourceStatusCreateInProgress = HealthCheckSourceStatus("CREATE_IN_PROGRESS")
+	HealthCheckSourceStatusCreateCompleted  = HealthCheckSourceStatus("CREATE_COMPLETED")
+	HealthCheckSourceStatusCreateFailed     = HealthCheckSourceStatus("CREATE_FAILED")
+	HealthCheckSourceStatusDeletePending    = HealthCheckSourceStatus("DELETE_PENDING")
+	HealthCheckSourceStatusDeleteInProgress = HealthCheckSourceStatus("DELETE_IN_PROGRESS")
+	HealthCheckSourceStatusDeleteCompleted  = HealthCheckSourceStatus("DELETE_COMPLETED")
+	HealthCheckSourceStatusDeleteFailed     = HealthCheckSourceStatus("DELETE_FAILED")
+)
+
+type HealthCheckSourceStatusOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckSourceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckSourceStatus)(nil)).Elem()
+}
+
+func (o HealthCheckSourceStatusOutput) ToHealthCheckSourceStatusOutput() HealthCheckSourceStatusOutput {
+	return o
+}
+
+func (o HealthCheckSourceStatusOutput) ToHealthCheckSourceStatusOutputWithContext(ctx context.Context) HealthCheckSourceStatusOutput {
+	return o
+}
+
+func (o HealthCheckSourceStatusOutput) ToHealthCheckSourceStatusPtrOutput() HealthCheckSourceStatusPtrOutput {
+	return o.ToHealthCheckSourceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckSourceStatusOutput) ToHealthCheckSourceStatusPtrOutputWithContext(ctx context.Context) HealthCheckSourceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheckSourceStatus) *HealthCheckSourceStatus {
+		return &v
+	}).(HealthCheckSourceStatusPtrOutput)
+}
+
+func (o HealthCheckSourceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HealthCheckSourceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthCheckSourceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HealthCheckSourceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckSourceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthCheckSourceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HealthCheckSourceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckSourceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckSourceStatus)(nil)).Elem()
+}
+
+func (o HealthCheckSourceStatusPtrOutput) ToHealthCheckSourceStatusPtrOutput() HealthCheckSourceStatusPtrOutput {
+	return o
+}
+
+func (o HealthCheckSourceStatusPtrOutput) ToHealthCheckSourceStatusPtrOutputWithContext(ctx context.Context) HealthCheckSourceStatusPtrOutput {
+	return o
+}
+
+func (o HealthCheckSourceStatusPtrOutput) Elem() HealthCheckSourceStatusOutput {
+	return o.ApplyT(func(v *HealthCheckSourceStatus) HealthCheckSourceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret HealthCheckSourceStatus
+		return ret
+	}).(HealthCheckSourceStatusOutput)
+}
+
+func (o HealthCheckSourceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckSourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthCheckSourceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
 type KeySigningKeyStatus string
 
@@ -831,6 +956,8 @@ func init() {
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypeOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypePtrOutput{})
+	pulumi.RegisterOutputType(HealthCheckSourceStatusOutput{})
+	pulumi.RegisterOutputType(HealthCheckSourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyStatusOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyStatusPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetFailoverOutput{})

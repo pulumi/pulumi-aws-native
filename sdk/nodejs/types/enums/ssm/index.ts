@@ -29,6 +29,16 @@ export const AssociationSyncCompliance = {
  */
 export type AssociationSyncCompliance = (typeof AssociationSyncCompliance)[keyof typeof AssociationSyncCompliance];
 
+export const DefaultHostManagementConfigurationDhmcPermissionModel = {
+    ServiceManaged: "SERVICE_MANAGED",
+    SelfManaged: "SELF_MANAGED",
+} as const;
+
+/**
+ * The permission model used to enable DHMC. SERVICE_MANAGED lets SSM create and manage the DHMC IAM role on your behalf. SELF_MANAGED registers an IAM role that you provide.
+ */
+export type DefaultHostManagementConfigurationDhmcPermissionModel = (typeof DefaultHostManagementConfigurationDhmcPermissionModel)[keyof typeof DefaultHostManagementConfigurationDhmcPermissionModel];
+
 export const DocumentAttachmentsSourceKey = {
     SourceUrl: "SourceUrl",
     S3FileUrl: "S3FileUrl",

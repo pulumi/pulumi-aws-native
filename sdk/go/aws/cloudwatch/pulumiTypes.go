@@ -2409,6 +2409,997 @@ func (o AlarmWarmUpConfigurationPtrOutput) WarmUpPeriodDurationInMinutes() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// The thresholds that set the alert's state. Specify at least one of WarningThreshold and CriticalThreshold.
+type AlertCondition struct {
+	// The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+	Comparator *AlertConditionComparator `pulumi:"comparator"`
+	// The value at which the alert enters the CRITICAL state.
+	CriticalThreshold *float64 `pulumi:"criticalThreshold"`
+	// The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+	ThresholdField *string `pulumi:"thresholdField"`
+	// How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+	ThresholdMode *AlertConditionThresholdMode `pulumi:"thresholdMode"`
+	// The value at which the alert enters the WARNING state.
+	WarningThreshold *float64 `pulumi:"warningThreshold"`
+}
+
+// AlertConditionInput is an input type that accepts AlertConditionArgs and AlertConditionOutput values.
+// You can construct a concrete instance of `AlertConditionInput` via:
+//
+//	AlertConditionArgs{...}
+type AlertConditionInput interface {
+	pulumi.Input
+
+	ToAlertConditionOutput() AlertConditionOutput
+	ToAlertConditionOutputWithContext(context.Context) AlertConditionOutput
+}
+
+// The thresholds that set the alert's state. Specify at least one of WarningThreshold and CriticalThreshold.
+type AlertConditionArgs struct {
+	// The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+	Comparator AlertConditionComparatorPtrInput `pulumi:"comparator"`
+	// The value at which the alert enters the CRITICAL state.
+	CriticalThreshold pulumi.Float64PtrInput `pulumi:"criticalThreshold"`
+	// The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+	ThresholdField pulumi.StringPtrInput `pulumi:"thresholdField"`
+	// How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+	ThresholdMode AlertConditionThresholdModePtrInput `pulumi:"thresholdMode"`
+	// The value at which the alert enters the WARNING state.
+	WarningThreshold pulumi.Float64PtrInput `pulumi:"warningThreshold"`
+}
+
+func (AlertConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertCondition)(nil)).Elem()
+}
+
+func (i AlertConditionArgs) ToAlertConditionOutput() AlertConditionOutput {
+	return i.ToAlertConditionOutputWithContext(context.Background())
+}
+
+func (i AlertConditionArgs) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionOutput)
+}
+
+// The thresholds that set the alert's state. Specify at least one of WarningThreshold and CriticalThreshold.
+type AlertConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertCondition)(nil)).Elem()
+}
+
+func (o AlertConditionOutput) ToAlertConditionOutput() AlertConditionOutput {
+	return o
+}
+
+func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
+	return o
+}
+
+// The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+func (o AlertConditionOutput) Comparator() AlertConditionComparatorPtrOutput {
+	return o.ApplyT(func(v AlertCondition) *AlertConditionComparator { return v.Comparator }).(AlertConditionComparatorPtrOutput)
+}
+
+// The value at which the alert enters the CRITICAL state.
+func (o AlertConditionOutput) CriticalThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AlertCondition) *float64 { return v.CriticalThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+func (o AlertConditionOutput) ThresholdField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertCondition) *string { return v.ThresholdField }).(pulumi.StringPtrOutput)
+}
+
+// How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+func (o AlertConditionOutput) ThresholdMode() AlertConditionThresholdModePtrOutput {
+	return o.ApplyT(func(v AlertCondition) *AlertConditionThresholdMode { return v.ThresholdMode }).(AlertConditionThresholdModePtrOutput)
+}
+
+// The value at which the alert enters the WARNING state.
+func (o AlertConditionOutput) WarningThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AlertCondition) *float64 { return v.WarningThreshold }).(pulumi.Float64PtrOutput)
+}
+
+type AlertConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertCondition)(nil)).Elem()
+}
+
+func (o AlertConditionPtrOutput) ToAlertConditionPtrOutput() AlertConditionPtrOutput {
+	return o
+}
+
+func (o AlertConditionPtrOutput) ToAlertConditionPtrOutputWithContext(ctx context.Context) AlertConditionPtrOutput {
+	return o
+}
+
+func (o AlertConditionPtrOutput) Elem() AlertConditionOutput {
+	return o.ApplyT(func(v *AlertCondition) AlertCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlertCondition
+		return ret
+	}).(AlertConditionOutput)
+}
+
+// The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+func (o AlertConditionPtrOutput) Comparator() AlertConditionComparatorPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) *AlertConditionComparator {
+		if v == nil {
+			return nil
+		}
+		return v.Comparator
+	}).(AlertConditionComparatorPtrOutput)
+}
+
+// The value at which the alert enters the CRITICAL state.
+func (o AlertConditionPtrOutput) CriticalThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AlertCondition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CriticalThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+func (o AlertConditionPtrOutput) ThresholdField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdField
+	}).(pulumi.StringPtrOutput)
+}
+
+// How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+func (o AlertConditionPtrOutput) ThresholdMode() AlertConditionThresholdModePtrOutput {
+	return o.ApplyT(func(v *AlertCondition) *AlertConditionThresholdMode {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdMode
+	}).(AlertConditionThresholdModePtrOutput)
+}
+
+// The value at which the alert enters the WARNING state.
+func (o AlertConditionPtrOutput) WarningThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AlertCondition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.WarningThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// How often the alert is evaluated, and how long a change must last before the state changes.
+type AlertEvaluation struct {
+	// The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+	IntervalSeconds int `pulumi:"intervalSeconds"`
+	// How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+	PendingDurationSeconds *int `pulumi:"pendingDurationSeconds"`
+	// How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+	RecoveryDurationSeconds *int `pulumi:"recoveryDurationSeconds"`
+}
+
+// AlertEvaluationInput is an input type that accepts AlertEvaluationArgs and AlertEvaluationOutput values.
+// You can construct a concrete instance of `AlertEvaluationInput` via:
+//
+//	AlertEvaluationArgs{...}
+type AlertEvaluationInput interface {
+	pulumi.Input
+
+	ToAlertEvaluationOutput() AlertEvaluationOutput
+	ToAlertEvaluationOutputWithContext(context.Context) AlertEvaluationOutput
+}
+
+// How often the alert is evaluated, and how long a change must last before the state changes.
+type AlertEvaluationArgs struct {
+	// The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
+	// How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+	PendingDurationSeconds pulumi.IntPtrInput `pulumi:"pendingDurationSeconds"`
+	// How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+	RecoveryDurationSeconds pulumi.IntPtrInput `pulumi:"recoveryDurationSeconds"`
+}
+
+func (AlertEvaluationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertEvaluation)(nil)).Elem()
+}
+
+func (i AlertEvaluationArgs) ToAlertEvaluationOutput() AlertEvaluationOutput {
+	return i.ToAlertEvaluationOutputWithContext(context.Background())
+}
+
+func (i AlertEvaluationArgs) ToAlertEvaluationOutputWithContext(ctx context.Context) AlertEvaluationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertEvaluationOutput)
+}
+
+// How often the alert is evaluated, and how long a change must last before the state changes.
+type AlertEvaluationOutput struct{ *pulumi.OutputState }
+
+func (AlertEvaluationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertEvaluation)(nil)).Elem()
+}
+
+func (o AlertEvaluationOutput) ToAlertEvaluationOutput() AlertEvaluationOutput {
+	return o
+}
+
+func (o AlertEvaluationOutput) ToAlertEvaluationOutputWithContext(ctx context.Context) AlertEvaluationOutput {
+	return o
+}
+
+// The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+func (o AlertEvaluationOutput) IntervalSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AlertEvaluation) int { return v.IntervalSeconds }).(pulumi.IntOutput)
+}
+
+// How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+func (o AlertEvaluationOutput) PendingDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertEvaluation) *int { return v.PendingDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+// How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+func (o AlertEvaluationOutput) RecoveryDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertEvaluation) *int { return v.RecoveryDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+type AlertEvaluationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertEvaluationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertEvaluation)(nil)).Elem()
+}
+
+func (o AlertEvaluationPtrOutput) ToAlertEvaluationPtrOutput() AlertEvaluationPtrOutput {
+	return o
+}
+
+func (o AlertEvaluationPtrOutput) ToAlertEvaluationPtrOutputWithContext(ctx context.Context) AlertEvaluationPtrOutput {
+	return o
+}
+
+func (o AlertEvaluationPtrOutput) Elem() AlertEvaluationOutput {
+	return o.ApplyT(func(v *AlertEvaluation) AlertEvaluation {
+		if v != nil {
+			return *v
+		}
+		var ret AlertEvaluation
+		return ret
+	}).(AlertEvaluationOutput)
+}
+
+// The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+func (o AlertEvaluationPtrOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertEvaluation) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+func (o AlertEvaluationPtrOutput) PendingDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertEvaluation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PendingDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+func (o AlertEvaluationPtrOutput) RecoveryDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertEvaluation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// How the alert behaves when an evaluation returns no data. If omitted, the alert reports NODATA.
+type AlertNoData struct {
+	// The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+	TreatAs AlertNoDataTreatAs `pulumi:"treatAs"`
+}
+
+// AlertNoDataInput is an input type that accepts AlertNoDataArgs and AlertNoDataOutput values.
+// You can construct a concrete instance of `AlertNoDataInput` via:
+//
+//	AlertNoDataArgs{...}
+type AlertNoDataInput interface {
+	pulumi.Input
+
+	ToAlertNoDataOutput() AlertNoDataOutput
+	ToAlertNoDataOutputWithContext(context.Context) AlertNoDataOutput
+}
+
+// How the alert behaves when an evaluation returns no data. If omitted, the alert reports NODATA.
+type AlertNoDataArgs struct {
+	// The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+	TreatAs AlertNoDataTreatAsInput `pulumi:"treatAs"`
+}
+
+func (AlertNoDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertNoData)(nil)).Elem()
+}
+
+func (i AlertNoDataArgs) ToAlertNoDataOutput() AlertNoDataOutput {
+	return i.ToAlertNoDataOutputWithContext(context.Background())
+}
+
+func (i AlertNoDataArgs) ToAlertNoDataOutputWithContext(ctx context.Context) AlertNoDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertNoDataOutput)
+}
+
+func (i AlertNoDataArgs) ToAlertNoDataPtrOutput() AlertNoDataPtrOutput {
+	return i.ToAlertNoDataPtrOutputWithContext(context.Background())
+}
+
+func (i AlertNoDataArgs) ToAlertNoDataPtrOutputWithContext(ctx context.Context) AlertNoDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertNoDataOutput).ToAlertNoDataPtrOutputWithContext(ctx)
+}
+
+// AlertNoDataPtrInput is an input type that accepts AlertNoDataArgs, AlertNoDataPtr and AlertNoDataPtrOutput values.
+// You can construct a concrete instance of `AlertNoDataPtrInput` via:
+//
+//	        AlertNoDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertNoDataPtrInput interface {
+	pulumi.Input
+
+	ToAlertNoDataPtrOutput() AlertNoDataPtrOutput
+	ToAlertNoDataPtrOutputWithContext(context.Context) AlertNoDataPtrOutput
+}
+
+type alertNoDataPtrType AlertNoDataArgs
+
+func AlertNoDataPtr(v *AlertNoDataArgs) AlertNoDataPtrInput {
+	return (*alertNoDataPtrType)(v)
+}
+
+func (*alertNoDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertNoData)(nil)).Elem()
+}
+
+func (i *alertNoDataPtrType) ToAlertNoDataPtrOutput() AlertNoDataPtrOutput {
+	return i.ToAlertNoDataPtrOutputWithContext(context.Background())
+}
+
+func (i *alertNoDataPtrType) ToAlertNoDataPtrOutputWithContext(ctx context.Context) AlertNoDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertNoDataPtrOutput)
+}
+
+// How the alert behaves when an evaluation returns no data. If omitted, the alert reports NODATA.
+type AlertNoDataOutput struct{ *pulumi.OutputState }
+
+func (AlertNoDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertNoData)(nil)).Elem()
+}
+
+func (o AlertNoDataOutput) ToAlertNoDataOutput() AlertNoDataOutput {
+	return o
+}
+
+func (o AlertNoDataOutput) ToAlertNoDataOutputWithContext(ctx context.Context) AlertNoDataOutput {
+	return o
+}
+
+func (o AlertNoDataOutput) ToAlertNoDataPtrOutput() AlertNoDataPtrOutput {
+	return o.ToAlertNoDataPtrOutputWithContext(context.Background())
+}
+
+func (o AlertNoDataOutput) ToAlertNoDataPtrOutputWithContext(ctx context.Context) AlertNoDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertNoData) *AlertNoData {
+		return &v
+	}).(AlertNoDataPtrOutput)
+}
+
+// The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+func (o AlertNoDataOutput) TreatAs() AlertNoDataTreatAsOutput {
+	return o.ApplyT(func(v AlertNoData) AlertNoDataTreatAs { return v.TreatAs }).(AlertNoDataTreatAsOutput)
+}
+
+type AlertNoDataPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertNoDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertNoData)(nil)).Elem()
+}
+
+func (o AlertNoDataPtrOutput) ToAlertNoDataPtrOutput() AlertNoDataPtrOutput {
+	return o
+}
+
+func (o AlertNoDataPtrOutput) ToAlertNoDataPtrOutputWithContext(ctx context.Context) AlertNoDataPtrOutput {
+	return o
+}
+
+func (o AlertNoDataPtrOutput) Elem() AlertNoDataOutput {
+	return o.ApplyT(func(v *AlertNoData) AlertNoData {
+		if v != nil {
+			return *v
+		}
+		var ret AlertNoData
+		return ret
+	}).(AlertNoDataOutput)
+}
+
+// The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+func (o AlertNoDataPtrOutput) TreatAs() AlertNoDataTreatAsPtrOutput {
+	return o.ApplyT(func(v *AlertNoData) *AlertNoDataTreatAs {
+		if v == nil {
+			return nil
+		}
+		return &v.TreatAs
+	}).(AlertNoDataTreatAsPtrOutput)
+}
+
+// A notification rule: which alert states trigger it, and where the notification is sent.
+type AlertNotificationRule struct {
+	Target  AlertTarget  `pulumi:"target"`
+	Trigger AlertTrigger `pulumi:"trigger"`
+}
+
+// AlertNotificationRuleInput is an input type that accepts AlertNotificationRuleArgs and AlertNotificationRuleOutput values.
+// You can construct a concrete instance of `AlertNotificationRuleInput` via:
+//
+//	AlertNotificationRuleArgs{...}
+type AlertNotificationRuleInput interface {
+	pulumi.Input
+
+	ToAlertNotificationRuleOutput() AlertNotificationRuleOutput
+	ToAlertNotificationRuleOutputWithContext(context.Context) AlertNotificationRuleOutput
+}
+
+// A notification rule: which alert states trigger it, and where the notification is sent.
+type AlertNotificationRuleArgs struct {
+	Target  AlertTargetInput  `pulumi:"target"`
+	Trigger AlertTriggerInput `pulumi:"trigger"`
+}
+
+func (AlertNotificationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertNotificationRule)(nil)).Elem()
+}
+
+func (i AlertNotificationRuleArgs) ToAlertNotificationRuleOutput() AlertNotificationRuleOutput {
+	return i.ToAlertNotificationRuleOutputWithContext(context.Background())
+}
+
+func (i AlertNotificationRuleArgs) ToAlertNotificationRuleOutputWithContext(ctx context.Context) AlertNotificationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertNotificationRuleOutput)
+}
+
+// AlertNotificationRuleArrayInput is an input type that accepts AlertNotificationRuleArray and AlertNotificationRuleArrayOutput values.
+// You can construct a concrete instance of `AlertNotificationRuleArrayInput` via:
+//
+//	AlertNotificationRuleArray{ AlertNotificationRuleArgs{...} }
+type AlertNotificationRuleArrayInput interface {
+	pulumi.Input
+
+	ToAlertNotificationRuleArrayOutput() AlertNotificationRuleArrayOutput
+	ToAlertNotificationRuleArrayOutputWithContext(context.Context) AlertNotificationRuleArrayOutput
+}
+
+type AlertNotificationRuleArray []AlertNotificationRuleInput
+
+func (AlertNotificationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertNotificationRule)(nil)).Elem()
+}
+
+func (i AlertNotificationRuleArray) ToAlertNotificationRuleArrayOutput() AlertNotificationRuleArrayOutput {
+	return i.ToAlertNotificationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AlertNotificationRuleArray) ToAlertNotificationRuleArrayOutputWithContext(ctx context.Context) AlertNotificationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertNotificationRuleArrayOutput)
+}
+
+// A notification rule: which alert states trigger it, and where the notification is sent.
+type AlertNotificationRuleOutput struct{ *pulumi.OutputState }
+
+func (AlertNotificationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertNotificationRule)(nil)).Elem()
+}
+
+func (o AlertNotificationRuleOutput) ToAlertNotificationRuleOutput() AlertNotificationRuleOutput {
+	return o
+}
+
+func (o AlertNotificationRuleOutput) ToAlertNotificationRuleOutputWithContext(ctx context.Context) AlertNotificationRuleOutput {
+	return o
+}
+
+func (o AlertNotificationRuleOutput) Target() AlertTargetOutput {
+	return o.ApplyT(func(v AlertNotificationRule) AlertTarget { return v.Target }).(AlertTargetOutput)
+}
+
+func (o AlertNotificationRuleOutput) Trigger() AlertTriggerOutput {
+	return o.ApplyT(func(v AlertNotificationRule) AlertTrigger { return v.Trigger }).(AlertTriggerOutput)
+}
+
+type AlertNotificationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertNotificationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertNotificationRule)(nil)).Elem()
+}
+
+func (o AlertNotificationRuleArrayOutput) ToAlertNotificationRuleArrayOutput() AlertNotificationRuleArrayOutput {
+	return o
+}
+
+func (o AlertNotificationRuleArrayOutput) ToAlertNotificationRuleArrayOutputWithContext(ctx context.Context) AlertNotificationRuleArrayOutput {
+	return o
+}
+
+func (o AlertNotificationRuleArrayOutput) Index(i pulumi.IntInput) AlertNotificationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertNotificationRule {
+		return vs[0].([]AlertNotificationRule)[vs[1].(int)]
+	}).(AlertNotificationRuleOutput)
+}
+
+// The query the alert runs, and the language it is written in.
+type AlertQuery struct {
+	// The query expression. For PromQL, the series value is returned in a field named value.
+	Expression string `pulumi:"expression"`
+	// The query language. Valid values: SQL, PROMQL.
+	Language AlertQueryLanguage `pulumi:"language"`
+}
+
+// AlertQueryInput is an input type that accepts AlertQueryArgs and AlertQueryOutput values.
+// You can construct a concrete instance of `AlertQueryInput` via:
+//
+//	AlertQueryArgs{...}
+type AlertQueryInput interface {
+	pulumi.Input
+
+	ToAlertQueryOutput() AlertQueryOutput
+	ToAlertQueryOutputWithContext(context.Context) AlertQueryOutput
+}
+
+// The query the alert runs, and the language it is written in.
+type AlertQueryArgs struct {
+	// The query expression. For PromQL, the series value is returned in a field named value.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// The query language. Valid values: SQL, PROMQL.
+	Language AlertQueryLanguageInput `pulumi:"language"`
+}
+
+func (AlertQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertQuery)(nil)).Elem()
+}
+
+func (i AlertQueryArgs) ToAlertQueryOutput() AlertQueryOutput {
+	return i.ToAlertQueryOutputWithContext(context.Background())
+}
+
+func (i AlertQueryArgs) ToAlertQueryOutputWithContext(ctx context.Context) AlertQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertQueryOutput)
+}
+
+// The query the alert runs, and the language it is written in.
+type AlertQueryOutput struct{ *pulumi.OutputState }
+
+func (AlertQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertQuery)(nil)).Elem()
+}
+
+func (o AlertQueryOutput) ToAlertQueryOutput() AlertQueryOutput {
+	return o
+}
+
+func (o AlertQueryOutput) ToAlertQueryOutputWithContext(ctx context.Context) AlertQueryOutput {
+	return o
+}
+
+// The query expression. For PromQL, the series value is returned in a field named value.
+func (o AlertQueryOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertQuery) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The query language. Valid values: SQL, PROMQL.
+func (o AlertQueryOutput) Language() AlertQueryLanguageOutput {
+	return o.ApplyT(func(v AlertQuery) AlertQueryLanguage { return v.Language }).(AlertQueryLanguageOutput)
+}
+
+type AlertQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertQuery)(nil)).Elem()
+}
+
+func (o AlertQueryPtrOutput) ToAlertQueryPtrOutput() AlertQueryPtrOutput {
+	return o
+}
+
+func (o AlertQueryPtrOutput) ToAlertQueryPtrOutputWithContext(ctx context.Context) AlertQueryPtrOutput {
+	return o
+}
+
+func (o AlertQueryPtrOutput) Elem() AlertQueryOutput {
+	return o.ApplyT(func(v *AlertQuery) AlertQuery {
+		if v != nil {
+			return *v
+		}
+		var ret AlertQuery
+		return ret
+	}).(AlertQueryOutput)
+}
+
+// The query expression. For PromQL, the series value is returned in a field named value.
+func (o AlertQueryPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query language. Valid values: SQL, PROMQL.
+func (o AlertQueryPtrOutput) Language() AlertQueryLanguagePtrOutput {
+	return o.ApplyT(func(v *AlertQuery) *AlertQueryLanguage {
+		if v == nil {
+			return nil
+		}
+		return &v.Language
+	}).(AlertQueryLanguagePtrOutput)
+}
+
+// The rule that defines how the alert is evaluated.
+type AlertRule struct {
+	TelemetryRule AlertTelemetryRule `pulumi:"telemetryRule"`
+}
+
+// AlertRuleInput is an input type that accepts AlertRuleArgs and AlertRuleOutput values.
+// You can construct a concrete instance of `AlertRuleInput` via:
+//
+//	AlertRuleArgs{...}
+type AlertRuleInput interface {
+	pulumi.Input
+
+	ToAlertRuleOutput() AlertRuleOutput
+	ToAlertRuleOutputWithContext(context.Context) AlertRuleOutput
+}
+
+// The rule that defines how the alert is evaluated.
+type AlertRuleArgs struct {
+	TelemetryRule AlertTelemetryRuleInput `pulumi:"telemetryRule"`
+}
+
+func (AlertRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRule)(nil)).Elem()
+}
+
+func (i AlertRuleArgs) ToAlertRuleOutput() AlertRuleOutput {
+	return i.ToAlertRuleOutputWithContext(context.Background())
+}
+
+func (i AlertRuleArgs) ToAlertRuleOutputWithContext(ctx context.Context) AlertRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleOutput)
+}
+
+// The rule that defines how the alert is evaluated.
+type AlertRuleOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRule)(nil)).Elem()
+}
+
+func (o AlertRuleOutput) ToAlertRuleOutput() AlertRuleOutput {
+	return o
+}
+
+func (o AlertRuleOutput) ToAlertRuleOutputWithContext(ctx context.Context) AlertRuleOutput {
+	return o
+}
+
+func (o AlertRuleOutput) TelemetryRule() AlertTelemetryRuleOutput {
+	return o.ApplyT(func(v AlertRule) AlertTelemetryRule { return v.TelemetryRule }).(AlertTelemetryRuleOutput)
+}
+
+type AlertRulePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRule)(nil)).Elem()
+}
+
+func (o AlertRulePtrOutput) ToAlertRulePtrOutput() AlertRulePtrOutput {
+	return o
+}
+
+func (o AlertRulePtrOutput) ToAlertRulePtrOutputWithContext(ctx context.Context) AlertRulePtrOutput {
+	return o
+}
+
+func (o AlertRulePtrOutput) Elem() AlertRuleOutput {
+	return o.ApplyT(func(v *AlertRule) AlertRule {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRule
+		return ret
+	}).(AlertRuleOutput)
+}
+
+func (o AlertRulePtrOutput) TelemetryRule() AlertTelemetryRulePtrOutput {
+	return o.ApplyT(func(v *AlertRule) *AlertTelemetryRule {
+		if v == nil {
+			return nil
+		}
+		return &v.TelemetryRule
+	}).(AlertTelemetryRulePtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AlertTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// Where the notification is sent.
+type AlertTarget struct {
+	// The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+	Arn      string            `pulumi:"arn"`
+	Metadata map[string]string `pulumi:"metadata"`
+	// The target type. Valid values: sns, slack, pagerduty.
+	Type AlertTargetType `pulumi:"type"`
+}
+
+// AlertTargetInput is an input type that accepts AlertTargetArgs and AlertTargetOutput values.
+// You can construct a concrete instance of `AlertTargetInput` via:
+//
+//	AlertTargetArgs{...}
+type AlertTargetInput interface {
+	pulumi.Input
+
+	ToAlertTargetOutput() AlertTargetOutput
+	ToAlertTargetOutputWithContext(context.Context) AlertTargetOutput
+}
+
+// Where the notification is sent.
+type AlertTargetArgs struct {
+	// The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+	Arn      pulumi.StringInput    `pulumi:"arn"`
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The target type. Valid values: sns, slack, pagerduty.
+	Type AlertTargetTypeInput `pulumi:"type"`
+}
+
+func (AlertTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTarget)(nil)).Elem()
+}
+
+func (i AlertTargetArgs) ToAlertTargetOutput() AlertTargetOutput {
+	return i.ToAlertTargetOutputWithContext(context.Background())
+}
+
+func (i AlertTargetArgs) ToAlertTargetOutputWithContext(ctx context.Context) AlertTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertTargetOutput)
+}
+
+// Where the notification is sent.
+type AlertTargetOutput struct{ *pulumi.OutputState }
+
+func (AlertTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTarget)(nil)).Elem()
+}
+
+func (o AlertTargetOutput) ToAlertTargetOutput() AlertTargetOutput {
+	return o
+}
+
+func (o AlertTargetOutput) ToAlertTargetOutputWithContext(ctx context.Context) AlertTargetOutput {
+	return o
+}
+
+// The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+func (o AlertTargetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertTarget) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AlertTargetOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AlertTarget) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The target type. Valid values: sns, slack, pagerduty.
+func (o AlertTargetOutput) Type() AlertTargetTypeOutput {
+	return o.ApplyT(func(v AlertTarget) AlertTargetType { return v.Type }).(AlertTargetTypeOutput)
+}
+
+// A rule that queries telemetry, evaluates the result against a condition, and sets how missing data is handled.
+type AlertTelemetryRule struct {
+	Condition  AlertCondition  `pulumi:"condition"`
+	Evaluation AlertEvaluation `pulumi:"evaluation"`
+	NoData     *AlertNoData    `pulumi:"noData"`
+	Query      AlertQuery      `pulumi:"query"`
+}
+
+// AlertTelemetryRuleInput is an input type that accepts AlertTelemetryRuleArgs and AlertTelemetryRuleOutput values.
+// You can construct a concrete instance of `AlertTelemetryRuleInput` via:
+//
+//	AlertTelemetryRuleArgs{...}
+type AlertTelemetryRuleInput interface {
+	pulumi.Input
+
+	ToAlertTelemetryRuleOutput() AlertTelemetryRuleOutput
+	ToAlertTelemetryRuleOutputWithContext(context.Context) AlertTelemetryRuleOutput
+}
+
+// A rule that queries telemetry, evaluates the result against a condition, and sets how missing data is handled.
+type AlertTelemetryRuleArgs struct {
+	Condition  AlertConditionInput  `pulumi:"condition"`
+	Evaluation AlertEvaluationInput `pulumi:"evaluation"`
+	NoData     AlertNoDataPtrInput  `pulumi:"noData"`
+	Query      AlertQueryInput      `pulumi:"query"`
+}
+
+func (AlertTelemetryRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTelemetryRule)(nil)).Elem()
+}
+
+func (i AlertTelemetryRuleArgs) ToAlertTelemetryRuleOutput() AlertTelemetryRuleOutput {
+	return i.ToAlertTelemetryRuleOutputWithContext(context.Background())
+}
+
+func (i AlertTelemetryRuleArgs) ToAlertTelemetryRuleOutputWithContext(ctx context.Context) AlertTelemetryRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertTelemetryRuleOutput)
+}
+
+// A rule that queries telemetry, evaluates the result against a condition, and sets how missing data is handled.
+type AlertTelemetryRuleOutput struct{ *pulumi.OutputState }
+
+func (AlertTelemetryRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTelemetryRule)(nil)).Elem()
+}
+
+func (o AlertTelemetryRuleOutput) ToAlertTelemetryRuleOutput() AlertTelemetryRuleOutput {
+	return o
+}
+
+func (o AlertTelemetryRuleOutput) ToAlertTelemetryRuleOutputWithContext(ctx context.Context) AlertTelemetryRuleOutput {
+	return o
+}
+
+func (o AlertTelemetryRuleOutput) Condition() AlertConditionOutput {
+	return o.ApplyT(func(v AlertTelemetryRule) AlertCondition { return v.Condition }).(AlertConditionOutput)
+}
+
+func (o AlertTelemetryRuleOutput) Evaluation() AlertEvaluationOutput {
+	return o.ApplyT(func(v AlertTelemetryRule) AlertEvaluation { return v.Evaluation }).(AlertEvaluationOutput)
+}
+
+func (o AlertTelemetryRuleOutput) NoData() AlertNoDataPtrOutput {
+	return o.ApplyT(func(v AlertTelemetryRule) *AlertNoData { return v.NoData }).(AlertNoDataPtrOutput)
+}
+
+func (o AlertTelemetryRuleOutput) Query() AlertQueryOutput {
+	return o.ApplyT(func(v AlertTelemetryRule) AlertQuery { return v.Query }).(AlertQueryOutput)
+}
+
+type AlertTelemetryRulePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertTelemetryRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertTelemetryRule)(nil)).Elem()
+}
+
+func (o AlertTelemetryRulePtrOutput) ToAlertTelemetryRulePtrOutput() AlertTelemetryRulePtrOutput {
+	return o
+}
+
+func (o AlertTelemetryRulePtrOutput) ToAlertTelemetryRulePtrOutputWithContext(ctx context.Context) AlertTelemetryRulePtrOutput {
+	return o
+}
+
+func (o AlertTelemetryRulePtrOutput) Elem() AlertTelemetryRuleOutput {
+	return o.ApplyT(func(v *AlertTelemetryRule) AlertTelemetryRule {
+		if v != nil {
+			return *v
+		}
+		var ret AlertTelemetryRule
+		return ret
+	}).(AlertTelemetryRuleOutput)
+}
+
+func (o AlertTelemetryRulePtrOutput) Condition() AlertConditionPtrOutput {
+	return o.ApplyT(func(v *AlertTelemetryRule) *AlertCondition {
+		if v == nil {
+			return nil
+		}
+		return &v.Condition
+	}).(AlertConditionPtrOutput)
+}
+
+func (o AlertTelemetryRulePtrOutput) Evaluation() AlertEvaluationPtrOutput {
+	return o.ApplyT(func(v *AlertTelemetryRule) *AlertEvaluation {
+		if v == nil {
+			return nil
+		}
+		return &v.Evaluation
+	}).(AlertEvaluationPtrOutput)
+}
+
+func (o AlertTelemetryRulePtrOutput) NoData() AlertNoDataPtrOutput {
+	return o.ApplyT(func(v *AlertTelemetryRule) *AlertNoData {
+		if v == nil {
+			return nil
+		}
+		return v.NoData
+	}).(AlertNoDataPtrOutput)
+}
+
+func (o AlertTelemetryRulePtrOutput) Query() AlertQueryPtrOutput {
+	return o.ApplyT(func(v *AlertTelemetryRule) *AlertQuery {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(AlertQueryPtrOutput)
+}
+
+// The alert states that trigger the notification rule.
+type AlertTrigger struct {
+	// The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+	StateValues []AlertTriggerStateValuesItem `pulumi:"stateValues"`
+}
+
+// AlertTriggerInput is an input type that accepts AlertTriggerArgs and AlertTriggerOutput values.
+// You can construct a concrete instance of `AlertTriggerInput` via:
+//
+//	AlertTriggerArgs{...}
+type AlertTriggerInput interface {
+	pulumi.Input
+
+	ToAlertTriggerOutput() AlertTriggerOutput
+	ToAlertTriggerOutputWithContext(context.Context) AlertTriggerOutput
+}
+
+// The alert states that trigger the notification rule.
+type AlertTriggerArgs struct {
+	// The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+	StateValues AlertTriggerStateValuesItemArrayInput `pulumi:"stateValues"`
+}
+
+func (AlertTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTrigger)(nil)).Elem()
+}
+
+func (i AlertTriggerArgs) ToAlertTriggerOutput() AlertTriggerOutput {
+	return i.ToAlertTriggerOutputWithContext(context.Background())
+}
+
+func (i AlertTriggerArgs) ToAlertTriggerOutputWithContext(ctx context.Context) AlertTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertTriggerOutput)
+}
+
+// The alert states that trigger the notification rule.
+type AlertTriggerOutput struct{ *pulumi.OutputState }
+
+func (AlertTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTrigger)(nil)).Elem()
+}
+
+func (o AlertTriggerOutput) ToAlertTriggerOutput() AlertTriggerOutput {
+	return o
+}
+
+func (o AlertTriggerOutput) ToAlertTriggerOutputWithContext(ctx context.Context) AlertTriggerOutput {
+	return o
+}
+
+// The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+func (o AlertTriggerOutput) StateValues() AlertTriggerStateValuesItemArrayOutput {
+	return o.ApplyT(func(v AlertTrigger) []AlertTriggerStateValuesItem { return v.StateValues }).(AlertTriggerStateValuesItemArrayOutput)
+}
+
 // Configuration that applies to the notifications this alarm sends when it performs its actions.
 type CompositeAlarmActionConfiguration struct {
 	// Whether the alarm's tags are included in its action notifications and state-change events.
@@ -4693,6 +5684,14 @@ func (o LogAlarmWarmUpConfigurationPtrOutput) WarmUpPeriodDurationInMinutes() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// A key-value pair to associate with the metric data query definition.
+type MetricDataQueryDefinitionTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 // This structure defines the metrics that will be streamed.
 type MetricStreamFilter struct {
 	// Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
@@ -5603,9 +6602,9 @@ func (o RulePropertiesSchedulePropertiesPtrOutput) Timezone() pulumi.StringPtrOu
 
 // The encryption configuration for the space.
 type SpaceEncryptionConfiguration struct {
-	// Whether the space is encrypted with an AWS owned key or a customer managed key.
+	// Which kind of key to use. Required.
 	EncryptionStrategy SpaceEncryptionConfigurationEncryptionStrategy `pulumi:"encryptionStrategy"`
-	// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+	// Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -5622,9 +6621,9 @@ type SpaceEncryptionConfigurationInput interface {
 
 // The encryption configuration for the space.
 type SpaceEncryptionConfigurationArgs struct {
-	// Whether the space is encrypted with an AWS owned key or a customer managed key.
+	// Which kind of key to use. Required.
 	EncryptionStrategy SpaceEncryptionConfigurationEncryptionStrategyInput `pulumi:"encryptionStrategy"`
-	// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+	// Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
@@ -5706,14 +6705,14 @@ func (o SpaceEncryptionConfigurationOutput) ToSpaceEncryptionConfigurationPtrOut
 	}).(SpaceEncryptionConfigurationPtrOutput)
 }
 
-// Whether the space is encrypted with an AWS owned key or a customer managed key.
+// Which kind of key to use. Required.
 func (o SpaceEncryptionConfigurationOutput) EncryptionStrategy() SpaceEncryptionConfigurationEncryptionStrategyOutput {
 	return o.ApplyT(func(v SpaceEncryptionConfiguration) SpaceEncryptionConfigurationEncryptionStrategy {
 		return v.EncryptionStrategy
 	}).(SpaceEncryptionConfigurationEncryptionStrategyOutput)
 }
 
-// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+// Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
 func (o SpaceEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -5742,7 +6741,7 @@ func (o SpaceEncryptionConfigurationPtrOutput) Elem() SpaceEncryptionConfigurati
 	}).(SpaceEncryptionConfigurationOutput)
 }
 
-// Whether the space is encrypted with an AWS owned key or a customer managed key.
+// Which kind of key to use. Required.
 func (o SpaceEncryptionConfigurationPtrOutput) EncryptionStrategy() SpaceEncryptionConfigurationEncryptionStrategyPtrOutput {
 	return o.ApplyT(func(v *SpaceEncryptionConfiguration) *SpaceEncryptionConfigurationEncryptionStrategy {
 		if v == nil {
@@ -5752,7 +6751,7 @@ func (o SpaceEncryptionConfigurationPtrOutput) EncryptionStrategy() SpaceEncrypt
 	}).(SpaceEncryptionConfigurationEncryptionStrategyPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+// Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
 func (o SpaceEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceEncryptionConfiguration) *string {
 		if v == nil {
@@ -5860,6 +6859,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWallClockWindowPtrInput)(nil)).Elem(), AlarmWallClockWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWarmUpConfigurationInput)(nil)).Elem(), AlarmWarmUpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWarmUpConfigurationPtrInput)(nil)).Elem(), AlarmWarmUpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionInput)(nil)).Elem(), AlertConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertEvaluationInput)(nil)).Elem(), AlertEvaluationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertNoDataInput)(nil)).Elem(), AlertNoDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertNoDataPtrInput)(nil)).Elem(), AlertNoDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertNotificationRuleInput)(nil)).Elem(), AlertNotificationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertNotificationRuleArrayInput)(nil)).Elem(), AlertNotificationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertQueryInput)(nil)).Elem(), AlertQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleInput)(nil)).Elem(), AlertRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertTargetInput)(nil)).Elem(), AlertTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertTelemetryRuleInput)(nil)).Elem(), AlertTelemetryRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertTriggerInput)(nil)).Elem(), AlertTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionConfigurationInput)(nil)).Elem(), CompositeAlarmActionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionConfigurationPtrInput)(nil)).Elem(), CompositeAlarmActionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmAlarmTagsPropagationInput)(nil)).Elem(), CompositeAlarmAlarmTagsPropagationArgs{})
@@ -5937,6 +6947,22 @@ func init() {
 	pulumi.RegisterOutputType(AlarmWallClockWindowPtrOutput{})
 	pulumi.RegisterOutputType(AlarmWarmUpConfigurationOutput{})
 	pulumi.RegisterOutputType(AlarmWarmUpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AlertConditionOutput{})
+	pulumi.RegisterOutputType(AlertConditionPtrOutput{})
+	pulumi.RegisterOutputType(AlertEvaluationOutput{})
+	pulumi.RegisterOutputType(AlertEvaluationPtrOutput{})
+	pulumi.RegisterOutputType(AlertNoDataOutput{})
+	pulumi.RegisterOutputType(AlertNoDataPtrOutput{})
+	pulumi.RegisterOutputType(AlertNotificationRuleOutput{})
+	pulumi.RegisterOutputType(AlertNotificationRuleArrayOutput{})
+	pulumi.RegisterOutputType(AlertQueryOutput{})
+	pulumi.RegisterOutputType(AlertQueryPtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleOutput{})
+	pulumi.RegisterOutputType(AlertRulePtrOutput{})
+	pulumi.RegisterOutputType(AlertTargetOutput{})
+	pulumi.RegisterOutputType(AlertTelemetryRuleOutput{})
+	pulumi.RegisterOutputType(AlertTelemetryRulePtrOutput{})
+	pulumi.RegisterOutputType(AlertTriggerOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmActionConfigurationOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmActionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmAlarmTagsPropagationOutput{})

@@ -2870,7 +2870,7 @@ func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOu
 	}).(ContactListTopicOutput)
 }
 
-// An object that defines the tags (keys and values) that you want to associate with the tenant.
+// An object that defines the tags (keys and values) that you want to associate with the custom verification email template.
 type CustomVerificationEmailTemplateTag struct {
 	// The key of the key-value tag.
 	Key string `pulumi:"key"`

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [AwsNativeResourceType("aws-native:rolesanywhere:TrustAnchor")]
     public partial class TrustAnchor : global::Pulumi.CustomResource
     {
+        [Output("crlDpRevocationEnabled")]
+        public Output<bool?> CrlDpRevocationEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether the trust anchor is enabled.
         /// </summary>
@@ -102,6 +105,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class TrustAnchorArgs : global::Pulumi.ResourceArgs
     {
+        [Input("crlDpRevocationEnabled")]
+        public Input<bool>? CrlDpRevocationEnabled { get; set; }
+
         /// <summary>
         /// Indicates whether the trust anchor is enabled.
         /// </summary>

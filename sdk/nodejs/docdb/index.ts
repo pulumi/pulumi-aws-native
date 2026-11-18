@@ -10,6 +10,11 @@ export type DbClusterParameterGroup = import("./dbClusterParameterGroup").DbClus
 export const DbClusterParameterGroup: typeof import("./dbClusterParameterGroup").DbClusterParameterGroup = null as any;
 utilities.lazyLoad(exports, ["DbClusterParameterGroup"], () => require("./dbClusterParameterGroup"));
 
+export { DbInstanceArgs } from "./dbInstance";
+export type DbInstance = import("./dbInstance").DbInstance;
+export const DbInstance: typeof import("./dbInstance").DbInstance = null as any;
+utilities.lazyLoad(exports, ["DbInstance"], () => require("./dbInstance"));
+
 export { DbSubnetGroupArgs } from "./dbSubnetGroup";
 export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
 export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
@@ -24,6 +29,11 @@ export { GetDbClusterParameterGroupArgs, GetDbClusterParameterGroupResult, GetDb
 export const getDbClusterParameterGroup: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroup = null as any;
 export const getDbClusterParameterGroupOutput: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDbClusterParameterGroup","getDbClusterParameterGroupOutput"], () => require("./getDbClusterParameterGroup"));
+
+export { GetDbInstanceArgs, GetDbInstanceResult, GetDbInstanceOutputArgs } from "./getDbInstance";
+export const getDbInstance: typeof import("./getDbInstance").getDbInstance = null as any;
+export const getDbInstanceOutput: typeof import("./getDbInstance").getDbInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getDbInstance","getDbInstanceOutput"], () => require("./getDbInstance"));
 
 export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArgs } from "./getDbSubnetGroup";
 export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
@@ -55,6 +65,8 @@ const _module = {
         switch (type) {
             case "aws-native:docdb:DbClusterParameterGroup":
                 return new DbClusterParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:docdb:DbInstance":
+                return new DbInstance(name, <any>undefined, { urn })
             case "aws-native:docdb:DbSubnetGroup":
                 return new DbSubnetGroup(name, <any>undefined, { urn })
             case "aws-native:docdb:EventSubscription":

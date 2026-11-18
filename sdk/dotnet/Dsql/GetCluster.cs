@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         public readonly string? Identifier;
         /// <summary>
+        /// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ClusterMetricGroup> MetricGroups;
+        /// <summary>
         /// The Multi-region properties associated to this cluster.
         /// </summary>
         public readonly Outputs.MultiRegionPropertiesProperties? MultiRegionProperties;
@@ -128,6 +132,8 @@ namespace Pulumi.AwsNative.Dsql
 
             string? identifier,
 
+            ImmutableArray<Outputs.ClusterMetricGroup> metricGroups,
+
             Outputs.MultiRegionPropertiesProperties? multiRegionProperties,
 
             string? policyDocument,
@@ -149,6 +155,7 @@ namespace Pulumi.AwsNative.Dsql
             EncryptionDetails = encryptionDetails;
             Endpoint = endpoint;
             Identifier = identifier;
+            MetricGroups = metricGroups;
             MultiRegionProperties = multiRegionProperties;
             PolicyDocument = policyDocument;
             PolicyVersion = policyVersion;

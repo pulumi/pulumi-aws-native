@@ -852,7 +852,7 @@ export namespace agentregistry {
          */
         customClaims?: outputs.agentregistry.RegistryCustomClaimValidationType[];
         /**
-         * The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+         * The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to retrieve the identity provider's metadata and signing keys. The URL contains /.well-known/openid-configuration or /.well-known/oauth-authorization-server, respectively.
          */
         discoveryUrl: string;
     }
@@ -4840,12 +4840,18 @@ export namespace appflow {
 }
 
 export namespace appintegrations {
+    export interface ApplicationAuthConfig {
+        audienceOverride?: string;
+        authType: enums.appintegrations.ApplicationAuthConfigAuthType;
+        credentialProviderIdentifier?: string;
+    }
+
     export interface ApplicationConfig {
         contactHandling?: outputs.appintegrations.ApplicationContactHandling;
     }
 
     export interface ApplicationContactHandling {
-        scope: enums.appintegrations.ApplicationContactHandlingScope;
+        scope?: enums.appintegrations.ApplicationContactHandlingScope;
     }
 
     export interface ApplicationExternalUrlConfig {
@@ -4871,7 +4877,7 @@ export namespace appintegrations {
         /**
          * The external URL source for the application.
          */
-        externalUrlConfig: outputs.appintegrations.ApplicationExternalUrlConfig;
+        externalUrlConfig?: outputs.appintegrations.ApplicationExternalUrlConfig;
     }
 
     /**
@@ -11716,6 +11722,11 @@ export namespace batch {
         value?: string;
     }
 
+    export interface JobDefinitionEksContainerLinuxCapabilities {
+        add?: string[];
+        drop?: string[];
+    }
+
     export interface JobDefinitionEksContainerResourceRequirements {
         /**
          * The type and quantity of the resources to reserve for the container. The values vary based on the `name` that's specified. Resources can be requested using either the `limits` or the `requests` objects.
@@ -11744,6 +11755,7 @@ export namespace batch {
          * Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false` .
          */
         allowPrivilegeEscalation?: boolean;
+        capabilities?: outputs.batch.JobDefinitionEksContainerLinuxCapabilities;
         /**
          * When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
          */
@@ -11764,6 +11776,7 @@ export namespace batch {
          * When this parameter is specified, the container is run as the specified user ID ( `uid` ). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to `RunAsUser` and `MustRanAs` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
          */
         runAsUser?: number;
+        seccompProfile?: outputs.batch.JobDefinitionEksSeccompProfile;
     }
 
     export interface JobDefinitionEksContainerVolumeMount {
@@ -11879,6 +11892,7 @@ export namespace batch {
          * Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
          */
         metadata?: outputs.batch.JobDefinitionEksMetadata;
+        securityContext?: outputs.batch.JobDefinitionEksPodSecurityContext;
         /**
          * The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
          */
@@ -11893,11 +11907,24 @@ export namespace batch {
         volumes?: outputs.batch.JobDefinitionEksVolume[];
     }
 
+    export interface JobDefinitionEksPodSecurityContext {
+        fsGroup?: number;
+        runAsGroup?: number;
+        runAsNonRoot?: boolean;
+        runAsUser?: number;
+        seccompProfile?: outputs.batch.JobDefinitionEksSeccompProfile;
+    }
+
     export interface JobDefinitionEksProperties {
         /**
          * The properties for the Kubernetes pod resources of a job.
          */
         podProperties?: outputs.batch.JobDefinitionEksPodProperties;
+    }
+
+    export interface JobDefinitionEksSeccompProfile {
+        localhostProfile?: string;
+        type: string;
     }
 
     export interface JobDefinitionEksSecret {
@@ -19376,6 +19403,20 @@ export namespace bedrockagentcore {
         sns?: outputs.bedrockagentcore.HarnessHookSnsTarget;
     }
 
+    /**
+     * IAM credentials used to SigV4-sign requests.
+     */
+    export interface HarnessIamCredentialProvider {
+        /**
+         * The AWS Region used for SigV4 signing.
+         */
+        region?: string;
+        /**
+         * The AWS service name used for SigV4 signing.
+         */
+        service: string;
+    }
+
     export interface HarnessInlineFunctionConfig {
         description: string;
         /**
@@ -19385,7 +19426,13 @@ export namespace bedrockagentcore {
     }
 
     export interface HarnessLifecycleConfiguration {
+        /**
+         * Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Valid range: 60 to 28800 seconds (8 hours), and must be less than or equal to MaxLifetime. Default: 900 seconds (15 minutes).
+         */
         idleRuntimeSessionTimeout?: number;
+        /**
+         * Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Valid range: 60 to 28800 seconds (8 hours). Default: 28800 seconds (8 hours).
+         */
         maxLifetime?: number;
     }
 
@@ -19497,7 +19544,25 @@ export namespace bedrockagentcore {
 
     export interface HarnessRemoteMcpConfig {
         headers?: {[key: string]: string};
+        /**
+         * How the harness authenticates to this MCP endpoint. Defaults to None if omitted.
+         */
+        outboundAuth?: outputs.bedrockagentcore.HarnessRemoteMcpOutboundAuth;
         url: string;
+    }
+
+    /**
+     * Authentication method for calling a remote MCP server.
+     */
+    export interface HarnessRemoteMcpOutboundAuth {
+        /**
+         * SigV4-sign requests using the harness execution role. Region defaults to the harness Region if omitted.
+         */
+        awsIam?: outputs.bedrockagentcore.HarnessIamCredentialProvider;
+        /**
+         * No authentication.
+         */
+        none?: any;
     }
 
     /**
@@ -20001,6 +20066,14 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * A reference to a private CA certificate. Specify exactly one certificate source.
+     */
+    export interface OAuth2CredentialProviderCertificateConfiguration {
+        s3?: outputs.bedrockagentcore.OAuth2CredentialProviderS3CertificateConfiguration;
+        secretsManager?: outputs.bedrockagentcore.OAuth2CredentialProviderSecretsManagerCertificateConfiguration;
+    }
+
+    /**
      * Contains information about a secret in AWS Secrets Manager
      */
     export interface OAuth2CredentialProviderClientSecretArn {
@@ -20014,6 +20087,7 @@ export namespace bedrockagentcore {
      * Input configuration for a custom OAuth2 provider
      */
     export interface OAuth2CredentialProviderCustomOauth2ProviderConfigInput {
+        certificateConfigurations?: outputs.bedrockagentcore.OAuth2CredentialProviderCertificateConfiguration[];
         /**
          * The client authentication method to use when authenticating with the token endpoint
          */
@@ -20175,7 +20249,7 @@ export namespace bedrockagentcore {
     export interface OAuth2CredentialProviderOauth2Discovery {
         authorizationServerMetadata?: outputs.bedrockagentcore.OAuth2CredentialProviderOauth2AuthorizationServerMetadata;
         /**
-         * The discovery URL for the OAuth2 provider
+         * OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL
          */
         discoveryUrl?: string;
     }
@@ -20199,6 +20273,7 @@ export namespace bedrockagentcore {
      * Output configuration for an OAuth2 provider
      */
     export interface OAuth2CredentialProviderOauth2ProviderConfigOutput {
+        certificateConfigurations?: outputs.bedrockagentcore.OAuth2CredentialProviderCertificateConfiguration[];
         /**
          * The client authentication method used when authenticating with the token endpoint
          */
@@ -20265,6 +20340,20 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object
+     */
+    export interface OAuth2CredentialProviderS3CertificateConfiguration {
+        /**
+         * The account ID of the Amazon S3 bucket owner, used for cross-account access to the bucket
+         */
+        bucketOwnerAccountId?: string;
+        /**
+         * The URI of the Amazon S3 object that contains the PEM-encoded certificate
+         */
+        uri: string;
+    }
+
+    /**
      * Input configuration for a Salesforce OAuth2 provider
      */
     export interface OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput {
@@ -20286,6 +20375,16 @@ export namespace bedrockagentcore {
          * The ID or ARN of the secret in AWS Secrets Manager
          */
         secretId: string;
+    }
+
+    /**
+     * A reference to a PEM-encoded private CA certificate stored in an AWS Secrets Manager secret
+     */
+    export interface OAuth2CredentialProviderSecretsManagerCertificateConfiguration {
+        /**
+         * The ARN of the AWS Secrets Manager secret that contains the PEM-encoded certificate
+         */
+        secretArn: string;
     }
 
     /**
@@ -20615,33 +20714,30 @@ export namespace bedrockagentcore {
         authorizationPrivateKeySource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
     }
 
-    /**
-     * The authorizer configuration for the payment manager
-     */
     export interface PaymentManagerAuthorizerConfigurationProperties {
-        customJwtAuthorizer: outputs.bedrockagentcore.PaymentManagerCustomJwtAuthorizer;
+        customJwtAuthorizer: outputs.bedrockagentcore.PaymentManagerCustomJwtAuthorizerConfiguration;
     }
 
-    export interface PaymentManagerAuthorizingClaimMatchValue {
-        claimMatchOperator: enums.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator;
-        claimMatchValue: outputs.bedrockagentcore.PaymentManagerClaimMatchValue0Properties | outputs.bedrockagentcore.PaymentManagerClaimMatchValue1Properties;
+    export interface PaymentManagerAuthorizingClaimMatchValueType {
+        claimMatchOperator: enums.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator;
+        claimMatchValue: outputs.bedrockagentcore.PaymentManagerClaimMatchValueType0Properties | outputs.bedrockagentcore.PaymentManagerClaimMatchValueType1Properties;
     }
 
-    export interface PaymentManagerClaimMatchValue0Properties {
+    export interface PaymentManagerClaimMatchValueType0Properties {
         matchValueString: string;
     }
 
-    export interface PaymentManagerClaimMatchValue1Properties {
+    export interface PaymentManagerClaimMatchValueType1Properties {
         matchValueStringList: string[];
     }
 
     export interface PaymentManagerCustomClaimValidationType {
-        authorizingClaimMatchValue: outputs.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValue;
+        authorizingClaimMatchValue: outputs.bedrockagentcore.PaymentManagerAuthorizingClaimMatchValueType;
         inboundTokenClaimName: string;
         inboundTokenClaimValueType: enums.bedrockagentcore.PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType;
     }
 
-    export interface PaymentManagerCustomJwtAuthorizer {
+    export interface PaymentManagerCustomJwtAuthorizerConfiguration {
         allowedAudience?: string[];
         allowedClients?: string[];
         allowedScopes?: string[];
@@ -20649,9 +20745,6 @@ export namespace bedrockagentcore {
         discoveryUrl: string;
     }
 
-    /**
-     * The workload identity details for the payment manager
-     */
     export interface PaymentManagerWorkloadIdentityDetails {
         workloadIdentityArn?: string;
     }
@@ -23010,6 +23103,7 @@ export namespace cleanrooms {
          * The S3 prefix to unload the protected job results.
          */
         keyPrefix?: string;
+        resultFormat?: enums.cleanrooms.MembershipResultFormat;
     }
 
     export interface MembershipProtectedQueryOutputConfiguration {
@@ -26304,6 +26398,124 @@ export namespace cloudwatch {
     }
 
     /**
+     * The thresholds that set the alert's state. Specify at least one of WarningThreshold and CriticalThreshold.
+     */
+    export interface AlertCondition {
+        /**
+         * The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+         */
+        comparator?: enums.cloudwatch.AlertConditionComparator;
+        /**
+         * The value at which the alert enters the CRITICAL state.
+         */
+        criticalThreshold?: number;
+        /**
+         * The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+         */
+        thresholdField?: string;
+        /**
+         * How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+         */
+        thresholdMode?: enums.cloudwatch.AlertConditionThresholdMode;
+        /**
+         * The value at which the alert enters the WARNING state.
+         */
+        warningThreshold?: number;
+    }
+
+    /**
+     * How often the alert is evaluated, and how long a change must last before the state changes.
+     */
+    export interface AlertEvaluation {
+        /**
+         * The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+         */
+        intervalSeconds: number;
+        /**
+         * How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+         */
+        pendingDurationSeconds?: number;
+        /**
+         * How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+         */
+        recoveryDurationSeconds?: number;
+    }
+
+    /**
+     * How the alert behaves when an evaluation returns no data. If omitted, the alert reports NODATA.
+     */
+    export interface AlertNoData {
+        /**
+         * The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+         */
+        treatAs: enums.cloudwatch.AlertNoDataTreatAs;
+    }
+
+    /**
+     * A notification rule: which alert states trigger it, and where the notification is sent.
+     */
+    export interface AlertNotificationRule {
+        target: outputs.cloudwatch.AlertTarget;
+        trigger: outputs.cloudwatch.AlertTrigger;
+    }
+
+    /**
+     * The query the alert runs, and the language it is written in.
+     */
+    export interface AlertQuery {
+        /**
+         * The query expression. For PromQL, the series value is returned in a field named value.
+         */
+        expression: string;
+        /**
+         * The query language. Valid values: SQL, PROMQL.
+         */
+        language: enums.cloudwatch.AlertQueryLanguage;
+    }
+
+    /**
+     * The rule that defines how the alert is evaluated.
+     */
+    export interface AlertRule {
+        telemetryRule: outputs.cloudwatch.AlertTelemetryRule;
+    }
+
+    /**
+     * Where the notification is sent.
+     */
+    export interface AlertTarget {
+        /**
+         * The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+         */
+        arn: string;
+        metadata?: {[key: string]: string};
+        /**
+         * The target type. Valid values: sns, slack, pagerduty.
+         */
+        type: enums.cloudwatch.AlertTargetType;
+    }
+
+    /**
+     * A rule that queries telemetry, evaluates the result against a condition, and sets how missing data is handled.
+     */
+    export interface AlertTelemetryRule {
+        condition: outputs.cloudwatch.AlertCondition;
+        evaluation: outputs.cloudwatch.AlertEvaluation;
+        noData?: outputs.cloudwatch.AlertNoData;
+        query: outputs.cloudwatch.AlertQuery;
+    }
+
+    /**
+     * The alert states that trigger the notification rule.
+     */
+    export interface AlertTrigger {
+        /**
+         * The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+         */
+        stateValues?: enums.cloudwatch.AlertTriggerStateValuesItem[];
+    }
+
+    /**
      * Configuration that applies to the notifications this alarm sends when it performs its actions.
      */
     export interface CompositeAlarmActionConfiguration {
@@ -26627,11 +26839,11 @@ export namespace cloudwatch {
      */
     export interface SpaceEncryptionConfiguration {
         /**
-         * Whether the space is encrypted with an AWS owned key or a customer managed key.
+         * Which kind of key to use. Required.
          */
         encryptionStrategy: enums.cloudwatch.SpaceEncryptionConfigurationEncryptionStrategy;
         /**
-         * The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+         * Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
          */
         kmsKeyArn?: string;
     }
@@ -28724,6 +28936,16 @@ export namespace cognito {
         retryGracePeriodSeconds?: number;
     }
 
+    /**
+     * Managed login single sign-on session settings for the app client.
+     */
+    export interface UserPoolClientSessionConfigurationAttachmentSsoSession {
+        /**
+         * The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+         */
+        maxValidityMinutes: number;
+    }
+
     export interface UserPoolClientTokenValidityUnits {
         /**
          * A time unit for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is `hours` . `AccessTokenValidity` duration can range from five minutes to one day.
@@ -29239,6 +29461,16 @@ export namespace cognito {
          * Specifies the constraints for an attribute of the string type.
          */
         stringAttributeConstraints?: outputs.cognito.UserPoolStringAttributeConstraints;
+    }
+
+    /**
+     * Token session settings that apply to every app client in the user pool.
+     */
+    export interface UserPoolSessionConfigurationAttachmentTokenSession {
+        /**
+         * The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+         */
+        maxPerUser: number;
     }
 
     export interface UserPoolSignInPolicy {
@@ -30121,6 +30353,30 @@ export namespace configuration {
     }
 
     /**
+     * The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+     */
+    export interface ConformancePackScope {
+        /**
+         * The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+         */
+        tagKey: string;
+        /**
+         * The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+         */
+        tagValue?: string;
+    }
+
+    /**
+     * The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+     */
+    export interface ConformancePackSource {
+        /**
+         * The identifier specifying which managed conformance pack is being deployed.
+         */
+        sourceIdentifier: string;
+    }
+
+    /**
      * Configuration for connecting to Microsoft Azure.
      */
     export interface ConnectorAzureConnectorConfiguration {
@@ -30135,13 +30391,35 @@ export namespace configuration {
     }
 
     /**
-     * The configuration for the connector. Specify the third-party cloud provider configuration.
+     * The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
      */
     export interface ConnectorConfiguration {
         /**
          * The configuration for connecting to Microsoft Azure.
          */
         azure?: outputs.configuration.ConnectorAzureConnectorConfiguration;
+        /**
+         * The configuration for connecting to Google Cloud.
+         */
+        gcp?: outputs.configuration.ConnectorGcpConnectorConfiguration;
+    }
+
+    /**
+     * Configuration for connecting to Google Cloud.
+     */
+    export interface ConnectorGcpConnectorConfiguration {
+        /**
+         * The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+         */
+        gcpOrganizationId?: string;
+        /**
+         * The email address of the Google Cloud service account that AWS Config uses.
+         */
+        serviceAccountEmail: string;
+        /**
+         * The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+         */
+        workloadIdentityPoolProvider: string;
     }
 
     export interface DeliveryChannelConfigSnapshotDeliveryProperties {
@@ -30349,6 +30627,16 @@ export namespace connect {
          * Lists the fields that are required to be filled by agents.
          */
         requiredFields?: outputs.connect.TaskTemplateRequiredFieldInfo[];
+    }
+
+    /**
+     * The contact hooks for the task template.
+     */
+    export interface ContactHooksProperties {
+        /**
+         * The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+         */
+        wrapUpFlowArn?: string;
     }
 
     export interface DataTableRecordProperties {
@@ -31708,6 +31996,36 @@ export namespace connect {
          * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
          */
         userTags?: {[key: string]: string};
+    }
+
+    export interface RulePreEvaluationFilter {
+        /**
+         * The key of the filter.
+         */
+        filterKey: string;
+        /**
+         * The type of the filter.
+         */
+        filterType: enums.connect.RulePreEvaluationFilterFilterType;
+        /**
+         * The value of the filter.
+         */
+        filterValue: string;
+        /**
+         * The comparison operator for the filter.
+         */
+        operator: enums.connect.RulePreEvaluationFilterOperator;
+        /**
+         * The type of resource the filter applies to.
+         */
+        resourceType: enums.connect.RulePreEvaluationFilterResourceType;
+    }
+
+    export interface RulePreEvaluationFilters {
+        /**
+         * A list of filter conditions that are combined with AND logic.
+         */
+        andConditions?: outputs.connect.RulePreEvaluationFilter[];
     }
 
     /**
@@ -33104,6 +33422,49 @@ export namespace customerprofiles {
     }
 
     /**
+     * Defines how to filter the objects coming in for calculated attributes.
+     */
+    export interface CalculatedAttributeDefinitionFilter {
+        /**
+         * Holds the list of Filter groups within the Filter definition.
+         */
+        groups: outputs.customerprofiles.CalculatedAttributeDefinitionFilterGroup[];
+        include: enums.customerprofiles.CalculatedAttributeDefinitionFilterInclude;
+    }
+
+    /**
+     * Object that defines how to filter the incoming objects for the calculated attribute.
+     */
+    export interface CalculatedAttributeDefinitionFilterAttributeDimension {
+        dimensionType: enums.customerprofiles.CalculatedAttributeDefinitionFilterDimensionType;
+        /**
+         * The values to apply the DimensionType on.
+         */
+        values: string[];
+    }
+
+    /**
+     * Contains the map of attribute names to attribute dimensions.
+     */
+    export interface CalculatedAttributeDefinitionFilterDimension {
+        /**
+         * Is the attribute within the FilterDimension map
+         */
+        attributes: {[key: string]: outputs.customerprofiles.CalculatedAttributeDefinitionFilterAttributeDimension};
+    }
+
+    /**
+     * Object that holds the dimensions to filter on.
+     */
+    export interface CalculatedAttributeDefinitionFilterGroup {
+        /**
+         * Object that holds the attributes to filter on.
+         */
+        dimensions: outputs.customerprofiles.CalculatedAttributeDefinitionFilterDimension[];
+        type: enums.customerprofiles.CalculatedAttributeDefinitionFilterGroupType;
+    }
+
+    /**
      * The relative time period over which data is included in the aggregation.
      */
     export interface CalculatedAttributeDefinitionRange {
@@ -33118,7 +33479,7 @@ export namespace customerprofiles {
         /**
          * The unit of time.
          */
-        unit: enums.customerprofiles.CalculatedAttributeDefinitionRangeUnit;
+        unit?: enums.customerprofiles.CalculatedAttributeDefinitionRangeUnit;
         /**
          * The amount of time of the specified unit.
          */
@@ -36845,6 +37206,16 @@ export namespace datazone {
 
 }
 
+export namespace dax {
+    export interface ClusterSseSpecification {
+        /**
+         * Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
+         */
+        sseEnabled?: boolean;
+    }
+
+}
+
 export namespace deadline {
     /**
      * The budget action to add.
@@ -37350,6 +37721,16 @@ export namespace devopsagent {
     }
 
     /**
+     * Configuration of the code change risk analysis automated testing capability. This capability does not support trigger filter groups.
+     */
+    export interface AssociationAutomatedTestingCapabilityConfiguration {
+        /**
+         * Whether the capability is enabled for this association
+         */
+        enabled?: boolean;
+    }
+
+    /**
      * AWS association for 'monitor' account
      */
     export interface AssociationAwsConfiguration {
@@ -37402,6 +37783,34 @@ export namespace devopsagent {
     }
 
     /**
+     * Automated AWS DevOps Agent capabilities for the repository in this association. Code change risk analysis analyzes pull requests and merge requests for deployment risk, and automated testing extends that analysis by running tests against the change. Capabilities are supported for GitHub and GitLab associations. When this property is set, it fully defines both capabilities below: a capability omitted here is removed from the association. Removing this property from a template that previously set it disables both capabilities. Capabilities configured outside CloudFormation are left unchanged only while this property has never been set. On rollback, both capabilities are restored to the previous template's values, not to settings made outside CloudFormation. Other capabilities on the association are not affected. Updates read and rewrite the association's full capability set, so a capability change made outside CloudFormation while a stack update is in progress may be overwritten.
+     */
+    export interface AssociationCapabilities {
+        /**
+         * Configuration for code change risk analysis, in which AWS DevOps Agent automatically analyzes pull requests and merge requests for deployment risk.
+         */
+        codeChangeRiskAnalysis?: outputs.devopsagent.AssociationCapabilityConfiguration;
+        /**
+         * Configuration for code change risk analysis automated testing, in which AWS DevOps Agent also runs tests against the change during the analysis.
+         */
+        codeChangeRiskAnalysisAutomatedTesting?: outputs.devopsagent.AssociationAutomatedTestingCapabilityConfiguration;
+    }
+
+    /**
+     * Configuration of a single capability
+     */
+    export interface AssociationCapabilityConfiguration {
+        /**
+         * Whether the capability is enabled for this association
+         */
+        enabled?: boolean;
+        /**
+         * Filter groups controlling when the capability triggers automatically. The capability triggers when any group matches. When omitted, all applicable events trigger the capability. Retained while the capability is disabled.
+         */
+        triggerFilterGroups?: outputs.devopsagent.AssociationTriggerFilterGroup[];
+    }
+
+    /**
      * Dynatrace monitoring configuration
      */
     export interface AssociationDynatraceConfiguration {
@@ -37442,6 +37851,10 @@ export namespace devopsagent {
          */
         ownerType: enums.devopsagent.AssociationGitHubConfigurationOwnerType;
         /**
+         * The ID of the release management association that this repository uses for automated testing
+         */
+        releaseManagementAssociationId?: string;
+        /**
          * Associated Github repo ID
          */
         repoId: string;
@@ -37471,6 +37884,10 @@ export namespace devopsagent {
          * Full GitLab project path (e.g., namespace/project-name)
          */
         projectPath: string;
+        /**
+         * The ID of the release management association that this project uses for automated testing
+         */
+        releaseManagementAssociationId?: string;
     }
 
     /**
@@ -37602,6 +38019,13 @@ export namespace devopsagent {
     }
 
     /**
+     * Specifies how AWS DevOps Agent reaches your application using a release management environment. Exactly one access type must be specified.
+     */
+    export interface AssociationNetworkAccessConfiguration {
+        privateAccess?: outputs.devopsagent.AssociationPrivateNetworkAccess;
+    }
+
+    /**
      * PagerDuty integration configuration
      */
     export interface AssociationPagerDutyConfiguration {
@@ -37617,6 +38041,44 @@ export namespace devopsagent {
          * List of PagerDuty service IDs available for the association
          */
         services: string[];
+    }
+
+    /**
+     * A regex-based match condition. Passes when the value matches any pattern.
+     */
+    export interface AssociationPatternFilter {
+        /**
+         * Anchored full-match regex patterns, for example 'main' or 'release/.*'
+         */
+        patterns: string[];
+    }
+
+    /**
+     * Private network access to your application inside a VPC, reached through a private connection
+     */
+    export interface AssociationPrivateNetworkAccess {
+        /**
+         * Name of the private connection that supplies the VPC configuration for this release management environment
+         */
+        privateConnectionName: string;
+        /**
+         * Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC
+         */
+        runtimeRoleArn: string;
+    }
+
+    /**
+     * Configuration for a release management environment. A release management environment defines how AWS DevOps Agent reaches your application, and other associations reference it to run automatic verification testing against that application.
+     */
+    export interface AssociationReleaseManagementConfiguration {
+        /**
+         * The name for this release management environment
+         */
+        name: string;
+        /**
+         * Specifies how AWS DevOps Agent reaches your application using this release management environment
+         */
+        networkAccess: outputs.devopsagent.AssociationNetworkAccessConfiguration;
     }
 
     /**
@@ -37636,6 +38098,7 @@ export namespace devopsagent {
         mcpServerSigV4?: outputs.devopsagent.AssociationMcpServerSigV4Configuration;
         mcpServerSplunk?: outputs.devopsagent.AssociationMcpServerSplunkConfiguration;
         pagerDuty?: outputs.devopsagent.AssociationPagerDutyConfiguration;
+        releaseManagement?: outputs.devopsagent.AssociationReleaseManagementConfiguration;
         serviceNow?: outputs.devopsagent.AssociationServiceNowConfiguration;
         slack?: outputs.devopsagent.AssociationSlackConfiguration;
         sourceAws?: outputs.devopsagent.AssociationSourceAwsConfiguration;
@@ -37731,6 +38194,20 @@ export namespace devopsagent {
         assumableRoleArn: string;
         resources?: outputs.devopsagent.AssociationAwsResource[];
         tags?: outputs.devopsagent.AssociationKeyValuePair[];
+    }
+
+    /**
+     * A group of trigger conditions. The group matches when all present conditions pass. At least one condition must be present.
+     */
+    export interface AssociationTriggerFilterGroup {
+        /**
+         * Passes when the webhook event is one of the listed events
+         */
+        events?: enums.devopsagent.AssociationTriggerFilterGroupEventsItem[];
+        /**
+         * Passes when the change request target branch matches
+         */
+        targetBranches?: outputs.devopsagent.AssociationPatternFilter;
     }
 
     /**
@@ -40487,6 +40964,14 @@ export namespace dms {
         certificateArn?: string;
         databaseName: string;
         port: number;
+        /**
+         * The ARN for the role the application uses to access its Amazon S3 bucket.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+         */
+        s3Path?: string;
         secretsManagerOracleAsmAccessRoleArn?: string;
         secretsManagerOracleAsmSecretId?: string;
         secretsManagerSecurityDbEncryptionAccessRoleArn?: string;
@@ -40572,6 +41057,16 @@ export namespace drs {
 }
 
 export namespace dsql {
+    /**
+     * An Advanced monitoring metric group.
+     */
+    export interface ClusterMetricGroup {
+        /**
+         * The name of the metric group. Valid values: STATEMENT_STATISTICS.
+         */
+        metricGroup: enums.dsql.ClusterMetricGroupMetricGroup;
+    }
+
     /**
      * The encryption configuration details for the cluster.
      */
@@ -41520,6 +42015,175 @@ export namespace ec2 {
          * The tags to apply to the resource.
          */
         tags?: outputs.ec2.CapacityReservationTag[];
+    }
+
+    export interface ClientVpnEndpointAuthorizationPolicy {
+        /**
+         * A brief description of the authorization policy.
+         */
+        description?: string;
+        /**
+         * The Cedar policy document.
+         */
+        policyDocument: string;
+        /**
+         * Whether the authorization policy runs in shadow (observe-only) mode.
+         */
+        shadowMode?: string;
+    }
+
+    export interface ClientVpnEndpointCertificateAuthenticationRequest {
+        /**
+         * The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+         */
+        clientRootCertificateChainArn: string;
+    }
+
+    export interface ClientVpnEndpointClientAuthenticationRequest {
+        /**
+         * Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+         */
+        activeDirectory?: outputs.ec2.ClientVpnEndpointDirectoryServiceAuthenticationRequest;
+        /**
+         * Information about the IAM SAML identity provider, if applicable.
+         */
+        federatedAuthentication?: outputs.ec2.ClientVpnEndpointFederatedAuthenticationRequest;
+        /**
+         * Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+         */
+        mutualAuthentication?: outputs.ec2.ClientVpnEndpointCertificateAuthenticationRequest;
+        /**
+         * The type of client authentication to be used.
+         */
+        type: string;
+    }
+
+    export interface ClientVpnEndpointClientConnectOptions {
+        /**
+         * Indicates whether client connect options are enabled. The default is `false` (not enabled).
+         */
+        enabled: boolean;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+         */
+        lambdaFunctionArn?: string;
+    }
+
+    export interface ClientVpnEndpointClientLoginBannerOptions {
+        /**
+         * Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+         */
+        bannerText?: string;
+        /**
+         * Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+         *
+         * Valid values: `true | false`
+         *
+         * Default value: `false`
+         */
+        enabled: boolean;
+    }
+
+    export interface ClientVpnEndpointClientRouteEnforcementOptions {
+        /**
+         * Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+         *
+         * Valid values: `true | false`
+         *
+         * Default value: `false`
+         */
+        enforced?: boolean;
+    }
+
+    export interface ClientVpnEndpointConnectionLogOptions {
+        /**
+         * The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+         */
+        cloudwatchLogGroup?: string;
+        /**
+         * The name of the CloudWatch Logs log stream to which the connection data is published.
+         */
+        cloudwatchLogStream?: string;
+        /**
+         * Indicates whether connection logging is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Indicates whether authorization-policy evaluation context is included in the connection logs.
+         */
+        includeAuthorizationPolicyContext?: boolean;
+    }
+
+    export interface ClientVpnEndpointDevicePostureOptions {
+        /**
+         * Whether device posture is enabled for the Client VPN endpoint.
+         */
+        enabled: boolean;
+        /**
+         * The device-posture trust providers.
+         */
+        trustProviders: outputs.ec2.ClientVpnEndpointDevicePostureTrustProvider[];
+    }
+
+    export interface ClientVpnEndpointDevicePostureTrustProvider {
+        /**
+         * The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+         */
+        publicSigningKeyUrl?: string;
+        /**
+         * The tenant identifier registered with the trust provider.
+         */
+        tenantId: string;
+        /**
+         * The device-posture trust provider type.
+         */
+        trustProviderType: string;
+    }
+
+    export interface ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+        /**
+         * The ID of the Active Directory to be used for authentication.
+         */
+        directoryId: string;
+    }
+
+    export interface ClientVpnEndpointFederatedAuthenticationRequest {
+        /**
+         * The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+         */
+        samlProviderArn: string;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+         */
+        selfServiceSamlProviderArn?: string;
+    }
+
+    export interface ClientVpnEndpointTag {
+        /**
+         * The tag key.
+         */
+        key: string;
+        /**
+         * The tag value.
+         */
+        value: string;
+    }
+
+    export interface ClientVpnEndpointTagSpecification {
+        /**
+         * The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+         */
+        resourceType: string;
+        /**
+         * The tags to apply to the resource.
+         */
+        tags: outputs.ec2.ClientVpnEndpointTag[];
+    }
+
+    export interface ClientVpnEndpointTransitGatewayConfiguration {
+        availabilityZoneIds?: string[];
+        availabilityZones?: string[];
+        transitGatewayId: string;
     }
 
     export interface CommitmentInfoProperties {
@@ -42473,6 +43137,61 @@ export namespace ec2 {
          * If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
          */
         enabled?: boolean;
+    }
+
+    /**
+     * A single CIDR range to label mapping.
+     */
+    export interface FcaPolicyCidrMapping {
+        /**
+         * The label for the CIDR range.
+         */
+        cidrLabel: string;
+        /**
+         * The CIDR range.
+         */
+        cidrRange: string;
+    }
+
+    /**
+     * CIDR range specifications, used when the reporting granularity is 'cidr'.
+     */
+    export interface FcaPolicyCidrRangeSpecifications {
+        /**
+         * The CIDR range to label mappings.
+         */
+        prefixes: outputs.ec2.FcaPolicyCidrMapping[];
+        /**
+         * The type of prefixes the mappings apply to.
+         */
+        prefixesType: string;
+    }
+
+    /**
+     * The FCA policy document for EC2 instance cost allocation.
+     */
+    export interface FcaPolicyInstanceFcaPolicyDocument {
+        cidrRangeSpecifications?: outputs.ec2.FcaPolicyCidrRangeSpecifications;
+        dimensions: enums.ec2.FcaPolicyDimensionListItem[];
+        reportingGranularity: enums.ec2.FcaPolicyReportingGranularityListItem[];
+    }
+
+    /**
+     * The FCA policy document for NAT gateway cost allocation.
+     */
+    export interface FcaPolicyNatFcaPolicyDocument {
+        cidrRangeSpecifications?: outputs.ec2.FcaPolicyCidrRangeSpecifications;
+        dimensions: enums.ec2.FcaPolicyDimensionListItem[];
+        reportingGranularity: enums.ec2.FcaPolicyReportingGranularityListItem[];
+    }
+
+    /**
+     * The FCA policy document for VPC peering connection cost allocation.
+     */
+    export interface FcaPolicyPcxFcaPolicyDocument {
+        cidrRangeSpecifications?: outputs.ec2.FcaPolicyCidrRangeSpecifications;
+        dimensions: enums.ec2.FcaPolicyDimensionListItem[];
+        reportingGranularity: enums.ec2.FcaPolicyReportingGranularityListItem[];
     }
 
     export interface FlowLogTagFieldSpecification {
@@ -46183,6 +46902,17 @@ export namespace ec2 {
         transitGatewayAsn?: number;
     }
 
+    export interface TransitGatewayPeeringAttachmentOptions {
+        /**
+         * Whether to enable MultipathResilience on this side of the peering attachment.
+         */
+        allowMultipathResilience?: boolean;
+        /**
+         * The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+         */
+        multipathResilienceMode?: enums.ec2.TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode;
+    }
+
     export interface TransitGatewayPeeringAttachmentPeeringAttachmentStatus {
         /**
          * The status code.
@@ -46704,6 +47434,21 @@ export namespace ec2 {
         value?: string;
     }
 
+    export interface VpcPeeringConnectionOptions {
+        /**
+         * If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         */
+        allowDnsResolutionFromRemoteVpc?: boolean;
+        /**
+         * If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+         */
+        allowMultipathResilience?: boolean;
+        /**
+         * The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+         */
+        multipathResilienceMode?: enums.ec2.VpcPeeringConnectionOptionsMultipathResilienceMode;
+    }
+
     /**
      * Options for sending VPN tunnel logs to CloudWatch.
      */
@@ -46978,6 +47723,13 @@ export namespace ecr {
         rules: outputs.ecr.ReplicationConfigurationReplicationRule[];
     }
 
+    export interface ReplicationConfigurationDeleteReplication {
+        /**
+         * Whether image deletions and image tag removals in the source registry are replicated to the replication destinations.
+         */
+        enabled: boolean;
+    }
+
     /**
      * An array of objects representing the destination for a replication rule.
      */
@@ -46996,6 +47748,7 @@ export namespace ecr {
      * An array of objects representing the replication destinations and repository filters for a replication configuration.
      */
     export interface ReplicationConfigurationReplicationRule {
+        deleteReplication?: outputs.ecr.ReplicationConfigurationDeleteReplication;
         /**
          * An array of objects representing the destination for a replication rule.
          */
@@ -47261,6 +48014,7 @@ export namespace ecs {
          * The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
          */
         networkConfiguration: outputs.ecs.CapacityProviderManagedInstancesNetworkConfiguration;
+        nitroEnclavesEnabled?: boolean;
         /**
          * The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
          */
@@ -48107,6 +48861,10 @@ export namespace ecs {
         secretOptions?: outputs.ecs.DaemonTaskDefinitionSecret[];
     }
 
+    export interface DaemonTaskDefinitionLogDriverVolumeConfiguration {
+        driver: string;
+    }
+
     /**
      * The details for a volume mount point that's used in a container definition.
      */
@@ -48237,6 +48995,7 @@ export namespace ecs {
          *  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
          */
         host?: outputs.ecs.DaemonTaskDefinitionHostVolumeProperties;
+        logDriverVolumeConfiguration?: outputs.ecs.DaemonTaskDefinitionLogDriverVolumeConfiguration;
         /**
          * The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
          *  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
@@ -49094,9 +49853,14 @@ export namespace ecs {
     }
 
     export interface ServiceGatewayConnector {
+        deregistrationDelay?: outputs.ecs.ServiceGatewayConnectorDeregistrationDelay;
         filters?: outputs.ecs.ServiceGatewayConnectorFilters;
         healthCheck?: outputs.ecs.ServiceGatewayConnectorHealthCheck;
         portName: string;
+    }
+
+    export interface ServiceGatewayConnectorDeregistrationDelay {
+        timeoutSeconds?: number;
     }
 
     export interface ServiceGatewayConnectorFilters {
@@ -50444,6 +51208,17 @@ export namespace ecs {
         size: number;
     }
 
+    export interface TaskDefinitionTrustedExecutionConfiguration {
+        /**
+         * A base64-encoded attestation policy that verifies the workload before the task runs. Only valid when IsolationMode is CONFIDENTIAL_SANDBOX.
+         */
+        attestationPolicy?: string;
+        /**
+         * The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+         */
+        isolationMode: enums.ecs.TaskDefinitionTrustedExecutionConfigurationIsolationMode;
+    }
+
     /**
      * The ``ulimit`` settings to pass to the container.
      *  Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``65535`` and the default hard limit is ``65535``.
@@ -50995,11 +51770,11 @@ export namespace eks {
     }
 
     /**
-     * Todo: add description
+     * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
      */
     export interface ClusterBlockStorage {
         /**
-         * Todo: add description
+         * Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
          */
         enabled?: boolean;
     }
@@ -51016,19 +51791,19 @@ export namespace eks {
     }
 
     /**
-     * Todo: add description
+     * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
      */
     export interface ClusterComputeConfig {
         /**
-         * Todo: add description
+         * Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
          */
         enabled?: boolean;
         /**
-         * Todo: add description
+         * Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
          */
         nodePools?: string[];
         /**
-         * Todo: add description
+         * The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
          */
         nodeRoleArn?: string;
     }
@@ -51058,11 +51833,11 @@ export namespace eks {
     }
 
     /**
-     * Todo: add description
+     * Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.
      */
     export interface ClusterElasticLoadBalancing {
         /**
-         * Todo: add description
+         * Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
          */
         enabled?: boolean;
         /**
@@ -51156,7 +51931,7 @@ export namespace eks {
      */
     export interface ClusterKubernetesNetworkConfig {
         /**
-         * Todo: add description
+         * Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
          */
         elasticLoadBalancing?: outputs.eks.ClusterElasticLoadBalancing;
         /**
@@ -51362,11 +52137,11 @@ export namespace eks {
     }
 
     /**
-     * Todo: add description
+     * Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.
      */
     export interface ClusterStorageConfig {
         /**
-         * Todo: add description
+         * Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
          */
         blockStorage?: outputs.eks.ClusterBlockStorage;
     }
@@ -51656,6 +52431,24 @@ export namespace eks {
          * Whether to return instances to the warm pool during scale-in instead of terminating them.
          */
         reuseOnScaleIn?: boolean;
+    }
+
+    /**
+     * The workload identity configuration of the pod identity association. When enabled, the association also provisions a SPIFFE identity for the workload. Setting Enabled to false disables workload identity and keeps the ARNs. Removing the property from the template leaves the association unchanged; set Enabled to false to disable workload identity.
+     */
+    export interface PodIdentityAssociationWorkloadIdentityConfig {
+        /**
+         * Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.
+         */
+        enabled: boolean;
+        /**
+         * The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.
+         */
+        providerArn?: string;
+        /**
+         * The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.
+         */
+        templateArn?: string;
     }
 
 }
@@ -53317,6 +54110,210 @@ export namespace elasticloadbalancingv2 {
 
 }
 
+export namespace elasticsearch {
+    export interface DomainAdvancedSecurityOptionsInput {
+        anonymousAuthEnabled?: boolean;
+        /**
+         * True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption.
+         */
+        enabled?: boolean;
+        /**
+         * True to enable the internal user database.
+         */
+        internalUserDatabaseEnabled?: boolean;
+        /**
+         * Specifies information about the master user.
+         */
+        masterUserOptions?: outputs.elasticsearch.DomainMasterUserOptions;
+    }
+
+    export interface DomainCognitoOptions {
+        /**
+         * Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
+         */
+        enabled?: boolean;
+        /**
+         * The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication. Required if you enable Cognito authentication.
+         */
+        identityPoolId?: string;
+        /**
+         * The `AmazonESCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool. Required if you enable Cognito authentication.
+         */
+        roleArn?: string;
+        /**
+         * The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication. Required if you enable Cognito authentication.
+         */
+        userPoolId?: string;
+    }
+
+    export interface DomainColdStorageOptions {
+        /**
+         * Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage in order to enable cold storage.
+         */
+        enabled?: boolean;
+    }
+
+    export interface DomainEbsOptions {
+        /**
+         * Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
+         */
+        ebsEnabled?: boolean;
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports. This property applies only to provisioned IOPS EBS volume types.
+         */
+        iops?: number;
+        /**
+         * The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
+         */
+        volumeSize?: number;
+        /**
+         * The EBS volume type to use with the OpenSearch Service domain, such as standard, gp2, or io1. For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
+         */
+        volumeType?: string;
+    }
+
+    export interface DomainElasticsearchClusterConfig {
+        /**
+         * Specifies cold storage options for the domain.
+         */
+        coldStorageOptions?: outputs.elasticsearch.DomainColdStorageOptions;
+        /**
+         * The number of instances to use for the master node. If you specify this property, you must specify true for the DedicatedMasterEnabled property.
+         */
+        dedicatedMasterCount?: number;
+        /**
+         * Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
+         */
+        dedicatedMasterEnabled?: boolean;
+        /**
+         * The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.elasticsearch` . If you specify this property, you must specify true for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+         */
+        dedicatedMasterType?: string;
+        /**
+         * The number of data nodes (instances) to use in the OpenSearch Service domain.
+         */
+        instanceCount?: number;
+        /**
+         * The instance type for your data nodes, such as `m3.medium.elasticsearch` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+         */
+        instanceType?: string;
+        /**
+         * The number of warm nodes in the cluster. Required if you enable warm storage.
+         */
+        warmCount?: number;
+        /**
+         * Whether to enable warm storage for the cluster.
+         */
+        warmEnabled?: boolean;
+        /**
+         * The instance type for the cluster's warm nodes. Required if you enable warm storage.
+         */
+        warmType?: string;
+        /**
+         * Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
+         */
+        zoneAwarenessConfig?: outputs.elasticsearch.DomainZoneAwarenessConfig;
+        /**
+         * Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
+         */
+        zoneAwarenessEnabled?: boolean;
+    }
+
+    export interface DomainEncryptionAtRestOptions {
+        /**
+         * Specify `true` to enable encryption at rest.
+         */
+        enabled?: boolean;
+        /**
+         * The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
+         */
+        kmsKeyId?: string;
+    }
+
+    export interface DomainEndpointOptions {
+        /**
+         * The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
+         */
+        customEndpoint?: string;
+        /**
+         * The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+         */
+        customEndpointCertificateArn?: string;
+        /**
+         * True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
+         */
+        customEndpointEnabled?: boolean;
+        /**
+         * True to require that all traffic to the domain arrive over HTTPS.
+         */
+        enforceHttps?: boolean;
+        /**
+         * The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+         *
+         * - `Policy-Min-TLS-1-0-2019-07`
+         * - `Policy-Min-TLS-1-2-2019-07`
+         */
+        tlsSecurityPolicy?: string;
+    }
+
+    export interface DomainLogPublishingOption {
+        cloudWatchLogsLogGroupArn?: string;
+        enabled?: boolean;
+    }
+
+    export interface DomainMasterUserOptions {
+        /**
+         * ARN for the master user. Only specify if `InternalUserDatabaseEnabled` is false in `AdvancedSecurityOptions` .
+         */
+        masterUserArn?: string;
+        /**
+         * Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
+         */
+        masterUserName?: string;
+        /**
+         * Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
+         */
+        masterUserPassword?: string;
+    }
+
+    export interface DomainNodeToNodeEncryptionOptions {
+        /**
+         * Specifies whether node-to-node encryption is enabled, as a Boolean.
+         */
+        enabled?: boolean;
+    }
+
+    export interface DomainSnapshotOptions {
+        /**
+         * The hour in UTC during which the service takes an automated daily snapshot of the indices in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
+         */
+        automatedSnapshotStartHour?: number;
+    }
+
+    export interface DomainVpcOptions {
+        /**
+         * The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+         */
+        securityGroupIds?: string[];
+        /**
+         * Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three Availability Zone domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+         *
+         * Required if you're creating your domain inside a VPC.
+         */
+        subnetIds?: string[];
+    }
+
+    export interface DomainZoneAwarenessConfig {
+        /**
+         * If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+         *
+         * Valid values are `2` and `3` . Default is 2.
+         */
+        availabilityZoneCount?: number;
+    }
+
+}
+
 export namespace elementalinference {
     export interface FeedAspectRatio {
         height: number;
@@ -53376,6 +54373,670 @@ export namespace elementalinference {
 }
 
 export namespace emr {
+    export interface ClusterApplication {
+        /**
+         * This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
+         */
+        additionalInfo?: {[key: string]: string};
+        /**
+         * Arguments for Amazon EMR to pass to the application
+         */
+        args?: string[];
+        /**
+         * The name of the application.
+         */
+        name?: string;
+        /**
+         * The version of the application.
+         */
+        version?: string;
+    }
+
+    export interface ClusterAutoScalingPolicy {
+        /**
+         * The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+         */
+        constraints: outputs.emr.ClusterScalingConstraints;
+        /**
+         * The scale-in and scale-out rules that comprise the automatic scaling policy.
+         */
+        rules: outputs.emr.ClusterScalingRule[];
+    }
+
+    export interface ClusterAutoTerminationPolicy {
+        /**
+         * Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days)
+         */
+        idleTimeout?: number;
+    }
+
+    export interface ClusterBootstrapActionConfig {
+        /**
+         * The name of the bootstrap action.
+         */
+        name: string;
+        /**
+         * The script run by the bootstrap action.
+         */
+        scriptBootstrapAction: outputs.emr.ClusterScriptBootstrapActionConfig;
+    }
+
+    export interface ClusterCloudWatchAlarmDefinition {
+        /**
+         * Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+         */
+        comparisonOperator: enums.emr.ClusterCloudWatchAlarmDefinitionComparisonOperator;
+        /**
+         * A CloudWatch metric dimension.
+         */
+        dimensions?: outputs.emr.ClusterMetricDimension[];
+        /**
+         * The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is 1.
+         */
+        evaluationPeriods?: number;
+        /**
+         * The name of the CloudWatch metric that is watched to determine an alarm condition.
+         */
+        metricName: string;
+        /**
+         * The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce.
+         */
+        namespace?: string;
+        /**
+         * The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify 300.
+         */
+        period: number;
+        /**
+         * The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+         */
+        statistic?: enums.emr.ClusterCloudWatchAlarmDefinitionStatistic;
+        /**
+         * The value against which the specified statistic is compared.
+         */
+        threshold: number;
+        /**
+         * The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+         */
+        unit?: enums.emr.ClusterCloudWatchAlarmDefinitionUnit;
+    }
+
+    /**
+     * Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.
+     */
+    export interface ClusterCloudWatchLogConfiguration {
+        /**
+         * Specifies if CloudWatch logging is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The ARN of the encryption key used to encrypt the logs.
+         */
+        encryptionKeyArn?: string;
+        /**
+         * The name of the CloudWatch log group where logs are published.
+         */
+        logGroupName?: string;
+        /**
+         * The prefix of the log stream name.
+         */
+        logStreamNamePrefix?: string;
+        /**
+         * A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.
+         */
+        logTypes?: {[key: string]: string[]};
+    }
+
+    export interface ClusterComputeLimits {
+        /**
+         *  The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+         */
+        maximumCapacityUnits: number;
+        /**
+         * The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+         */
+        maximumCoreCapacityUnits?: number;
+        /**
+         *  The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+         */
+        maximumOnDemandCapacityUnits?: number;
+        /**
+         * The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+         */
+        minimumCapacityUnits: number;
+        /**
+         * The unit type used for specifying a managed scaling policy.
+         */
+        unitType: enums.emr.ClusterComputeLimitsUnitType;
+    }
+
+    export interface ClusterEbsBlockDeviceConfig {
+        /**
+         * EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+         */
+        volumeSpecification: outputs.emr.ClusterVolumeSpecification;
+        /**
+         * Number of EBS volumes with a specific volume configuration that are associated with every instance in the instance group. Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume,replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification.Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+         */
+        volumesPerInstance?: number;
+    }
+
+    export interface ClusterEbsConfiguration {
+        /**
+         * An array of Amazon EBS volume specifications attached to a cluster instance.
+         */
+        ebsBlockDeviceConfigs?: outputs.emr.ClusterEbsBlockDeviceConfig[];
+        /**
+         * Indicates whether an Amazon EBS volume is EBS-optimized.
+         */
+        ebsOptimized?: boolean;
+    }
+
+    export interface ClusterEmrConfiguration {
+        /**
+         * The classification within a configuration.
+         */
+        classification?: string;
+        configurationProperties?: {[key: string]: string};
+        configurations?: outputs.emr.ClusterEmrConfiguration[];
+    }
+
+    export interface ClusterHadoopJarStepConfig {
+        /**
+         * A list of command line arguments passed to the JAR file's main function when executed.
+         */
+        args?: string[];
+        /**
+         * A path to a JAR file run during the step.
+         */
+        jar: string;
+        /**
+         * The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+         */
+        mainClass?: string;
+        /**
+         * A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+         */
+        stepProperties?: outputs.emr.ClusterKeyValue[];
+    }
+
+    export interface ClusterInstanceFleetConfig {
+        /**
+         * The instance type configurations that define the Amazon EC2 instances in the instance fleet.
+         */
+        instanceTypeConfigs?: outputs.emr.ClusterInstanceTypeConfig[];
+        /**
+         * The launch specification for the instance fleet.
+         */
+        launchSpecifications?: outputs.emr.ClusterInstanceFleetProvisioningSpecifications;
+        /**
+         * The friendly name of the instance fleet.
+         */
+        name?: string;
+        /**
+         * The resize specification for the instance fleet.
+         */
+        resizeSpecifications?: outputs.emr.ClusterInstanceFleetResizingSpecifications;
+        /**
+         * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision
+         */
+        targetOnDemandCapacity?: number;
+        /**
+         * The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision.
+         */
+        targetSpotCapacity?: number;
+    }
+
+    export interface ClusterInstanceFleetProvisioningSpecifications {
+        /**
+         * The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy and capacity reservation options.
+         *
+         * > The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+         */
+        onDemandSpecification?: outputs.emr.ClusterOnDemandProvisioningSpecification;
+        /**
+         * The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined duration, and provisioning timeout behavior.
+         */
+        spotSpecification?: outputs.emr.ClusterSpotProvisioningSpecification;
+    }
+
+    export interface ClusterInstanceFleetResizingSpecifications {
+        /**
+         * The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+         */
+        onDemandResizeSpecification?: outputs.emr.ClusterOnDemandResizingSpecification;
+        /**
+         * The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+         */
+        spotResizeSpecification?: outputs.emr.ClusterSpotResizingSpecification;
+    }
+
+    export interface ClusterInstanceGroupConfig {
+        /**
+         * An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.
+         */
+        autoScalingPolicy?: outputs.emr.ClusterAutoScalingPolicy;
+        /**
+         * If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.
+         */
+        bidPrice?: string;
+        /**
+         * The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+         */
+        configurations?: outputs.emr.ClusterEmrConfiguration[];
+        /**
+         * The custom AMI ID to use for the provisioned instance group.
+         */
+        customAmiId?: string;
+        /**
+         * EBS configurations that will be attached to each EC2 instance in the instance group.
+         */
+        ebsConfiguration?: outputs.emr.ClusterEbsConfiguration;
+        /**
+         * Target number of instances for the instance group.
+         */
+        instanceCount: number;
+        /**
+         * The EC2 instance type for all instances in the instance group.
+         */
+        instanceType: string;
+        /**
+         * Market type of the EC2 instances used to create a cluster node.
+         */
+        market?: enums.emr.ClusterInstanceGroupConfigMarket;
+        /**
+         * Friendly name given to the instance group.
+         */
+        name?: string;
+    }
+
+    export interface ClusterInstanceTypeConfig {
+        /**
+         * The bid price for each EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+         */
+        bidPrice?: string;
+        /**
+         * The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+         */
+        bidPriceAsPercentageOfOnDemandPrice?: number;
+        /**
+         * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+         */
+        configurations?: outputs.emr.ClusterEmrConfiguration[];
+        /**
+         * The custom AMI ID to use for the instance type.
+         */
+        customAmiId?: string;
+        /**
+         * The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+         */
+        ebsConfiguration?: outputs.emr.ClusterEbsConfiguration;
+        /**
+         * An EC2 instance type, such as m3.xlarge.
+         */
+        instanceType: string;
+        /**
+         * The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type. Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+         */
+        priority?: number;
+        /**
+         * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+         */
+        weightedCapacity?: number;
+    }
+
+    export interface ClusterJobFlowInstancesConfig {
+        /**
+         * A list of additional Amazon EC2 security group IDs for the master node.
+         */
+        additionalMasterSecurityGroups?: string[];
+        /**
+         * A list of additional Amazon EC2 security group IDs for the core and task nodes.
+         */
+        additionalSlaveSecurityGroups?: string[];
+        /**
+         * Describes the EC2 instances and instance configurations for the core instance fleet when using clusters with the instance fleet configuration.
+         */
+        coreInstanceFleet?: outputs.emr.ClusterInstanceFleetConfig;
+        /**
+         * Configuration for the instance groups in a cluster.
+         */
+        coreInstanceGroup?: outputs.emr.ClusterInstanceGroupConfig;
+        /**
+         * The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called 'hadoop'.
+         */
+        ec2KeyName?: string;
+        /**
+         * Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+         */
+        ec2SubnetId?: string;
+        /**
+         * Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+         */
+        ec2SubnetIds?: string[];
+        /**
+         * The identifier of the Amazon EC2 security group for the master node. If you specify EmrManagedMasterSecurityGroup, you must also specify EmrManagedSlaveSecurityGroup.
+         */
+        emrManagedMasterSecurityGroup?: string;
+        /**
+         * The identifier of the Amazon EC2 security group for the core and task nodes. If you specify EmrManagedSlaveSecurityGroup, you must also specify EmrManagedMasterSecurityGroup.
+         */
+        emrManagedSlaveSecurityGroup?: string;
+        /**
+         * Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+         */
+        hadoopVersion?: string;
+        /**
+         * Specifies whether the cluster should remain available after completing all steps. Defaults to true. For more information about configuring cluster termination, see Control Cluster Termination in the EMR Management Guide.
+         */
+        keepJobFlowAliveWhenNoSteps?: boolean;
+        /**
+         * Describes the EC2 instances and instance configurations for the master instance fleet when using clusters with the instance fleet configuration.
+         */
+        masterInstanceFleet?: outputs.emr.ClusterInstanceFleetConfig;
+        /**
+         * Configuration for the instance groups in a cluster.
+         */
+        masterInstanceGroup?: outputs.emr.ClusterInstanceGroupConfig;
+        /**
+         * The Availability Zone in which the cluster runs.
+         */
+        placement?: outputs.emr.ClusterPlacementType;
+        /**
+         * The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+         */
+        serviceAccessSecurityGroup?: string;
+        /**
+         * Describes the EC2 instances and instance configurations for the task instance fleets when using clusters with the instance fleet configuration. These task instance fleets are added to the cluster as part of the cluster launch. Each task instance fleet must have a unique name specified so that CloudFormation can differentiate between the task instance fleets.
+         *
+         * > You can currently specify only one task instance fleet for a cluster. After creating the cluster, you can only modify the mutable properties of `InstanceFleetConfig` , which are `TargetOnDemandCapacity` and `TargetSpotCapacity` . Modifying any other property results in cluster replacement. > To allow a maximum of 30 Amazon EC2 instance types per fleet, include `TaskInstanceFleets` when you create your cluster. If you create your cluster without `TaskInstanceFleets` , Amazon EMR uses its default allocation strategy, which allows for a maximum of five Amazon EC2 instance types.
+         */
+        taskInstanceFleets?: outputs.emr.ClusterInstanceFleetConfig[];
+        /**
+         * Configuration for the instance groups in a cluster.
+         */
+        taskInstanceGroups?: outputs.emr.ClusterInstanceGroupConfig[];
+        /**
+         * Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+         */
+        terminationProtected?: boolean;
+        /**
+         * Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+         */
+        unhealthyNodeReplacement?: boolean;
+    }
+
+    export interface ClusterKerberosAttributes {
+        /**
+         * The Active Directory password for ADDomainJoinUser.
+         */
+        adDomainJoinPassword?: string;
+        /**
+         * Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+         */
+        adDomainJoinUser?: string;
+        /**
+         * Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+         */
+        crossRealmTrustPrincipalPassword?: string;
+        /**
+         * The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+         */
+        kdcAdminPassword: string;
+        /**
+         * The name of the Kerberos realm to which all nodes in a cluster belong. For example, EC2.INTERNAL.
+         */
+        realm: string;
+    }
+
+    export interface ClusterKeyValue {
+        /**
+         * The unique identifier of a key-value pair.
+         */
+        key?: string;
+        /**
+         * The value part of the identified key.
+         */
+        value?: string;
+    }
+
+    export interface ClusterManagedScalingPolicy {
+        /**
+         * The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+         */
+        computeLimits?: outputs.emr.ClusterComputeLimits;
+        /**
+         * Determines whether a custom scaling utilization performance index can be set. Possible values include *ADVANCED* or *DEFAULT* .
+         */
+        scalingStrategy?: string;
+        /**
+         * An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
+         */
+        utilizationPerformanceIndex?: number;
+    }
+
+    export interface ClusterMetricDimension {
+        /**
+         * The dimension name.
+         */
+        key: string;
+        /**
+         * The dimension value.
+         */
+        value: string;
+    }
+
+    /**
+     * Contains CloudWatch log configuration metadata and settings.
+     */
+    export interface ClusterMonitoringConfiguration {
+        cloudWatchLogConfiguration?: outputs.emr.ClusterCloudWatchLogConfiguration;
+    }
+
+    export interface ClusterOnDemandCapacityReservationOptions {
+        /**
+         * Supported values: none, open
+         */
+        capacityReservationPreference?: string;
+        /**
+         * The ARN of the Capacity Reservation resource group in which to run the instance.
+         */
+        capacityReservationResourceGroupArn?: string;
+        /**
+         * Supported values: use-capacity-reservations-first
+         */
+        usageStrategy?: string;
+    }
+
+    export interface ClusterOnDemandProvisioningSpecification {
+        /**
+         * Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+         */
+        allocationStrategy: string;
+        /**
+         * The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+         */
+        capacityReservationOptions?: outputs.emr.ClusterOnDemandCapacityReservationOptions;
+    }
+
+    export interface ClusterOnDemandResizingSpecification {
+        /**
+         * Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is `lowest-price` .
+         */
+        allocationStrategy?: string;
+        capacityReservationOptions?: outputs.emr.ClusterOnDemandCapacityReservationOptions;
+        /**
+         * On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+         */
+        timeoutDurationMinutes?: number;
+    }
+
+    export interface ClusterPlacementGroupConfig {
+        /**
+         * Role of the instance in the cluster.
+         */
+        instanceRole: enums.emr.ClusterPlacementGroupConfigInstanceRole;
+        /**
+         * Amazon EC2 Placement Group strategy associated with instance role.
+         */
+        placementStrategy?: enums.emr.ClusterPlacementGroupConfigPlacementStrategy;
+    }
+
+    export interface ClusterPlacementType {
+        /**
+         * The Amazon EC2 Availability Zone for the cluster. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.
+         */
+        availabilityZone: string;
+    }
+
+    export interface ClusterScalingAction {
+        /**
+         * Not available for instance groups. Instance groups use the market type specified for the group.
+         */
+        market?: enums.emr.ClusterScalingActionMarket;
+        /**
+         * The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+         */
+        simpleScalingPolicyConfiguration: outputs.emr.ClusterSimpleScalingPolicyConfiguration;
+    }
+
+    export interface ClusterScalingConstraints {
+        /**
+         * The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+         */
+        maxCapacity: number;
+        /**
+         * The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+         */
+        minCapacity: number;
+    }
+
+    export interface ClusterScalingRule {
+        /**
+         * The conditions that trigger an automatic scaling activity.
+         */
+        action: outputs.emr.ClusterScalingAction;
+        /**
+         * A friendly, more verbose description of the automatic scaling rule.
+         */
+        description?: string;
+        /**
+         * The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+         */
+        name: string;
+        /**
+         * The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+         */
+        trigger: outputs.emr.ClusterScalingTrigger;
+    }
+
+    export interface ClusterScalingTrigger {
+        /**
+         * The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+         */
+        cloudWatchAlarmDefinition: outputs.emr.ClusterCloudWatchAlarmDefinition;
+    }
+
+    export interface ClusterScriptBootstrapActionConfig {
+        /**
+         * A list of command line arguments to pass to the bootstrap action script.
+         */
+        args?: string[];
+        /**
+         * Location in Amazon S3 of the script to run during a bootstrap action.
+         */
+        path: string;
+    }
+
+    export interface ClusterSimpleScalingPolicyConfiguration {
+        /**
+         * The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+         */
+        adjustmentType?: enums.emr.ClusterSimpleScalingPolicyConfigurationAdjustmentType;
+        /**
+         * The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+         */
+        coolDown?: number;
+        /**
+         * The amount by which to scale in or scale out, based on the specified AdjustmentType. A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be a positive integer. If AdjustmentType is set to PERCENT_CHANGE_IN_CAPACITY, the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+         */
+        scalingAdjustment: number;
+    }
+
+    export interface ClusterSpotProvisioningSpecification {
+        /**
+         * Specifies the strategy to use in launching Spot Instance fleets. Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+         */
+        allocationStrategy?: string;
+        /**
+         * The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+         */
+        blockDurationMinutes?: number;
+        /**
+         * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+         */
+        timeoutAction: enums.emr.ClusterSpotProvisioningSpecificationTimeoutAction;
+        /**
+         * The spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+         */
+        timeoutDurationMinutes: number;
+    }
+
+    export interface ClusterSpotResizingSpecification {
+        /**
+         * Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher, the default is `price-capacity-optimized` . If you run Amazon EMR releases 6.8.0 or lower, the default is `capacity-optimized` .
+         */
+        allocationStrategy?: string;
+        /**
+         * Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+         */
+        timeoutDurationMinutes?: number;
+    }
+
+    export interface ClusterStepConfig {
+        /**
+         * The action to take when the step fails. Use one of the following values:
+         *
+         *     TERMINATE_CLUSTER - Shuts down the cluster.
+         *     
+         *     CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+         *     
+         *     CONTINUE - Continues to the next step in the queue.
+         *     
+         *     TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+         *  If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+         *
+         * If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+         */
+        actionOnFailure?: enums.emr.ClusterStepConfigActionOnFailure;
+        /**
+         * The JAR file used for the step.
+         */
+        hadoopJarStep: outputs.emr.ClusterHadoopJarStepConfig;
+        /**
+         * The name of the step.
+         */
+        name: string;
+    }
+
+    export interface ClusterVolumeSpecification {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports.
+         */
+        iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+         */
+        sizeInGb: number;
+        /**
+         * The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+         */
+        throughput?: number;
+        /**
+         * The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+         */
+        volumeType: string;
+    }
+
     /**
      * Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
      */
@@ -54238,6 +55899,10 @@ export namespace emrserverless {
          * The IAM IdentityCenter instance arn
          */
         identityCenterInstanceArn?: string;
+        /**
+         * Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+         */
+        userBackgroundSessionsEnabled?: boolean;
     }
 
     /**
@@ -58535,6 +60200,20 @@ export namespace gamelift {
     }
 
     /**
+     * The destination to deliver a game session queue's placement logs to. Omit DestinationArn for a CLOUDWATCH or S3 destination to have GameLift create one; FIREHOSE requires DestinationArn.
+     */
+    export interface GameSessionQueueDeliveryDestination {
+        /**
+         * The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+         */
+        destinationArn?: string;
+        /**
+         * The type of service that receives the game session queue's placement logs.
+         */
+        logDestination: enums.gamelift.GameSessionQueueDeliveryDestinationLogDestination;
+    }
+
+    /**
      * A fleet or alias designated in a game session queue.
      */
     export interface GameSessionQueueDestination {
@@ -58549,6 +60228,16 @@ export namespace gamelift {
          * A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
          */
         allowedLocations?: string[];
+    }
+
+    /**
+     * A policy that determines where a game session queue's placement logs are delivered.
+     */
+    export interface GameSessionQueueLogConfiguration {
+        /**
+         * The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+         */
+        deliveryDestinations: outputs.gamelift.GameSessionQueueDeliveryDestination[];
     }
 
     /**
@@ -58741,6 +60430,21 @@ export namespace globalaccelerator {
 
 export namespace glue {
     /**
+     * Configuration for synchronizing assets from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing assets.
+     */
+    export interface CatalogAssetsSyncConfiguration {
+        managedCrawlerDetails?: outputs.glue.CatalogManagedCrawlerDetails;
+        /**
+         * How often the crawler synchronizes assets, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+         */
+        refreshIntervalMinutes?: number;
+        /**
+         * Whether asset synchronization is enabled.
+         */
+        status: enums.glue.CatalogAssetsSyncConfigurationStatus;
+    }
+
+    /**
      * Data lake access properties for the catalog.
      */
     export interface CatalogDataLakeAccessProperties {
@@ -58789,6 +60493,20 @@ export namespace glue {
     }
 
     /**
+     * Details about an error.
+     */
+    export interface CatalogErrorDetail {
+        /**
+         * The code associated with this error.
+         */
+        errorCode?: string;
+        /**
+         * A message describing the error.
+         */
+        errorMessage?: string;
+    }
+
+    /**
      * A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
      */
     export interface CatalogFederatedCatalog {
@@ -58797,9 +60515,44 @@ export namespace glue {
          */
         connectionName?: string;
         /**
+         * The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+         */
+        connectionType?: string;
+        /**
          * A unique identifier for the federated catalog.
          */
         identifier?: string;
+        syncConfiguration?: outputs.glue.CatalogSyncConfiguration;
+    }
+
+    /**
+     * Configuration for synchronizing lineage from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing lineage.
+     */
+    export interface CatalogLineageSyncConfiguration {
+        managedCrawlerDetails?: outputs.glue.CatalogManagedCrawlerDetails;
+        /**
+         * How often the crawler synchronizes lineage, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+         */
+        refreshIntervalMinutes?: number;
+        /**
+         * Whether lineage synchronization is enabled.
+         */
+        status: enums.glue.CatalogLineageSyncConfigurationStatus;
+    }
+
+    /**
+     * The state of the crawler Glue manages on your behalf for a synchronization mode. Returned by the service; Glue rejects it as input.
+     */
+    export interface CatalogManagedCrawlerDetails {
+        /**
+         * The Amazon Resource Name (ARN) of the crawler.
+         */
+        crawlerArn?: string;
+        error?: outputs.glue.CatalogErrorDetail;
+        /**
+         * The provisioning state of the crawler.
+         */
+        status?: enums.glue.CatalogManagedCrawlerDetailsStatus;
     }
 
     /**
@@ -58822,6 +60575,18 @@ export namespace glue {
          */
         customProperties?: {[key: string]: string};
         dataLakeAccessProperties?: outputs.glue.CatalogDataLakeAccessProperties;
+    }
+
+    /**
+     * Configuration for synchronizing a federated catalog with its external data source. Removing this property does not disable synchronization: Glue keeps the stored configuration for anything omitted from an update. To stop synchronizing, set the Status of each mode to DISABLED.
+     */
+    export interface CatalogSyncConfiguration {
+        assetsSyncConfiguration?: outputs.glue.CatalogAssetsSyncConfiguration;
+        lineageSyncConfiguration?: outputs.glue.CatalogLineageSyncConfiguration;
+        /**
+         * The IAM role, in the catalog owner's account, that the crawlers Glue manages on your behalf assume.
+         */
+        roleArn: string;
     }
 
     /**
@@ -63135,6 +64900,14 @@ export namespace imagebuilder {
          * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
          */
         imageScanningEnabled?: boolean;
+        /**
+         * The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+         */
+        imageScanningTypes?: enums.imagebuilder.ImagePipelineImageScanningConfigurationImageScanningTypesItem[];
+        /**
+         * The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+         */
+        scanResultCondition?: outputs.imagebuilder.ImagePipelineScanResultCondition;
     }
 
     /**
@@ -63163,6 +64936,20 @@ export namespace imagebuilder {
          * The name of the log group for pipeline execution logs.
          */
         pipelineLogGroupName?: string;
+    }
+
+    /**
+     * The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+     */
+    export interface ImagePipelineScanResultCondition {
+        /**
+         * Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+         */
+        fixAvailable?: boolean;
+        /**
+         * The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+         */
+        maximumSeverityLabel: enums.imagebuilder.ImagePipelineScanResultConditionMaximumSeverityLabel;
     }
 
     /**
@@ -63358,6 +65145,20 @@ export namespace imagebuilder {
     }
 
     /**
+     * The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+     */
+    export interface ImageScanResultCondition {
+        /**
+         * Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+         */
+        fixAvailable?: boolean;
+        /**
+         * The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+         */
+        maximumSeverityLabel: enums.imagebuilder.ImageScanResultConditionMaximumSeverityLabel;
+    }
+
+    /**
      * Contains settings for Image Builder image resource and container image scans.
      */
     export interface ImageScanningConfiguration {
@@ -63369,6 +65170,14 @@ export namespace imagebuilder {
          * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
          */
         imageScanningEnabled?: boolean;
+        /**
+         * The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+         */
+        imageScanningTypes?: enums.imagebuilder.ImageScanningConfigurationImageScanningTypesItem[];
+        /**
+         * The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+         */
+        scanResultCondition?: outputs.imagebuilder.ImageScanResultCondition;
     }
 
     /**
@@ -71826,6 +73635,82 @@ export namespace kinesisanalyticsv2 {
         logLevel?: enums.kinesisanalyticsv2.ApplicationZeppelinMonitoringConfigurationLogLevel;
     }
 
+    /**
+     * A KMS encryption configuration for snapshot data: the key type, and the key when it is a customer managed key.
+     */
+    export interface SnapshotEncryptionConfigurationDescription {
+        /**
+         * The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+         */
+        keyId?: string;
+        /**
+         * The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+         */
+        keyType: enums.kinesisanalyticsv2.SnapshotEncryptionConfigurationDescriptionKeyType;
+    }
+
+    /**
+     * The Amazon S3 location to import a snapshot from, and the role the service assumes to read it.
+     */
+    export interface SnapshotImportSourceConfiguration {
+        /**
+         * The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+         */
+        importRoleArn: string;
+        /**
+         * The encryption of the snapshot files in Amazon S3.
+         */
+        sourceEncryptionConfiguration?: outputs.kinesisanalyticsv2.SnapshotEncryptionConfigurationDescription;
+        /**
+         * The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+         */
+        sourceS3PrefixLocation: outputs.kinesisanalyticsv2.SnapshotS3PrefixLocation;
+        /**
+         * The type of storage the snapshot is imported from.
+         */
+        sourceType: enums.kinesisanalyticsv2.SnapshotImportSourceConfigurationSourceType;
+    }
+
+    /**
+     * An Amazon S3 prefix location.
+     */
+    export interface SnapshotS3PrefixLocation {
+        /**
+         * The ARN of the S3 bucket.
+         */
+        bucketArn: string;
+        /**
+         * The S3 key prefix.
+         */
+        keyPrefix: string;
+    }
+
+    /**
+     * Details about the application the snapshot was taken from.
+     */
+    export interface SnapshotSourceApplicationDescription {
+        /**
+         * The time at which the source application was created.
+         */
+        applicationCreationTimestamp: string;
+        /**
+         * The name of the source application.
+         */
+        applicationName: string;
+        /**
+         * The version of the source application captured in the snapshot.
+         */
+        applicationVersionId: number;
+    }
+
+    /**
+     * Details about the source (application and/or S3 location) the snapshot was taken from. Populated by DescribeSnapshot.
+     */
+    export interface SnapshotSourceDescription {
+        s3PrefixLocation?: outputs.kinesisanalyticsv2.SnapshotS3PrefixLocation;
+        sourceApplicationDescription?: outputs.kinesisanalyticsv2.SnapshotSourceApplicationDescription;
+    }
+
 }
 
 export namespace kinesisfirehose {
@@ -73911,6 +75796,13 @@ export namespace lambda {
         uri?: string;
     }
 
+    export interface FunctionAcceleratorConfig {
+        /**
+         * The minimum amount of memory (in GB) of each accelerator device exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available. Valid values: 3, 6, 12, 16, 24, 48.
+         */
+        acceleratorMemorySize: number;
+    }
+
     /**
      * Configuration for the capacity provider that manages compute resources for Lambda functions.
      */
@@ -74084,6 +75976,17 @@ export namespace lambda {
          * Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
          */
         systemLogLevel?: enums.lambda.FunctionLoggingConfigSystemLogLevel;
+    }
+
+    export interface FunctionRuntimeConfig {
+        /**
+         * The name of the runtime alias that controls the function's runtime update cadence (for example, stable or latest).
+         */
+        runtimeAlias: string;
+        /**
+         * The Amazon Resource Name (ARN) of the runtime that the function uses.
+         */
+        runtimeArn: string;
     }
 
     /**
@@ -74277,6 +76180,16 @@ export namespace lambda {
     }
 
     /**
+     * Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs). If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.
+     */
+    export interface NetworkConnectorElasticIpConfiguration {
+        /**
+         * The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+         */
+        type: enums.lambda.NetworkConnectorElasticIpConfigurationType;
+    }
+
+    /**
      * The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
      */
     export interface NetworkConnectorVpcEgressConfiguration {
@@ -74284,6 +76197,7 @@ export namespace lambda {
          * The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
          */
         associatedComputeResourceTypes: enums.lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem[];
+        elasticIpConfiguration?: outputs.lambda.NetworkConnectorElasticIpConfiguration;
         /**
          * The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
          */
@@ -74296,6 +76210,86 @@ export namespace lambda {
          * The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
          */
         subnetIds: string[];
+    }
+
+    /**
+     * Compatibility matrix for the runtime version the alias points to.
+     */
+    export interface RuntimeAliasCompatibility {
+        architectures?: enums.lambda.RuntimeAliasCompatibilityArchitecturesItem[];
+        integrationModels?: enums.lambda.RuntimeAliasCompatibilityIntegrationModelsItem[];
+        managedInstances?: enums.lambda.RuntimeAliasCompatibilityManagedInstances;
+    }
+
+    /**
+     * The publisher's lifecycle declaration for the alias. Omitting it removes any stored declaration.
+     */
+    export interface RuntimeAliasReleaseLifecycle {
+        /**
+         * The date on which the alias becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+         */
+        deprecationDate?: string;
+        /**
+         * The date on which creating new functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+         */
+        functionCreateBlockDate?: string;
+        /**
+         * The date on which updating existing functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+         */
+        functionUpdateBlockDate?: string;
+        /**
+         * The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+         */
+        releaseState?: enums.lambda.RuntimeAliasReleaseLifecycleReleaseState;
+    }
+
+    /**
+     * The publisher's lifecycle declaration for the runtime. Omitting it removes any stored declaration.
+     */
+    export interface RuntimeReleaseLifecycle {
+        /**
+         * The date on which the runtime becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+         */
+        deprecationDate?: string;
+        /**
+         * The date on which creating new functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+         */
+        functionCreateBlockDate?: string;
+        /**
+         * The date on which updating existing functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+         */
+        functionUpdateBlockDate?: string;
+        /**
+         * The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+         */
+        releaseState?: enums.lambda.RuntimeReleaseLifecycleReleaseState;
+    }
+
+    /**
+     * Compatibility matrix for the runtime version: supported integration models, architectures, and feature policies.
+     */
+    export interface RuntimeVersionCompatibility {
+        /**
+         * Supported CPU architectures for the runtime version.
+         */
+        architectures?: enums.lambda.RuntimeVersionCompatibilityArchitecturesItem[];
+        /**
+         * Supported integration models for the runtime version.
+         */
+        integrationModels?: enums.lambda.RuntimeVersionCompatibilityIntegrationModelsItem[];
+        /**
+         * Whether the runtime version supports managed instances.
+         */
+        managedInstances?: enums.lambda.RuntimeVersionCompatibilityManagedInstances;
+    }
+
+    /**
+     * A resolved OCI image platform descriptor.
+     */
+    export interface RuntimeVersionPlatform {
+        architecture: string;
+        digest: string;
+        os: string;
     }
 
     /**
@@ -77992,6 +79986,12 @@ export namespace mediaconnect {
     }
 
     /**
+     * The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+     */
+    export interface FlowAutomaticRtmpPushNamingConfiguration {
+    }
+
+    /**
      * Configures settings for the BlackFrames metric.
      */
     export interface FlowBlackFrames {
@@ -78227,6 +80227,20 @@ export namespace mediaconnect {
          * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
          */
         maintenanceStartHour: string;
+    }
+
+    /**
+     * The manual RTMP naming configuration, where you specify the application and stream names.
+     */
+    export interface FlowManualRtmpPushNamingConfiguration {
+        /**
+         * The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+         */
+        applicationName: string;
+        /**
+         * The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+         */
+        streamName: string;
     }
 
     /**
@@ -78507,6 +80521,27 @@ export namespace mediaconnect {
     }
 
     /**
+     * The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+     */
+    export interface FlowOutputPublicTlsEncryptionConfiguration {
+    }
+
+    /**
+     * The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the application and stream names, and optional TLS encryption configuration.
+     */
+    export interface FlowOutputRtmpPushSettings {
+        /**
+         * The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+         */
+        applicationName: string;
+        /**
+         * The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+         */
+        streamName: string;
+        tlsEncryption?: outputs.mediaconnect.FlowOutputTlsEncryption;
+    }
+
+    /**
      * The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
      */
     export interface FlowOutputSecretsManagerEncryptionKeyConfiguration {
@@ -78521,6 +80556,21 @@ export namespace mediaconnect {
     }
 
     /**
+     * The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+     */
+    export interface FlowOutputTlsEncryption {
+        encryptionConfiguration: outputs.mediaconnect.FlowOutputTlsEncryptionConfigurationProperties;
+        encryptionType?: enums.mediaconnect.FlowOutputTlsEncryptionType;
+    }
+
+    /**
+     * The configuration settings for TLS encryption.
+     */
+    export interface FlowOutputTlsEncryptionConfigurationProperties {
+        public: outputs.mediaconnect.FlowOutputPublicTlsEncryptionConfiguration;
+    }
+
+    /**
      * The settings for attaching a VPC interface to an output.
      */
     export interface FlowOutputVpcInterfaceAttachment {
@@ -78528,6 +80578,41 @@ export namespace mediaconnect {
          * The name of the VPC interface to use for this output.
          */
         vpcInterfaceName?: string;
+    }
+
+    /**
+     * The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+     */
+    export interface FlowRtmpPushDetails {
+        /**
+         * The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+         */
+        applicationName: string;
+        /**
+         * The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+         */
+        streamName: string;
+    }
+
+    /**
+     * The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+     */
+    export interface FlowRtmpPushNamingConfiguration0Properties {
+        manual: outputs.mediaconnect.FlowManualRtmpPushNamingConfiguration;
+    }
+
+    /**
+     * The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+     */
+    export interface FlowRtmpPushNamingConfiguration1Properties {
+        automatic: outputs.mediaconnect.FlowAutomaticRtmpPushNamingConfiguration;
+    }
+
+    /**
+     * The settings for the RTMP (Real-Time Messaging Protocol) source.
+     */
+    export interface FlowRtmpPushSettings {
+        namingConfiguration: outputs.mediaconnect.FlowRtmpPushNamingConfiguration0Properties | outputs.mediaconnect.FlowRtmpPushNamingConfiguration1Properties;
     }
 
     /**
@@ -78626,6 +80711,8 @@ export namespace mediaconnect {
          * The decryption configuration for the flow source when router integration is enabled.
          */
         routerIntegrationTransitDecryption?: outputs.mediaconnect.FlowTransitEncryption;
+        rtmpPushDetails?: outputs.mediaconnect.FlowRtmpPushDetails;
+        rtmpPushSettings?: outputs.mediaconnect.FlowRtmpPushSettings;
         /**
          * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
          */
@@ -78666,6 +80753,12 @@ export namespace mediaconnect {
          * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
          */
         whitelistCidr?: string;
+    }
+
+    /**
+     * The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+     */
+    export interface FlowSourceAutomaticRtmpPushNamingConfiguration {
     }
 
     /**
@@ -78725,6 +80818,20 @@ export namespace mediaconnect {
     }
 
     /**
+     * The manual RTMP naming configuration, where you specify the application and stream names.
+     */
+    export interface FlowSourceManualRtmpPushNamingConfiguration {
+        /**
+         * The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+         */
+        applicationName: string;
+        /**
+         * The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+         */
+        streamName: string;
+    }
+
+    /**
      * The settings for source monitoring.
      */
     export interface FlowSourceMonitoringConfig {
@@ -78744,6 +80851,41 @@ export namespace mediaconnect {
          * Contains the settings for video stream metrics monitoring.
          */
         videoMonitoringSettings?: outputs.mediaconnect.FlowVideoMonitoringSetting[];
+    }
+
+    /**
+     * The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+     */
+    export interface FlowSourceRtmpPushDetails {
+        /**
+         * The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+         */
+        applicationName: string;
+        /**
+         * The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+         */
+        streamName: string;
+    }
+
+    /**
+     * The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+     */
+    export interface FlowSourceRtmpPushNamingConfiguration0Properties {
+        manual: outputs.mediaconnect.FlowSourceManualRtmpPushNamingConfiguration;
+    }
+
+    /**
+     * The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+     */
+    export interface FlowSourceRtmpPushNamingConfiguration1Properties {
+        automatic: outputs.mediaconnect.FlowSourceAutomaticRtmpPushNamingConfiguration;
+    }
+
+    /**
+     * The settings for the RTMP (Real-Time Messaging Protocol) source.
+     */
+    export interface FlowSourceRtmpPushSettings {
+        namingConfiguration: outputs.mediaconnect.FlowSourceRtmpPushNamingConfiguration0Properties | outputs.mediaconnect.FlowSourceRtmpPushNamingConfiguration1Properties;
     }
 
     /**
@@ -78868,6 +81010,12 @@ export namespace mediaconnect {
     }
 
     /**
+     * The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+     */
+    export interface RouterInputAutomaticRtmpPushNamingConfiguration {
+    }
+
+    /**
      * Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
      */
     export interface RouterInputBlackFramesConfiguration {
@@ -78945,6 +81093,12 @@ export namespace mediaconnect {
     }
 
     /**
+     * Configuration details for a router input stream that is represented by a destination endpoint.
+     */
+    export interface RouterInputDestinationEndpointRouterInputStreamDetails {
+    }
+
+    /**
      * The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
      */
     export interface RouterInputEndpointEncryptionConfiguration0Properties {
@@ -78983,8 +81137,19 @@ export namespace mediaconnect {
         /**
          * A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
          */
-        protocolConfigurations: (outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration0Properties | outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration1Properties | outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration2Properties | outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration3Properties)[];
+        protocolConfigurations: (outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration0Properties | outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration1Properties | outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration2Properties | outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration3Properties | outputs.mediaconnect.RouterInputFailoverRouterInputProtocolConfiguration4Properties)[];
         sourcePriorityMode: enums.mediaconnect.RouterInputFailoverInputSourcePriorityMode;
+    }
+
+    /**
+     * Configuration details for an indexed stream in a failover router input setup.
+     */
+    export interface RouterInputFailoverRouterInputIndexedStreamDetails {
+        rtmpPush?: outputs.mediaconnect.RouterInputRtmpPushStreamDetails;
+        /**
+         * The index number (0 or 1) assigned to this source in the failover configuration.
+         */
+        sourceIndex: number;
     }
 
     /**
@@ -79005,14 +81170,29 @@ export namespace mediaconnect {
      * Protocol configuration settings for failover router inputs.
      */
     export interface RouterInputFailoverRouterInputProtocolConfiguration2Properties {
-        srtCaller: outputs.mediaconnect.RouterInputSrtCallerRouterInputConfiguration;
+        rtmpPush: outputs.mediaconnect.RouterInputRtmpPushRouterInputConfiguration;
     }
 
     /**
      * Protocol configuration settings for failover router inputs.
      */
     export interface RouterInputFailoverRouterInputProtocolConfiguration3Properties {
+        srtCaller: outputs.mediaconnect.RouterInputSrtCallerRouterInputConfiguration;
+    }
+
+    /**
+     * Protocol configuration settings for failover router inputs.
+     */
+    export interface RouterInputFailoverRouterInputProtocolConfiguration4Properties {
         rtp: outputs.mediaconnect.RouterInputRtpRouterInputConfiguration;
+    }
+
+    /**
+     * Configuration details for a failover router input that can automatically switch between two sources.
+     */
+    export interface RouterInputFailoverRouterInputStreamDetails {
+        sourceIndexOneStreamDetails: outputs.mediaconnect.RouterInputFailoverRouterInputIndexedStreamDetails;
+        sourceIndexZeroStreamDetails: outputs.mediaconnect.RouterInputFailoverRouterInputIndexedStreamDetails;
     }
 
     /**
@@ -79063,6 +81243,20 @@ export namespace mediaconnect {
     }
 
     /**
+     * The manual RTMP naming configuration, where you specify the application and stream names.
+     */
+    export interface RouterInputManualRtmpPushNamingConfiguration {
+        /**
+         * The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+         */
+        applicationName: string;
+        /**
+         * The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+         */
+        streamName: string;
+    }
+
+    /**
      * Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
      */
     export interface RouterInputMediaConnectFlowRouterInputConfiguration {
@@ -79075,6 +81269,12 @@ export namespace mediaconnect {
          */
         flowOutputArn?: string;
         sourceTransitDecryption: outputs.mediaconnect.RouterInputFlowTransitEncryption;
+    }
+
+    /**
+     * Configuration details for a MediaConnect flow when used as a router input source.
+     */
+    export interface RouterInputMediaConnectFlowRouterInputStreamDetails {
     }
 
     /**
@@ -79091,6 +81291,12 @@ export namespace mediaconnect {
         mediaLiveChannelOutputName?: string;
         mediaLivePipelineId?: enums.mediaconnect.RouterInputMediaLiveChannelPipelineId;
         sourceTransitDecryption: outputs.mediaconnect.RouterInputMediaLiveTransitEncryption;
+    }
+
+    /**
+     * Configuration details for a MediaLive channel when used as a router input source.
+     */
+    export interface RouterInputMediaLiveChannelRouterInputStreamDetails {
     }
 
     /**
@@ -79130,7 +81336,17 @@ export namespace mediaconnect {
         /**
          * A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
          */
-        protocolConfigurations: (outputs.mediaconnect.RouterInputMergeRouterInputProtocolConfiguration0Properties | outputs.mediaconnect.RouterInputMergeRouterInputProtocolConfiguration1Properties)[];
+        protocolConfigurations: (outputs.mediaconnect.RouterInputMergeRouterInputProtocolConfiguration0Properties | outputs.mediaconnect.RouterInputMergeRouterInputProtocolConfiguration1Properties | outputs.mediaconnect.RouterInputMergeRouterInputProtocolConfiguration2Properties | outputs.mediaconnect.RouterInputMergeRouterInputProtocolConfiguration3Properties)[];
+    }
+
+    /**
+     * Configuration details for an indexed stream in a merge router input setup.
+     */
+    export interface RouterInputMergeRouterInputIndexedStreamDetails {
+        /**
+         * The index number (0 or 1) assigned to this source in the merge configuration.
+         */
+        sourceIndex: number;
     }
 
     /**
@@ -79145,6 +81361,28 @@ export namespace mediaconnect {
      */
     export interface RouterInputMergeRouterInputProtocolConfiguration1Properties {
         rist: outputs.mediaconnect.RouterInputRistRouterInputConfiguration;
+    }
+
+    /**
+     * Protocol configuration settings for merge router inputs.
+     */
+    export interface RouterInputMergeRouterInputProtocolConfiguration2Properties {
+        srtListener: outputs.mediaconnect.RouterInputSrtListenerRouterInputConfiguration;
+    }
+
+    /**
+     * Protocol configuration settings for merge router inputs.
+     */
+    export interface RouterInputMergeRouterInputProtocolConfiguration3Properties {
+        srtCaller: outputs.mediaconnect.RouterInputSrtCallerRouterInputConfiguration;
+    }
+
+    /**
+     * Configuration details for a merge router input that combines two input sources.
+     */
+    export interface RouterInputMergeRouterInputStreamDetails {
+        sourceIndexOneStreamDetails: outputs.mediaconnect.RouterInputMergeRouterInputIndexedStreamDetails;
+        sourceIndexZeroStreamDetails: outputs.mediaconnect.RouterInputMergeRouterInputIndexedStreamDetails;
     }
 
     /**
@@ -79176,13 +81414,20 @@ export namespace mediaconnect {
      * The protocol configuration settings for a router input.
      */
     export interface RouterInputProtocolConfiguration2Properties {
-        srtCaller: outputs.mediaconnect.RouterInputSrtCallerRouterInputConfiguration;
+        rtmpPush: outputs.mediaconnect.RouterInputRtmpPushRouterInputConfiguration;
     }
 
     /**
      * The protocol configuration settings for a router input.
      */
     export interface RouterInputProtocolConfiguration3Properties {
+        srtCaller: outputs.mediaconnect.RouterInputSrtCallerRouterInputConfiguration;
+    }
+
+    /**
+     * The protocol configuration settings for a router input.
+     */
+    export interface RouterInputProtocolConfiguration4Properties {
         rtp: outputs.mediaconnect.RouterInputRtpRouterInputConfiguration;
     }
 
@@ -79205,6 +81450,46 @@ export namespace mediaconnect {
      */
     export interface RouterInputRouterContentQualityAnalysisConfigurationProperties {
         contentLevel: outputs.mediaconnect.RouterInputContentQualityAnalysisFeatureConfiguration;
+    }
+
+    /**
+     * The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+     */
+    export interface RouterInputRtmpPushNamingConfiguration0Properties {
+        manual: outputs.mediaconnect.RouterInputManualRtmpPushNamingConfiguration;
+    }
+
+    /**
+     * The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+     */
+    export interface RouterInputRtmpPushNamingConfiguration1Properties {
+        automatic: outputs.mediaconnect.RouterInputAutomaticRtmpPushNamingConfiguration;
+    }
+
+    /**
+     * The configuration settings for a router input using the RTMP (Real-Time Messaging Protocol) protocol.
+     */
+    export interface RouterInputRtmpPushRouterInputConfiguration {
+        namingConfiguration: outputs.mediaconnect.RouterInputRtmpPushNamingConfiguration0Properties | outputs.mediaconnect.RouterInputRtmpPushNamingConfiguration1Properties;
+        namingType?: enums.mediaconnect.RouterInputRtmpPushNamingType;
+        /**
+         * The port number for the RTMP protocol. The only valid value is 1935.
+         */
+        port: number;
+    }
+
+    /**
+     * Configuration details for an RTMP (Real-Time Messaging Protocol) router input stream, including the application and stream names.
+     */
+    export interface RouterInputRtmpPushStreamDetails {
+        /**
+         * The name of the RTMP application.
+         */
+        applicationName: string;
+        /**
+         * The name of the RTMP stream.
+         */
+        streamName: string;
     }
 
     /**
@@ -79305,7 +81590,56 @@ export namespace mediaconnect {
          */
         networkInterfaceArn: string;
         protocol?: enums.mediaconnect.RouterInputProtocol;
-        protocolConfiguration: outputs.mediaconnect.RouterInputProtocolConfiguration0Properties | outputs.mediaconnect.RouterInputProtocolConfiguration1Properties | outputs.mediaconnect.RouterInputProtocolConfiguration2Properties | outputs.mediaconnect.RouterInputProtocolConfiguration3Properties;
+        protocolConfiguration: outputs.mediaconnect.RouterInputProtocolConfiguration0Properties | outputs.mediaconnect.RouterInputProtocolConfiguration1Properties | outputs.mediaconnect.RouterInputProtocolConfiguration2Properties | outputs.mediaconnect.RouterInputProtocolConfiguration3Properties | outputs.mediaconnect.RouterInputProtocolConfiguration4Properties;
+    }
+
+    /**
+     * Configuration details for a standard router input stream type.
+     */
+    export interface RouterInputStandardRouterInputStreamDetails {
+        rtmpPush?: outputs.mediaconnect.RouterInputRtmpPushStreamDetails;
+    }
+
+    /**
+     * Configuration details for the router input stream.
+     */
+    export interface RouterInputStreamDetails0Properties {
+        destinationEndpoint: outputs.mediaconnect.RouterInputDestinationEndpointRouterInputStreamDetails;
+    }
+
+    /**
+     * Configuration details for the router input stream.
+     */
+    export interface RouterInputStreamDetails1Properties {
+        standard: outputs.mediaconnect.RouterInputStandardRouterInputStreamDetails;
+    }
+
+    /**
+     * Configuration details for the router input stream.
+     */
+    export interface RouterInputStreamDetails2Properties {
+        mediaLiveChannel: outputs.mediaconnect.RouterInputMediaLiveChannelRouterInputStreamDetails;
+    }
+
+    /**
+     * Configuration details for the router input stream.
+     */
+    export interface RouterInputStreamDetails3Properties {
+        failover: outputs.mediaconnect.RouterInputFailoverRouterInputStreamDetails;
+    }
+
+    /**
+     * Configuration details for the router input stream.
+     */
+    export interface RouterInputStreamDetails4Properties {
+        mediaConnectFlow: outputs.mediaconnect.RouterInputMediaConnectFlowRouterInputStreamDetails;
+    }
+
+    /**
+     * Configuration details for the router input stream.
+     */
+    export interface RouterInputStreamDetails5Properties {
+        merge: outputs.mediaconnect.RouterInputMergeRouterInputStreamDetails;
     }
 
     /**
@@ -81495,6 +83829,7 @@ export namespace mediapackagev2 {
     export interface OriginEndpointDashManifestConfiguration {
         audioTimelinePattern?: enums.mediapackagev2.OriginEndpointDashAudioTimelinePattern;
         availabilityStartTimeConfiguration?: outputs.mediapackagev2.OriginEndpointDashAvailabilityStartTimeConfigurationProperties;
+        bandwidthReportingMode?: enums.mediapackagev2.OriginEndpointDashBandwidthReportingMode;
         /**
          * <p>The base URL to use for retrieving segments.</p>
          */
@@ -83623,6 +85958,12 @@ export namespace msk {
         topicArn: string;
     }
 
+    export interface ClusterAuthorizerLogs {
+        cloudWatchLogs?: outputs.msk.ClusterCloudWatchLogs;
+        firehose?: outputs.msk.ClusterFirehose;
+        s3?: outputs.msk.ClusterS3;
+    }
+
     export interface ClusterBrokerLogs {
         cloudWatchLogs?: outputs.msk.ClusterCloudWatchLogs;
         /**
@@ -83678,6 +86019,7 @@ export namespace msk {
          * Contains information about storage volumes attached to Amazon MSK broker nodes.
          */
         storageInfo?: outputs.msk.ClusterStorageInfo;
+        topicReassignment?: enums.msk.ClusterBrokerNodeGroupInfoTopicReassignment;
     }
 
     export interface ClusterClientAuthentication {
@@ -83803,10 +86145,11 @@ export namespace msk {
     }
 
     export interface ClusterLoggingInfo {
+        authorizerLogs?: outputs.msk.ClusterAuthorizerLogs;
         /**
          * You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
          */
-        brokerLogs: outputs.msk.ClusterBrokerLogs;
+        brokerLogs?: outputs.msk.ClusterBrokerLogs;
     }
 
     export interface ClusterNodeExporter {
@@ -84476,6 +86819,13 @@ export namespace mwaaserverless {
     export interface WorkflowEncryptionConfiguration {
         kmsKeyId?: string;
         type: enums.mwaaserverless.WorkflowEncryptionConfigurationType;
+    }
+
+    /**
+     * Contains the environment variables that tasks in a workflow use during execution.
+     */
+    export interface WorkflowEnvironment {
+        variables: {[key: string]: string};
     }
 
     export interface WorkflowLoggingConfiguration {
@@ -85425,6 +87775,20 @@ export namespace networkflowmonitor {
     }
 
     /**
+     * A target that is monitored by a performance monitor.
+     */
+    export interface PerformanceMonitorTarget {
+        /**
+         * The identifier of the target.
+         */
+        identifier: string;
+        /**
+         * The type of the target.
+         */
+        type: enums.networkflowmonitor.PerformanceMonitorTargetType;
+    }
+
+    /**
      * A target ID is an internally-generated identifier for a target.
      */
     export interface ScopeTargetId {
@@ -85459,6 +87823,24 @@ export namespace networkflowmonitor {
 }
 
 export namespace networkmanager {
+    /**
+     * A NAT gateway rule on the attachment.
+     */
+    export interface ConnectAttachmentNatRule {
+        /**
+         * The IPv4 CIDR that source traffic is matched against for translation.
+         */
+        matchSourceCidr: string;
+        /**
+         * The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+         */
+        natCidr: string;
+        /**
+         * The rule number that uniquely identifies the NAT rule on the attachment.
+         */
+        ruleNumber: number;
+    }
+
     /**
      * Connect attachment options for protocol
      */
@@ -85660,6 +88042,24 @@ export namespace networkmanager {
     }
 
     /**
+     * A NAT gateway rule on the attachment.
+     */
+    export interface DirectConnectGatewayAttachmentNatRule {
+        /**
+         * The IPv4 CIDR that source traffic is matched against for translation.
+         */
+        matchSourceCidr: string;
+        /**
+         * The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+         */
+        natCidr: string;
+        /**
+         * The rule number that uniquely identifies the NAT rule on the attachment.
+         */
+        ruleNumber: number;
+    }
+
+    /**
      * The attachment to move from one network function group to another.
      */
     export interface DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange {
@@ -85739,6 +88139,24 @@ export namespace networkmanager {
          * The longitude.
          */
         longitude?: string;
+    }
+
+    /**
+     * A NAT gateway rule on the attachment.
+     */
+    export interface SiteToSiteVpnAttachmentNatRule {
+        /**
+         * The IPv4 CIDR that source traffic is matched against for translation.
+         */
+        matchSourceCidr: string;
+        /**
+         * The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+         */
+        natCidr: string;
+        /**
+         * The rule number that uniquely identifies the NAT rule on the attachment.
+         */
+        ruleNumber: number;
     }
 
     /**
@@ -85842,6 +88260,24 @@ export namespace networkmanager {
     }
 
     /**
+     * A NAT gateway rule on the attachment.
+     */
+    export interface VpcAttachmentNatRule {
+        /**
+         * The IPv4 CIDR that source traffic is matched against for translation.
+         */
+        matchSourceCidr: string;
+        /**
+         * The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+         */
+        natCidr: string;
+        /**
+         * The rule number that uniquely identifies the NAT rule on the attachment.
+         */
+        ruleNumber: number;
+    }
+
+    /**
      * The attachment to move from one network function group to another.
      */
     export interface VpcAttachmentProposedNetworkFunctionGroupChange {
@@ -85919,6 +88355,30 @@ export namespace networkmonitor {
 }
 
 export namespace networksecuritymanager {
+    export interface DeploymentAssociatedPolicy {
+        /**
+         * ARN of the associated policy.
+         */
+        policyArn: string;
+    }
+
+    export interface DeploymentAssociatedScope {
+        /**
+         * ARN of the associated scope.
+         */
+        scopeArn: string;
+    }
+
+    /**
+     * Configuration settings for the deployment.
+     */
+    export interface DeploymentConfiguration {
+        /**
+         * Whether cross-account visibility is enabled for the deployment.
+         */
+        enableCrossAccountVisibility: boolean;
+    }
+
     /**
      * Associates either a template or a rule with a policy.
      */
@@ -88444,6 +90904,20 @@ export namespace osis {
     }
 
     /**
+     * Configuration settings for the VPC endpoint.
+     */
+    export interface PipelineEndpointVpcOptions {
+        /**
+         * A list of security group IDs that control network access to the pipeline endpoint.
+         */
+        securityGroupIds?: string[];
+        /**
+         * A list of subnet IDs where the pipeline endpoint network interfaces are created.
+         */
+        subnetIds?: string[];
+    }
+
+    /**
      * Key-value pairs to configure log publishing.
      */
     export interface PipelineLogPublishingOptions {
@@ -88664,11 +91138,11 @@ export namespace paymentcryptography {
         /**
          * The ARN of the AWS KMS key that protects the replica in this region.
          */
-        kmsKeyArn?: string;
+        kmsEncryptionKeyArn?: string;
         /**
          * The AWS KMS key requested for this region, when replication failed before its ARN was known.
          */
-        kmsKeyId?: string;
+        kmsEncryptionKeyId?: string;
         /**
          * The current status of key replication in this AWS Region .
          *
@@ -91579,10 +94053,12 @@ export namespace quicksight {
     }
 
     export interface AnalysisAssetOptions {
+        customActionDefaults?: outputs.quicksight.AnalysisVisualCustomActionDefaults;
         /**
          * Determines the timezone for the analysis.
          */
         timezone?: string;
+        visualMessages?: outputs.quicksight.AnalysisVisualMessages;
         /**
          * Determines the week start day for an analysis.
          */
@@ -98928,6 +101404,7 @@ export namespace quicksight {
          * - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
          */
         contentType?: enums.quicksight.AnalysisSheetContentType;
+        customActionDefaults?: outputs.quicksight.AnalysisVisualCustomActionDefaults;
         /**
          * A description of the sheet.
          */
@@ -100558,6 +103035,10 @@ export namespace quicksight {
         trigger: enums.quicksight.AnalysisVisualCustomActionTrigger;
     }
 
+    export interface AnalysisVisualCustomActionDefaults {
+        highlightOperation?: outputs.quicksight.AnalysisVisualHighlightOperation;
+    }
+
     export interface AnalysisVisualCustomActionOperation {
         /**
          * The filter operation that filters data included in a visual or in an entire sheet.
@@ -100577,6 +103058,10 @@ export namespace quicksight {
         urlOperation?: outputs.quicksight.AnalysisCustomActionUrlOperation;
     }
 
+    export interface AnalysisVisualHighlightOperation {
+        trigger: enums.quicksight.AnalysisVisualHighlightTrigger;
+    }
+
     export interface AnalysisVisualInteractionOptions {
         /**
          * The context menu options for a visual.
@@ -100593,6 +103078,21 @@ export namespace quicksight {
          * The availaiblity status of a visual's menu options.
          */
         availabilityStatus?: enums.quicksight.AnalysisDashboardBehavior;
+    }
+
+    export interface AnalysisVisualMessageConfiguration {
+        description?: string;
+        descriptionVisibility?: enums.quicksight.AnalysisVisibility;
+        enabled?: boolean;
+        linkText?: string;
+        linkUrl?: string;
+        linkVisibility?: enums.quicksight.AnalysisVisibility;
+        title?: string;
+        titleVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisVisualMessages {
+        noDataMessage?: outputs.quicksight.AnalysisVisualMessageConfiguration;
     }
 
     export interface AnalysisVisualPalette {
@@ -101580,6 +104080,7 @@ export namespace quicksight {
     }
 
     export interface DashboardAssetOptions {
+        customActionDefaults?: outputs.quicksight.DashboardVisualCustomActionDefaults;
         /**
          * A list of dataset ARNS to exclude from Dashboard Q&A.
          */
@@ -101592,6 +104093,7 @@ export namespace quicksight {
          * Determines the timezone for the analysis.
          */
         timezone?: string;
+        visualMessages?: outputs.quicksight.DashboardVisualMessages;
         /**
          * Determines the week start day for an analysis.
          */
@@ -109086,6 +111588,7 @@ export namespace quicksight {
          * - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
          */
         contentType?: enums.quicksight.DashboardSheetContentType;
+        customActionDefaults?: outputs.quicksight.DashboardVisualCustomActionDefaults;
         /**
          * A description of the sheet.
          */
@@ -110821,6 +113324,10 @@ export namespace quicksight {
         trigger: enums.quicksight.DashboardVisualCustomActionTrigger;
     }
 
+    export interface DashboardVisualCustomActionDefaults {
+        highlightOperation?: outputs.quicksight.DashboardVisualHighlightOperation;
+    }
+
     export interface DashboardVisualCustomActionOperation {
         /**
          * The filter operation that filters data included in a visual or in an entire sheet.
@@ -110840,6 +113347,10 @@ export namespace quicksight {
         urlOperation?: outputs.quicksight.DashboardCustomActionUrlOperation;
     }
 
+    export interface DashboardVisualHighlightOperation {
+        trigger: enums.quicksight.DashboardVisualHighlightTrigger;
+    }
+
     export interface DashboardVisualInteractionOptions {
         /**
          * The context menu options for a visual.
@@ -110856,6 +113367,21 @@ export namespace quicksight {
          * The availaiblity status of a visual's menu options.
          */
         availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
+    export interface DashboardVisualMessageConfiguration {
+        description?: string;
+        descriptionVisibility?: enums.quicksight.DashboardVisibility;
+        enabled?: boolean;
+        linkText?: string;
+        linkUrl?: string;
+        linkVisibility?: enums.quicksight.DashboardVisibility;
+        title?: string;
+        titleVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardVisualMessages {
+        noDataMessage?: outputs.quicksight.DashboardVisualMessageConfiguration;
     }
 
     export interface DashboardVisualPalette {
@@ -113798,10 +116324,12 @@ export namespace quicksight {
     }
 
     export interface TemplateAssetOptions {
+        customActionDefaults?: outputs.quicksight.TemplateVisualCustomActionDefaults;
         /**
          * Determines the timezone for the analysis.
          */
         timezone?: string;
+        visualMessages?: outputs.quicksight.TemplateVisualMessages;
         /**
          * Determines the week start day for an analysis.
          */
@@ -120856,6 +123384,7 @@ export namespace quicksight {
          * - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
          */
         contentType?: enums.quicksight.TemplateSheetContentType;
+        customActionDefaults?: outputs.quicksight.TemplateVisualCustomActionDefaults;
         /**
          * A description of the sheet.
          */
@@ -122552,6 +125081,10 @@ export namespace quicksight {
         trigger: enums.quicksight.TemplateVisualCustomActionTrigger;
     }
 
+    export interface TemplateVisualCustomActionDefaults {
+        highlightOperation?: outputs.quicksight.TemplateVisualHighlightOperation;
+    }
+
     export interface TemplateVisualCustomActionOperation {
         /**
          * The filter operation that filters data included in a visual or in an entire sheet.
@@ -122571,6 +125104,10 @@ export namespace quicksight {
         urlOperation?: outputs.quicksight.TemplateCustomActionUrlOperation;
     }
 
+    export interface TemplateVisualHighlightOperation {
+        trigger: enums.quicksight.TemplateVisualHighlightTrigger;
+    }
+
     export interface TemplateVisualInteractionOptions {
         /**
          * The context menu options for a visual.
@@ -122587,6 +125124,21 @@ export namespace quicksight {
          * The availaiblity status of a visual's menu options.
          */
         availabilityStatus?: enums.quicksight.TemplateDashboardBehavior;
+    }
+
+    export interface TemplateVisualMessageConfiguration {
+        description?: string;
+        descriptionVisibility?: enums.quicksight.TemplateVisibility;
+        enabled?: boolean;
+        linkText?: string;
+        linkUrl?: string;
+        linkVisibility?: enums.quicksight.TemplateVisibility;
+        title?: string;
+        titleVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateVisualMessages {
+        noDataMessage?: outputs.quicksight.TemplateVisualMessageConfiguration;
     }
 
     export interface TemplateVisualPalette {
@@ -125760,6 +128312,38 @@ export namespace route53 {
     }
 
     /**
+     * <p>A complex type that contains the VPC, subnets, and security groups for a health check source. You can't change these values after you create the source.</p>
+     */
+    export interface HealthCheckSourceConfig {
+        /**
+         * <p>A complex type that contains one <code>SubnetConfiguration</code> element for each Availability Zone that Route 53 uses for private endpoint health checks in the Amazon Web Services Region. Each element must be in a different Availability Zone. Most Regions require three elements. Regions that have only two such Availability Zones, such as US West (N. California), require two elements. Route 53 creates network interfaces in each subnet and sends health check requests from all of them.</p>
+         */
+        subnetConfigurationList: outputs.route53.HealthCheckSourceSubnetConfiguration[];
+        /**
+         * <p>The ID of the VPC that contains the subnets for the health check source. All subnets in <code>SubnetConfigurationList</code> must belong to this VPC.</p>
+         */
+        vpcId: string;
+    }
+
+    /**
+     * <p>A complex type that identifies one subnet for a health check source and the security groups that Route 53 associates with the network interfaces that it creates in that subnet.</p>
+     */
+    export interface HealthCheckSourceSubnetConfiguration {
+        /**
+         * <p>The ID of the Availability Zone that contains the subnet, for example <code>use1-az1</code>. Specify the Availability Zone ID, not the Availability Zone name. Each subnet in a health check source must be in a different Availability Zone.</p>
+         */
+        availabilityZoneId: string;
+        /**
+         * <p>The IDs of one to ten security groups in the same VPC to associate with the network interfaces that Route 53 creates in this subnet. The security groups must allow outbound traffic to the endpoints that the health checks monitor.</p>
+         */
+        securityGroupIdList: string[];
+        /**
+         * <p>The ID of the subnet. The subnet must have free IP addresses for the network interfaces that Route 53 creates.</p>
+         */
+        subnetId: string;
+    }
+
+    /**
      * A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
      */
     export interface HostedZoneConfig {
@@ -125847,6 +128431,26 @@ export namespace route53 {
 }
 
 export namespace route53globalresolver {
+    /**
+     * A private DNS IP address of the core network endpoint. Specify exactly one of Ipv4Address or Ipv6Address. The IP address is the key of the entry: changing it adds the new address and then removes the old one.
+     */
+    export interface CoreNetworkEndpointIpAddress {
+        /**
+         * Lowercase DNS label for the IP address. The service appends the endpoint ID to build the DNS name. The label of an existing IP address cannot be changed; to use a new label, change the IP address too.
+         */
+        dnsLabel: string;
+        ipv4Address?: string;
+        ipv6Address?: string;
+        /**
+         * ALL to serve the IP address in every available region of the endpoint, or REGIONAL to serve it only in Regions.
+         */
+        regionScope: enums.route53globalresolver.CoreNetworkEndpointRegionScope;
+        /**
+         * Regions that serve the IP address. Required when RegionScope is REGIONAL and not allowed when it is ALL. Must be a subset of AvailableRegions.
+         */
+        regions?: string[];
+    }
+
 }
 
 export namespace route53profiles {
@@ -128986,6 +131590,21 @@ export namespace s3tables {
     }
 
     /**
+     * Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.
+     */
+    export interface TableBucketLoggingConfiguration {
+        /**
+         * The name of the general purpose bucket that logs are delivered to. The bucket must be in the same AWS Region and owned by the same AWS account as the table bucket. The bucket can't use SSE-KMS or DSSE-KMS default encryption, can't have S3 Object Lock enabled, and can't have Requester Pays enabled. You can deliver logs from multiple table buckets to the same target bucket. In this case, choose a different TargetPrefix for each table bucket so that you can tell their log objects apart.
+         */
+        targetBucket: string;
+        targetObjectKeyFormat: outputs.s3tables.TableBucketTargetObjectKeyFormat;
+        /**
+         * The prefix for the keys of the log objects that are delivered to the target bucket.
+         */
+        targetPrefix: string;
+    }
+
+    /**
      * Settings governing the Metric configuration for the table bucket.
      */
     export interface TableBucketMetricsConfiguration {
@@ -128993,6 +131612,16 @@ export namespace s3tables {
          * Indicates whether Metrics are enabled.
          */
         status?: enums.s3tables.TableBucketMetricsConfigurationStatus;
+    }
+
+    /**
+     * Amazon S3 keys for log objects are partitioned in the following format: [TargetPrefix][SourceAccountId]/[SourceRegion]/[SourceTableBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+     */
+    export interface TableBucketPartitionedPrefix {
+        /**
+         * The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+         */
+        partitionDateSource: enums.s3tables.TableBucketPartitionedPrefixPartitionDateSource;
     }
 
     /**
@@ -129043,6 +131672,13 @@ export namespace s3tables {
          * The storage class for the table bucket
          */
         storageClass?: enums.s3tables.TableBucketStorageClassConfigurationStorageClass;
+    }
+
+    /**
+     * The key format of the log objects. Only PartitionedPrefix is supported.
+     */
+    export interface TableBucketTargetObjectKeyFormat {
+        partitionedPrefix: outputs.s3tables.TableBucketPartitionedPrefix;
     }
 
     /**
@@ -130037,6 +132673,38 @@ export namespace sagemaker {
          * A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
          */
         scheduleExpression: string;
+    }
+
+    /**
+     * Priority class configuration.
+     */
+    export interface ClusterSchedulerConfigPriorityClass {
+        /**
+         * Name of the priority class.
+         */
+        name: string;
+        /**
+         * Weight of the priority class. Range 0-100, default 0.
+         */
+        weight: number;
+    }
+
+    /**
+     * Cluster policy configuration.
+     */
+    export interface ClusterSchedulerConfigSchedulerConfig {
+        /**
+         * When enabled, entities borrow idle compute based on assigned FairShareWeight.
+         */
+        fairShare?: enums.sagemaker.ClusterSchedulerConfigSchedulerConfigFairShare;
+        /**
+         * Configuration for sharing idle compute resources across entities.
+         */
+        idleResourceSharing?: enums.sagemaker.ClusterSchedulerConfigSchedulerConfigIdleResourceSharing;
+        /**
+         * List of priority class configurations.
+         */
+        priorityClasses?: outputs.sagemaker.ClusterSchedulerConfigPriorityClass[];
     }
 
     /**
@@ -131669,6 +134337,20 @@ export namespace sagemaker {
     export interface ExperimentTrialComponentStatus {
         message?: string;
         primaryStatus?: string;
+    }
+
+    /**
+     * The number of cluster nodes that the extension applies to, and how many of them run the requested extension version.
+     */
+    export interface ExtensionNodeSummary {
+        /**
+         * The number of cluster nodes that run the requested extension version.
+         */
+        activeCount: number;
+        /**
+         * The number of cluster nodes that the extension applies to.
+         */
+        totalCount: number;
     }
 
     export interface FeatureGroupDataCatalogConfig {
@@ -136234,6 +138916,27 @@ export namespace scheduler {
     }
 
     /**
+     * EventBridge PutEvent V2 predefined target type
+     */
+    export interface ScheduleEventBridgePutEventsV2Parameters {
+        /**
+         * Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+         */
+        detailType: string;
+        /**
+         * The source of the event.
+         */
+        source: string;
+    }
+
+    /**
+     * EventBridge PutRawEvent predefined target type
+     */
+    export interface ScheduleEventBridgePutRawEventsParameters {
+        metadata?: {[key: string]: string};
+    }
+
+    /**
      * Flexible time window allows configuration of a window within which a schedule can be invoked
      */
     export interface ScheduleFlexibleTimeWindow {
@@ -136365,6 +139068,8 @@ export namespace scheduler {
          * The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
          */
         eventBridgeParameters?: outputs.scheduler.ScheduleEventBridgeParameters;
+        eventBridgePutEventsV2Parameters?: outputs.scheduler.ScheduleEventBridgePutEventsV2Parameters;
+        eventBridgePutRawEventsParameters?: outputs.scheduler.ScheduleEventBridgePutRawEventsParameters;
         /**
          * The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
          */
@@ -136932,6 +139637,10 @@ export namespace securityagent {
          */
         actors?: outputs.securityagent.PentestActor[];
         /**
+         * Client certificates that AWS Security Agent presents to target hosts that require mutual TLS (mTLS)
+         */
+        clientCertificates?: outputs.securityagent.PentestClientCertificate[];
+        /**
          * List of documents providing additional context for the pentest
          */
         documents?: outputs.securityagent.PentestDocumentInfo[];
@@ -136993,6 +139702,24 @@ export namespace securityagent {
          * Whether CI/CD pentesting is enabled. When enabled, the pentest must have at least one entry in Assets.IntegratedRepositories
          */
         enabled: boolean;
+    }
+
+    /**
+     * Client certificate presented during the TLS handshake to the hosts it applies to
+     */
+    export interface PentestClientCertificate {
+        /**
+         * Name of the client certificate, unique within the pentest
+         */
+        name: string;
+        /**
+         * Target hosts the certificate applies to, as https://host[:port] origins
+         */
+        origins: string[];
+        /**
+         * ARN of the Secrets Manager secret that holds the certificate and private key
+         */
+        secretArn: string;
     }
 
     /**
@@ -137476,7 +140203,8 @@ export namespace securityhub {
         /**
          * The condition to apply to a string value when filtering Security Hub CSPM findings.
          *  To search for values that have the filter value, use one of the following comparison operators:
-         *   +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+         *   +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string ``CloudFront``.
+         *   +  To search for values that contain a word matching the filter value, regardless of case, use ``CONTAINS_WORD``. For example, the filter ``Title CONTAINS_WORD lambda`` matches a finding whose ``Title`` is ``GuardDuty Lambda Protection``, because the ``Title`` contains the word Lambda. Including special characters in the filter value might produce unexpected search results.
          *   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
          *   +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
          *
@@ -138269,7 +140997,7 @@ export namespace securityhub {
     }
 
     /**
-     * Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+     * Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
      */
     export interface HubV2NetworkScanning {
         /**
@@ -140797,10 +143525,11 @@ export namespace ssm {
     }
 
     /**
-     * The configuration for the cloud connector. Currently supports Azure.
+     * The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
      */
     export interface CloudConnectorConfiguration {
-        azureConfiguration: outputs.ssm.CloudConnectorAzureConfiguration;
+        azureConfiguration?: outputs.ssm.CloudConnectorAzureConfiguration;
+        gcpConfiguration?: outputs.ssm.CloudConnectorGcpConfiguration;
     }
 
     /**
@@ -140811,6 +143540,49 @@ export namespace ssm {
          * List of Azure subscriptions.
          */
         subscriptions: outputs.ssm.CloudConnectorAzureSubscription[];
+    }
+
+    /**
+     * Configuration for connecting to Google Cloud.
+     */
+    export interface CloudConnectorGcpConfiguration {
+        /**
+         * The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+         */
+        organizationId?: string;
+        /**
+         * The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+         */
+        serviceAccountEmail: string;
+        targets?: outputs.ssm.CloudConnectorGcpConfigurationTargets;
+        /**
+         * The resource name of the workload identity pool provider that trusts the connector's IAM role.
+         */
+        workloadIdentityPoolProvider: string;
+    }
+
+    /**
+     * The targets for the cloud connector. If omitted, the entire organization is targeted.
+     */
+    export interface CloudConnectorGcpConfigurationTargets {
+        /**
+         * List of GCP projects.
+         */
+        projects: outputs.ssm.CloudConnectorGcpProject[];
+    }
+
+    /**
+     * A GCP project with its ID and optional display name.
+     */
+    export interface CloudConnectorGcpProject {
+        /**
+         * The display name of the GCP project.
+         */
+        projectDisplayName?: string;
+        /**
+         * The GCP project ID.
+         */
+        projectId: string;
     }
 
     export interface DocumentAttachmentsSource {
@@ -142583,6 +145355,59 @@ export namespace textract {
 
 export namespace timestream {
     /**
+     * The cluster configuration of the resource at the time of backup.
+     */
+    export interface InfluxDbBackupClusterConfiguration {
+        /**
+         * Indicates if the compactor instance is a standalone instance or not.
+         */
+        dedicatedCompactor?: boolean;
+        /**
+         * The number of ingest and query instances in the cluster.
+         */
+        ingestQueryInstances?: number;
+        /**
+         * The number of query-only instances in the cluster.
+         */
+        queryOnlyInstances?: number;
+    }
+
+    /**
+     * The log delivery configuration of the resource at the time of backup.
+     */
+    export interface InfluxDbBackupLogDeliveryConfiguration {
+        s3Configuration: outputs.timestream.InfluxDbBackupS3Configuration;
+    }
+
+    /**
+     * The maintenance schedule of the resource at the time of backup.
+     */
+    export interface InfluxDbBackupMaintenanceSchedule {
+        /**
+         * The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM.
+         */
+        preferredMaintenanceWindow: string;
+        /**
+         * The IANA timezone identifier for the maintenance window.
+         */
+        timezone: string;
+    }
+
+    /**
+     * Configuration for S3 bucket log delivery.
+     */
+    export interface InfluxDbBackupS3Configuration {
+        /**
+         * The name of the S3 bucket to deliver logs to.
+         */
+        bucketName: string;
+        /**
+         * Indicates whether log delivery to the S3 bucket is enabled.
+         */
+        enabled: boolean;
+    }
+
+    /**
      * The maintenance schedule for the InfluxDB cluster.
      */
     export interface InfluxDbClusterMaintenanceSchedule {
@@ -142594,6 +145419,20 @@ export namespace timestream {
          * The IANA timezone identifier for the maintenance schedule.
          */
         timezone: string;
+    }
+
+    /**
+     * The number of DB cluster members reporting one instance mode.
+     */
+    export interface InfluxDbClusterMemberModeCount {
+        /**
+         * The number of DB cluster members reporting this instance mode.
+         */
+        count: number;
+        /**
+         * The instance mode reported by DB cluster members.
+         */
+        mode: enums.timestream.InfluxDbClusterMemberModeCountMode;
     }
 
     /**
@@ -143126,6 +145965,7 @@ export namespace transfer {
          * > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
          */
         setStatOption?: enums.transfer.ServerSetStatOption;
+        sftpPorts?: outputs.transfer.ServerSftpPortWithOptions[];
         /**
          * A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
          *
@@ -143152,6 +145992,11 @@ export namespace transfer {
          * By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
          */
         directoryListingOptimization?: enums.transfer.ServerDirectoryListingOptimization;
+    }
+
+    export interface ServerSftpPortWithOptions {
+        communicationMode?: enums.transfer.ServerCommunicationMode;
+        sftpPort: number;
     }
 
     export interface ServerWorkflowDetail {
@@ -143718,7 +146563,13 @@ export namespace vpclattice {
         weight?: number;
     }
 
+    /**
+     * The CIDR ranges that make up a CIDR resource configuration. Only valid when ResourceConfigurationType is CIDR, and the resource gateway must have ResourceConfigDnsResolution set to IN_VPC.
+     */
     export interface ResourceConfigurationCidrResource {
+        /**
+         * The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
+         */
         cidrRanges: string[];
     }
 
@@ -144286,6 +147137,30 @@ export namespace wafv2 {
     }
 
     /**
+     * Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+     */
+    export interface RuleGroupConnectedAccountChainConfig {
+        chain: enums.wafv2.RuleGroupConnectedAccountChain;
+        prices: outputs.wafv2.RuleGroupConnectedAccountPrice[];
+    }
+
+    /**
+     * Configuration for a single connected account and the chains it accepts payment on.
+     */
+    export interface RuleGroupConnectedAccountConfig {
+        connectedAccountArn: string;
+        paymentNetworks: outputs.wafv2.RuleGroupConnectedAccountChainConfig[];
+    }
+
+    /**
+     * A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+     */
+    export interface RuleGroupConnectedAccountPrice {
+        amount: string;
+        currency: enums.wafv2.RuleGroupCryptoCurrency;
+    }
+
+    /**
      * The pattern to look for in the request cookies.
      */
     export interface RuleGroupCookieMatchPattern {
@@ -144805,6 +147680,7 @@ export namespace wafv2 {
      * Configures monetization for the web ACL or rule group.
      */
     export interface RuleGroupMonetizationConfig {
+        connectedAccountConfigs?: outputs.wafv2.RuleGroupConnectedAccountConfig[];
         cryptoConfig?: outputs.wafv2.RuleGroupCryptoConfig;
         currencyMode?: enums.wafv2.RuleGroupCurrencyMode;
     }
@@ -145518,6 +148394,7 @@ export namespace wafv2 {
      * AssociationConfig for body inspection
      */
     export interface WebAclAssociationConfig {
+        challengeJavascriptSdkInjection?: {[key: string]: outputs.wafv2.WebAclChallengeJavascriptSdkInjectionConfig};
         /**
          * Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
          *
@@ -145772,6 +148649,12 @@ export namespace wafv2 {
     }
 
     /**
+     * Configures the challenge JavaScript SDK injection for the associated resource.
+     */
+    export interface WebAclChallengeJavascriptSdkInjectionConfig {
+    }
+
+    /**
      * Client side action config for AntiDDOS AMR.
      */
     export interface WebAclClientSideAction {
@@ -145833,6 +148716,30 @@ export namespace wafv2 {
          * You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
          */
         challenge: outputs.wafv2.WebAclClientSideAction;
+    }
+
+    /**
+     * Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+     */
+    export interface WebAclConnectedAccountChainConfig {
+        chain: enums.wafv2.WebAclConnectedAccountChain;
+        prices: outputs.wafv2.WebAclConnectedAccountPrice[];
+    }
+
+    /**
+     * Configuration for a single connected account and the chains it accepts payment on.
+     */
+    export interface WebAclConnectedAccountConfig {
+        connectedAccountArn: string;
+        paymentNetworks: outputs.wafv2.WebAclConnectedAccountChainConfig[];
+    }
+
+    /**
+     * A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+     */
+    export interface WebAclConnectedAccountPrice {
+        amount: string;
+        currency: enums.wafv2.WebAclCryptoCurrency;
     }
 
     /**
@@ -146492,6 +149399,7 @@ export namespace wafv2 {
      * Configures monetization for the web ACL or rule group.
      */
     export interface WebAclMonetizationConfig {
+        connectedAccountConfigs?: outputs.wafv2.WebAclConnectedAccountConfig[];
         cryptoConfig?: outputs.wafv2.WebAclCryptoConfig;
         currencyMode?: enums.wafv2.WebAclCurrencyMode;
     }
@@ -148041,6 +150949,13 @@ export namespace wisdom {
          * The custom word text.
          */
         text: string;
+    }
+
+    export interface AiPromptAiPromptInferenceConfiguration {
+        maxTokensToSample?: number;
+        temperature?: number;
+        topK?: number;
+        topP?: number;
     }
 
     export interface AiPromptAiPromptTemplateConfiguration {

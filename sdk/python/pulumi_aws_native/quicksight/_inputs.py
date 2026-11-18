@@ -1154,12 +1154,20 @@ __all__ = [
     'AnalysisVisualArgsDict',
     'AnalysisVisualCustomActionArgs',
     'AnalysisVisualCustomActionArgsDict',
+    'AnalysisVisualCustomActionDefaultsArgs',
+    'AnalysisVisualCustomActionDefaultsArgsDict',
     'AnalysisVisualCustomActionOperationArgs',
     'AnalysisVisualCustomActionOperationArgsDict',
+    'AnalysisVisualHighlightOperationArgs',
+    'AnalysisVisualHighlightOperationArgsDict',
     'AnalysisVisualInteractionOptionsArgs',
     'AnalysisVisualInteractionOptionsArgsDict',
     'AnalysisVisualMenuOptionArgs',
     'AnalysisVisualMenuOptionArgsDict',
+    'AnalysisVisualMessageConfigurationArgs',
+    'AnalysisVisualMessageConfigurationArgsDict',
+    'AnalysisVisualMessagesArgs',
+    'AnalysisVisualMessagesArgsDict',
     'AnalysisVisualPaletteArgs',
     'AnalysisVisualPaletteArgsDict',
     'AnalysisVisualSubtitleLabelOptionsArgs',
@@ -2324,12 +2332,20 @@ __all__ = [
     'DashboardVisualAxisSortOptionArgsDict',
     'DashboardVisualCustomActionArgs',
     'DashboardVisualCustomActionArgsDict',
+    'DashboardVisualCustomActionDefaultsArgs',
+    'DashboardVisualCustomActionDefaultsArgsDict',
     'DashboardVisualCustomActionOperationArgs',
     'DashboardVisualCustomActionOperationArgsDict',
+    'DashboardVisualHighlightOperationArgs',
+    'DashboardVisualHighlightOperationArgsDict',
     'DashboardVisualInteractionOptionsArgs',
     'DashboardVisualInteractionOptionsArgsDict',
     'DashboardVisualMenuOptionArgs',
     'DashboardVisualMenuOptionArgsDict',
+    'DashboardVisualMessageConfigurationArgs',
+    'DashboardVisualMessageConfigurationArgsDict',
+    'DashboardVisualMessagesArgs',
+    'DashboardVisualMessagesArgsDict',
     'DashboardVisualPaletteArgs',
     'DashboardVisualPaletteArgsDict',
     'DashboardVisualPublishOptionsArgs',
@@ -3788,12 +3804,20 @@ __all__ = [
     'TemplateVisualArgsDict',
     'TemplateVisualCustomActionArgs',
     'TemplateVisualCustomActionArgsDict',
+    'TemplateVisualCustomActionDefaultsArgs',
+    'TemplateVisualCustomActionDefaultsArgsDict',
     'TemplateVisualCustomActionOperationArgs',
     'TemplateVisualCustomActionOperationArgsDict',
+    'TemplateVisualHighlightOperationArgs',
+    'TemplateVisualHighlightOperationArgsDict',
     'TemplateVisualInteractionOptionsArgs',
     'TemplateVisualInteractionOptionsArgsDict',
     'TemplateVisualMenuOptionArgs',
     'TemplateVisualMenuOptionArgsDict',
+    'TemplateVisualMessageConfigurationArgs',
+    'TemplateVisualMessageConfigurationArgsDict',
+    'TemplateVisualMessagesArgs',
+    'TemplateVisualMessagesArgsDict',
     'TemplateVisualPaletteArgs',
     'TemplateVisualPaletteArgsDict',
     'TemplateVisualSubtitleLabelOptionsArgs',
@@ -5192,10 +5216,12 @@ class AnalysisArcOptionsArgs:
 
 
 class AnalysisAssetOptionsArgsDict(TypedDict):
+    custom_action_defaults: NotRequired[pulumi.Input[Optional['AnalysisVisualCustomActionDefaultsArgsDict']]]
     timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Determines the timezone for the analysis.
     """
+    visual_messages: NotRequired[pulumi.Input[Optional['AnalysisVisualMessagesArgsDict']]]
     week_start: NotRequired[pulumi.Input[Optional['AnalysisDayOfTheWeek']]]
     """
     Determines the week start day for an analysis.
@@ -5204,16 +5230,31 @@ class AnalysisAssetOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class AnalysisAssetOptionsArgs:
     def __init__(__self__, *,
+                 custom_action_defaults: pulumi.Input[Optional['AnalysisVisualCustomActionDefaultsArgs']] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 visual_messages: pulumi.Input[Optional['AnalysisVisualMessagesArgs']] = None,
                  week_start: pulumi.Input[Optional['AnalysisDayOfTheWeek']] = None):
         """
         :param pulumi.Input[_builtins.str] timezone: Determines the timezone for the analysis.
         :param pulumi.Input['AnalysisDayOfTheWeek'] week_start: Determines the week start day for an analysis.
         """
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if visual_messages is not None:
+            pulumi.set(__self__, "visual_messages", visual_messages)
         if week_start is not None:
             pulumi.set(__self__, "week_start", week_start)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> pulumi.Input[Optional['AnalysisVisualCustomActionDefaultsArgs']]:
+        return pulumi.get(self, "custom_action_defaults")
+
+    @custom_action_defaults.setter
+    def custom_action_defaults(self, value: pulumi.Input[Optional['AnalysisVisualCustomActionDefaultsArgs']]):
+        pulumi.set(self, "custom_action_defaults", value)
 
     @_builtins.property
     @pulumi.getter
@@ -5226,6 +5267,15 @@ class AnalysisAssetOptionsArgs:
     @timezone.setter
     def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualMessages")
+    def visual_messages(self) -> pulumi.Input[Optional['AnalysisVisualMessagesArgs']]:
+        return pulumi.get(self, "visual_messages")
+
+    @visual_messages.setter
+    def visual_messages(self, value: pulumi.Input[Optional['AnalysisVisualMessagesArgs']]):
+        pulumi.set(self, "visual_messages", value)
 
     @_builtins.property
     @pulumi.getter(name="weekStart")
@@ -38926,6 +38976,7 @@ class AnalysisSheetDefinitionArgsDict(TypedDict):
     - `PAGINATED` : Creates a sheet for a paginated report.
     - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
     """
+    custom_action_defaults: NotRequired[pulumi.Input[Optional['AnalysisVisualCustomActionDefaultsArgsDict']]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the sheet.
@@ -38978,6 +39029,7 @@ class AnalysisSheetDefinitionArgs:
     def __init__(__self__, *,
                  sheet_id: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[Optional['AnalysisSheetContentType']] = None,
+                 custom_action_defaults: pulumi.Input[Optional['AnalysisVisualCustomActionDefaultsArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_controls: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisFilterControlArgs']]]] = None,
                  images: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetImageArgs']]]] = None,
@@ -39014,6 +39066,8 @@ class AnalysisSheetDefinitionArgs:
         pulumi.set(__self__, "sheet_id", sheet_id)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if filter_controls is not None:
@@ -39061,6 +39115,15 @@ class AnalysisSheetDefinitionArgs:
     @content_type.setter
     def content_type(self, value: pulumi.Input[Optional['AnalysisSheetContentType']]):
         pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> pulumi.Input[Optional['AnalysisVisualCustomActionDefaultsArgs']]:
+        return pulumi.get(self, "custom_action_defaults")
+
+    @custom_action_defaults.setter
+    def custom_action_defaults(self, value: pulumi.Input[Optional['AnalysisVisualCustomActionDefaultsArgs']]):
+        pulumi.set(self, "custom_action_defaults", value)
 
     @_builtins.property
     @pulumi.getter
@@ -46368,6 +46431,26 @@ class AnalysisVisualCustomActionArgs:
         pulumi.set(self, "status", value)
 
 
+class AnalysisVisualCustomActionDefaultsArgsDict(TypedDict):
+    highlight_operation: NotRequired[pulumi.Input[Optional['AnalysisVisualHighlightOperationArgsDict']]]
+
+@pulumi.input_type
+class AnalysisVisualCustomActionDefaultsArgs:
+    def __init__(__self__, *,
+                 highlight_operation: pulumi.Input[Optional['AnalysisVisualHighlightOperationArgs']] = None):
+        if highlight_operation is not None:
+            pulumi.set(__self__, "highlight_operation", highlight_operation)
+
+    @_builtins.property
+    @pulumi.getter(name="highlightOperation")
+    def highlight_operation(self) -> pulumi.Input[Optional['AnalysisVisualHighlightOperationArgs']]:
+        return pulumi.get(self, "highlight_operation")
+
+    @highlight_operation.setter
+    def highlight_operation(self, value: pulumi.Input[Optional['AnalysisVisualHighlightOperationArgs']]):
+        pulumi.set(self, "highlight_operation", value)
+
+
 class AnalysisVisualCustomActionOperationArgsDict(TypedDict):
     filter_operation: NotRequired[pulumi.Input[Optional['AnalysisCustomActionFilterOperationArgsDict']]]
     """
@@ -46457,6 +46540,25 @@ class AnalysisVisualCustomActionOperationArgs:
         pulumi.set(self, "url_operation", value)
 
 
+class AnalysisVisualHighlightOperationArgsDict(TypedDict):
+    trigger: pulumi.Input['AnalysisVisualHighlightTrigger']
+
+@pulumi.input_type
+class AnalysisVisualHighlightOperationArgs:
+    def __init__(__self__, *,
+                 trigger: pulumi.Input['AnalysisVisualHighlightTrigger']):
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['AnalysisVisualHighlightTrigger']:
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['AnalysisVisualHighlightTrigger']):
+        pulumi.set(self, "trigger", value)
+
+
 class AnalysisVisualInteractionOptionsArgsDict(TypedDict):
     context_menu_option: NotRequired[pulumi.Input[Optional['AnalysisContextMenuOptionArgsDict']]]
     """
@@ -46533,6 +46635,137 @@ class AnalysisVisualMenuOptionArgs:
     @availability_status.setter
     def availability_status(self, value: pulumi.Input[Optional['AnalysisDashboardBehavior']]):
         pulumi.set(self, "availability_status", value)
+
+
+class AnalysisVisualMessageConfigurationArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description_visibility: NotRequired[pulumi.Input[Optional['AnalysisVisibility']]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    link_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    link_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    link_visibility: NotRequired[pulumi.Input[Optional['AnalysisVisibility']]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    title_visibility: NotRequired[pulumi.Input[Optional['AnalysisVisibility']]]
+
+@pulumi.input_type
+class AnalysisVisualMessageConfigurationArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 description_visibility: pulumi.Input[Optional['AnalysisVisibility']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_visibility: pulumi.Input[Optional['AnalysisVisibility']] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 title_visibility: pulumi.Input[Optional['AnalysisVisibility']] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if description_visibility is not None:
+            pulumi.set(__self__, "description_visibility", description_visibility)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if link_text is not None:
+            pulumi.set(__self__, "link_text", link_text)
+        if link_url is not None:
+            pulumi.set(__self__, "link_url", link_url)
+        if link_visibility is not None:
+            pulumi.set(__self__, "link_visibility", link_visibility)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_visibility is not None:
+            pulumi.set(__self__, "title_visibility", title_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="descriptionVisibility")
+    def description_visibility(self) -> pulumi.Input[Optional['AnalysisVisibility']]:
+        return pulumi.get(self, "description_visibility")
+
+    @description_visibility.setter
+    def description_visibility(self, value: pulumi.Input[Optional['AnalysisVisibility']]):
+        pulumi.set(self, "description_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkText")
+    def link_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "link_text")
+
+    @link_text.setter
+    def link_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkUrl")
+    def link_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "link_url")
+
+    @link_url.setter
+    def link_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkVisibility")
+    def link_visibility(self) -> pulumi.Input[Optional['AnalysisVisibility']]:
+        return pulumi.get(self, "link_visibility")
+
+    @link_visibility.setter
+    def link_visibility(self, value: pulumi.Input[Optional['AnalysisVisibility']]):
+        pulumi.set(self, "link_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="titleVisibility")
+    def title_visibility(self) -> pulumi.Input[Optional['AnalysisVisibility']]:
+        return pulumi.get(self, "title_visibility")
+
+    @title_visibility.setter
+    def title_visibility(self, value: pulumi.Input[Optional['AnalysisVisibility']]):
+        pulumi.set(self, "title_visibility", value)
+
+
+class AnalysisVisualMessagesArgsDict(TypedDict):
+    no_data_message: NotRequired[pulumi.Input[Optional['AnalysisVisualMessageConfigurationArgsDict']]]
+
+@pulumi.input_type
+class AnalysisVisualMessagesArgs:
+    def __init__(__self__, *,
+                 no_data_message: pulumi.Input[Optional['AnalysisVisualMessageConfigurationArgs']] = None):
+        if no_data_message is not None:
+            pulumi.set(__self__, "no_data_message", no_data_message)
+
+    @_builtins.property
+    @pulumi.getter(name="noDataMessage")
+    def no_data_message(self) -> pulumi.Input[Optional['AnalysisVisualMessageConfigurationArgs']]:
+        return pulumi.get(self, "no_data_message")
+
+    @no_data_message.setter
+    def no_data_message(self, value: pulumi.Input[Optional['AnalysisVisualMessageConfigurationArgs']]):
+        pulumi.set(self, "no_data_message", value)
 
 
 class AnalysisVisualPaletteArgsDict(TypedDict):
@@ -54650,6 +54883,7 @@ class DashboardArcOptionsArgs:
 
 
 class DashboardAssetOptionsArgsDict(TypedDict):
+    custom_action_defaults: NotRequired[pulumi.Input[Optional['DashboardVisualCustomActionDefaultsArgsDict']]]
     excluded_data_set_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of dataset ARNS to exclude from Dashboard Q&A.
@@ -54662,6 +54896,7 @@ class DashboardAssetOptionsArgsDict(TypedDict):
     """
     Determines the timezone for the analysis.
     """
+    visual_messages: NotRequired[pulumi.Input[Optional['DashboardVisualMessagesArgsDict']]]
     week_start: NotRequired[pulumi.Input[Optional['DashboardDayOfTheWeek']]]
     """
     Determines the week start day for an analysis.
@@ -54670,9 +54905,11 @@ class DashboardAssetOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class DashboardAssetOptionsArgs:
     def __init__(__self__, *,
+                 custom_action_defaults: pulumi.Input[Optional['DashboardVisualCustomActionDefaultsArgs']] = None,
                  excluded_data_set_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  q_business_insights_status: pulumi.Input[Optional['DashboardQBusinessInsightsStatus']] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 visual_messages: pulumi.Input[Optional['DashboardVisualMessagesArgs']] = None,
                  week_start: pulumi.Input[Optional['DashboardDayOfTheWeek']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_data_set_arns: A list of dataset ARNS to exclude from Dashboard Q&A.
@@ -54680,14 +54917,27 @@ class DashboardAssetOptionsArgs:
         :param pulumi.Input[_builtins.str] timezone: Determines the timezone for the analysis.
         :param pulumi.Input['DashboardDayOfTheWeek'] week_start: Determines the week start day for an analysis.
         """
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if excluded_data_set_arns is not None:
             pulumi.set(__self__, "excluded_data_set_arns", excluded_data_set_arns)
         if q_business_insights_status is not None:
             pulumi.set(__self__, "q_business_insights_status", q_business_insights_status)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if visual_messages is not None:
+            pulumi.set(__self__, "visual_messages", visual_messages)
         if week_start is not None:
             pulumi.set(__self__, "week_start", week_start)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> pulumi.Input[Optional['DashboardVisualCustomActionDefaultsArgs']]:
+        return pulumi.get(self, "custom_action_defaults")
+
+    @custom_action_defaults.setter
+    def custom_action_defaults(self, value: pulumi.Input[Optional['DashboardVisualCustomActionDefaultsArgs']]):
+        pulumi.set(self, "custom_action_defaults", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedDataSetArns")
@@ -54724,6 +54974,15 @@ class DashboardAssetOptionsArgs:
     @timezone.setter
     def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualMessages")
+    def visual_messages(self) -> pulumi.Input[Optional['DashboardVisualMessagesArgs']]:
+        return pulumi.get(self, "visual_messages")
+
+    @visual_messages.setter
+    def visual_messages(self, value: pulumi.Input[Optional['DashboardVisualMessagesArgs']]):
+        pulumi.set(self, "visual_messages", value)
 
     @_builtins.property
     @pulumi.getter(name="weekStart")
@@ -88755,6 +89014,7 @@ class DashboardSheetDefinitionArgsDict(TypedDict):
     - `PAGINATED` : Creates a sheet for a paginated report.
     - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
     """
+    custom_action_defaults: NotRequired[pulumi.Input[Optional['DashboardVisualCustomActionDefaultsArgsDict']]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the sheet.
@@ -88807,6 +89067,7 @@ class DashboardSheetDefinitionArgs:
     def __init__(__self__, *,
                  sheet_id: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[Optional['DashboardSheetContentType']] = None,
+                 custom_action_defaults: pulumi.Input[Optional['DashboardVisualCustomActionDefaultsArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_controls: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardFilterControlArgs']]]] = None,
                  images: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardSheetImageArgs']]]] = None,
@@ -88843,6 +89104,8 @@ class DashboardSheetDefinitionArgs:
         pulumi.set(__self__, "sheet_id", sheet_id)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if filter_controls is not None:
@@ -88890,6 +89153,15 @@ class DashboardSheetDefinitionArgs:
     @content_type.setter
     def content_type(self, value: pulumi.Input[Optional['DashboardSheetContentType']]):
         pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> pulumi.Input[Optional['DashboardVisualCustomActionDefaultsArgs']]:
+        return pulumi.get(self, "custom_action_defaults")
+
+    @custom_action_defaults.setter
+    def custom_action_defaults(self, value: pulumi.Input[Optional['DashboardVisualCustomActionDefaultsArgs']]):
+        pulumi.set(self, "custom_action_defaults", value)
 
     @_builtins.property
     @pulumi.getter
@@ -96466,6 +96738,26 @@ class DashboardVisualCustomActionArgs:
         pulumi.set(self, "status", value)
 
 
+class DashboardVisualCustomActionDefaultsArgsDict(TypedDict):
+    highlight_operation: NotRequired[pulumi.Input[Optional['DashboardVisualHighlightOperationArgsDict']]]
+
+@pulumi.input_type
+class DashboardVisualCustomActionDefaultsArgs:
+    def __init__(__self__, *,
+                 highlight_operation: pulumi.Input[Optional['DashboardVisualHighlightOperationArgs']] = None):
+        if highlight_operation is not None:
+            pulumi.set(__self__, "highlight_operation", highlight_operation)
+
+    @_builtins.property
+    @pulumi.getter(name="highlightOperation")
+    def highlight_operation(self) -> pulumi.Input[Optional['DashboardVisualHighlightOperationArgs']]:
+        return pulumi.get(self, "highlight_operation")
+
+    @highlight_operation.setter
+    def highlight_operation(self, value: pulumi.Input[Optional['DashboardVisualHighlightOperationArgs']]):
+        pulumi.set(self, "highlight_operation", value)
+
+
 class DashboardVisualCustomActionOperationArgsDict(TypedDict):
     filter_operation: NotRequired[pulumi.Input[Optional['DashboardCustomActionFilterOperationArgsDict']]]
     """
@@ -96555,6 +96847,25 @@ class DashboardVisualCustomActionOperationArgs:
         pulumi.set(self, "url_operation", value)
 
 
+class DashboardVisualHighlightOperationArgsDict(TypedDict):
+    trigger: pulumi.Input['DashboardVisualHighlightTrigger']
+
+@pulumi.input_type
+class DashboardVisualHighlightOperationArgs:
+    def __init__(__self__, *,
+                 trigger: pulumi.Input['DashboardVisualHighlightTrigger']):
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['DashboardVisualHighlightTrigger']:
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['DashboardVisualHighlightTrigger']):
+        pulumi.set(self, "trigger", value)
+
+
 class DashboardVisualInteractionOptionsArgsDict(TypedDict):
     context_menu_option: NotRequired[pulumi.Input[Optional['DashboardContextMenuOptionArgsDict']]]
     """
@@ -96631,6 +96942,137 @@ class DashboardVisualMenuOptionArgs:
     @availability_status.setter
     def availability_status(self, value: pulumi.Input[Optional['DashboardBehavior']]):
         pulumi.set(self, "availability_status", value)
+
+
+class DashboardVisualMessageConfigurationArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description_visibility: NotRequired[pulumi.Input[Optional['DashboardVisibility']]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    link_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    link_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    link_visibility: NotRequired[pulumi.Input[Optional['DashboardVisibility']]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    title_visibility: NotRequired[pulumi.Input[Optional['DashboardVisibility']]]
+
+@pulumi.input_type
+class DashboardVisualMessageConfigurationArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 description_visibility: pulumi.Input[Optional['DashboardVisibility']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_visibility: pulumi.Input[Optional['DashboardVisibility']] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 title_visibility: pulumi.Input[Optional['DashboardVisibility']] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if description_visibility is not None:
+            pulumi.set(__self__, "description_visibility", description_visibility)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if link_text is not None:
+            pulumi.set(__self__, "link_text", link_text)
+        if link_url is not None:
+            pulumi.set(__self__, "link_url", link_url)
+        if link_visibility is not None:
+            pulumi.set(__self__, "link_visibility", link_visibility)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_visibility is not None:
+            pulumi.set(__self__, "title_visibility", title_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="descriptionVisibility")
+    def description_visibility(self) -> pulumi.Input[Optional['DashboardVisibility']]:
+        return pulumi.get(self, "description_visibility")
+
+    @description_visibility.setter
+    def description_visibility(self, value: pulumi.Input[Optional['DashboardVisibility']]):
+        pulumi.set(self, "description_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkText")
+    def link_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "link_text")
+
+    @link_text.setter
+    def link_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkUrl")
+    def link_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "link_url")
+
+    @link_url.setter
+    def link_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkVisibility")
+    def link_visibility(self) -> pulumi.Input[Optional['DashboardVisibility']]:
+        return pulumi.get(self, "link_visibility")
+
+    @link_visibility.setter
+    def link_visibility(self, value: pulumi.Input[Optional['DashboardVisibility']]):
+        pulumi.set(self, "link_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="titleVisibility")
+    def title_visibility(self) -> pulumi.Input[Optional['DashboardVisibility']]:
+        return pulumi.get(self, "title_visibility")
+
+    @title_visibility.setter
+    def title_visibility(self, value: pulumi.Input[Optional['DashboardVisibility']]):
+        pulumi.set(self, "title_visibility", value)
+
+
+class DashboardVisualMessagesArgsDict(TypedDict):
+    no_data_message: NotRequired[pulumi.Input[Optional['DashboardVisualMessageConfigurationArgsDict']]]
+
+@pulumi.input_type
+class DashboardVisualMessagesArgs:
+    def __init__(__self__, *,
+                 no_data_message: pulumi.Input[Optional['DashboardVisualMessageConfigurationArgs']] = None):
+        if no_data_message is not None:
+            pulumi.set(__self__, "no_data_message", no_data_message)
+
+    @_builtins.property
+    @pulumi.getter(name="noDataMessage")
+    def no_data_message(self) -> pulumi.Input[Optional['DashboardVisualMessageConfigurationArgs']]:
+        return pulumi.get(self, "no_data_message")
+
+    @no_data_message.setter
+    def no_data_message(self, value: pulumi.Input[Optional['DashboardVisualMessageConfigurationArgs']]):
+        pulumi.set(self, "no_data_message", value)
 
 
 class DashboardVisualPaletteArgsDict(TypedDict):
@@ -109123,10 +109565,12 @@ class TemplateArcOptionsArgs:
 
 
 class TemplateAssetOptionsArgsDict(TypedDict):
+    custom_action_defaults: NotRequired[pulumi.Input[Optional['TemplateVisualCustomActionDefaultsArgsDict']]]
     timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Determines the timezone for the analysis.
     """
+    visual_messages: NotRequired[pulumi.Input[Optional['TemplateVisualMessagesArgsDict']]]
     week_start: NotRequired[pulumi.Input[Optional['TemplateDayOfTheWeek']]]
     """
     Determines the week start day for an analysis.
@@ -109135,16 +109579,31 @@ class TemplateAssetOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class TemplateAssetOptionsArgs:
     def __init__(__self__, *,
+                 custom_action_defaults: pulumi.Input[Optional['TemplateVisualCustomActionDefaultsArgs']] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 visual_messages: pulumi.Input[Optional['TemplateVisualMessagesArgs']] = None,
                  week_start: pulumi.Input[Optional['TemplateDayOfTheWeek']] = None):
         """
         :param pulumi.Input[_builtins.str] timezone: Determines the timezone for the analysis.
         :param pulumi.Input['TemplateDayOfTheWeek'] week_start: Determines the week start day for an analysis.
         """
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if visual_messages is not None:
+            pulumi.set(__self__, "visual_messages", visual_messages)
         if week_start is not None:
             pulumi.set(__self__, "week_start", week_start)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> pulumi.Input[Optional['TemplateVisualCustomActionDefaultsArgs']]:
+        return pulumi.get(self, "custom_action_defaults")
+
+    @custom_action_defaults.setter
+    def custom_action_defaults(self, value: pulumi.Input[Optional['TemplateVisualCustomActionDefaultsArgs']]):
+        pulumi.set(self, "custom_action_defaults", value)
 
     @_builtins.property
     @pulumi.getter
@@ -109157,6 +109616,15 @@ class TemplateAssetOptionsArgs:
     @timezone.setter
     def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualMessages")
+    def visual_messages(self) -> pulumi.Input[Optional['TemplateVisualMessagesArgs']]:
+        return pulumi.get(self, "visual_messages")
+
+    @visual_messages.setter
+    def visual_messages(self, value: pulumi.Input[Optional['TemplateVisualMessagesArgs']]):
+        pulumi.set(self, "visual_messages", value)
 
     @_builtins.property
     @pulumi.getter(name="weekStart")
@@ -141763,6 +142231,7 @@ class TemplateSheetDefinitionArgsDict(TypedDict):
     - `PAGINATED` : Creates a sheet for a paginated report.
     - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
     """
+    custom_action_defaults: NotRequired[pulumi.Input[Optional['TemplateVisualCustomActionDefaultsArgsDict']]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the sheet.
@@ -141815,6 +142284,7 @@ class TemplateSheetDefinitionArgs:
     def __init__(__self__, *,
                  sheet_id: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[Optional['TemplateSheetContentType']] = None,
+                 custom_action_defaults: pulumi.Input[Optional['TemplateVisualCustomActionDefaultsArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_controls: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateFilterControlArgs']]]] = None,
                  images: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateSheetImageArgs']]]] = None,
@@ -141851,6 +142321,8 @@ class TemplateSheetDefinitionArgs:
         pulumi.set(__self__, "sheet_id", sheet_id)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if filter_controls is not None:
@@ -141898,6 +142370,15 @@ class TemplateSheetDefinitionArgs:
     @content_type.setter
     def content_type(self, value: pulumi.Input[Optional['TemplateSheetContentType']]):
         pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> pulumi.Input[Optional['TemplateVisualCustomActionDefaultsArgs']]:
+        return pulumi.get(self, "custom_action_defaults")
+
+    @custom_action_defaults.setter
+    def custom_action_defaults(self, value: pulumi.Input[Optional['TemplateVisualCustomActionDefaultsArgs']]):
+        pulumi.set(self, "custom_action_defaults", value)
 
     @_builtins.property
     @pulumi.getter
@@ -149362,6 +149843,26 @@ class TemplateVisualCustomActionArgs:
         pulumi.set(self, "status", value)
 
 
+class TemplateVisualCustomActionDefaultsArgsDict(TypedDict):
+    highlight_operation: NotRequired[pulumi.Input[Optional['TemplateVisualHighlightOperationArgsDict']]]
+
+@pulumi.input_type
+class TemplateVisualCustomActionDefaultsArgs:
+    def __init__(__self__, *,
+                 highlight_operation: pulumi.Input[Optional['TemplateVisualHighlightOperationArgs']] = None):
+        if highlight_operation is not None:
+            pulumi.set(__self__, "highlight_operation", highlight_operation)
+
+    @_builtins.property
+    @pulumi.getter(name="highlightOperation")
+    def highlight_operation(self) -> pulumi.Input[Optional['TemplateVisualHighlightOperationArgs']]:
+        return pulumi.get(self, "highlight_operation")
+
+    @highlight_operation.setter
+    def highlight_operation(self, value: pulumi.Input[Optional['TemplateVisualHighlightOperationArgs']]):
+        pulumi.set(self, "highlight_operation", value)
+
+
 class TemplateVisualCustomActionOperationArgsDict(TypedDict):
     filter_operation: NotRequired[pulumi.Input[Optional['TemplateCustomActionFilterOperationArgsDict']]]
     """
@@ -149451,6 +149952,25 @@ class TemplateVisualCustomActionOperationArgs:
         pulumi.set(self, "url_operation", value)
 
 
+class TemplateVisualHighlightOperationArgsDict(TypedDict):
+    trigger: pulumi.Input['TemplateVisualHighlightTrigger']
+
+@pulumi.input_type
+class TemplateVisualHighlightOperationArgs:
+    def __init__(__self__, *,
+                 trigger: pulumi.Input['TemplateVisualHighlightTrigger']):
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['TemplateVisualHighlightTrigger']:
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['TemplateVisualHighlightTrigger']):
+        pulumi.set(self, "trigger", value)
+
+
 class TemplateVisualInteractionOptionsArgsDict(TypedDict):
     context_menu_option: NotRequired[pulumi.Input[Optional['TemplateContextMenuOptionArgsDict']]]
     """
@@ -149527,6 +150047,137 @@ class TemplateVisualMenuOptionArgs:
     @availability_status.setter
     def availability_status(self, value: pulumi.Input[Optional['TemplateDashboardBehavior']]):
         pulumi.set(self, "availability_status", value)
+
+
+class TemplateVisualMessageConfigurationArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description_visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    link_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    link_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    link_visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    title_visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+
+@pulumi.input_type
+class TemplateVisualMessageConfigurationArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 description_visibility: pulumi.Input[Optional['TemplateVisibility']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_visibility: pulumi.Input[Optional['TemplateVisibility']] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 title_visibility: pulumi.Input[Optional['TemplateVisibility']] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if description_visibility is not None:
+            pulumi.set(__self__, "description_visibility", description_visibility)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if link_text is not None:
+            pulumi.set(__self__, "link_text", link_text)
+        if link_url is not None:
+            pulumi.set(__self__, "link_url", link_url)
+        if link_visibility is not None:
+            pulumi.set(__self__, "link_visibility", link_visibility)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_visibility is not None:
+            pulumi.set(__self__, "title_visibility", title_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="descriptionVisibility")
+    def description_visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "description_visibility")
+
+    @description_visibility.setter
+    def description_visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "description_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkText")
+    def link_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "link_text")
+
+    @link_text.setter
+    def link_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkUrl")
+    def link_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "link_url")
+
+    @link_url.setter
+    def link_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkVisibility")
+    def link_visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "link_visibility")
+
+    @link_visibility.setter
+    def link_visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "link_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="titleVisibility")
+    def title_visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "title_visibility")
+
+    @title_visibility.setter
+    def title_visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "title_visibility", value)
+
+
+class TemplateVisualMessagesArgsDict(TypedDict):
+    no_data_message: NotRequired[pulumi.Input[Optional['TemplateVisualMessageConfigurationArgsDict']]]
+
+@pulumi.input_type
+class TemplateVisualMessagesArgs:
+    def __init__(__self__, *,
+                 no_data_message: pulumi.Input[Optional['TemplateVisualMessageConfigurationArgs']] = None):
+        if no_data_message is not None:
+            pulumi.set(__self__, "no_data_message", no_data_message)
+
+    @_builtins.property
+    @pulumi.getter(name="noDataMessage")
+    def no_data_message(self) -> pulumi.Input[Optional['TemplateVisualMessageConfigurationArgs']]:
+        return pulumi.get(self, "no_data_message")
+
+    @no_data_message.setter
+    def no_data_message(self, value: pulumi.Input[Optional['TemplateVisualMessageConfigurationArgs']]):
+        pulumi.set(self, "no_data_message", value)
 
 
 class TemplateVisualPaletteArgsDict(TypedDict):

@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.Pcs
         public Output<ImmutableArray<Outputs.ComputeNodeGroupInstanceConfig>> InstanceConfigs { get; private set; } = null!;
 
         /// <summary>
+        /// How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+        /// </summary>
+        [Output("launchTemplateMode")]
+        public Output<Pulumi.AwsNative.Pcs.ComputeNodeGroupLaunchTemplateMode?> LaunchTemplateMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name that identifies the compute node group.
         /// </summary>
         [Output("name")]
@@ -85,6 +91,12 @@ namespace Pulumi.AwsNative.Pcs
         public Output<Outputs.ScalingConfigurationProperties> ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+        /// </summary>
+        [Output("securityGroupIds")]
+        public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// Additional options related to the Slurm scheduler.
         /// </summary>
         [Output("slurmConfiguration")]
@@ -95,6 +107,12 @@ namespace Pulumi.AwsNative.Pcs
         /// </summary>
         [Output("spotOptions")]
         public Output<Outputs.SpotOptionsProperties?> SpotOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+        /// </summary>
+        [Output("sshKeyName")]
+        public Output<string?> SshKeyName { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning status of the compute node group. The provisioning status doesn't indicate the overall health of the compute node group.
@@ -202,6 +220,12 @@ namespace Pulumi.AwsNative.Pcs
         }
 
         /// <summary>
+        /// How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+        /// </summary>
+        [Input("launchTemplateMode")]
+        public Input<Pulumi.AwsNative.Pcs.ComputeNodeGroupLaunchTemplateMode>? LaunchTemplateMode { get; set; }
+
+        /// <summary>
         /// The name that identifies the compute node group.
         /// </summary>
         [Input("name")]
@@ -222,6 +246,18 @@ namespace Pulumi.AwsNative.Pcs
         [Input("scalingConfiguration", required: true)]
         public Input<Inputs.ScalingConfigurationPropertiesArgs> ScalingConfiguration { get; set; } = null!;
 
+        [Input("securityGroupIds")]
+        private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+        /// </summary>
+        public InputList<string> SecurityGroupIds
+        {
+            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
+            set => _securityGroupIds = value;
+        }
+
         /// <summary>
         /// Additional options related to the Slurm scheduler.
         /// </summary>
@@ -233,6 +269,12 @@ namespace Pulumi.AwsNative.Pcs
         /// </summary>
         [Input("spotOptions")]
         public Input<Inputs.SpotOptionsPropertiesArgs>? SpotOptions { get; set; }
+
+        /// <summary>
+        /// The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+        /// </summary>
+        [Input("sshKeyName")]
+        public Input<string>? SshKeyName { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;

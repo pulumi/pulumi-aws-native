@@ -1361,6 +1361,172 @@ func (in *userPoolIssuerConfigurationTypePtr) ToUserPoolIssuerConfigurationTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(UserPoolIssuerConfigurationTypePtrOutput)
 }
 
+// Whether server-side user session tracking is enabled for the user pool. Requires the ESSENTIALS or PLUS feature plan.
+type UserPoolSessionConfigurationAttachmentUserSessionTracking string
+
+const (
+	UserPoolSessionConfigurationAttachmentUserSessionTrackingEnabled  = UserPoolSessionConfigurationAttachmentUserSessionTracking("ENABLED")
+	UserPoolSessionConfigurationAttachmentUserSessionTrackingDisabled = UserPoolSessionConfigurationAttachmentUserSessionTracking("DISABLED")
+)
+
+func (UserPoolSessionConfigurationAttachmentUserSessionTracking) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSessionConfigurationAttachmentUserSessionTracking)(nil)).Elem()
+}
+
+func (e UserPoolSessionConfigurationAttachmentUserSessionTracking) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingOutput() UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput {
+	return pulumi.ToOutput(e).(UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput)
+}
+
+func (e UserPoolSessionConfigurationAttachmentUserSessionTracking) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput)
+}
+
+func (e UserPoolSessionConfigurationAttachmentUserSessionTracking) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput() UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput {
+	return e.ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolSessionConfigurationAttachmentUserSessionTracking) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput {
+	return UserPoolSessionConfigurationAttachmentUserSessionTracking(e).ToUserPoolSessionConfigurationAttachmentUserSessionTrackingOutputWithContext(ctx).ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutputWithContext(ctx)
+}
+
+func (e UserPoolSessionConfigurationAttachmentUserSessionTracking) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolSessionConfigurationAttachmentUserSessionTracking) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolSessionConfigurationAttachmentUserSessionTracking) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolSessionConfigurationAttachmentUserSessionTracking) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSessionConfigurationAttachmentUserSessionTracking)(nil)).Elem()
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingOutput() UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput {
+	return o
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput {
+	return o
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput() UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput {
+	return o.ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolSessionConfigurationAttachmentUserSessionTracking) *UserPoolSessionConfigurationAttachmentUserSessionTracking {
+		return &v
+	}).(UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput)
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolSessionConfigurationAttachmentUserSessionTracking) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolSessionConfigurationAttachmentUserSessionTracking) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolSessionConfigurationAttachmentUserSessionTracking)(nil)).Elem()
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput() UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput {
+	return o
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput {
+	return o
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput) Elem() UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput {
+	return o.ApplyT(func(v *UserPoolSessionConfigurationAttachmentUserSessionTracking) UserPoolSessionConfigurationAttachmentUserSessionTracking {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolSessionConfigurationAttachmentUserSessionTracking
+		return ret
+	}).(UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput)
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserPoolSessionConfigurationAttachmentUserSessionTracking) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserPoolSessionConfigurationAttachmentUserSessionTrackingInput is an input type that accepts values of the UserPoolSessionConfigurationAttachmentUserSessionTracking enum
+// A concrete instance of `UserPoolSessionConfigurationAttachmentUserSessionTrackingInput` can be one of the following:
+//
+//	UserPoolSessionConfigurationAttachmentUserSessionTrackingEnabled
+//	UserPoolSessionConfigurationAttachmentUserSessionTrackingDisabled
+type UserPoolSessionConfigurationAttachmentUserSessionTrackingInput interface {
+	pulumi.Input
+
+	ToUserPoolSessionConfigurationAttachmentUserSessionTrackingOutput() UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput
+	ToUserPoolSessionConfigurationAttachmentUserSessionTrackingOutputWithContext(context.Context) UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput
+}
+
+var userPoolSessionConfigurationAttachmentUserSessionTrackingPtrType = reflect.TypeOf((**UserPoolSessionConfigurationAttachmentUserSessionTracking)(nil)).Elem()
+
+type UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput() UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput
+	ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutputWithContext(context.Context) UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput
+}
+
+type userPoolSessionConfigurationAttachmentUserSessionTrackingPtr string
+
+func UserPoolSessionConfigurationAttachmentUserSessionTrackingPtr(v string) UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrInput {
+	return (*userPoolSessionConfigurationAttachmentUserSessionTrackingPtr)(&v)
+}
+
+func (*userPoolSessionConfigurationAttachmentUserSessionTrackingPtr) ElementType() reflect.Type {
+	return userPoolSessionConfigurationAttachmentUserSessionTrackingPtrType
+}
+
+func (in *userPoolSessionConfigurationAttachmentUserSessionTrackingPtr) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput() UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput {
+	return pulumi.ToOutput(in).(UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput)
+}
+
+func (in *userPoolSessionConfigurationAttachmentUserSessionTrackingPtr) ToUserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutputWithContext(ctx context.Context) UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput)
+}
+
 // The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
 type UserPoolTier string
 
@@ -1711,6 +1877,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEncryptionKeyTypePtrInput)(nil)).Elem(), UserPoolEncryptionKeyType("AWS_OWNED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIssuerConfigurationTypeInput)(nil)).Elem(), UserPoolIssuerConfigurationType("ORIGINAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIssuerConfigurationTypePtrInput)(nil)).Elem(), UserPoolIssuerConfigurationType("ORIGINAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSessionConfigurationAttachmentUserSessionTrackingInput)(nil)).Elem(), UserPoolSessionConfigurationAttachmentUserSessionTracking("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrInput)(nil)).Elem(), UserPoolSessionConfigurationAttachmentUserSessionTracking("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierInput)(nil)).Elem(), UserPoolTier("LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierPtrInput)(nil)).Elem(), UserPoolTier("LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolWebAuthnFactorConfigurationInput)(nil)).Elem(), UserPoolWebAuthnFactorConfiguration("SINGLE_FACTOR"))
@@ -1731,6 +1899,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolIssuerConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(UserPoolIssuerConfigurationTypePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolSessionConfigurationAttachmentUserSessionTrackingOutput{})
+	pulumi.RegisterOutputType(UserPoolSessionConfigurationAttachmentUserSessionTrackingPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolTierOutput{})
 	pulumi.RegisterOutputType(UserPoolTierPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolWebAuthnFactorConfigurationOutput{})

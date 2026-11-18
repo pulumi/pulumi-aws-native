@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Ecr.Outputs
     [OutputType]
     public sealed class ReplicationConfigurationReplicationRule
     {
+        public readonly Outputs.ReplicationConfigurationDeleteReplication? DeleteReplication;
         /// <summary>
         /// An array of objects representing the destination for a replication rule.
         /// </summary>
@@ -27,10 +28,13 @@ namespace Pulumi.AwsNative.Ecr.Outputs
 
         [OutputConstructor]
         private ReplicationConfigurationReplicationRule(
+            Outputs.ReplicationConfigurationDeleteReplication? deleteReplication,
+
             ImmutableArray<Outputs.ReplicationConfigurationReplicationDestination> destinations,
 
             ImmutableArray<Outputs.ReplicationConfigurationRepositoryFilter> repositoryFilters)
         {
+            DeleteReplication = deleteReplication;
             Destinations = destinations;
             RepositoryFilters = repositoryFilters;
         }

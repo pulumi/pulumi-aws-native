@@ -24,15 +24,29 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         /// </summary>
         public readonly bool? ImageScanningEnabled;
+        /// <summary>
+        /// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.ImageBuilder.ImagePipelineImageScanningConfigurationImageScanningTypesItem> ImageScanningTypes;
+        /// <summary>
+        /// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+        /// </summary>
+        public readonly Outputs.ImagePipelineScanResultCondition? ScanResultCondition;
 
         [OutputConstructor]
         private ImagePipelineImageScanningConfiguration(
             Outputs.ImagePipelineEcrConfiguration? ecrConfiguration,
 
-            bool? imageScanningEnabled)
+            bool? imageScanningEnabled,
+
+            ImmutableArray<Pulumi.AwsNative.ImageBuilder.ImagePipelineImageScanningConfigurationImageScanningTypesItem> imageScanningTypes,
+
+            Outputs.ImagePipelineScanResultCondition? scanResultCondition)
         {
             EcrConfiguration = ecrConfiguration;
             ImageScanningEnabled = imageScanningEnabled;
+            ImageScanningTypes = imageScanningTypes;
+            ScanResultCondition = scanResultCondition;
         }
     }
 }

@@ -860,11 +860,12 @@ func (in *resourceConfigurationDnsResourceIpAddressTypePtr) ToResourceConfigurat
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceConfigurationDnsResourceIpAddressTypePtrOutput)
 }
 
-// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+// The protocol the resource configuration accepts. SINGLE and GROUP resource configurations support TCP. CIDR resource configurations support TCP and TCP_UDP; use TCP_UDP to carry UDP traffic such as DNS on port 53.
 type ResourceConfigurationProtocolType string
 
 const (
-	ResourceConfigurationProtocolTypeTcp = ResourceConfigurationProtocolType("TCP")
+	ResourceConfigurationProtocolTypeTcp    = ResourceConfigurationProtocolType("TCP")
+	ResourceConfigurationProtocolTypeTcpUdp = ResourceConfigurationProtocolType("TCP_UDP")
 )
 
 func (ResourceConfigurationProtocolType) ElementType() reflect.Type {
@@ -990,6 +991,7 @@ func (o ResourceConfigurationProtocolTypePtrOutput) ToStringPtrOutputWithContext
 // A concrete instance of `ResourceConfigurationProtocolTypeInput` can be one of the following:
 //
 //	ResourceConfigurationProtocolTypeTcp
+//	ResourceConfigurationProtocolTypeTcpUdp
 type ResourceConfigurationProtocolTypeInput interface {
 	pulumi.Input
 

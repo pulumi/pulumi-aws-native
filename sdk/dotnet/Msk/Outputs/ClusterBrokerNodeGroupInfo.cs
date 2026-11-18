@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.Msk.Outputs
         /// Contains information about storage volumes attached to Amazon MSK broker nodes.
         /// </summary>
         public readonly Outputs.ClusterStorageInfo? StorageInfo;
+        public readonly Pulumi.AwsNative.Msk.ClusterBrokerNodeGroupInfoTopicReassignment? TopicReassignment;
 
         [OutputConstructor]
         private ClusterBrokerNodeGroupInfo(
@@ -68,7 +69,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
 
             ImmutableArray<string> securityGroups,
 
-            Outputs.ClusterStorageInfo? storageInfo)
+            Outputs.ClusterStorageInfo? storageInfo,
+
+            Pulumi.AwsNative.Msk.ClusterBrokerNodeGroupInfoTopicReassignment? topicReassignment)
         {
             BrokerAzDistribution = brokerAzDistribution;
             ClientSubnets = clientSubnets;
@@ -76,6 +79,7 @@ namespace Pulumi.AwsNative.Msk.Outputs
             InstanceType = instanceType;
             SecurityGroups = securityGroups;
             StorageInfo = storageInfo;
+            TopicReassignment = topicReassignment;
         }
     }
 }

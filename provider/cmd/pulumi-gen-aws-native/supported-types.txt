@@ -121,6 +121,7 @@ AWS::Athena::CapacityReservation
 AWS::Athena::DataCatalog
 AWS::Athena::NamedQuery
 AWS::Athena::PreparedStatement
+AWS::Athena::SystemTables
 AWS::Athena::WorkGroup
 AWS::AuditManager::Assessment
 AWS::AutoScaling::AutoScalingGroup
@@ -292,6 +293,7 @@ AWS::CloudWatch::AccessGrant
 AWS::CloudWatch::AccessProfile
 AWS::CloudWatch::Alarm
 AWS::CloudWatch::AlarmMuteRule
+AWS::CloudWatch::Alert
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::Dashboard
 AWS::CloudWatch::Domain
@@ -300,6 +302,7 @@ AWS::CloudWatch::DomainForOrganization
 AWS::CloudWatch::InsightRule
 AWS::CloudWatch::Integration
 AWS::CloudWatch::LogAlarm
+AWS::CloudWatch::MetricDataQueryDefinition
 AWS::CloudWatch::MetricStream
 AWS::CloudWatch::OTelEnrichment
 AWS::CloudWatch::OmniDashboard
@@ -336,6 +339,7 @@ AWS::Cognito::ManagedLoginBranding
 AWS::Cognito::Terms
 AWS::Cognito::UserPool
 AWS::Cognito::UserPoolClient
+AWS::Cognito::UserPoolClientSessionConfigurationAttachment
 AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolGroup
 AWS::Cognito::UserPoolIdentityProvider
@@ -343,6 +347,7 @@ AWS::Cognito::UserPoolRegionalConfigurationAttachment
 AWS::Cognito::UserPoolReplica
 AWS::Cognito::UserPoolResourceServer
 AWS::Cognito::UserPoolRiskConfigurationAttachment
+AWS::Cognito::UserPoolSessionConfigurationAttachment
 AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::Cognito::UserPoolUser
 AWS::Cognito::UserPoolUserToGroupAttachment
@@ -415,8 +420,10 @@ AWS::CustomerProfiles::EventTrigger
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
 AWS::CustomerProfiles::Recommender
+AWS::CustomerProfiles::RecommenderFilter
 AWS::CustomerProfiles::RecommenderSchema
 AWS::CustomerProfiles::SegmentDefinition
+AWS::DAX::Cluster
 AWS::DAX::ParameterGroup
 AWS::DAX::SubnetGroup
 AWS::DLM::LifecyclePolicy
@@ -428,6 +435,7 @@ AWS::DMS::EventSubscription
 AWS::DMS::InstanceProfile
 AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
+AWS::DMS::ReplicationInstance
 AWS::DMS::ReplicationSubnetGroup
 AWS::DMS::ReplicationTask
 AWS::DRS::LaunchConfigurationTemplate
@@ -513,10 +521,12 @@ AWS::DirectConnect::DirectConnectGatewayAssociation
 AWS::DirectConnect::Lag
 AWS::DirectConnect::PrivateVirtualInterface
 AWS::DirectConnect::PublicVirtualInterface
+AWS::DirectConnect::ResiliencyGroup
 AWS::DirectConnect::TransitVirtualInterface
 AWS::DirectoryService::MicrosoftAD
 AWS::DirectoryService::SimpleAD
 AWS::DocDB::DBClusterParameterGroup
+AWS::DocDB::DBInstance
 AWS::DocDB::DBSubnetGroup
 AWS::DocDB::EventSubscription
 AWS::DocDB::GlobalCluster
@@ -531,7 +541,9 @@ AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
 AWS::EC2::ClientVpnAuthorizationRule
+AWS::EC2::ClientVpnEndpoint
 AWS::EC2::ClientVpnRoute
+AWS::EC2::ClientVpnTargetNetworkAssociation
 AWS::EC2::CustomerGateway
 AWS::EC2::DHCPOptions
 AWS::EC2::EC2Fleet
@@ -539,6 +551,8 @@ AWS::EC2::EIP
 AWS::EC2::EIPAssociation
 AWS::EC2::EgressOnlyInternetGateway
 AWS::EC2::EnclaveCertificateIamRoleAssociation
+AWS::EC2::FcaPolicy
+AWS::EC2::FcaPolicyAssociation
 AWS::EC2::FlowLog
 AWS::EC2::FpgaImage
 AWS::EC2::GatewayRouteTableAssociation
@@ -615,6 +629,7 @@ AWS::EC2::TransitGatewayMulticastDomain
 AWS::EC2::TransitGatewayMulticastDomainAssociation
 AWS::EC2::TransitGatewayMulticastGroupMember
 AWS::EC2::TransitGatewayMulticastGroupSource
+AWS::EC2::TransitGatewayNetworkFunctionAttachment
 AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayPolicyTable
 AWS::EC2::TransitGatewayPolicyTableAssociation
@@ -678,6 +693,7 @@ AWS::EKS::FargateProfile
 AWS::EKS::IdentityProviderConfig
 AWS::EKS::Nodegroup
 AWS::EKS::PodIdentityAssociation
+AWS::EMR::Cluster
 AWS::EMR::InstanceFleetConfig
 AWS::EMR::InstanceGroupConfig
 AWS::EMR::SecurityConfiguration
@@ -712,6 +728,7 @@ AWS::ElasticLoadBalancingV2::LoadBalancer
 AWS::ElasticLoadBalancingV2::TargetGroup
 AWS::ElasticLoadBalancingV2::TrustStore
 AWS::ElasticLoadBalancingV2::TrustStoreRevocation
+AWS::Elasticsearch::Domain
 AWS::ElementalInference::Dictionary
 AWS::ElementalInference::Feed
 AWS::EntityResolution::IdMappingWorkflow
@@ -964,11 +981,13 @@ AWS::Kinesis::ResourcePolicy
 AWS::Kinesis::Stream
 AWS::Kinesis::StreamConsumer
 AWS::KinesisAnalyticsV2::Application
+AWS::KinesisAnalyticsV2::Snapshot
 AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
 AWS::KinesisVideo::Stream
 AWS::LakeFormation::DataCellsFilter
 AWS::LakeFormation::PrincipalPermissions
+AWS::LakeFormation::Resource
 AWS::LakeFormation::Tag
 AWS::LakeFormation::TagAssociation
 AWS::Lambda::Alias
@@ -983,6 +1002,9 @@ AWS::Lambda::MicrovmImage
 AWS::Lambda::NetworkConnector
 AWS::Lambda::Permission
 AWS::Lambda::ResourcePolicy
+AWS::Lambda::Runtime
+AWS::Lambda::RuntimeAlias
+AWS::Lambda::RuntimeVersion
 AWS::Lambda::Url
 AWS::Lambda::Version
 AWS::Lambda::WebFunction
@@ -1143,10 +1165,13 @@ AWS::NetworkFirewall::RuleGroup
 AWS::NetworkFirewall::TLSInspectionConfiguration
 AWS::NetworkFirewall::VpcEndpointAssociation
 AWS::NetworkFlowMonitor::Monitor
+AWS::NetworkFlowMonitor::PerformanceMonitor
 AWS::NetworkFlowMonitor::Scope
 AWS::NetworkManager::ConnectAttachment
 AWS::NetworkManager::ConnectPeer
 AWS::NetworkManager::Connection
+AWS::NetworkManager::ContextStore
+AWS::NetworkManager::ContextStoreAssociation
 AWS::NetworkManager::CoreNetwork
 AWS::NetworkManager::CoreNetworkPrefixListAssociation
 AWS::NetworkManager::CustomerGatewayAssociation
@@ -1163,6 +1188,7 @@ AWS::NetworkManager::TransitGatewayRouteTableAttachment
 AWS::NetworkManager::VpcAttachment
 AWS::NetworkMonitor::Monitor
 AWS::NetworkMonitor::Probe
+AWS::NetworkSecurityManager::Deployment
 AWS::NetworkSecurityManager::Policy
 AWS::NetworkSecurityManager::Rule
 AWS::NetworkSecurityManager::Scope
@@ -1177,6 +1203,7 @@ AWS::ODB::CloudVmCluster
 AWS::ODB::OdbNetwork
 AWS::ODB::OdbPeeringConnection
 AWS::OSIS::Pipeline
+AWS::OSIS::PipelineEndpoint
 AWS::Oam::Link
 AWS::Oam::Sink
 AWS::ObservabilityAdmin::DatasetIntegration
@@ -1357,12 +1384,16 @@ AWS::Route53::CidrCollection
 AWS::Route53::DNSSEC
 AWS::Route53::DelegationSet
 AWS::Route53::HealthCheck
+AWS::Route53::HealthCheckSource
 AWS::Route53::HostedZone
 AWS::Route53::KeySigningKey
+AWS::Route53::QueryLoggingConfig
 AWS::Route53::RecordSet
+AWS::Route53::RecordSetProtection
 AWS::Route53::TrafficPolicy
 AWS::Route53GlobalResolver::AccessSource
 AWS::Route53GlobalResolver::AccessToken
+AWS::Route53GlobalResolver::CoreNetworkEndpoint
 AWS::Route53GlobalResolver::DnsView
 AWS::Route53GlobalResolver::FirewallDomainList
 AWS::Route53GlobalResolver::FirewallRule
@@ -1465,6 +1496,7 @@ AWS::SQS::Queue
 AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
 AWS::SSM::CloudConnector
+AWS::SSM::DefaultHostManagementConfiguration
 AWS::SSM::Document
 AWS::SSM::MaintenanceWindow
 AWS::SSM::MaintenanceWindowTarget
@@ -1497,6 +1529,7 @@ AWS::SageMaker::App
 AWS::SageMaker::AppImageConfig
 AWS::SageMaker::Artifact
 AWS::SageMaker::Cluster
+AWS::SageMaker::ClusterSchedulerConfig
 AWS::SageMaker::CodeRepository
 AWS::SageMaker::ComputeQuota
 AWS::SageMaker::Context
@@ -1508,6 +1541,7 @@ AWS::SageMaker::Endpoint
 AWS::SageMaker::EndpointConfig
 AWS::SageMaker::Experiment
 AWS::SageMaker::ExperimentTrialComponent
+AWS::SageMaker::Extension
 AWS::SageMaker::FeatureGroup
 AWS::SageMaker::Hub
 AWS::SageMaker::HumanTaskUi
@@ -1573,6 +1607,7 @@ AWS::SecurityLake::DataLake
 AWS::SecurityLake::Subscriber
 AWS::SecurityLake::SubscriberNotification
 AWS::ServerlessRepo::Application
+AWS::ServiceCatalog::AcceptedPortfolioShare
 AWS::ServiceCatalog::CloudFormationProduct
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::LaunchNotificationConstraint
@@ -1622,6 +1657,7 @@ AWS::Synthetics::Group
 AWS::SystemsManagerSAP::Application
 AWS::Textract::Adapter
 AWS::Timestream::Database
+AWS::Timestream::InfluxDBBackup
 AWS::Timestream::InfluxDBCluster
 AWS::Timestream::InfluxDBInstance
 AWS::Timestream::ScheduledQuery
@@ -1670,7 +1706,9 @@ AWS::WAFv2::WebACL
 AWS::WAFv2::WebACLAssociation
 AWS::WellArchitected::AgentContext
 AWS::WellArchitected::AgentGoal
+AWS::WellArchitected::AgentOrganizationalProfile
 AWS::WellArchitected::AgentProfile
+AWS::WellArchitected::AgentProfilePolicy
 AWS::WellArchitected::Lens
 AWS::WellArchitected::Profile
 AWS::WellArchitected::ReviewTemplate
@@ -1798,6 +1836,7 @@ MongoDB::Atlas::CloudBackUpRestoreJobs
 MongoDB::Atlas::CloudBackupSchedule
 MongoDB::Atlas::CloudBackupSnapshot
 MongoDB::Atlas::CloudBackupSnapshotExportBucket
+MongoDB::Atlas::CloudProviderAccessAuthorization
 MongoDB::Atlas::CloudProviderAccessSetup
 MongoDB::Atlas::Cluster
 MongoDB::Atlas::ClusterOutageSimulation

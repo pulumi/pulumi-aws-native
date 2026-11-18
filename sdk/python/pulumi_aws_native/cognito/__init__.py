@@ -15,12 +15,14 @@ from .get_managed_login_branding import *
 from .get_terms import *
 from .get_user_pool import *
 from .get_user_pool_client import *
+from .get_user_pool_client_session_configuration_attachment import *
 from .get_user_pool_domain import *
 from .get_user_pool_group import *
 from .get_user_pool_identity_provider import *
 from .get_user_pool_regional_configuration_attachment import *
 from .get_user_pool_resource_server import *
 from .get_user_pool_risk_configuration_attachment import *
+from .get_user_pool_session_configuration_attachment import *
 from .get_user_pool_ui_customization_attachment import *
 from .identity_pool import *
 from .identity_pool_principal_tag import *
@@ -30,6 +32,7 @@ from .managed_login_branding import *
 from .terms import *
 from .user_pool import *
 from .user_pool_client import *
+from .user_pool_client_session_configuration_attachment import *
 from .user_pool_domain import *
 from .user_pool_group import *
 from .user_pool_identity_provider import *
@@ -37,6 +40,7 @@ from .user_pool_regional_configuration_attachment import *
 from .user_pool_replica import *
 from .user_pool_resource_server import *
 from .user_pool_risk_configuration_attachment import *
+from .user_pool_session_configuration_attachment import *
 from .user_pool_ui_customization_attachment import *
 from .user_pool_user import *
 from .user_pool_user_to_group_attachment import *

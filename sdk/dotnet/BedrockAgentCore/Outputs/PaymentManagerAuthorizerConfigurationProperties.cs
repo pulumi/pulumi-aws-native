@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 {
 
-    /// <summary>
-    /// The authorizer configuration for the payment manager
-    /// </summary>
     [OutputType]
     public sealed class PaymentManagerAuthorizerConfigurationProperties
     {
-        public readonly Outputs.PaymentManagerCustomJwtAuthorizer CustomJwtAuthorizer;
+        public readonly Outputs.PaymentManagerCustomJwtAuthorizerConfiguration CustomJwtAuthorizer;
 
         [OutputConstructor]
-        private PaymentManagerAuthorizerConfigurationProperties(Outputs.PaymentManagerCustomJwtAuthorizer customJwtAuthorizer)
+        private PaymentManagerAuthorizerConfigurationProperties(Outputs.PaymentManagerCustomJwtAuthorizerConfiguration customJwtAuthorizer)
         {
             CustomJwtAuthorizer = customJwtAuthorizer;
         }

@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+        /// </summary>
+        [Output("multipathResilienceStatus")]
+        public Output<Pulumi.AwsNative.Ec2.VpcPeeringConnectionMultipathResilienceStatus> MultipathResilienceStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The AWS account ID of the owner of the accepter VPC.
         /// </summary>
         [Output("peerOwnerId")]
@@ -52,6 +58,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> PeerVpcId { get; private set; } = null!;
 
         /// <summary>
+        /// The VPC peering connection options corresponding to the accepter side of the connection.
+        /// </summary>
+        [Output("peerVpcPeeringConnectionOptions")]
+        public Output<Outputs.VpcPeeringConnectionOptions?> PeerVpcPeeringConnectionOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Any tags assigned to the resource.
         /// </summary>
         [Output("tags")]
@@ -62,6 +74,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
+
+        /// <summary>
+        /// The VPC peering connection options corresponding to the requester side of the connection.
+        /// </summary>
+        [Output("vpcPeeringConnectionOptions")]
+        public Output<Outputs.VpcPeeringConnectionOptions?> VpcPeeringConnectionOptions { get; private set; } = null!;
 
 
         /// <summary>
@@ -145,6 +163,12 @@ namespace Pulumi.AwsNative.Ec2
         [Input("peerVpcId", required: true)]
         public Input<string> PeerVpcId { get; set; } = null!;
 
+        /// <summary>
+        /// The VPC peering connection options corresponding to the accepter side of the connection.
+        /// </summary>
+        [Input("peerVpcPeeringConnectionOptions")]
+        public Input<Inputs.VpcPeeringConnectionOptionsArgs>? PeerVpcPeeringConnectionOptions { get; set; }
+
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
@@ -162,6 +186,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
+
+        /// <summary>
+        /// The VPC peering connection options corresponding to the requester side of the connection.
+        /// </summary>
+        [Input("vpcPeeringConnectionOptions")]
+        public Input<Inputs.VpcPeeringConnectionOptionsArgs>? VpcPeeringConnectionOptions { get; set; }
 
         public VpcPeeringConnectionArgs()
         {

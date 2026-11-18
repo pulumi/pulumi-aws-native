@@ -3996,6 +3996,35 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisVisualHighlightTrigger : IEquatable<AnalysisVisualHighlightTrigger>
+    {
+        private readonly string _value;
+
+        private AnalysisVisualHighlightTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisVisualHighlightTrigger DataPointClick { get; } = new AnalysisVisualHighlightTrigger("DATA_POINT_CLICK");
+        public static AnalysisVisualHighlightTrigger DataPointHover { get; } = new AnalysisVisualHighlightTrigger("DATA_POINT_HOVER");
+        public static AnalysisVisualHighlightTrigger None { get; } = new AnalysisVisualHighlightTrigger("NONE");
+
+        public static bool operator ==(AnalysisVisualHighlightTrigger left, AnalysisVisualHighlightTrigger right) => left.Equals(right);
+        public static bool operator !=(AnalysisVisualHighlightTrigger left, AnalysisVisualHighlightTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisVisualHighlightTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisVisualHighlightTrigger other && Equals(other);
+        public bool Equals(AnalysisVisualHighlightTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisWidgetStatus : IEquatable<AnalysisWidgetStatus>
     {
         private readonly string _value;
@@ -8055,6 +8084,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardVisualCustomActionTrigger other && Equals(other);
         public bool Equals(DashboardVisualCustomActionTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardVisualHighlightTrigger : IEquatable<DashboardVisualHighlightTrigger>
+    {
+        private readonly string _value;
+
+        private DashboardVisualHighlightTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardVisualHighlightTrigger DataPointClick { get; } = new DashboardVisualHighlightTrigger("DATA_POINT_CLICK");
+        public static DashboardVisualHighlightTrigger DataPointHover { get; } = new DashboardVisualHighlightTrigger("DATA_POINT_HOVER");
+        public static DashboardVisualHighlightTrigger None { get; } = new DashboardVisualHighlightTrigger("NONE");
+
+        public static bool operator ==(DashboardVisualHighlightTrigger left, DashboardVisualHighlightTrigger right) => left.Equals(right);
+        public static bool operator !=(DashboardVisualHighlightTrigger left, DashboardVisualHighlightTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardVisualHighlightTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardVisualHighlightTrigger other && Equals(other);
+        public bool Equals(DashboardVisualHighlightTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -13468,6 +13526,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateVisualCustomActionTrigger other && Equals(other);
         public bool Equals(TemplateVisualCustomActionTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateVisualHighlightTrigger : IEquatable<TemplateVisualHighlightTrigger>
+    {
+        private readonly string _value;
+
+        private TemplateVisualHighlightTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateVisualHighlightTrigger DataPointClick { get; } = new TemplateVisualHighlightTrigger("DATA_POINT_CLICK");
+        public static TemplateVisualHighlightTrigger DataPointHover { get; } = new TemplateVisualHighlightTrigger("DATA_POINT_HOVER");
+        public static TemplateVisualHighlightTrigger None { get; } = new TemplateVisualHighlightTrigger("NONE");
+
+        public static bool operator ==(TemplateVisualHighlightTrigger left, TemplateVisualHighlightTrigger right) => left.Equals(right);
+        public static bool operator !=(TemplateVisualHighlightTrigger left, TemplateVisualHighlightTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateVisualHighlightTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateVisualHighlightTrigger other && Equals(other);
+        public bool Equals(TemplateVisualHighlightTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

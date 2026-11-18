@@ -30,6 +30,12 @@ __all__ = [
     'CloudConnectorConfigurationArgsDict',
     'CloudConnectorConfigurationTargetsArgs',
     'CloudConnectorConfigurationTargetsArgsDict',
+    'CloudConnectorGcpConfigurationArgs',
+    'CloudConnectorGcpConfigurationArgsDict',
+    'CloudConnectorGcpConfigurationTargetsArgs',
+    'CloudConnectorGcpConfigurationTargetsArgsDict',
+    'CloudConnectorGcpProjectArgs',
+    'CloudConnectorGcpProjectArgsDict',
     'DocumentAttachmentsSourceArgs',
     'DocumentAttachmentsSourceArgsDict',
     'DocumentRequiresArgs',
@@ -383,27 +389,41 @@ class CloudConnectorAzureSubscriptionArgs:
 
 class CloudConnectorConfigurationArgsDict(TypedDict):
     """
-    The configuration for the cloud connector. Currently supports Azure.
+    The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
     """
-    azure_configuration: pulumi.Input['CloudConnectorAzureConfigurationArgsDict']
+    azure_configuration: NotRequired[pulumi.Input[Optional['CloudConnectorAzureConfigurationArgsDict']]]
+    gcp_configuration: NotRequired[pulumi.Input[Optional['CloudConnectorGcpConfigurationArgsDict']]]
 
 @pulumi.input_type
 class CloudConnectorConfigurationArgs:
     def __init__(__self__, *,
-                 azure_configuration: pulumi.Input['CloudConnectorAzureConfigurationArgs']):
+                 azure_configuration: pulumi.Input[Optional['CloudConnectorAzureConfigurationArgs']] = None,
+                 gcp_configuration: pulumi.Input[Optional['CloudConnectorGcpConfigurationArgs']] = None):
         """
-        The configuration for the cloud connector. Currently supports Azure.
+        The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
         """
-        pulumi.set(__self__, "azure_configuration", azure_configuration)
+        if azure_configuration is not None:
+            pulumi.set(__self__, "azure_configuration", azure_configuration)
+        if gcp_configuration is not None:
+            pulumi.set(__self__, "gcp_configuration", gcp_configuration)
 
     @_builtins.property
     @pulumi.getter(name="azureConfiguration")
-    def azure_configuration(self) -> pulumi.Input['CloudConnectorAzureConfigurationArgs']:
+    def azure_configuration(self) -> pulumi.Input[Optional['CloudConnectorAzureConfigurationArgs']]:
         return pulumi.get(self, "azure_configuration")
 
     @azure_configuration.setter
-    def azure_configuration(self, value: pulumi.Input['CloudConnectorAzureConfigurationArgs']):
+    def azure_configuration(self, value: pulumi.Input[Optional['CloudConnectorAzureConfigurationArgs']]):
         pulumi.set(self, "azure_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gcpConfiguration")
+    def gcp_configuration(self) -> pulumi.Input[Optional['CloudConnectorGcpConfigurationArgs']]:
+        return pulumi.get(self, "gcp_configuration")
+
+    @gcp_configuration.setter
+    def gcp_configuration(self, value: pulumi.Input[Optional['CloudConnectorGcpConfigurationArgs']]):
+        pulumi.set(self, "gcp_configuration", value)
 
 
 class CloudConnectorConfigurationTargetsArgsDict(TypedDict):
@@ -437,6 +457,177 @@ class CloudConnectorConfigurationTargetsArgs:
     @subscriptions.setter
     def subscriptions(self, value: pulumi.Input[Sequence[pulumi.Input['CloudConnectorAzureSubscriptionArgs']]]):
         pulumi.set(self, "subscriptions", value)
+
+
+class CloudConnectorGcpConfigurationArgsDict(TypedDict):
+    """
+    Configuration for connecting to Google Cloud.
+    """
+    service_account_email: pulumi.Input[_builtins.str]
+    """
+    The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+    """
+    workload_identity_pool_provider: pulumi.Input[_builtins.str]
+    """
+    The resource name of the workload identity pool provider that trusts the connector's IAM role.
+    """
+    organization_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+    """
+    targets: NotRequired[pulumi.Input[Optional['CloudConnectorGcpConfigurationTargetsArgsDict']]]
+
+@pulumi.input_type
+class CloudConnectorGcpConfigurationArgs:
+    def __init__(__self__, *,
+                 service_account_email: pulumi.Input[_builtins.str],
+                 workload_identity_pool_provider: pulumi.Input[_builtins.str],
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional['CloudConnectorGcpConfigurationTargetsArgs']] = None):
+        """
+        Configuration for connecting to Google Cloud.
+
+        :param pulumi.Input[_builtins.str] service_account_email: The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+        :param pulumi.Input[_builtins.str] workload_identity_pool_provider: The resource name of the workload identity pool provider that trusts the connector's IAM role.
+        :param pulumi.Input[_builtins.str] organization_id: The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+        """
+        pulumi.set(__self__, "service_account_email", service_account_email)
+        pulumi.set(__self__, "workload_identity_pool_provider", workload_identity_pool_provider)
+        if organization_id is not None:
+            pulumi.set(__self__, "organization_id", organization_id)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> pulumi.Input[_builtins.str]:
+        """
+        The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "service_account_email")
+
+    @service_account_email.setter
+    def service_account_email(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_account_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPoolProvider")
+    def workload_identity_pool_provider(self) -> pulumi.Input[_builtins.str]:
+        """
+        The resource name of the workload identity pool provider that trusts the connector's IAM role.
+        """
+        return pulumi.get(self, "workload_identity_pool_provider")
+
+    @workload_identity_pool_provider.setter
+    def workload_identity_pool_provider(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workload_identity_pool_provider", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationId")
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "organization_id")
+
+    @organization_id.setter
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organization_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input[Optional['CloudConnectorGcpConfigurationTargetsArgs']]:
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input[Optional['CloudConnectorGcpConfigurationTargetsArgs']]):
+        pulumi.set(self, "targets", value)
+
+
+class CloudConnectorGcpConfigurationTargetsArgsDict(TypedDict):
+    """
+    The targets for the cloud connector. If omitted, the entire organization is targeted.
+    """
+    projects: pulumi.Input[Sequence[pulumi.Input['CloudConnectorGcpProjectArgsDict']]]
+    """
+    List of GCP projects.
+    """
+
+@pulumi.input_type
+class CloudConnectorGcpConfigurationTargetsArgs:
+    def __init__(__self__, *,
+                 projects: pulumi.Input[Sequence[pulumi.Input['CloudConnectorGcpProjectArgs']]]):
+        """
+        The targets for the cloud connector. If omitted, the entire organization is targeted.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CloudConnectorGcpProjectArgs']]] projects: List of GCP projects.
+        """
+        pulumi.set(__self__, "projects", projects)
+
+    @_builtins.property
+    @pulumi.getter
+    def projects(self) -> pulumi.Input[Sequence[pulumi.Input['CloudConnectorGcpProjectArgs']]]:
+        """
+        List of GCP projects.
+        """
+        return pulumi.get(self, "projects")
+
+    @projects.setter
+    def projects(self, value: pulumi.Input[Sequence[pulumi.Input['CloudConnectorGcpProjectArgs']]]):
+        pulumi.set(self, "projects", value)
+
+
+class CloudConnectorGcpProjectArgsDict(TypedDict):
+    """
+    A GCP project with its ID and optional display name.
+    """
+    project_id: pulumi.Input[_builtins.str]
+    """
+    The GCP project ID.
+    """
+    project_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name of the GCP project.
+    """
+
+@pulumi.input_type
+class CloudConnectorGcpProjectArgs:
+    def __init__(__self__, *,
+                 project_id: pulumi.Input[_builtins.str],
+                 project_display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A GCP project with its ID and optional display name.
+
+        :param pulumi.Input[_builtins.str] project_id: The GCP project ID.
+        :param pulumi.Input[_builtins.str] project_display_name: The display name of the GCP project.
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        if project_display_name is not None:
+            pulumi.set(__self__, "project_display_name", project_display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The GCP project ID.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectDisplayName")
+    def project_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name of the GCP project.
+        """
+        return pulumi.get(self, "project_display_name")
+
+    @project_display_name.setter
+    def project_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "project_display_name", value)
 
 
 class DocumentAttachmentsSourceArgsDict(TypedDict):

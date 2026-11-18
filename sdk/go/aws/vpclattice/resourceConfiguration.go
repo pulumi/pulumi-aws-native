@@ -31,9 +31,9 @@ type ResourceConfiguration struct {
 	GroupDomain pulumi.StringPtrOutput `pulumi:"groupDomain"`
 	// The name of the resource configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+	// The port ranges the resource configuration listens on, as single ports or ranges (for example, 80 or 1001-2000). Applies to SINGLE, GROUP, CHILD, and CIDR resource configurations. For a CIDR resource configuration with ProtocolType TCP_UDP, these ranges cover both TCP and UDP traffic, so include port 53 to carry DNS to the network segment.
 	PortRanges pulumi.StringArrayOutput `pulumi:"portRanges"`
-	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+	// The protocol the resource configuration accepts. SINGLE and GROUP resource configurations support TCP. CIDR resource configurations support TCP and TCP_UDP; use TCP_UDP to carry UDP traffic such as DNS on port 53.
 	ProtocolType ResourceConfigurationProtocolTypePtrOutput `pulumi:"protocolType"`
 	// The auth type for the resource configuration.
 	ResourceConfigurationAuthType ResourceConfigurationAuthTypePtrOutput `pulumi:"resourceConfigurationAuthType"`
@@ -127,9 +127,9 @@ type resourceConfigurationArgs struct {
 	GroupDomain *string `pulumi:"groupDomain"`
 	// The name of the resource configuration.
 	Name *string `pulumi:"name"`
-	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+	// The port ranges the resource configuration listens on, as single ports or ranges (for example, 80 or 1001-2000). Applies to SINGLE, GROUP, CHILD, and CIDR resource configurations. For a CIDR resource configuration with ProtocolType TCP_UDP, these ranges cover both TCP and UDP traffic, so include port 53 to carry DNS to the network segment.
 	PortRanges []string `pulumi:"portRanges"`
-	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+	// The protocol the resource configuration accepts. SINGLE and GROUP resource configurations support TCP. CIDR resource configurations support TCP and TCP_UDP; use TCP_UDP to carry UDP traffic such as DNS on port 53.
 	ProtocolType *ResourceConfigurationProtocolType `pulumi:"protocolType"`
 	// The auth type for the resource configuration.
 	ResourceConfigurationAuthType *ResourceConfigurationAuthType `pulumi:"resourceConfigurationAuthType"`
@@ -166,9 +166,9 @@ type ResourceConfigurationArgs struct {
 	GroupDomain pulumi.StringPtrInput
 	// The name of the resource configuration.
 	Name pulumi.StringPtrInput
-	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+	// The port ranges the resource configuration listens on, as single ports or ranges (for example, 80 or 1001-2000). Applies to SINGLE, GROUP, CHILD, and CIDR resource configurations. For a CIDR resource configuration with ProtocolType TCP_UDP, these ranges cover both TCP and UDP traffic, so include port 53 to carry DNS to the network segment.
 	PortRanges pulumi.StringArrayInput
-	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+	// The protocol the resource configuration accepts. SINGLE and GROUP resource configurations support TCP. CIDR resource configurations support TCP and TCP_UDP; use TCP_UDP to carry UDP traffic such as DNS on port 53.
 	ProtocolType ResourceConfigurationProtocolTypePtrInput
 	// The auth type for the resource configuration.
 	ResourceConfigurationAuthType ResourceConfigurationAuthTypePtrInput
@@ -265,12 +265,12 @@ func (o ResourceConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+// The port ranges the resource configuration listens on, as single ports or ranges (for example, 80 or 1001-2000). Applies to SINGLE, GROUP, CHILD, and CIDR resource configurations. For a CIDR resource configuration with ProtocolType TCP_UDP, these ranges cover both TCP and UDP traffic, so include port 53 to carry DNS to the network segment.
 func (o ResourceConfigurationOutput) PortRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringArrayOutput { return v.PortRanges }).(pulumi.StringArrayOutput)
 }
 
-// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+// The protocol the resource configuration accepts. SINGLE and GROUP resource configurations support TCP. CIDR resource configurations support TCP and TCP_UDP; use TCP_UDP to carry UDP traffic such as DNS on port 53.
 func (o ResourceConfigurationOutput) ProtocolType() ResourceConfigurationProtocolTypePtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationProtocolTypePtrOutput { return v.ProtocolType }).(ResourceConfigurationProtocolTypePtrOutput)
 }

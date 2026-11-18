@@ -41,6 +41,7 @@ class TaskDefinitionArgs:
                  runtime_platform: pulumi.Input[Optional['TaskDefinitionRuntimePlatformArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_execution_configuration: pulumi.Input[Optional['TaskDefinitionTrustedExecutionConfigurationArgs']] = None,
                  volumes: pulumi.Input[Optional[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None):
         """
         The set of arguments for constructing a TaskDefinition resource.
@@ -142,6 +143,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "tags", tags)
         if task_role_arn is not None:
             pulumi.set(__self__, "task_role_arn", task_role_arn)
+        if trusted_execution_configuration is not None:
+            pulumi.set(__self__, "trusted_execution_configuration", trusted_execution_configuration)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -391,6 +394,15 @@ class TaskDefinitionArgs:
         pulumi.set(self, "task_role_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="trustedExecutionConfiguration")
+    def trusted_execution_configuration(self) -> pulumi.Input[Optional['TaskDefinitionTrustedExecutionConfigurationArgs']]:
+        return pulumi.get(self, "trusted_execution_configuration")
+
+    @trusted_execution_configuration.setter
+    def trusted_execution_configuration(self, value: pulumi.Input[Optional['TaskDefinitionTrustedExecutionConfigurationArgs']]):
+        pulumi.set(self, "trusted_execution_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]]:
         """
@@ -427,6 +439,7 @@ class TaskDefinition(pulumi.CustomResource):
                  runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict', 'outputs.TaskDefinitionRuntimePlatform']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_execution_configuration: pulumi.Input[Optional[Union['TaskDefinitionTrustedExecutionConfigurationArgs', 'TaskDefinitionTrustedExecutionConfigurationArgsDict', 'outputs.TaskDefinitionTrustedExecutionConfiguration']]] = None,
                  volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict', 'outputs.TaskDefinitionVolume']]]]] = None,
                  __props__=None):
         """
@@ -896,6 +909,7 @@ class TaskDefinition(pulumi.CustomResource):
                  runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict', 'outputs.TaskDefinitionRuntimePlatform']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_execution_configuration: pulumi.Input[Optional[Union['TaskDefinitionTrustedExecutionConfigurationArgs', 'TaskDefinitionTrustedExecutionConfigurationArgsDict', 'outputs.TaskDefinitionTrustedExecutionConfiguration']]] = None,
                  volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict', 'outputs.TaskDefinitionVolume']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -923,6 +937,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["runtime_platform"] = runtime_platform
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_role_arn"] = task_role_arn
+            __props__.__dict__["trusted_execution_configuration"] = trusted_execution_configuration
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["task_definition_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerDefinitions[*]", "cpu", "enableFaultInjection", "ephemeralStorage", "executionRoleArn", "family", "inferenceAccelerators[*]", "ipcMode", "memory", "networkMode", "pidMode", "placementConstraints[*]", "proxyConfiguration", "requiresCompatibilities[*]", "runtimePlatform", "taskRoleArn", "volumes[*]"])
@@ -967,6 +982,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["task_definition_arn"] = None
         __props__.__dict__["task_role_arn"] = None
+        __props__.__dict__["trusted_execution_configuration"] = None
         __props__.__dict__["volumes"] = None
         return TaskDefinition(resource_name, opts=opts, __props__=__props__)
 
@@ -1160,6 +1176,11 @@ class TaskDefinition(pulumi.CustomResource):
           String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang.
         """
         return pulumi.get(self, "task_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedExecutionConfiguration")
+    def trusted_execution_configuration(self) -> pulumi.Output[Optional['outputs.TaskDefinitionTrustedExecutionConfiguration']]:
+        return pulumi.get(self, "trusted_execution_configuration")
 
     @_builtins.property
     @pulumi.getter

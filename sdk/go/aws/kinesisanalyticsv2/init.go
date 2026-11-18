@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:kinesisanalyticsv2:Application":
 		r = &Application{}
+	case "aws-native:kinesisanalyticsv2:Snapshot":
+		r = &Snapshot{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

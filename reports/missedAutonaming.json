@@ -1704,6 +1704,26 @@
       }
     }
   },
+  "aws-native:athena:SystemTables": {
+    "cfTypeName": "AWS::Athena::SystemTables",
+    "properties": {
+      "kmsKeyArn": {
+        "type": "string",
+        "description": "The ARN of the customer managed AWS KMS key used to encrypt the system table data. Specify a key ARN (not an alias); the key must be in the same account and Region. The encryption choice is permanent for the account and Region: it cannot be changed or removed after creation, and it persists after this resource is deleted."
+      },
+      "tableName": {
+        "$ref": "#/types/aws-native:athena:SystemTablesTableName",
+        "description": "The reserved keyword identifying the account-level System Tables configuration. The only accepted value is ALL, which enables all system tables for the account. This is the resource's primary identifier."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to the system tables configuration."
+      }
+    }
+  },
   "aws-native:autoscaling:ScalingPolicy": {
     "cfTypeName": "AWS::AutoScaling::ScalingPolicy",
     "properties": {
@@ -3063,6 +3083,30 @@
       }
     }
   },
+  "aws-native:cloudwatch:MetricDataQueryDefinition": {
+    "cfTypeName": "AWS::CloudWatch::MetricDataQueryDefinition",
+    "properties": {
+      "expression": {
+        "type": "string",
+        "description": "The metric query. It is stored as-is and is not validated."
+      },
+      "path": {
+        "type": "string",
+        "description": "The name of the metric data query definition. Use '/' to organize definitions into folders. Must be unique in the account and Region. Changing it renames the definition in place."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to the metric data query definition."
+      },
+      "type": {
+        "$ref": "#/types/aws-native:cloudwatch:MetricDataQueryDefinitionType",
+        "description": "The query language of Expression."
+      }
+    }
+  },
   "aws-native:cloudwatch:OTelEnrichment": {
     "cfTypeName": "AWS::CloudWatch::OTelEnrichment",
     "properties": {
@@ -3355,6 +3399,22 @@
       }
     }
   },
+  "aws-native:cognito:UserPoolClientSessionConfigurationAttachment": {
+    "cfTypeName": "AWS::Cognito::UserPoolClientSessionConfigurationAttachment",
+    "properties": {
+      "clientId": {
+        "type": "string",
+        "description": "The ID of the app client."
+      },
+      "ssoSession": {
+        "$ref": "#/types/aws-native:cognito:UserPoolClientSessionConfigurationAttachmentSsoSession"
+      },
+      "userPoolId": {
+        "type": "string",
+        "description": "The ID of the user pool."
+      }
+    }
+  },
   "aws-native:cognito:UserPoolDomain": {
     "cfTypeName": "AWS::Cognito::UserPoolDomain",
     "properties": {
@@ -3445,6 +3505,22 @@
       "userPoolId": {
         "type": "string",
         "description": "The ID of the user pool that has the risk configuration applied."
+      }
+    }
+  },
+  "aws-native:cognito:UserPoolSessionConfigurationAttachment": {
+    "cfTypeName": "AWS::Cognito::UserPoolSessionConfigurationAttachment",
+    "properties": {
+      "tokenSession": {
+        "$ref": "#/types/aws-native:cognito:UserPoolSessionConfigurationAttachmentTokenSession"
+      },
+      "userPoolId": {
+        "type": "string",
+        "description": "The ID of the user pool."
+      },
+      "userSessionTracking": {
+        "$ref": "#/types/aws-native:cognito:UserPoolSessionConfigurationAttachmentUserSessionTracking",
+        "description": "Whether server-side user session tracking is enabled for the user pool. Requires the ESSENTIALS or PLUS feature plan."
       }
     }
   },
@@ -4086,6 +4162,9 @@
       "domainName": {
         "type": "string",
         "description": "The unique name of the domain."
+      },
+      "filter": {
+        "$ref": "#/types/aws-native:customerprofiles:CalculatedAttributeDefinitionFilter"
       },
       "statistic": {
         "$ref": "#/types/aws-native:customerprofiles:CalculatedAttributeDefinitionStatistic",
@@ -5364,6 +5443,10 @@
         "type": "string",
         "description": "The unique identifier of the AgentSpace"
       },
+      "capabilities": {
+        "$ref": "#/types/aws-native:devopsagent:AssociationCapabilities",
+        "description": "Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis"
+      },
       "configuration": {
         "$ref": "#/types/aws-native:devopsagent:AssociationServiceConfiguration",
         "description": "The configuration that directs how AgentSpace interacts with the given service"
@@ -5707,6 +5790,85 @@
       }
     }
   },
+  "aws-native:dms:ReplicationInstance": {
+    "cfTypeName": "AWS::DMS::ReplicationInstance",
+    "properties": {
+      "allocatedStorage": {
+        "type": "integer",
+        "description": "The amount of storage (in gigabytes) to be initially allocated for the replication instance."
+      },
+      "allowMajorVersionUpgrade": {
+        "type": "boolean",
+        "description": "Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage, and the change is asynchronously applied as soon as possible.\n\nThis parameter must be set to `true` when specifying a value for the `EngineVersion` parameter that is a different major version than the replication instance's current version."
+      },
+      "autoMinorVersionUpgrade": {
+        "type": "boolean",
+        "description": "A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to `true`.\n\nDefault: `true`"
+      },
+      "availabilityZone": {
+        "type": "string",
+        "description": "The Availability Zone that the replication instance will be created in.\n\nThe default value is a random, system-chosen Availability Zone in the endpoint's AWS Region, for example `us-east-1d`."
+      },
+      "dnsNameServers": {
+        "type": "string",
+        "description": "A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers. For example: `\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"`"
+      },
+      "engineVersion": {
+        "type": "string",
+        "description": "The engine version number of the replication instance.\n\nIf an engine version number is not specified when a replication instance is created, the default is the latest engine version available."
+      },
+      "kmsKeyId": {
+        "type": "string",
+        "description": "An AWS KMS key identifier that is used to encrypt the data on the replication instance.\n\nIf you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.\n\nAWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region."
+      },
+      "multiAz": {
+        "type": "boolean",
+        "description": "Specifies whether the replication instance is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the Multi-AZ parameter is set to `true`."
+      },
+      "networkType": {
+        "type": "string",
+        "description": "The type of IP address protocol used by a replication instance, such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing. IPv6 only is not yet supported."
+      },
+      "preferredMaintenanceWindow": {
+        "type": "string",
+        "description": "The weekly time range during which system maintenance can occur, in UTC.\n\nFormat: `ddd:hh24:mi-ddd:hh24:mi`\n\nDefault: A 30-minute window selected at random from an 8-hour block of time per AWS Region, occurring on a random day of the week.\n\nValid days (`ddd`): `Mon` | `Tue` | `Wed` | `Thu` | `Fri` | `Sat` | `Sun`\n\nConstraints: Minimum 30-minute window."
+      },
+      "publiclyAccessible": {
+        "type": "boolean",
+        "description": "Specifies the accessibility options for the replication instance. A value of `true` represents an instance with a public IP address. A value of `false` represents an instance with a private IP address. The default value is `true`."
+      },
+      "replicationInstanceClass": {
+        "type": "string",
+        "description": "The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example, to specify the instance class dms.c4.large, set this parameter to `\"dms.c4.large\"`. For more information on the settings and capacities for the available replication instance classes, see [Selecting the right AWS DMS replication instance for your migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth) in the AWS Database Migration Service User Guide."
+      },
+      "replicationInstanceIdentifier": {
+        "type": "string",
+        "description": "The replication instance identifier. This parameter is stored as a lowercase string.\n\nConstraints:\n- Must contain 1-63 alphanumeric characters or hyphens.\n- First character must be a letter.\n- Can't end with a hyphen or contain two consecutive hyphens.\n\nExample: `myrepinstance`"
+      },
+      "replicationSubnetGroupIdentifier": {
+        "type": "string",
+        "description": "A subnet group to associate with the replication instance."
+      },
+      "resourceIdentifier": {
+        "type": "string",
+        "description": "A display name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1`. For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1`. If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn`."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "One or more tags to be assigned to the replication instance."
+      },
+      "vpcSecurityGroupIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Specifies the virtual private cloud (VPC) security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance."
+      }
+    }
+  },
   "aws-native:dms:ReplicationSubnetGroup": {
     "cfTypeName": "AWS::DMS::ReplicationSubnetGroup",
     "properties": {
@@ -5791,6 +5953,54 @@
       "taskData": {
         "type": "string",
         "description": "Supplemental information that the task requires to migrate the data for certain source and target endpoints."
+      }
+    }
+  },
+  "aws-native:docdb:DbInstance": {
+    "cfTypeName": "AWS::DocDB::DBInstance",
+    "properties": {
+      "autoMinorVersionUpgrade": {
+        "type": "boolean",
+        "description": "This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.\n\nDefault: `false`"
+      },
+      "availabilityZone": {
+        "type": "string",
+        "description": "The Amazon EC2 Availability Zone that the instance is created in.\n\nDefault: A random, system-chosen Availability Zone in the endpoint's AWS Region .\n\nExample: `us-east-1d`"
+      },
+      "caCertificateIdentifier": {
+        "type": "string",
+        "description": "The identifier of the CA certificate for this DB instance."
+      },
+      "certificateRotationRestart": {
+        "type": "boolean",
+        "description": "Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.\n\nBy default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.\n\n\u003e Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance. \n\nIf you are using SSL/TLS to connect to the DB instance, see [Updating Your Amazon DocumentDB TLS Certificates](https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html) and [Encrypting Data in Transit](https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html) in the *Amazon DocumentDB Developer Guide* ."
+      },
+      "dbClusterIdentifier": {
+        "type": "string",
+        "description": "The identifier of the cluster that the instance will belong to."
+      },
+      "dbInstanceClass": {
+        "type": "string",
+        "description": "The compute and memory capacity of the instance; for example, `db.m4.large` . If you change the class of an instance there can be some interruption in the cluster's service."
+      },
+      "dbInstanceIdentifier": {
+        "type": "string",
+        "description": "The instance identifier. This parameter is stored as a lowercase string.\n\nConstraints:\n\n- Must contain from 1 to 63 letters, numbers, or hyphens.\n- The first character must be a letter.\n- Cannot end with a hyphen or contain two consecutive hyphens.\n\nExample: `mydbinstance`"
+      },
+      "enablePerformanceInsights": {
+        "type": "boolean",
+        "description": "A value that indicates whether to enable Performance Insights for the DB Instance. For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) ."
+      },
+      "preferredMaintenanceWindow": {
+        "type": "string",
+        "description": "The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).\n\nFormat: `ddd:hh24:mi-ddd:hh24:mi`\n\nThe default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.\n\nValid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun\n\nConstraints: Minimum 30-minute window."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to be assigned to the instance. You can assign up to 10 tags to an instance."
       }
     }
   },
@@ -5988,6 +6198,13 @@
       "kmsEncryptionKey": {
         "type": "string",
         "description": "The KMS key that encrypts data on the cluster."
+      },
+      "metricGroups": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:dsql:ClusterMetricGroup"
+        },
+        "description": "The Advanced monitoring metric groups to enable on the cluster. Omit to enable none."
       },
       "multiRegionProperties": {
         "$ref": "#/types/aws-native:dsql:MultiRegionPropertiesProperties",
@@ -6261,6 +6478,114 @@
       }
     }
   },
+  "aws-native:ec2:ClientVpnEndpoint": {
+    "cfTypeName": "AWS::EC2::ClientVpnEndpoint",
+    "properties": {
+      "authenticationOptions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:ClientVpnEndpointClientAuthenticationRequest"
+        },
+        "description": "Information about the authentication method to be used to authenticate clients."
+      },
+      "authorizationPolicy": {
+        "$ref": "#/types/aws-native:ec2:ClientVpnEndpointAuthorizationPolicy",
+        "description": "The Cedar authorization policy to associate with the Client VPN endpoint."
+      },
+      "clientCidrBlock": {
+        "type": "string",
+        "description": "The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12."
+      },
+      "clientConnectOptions": {
+        "$ref": "#/types/aws-native:ec2:ClientVpnEndpointClientConnectOptions",
+        "description": "The options for managing connection authorization for new client connections."
+      },
+      "clientLoginBannerOptions": {
+        "$ref": "#/types/aws-native:ec2:ClientVpnEndpointClientLoginBannerOptions",
+        "description": "Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established."
+      },
+      "clientRouteEnforcementOptions": {
+        "$ref": "#/types/aws-native:ec2:ClientVpnEndpointClientRouteEnforcementOptions",
+        "description": "Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. This feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.\nClient route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table, reverting it back to the expected route configurations."
+      },
+      "connectionLogOptions": {
+        "$ref": "#/types/aws-native:ec2:ClientVpnEndpointConnectionLogOptions",
+        "description": "Information about the client connection logging options. If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged: client connection requests, client connection results (successful and unsuccessful), reasons for unsuccessful client connection requests, client connection termination time."
+      },
+      "description": {
+        "type": "string",
+        "description": "A brief description of the Client VPN endpoint."
+      },
+      "devicePostureOptions": {
+        "$ref": "#/types/aws-native:ec2:ClientVpnEndpointDevicePostureOptions",
+        "description": "The device-posture trust providers to associate with the Client VPN endpoint."
+      },
+      "disconnectOnSessionTimeout": {
+        "type": "boolean",
+        "description": "Indicates whether the client VPN session is disconnected after the maximum sessionTimeoutHours is reached. If true, users are prompted to reconnect client VPN. If false, client VPN attempts to reconnect automatically."
+      },
+      "dnsServers": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server."
+      },
+      "endpointIpAddressType": {
+        "type": "string",
+        "description": "The IP address type of the Client VPN endpoint."
+      },
+      "securityGroupIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups."
+      },
+      "selfServicePortal": {
+        "type": "string",
+        "description": "Specify whether to enable the self-service portal for the Client VPN endpoint"
+      },
+      "serverCertificateArn": {
+        "type": "string",
+        "description": "The ARN of the server certificate. For more information, see the AWS Certificate Manager User Guide."
+      },
+      "sessionTimeoutHours": {
+        "type": "integer",
+        "description": "The maximum VPN session duration time in hours."
+      },
+      "splitTunnel": {
+        "type": "boolean",
+        "description": "Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint."
+      },
+      "tagSpecifications": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:ClientVpnEndpointTagSpecification"
+        },
+        "description": "The tags to apply to the Client VPN endpoint during creation."
+      },
+      "trafficIpAddressType": {
+        "type": "string",
+        "description": "The IP address type of the Client VPN endpoint."
+      },
+      "transitGatewayConfiguration": {
+        "$ref": "#/types/aws-native:ec2:ClientVpnEndpointTransitGatewayConfiguration"
+      },
+      "transportProtocol": {
+        "type": "string",
+        "description": "The transport protocol to be used by the VPN session."
+      },
+      "vpcId": {
+        "type": "string",
+        "description": "The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied."
+      },
+      "vpnPort": {
+        "type": "integer",
+        "description": "The port number to assign to the Client VPN endpoint for TCP and UDP traffic."
+      }
+    }
+  },
   "aws-native:ec2:ClientVpnRoute": {
     "cfTypeName": "AWS::EC2::ClientVpnRoute",
     "properties": {
@@ -6279,6 +6604,27 @@
       "targetVpcSubnetId": {
         "type": "string",
         "description": "The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint. Alternatively, if you're adding a route for the local network, specify local."
+      }
+    }
+  },
+  "aws-native:ec2:ClientVpnTargetNetworkAssociation": {
+    "cfTypeName": "AWS::EC2::ClientVpnTargetNetworkAssociation",
+    "properties": {
+      "availabilityZone": {
+        "type": "string",
+        "description": "The Availability Zone to associate with the Client VPN endpoint. Used for Transit Gateway-based endpoints in place of SubnetId."
+      },
+      "availabilityZoneId": {
+        "type": "string",
+        "description": "The ID of the Availability Zone to associate with the Client VPN endpoint. Used for Transit Gateway-based endpoints in place of SubnetId."
+      },
+      "clientVpnEndpointId": {
+        "type": "string",
+        "description": "The ID of the Client VPN endpoint."
+      },
+      "subnetId": {
+        "type": "string",
+        "description": "The ID of the subnet to associate with the Client VPN endpoint. Required for VPC-based endpoints. For Transit Gateway-based endpoints, use AvailabilityZone or AvailabilityZoneId instead."
       }
     }
   },
@@ -6515,6 +6861,56 @@
       "roleArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate."
+      }
+    }
+  },
+  "aws-native:ec2:FcaPolicy": {
+    "cfTypeName": "AWS::EC2::FcaPolicy",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The description of the FCA policy."
+      },
+      "instanceFcaPolicyDocument": {
+        "$ref": "#/types/aws-native:ec2:FcaPolicyInstanceFcaPolicyDocument"
+      },
+      "natFcaPolicyDocument": {
+        "$ref": "#/types/aws-native:ec2:FcaPolicyNatFcaPolicyDocument"
+      },
+      "networkResourceType": {
+        "$ref": "#/types/aws-native:ec2:FcaPolicyNetworkResourceType",
+        "description": "The type of network resource the FCA policy applies to."
+      },
+      "pcxFcaPolicyDocument": {
+        "$ref": "#/types/aws-native:ec2:FcaPolicyPcxFcaPolicyDocument"
+      },
+      "showBackEnabled": {
+        "type": "boolean",
+        "description": "Indicates whether show-back reporting is enabled for the FCA policy."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the FCA policy."
+      }
+    }
+  },
+  "aws-native:ec2:FcaPolicyAssociation": {
+    "cfTypeName": "AWS::EC2::FcaPolicyAssociation",
+    "properties": {
+      "fcaPolicyId": {
+        "type": "string",
+        "description": "The ID of the FCA policy to associate."
+      },
+      "networkResourceId": {
+        "type": "string",
+        "description": "The ID of the network resource to associate the FCA policy with."
+      },
+      "networkResourceScopeType": {
+        "$ref": "#/types/aws-native:ec2:FcaPolicyAssociationNetworkResourceScopeType",
+        "description": "Associate by scope instead of directly. When set, NetworkResourceId is the ID of the scope (an account ID, a VPC ID, or a subnet ID) and the association covers every eligible network resource in that scope; when omitted, NetworkResourceId is a direct network resource (for example a NAT gateway or instance) and must match the policy's NetworkResourceType."
       }
     }
   },
@@ -8769,9 +9165,47 @@
       }
     }
   },
+  "aws-native:ec2:TransitGatewayNetworkFunctionAttachment": {
+    "cfTypeName": "AWS::EC2::TransitGatewayNetworkFunctionAttachment",
+    "properties": {
+      "availabilityZoneIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The Availability Zone IDs for the attachment."
+      },
+      "availabilityZones": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The Availability Zones for the attachment."
+      },
+      "serviceName": {
+        "type": "string",
+        "description": "The name of the network function service."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the attachment."
+      },
+      "transitGatewayId": {
+        "type": "string",
+        "description": "The ID of the transit gateway."
+      }
+    }
+  },
   "aws-native:ec2:TransitGatewayPeeringAttachment": {
     "cfTypeName": "AWS::EC2::TransitGatewayPeeringAttachment",
     "properties": {
+      "options": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayPeeringAttachmentOptions",
+        "description": "Options for transit gateway peering attachment"
+      },
       "peerAccountId": {
         "type": "string",
         "description": "The ID of the peer account"
@@ -9578,6 +10012,13 @@
       "serviceId": {
         "type": "string",
         "description": "The ID of the service."
+      },
+      "transitGatewayAttachmentAllowedPrincipals": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service."
       }
     }
   },
@@ -9621,6 +10062,10 @@
         "type": "string",
         "description": "The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request."
       },
+      "peerVpcPeeringConnectionOptions": {
+        "$ref": "#/types/aws-native:ec2:VpcPeeringConnectionOptions",
+        "description": "The VPC peering connection options corresponding to the accepter side of the connection."
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -9631,6 +10076,10 @@
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC."
+      },
+      "vpcPeeringConnectionOptions": {
+        "$ref": "#/types/aws-native:ec2:VpcPeeringConnectionOptions",
+        "description": "The VPC peering connection options corresponding to the requester side of the connection."
       }
     }
   },
@@ -10124,6 +10573,9 @@
         "type": "string",
         "description": "The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.\n IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.\n  String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang."
       },
+      "trustedExecutionConfiguration": {
+        "$ref": "#/types/aws-native:ecs:TaskDefinitionTrustedExecutionConfiguration"
+      },
       "volumes": {
         "type": "array",
         "items": {
@@ -10409,6 +10861,9 @@
       "targetRoleArn": {
         "type": "string",
         "description": "The Target Role Arn of the pod identity association."
+      },
+      "workloadIdentityConfig": {
+        "$ref": "#/types/aws-native:eks:PodIdentityAssociationWorkloadIdentityConfig"
       }
     }
   },
@@ -13250,6 +13705,31 @@
       }
     }
   },
+  "aws-native:lakeformation:Resource": {
+    "cfTypeName": "AWS::LakeFormation::Resource",
+    "properties": {
+      "hybridAccessEnabled": {
+        "type": "boolean",
+        "description": "Indicates whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies."
+      },
+      "resourceArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the Data Source."
+      },
+      "roleArn": {
+        "type": "string",
+        "description": "The IAM role that registered a resource."
+      },
+      "useServiceLinkedRole": {
+        "type": "boolean",
+        "description": "Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog."
+      },
+      "withFederation": {
+        "type": "boolean",
+        "description": "Allows Lake Formation to assume a role to access tables in a federated database."
+      }
+    }
+  },
   "aws-native:lakeformation:Tag": {
     "cfTypeName": "AWS::LakeFormation::Tag",
     "properties": {
@@ -14975,6 +15455,17 @@
         "type": "string",
         "description": "Edge location of the attachment."
       },
+      "natGatewayRules": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentNatRule"
+        },
+        "description": "The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US)."
+      },
+      "natGatewaySupport": {
+        "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentNatGatewaySupport",
+        "description": "Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US)."
+      },
       "networkFunctionGroupName": {
         "type": "string",
         "description": "The name of the network function group attachment."
@@ -15072,6 +15563,38 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags for the connection."
+      }
+    }
+  },
+  "aws-native:networkmanager:ContextStore": {
+    "cfTypeName": "AWS::NetworkManager::ContextStore",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The description of the context store."
+      },
+      "globalNetworkId": {
+        "type": "string",
+        "description": "The ID of the global network."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
+  "aws-native:networkmanager:ContextStoreAssociation": {
+    "cfTypeName": "AWS::NetworkManager::ContextStoreAssociation",
+    "properties": {
+      "contextStoreId": {
+        "type": "string",
+        "description": "The ID of the context store."
+      },
+      "resourceArn": {
+        "type": "string",
+        "description": "The ARN of the Transit Gateway to associate."
       }
     }
   },
@@ -15203,6 +15726,21 @@
         },
         "description": "The Regions where the edges are located."
       },
+      "natGatewayRules": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentNatRule"
+        },
+        "description": "The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US)."
+      },
+      "natGatewaySupport": {
+        "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentNatGatewaySupport",
+        "description": "Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US)."
+      },
+      "natSystemRouteSupport": {
+        "type": "boolean",
+        "description": "Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. If omitted, a new NAT gateway configuration uses the service default of true and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US)."
+      },
       "routingPolicyLabel": {
         "type": "string",
         "description": "Routing policy label"
@@ -15324,6 +15862,21 @@
         "type": "string",
         "description": "The ID of a core network where you're creating a site-to-site VPN attachment."
       },
+      "natGatewayRules": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentNatRule"
+        },
+        "description": "The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US)."
+      },
+      "natGatewaySupport": {
+        "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentNatGatewaySupport",
+        "description": "Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US)."
+      },
+      "natSystemRouteSupport": {
+        "type": "boolean",
+        "description": "Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. Configurable on BGP Site-to-Site VPN attachments. Always false and not configurable for static VPN attachments. If omitted, a new NAT gateway configuration uses the service default for the attachment and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US)."
+      },
       "networkFunctionGroupName": {
         "type": "string",
         "description": "The name of the network function group attachment."
@@ -15412,6 +15965,17 @@
       "coreNetworkId": {
         "type": "string",
         "description": "The ID of a core network for the VPC attachment."
+      },
+      "natGatewayRules": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:networkmanager:VpcAttachmentNatRule"
+        },
+        "description": "The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US)."
+      },
+      "natGatewaySupport": {
+        "$ref": "#/types/aws-native:networkmanager:VpcAttachmentNatGatewaySupport",
+        "description": "Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US)."
       },
       "options": {
         "$ref": "#/types/aws-native:networkmanager:VpcAttachmentVpcOptions",
@@ -15835,6 +16399,18 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "A list of tags that you want to attach to the resource policy"
+      }
+    }
+  },
+  "aws-native:osis:PipelineEndpoint": {
+    "cfTypeName": "AWS::OSIS::PipelineEndpoint",
+    "properties": {
+      "pipelineArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the pipeline to create the endpoint for."
+      },
+      "vpcOptions": {
+        "$ref": "#/types/aws-native:osis:PipelineEndpointVpcOptions"
       }
     }
   },
@@ -16948,6 +17524,9 @@
           "type": "string"
         },
         "description": "A list of EC2 VPC security groups to associate with this DB cluster.\n If you plan to update the resource, don't specify VPC security groups in a shared VPC.\n Valid for: Aurora DB clusters and Multi-AZ DB clusters"
+      },
+      "withExpressConfiguration": {
+        "type": "boolean"
       }
     }
   },
@@ -17169,7 +17748,7 @@
       },
       "engine": {
         "type": "string",
-        "description": "The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.\n This property is required when creating a DB instance.\n  You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.\n  Valid Values:\n  +  ``aurora-mysql`` (for Aurora MySQL DB instances)\n  +  ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)\n  +  ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)\n  +  ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)\n  +  ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)\n  +  ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)\n  +  ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)\n  +   ``db2-ae`` \n  +   ``db2-se`` \n  +   ``mariadb`` \n  +   ``mysql`` \n  +   ``oracle-ee`` \n  +   ``oracle-ee-cdb`` \n  +   ``oracle-se2`` \n  +   ``oracle-se2-cdb`` \n  +   ``postgres`` \n  +   ``sqlserver-ee`` \n  +   ``sqlserver-se`` \n  +   ``sqlserver-ex`` \n  +   ``sqlserver-web``"
+        "description": "The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.\n This property is required when creating a DB instance.\n  You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.\n  Valid Values:\n  +  ``aurora-mysql`` (for Aurora MySQL DB instances)\n  +  ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)\n  +  ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)\n  +  ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)\n  +  ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)\n  +  ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)\n  +  ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)\n  +   ``db2-ae`` \n  +   ``db2-se`` \n  +   ``mariadb`` \n  +   ``mysql`` \n  +   ``oracle-ee`` \n  +   ``oracle-ee-cdb`` \n  +   ``oracle-se2`` \n  +   ``oracle-se2-cdb`` \n  +   ``postgres`` \n  +   ``sqlserver-ee`` \n  +   ``sqlserver-se`` \n  +   ``sqlserver-ex`` \n  +   ``sqlserver-web`` \n  +  ``sqlserver-dev-ee`` (for RDS for SQL Server Developer Edition with Enterprise Edition capabilities)\n  +  ``sqlserver-dev-se`` (for RDS for SQL Server Developer Edition with Standard Edition capabilities)"
       },
       "engineLifecycleSupport": {
         "type": "string",
@@ -18098,6 +18677,56 @@
       }
     }
   },
+  "aws-native:route53:HealthCheckSource": {
+    "cfTypeName": "AWS::Route53::HealthCheckSource",
+    "properties": {
+      "healthCheckSourceConfig": {
+        "$ref": "#/types/aws-native:route53:HealthCheckSourceConfig",
+        "description": "\u003cp\u003eThe VPC, subnets, and security groups for the health check source.\u003c/p\u003e"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:route53:QueryLoggingConfig": {
+    "cfTypeName": "AWS::Route53::QueryLoggingConfig",
+    "properties": {
+      "cloudWatchLogsLogGroupArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the CloudWatch Logs log group in us-east-1 that Amazon Route 53 publishes query logs to."
+      },
+      "hostedZoneId": {
+        "type": "string",
+        "description": "The ID of the public hosted zone that Amazon Route 53 logs queries for."
+      }
+    }
+  },
+  "aws-native:route53:RecordSetProtection": {
+    "cfTypeName": "AWS::Route53::RecordSetProtection",
+    "properties": {
+      "comment": {
+        "type": "string",
+        "description": "A comment that describes the protection."
+      },
+      "hostedZoneId": {
+        "type": "string",
+        "description": "The ID of the hosted zone that contains the record set to protect."
+      },
+      "recordName": {
+        "type": "string",
+        "description": "The name of the record set to protect."
+      },
+      "recordType": {
+        "type": "string",
+        "description": "The DNS record type of the record set to protect."
+      }
+    }
+  },
   "aws-native:route53resolver:FirewallConfig": {
     "cfTypeName": "AWS::Route53Resolver::FirewallConfig",
     "properties": {
@@ -18954,6 +19583,10 @@
         "$ref": "#/types/aws-native:securityagent:PentestCloudWatchLog",
         "description": "CloudWatch logs config"
       },
+      "maxTaskHours": {
+        "type": "number",
+        "description": "The maximum number of billable task hours allowed for jobs started from this pentest. If not set, jobs run to completion with no budget cap."
+      },
       "networkTrafficConfig": {
         "$ref": "#/types/aws-native:securityagent:PentestNetworkTrafficConfig",
         "description": "Configuration for network traffic filtering"
@@ -19231,6 +19864,19 @@
       "subscriberArn": {
         "type": "string",
         "description": "The ARN for the subscriber"
+      }
+    }
+  },
+  "aws-native:servicecatalog:AcceptedPortfolioShare": {
+    "cfTypeName": "AWS::ServiceCatalog::AcceptedPortfolioShare",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier."
       }
     }
   },
@@ -20332,6 +20978,18 @@
       }
     }
   },
+  "aws-native:ssm:DefaultHostManagementConfiguration": {
+    "cfTypeName": "AWS::SSM::DefaultHostManagementConfiguration",
+    "properties": {
+      "customerManagedRoleArn": {
+        "type": "string",
+        "description": "The ARN of the customer-provided IAM role to register for DHMC. Required when PermissionModel is SELF_MANAGED and must not be set when PermissionModel is SERVICE_MANAGED."
+      },
+      "permissionModel": {
+        "$ref": "#/types/aws-native:ssm:DefaultHostManagementConfigurationDhmcPermissionModel"
+      }
+    }
+  },
   "aws-native:ssm:OpsItem": {
     "cfTypeName": "AWS::SSM::OpsItem",
     "properties": {
@@ -21143,6 +21801,13 @@
         },
         "description": "Specifies the details for the steps that are in the specified workflow."
       },
+      "structuredLogDestinations": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Specifies the log destinations for the workflow."
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -21460,6 +22125,19 @@
       "title": {
         "type": "string",
         "description": "The title of the Agent Goal."
+      }
+    }
+  },
+  "aws-native:wellarchitected:AgentProfilePolicy": {
+    "cfTypeName": "AWS::WellArchitected::AgentProfilePolicy",
+    "properties": {
+      "policy": {
+        "type": "string",
+        "description": "The IAM resource-based policy document as a JSON string. Allow-only statements, no negation condition operators, maximum 51200 characters."
+      },
+      "profileArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the parent Agent Profile the policy is attached to. Pass `!GetAtt` (or `!Ref`) of the parent AWS::WellArchitected::AgentProfile to flow its ARN here. Also serves as the primary identifier of this policy attachment."
       }
     }
   },

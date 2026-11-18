@@ -307,6 +307,19 @@
       "minLength" : 0,
       "maxLength" : 256
     },
+    "StructuredLogDestinations" : {
+      "description" : "Specifies the log destinations for the workflow.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "string",
+        "maxLength" : 1600,
+        "minLength" : 20,
+        "pattern" : "^arn:\\S+$"
+      },
+      "maxItems" : 1,
+      "minItems" : 0
+    },
     "WorkflowId" : {
       "description" : "A unique identifier for the workflow.",
       "type" : "string",
@@ -325,7 +338,7 @@
   "required" : [ "Steps" ],
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/WorkflowId", "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Steps", "/properties/OnExceptionSteps", "/properties/Description" ],
+  "createOnlyProperties" : [ "/properties/Steps", "/properties/OnExceptionSteps", "/properties/Description", "/properties/StructuredLogDestinations" ],
   "primaryIdentifier" : [ "/properties/WorkflowId" ],
   "tagging" : {
     "cloudFormationSystemTags" : true,
@@ -337,13 +350,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "transfer:CreateWorkflow", "transfer:TagResource" ]
+      "permissions" : [ "logs:CreateLogDelivery", "logs:DeleteLogDelivery", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:UpdateLogDelivery", "transfer:CreateWorkflow", "transfer:TagResource" ]
     },
     "read" : {
       "permissions" : [ "transfer:DescribeWorkflow" ]
     },
     "delete" : {
-      "permissions" : [ "transfer:DeleteWorkflow" ]
+      "permissions" : [ "logs:DeleteLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries", "transfer:DeleteWorkflow" ]
     },
     "list" : {
       "permissions" : [ "transfer:ListWorkflows" ]

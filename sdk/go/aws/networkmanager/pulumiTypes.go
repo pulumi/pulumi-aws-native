@@ -13,6 +13,124 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A NAT gateway rule on the attachment.
+type ConnectAttachmentNatRule struct {
+	// The IPv4 CIDR that source traffic is matched against for translation.
+	MatchSourceCidr string `pulumi:"matchSourceCidr"`
+	// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+	NatCidr string `pulumi:"natCidr"`
+	// The rule number that uniquely identifies the NAT rule on the attachment.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// ConnectAttachmentNatRuleInput is an input type that accepts ConnectAttachmentNatRuleArgs and ConnectAttachmentNatRuleOutput values.
+// You can construct a concrete instance of `ConnectAttachmentNatRuleInput` via:
+//
+//	ConnectAttachmentNatRuleArgs{...}
+type ConnectAttachmentNatRuleInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentNatRuleOutput() ConnectAttachmentNatRuleOutput
+	ToConnectAttachmentNatRuleOutputWithContext(context.Context) ConnectAttachmentNatRuleOutput
+}
+
+// A NAT gateway rule on the attachment.
+type ConnectAttachmentNatRuleArgs struct {
+	// The IPv4 CIDR that source traffic is matched against for translation.
+	MatchSourceCidr pulumi.StringInput `pulumi:"matchSourceCidr"`
+	// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+	NatCidr pulumi.StringInput `pulumi:"natCidr"`
+	// The rule number that uniquely identifies the NAT rule on the attachment.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (ConnectAttachmentNatRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentNatRule)(nil)).Elem()
+}
+
+func (i ConnectAttachmentNatRuleArgs) ToConnectAttachmentNatRuleOutput() ConnectAttachmentNatRuleOutput {
+	return i.ToConnectAttachmentNatRuleOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentNatRuleArgs) ToConnectAttachmentNatRuleOutputWithContext(ctx context.Context) ConnectAttachmentNatRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentNatRuleOutput)
+}
+
+// ConnectAttachmentNatRuleArrayInput is an input type that accepts ConnectAttachmentNatRuleArray and ConnectAttachmentNatRuleArrayOutput values.
+// You can construct a concrete instance of `ConnectAttachmentNatRuleArrayInput` via:
+//
+//	ConnectAttachmentNatRuleArray{ ConnectAttachmentNatRuleArgs{...} }
+type ConnectAttachmentNatRuleArrayInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentNatRuleArrayOutput() ConnectAttachmentNatRuleArrayOutput
+	ToConnectAttachmentNatRuleArrayOutputWithContext(context.Context) ConnectAttachmentNatRuleArrayOutput
+}
+
+type ConnectAttachmentNatRuleArray []ConnectAttachmentNatRuleInput
+
+func (ConnectAttachmentNatRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectAttachmentNatRule)(nil)).Elem()
+}
+
+func (i ConnectAttachmentNatRuleArray) ToConnectAttachmentNatRuleArrayOutput() ConnectAttachmentNatRuleArrayOutput {
+	return i.ToConnectAttachmentNatRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentNatRuleArray) ToConnectAttachmentNatRuleArrayOutputWithContext(ctx context.Context) ConnectAttachmentNatRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentNatRuleArrayOutput)
+}
+
+// A NAT gateway rule on the attachment.
+type ConnectAttachmentNatRuleOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentNatRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentNatRule)(nil)).Elem()
+}
+
+func (o ConnectAttachmentNatRuleOutput) ToConnectAttachmentNatRuleOutput() ConnectAttachmentNatRuleOutput {
+	return o
+}
+
+func (o ConnectAttachmentNatRuleOutput) ToConnectAttachmentNatRuleOutputWithContext(ctx context.Context) ConnectAttachmentNatRuleOutput {
+	return o
+}
+
+// The IPv4 CIDR that source traffic is matched against for translation.
+func (o ConnectAttachmentNatRuleOutput) MatchSourceCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectAttachmentNatRule) string { return v.MatchSourceCidr }).(pulumi.StringOutput)
+}
+
+// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+func (o ConnectAttachmentNatRuleOutput) NatCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectAttachmentNatRule) string { return v.NatCidr }).(pulumi.StringOutput)
+}
+
+// The rule number that uniquely identifies the NAT rule on the attachment.
+func (o ConnectAttachmentNatRuleOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v ConnectAttachmentNatRule) int { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+type ConnectAttachmentNatRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentNatRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectAttachmentNatRule)(nil)).Elem()
+}
+
+func (o ConnectAttachmentNatRuleArrayOutput) ToConnectAttachmentNatRuleArrayOutput() ConnectAttachmentNatRuleArrayOutput {
+	return o
+}
+
+func (o ConnectAttachmentNatRuleArrayOutput) ToConnectAttachmentNatRuleArrayOutputWithContext(ctx context.Context) ConnectAttachmentNatRuleArrayOutput {
+	return o
+}
+
+func (o ConnectAttachmentNatRuleArrayOutput) Index(i pulumi.IntInput) ConnectAttachmentNatRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectAttachmentNatRule {
+		return vs[0].([]ConnectAttachmentNatRule)[vs[1].(int)]
+	}).(ConnectAttachmentNatRuleOutput)
+}
+
 // Connect attachment options for protocol
 type ConnectAttachmentOptions struct {
 	// Tunnel protocol for connect attachment
@@ -658,6 +776,11 @@ type ConnectionTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ContextStoreTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type CoreNetworkEdge struct {
 	// The ASN of a core network edge.
 	Asn *float64 `pulumi:"asn"`
@@ -1258,6 +1381,124 @@ type DeviceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A NAT gateway rule on the attachment.
+type DirectConnectGatewayAttachmentNatRule struct {
+	// The IPv4 CIDR that source traffic is matched against for translation.
+	MatchSourceCidr string `pulumi:"matchSourceCidr"`
+	// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+	NatCidr string `pulumi:"natCidr"`
+	// The rule number that uniquely identifies the NAT rule on the attachment.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// DirectConnectGatewayAttachmentNatRuleInput is an input type that accepts DirectConnectGatewayAttachmentNatRuleArgs and DirectConnectGatewayAttachmentNatRuleOutput values.
+// You can construct a concrete instance of `DirectConnectGatewayAttachmentNatRuleInput` via:
+//
+//	DirectConnectGatewayAttachmentNatRuleArgs{...}
+type DirectConnectGatewayAttachmentNatRuleInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentNatRuleOutput() DirectConnectGatewayAttachmentNatRuleOutput
+	ToDirectConnectGatewayAttachmentNatRuleOutputWithContext(context.Context) DirectConnectGatewayAttachmentNatRuleOutput
+}
+
+// A NAT gateway rule on the attachment.
+type DirectConnectGatewayAttachmentNatRuleArgs struct {
+	// The IPv4 CIDR that source traffic is matched against for translation.
+	MatchSourceCidr pulumi.StringInput `pulumi:"matchSourceCidr"`
+	// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+	NatCidr pulumi.StringInput `pulumi:"natCidr"`
+	// The rule number that uniquely identifies the NAT rule on the attachment.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (DirectConnectGatewayAttachmentNatRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentNatRule)(nil)).Elem()
+}
+
+func (i DirectConnectGatewayAttachmentNatRuleArgs) ToDirectConnectGatewayAttachmentNatRuleOutput() DirectConnectGatewayAttachmentNatRuleOutput {
+	return i.ToDirectConnectGatewayAttachmentNatRuleOutputWithContext(context.Background())
+}
+
+func (i DirectConnectGatewayAttachmentNatRuleArgs) ToDirectConnectGatewayAttachmentNatRuleOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentNatRuleOutput)
+}
+
+// DirectConnectGatewayAttachmentNatRuleArrayInput is an input type that accepts DirectConnectGatewayAttachmentNatRuleArray and DirectConnectGatewayAttachmentNatRuleArrayOutput values.
+// You can construct a concrete instance of `DirectConnectGatewayAttachmentNatRuleArrayInput` via:
+//
+//	DirectConnectGatewayAttachmentNatRuleArray{ DirectConnectGatewayAttachmentNatRuleArgs{...} }
+type DirectConnectGatewayAttachmentNatRuleArrayInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentNatRuleArrayOutput() DirectConnectGatewayAttachmentNatRuleArrayOutput
+	ToDirectConnectGatewayAttachmentNatRuleArrayOutputWithContext(context.Context) DirectConnectGatewayAttachmentNatRuleArrayOutput
+}
+
+type DirectConnectGatewayAttachmentNatRuleArray []DirectConnectGatewayAttachmentNatRuleInput
+
+func (DirectConnectGatewayAttachmentNatRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectConnectGatewayAttachmentNatRule)(nil)).Elem()
+}
+
+func (i DirectConnectGatewayAttachmentNatRuleArray) ToDirectConnectGatewayAttachmentNatRuleArrayOutput() DirectConnectGatewayAttachmentNatRuleArrayOutput {
+	return i.ToDirectConnectGatewayAttachmentNatRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DirectConnectGatewayAttachmentNatRuleArray) ToDirectConnectGatewayAttachmentNatRuleArrayOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentNatRuleArrayOutput)
+}
+
+// A NAT gateway rule on the attachment.
+type DirectConnectGatewayAttachmentNatRuleOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentNatRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentNatRule)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentNatRuleOutput) ToDirectConnectGatewayAttachmentNatRuleOutput() DirectConnectGatewayAttachmentNatRuleOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentNatRuleOutput) ToDirectConnectGatewayAttachmentNatRuleOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatRuleOutput {
+	return o
+}
+
+// The IPv4 CIDR that source traffic is matched against for translation.
+func (o DirectConnectGatewayAttachmentNatRuleOutput) MatchSourceCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentNatRule) string { return v.MatchSourceCidr }).(pulumi.StringOutput)
+}
+
+// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+func (o DirectConnectGatewayAttachmentNatRuleOutput) NatCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentNatRule) string { return v.NatCidr }).(pulumi.StringOutput)
+}
+
+// The rule number that uniquely identifies the NAT rule on the attachment.
+func (o DirectConnectGatewayAttachmentNatRuleOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentNatRule) int { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+type DirectConnectGatewayAttachmentNatRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentNatRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectConnectGatewayAttachmentNatRule)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentNatRuleArrayOutput) ToDirectConnectGatewayAttachmentNatRuleArrayOutput() DirectConnectGatewayAttachmentNatRuleArrayOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentNatRuleArrayOutput) ToDirectConnectGatewayAttachmentNatRuleArrayOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentNatRuleArrayOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentNatRuleArrayOutput) Index(i pulumi.IntInput) DirectConnectGatewayAttachmentNatRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectConnectGatewayAttachmentNatRule {
+		return vs[0].([]DirectConnectGatewayAttachmentNatRule)[vs[1].(int)]
+	}).(DirectConnectGatewayAttachmentNatRuleOutput)
+}
+
 // The attachment to move from one network function group to another.
 type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange struct {
 	// The rule number in the policy document that applies to this change.
@@ -1817,6 +2058,124 @@ type SiteTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A NAT gateway rule on the attachment.
+type SiteToSiteVpnAttachmentNatRule struct {
+	// The IPv4 CIDR that source traffic is matched against for translation.
+	MatchSourceCidr string `pulumi:"matchSourceCidr"`
+	// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+	NatCidr string `pulumi:"natCidr"`
+	// The rule number that uniquely identifies the NAT rule on the attachment.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// SiteToSiteVpnAttachmentNatRuleInput is an input type that accepts SiteToSiteVpnAttachmentNatRuleArgs and SiteToSiteVpnAttachmentNatRuleOutput values.
+// You can construct a concrete instance of `SiteToSiteVpnAttachmentNatRuleInput` via:
+//
+//	SiteToSiteVpnAttachmentNatRuleArgs{...}
+type SiteToSiteVpnAttachmentNatRuleInput interface {
+	pulumi.Input
+
+	ToSiteToSiteVpnAttachmentNatRuleOutput() SiteToSiteVpnAttachmentNatRuleOutput
+	ToSiteToSiteVpnAttachmentNatRuleOutputWithContext(context.Context) SiteToSiteVpnAttachmentNatRuleOutput
+}
+
+// A NAT gateway rule on the attachment.
+type SiteToSiteVpnAttachmentNatRuleArgs struct {
+	// The IPv4 CIDR that source traffic is matched against for translation.
+	MatchSourceCidr pulumi.StringInput `pulumi:"matchSourceCidr"`
+	// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+	NatCidr pulumi.StringInput `pulumi:"natCidr"`
+	// The rule number that uniquely identifies the NAT rule on the attachment.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (SiteToSiteVpnAttachmentNatRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteToSiteVpnAttachmentNatRule)(nil)).Elem()
+}
+
+func (i SiteToSiteVpnAttachmentNatRuleArgs) ToSiteToSiteVpnAttachmentNatRuleOutput() SiteToSiteVpnAttachmentNatRuleOutput {
+	return i.ToSiteToSiteVpnAttachmentNatRuleOutputWithContext(context.Background())
+}
+
+func (i SiteToSiteVpnAttachmentNatRuleArgs) ToSiteToSiteVpnAttachmentNatRuleOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentNatRuleOutput)
+}
+
+// SiteToSiteVpnAttachmentNatRuleArrayInput is an input type that accepts SiteToSiteVpnAttachmentNatRuleArray and SiteToSiteVpnAttachmentNatRuleArrayOutput values.
+// You can construct a concrete instance of `SiteToSiteVpnAttachmentNatRuleArrayInput` via:
+//
+//	SiteToSiteVpnAttachmentNatRuleArray{ SiteToSiteVpnAttachmentNatRuleArgs{...} }
+type SiteToSiteVpnAttachmentNatRuleArrayInput interface {
+	pulumi.Input
+
+	ToSiteToSiteVpnAttachmentNatRuleArrayOutput() SiteToSiteVpnAttachmentNatRuleArrayOutput
+	ToSiteToSiteVpnAttachmentNatRuleArrayOutputWithContext(context.Context) SiteToSiteVpnAttachmentNatRuleArrayOutput
+}
+
+type SiteToSiteVpnAttachmentNatRuleArray []SiteToSiteVpnAttachmentNatRuleInput
+
+func (SiteToSiteVpnAttachmentNatRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteToSiteVpnAttachmentNatRule)(nil)).Elem()
+}
+
+func (i SiteToSiteVpnAttachmentNatRuleArray) ToSiteToSiteVpnAttachmentNatRuleArrayOutput() SiteToSiteVpnAttachmentNatRuleArrayOutput {
+	return i.ToSiteToSiteVpnAttachmentNatRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SiteToSiteVpnAttachmentNatRuleArray) ToSiteToSiteVpnAttachmentNatRuleArrayOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentNatRuleArrayOutput)
+}
+
+// A NAT gateway rule on the attachment.
+type SiteToSiteVpnAttachmentNatRuleOutput struct{ *pulumi.OutputState }
+
+func (SiteToSiteVpnAttachmentNatRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteToSiteVpnAttachmentNatRule)(nil)).Elem()
+}
+
+func (o SiteToSiteVpnAttachmentNatRuleOutput) ToSiteToSiteVpnAttachmentNatRuleOutput() SiteToSiteVpnAttachmentNatRuleOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentNatRuleOutput) ToSiteToSiteVpnAttachmentNatRuleOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatRuleOutput {
+	return o
+}
+
+// The IPv4 CIDR that source traffic is matched against for translation.
+func (o SiteToSiteVpnAttachmentNatRuleOutput) MatchSourceCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteToSiteVpnAttachmentNatRule) string { return v.MatchSourceCidr }).(pulumi.StringOutput)
+}
+
+// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+func (o SiteToSiteVpnAttachmentNatRuleOutput) NatCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteToSiteVpnAttachmentNatRule) string { return v.NatCidr }).(pulumi.StringOutput)
+}
+
+// The rule number that uniquely identifies the NAT rule on the attachment.
+func (o SiteToSiteVpnAttachmentNatRuleOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v SiteToSiteVpnAttachmentNatRule) int { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+type SiteToSiteVpnAttachmentNatRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SiteToSiteVpnAttachmentNatRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteToSiteVpnAttachmentNatRule)(nil)).Elem()
+}
+
+func (o SiteToSiteVpnAttachmentNatRuleArrayOutput) ToSiteToSiteVpnAttachmentNatRuleArrayOutput() SiteToSiteVpnAttachmentNatRuleArrayOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentNatRuleArrayOutput) ToSiteToSiteVpnAttachmentNatRuleArrayOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentNatRuleArrayOutput {
+	return o
+}
+
+func (o SiteToSiteVpnAttachmentNatRuleArrayOutput) Index(i pulumi.IntInput) SiteToSiteVpnAttachmentNatRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SiteToSiteVpnAttachmentNatRule {
+		return vs[0].([]SiteToSiteVpnAttachmentNatRule)[vs[1].(int)]
+	}).(SiteToSiteVpnAttachmentNatRuleOutput)
+}
+
 // The attachment to move from one network function group to another.
 type SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange struct {
 	// The rule number in the policy document that applies to this change.
@@ -2323,6 +2682,124 @@ func (o TransitGatewayRouteTableAttachmentTagArrayOutput) Index(i pulumi.IntInpu
 	}).(TransitGatewayRouteTableAttachmentTagOutput)
 }
 
+// A NAT gateway rule on the attachment.
+type VpcAttachmentNatRule struct {
+	// The IPv4 CIDR that source traffic is matched against for translation.
+	MatchSourceCidr string `pulumi:"matchSourceCidr"`
+	// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+	NatCidr string `pulumi:"natCidr"`
+	// The rule number that uniquely identifies the NAT rule on the attachment.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// VpcAttachmentNatRuleInput is an input type that accepts VpcAttachmentNatRuleArgs and VpcAttachmentNatRuleOutput values.
+// You can construct a concrete instance of `VpcAttachmentNatRuleInput` via:
+//
+//	VpcAttachmentNatRuleArgs{...}
+type VpcAttachmentNatRuleInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentNatRuleOutput() VpcAttachmentNatRuleOutput
+	ToVpcAttachmentNatRuleOutputWithContext(context.Context) VpcAttachmentNatRuleOutput
+}
+
+// A NAT gateway rule on the attachment.
+type VpcAttachmentNatRuleArgs struct {
+	// The IPv4 CIDR that source traffic is matched against for translation.
+	MatchSourceCidr pulumi.StringInput `pulumi:"matchSourceCidr"`
+	// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+	NatCidr pulumi.StringInput `pulumi:"natCidr"`
+	// The rule number that uniquely identifies the NAT rule on the attachment.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (VpcAttachmentNatRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentNatRule)(nil)).Elem()
+}
+
+func (i VpcAttachmentNatRuleArgs) ToVpcAttachmentNatRuleOutput() VpcAttachmentNatRuleOutput {
+	return i.ToVpcAttachmentNatRuleOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentNatRuleArgs) ToVpcAttachmentNatRuleOutputWithContext(ctx context.Context) VpcAttachmentNatRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentNatRuleOutput)
+}
+
+// VpcAttachmentNatRuleArrayInput is an input type that accepts VpcAttachmentNatRuleArray and VpcAttachmentNatRuleArrayOutput values.
+// You can construct a concrete instance of `VpcAttachmentNatRuleArrayInput` via:
+//
+//	VpcAttachmentNatRuleArray{ VpcAttachmentNatRuleArgs{...} }
+type VpcAttachmentNatRuleArrayInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentNatRuleArrayOutput() VpcAttachmentNatRuleArrayOutput
+	ToVpcAttachmentNatRuleArrayOutputWithContext(context.Context) VpcAttachmentNatRuleArrayOutput
+}
+
+type VpcAttachmentNatRuleArray []VpcAttachmentNatRuleInput
+
+func (VpcAttachmentNatRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcAttachmentNatRule)(nil)).Elem()
+}
+
+func (i VpcAttachmentNatRuleArray) ToVpcAttachmentNatRuleArrayOutput() VpcAttachmentNatRuleArrayOutput {
+	return i.ToVpcAttachmentNatRuleArrayOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentNatRuleArray) ToVpcAttachmentNatRuleArrayOutputWithContext(ctx context.Context) VpcAttachmentNatRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentNatRuleArrayOutput)
+}
+
+// A NAT gateway rule on the attachment.
+type VpcAttachmentNatRuleOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentNatRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentNatRule)(nil)).Elem()
+}
+
+func (o VpcAttachmentNatRuleOutput) ToVpcAttachmentNatRuleOutput() VpcAttachmentNatRuleOutput {
+	return o
+}
+
+func (o VpcAttachmentNatRuleOutput) ToVpcAttachmentNatRuleOutputWithContext(ctx context.Context) VpcAttachmentNatRuleOutput {
+	return o
+}
+
+// The IPv4 CIDR that source traffic is matched against for translation.
+func (o VpcAttachmentNatRuleOutput) MatchSourceCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcAttachmentNatRule) string { return v.MatchSourceCidr }).(pulumi.StringOutput)
+}
+
+// The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+func (o VpcAttachmentNatRuleOutput) NatCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcAttachmentNatRule) string { return v.NatCidr }).(pulumi.StringOutput)
+}
+
+// The rule number that uniquely identifies the NAT rule on the attachment.
+func (o VpcAttachmentNatRuleOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v VpcAttachmentNatRule) int { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+type VpcAttachmentNatRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcAttachmentNatRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcAttachmentNatRule)(nil)).Elem()
+}
+
+func (o VpcAttachmentNatRuleArrayOutput) ToVpcAttachmentNatRuleArrayOutput() VpcAttachmentNatRuleArrayOutput {
+	return o
+}
+
+func (o VpcAttachmentNatRuleArrayOutput) ToVpcAttachmentNatRuleArrayOutputWithContext(ctx context.Context) VpcAttachmentNatRuleArrayOutput {
+	return o
+}
+
+func (o VpcAttachmentNatRuleArrayOutput) Index(i pulumi.IntInput) VpcAttachmentNatRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcAttachmentNatRule {
+		return vs[0].([]VpcAttachmentNatRule)[vs[1].(int)]
+	}).(VpcAttachmentNatRuleOutput)
+}
+
 // The attachment to move from one network function group to another.
 type VpcAttachmentProposedNetworkFunctionGroupChange struct {
 	// The rule number in the policy document that applies to this change.
@@ -2762,6 +3239,8 @@ func (o VpcAttachmentVpcOptionsPtrOutput) SecurityGroupReferencingSupport() pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentNatRuleInput)(nil)).Elem(), ConnectAttachmentNatRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentNatRuleArrayInput)(nil)).Elem(), ConnectAttachmentNatRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsPtrInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
@@ -2769,11 +3248,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationPtrInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentNatRuleInput)(nil)).Elem(), DirectConnectGatewayAttachmentNatRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentNatRuleArrayInput)(nil)).Elem(), DirectConnectGatewayAttachmentNatRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthInput)(nil)).Elem(), LinkBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentNatRuleInput)(nil)).Elem(), SiteToSiteVpnAttachmentNatRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentNatRuleArrayInput)(nil)).Elem(), SiteToSiteVpnAttachmentNatRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentNatRuleInput)(nil)).Elem(), VpcAttachmentNatRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentNatRuleArrayInput)(nil)).Elem(), VpcAttachmentNatRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsPtrInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
+	pulumi.RegisterOutputType(ConnectAttachmentNatRuleOutput{})
+	pulumi.RegisterOutputType(ConnectAttachmentNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(ConnectAttachmentOptionsOutput{})
 	pulumi.RegisterOutputType(ConnectAttachmentProposedNetworkFunctionGroupChangeOutput{})
 	pulumi.RegisterOutputType(ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput{})
@@ -2799,6 +3286,8 @@ func init() {
 	pulumi.RegisterOutputType(DeviceAwsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentNatRuleOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput{})
 	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput{})
 	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentProposedSegmentChangeOutput{})
@@ -2809,6 +3298,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})
 	pulumi.RegisterOutputType(SiteLocationPtrOutput{})
+	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentNatRuleOutput{})
+	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentProposedSegmentChangeOutput{})
@@ -2821,6 +3312,8 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentNatRuleOutput{})
+	pulumi.RegisterOutputType(VpcAttachmentNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentProposedNetworkFunctionGroupChangeOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentProposedSegmentChangeOutput{})

@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .deployment import *
+from .get_deployment import *
 from .get_policy import *
 from .get_rule import *
 from .get_scope import *

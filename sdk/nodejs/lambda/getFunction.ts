@@ -32,6 +32,7 @@ export interface GetFunctionArgs {
 }
 
 export interface GetFunctionResult {
+    readonly acceleratorConfig?: outputs.lambda.FunctionAcceleratorConfig;
     /**
      * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
      */
@@ -134,6 +135,7 @@ export interface GetFunctionResult {
      *  For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
      */
     readonly runtime?: string;
+    readonly runtimeConfig?: outputs.lambda.FunctionRuntimeConfig;
     /**
      * Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
      */

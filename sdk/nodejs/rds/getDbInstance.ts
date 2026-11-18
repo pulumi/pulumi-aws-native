@@ -330,6 +330,8 @@ export interface GetDbInstanceResult {
      *   +   ``sqlserver-se``
      *   +   ``sqlserver-ex``
      *   +   ``sqlserver-web``
+     *   +  ``sqlserver-dev-ee`` (for RDS for SQL Server Developer Edition with Enterprise Edition capabilities)
+     *   +  ``sqlserver-dev-se`` (for RDS for SQL Server Developer Edition with Standard Edition capabilities)
      */
     readonly engine?: string;
     /**

@@ -46,6 +46,10 @@ export interface GetClusterResult {
      */
     readonly identifier?: string;
     /**
+     * The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+     */
+    readonly metricGroups?: outputs.dsql.ClusterMetricGroup[];
+    /**
      * The Multi-region properties associated to this cluster.
      */
     readonly multiRegionProperties?: outputs.dsql.MultiRegionPropertiesProperties;

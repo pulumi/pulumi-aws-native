@@ -25,6 +25,8 @@ type TaskTemplate struct {
 	Constraints ConstraintsPropertiesPtrOutput `pulumi:"constraints"`
 	// The identifier of the contact flow.
 	ContactFlowArn pulumi.StringPtrOutput `pulumi:"contactFlowArn"`
+	// The contact hooks for the task template.
+	ContactHooks ContactHooksPropertiesPtrOutput `pulumi:"contactHooks"`
 	// The default values for fields when a task is created by referencing this template.
 	Defaults TaskTemplateDefaultFieldValueArrayOutput `pulumi:"defaults"`
 	// The description of the task template.
@@ -98,6 +100,8 @@ type taskTemplateArgs struct {
 	Constraints *ConstraintsProperties `pulumi:"constraints"`
 	// The identifier of the contact flow.
 	ContactFlowArn *string `pulumi:"contactFlowArn"`
+	// The contact hooks for the task template.
+	ContactHooks *ContactHooksProperties `pulumi:"contactHooks"`
 	// The default values for fields when a task is created by referencing this template.
 	Defaults []TaskTemplateDefaultFieldValue `pulumi:"defaults"`
 	// The description of the task template.
@@ -124,6 +128,8 @@ type TaskTemplateArgs struct {
 	Constraints ConstraintsPropertiesPtrInput
 	// The identifier of the contact flow.
 	ContactFlowArn pulumi.StringPtrInput
+	// The contact hooks for the task template.
+	ContactHooks ContactHooksPropertiesPtrInput
 	// The default values for fields when a task is created by referencing this template.
 	Defaults TaskTemplateDefaultFieldValueArrayInput
 	// The description of the task template.
@@ -197,6 +203,11 @@ func (o TaskTemplateOutput) Constraints() ConstraintsPropertiesPtrOutput {
 // The identifier of the contact flow.
 func (o TaskTemplateOutput) ContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTemplate) pulumi.StringPtrOutput { return v.ContactFlowArn }).(pulumi.StringPtrOutput)
+}
+
+// The contact hooks for the task template.
+func (o TaskTemplateOutput) ContactHooks() ContactHooksPropertiesPtrOutput {
+	return o.ApplyT(func(v *TaskTemplate) ContactHooksPropertiesPtrOutput { return v.ContactHooks }).(ContactHooksPropertiesPtrOutput)
 }
 
 // The default values for fields when a task is created by referencing this template.

@@ -54,6 +54,14 @@ export interface GetSiteToSiteVpnAttachmentResult {
      */
     readonly lastModificationErrors?: string[];
     /**
+     * Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+     */
+    readonly natGatewaySupport?: enums.networkmanager.SiteToSiteVpnAttachmentNatGatewaySupport;
+    /**
+     * Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. Configurable on BGP Site-to-Site VPN attachments. Always false and not configurable for static VPN attachments. If omitted, a new NAT gateway configuration uses the service default for the attachment and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
+     */
+    readonly natSystemRouteSupport?: boolean;
+    /**
      * The name of the network function group attachment.
      */
     readonly networkFunctionGroupName?: string;

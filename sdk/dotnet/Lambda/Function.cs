@@ -323,6 +323,9 @@ namespace Pulumi.AwsNative.Lambda
     [AwsNativeResourceType("aws-native:lambda:Function")]
     public partial class Function : global::Pulumi.CustomResource
     {
+        [Output("acceleratorConfig")]
+        public Output<Outputs.FunctionAcceleratorConfig?> AcceleratorConfig { get; private set; } = null!;
+
         /// <summary>
         /// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
         /// </summary>
@@ -485,6 +488,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("runtime")]
         public Output<string?> Runtime { get; private set; } = null!;
 
+        [Output("runtimeConfig")]
+        public Output<Outputs.FunctionRuntimeConfig?> RuntimeConfig { get; private set; } = null!;
+
         /// <summary>
         /// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
         /// </summary>
@@ -582,6 +588,9 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("acceleratorConfig")]
+        public Input<Inputs.FunctionAcceleratorConfigArgs>? AcceleratorConfig { get; set; }
+
         [Input("architectures")]
         private InputList<Pulumi.AwsNative.Lambda.FunctionArchitecturesItem>? _architectures;
 
@@ -755,6 +764,9 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("runtime")]
         public Input<string>? Runtime { get; set; }
+
+        [Input("runtimeConfig")]
+        public Input<Inputs.FunctionRuntimeConfigArgs>? RuntimeConfig { get; set; }
 
         /// <summary>
         /// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).

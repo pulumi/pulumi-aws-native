@@ -997,6 +997,301 @@ func (o ScheduleEventBridgeParametersPtrOutput) Source() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// EventBridge PutEvent V2 predefined target type
+type ScheduleEventBridgePutEventsV2Parameters struct {
+	// Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+	DetailType string `pulumi:"detailType"`
+	// The source of the event.
+	Source string `pulumi:"source"`
+}
+
+// ScheduleEventBridgePutEventsV2ParametersInput is an input type that accepts ScheduleEventBridgePutEventsV2ParametersArgs and ScheduleEventBridgePutEventsV2ParametersOutput values.
+// You can construct a concrete instance of `ScheduleEventBridgePutEventsV2ParametersInput` via:
+//
+//	ScheduleEventBridgePutEventsV2ParametersArgs{...}
+type ScheduleEventBridgePutEventsV2ParametersInput interface {
+	pulumi.Input
+
+	ToScheduleEventBridgePutEventsV2ParametersOutput() ScheduleEventBridgePutEventsV2ParametersOutput
+	ToScheduleEventBridgePutEventsV2ParametersOutputWithContext(context.Context) ScheduleEventBridgePutEventsV2ParametersOutput
+}
+
+// EventBridge PutEvent V2 predefined target type
+type ScheduleEventBridgePutEventsV2ParametersArgs struct {
+	// Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+	DetailType pulumi.StringInput `pulumi:"detailType"`
+	// The source of the event.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (ScheduleEventBridgePutEventsV2ParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleEventBridgePutEventsV2Parameters)(nil)).Elem()
+}
+
+func (i ScheduleEventBridgePutEventsV2ParametersArgs) ToScheduleEventBridgePutEventsV2ParametersOutput() ScheduleEventBridgePutEventsV2ParametersOutput {
+	return i.ToScheduleEventBridgePutEventsV2ParametersOutputWithContext(context.Background())
+}
+
+func (i ScheduleEventBridgePutEventsV2ParametersArgs) ToScheduleEventBridgePutEventsV2ParametersOutputWithContext(ctx context.Context) ScheduleEventBridgePutEventsV2ParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEventBridgePutEventsV2ParametersOutput)
+}
+
+func (i ScheduleEventBridgePutEventsV2ParametersArgs) ToScheduleEventBridgePutEventsV2ParametersPtrOutput() ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return i.ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduleEventBridgePutEventsV2ParametersArgs) ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(ctx context.Context) ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEventBridgePutEventsV2ParametersOutput).ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(ctx)
+}
+
+// ScheduleEventBridgePutEventsV2ParametersPtrInput is an input type that accepts ScheduleEventBridgePutEventsV2ParametersArgs, ScheduleEventBridgePutEventsV2ParametersPtr and ScheduleEventBridgePutEventsV2ParametersPtrOutput values.
+// You can construct a concrete instance of `ScheduleEventBridgePutEventsV2ParametersPtrInput` via:
+//
+//	        ScheduleEventBridgePutEventsV2ParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduleEventBridgePutEventsV2ParametersPtrInput interface {
+	pulumi.Input
+
+	ToScheduleEventBridgePutEventsV2ParametersPtrOutput() ScheduleEventBridgePutEventsV2ParametersPtrOutput
+	ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(context.Context) ScheduleEventBridgePutEventsV2ParametersPtrOutput
+}
+
+type scheduleEventBridgePutEventsV2ParametersPtrType ScheduleEventBridgePutEventsV2ParametersArgs
+
+func ScheduleEventBridgePutEventsV2ParametersPtr(v *ScheduleEventBridgePutEventsV2ParametersArgs) ScheduleEventBridgePutEventsV2ParametersPtrInput {
+	return (*scheduleEventBridgePutEventsV2ParametersPtrType)(v)
+}
+
+func (*scheduleEventBridgePutEventsV2ParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduleEventBridgePutEventsV2Parameters)(nil)).Elem()
+}
+
+func (i *scheduleEventBridgePutEventsV2ParametersPtrType) ToScheduleEventBridgePutEventsV2ParametersPtrOutput() ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return i.ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduleEventBridgePutEventsV2ParametersPtrType) ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(ctx context.Context) ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEventBridgePutEventsV2ParametersPtrOutput)
+}
+
+// EventBridge PutEvent V2 predefined target type
+type ScheduleEventBridgePutEventsV2ParametersOutput struct{ *pulumi.OutputState }
+
+func (ScheduleEventBridgePutEventsV2ParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleEventBridgePutEventsV2Parameters)(nil)).Elem()
+}
+
+func (o ScheduleEventBridgePutEventsV2ParametersOutput) ToScheduleEventBridgePutEventsV2ParametersOutput() ScheduleEventBridgePutEventsV2ParametersOutput {
+	return o
+}
+
+func (o ScheduleEventBridgePutEventsV2ParametersOutput) ToScheduleEventBridgePutEventsV2ParametersOutputWithContext(ctx context.Context) ScheduleEventBridgePutEventsV2ParametersOutput {
+	return o
+}
+
+func (o ScheduleEventBridgePutEventsV2ParametersOutput) ToScheduleEventBridgePutEventsV2ParametersPtrOutput() ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return o.ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduleEventBridgePutEventsV2ParametersOutput) ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(ctx context.Context) ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleEventBridgePutEventsV2Parameters) *ScheduleEventBridgePutEventsV2Parameters {
+		return &v
+	}).(ScheduleEventBridgePutEventsV2ParametersPtrOutput)
+}
+
+// Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+func (o ScheduleEventBridgePutEventsV2ParametersOutput) DetailType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleEventBridgePutEventsV2Parameters) string { return v.DetailType }).(pulumi.StringOutput)
+}
+
+// The source of the event.
+func (o ScheduleEventBridgePutEventsV2ParametersOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleEventBridgePutEventsV2Parameters) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type ScheduleEventBridgePutEventsV2ParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduleEventBridgePutEventsV2ParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduleEventBridgePutEventsV2Parameters)(nil)).Elem()
+}
+
+func (o ScheduleEventBridgePutEventsV2ParametersPtrOutput) ToScheduleEventBridgePutEventsV2ParametersPtrOutput() ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return o
+}
+
+func (o ScheduleEventBridgePutEventsV2ParametersPtrOutput) ToScheduleEventBridgePutEventsV2ParametersPtrOutputWithContext(ctx context.Context) ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return o
+}
+
+func (o ScheduleEventBridgePutEventsV2ParametersPtrOutput) Elem() ScheduleEventBridgePutEventsV2ParametersOutput {
+	return o.ApplyT(func(v *ScheduleEventBridgePutEventsV2Parameters) ScheduleEventBridgePutEventsV2Parameters {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleEventBridgePutEventsV2Parameters
+		return ret
+	}).(ScheduleEventBridgePutEventsV2ParametersOutput)
+}
+
+// Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+func (o ScheduleEventBridgePutEventsV2ParametersPtrOutput) DetailType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleEventBridgePutEventsV2Parameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DetailType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source of the event.
+func (o ScheduleEventBridgePutEventsV2ParametersPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleEventBridgePutEventsV2Parameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventBridge PutRawEvent predefined target type
+type ScheduleEventBridgePutRawEventsParameters struct {
+	Metadata map[string]string `pulumi:"metadata"`
+}
+
+// ScheduleEventBridgePutRawEventsParametersInput is an input type that accepts ScheduleEventBridgePutRawEventsParametersArgs and ScheduleEventBridgePutRawEventsParametersOutput values.
+// You can construct a concrete instance of `ScheduleEventBridgePutRawEventsParametersInput` via:
+//
+//	ScheduleEventBridgePutRawEventsParametersArgs{...}
+type ScheduleEventBridgePutRawEventsParametersInput interface {
+	pulumi.Input
+
+	ToScheduleEventBridgePutRawEventsParametersOutput() ScheduleEventBridgePutRawEventsParametersOutput
+	ToScheduleEventBridgePutRawEventsParametersOutputWithContext(context.Context) ScheduleEventBridgePutRawEventsParametersOutput
+}
+
+// EventBridge PutRawEvent predefined target type
+type ScheduleEventBridgePutRawEventsParametersArgs struct {
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+}
+
+func (ScheduleEventBridgePutRawEventsParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleEventBridgePutRawEventsParameters)(nil)).Elem()
+}
+
+func (i ScheduleEventBridgePutRawEventsParametersArgs) ToScheduleEventBridgePutRawEventsParametersOutput() ScheduleEventBridgePutRawEventsParametersOutput {
+	return i.ToScheduleEventBridgePutRawEventsParametersOutputWithContext(context.Background())
+}
+
+func (i ScheduleEventBridgePutRawEventsParametersArgs) ToScheduleEventBridgePutRawEventsParametersOutputWithContext(ctx context.Context) ScheduleEventBridgePutRawEventsParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEventBridgePutRawEventsParametersOutput)
+}
+
+func (i ScheduleEventBridgePutRawEventsParametersArgs) ToScheduleEventBridgePutRawEventsParametersPtrOutput() ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return i.ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduleEventBridgePutRawEventsParametersArgs) ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(ctx context.Context) ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEventBridgePutRawEventsParametersOutput).ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(ctx)
+}
+
+// ScheduleEventBridgePutRawEventsParametersPtrInput is an input type that accepts ScheduleEventBridgePutRawEventsParametersArgs, ScheduleEventBridgePutRawEventsParametersPtr and ScheduleEventBridgePutRawEventsParametersPtrOutput values.
+// You can construct a concrete instance of `ScheduleEventBridgePutRawEventsParametersPtrInput` via:
+//
+//	        ScheduleEventBridgePutRawEventsParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduleEventBridgePutRawEventsParametersPtrInput interface {
+	pulumi.Input
+
+	ToScheduleEventBridgePutRawEventsParametersPtrOutput() ScheduleEventBridgePutRawEventsParametersPtrOutput
+	ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(context.Context) ScheduleEventBridgePutRawEventsParametersPtrOutput
+}
+
+type scheduleEventBridgePutRawEventsParametersPtrType ScheduleEventBridgePutRawEventsParametersArgs
+
+func ScheduleEventBridgePutRawEventsParametersPtr(v *ScheduleEventBridgePutRawEventsParametersArgs) ScheduleEventBridgePutRawEventsParametersPtrInput {
+	return (*scheduleEventBridgePutRawEventsParametersPtrType)(v)
+}
+
+func (*scheduleEventBridgePutRawEventsParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduleEventBridgePutRawEventsParameters)(nil)).Elem()
+}
+
+func (i *scheduleEventBridgePutRawEventsParametersPtrType) ToScheduleEventBridgePutRawEventsParametersPtrOutput() ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return i.ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduleEventBridgePutRawEventsParametersPtrType) ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(ctx context.Context) ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEventBridgePutRawEventsParametersPtrOutput)
+}
+
+// EventBridge PutRawEvent predefined target type
+type ScheduleEventBridgePutRawEventsParametersOutput struct{ *pulumi.OutputState }
+
+func (ScheduleEventBridgePutRawEventsParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleEventBridgePutRawEventsParameters)(nil)).Elem()
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersOutput) ToScheduleEventBridgePutRawEventsParametersOutput() ScheduleEventBridgePutRawEventsParametersOutput {
+	return o
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersOutput) ToScheduleEventBridgePutRawEventsParametersOutputWithContext(ctx context.Context) ScheduleEventBridgePutRawEventsParametersOutput {
+	return o
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersOutput) ToScheduleEventBridgePutRawEventsParametersPtrOutput() ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return o.ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersOutput) ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(ctx context.Context) ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleEventBridgePutRawEventsParameters) *ScheduleEventBridgePutRawEventsParameters {
+		return &v
+	}).(ScheduleEventBridgePutRawEventsParametersPtrOutput)
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ScheduleEventBridgePutRawEventsParameters) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+type ScheduleEventBridgePutRawEventsParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduleEventBridgePutRawEventsParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduleEventBridgePutRawEventsParameters)(nil)).Elem()
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersPtrOutput) ToScheduleEventBridgePutRawEventsParametersPtrOutput() ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return o
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersPtrOutput) ToScheduleEventBridgePutRawEventsParametersPtrOutputWithContext(ctx context.Context) ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return o
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersPtrOutput) Elem() ScheduleEventBridgePutRawEventsParametersOutput {
+	return o.ApplyT(func(v *ScheduleEventBridgePutRawEventsParameters) ScheduleEventBridgePutRawEventsParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleEventBridgePutRawEventsParameters
+		return ret
+	}).(ScheduleEventBridgePutRawEventsParametersOutput)
+}
+
+func (o ScheduleEventBridgePutRawEventsParametersPtrOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ScheduleEventBridgePutRawEventsParameters) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(pulumi.StringMapOutput)
+}
+
 // Flexible time window allows configuration of a window within which a schedule can be invoked
 type ScheduleFlexibleTimeWindow struct {
 	// The maximum time window during which a schedule can be invoked.
@@ -2178,7 +2473,9 @@ type ScheduleTarget struct {
 	// The templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation.
 	EcsParameters *ScheduleEcsParameters `pulumi:"ecsParameters"`
 	// The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
-	EventBridgeParameters *ScheduleEventBridgeParameters `pulumi:"eventBridgeParameters"`
+	EventBridgeParameters             *ScheduleEventBridgeParameters             `pulumi:"eventBridgeParameters"`
+	EventBridgePutEventsV2Parameters  *ScheduleEventBridgePutEventsV2Parameters  `pulumi:"eventBridgePutEventsV2Parameters"`
+	EventBridgePutRawEventsParameters *ScheduleEventBridgePutRawEventsParameters `pulumi:"eventBridgePutRawEventsParameters"`
 	// The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
 	Input *string `pulumi:"input"`
 	// The templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation.
@@ -2213,7 +2510,9 @@ type ScheduleTargetArgs struct {
 	// The templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation.
 	EcsParameters ScheduleEcsParametersPtrInput `pulumi:"ecsParameters"`
 	// The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
-	EventBridgeParameters ScheduleEventBridgeParametersPtrInput `pulumi:"eventBridgeParameters"`
+	EventBridgeParameters             ScheduleEventBridgeParametersPtrInput             `pulumi:"eventBridgeParameters"`
+	EventBridgePutEventsV2Parameters  ScheduleEventBridgePutEventsV2ParametersPtrInput  `pulumi:"eventBridgePutEventsV2Parameters"`
+	EventBridgePutRawEventsParameters ScheduleEventBridgePutRawEventsParametersPtrInput `pulumi:"eventBridgePutRawEventsParameters"`
 	// The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
 	Input pulumi.StringPtrInput `pulumi:"input"`
 	// The templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation.
@@ -2273,6 +2572,18 @@ func (o ScheduleTargetOutput) EcsParameters() ScheduleEcsParametersPtrOutput {
 // The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
 func (o ScheduleTargetOutput) EventBridgeParameters() ScheduleEventBridgeParametersPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleEventBridgeParameters { return v.EventBridgeParameters }).(ScheduleEventBridgeParametersPtrOutput)
+}
+
+func (o ScheduleTargetOutput) EventBridgePutEventsV2Parameters() ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return o.ApplyT(func(v ScheduleTarget) *ScheduleEventBridgePutEventsV2Parameters {
+		return v.EventBridgePutEventsV2Parameters
+	}).(ScheduleEventBridgePutEventsV2ParametersPtrOutput)
+}
+
+func (o ScheduleTargetOutput) EventBridgePutRawEventsParameters() ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return o.ApplyT(func(v ScheduleTarget) *ScheduleEventBridgePutRawEventsParameters {
+		return v.EventBridgePutRawEventsParameters
+	}).(ScheduleEventBridgePutRawEventsParametersPtrOutput)
 }
 
 // The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
@@ -2369,6 +2680,24 @@ func (o ScheduleTargetPtrOutput) EventBridgeParameters() ScheduleEventBridgePara
 	}).(ScheduleEventBridgeParametersPtrOutput)
 }
 
+func (o ScheduleTargetPtrOutput) EventBridgePutEventsV2Parameters() ScheduleEventBridgePutEventsV2ParametersPtrOutput {
+	return o.ApplyT(func(v *ScheduleTarget) *ScheduleEventBridgePutEventsV2Parameters {
+		if v == nil {
+			return nil
+		}
+		return v.EventBridgePutEventsV2Parameters
+	}).(ScheduleEventBridgePutEventsV2ParametersPtrOutput)
+}
+
+func (o ScheduleTargetPtrOutput) EventBridgePutRawEventsParameters() ScheduleEventBridgePutRawEventsParametersPtrOutput {
+	return o.ApplyT(func(v *ScheduleTarget) *ScheduleEventBridgePutRawEventsParameters {
+		if v == nil {
+			return nil
+		}
+		return v.EventBridgePutRawEventsParameters
+	}).(ScheduleEventBridgePutRawEventsParametersPtrOutput)
+}
+
 // The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
 func (o ScheduleTargetPtrOutput) Input() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *string {
@@ -2440,6 +2769,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEcsParametersPtrInput)(nil)).Elem(), ScheduleEcsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEventBridgeParametersInput)(nil)).Elem(), ScheduleEventBridgeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEventBridgeParametersPtrInput)(nil)).Elem(), ScheduleEventBridgeParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEventBridgePutEventsV2ParametersInput)(nil)).Elem(), ScheduleEventBridgePutEventsV2ParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEventBridgePutEventsV2ParametersPtrInput)(nil)).Elem(), ScheduleEventBridgePutEventsV2ParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEventBridgePutRawEventsParametersInput)(nil)).Elem(), ScheduleEventBridgePutRawEventsParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEventBridgePutRawEventsParametersPtrInput)(nil)).Elem(), ScheduleEventBridgePutRawEventsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFlexibleTimeWindowInput)(nil)).Elem(), ScheduleFlexibleTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleKinesisParametersInput)(nil)).Elem(), ScheduleKinesisParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleKinesisParametersPtrInput)(nil)).Elem(), ScheduleKinesisParametersArgs{})
@@ -2468,6 +2801,10 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleEcsParametersPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleEventBridgeParametersOutput{})
 	pulumi.RegisterOutputType(ScheduleEventBridgeParametersPtrOutput{})
+	pulumi.RegisterOutputType(ScheduleEventBridgePutEventsV2ParametersOutput{})
+	pulumi.RegisterOutputType(ScheduleEventBridgePutEventsV2ParametersPtrOutput{})
+	pulumi.RegisterOutputType(ScheduleEventBridgePutRawEventsParametersOutput{})
+	pulumi.RegisterOutputType(ScheduleEventBridgePutRawEventsParametersPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleFlexibleTimeWindowOutput{})
 	pulumi.RegisterOutputType(ScheduleFlexibleTimeWindowPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleKinesisParametersOutput{})

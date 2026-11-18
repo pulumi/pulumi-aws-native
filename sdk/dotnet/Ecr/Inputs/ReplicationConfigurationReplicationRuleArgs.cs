@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ecr.Inputs
     /// </summary>
     public sealed class ReplicationConfigurationReplicationRuleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deleteReplication")]
+        public Input<Inputs.ReplicationConfigurationDeleteReplicationArgs>? DeleteReplication { get; set; }
+
         [Input("destinations", required: true)]
         private InputList<Inputs.ReplicationConfigurationReplicationDestinationArgs>? _destinations;
 

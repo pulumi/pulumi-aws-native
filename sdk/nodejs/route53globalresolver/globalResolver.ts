@@ -59,6 +59,10 @@ export class GlobalResolver extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     declare public readonly observabilityRegion: pulumi.Output<string | undefined>;
     /**
+     * Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+     */
+    declare public readonly publicIpStatus: pulumi.Output<enums.route53globalresolver.GlobalResolverPublicIpStatus | undefined>;
+    /**
      * The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
      */
     declare public readonly regions: pulumi.Output<string[]>;
@@ -85,6 +89,7 @@ export class GlobalResolver extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args?.ipAddressType;
             resourceInputs["name"] = args?.name;
             resourceInputs["observabilityRegion"] = args?.observabilityRegion;
+            resourceInputs["publicIpStatus"] = args?.publicIpStatus;
             resourceInputs["regions"] = args?.regions;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -107,6 +112,7 @@ export class GlobalResolver extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["observabilityRegion"] = undefined /*out*/;
+            resourceInputs["publicIpStatus"] = undefined /*out*/;
             resourceInputs["regions"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -128,6 +134,10 @@ export interface GlobalResolverArgs {
     ipAddressType?: pulumi.Input<enums.route53globalresolver.GlobalResolverIpAddressType | undefined>;
     name?: pulumi.Input<string | undefined>;
     observabilityRegion?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+     */
+    publicIpStatus?: pulumi.Input<enums.route53globalresolver.GlobalResolverPublicIpStatus | undefined>;
     /**
      * The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
      */

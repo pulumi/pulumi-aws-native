@@ -29,6 +29,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
         public readonly Outputs.AssociationMcpServerSigV4Configuration? McpServerSigV4;
         public readonly Outputs.AssociationMcpServerSplunkConfiguration? McpServerSplunk;
         public readonly Outputs.AssociationPagerDutyConfiguration? PagerDuty;
+        public readonly Outputs.AssociationReleaseManagementConfiguration? ReleaseManagement;
         public readonly Outputs.AssociationServiceNowConfiguration? ServiceNow;
         public readonly Outputs.AssociationSlackConfiguration? Slack;
         public readonly Outputs.AssociationSourceAwsConfiguration? SourceAws;
@@ -61,6 +62,8 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
 
             Outputs.AssociationPagerDutyConfiguration? pagerDuty,
 
+            Outputs.AssociationReleaseManagementConfiguration? releaseManagement,
+
             Outputs.AssociationServiceNowConfiguration? serviceNow,
 
             Outputs.AssociationSlackConfiguration? slack,
@@ -80,6 +83,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
             McpServerSigV4 = mcpServerSigV4;
             McpServerSplunk = mcpServerSplunk;
             PagerDuty = pagerDuty;
+            ReleaseManagement = releaseManagement;
             ServiceNow = serviceNow;
             Slack = slack;
             SourceAws = sourceAws;

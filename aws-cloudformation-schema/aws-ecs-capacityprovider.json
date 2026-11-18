@@ -409,6 +409,9 @@
         "InstanceMetadataTagsPropagation" : {
           "type" : "boolean"
         },
+        "NitroEnclavesEnabled" : {
+          "type" : "boolean"
+        },
         "StorageConfiguration" : {
           "$ref" : "#/definitions/ManagedInstancesStorageConfiguration"
         },

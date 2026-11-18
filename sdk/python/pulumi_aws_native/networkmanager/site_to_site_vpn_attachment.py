@@ -16,6 +16,8 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['SiteToSiteVpnAttachmentArgs', 'SiteToSiteVpnAttachment']
 
@@ -24,6 +26,9 @@ class SiteToSiteVpnAttachmentArgs:
     def __init__(__self__, *,
                  core_network_id: pulumi.Input[_builtins.str],
                  vpn_connection_arn: pulumi.Input[_builtins.str],
+                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SiteToSiteVpnAttachmentNatRuleArgs']]]] = None,
+                 nat_gateway_support: pulumi.Input[Optional['SiteToSiteVpnAttachmentNatGatewaySupport']] = None,
+                 nat_system_route_support: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -32,12 +37,21 @@ class SiteToSiteVpnAttachmentArgs:
 
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
         :param pulumi.Input[_builtins.str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentNatRuleArgs']]] nat_gateway_rules: The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        :param pulumi.Input['SiteToSiteVpnAttachmentNatGatewaySupport'] nat_gateway_support: Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        :param pulumi.Input[_builtins.bool] nat_system_route_support: Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. Configurable on BGP Site-to-Site VPN attachments. Always false and not configurable for static VPN attachments. If omitted, a new NAT gateway configuration uses the service default for the attachment and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "vpn_connection_arn", vpn_connection_arn)
+        if nat_gateway_rules is not None:
+            pulumi.set(__self__, "nat_gateway_rules", nat_gateway_rules)
+        if nat_gateway_support is not None:
+            pulumi.set(__self__, "nat_gateway_support", nat_gateway_support)
+        if nat_system_route_support is not None:
+            pulumi.set(__self__, "nat_system_route_support", nat_system_route_support)
         if network_function_group_name is not None:
             pulumi.set(__self__, "network_function_group_name", network_function_group_name)
         if routing_policy_label is not None:
@@ -68,6 +82,42 @@ class SiteToSiteVpnAttachmentArgs:
     @vpn_connection_arn.setter
     def vpn_connection_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vpn_connection_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewayRules")
+    def nat_gateway_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SiteToSiteVpnAttachmentNatRuleArgs']]]]:
+        """
+        The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_rules")
+
+    @nat_gateway_rules.setter
+    def nat_gateway_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SiteToSiteVpnAttachmentNatRuleArgs']]]]):
+        pulumi.set(self, "nat_gateway_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewaySupport")
+    def nat_gateway_support(self) -> pulumi.Input[Optional['SiteToSiteVpnAttachmentNatGatewaySupport']]:
+        """
+        Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_support")
+
+    @nat_gateway_support.setter
+    def nat_gateway_support(self, value: pulumi.Input[Optional['SiteToSiteVpnAttachmentNatGatewaySupport']]):
+        pulumi.set(self, "nat_gateway_support", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natSystemRouteSupport")
+    def nat_system_route_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. Configurable on BGP Site-to-Site VPN attachments. Always false and not configurable for static VPN attachments. If omitted, a new NAT gateway configuration uses the service default for the attachment and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_system_route_support")
+
+    @nat_system_route_support.setter
+    def nat_system_route_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "nat_system_route_support", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionGroupName")
@@ -113,6 +163,9 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SiteToSiteVpnAttachmentNatRuleArgs', 'SiteToSiteVpnAttachmentNatRuleArgsDict', 'outputs.SiteToSiteVpnAttachmentNatRule']]]]] = None,
+                 nat_gateway_support: pulumi.Input[Optional['SiteToSiteVpnAttachmentNatGatewaySupport']] = None,
+                 nat_system_route_support: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -124,6 +177,9 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SiteToSiteVpnAttachmentNatRuleArgs', 'SiteToSiteVpnAttachmentNatRuleArgsDict', 'outputs.SiteToSiteVpnAttachmentNatRule']]]] nat_gateway_rules: The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        :param pulumi.Input['SiteToSiteVpnAttachmentNatGatewaySupport'] nat_gateway_support: Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        :param pulumi.Input[_builtins.bool] nat_system_route_support: Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. Configurable on BGP Site-to-Site VPN attachments. Always false and not configurable for static VPN attachments. If omitted, a new NAT gateway configuration uses the service default for the attachment and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the attachment.
@@ -154,6 +210,9 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SiteToSiteVpnAttachmentNatRuleArgs', 'SiteToSiteVpnAttachmentNatRuleArgsDict', 'outputs.SiteToSiteVpnAttachmentNatRule']]]]] = None,
+                 nat_gateway_support: pulumi.Input[Optional['SiteToSiteVpnAttachmentNatGatewaySupport']] = None,
+                 nat_system_route_support: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -170,6 +229,9 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
+            __props__.__dict__["nat_gateway_rules"] = nat_gateway_rules
+            __props__.__dict__["nat_gateway_support"] = nat_gateway_support
+            __props__.__dict__["nat_system_route_support"] = nat_system_route_support
             __props__.__dict__["network_function_group_name"] = network_function_group_name
             __props__.__dict__["routing_policy_label"] = routing_policy_label
             __props__.__dict__["tags"] = tags
@@ -222,6 +284,9 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["edge_location"] = None
         __props__.__dict__["last_modification_errors"] = None
+        __props__.__dict__["nat_gateway_rules"] = None
+        __props__.__dict__["nat_gateway_support"] = None
+        __props__.__dict__["nat_system_route_support"] = None
         __props__.__dict__["network_function_group_name"] = None
         __props__.__dict__["owner_account_id"] = None
         __props__.__dict__["proposed_network_function_group_change"] = None
@@ -304,6 +369,30 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         Errors from the last modification of the attachment.
         """
         return pulumi.get(self, "last_modification_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewayRules")
+    def nat_gateway_rules(self) -> pulumi.Output[Optional[Sequence['outputs.SiteToSiteVpnAttachmentNatRule']]]:
+        """
+        The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewaySupport")
+    def nat_gateway_support(self) -> pulumi.Output[Optional['SiteToSiteVpnAttachmentNatGatewaySupport']]:
+        """
+        Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_support")
+
+    @_builtins.property
+    @pulumi.getter(name="natSystemRouteSupport")
+    def nat_system_route_support(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. Configurable on BGP Site-to-Site VPN attachments. Always false and not configurable for static VPN attachments. If omitted, a new NAT gateway configuration uses the service default for the attachment and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_system_route_support")
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionGroupName")

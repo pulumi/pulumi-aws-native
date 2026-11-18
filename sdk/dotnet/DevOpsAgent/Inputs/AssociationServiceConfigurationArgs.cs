@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
         [Input("pagerDuty")]
         public Input<Inputs.AssociationPagerDutyConfigurationArgs>? PagerDuty { get; set; }
 
+        [Input("releaseManagement")]
+        public Input<Inputs.AssociationReleaseManagementConfigurationArgs>? ReleaseManagement { get; set; }
+
         [Input("serviceNow")]
         public Input<Inputs.AssociationServiceNowConfigurationArgs>? ServiceNow { get; set; }
 

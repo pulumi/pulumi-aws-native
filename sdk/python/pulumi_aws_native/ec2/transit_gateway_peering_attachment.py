@@ -16,6 +16,8 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['TransitGatewayPeeringAttachmentArgs', 'TransitGatewayPeeringAttachment']
 
@@ -26,6 +28,7 @@ class TransitGatewayPeeringAttachmentArgs:
                  peer_region: pulumi.Input[_builtins.str],
                  peer_transit_gateway_id: pulumi.Input[_builtins.str],
                  transit_gateway_id: pulumi.Input[_builtins.str],
+                 options: pulumi.Input[Optional['TransitGatewayPeeringAttachmentOptionsArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayPeeringAttachment resource.
@@ -34,12 +37,15 @@ class TransitGatewayPeeringAttachmentArgs:
         :param pulumi.Input[_builtins.str] peer_region: Peer Region
         :param pulumi.Input[_builtins.str] peer_transit_gateway_id: The ID of the peer transit gateway.
         :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway.
+        :param pulumi.Input['TransitGatewayPeeringAttachmentOptionsArgs'] options: Options for transit gateway peering attachment
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the transit gateway peering attachment.
         """
         pulumi.set(__self__, "peer_account_id", peer_account_id)
         pulumi.set(__self__, "peer_region", peer_region)
         pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,6 +99,18 @@ class TransitGatewayPeeringAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter
+    def options(self) -> pulumi.Input[Optional['TransitGatewayPeeringAttachmentOptionsArgs']]:
+        """
+        Options for transit gateway peering attachment
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Optional['TransitGatewayPeeringAttachmentOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the transit gateway peering attachment.
@@ -110,6 +128,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 options: pulumi.Input[Optional[Union['TransitGatewayPeeringAttachmentOptionsArgs', 'TransitGatewayPeeringAttachmentOptionsArgsDict', 'outputs.TransitGatewayPeeringAttachmentOptions']]] = None,
                  peer_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -121,6 +140,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TransitGatewayPeeringAttachmentOptionsArgs', 'TransitGatewayPeeringAttachmentOptionsArgsDict', 'outputs.TransitGatewayPeeringAttachmentOptions']] options: Options for transit gateway peering attachment
         :param pulumi.Input[_builtins.str] peer_account_id: The ID of the peer account
         :param pulumi.Input[_builtins.str] peer_region: Peer Region
         :param pulumi.Input[_builtins.str] peer_transit_gateway_id: The ID of the peer transit gateway.
@@ -151,6 +171,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 options: pulumi.Input[Optional[Union['TransitGatewayPeeringAttachmentOptionsArgs', 'TransitGatewayPeeringAttachmentOptionsArgsDict', 'outputs.TransitGatewayPeeringAttachmentOptions']]] = None,
                  peer_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -165,6 +186,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TransitGatewayPeeringAttachmentArgs.__new__(TransitGatewayPeeringAttachmentArgs)
 
+            __props__.__dict__["options"] = options
             if peer_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_account_id'")
             __props__.__dict__["peer_account_id"] = peer_account_id
@@ -178,7 +200,11 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
             if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
+            __props__.__dict__["accepter_allow_multipath_resilience"] = None
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["multipath_resilience_status"] = None
+            __props__.__dict__["requester_allow_multipath_resilience"] = None
+            __props__.__dict__["requester_multipath_resilience_mode"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
@@ -206,10 +232,15 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
 
         __props__ = TransitGatewayPeeringAttachmentArgs.__new__(TransitGatewayPeeringAttachmentArgs)
 
+        __props__.__dict__["accepter_allow_multipath_resilience"] = None
         __props__.__dict__["creation_time"] = None
+        __props__.__dict__["multipath_resilience_status"] = None
+        __props__.__dict__["options"] = None
         __props__.__dict__["peer_account_id"] = None
         __props__.__dict__["peer_region"] = None
         __props__.__dict__["peer_transit_gateway_id"] = None
+        __props__.__dict__["requester_allow_multipath_resilience"] = None
+        __props__.__dict__["requester_multipath_resilience_mode"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -224,12 +255,36 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
         return pulumi.runtime.exists_resource(None, 'aws-native:ec2:TransitGatewayPeeringAttachment', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
+    @pulumi.getter(name="accepterAllowMultipathResilience")
+    def accepter_allow_multipath_resilience(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+        """
+        return pulumi.get(self, "accepter_allow_multipath_resilience")
+
+    @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
         """
         The time the transit gateway peering attachment was created.
         """
         return pulumi.get(self, "creation_time")
+
+    @_builtins.property
+    @pulumi.getter(name="multipathResilienceStatus")
+    def multipath_resilience_status(self) -> pulumi.Output[_builtins.str]:
+        """
+        The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)
+        """
+        return pulumi.get(self, "multipath_resilience_status")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> pulumi.Output[Optional['outputs.TransitGatewayPeeringAttachmentOptions']]:
+        """
+        Options for transit gateway peering attachment
+        """
+        return pulumi.get(self, "options")
 
     @_builtins.property
     @pulumi.getter(name="peerAccountId")
@@ -254,6 +309,22 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
         The ID of the peer transit gateway.
         """
         return pulumi.get(self, "peer_transit_gateway_id")
+
+    @_builtins.property
+    @pulumi.getter(name="requesterAllowMultipathResilience")
+    def requester_allow_multipath_resilience(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether the requester side of the peering attachment has opted in to MultipathResilience.
+        """
+        return pulumi.get(self, "requester_allow_multipath_resilience")
+
+    @_builtins.property
+    @pulumi.getter(name="requesterMultipathResilienceMode")
+    def requester_multipath_resilience_mode(self) -> pulumi.Output[_builtins.str]:
+        """
+        The MultipathResilience mode chosen by the requester side of the peering attachment.
+        """
+        return pulumi.get(self, "requester_multipath_resilience_mode")
 
     @_builtins.property
     @pulumi.getter

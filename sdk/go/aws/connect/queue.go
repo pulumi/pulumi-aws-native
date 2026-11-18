@@ -39,7 +39,7 @@ type Queue struct {
 	OutboundEmailConfig QueueOutboundEmailConfigPtrOutput `pulumi:"outboundEmailConfig"`
 	// The Amazon Resource Name (ARN) for the queue.
 	QueueArn pulumi.StringOutput `pulumi:"queueArn"`
-	// The quick connects available to agents who are working the queue.
+	// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
 	QuickConnectArns pulumi.StringArrayOutput `pulumi:"quickConnectArns"`
 	// The status of the queue.
 	Status QueueStatusPtrOutput `pulumi:"status"`
@@ -117,7 +117,7 @@ type queueArgs struct {
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
 	// The outbound email configuration for a specified queue.
 	OutboundEmailConfig *QueueOutboundEmailConfig `pulumi:"outboundEmailConfig"`
-	// The quick connects available to agents who are working the queue.
+	// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
 	QuickConnectArns []string `pulumi:"quickConnectArns"`
 	// The status of the queue.
 	Status *QueueStatus `pulumi:"status"`
@@ -143,7 +143,7 @@ type QueueArgs struct {
 	OutboundCallerConfig QueueOutboundCallerConfigPtrInput
 	// The outbound email configuration for a specified queue.
 	OutboundEmailConfig QueueOutboundEmailConfigPtrInput
-	// The quick connects available to agents who are working the queue.
+	// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
 	QuickConnectArns pulumi.StringArrayInput
 	// The status of the queue.
 	Status QueueStatusPtrInput
@@ -243,7 +243,7 @@ func (o QueueOutput) QueueArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.QueueArn }).(pulumi.StringOutput)
 }
 
-// The quick connects available to agents who are working the queue.
+// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
 func (o QueueOutput) QuickConnectArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectArns }).(pulumi.StringArrayOutput)
 }

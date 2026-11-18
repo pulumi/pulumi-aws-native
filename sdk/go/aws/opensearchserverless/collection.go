@@ -121,8 +121,8 @@ type Collection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas CollectionStandbyReplicasPtrOutput `pulumi:"standbyReplicas"`
-	// List of tags to be added to the resource
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 	Type          CollectionTypePtrOutput          `pulumi:"type"`
 	VectorOptions CollectionVectorOptionsPtrOutput `pulumi:"vectorOptions"`
@@ -140,7 +140,6 @@ func NewCollection(ctx *pulumi.Context,
 		"encryptionConfig",
 		"name",
 		"standbyReplicas",
-		"tags[*]",
 		"type",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -199,8 +198,8 @@ type collectionArgs struct {
 	Name *string `pulumi:"name"`
 	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas *CollectionStandbyReplicas `pulumi:"standbyReplicas"`
-	// List of tags to be added to the resource
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 	Type          *CollectionType          `pulumi:"type"`
 	VectorOptions *CollectionVectorOptions `pulumi:"vectorOptions"`
@@ -224,8 +223,8 @@ type CollectionArgs struct {
 	Name pulumi.StringPtrInput
 	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas CollectionStandbyReplicasPtrInput
-	// List of tags to be added to the resource
-	Tags aws.CreateOnlyTagArrayInput
+	// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
+	Tags aws.TagArrayInput
 	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 	Type          CollectionTypePtrInput
 	VectorOptions CollectionVectorOptionsPtrInput
@@ -331,9 +330,9 @@ func (o CollectionOutput) StandbyReplicas() CollectionStandbyReplicasPtrOutput {
 	return o.ApplyT(func(v *Collection) CollectionStandbyReplicasPtrOutput { return v.StandbyReplicas }).(CollectionStandbyReplicasPtrOutput)
 }
 
-// List of tags to be added to the resource
-func (o CollectionOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Collection) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
+func (o CollectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Collection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .

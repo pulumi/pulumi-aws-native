@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalResolverResult:
-    def __init__(__self__, arn=None, created_at=None, description=None, dns_name=None, global_resolver_id=None, i_pv4_addresses=None, i_pv6_addresses=None, ip_address_type=None, name=None, observability_region=None, regions=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, dns_name=None, global_resolver_id=None, i_pv4_addresses=None, i_pv6_addresses=None, ip_address_type=None, name=None, observability_region=None, public_ip_status=None, regions=None, status=None, tags=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetGlobalResolverResult:
         if observability_region and not isinstance(observability_region, str):
             raise TypeError("Expected argument 'observability_region' to be a str")
         pulumi.set(__self__, "observability_region", observability_region)
+        if public_ip_status and not isinstance(public_ip_status, str):
+            raise TypeError("Expected argument 'public_ip_status' to be a str")
+        pulumi.set(__self__, "public_ip_status", public_ip_status)
         if regions and not isinstance(regions, list):
             raise TypeError("Expected argument 'regions' to be a list")
         pulumi.set(__self__, "regions", regions)
@@ -120,6 +123,14 @@ class GetGlobalResolverResult:
         return pulumi.get(self, "observability_region")
 
     @_builtins.property
+    @pulumi.getter(name="publicIpStatus")
+    def public_ip_status(self) -> Optional['GlobalResolverPublicIpStatus']:
+        """
+        Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+        """
+        return pulumi.get(self, "public_ip_status")
+
+    @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[Sequence[_builtins.str]]:
         """
@@ -159,6 +170,7 @@ class AwaitableGetGlobalResolverResult(GetGlobalResolverResult):
             ip_address_type=self.ip_address_type,
             name=self.name,
             observability_region=self.observability_region,
+            public_ip_status=self.public_ip_status,
             regions=self.regions,
             status=self.status,
             tags=self.tags,
@@ -186,6 +198,7 @@ def get_global_resolver(global_resolver_id: Optional[_builtins.str] = None,
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         name=pulumi.get(__ret__, 'name'),
         observability_region=pulumi.get(__ret__, 'observability_region'),
+        public_ip_status=pulumi.get(__ret__, 'public_ip_status'),
         regions=pulumi.get(__ret__, 'regions'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -210,6 +223,7 @@ def get_global_resolver_output(global_resolver_id: pulumi.Input[Optional[_builti
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         name=pulumi.get(__response__, 'name'),
         observability_region=pulumi.get(__response__, 'observability_region'),
+        public_ip_status=pulumi.get(__response__, 'public_ip_status'),
         regions=pulumi.get(__response__, 'regions'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),

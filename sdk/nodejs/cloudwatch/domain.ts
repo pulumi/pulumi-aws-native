@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The account-level boundary for CloudWatch Omni. A domain configures the
- * identity providers users sign in through and exposes the endpoint URLs used
- * to reach CloudWatch Omni. Spaces are created within a domain.
+ * Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -50,7 +48,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the domain.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -73,6 +71,9 @@ export class Domain extends pulumi.CustomResource {
      * The ARN of the Identity Center application. Absent for IAM-only domains.
      */
     declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
+    /**
+     * Identity provider configuration for the domain.
+     */
     declare public readonly identityProviderConfiguration: pulumi.Output<outputs.cloudwatch.DomainIdentityProviderConfiguration | undefined>;
     /**
      * The identity providers configured for the domain.
@@ -150,6 +151,9 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
+    /**
+     * Identity provider configuration for the domain.
+     */
     identityProviderConfiguration?: pulumi.Input<inputs.cloudwatch.DomainIdentityProviderConfigurationArgs | undefined>;
     /**
      * The identity providers configured for the domain.

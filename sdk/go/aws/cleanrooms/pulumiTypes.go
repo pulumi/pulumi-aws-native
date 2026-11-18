@@ -9242,7 +9242,8 @@ type MembershipProtectedJobS3OutputConfigurationInput struct {
 	// The S3 bucket for job output.
 	Bucket string `pulumi:"bucket"`
 	// The S3 prefix to unload the protected job results.
-	KeyPrefix *string `pulumi:"keyPrefix"`
+	KeyPrefix    *string                 `pulumi:"keyPrefix"`
+	ResultFormat *MembershipResultFormat `pulumi:"resultFormat"`
 }
 
 // MembershipProtectedJobS3OutputConfigurationInputInput is an input type that accepts MembershipProtectedJobS3OutputConfigurationInputArgs and MembershipProtectedJobS3OutputConfigurationInputOutput values.
@@ -9260,7 +9261,8 @@ type MembershipProtectedJobS3OutputConfigurationInputArgs struct {
 	// The S3 bucket for job output.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The S3 prefix to unload the protected job results.
-	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	KeyPrefix    pulumi.StringPtrInput          `pulumi:"keyPrefix"`
+	ResultFormat MembershipResultFormatPtrInput `pulumi:"resultFormat"`
 }
 
 func (MembershipProtectedJobS3OutputConfigurationInputArgs) ElementType() reflect.Type {
@@ -9350,6 +9352,12 @@ func (o MembershipProtectedJobS3OutputConfigurationInputOutput) KeyPrefix() pulu
 	return o.ApplyT(func(v MembershipProtectedJobS3OutputConfigurationInput) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+func (o MembershipProtectedJobS3OutputConfigurationInputOutput) ResultFormat() MembershipResultFormatPtrOutput {
+	return o.ApplyT(func(v MembershipProtectedJobS3OutputConfigurationInput) *MembershipResultFormat {
+		return v.ResultFormat
+	}).(MembershipResultFormatPtrOutput)
+}
+
 type MembershipProtectedJobS3OutputConfigurationInputPtrOutput struct{ *pulumi.OutputState }
 
 func (MembershipProtectedJobS3OutputConfigurationInputPtrOutput) ElementType() reflect.Type {
@@ -9392,6 +9400,15 @@ func (o MembershipProtectedJobS3OutputConfigurationInputPtrOutput) KeyPrefix() p
 		}
 		return v.KeyPrefix
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MembershipProtectedJobS3OutputConfigurationInputPtrOutput) ResultFormat() MembershipResultFormatPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedJobS3OutputConfigurationInput) *MembershipResultFormat {
+		if v == nil {
+			return nil
+		}
+		return v.ResultFormat
+	}).(MembershipResultFormatPtrOutput)
 }
 
 type MembershipProtectedQueryOutputConfiguration struct {

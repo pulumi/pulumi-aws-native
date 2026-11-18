@@ -32,6 +32,7 @@ type LookupWorkflowResult struct {
 	CreatedAt             *string                        `pulumi:"createdAt"`
 	DefinitionS3Location  *WorkflowS3Location            `pulumi:"definitionS3Location"`
 	Description           *string                        `pulumi:"description"`
+	Environment           *WorkflowEnvironment           `pulumi:"environment"`
 	LoggingConfiguration  *WorkflowLoggingConfiguration  `pulumi:"loggingConfiguration"`
 	ModifiedAt            *string                        `pulumi:"modifiedAt"`
 	NetworkConfiguration  *WorkflowNetworkConfiguration  `pulumi:"networkConfiguration"`
@@ -89,6 +90,10 @@ func (o LookupWorkflowResultOutput) DefinitionS3Location() WorkflowS3LocationPtr
 
 func (o LookupWorkflowResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupWorkflowResultOutput) Environment() WorkflowEnvironmentPtrOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowEnvironment { return v.Environment }).(WorkflowEnvironmentPtrOutput)
 }
 
 func (o LookupWorkflowResultOutput) LoggingConfiguration() WorkflowLoggingConfigurationPtrOutput {

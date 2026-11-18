@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrailResult:
-    def __init__(__self__, advanced_event_selectors=None, aggregation_configurations=None, arn=None, cloud_watch_logs_log_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, event_selectors=None, include_global_service_events=None, insight_selectors=None, is_logging=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_arn=None, sns_topic_name=None, tags=None):
+    def __init__(__self__, advanced_event_selectors=None, aggregation_configurations=None, arn=None, cloud_watch_logs_log_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, event_selectors=None, include_global_service_events=None, insight_selectors=None, is_logging=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, recursive_logging=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_arn=None, sns_topic_name=None, tags=None):
         if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
             raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -66,6 +66,9 @@ class GetTrailResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if recursive_logging and not isinstance(recursive_logging, bool):
+            raise TypeError("Expected argument 'recursive_logging' to be a bool")
+        pulumi.set(__self__, "recursive_logging", recursive_logging)
         if s3_bucket_name and not isinstance(s3_bucket_name, str):
             raise TypeError("Expected argument 's3_bucket_name' to be a str")
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -187,6 +190,14 @@ class GetTrailResult:
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
+    @pulumi.getter(name="recursiveLogging")
+    def recursive_logging(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+        """
+        return pulumi.get(self, "recursive_logging")
+
+    @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[_builtins.str]:
         """
@@ -246,6 +257,7 @@ class AwaitableGetTrailResult(GetTrailResult):
             is_multi_region_trail=self.is_multi_region_trail,
             is_organization_trail=self.is_organization_trail,
             kms_key_id=self.kms_key_id,
+            recursive_logging=self.recursive_logging,
             s3_bucket_name=self.s3_bucket_name,
             s3_key_prefix=self.s3_key_prefix,
             sns_topic_arn=self.sns_topic_arn,
@@ -285,6 +297,7 @@ def get_trail(trail_name: Optional[_builtins.str] = None,
         is_multi_region_trail=pulumi.get(__ret__, 'is_multi_region_trail'),
         is_organization_trail=pulumi.get(__ret__, 'is_organization_trail'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        recursive_logging=pulumi.get(__ret__, 'recursive_logging'),
         s3_bucket_name=pulumi.get(__ret__, 's3_bucket_name'),
         s3_key_prefix=pulumi.get(__ret__, 's3_key_prefix'),
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
@@ -321,6 +334,7 @@ def get_trail_output(trail_name: pulumi.Input[Optional[_builtins.str]] = None,
         is_multi_region_trail=pulumi.get(__response__, 'is_multi_region_trail'),
         is_organization_trail=pulumi.get(__response__, 'is_organization_trail'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        recursive_logging=pulumi.get(__response__, 'recursive_logging'),
         s3_bucket_name=pulumi.get(__response__, 's3_bucket_name'),
         s3_key_prefix=pulumi.get(__response__, 's3_key_prefix'),
         sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn'),

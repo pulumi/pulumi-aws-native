@@ -78,9 +78,25 @@
           },
           "maxItems" : 1,
           "minItems" : 1
+        },
+        "ElasticIpConfiguration" : {
+          "$ref" : "#/definitions/ElasticIpConfiguration"
         }
       },
       "required" : [ "SubnetIds", "SecurityGroupIds", "NetworkProtocol", "AssociatedComputeResourceTypes" ]
+    },
+    "ElasticIpConfiguration" : {
+      "description" : "Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs). If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "description" : "The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.",
+          "type" : "string",
+          "enum" : [ "None", "ServiceManaged" ]
+        }
+      },
+      "required" : [ "Type" ]
     },
     "RoleArn" : {
       "description" : "The ARN of the IAM role that Lambda assumes to manage elastic network interfaces in your VPC. This role must have permissions for ec2:CreateNetworkInterface and related describe operations.",

@@ -87,6 +87,12 @@ namespace Pulumi.AwsNative.Configuration
         [Output("deliveryS3KeyPrefix")]
         public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
 
+        [Output("scope")]
+        public Output<Outputs.ConformancePackScope?> Scope { get; private set; } = null!;
+
+        [Output("source")]
+        public Output<Outputs.ConformancePackSource?> Source { get; private set; } = null!;
+
         /// <summary>
         /// The tags for the conformance pack.
         /// </summary>
@@ -110,6 +116,9 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         [Output("templateSsmDocumentDetails")]
         public Output<Outputs.TemplateSsmDocumentDetailsProperties?> TemplateSsmDocumentDetails { get; private set; } = null!;
+
+        [Output("type")]
+        public Output<Pulumi.AwsNative.Configuration.ConformancePackType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,6 +146,7 @@ namespace Pulumi.AwsNative.Configuration
                 ReplaceOnChanges =
                 {
                     "conformancePackName",
+                    "source",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,6 +199,12 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         [Input("deliveryS3KeyPrefix")]
         public Input<string>? DeliveryS3KeyPrefix { get; set; }
+
+        [Input("scope")]
+        public Input<Inputs.ConformancePackScopeArgs>? Scope { get; set; }
+
+        [Input("source")]
+        public Input<Inputs.ConformancePackSourceArgs>? Source { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

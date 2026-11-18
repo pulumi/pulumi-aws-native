@@ -70,6 +70,9 @@ class GetAccessSourceResult:
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> Optional[_builtins.str]:
+        """
+        The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+        """
         return pulumi.get(self, "cidr")
 
     @_builtins.property

@@ -51,6 +51,7 @@ __all__ = [
     'GameServerGroupBalancingStrategy',
     'GameServerGroupDeleteOption',
     'GameServerGroupGameServerProtectionPolicy',
+    'GameSessionQueueDeliveryDestinationLogDestination',
     'GameSessionQueuePriorityOrderItem',
     'MatchmakingConfigurationBackfillMode',
     'MatchmakingConfigurationFlexMatchMode',
@@ -533,6 +534,16 @@ class GameServerGroupGameServerProtectionPolicy(_builtins.str, Enum):
     """
     NO_PROTECTION = "NO_PROTECTION"
     FULL_PROTECTION = "FULL_PROTECTION"
+
+
+@pulumi.type_token("aws-native:gamelift:GameSessionQueueDeliveryDestinationLogDestination")
+class GameSessionQueueDeliveryDestinationLogDestination(_builtins.str, Enum):
+    """
+    The type of service that receives the game session queue's placement logs.
+    """
+    CLOUDWATCH = "CLOUDWATCH"
+    S3 = "S3"
+    FIREHOSE = "FIREHOSE"
 
 
 @pulumi.type_token("aws-native:gamelift:GameSessionQueuePriorityOrderItem")

@@ -15,6 +15,12 @@ __all__ = [
     'AccessProfileAssumeStatus',
     'AccessProfileProfileType',
     'AlarmMuteRuleStatus',
+    'AlertConditionComparator',
+    'AlertConditionThresholdMode',
+    'AlertNoDataTreatAs',
+    'AlertQueryLanguage',
+    'AlertTargetType',
+    'AlertTriggerStateValuesItem',
     'DomainAccessGrantForOrganizationGrantType',
     'DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType',
     'DomainAccessGrantForOrganizationPermission',
@@ -25,6 +31,7 @@ __all__ = [
     'InsightRuleRuleState',
     'IntegrationStatus',
     'IntegrationType',
+    'MetricDataQueryDefinitionType',
     'OTelEnrichmentStatus',
     'SpaceEncryptionConfigurationEncryptionStrategy',
     'SpaceStatus',
@@ -107,6 +114,64 @@ class AlarmMuteRuleStatus(_builtins.str, Enum):
     SCHEDULED = "SCHEDULED"
     ACTIVE = "ACTIVE"
     EXPIRED = "EXPIRED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AlertConditionComparator")
+class AlertConditionComparator(_builtins.str, Enum):
+    """
+    The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+    """
+    GT = "GT"
+    LT = "LT"
+    GTE = "GTE"
+    LTE = "LTE"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AlertConditionThresholdMode")
+class AlertConditionThresholdMode(_builtins.str, Enum):
+    """
+    How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+    """
+    COUNT_OF_RESULTS = "COUNT_OF_RESULTS"
+    FIELD_VALUE = "FIELD_VALUE"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AlertNoDataTreatAs")
+class AlertNoDataTreatAs(_builtins.str, Enum):
+    """
+    The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+    """
+    OK = "OK"
+    WARNING = "WARNING"
+    CRITICAL = "CRITICAL"
+    NODATA = "NODATA"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AlertQueryLanguage")
+class AlertQueryLanguage(_builtins.str, Enum):
+    """
+    The query language. Valid values: SQL, PROMQL.
+    """
+    SQL = "SQL"
+    PROMQL = "PROMQL"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AlertTargetType")
+class AlertTargetType(_builtins.str, Enum):
+    """
+    The target type. Valid values: sns, slack, pagerduty.
+    """
+    SNS = "sns"
+    SLACK = "slack"
+    PAGERDUTY = "pagerduty"
+
+
+@pulumi.type_token("aws-native:cloudwatch:AlertTriggerStateValuesItem")
+class AlertTriggerStateValuesItem(_builtins.str, Enum):
+    OK = "OK"
+    WARNING = "WARNING"
+    CRITICAL = "CRITICAL"
+    NODATA = "NODATA"
 
 
 @pulumi.type_token("aws-native:cloudwatch:DomainAccessGrantForOrganizationGrantType")
@@ -198,6 +263,16 @@ class IntegrationType(_builtins.str, Enum):
     EXTERNAL_AGENT = "EXTERNAL_AGENT"
 
 
+@pulumi.type_token("aws-native:cloudwatch:MetricDataQueryDefinitionType")
+class MetricDataQueryDefinitionType(_builtins.str, Enum):
+    """
+    The query language of Expression.
+    """
+    PROMQL = "PROMQL"
+    SQL = "SQL"
+    METRIC_MATH = "METRIC_MATH"
+
+
 @pulumi.type_token("aws-native:cloudwatch:OTelEnrichmentStatus")
 class OTelEnrichmentStatus(_builtins.str, Enum):
     """
@@ -210,7 +285,7 @@ class OTelEnrichmentStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:cloudwatch:SpaceEncryptionConfigurationEncryptionStrategy")
 class SpaceEncryptionConfigurationEncryptionStrategy(_builtins.str, Enum):
     """
-    Whether the space is encrypted with an AWS owned key or a customer managed key.
+    Which kind of key to use. Required.
     """
     AWS_OWNED = "AWS_OWNED"
     CUSTOMER_MANAGED = "CUSTOMER_MANAGED"

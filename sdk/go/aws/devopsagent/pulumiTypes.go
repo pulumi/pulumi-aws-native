@@ -1072,6 +1072,146 @@ func (o AssetFileArrayOutput) Index(i pulumi.IntInput) AssetFileOutput {
 	}).(AssetFileOutput)
 }
 
+// Configuration of the code change risk analysis automated testing capability. This capability does not support trigger filter groups.
+type AssociationAutomatedTestingCapabilityConfiguration struct {
+	// Whether the capability is enabled for this association
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// AssociationAutomatedTestingCapabilityConfigurationInput is an input type that accepts AssociationAutomatedTestingCapabilityConfigurationArgs and AssociationAutomatedTestingCapabilityConfigurationOutput values.
+// You can construct a concrete instance of `AssociationAutomatedTestingCapabilityConfigurationInput` via:
+//
+//	AssociationAutomatedTestingCapabilityConfigurationArgs{...}
+type AssociationAutomatedTestingCapabilityConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationAutomatedTestingCapabilityConfigurationOutput() AssociationAutomatedTestingCapabilityConfigurationOutput
+	ToAssociationAutomatedTestingCapabilityConfigurationOutputWithContext(context.Context) AssociationAutomatedTestingCapabilityConfigurationOutput
+}
+
+// Configuration of the code change risk analysis automated testing capability. This capability does not support trigger filter groups.
+type AssociationAutomatedTestingCapabilityConfigurationArgs struct {
+	// Whether the capability is enabled for this association
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (AssociationAutomatedTestingCapabilityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAutomatedTestingCapabilityConfiguration)(nil)).Elem()
+}
+
+func (i AssociationAutomatedTestingCapabilityConfigurationArgs) ToAssociationAutomatedTestingCapabilityConfigurationOutput() AssociationAutomatedTestingCapabilityConfigurationOutput {
+	return i.ToAssociationAutomatedTestingCapabilityConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationAutomatedTestingCapabilityConfigurationArgs) ToAssociationAutomatedTestingCapabilityConfigurationOutputWithContext(ctx context.Context) AssociationAutomatedTestingCapabilityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAutomatedTestingCapabilityConfigurationOutput)
+}
+
+func (i AssociationAutomatedTestingCapabilityConfigurationArgs) ToAssociationAutomatedTestingCapabilityConfigurationPtrOutput() AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return i.ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationAutomatedTestingCapabilityConfigurationArgs) ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(ctx context.Context) AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAutomatedTestingCapabilityConfigurationOutput).ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationAutomatedTestingCapabilityConfigurationPtrInput is an input type that accepts AssociationAutomatedTestingCapabilityConfigurationArgs, AssociationAutomatedTestingCapabilityConfigurationPtr and AssociationAutomatedTestingCapabilityConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationAutomatedTestingCapabilityConfigurationPtrInput` via:
+//
+//	        AssociationAutomatedTestingCapabilityConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationAutomatedTestingCapabilityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationAutomatedTestingCapabilityConfigurationPtrOutput() AssociationAutomatedTestingCapabilityConfigurationPtrOutput
+	ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(context.Context) AssociationAutomatedTestingCapabilityConfigurationPtrOutput
+}
+
+type associationAutomatedTestingCapabilityConfigurationPtrType AssociationAutomatedTestingCapabilityConfigurationArgs
+
+func AssociationAutomatedTestingCapabilityConfigurationPtr(v *AssociationAutomatedTestingCapabilityConfigurationArgs) AssociationAutomatedTestingCapabilityConfigurationPtrInput {
+	return (*associationAutomatedTestingCapabilityConfigurationPtrType)(v)
+}
+
+func (*associationAutomatedTestingCapabilityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationAutomatedTestingCapabilityConfiguration)(nil)).Elem()
+}
+
+func (i *associationAutomatedTestingCapabilityConfigurationPtrType) ToAssociationAutomatedTestingCapabilityConfigurationPtrOutput() AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return i.ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationAutomatedTestingCapabilityConfigurationPtrType) ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(ctx context.Context) AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAutomatedTestingCapabilityConfigurationPtrOutput)
+}
+
+// Configuration of the code change risk analysis automated testing capability. This capability does not support trigger filter groups.
+type AssociationAutomatedTestingCapabilityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationAutomatedTestingCapabilityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAutomatedTestingCapabilityConfiguration)(nil)).Elem()
+}
+
+func (o AssociationAutomatedTestingCapabilityConfigurationOutput) ToAssociationAutomatedTestingCapabilityConfigurationOutput() AssociationAutomatedTestingCapabilityConfigurationOutput {
+	return o
+}
+
+func (o AssociationAutomatedTestingCapabilityConfigurationOutput) ToAssociationAutomatedTestingCapabilityConfigurationOutputWithContext(ctx context.Context) AssociationAutomatedTestingCapabilityConfigurationOutput {
+	return o
+}
+
+func (o AssociationAutomatedTestingCapabilityConfigurationOutput) ToAssociationAutomatedTestingCapabilityConfigurationPtrOutput() AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return o.ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAutomatedTestingCapabilityConfigurationOutput) ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(ctx context.Context) AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationAutomatedTestingCapabilityConfiguration) *AssociationAutomatedTestingCapabilityConfiguration {
+		return &v
+	}).(AssociationAutomatedTestingCapabilityConfigurationPtrOutput)
+}
+
+// Whether the capability is enabled for this association
+func (o AssociationAutomatedTestingCapabilityConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationAutomatedTestingCapabilityConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type AssociationAutomatedTestingCapabilityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationAutomatedTestingCapabilityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationAutomatedTestingCapabilityConfiguration)(nil)).Elem()
+}
+
+func (o AssociationAutomatedTestingCapabilityConfigurationPtrOutput) ToAssociationAutomatedTestingCapabilityConfigurationPtrOutput() AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationAutomatedTestingCapabilityConfigurationPtrOutput) ToAssociationAutomatedTestingCapabilityConfigurationPtrOutputWithContext(ctx context.Context) AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationAutomatedTestingCapabilityConfigurationPtrOutput) Elem() AssociationAutomatedTestingCapabilityConfigurationOutput {
+	return o.ApplyT(func(v *AssociationAutomatedTestingCapabilityConfiguration) AssociationAutomatedTestingCapabilityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationAutomatedTestingCapabilityConfiguration
+		return ret
+	}).(AssociationAutomatedTestingCapabilityConfigurationOutput)
+}
+
+// Whether the capability is enabled for this association
+func (o AssociationAutomatedTestingCapabilityConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationAutomatedTestingCapabilityConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // AWS association for 'monitor' account
 type AssociationAwsConfiguration struct {
 	// AWS Account Id corresponding to provided resources
@@ -1557,6 +1697,328 @@ func (o AssociationAzureConfigurationPtrOutput) SubscriptionId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Automated AWS DevOps Agent capabilities for the repository in this association. Code change risk analysis analyzes pull requests and merge requests for deployment risk, and automated testing extends that analysis by running tests against the change. Capabilities are supported for GitHub and GitLab associations. When this property is set, it fully defines both capabilities below: a capability omitted here is removed from the association. Removing this property from a template that previously set it disables both capabilities. Capabilities configured outside CloudFormation are left unchanged only while this property has never been set. On rollback, both capabilities are restored to the previous template's values, not to settings made outside CloudFormation. Other capabilities on the association are not affected. Updates read and rewrite the association's full capability set, so a capability change made outside CloudFormation while a stack update is in progress may be overwritten.
+type AssociationCapabilities struct {
+	// Configuration for code change risk analysis, in which AWS DevOps Agent automatically analyzes pull requests and merge requests for deployment risk.
+	CodeChangeRiskAnalysis *AssociationCapabilityConfiguration `pulumi:"codeChangeRiskAnalysis"`
+	// Configuration for code change risk analysis automated testing, in which AWS DevOps Agent also runs tests against the change during the analysis.
+	CodeChangeRiskAnalysisAutomatedTesting *AssociationAutomatedTestingCapabilityConfiguration `pulumi:"codeChangeRiskAnalysisAutomatedTesting"`
+}
+
+// AssociationCapabilitiesInput is an input type that accepts AssociationCapabilitiesArgs and AssociationCapabilitiesOutput values.
+// You can construct a concrete instance of `AssociationCapabilitiesInput` via:
+//
+//	AssociationCapabilitiesArgs{...}
+type AssociationCapabilitiesInput interface {
+	pulumi.Input
+
+	ToAssociationCapabilitiesOutput() AssociationCapabilitiesOutput
+	ToAssociationCapabilitiesOutputWithContext(context.Context) AssociationCapabilitiesOutput
+}
+
+// Automated AWS DevOps Agent capabilities for the repository in this association. Code change risk analysis analyzes pull requests and merge requests for deployment risk, and automated testing extends that analysis by running tests against the change. Capabilities are supported for GitHub and GitLab associations. When this property is set, it fully defines both capabilities below: a capability omitted here is removed from the association. Removing this property from a template that previously set it disables both capabilities. Capabilities configured outside CloudFormation are left unchanged only while this property has never been set. On rollback, both capabilities are restored to the previous template's values, not to settings made outside CloudFormation. Other capabilities on the association are not affected. Updates read and rewrite the association's full capability set, so a capability change made outside CloudFormation while a stack update is in progress may be overwritten.
+type AssociationCapabilitiesArgs struct {
+	// Configuration for code change risk analysis, in which AWS DevOps Agent automatically analyzes pull requests and merge requests for deployment risk.
+	CodeChangeRiskAnalysis AssociationCapabilityConfigurationPtrInput `pulumi:"codeChangeRiskAnalysis"`
+	// Configuration for code change risk analysis automated testing, in which AWS DevOps Agent also runs tests against the change during the analysis.
+	CodeChangeRiskAnalysisAutomatedTesting AssociationAutomatedTestingCapabilityConfigurationPtrInput `pulumi:"codeChangeRiskAnalysisAutomatedTesting"`
+}
+
+func (AssociationCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationCapabilities)(nil)).Elem()
+}
+
+func (i AssociationCapabilitiesArgs) ToAssociationCapabilitiesOutput() AssociationCapabilitiesOutput {
+	return i.ToAssociationCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i AssociationCapabilitiesArgs) ToAssociationCapabilitiesOutputWithContext(ctx context.Context) AssociationCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationCapabilitiesOutput)
+}
+
+func (i AssociationCapabilitiesArgs) ToAssociationCapabilitiesPtrOutput() AssociationCapabilitiesPtrOutput {
+	return i.ToAssociationCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationCapabilitiesArgs) ToAssociationCapabilitiesPtrOutputWithContext(ctx context.Context) AssociationCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationCapabilitiesOutput).ToAssociationCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// AssociationCapabilitiesPtrInput is an input type that accepts AssociationCapabilitiesArgs, AssociationCapabilitiesPtr and AssociationCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `AssociationCapabilitiesPtrInput` via:
+//
+//	        AssociationCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToAssociationCapabilitiesPtrOutput() AssociationCapabilitiesPtrOutput
+	ToAssociationCapabilitiesPtrOutputWithContext(context.Context) AssociationCapabilitiesPtrOutput
+}
+
+type associationCapabilitiesPtrType AssociationCapabilitiesArgs
+
+func AssociationCapabilitiesPtr(v *AssociationCapabilitiesArgs) AssociationCapabilitiesPtrInput {
+	return (*associationCapabilitiesPtrType)(v)
+}
+
+func (*associationCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationCapabilities)(nil)).Elem()
+}
+
+func (i *associationCapabilitiesPtrType) ToAssociationCapabilitiesPtrOutput() AssociationCapabilitiesPtrOutput {
+	return i.ToAssociationCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *associationCapabilitiesPtrType) ToAssociationCapabilitiesPtrOutputWithContext(ctx context.Context) AssociationCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationCapabilitiesPtrOutput)
+}
+
+// Automated AWS DevOps Agent capabilities for the repository in this association. Code change risk analysis analyzes pull requests and merge requests for deployment risk, and automated testing extends that analysis by running tests against the change. Capabilities are supported for GitHub and GitLab associations. When this property is set, it fully defines both capabilities below: a capability omitted here is removed from the association. Removing this property from a template that previously set it disables both capabilities. Capabilities configured outside CloudFormation are left unchanged only while this property has never been set. On rollback, both capabilities are restored to the previous template's values, not to settings made outside CloudFormation. Other capabilities on the association are not affected. Updates read and rewrite the association's full capability set, so a capability change made outside CloudFormation while a stack update is in progress may be overwritten.
+type AssociationCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (AssociationCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationCapabilities)(nil)).Elem()
+}
+
+func (o AssociationCapabilitiesOutput) ToAssociationCapabilitiesOutput() AssociationCapabilitiesOutput {
+	return o
+}
+
+func (o AssociationCapabilitiesOutput) ToAssociationCapabilitiesOutputWithContext(ctx context.Context) AssociationCapabilitiesOutput {
+	return o
+}
+
+func (o AssociationCapabilitiesOutput) ToAssociationCapabilitiesPtrOutput() AssociationCapabilitiesPtrOutput {
+	return o.ToAssociationCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationCapabilitiesOutput) ToAssociationCapabilitiesPtrOutputWithContext(ctx context.Context) AssociationCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationCapabilities) *AssociationCapabilities {
+		return &v
+	}).(AssociationCapabilitiesPtrOutput)
+}
+
+// Configuration for code change risk analysis, in which AWS DevOps Agent automatically analyzes pull requests and merge requests for deployment risk.
+func (o AssociationCapabilitiesOutput) CodeChangeRiskAnalysis() AssociationCapabilityConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationCapabilities) *AssociationCapabilityConfiguration { return v.CodeChangeRiskAnalysis }).(AssociationCapabilityConfigurationPtrOutput)
+}
+
+// Configuration for code change risk analysis automated testing, in which AWS DevOps Agent also runs tests against the change during the analysis.
+func (o AssociationCapabilitiesOutput) CodeChangeRiskAnalysisAutomatedTesting() AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationCapabilities) *AssociationAutomatedTestingCapabilityConfiguration {
+		return v.CodeChangeRiskAnalysisAutomatedTesting
+	}).(AssociationAutomatedTestingCapabilityConfigurationPtrOutput)
+}
+
+type AssociationCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationCapabilities)(nil)).Elem()
+}
+
+func (o AssociationCapabilitiesPtrOutput) ToAssociationCapabilitiesPtrOutput() AssociationCapabilitiesPtrOutput {
+	return o
+}
+
+func (o AssociationCapabilitiesPtrOutput) ToAssociationCapabilitiesPtrOutputWithContext(ctx context.Context) AssociationCapabilitiesPtrOutput {
+	return o
+}
+
+func (o AssociationCapabilitiesPtrOutput) Elem() AssociationCapabilitiesOutput {
+	return o.ApplyT(func(v *AssociationCapabilities) AssociationCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationCapabilities
+		return ret
+	}).(AssociationCapabilitiesOutput)
+}
+
+// Configuration for code change risk analysis, in which AWS DevOps Agent automatically analyzes pull requests and merge requests for deployment risk.
+func (o AssociationCapabilitiesPtrOutput) CodeChangeRiskAnalysis() AssociationCapabilityConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationCapabilities) *AssociationCapabilityConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CodeChangeRiskAnalysis
+	}).(AssociationCapabilityConfigurationPtrOutput)
+}
+
+// Configuration for code change risk analysis automated testing, in which AWS DevOps Agent also runs tests against the change during the analysis.
+func (o AssociationCapabilitiesPtrOutput) CodeChangeRiskAnalysisAutomatedTesting() AssociationAutomatedTestingCapabilityConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationCapabilities) *AssociationAutomatedTestingCapabilityConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CodeChangeRiskAnalysisAutomatedTesting
+	}).(AssociationAutomatedTestingCapabilityConfigurationPtrOutput)
+}
+
+// Configuration of a single capability
+type AssociationCapabilityConfiguration struct {
+	// Whether the capability is enabled for this association
+	Enabled *bool `pulumi:"enabled"`
+	// Filter groups controlling when the capability triggers automatically. The capability triggers when any group matches. When omitted, all applicable events trigger the capability. Retained while the capability is disabled.
+	TriggerFilterGroups []AssociationTriggerFilterGroup `pulumi:"triggerFilterGroups"`
+}
+
+// AssociationCapabilityConfigurationInput is an input type that accepts AssociationCapabilityConfigurationArgs and AssociationCapabilityConfigurationOutput values.
+// You can construct a concrete instance of `AssociationCapabilityConfigurationInput` via:
+//
+//	AssociationCapabilityConfigurationArgs{...}
+type AssociationCapabilityConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationCapabilityConfigurationOutput() AssociationCapabilityConfigurationOutput
+	ToAssociationCapabilityConfigurationOutputWithContext(context.Context) AssociationCapabilityConfigurationOutput
+}
+
+// Configuration of a single capability
+type AssociationCapabilityConfigurationArgs struct {
+	// Whether the capability is enabled for this association
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Filter groups controlling when the capability triggers automatically. The capability triggers when any group matches. When omitted, all applicable events trigger the capability. Retained while the capability is disabled.
+	TriggerFilterGroups AssociationTriggerFilterGroupArrayInput `pulumi:"triggerFilterGroups"`
+}
+
+func (AssociationCapabilityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationCapabilityConfiguration)(nil)).Elem()
+}
+
+func (i AssociationCapabilityConfigurationArgs) ToAssociationCapabilityConfigurationOutput() AssociationCapabilityConfigurationOutput {
+	return i.ToAssociationCapabilityConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationCapabilityConfigurationArgs) ToAssociationCapabilityConfigurationOutputWithContext(ctx context.Context) AssociationCapabilityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationCapabilityConfigurationOutput)
+}
+
+func (i AssociationCapabilityConfigurationArgs) ToAssociationCapabilityConfigurationPtrOutput() AssociationCapabilityConfigurationPtrOutput {
+	return i.ToAssociationCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationCapabilityConfigurationArgs) ToAssociationCapabilityConfigurationPtrOutputWithContext(ctx context.Context) AssociationCapabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationCapabilityConfigurationOutput).ToAssociationCapabilityConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationCapabilityConfigurationPtrInput is an input type that accepts AssociationCapabilityConfigurationArgs, AssociationCapabilityConfigurationPtr and AssociationCapabilityConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationCapabilityConfigurationPtrInput` via:
+//
+//	        AssociationCapabilityConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationCapabilityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationCapabilityConfigurationPtrOutput() AssociationCapabilityConfigurationPtrOutput
+	ToAssociationCapabilityConfigurationPtrOutputWithContext(context.Context) AssociationCapabilityConfigurationPtrOutput
+}
+
+type associationCapabilityConfigurationPtrType AssociationCapabilityConfigurationArgs
+
+func AssociationCapabilityConfigurationPtr(v *AssociationCapabilityConfigurationArgs) AssociationCapabilityConfigurationPtrInput {
+	return (*associationCapabilityConfigurationPtrType)(v)
+}
+
+func (*associationCapabilityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationCapabilityConfiguration)(nil)).Elem()
+}
+
+func (i *associationCapabilityConfigurationPtrType) ToAssociationCapabilityConfigurationPtrOutput() AssociationCapabilityConfigurationPtrOutput {
+	return i.ToAssociationCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationCapabilityConfigurationPtrType) ToAssociationCapabilityConfigurationPtrOutputWithContext(ctx context.Context) AssociationCapabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationCapabilityConfigurationPtrOutput)
+}
+
+// Configuration of a single capability
+type AssociationCapabilityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationCapabilityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationCapabilityConfiguration)(nil)).Elem()
+}
+
+func (o AssociationCapabilityConfigurationOutput) ToAssociationCapabilityConfigurationOutput() AssociationCapabilityConfigurationOutput {
+	return o
+}
+
+func (o AssociationCapabilityConfigurationOutput) ToAssociationCapabilityConfigurationOutputWithContext(ctx context.Context) AssociationCapabilityConfigurationOutput {
+	return o
+}
+
+func (o AssociationCapabilityConfigurationOutput) ToAssociationCapabilityConfigurationPtrOutput() AssociationCapabilityConfigurationPtrOutput {
+	return o.ToAssociationCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationCapabilityConfigurationOutput) ToAssociationCapabilityConfigurationPtrOutputWithContext(ctx context.Context) AssociationCapabilityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationCapabilityConfiguration) *AssociationCapabilityConfiguration {
+		return &v
+	}).(AssociationCapabilityConfigurationPtrOutput)
+}
+
+// Whether the capability is enabled for this association
+func (o AssociationCapabilityConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationCapabilityConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Filter groups controlling when the capability triggers automatically. The capability triggers when any group matches. When omitted, all applicable events trigger the capability. Retained while the capability is disabled.
+func (o AssociationCapabilityConfigurationOutput) TriggerFilterGroups() AssociationTriggerFilterGroupArrayOutput {
+	return o.ApplyT(func(v AssociationCapabilityConfiguration) []AssociationTriggerFilterGroup {
+		return v.TriggerFilterGroups
+	}).(AssociationTriggerFilterGroupArrayOutput)
+}
+
+type AssociationCapabilityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationCapabilityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationCapabilityConfiguration)(nil)).Elem()
+}
+
+func (o AssociationCapabilityConfigurationPtrOutput) ToAssociationCapabilityConfigurationPtrOutput() AssociationCapabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationCapabilityConfigurationPtrOutput) ToAssociationCapabilityConfigurationPtrOutputWithContext(ctx context.Context) AssociationCapabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationCapabilityConfigurationPtrOutput) Elem() AssociationCapabilityConfigurationOutput {
+	return o.ApplyT(func(v *AssociationCapabilityConfiguration) AssociationCapabilityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationCapabilityConfiguration
+		return ret
+	}).(AssociationCapabilityConfigurationOutput)
+}
+
+// Whether the capability is enabled for this association
+func (o AssociationCapabilityConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationCapabilityConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Filter groups controlling when the capability triggers automatically. The capability triggers when any group matches. When omitted, all applicable events trigger the capability. Retained while the capability is disabled.
+func (o AssociationCapabilityConfigurationPtrOutput) TriggerFilterGroups() AssociationTriggerFilterGroupArrayOutput {
+	return o.ApplyT(func(v *AssociationCapabilityConfiguration) []AssociationTriggerFilterGroup {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerFilterGroups
+	}).(AssociationTriggerFilterGroupArrayOutput)
+}
+
 // Dynatrace monitoring configuration
 type AssociationDynatraceConfiguration struct {
 	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
@@ -1881,6 +2343,8 @@ type AssociationGitHubConfiguration struct {
 	Owner string `pulumi:"owner"`
 	// Type of repository owner
 	OwnerType AssociationGitHubConfigurationOwnerType `pulumi:"ownerType"`
+	// The ID of the release management association that this repository uses for automated testing
+	ReleaseManagementAssociationId *string `pulumi:"releaseManagementAssociationId"`
 	// Associated Github repo ID
 	RepoId string `pulumi:"repoId"`
 	// Associated Github repo name
@@ -1904,6 +2368,8 @@ type AssociationGitHubConfigurationArgs struct {
 	Owner pulumi.StringInput `pulumi:"owner"`
 	// Type of repository owner
 	OwnerType AssociationGitHubConfigurationOwnerTypeInput `pulumi:"ownerType"`
+	// The ID of the release management association that this repository uses for automated testing
+	ReleaseManagementAssociationId pulumi.StringPtrInput `pulumi:"releaseManagementAssociationId"`
 	// Associated Github repo ID
 	RepoId pulumi.StringInput `pulumi:"repoId"`
 	// Associated Github repo name
@@ -1998,6 +2464,11 @@ func (o AssociationGitHubConfigurationOutput) OwnerType() AssociationGitHubConfi
 	return o.ApplyT(func(v AssociationGitHubConfiguration) AssociationGitHubConfigurationOwnerType { return v.OwnerType }).(AssociationGitHubConfigurationOwnerTypeOutput)
 }
 
+// The ID of the release management association that this repository uses for automated testing
+func (o AssociationGitHubConfigurationOutput) ReleaseManagementAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationGitHubConfiguration) *string { return v.ReleaseManagementAssociationId }).(pulumi.StringPtrOutput)
+}
+
 // Associated Github repo ID
 func (o AssociationGitHubConfigurationOutput) RepoId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociationGitHubConfiguration) string { return v.RepoId }).(pulumi.StringOutput)
@@ -2052,6 +2523,16 @@ func (o AssociationGitHubConfigurationPtrOutput) OwnerType() AssociationGitHubCo
 	}).(AssociationGitHubConfigurationOwnerTypePtrOutput)
 }
 
+// The ID of the release management association that this repository uses for automated testing
+func (o AssociationGitHubConfigurationPtrOutput) ReleaseManagementAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationGitHubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseManagementAssociationId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Associated Github repo ID
 func (o AssociationGitHubConfigurationPtrOutput) RepoId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationGitHubConfiguration) *string {
@@ -2082,6 +2563,8 @@ type AssociationGitLabConfiguration struct {
 	ProjectId string `pulumi:"projectId"`
 	// Full GitLab project path (e.g., namespace/project-name)
 	ProjectPath string `pulumi:"projectPath"`
+	// The ID of the release management association that this project uses for automated testing
+	ReleaseManagementAssociationId *string `pulumi:"releaseManagementAssociationId"`
 }
 
 // AssociationGitLabConfigurationInput is an input type that accepts AssociationGitLabConfigurationArgs and AssociationGitLabConfigurationOutput values.
@@ -2105,6 +2588,8 @@ type AssociationGitLabConfigurationArgs struct {
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
 	// Full GitLab project path (e.g., namespace/project-name)
 	ProjectPath pulumi.StringInput `pulumi:"projectPath"`
+	// The ID of the release management association that this project uses for automated testing
+	ReleaseManagementAssociationId pulumi.StringPtrInput `pulumi:"releaseManagementAssociationId"`
 }
 
 func (AssociationGitLabConfigurationArgs) ElementType() reflect.Type {
@@ -2205,6 +2690,11 @@ func (o AssociationGitLabConfigurationOutput) ProjectPath() pulumi.StringOutput 
 	return o.ApplyT(func(v AssociationGitLabConfiguration) string { return v.ProjectPath }).(pulumi.StringOutput)
 }
 
+// The ID of the release management association that this project uses for automated testing
+func (o AssociationGitLabConfigurationOutput) ReleaseManagementAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationGitLabConfiguration) *string { return v.ReleaseManagementAssociationId }).(pulumi.StringPtrOutput)
+}
+
 type AssociationGitLabConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AssociationGitLabConfigurationPtrOutput) ElementType() reflect.Type {
@@ -2266,6 +2756,16 @@ func (o AssociationGitLabConfigurationPtrOutput) ProjectPath() pulumi.StringPtrO
 			return nil
 		}
 		return &v.ProjectPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the release management association that this project uses for automated testing
+func (o AssociationGitLabConfigurationPtrOutput) ReleaseManagementAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationGitLabConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseManagementAssociationId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3499,6 +3999,142 @@ func (o AssociationMcpServerSplunkConfigurationPtrOutput) Name() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies how AWS DevOps Agent reaches your application using a release management environment. Exactly one access type must be specified.
+type AssociationNetworkAccessConfiguration struct {
+	PrivateAccess *AssociationPrivateNetworkAccess `pulumi:"privateAccess"`
+}
+
+// AssociationNetworkAccessConfigurationInput is an input type that accepts AssociationNetworkAccessConfigurationArgs and AssociationNetworkAccessConfigurationOutput values.
+// You can construct a concrete instance of `AssociationNetworkAccessConfigurationInput` via:
+//
+//	AssociationNetworkAccessConfigurationArgs{...}
+type AssociationNetworkAccessConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationNetworkAccessConfigurationOutput() AssociationNetworkAccessConfigurationOutput
+	ToAssociationNetworkAccessConfigurationOutputWithContext(context.Context) AssociationNetworkAccessConfigurationOutput
+}
+
+// Specifies how AWS DevOps Agent reaches your application using a release management environment. Exactly one access type must be specified.
+type AssociationNetworkAccessConfigurationArgs struct {
+	PrivateAccess AssociationPrivateNetworkAccessPtrInput `pulumi:"privateAccess"`
+}
+
+func (AssociationNetworkAccessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationNetworkAccessConfiguration)(nil)).Elem()
+}
+
+func (i AssociationNetworkAccessConfigurationArgs) ToAssociationNetworkAccessConfigurationOutput() AssociationNetworkAccessConfigurationOutput {
+	return i.ToAssociationNetworkAccessConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationNetworkAccessConfigurationArgs) ToAssociationNetworkAccessConfigurationOutputWithContext(ctx context.Context) AssociationNetworkAccessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationNetworkAccessConfigurationOutput)
+}
+
+func (i AssociationNetworkAccessConfigurationArgs) ToAssociationNetworkAccessConfigurationPtrOutput() AssociationNetworkAccessConfigurationPtrOutput {
+	return i.ToAssociationNetworkAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationNetworkAccessConfigurationArgs) ToAssociationNetworkAccessConfigurationPtrOutputWithContext(ctx context.Context) AssociationNetworkAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationNetworkAccessConfigurationOutput).ToAssociationNetworkAccessConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationNetworkAccessConfigurationPtrInput is an input type that accepts AssociationNetworkAccessConfigurationArgs, AssociationNetworkAccessConfigurationPtr and AssociationNetworkAccessConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationNetworkAccessConfigurationPtrInput` via:
+//
+//	        AssociationNetworkAccessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationNetworkAccessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationNetworkAccessConfigurationPtrOutput() AssociationNetworkAccessConfigurationPtrOutput
+	ToAssociationNetworkAccessConfigurationPtrOutputWithContext(context.Context) AssociationNetworkAccessConfigurationPtrOutput
+}
+
+type associationNetworkAccessConfigurationPtrType AssociationNetworkAccessConfigurationArgs
+
+func AssociationNetworkAccessConfigurationPtr(v *AssociationNetworkAccessConfigurationArgs) AssociationNetworkAccessConfigurationPtrInput {
+	return (*associationNetworkAccessConfigurationPtrType)(v)
+}
+
+func (*associationNetworkAccessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationNetworkAccessConfiguration)(nil)).Elem()
+}
+
+func (i *associationNetworkAccessConfigurationPtrType) ToAssociationNetworkAccessConfigurationPtrOutput() AssociationNetworkAccessConfigurationPtrOutput {
+	return i.ToAssociationNetworkAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationNetworkAccessConfigurationPtrType) ToAssociationNetworkAccessConfigurationPtrOutputWithContext(ctx context.Context) AssociationNetworkAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationNetworkAccessConfigurationPtrOutput)
+}
+
+// Specifies how AWS DevOps Agent reaches your application using a release management environment. Exactly one access type must be specified.
+type AssociationNetworkAccessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationNetworkAccessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationNetworkAccessConfiguration)(nil)).Elem()
+}
+
+func (o AssociationNetworkAccessConfigurationOutput) ToAssociationNetworkAccessConfigurationOutput() AssociationNetworkAccessConfigurationOutput {
+	return o
+}
+
+func (o AssociationNetworkAccessConfigurationOutput) ToAssociationNetworkAccessConfigurationOutputWithContext(ctx context.Context) AssociationNetworkAccessConfigurationOutput {
+	return o
+}
+
+func (o AssociationNetworkAccessConfigurationOutput) ToAssociationNetworkAccessConfigurationPtrOutput() AssociationNetworkAccessConfigurationPtrOutput {
+	return o.ToAssociationNetworkAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationNetworkAccessConfigurationOutput) ToAssociationNetworkAccessConfigurationPtrOutputWithContext(ctx context.Context) AssociationNetworkAccessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationNetworkAccessConfiguration) *AssociationNetworkAccessConfiguration {
+		return &v
+	}).(AssociationNetworkAccessConfigurationPtrOutput)
+}
+
+func (o AssociationNetworkAccessConfigurationOutput) PrivateAccess() AssociationPrivateNetworkAccessPtrOutput {
+	return o.ApplyT(func(v AssociationNetworkAccessConfiguration) *AssociationPrivateNetworkAccess { return v.PrivateAccess }).(AssociationPrivateNetworkAccessPtrOutput)
+}
+
+type AssociationNetworkAccessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationNetworkAccessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationNetworkAccessConfiguration)(nil)).Elem()
+}
+
+func (o AssociationNetworkAccessConfigurationPtrOutput) ToAssociationNetworkAccessConfigurationPtrOutput() AssociationNetworkAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationNetworkAccessConfigurationPtrOutput) ToAssociationNetworkAccessConfigurationPtrOutputWithContext(ctx context.Context) AssociationNetworkAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationNetworkAccessConfigurationPtrOutput) Elem() AssociationNetworkAccessConfigurationOutput {
+	return o.ApplyT(func(v *AssociationNetworkAccessConfiguration) AssociationNetworkAccessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationNetworkAccessConfiguration
+		return ret
+	}).(AssociationNetworkAccessConfigurationOutput)
+}
+
+func (o AssociationNetworkAccessConfigurationPtrOutput) PrivateAccess() AssociationPrivateNetworkAccessPtrOutput {
+	return o.ApplyT(func(v *AssociationNetworkAccessConfiguration) *AssociationPrivateNetworkAccess {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateAccess
+	}).(AssociationPrivateNetworkAccessPtrOutput)
+}
+
 // PagerDuty integration configuration
 type AssociationPagerDutyConfiguration struct {
 	// Email to be used in PagerDuty API header
@@ -3677,6 +4313,466 @@ func (o AssociationPagerDutyConfigurationPtrOutput) Services() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// A regex-based match condition. Passes when the value matches any pattern.
+type AssociationPatternFilter struct {
+	// Anchored full-match regex patterns, for example 'main' or 'release/.*'
+	Patterns []string `pulumi:"patterns"`
+}
+
+// AssociationPatternFilterInput is an input type that accepts AssociationPatternFilterArgs and AssociationPatternFilterOutput values.
+// You can construct a concrete instance of `AssociationPatternFilterInput` via:
+//
+//	AssociationPatternFilterArgs{...}
+type AssociationPatternFilterInput interface {
+	pulumi.Input
+
+	ToAssociationPatternFilterOutput() AssociationPatternFilterOutput
+	ToAssociationPatternFilterOutputWithContext(context.Context) AssociationPatternFilterOutput
+}
+
+// A regex-based match condition. Passes when the value matches any pattern.
+type AssociationPatternFilterArgs struct {
+	// Anchored full-match regex patterns, for example 'main' or 'release/.*'
+	Patterns pulumi.StringArrayInput `pulumi:"patterns"`
+}
+
+func (AssociationPatternFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationPatternFilter)(nil)).Elem()
+}
+
+func (i AssociationPatternFilterArgs) ToAssociationPatternFilterOutput() AssociationPatternFilterOutput {
+	return i.ToAssociationPatternFilterOutputWithContext(context.Background())
+}
+
+func (i AssociationPatternFilterArgs) ToAssociationPatternFilterOutputWithContext(ctx context.Context) AssociationPatternFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPatternFilterOutput)
+}
+
+func (i AssociationPatternFilterArgs) ToAssociationPatternFilterPtrOutput() AssociationPatternFilterPtrOutput {
+	return i.ToAssociationPatternFilterPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationPatternFilterArgs) ToAssociationPatternFilterPtrOutputWithContext(ctx context.Context) AssociationPatternFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPatternFilterOutput).ToAssociationPatternFilterPtrOutputWithContext(ctx)
+}
+
+// AssociationPatternFilterPtrInput is an input type that accepts AssociationPatternFilterArgs, AssociationPatternFilterPtr and AssociationPatternFilterPtrOutput values.
+// You can construct a concrete instance of `AssociationPatternFilterPtrInput` via:
+//
+//	        AssociationPatternFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationPatternFilterPtrInput interface {
+	pulumi.Input
+
+	ToAssociationPatternFilterPtrOutput() AssociationPatternFilterPtrOutput
+	ToAssociationPatternFilterPtrOutputWithContext(context.Context) AssociationPatternFilterPtrOutput
+}
+
+type associationPatternFilterPtrType AssociationPatternFilterArgs
+
+func AssociationPatternFilterPtr(v *AssociationPatternFilterArgs) AssociationPatternFilterPtrInput {
+	return (*associationPatternFilterPtrType)(v)
+}
+
+func (*associationPatternFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationPatternFilter)(nil)).Elem()
+}
+
+func (i *associationPatternFilterPtrType) ToAssociationPatternFilterPtrOutput() AssociationPatternFilterPtrOutput {
+	return i.ToAssociationPatternFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *associationPatternFilterPtrType) ToAssociationPatternFilterPtrOutputWithContext(ctx context.Context) AssociationPatternFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPatternFilterPtrOutput)
+}
+
+// A regex-based match condition. Passes when the value matches any pattern.
+type AssociationPatternFilterOutput struct{ *pulumi.OutputState }
+
+func (AssociationPatternFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationPatternFilter)(nil)).Elem()
+}
+
+func (o AssociationPatternFilterOutput) ToAssociationPatternFilterOutput() AssociationPatternFilterOutput {
+	return o
+}
+
+func (o AssociationPatternFilterOutput) ToAssociationPatternFilterOutputWithContext(ctx context.Context) AssociationPatternFilterOutput {
+	return o
+}
+
+func (o AssociationPatternFilterOutput) ToAssociationPatternFilterPtrOutput() AssociationPatternFilterPtrOutput {
+	return o.ToAssociationPatternFilterPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationPatternFilterOutput) ToAssociationPatternFilterPtrOutputWithContext(ctx context.Context) AssociationPatternFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationPatternFilter) *AssociationPatternFilter {
+		return &v
+	}).(AssociationPatternFilterPtrOutput)
+}
+
+// Anchored full-match regex patterns, for example 'main' or 'release/.*'
+func (o AssociationPatternFilterOutput) Patterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssociationPatternFilter) []string { return v.Patterns }).(pulumi.StringArrayOutput)
+}
+
+type AssociationPatternFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationPatternFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationPatternFilter)(nil)).Elem()
+}
+
+func (o AssociationPatternFilterPtrOutput) ToAssociationPatternFilterPtrOutput() AssociationPatternFilterPtrOutput {
+	return o
+}
+
+func (o AssociationPatternFilterPtrOutput) ToAssociationPatternFilterPtrOutputWithContext(ctx context.Context) AssociationPatternFilterPtrOutput {
+	return o
+}
+
+func (o AssociationPatternFilterPtrOutput) Elem() AssociationPatternFilterOutput {
+	return o.ApplyT(func(v *AssociationPatternFilter) AssociationPatternFilter {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationPatternFilter
+		return ret
+	}).(AssociationPatternFilterOutput)
+}
+
+// Anchored full-match regex patterns, for example 'main' or 'release/.*'
+func (o AssociationPatternFilterPtrOutput) Patterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssociationPatternFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Patterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Private network access to your application inside a VPC, reached through a private connection
+type AssociationPrivateNetworkAccess struct {
+	// Name of the private connection that supplies the VPC configuration for this release management environment
+	PrivateConnectionName string `pulumi:"privateConnectionName"`
+	// Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC
+	RuntimeRoleArn string `pulumi:"runtimeRoleArn"`
+}
+
+// AssociationPrivateNetworkAccessInput is an input type that accepts AssociationPrivateNetworkAccessArgs and AssociationPrivateNetworkAccessOutput values.
+// You can construct a concrete instance of `AssociationPrivateNetworkAccessInput` via:
+//
+//	AssociationPrivateNetworkAccessArgs{...}
+type AssociationPrivateNetworkAccessInput interface {
+	pulumi.Input
+
+	ToAssociationPrivateNetworkAccessOutput() AssociationPrivateNetworkAccessOutput
+	ToAssociationPrivateNetworkAccessOutputWithContext(context.Context) AssociationPrivateNetworkAccessOutput
+}
+
+// Private network access to your application inside a VPC, reached through a private connection
+type AssociationPrivateNetworkAccessArgs struct {
+	// Name of the private connection that supplies the VPC configuration for this release management environment
+	PrivateConnectionName pulumi.StringInput `pulumi:"privateConnectionName"`
+	// Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC
+	RuntimeRoleArn pulumi.StringInput `pulumi:"runtimeRoleArn"`
+}
+
+func (AssociationPrivateNetworkAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationPrivateNetworkAccess)(nil)).Elem()
+}
+
+func (i AssociationPrivateNetworkAccessArgs) ToAssociationPrivateNetworkAccessOutput() AssociationPrivateNetworkAccessOutput {
+	return i.ToAssociationPrivateNetworkAccessOutputWithContext(context.Background())
+}
+
+func (i AssociationPrivateNetworkAccessArgs) ToAssociationPrivateNetworkAccessOutputWithContext(ctx context.Context) AssociationPrivateNetworkAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPrivateNetworkAccessOutput)
+}
+
+func (i AssociationPrivateNetworkAccessArgs) ToAssociationPrivateNetworkAccessPtrOutput() AssociationPrivateNetworkAccessPtrOutput {
+	return i.ToAssociationPrivateNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationPrivateNetworkAccessArgs) ToAssociationPrivateNetworkAccessPtrOutputWithContext(ctx context.Context) AssociationPrivateNetworkAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPrivateNetworkAccessOutput).ToAssociationPrivateNetworkAccessPtrOutputWithContext(ctx)
+}
+
+// AssociationPrivateNetworkAccessPtrInput is an input type that accepts AssociationPrivateNetworkAccessArgs, AssociationPrivateNetworkAccessPtr and AssociationPrivateNetworkAccessPtrOutput values.
+// You can construct a concrete instance of `AssociationPrivateNetworkAccessPtrInput` via:
+//
+//	        AssociationPrivateNetworkAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationPrivateNetworkAccessPtrInput interface {
+	pulumi.Input
+
+	ToAssociationPrivateNetworkAccessPtrOutput() AssociationPrivateNetworkAccessPtrOutput
+	ToAssociationPrivateNetworkAccessPtrOutputWithContext(context.Context) AssociationPrivateNetworkAccessPtrOutput
+}
+
+type associationPrivateNetworkAccessPtrType AssociationPrivateNetworkAccessArgs
+
+func AssociationPrivateNetworkAccessPtr(v *AssociationPrivateNetworkAccessArgs) AssociationPrivateNetworkAccessPtrInput {
+	return (*associationPrivateNetworkAccessPtrType)(v)
+}
+
+func (*associationPrivateNetworkAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationPrivateNetworkAccess)(nil)).Elem()
+}
+
+func (i *associationPrivateNetworkAccessPtrType) ToAssociationPrivateNetworkAccessPtrOutput() AssociationPrivateNetworkAccessPtrOutput {
+	return i.ToAssociationPrivateNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *associationPrivateNetworkAccessPtrType) ToAssociationPrivateNetworkAccessPtrOutputWithContext(ctx context.Context) AssociationPrivateNetworkAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPrivateNetworkAccessPtrOutput)
+}
+
+// Private network access to your application inside a VPC, reached through a private connection
+type AssociationPrivateNetworkAccessOutput struct{ *pulumi.OutputState }
+
+func (AssociationPrivateNetworkAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationPrivateNetworkAccess)(nil)).Elem()
+}
+
+func (o AssociationPrivateNetworkAccessOutput) ToAssociationPrivateNetworkAccessOutput() AssociationPrivateNetworkAccessOutput {
+	return o
+}
+
+func (o AssociationPrivateNetworkAccessOutput) ToAssociationPrivateNetworkAccessOutputWithContext(ctx context.Context) AssociationPrivateNetworkAccessOutput {
+	return o
+}
+
+func (o AssociationPrivateNetworkAccessOutput) ToAssociationPrivateNetworkAccessPtrOutput() AssociationPrivateNetworkAccessPtrOutput {
+	return o.ToAssociationPrivateNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationPrivateNetworkAccessOutput) ToAssociationPrivateNetworkAccessPtrOutputWithContext(ctx context.Context) AssociationPrivateNetworkAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationPrivateNetworkAccess) *AssociationPrivateNetworkAccess {
+		return &v
+	}).(AssociationPrivateNetworkAccessPtrOutput)
+}
+
+// Name of the private connection that supplies the VPC configuration for this release management environment
+func (o AssociationPrivateNetworkAccessOutput) PrivateConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationPrivateNetworkAccess) string { return v.PrivateConnectionName }).(pulumi.StringOutput)
+}
+
+// Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC
+func (o AssociationPrivateNetworkAccessOutput) RuntimeRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationPrivateNetworkAccess) string { return v.RuntimeRoleArn }).(pulumi.StringOutput)
+}
+
+type AssociationPrivateNetworkAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationPrivateNetworkAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationPrivateNetworkAccess)(nil)).Elem()
+}
+
+func (o AssociationPrivateNetworkAccessPtrOutput) ToAssociationPrivateNetworkAccessPtrOutput() AssociationPrivateNetworkAccessPtrOutput {
+	return o
+}
+
+func (o AssociationPrivateNetworkAccessPtrOutput) ToAssociationPrivateNetworkAccessPtrOutputWithContext(ctx context.Context) AssociationPrivateNetworkAccessPtrOutput {
+	return o
+}
+
+func (o AssociationPrivateNetworkAccessPtrOutput) Elem() AssociationPrivateNetworkAccessOutput {
+	return o.ApplyT(func(v *AssociationPrivateNetworkAccess) AssociationPrivateNetworkAccess {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationPrivateNetworkAccess
+		return ret
+	}).(AssociationPrivateNetworkAccessOutput)
+}
+
+// Name of the private connection that supplies the VPC configuration for this release management environment
+func (o AssociationPrivateNetworkAccessPtrOutput) PrivateConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationPrivateNetworkAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC
+func (o AssociationPrivateNetworkAccessPtrOutput) RuntimeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationPrivateNetworkAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuntimeRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for a release management environment. A release management environment defines how AWS DevOps Agent reaches your application, and other associations reference it to run automatic verification testing against that application.
+type AssociationReleaseManagementConfiguration struct {
+	// The name for this release management environment
+	Name string `pulumi:"name"`
+	// Specifies how AWS DevOps Agent reaches your application using this release management environment
+	NetworkAccess AssociationNetworkAccessConfiguration `pulumi:"networkAccess"`
+}
+
+// AssociationReleaseManagementConfigurationInput is an input type that accepts AssociationReleaseManagementConfigurationArgs and AssociationReleaseManagementConfigurationOutput values.
+// You can construct a concrete instance of `AssociationReleaseManagementConfigurationInput` via:
+//
+//	AssociationReleaseManagementConfigurationArgs{...}
+type AssociationReleaseManagementConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationReleaseManagementConfigurationOutput() AssociationReleaseManagementConfigurationOutput
+	ToAssociationReleaseManagementConfigurationOutputWithContext(context.Context) AssociationReleaseManagementConfigurationOutput
+}
+
+// Configuration for a release management environment. A release management environment defines how AWS DevOps Agent reaches your application, and other associations reference it to run automatic verification testing against that application.
+type AssociationReleaseManagementConfigurationArgs struct {
+	// The name for this release management environment
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies how AWS DevOps Agent reaches your application using this release management environment
+	NetworkAccess AssociationNetworkAccessConfigurationInput `pulumi:"networkAccess"`
+}
+
+func (AssociationReleaseManagementConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationReleaseManagementConfiguration)(nil)).Elem()
+}
+
+func (i AssociationReleaseManagementConfigurationArgs) ToAssociationReleaseManagementConfigurationOutput() AssociationReleaseManagementConfigurationOutput {
+	return i.ToAssociationReleaseManagementConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationReleaseManagementConfigurationArgs) ToAssociationReleaseManagementConfigurationOutputWithContext(ctx context.Context) AssociationReleaseManagementConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationReleaseManagementConfigurationOutput)
+}
+
+func (i AssociationReleaseManagementConfigurationArgs) ToAssociationReleaseManagementConfigurationPtrOutput() AssociationReleaseManagementConfigurationPtrOutput {
+	return i.ToAssociationReleaseManagementConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationReleaseManagementConfigurationArgs) ToAssociationReleaseManagementConfigurationPtrOutputWithContext(ctx context.Context) AssociationReleaseManagementConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationReleaseManagementConfigurationOutput).ToAssociationReleaseManagementConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationReleaseManagementConfigurationPtrInput is an input type that accepts AssociationReleaseManagementConfigurationArgs, AssociationReleaseManagementConfigurationPtr and AssociationReleaseManagementConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationReleaseManagementConfigurationPtrInput` via:
+//
+//	        AssociationReleaseManagementConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationReleaseManagementConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationReleaseManagementConfigurationPtrOutput() AssociationReleaseManagementConfigurationPtrOutput
+	ToAssociationReleaseManagementConfigurationPtrOutputWithContext(context.Context) AssociationReleaseManagementConfigurationPtrOutput
+}
+
+type associationReleaseManagementConfigurationPtrType AssociationReleaseManagementConfigurationArgs
+
+func AssociationReleaseManagementConfigurationPtr(v *AssociationReleaseManagementConfigurationArgs) AssociationReleaseManagementConfigurationPtrInput {
+	return (*associationReleaseManagementConfigurationPtrType)(v)
+}
+
+func (*associationReleaseManagementConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationReleaseManagementConfiguration)(nil)).Elem()
+}
+
+func (i *associationReleaseManagementConfigurationPtrType) ToAssociationReleaseManagementConfigurationPtrOutput() AssociationReleaseManagementConfigurationPtrOutput {
+	return i.ToAssociationReleaseManagementConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationReleaseManagementConfigurationPtrType) ToAssociationReleaseManagementConfigurationPtrOutputWithContext(ctx context.Context) AssociationReleaseManagementConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationReleaseManagementConfigurationPtrOutput)
+}
+
+// Configuration for a release management environment. A release management environment defines how AWS DevOps Agent reaches your application, and other associations reference it to run automatic verification testing against that application.
+type AssociationReleaseManagementConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationReleaseManagementConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationReleaseManagementConfiguration)(nil)).Elem()
+}
+
+func (o AssociationReleaseManagementConfigurationOutput) ToAssociationReleaseManagementConfigurationOutput() AssociationReleaseManagementConfigurationOutput {
+	return o
+}
+
+func (o AssociationReleaseManagementConfigurationOutput) ToAssociationReleaseManagementConfigurationOutputWithContext(ctx context.Context) AssociationReleaseManagementConfigurationOutput {
+	return o
+}
+
+func (o AssociationReleaseManagementConfigurationOutput) ToAssociationReleaseManagementConfigurationPtrOutput() AssociationReleaseManagementConfigurationPtrOutput {
+	return o.ToAssociationReleaseManagementConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationReleaseManagementConfigurationOutput) ToAssociationReleaseManagementConfigurationPtrOutputWithContext(ctx context.Context) AssociationReleaseManagementConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationReleaseManagementConfiguration) *AssociationReleaseManagementConfiguration {
+		return &v
+	}).(AssociationReleaseManagementConfigurationPtrOutput)
+}
+
+// The name for this release management environment
+func (o AssociationReleaseManagementConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationReleaseManagementConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies how AWS DevOps Agent reaches your application using this release management environment
+func (o AssociationReleaseManagementConfigurationOutput) NetworkAccess() AssociationNetworkAccessConfigurationOutput {
+	return o.ApplyT(func(v AssociationReleaseManagementConfiguration) AssociationNetworkAccessConfiguration {
+		return v.NetworkAccess
+	}).(AssociationNetworkAccessConfigurationOutput)
+}
+
+type AssociationReleaseManagementConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationReleaseManagementConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationReleaseManagementConfiguration)(nil)).Elem()
+}
+
+func (o AssociationReleaseManagementConfigurationPtrOutput) ToAssociationReleaseManagementConfigurationPtrOutput() AssociationReleaseManagementConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationReleaseManagementConfigurationPtrOutput) ToAssociationReleaseManagementConfigurationPtrOutputWithContext(ctx context.Context) AssociationReleaseManagementConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationReleaseManagementConfigurationPtrOutput) Elem() AssociationReleaseManagementConfigurationOutput {
+	return o.ApplyT(func(v *AssociationReleaseManagementConfiguration) AssociationReleaseManagementConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationReleaseManagementConfiguration
+		return ret
+	}).(AssociationReleaseManagementConfigurationOutput)
+}
+
+// The name for this release management environment
+func (o AssociationReleaseManagementConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationReleaseManagementConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how AWS DevOps Agent reaches your application using this release management environment
+func (o AssociationReleaseManagementConfigurationPtrOutput) NetworkAccess() AssociationNetworkAccessConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationReleaseManagementConfiguration) *AssociationNetworkAccessConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkAccess
+	}).(AssociationNetworkAccessConfigurationPtrOutput)
+}
+
 // The configuration that directs how AgentSpace interacts with the given service
 type AssociationServiceConfiguration struct {
 	Aws               *AssociationAwsConfiguration               `pulumi:"aws"`
@@ -3692,6 +4788,7 @@ type AssociationServiceConfiguration struct {
 	McpServerSigV4    *AssociationMcpServerSigV4Configuration    `pulumi:"mcpServerSigV4"`
 	McpServerSplunk   *AssociationMcpServerSplunkConfiguration   `pulumi:"mcpServerSplunk"`
 	PagerDuty         *AssociationPagerDutyConfiguration         `pulumi:"pagerDuty"`
+	ReleaseManagement *AssociationReleaseManagementConfiguration `pulumi:"releaseManagement"`
 	ServiceNow        *AssociationServiceNowConfiguration        `pulumi:"serviceNow"`
 	Slack             *AssociationSlackConfiguration             `pulumi:"slack"`
 	SourceAws         *AssociationSourceAwsConfiguration         `pulumi:"sourceAws"`
@@ -3723,6 +4820,7 @@ type AssociationServiceConfigurationArgs struct {
 	McpServerSigV4    AssociationMcpServerSigV4ConfigurationPtrInput    `pulumi:"mcpServerSigV4"`
 	McpServerSplunk   AssociationMcpServerSplunkConfigurationPtrInput   `pulumi:"mcpServerSplunk"`
 	PagerDuty         AssociationPagerDutyConfigurationPtrInput         `pulumi:"pagerDuty"`
+	ReleaseManagement AssociationReleaseManagementConfigurationPtrInput `pulumi:"releaseManagement"`
 	ServiceNow        AssociationServiceNowConfigurationPtrInput        `pulumi:"serviceNow"`
 	Slack             AssociationSlackConfigurationPtrInput             `pulumi:"slack"`
 	SourceAws         AssociationSourceAwsConfigurationPtrInput         `pulumi:"sourceAws"`
@@ -3815,6 +4913,12 @@ func (o AssociationServiceConfigurationOutput) McpServerSplunk() AssociationMcpS
 
 func (o AssociationServiceConfigurationOutput) PagerDuty() AssociationPagerDutyConfigurationPtrOutput {
 	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationPagerDutyConfiguration { return v.PagerDuty }).(AssociationPagerDutyConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) ReleaseManagement() AssociationReleaseManagementConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationReleaseManagementConfiguration {
+		return v.ReleaseManagement
+	}).(AssociationReleaseManagementConfigurationPtrOutput)
 }
 
 func (o AssociationServiceConfigurationOutput) ServiceNow() AssociationServiceNowConfigurationPtrOutput {
@@ -3968,6 +5072,15 @@ func (o AssociationServiceConfigurationPtrOutput) PagerDuty() AssociationPagerDu
 		}
 		return v.PagerDuty
 	}).(AssociationPagerDutyConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) ReleaseManagement() AssociationReleaseManagementConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationReleaseManagementConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseManagement
+	}).(AssociationReleaseManagementConfigurationPtrOutput)
 }
 
 func (o AssociationServiceConfigurationPtrOutput) ServiceNow() AssociationServiceNowConfigurationPtrOutput {
@@ -5032,6 +6145,115 @@ func (o AssociationSourceAwsConfigurationPtrOutput) Tags() AssociationKeyValuePa
 		}
 		return v.Tags
 	}).(AssociationKeyValuePairArrayOutput)
+}
+
+// A group of trigger conditions. The group matches when all present conditions pass. At least one condition must be present.
+type AssociationTriggerFilterGroup struct {
+	// Passes when the webhook event is one of the listed events
+	Events []AssociationTriggerFilterGroupEventsItem `pulumi:"events"`
+	// Passes when the change request target branch matches
+	TargetBranches *AssociationPatternFilter `pulumi:"targetBranches"`
+}
+
+// AssociationTriggerFilterGroupInput is an input type that accepts AssociationTriggerFilterGroupArgs and AssociationTriggerFilterGroupOutput values.
+// You can construct a concrete instance of `AssociationTriggerFilterGroupInput` via:
+//
+//	AssociationTriggerFilterGroupArgs{...}
+type AssociationTriggerFilterGroupInput interface {
+	pulumi.Input
+
+	ToAssociationTriggerFilterGroupOutput() AssociationTriggerFilterGroupOutput
+	ToAssociationTriggerFilterGroupOutputWithContext(context.Context) AssociationTriggerFilterGroupOutput
+}
+
+// A group of trigger conditions. The group matches when all present conditions pass. At least one condition must be present.
+type AssociationTriggerFilterGroupArgs struct {
+	// Passes when the webhook event is one of the listed events
+	Events AssociationTriggerFilterGroupEventsItemArrayInput `pulumi:"events"`
+	// Passes when the change request target branch matches
+	TargetBranches AssociationPatternFilterPtrInput `pulumi:"targetBranches"`
+}
+
+func (AssociationTriggerFilterGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationTriggerFilterGroup)(nil)).Elem()
+}
+
+func (i AssociationTriggerFilterGroupArgs) ToAssociationTriggerFilterGroupOutput() AssociationTriggerFilterGroupOutput {
+	return i.ToAssociationTriggerFilterGroupOutputWithContext(context.Background())
+}
+
+func (i AssociationTriggerFilterGroupArgs) ToAssociationTriggerFilterGroupOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationTriggerFilterGroupOutput)
+}
+
+// AssociationTriggerFilterGroupArrayInput is an input type that accepts AssociationTriggerFilterGroupArray and AssociationTriggerFilterGroupArrayOutput values.
+// You can construct a concrete instance of `AssociationTriggerFilterGroupArrayInput` via:
+//
+//	AssociationTriggerFilterGroupArray{ AssociationTriggerFilterGroupArgs{...} }
+type AssociationTriggerFilterGroupArrayInput interface {
+	pulumi.Input
+
+	ToAssociationTriggerFilterGroupArrayOutput() AssociationTriggerFilterGroupArrayOutput
+	ToAssociationTriggerFilterGroupArrayOutputWithContext(context.Context) AssociationTriggerFilterGroupArrayOutput
+}
+
+type AssociationTriggerFilterGroupArray []AssociationTriggerFilterGroupInput
+
+func (AssociationTriggerFilterGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationTriggerFilterGroup)(nil)).Elem()
+}
+
+func (i AssociationTriggerFilterGroupArray) ToAssociationTriggerFilterGroupArrayOutput() AssociationTriggerFilterGroupArrayOutput {
+	return i.ToAssociationTriggerFilterGroupArrayOutputWithContext(context.Background())
+}
+
+func (i AssociationTriggerFilterGroupArray) ToAssociationTriggerFilterGroupArrayOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationTriggerFilterGroupArrayOutput)
+}
+
+// A group of trigger conditions. The group matches when all present conditions pass. At least one condition must be present.
+type AssociationTriggerFilterGroupOutput struct{ *pulumi.OutputState }
+
+func (AssociationTriggerFilterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationTriggerFilterGroup)(nil)).Elem()
+}
+
+func (o AssociationTriggerFilterGroupOutput) ToAssociationTriggerFilterGroupOutput() AssociationTriggerFilterGroupOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupOutput) ToAssociationTriggerFilterGroupOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupOutput {
+	return o
+}
+
+// Passes when the webhook event is one of the listed events
+func (o AssociationTriggerFilterGroupOutput) Events() AssociationTriggerFilterGroupEventsItemArrayOutput {
+	return o.ApplyT(func(v AssociationTriggerFilterGroup) []AssociationTriggerFilterGroupEventsItem { return v.Events }).(AssociationTriggerFilterGroupEventsItemArrayOutput)
+}
+
+// Passes when the change request target branch matches
+func (o AssociationTriggerFilterGroupOutput) TargetBranches() AssociationPatternFilterPtrOutput {
+	return o.ApplyT(func(v AssociationTriggerFilterGroup) *AssociationPatternFilter { return v.TargetBranches }).(AssociationPatternFilterPtrOutput)
+}
+
+type AssociationTriggerFilterGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (AssociationTriggerFilterGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationTriggerFilterGroup)(nil)).Elem()
+}
+
+func (o AssociationTriggerFilterGroupArrayOutput) ToAssociationTriggerFilterGroupArrayOutput() AssociationTriggerFilterGroupArrayOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupArrayOutput) ToAssociationTriggerFilterGroupArrayOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupArrayOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupArrayOutput) Index(i pulumi.IntInput) AssociationTriggerFilterGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssociationTriggerFilterGroup {
+		return vs[0].([]AssociationTriggerFilterGroup)[vs[1].(int)]
+	}).(AssociationTriggerFilterGroupOutput)
 }
 
 // The connection configuration, either SelfManaged or ServiceManaged.
@@ -11722,12 +12944,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpacePreferencesPtrInput)(nil)).Elem(), AgentSpacePreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFileInput)(nil)).Elem(), AssetFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFileArrayInput)(nil)).Elem(), AssetFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAutomatedTestingCapabilityConfigurationInput)(nil)).Elem(), AssociationAutomatedTestingCapabilityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAutomatedTestingCapabilityConfigurationPtrInput)(nil)).Elem(), AssociationAutomatedTestingCapabilityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationInput)(nil)).Elem(), AssociationAwsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationPtrInput)(nil)).Elem(), AssociationAwsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsResourceInput)(nil)).Elem(), AssociationAwsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsResourceArrayInput)(nil)).Elem(), AssociationAwsResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAzureConfigurationInput)(nil)).Elem(), AssociationAzureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAzureConfigurationPtrInput)(nil)).Elem(), AssociationAzureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationCapabilitiesInput)(nil)).Elem(), AssociationCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationCapabilitiesPtrInput)(nil)).Elem(), AssociationCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationCapabilityConfigurationInput)(nil)).Elem(), AssociationCapabilityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationCapabilityConfigurationPtrInput)(nil)).Elem(), AssociationCapabilityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationDynatraceConfigurationInput)(nil)).Elem(), AssociationDynatraceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationDynatraceConfigurationPtrInput)(nil)).Elem(), AssociationDynatraceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationEventChannelConfigurationInput)(nil)).Elem(), AssociationEventChannelConfigurationArgs{})
@@ -11750,8 +12978,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerSigV4ConfigurationPtrInput)(nil)).Elem(), AssociationMcpServerSigV4ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerSplunkConfigurationInput)(nil)).Elem(), AssociationMcpServerSplunkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerSplunkConfigurationPtrInput)(nil)).Elem(), AssociationMcpServerSplunkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationNetworkAccessConfigurationInput)(nil)).Elem(), AssociationNetworkAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationNetworkAccessConfigurationPtrInput)(nil)).Elem(), AssociationNetworkAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationPagerDutyConfigurationInput)(nil)).Elem(), AssociationPagerDutyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationPagerDutyConfigurationPtrInput)(nil)).Elem(), AssociationPagerDutyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationPatternFilterInput)(nil)).Elem(), AssociationPatternFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationPatternFilterPtrInput)(nil)).Elem(), AssociationPatternFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationPrivateNetworkAccessInput)(nil)).Elem(), AssociationPrivateNetworkAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationPrivateNetworkAccessPtrInput)(nil)).Elem(), AssociationPrivateNetworkAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationReleaseManagementConfigurationInput)(nil)).Elem(), AssociationReleaseManagementConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationReleaseManagementConfigurationPtrInput)(nil)).Elem(), AssociationReleaseManagementConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceConfigurationInput)(nil)).Elem(), AssociationServiceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceNowConfigurationInput)(nil)).Elem(), AssociationServiceNowConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceNowConfigurationPtrInput)(nil)).Elem(), AssociationServiceNowConfigurationArgs{})
@@ -11765,6 +13001,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackTransmissionTargetPtrInput)(nil)).Elem(), AssociationSlackTransmissionTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSourceAwsConfigurationInput)(nil)).Elem(), AssociationSourceAwsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSourceAwsConfigurationPtrInput)(nil)).Elem(), AssociationSourceAwsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTriggerFilterGroupInput)(nil)).Elem(), AssociationTriggerFilterGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTriggerFilterGroupArrayInput)(nil)).Elem(), AssociationTriggerFilterGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionConnectionConfigurationInput)(nil)).Elem(), PrivateConnectionConnectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionSelfManagedModeInput)(nil)).Elem(), PrivateConnectionSelfManagedModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionSelfManagedModePtrInput)(nil)).Elem(), PrivateConnectionSelfManagedModeArgs{})
@@ -11838,12 +13076,18 @@ func init() {
 	pulumi.RegisterOutputType(AgentSpacePreferencesPtrOutput{})
 	pulumi.RegisterOutputType(AssetFileOutput{})
 	pulumi.RegisterOutputType(AssetFileArrayOutput{})
+	pulumi.RegisterOutputType(AssociationAutomatedTestingCapabilityConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationAutomatedTestingCapabilityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationAwsConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationAwsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationAwsResourceOutput{})
 	pulumi.RegisterOutputType(AssociationAwsResourceArrayOutput{})
 	pulumi.RegisterOutputType(AssociationAzureConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationAzureConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationCapabilitiesOutput{})
+	pulumi.RegisterOutputType(AssociationCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(AssociationCapabilityConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationCapabilityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationDynatraceConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationDynatraceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationEventChannelConfigurationOutput{})
@@ -11866,8 +13110,16 @@ func init() {
 	pulumi.RegisterOutputType(AssociationMcpServerSigV4ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationMcpServerSplunkConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationMcpServerSplunkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationNetworkAccessConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationNetworkAccessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationPagerDutyConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationPagerDutyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationPatternFilterOutput{})
+	pulumi.RegisterOutputType(AssociationPatternFilterPtrOutput{})
+	pulumi.RegisterOutputType(AssociationPrivateNetworkAccessOutput{})
+	pulumi.RegisterOutputType(AssociationPrivateNetworkAccessPtrOutput{})
+	pulumi.RegisterOutputType(AssociationReleaseManagementConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationReleaseManagementConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationServiceNowConfigurationOutput{})
@@ -11882,6 +13134,8 @@ func init() {
 	pulumi.RegisterOutputType(AssociationSlackTransmissionTargetPtrOutput{})
 	pulumi.RegisterOutputType(AssociationSourceAwsConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationSourceAwsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationTriggerFilterGroupOutput{})
+	pulumi.RegisterOutputType(AssociationTriggerFilterGroupArrayOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionSelfManagedModeOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionSelfManagedModePtrOutput{})

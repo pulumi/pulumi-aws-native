@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// The description of the AI Prompt.
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.AiPromptAiPromptInferenceConfiguration? InferenceConfiguration;
         /// <summary>
         /// The identifier of the model used for this AI Prompt. The following model Ids are supported:
         /// 
@@ -129,6 +130,8 @@ namespace Pulumi.AwsNative.Wisdom
 
             string? description,
 
+            Outputs.AiPromptAiPromptInferenceConfiguration? inferenceConfiguration,
+
             string? modelId,
 
             double? modifiedTimeSeconds,
@@ -139,6 +142,7 @@ namespace Pulumi.AwsNative.Wisdom
             AiPromptId = aiPromptId;
             AssistantArn = assistantArn;
             Description = description;
+            InferenceConfiguration = inferenceConfiguration;
             ModelId = modelId;
             ModifiedTimeSeconds = modifiedTimeSeconds;
             TemplateConfiguration = templateConfiguration;

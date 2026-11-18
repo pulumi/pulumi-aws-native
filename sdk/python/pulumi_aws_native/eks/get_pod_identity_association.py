@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPodIdentityAssociationResult:
-    def __init__(__self__, association_arn=None, association_id=None, disable_session_tags=None, external_id=None, policy=None, role_arn=None, tags=None, target_role_arn=None):
+    def __init__(__self__, association_arn=None, association_id=None, disable_session_tags=None, external_id=None, policy=None, role_arn=None, tags=None, target_role_arn=None, workload_identity_config=None):
         if association_arn and not isinstance(association_arn, str):
             raise TypeError("Expected argument 'association_arn' to be a str")
         pulumi.set(__self__, "association_arn", association_arn)
@@ -49,6 +50,9 @@ class GetPodIdentityAssociationResult:
         if target_role_arn and not isinstance(target_role_arn, str):
             raise TypeError("Expected argument 'target_role_arn' to be a str")
         pulumi.set(__self__, "target_role_arn", target_role_arn)
+        if workload_identity_config and not isinstance(workload_identity_config, dict):
+            raise TypeError("Expected argument 'workload_identity_config' to be a dict")
+        pulumi.set(__self__, "workload_identity_config", workload_identity_config)
 
     @_builtins.property
     @pulumi.getter(name="associationArn")
@@ -114,6 +118,11 @@ class GetPodIdentityAssociationResult:
         """
         return pulumi.get(self, "target_role_arn")
 
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityConfig")
+    def workload_identity_config(self) -> Optional['outputs.PodIdentityAssociationWorkloadIdentityConfig']:
+        return pulumi.get(self, "workload_identity_config")
+
 
 class AwaitableGetPodIdentityAssociationResult(GetPodIdentityAssociationResult):
     # pylint: disable=using-constant-test
@@ -128,7 +137,8 @@ class AwaitableGetPodIdentityAssociationResult(GetPodIdentityAssociationResult):
             policy=self.policy,
             role_arn=self.role_arn,
             tags=self.tags,
-            target_role_arn=self.target_role_arn)
+            target_role_arn=self.target_role_arn,
+            workload_identity_config=self.workload_identity_config)
 
 
 def get_pod_identity_association(association_arn: Optional[_builtins.str] = None,
@@ -151,7 +161,8 @@ def get_pod_identity_association(association_arn: Optional[_builtins.str] = None
         policy=pulumi.get(__ret__, 'policy'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'),
-        target_role_arn=pulumi.get(__ret__, 'target_role_arn'))
+        target_role_arn=pulumi.get(__ret__, 'target_role_arn'),
+        workload_identity_config=pulumi.get(__ret__, 'workload_identity_config'))
 def get_pod_identity_association_output(association_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPodIdentityAssociationResult]:
     """
@@ -171,4 +182,5 @@ def get_pod_identity_association_output(association_arn: pulumi.Input[Optional[_
         policy=pulumi.get(__response__, 'policy'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         tags=pulumi.get(__response__, 'tags'),
-        target_role_arn=pulumi.get(__response__, 'target_role_arn')))
+        target_role_arn=pulumi.get(__response__, 'target_role_arn'),
+        workload_identity_config=pulumi.get(__response__, 'workload_identity_config')))

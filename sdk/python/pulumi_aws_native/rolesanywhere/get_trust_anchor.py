@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrustAnchorResult:
-    def __init__(__self__, enabled=None, name=None, notification_settings=None, source=None, tags=None, trust_anchor_arn=None, trust_anchor_id=None):
+    def __init__(__self__, crl_dp_revocation_enabled=None, enabled=None, name=None, notification_settings=None, source=None, tags=None, trust_anchor_arn=None, trust_anchor_id=None):
+        if crl_dp_revocation_enabled and not isinstance(crl_dp_revocation_enabled, bool):
+            raise TypeError("Expected argument 'crl_dp_revocation_enabled' to be a bool")
+        pulumi.set(__self__, "crl_dp_revocation_enabled", crl_dp_revocation_enabled)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -48,6 +51,11 @@ class GetTrustAnchorResult:
         if trust_anchor_id and not isinstance(trust_anchor_id, str):
             raise TypeError("Expected argument 'trust_anchor_id' to be a str")
         pulumi.set(__self__, "trust_anchor_id", trust_anchor_id)
+
+    @_builtins.property
+    @pulumi.getter(name="crlDpRevocationEnabled")
+    def crl_dp_revocation_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "crl_dp_revocation_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -112,6 +120,7 @@ class AwaitableGetTrustAnchorResult(GetTrustAnchorResult):
         if False:
             yield self
         return GetTrustAnchorResult(
+            crl_dp_revocation_enabled=self.crl_dp_revocation_enabled,
             enabled=self.enabled,
             name=self.name,
             notification_settings=self.notification_settings,
@@ -134,6 +143,7 @@ def get_trust_anchor(trust_anchor_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rolesanywhere:getTrustAnchor', __args__, opts=opts, typ=GetTrustAnchorResult).value
 
     return AwaitableGetTrustAnchorResult(
+        crl_dp_revocation_enabled=pulumi.get(__ret__, 'crl_dp_revocation_enabled'),
         enabled=pulumi.get(__ret__, 'enabled'),
         name=pulumi.get(__ret__, 'name'),
         notification_settings=pulumi.get(__ret__, 'notification_settings'),
@@ -153,6 +163,7 @@ def get_trust_anchor_output(trust_anchor_id: pulumi.Input[Optional[_builtins.str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rolesanywhere:getTrustAnchor', __args__, opts=opts, typ=GetTrustAnchorResult)
     return __ret__.apply(lambda __response__: GetTrustAnchorResult(
+        crl_dp_revocation_enabled=pulumi.get(__response__, 'crl_dp_revocation_enabled'),
         enabled=pulumi.get(__response__, 'enabled'),
         name=pulumi.get(__response__, 'name'),
         notification_settings=pulumi.get(__response__, 'notification_settings'),

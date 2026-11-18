@@ -27,7 +27,8 @@ type AiPrompt struct {
 	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId pulumi.StringPtrOutput `pulumi:"assistantId"`
 	// The description of the AI Prompt.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description            pulumi.StringPtrOutput                          `pulumi:"description"`
+	InferenceConfiguration AiPromptAiPromptInferenceConfigurationPtrOutput `pulumi:"inferenceConfiguration"`
 	// The identifier of the model used for this AI Prompt. The following model Ids are supported:
 	//
 	// - `anthropic.claude-3-haiku--v1:0`
@@ -136,7 +137,8 @@ type aiPromptArgs struct {
 	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId *string `pulumi:"assistantId"`
 	// The description of the AI Prompt.
-	Description *string `pulumi:"description"`
+	Description            *string                                 `pulumi:"description"`
+	InferenceConfiguration *AiPromptAiPromptInferenceConfiguration `pulumi:"inferenceConfiguration"`
 	// The identifier of the model used for this AI Prompt. The following model Ids are supported:
 	//
 	// - `anthropic.claude-3-haiku--v1:0`
@@ -176,7 +178,8 @@ type AiPromptArgs struct {
 	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId pulumi.StringPtrInput
 	// The description of the AI Prompt.
-	Description pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
+	InferenceConfiguration AiPromptAiPromptInferenceConfigurationPtrInput
 	// The identifier of the model used for this AI Prompt. The following model Ids are supported:
 	//
 	// - `anthropic.claude-3-haiku--v1:0`
@@ -274,6 +277,10 @@ func (o AiPromptOutput) AssistantId() pulumi.StringPtrOutput {
 // The description of the AI Prompt.
 func (o AiPromptOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiPrompt) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AiPromptOutput) InferenceConfiguration() AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AiPrompt) AiPromptAiPromptInferenceConfigurationPtrOutput { return v.InferenceConfiguration }).(AiPromptAiPromptInferenceConfigurationPtrOutput)
 }
 
 // The identifier of the model used for this AI Prompt. The following model Ids are supported:

@@ -1021,6 +1021,7 @@ type CapacityProviderInstanceLaunchTemplate struct {
 	Monitoring *CapacityProviderManagedInstancesMonitoringOptions `pulumi:"monitoring"`
 	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
 	NetworkConfiguration CapacityProviderManagedInstancesNetworkConfiguration `pulumi:"networkConfiguration"`
+	NitroEnclavesEnabled *bool                                                `pulumi:"nitroEnclavesEnabled"`
 	// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
 	StorageConfiguration *CapacityProviderManagedInstancesStorageConfiguration `pulumi:"storageConfiguration"`
 }
@@ -1067,6 +1068,7 @@ type CapacityProviderInstanceLaunchTemplateArgs struct {
 	Monitoring CapacityProviderManagedInstancesMonitoringOptionsPtrInput `pulumi:"monitoring"`
 	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
 	NetworkConfiguration CapacityProviderManagedInstancesNetworkConfigurationInput `pulumi:"networkConfiguration"`
+	NitroEnclavesEnabled pulumi.BoolPtrInput                                       `pulumi:"nitroEnclavesEnabled"`
 	// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
 	StorageConfiguration CapacityProviderManagedInstancesStorageConfigurationPtrInput `pulumi:"storageConfiguration"`
 }
@@ -1217,6 +1219,10 @@ func (o CapacityProviderInstanceLaunchTemplateOutput) NetworkConfiguration() Cap
 	}).(CapacityProviderManagedInstancesNetworkConfigurationOutput)
 }
 
+func (o CapacityProviderInstanceLaunchTemplateOutput) NitroEnclavesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *bool { return v.NitroEnclavesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
 func (o CapacityProviderInstanceLaunchTemplateOutput) StorageConfiguration() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesStorageConfiguration {
@@ -1348,6 +1354,15 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) NetworkConfiguration() 
 		}
 		return &v.NetworkConfiguration
 	}).(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) NitroEnclavesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NitroEnclavesEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
@@ -7927,6 +7942,139 @@ func (o DaemonTaskDefinitionLogConfigurationPtrOutput) SecretOptions() DaemonTas
 	}).(DaemonTaskDefinitionSecretArrayOutput)
 }
 
+type DaemonTaskDefinitionLogDriverVolumeConfiguration struct {
+	Driver string `pulumi:"driver"`
+}
+
+// DaemonTaskDefinitionLogDriverVolumeConfigurationInput is an input type that accepts DaemonTaskDefinitionLogDriverVolumeConfigurationArgs and DaemonTaskDefinitionLogDriverVolumeConfigurationOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionLogDriverVolumeConfigurationInput` via:
+//
+//	DaemonTaskDefinitionLogDriverVolumeConfigurationArgs{...}
+type DaemonTaskDefinitionLogDriverVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionLogDriverVolumeConfigurationOutput() DaemonTaskDefinitionLogDriverVolumeConfigurationOutput
+	ToDaemonTaskDefinitionLogDriverVolumeConfigurationOutputWithContext(context.Context) DaemonTaskDefinitionLogDriverVolumeConfigurationOutput
+}
+
+type DaemonTaskDefinitionLogDriverVolumeConfigurationArgs struct {
+	Driver pulumi.StringInput `pulumi:"driver"`
+}
+
+func (DaemonTaskDefinitionLogDriverVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionLogDriverVolumeConfiguration)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionLogDriverVolumeConfigurationArgs) ToDaemonTaskDefinitionLogDriverVolumeConfigurationOutput() DaemonTaskDefinitionLogDriverVolumeConfigurationOutput {
+	return i.ToDaemonTaskDefinitionLogDriverVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionLogDriverVolumeConfigurationArgs) ToDaemonTaskDefinitionLogDriverVolumeConfigurationOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogDriverVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLogDriverVolumeConfigurationOutput)
+}
+
+func (i DaemonTaskDefinitionLogDriverVolumeConfigurationArgs) ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput() DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return i.ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionLogDriverVolumeConfigurationArgs) ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLogDriverVolumeConfigurationOutput).ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionLogDriverVolumeConfigurationPtrInput is an input type that accepts DaemonTaskDefinitionLogDriverVolumeConfigurationArgs, DaemonTaskDefinitionLogDriverVolumeConfigurationPtr and DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionLogDriverVolumeConfigurationPtrInput` via:
+//
+//	        DaemonTaskDefinitionLogDriverVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionLogDriverVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput() DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput
+	ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(context.Context) DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput
+}
+
+type daemonTaskDefinitionLogDriverVolumeConfigurationPtrType DaemonTaskDefinitionLogDriverVolumeConfigurationArgs
+
+func DaemonTaskDefinitionLogDriverVolumeConfigurationPtr(v *DaemonTaskDefinitionLogDriverVolumeConfigurationArgs) DaemonTaskDefinitionLogDriverVolumeConfigurationPtrInput {
+	return (*daemonTaskDefinitionLogDriverVolumeConfigurationPtrType)(v)
+}
+
+func (*daemonTaskDefinitionLogDriverVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionLogDriverVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionLogDriverVolumeConfigurationPtrType) ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput() DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return i.ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionLogDriverVolumeConfigurationPtrType) ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput)
+}
+
+type DaemonTaskDefinitionLogDriverVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionLogDriverVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionLogDriverVolumeConfiguration)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationOutput) ToDaemonTaskDefinitionLogDriverVolumeConfigurationOutput() DaemonTaskDefinitionLogDriverVolumeConfigurationOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationOutput) ToDaemonTaskDefinitionLogDriverVolumeConfigurationOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogDriverVolumeConfigurationOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationOutput) ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput() DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return o.ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationOutput) ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionLogDriverVolumeConfiguration) *DaemonTaskDefinitionLogDriverVolumeConfiguration {
+		return &v
+	}).(DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput)
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationOutput) Driver() pulumi.StringOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionLogDriverVolumeConfiguration) string { return v.Driver }).(pulumi.StringOutput)
+}
+
+type DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionLogDriverVolumeConfiguration)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput) ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput() DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput) ToDaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput) Elem() DaemonTaskDefinitionLogDriverVolumeConfigurationOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLogDriverVolumeConfiguration) DaemonTaskDefinitionLogDriverVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionLogDriverVolumeConfiguration
+		return ret
+	}).(DaemonTaskDefinitionLogDriverVolumeConfigurationOutput)
+}
+
+func (o DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput) Driver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLogDriverVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Driver
+	}).(pulumi.StringPtrOutput)
+}
+
 // The details for a volume mount point that's used in a container definition.
 type DaemonTaskDefinitionMountPoint struct {
 	// The path on the container to mount the host volume at.
@@ -8910,7 +9058,8 @@ func (o DaemonTaskDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) DaemonTa
 type DaemonTaskDefinitionVolume struct {
 	// This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
-	Host *DaemonTaskDefinitionHostVolumeProperties `pulumi:"host"`
+	Host                         *DaemonTaskDefinitionHostVolumeProperties         `pulumi:"host"`
+	LogDriverVolumeConfiguration *DaemonTaskDefinitionLogDriverVolumeConfiguration `pulumi:"logDriverVolumeConfiguration"`
 	// The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
 	//  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
 	//  For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
@@ -8934,7 +9083,8 @@ type DaemonTaskDefinitionVolumeInput interface {
 type DaemonTaskDefinitionVolumeArgs struct {
 	// This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
-	Host DaemonTaskDefinitionHostVolumePropertiesPtrInput `pulumi:"host"`
+	Host                         DaemonTaskDefinitionHostVolumePropertiesPtrInput         `pulumi:"host"`
+	LogDriverVolumeConfiguration DaemonTaskDefinitionLogDriverVolumeConfigurationPtrInput `pulumi:"logDriverVolumeConfiguration"`
 	// The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
 	//  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
 	//  For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
@@ -9000,6 +9150,12 @@ func (o DaemonTaskDefinitionVolumeOutput) ToDaemonTaskDefinitionVolumeOutputWith
 //	Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
 func (o DaemonTaskDefinitionVolumeOutput) Host() DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
 	return o.ApplyT(func(v DaemonTaskDefinitionVolume) *DaemonTaskDefinitionHostVolumeProperties { return v.Host }).(DaemonTaskDefinitionHostVolumePropertiesPtrOutput)
+}
+
+func (o DaemonTaskDefinitionVolumeOutput) LogDriverVolumeConfiguration() DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionVolume) *DaemonTaskDefinitionLogDriverVolumeConfiguration {
+		return v.LogDriverVolumeConfiguration
+	}).(DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput)
 }
 
 // The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
@@ -16188,9 +16344,10 @@ func (o ServiceForceNewDeploymentPtrOutput) ForceNewDeploymentNonce() pulumi.Str
 }
 
 type ServiceGatewayConnector struct {
-	Filters     *ServiceGatewayConnectorFilters     `pulumi:"filters"`
-	HealthCheck *ServiceGatewayConnectorHealthCheck `pulumi:"healthCheck"`
-	PortName    string                              `pulumi:"portName"`
+	DeregistrationDelay *ServiceGatewayConnectorDeregistrationDelay `pulumi:"deregistrationDelay"`
+	Filters             *ServiceGatewayConnectorFilters             `pulumi:"filters"`
+	HealthCheck         *ServiceGatewayConnectorHealthCheck         `pulumi:"healthCheck"`
+	PortName            string                                      `pulumi:"portName"`
 }
 
 // ServiceGatewayConnectorInput is an input type that accepts ServiceGatewayConnectorArgs and ServiceGatewayConnectorOutput values.
@@ -16205,9 +16362,10 @@ type ServiceGatewayConnectorInput interface {
 }
 
 type ServiceGatewayConnectorArgs struct {
-	Filters     ServiceGatewayConnectorFiltersPtrInput     `pulumi:"filters"`
-	HealthCheck ServiceGatewayConnectorHealthCheckPtrInput `pulumi:"healthCheck"`
-	PortName    pulumi.StringInput                         `pulumi:"portName"`
+	DeregistrationDelay ServiceGatewayConnectorDeregistrationDelayPtrInput `pulumi:"deregistrationDelay"`
+	Filters             ServiceGatewayConnectorFiltersPtrInput             `pulumi:"filters"`
+	HealthCheck         ServiceGatewayConnectorHealthCheckPtrInput         `pulumi:"healthCheck"`
+	PortName            pulumi.StringInput                                 `pulumi:"portName"`
 }
 
 func (ServiceGatewayConnectorArgs) ElementType() reflect.Type {
@@ -16261,6 +16419,12 @@ func (o ServiceGatewayConnectorOutput) ToServiceGatewayConnectorOutputWithContex
 	return o
 }
 
+func (o ServiceGatewayConnectorOutput) DeregistrationDelay() ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnector) *ServiceGatewayConnectorDeregistrationDelay {
+		return v.DeregistrationDelay
+	}).(ServiceGatewayConnectorDeregistrationDelayPtrOutput)
+}
+
 func (o ServiceGatewayConnectorOutput) Filters() ServiceGatewayConnectorFiltersPtrOutput {
 	return o.ApplyT(func(v ServiceGatewayConnector) *ServiceGatewayConnectorFilters { return v.Filters }).(ServiceGatewayConnectorFiltersPtrOutput)
 }
@@ -16291,6 +16455,139 @@ func (o ServiceGatewayConnectorArrayOutput) Index(i pulumi.IntInput) ServiceGate
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceGatewayConnector {
 		return vs[0].([]ServiceGatewayConnector)[vs[1].(int)]
 	}).(ServiceGatewayConnectorOutput)
+}
+
+type ServiceGatewayConnectorDeregistrationDelay struct {
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// ServiceGatewayConnectorDeregistrationDelayInput is an input type that accepts ServiceGatewayConnectorDeregistrationDelayArgs and ServiceGatewayConnectorDeregistrationDelayOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorDeregistrationDelayInput` via:
+//
+//	ServiceGatewayConnectorDeregistrationDelayArgs{...}
+type ServiceGatewayConnectorDeregistrationDelayInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorDeregistrationDelayOutput() ServiceGatewayConnectorDeregistrationDelayOutput
+	ToServiceGatewayConnectorDeregistrationDelayOutputWithContext(context.Context) ServiceGatewayConnectorDeregistrationDelayOutput
+}
+
+type ServiceGatewayConnectorDeregistrationDelayArgs struct {
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (ServiceGatewayConnectorDeregistrationDelayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnectorDeregistrationDelay)(nil)).Elem()
+}
+
+func (i ServiceGatewayConnectorDeregistrationDelayArgs) ToServiceGatewayConnectorDeregistrationDelayOutput() ServiceGatewayConnectorDeregistrationDelayOutput {
+	return i.ToServiceGatewayConnectorDeregistrationDelayOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorDeregistrationDelayArgs) ToServiceGatewayConnectorDeregistrationDelayOutputWithContext(ctx context.Context) ServiceGatewayConnectorDeregistrationDelayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorDeregistrationDelayOutput)
+}
+
+func (i ServiceGatewayConnectorDeregistrationDelayArgs) ToServiceGatewayConnectorDeregistrationDelayPtrOutput() ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return i.ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceGatewayConnectorDeregistrationDelayArgs) ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorDeregistrationDelayOutput).ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(ctx)
+}
+
+// ServiceGatewayConnectorDeregistrationDelayPtrInput is an input type that accepts ServiceGatewayConnectorDeregistrationDelayArgs, ServiceGatewayConnectorDeregistrationDelayPtr and ServiceGatewayConnectorDeregistrationDelayPtrOutput values.
+// You can construct a concrete instance of `ServiceGatewayConnectorDeregistrationDelayPtrInput` via:
+//
+//	        ServiceGatewayConnectorDeregistrationDelayArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceGatewayConnectorDeregistrationDelayPtrInput interface {
+	pulumi.Input
+
+	ToServiceGatewayConnectorDeregistrationDelayPtrOutput() ServiceGatewayConnectorDeregistrationDelayPtrOutput
+	ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(context.Context) ServiceGatewayConnectorDeregistrationDelayPtrOutput
+}
+
+type serviceGatewayConnectorDeregistrationDelayPtrType ServiceGatewayConnectorDeregistrationDelayArgs
+
+func ServiceGatewayConnectorDeregistrationDelayPtr(v *ServiceGatewayConnectorDeregistrationDelayArgs) ServiceGatewayConnectorDeregistrationDelayPtrInput {
+	return (*serviceGatewayConnectorDeregistrationDelayPtrType)(v)
+}
+
+func (*serviceGatewayConnectorDeregistrationDelayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGatewayConnectorDeregistrationDelay)(nil)).Elem()
+}
+
+func (i *serviceGatewayConnectorDeregistrationDelayPtrType) ToServiceGatewayConnectorDeregistrationDelayPtrOutput() ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return i.ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceGatewayConnectorDeregistrationDelayPtrType) ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayConnectorDeregistrationDelayPtrOutput)
+}
+
+type ServiceGatewayConnectorDeregistrationDelayOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorDeregistrationDelayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGatewayConnectorDeregistrationDelay)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayOutput) ToServiceGatewayConnectorDeregistrationDelayOutput() ServiceGatewayConnectorDeregistrationDelayOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayOutput) ToServiceGatewayConnectorDeregistrationDelayOutputWithContext(ctx context.Context) ServiceGatewayConnectorDeregistrationDelayOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayOutput) ToServiceGatewayConnectorDeregistrationDelayPtrOutput() ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return o.ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayOutput) ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGatewayConnectorDeregistrationDelay) *ServiceGatewayConnectorDeregistrationDelay {
+		return &v
+	}).(ServiceGatewayConnectorDeregistrationDelayPtrOutput)
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceGatewayConnectorDeregistrationDelay) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type ServiceGatewayConnectorDeregistrationDelayPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGatewayConnectorDeregistrationDelayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGatewayConnectorDeregistrationDelay)(nil)).Elem()
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayPtrOutput) ToServiceGatewayConnectorDeregistrationDelayPtrOutput() ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayPtrOutput) ToServiceGatewayConnectorDeregistrationDelayPtrOutputWithContext(ctx context.Context) ServiceGatewayConnectorDeregistrationDelayPtrOutput {
+	return o
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayPtrOutput) Elem() ServiceGatewayConnectorDeregistrationDelayOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorDeregistrationDelay) ServiceGatewayConnectorDeregistrationDelay {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGatewayConnectorDeregistrationDelay
+		return ret
+	}).(ServiceGatewayConnectorDeregistrationDelayOutput)
+}
+
+func (o ServiceGatewayConnectorDeregistrationDelayPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceGatewayConnectorDeregistrationDelay) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type ServiceGatewayConnectorFilters struct {
@@ -25982,6 +26279,164 @@ func (o TaskDefinitionTmpfsArrayOutput) Index(i pulumi.IntInput) TaskDefinitionT
 	}).(TaskDefinitionTmpfsOutput)
 }
 
+type TaskDefinitionTrustedExecutionConfiguration struct {
+	// A base64-encoded attestation policy that verifies the workload before the task runs. Only valid when IsolationMode is CONFIDENTIAL_SANDBOX.
+	AttestationPolicy *string `pulumi:"attestationPolicy"`
+	// The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+	IsolationMode TaskDefinitionTrustedExecutionConfigurationIsolationMode `pulumi:"isolationMode"`
+}
+
+// TaskDefinitionTrustedExecutionConfigurationInput is an input type that accepts TaskDefinitionTrustedExecutionConfigurationArgs and TaskDefinitionTrustedExecutionConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionTrustedExecutionConfigurationInput` via:
+//
+//	TaskDefinitionTrustedExecutionConfigurationArgs{...}
+type TaskDefinitionTrustedExecutionConfigurationInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionTrustedExecutionConfigurationOutput() TaskDefinitionTrustedExecutionConfigurationOutput
+	ToTaskDefinitionTrustedExecutionConfigurationOutputWithContext(context.Context) TaskDefinitionTrustedExecutionConfigurationOutput
+}
+
+type TaskDefinitionTrustedExecutionConfigurationArgs struct {
+	// A base64-encoded attestation policy that verifies the workload before the task runs. Only valid when IsolationMode is CONFIDENTIAL_SANDBOX.
+	AttestationPolicy pulumi.StringPtrInput `pulumi:"attestationPolicy"`
+	// The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+	IsolationMode TaskDefinitionTrustedExecutionConfigurationIsolationModeInput `pulumi:"isolationMode"`
+}
+
+func (TaskDefinitionTrustedExecutionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionTrustedExecutionConfiguration)(nil)).Elem()
+}
+
+func (i TaskDefinitionTrustedExecutionConfigurationArgs) ToTaskDefinitionTrustedExecutionConfigurationOutput() TaskDefinitionTrustedExecutionConfigurationOutput {
+	return i.ToTaskDefinitionTrustedExecutionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionTrustedExecutionConfigurationArgs) ToTaskDefinitionTrustedExecutionConfigurationOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTrustedExecutionConfigurationOutput)
+}
+
+func (i TaskDefinitionTrustedExecutionConfigurationArgs) ToTaskDefinitionTrustedExecutionConfigurationPtrOutput() TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return i.ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionTrustedExecutionConfigurationArgs) ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTrustedExecutionConfigurationOutput).ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionTrustedExecutionConfigurationPtrInput is an input type that accepts TaskDefinitionTrustedExecutionConfigurationArgs, TaskDefinitionTrustedExecutionConfigurationPtr and TaskDefinitionTrustedExecutionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionTrustedExecutionConfigurationPtrInput` via:
+//
+//	        TaskDefinitionTrustedExecutionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskDefinitionTrustedExecutionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionTrustedExecutionConfigurationPtrOutput() TaskDefinitionTrustedExecutionConfigurationPtrOutput
+	ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(context.Context) TaskDefinitionTrustedExecutionConfigurationPtrOutput
+}
+
+type taskDefinitionTrustedExecutionConfigurationPtrType TaskDefinitionTrustedExecutionConfigurationArgs
+
+func TaskDefinitionTrustedExecutionConfigurationPtr(v *TaskDefinitionTrustedExecutionConfigurationArgs) TaskDefinitionTrustedExecutionConfigurationPtrInput {
+	return (*taskDefinitionTrustedExecutionConfigurationPtrType)(v)
+}
+
+func (*taskDefinitionTrustedExecutionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionTrustedExecutionConfiguration)(nil)).Elem()
+}
+
+func (i *taskDefinitionTrustedExecutionConfigurationPtrType) ToTaskDefinitionTrustedExecutionConfigurationPtrOutput() TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return i.ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionTrustedExecutionConfigurationPtrType) ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTrustedExecutionConfigurationPtrOutput)
+}
+
+type TaskDefinitionTrustedExecutionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionTrustedExecutionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionTrustedExecutionConfiguration)(nil)).Elem()
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationOutput) ToTaskDefinitionTrustedExecutionConfigurationOutput() TaskDefinitionTrustedExecutionConfigurationOutput {
+	return o
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationOutput) ToTaskDefinitionTrustedExecutionConfigurationOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationOutput {
+	return o
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationOutput) ToTaskDefinitionTrustedExecutionConfigurationPtrOutput() TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return o.ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationOutput) ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionTrustedExecutionConfiguration) *TaskDefinitionTrustedExecutionConfiguration {
+		return &v
+	}).(TaskDefinitionTrustedExecutionConfigurationPtrOutput)
+}
+
+// A base64-encoded attestation policy that verifies the workload before the task runs. Only valid when IsolationMode is CONFIDENTIAL_SANDBOX.
+func (o TaskDefinitionTrustedExecutionConfigurationOutput) AttestationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionTrustedExecutionConfiguration) *string { return v.AttestationPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+func (o TaskDefinitionTrustedExecutionConfigurationOutput) IsolationMode() TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput {
+	return o.ApplyT(func(v TaskDefinitionTrustedExecutionConfiguration) TaskDefinitionTrustedExecutionConfigurationIsolationMode {
+		return v.IsolationMode
+	}).(TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput)
+}
+
+type TaskDefinitionTrustedExecutionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionTrustedExecutionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionTrustedExecutionConfiguration)(nil)).Elem()
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationPtrOutput) ToTaskDefinitionTrustedExecutionConfigurationPtrOutput() TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationPtrOutput) ToTaskDefinitionTrustedExecutionConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationPtrOutput) Elem() TaskDefinitionTrustedExecutionConfigurationOutput {
+	return o.ApplyT(func(v *TaskDefinitionTrustedExecutionConfiguration) TaskDefinitionTrustedExecutionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionTrustedExecutionConfiguration
+		return ret
+	}).(TaskDefinitionTrustedExecutionConfigurationOutput)
+}
+
+// A base64-encoded attestation policy that verifies the workload before the task runs. Only valid when IsolationMode is CONFIDENTIAL_SANDBOX.
+func (o TaskDefinitionTrustedExecutionConfigurationPtrOutput) AttestationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionTrustedExecutionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AttestationPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+func (o TaskDefinitionTrustedExecutionConfigurationPtrOutput) IsolationMode() TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionTrustedExecutionConfiguration) *TaskDefinitionTrustedExecutionConfigurationIsolationMode {
+		if v == nil {
+			return nil
+		}
+		return &v.IsolationMode
+	}).(TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput)
+}
+
 // The “ulimit“ settings to pass to the container.
 //
 //	Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``65535`` and the default hard limit is ``65535``.
@@ -27419,6 +27874,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLinuxParametersPtrInput)(nil)).Elem(), DaemonTaskDefinitionLinuxParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLogConfigurationInput)(nil)).Elem(), DaemonTaskDefinitionLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLogConfigurationPtrInput)(nil)).Elem(), DaemonTaskDefinitionLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLogDriverVolumeConfigurationInput)(nil)).Elem(), DaemonTaskDefinitionLogDriverVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLogDriverVolumeConfigurationPtrInput)(nil)).Elem(), DaemonTaskDefinitionLogDriverVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionMountPointInput)(nil)).Elem(), DaemonTaskDefinitionMountPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionMountPointArrayInput)(nil)).Elem(), DaemonTaskDefinitionMountPointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionRepositoryCredentialsInput)(nil)).Elem(), DaemonTaskDefinitionRepositoryCredentialsArgs{})
@@ -27509,6 +27966,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentPtrInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorInput)(nil)).Elem(), ServiceGatewayConnectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorArrayInput)(nil)).Elem(), ServiceGatewayConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorDeregistrationDelayInput)(nil)).Elem(), ServiceGatewayConnectorDeregistrationDelayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorDeregistrationDelayPtrInput)(nil)).Elem(), ServiceGatewayConnectorDeregistrationDelayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorFiltersInput)(nil)).Elem(), ServiceGatewayConnectorFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorFiltersPtrInput)(nil)).Elem(), ServiceGatewayConnectorFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGatewayConnectorHealthCheckInput)(nil)).Elem(), ServiceGatewayConnectorHealthCheckArgs{})
@@ -27617,6 +28076,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSystemControlArrayInput)(nil)).Elem(), TaskDefinitionSystemControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTmpfsInput)(nil)).Elem(), TaskDefinitionTmpfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTmpfsArrayInput)(nil)).Elem(), TaskDefinitionTmpfsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTrustedExecutionConfigurationInput)(nil)).Elem(), TaskDefinitionTrustedExecutionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTrustedExecutionConfigurationPtrInput)(nil)).Elem(), TaskDefinitionTrustedExecutionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionUlimitInput)(nil)).Elem(), TaskDefinitionUlimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionUlimitArrayInput)(nil)).Elem(), TaskDefinitionUlimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionVolumeInput)(nil)).Elem(), TaskDefinitionVolumeArgs{})
@@ -27717,6 +28178,8 @@ func init() {
 	pulumi.RegisterOutputType(DaemonTaskDefinitionLinuxParametersPtrOutput{})
 	pulumi.RegisterOutputType(DaemonTaskDefinitionLogConfigurationOutput{})
 	pulumi.RegisterOutputType(DaemonTaskDefinitionLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionLogDriverVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionLogDriverVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DaemonTaskDefinitionMountPointOutput{})
 	pulumi.RegisterOutputType(DaemonTaskDefinitionMountPointArrayOutput{})
 	pulumi.RegisterOutputType(DaemonTaskDefinitionRepositoryCredentialsOutput{})
@@ -27821,6 +28284,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceForceNewDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(ServiceGatewayConnectorOutput{})
 	pulumi.RegisterOutputType(ServiceGatewayConnectorArrayOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorDeregistrationDelayOutput{})
+	pulumi.RegisterOutputType(ServiceGatewayConnectorDeregistrationDelayPtrOutput{})
 	pulumi.RegisterOutputType(ServiceGatewayConnectorFiltersOutput{})
 	pulumi.RegisterOutputType(ServiceGatewayConnectorFiltersPtrOutput{})
 	pulumi.RegisterOutputType(ServiceGatewayConnectorHealthCheckOutput{})
@@ -27929,6 +28394,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTmpfsOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTmpfsArrayOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTrustedExecutionConfigurationOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTrustedExecutionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUlimitOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUlimitArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeOutput{})

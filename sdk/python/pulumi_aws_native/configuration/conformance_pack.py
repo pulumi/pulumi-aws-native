@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConformancePackArgs', 'ConformancePack']
@@ -27,6 +28,8 @@ class ConformancePackArgs:
                  conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['ConformancePackScopeArgs']] = None,
+                 source: pulumi.Input[Optional['ConformancePackSourceArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -51,6 +54,10 @@ class ConformancePackArgs:
             pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
         if delivery_s3_key_prefix is not None:
             pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template_body is not None:
@@ -107,6 +114,24 @@ class ConformancePackArgs:
     @delivery_s3_key_prefix.setter
     def delivery_s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_s3_key_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[Optional['ConformancePackScopeArgs']]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[Optional['ConformancePackScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional['ConformancePackSourceArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional['ConformancePackSourceArgs']]):
+        pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
@@ -167,6 +192,8 @@ class ConformancePack(pulumi.CustomResource):
                  conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['ConformancePackScopeArgs', 'ConformancePackScopeArgsDict', 'outputs.ConformancePackScope']]] = None,
+                 source: pulumi.Input[Optional[Union['ConformancePackSourceArgs', 'ConformancePackSourceArgsDict', 'outputs.ConformancePackSource']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -268,6 +295,8 @@ class ConformancePack(pulumi.CustomResource):
                  conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['ConformancePackScopeArgs', 'ConformancePackScopeArgsDict', 'outputs.ConformancePackScope']]] = None,
+                 source: pulumi.Input[Optional[Union['ConformancePackSourceArgs', 'ConformancePackSourceArgsDict', 'outputs.ConformancePackSource']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -285,12 +314,15 @@ class ConformancePack(pulumi.CustomResource):
             __props__.__dict__["conformance_pack_name"] = conformance_pack_name
             __props__.__dict__["delivery_s3_bucket"] = delivery_s3_bucket
             __props__.__dict__["delivery_s3_key_prefix"] = delivery_s3_key_prefix
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_s3_uri"] = template_s3_uri
             __props__.__dict__["template_ssm_document_details"] = template_ssm_document_details
             __props__.__dict__["conformance_pack_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["conformancePackName"])
+            __props__.__dict__["type"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["conformancePackName", "source"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConformancePack, __self__).__init__(
             'aws-native:configuration:ConformancePack',
@@ -319,10 +351,13 @@ class ConformancePack(pulumi.CustomResource):
         __props__.__dict__["conformance_pack_name"] = None
         __props__.__dict__["delivery_s3_bucket"] = None
         __props__.__dict__["delivery_s3_key_prefix"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["source"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template_body"] = None
         __props__.__dict__["template_s3_uri"] = None
         __props__.__dict__["template_ssm_document_details"] = None
+        __props__.__dict__["type"] = None
         return ConformancePack(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -373,6 +408,16 @@ class ConformancePack(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    def scope(self) -> pulumi.Output[Optional['outputs.ConformancePackScope']]:
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Output[Optional['outputs.ConformancePackSource']]:
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags for the conformance pack.
@@ -402,4 +447,9 @@ class ConformancePack(pulumi.CustomResource):
         The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         """
         return pulumi.get(self, "template_ssm_document_details")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Output['ConformancePackType']:
+        return pulumi.get(self, "type")
 

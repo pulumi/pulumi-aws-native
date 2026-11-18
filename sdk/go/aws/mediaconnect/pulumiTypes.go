@@ -4997,6 +4997,127 @@ func (o FlowAutomaticEncryptionKeyConfigurationPtrOutput) Elem() FlowAutomaticEn
 	}).(FlowAutomaticEncryptionKeyConfigurationOutput)
 }
 
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type FlowAutomaticRtmpPushNamingConfiguration struct {
+}
+
+// FlowAutomaticRtmpPushNamingConfigurationInput is an input type that accepts FlowAutomaticRtmpPushNamingConfigurationArgs and FlowAutomaticRtmpPushNamingConfigurationOutput values.
+// You can construct a concrete instance of `FlowAutomaticRtmpPushNamingConfigurationInput` via:
+//
+//	FlowAutomaticRtmpPushNamingConfigurationArgs{...}
+type FlowAutomaticRtmpPushNamingConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowAutomaticRtmpPushNamingConfigurationOutput() FlowAutomaticRtmpPushNamingConfigurationOutput
+	ToFlowAutomaticRtmpPushNamingConfigurationOutputWithContext(context.Context) FlowAutomaticRtmpPushNamingConfigurationOutput
+}
+
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type FlowAutomaticRtmpPushNamingConfigurationArgs struct {
+}
+
+func (FlowAutomaticRtmpPushNamingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i FlowAutomaticRtmpPushNamingConfigurationArgs) ToFlowAutomaticRtmpPushNamingConfigurationOutput() FlowAutomaticRtmpPushNamingConfigurationOutput {
+	return i.ToFlowAutomaticRtmpPushNamingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowAutomaticRtmpPushNamingConfigurationArgs) ToFlowAutomaticRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) FlowAutomaticRtmpPushNamingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAutomaticRtmpPushNamingConfigurationOutput)
+}
+
+func (i FlowAutomaticRtmpPushNamingConfigurationArgs) ToFlowAutomaticRtmpPushNamingConfigurationPtrOutput() FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return i.ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowAutomaticRtmpPushNamingConfigurationArgs) ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAutomaticRtmpPushNamingConfigurationOutput).ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowAutomaticRtmpPushNamingConfigurationPtrInput is an input type that accepts FlowAutomaticRtmpPushNamingConfigurationArgs, FlowAutomaticRtmpPushNamingConfigurationPtr and FlowAutomaticRtmpPushNamingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowAutomaticRtmpPushNamingConfigurationPtrInput` via:
+//
+//	        FlowAutomaticRtmpPushNamingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowAutomaticRtmpPushNamingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowAutomaticRtmpPushNamingConfigurationPtrOutput() FlowAutomaticRtmpPushNamingConfigurationPtrOutput
+	ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(context.Context) FlowAutomaticRtmpPushNamingConfigurationPtrOutput
+}
+
+type flowAutomaticRtmpPushNamingConfigurationPtrType FlowAutomaticRtmpPushNamingConfigurationArgs
+
+func FlowAutomaticRtmpPushNamingConfigurationPtr(v *FlowAutomaticRtmpPushNamingConfigurationArgs) FlowAutomaticRtmpPushNamingConfigurationPtrInput {
+	return (*flowAutomaticRtmpPushNamingConfigurationPtrType)(v)
+}
+
+func (*flowAutomaticRtmpPushNamingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i *flowAutomaticRtmpPushNamingConfigurationPtrType) ToFlowAutomaticRtmpPushNamingConfigurationPtrOutput() FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return i.ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowAutomaticRtmpPushNamingConfigurationPtrType) ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAutomaticRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type FlowAutomaticRtmpPushNamingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowAutomaticRtmpPushNamingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o FlowAutomaticRtmpPushNamingConfigurationOutput) ToFlowAutomaticRtmpPushNamingConfigurationOutput() FlowAutomaticRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o FlowAutomaticRtmpPushNamingConfigurationOutput) ToFlowAutomaticRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) FlowAutomaticRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o FlowAutomaticRtmpPushNamingConfigurationOutput) ToFlowAutomaticRtmpPushNamingConfigurationPtrOutput() FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o.ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowAutomaticRtmpPushNamingConfigurationOutput) ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowAutomaticRtmpPushNamingConfiguration) *FlowAutomaticRtmpPushNamingConfiguration {
+		return &v
+	}).(FlowAutomaticRtmpPushNamingConfigurationPtrOutput)
+}
+
+type FlowAutomaticRtmpPushNamingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowAutomaticRtmpPushNamingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o FlowAutomaticRtmpPushNamingConfigurationPtrOutput) ToFlowAutomaticRtmpPushNamingConfigurationPtrOutput() FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowAutomaticRtmpPushNamingConfigurationPtrOutput) ToFlowAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowAutomaticRtmpPushNamingConfigurationPtrOutput) Elem() FlowAutomaticRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v *FlowAutomaticRtmpPushNamingConfiguration) FlowAutomaticRtmpPushNamingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowAutomaticRtmpPushNamingConfiguration
+		return ret
+	}).(FlowAutomaticRtmpPushNamingConfigurationOutput)
+}
+
 // Configures settings for the BlackFrames metric.
 type FlowBlackFrames struct {
 	// Indicates whether the BlackFrames metric is enabled or disabled.
@@ -7126,6 +7247,165 @@ func (o FlowMaintenancePtrOutput) MaintenanceStartHour() pulumi.StringPtrOutput 
 			return nil
 		}
 		return &v.MaintenanceStartHour
+	}).(pulumi.StringPtrOutput)
+}
+
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type FlowManualRtmpPushNamingConfiguration struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName string `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName string `pulumi:"streamName"`
+}
+
+// FlowManualRtmpPushNamingConfigurationInput is an input type that accepts FlowManualRtmpPushNamingConfigurationArgs and FlowManualRtmpPushNamingConfigurationOutput values.
+// You can construct a concrete instance of `FlowManualRtmpPushNamingConfigurationInput` via:
+//
+//	FlowManualRtmpPushNamingConfigurationArgs{...}
+type FlowManualRtmpPushNamingConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowManualRtmpPushNamingConfigurationOutput() FlowManualRtmpPushNamingConfigurationOutput
+	ToFlowManualRtmpPushNamingConfigurationOutputWithContext(context.Context) FlowManualRtmpPushNamingConfigurationOutput
+}
+
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type FlowManualRtmpPushNamingConfigurationArgs struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
+}
+
+func (FlowManualRtmpPushNamingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i FlowManualRtmpPushNamingConfigurationArgs) ToFlowManualRtmpPushNamingConfigurationOutput() FlowManualRtmpPushNamingConfigurationOutput {
+	return i.ToFlowManualRtmpPushNamingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowManualRtmpPushNamingConfigurationArgs) ToFlowManualRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) FlowManualRtmpPushNamingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowManualRtmpPushNamingConfigurationOutput)
+}
+
+func (i FlowManualRtmpPushNamingConfigurationArgs) ToFlowManualRtmpPushNamingConfigurationPtrOutput() FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return i.ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowManualRtmpPushNamingConfigurationArgs) ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowManualRtmpPushNamingConfigurationOutput).ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowManualRtmpPushNamingConfigurationPtrInput is an input type that accepts FlowManualRtmpPushNamingConfigurationArgs, FlowManualRtmpPushNamingConfigurationPtr and FlowManualRtmpPushNamingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowManualRtmpPushNamingConfigurationPtrInput` via:
+//
+//	        FlowManualRtmpPushNamingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowManualRtmpPushNamingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowManualRtmpPushNamingConfigurationPtrOutput() FlowManualRtmpPushNamingConfigurationPtrOutput
+	ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(context.Context) FlowManualRtmpPushNamingConfigurationPtrOutput
+}
+
+type flowManualRtmpPushNamingConfigurationPtrType FlowManualRtmpPushNamingConfigurationArgs
+
+func FlowManualRtmpPushNamingConfigurationPtr(v *FlowManualRtmpPushNamingConfigurationArgs) FlowManualRtmpPushNamingConfigurationPtrInput {
+	return (*flowManualRtmpPushNamingConfigurationPtrType)(v)
+}
+
+func (*flowManualRtmpPushNamingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i *flowManualRtmpPushNamingConfigurationPtrType) ToFlowManualRtmpPushNamingConfigurationPtrOutput() FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return i.ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowManualRtmpPushNamingConfigurationPtrType) ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowManualRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type FlowManualRtmpPushNamingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowManualRtmpPushNamingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o FlowManualRtmpPushNamingConfigurationOutput) ToFlowManualRtmpPushNamingConfigurationOutput() FlowManualRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o FlowManualRtmpPushNamingConfigurationOutput) ToFlowManualRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) FlowManualRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o FlowManualRtmpPushNamingConfigurationOutput) ToFlowManualRtmpPushNamingConfigurationPtrOutput() FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return o.ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowManualRtmpPushNamingConfigurationOutput) ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowManualRtmpPushNamingConfiguration) *FlowManualRtmpPushNamingConfiguration {
+		return &v
+	}).(FlowManualRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o FlowManualRtmpPushNamingConfigurationOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowManualRtmpPushNamingConfiguration) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o FlowManualRtmpPushNamingConfigurationOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowManualRtmpPushNamingConfiguration) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+type FlowManualRtmpPushNamingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowManualRtmpPushNamingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o FlowManualRtmpPushNamingConfigurationPtrOutput) ToFlowManualRtmpPushNamingConfigurationPtrOutput() FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowManualRtmpPushNamingConfigurationPtrOutput) ToFlowManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowManualRtmpPushNamingConfigurationPtrOutput) Elem() FlowManualRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v *FlowManualRtmpPushNamingConfiguration) FlowManualRtmpPushNamingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowManualRtmpPushNamingConfiguration
+		return ret
+	}).(FlowManualRtmpPushNamingConfigurationOutput)
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o FlowManualRtmpPushNamingConfigurationPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowManualRtmpPushNamingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o FlowManualRtmpPushNamingConfigurationPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowManualRtmpPushNamingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9659,6 +9939,301 @@ func (o FlowOutputMediaStreamOutputConfigurationArrayOutput) Index(i pulumi.IntI
 	}).(FlowOutputMediaStreamOutputConfigurationOutput)
 }
 
+// The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+type FlowOutputPublicTlsEncryptionConfiguration struct {
+}
+
+// FlowOutputPublicTlsEncryptionConfigurationInput is an input type that accepts FlowOutputPublicTlsEncryptionConfigurationArgs and FlowOutputPublicTlsEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `FlowOutputPublicTlsEncryptionConfigurationInput` via:
+//
+//	FlowOutputPublicTlsEncryptionConfigurationArgs{...}
+type FlowOutputPublicTlsEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowOutputPublicTlsEncryptionConfigurationOutput() FlowOutputPublicTlsEncryptionConfigurationOutput
+	ToFlowOutputPublicTlsEncryptionConfigurationOutputWithContext(context.Context) FlowOutputPublicTlsEncryptionConfigurationOutput
+}
+
+// The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+type FlowOutputPublicTlsEncryptionConfigurationArgs struct {
+}
+
+func (FlowOutputPublicTlsEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputPublicTlsEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i FlowOutputPublicTlsEncryptionConfigurationArgs) ToFlowOutputPublicTlsEncryptionConfigurationOutput() FlowOutputPublicTlsEncryptionConfigurationOutput {
+	return i.ToFlowOutputPublicTlsEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowOutputPublicTlsEncryptionConfigurationArgs) ToFlowOutputPublicTlsEncryptionConfigurationOutputWithContext(ctx context.Context) FlowOutputPublicTlsEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputPublicTlsEncryptionConfigurationOutput)
+}
+
+func (i FlowOutputPublicTlsEncryptionConfigurationArgs) ToFlowOutputPublicTlsEncryptionConfigurationPtrOutput() FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return i.ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowOutputPublicTlsEncryptionConfigurationArgs) ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputPublicTlsEncryptionConfigurationOutput).ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowOutputPublicTlsEncryptionConfigurationPtrInput is an input type that accepts FlowOutputPublicTlsEncryptionConfigurationArgs, FlowOutputPublicTlsEncryptionConfigurationPtr and FlowOutputPublicTlsEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowOutputPublicTlsEncryptionConfigurationPtrInput` via:
+//
+//	        FlowOutputPublicTlsEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowOutputPublicTlsEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputPublicTlsEncryptionConfigurationPtrOutput() FlowOutputPublicTlsEncryptionConfigurationPtrOutput
+	ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(context.Context) FlowOutputPublicTlsEncryptionConfigurationPtrOutput
+}
+
+type flowOutputPublicTlsEncryptionConfigurationPtrType FlowOutputPublicTlsEncryptionConfigurationArgs
+
+func FlowOutputPublicTlsEncryptionConfigurationPtr(v *FlowOutputPublicTlsEncryptionConfigurationArgs) FlowOutputPublicTlsEncryptionConfigurationPtrInput {
+	return (*flowOutputPublicTlsEncryptionConfigurationPtrType)(v)
+}
+
+func (*flowOutputPublicTlsEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputPublicTlsEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *flowOutputPublicTlsEncryptionConfigurationPtrType) ToFlowOutputPublicTlsEncryptionConfigurationPtrOutput() FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return i.ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowOutputPublicTlsEncryptionConfigurationPtrType) ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputPublicTlsEncryptionConfigurationPtrOutput)
+}
+
+// The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+type FlowOutputPublicTlsEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputPublicTlsEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputPublicTlsEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o FlowOutputPublicTlsEncryptionConfigurationOutput) ToFlowOutputPublicTlsEncryptionConfigurationOutput() FlowOutputPublicTlsEncryptionConfigurationOutput {
+	return o
+}
+
+func (o FlowOutputPublicTlsEncryptionConfigurationOutput) ToFlowOutputPublicTlsEncryptionConfigurationOutputWithContext(ctx context.Context) FlowOutputPublicTlsEncryptionConfigurationOutput {
+	return o
+}
+
+func (o FlowOutputPublicTlsEncryptionConfigurationOutput) ToFlowOutputPublicTlsEncryptionConfigurationPtrOutput() FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return o.ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputPublicTlsEncryptionConfigurationOutput) ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputPublicTlsEncryptionConfiguration) *FlowOutputPublicTlsEncryptionConfiguration {
+		return &v
+	}).(FlowOutputPublicTlsEncryptionConfigurationPtrOutput)
+}
+
+type FlowOutputPublicTlsEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputPublicTlsEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputPublicTlsEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o FlowOutputPublicTlsEncryptionConfigurationPtrOutput) ToFlowOutputPublicTlsEncryptionConfigurationPtrOutput() FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowOutputPublicTlsEncryptionConfigurationPtrOutput) ToFlowOutputPublicTlsEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowOutputPublicTlsEncryptionConfigurationPtrOutput) Elem() FlowOutputPublicTlsEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *FlowOutputPublicTlsEncryptionConfiguration) FlowOutputPublicTlsEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputPublicTlsEncryptionConfiguration
+		return ret
+	}).(FlowOutputPublicTlsEncryptionConfigurationOutput)
+}
+
+// The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the application and stream names, and optional TLS encryption configuration.
+type FlowOutputRtmpPushSettings struct {
+	// The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+	ApplicationName string `pulumi:"applicationName"`
+	// The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+	StreamName    string                   `pulumi:"streamName"`
+	TlsEncryption *FlowOutputTlsEncryption `pulumi:"tlsEncryption"`
+}
+
+// FlowOutputRtmpPushSettingsInput is an input type that accepts FlowOutputRtmpPushSettingsArgs and FlowOutputRtmpPushSettingsOutput values.
+// You can construct a concrete instance of `FlowOutputRtmpPushSettingsInput` via:
+//
+//	FlowOutputRtmpPushSettingsArgs{...}
+type FlowOutputRtmpPushSettingsInput interface {
+	pulumi.Input
+
+	ToFlowOutputRtmpPushSettingsOutput() FlowOutputRtmpPushSettingsOutput
+	ToFlowOutputRtmpPushSettingsOutputWithContext(context.Context) FlowOutputRtmpPushSettingsOutput
+}
+
+// The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the application and stream names, and optional TLS encryption configuration.
+type FlowOutputRtmpPushSettingsArgs struct {
+	// The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+	StreamName    pulumi.StringInput              `pulumi:"streamName"`
+	TlsEncryption FlowOutputTlsEncryptionPtrInput `pulumi:"tlsEncryption"`
+}
+
+func (FlowOutputRtmpPushSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputRtmpPushSettings)(nil)).Elem()
+}
+
+func (i FlowOutputRtmpPushSettingsArgs) ToFlowOutputRtmpPushSettingsOutput() FlowOutputRtmpPushSettingsOutput {
+	return i.ToFlowOutputRtmpPushSettingsOutputWithContext(context.Background())
+}
+
+func (i FlowOutputRtmpPushSettingsArgs) ToFlowOutputRtmpPushSettingsOutputWithContext(ctx context.Context) FlowOutputRtmpPushSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputRtmpPushSettingsOutput)
+}
+
+func (i FlowOutputRtmpPushSettingsArgs) ToFlowOutputRtmpPushSettingsPtrOutput() FlowOutputRtmpPushSettingsPtrOutput {
+	return i.ToFlowOutputRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i FlowOutputRtmpPushSettingsArgs) ToFlowOutputRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowOutputRtmpPushSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputRtmpPushSettingsOutput).ToFlowOutputRtmpPushSettingsPtrOutputWithContext(ctx)
+}
+
+// FlowOutputRtmpPushSettingsPtrInput is an input type that accepts FlowOutputRtmpPushSettingsArgs, FlowOutputRtmpPushSettingsPtr and FlowOutputRtmpPushSettingsPtrOutput values.
+// You can construct a concrete instance of `FlowOutputRtmpPushSettingsPtrInput` via:
+//
+//	        FlowOutputRtmpPushSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowOutputRtmpPushSettingsPtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputRtmpPushSettingsPtrOutput() FlowOutputRtmpPushSettingsPtrOutput
+	ToFlowOutputRtmpPushSettingsPtrOutputWithContext(context.Context) FlowOutputRtmpPushSettingsPtrOutput
+}
+
+type flowOutputRtmpPushSettingsPtrType FlowOutputRtmpPushSettingsArgs
+
+func FlowOutputRtmpPushSettingsPtr(v *FlowOutputRtmpPushSettingsArgs) FlowOutputRtmpPushSettingsPtrInput {
+	return (*flowOutputRtmpPushSettingsPtrType)(v)
+}
+
+func (*flowOutputRtmpPushSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputRtmpPushSettings)(nil)).Elem()
+}
+
+func (i *flowOutputRtmpPushSettingsPtrType) ToFlowOutputRtmpPushSettingsPtrOutput() FlowOutputRtmpPushSettingsPtrOutput {
+	return i.ToFlowOutputRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *flowOutputRtmpPushSettingsPtrType) ToFlowOutputRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowOutputRtmpPushSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputRtmpPushSettingsPtrOutput)
+}
+
+// The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the application and stream names, and optional TLS encryption configuration.
+type FlowOutputRtmpPushSettingsOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputRtmpPushSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputRtmpPushSettings)(nil)).Elem()
+}
+
+func (o FlowOutputRtmpPushSettingsOutput) ToFlowOutputRtmpPushSettingsOutput() FlowOutputRtmpPushSettingsOutput {
+	return o
+}
+
+func (o FlowOutputRtmpPushSettingsOutput) ToFlowOutputRtmpPushSettingsOutputWithContext(ctx context.Context) FlowOutputRtmpPushSettingsOutput {
+	return o
+}
+
+func (o FlowOutputRtmpPushSettingsOutput) ToFlowOutputRtmpPushSettingsPtrOutput() FlowOutputRtmpPushSettingsPtrOutput {
+	return o.ToFlowOutputRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputRtmpPushSettingsOutput) ToFlowOutputRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowOutputRtmpPushSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputRtmpPushSettings) *FlowOutputRtmpPushSettings {
+		return &v
+	}).(FlowOutputRtmpPushSettingsPtrOutput)
+}
+
+// The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+func (o FlowOutputRtmpPushSettingsOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowOutputRtmpPushSettings) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+func (o FlowOutputRtmpPushSettingsOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowOutputRtmpPushSettings) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+func (o FlowOutputRtmpPushSettingsOutput) TlsEncryption() FlowOutputTlsEncryptionPtrOutput {
+	return o.ApplyT(func(v FlowOutputRtmpPushSettings) *FlowOutputTlsEncryption { return v.TlsEncryption }).(FlowOutputTlsEncryptionPtrOutput)
+}
+
+type FlowOutputRtmpPushSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputRtmpPushSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputRtmpPushSettings)(nil)).Elem()
+}
+
+func (o FlowOutputRtmpPushSettingsPtrOutput) ToFlowOutputRtmpPushSettingsPtrOutput() FlowOutputRtmpPushSettingsPtrOutput {
+	return o
+}
+
+func (o FlowOutputRtmpPushSettingsPtrOutput) ToFlowOutputRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowOutputRtmpPushSettingsPtrOutput {
+	return o
+}
+
+func (o FlowOutputRtmpPushSettingsPtrOutput) Elem() FlowOutputRtmpPushSettingsOutput {
+	return o.ApplyT(func(v *FlowOutputRtmpPushSettings) FlowOutputRtmpPushSettings {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputRtmpPushSettings
+		return ret
+	}).(FlowOutputRtmpPushSettingsOutput)
+}
+
+// The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+func (o FlowOutputRtmpPushSettingsPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowOutputRtmpPushSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+func (o FlowOutputRtmpPushSettingsPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowOutputRtmpPushSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowOutputRtmpPushSettingsPtrOutput) TlsEncryption() FlowOutputTlsEncryptionPtrOutput {
+	return o.ApplyT(func(v *FlowOutputRtmpPushSettings) *FlowOutputTlsEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.TlsEncryption
+	}).(FlowOutputTlsEncryptionPtrOutput)
+}
+
 // The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
 type FlowOutputSecretsManagerEncryptionKeyConfiguration struct {
 	// The ARN of the IAM role used for transit encryption to the router input using AWS Secrets Manager.
@@ -9823,6 +10398,302 @@ type FlowOutputTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+type FlowOutputTlsEncryption struct {
+	EncryptionConfiguration FlowOutputTlsEncryptionConfigurationProperties `pulumi:"encryptionConfiguration"`
+	EncryptionType          *FlowOutputTlsEncryptionType                   `pulumi:"encryptionType"`
+}
+
+// FlowOutputTlsEncryptionInput is an input type that accepts FlowOutputTlsEncryptionArgs and FlowOutputTlsEncryptionOutput values.
+// You can construct a concrete instance of `FlowOutputTlsEncryptionInput` via:
+//
+//	FlowOutputTlsEncryptionArgs{...}
+type FlowOutputTlsEncryptionInput interface {
+	pulumi.Input
+
+	ToFlowOutputTlsEncryptionOutput() FlowOutputTlsEncryptionOutput
+	ToFlowOutputTlsEncryptionOutputWithContext(context.Context) FlowOutputTlsEncryptionOutput
+}
+
+// The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+type FlowOutputTlsEncryptionArgs struct {
+	EncryptionConfiguration FlowOutputTlsEncryptionConfigurationPropertiesInput `pulumi:"encryptionConfiguration"`
+	EncryptionType          FlowOutputTlsEncryptionTypePtrInput                 `pulumi:"encryptionType"`
+}
+
+func (FlowOutputTlsEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputTlsEncryption)(nil)).Elem()
+}
+
+func (i FlowOutputTlsEncryptionArgs) ToFlowOutputTlsEncryptionOutput() FlowOutputTlsEncryptionOutput {
+	return i.ToFlowOutputTlsEncryptionOutputWithContext(context.Background())
+}
+
+func (i FlowOutputTlsEncryptionArgs) ToFlowOutputTlsEncryptionOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputTlsEncryptionOutput)
+}
+
+func (i FlowOutputTlsEncryptionArgs) ToFlowOutputTlsEncryptionPtrOutput() FlowOutputTlsEncryptionPtrOutput {
+	return i.ToFlowOutputTlsEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i FlowOutputTlsEncryptionArgs) ToFlowOutputTlsEncryptionPtrOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputTlsEncryptionOutput).ToFlowOutputTlsEncryptionPtrOutputWithContext(ctx)
+}
+
+// FlowOutputTlsEncryptionPtrInput is an input type that accepts FlowOutputTlsEncryptionArgs, FlowOutputTlsEncryptionPtr and FlowOutputTlsEncryptionPtrOutput values.
+// You can construct a concrete instance of `FlowOutputTlsEncryptionPtrInput` via:
+//
+//	        FlowOutputTlsEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowOutputTlsEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputTlsEncryptionPtrOutput() FlowOutputTlsEncryptionPtrOutput
+	ToFlowOutputTlsEncryptionPtrOutputWithContext(context.Context) FlowOutputTlsEncryptionPtrOutput
+}
+
+type flowOutputTlsEncryptionPtrType FlowOutputTlsEncryptionArgs
+
+func FlowOutputTlsEncryptionPtr(v *FlowOutputTlsEncryptionArgs) FlowOutputTlsEncryptionPtrInput {
+	return (*flowOutputTlsEncryptionPtrType)(v)
+}
+
+func (*flowOutputTlsEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputTlsEncryption)(nil)).Elem()
+}
+
+func (i *flowOutputTlsEncryptionPtrType) ToFlowOutputTlsEncryptionPtrOutput() FlowOutputTlsEncryptionPtrOutput {
+	return i.ToFlowOutputTlsEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *flowOutputTlsEncryptionPtrType) ToFlowOutputTlsEncryptionPtrOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputTlsEncryptionPtrOutput)
+}
+
+// The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+type FlowOutputTlsEncryptionOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputTlsEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputTlsEncryption)(nil)).Elem()
+}
+
+func (o FlowOutputTlsEncryptionOutput) ToFlowOutputTlsEncryptionOutput() FlowOutputTlsEncryptionOutput {
+	return o
+}
+
+func (o FlowOutputTlsEncryptionOutput) ToFlowOutputTlsEncryptionOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionOutput {
+	return o
+}
+
+func (o FlowOutputTlsEncryptionOutput) ToFlowOutputTlsEncryptionPtrOutput() FlowOutputTlsEncryptionPtrOutput {
+	return o.ToFlowOutputTlsEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputTlsEncryptionOutput) ToFlowOutputTlsEncryptionPtrOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputTlsEncryption) *FlowOutputTlsEncryption {
+		return &v
+	}).(FlowOutputTlsEncryptionPtrOutput)
+}
+
+func (o FlowOutputTlsEncryptionOutput) EncryptionConfiguration() FlowOutputTlsEncryptionConfigurationPropertiesOutput {
+	return o.ApplyT(func(v FlowOutputTlsEncryption) FlowOutputTlsEncryptionConfigurationProperties {
+		return v.EncryptionConfiguration
+	}).(FlowOutputTlsEncryptionConfigurationPropertiesOutput)
+}
+
+func (o FlowOutputTlsEncryptionOutput) EncryptionType() FlowOutputTlsEncryptionTypePtrOutput {
+	return o.ApplyT(func(v FlowOutputTlsEncryption) *FlowOutputTlsEncryptionType { return v.EncryptionType }).(FlowOutputTlsEncryptionTypePtrOutput)
+}
+
+type FlowOutputTlsEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputTlsEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputTlsEncryption)(nil)).Elem()
+}
+
+func (o FlowOutputTlsEncryptionPtrOutput) ToFlowOutputTlsEncryptionPtrOutput() FlowOutputTlsEncryptionPtrOutput {
+	return o
+}
+
+func (o FlowOutputTlsEncryptionPtrOutput) ToFlowOutputTlsEncryptionPtrOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionPtrOutput {
+	return o
+}
+
+func (o FlowOutputTlsEncryptionPtrOutput) Elem() FlowOutputTlsEncryptionOutput {
+	return o.ApplyT(func(v *FlowOutputTlsEncryption) FlowOutputTlsEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputTlsEncryption
+		return ret
+	}).(FlowOutputTlsEncryptionOutput)
+}
+
+func (o FlowOutputTlsEncryptionPtrOutput) EncryptionConfiguration() FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowOutputTlsEncryption) *FlowOutputTlsEncryptionConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionConfiguration
+	}).(FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput)
+}
+
+func (o FlowOutputTlsEncryptionPtrOutput) EncryptionType() FlowOutputTlsEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *FlowOutputTlsEncryption) *FlowOutputTlsEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(FlowOutputTlsEncryptionTypePtrOutput)
+}
+
+// The configuration settings for TLS encryption.
+type FlowOutputTlsEncryptionConfiguration0Properties struct {
+	Public FlowOutputPublicTlsEncryptionConfiguration `pulumi:"public"`
+}
+
+// The configuration settings for TLS encryption.
+type FlowOutputTlsEncryptionConfigurationProperties struct {
+	Public FlowOutputPublicTlsEncryptionConfiguration `pulumi:"public"`
+}
+
+// FlowOutputTlsEncryptionConfigurationPropertiesInput is an input type that accepts FlowOutputTlsEncryptionConfigurationPropertiesArgs and FlowOutputTlsEncryptionConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `FlowOutputTlsEncryptionConfigurationPropertiesInput` via:
+//
+//	FlowOutputTlsEncryptionConfigurationPropertiesArgs{...}
+type FlowOutputTlsEncryptionConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowOutputTlsEncryptionConfigurationPropertiesOutput() FlowOutputTlsEncryptionConfigurationPropertiesOutput
+	ToFlowOutputTlsEncryptionConfigurationPropertiesOutputWithContext(context.Context) FlowOutputTlsEncryptionConfigurationPropertiesOutput
+}
+
+// The configuration settings for TLS encryption.
+type FlowOutputTlsEncryptionConfigurationPropertiesArgs struct {
+	Public FlowOutputPublicTlsEncryptionConfigurationInput `pulumi:"public"`
+}
+
+func (FlowOutputTlsEncryptionConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputTlsEncryptionConfigurationProperties)(nil)).Elem()
+}
+
+func (i FlowOutputTlsEncryptionConfigurationPropertiesArgs) ToFlowOutputTlsEncryptionConfigurationPropertiesOutput() FlowOutputTlsEncryptionConfigurationPropertiesOutput {
+	return i.ToFlowOutputTlsEncryptionConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowOutputTlsEncryptionConfigurationPropertiesArgs) ToFlowOutputTlsEncryptionConfigurationPropertiesOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputTlsEncryptionConfigurationPropertiesOutput)
+}
+
+func (i FlowOutputTlsEncryptionConfigurationPropertiesArgs) ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutput() FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return i.ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowOutputTlsEncryptionConfigurationPropertiesArgs) ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputTlsEncryptionConfigurationPropertiesOutput).ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowOutputTlsEncryptionConfigurationPropertiesPtrInput is an input type that accepts FlowOutputTlsEncryptionConfigurationPropertiesArgs, FlowOutputTlsEncryptionConfigurationPropertiesPtr and FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowOutputTlsEncryptionConfigurationPropertiesPtrInput` via:
+//
+//	        FlowOutputTlsEncryptionConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowOutputTlsEncryptionConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutput() FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput
+	ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(context.Context) FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput
+}
+
+type flowOutputTlsEncryptionConfigurationPropertiesPtrType FlowOutputTlsEncryptionConfigurationPropertiesArgs
+
+func FlowOutputTlsEncryptionConfigurationPropertiesPtr(v *FlowOutputTlsEncryptionConfigurationPropertiesArgs) FlowOutputTlsEncryptionConfigurationPropertiesPtrInput {
+	return (*flowOutputTlsEncryptionConfigurationPropertiesPtrType)(v)
+}
+
+func (*flowOutputTlsEncryptionConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputTlsEncryptionConfigurationProperties)(nil)).Elem()
+}
+
+func (i *flowOutputTlsEncryptionConfigurationPropertiesPtrType) ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutput() FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return i.ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowOutputTlsEncryptionConfigurationPropertiesPtrType) ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput)
+}
+
+// The configuration settings for TLS encryption.
+type FlowOutputTlsEncryptionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputTlsEncryptionConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputTlsEncryptionConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesOutput) ToFlowOutputTlsEncryptionConfigurationPropertiesOutput() FlowOutputTlsEncryptionConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesOutput) ToFlowOutputTlsEncryptionConfigurationPropertiesOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesOutput) ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutput() FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o.ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesOutput) ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputTlsEncryptionConfigurationProperties) *FlowOutputTlsEncryptionConfigurationProperties {
+		return &v
+	}).(FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput)
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesOutput) Public() FlowOutputPublicTlsEncryptionConfigurationOutput {
+	return o.ApplyT(func(v FlowOutputTlsEncryptionConfigurationProperties) FlowOutputPublicTlsEncryptionConfiguration {
+		return v.Public
+	}).(FlowOutputPublicTlsEncryptionConfigurationOutput)
+}
+
+type FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputTlsEncryptionConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput) ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutput() FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput) ToFlowOutputTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput) Elem() FlowOutputTlsEncryptionConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *FlowOutputTlsEncryptionConfigurationProperties) FlowOutputTlsEncryptionConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputTlsEncryptionConfigurationProperties
+		return ret
+	}).(FlowOutputTlsEncryptionConfigurationPropertiesOutput)
+}
+
+func (o FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput) Public() FlowOutputPublicTlsEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowOutputTlsEncryptionConfigurationProperties) *FlowOutputPublicTlsEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Public
+	}).(FlowOutputPublicTlsEncryptionConfigurationPtrOutput)
+}
+
 // The settings for attaching a VPC interface to an output.
 type FlowOutputVpcInterfaceAttachment struct {
 	// The name of the VPC interface to use for this output.
@@ -9961,6 +10832,577 @@ func (o FlowOutputVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.Str
 		}
 		return v.VpcInterfaceName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+type FlowRtmpPushDetails struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName string `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName string `pulumi:"streamName"`
+}
+
+// FlowRtmpPushDetailsInput is an input type that accepts FlowRtmpPushDetailsArgs and FlowRtmpPushDetailsOutput values.
+// You can construct a concrete instance of `FlowRtmpPushDetailsInput` via:
+//
+//	FlowRtmpPushDetailsArgs{...}
+type FlowRtmpPushDetailsInput interface {
+	pulumi.Input
+
+	ToFlowRtmpPushDetailsOutput() FlowRtmpPushDetailsOutput
+	ToFlowRtmpPushDetailsOutputWithContext(context.Context) FlowRtmpPushDetailsOutput
+}
+
+// The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+type FlowRtmpPushDetailsArgs struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
+}
+
+func (FlowRtmpPushDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRtmpPushDetails)(nil)).Elem()
+}
+
+func (i FlowRtmpPushDetailsArgs) ToFlowRtmpPushDetailsOutput() FlowRtmpPushDetailsOutput {
+	return i.ToFlowRtmpPushDetailsOutputWithContext(context.Background())
+}
+
+func (i FlowRtmpPushDetailsArgs) ToFlowRtmpPushDetailsOutputWithContext(ctx context.Context) FlowRtmpPushDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushDetailsOutput)
+}
+
+func (i FlowRtmpPushDetailsArgs) ToFlowRtmpPushDetailsPtrOutput() FlowRtmpPushDetailsPtrOutput {
+	return i.ToFlowRtmpPushDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRtmpPushDetailsArgs) ToFlowRtmpPushDetailsPtrOutputWithContext(ctx context.Context) FlowRtmpPushDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushDetailsOutput).ToFlowRtmpPushDetailsPtrOutputWithContext(ctx)
+}
+
+// FlowRtmpPushDetailsPtrInput is an input type that accepts FlowRtmpPushDetailsArgs, FlowRtmpPushDetailsPtr and FlowRtmpPushDetailsPtrOutput values.
+// You can construct a concrete instance of `FlowRtmpPushDetailsPtrInput` via:
+//
+//	        FlowRtmpPushDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRtmpPushDetailsPtrInput interface {
+	pulumi.Input
+
+	ToFlowRtmpPushDetailsPtrOutput() FlowRtmpPushDetailsPtrOutput
+	ToFlowRtmpPushDetailsPtrOutputWithContext(context.Context) FlowRtmpPushDetailsPtrOutput
+}
+
+type flowRtmpPushDetailsPtrType FlowRtmpPushDetailsArgs
+
+func FlowRtmpPushDetailsPtr(v *FlowRtmpPushDetailsArgs) FlowRtmpPushDetailsPtrInput {
+	return (*flowRtmpPushDetailsPtrType)(v)
+}
+
+func (*flowRtmpPushDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRtmpPushDetails)(nil)).Elem()
+}
+
+func (i *flowRtmpPushDetailsPtrType) ToFlowRtmpPushDetailsPtrOutput() FlowRtmpPushDetailsPtrOutput {
+	return i.ToFlowRtmpPushDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRtmpPushDetailsPtrType) ToFlowRtmpPushDetailsPtrOutputWithContext(ctx context.Context) FlowRtmpPushDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushDetailsPtrOutput)
+}
+
+// The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+type FlowRtmpPushDetailsOutput struct{ *pulumi.OutputState }
+
+func (FlowRtmpPushDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRtmpPushDetails)(nil)).Elem()
+}
+
+func (o FlowRtmpPushDetailsOutput) ToFlowRtmpPushDetailsOutput() FlowRtmpPushDetailsOutput {
+	return o
+}
+
+func (o FlowRtmpPushDetailsOutput) ToFlowRtmpPushDetailsOutputWithContext(ctx context.Context) FlowRtmpPushDetailsOutput {
+	return o
+}
+
+func (o FlowRtmpPushDetailsOutput) ToFlowRtmpPushDetailsPtrOutput() FlowRtmpPushDetailsPtrOutput {
+	return o.ToFlowRtmpPushDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRtmpPushDetailsOutput) ToFlowRtmpPushDetailsPtrOutputWithContext(ctx context.Context) FlowRtmpPushDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRtmpPushDetails) *FlowRtmpPushDetails {
+		return &v
+	}).(FlowRtmpPushDetailsPtrOutput)
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o FlowRtmpPushDetailsOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowRtmpPushDetails) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o FlowRtmpPushDetailsOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowRtmpPushDetails) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+type FlowRtmpPushDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRtmpPushDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRtmpPushDetails)(nil)).Elem()
+}
+
+func (o FlowRtmpPushDetailsPtrOutput) ToFlowRtmpPushDetailsPtrOutput() FlowRtmpPushDetailsPtrOutput {
+	return o
+}
+
+func (o FlowRtmpPushDetailsPtrOutput) ToFlowRtmpPushDetailsPtrOutputWithContext(ctx context.Context) FlowRtmpPushDetailsPtrOutput {
+	return o
+}
+
+func (o FlowRtmpPushDetailsPtrOutput) Elem() FlowRtmpPushDetailsOutput {
+	return o.ApplyT(func(v *FlowRtmpPushDetails) FlowRtmpPushDetails {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRtmpPushDetails
+		return ret
+	}).(FlowRtmpPushDetailsOutput)
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o FlowRtmpPushDetailsPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowRtmpPushDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o FlowRtmpPushDetailsPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowRtmpPushDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowRtmpPushNamingConfiguration0Properties struct {
+	Manual FlowManualRtmpPushNamingConfiguration `pulumi:"manual"`
+}
+
+// FlowRtmpPushNamingConfiguration0PropertiesInput is an input type that accepts FlowRtmpPushNamingConfiguration0PropertiesArgs and FlowRtmpPushNamingConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `FlowRtmpPushNamingConfiguration0PropertiesInput` via:
+//
+//	FlowRtmpPushNamingConfiguration0PropertiesArgs{...}
+type FlowRtmpPushNamingConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowRtmpPushNamingConfiguration0PropertiesOutput() FlowRtmpPushNamingConfiguration0PropertiesOutput
+	ToFlowRtmpPushNamingConfiguration0PropertiesOutputWithContext(context.Context) FlowRtmpPushNamingConfiguration0PropertiesOutput
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowRtmpPushNamingConfiguration0PropertiesArgs struct {
+	Manual FlowManualRtmpPushNamingConfigurationInput `pulumi:"manual"`
+}
+
+func (FlowRtmpPushNamingConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (i FlowRtmpPushNamingConfiguration0PropertiesArgs) ToFlowRtmpPushNamingConfiguration0PropertiesOutput() FlowRtmpPushNamingConfiguration0PropertiesOutput {
+	return i.ToFlowRtmpPushNamingConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowRtmpPushNamingConfiguration0PropertiesArgs) ToFlowRtmpPushNamingConfiguration0PropertiesOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushNamingConfiguration0PropertiesOutput)
+}
+
+func (i FlowRtmpPushNamingConfiguration0PropertiesArgs) ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return i.ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRtmpPushNamingConfiguration0PropertiesArgs) ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushNamingConfiguration0PropertiesOutput).ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowRtmpPushNamingConfiguration0PropertiesPtrInput is an input type that accepts FlowRtmpPushNamingConfiguration0PropertiesArgs, FlowRtmpPushNamingConfiguration0PropertiesPtr and FlowRtmpPushNamingConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowRtmpPushNamingConfiguration0PropertiesPtrInput` via:
+//
+//	        FlowRtmpPushNamingConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRtmpPushNamingConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowRtmpPushNamingConfiguration0PropertiesPtrOutput
+	ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(context.Context) FlowRtmpPushNamingConfiguration0PropertiesPtrOutput
+}
+
+type flowRtmpPushNamingConfiguration0PropertiesPtrType FlowRtmpPushNamingConfiguration0PropertiesArgs
+
+func FlowRtmpPushNamingConfiguration0PropertiesPtr(v *FlowRtmpPushNamingConfiguration0PropertiesArgs) FlowRtmpPushNamingConfiguration0PropertiesPtrInput {
+	return (*flowRtmpPushNamingConfiguration0PropertiesPtrType)(v)
+}
+
+func (*flowRtmpPushNamingConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *flowRtmpPushNamingConfiguration0PropertiesPtrType) ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return i.ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRtmpPushNamingConfiguration0PropertiesPtrType) ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushNamingConfiguration0PropertiesPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowRtmpPushNamingConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowRtmpPushNamingConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesOutput) ToFlowRtmpPushNamingConfiguration0PropertiesOutput() FlowRtmpPushNamingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesOutput) ToFlowRtmpPushNamingConfiguration0PropertiesOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesOutput) ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o.ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesOutput) ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRtmpPushNamingConfiguration0Properties) *FlowRtmpPushNamingConfiguration0Properties {
+		return &v
+	}).(FlowRtmpPushNamingConfiguration0PropertiesPtrOutput)
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesOutput) Manual() FlowManualRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v FlowRtmpPushNamingConfiguration0Properties) FlowManualRtmpPushNamingConfiguration {
+		return v.Manual
+	}).(FlowManualRtmpPushNamingConfigurationOutput)
+}
+
+type FlowRtmpPushNamingConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRtmpPushNamingConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesPtrOutput) ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesPtrOutput) ToFlowRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesPtrOutput) Elem() FlowRtmpPushNamingConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *FlowRtmpPushNamingConfiguration0Properties) FlowRtmpPushNamingConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRtmpPushNamingConfiguration0Properties
+		return ret
+	}).(FlowRtmpPushNamingConfiguration0PropertiesOutput)
+}
+
+func (o FlowRtmpPushNamingConfiguration0PropertiesPtrOutput) Manual() FlowManualRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowRtmpPushNamingConfiguration0Properties) *FlowManualRtmpPushNamingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Manual
+	}).(FlowManualRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowRtmpPushNamingConfiguration1Properties struct {
+	Automatic FlowAutomaticRtmpPushNamingConfiguration `pulumi:"automatic"`
+}
+
+// FlowRtmpPushNamingConfiguration1PropertiesInput is an input type that accepts FlowRtmpPushNamingConfiguration1PropertiesArgs and FlowRtmpPushNamingConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `FlowRtmpPushNamingConfiguration1PropertiesInput` via:
+//
+//	FlowRtmpPushNamingConfiguration1PropertiesArgs{...}
+type FlowRtmpPushNamingConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowRtmpPushNamingConfiguration1PropertiesOutput() FlowRtmpPushNamingConfiguration1PropertiesOutput
+	ToFlowRtmpPushNamingConfiguration1PropertiesOutputWithContext(context.Context) FlowRtmpPushNamingConfiguration1PropertiesOutput
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowRtmpPushNamingConfiguration1PropertiesArgs struct {
+	Automatic FlowAutomaticRtmpPushNamingConfigurationInput `pulumi:"automatic"`
+}
+
+func (FlowRtmpPushNamingConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (i FlowRtmpPushNamingConfiguration1PropertiesArgs) ToFlowRtmpPushNamingConfiguration1PropertiesOutput() FlowRtmpPushNamingConfiguration1PropertiesOutput {
+	return i.ToFlowRtmpPushNamingConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowRtmpPushNamingConfiguration1PropertiesArgs) ToFlowRtmpPushNamingConfiguration1PropertiesOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushNamingConfiguration1PropertiesOutput)
+}
+
+func (i FlowRtmpPushNamingConfiguration1PropertiesArgs) ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return i.ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRtmpPushNamingConfiguration1PropertiesArgs) ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushNamingConfiguration1PropertiesOutput).ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowRtmpPushNamingConfiguration1PropertiesPtrInput is an input type that accepts FlowRtmpPushNamingConfiguration1PropertiesArgs, FlowRtmpPushNamingConfiguration1PropertiesPtr and FlowRtmpPushNamingConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowRtmpPushNamingConfiguration1PropertiesPtrInput` via:
+//
+//	        FlowRtmpPushNamingConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRtmpPushNamingConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowRtmpPushNamingConfiguration1PropertiesPtrOutput
+	ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(context.Context) FlowRtmpPushNamingConfiguration1PropertiesPtrOutput
+}
+
+type flowRtmpPushNamingConfiguration1PropertiesPtrType FlowRtmpPushNamingConfiguration1PropertiesArgs
+
+func FlowRtmpPushNamingConfiguration1PropertiesPtr(v *FlowRtmpPushNamingConfiguration1PropertiesArgs) FlowRtmpPushNamingConfiguration1PropertiesPtrInput {
+	return (*flowRtmpPushNamingConfiguration1PropertiesPtrType)(v)
+}
+
+func (*flowRtmpPushNamingConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *flowRtmpPushNamingConfiguration1PropertiesPtrType) ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return i.ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRtmpPushNamingConfiguration1PropertiesPtrType) ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushNamingConfiguration1PropertiesPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowRtmpPushNamingConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowRtmpPushNamingConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesOutput) ToFlowRtmpPushNamingConfiguration1PropertiesOutput() FlowRtmpPushNamingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesOutput) ToFlowRtmpPushNamingConfiguration1PropertiesOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesOutput) ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o.ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesOutput) ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRtmpPushNamingConfiguration1Properties) *FlowRtmpPushNamingConfiguration1Properties {
+		return &v
+	}).(FlowRtmpPushNamingConfiguration1PropertiesPtrOutput)
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesOutput) Automatic() FlowAutomaticRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v FlowRtmpPushNamingConfiguration1Properties) FlowAutomaticRtmpPushNamingConfiguration {
+		return v.Automatic
+	}).(FlowAutomaticRtmpPushNamingConfigurationOutput)
+}
+
+type FlowRtmpPushNamingConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRtmpPushNamingConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesPtrOutput) ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesPtrOutput) ToFlowRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesPtrOutput) Elem() FlowRtmpPushNamingConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *FlowRtmpPushNamingConfiguration1Properties) FlowRtmpPushNamingConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRtmpPushNamingConfiguration1Properties
+		return ret
+	}).(FlowRtmpPushNamingConfiguration1PropertiesOutput)
+}
+
+func (o FlowRtmpPushNamingConfiguration1PropertiesPtrOutput) Automatic() FlowAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowRtmpPushNamingConfiguration1Properties) *FlowAutomaticRtmpPushNamingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Automatic
+	}).(FlowAutomaticRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The settings for the RTMP (Real-Time Messaging Protocol) source.
+type FlowRtmpPushSettings struct {
+	NamingConfiguration interface{} `pulumi:"namingConfiguration"`
+}
+
+// FlowRtmpPushSettingsInput is an input type that accepts FlowRtmpPushSettingsArgs and FlowRtmpPushSettingsOutput values.
+// You can construct a concrete instance of `FlowRtmpPushSettingsInput` via:
+//
+//	FlowRtmpPushSettingsArgs{...}
+type FlowRtmpPushSettingsInput interface {
+	pulumi.Input
+
+	ToFlowRtmpPushSettingsOutput() FlowRtmpPushSettingsOutput
+	ToFlowRtmpPushSettingsOutputWithContext(context.Context) FlowRtmpPushSettingsOutput
+}
+
+// The settings for the RTMP (Real-Time Messaging Protocol) source.
+type FlowRtmpPushSettingsArgs struct {
+	NamingConfiguration pulumi.Input `pulumi:"namingConfiguration"`
+}
+
+func (FlowRtmpPushSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRtmpPushSettings)(nil)).Elem()
+}
+
+func (i FlowRtmpPushSettingsArgs) ToFlowRtmpPushSettingsOutput() FlowRtmpPushSettingsOutput {
+	return i.ToFlowRtmpPushSettingsOutputWithContext(context.Background())
+}
+
+func (i FlowRtmpPushSettingsArgs) ToFlowRtmpPushSettingsOutputWithContext(ctx context.Context) FlowRtmpPushSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushSettingsOutput)
+}
+
+func (i FlowRtmpPushSettingsArgs) ToFlowRtmpPushSettingsPtrOutput() FlowRtmpPushSettingsPtrOutput {
+	return i.ToFlowRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRtmpPushSettingsArgs) ToFlowRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowRtmpPushSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushSettingsOutput).ToFlowRtmpPushSettingsPtrOutputWithContext(ctx)
+}
+
+// FlowRtmpPushSettingsPtrInput is an input type that accepts FlowRtmpPushSettingsArgs, FlowRtmpPushSettingsPtr and FlowRtmpPushSettingsPtrOutput values.
+// You can construct a concrete instance of `FlowRtmpPushSettingsPtrInput` via:
+//
+//	        FlowRtmpPushSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRtmpPushSettingsPtrInput interface {
+	pulumi.Input
+
+	ToFlowRtmpPushSettingsPtrOutput() FlowRtmpPushSettingsPtrOutput
+	ToFlowRtmpPushSettingsPtrOutputWithContext(context.Context) FlowRtmpPushSettingsPtrOutput
+}
+
+type flowRtmpPushSettingsPtrType FlowRtmpPushSettingsArgs
+
+func FlowRtmpPushSettingsPtr(v *FlowRtmpPushSettingsArgs) FlowRtmpPushSettingsPtrInput {
+	return (*flowRtmpPushSettingsPtrType)(v)
+}
+
+func (*flowRtmpPushSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRtmpPushSettings)(nil)).Elem()
+}
+
+func (i *flowRtmpPushSettingsPtrType) ToFlowRtmpPushSettingsPtrOutput() FlowRtmpPushSettingsPtrOutput {
+	return i.ToFlowRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRtmpPushSettingsPtrType) ToFlowRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowRtmpPushSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRtmpPushSettingsPtrOutput)
+}
+
+// The settings for the RTMP (Real-Time Messaging Protocol) source.
+type FlowRtmpPushSettingsOutput struct{ *pulumi.OutputState }
+
+func (FlowRtmpPushSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRtmpPushSettings)(nil)).Elem()
+}
+
+func (o FlowRtmpPushSettingsOutput) ToFlowRtmpPushSettingsOutput() FlowRtmpPushSettingsOutput {
+	return o
+}
+
+func (o FlowRtmpPushSettingsOutput) ToFlowRtmpPushSettingsOutputWithContext(ctx context.Context) FlowRtmpPushSettingsOutput {
+	return o
+}
+
+func (o FlowRtmpPushSettingsOutput) ToFlowRtmpPushSettingsPtrOutput() FlowRtmpPushSettingsPtrOutput {
+	return o.ToFlowRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRtmpPushSettingsOutput) ToFlowRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowRtmpPushSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRtmpPushSettings) *FlowRtmpPushSettings {
+		return &v
+	}).(FlowRtmpPushSettingsPtrOutput)
+}
+
+func (o FlowRtmpPushSettingsOutput) NamingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v FlowRtmpPushSettings) interface{} { return v.NamingConfiguration }).(pulumi.AnyOutput)
+}
+
+type FlowRtmpPushSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRtmpPushSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRtmpPushSettings)(nil)).Elem()
+}
+
+func (o FlowRtmpPushSettingsPtrOutput) ToFlowRtmpPushSettingsPtrOutput() FlowRtmpPushSettingsPtrOutput {
+	return o
+}
+
+func (o FlowRtmpPushSettingsPtrOutput) ToFlowRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowRtmpPushSettingsPtrOutput {
+	return o
+}
+
+func (o FlowRtmpPushSettingsPtrOutput) Elem() FlowRtmpPushSettingsOutput {
+	return o.ApplyT(func(v *FlowRtmpPushSettings) FlowRtmpPushSettings {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRtmpPushSettings
+		return ret
+	}).(FlowRtmpPushSettingsOutput)
+}
+
+func (o FlowRtmpPushSettingsPtrOutput) NamingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FlowRtmpPushSettings) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.NamingConfiguration
+	}).(pulumi.AnyOutput)
 }
 
 // The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
@@ -10315,6 +11757,8 @@ type FlowSourceType struct {
 	RouterIntegrationState *FlowSourceRouterIntegrationState `pulumi:"routerIntegrationState"`
 	// The decryption configuration for the flow source when router integration is enabled.
 	RouterIntegrationTransitDecryption *FlowTransitEncryption `pulumi:"routerIntegrationTransitDecryption"`
+	RtmpPushDetails                    *FlowRtmpPushDetails   `pulumi:"rtmpPushDetails"`
+	RtmpPushSettings                   *FlowRtmpPushSettings  `pulumi:"rtmpPushSettings"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
 	SenderControlPort *int `pulumi:"senderControlPort"`
 	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
@@ -10382,6 +11826,8 @@ type FlowSourceTypeArgs struct {
 	RouterIntegrationState FlowSourceRouterIntegrationStatePtrInput `pulumi:"routerIntegrationState"`
 	// The decryption configuration for the flow source when router integration is enabled.
 	RouterIntegrationTransitDecryption FlowTransitEncryptionPtrInput `pulumi:"routerIntegrationTransitDecryption"`
+	RtmpPushDetails                    FlowRtmpPushDetailsPtrInput   `pulumi:"rtmpPushDetails"`
+	RtmpPushSettings                   FlowRtmpPushSettingsPtrInput  `pulumi:"rtmpPushSettings"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
 	SenderControlPort pulumi.IntPtrInput `pulumi:"senderControlPort"`
 	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
@@ -10509,6 +11955,14 @@ func (o FlowSourceTypeOutput) RouterIntegrationState() FlowSourceRouterIntegrati
 // The decryption configuration for the flow source when router integration is enabled.
 func (o FlowSourceTypeOutput) RouterIntegrationTransitDecryption() FlowTransitEncryptionPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *FlowTransitEncryption { return v.RouterIntegrationTransitDecryption }).(FlowTransitEncryptionPtrOutput)
+}
+
+func (o FlowSourceTypeOutput) RtmpPushDetails() FlowRtmpPushDetailsPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *FlowRtmpPushDetails { return v.RtmpPushDetails }).(FlowRtmpPushDetailsPtrOutput)
+}
+
+func (o FlowSourceTypeOutput) RtmpPushSettings() FlowRtmpPushSettingsPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *FlowRtmpPushSettings { return v.RtmpPushSettings }).(FlowRtmpPushSettingsPtrOutput)
 }
 
 // The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
@@ -10745,6 +12199,24 @@ func (o FlowSourceTypePtrOutput) RouterIntegrationTransitDecryption() FlowTransi
 	}).(FlowTransitEncryptionPtrOutput)
 }
 
+func (o FlowSourceTypePtrOutput) RtmpPushDetails() FlowRtmpPushDetailsPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *FlowRtmpPushDetails {
+		if v == nil {
+			return nil
+		}
+		return v.RtmpPushDetails
+	}).(FlowRtmpPushDetailsPtrOutput)
+}
+
+func (o FlowSourceTypePtrOutput) RtmpPushSettings() FlowRtmpPushSettingsPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *FlowRtmpPushSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RtmpPushSettings
+	}).(FlowRtmpPushSettingsPtrOutput)
+}
+
 // The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
 func (o FlowSourceTypePtrOutput) SenderControlPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowSourceType) *int {
@@ -10843,6 +12315,127 @@ func (o FlowSourceTypePtrOutput) WhitelistCidr() pulumi.StringPtrOutput {
 		}
 		return v.WhitelistCidr
 	}).(pulumi.StringPtrOutput)
+}
+
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type FlowSourceAutomaticRtmpPushNamingConfiguration struct {
+}
+
+// FlowSourceAutomaticRtmpPushNamingConfigurationInput is an input type that accepts FlowSourceAutomaticRtmpPushNamingConfigurationArgs and FlowSourceAutomaticRtmpPushNamingConfigurationOutput values.
+// You can construct a concrete instance of `FlowSourceAutomaticRtmpPushNamingConfigurationInput` via:
+//
+//	FlowSourceAutomaticRtmpPushNamingConfigurationArgs{...}
+type FlowSourceAutomaticRtmpPushNamingConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowSourceAutomaticRtmpPushNamingConfigurationOutput() FlowSourceAutomaticRtmpPushNamingConfigurationOutput
+	ToFlowSourceAutomaticRtmpPushNamingConfigurationOutputWithContext(context.Context) FlowSourceAutomaticRtmpPushNamingConfigurationOutput
+}
+
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type FlowSourceAutomaticRtmpPushNamingConfigurationArgs struct {
+}
+
+func (FlowSourceAutomaticRtmpPushNamingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i FlowSourceAutomaticRtmpPushNamingConfigurationArgs) ToFlowSourceAutomaticRtmpPushNamingConfigurationOutput() FlowSourceAutomaticRtmpPushNamingConfigurationOutput {
+	return i.ToFlowSourceAutomaticRtmpPushNamingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowSourceAutomaticRtmpPushNamingConfigurationArgs) ToFlowSourceAutomaticRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) FlowSourceAutomaticRtmpPushNamingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceAutomaticRtmpPushNamingConfigurationOutput)
+}
+
+func (i FlowSourceAutomaticRtmpPushNamingConfigurationArgs) ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput() FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return i.ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceAutomaticRtmpPushNamingConfigurationArgs) ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceAutomaticRtmpPushNamingConfigurationOutput).ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowSourceAutomaticRtmpPushNamingConfigurationPtrInput is an input type that accepts FlowSourceAutomaticRtmpPushNamingConfigurationArgs, FlowSourceAutomaticRtmpPushNamingConfigurationPtr and FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowSourceAutomaticRtmpPushNamingConfigurationPtrInput` via:
+//
+//	        FlowSourceAutomaticRtmpPushNamingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceAutomaticRtmpPushNamingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput() FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput
+	ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(context.Context) FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput
+}
+
+type flowSourceAutomaticRtmpPushNamingConfigurationPtrType FlowSourceAutomaticRtmpPushNamingConfigurationArgs
+
+func FlowSourceAutomaticRtmpPushNamingConfigurationPtr(v *FlowSourceAutomaticRtmpPushNamingConfigurationArgs) FlowSourceAutomaticRtmpPushNamingConfigurationPtrInput {
+	return (*flowSourceAutomaticRtmpPushNamingConfigurationPtrType)(v)
+}
+
+func (*flowSourceAutomaticRtmpPushNamingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i *flowSourceAutomaticRtmpPushNamingConfigurationPtrType) ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput() FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return i.ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceAutomaticRtmpPushNamingConfigurationPtrType) ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type FlowSourceAutomaticRtmpPushNamingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceAutomaticRtmpPushNamingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o FlowSourceAutomaticRtmpPushNamingConfigurationOutput) ToFlowSourceAutomaticRtmpPushNamingConfigurationOutput() FlowSourceAutomaticRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o FlowSourceAutomaticRtmpPushNamingConfigurationOutput) ToFlowSourceAutomaticRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) FlowSourceAutomaticRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o FlowSourceAutomaticRtmpPushNamingConfigurationOutput) ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput() FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o.ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceAutomaticRtmpPushNamingConfigurationOutput) ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceAutomaticRtmpPushNamingConfiguration) *FlowSourceAutomaticRtmpPushNamingConfiguration {
+		return &v
+	}).(FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput)
+}
+
+type FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput) ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput() FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput) ToFlowSourceAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput) Elem() FlowSourceAutomaticRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v *FlowSourceAutomaticRtmpPushNamingConfiguration) FlowSourceAutomaticRtmpPushNamingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceAutomaticRtmpPushNamingConfiguration
+		return ret
+	}).(FlowSourceAutomaticRtmpPushNamingConfigurationOutput)
 }
 
 // Information about the encryption of the flow.
@@ -11298,6 +12891,165 @@ func (o FlowSourceGatewayBridgeSourcePtrOutput) VpcInterfaceAttachment() FlowSou
 	}).(FlowSourceVpcInterfaceAttachmentPtrOutput)
 }
 
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type FlowSourceManualRtmpPushNamingConfiguration struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName string `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName string `pulumi:"streamName"`
+}
+
+// FlowSourceManualRtmpPushNamingConfigurationInput is an input type that accepts FlowSourceManualRtmpPushNamingConfigurationArgs and FlowSourceManualRtmpPushNamingConfigurationOutput values.
+// You can construct a concrete instance of `FlowSourceManualRtmpPushNamingConfigurationInput` via:
+//
+//	FlowSourceManualRtmpPushNamingConfigurationArgs{...}
+type FlowSourceManualRtmpPushNamingConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowSourceManualRtmpPushNamingConfigurationOutput() FlowSourceManualRtmpPushNamingConfigurationOutput
+	ToFlowSourceManualRtmpPushNamingConfigurationOutputWithContext(context.Context) FlowSourceManualRtmpPushNamingConfigurationOutput
+}
+
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type FlowSourceManualRtmpPushNamingConfigurationArgs struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
+}
+
+func (FlowSourceManualRtmpPushNamingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i FlowSourceManualRtmpPushNamingConfigurationArgs) ToFlowSourceManualRtmpPushNamingConfigurationOutput() FlowSourceManualRtmpPushNamingConfigurationOutput {
+	return i.ToFlowSourceManualRtmpPushNamingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowSourceManualRtmpPushNamingConfigurationArgs) ToFlowSourceManualRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) FlowSourceManualRtmpPushNamingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceManualRtmpPushNamingConfigurationOutput)
+}
+
+func (i FlowSourceManualRtmpPushNamingConfigurationArgs) ToFlowSourceManualRtmpPushNamingConfigurationPtrOutput() FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return i.ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceManualRtmpPushNamingConfigurationArgs) ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceManualRtmpPushNamingConfigurationOutput).ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowSourceManualRtmpPushNamingConfigurationPtrInput is an input type that accepts FlowSourceManualRtmpPushNamingConfigurationArgs, FlowSourceManualRtmpPushNamingConfigurationPtr and FlowSourceManualRtmpPushNamingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowSourceManualRtmpPushNamingConfigurationPtrInput` via:
+//
+//	        FlowSourceManualRtmpPushNamingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceManualRtmpPushNamingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceManualRtmpPushNamingConfigurationPtrOutput() FlowSourceManualRtmpPushNamingConfigurationPtrOutput
+	ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(context.Context) FlowSourceManualRtmpPushNamingConfigurationPtrOutput
+}
+
+type flowSourceManualRtmpPushNamingConfigurationPtrType FlowSourceManualRtmpPushNamingConfigurationArgs
+
+func FlowSourceManualRtmpPushNamingConfigurationPtr(v *FlowSourceManualRtmpPushNamingConfigurationArgs) FlowSourceManualRtmpPushNamingConfigurationPtrInput {
+	return (*flowSourceManualRtmpPushNamingConfigurationPtrType)(v)
+}
+
+func (*flowSourceManualRtmpPushNamingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i *flowSourceManualRtmpPushNamingConfigurationPtrType) ToFlowSourceManualRtmpPushNamingConfigurationPtrOutput() FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return i.ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceManualRtmpPushNamingConfigurationPtrType) ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceManualRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type FlowSourceManualRtmpPushNamingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceManualRtmpPushNamingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o FlowSourceManualRtmpPushNamingConfigurationOutput) ToFlowSourceManualRtmpPushNamingConfigurationOutput() FlowSourceManualRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o FlowSourceManualRtmpPushNamingConfigurationOutput) ToFlowSourceManualRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) FlowSourceManualRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o FlowSourceManualRtmpPushNamingConfigurationOutput) ToFlowSourceManualRtmpPushNamingConfigurationPtrOutput() FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return o.ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceManualRtmpPushNamingConfigurationOutput) ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceManualRtmpPushNamingConfiguration) *FlowSourceManualRtmpPushNamingConfiguration {
+		return &v
+	}).(FlowSourceManualRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o FlowSourceManualRtmpPushNamingConfigurationOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSourceManualRtmpPushNamingConfiguration) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o FlowSourceManualRtmpPushNamingConfigurationOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSourceManualRtmpPushNamingConfiguration) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+type FlowSourceManualRtmpPushNamingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceManualRtmpPushNamingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o FlowSourceManualRtmpPushNamingConfigurationPtrOutput) ToFlowSourceManualRtmpPushNamingConfigurationPtrOutput() FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowSourceManualRtmpPushNamingConfigurationPtrOutput) ToFlowSourceManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowSourceManualRtmpPushNamingConfigurationPtrOutput) Elem() FlowSourceManualRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v *FlowSourceManualRtmpPushNamingConfiguration) FlowSourceManualRtmpPushNamingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceManualRtmpPushNamingConfiguration
+		return ret
+	}).(FlowSourceManualRtmpPushNamingConfigurationOutput)
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o FlowSourceManualRtmpPushNamingConfigurationPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceManualRtmpPushNamingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o FlowSourceManualRtmpPushNamingConfigurationPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceManualRtmpPushNamingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The settings for source monitoring.
 type FlowSourceMonitoringConfig struct {
 	// Contains the settings for audio stream metrics monitoring.
@@ -11495,6 +13247,495 @@ func (o FlowSourceMonitoringConfigPtrOutput) VideoMonitoringSettings() FlowVideo
 		}
 		return v.VideoMonitoringSettings
 	}).(FlowVideoMonitoringSettingArrayOutput)
+}
+
+// The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+type FlowSourceRtmpPushDetails struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName string `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName string `pulumi:"streamName"`
+}
+
+// The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+type FlowSourceRtmpPushDetailsOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceRtmpPushDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceRtmpPushDetails)(nil)).Elem()
+}
+
+func (o FlowSourceRtmpPushDetailsOutput) ToFlowSourceRtmpPushDetailsOutput() FlowSourceRtmpPushDetailsOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushDetailsOutput) ToFlowSourceRtmpPushDetailsOutputWithContext(ctx context.Context) FlowSourceRtmpPushDetailsOutput {
+	return o
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o FlowSourceRtmpPushDetailsOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSourceRtmpPushDetails) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o FlowSourceRtmpPushDetailsOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSourceRtmpPushDetails) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+type FlowSourceRtmpPushDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceRtmpPushDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceRtmpPushDetails)(nil)).Elem()
+}
+
+func (o FlowSourceRtmpPushDetailsPtrOutput) ToFlowSourceRtmpPushDetailsPtrOutput() FlowSourceRtmpPushDetailsPtrOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushDetailsPtrOutput) ToFlowSourceRtmpPushDetailsPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushDetailsPtrOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushDetailsPtrOutput) Elem() FlowSourceRtmpPushDetailsOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushDetails) FlowSourceRtmpPushDetails {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceRtmpPushDetails
+		return ret
+	}).(FlowSourceRtmpPushDetailsOutput)
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o FlowSourceRtmpPushDetailsPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o FlowSourceRtmpPushDetailsPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowSourceRtmpPushNamingConfiguration0Properties struct {
+	Manual FlowSourceManualRtmpPushNamingConfiguration `pulumi:"manual"`
+}
+
+// FlowSourceRtmpPushNamingConfiguration0PropertiesInput is an input type that accepts FlowSourceRtmpPushNamingConfiguration0PropertiesArgs and FlowSourceRtmpPushNamingConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `FlowSourceRtmpPushNamingConfiguration0PropertiesInput` via:
+//
+//	FlowSourceRtmpPushNamingConfiguration0PropertiesArgs{...}
+type FlowSourceRtmpPushNamingConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowSourceRtmpPushNamingConfiguration0PropertiesOutput() FlowSourceRtmpPushNamingConfiguration0PropertiesOutput
+	ToFlowSourceRtmpPushNamingConfiguration0PropertiesOutputWithContext(context.Context) FlowSourceRtmpPushNamingConfiguration0PropertiesOutput
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowSourceRtmpPushNamingConfiguration0PropertiesArgs struct {
+	Manual FlowSourceManualRtmpPushNamingConfigurationInput `pulumi:"manual"`
+}
+
+func (FlowSourceRtmpPushNamingConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (i FlowSourceRtmpPushNamingConfiguration0PropertiesArgs) ToFlowSourceRtmpPushNamingConfiguration0PropertiesOutput() FlowSourceRtmpPushNamingConfiguration0PropertiesOutput {
+	return i.ToFlowSourceRtmpPushNamingConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowSourceRtmpPushNamingConfiguration0PropertiesArgs) ToFlowSourceRtmpPushNamingConfiguration0PropertiesOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushNamingConfiguration0PropertiesOutput)
+}
+
+func (i FlowSourceRtmpPushNamingConfiguration0PropertiesArgs) ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return i.ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceRtmpPushNamingConfiguration0PropertiesArgs) ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushNamingConfiguration0PropertiesOutput).ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowSourceRtmpPushNamingConfiguration0PropertiesPtrInput is an input type that accepts FlowSourceRtmpPushNamingConfiguration0PropertiesArgs, FlowSourceRtmpPushNamingConfiguration0PropertiesPtr and FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowSourceRtmpPushNamingConfiguration0PropertiesPtrInput` via:
+//
+//	        FlowSourceRtmpPushNamingConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceRtmpPushNamingConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput
+	ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(context.Context) FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput
+}
+
+type flowSourceRtmpPushNamingConfiguration0PropertiesPtrType FlowSourceRtmpPushNamingConfiguration0PropertiesArgs
+
+func FlowSourceRtmpPushNamingConfiguration0PropertiesPtr(v *FlowSourceRtmpPushNamingConfiguration0PropertiesArgs) FlowSourceRtmpPushNamingConfiguration0PropertiesPtrInput {
+	return (*flowSourceRtmpPushNamingConfiguration0PropertiesPtrType)(v)
+}
+
+func (*flowSourceRtmpPushNamingConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *flowSourceRtmpPushNamingConfiguration0PropertiesPtrType) ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return i.ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceRtmpPushNamingConfiguration0PropertiesPtrType) ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowSourceRtmpPushNamingConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceRtmpPushNamingConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesOutput) ToFlowSourceRtmpPushNamingConfiguration0PropertiesOutput() FlowSourceRtmpPushNamingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesOutput) ToFlowSourceRtmpPushNamingConfiguration0PropertiesOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesOutput) ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o.ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesOutput) ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceRtmpPushNamingConfiguration0Properties) *FlowSourceRtmpPushNamingConfiguration0Properties {
+		return &v
+	}).(FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput)
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesOutput) Manual() FlowSourceManualRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v FlowSourceRtmpPushNamingConfiguration0Properties) FlowSourceManualRtmpPushNamingConfiguration {
+		return v.Manual
+	}).(FlowSourceManualRtmpPushNamingConfigurationOutput)
+}
+
+type FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput) ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput) ToFlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput) Elem() FlowSourceRtmpPushNamingConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushNamingConfiguration0Properties) FlowSourceRtmpPushNamingConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceRtmpPushNamingConfiguration0Properties
+		return ret
+	}).(FlowSourceRtmpPushNamingConfiguration0PropertiesOutput)
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput) Manual() FlowSourceManualRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushNamingConfiguration0Properties) *FlowSourceManualRtmpPushNamingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Manual
+	}).(FlowSourceManualRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowSourceRtmpPushNamingConfiguration1Properties struct {
+	Automatic FlowSourceAutomaticRtmpPushNamingConfiguration `pulumi:"automatic"`
+}
+
+// FlowSourceRtmpPushNamingConfiguration1PropertiesInput is an input type that accepts FlowSourceRtmpPushNamingConfiguration1PropertiesArgs and FlowSourceRtmpPushNamingConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `FlowSourceRtmpPushNamingConfiguration1PropertiesInput` via:
+//
+//	FlowSourceRtmpPushNamingConfiguration1PropertiesArgs{...}
+type FlowSourceRtmpPushNamingConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowSourceRtmpPushNamingConfiguration1PropertiesOutput() FlowSourceRtmpPushNamingConfiguration1PropertiesOutput
+	ToFlowSourceRtmpPushNamingConfiguration1PropertiesOutputWithContext(context.Context) FlowSourceRtmpPushNamingConfiguration1PropertiesOutput
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowSourceRtmpPushNamingConfiguration1PropertiesArgs struct {
+	Automatic FlowSourceAutomaticRtmpPushNamingConfigurationInput `pulumi:"automatic"`
+}
+
+func (FlowSourceRtmpPushNamingConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (i FlowSourceRtmpPushNamingConfiguration1PropertiesArgs) ToFlowSourceRtmpPushNamingConfiguration1PropertiesOutput() FlowSourceRtmpPushNamingConfiguration1PropertiesOutput {
+	return i.ToFlowSourceRtmpPushNamingConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowSourceRtmpPushNamingConfiguration1PropertiesArgs) ToFlowSourceRtmpPushNamingConfiguration1PropertiesOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushNamingConfiguration1PropertiesOutput)
+}
+
+func (i FlowSourceRtmpPushNamingConfiguration1PropertiesArgs) ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return i.ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceRtmpPushNamingConfiguration1PropertiesArgs) ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushNamingConfiguration1PropertiesOutput).ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowSourceRtmpPushNamingConfiguration1PropertiesPtrInput is an input type that accepts FlowSourceRtmpPushNamingConfiguration1PropertiesArgs, FlowSourceRtmpPushNamingConfiguration1PropertiesPtr and FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowSourceRtmpPushNamingConfiguration1PropertiesPtrInput` via:
+//
+//	        FlowSourceRtmpPushNamingConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceRtmpPushNamingConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput
+	ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(context.Context) FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput
+}
+
+type flowSourceRtmpPushNamingConfiguration1PropertiesPtrType FlowSourceRtmpPushNamingConfiguration1PropertiesArgs
+
+func FlowSourceRtmpPushNamingConfiguration1PropertiesPtr(v *FlowSourceRtmpPushNamingConfiguration1PropertiesArgs) FlowSourceRtmpPushNamingConfiguration1PropertiesPtrInput {
+	return (*flowSourceRtmpPushNamingConfiguration1PropertiesPtrType)(v)
+}
+
+func (*flowSourceRtmpPushNamingConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *flowSourceRtmpPushNamingConfiguration1PropertiesPtrType) ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return i.ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceRtmpPushNamingConfiguration1PropertiesPtrType) ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type FlowSourceRtmpPushNamingConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceRtmpPushNamingConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesOutput) ToFlowSourceRtmpPushNamingConfiguration1PropertiesOutput() FlowSourceRtmpPushNamingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesOutput) ToFlowSourceRtmpPushNamingConfiguration1PropertiesOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesOutput) ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o.ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesOutput) ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceRtmpPushNamingConfiguration1Properties) *FlowSourceRtmpPushNamingConfiguration1Properties {
+		return &v
+	}).(FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput)
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesOutput) Automatic() FlowSourceAutomaticRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v FlowSourceRtmpPushNamingConfiguration1Properties) FlowSourceAutomaticRtmpPushNamingConfiguration {
+		return v.Automatic
+	}).(FlowSourceAutomaticRtmpPushNamingConfigurationOutput)
+}
+
+type FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput) ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput() FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput) ToFlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput) Elem() FlowSourceRtmpPushNamingConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushNamingConfiguration1Properties) FlowSourceRtmpPushNamingConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceRtmpPushNamingConfiguration1Properties
+		return ret
+	}).(FlowSourceRtmpPushNamingConfiguration1PropertiesOutput)
+}
+
+func (o FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput) Automatic() FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushNamingConfiguration1Properties) *FlowSourceAutomaticRtmpPushNamingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Automatic
+	}).(FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The settings for the RTMP (Real-Time Messaging Protocol) source.
+type FlowSourceRtmpPushSettings struct {
+	NamingConfiguration interface{} `pulumi:"namingConfiguration"`
+}
+
+// FlowSourceRtmpPushSettingsInput is an input type that accepts FlowSourceRtmpPushSettingsArgs and FlowSourceRtmpPushSettingsOutput values.
+// You can construct a concrete instance of `FlowSourceRtmpPushSettingsInput` via:
+//
+//	FlowSourceRtmpPushSettingsArgs{...}
+type FlowSourceRtmpPushSettingsInput interface {
+	pulumi.Input
+
+	ToFlowSourceRtmpPushSettingsOutput() FlowSourceRtmpPushSettingsOutput
+	ToFlowSourceRtmpPushSettingsOutputWithContext(context.Context) FlowSourceRtmpPushSettingsOutput
+}
+
+// The settings for the RTMP (Real-Time Messaging Protocol) source.
+type FlowSourceRtmpPushSettingsArgs struct {
+	NamingConfiguration pulumi.Input `pulumi:"namingConfiguration"`
+}
+
+func (FlowSourceRtmpPushSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceRtmpPushSettings)(nil)).Elem()
+}
+
+func (i FlowSourceRtmpPushSettingsArgs) ToFlowSourceRtmpPushSettingsOutput() FlowSourceRtmpPushSettingsOutput {
+	return i.ToFlowSourceRtmpPushSettingsOutputWithContext(context.Background())
+}
+
+func (i FlowSourceRtmpPushSettingsArgs) ToFlowSourceRtmpPushSettingsOutputWithContext(ctx context.Context) FlowSourceRtmpPushSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushSettingsOutput)
+}
+
+func (i FlowSourceRtmpPushSettingsArgs) ToFlowSourceRtmpPushSettingsPtrOutput() FlowSourceRtmpPushSettingsPtrOutput {
+	return i.ToFlowSourceRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceRtmpPushSettingsArgs) ToFlowSourceRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushSettingsOutput).ToFlowSourceRtmpPushSettingsPtrOutputWithContext(ctx)
+}
+
+// FlowSourceRtmpPushSettingsPtrInput is an input type that accepts FlowSourceRtmpPushSettingsArgs, FlowSourceRtmpPushSettingsPtr and FlowSourceRtmpPushSettingsPtrOutput values.
+// You can construct a concrete instance of `FlowSourceRtmpPushSettingsPtrInput` via:
+//
+//	        FlowSourceRtmpPushSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceRtmpPushSettingsPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceRtmpPushSettingsPtrOutput() FlowSourceRtmpPushSettingsPtrOutput
+	ToFlowSourceRtmpPushSettingsPtrOutputWithContext(context.Context) FlowSourceRtmpPushSettingsPtrOutput
+}
+
+type flowSourceRtmpPushSettingsPtrType FlowSourceRtmpPushSettingsArgs
+
+func FlowSourceRtmpPushSettingsPtr(v *FlowSourceRtmpPushSettingsArgs) FlowSourceRtmpPushSettingsPtrInput {
+	return (*flowSourceRtmpPushSettingsPtrType)(v)
+}
+
+func (*flowSourceRtmpPushSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceRtmpPushSettings)(nil)).Elem()
+}
+
+func (i *flowSourceRtmpPushSettingsPtrType) ToFlowSourceRtmpPushSettingsPtrOutput() FlowSourceRtmpPushSettingsPtrOutput {
+	return i.ToFlowSourceRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceRtmpPushSettingsPtrType) ToFlowSourceRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceRtmpPushSettingsPtrOutput)
+}
+
+// The settings for the RTMP (Real-Time Messaging Protocol) source.
+type FlowSourceRtmpPushSettingsOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceRtmpPushSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceRtmpPushSettings)(nil)).Elem()
+}
+
+func (o FlowSourceRtmpPushSettingsOutput) ToFlowSourceRtmpPushSettingsOutput() FlowSourceRtmpPushSettingsOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushSettingsOutput) ToFlowSourceRtmpPushSettingsOutputWithContext(ctx context.Context) FlowSourceRtmpPushSettingsOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushSettingsOutput) ToFlowSourceRtmpPushSettingsPtrOutput() FlowSourceRtmpPushSettingsPtrOutput {
+	return o.ToFlowSourceRtmpPushSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceRtmpPushSettingsOutput) ToFlowSourceRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceRtmpPushSettings) *FlowSourceRtmpPushSettings {
+		return &v
+	}).(FlowSourceRtmpPushSettingsPtrOutput)
+}
+
+func (o FlowSourceRtmpPushSettingsOutput) NamingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v FlowSourceRtmpPushSettings) interface{} { return v.NamingConfiguration }).(pulumi.AnyOutput)
+}
+
+type FlowSourceRtmpPushSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceRtmpPushSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceRtmpPushSettings)(nil)).Elem()
+}
+
+func (o FlowSourceRtmpPushSettingsPtrOutput) ToFlowSourceRtmpPushSettingsPtrOutput() FlowSourceRtmpPushSettingsPtrOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushSettingsPtrOutput) ToFlowSourceRtmpPushSettingsPtrOutputWithContext(ctx context.Context) FlowSourceRtmpPushSettingsPtrOutput {
+	return o
+}
+
+func (o FlowSourceRtmpPushSettingsPtrOutput) Elem() FlowSourceRtmpPushSettingsOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushSettings) FlowSourceRtmpPushSettings {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceRtmpPushSettings
+		return ret
+	}).(FlowSourceRtmpPushSettingsOutput)
+}
+
+func (o FlowSourceRtmpPushSettingsPtrOutput) NamingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FlowSourceRtmpPushSettings) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.NamingConfiguration
+	}).(pulumi.AnyOutput)
 }
 
 type FlowSourceTag struct {
@@ -12877,6 +15118,76 @@ func (o RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput) Elem() Rou
 	}).(RouterInputAutomaticEndpointEncryptionConfigurationOutput)
 }
 
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type RouterInputAutomaticRtmpPushNamingConfiguration struct {
+}
+
+// RouterInputAutomaticRtmpPushNamingConfigurationInput is an input type that accepts RouterInputAutomaticRtmpPushNamingConfigurationArgs and RouterInputAutomaticRtmpPushNamingConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputAutomaticRtmpPushNamingConfigurationInput` via:
+//
+//	RouterInputAutomaticRtmpPushNamingConfigurationArgs{...}
+type RouterInputAutomaticRtmpPushNamingConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputAutomaticRtmpPushNamingConfigurationOutput() RouterInputAutomaticRtmpPushNamingConfigurationOutput
+	ToRouterInputAutomaticRtmpPushNamingConfigurationOutputWithContext(context.Context) RouterInputAutomaticRtmpPushNamingConfigurationOutput
+}
+
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type RouterInputAutomaticRtmpPushNamingConfigurationArgs struct {
+}
+
+func (RouterInputAutomaticRtmpPushNamingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputAutomaticRtmpPushNamingConfigurationArgs) ToRouterInputAutomaticRtmpPushNamingConfigurationOutput() RouterInputAutomaticRtmpPushNamingConfigurationOutput {
+	return i.ToRouterInputAutomaticRtmpPushNamingConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputAutomaticRtmpPushNamingConfigurationArgs) ToRouterInputAutomaticRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) RouterInputAutomaticRtmpPushNamingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputAutomaticRtmpPushNamingConfigurationOutput)
+}
+
+// The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+type RouterInputAutomaticRtmpPushNamingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputAutomaticRtmpPushNamingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputAutomaticRtmpPushNamingConfigurationOutput) ToRouterInputAutomaticRtmpPushNamingConfigurationOutput() RouterInputAutomaticRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o RouterInputAutomaticRtmpPushNamingConfigurationOutput) ToRouterInputAutomaticRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) RouterInputAutomaticRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+type RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputAutomaticRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput) ToRouterInputAutomaticRtmpPushNamingConfigurationPtrOutput() RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput) ToRouterInputAutomaticRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput) Elem() RouterInputAutomaticRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputAutomaticRtmpPushNamingConfiguration) RouterInputAutomaticRtmpPushNamingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputAutomaticRtmpPushNamingConfiguration
+		return ret
+	}).(RouterInputAutomaticRtmpPushNamingConfigurationOutput)
+}
+
 // Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
 type RouterInputBlackFramesConfiguration struct {
 	State RouterInputContentQualityAnalysisState `pulumi:"state"`
@@ -13966,6 +16277,49 @@ func (o RouterInputDestinationEndpointRouterInputConfigurationPtrOutput) SourceT
 	}).(RouterInputEndpointEncryptionTypePtrOutput)
 }
 
+// Configuration details for a router input stream that is represented by a destination endpoint.
+type RouterInputDestinationEndpointRouterInputStreamDetails struct {
+}
+
+// Configuration details for a router input stream that is represented by a destination endpoint.
+type RouterInputDestinationEndpointRouterInputStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputDestinationEndpointRouterInputStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputDestinationEndpointRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputDestinationEndpointRouterInputStreamDetailsOutput) ToRouterInputDestinationEndpointRouterInputStreamDetailsOutput() RouterInputDestinationEndpointRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputDestinationEndpointRouterInputStreamDetailsOutput) ToRouterInputDestinationEndpointRouterInputStreamDetailsOutputWithContext(ctx context.Context) RouterInputDestinationEndpointRouterInputStreamDetailsOutput {
+	return o
+}
+
+type RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputDestinationEndpointRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput) ToRouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput() RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput) ToRouterInputDestinationEndpointRouterInputStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput) Elem() RouterInputDestinationEndpointRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputDestinationEndpointRouterInputStreamDetails) RouterInputDestinationEndpointRouterInputStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputDestinationEndpointRouterInputStreamDetails
+		return ret
+	}).(RouterInputDestinationEndpointRouterInputStreamDetailsOutput)
+}
+
 // The encryption settings for an endpoint connection. This is a union type, so exactly one of its members is set: secretsManager when you store the encryption key or passphrase in Secrets Manager, or automatic when you let MediaConnect determine the encryption key when the endpoint connects.
 type RouterInputEndpointEncryptionConfiguration0Properties struct {
 	SecretsManager RouterInputSecretsManagerEndpointEncryptionConfiguration `pulumi:"secretsManager"`
@@ -14373,6 +16727,82 @@ func (o RouterInputFailoverRouterInputConfigurationPtrOutput) SourcePriorityMode
 	}).(RouterInputFailoverInputSourcePriorityModePtrOutput)
 }
 
+// Configuration details for an indexed stream in a failover router input setup.
+type RouterInputFailoverRouterInputIndexedStreamDetails struct {
+	RtmpPush *RouterInputRtmpPushStreamDetails `pulumi:"rtmpPush"`
+	// The index number (0 or 1) assigned to this source in the failover configuration.
+	SourceIndex int `pulumi:"sourceIndex"`
+}
+
+// Configuration details for an indexed stream in a failover router input setup.
+type RouterInputFailoverRouterInputIndexedStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputFailoverRouterInputIndexedStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputFailoverRouterInputIndexedStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsOutput) ToRouterInputFailoverRouterInputIndexedStreamDetailsOutput() RouterInputFailoverRouterInputIndexedStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsOutput) ToRouterInputFailoverRouterInputIndexedStreamDetailsOutputWithContext(ctx context.Context) RouterInputFailoverRouterInputIndexedStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsOutput) RtmpPush() RouterInputRtmpPushStreamDetailsPtrOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputIndexedStreamDetails) *RouterInputRtmpPushStreamDetails {
+		return v.RtmpPush
+	}).(RouterInputRtmpPushStreamDetailsPtrOutput)
+}
+
+// The index number (0 or 1) assigned to this source in the failover configuration.
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsOutput) SourceIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputIndexedStreamDetails) int { return v.SourceIndex }).(pulumi.IntOutput)
+}
+
+type RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputFailoverRouterInputIndexedStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput) ToRouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput() RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput) ToRouterInputFailoverRouterInputIndexedStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput) Elem() RouterInputFailoverRouterInputIndexedStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputFailoverRouterInputIndexedStreamDetails) RouterInputFailoverRouterInputIndexedStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputFailoverRouterInputIndexedStreamDetails
+		return ret
+	}).(RouterInputFailoverRouterInputIndexedStreamDetailsOutput)
+}
+
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput) RtmpPush() RouterInputRtmpPushStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputFailoverRouterInputIndexedStreamDetails) *RouterInputRtmpPushStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return v.RtmpPush
+	}).(RouterInputRtmpPushStreamDetailsPtrOutput)
+}
+
+// The index number (0 or 1) assigned to this source in the failover configuration.
+func (o RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput) SourceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouterInputFailoverRouterInputIndexedStreamDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIndex
+	}).(pulumi.IntPtrOutput)
+}
+
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration0Properties struct {
 	Rist RouterInputRistRouterInputConfiguration `pulumi:"rist"`
@@ -14483,7 +16913,7 @@ func (o RouterInputFailoverRouterInputProtocolConfiguration1PropertiesOutput) Sr
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration2Properties struct {
-	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
+	RtmpPush RouterInputRtmpPushRouterInputConfiguration `pulumi:"rtmpPush"`
 }
 
 // RouterInputFailoverRouterInputProtocolConfiguration2PropertiesInput is an input type that accepts RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs and RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput values.
@@ -14499,7 +16929,7 @@ type RouterInputFailoverRouterInputProtocolConfiguration2PropertiesInput interfa
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs struct {
-	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
+	RtmpPush RouterInputRtmpPushRouterInputConfigurationInput `pulumi:"rtmpPush"`
 }
 
 func (RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs) ElementType() reflect.Type {
@@ -14529,15 +16959,15 @@ func (o RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput) To
 	return o
 }
 
-func (o RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration2Properties) RouterInputSrtCallerRouterInputConfiguration {
-		return v.SrtCaller
-	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
+func (o RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput) RtmpPush() RouterInputRtmpPushRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration2Properties) RouterInputRtmpPushRouterInputConfiguration {
+		return v.RtmpPush
+	}).(RouterInputRtmpPushRouterInputConfigurationOutput)
 }
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration3Properties struct {
-	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
+	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
 }
 
 // RouterInputFailoverRouterInputProtocolConfiguration3PropertiesInput is an input type that accepts RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs and RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput values.
@@ -14553,7 +16983,7 @@ type RouterInputFailoverRouterInputProtocolConfiguration3PropertiesInput interfa
 
 // Protocol configuration settings for failover router inputs.
 type RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs struct {
-	Rtp RouterInputRtpRouterInputConfigurationInput `pulumi:"rtp"`
+	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
 }
 
 func (RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs) ElementType() reflect.Type {
@@ -14583,10 +17013,139 @@ func (o RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput) To
 	return o
 }
 
-func (o RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput) Rtp() RouterInputRtpRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration3Properties) RouterInputRtpRouterInputConfiguration {
+func (o RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration3Properties) RouterInputSrtCallerRouterInputConfiguration {
+		return v.SrtCaller
+	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
+}
+
+// Protocol configuration settings for failover router inputs.
+type RouterInputFailoverRouterInputProtocolConfiguration4Properties struct {
+	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
+}
+
+// RouterInputFailoverRouterInputProtocolConfiguration4PropertiesInput is an input type that accepts RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs and RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputFailoverRouterInputProtocolConfiguration4PropertiesInput` via:
+//
+//	RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs{...}
+type RouterInputFailoverRouterInputProtocolConfiguration4PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput() RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput
+	ToRouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutputWithContext(context.Context) RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput
+}
+
+// Protocol configuration settings for failover router inputs.
+type RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs struct {
+	Rtp RouterInputRtpRouterInputConfigurationInput `pulumi:"rtp"`
+}
+
+func (RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputFailoverRouterInputProtocolConfiguration4Properties)(nil)).Elem()
+}
+
+func (i RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs) ToRouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput() RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput {
+	return i.ToRouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs) ToRouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutputWithContext(ctx context.Context) RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput)
+}
+
+// Protocol configuration settings for failover router inputs.
+type RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputFailoverRouterInputProtocolConfiguration4Properties)(nil)).Elem()
+}
+
+func (o RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput) ToRouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput() RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput) ToRouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutputWithContext(ctx context.Context) RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput) Rtp() RouterInputRtpRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputProtocolConfiguration4Properties) RouterInputRtpRouterInputConfiguration {
 		return v.Rtp
 	}).(RouterInputRtpRouterInputConfigurationOutput)
+}
+
+// Configuration details for a failover router input that can automatically switch between two sources.
+type RouterInputFailoverRouterInputStreamDetails struct {
+	SourceIndexOneStreamDetails  RouterInputFailoverRouterInputIndexedStreamDetails `pulumi:"sourceIndexOneStreamDetails"`
+	SourceIndexZeroStreamDetails RouterInputFailoverRouterInputIndexedStreamDetails `pulumi:"sourceIndexZeroStreamDetails"`
+}
+
+// Configuration details for a failover router input that can automatically switch between two sources.
+type RouterInputFailoverRouterInputStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputFailoverRouterInputStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputFailoverRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsOutput) ToRouterInputFailoverRouterInputStreamDetailsOutput() RouterInputFailoverRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsOutput) ToRouterInputFailoverRouterInputStreamDetailsOutputWithContext(ctx context.Context) RouterInputFailoverRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsOutput) SourceIndexOneStreamDetails() RouterInputFailoverRouterInputIndexedStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputStreamDetails) RouterInputFailoverRouterInputIndexedStreamDetails {
+		return v.SourceIndexOneStreamDetails
+	}).(RouterInputFailoverRouterInputIndexedStreamDetailsOutput)
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsOutput) SourceIndexZeroStreamDetails() RouterInputFailoverRouterInputIndexedStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputFailoverRouterInputStreamDetails) RouterInputFailoverRouterInputIndexedStreamDetails {
+		return v.SourceIndexZeroStreamDetails
+	}).(RouterInputFailoverRouterInputIndexedStreamDetailsOutput)
+}
+
+type RouterInputFailoverRouterInputStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputFailoverRouterInputStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputFailoverRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsPtrOutput) ToRouterInputFailoverRouterInputStreamDetailsPtrOutput() RouterInputFailoverRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsPtrOutput) ToRouterInputFailoverRouterInputStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputFailoverRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsPtrOutput) Elem() RouterInputFailoverRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputFailoverRouterInputStreamDetails) RouterInputFailoverRouterInputStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputFailoverRouterInputStreamDetails
+		return ret
+	}).(RouterInputFailoverRouterInputStreamDetailsOutput)
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsPtrOutput) SourceIndexOneStreamDetails() RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputFailoverRouterInputStreamDetails) *RouterInputFailoverRouterInputIndexedStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIndexOneStreamDetails
+	}).(RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput)
+}
+
+func (o RouterInputFailoverRouterInputStreamDetailsPtrOutput) SourceIndexZeroStreamDetails() RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputFailoverRouterInputStreamDetails) *RouterInputFailoverRouterInputIndexedStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIndexZeroStreamDetails
+	}).(RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput)
 }
 
 // The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -15296,6 +17855,114 @@ func (o RouterInputMaintenanceConfiguration1PropertiesPtrOutput) Default() Route
 	}).(RouterInputDefaultMaintenanceConfigurationPtrOutput)
 }
 
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type RouterInputManualRtmpPushNamingConfiguration struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName string `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName string `pulumi:"streamName"`
+}
+
+// RouterInputManualRtmpPushNamingConfigurationInput is an input type that accepts RouterInputManualRtmpPushNamingConfigurationArgs and RouterInputManualRtmpPushNamingConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputManualRtmpPushNamingConfigurationInput` via:
+//
+//	RouterInputManualRtmpPushNamingConfigurationArgs{...}
+type RouterInputManualRtmpPushNamingConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputManualRtmpPushNamingConfigurationOutput() RouterInputManualRtmpPushNamingConfigurationOutput
+	ToRouterInputManualRtmpPushNamingConfigurationOutputWithContext(context.Context) RouterInputManualRtmpPushNamingConfigurationOutput
+}
+
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type RouterInputManualRtmpPushNamingConfigurationArgs struct {
+	// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
+}
+
+func (RouterInputManualRtmpPushNamingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputManualRtmpPushNamingConfigurationArgs) ToRouterInputManualRtmpPushNamingConfigurationOutput() RouterInputManualRtmpPushNamingConfigurationOutput {
+	return i.ToRouterInputManualRtmpPushNamingConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputManualRtmpPushNamingConfigurationArgs) ToRouterInputManualRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) RouterInputManualRtmpPushNamingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputManualRtmpPushNamingConfigurationOutput)
+}
+
+// The manual RTMP naming configuration, where you specify the application and stream names.
+type RouterInputManualRtmpPushNamingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputManualRtmpPushNamingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputManualRtmpPushNamingConfigurationOutput) ToRouterInputManualRtmpPushNamingConfigurationOutput() RouterInputManualRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+func (o RouterInputManualRtmpPushNamingConfigurationOutput) ToRouterInputManualRtmpPushNamingConfigurationOutputWithContext(ctx context.Context) RouterInputManualRtmpPushNamingConfigurationOutput {
+	return o
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o RouterInputManualRtmpPushNamingConfigurationOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterInputManualRtmpPushNamingConfiguration) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o RouterInputManualRtmpPushNamingConfigurationOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterInputManualRtmpPushNamingConfiguration) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+type RouterInputManualRtmpPushNamingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputManualRtmpPushNamingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputManualRtmpPushNamingConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputManualRtmpPushNamingConfigurationPtrOutput) ToRouterInputManualRtmpPushNamingConfigurationPtrOutput() RouterInputManualRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputManualRtmpPushNamingConfigurationPtrOutput) ToRouterInputManualRtmpPushNamingConfigurationPtrOutputWithContext(ctx context.Context) RouterInputManualRtmpPushNamingConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputManualRtmpPushNamingConfigurationPtrOutput) Elem() RouterInputManualRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputManualRtmpPushNamingConfiguration) RouterInputManualRtmpPushNamingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputManualRtmpPushNamingConfiguration
+		return ret
+	}).(RouterInputManualRtmpPushNamingConfigurationOutput)
+}
+
+// The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+func (o RouterInputManualRtmpPushNamingConfigurationPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterInputManualRtmpPushNamingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+func (o RouterInputManualRtmpPushNamingConfigurationPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterInputManualRtmpPushNamingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configuration settings for connecting a router input to a flow output. To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
 type RouterInputMediaConnectFlowRouterInputConfiguration struct {
 	// The ARN of the flow to connect to.
@@ -15419,6 +18086,49 @@ func (o RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput) SourceTran
 		}
 		return &v.SourceTransitDecryption
 	}).(RouterInputFlowTransitEncryptionPtrOutput)
+}
+
+// Configuration details for a MediaConnect flow when used as a router input source.
+type RouterInputMediaConnectFlowRouterInputStreamDetails struct {
+}
+
+// Configuration details for a MediaConnect flow when used as a router input source.
+type RouterInputMediaConnectFlowRouterInputStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaConnectFlowRouterInputStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaConnectFlowRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputMediaConnectFlowRouterInputStreamDetailsOutput) ToRouterInputMediaConnectFlowRouterInputStreamDetailsOutput() RouterInputMediaConnectFlowRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputMediaConnectFlowRouterInputStreamDetailsOutput) ToRouterInputMediaConnectFlowRouterInputStreamDetailsOutputWithContext(ctx context.Context) RouterInputMediaConnectFlowRouterInputStreamDetailsOutput {
+	return o
+}
+
+type RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMediaConnectFlowRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput) ToRouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput() RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput) ToRouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput) Elem() RouterInputMediaConnectFlowRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputMediaConnectFlowRouterInputStreamDetails) RouterInputMediaConnectFlowRouterInputStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMediaConnectFlowRouterInputStreamDetails
+		return ret
+	}).(RouterInputMediaConnectFlowRouterInputStreamDetailsOutput)
 }
 
 // Configuration settings for connecting a router input to a MediaLive channel output. To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
@@ -15563,6 +18273,49 @@ func (o RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) SourceTran
 		}
 		return &v.SourceTransitDecryption
 	}).(RouterInputMediaLiveTransitEncryptionPtrOutput)
+}
+
+// Configuration details for a MediaLive channel when used as a router input source.
+type RouterInputMediaLiveChannelRouterInputStreamDetails struct {
+}
+
+// Configuration details for a MediaLive channel when used as a router input source.
+type RouterInputMediaLiveChannelRouterInputStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveChannelRouterInputStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveChannelRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveChannelRouterInputStreamDetailsOutput) ToRouterInputMediaLiveChannelRouterInputStreamDetailsOutput() RouterInputMediaLiveChannelRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelRouterInputStreamDetailsOutput) ToRouterInputMediaLiveChannelRouterInputStreamDetailsOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelRouterInputStreamDetailsOutput {
+	return o
+}
+
+type RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMediaLiveChannelRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput) ToRouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput() RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput) ToRouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput) Elem() RouterInputMediaLiveChannelRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveChannelRouterInputStreamDetails) RouterInputMediaLiveChannelRouterInputStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMediaLiveChannelRouterInputStreamDetails
+		return ret
+	}).(RouterInputMediaLiveChannelRouterInputStreamDetailsOutput)
 }
 
 // The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
@@ -15968,6 +18721,66 @@ func (o RouterInputMergeRouterInputConfigurationPtrOutput) ProtocolConfiguration
 	}).(pulumi.ArrayOutput)
 }
 
+// Configuration details for an indexed stream in a merge router input setup.
+type RouterInputMergeRouterInputIndexedStreamDetails struct {
+	// The index number (0 or 1) assigned to this source in the merge configuration.
+	SourceIndex int `pulumi:"sourceIndex"`
+}
+
+// Configuration details for an indexed stream in a merge router input setup.
+type RouterInputMergeRouterInputIndexedStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMergeRouterInputIndexedStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMergeRouterInputIndexedStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputMergeRouterInputIndexedStreamDetailsOutput) ToRouterInputMergeRouterInputIndexedStreamDetailsOutput() RouterInputMergeRouterInputIndexedStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputIndexedStreamDetailsOutput) ToRouterInputMergeRouterInputIndexedStreamDetailsOutputWithContext(ctx context.Context) RouterInputMergeRouterInputIndexedStreamDetailsOutput {
+	return o
+}
+
+// The index number (0 or 1) assigned to this source in the merge configuration.
+func (o RouterInputMergeRouterInputIndexedStreamDetailsOutput) SourceIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v RouterInputMergeRouterInputIndexedStreamDetails) int { return v.SourceIndex }).(pulumi.IntOutput)
+}
+
+type RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMergeRouterInputIndexedStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput) ToRouterInputMergeRouterInputIndexedStreamDetailsPtrOutput() RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput) ToRouterInputMergeRouterInputIndexedStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput) Elem() RouterInputMergeRouterInputIndexedStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputMergeRouterInputIndexedStreamDetails) RouterInputMergeRouterInputIndexedStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMergeRouterInputIndexedStreamDetails
+		return ret
+	}).(RouterInputMergeRouterInputIndexedStreamDetailsOutput)
+}
+
+// The index number (0 or 1) assigned to this source in the merge configuration.
+func (o RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput) SourceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouterInputMergeRouterInputIndexedStreamDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIndex
+	}).(pulumi.IntPtrOutput)
+}
+
 // Protocol configuration settings for merge router inputs.
 type RouterInputMergeRouterInputProtocolConfiguration0Properties struct {
 	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
@@ -16074,6 +18887,189 @@ func (o RouterInputMergeRouterInputProtocolConfiguration1PropertiesOutput) Rist(
 	return o.ApplyT(func(v RouterInputMergeRouterInputProtocolConfiguration1Properties) RouterInputRistRouterInputConfiguration {
 		return v.Rist
 	}).(RouterInputRistRouterInputConfigurationOutput)
+}
+
+// Protocol configuration settings for merge router inputs.
+type RouterInputMergeRouterInputProtocolConfiguration2Properties struct {
+	SrtListener RouterInputSrtListenerRouterInputConfiguration `pulumi:"srtListener"`
+}
+
+// RouterInputMergeRouterInputProtocolConfiguration2PropertiesInput is an input type that accepts RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs and RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputMergeRouterInputProtocolConfiguration2PropertiesInput` via:
+//
+//	RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs{...}
+type RouterInputMergeRouterInputProtocolConfiguration2PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput() RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput
+	ToRouterInputMergeRouterInputProtocolConfiguration2PropertiesOutputWithContext(context.Context) RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput
+}
+
+// Protocol configuration settings for merge router inputs.
+type RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs struct {
+	SrtListener RouterInputSrtListenerRouterInputConfigurationInput `pulumi:"srtListener"`
+}
+
+func (RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration2Properties)(nil)).Elem()
+}
+
+func (i RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs) ToRouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput() RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput {
+	return i.ToRouterInputMergeRouterInputProtocolConfiguration2PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs) ToRouterInputMergeRouterInputProtocolConfiguration2PropertiesOutputWithContext(ctx context.Context) RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput)
+}
+
+// Protocol configuration settings for merge router inputs.
+type RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration2Properties)(nil)).Elem()
+}
+
+func (o RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput) ToRouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput() RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput) ToRouterInputMergeRouterInputProtocolConfiguration2PropertiesOutputWithContext(ctx context.Context) RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput) SrtListener() RouterInputSrtListenerRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputMergeRouterInputProtocolConfiguration2Properties) RouterInputSrtListenerRouterInputConfiguration {
+		return v.SrtListener
+	}).(RouterInputSrtListenerRouterInputConfigurationOutput)
+}
+
+// Protocol configuration settings for merge router inputs.
+type RouterInputMergeRouterInputProtocolConfiguration3Properties struct {
+	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
+}
+
+// RouterInputMergeRouterInputProtocolConfiguration3PropertiesInput is an input type that accepts RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs and RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputMergeRouterInputProtocolConfiguration3PropertiesInput` via:
+//
+//	RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs{...}
+type RouterInputMergeRouterInputProtocolConfiguration3PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput() RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput
+	ToRouterInputMergeRouterInputProtocolConfiguration3PropertiesOutputWithContext(context.Context) RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput
+}
+
+// Protocol configuration settings for merge router inputs.
+type RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs struct {
+	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
+}
+
+func (RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration3Properties)(nil)).Elem()
+}
+
+func (i RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs) ToRouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput() RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput {
+	return i.ToRouterInputMergeRouterInputProtocolConfiguration3PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs) ToRouterInputMergeRouterInputProtocolConfiguration3PropertiesOutputWithContext(ctx context.Context) RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput)
+}
+
+// Protocol configuration settings for merge router inputs.
+type RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration3Properties)(nil)).Elem()
+}
+
+func (o RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput) ToRouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput() RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput) ToRouterInputMergeRouterInputProtocolConfiguration3PropertiesOutputWithContext(ctx context.Context) RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputMergeRouterInputProtocolConfiguration3Properties) RouterInputSrtCallerRouterInputConfiguration {
+		return v.SrtCaller
+	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
+}
+
+// Configuration details for a merge router input that combines two input sources.
+type RouterInputMergeRouterInputStreamDetails struct {
+	SourceIndexOneStreamDetails  RouterInputMergeRouterInputIndexedStreamDetails `pulumi:"sourceIndexOneStreamDetails"`
+	SourceIndexZeroStreamDetails RouterInputMergeRouterInputIndexedStreamDetails `pulumi:"sourceIndexZeroStreamDetails"`
+}
+
+// Configuration details for a merge router input that combines two input sources.
+type RouterInputMergeRouterInputStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMergeRouterInputStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMergeRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsOutput) ToRouterInputMergeRouterInputStreamDetailsOutput() RouterInputMergeRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsOutput) ToRouterInputMergeRouterInputStreamDetailsOutputWithContext(ctx context.Context) RouterInputMergeRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsOutput) SourceIndexOneStreamDetails() RouterInputMergeRouterInputIndexedStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputMergeRouterInputStreamDetails) RouterInputMergeRouterInputIndexedStreamDetails {
+		return v.SourceIndexOneStreamDetails
+	}).(RouterInputMergeRouterInputIndexedStreamDetailsOutput)
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsOutput) SourceIndexZeroStreamDetails() RouterInputMergeRouterInputIndexedStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputMergeRouterInputStreamDetails) RouterInputMergeRouterInputIndexedStreamDetails {
+		return v.SourceIndexZeroStreamDetails
+	}).(RouterInputMergeRouterInputIndexedStreamDetailsOutput)
+}
+
+type RouterInputMergeRouterInputStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMergeRouterInputStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMergeRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsPtrOutput) ToRouterInputMergeRouterInputStreamDetailsPtrOutput() RouterInputMergeRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsPtrOutput) ToRouterInputMergeRouterInputStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputMergeRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsPtrOutput) Elem() RouterInputMergeRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputMergeRouterInputStreamDetails) RouterInputMergeRouterInputStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMergeRouterInputStreamDetails
+		return ret
+	}).(RouterInputMergeRouterInputStreamDetailsOutput)
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsPtrOutput) SourceIndexOneStreamDetails() RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputMergeRouterInputStreamDetails) *RouterInputMergeRouterInputIndexedStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIndexOneStreamDetails
+	}).(RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput)
+}
+
+func (o RouterInputMergeRouterInputStreamDetailsPtrOutput) SourceIndexZeroStreamDetails() RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputMergeRouterInputStreamDetails) *RouterInputMergeRouterInputIndexedStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIndexZeroStreamDetails
+	}).(RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput)
 }
 
 // Configuration for preferred day and time maintenance settings.
@@ -16407,7 +19403,7 @@ func (o RouterInputProtocolConfiguration1PropertiesPtrOutput) SrtListener() Rout
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration2Properties struct {
-	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
+	RtmpPush RouterInputRtmpPushRouterInputConfiguration `pulumi:"rtmpPush"`
 }
 
 // RouterInputProtocolConfiguration2PropertiesInput is an input type that accepts RouterInputProtocolConfiguration2PropertiesArgs and RouterInputProtocolConfiguration2PropertiesOutput values.
@@ -16423,7 +19419,7 @@ type RouterInputProtocolConfiguration2PropertiesInput interface {
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration2PropertiesArgs struct {
-	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
+	RtmpPush RouterInputRtmpPushRouterInputConfigurationInput `pulumi:"rtmpPush"`
 }
 
 func (RouterInputProtocolConfiguration2PropertiesArgs) ElementType() reflect.Type {
@@ -16453,10 +19449,10 @@ func (o RouterInputProtocolConfiguration2PropertiesOutput) ToRouterInputProtocol
 	return o
 }
 
-func (o RouterInputProtocolConfiguration2PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputProtocolConfiguration2Properties) RouterInputSrtCallerRouterInputConfiguration {
-		return v.SrtCaller
-	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
+func (o RouterInputProtocolConfiguration2PropertiesOutput) RtmpPush() RouterInputRtmpPushRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputProtocolConfiguration2Properties) RouterInputRtmpPushRouterInputConfiguration {
+		return v.RtmpPush
+	}).(RouterInputRtmpPushRouterInputConfigurationOutput)
 }
 
 type RouterInputProtocolConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -16483,18 +19479,18 @@ func (o RouterInputProtocolConfiguration2PropertiesPtrOutput) Elem() RouterInput
 	}).(RouterInputProtocolConfiguration2PropertiesOutput)
 }
 
-func (o RouterInputProtocolConfiguration2PropertiesPtrOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputProtocolConfiguration2Properties) *RouterInputSrtCallerRouterInputConfiguration {
+func (o RouterInputProtocolConfiguration2PropertiesPtrOutput) RtmpPush() RouterInputRtmpPushRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputProtocolConfiguration2Properties) *RouterInputRtmpPushRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.SrtCaller
-	}).(RouterInputSrtCallerRouterInputConfigurationPtrOutput)
+		return &v.RtmpPush
+	}).(RouterInputRtmpPushRouterInputConfigurationPtrOutput)
 }
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration3Properties struct {
-	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
+	SrtCaller RouterInputSrtCallerRouterInputConfiguration `pulumi:"srtCaller"`
 }
 
 // RouterInputProtocolConfiguration3PropertiesInput is an input type that accepts RouterInputProtocolConfiguration3PropertiesArgs and RouterInputProtocolConfiguration3PropertiesOutput values.
@@ -16510,7 +19506,7 @@ type RouterInputProtocolConfiguration3PropertiesInput interface {
 
 // The protocol configuration settings for a router input.
 type RouterInputProtocolConfiguration3PropertiesArgs struct {
-	Rtp RouterInputRtpRouterInputConfigurationInput `pulumi:"rtp"`
+	SrtCaller RouterInputSrtCallerRouterInputConfigurationInput `pulumi:"srtCaller"`
 }
 
 func (RouterInputProtocolConfiguration3PropertiesArgs) ElementType() reflect.Type {
@@ -16540,10 +19536,10 @@ func (o RouterInputProtocolConfiguration3PropertiesOutput) ToRouterInputProtocol
 	return o
 }
 
-func (o RouterInputProtocolConfiguration3PropertiesOutput) Rtp() RouterInputRtpRouterInputConfigurationOutput {
-	return o.ApplyT(func(v RouterInputProtocolConfiguration3Properties) RouterInputRtpRouterInputConfiguration {
-		return v.Rtp
-	}).(RouterInputRtpRouterInputConfigurationOutput)
+func (o RouterInputProtocolConfiguration3PropertiesOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputProtocolConfiguration3Properties) RouterInputSrtCallerRouterInputConfiguration {
+		return v.SrtCaller
+	}).(RouterInputSrtCallerRouterInputConfigurationOutput)
 }
 
 type RouterInputProtocolConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -16570,8 +19566,95 @@ func (o RouterInputProtocolConfiguration3PropertiesPtrOutput) Elem() RouterInput
 	}).(RouterInputProtocolConfiguration3PropertiesOutput)
 }
 
-func (o RouterInputProtocolConfiguration3PropertiesPtrOutput) Rtp() RouterInputRtpRouterInputConfigurationPtrOutput {
-	return o.ApplyT(func(v *RouterInputProtocolConfiguration3Properties) *RouterInputRtpRouterInputConfiguration {
+func (o RouterInputProtocolConfiguration3PropertiesPtrOutput) SrtCaller() RouterInputSrtCallerRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputProtocolConfiguration3Properties) *RouterInputSrtCallerRouterInputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SrtCaller
+	}).(RouterInputSrtCallerRouterInputConfigurationPtrOutput)
+}
+
+// The protocol configuration settings for a router input.
+type RouterInputProtocolConfiguration4Properties struct {
+	Rtp RouterInputRtpRouterInputConfiguration `pulumi:"rtp"`
+}
+
+// RouterInputProtocolConfiguration4PropertiesInput is an input type that accepts RouterInputProtocolConfiguration4PropertiesArgs and RouterInputProtocolConfiguration4PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputProtocolConfiguration4PropertiesInput` via:
+//
+//	RouterInputProtocolConfiguration4PropertiesArgs{...}
+type RouterInputProtocolConfiguration4PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputProtocolConfiguration4PropertiesOutput() RouterInputProtocolConfiguration4PropertiesOutput
+	ToRouterInputProtocolConfiguration4PropertiesOutputWithContext(context.Context) RouterInputProtocolConfiguration4PropertiesOutput
+}
+
+// The protocol configuration settings for a router input.
+type RouterInputProtocolConfiguration4PropertiesArgs struct {
+	Rtp RouterInputRtpRouterInputConfigurationInput `pulumi:"rtp"`
+}
+
+func (RouterInputProtocolConfiguration4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputProtocolConfiguration4Properties)(nil)).Elem()
+}
+
+func (i RouterInputProtocolConfiguration4PropertiesArgs) ToRouterInputProtocolConfiguration4PropertiesOutput() RouterInputProtocolConfiguration4PropertiesOutput {
+	return i.ToRouterInputProtocolConfiguration4PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputProtocolConfiguration4PropertiesArgs) ToRouterInputProtocolConfiguration4PropertiesOutputWithContext(ctx context.Context) RouterInputProtocolConfiguration4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputProtocolConfiguration4PropertiesOutput)
+}
+
+// The protocol configuration settings for a router input.
+type RouterInputProtocolConfiguration4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputProtocolConfiguration4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputProtocolConfiguration4Properties)(nil)).Elem()
+}
+
+func (o RouterInputProtocolConfiguration4PropertiesOutput) ToRouterInputProtocolConfiguration4PropertiesOutput() RouterInputProtocolConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o RouterInputProtocolConfiguration4PropertiesOutput) ToRouterInputProtocolConfiguration4PropertiesOutputWithContext(ctx context.Context) RouterInputProtocolConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o RouterInputProtocolConfiguration4PropertiesOutput) Rtp() RouterInputRtpRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputProtocolConfiguration4Properties) RouterInputRtpRouterInputConfiguration {
+		return v.Rtp
+	}).(RouterInputRtpRouterInputConfigurationOutput)
+}
+
+type RouterInputProtocolConfiguration4PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputProtocolConfiguration4PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputProtocolConfiguration4Properties)(nil)).Elem()
+}
+
+func (o RouterInputProtocolConfiguration4PropertiesPtrOutput) ToRouterInputProtocolConfiguration4PropertiesPtrOutput() RouterInputProtocolConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputProtocolConfiguration4PropertiesPtrOutput) ToRouterInputProtocolConfiguration4PropertiesPtrOutputWithContext(ctx context.Context) RouterInputProtocolConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputProtocolConfiguration4PropertiesPtrOutput) Elem() RouterInputProtocolConfiguration4PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputProtocolConfiguration4Properties) RouterInputProtocolConfiguration4Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputProtocolConfiguration4Properties
+		return ret
+	}).(RouterInputProtocolConfiguration4PropertiesOutput)
+}
+
+func (o RouterInputProtocolConfiguration4PropertiesPtrOutput) Rtp() RouterInputRtpRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputProtocolConfiguration4Properties) *RouterInputRtpRouterInputConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -16828,6 +19911,378 @@ func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput)
 		}
 		return &v.ContentLevel
 	}).(RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type RouterInputRtmpPushNamingConfiguration0Properties struct {
+	Manual RouterInputManualRtmpPushNamingConfiguration `pulumi:"manual"`
+}
+
+// RouterInputRtmpPushNamingConfiguration0PropertiesInput is an input type that accepts RouterInputRtmpPushNamingConfiguration0PropertiesArgs and RouterInputRtmpPushNamingConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputRtmpPushNamingConfiguration0PropertiesInput` via:
+//
+//	RouterInputRtmpPushNamingConfiguration0PropertiesArgs{...}
+type RouterInputRtmpPushNamingConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputRtmpPushNamingConfiguration0PropertiesOutput() RouterInputRtmpPushNamingConfiguration0PropertiesOutput
+	ToRouterInputRtmpPushNamingConfiguration0PropertiesOutputWithContext(context.Context) RouterInputRtmpPushNamingConfiguration0PropertiesOutput
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type RouterInputRtmpPushNamingConfiguration0PropertiesArgs struct {
+	Manual RouterInputManualRtmpPushNamingConfigurationInput `pulumi:"manual"`
+}
+
+func (RouterInputRtmpPushNamingConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (i RouterInputRtmpPushNamingConfiguration0PropertiesArgs) ToRouterInputRtmpPushNamingConfiguration0PropertiesOutput() RouterInputRtmpPushNamingConfiguration0PropertiesOutput {
+	return i.ToRouterInputRtmpPushNamingConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputRtmpPushNamingConfiguration0PropertiesArgs) ToRouterInputRtmpPushNamingConfiguration0PropertiesOutputWithContext(ctx context.Context) RouterInputRtmpPushNamingConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputRtmpPushNamingConfiguration0PropertiesOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type RouterInputRtmpPushNamingConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRtmpPushNamingConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o RouterInputRtmpPushNamingConfiguration0PropertiesOutput) ToRouterInputRtmpPushNamingConfiguration0PropertiesOutput() RouterInputRtmpPushNamingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushNamingConfiguration0PropertiesOutput) ToRouterInputRtmpPushNamingConfiguration0PropertiesOutputWithContext(ctx context.Context) RouterInputRtmpPushNamingConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushNamingConfiguration0PropertiesOutput) Manual() RouterInputManualRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v RouterInputRtmpPushNamingConfiguration0Properties) RouterInputManualRtmpPushNamingConfiguration {
+		return v.Manual
+	}).(RouterInputManualRtmpPushNamingConfigurationOutput)
+}
+
+type RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputRtmpPushNamingConfiguration0Properties)(nil)).Elem()
+}
+
+func (o RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput) ToRouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput() RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput) ToRouterInputRtmpPushNamingConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput) Elem() RouterInputRtmpPushNamingConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushNamingConfiguration0Properties) RouterInputRtmpPushNamingConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputRtmpPushNamingConfiguration0Properties
+		return ret
+	}).(RouterInputRtmpPushNamingConfiguration0PropertiesOutput)
+}
+
+func (o RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput) Manual() RouterInputManualRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushNamingConfiguration0Properties) *RouterInputManualRtmpPushNamingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Manual
+	}).(RouterInputManualRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type RouterInputRtmpPushNamingConfiguration1Properties struct {
+	Automatic RouterInputAutomaticRtmpPushNamingConfiguration `pulumi:"automatic"`
+}
+
+// RouterInputRtmpPushNamingConfiguration1PropertiesInput is an input type that accepts RouterInputRtmpPushNamingConfiguration1PropertiesArgs and RouterInputRtmpPushNamingConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputRtmpPushNamingConfiguration1PropertiesInput` via:
+//
+//	RouterInputRtmpPushNamingConfiguration1PropertiesArgs{...}
+type RouterInputRtmpPushNamingConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputRtmpPushNamingConfiguration1PropertiesOutput() RouterInputRtmpPushNamingConfiguration1PropertiesOutput
+	ToRouterInputRtmpPushNamingConfiguration1PropertiesOutputWithContext(context.Context) RouterInputRtmpPushNamingConfiguration1PropertiesOutput
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type RouterInputRtmpPushNamingConfiguration1PropertiesArgs struct {
+	Automatic RouterInputAutomaticRtmpPushNamingConfigurationInput `pulumi:"automatic"`
+}
+
+func (RouterInputRtmpPushNamingConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (i RouterInputRtmpPushNamingConfiguration1PropertiesArgs) ToRouterInputRtmpPushNamingConfiguration1PropertiesOutput() RouterInputRtmpPushNamingConfiguration1PropertiesOutput {
+	return i.ToRouterInputRtmpPushNamingConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputRtmpPushNamingConfiguration1PropertiesArgs) ToRouterInputRtmpPushNamingConfiguration1PropertiesOutputWithContext(ctx context.Context) RouterInputRtmpPushNamingConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputRtmpPushNamingConfiguration1PropertiesOutput)
+}
+
+// The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+type RouterInputRtmpPushNamingConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRtmpPushNamingConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o RouterInputRtmpPushNamingConfiguration1PropertiesOutput) ToRouterInputRtmpPushNamingConfiguration1PropertiesOutput() RouterInputRtmpPushNamingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushNamingConfiguration1PropertiesOutput) ToRouterInputRtmpPushNamingConfiguration1PropertiesOutputWithContext(ctx context.Context) RouterInputRtmpPushNamingConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushNamingConfiguration1PropertiesOutput) Automatic() RouterInputAutomaticRtmpPushNamingConfigurationOutput {
+	return o.ApplyT(func(v RouterInputRtmpPushNamingConfiguration1Properties) RouterInputAutomaticRtmpPushNamingConfiguration {
+		return v.Automatic
+	}).(RouterInputAutomaticRtmpPushNamingConfigurationOutput)
+}
+
+type RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputRtmpPushNamingConfiguration1Properties)(nil)).Elem()
+}
+
+func (o RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput) ToRouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput() RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput) ToRouterInputRtmpPushNamingConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput) Elem() RouterInputRtmpPushNamingConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushNamingConfiguration1Properties) RouterInputRtmpPushNamingConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputRtmpPushNamingConfiguration1Properties
+		return ret
+	}).(RouterInputRtmpPushNamingConfiguration1PropertiesOutput)
+}
+
+func (o RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput) Automatic() RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushNamingConfiguration1Properties) *RouterInputAutomaticRtmpPushNamingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Automatic
+	}).(RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput)
+}
+
+// The configuration settings for a router input using the RTMP (Real-Time Messaging Protocol) protocol.
+type RouterInputRtmpPushRouterInputConfiguration struct {
+	NamingConfiguration interface{}                    `pulumi:"namingConfiguration"`
+	NamingType          *RouterInputRtmpPushNamingType `pulumi:"namingType"`
+	// The port number for the RTMP protocol. The only valid value is 1935.
+	Port int `pulumi:"port"`
+}
+
+// RouterInputRtmpPushRouterInputConfigurationInput is an input type that accepts RouterInputRtmpPushRouterInputConfigurationArgs and RouterInputRtmpPushRouterInputConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputRtmpPushRouterInputConfigurationInput` via:
+//
+//	RouterInputRtmpPushRouterInputConfigurationArgs{...}
+type RouterInputRtmpPushRouterInputConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputRtmpPushRouterInputConfigurationOutput() RouterInputRtmpPushRouterInputConfigurationOutput
+	ToRouterInputRtmpPushRouterInputConfigurationOutputWithContext(context.Context) RouterInputRtmpPushRouterInputConfigurationOutput
+}
+
+// The configuration settings for a router input using the RTMP (Real-Time Messaging Protocol) protocol.
+type RouterInputRtmpPushRouterInputConfigurationArgs struct {
+	NamingConfiguration pulumi.Input                          `pulumi:"namingConfiguration"`
+	NamingType          RouterInputRtmpPushNamingTypePtrInput `pulumi:"namingType"`
+	// The port number for the RTMP protocol. The only valid value is 1935.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (RouterInputRtmpPushRouterInputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRtmpPushRouterInputConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputRtmpPushRouterInputConfigurationArgs) ToRouterInputRtmpPushRouterInputConfigurationOutput() RouterInputRtmpPushRouterInputConfigurationOutput {
+	return i.ToRouterInputRtmpPushRouterInputConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputRtmpPushRouterInputConfigurationArgs) ToRouterInputRtmpPushRouterInputConfigurationOutputWithContext(ctx context.Context) RouterInputRtmpPushRouterInputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputRtmpPushRouterInputConfigurationOutput)
+}
+
+// The configuration settings for a router input using the RTMP (Real-Time Messaging Protocol) protocol.
+type RouterInputRtmpPushRouterInputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRtmpPushRouterInputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRtmpPushRouterInputConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationOutput) ToRouterInputRtmpPushRouterInputConfigurationOutput() RouterInputRtmpPushRouterInputConfigurationOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationOutput) ToRouterInputRtmpPushRouterInputConfigurationOutputWithContext(ctx context.Context) RouterInputRtmpPushRouterInputConfigurationOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationOutput) NamingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v RouterInputRtmpPushRouterInputConfiguration) interface{} { return v.NamingConfiguration }).(pulumi.AnyOutput)
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationOutput) NamingType() RouterInputRtmpPushNamingTypePtrOutput {
+	return o.ApplyT(func(v RouterInputRtmpPushRouterInputConfiguration) *RouterInputRtmpPushNamingType {
+		return v.NamingType
+	}).(RouterInputRtmpPushNamingTypePtrOutput)
+}
+
+// The port number for the RTMP protocol. The only valid value is 1935.
+func (o RouterInputRtmpPushRouterInputConfigurationOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v RouterInputRtmpPushRouterInputConfiguration) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type RouterInputRtmpPushRouterInputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRtmpPushRouterInputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputRtmpPushRouterInputConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationPtrOutput) ToRouterInputRtmpPushRouterInputConfigurationPtrOutput() RouterInputRtmpPushRouterInputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationPtrOutput) ToRouterInputRtmpPushRouterInputConfigurationPtrOutputWithContext(ctx context.Context) RouterInputRtmpPushRouterInputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationPtrOutput) Elem() RouterInputRtmpPushRouterInputConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushRouterInputConfiguration) RouterInputRtmpPushRouterInputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputRtmpPushRouterInputConfiguration
+		return ret
+	}).(RouterInputRtmpPushRouterInputConfigurationOutput)
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationPtrOutput) NamingConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushRouterInputConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.NamingConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+func (o RouterInputRtmpPushRouterInputConfigurationPtrOutput) NamingType() RouterInputRtmpPushNamingTypePtrOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushRouterInputConfiguration) *RouterInputRtmpPushNamingType {
+		if v == nil {
+			return nil
+		}
+		return v.NamingType
+	}).(RouterInputRtmpPushNamingTypePtrOutput)
+}
+
+// The port number for the RTMP protocol. The only valid value is 1935.
+func (o RouterInputRtmpPushRouterInputConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushRouterInputConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration details for an RTMP (Real-Time Messaging Protocol) router input stream, including the application and stream names.
+type RouterInputRtmpPushStreamDetails struct {
+	// The name of the RTMP application.
+	ApplicationName string `pulumi:"applicationName"`
+	// The name of the RTMP stream.
+	StreamName string `pulumi:"streamName"`
+}
+
+// Configuration details for an RTMP (Real-Time Messaging Protocol) router input stream, including the application and stream names.
+type RouterInputRtmpPushStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRtmpPushStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRtmpPushStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputRtmpPushStreamDetailsOutput) ToRouterInputRtmpPushStreamDetailsOutput() RouterInputRtmpPushStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushStreamDetailsOutput) ToRouterInputRtmpPushStreamDetailsOutputWithContext(ctx context.Context) RouterInputRtmpPushStreamDetailsOutput {
+	return o
+}
+
+// The name of the RTMP application.
+func (o RouterInputRtmpPushStreamDetailsOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterInputRtmpPushStreamDetails) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The name of the RTMP stream.
+func (o RouterInputRtmpPushStreamDetailsOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterInputRtmpPushStreamDetails) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+type RouterInputRtmpPushStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRtmpPushStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputRtmpPushStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputRtmpPushStreamDetailsPtrOutput) ToRouterInputRtmpPushStreamDetailsPtrOutput() RouterInputRtmpPushStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushStreamDetailsPtrOutput) ToRouterInputRtmpPushStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputRtmpPushStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputRtmpPushStreamDetailsPtrOutput) Elem() RouterInputRtmpPushStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushStreamDetails) RouterInputRtmpPushStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputRtmpPushStreamDetails
+		return ret
+	}).(RouterInputRtmpPushStreamDetailsOutput)
+}
+
+// The name of the RTMP application.
+func (o RouterInputRtmpPushStreamDetailsPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushStreamDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the RTMP stream.
+func (o RouterInputRtmpPushStreamDetailsPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterInputRtmpPushStreamDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
@@ -17897,6 +21352,417 @@ func (o RouterInputStandardRouterInputConfigurationPtrOutput) ProtocolConfigurat
 		}
 		return v.ProtocolConfiguration
 	}).(pulumi.AnyOutput)
+}
+
+// Configuration details for a standard router input stream type.
+type RouterInputStandardRouterInputStreamDetails struct {
+	RtmpPush *RouterInputRtmpPushStreamDetails `pulumi:"rtmpPush"`
+}
+
+// Configuration details for a standard router input stream type.
+type RouterInputStandardRouterInputStreamDetailsOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStandardRouterInputStreamDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputStandardRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputStandardRouterInputStreamDetailsOutput) ToRouterInputStandardRouterInputStreamDetailsOutput() RouterInputStandardRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputStandardRouterInputStreamDetailsOutput) ToRouterInputStandardRouterInputStreamDetailsOutputWithContext(ctx context.Context) RouterInputStandardRouterInputStreamDetailsOutput {
+	return o
+}
+
+func (o RouterInputStandardRouterInputStreamDetailsOutput) RtmpPush() RouterInputRtmpPushStreamDetailsPtrOutput {
+	return o.ApplyT(func(v RouterInputStandardRouterInputStreamDetails) *RouterInputRtmpPushStreamDetails {
+		return v.RtmpPush
+	}).(RouterInputRtmpPushStreamDetailsPtrOutput)
+}
+
+type RouterInputStandardRouterInputStreamDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStandardRouterInputStreamDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputStandardRouterInputStreamDetails)(nil)).Elem()
+}
+
+func (o RouterInputStandardRouterInputStreamDetailsPtrOutput) ToRouterInputStandardRouterInputStreamDetailsPtrOutput() RouterInputStandardRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputStandardRouterInputStreamDetailsPtrOutput) ToRouterInputStandardRouterInputStreamDetailsPtrOutputWithContext(ctx context.Context) RouterInputStandardRouterInputStreamDetailsPtrOutput {
+	return o
+}
+
+func (o RouterInputStandardRouterInputStreamDetailsPtrOutput) Elem() RouterInputStandardRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v *RouterInputStandardRouterInputStreamDetails) RouterInputStandardRouterInputStreamDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputStandardRouterInputStreamDetails
+		return ret
+	}).(RouterInputStandardRouterInputStreamDetailsOutput)
+}
+
+func (o RouterInputStandardRouterInputStreamDetailsPtrOutput) RtmpPush() RouterInputRtmpPushStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputStandardRouterInputStreamDetails) *RouterInputRtmpPushStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return v.RtmpPush
+	}).(RouterInputRtmpPushStreamDetailsPtrOutput)
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails0Properties struct {
+	DestinationEndpoint RouterInputDestinationEndpointRouterInputStreamDetails `pulumi:"destinationEndpoint"`
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputStreamDetails0Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails0PropertiesOutput) ToRouterInputStreamDetails0PropertiesOutput() RouterInputStreamDetails0PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails0PropertiesOutput) ToRouterInputStreamDetails0PropertiesOutputWithContext(ctx context.Context) RouterInputStreamDetails0PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails0PropertiesOutput) DestinationEndpoint() RouterInputDestinationEndpointRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputStreamDetails0Properties) RouterInputDestinationEndpointRouterInputStreamDetails {
+		return v.DestinationEndpoint
+	}).(RouterInputDestinationEndpointRouterInputStreamDetailsOutput)
+}
+
+type RouterInputStreamDetails0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputStreamDetails0Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails0PropertiesPtrOutput) ToRouterInputStreamDetails0PropertiesPtrOutput() RouterInputStreamDetails0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails0PropertiesPtrOutput) ToRouterInputStreamDetails0PropertiesPtrOutputWithContext(ctx context.Context) RouterInputStreamDetails0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails0PropertiesPtrOutput) Elem() RouterInputStreamDetails0PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails0Properties) RouterInputStreamDetails0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputStreamDetails0Properties
+		return ret
+	}).(RouterInputStreamDetails0PropertiesOutput)
+}
+
+func (o RouterInputStreamDetails0PropertiesPtrOutput) DestinationEndpoint() RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails0Properties) *RouterInputDestinationEndpointRouterInputStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationEndpoint
+	}).(RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput)
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails1Properties struct {
+	Standard RouterInputStandardRouterInputStreamDetails `pulumi:"standard"`
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputStreamDetails1Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails1PropertiesOutput) ToRouterInputStreamDetails1PropertiesOutput() RouterInputStreamDetails1PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails1PropertiesOutput) ToRouterInputStreamDetails1PropertiesOutputWithContext(ctx context.Context) RouterInputStreamDetails1PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails1PropertiesOutput) Standard() RouterInputStandardRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputStreamDetails1Properties) RouterInputStandardRouterInputStreamDetails {
+		return v.Standard
+	}).(RouterInputStandardRouterInputStreamDetailsOutput)
+}
+
+type RouterInputStreamDetails1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputStreamDetails1Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails1PropertiesPtrOutput) ToRouterInputStreamDetails1PropertiesPtrOutput() RouterInputStreamDetails1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails1PropertiesPtrOutput) ToRouterInputStreamDetails1PropertiesPtrOutputWithContext(ctx context.Context) RouterInputStreamDetails1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails1PropertiesPtrOutput) Elem() RouterInputStreamDetails1PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails1Properties) RouterInputStreamDetails1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputStreamDetails1Properties
+		return ret
+	}).(RouterInputStreamDetails1PropertiesOutput)
+}
+
+func (o RouterInputStreamDetails1PropertiesPtrOutput) Standard() RouterInputStandardRouterInputStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails1Properties) *RouterInputStandardRouterInputStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.Standard
+	}).(RouterInputStandardRouterInputStreamDetailsPtrOutput)
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails2Properties struct {
+	MediaLiveChannel RouterInputMediaLiveChannelRouterInputStreamDetails `pulumi:"mediaLiveChannel"`
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputStreamDetails2Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails2PropertiesOutput) ToRouterInputStreamDetails2PropertiesOutput() RouterInputStreamDetails2PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails2PropertiesOutput) ToRouterInputStreamDetails2PropertiesOutputWithContext(ctx context.Context) RouterInputStreamDetails2PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails2PropertiesOutput) MediaLiveChannel() RouterInputMediaLiveChannelRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputStreamDetails2Properties) RouterInputMediaLiveChannelRouterInputStreamDetails {
+		return v.MediaLiveChannel
+	}).(RouterInputMediaLiveChannelRouterInputStreamDetailsOutput)
+}
+
+type RouterInputStreamDetails2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputStreamDetails2Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails2PropertiesPtrOutput) ToRouterInputStreamDetails2PropertiesPtrOutput() RouterInputStreamDetails2PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails2PropertiesPtrOutput) ToRouterInputStreamDetails2PropertiesPtrOutputWithContext(ctx context.Context) RouterInputStreamDetails2PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails2PropertiesPtrOutput) Elem() RouterInputStreamDetails2PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails2Properties) RouterInputStreamDetails2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputStreamDetails2Properties
+		return ret
+	}).(RouterInputStreamDetails2PropertiesOutput)
+}
+
+func (o RouterInputStreamDetails2PropertiesPtrOutput) MediaLiveChannel() RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails2Properties) *RouterInputMediaLiveChannelRouterInputStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.MediaLiveChannel
+	}).(RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput)
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails3Properties struct {
+	Failover RouterInputFailoverRouterInputStreamDetails `pulumi:"failover"`
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputStreamDetails3Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails3PropertiesOutput) ToRouterInputStreamDetails3PropertiesOutput() RouterInputStreamDetails3PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails3PropertiesOutput) ToRouterInputStreamDetails3PropertiesOutputWithContext(ctx context.Context) RouterInputStreamDetails3PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails3PropertiesOutput) Failover() RouterInputFailoverRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputStreamDetails3Properties) RouterInputFailoverRouterInputStreamDetails {
+		return v.Failover
+	}).(RouterInputFailoverRouterInputStreamDetailsOutput)
+}
+
+type RouterInputStreamDetails3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputStreamDetails3Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails3PropertiesPtrOutput) ToRouterInputStreamDetails3PropertiesPtrOutput() RouterInputStreamDetails3PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails3PropertiesPtrOutput) ToRouterInputStreamDetails3PropertiesPtrOutputWithContext(ctx context.Context) RouterInputStreamDetails3PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails3PropertiesPtrOutput) Elem() RouterInputStreamDetails3PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails3Properties) RouterInputStreamDetails3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputStreamDetails3Properties
+		return ret
+	}).(RouterInputStreamDetails3PropertiesOutput)
+}
+
+func (o RouterInputStreamDetails3PropertiesPtrOutput) Failover() RouterInputFailoverRouterInputStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails3Properties) *RouterInputFailoverRouterInputStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.Failover
+	}).(RouterInputFailoverRouterInputStreamDetailsPtrOutput)
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails4Properties struct {
+	MediaConnectFlow RouterInputMediaConnectFlowRouterInputStreamDetails `pulumi:"mediaConnectFlow"`
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputStreamDetails4Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails4PropertiesOutput) ToRouterInputStreamDetails4PropertiesOutput() RouterInputStreamDetails4PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails4PropertiesOutput) ToRouterInputStreamDetails4PropertiesOutputWithContext(ctx context.Context) RouterInputStreamDetails4PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails4PropertiesOutput) MediaConnectFlow() RouterInputMediaConnectFlowRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputStreamDetails4Properties) RouterInputMediaConnectFlowRouterInputStreamDetails {
+		return v.MediaConnectFlow
+	}).(RouterInputMediaConnectFlowRouterInputStreamDetailsOutput)
+}
+
+type RouterInputStreamDetails4PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails4PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputStreamDetails4Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails4PropertiesPtrOutput) ToRouterInputStreamDetails4PropertiesPtrOutput() RouterInputStreamDetails4PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails4PropertiesPtrOutput) ToRouterInputStreamDetails4PropertiesPtrOutputWithContext(ctx context.Context) RouterInputStreamDetails4PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails4PropertiesPtrOutput) Elem() RouterInputStreamDetails4PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails4Properties) RouterInputStreamDetails4Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputStreamDetails4Properties
+		return ret
+	}).(RouterInputStreamDetails4PropertiesOutput)
+}
+
+func (o RouterInputStreamDetails4PropertiesPtrOutput) MediaConnectFlow() RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails4Properties) *RouterInputMediaConnectFlowRouterInputStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.MediaConnectFlow
+	}).(RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput)
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails5Properties struct {
+	Merge RouterInputMergeRouterInputStreamDetails `pulumi:"merge"`
+}
+
+// Configuration details for the router input stream.
+type RouterInputStreamDetails5PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails5PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputStreamDetails5Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails5PropertiesOutput) ToRouterInputStreamDetails5PropertiesOutput() RouterInputStreamDetails5PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails5PropertiesOutput) ToRouterInputStreamDetails5PropertiesOutputWithContext(ctx context.Context) RouterInputStreamDetails5PropertiesOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails5PropertiesOutput) Merge() RouterInputMergeRouterInputStreamDetailsOutput {
+	return o.ApplyT(func(v RouterInputStreamDetails5Properties) RouterInputMergeRouterInputStreamDetails { return v.Merge }).(RouterInputMergeRouterInputStreamDetailsOutput)
+}
+
+type RouterInputStreamDetails5PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputStreamDetails5PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputStreamDetails5Properties)(nil)).Elem()
+}
+
+func (o RouterInputStreamDetails5PropertiesPtrOutput) ToRouterInputStreamDetails5PropertiesPtrOutput() RouterInputStreamDetails5PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails5PropertiesPtrOutput) ToRouterInputStreamDetails5PropertiesPtrOutputWithContext(ctx context.Context) RouterInputStreamDetails5PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputStreamDetails5PropertiesPtrOutput) Elem() RouterInputStreamDetails5PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails5Properties) RouterInputStreamDetails5Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputStreamDetails5Properties
+		return ret
+	}).(RouterInputStreamDetails5PropertiesOutput)
+}
+
+func (o RouterInputStreamDetails5PropertiesPtrOutput) Merge() RouterInputMergeRouterInputStreamDetailsPtrOutput {
+	return o.ApplyT(func(v *RouterInputStreamDetails5Properties) *RouterInputMergeRouterInputStreamDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.Merge
+	}).(RouterInputMergeRouterInputStreamDetailsPtrOutput)
 }
 
 type RouterInputTag struct {
@@ -25450,6 +29316,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAudioMonitoringSettingArrayInput)(nil)).Elem(), FlowAudioMonitoringSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAutomaticEncryptionKeyConfigurationInput)(nil)).Elem(), FlowAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAutomaticEncryptionKeyConfigurationPtrInput)(nil)).Elem(), FlowAutomaticEncryptionKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAutomaticRtmpPushNamingConfigurationInput)(nil)).Elem(), FlowAutomaticRtmpPushNamingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAutomaticRtmpPushNamingConfigurationPtrInput)(nil)).Elem(), FlowAutomaticRtmpPushNamingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesInput)(nil)).Elem(), FlowBlackFramesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesPtrInput)(nil)).Elem(), FlowBlackFramesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncodingConfigInput)(nil)).Elem(), FlowEncodingConfigArgs{})
@@ -25473,6 +29341,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInterfaceInput)(nil)).Elem(), FlowInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenanceInput)(nil)).Elem(), FlowMaintenanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenancePtrInput)(nil)).Elem(), FlowMaintenanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowManualRtmpPushNamingConfigurationInput)(nil)).Elem(), FlowManualRtmpPushNamingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowManualRtmpPushNamingConfigurationPtrInput)(nil)).Elem(), FlowManualRtmpPushNamingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamTypeInput)(nil)).Elem(), FlowMediaStreamTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamTypeArrayInput)(nil)).Elem(), FlowMediaStreamTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamAttributesInput)(nil)).Elem(), FlowMediaStreamAttributesArgs{})
@@ -25506,21 +29376,47 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputInterfaceInput)(nil)).Elem(), FlowOutputInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationArrayInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputPublicTlsEncryptionConfigurationInput)(nil)).Elem(), FlowOutputPublicTlsEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputPublicTlsEncryptionConfigurationPtrInput)(nil)).Elem(), FlowOutputPublicTlsEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputRtmpPushSettingsInput)(nil)).Elem(), FlowOutputRtmpPushSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputRtmpPushSettingsPtrInput)(nil)).Elem(), FlowOutputRtmpPushSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputSecretsManagerEncryptionKeyConfigurationInput)(nil)).Elem(), FlowOutputSecretsManagerEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputSecretsManagerEncryptionKeyConfigurationPtrInput)(nil)).Elem(), FlowOutputSecretsManagerEncryptionKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputTlsEncryptionInput)(nil)).Elem(), FlowOutputTlsEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputTlsEncryptionPtrInput)(nil)).Elem(), FlowOutputTlsEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputTlsEncryptionConfigurationPropertiesInput)(nil)).Elem(), FlowOutputTlsEncryptionConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputTlsEncryptionConfigurationPropertiesPtrInput)(nil)).Elem(), FlowOutputTlsEncryptionConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRtmpPushDetailsInput)(nil)).Elem(), FlowRtmpPushDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRtmpPushDetailsPtrInput)(nil)).Elem(), FlowRtmpPushDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRtmpPushNamingConfiguration0PropertiesInput)(nil)).Elem(), FlowRtmpPushNamingConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRtmpPushNamingConfiguration0PropertiesPtrInput)(nil)).Elem(), FlowRtmpPushNamingConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRtmpPushNamingConfiguration1PropertiesInput)(nil)).Elem(), FlowRtmpPushNamingConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRtmpPushNamingConfiguration1PropertiesPtrInput)(nil)).Elem(), FlowRtmpPushNamingConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRtmpPushSettingsInput)(nil)).Elem(), FlowRtmpPushSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRtmpPushSettingsPtrInput)(nil)).Elem(), FlowRtmpPushSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSecretsManagerEncryptionKeyConfigurationInput)(nil)).Elem(), FlowSecretsManagerEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSecretsManagerEncryptionKeyConfigurationPtrInput)(nil)).Elem(), FlowSecretsManagerEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSilentAudioInput)(nil)).Elem(), FlowSilentAudioArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSilentAudioPtrInput)(nil)).Elem(), FlowSilentAudioArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceTypeInput)(nil)).Elem(), FlowSourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceAutomaticRtmpPushNamingConfigurationInput)(nil)).Elem(), FlowSourceAutomaticRtmpPushNamingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceAutomaticRtmpPushNamingConfigurationPtrInput)(nil)).Elem(), FlowSourceAutomaticRtmpPushNamingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionPtrInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceGatewayBridgeSourceInput)(nil)).Elem(), FlowSourceGatewayBridgeSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceGatewayBridgeSourcePtrInput)(nil)).Elem(), FlowSourceGatewayBridgeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceManualRtmpPushNamingConfigurationInput)(nil)).Elem(), FlowSourceManualRtmpPushNamingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceManualRtmpPushNamingConfigurationPtrInput)(nil)).Elem(), FlowSourceManualRtmpPushNamingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigInput)(nil)).Elem(), FlowSourceMonitoringConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigPtrInput)(nil)).Elem(), FlowSourceMonitoringConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceRtmpPushNamingConfiguration0PropertiesInput)(nil)).Elem(), FlowSourceRtmpPushNamingConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceRtmpPushNamingConfiguration0PropertiesPtrInput)(nil)).Elem(), FlowSourceRtmpPushNamingConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceRtmpPushNamingConfiguration1PropertiesInput)(nil)).Elem(), FlowSourceRtmpPushNamingConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceRtmpPushNamingConfiguration1PropertiesPtrInput)(nil)).Elem(), FlowSourceRtmpPushNamingConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceRtmpPushSettingsInput)(nil)).Elem(), FlowSourceRtmpPushSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceRtmpPushSettingsPtrInput)(nil)).Elem(), FlowSourceRtmpPushSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagInput)(nil)).Elem(), FlowTagArgs{})
@@ -25542,6 +29438,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticEncryptionKeyConfigurationInput)(nil)).Elem(), RouterInputAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticEncryptionKeyConfigurationPtrInput)(nil)).Elem(), RouterInputAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticEndpointEncryptionConfigurationInput)(nil)).Elem(), RouterInputAutomaticEndpointEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticRtmpPushNamingConfigurationInput)(nil)).Elem(), RouterInputAutomaticRtmpPushNamingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputBlackFramesConfigurationInput)(nil)).Elem(), RouterInputBlackFramesConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputBlackFramesConfigurationPtrInput)(nil)).Elem(), RouterInputBlackFramesConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration0PropertiesInput)(nil)).Elem(), RouterInputConfiguration0PropertiesArgs{})
@@ -25563,6 +29460,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputProtocolConfiguration1PropertiesInput)(nil)).Elem(), RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputProtocolConfiguration2PropertiesInput)(nil)).Elem(), RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputProtocolConfiguration3PropertiesInput)(nil)).Elem(), RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputProtocolConfiguration4PropertiesInput)(nil)).Elem(), RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFlowTransitEncryptionInput)(nil)).Elem(), RouterInputFlowTransitEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesInput)(nil)).Elem(), RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesInput)(nil)).Elem(), RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs{})
@@ -25572,6 +29470,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMaintenanceConfiguration0PropertiesPtrInput)(nil)).Elem(), RouterInputMaintenanceConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMaintenanceConfiguration1PropertiesInput)(nil)).Elem(), RouterInputMaintenanceConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMaintenanceConfiguration1PropertiesPtrInput)(nil)).Elem(), RouterInputMaintenanceConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputManualRtmpPushNamingConfigurationInput)(nil)).Elem(), RouterInputManualRtmpPushNamingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaConnectFlowRouterInputConfigurationInput)(nil)).Elem(), RouterInputMediaConnectFlowRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveChannelRouterInputConfigurationInput)(nil)).Elem(), RouterInputMediaLiveChannelRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionInput)(nil)).Elem(), RouterInputMediaLiveTransitEncryptionArgs{})
@@ -25580,15 +29479,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMergeRouterInputConfigurationInput)(nil)).Elem(), RouterInputMergeRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration0PropertiesInput)(nil)).Elem(), RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration1PropertiesInput)(nil)).Elem(), RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration2PropertiesInput)(nil)).Elem(), RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration3PropertiesInput)(nil)).Elem(), RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputPreferredDayTimeMaintenanceConfigurationInput)(nil)).Elem(), RouterInputPreferredDayTimeMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputPreferredDayTimeMaintenanceConfigurationPtrInput)(nil)).Elem(), RouterInputPreferredDayTimeMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolConfiguration0PropertiesInput)(nil)).Elem(), RouterInputProtocolConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolConfiguration1PropertiesInput)(nil)).Elem(), RouterInputProtocolConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolConfiguration2PropertiesInput)(nil)).Elem(), RouterInputProtocolConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolConfiguration3PropertiesInput)(nil)).Elem(), RouterInputProtocolConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolConfiguration4PropertiesInput)(nil)).Elem(), RouterInputProtocolConfiguration4PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRistRouterInputConfigurationInput)(nil)).Elem(), RouterInputRistRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRouterContentQualityAnalysisConfigurationPropertiesInput)(nil)).Elem(), RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrInput)(nil)).Elem(), RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRtmpPushNamingConfiguration0PropertiesInput)(nil)).Elem(), RouterInputRtmpPushNamingConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRtmpPushNamingConfiguration1PropertiesInput)(nil)).Elem(), RouterInputRtmpPushNamingConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRtmpPushRouterInputConfigurationInput)(nil)).Elem(), RouterInputRtmpPushRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRtpRouterInputConfigurationInput)(nil)).Elem(), RouterInputRtpRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSecretsManagerEncryptionKeyConfigurationInput)(nil)).Elem(), RouterInputSecretsManagerEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSecretsManagerEncryptionKeyConfigurationPtrInput)(nil)).Elem(), RouterInputSecretsManagerEncryptionKeyConfigurationArgs{})
@@ -25762,6 +29667,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowAudioMonitoringSettingArrayOutput{})
 	pulumi.RegisterOutputType(FlowAutomaticEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowAutomaticEncryptionKeyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowAutomaticRtmpPushNamingConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowAutomaticRtmpPushNamingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowBlackFramesOutput{})
 	pulumi.RegisterOutputType(FlowBlackFramesPtrOutput{})
 	pulumi.RegisterOutputType(FlowEncodingConfigOutput{})
@@ -25785,6 +29692,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowInterfaceOutput{})
 	pulumi.RegisterOutputType(FlowMaintenanceOutput{})
 	pulumi.RegisterOutputType(FlowMaintenancePtrOutput{})
+	pulumi.RegisterOutputType(FlowManualRtmpPushNamingConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowManualRtmpPushNamingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamTypeOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamAttributesOutput{})
@@ -25818,22 +29727,50 @@ func init() {
 	pulumi.RegisterOutputType(FlowOutputInterfaceOutput{})
 	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FlowOutputPublicTlsEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowOutputPublicTlsEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowOutputRtmpPushSettingsOutput{})
+	pulumi.RegisterOutputType(FlowOutputRtmpPushSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputSecretsManagerEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowOutputSecretsManagerEncryptionKeyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowOutputTlsEncryptionOutput{})
+	pulumi.RegisterOutputType(FlowOutputTlsEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(FlowOutputTlsEncryptionConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowOutputTlsEncryptionConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowOutputVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(FlowRtmpPushDetailsOutput{})
+	pulumi.RegisterOutputType(FlowRtmpPushDetailsPtrOutput{})
+	pulumi.RegisterOutputType(FlowRtmpPushNamingConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowRtmpPushNamingConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowRtmpPushNamingConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowRtmpPushNamingConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowRtmpPushSettingsOutput{})
+	pulumi.RegisterOutputType(FlowRtmpPushSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FlowSecretsManagerEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowSecretsManagerEncryptionKeyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowSilentAudioOutput{})
 	pulumi.RegisterOutputType(FlowSilentAudioPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceTypeOutput{})
 	pulumi.RegisterOutputType(FlowSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceAutomaticRtmpPushNamingConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowSourceAutomaticRtmpPushNamingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceGatewayBridgeSourceOutput{})
 	pulumi.RegisterOutputType(FlowSourceGatewayBridgeSourcePtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceManualRtmpPushNamingConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowSourceManualRtmpPushNamingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceMonitoringConfigOutput{})
 	pulumi.RegisterOutputType(FlowSourceMonitoringConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceRtmpPushDetailsOutput{})
+	pulumi.RegisterOutputType(FlowSourceRtmpPushDetailsPtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceRtmpPushNamingConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowSourceRtmpPushNamingConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceRtmpPushNamingConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowSourceRtmpPushNamingConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceRtmpPushSettingsOutput{})
+	pulumi.RegisterOutputType(FlowSourceRtmpPushSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(FlowTagOutput{})
@@ -25856,6 +29793,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputAutomaticEncryptionKeyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputAutomaticEndpointEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputAutomaticEndpointEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputAutomaticRtmpPushNamingConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputAutomaticRtmpPushNamingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputBlackFramesConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputBlackFramesConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration0PropertiesOutput{})
@@ -25876,6 +29815,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputDefaultMaintenanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputDestinationEndpointRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputDestinationEndpointRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputDestinationEndpointRouterInputStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputDestinationEndpointRouterInputStreamDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputEndpointEncryptionConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputEndpointEncryptionConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputEndpointEncryptionConfiguration1PropertiesOutput{})
@@ -25884,10 +29825,15 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputEndpointEncryptionSecretConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputFailoverRouterInputIndexedStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputFailoverRouterInputIndexedStreamDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputProtocolConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputProtocolConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputProtocolConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputProtocolConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputFailoverRouterInputProtocolConfiguration4PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputFailoverRouterInputStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputFailoverRouterInputStreamDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFlowTransitEncryptionOutput{})
 	pulumi.RegisterOutputType(RouterInputFlowTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesOutput{})
@@ -25900,10 +29846,16 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputMaintenanceConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMaintenanceConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputMaintenanceConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputManualRtmpPushNamingConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputManualRtmpPushNamingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaConnectFlowRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaConnectFlowRouterInputStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaConnectFlowRouterInputStreamDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaLiveChannelRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveChannelRouterInputStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveChannelRouterInputStreamDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput{})
@@ -25912,8 +29864,14 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMergeRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputMergeRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMergeRouterInputIndexedStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputMergeRouterInputIndexedStreamDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMergeRouterInputProtocolConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputMergeRouterInputProtocolConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputMergeRouterInputProtocolConfiguration2PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputMergeRouterInputProtocolConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputMergeRouterInputStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputMergeRouterInputStreamDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputPreferredDayTimeMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputPreferredDayTimeMaintenanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputProtocolConfiguration0PropertiesOutput{})
@@ -25924,10 +29882,20 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputProtocolConfiguration2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputProtocolConfiguration3PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputProtocolConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputProtocolConfiguration4PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputProtocolConfiguration4PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputRistRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputRistRouterInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputRtmpPushNamingConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputRtmpPushNamingConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputRtmpPushNamingConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputRtmpPushNamingConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputRtmpPushRouterInputConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputRtmpPushRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputRtmpPushStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputRtmpPushStreamDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputRtpRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputRtpRouterInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputSecretsManagerEncryptionKeyConfigurationOutput{})
@@ -25944,6 +29912,20 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputSrtListenerRouterInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputStandardRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputStandardRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputStandardRouterInputStreamDetailsOutput{})
+	pulumi.RegisterOutputType(RouterInputStandardRouterInputStreamDetailsPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails0PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails1PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails2PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails3PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails4PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails4PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails5PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputStreamDetails5PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputTransitEncryptionOutput{})
 	pulumi.RegisterOutputType(RouterInputTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputTransitEncryptionKeyConfiguration0PropertiesOutput{})

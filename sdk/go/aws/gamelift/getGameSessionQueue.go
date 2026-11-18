@@ -37,6 +37,8 @@ type LookupGameSessionQueueResult struct {
 	Destinations []GameSessionQueueDestination `pulumi:"destinations"`
 	// A list of locations where a queue is allowed to place new game sessions.
 	FilterConfiguration *GameSessionQueueFilterConfiguration `pulumi:"filterConfiguration"`
+	// A policy that determines where a game session queue's placement logs are delivered.
+	LogConfiguration *GameSessionQueueLogConfiguration `pulumi:"logConfiguration"`
 	// An SNS topic ARN that is set up to receive game session placement notifications.
 	NotificationTarget *string `pulumi:"notificationTarget"`
 	// A set of policies that act as a sliding cap on player latency.
@@ -97,6 +99,11 @@ func (o LookupGameSessionQueueResultOutput) FilterConfiguration() GameSessionQue
 	return o.ApplyT(func(v LookupGameSessionQueueResult) *GameSessionQueueFilterConfiguration {
 		return v.FilterConfiguration
 	}).(GameSessionQueueFilterConfigurationPtrOutput)
+}
+
+// A policy that determines where a game session queue's placement logs are delivered.
+func (o LookupGameSessionQueueResultOutput) LogConfiguration() GameSessionQueueLogConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupGameSessionQueueResult) *GameSessionQueueLogConfiguration { return v.LogConfiguration }).(GameSessionQueueLogConfigurationPtrOutput)
 }
 
 // An SNS topic ARN that is set up to receive game session placement notifications.

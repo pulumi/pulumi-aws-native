@@ -1084,6 +1084,216 @@ func (in *associationSourceAwsConfigurationAccountTypePtr) ToAssociationSourceAw
 	return pulumi.ToOutputWithContext(ctx, in).(AssociationSourceAwsConfigurationAccountTypePtrOutput)
 }
 
+type AssociationTriggerFilterGroupEventsItem string
+
+const (
+	AssociationTriggerFilterGroupEventsItemPullRequestReadyForReview = AssociationTriggerFilterGroupEventsItem("PULL_REQUEST_READY_FOR_REVIEW")
+	AssociationTriggerFilterGroupEventsItemPullRequestDraft          = AssociationTriggerFilterGroupEventsItem("PULL_REQUEST_DRAFT")
+)
+
+func (AssociationTriggerFilterGroupEventsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationTriggerFilterGroupEventsItem)(nil)).Elem()
+}
+
+func (e AssociationTriggerFilterGroupEventsItem) ToAssociationTriggerFilterGroupEventsItemOutput() AssociationTriggerFilterGroupEventsItemOutput {
+	return pulumi.ToOutput(e).(AssociationTriggerFilterGroupEventsItemOutput)
+}
+
+func (e AssociationTriggerFilterGroupEventsItem) ToAssociationTriggerFilterGroupEventsItemOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupEventsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssociationTriggerFilterGroupEventsItemOutput)
+}
+
+func (e AssociationTriggerFilterGroupEventsItem) ToAssociationTriggerFilterGroupEventsItemPtrOutput() AssociationTriggerFilterGroupEventsItemPtrOutput {
+	return e.ToAssociationTriggerFilterGroupEventsItemPtrOutputWithContext(context.Background())
+}
+
+func (e AssociationTriggerFilterGroupEventsItem) ToAssociationTriggerFilterGroupEventsItemPtrOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupEventsItemPtrOutput {
+	return AssociationTriggerFilterGroupEventsItem(e).ToAssociationTriggerFilterGroupEventsItemOutputWithContext(ctx).ToAssociationTriggerFilterGroupEventsItemPtrOutputWithContext(ctx)
+}
+
+func (e AssociationTriggerFilterGroupEventsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationTriggerFilterGroupEventsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationTriggerFilterGroupEventsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssociationTriggerFilterGroupEventsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssociationTriggerFilterGroupEventsItemOutput struct{ *pulumi.OutputState }
+
+func (AssociationTriggerFilterGroupEventsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationTriggerFilterGroupEventsItem)(nil)).Elem()
+}
+
+func (o AssociationTriggerFilterGroupEventsItemOutput) ToAssociationTriggerFilterGroupEventsItemOutput() AssociationTriggerFilterGroupEventsItemOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupEventsItemOutput) ToAssociationTriggerFilterGroupEventsItemOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupEventsItemOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupEventsItemOutput) ToAssociationTriggerFilterGroupEventsItemPtrOutput() AssociationTriggerFilterGroupEventsItemPtrOutput {
+	return o.ToAssociationTriggerFilterGroupEventsItemPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationTriggerFilterGroupEventsItemOutput) ToAssociationTriggerFilterGroupEventsItemPtrOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupEventsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationTriggerFilterGroupEventsItem) *AssociationTriggerFilterGroupEventsItem {
+		return &v
+	}).(AssociationTriggerFilterGroupEventsItemPtrOutput)
+}
+
+func (o AssociationTriggerFilterGroupEventsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssociationTriggerFilterGroupEventsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationTriggerFilterGroupEventsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssociationTriggerFilterGroupEventsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationTriggerFilterGroupEventsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationTriggerFilterGroupEventsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssociationTriggerFilterGroupEventsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationTriggerFilterGroupEventsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationTriggerFilterGroupEventsItem)(nil)).Elem()
+}
+
+func (o AssociationTriggerFilterGroupEventsItemPtrOutput) ToAssociationTriggerFilterGroupEventsItemPtrOutput() AssociationTriggerFilterGroupEventsItemPtrOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupEventsItemPtrOutput) ToAssociationTriggerFilterGroupEventsItemPtrOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupEventsItemPtrOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupEventsItemPtrOutput) Elem() AssociationTriggerFilterGroupEventsItemOutput {
+	return o.ApplyT(func(v *AssociationTriggerFilterGroupEventsItem) AssociationTriggerFilterGroupEventsItem {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationTriggerFilterGroupEventsItem
+		return ret
+	}).(AssociationTriggerFilterGroupEventsItemOutput)
+}
+
+func (o AssociationTriggerFilterGroupEventsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationTriggerFilterGroupEventsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssociationTriggerFilterGroupEventsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssociationTriggerFilterGroupEventsItemInput is an input type that accepts values of the AssociationTriggerFilterGroupEventsItem enum
+// A concrete instance of `AssociationTriggerFilterGroupEventsItemInput` can be one of the following:
+//
+//	AssociationTriggerFilterGroupEventsItemPullRequestReadyForReview
+//	AssociationTriggerFilterGroupEventsItemPullRequestDraft
+type AssociationTriggerFilterGroupEventsItemInput interface {
+	pulumi.Input
+
+	ToAssociationTriggerFilterGroupEventsItemOutput() AssociationTriggerFilterGroupEventsItemOutput
+	ToAssociationTriggerFilterGroupEventsItemOutputWithContext(context.Context) AssociationTriggerFilterGroupEventsItemOutput
+}
+
+var associationTriggerFilterGroupEventsItemPtrType = reflect.TypeOf((**AssociationTriggerFilterGroupEventsItem)(nil)).Elem()
+
+type AssociationTriggerFilterGroupEventsItemPtrInput interface {
+	pulumi.Input
+
+	ToAssociationTriggerFilterGroupEventsItemPtrOutput() AssociationTriggerFilterGroupEventsItemPtrOutput
+	ToAssociationTriggerFilterGroupEventsItemPtrOutputWithContext(context.Context) AssociationTriggerFilterGroupEventsItemPtrOutput
+}
+
+type associationTriggerFilterGroupEventsItemPtr string
+
+func AssociationTriggerFilterGroupEventsItemPtr(v string) AssociationTriggerFilterGroupEventsItemPtrInput {
+	return (*associationTriggerFilterGroupEventsItemPtr)(&v)
+}
+
+func (*associationTriggerFilterGroupEventsItemPtr) ElementType() reflect.Type {
+	return associationTriggerFilterGroupEventsItemPtrType
+}
+
+func (in *associationTriggerFilterGroupEventsItemPtr) ToAssociationTriggerFilterGroupEventsItemPtrOutput() AssociationTriggerFilterGroupEventsItemPtrOutput {
+	return pulumi.ToOutput(in).(AssociationTriggerFilterGroupEventsItemPtrOutput)
+}
+
+func (in *associationTriggerFilterGroupEventsItemPtr) ToAssociationTriggerFilterGroupEventsItemPtrOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupEventsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssociationTriggerFilterGroupEventsItemPtrOutput)
+}
+
+// AssociationTriggerFilterGroupEventsItemArrayInput is an input type that accepts AssociationTriggerFilterGroupEventsItemArray and AssociationTriggerFilterGroupEventsItemArrayOutput values.
+// You can construct a concrete instance of `AssociationTriggerFilterGroupEventsItemArrayInput` via:
+//
+//	AssociationTriggerFilterGroupEventsItemArray{ AssociationTriggerFilterGroupEventsItemArgs{...} }
+type AssociationTriggerFilterGroupEventsItemArrayInput interface {
+	pulumi.Input
+
+	ToAssociationTriggerFilterGroupEventsItemArrayOutput() AssociationTriggerFilterGroupEventsItemArrayOutput
+	ToAssociationTriggerFilterGroupEventsItemArrayOutputWithContext(context.Context) AssociationTriggerFilterGroupEventsItemArrayOutput
+}
+
+type AssociationTriggerFilterGroupEventsItemArray []AssociationTriggerFilterGroupEventsItem
+
+func (AssociationTriggerFilterGroupEventsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationTriggerFilterGroupEventsItem)(nil)).Elem()
+}
+
+func (i AssociationTriggerFilterGroupEventsItemArray) ToAssociationTriggerFilterGroupEventsItemArrayOutput() AssociationTriggerFilterGroupEventsItemArrayOutput {
+	return i.ToAssociationTriggerFilterGroupEventsItemArrayOutputWithContext(context.Background())
+}
+
+func (i AssociationTriggerFilterGroupEventsItemArray) ToAssociationTriggerFilterGroupEventsItemArrayOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupEventsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationTriggerFilterGroupEventsItemArrayOutput)
+}
+
+type AssociationTriggerFilterGroupEventsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AssociationTriggerFilterGroupEventsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationTriggerFilterGroupEventsItem)(nil)).Elem()
+}
+
+func (o AssociationTriggerFilterGroupEventsItemArrayOutput) ToAssociationTriggerFilterGroupEventsItemArrayOutput() AssociationTriggerFilterGroupEventsItemArrayOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupEventsItemArrayOutput) ToAssociationTriggerFilterGroupEventsItemArrayOutputWithContext(ctx context.Context) AssociationTriggerFilterGroupEventsItemArrayOutput {
+	return o
+}
+
+func (o AssociationTriggerFilterGroupEventsItemArrayOutput) Index(i pulumi.IntInput) AssociationTriggerFilterGroupEventsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssociationTriggerFilterGroupEventsItem {
+		return vs[0].([]AssociationTriggerFilterGroupEventsItem)[vs[1].(int)]
+	}).(AssociationTriggerFilterGroupEventsItemOutput)
+}
+
 // DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
 type PrivateConnectionServiceManagedModeDnsResolution string
 
@@ -3270,6 +3480,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerGrafanaConfigurationToolsItemArrayInput)(nil)).Elem(), AssociationMcpServerGrafanaConfigurationToolsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSourceAwsConfigurationAccountTypeInput)(nil)).Elem(), AssociationSourceAwsConfigurationAccountType("source"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSourceAwsConfigurationAccountTypePtrInput)(nil)).Elem(), AssociationSourceAwsConfigurationAccountType("source"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTriggerFilterGroupEventsItemInput)(nil)).Elem(), AssociationTriggerFilterGroupEventsItem("PULL_REQUEST_READY_FOR_REVIEW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTriggerFilterGroupEventsItemPtrInput)(nil)).Elem(), AssociationTriggerFilterGroupEventsItem("PULL_REQUEST_READY_FOR_REVIEW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTriggerFilterGroupEventsItemArrayInput)(nil)).Elem(), AssociationTriggerFilterGroupEventsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeDnsResolutionInput)(nil)).Elem(), PrivateConnectionServiceManagedModeDnsResolution("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeDnsResolutionPtrInput)(nil)).Elem(), PrivateConnectionServiceManagedModeDnsResolution("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeIpAddressTypeInput)(nil)).Elem(), PrivateConnectionServiceManagedModeIpAddressType("IPV4"))
@@ -3299,6 +3512,9 @@ func init() {
 	pulumi.RegisterOutputType(AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput{})
 	pulumi.RegisterOutputType(AssociationSourceAwsConfigurationAccountTypeOutput{})
 	pulumi.RegisterOutputType(AssociationSourceAwsConfigurationAccountTypePtrOutput{})
+	pulumi.RegisterOutputType(AssociationTriggerFilterGroupEventsItemOutput{})
+	pulumi.RegisterOutputType(AssociationTriggerFilterGroupEventsItemPtrOutput{})
+	pulumi.RegisterOutputType(AssociationTriggerFilterGroupEventsItemArrayOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeDnsResolutionOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeDnsResolutionPtrOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeIpAddressTypeOutput{})

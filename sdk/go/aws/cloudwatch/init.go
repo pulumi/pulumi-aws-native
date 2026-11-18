@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Alarm{}
 	case "aws-native:cloudwatch:AlarmMuteRule":
 		r = &AlarmMuteRule{}
+	case "aws-native:cloudwatch:Alert":
+		r = &Alert{}
 	case "aws-native:cloudwatch:CompositeAlarm":
 		r = &CompositeAlarm{}
 	case "aws-native:cloudwatch:Dashboard":
@@ -45,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Integration{}
 	case "aws-native:cloudwatch:LogAlarm":
 		r = &LogAlarm{}
+	case "aws-native:cloudwatch:MetricDataQueryDefinition":
+		r = &MetricDataQueryDefinition{}
 	case "aws-native:cloudwatch:MetricStream":
 		r = &MetricStream{}
 	case "aws-native:cloudwatch:OTelEnrichment":

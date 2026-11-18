@@ -454,6 +454,170 @@ func (in *dataCatalogTypePtr) ToDataCatalogTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(DataCatalogTypePtrOutput)
 }
 
+// The reserved keyword identifying the account-level System Tables configuration. The only accepted value is ALL, which enables all system tables for the account. This is the resource's primary identifier.
+type SystemTablesTableName string
+
+const (
+	SystemTablesTableNameAll = SystemTablesTableName("ALL")
+)
+
+func (SystemTablesTableName) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTablesTableName)(nil)).Elem()
+}
+
+func (e SystemTablesTableName) ToSystemTablesTableNameOutput() SystemTablesTableNameOutput {
+	return pulumi.ToOutput(e).(SystemTablesTableNameOutput)
+}
+
+func (e SystemTablesTableName) ToSystemTablesTableNameOutputWithContext(ctx context.Context) SystemTablesTableNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SystemTablesTableNameOutput)
+}
+
+func (e SystemTablesTableName) ToSystemTablesTableNamePtrOutput() SystemTablesTableNamePtrOutput {
+	return e.ToSystemTablesTableNamePtrOutputWithContext(context.Background())
+}
+
+func (e SystemTablesTableName) ToSystemTablesTableNamePtrOutputWithContext(ctx context.Context) SystemTablesTableNamePtrOutput {
+	return SystemTablesTableName(e).ToSystemTablesTableNameOutputWithContext(ctx).ToSystemTablesTableNamePtrOutputWithContext(ctx)
+}
+
+func (e SystemTablesTableName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SystemTablesTableName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SystemTablesTableName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SystemTablesTableName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SystemTablesTableNameOutput struct{ *pulumi.OutputState }
+
+func (SystemTablesTableNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTablesTableName)(nil)).Elem()
+}
+
+func (o SystemTablesTableNameOutput) ToSystemTablesTableNameOutput() SystemTablesTableNameOutput {
+	return o
+}
+
+func (o SystemTablesTableNameOutput) ToSystemTablesTableNameOutputWithContext(ctx context.Context) SystemTablesTableNameOutput {
+	return o
+}
+
+func (o SystemTablesTableNameOutput) ToSystemTablesTableNamePtrOutput() SystemTablesTableNamePtrOutput {
+	return o.ToSystemTablesTableNamePtrOutputWithContext(context.Background())
+}
+
+func (o SystemTablesTableNameOutput) ToSystemTablesTableNamePtrOutputWithContext(ctx context.Context) SystemTablesTableNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTablesTableName) *SystemTablesTableName {
+		return &v
+	}).(SystemTablesTableNamePtrOutput)
+}
+
+func (o SystemTablesTableNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SystemTablesTableNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SystemTablesTableName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SystemTablesTableNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTablesTableNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SystemTablesTableName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SystemTablesTableNamePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTablesTableNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTablesTableName)(nil)).Elem()
+}
+
+func (o SystemTablesTableNamePtrOutput) ToSystemTablesTableNamePtrOutput() SystemTablesTableNamePtrOutput {
+	return o
+}
+
+func (o SystemTablesTableNamePtrOutput) ToSystemTablesTableNamePtrOutputWithContext(ctx context.Context) SystemTablesTableNamePtrOutput {
+	return o
+}
+
+func (o SystemTablesTableNamePtrOutput) Elem() SystemTablesTableNameOutput {
+	return o.ApplyT(func(v *SystemTablesTableName) SystemTablesTableName {
+		if v != nil {
+			return *v
+		}
+		var ret SystemTablesTableName
+		return ret
+	}).(SystemTablesTableNameOutput)
+}
+
+func (o SystemTablesTableNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTablesTableNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SystemTablesTableName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SystemTablesTableNameInput is an input type that accepts values of the SystemTablesTableName enum
+// A concrete instance of `SystemTablesTableNameInput` can be one of the following:
+//
+//	SystemTablesTableNameAll
+type SystemTablesTableNameInput interface {
+	pulumi.Input
+
+	ToSystemTablesTableNameOutput() SystemTablesTableNameOutput
+	ToSystemTablesTableNameOutputWithContext(context.Context) SystemTablesTableNameOutput
+}
+
+var systemTablesTableNamePtrType = reflect.TypeOf((**SystemTablesTableName)(nil)).Elem()
+
+type SystemTablesTableNamePtrInput interface {
+	pulumi.Input
+
+	ToSystemTablesTableNamePtrOutput() SystemTablesTableNamePtrOutput
+	ToSystemTablesTableNamePtrOutputWithContext(context.Context) SystemTablesTableNamePtrOutput
+}
+
+type systemTablesTableNamePtr string
+
+func SystemTablesTableNamePtr(v string) SystemTablesTableNamePtrInput {
+	return (*systemTablesTableNamePtr)(&v)
+}
+
+func (*systemTablesTableNamePtr) ElementType() reflect.Type {
+	return systemTablesTableNamePtrType
+}
+
+func (in *systemTablesTableNamePtr) ToSystemTablesTableNamePtrOutput() SystemTablesTableNamePtrOutput {
+	return pulumi.ToOutput(in).(SystemTablesTableNamePtrOutput)
+}
+
+func (in *systemTablesTableNamePtr) ToSystemTablesTableNamePtrOutputWithContext(ctx context.Context) SystemTablesTableNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SystemTablesTableNamePtrOutput)
+}
+
 // Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
 type WorkGroupEncryptionOption string
 
@@ -957,6 +1121,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogStatusPtrInput)(nil)).Elem(), DataCatalogStatus("CREATE_IN_PROGRESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTypeInput)(nil)).Elem(), DataCatalogType("LAMBDA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTypePtrInput)(nil)).Elem(), DataCatalogType("LAMBDA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemTablesTableNameInput)(nil)).Elem(), SystemTablesTableName("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemTablesTableNamePtrInput)(nil)).Elem(), SystemTablesTableName("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionOptionInput)(nil)).Elem(), WorkGroupEncryptionOption("SSE_S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionOptionPtrInput)(nil)).Elem(), WorkGroupEncryptionOption("SSE_S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupS3AclOptionInput)(nil)).Elem(), WorkGroupS3AclOption("BUCKET_OWNER_FULL_CONTROL"))
@@ -969,6 +1135,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCatalogStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogTypeOutput{})
 	pulumi.RegisterOutputType(DataCatalogTypePtrOutput{})
+	pulumi.RegisterOutputType(SystemTablesTableNameOutput{})
+	pulumi.RegisterOutputType(SystemTablesTableNamePtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionOptionOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionOptionPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupS3AclOptionOutput{})

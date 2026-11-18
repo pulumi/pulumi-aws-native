@@ -13,8 +13,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['PodIdentityAssociationArgs', 'PodIdentityAssociation']
 
@@ -28,7 +30,8 @@ class PodIdentityAssociationArgs:
                  disable_session_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+                 target_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identity_config: pulumi.Input[Optional['PodIdentityAssociationWorkloadIdentityConfigArgs']] = None):
         """
         The set of arguments for constructing a PodIdentityAssociation resource.
 
@@ -53,6 +56,8 @@ class PodIdentityAssociationArgs:
             pulumi.set(__self__, "tags", tags)
         if target_role_arn is not None:
             pulumi.set(__self__, "target_role_arn", target_role_arn)
+        if workload_identity_config is not None:
+            pulumi.set(__self__, "workload_identity_config", workload_identity_config)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -150,6 +155,15 @@ class PodIdentityAssociationArgs:
     def target_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_role_arn", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityConfig")
+    def workload_identity_config(self) -> pulumi.Input[Optional['PodIdentityAssociationWorkloadIdentityConfigArgs']]:
+        return pulumi.get(self, "workload_identity_config")
+
+    @workload_identity_config.setter
+    def workload_identity_config(self, value: pulumi.Input[Optional['PodIdentityAssociationWorkloadIdentityConfigArgs']]):
+        pulumi.set(self, "workload_identity_config", value)
+
 
 @pulumi.type_token("aws-native:eks:PodIdentityAssociation")
 class PodIdentityAssociation(pulumi.CustomResource):
@@ -165,6 +179,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  service_account: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identity_config: pulumi.Input[Optional[Union['PodIdentityAssociationWorkloadIdentityConfigArgs', 'PodIdentityAssociationWorkloadIdentityConfigArgsDict', 'outputs.PodIdentityAssociationWorkloadIdentityConfig']]] = None,
                  __props__=None):
         """
         An object representing an Amazon EKS PodIdentityAssociation.
@@ -212,6 +227,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  service_account: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identity_config: pulumi.Input[Optional[Union['PodIdentityAssociationWorkloadIdentityConfigArgs', 'PodIdentityAssociationWorkloadIdentityConfigArgsDict', 'outputs.PodIdentityAssociationWorkloadIdentityConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -237,6 +253,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
             __props__.__dict__["service_account"] = service_account
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_role_arn"] = target_role_arn
+            __props__.__dict__["workload_identity_config"] = workload_identity_config
             __props__.__dict__["association_arn"] = None
             __props__.__dict__["association_id"] = None
             __props__.__dict__["external_id"] = None
@@ -275,6 +292,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         __props__.__dict__["service_account"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_role_arn"] = None
+        __props__.__dict__["workload_identity_config"] = None
         return PodIdentityAssociation(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -370,4 +388,9 @@ class PodIdentityAssociation(pulumi.CustomResource):
         The Target Role Arn of the pod identity association.
         """
         return pulumi.get(self, "target_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityConfig")
+    def workload_identity_config(self) -> pulumi.Output[Optional['outputs.PodIdentityAssociationWorkloadIdentityConfig']]:
+        return pulumi.get(self, "workload_identity_config")
 

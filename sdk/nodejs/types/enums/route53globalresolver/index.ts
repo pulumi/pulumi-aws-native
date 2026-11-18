@@ -34,6 +34,13 @@ export const AccessTokenTokenStatus = {
 
 export type AccessTokenTokenStatus = (typeof AccessTokenTokenStatus)[keyof typeof AccessTokenTokenStatus];
 
+export const CoreNetworkEndpointRegionScope = {
+    All: "ALL",
+    Regional: "REGIONAL",
+} as const;
+
+export type CoreNetworkEndpointRegionScope = (typeof CoreNetworkEndpointRegionScope)[keyof typeof CoreNetworkEndpointRegionScope];
+
 export const DnsViewDnsSecValidationType = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -138,6 +145,14 @@ export const GlobalResolverIpAddressType = {
 } as const;
 
 export type GlobalResolverIpAddressType = (typeof GlobalResolverIpAddressType)[keyof typeof GlobalResolverIpAddressType];
+
+export const GlobalResolverPublicIpStatus = {
+    EnabledReserved: "ENABLED_RESERVED",
+    DisabledReserved: "DISABLED_RESERVED",
+    DisabledReleased: "DISABLED_RELEASED",
+} as const;
+
+export type GlobalResolverPublicIpStatus = (typeof GlobalResolverPublicIpStatus)[keyof typeof GlobalResolverPublicIpStatus];
 
 export const HostedZoneAssociationStatus = {
     Creating: "CREATING",

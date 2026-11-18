@@ -581,6 +581,8 @@ class OriginEndpointDashManifestConfiguration(dict):
             suggest = "audio_timeline_pattern"
         elif key == "availabilityStartTimeConfiguration":
             suggest = "availability_start_time_configuration"
+        elif key == "bandwidthReportingMode":
+            suggest = "bandwidth_reporting_mode"
         elif key == "baseUrls":
             suggest = "base_urls"
         elif key == "drmSignaling":
@@ -627,6 +629,7 @@ class OriginEndpointDashManifestConfiguration(dict):
                  manifest_name: _builtins.str,
                  audio_timeline_pattern: Optional['OriginEndpointDashAudioTimelinePattern'] = None,
                  availability_start_time_configuration: Optional['outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties'] = None,
+                 bandwidth_reporting_mode: Optional['OriginEndpointDashBandwidthReportingMode'] = None,
                  base_urls: Optional[Sequence['outputs.OriginEndpointDashBaseUrl']] = None,
                  compactness: Optional['OriginEndpointDashCompactness'] = None,
                  drm_signaling: Optional['OriginEndpointDashDrmSignaling'] = None,
@@ -676,6 +679,8 @@ class OriginEndpointDashManifestConfiguration(dict):
             pulumi.set(__self__, "audio_timeline_pattern", audio_timeline_pattern)
         if availability_start_time_configuration is not None:
             pulumi.set(__self__, "availability_start_time_configuration", availability_start_time_configuration)
+        if bandwidth_reporting_mode is not None:
+            pulumi.set(__self__, "bandwidth_reporting_mode", bandwidth_reporting_mode)
         if base_urls is not None:
             pulumi.set(__self__, "base_urls", base_urls)
         if compactness is not None:
@@ -728,6 +733,11 @@ class OriginEndpointDashManifestConfiguration(dict):
     @pulumi.getter(name="availabilityStartTimeConfiguration")
     def availability_start_time_configuration(self) -> Optional['outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties']:
         return pulumi.get(self, "availability_start_time_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthReportingMode")
+    def bandwidth_reporting_mode(self) -> Optional['OriginEndpointDashBandwidthReportingMode']:
+        return pulumi.get(self, "bandwidth_reporting_mode")
 
     @_builtins.property
     @pulumi.getter(name="baseUrls")

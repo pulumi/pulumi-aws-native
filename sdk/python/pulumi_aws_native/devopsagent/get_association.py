@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssociationResult:
-    def __init__(__self__, association_id=None, configuration=None, created_at=None, service_id=None, updated_at=None):
+    def __init__(__self__, association_id=None, capabilities=None, configuration=None, created_at=None, service_id=None, updated_at=None):
         if association_id and not isinstance(association_id, str):
             raise TypeError("Expected argument 'association_id' to be a str")
         pulumi.set(__self__, "association_id", association_id)
+        if capabilities and not isinstance(capabilities, dict):
+            raise TypeError("Expected argument 'capabilities' to be a dict")
+        pulumi.set(__self__, "capabilities", capabilities)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -49,6 +52,14 @@ class GetAssociationResult:
         The unique identifier of the association
         """
         return pulumi.get(self, "association_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def capabilities(self) -> Optional['outputs.AssociationCapabilities']:
+        """
+        Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+        """
+        return pulumi.get(self, "capabilities")
 
     @_builtins.property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetAssociationResult(GetAssociationResult):
             yield self
         return GetAssociationResult(
             association_id=self.association_id,
+            capabilities=self.capabilities,
             configuration=self.configuration,
             created_at=self.created_at,
             service_id=self.service_id,
@@ -113,6 +125,7 @@ def get_association(agent_space_id: Optional[_builtins.str] = None,
 
     return AwaitableGetAssociationResult(
         association_id=pulumi.get(__ret__, 'association_id'),
+        capabilities=pulumi.get(__ret__, 'capabilities'),
         configuration=pulumi.get(__ret__, 'configuration'),
         created_at=pulumi.get(__ret__, 'created_at'),
         service_id=pulumi.get(__ret__, 'service_id'),
@@ -133,6 +146,7 @@ def get_association_output(agent_space_id: pulumi.Input[Optional[_builtins.str]]
     __ret__ = pulumi.runtime.invoke_output('aws-native:devopsagent:getAssociation', __args__, opts=opts, typ=GetAssociationResult)
     return __ret__.apply(lambda __response__: GetAssociationResult(
         association_id=pulumi.get(__response__, 'association_id'),
+        capabilities=pulumi.get(__response__, 'capabilities'),
         configuration=pulumi.get(__response__, 'configuration'),
         created_at=pulumi.get(__response__, 'created_at'),
         service_id=pulumi.get(__response__, 'service_id'),

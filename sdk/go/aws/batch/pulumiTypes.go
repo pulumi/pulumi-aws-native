@@ -5796,6 +5796,154 @@ func (o JobDefinitionEksContainerEnvironmentVariableArrayOutput) Index(i pulumi.
 	}).(JobDefinitionEksContainerEnvironmentVariableOutput)
 }
 
+type JobDefinitionEksContainerLinuxCapabilities struct {
+	Add  []string `pulumi:"add"`
+	Drop []string `pulumi:"drop"`
+}
+
+// JobDefinitionEksContainerLinuxCapabilitiesInput is an input type that accepts JobDefinitionEksContainerLinuxCapabilitiesArgs and JobDefinitionEksContainerLinuxCapabilitiesOutput values.
+// You can construct a concrete instance of `JobDefinitionEksContainerLinuxCapabilitiesInput` via:
+//
+//	JobDefinitionEksContainerLinuxCapabilitiesArgs{...}
+type JobDefinitionEksContainerLinuxCapabilitiesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksContainerLinuxCapabilitiesOutput() JobDefinitionEksContainerLinuxCapabilitiesOutput
+	ToJobDefinitionEksContainerLinuxCapabilitiesOutputWithContext(context.Context) JobDefinitionEksContainerLinuxCapabilitiesOutput
+}
+
+type JobDefinitionEksContainerLinuxCapabilitiesArgs struct {
+	Add  pulumi.StringArrayInput `pulumi:"add"`
+	Drop pulumi.StringArrayInput `pulumi:"drop"`
+}
+
+func (JobDefinitionEksContainerLinuxCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksContainerLinuxCapabilities)(nil)).Elem()
+}
+
+func (i JobDefinitionEksContainerLinuxCapabilitiesArgs) ToJobDefinitionEksContainerLinuxCapabilitiesOutput() JobDefinitionEksContainerLinuxCapabilitiesOutput {
+	return i.ToJobDefinitionEksContainerLinuxCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksContainerLinuxCapabilitiesArgs) ToJobDefinitionEksContainerLinuxCapabilitiesOutputWithContext(ctx context.Context) JobDefinitionEksContainerLinuxCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerLinuxCapabilitiesOutput)
+}
+
+func (i JobDefinitionEksContainerLinuxCapabilitiesArgs) ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutput() JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return i.ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksContainerLinuxCapabilitiesArgs) ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerLinuxCapabilitiesOutput).ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksContainerLinuxCapabilitiesPtrInput is an input type that accepts JobDefinitionEksContainerLinuxCapabilitiesArgs, JobDefinitionEksContainerLinuxCapabilitiesPtr and JobDefinitionEksContainerLinuxCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksContainerLinuxCapabilitiesPtrInput` via:
+//
+//	        JobDefinitionEksContainerLinuxCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksContainerLinuxCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutput() JobDefinitionEksContainerLinuxCapabilitiesPtrOutput
+	ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(context.Context) JobDefinitionEksContainerLinuxCapabilitiesPtrOutput
+}
+
+type jobDefinitionEksContainerLinuxCapabilitiesPtrType JobDefinitionEksContainerLinuxCapabilitiesArgs
+
+func JobDefinitionEksContainerLinuxCapabilitiesPtr(v *JobDefinitionEksContainerLinuxCapabilitiesArgs) JobDefinitionEksContainerLinuxCapabilitiesPtrInput {
+	return (*jobDefinitionEksContainerLinuxCapabilitiesPtrType)(v)
+}
+
+func (*jobDefinitionEksContainerLinuxCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksContainerLinuxCapabilities)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksContainerLinuxCapabilitiesPtrType) ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutput() JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return i.ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksContainerLinuxCapabilitiesPtrType) ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerLinuxCapabilitiesPtrOutput)
+}
+
+type JobDefinitionEksContainerLinuxCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksContainerLinuxCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksContainerLinuxCapabilities)(nil)).Elem()
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesOutput) ToJobDefinitionEksContainerLinuxCapabilitiesOutput() JobDefinitionEksContainerLinuxCapabilitiesOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesOutput) ToJobDefinitionEksContainerLinuxCapabilitiesOutputWithContext(ctx context.Context) JobDefinitionEksContainerLinuxCapabilitiesOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesOutput) ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutput() JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return o.ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesOutput) ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksContainerLinuxCapabilities) *JobDefinitionEksContainerLinuxCapabilities {
+		return &v
+	}).(JobDefinitionEksContainerLinuxCapabilitiesPtrOutput)
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesOutput) Add() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerLinuxCapabilities) []string { return v.Add }).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesOutput) Drop() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerLinuxCapabilities) []string { return v.Drop }).(pulumi.StringArrayOutput)
+}
+
+type JobDefinitionEksContainerLinuxCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksContainerLinuxCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksContainerLinuxCapabilities)(nil)).Elem()
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesPtrOutput) ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutput() JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesPtrOutput) ToJobDefinitionEksContainerLinuxCapabilitiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesPtrOutput) Elem() JobDefinitionEksContainerLinuxCapabilitiesOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerLinuxCapabilities) JobDefinitionEksContainerLinuxCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksContainerLinuxCapabilities
+		return ret
+	}).(JobDefinitionEksContainerLinuxCapabilitiesOutput)
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesPtrOutput) Add() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerLinuxCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Add
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionEksContainerLinuxCapabilitiesPtrOutput) Drop() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerLinuxCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Drop
+	}).(pulumi.StringArrayOutput)
+}
+
 type JobDefinitionEksContainerResourceRequirements struct {
 	// The type and quantity of the resources to reserve for the container. The values vary based on the `name` that's specified. Resources can be requested using either the `limits` or the `requests` objects.
 	//
@@ -6002,7 +6150,8 @@ func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Requests() pulum
 
 type JobDefinitionEksContainerSecurityContext struct {
 	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false` .
-	AllowPrivilegeEscalation *bool `pulumi:"allowPrivilegeEscalation"`
+	AllowPrivilegeEscalation *bool                                       `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             *JobDefinitionEksContainerLinuxCapabilities `pulumi:"capabilities"`
 	// When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
 	Privileged *bool `pulumi:"privileged"`
 	// When this parameter is `true` , the container is given read-only access to its root file system. The default value is `false` . This parameter maps to `ReadOnlyRootFilesystem` policy in the [Volumes and file systems pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems) in the *Kubernetes documentation* .
@@ -6012,7 +6161,8 @@ type JobDefinitionEksContainerSecurityContext struct {
 	// When this parameter is specified, the container is run as a user with a `uid` other than 0. If this parameter isn't specified, so such rule is enforced. This parameter maps to `RunAsUser` and `MustRunAsNonRoot` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
 	RunAsNonRoot *bool `pulumi:"runAsNonRoot"`
 	// When this parameter is specified, the container is run as the specified user ID ( `uid` ). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to `RunAsUser` and `MustRanAs` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
-	RunAsUser *int `pulumi:"runAsUser"`
+	RunAsUser      *int                            `pulumi:"runAsUser"`
+	SeccompProfile *JobDefinitionEksSeccompProfile `pulumi:"seccompProfile"`
 }
 
 // JobDefinitionEksContainerSecurityContextInput is an input type that accepts JobDefinitionEksContainerSecurityContextArgs and JobDefinitionEksContainerSecurityContextOutput values.
@@ -6028,7 +6178,8 @@ type JobDefinitionEksContainerSecurityContextInput interface {
 
 type JobDefinitionEksContainerSecurityContextArgs struct {
 	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false` .
-	AllowPrivilegeEscalation pulumi.BoolPtrInput `pulumi:"allowPrivilegeEscalation"`
+	AllowPrivilegeEscalation pulumi.BoolPtrInput                                `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             JobDefinitionEksContainerLinuxCapabilitiesPtrInput `pulumi:"capabilities"`
 	// When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
 	Privileged pulumi.BoolPtrInput `pulumi:"privileged"`
 	// When this parameter is `true` , the container is given read-only access to its root file system. The default value is `false` . This parameter maps to `ReadOnlyRootFilesystem` policy in the [Volumes and file systems pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems) in the *Kubernetes documentation* .
@@ -6038,7 +6189,8 @@ type JobDefinitionEksContainerSecurityContextArgs struct {
 	// When this parameter is specified, the container is run as a user with a `uid` other than 0. If this parameter isn't specified, so such rule is enforced. This parameter maps to `RunAsUser` and `MustRunAsNonRoot` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
 	RunAsNonRoot pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
 	// When this parameter is specified, the container is run as the specified user ID ( `uid` ). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to `RunAsUser` and `MustRanAs` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
-	RunAsUser pulumi.IntPtrInput `pulumi:"runAsUser"`
+	RunAsUser      pulumi.IntPtrInput                     `pulumi:"runAsUser"`
+	SeccompProfile JobDefinitionEksSeccompProfilePtrInput `pulumi:"seccompProfile"`
 }
 
 func (JobDefinitionEksContainerSecurityContextArgs) ElementType() reflect.Type {
@@ -6123,6 +6275,12 @@ func (o JobDefinitionEksContainerSecurityContextOutput) AllowPrivilegeEscalation
 	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *bool { return v.AllowPrivilegeEscalation }).(pulumi.BoolPtrOutput)
 }
 
+func (o JobDefinitionEksContainerSecurityContextOutput) Capabilities() JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *JobDefinitionEksContainerLinuxCapabilities {
+		return v.Capabilities
+	}).(JobDefinitionEksContainerLinuxCapabilitiesPtrOutput)
+}
+
 // When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
 func (o JobDefinitionEksContainerSecurityContextOutput) Privileged() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
@@ -6146,6 +6304,12 @@ func (o JobDefinitionEksContainerSecurityContextOutput) RunAsNonRoot() pulumi.Bo
 // When this parameter is specified, the container is run as the specified user ID ( `uid` ). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to `RunAsUser` and `MustRanAs` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
 func (o JobDefinitionEksContainerSecurityContextOutput) RunAsUser() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *int { return v.RunAsUser }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) SeccompProfile() JobDefinitionEksSeccompProfilePtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *JobDefinitionEksSeccompProfile {
+		return v.SeccompProfile
+	}).(JobDefinitionEksSeccompProfilePtrOutput)
 }
 
 type JobDefinitionEksContainerSecurityContextPtrOutput struct{ *pulumi.OutputState }
@@ -6180,6 +6344,15 @@ func (o JobDefinitionEksContainerSecurityContextPtrOutput) AllowPrivilegeEscalat
 		}
 		return v.AllowPrivilegeEscalation
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) Capabilities() JobDefinitionEksContainerLinuxCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) *JobDefinitionEksContainerLinuxCapabilities {
+		if v == nil {
+			return nil
+		}
+		return v.Capabilities
+	}).(JobDefinitionEksContainerLinuxCapabilitiesPtrOutput)
 }
 
 // When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
@@ -6230,6 +6403,15 @@ func (o JobDefinitionEksContainerSecurityContextPtrOutput) RunAsUser() pulumi.In
 		}
 		return v.RunAsUser
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) SeccompProfile() JobDefinitionEksSeccompProfilePtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) *JobDefinitionEksSeccompProfile {
+		if v == nil {
+			return nil
+		}
+		return v.SeccompProfile
+	}).(JobDefinitionEksSeccompProfilePtrOutput)
 }
 
 type JobDefinitionEksContainerVolumeMount struct {
@@ -7068,7 +7250,8 @@ type JobDefinitionEksPodProperties struct {
 	// > This object is limited to 10 elements.
 	InitContainers []JobDefinitionEksContainer `pulumi:"initContainers"`
 	// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-	Metadata *JobDefinitionEksMetadata `pulumi:"metadata"`
+	Metadata        *JobDefinitionEksMetadata           `pulumi:"metadata"`
+	SecurityContext *JobDefinitionEksPodSecurityContext `pulumi:"securityContext"`
 	// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
 	ServiceAccountName *string `pulumi:"serviceAccountName"`
 	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
@@ -7108,7 +7291,8 @@ type JobDefinitionEksPodPropertiesArgs struct {
 	// > This object is limited to 10 elements.
 	InitContainers JobDefinitionEksContainerArrayInput `pulumi:"initContainers"`
 	// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-	Metadata JobDefinitionEksMetadataPtrInput `pulumi:"metadata"`
+	Metadata        JobDefinitionEksMetadataPtrInput           `pulumi:"metadata"`
+	SecurityContext JobDefinitionEksPodSecurityContextPtrInput `pulumi:"securityContext"`
 	// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
 	ServiceAccountName pulumi.StringPtrInput `pulumi:"serviceAccountName"`
 	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
@@ -7232,6 +7416,10 @@ func (o JobDefinitionEksPodPropertiesOutput) Metadata() JobDefinitionEksMetadata
 	return o.ApplyT(func(v JobDefinitionEksPodProperties) *JobDefinitionEksMetadata { return v.Metadata }).(JobDefinitionEksMetadataPtrOutput)
 }
 
+func (o JobDefinitionEksPodPropertiesOutput) SecurityContext() JobDefinitionEksPodSecurityContextPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) *JobDefinitionEksPodSecurityContext { return v.SecurityContext }).(JobDefinitionEksPodSecurityContextPtrOutput)
+}
+
 // The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
 func (o JobDefinitionEksPodPropertiesOutput) ServiceAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPodProperties) *string { return v.ServiceAccountName }).(pulumi.StringPtrOutput)
@@ -7339,6 +7527,15 @@ func (o JobDefinitionEksPodPropertiesPtrOutput) Metadata() JobDefinitionEksMetad
 	}).(JobDefinitionEksMetadataPtrOutput)
 }
 
+func (o JobDefinitionEksPodPropertiesPtrOutput) SecurityContext() JobDefinitionEksPodSecurityContextPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) *JobDefinitionEksPodSecurityContext {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityContext
+	}).(JobDefinitionEksPodSecurityContextPtrOutput)
+}
+
 // The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
 func (o JobDefinitionEksPodPropertiesPtrOutput) ServiceAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPodProperties) *string {
@@ -7367,6 +7564,199 @@ func (o JobDefinitionEksPodPropertiesPtrOutput) Volumes() JobDefinitionEksVolume
 		}
 		return v.Volumes
 	}).(JobDefinitionEksVolumeArrayOutput)
+}
+
+type JobDefinitionEksPodSecurityContext struct {
+	FsGroup        *int                            `pulumi:"fsGroup"`
+	RunAsGroup     *int                            `pulumi:"runAsGroup"`
+	RunAsNonRoot   *bool                           `pulumi:"runAsNonRoot"`
+	RunAsUser      *int                            `pulumi:"runAsUser"`
+	SeccompProfile *JobDefinitionEksSeccompProfile `pulumi:"seccompProfile"`
+}
+
+// JobDefinitionEksPodSecurityContextInput is an input type that accepts JobDefinitionEksPodSecurityContextArgs and JobDefinitionEksPodSecurityContextOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPodSecurityContextInput` via:
+//
+//	JobDefinitionEksPodSecurityContextArgs{...}
+type JobDefinitionEksPodSecurityContextInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPodSecurityContextOutput() JobDefinitionEksPodSecurityContextOutput
+	ToJobDefinitionEksPodSecurityContextOutputWithContext(context.Context) JobDefinitionEksPodSecurityContextOutput
+}
+
+type JobDefinitionEksPodSecurityContextArgs struct {
+	FsGroup        pulumi.IntPtrInput                     `pulumi:"fsGroup"`
+	RunAsGroup     pulumi.IntPtrInput                     `pulumi:"runAsGroup"`
+	RunAsNonRoot   pulumi.BoolPtrInput                    `pulumi:"runAsNonRoot"`
+	RunAsUser      pulumi.IntPtrInput                     `pulumi:"runAsUser"`
+	SeccompProfile JobDefinitionEksSeccompProfilePtrInput `pulumi:"seccompProfile"`
+}
+
+func (JobDefinitionEksPodSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPodSecurityContext)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPodSecurityContextArgs) ToJobDefinitionEksPodSecurityContextOutput() JobDefinitionEksPodSecurityContextOutput {
+	return i.ToJobDefinitionEksPodSecurityContextOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPodSecurityContextArgs) ToJobDefinitionEksPodSecurityContextOutputWithContext(ctx context.Context) JobDefinitionEksPodSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPodSecurityContextOutput)
+}
+
+func (i JobDefinitionEksPodSecurityContextArgs) ToJobDefinitionEksPodSecurityContextPtrOutput() JobDefinitionEksPodSecurityContextPtrOutput {
+	return i.ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPodSecurityContextArgs) ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPodSecurityContextOutput).ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksPodSecurityContextPtrInput is an input type that accepts JobDefinitionEksPodSecurityContextArgs, JobDefinitionEksPodSecurityContextPtr and JobDefinitionEksPodSecurityContextPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPodSecurityContextPtrInput` via:
+//
+//	        JobDefinitionEksPodSecurityContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksPodSecurityContextPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPodSecurityContextPtrOutput() JobDefinitionEksPodSecurityContextPtrOutput
+	ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(context.Context) JobDefinitionEksPodSecurityContextPtrOutput
+}
+
+type jobDefinitionEksPodSecurityContextPtrType JobDefinitionEksPodSecurityContextArgs
+
+func JobDefinitionEksPodSecurityContextPtr(v *JobDefinitionEksPodSecurityContextArgs) JobDefinitionEksPodSecurityContextPtrInput {
+	return (*jobDefinitionEksPodSecurityContextPtrType)(v)
+}
+
+func (*jobDefinitionEksPodSecurityContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPodSecurityContext)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksPodSecurityContextPtrType) ToJobDefinitionEksPodSecurityContextPtrOutput() JobDefinitionEksPodSecurityContextPtrOutput {
+	return i.ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksPodSecurityContextPtrType) ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPodSecurityContextPtrOutput)
+}
+
+type JobDefinitionEksPodSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPodSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPodSecurityContext)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) ToJobDefinitionEksPodSecurityContextOutput() JobDefinitionEksPodSecurityContextOutput {
+	return o
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) ToJobDefinitionEksPodSecurityContextOutputWithContext(ctx context.Context) JobDefinitionEksPodSecurityContextOutput {
+	return o
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) ToJobDefinitionEksPodSecurityContextPtrOutput() JobDefinitionEksPodSecurityContextPtrOutput {
+	return o.ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodSecurityContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksPodSecurityContext) *JobDefinitionEksPodSecurityContext {
+		return &v
+	}).(JobDefinitionEksPodSecurityContextPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) FsGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodSecurityContext) *int { return v.FsGroup }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) RunAsGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodSecurityContext) *int { return v.RunAsGroup }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) RunAsUser() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodSecurityContext) *int { return v.RunAsUser }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextOutput) SeccompProfile() JobDefinitionEksSeccompProfilePtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodSecurityContext) *JobDefinitionEksSeccompProfile { return v.SeccompProfile }).(JobDefinitionEksSeccompProfilePtrOutput)
+}
+
+type JobDefinitionEksPodSecurityContextPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPodSecurityContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPodSecurityContext)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPodSecurityContextPtrOutput) ToJobDefinitionEksPodSecurityContextPtrOutput() JobDefinitionEksPodSecurityContextPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPodSecurityContextPtrOutput) ToJobDefinitionEksPodSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodSecurityContextPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPodSecurityContextPtrOutput) Elem() JobDefinitionEksPodSecurityContextOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodSecurityContext) JobDefinitionEksPodSecurityContext {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksPodSecurityContext
+		return ret
+	}).(JobDefinitionEksPodSecurityContextOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextPtrOutput) FsGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodSecurityContext) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsGroup
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextPtrOutput) RunAsGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodSecurityContext) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsGroup
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextPtrOutput) RunAsUser() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodSecurityContext) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsUser
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksPodSecurityContextPtrOutput) SeccompProfile() JobDefinitionEksSeccompProfilePtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodSecurityContext) *JobDefinitionEksSeccompProfile {
+		if v == nil {
+			return nil
+		}
+		return v.SeccompProfile
+	}).(JobDefinitionEksSeccompProfilePtrOutput)
 }
 
 type JobDefinitionEksProperties struct {
@@ -7504,6 +7894,154 @@ func (o JobDefinitionEksPropertiesPtrOutput) PodProperties() JobDefinitionEksPod
 		}
 		return v.PodProperties
 	}).(JobDefinitionEksPodPropertiesPtrOutput)
+}
+
+type JobDefinitionEksSeccompProfile struct {
+	LocalhostProfile *string `pulumi:"localhostProfile"`
+	Type             string  `pulumi:"type"`
+}
+
+// JobDefinitionEksSeccompProfileInput is an input type that accepts JobDefinitionEksSeccompProfileArgs and JobDefinitionEksSeccompProfileOutput values.
+// You can construct a concrete instance of `JobDefinitionEksSeccompProfileInput` via:
+//
+//	JobDefinitionEksSeccompProfileArgs{...}
+type JobDefinitionEksSeccompProfileInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksSeccompProfileOutput() JobDefinitionEksSeccompProfileOutput
+	ToJobDefinitionEksSeccompProfileOutputWithContext(context.Context) JobDefinitionEksSeccompProfileOutput
+}
+
+type JobDefinitionEksSeccompProfileArgs struct {
+	LocalhostProfile pulumi.StringPtrInput `pulumi:"localhostProfile"`
+	Type             pulumi.StringInput    `pulumi:"type"`
+}
+
+func (JobDefinitionEksSeccompProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksSeccompProfile)(nil)).Elem()
+}
+
+func (i JobDefinitionEksSeccompProfileArgs) ToJobDefinitionEksSeccompProfileOutput() JobDefinitionEksSeccompProfileOutput {
+	return i.ToJobDefinitionEksSeccompProfileOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksSeccompProfileArgs) ToJobDefinitionEksSeccompProfileOutputWithContext(ctx context.Context) JobDefinitionEksSeccompProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksSeccompProfileOutput)
+}
+
+func (i JobDefinitionEksSeccompProfileArgs) ToJobDefinitionEksSeccompProfilePtrOutput() JobDefinitionEksSeccompProfilePtrOutput {
+	return i.ToJobDefinitionEksSeccompProfilePtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksSeccompProfileArgs) ToJobDefinitionEksSeccompProfilePtrOutputWithContext(ctx context.Context) JobDefinitionEksSeccompProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksSeccompProfileOutput).ToJobDefinitionEksSeccompProfilePtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksSeccompProfilePtrInput is an input type that accepts JobDefinitionEksSeccompProfileArgs, JobDefinitionEksSeccompProfilePtr and JobDefinitionEksSeccompProfilePtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksSeccompProfilePtrInput` via:
+//
+//	        JobDefinitionEksSeccompProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksSeccompProfilePtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksSeccompProfilePtrOutput() JobDefinitionEksSeccompProfilePtrOutput
+	ToJobDefinitionEksSeccompProfilePtrOutputWithContext(context.Context) JobDefinitionEksSeccompProfilePtrOutput
+}
+
+type jobDefinitionEksSeccompProfilePtrType JobDefinitionEksSeccompProfileArgs
+
+func JobDefinitionEksSeccompProfilePtr(v *JobDefinitionEksSeccompProfileArgs) JobDefinitionEksSeccompProfilePtrInput {
+	return (*jobDefinitionEksSeccompProfilePtrType)(v)
+}
+
+func (*jobDefinitionEksSeccompProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksSeccompProfile)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksSeccompProfilePtrType) ToJobDefinitionEksSeccompProfilePtrOutput() JobDefinitionEksSeccompProfilePtrOutput {
+	return i.ToJobDefinitionEksSeccompProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksSeccompProfilePtrType) ToJobDefinitionEksSeccompProfilePtrOutputWithContext(ctx context.Context) JobDefinitionEksSeccompProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksSeccompProfilePtrOutput)
+}
+
+type JobDefinitionEksSeccompProfileOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksSeccompProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksSeccompProfile)(nil)).Elem()
+}
+
+func (o JobDefinitionEksSeccompProfileOutput) ToJobDefinitionEksSeccompProfileOutput() JobDefinitionEksSeccompProfileOutput {
+	return o
+}
+
+func (o JobDefinitionEksSeccompProfileOutput) ToJobDefinitionEksSeccompProfileOutputWithContext(ctx context.Context) JobDefinitionEksSeccompProfileOutput {
+	return o
+}
+
+func (o JobDefinitionEksSeccompProfileOutput) ToJobDefinitionEksSeccompProfilePtrOutput() JobDefinitionEksSeccompProfilePtrOutput {
+	return o.ToJobDefinitionEksSeccompProfilePtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksSeccompProfileOutput) ToJobDefinitionEksSeccompProfilePtrOutputWithContext(ctx context.Context) JobDefinitionEksSeccompProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksSeccompProfile) *JobDefinitionEksSeccompProfile {
+		return &v
+	}).(JobDefinitionEksSeccompProfilePtrOutput)
+}
+
+func (o JobDefinitionEksSeccompProfileOutput) LocalhostProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksSeccompProfile) *string { return v.LocalhostProfile }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionEksSeccompProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEksSeccompProfile) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type JobDefinitionEksSeccompProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksSeccompProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksSeccompProfile)(nil)).Elem()
+}
+
+func (o JobDefinitionEksSeccompProfilePtrOutput) ToJobDefinitionEksSeccompProfilePtrOutput() JobDefinitionEksSeccompProfilePtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksSeccompProfilePtrOutput) ToJobDefinitionEksSeccompProfilePtrOutputWithContext(ctx context.Context) JobDefinitionEksSeccompProfilePtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksSeccompProfilePtrOutput) Elem() JobDefinitionEksSeccompProfileOutput {
+	return o.ApplyT(func(v *JobDefinitionEksSeccompProfile) JobDefinitionEksSeccompProfile {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksSeccompProfile
+		return ret
+	}).(JobDefinitionEksSeccompProfileOutput)
+}
+
+func (o JobDefinitionEksSeccompProfilePtrOutput) LocalhostProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksSeccompProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalhostProfile
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionEksSeccompProfilePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksSeccompProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionEksSecret struct {
@@ -14112,6 +14650,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerArrayInput)(nil)).Elem(), JobDefinitionEksContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerEnvironmentVariableInput)(nil)).Elem(), JobDefinitionEksContainerEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerEnvironmentVariableArrayInput)(nil)).Elem(), JobDefinitionEksContainerEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerLinuxCapabilitiesInput)(nil)).Elem(), JobDefinitionEksContainerLinuxCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerLinuxCapabilitiesPtrInput)(nil)).Elem(), JobDefinitionEksContainerLinuxCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerResourceRequirementsInput)(nil)).Elem(), JobDefinitionEksContainerResourceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerResourceRequirementsPtrInput)(nil)).Elem(), JobDefinitionEksContainerResourceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerSecurityContextInput)(nil)).Elem(), JobDefinitionEksContainerSecurityContextArgs{})
@@ -14128,8 +14668,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPersistentVolumeClaimPtrInput)(nil)).Elem(), JobDefinitionEksPersistentVolumeClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPodPropertiesInput)(nil)).Elem(), JobDefinitionEksPodPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPodPropertiesPtrInput)(nil)).Elem(), JobDefinitionEksPodPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPodSecurityContextInput)(nil)).Elem(), JobDefinitionEksPodSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPodSecurityContextPtrInput)(nil)).Elem(), JobDefinitionEksPodSecurityContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesInput)(nil)).Elem(), JobDefinitionEksPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPtrInput)(nil)).Elem(), JobDefinitionEksPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksSeccompProfileInput)(nil)).Elem(), JobDefinitionEksSeccompProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksSeccompProfilePtrInput)(nil)).Elem(), JobDefinitionEksSeccompProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksSecretInput)(nil)).Elem(), JobDefinitionEksSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksSecretPtrInput)(nil)).Elem(), JobDefinitionEksSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksVolumeInput)(nil)).Elem(), JobDefinitionEksVolumeArgs{})
@@ -14264,6 +14808,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionEksContainerArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksContainerLinuxCapabilitiesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksContainerLinuxCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerResourceRequirementsOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerResourceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerSecurityContextOutput{})
@@ -14280,8 +14826,12 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionEksPersistentVolumeClaimPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPodPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPodPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPodSecurityContextOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPodSecurityContextPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksSeccompProfileOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksSeccompProfilePtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksSecretOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksSecretPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksVolumeOutput{})

@@ -38,6 +38,8 @@ type LookupGlobalResolverResult struct {
 	IpAddressType       *GlobalResolverIpAddressType `pulumi:"ipAddressType"`
 	Name                *string                      `pulumi:"name"`
 	ObservabilityRegion *string                      `pulumi:"observabilityRegion"`
+	// Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+	PublicIpStatus *GlobalResolverPublicIpStatus `pulumi:"publicIpStatus"`
 	// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
 	Regions   []string                        `pulumi:"regions"`
 	Status    *GlobalResolverCrResourceStatus `pulumi:"status"`
@@ -110,6 +112,11 @@ func (o LookupGlobalResolverResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupGlobalResolverResultOutput) ObservabilityRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalResolverResult) *string { return v.ObservabilityRegion }).(pulumi.StringPtrOutput)
+}
+
+// Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+func (o LookupGlobalResolverResultOutput) PublicIpStatus() GlobalResolverPublicIpStatusPtrOutput {
+	return o.ApplyT(func(v LookupGlobalResolverResult) *GlobalResolverPublicIpStatus { return v.PublicIpStatus }).(GlobalResolverPublicIpStatusPtrOutput)
 }
 
 // The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.

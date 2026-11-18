@@ -668,7 +668,8 @@ class AutomationRuleStringFilterArgsDict(TypedDict):
     """
     The condition to apply to a string value when filtering Security Hub CSPM findings.
      To search for values that have the filter value, use one of the following comparison operators:
-      +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+      +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string ``CloudFront``.
+      +  To search for values that contain a word matching the filter value, regardless of case, use ``CONTAINS_WORD``. For example, the filter ``Title CONTAINS_WORD lambda`` matches a finding whose ``Title`` is ``GuardDuty Lambda Protection``, because the ``Title`` contains the word Lambda. Including special characters in the filter value might produce unexpected search results.
       +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
       +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
 
@@ -704,7 +705,8 @@ class AutomationRuleStringFilterArgs:
 
         :param pulumi.Input['AutomationRuleStringFilterComparison'] comparison: The condition to apply to a string value when filtering Security Hub CSPM findings.
                 To search for values that have the filter value, use one of the following comparison operators:
-                 +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+                 +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string ``CloudFront``.
+                 +  To search for values that contain a word matching the filter value, regardless of case, use ``CONTAINS_WORD``. For example, the filter ``Title CONTAINS_WORD lambda`` matches a finding whose ``Title`` is ``GuardDuty Lambda Protection``, because the ``Title`` contains the word Lambda. Including special characters in the filter value might produce unexpected search results.
                  +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
                  +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
                
@@ -735,7 +737,8 @@ class AutomationRuleStringFilterArgs:
         """
         The condition to apply to a string value when filtering Security Hub CSPM findings.
          To search for values that have the filter value, use one of the following comparison operators:
-          +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+          +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string ``CloudFront``.
+          +  To search for values that contain a word matching the filter value, regardless of case, use ``CONTAINS_WORD``. For example, the filter ``Title CONTAINS_WORD lambda`` matches a finding whose ``Title`` is ``GuardDuty Lambda Protection``, because the ``Title`` contains the word Lambda. Including special characters in the filter value might produce unexpected search results.
           +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
           +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
 
@@ -3807,7 +3810,7 @@ class ConnectorV2ServiceNowProviderConfigurationArgs:
 
 class HubV2NetworkScanningArgsDict(TypedDict):
     """
-    Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+    Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
     """
     status: pulumi.Input['HubV2NetworkScanningStatus']
     """
@@ -3819,7 +3822,7 @@ class HubV2NetworkScanningArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['HubV2NetworkScanningStatus']):
         """
-        Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+        Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
 
         :param pulumi.Input['HubV2NetworkScanningStatus'] status: Whether the Network Scanning feature is enabled for this account and Region.
         """

@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class RuleGroupMonetizationConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("connectedAccountConfigs")]
+        private InputList<Inputs.RuleGroupConnectedAccountConfigArgs>? _connectedAccountConfigs;
+        public InputList<Inputs.RuleGroupConnectedAccountConfigArgs> ConnectedAccountConfigs
+        {
+            get => _connectedAccountConfigs ?? (_connectedAccountConfigs = new InputList<Inputs.RuleGroupConnectedAccountConfigArgs>());
+            set => _connectedAccountConfigs = value;
+        }
+
         [Input("cryptoConfig")]
         public Input<Inputs.RuleGroupCryptoConfigArgs>? CryptoConfig { get; set; }
 

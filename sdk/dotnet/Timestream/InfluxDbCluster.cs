@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.Timestream
         public Output<Pulumi.AwsNative.Timestream.InfluxDbClusterDeploymentType?> DeploymentType { get; private set; } = null!;
 
         /// <summary>
+        /// The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+        /// </summary>
+        [Output("effectiveDbParameterGroupIdentifier")]
+        public Output<string> EffectiveDbParameterGroupIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The connection endpoint for the InfluxDB cluster.
         /// </summary>
         [Output("endpoint")]
@@ -88,6 +94,12 @@ namespace Pulumi.AwsNative.Timestream
         public Output<string> InfluxAuthParametersSecretArn { get; private set; } = null!;
 
         /// <summary>
+        /// The customer managed key used to encrypt data in the InfluxDB cluster.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration for sending logs to customer account from the InfluxDB cluster.
         /// </summary>
         [Output("logDeliveryConfiguration")]
@@ -98,6 +110,18 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Output("maintenanceSchedule")]
         public Output<Outputs.InfluxDbClusterMaintenanceSchedule?> MaintenanceSchedule { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of DB instances that belong to the InfluxDB cluster.
+        /// </summary>
+        [Output("memberCount")]
+        public Output<int> MemberCount { get; private set; } = null!;
+
+        /// <summary>
+        /// DB cluster member counts grouped by instance mode.
+        /// </summary>
+        [Output("memberModeCounts")]
+        public Output<ImmutableArray<Outputs.InfluxDbClusterMemberModeCount>> MemberModeCounts { get; private set; } = null!;
 
         /// <summary>
         /// The unique name that is associated with the InfluxDB cluster.
@@ -206,6 +230,7 @@ namespace Pulumi.AwsNative.Timestream
                     "bucket",
                     "dbStorageType",
                     "deploymentType",
+                    "kmsKeyId",
                     "name",
                     "networkType",
                     "organization",
@@ -278,6 +303,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Input("failoverMode")]
         public Input<Pulumi.AwsNative.Timestream.InfluxDbClusterFailoverMode>? FailoverMode { get; set; }
+
+        /// <summary>
+        /// The customer managed key used to encrypt data in the InfluxDB cluster.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// Configuration for sending logs to customer account from the InfluxDB cluster.

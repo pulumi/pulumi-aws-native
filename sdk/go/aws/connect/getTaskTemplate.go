@@ -37,6 +37,8 @@ type LookupTaskTemplateResult struct {
 	Constraints *ConstraintsProperties `pulumi:"constraints"`
 	// The identifier of the contact flow.
 	ContactFlowArn *string `pulumi:"contactFlowArn"`
+	// The contact hooks for the task template.
+	ContactHooks *ContactHooksProperties `pulumi:"contactHooks"`
 	// The default values for fields when a task is created by referencing this template.
 	Defaults []TaskTemplateDefaultFieldValue `pulumi:"defaults"`
 	// The description of the task template.
@@ -101,6 +103,11 @@ func (o LookupTaskTemplateResultOutput) Constraints() ConstraintsPropertiesPtrOu
 // The identifier of the contact flow.
 func (o LookupTaskTemplateResultOutput) ContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTaskTemplateResult) *string { return v.ContactFlowArn }).(pulumi.StringPtrOutput)
+}
+
+// The contact hooks for the task template.
+func (o LookupTaskTemplateResultOutput) ContactHooks() ContactHooksPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupTaskTemplateResult) *ContactHooksProperties { return v.ContactHooks }).(ContactHooksPropertiesPtrOutput)
 }
 
 // The default values for fields when a task is created by referencing this template.

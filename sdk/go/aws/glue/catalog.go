@@ -26,7 +26,7 @@ type Catalog struct {
 	// An array of PrincipalPermissions objects for default table permissions.
 	CreateTableDefaultPermissions CatalogPrincipalPermissionsArrayOutput `pulumi:"createTableDefaultPermissions"`
 	// The time at which the catalog was created.
-	CreateTime pulumi.IntOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// A description of the catalog.
 	Description      pulumi.StringPtrOutput           `pulumi:"description"`
 	FederatedCatalog CatalogFederatedCatalogPtrOutput `pulumi:"federatedCatalog"`
@@ -42,7 +42,7 @@ type Catalog struct {
 	Tags                  aws.TagArrayOutput                    `pulumi:"tags"`
 	TargetRedshiftCatalog CatalogTargetRedshiftCatalogPtrOutput `pulumi:"targetRedshiftCatalog"`
 	// The time at which the catalog was last updated.
-	UpdateTime pulumi.IntOutput `pulumi:"updateTime"`
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewCatalog registers a new resource with the given unique name, arguments, and options.
@@ -203,8 +203,8 @@ func (o CatalogOutput) CreateTableDefaultPermissions() CatalogPrincipalPermissio
 }
 
 // The time at which the catalog was created.
-func (o CatalogOutput) CreateTime() pulumi.IntOutput {
-	return o.ApplyT(func(v *Catalog) pulumi.IntOutput { return v.CreateTime }).(pulumi.IntOutput)
+func (o CatalogOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Catalog) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
 // A description of the catalog.
@@ -248,8 +248,8 @@ func (o CatalogOutput) TargetRedshiftCatalog() CatalogTargetRedshiftCatalogPtrOu
 }
 
 // The time at which the catalog was last updated.
-func (o CatalogOutput) UpdateTime() pulumi.IntOutput {
-	return o.ApplyT(func(v *Catalog) pulumi.IntOutput { return v.UpdateTime }).(pulumi.IntOutput)
+func (o CatalogOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Catalog) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -92,6 +92,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly ImmutableArray<string> LastModificationErrors;
         /// <summary>
+        /// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        /// </summary>
+        public readonly Pulumi.AwsNative.NetworkManager.DirectConnectGatewayAttachmentNatGatewaySupport? NatGatewaySupport;
+        /// <summary>
+        /// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. If omitted, a new NAT gateway configuration uses the service default of true and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
+        /// </summary>
+        public readonly bool? NatSystemRouteSupport;
+        /// <summary>
         /// The name of the network function group attachment.
         /// </summary>
         public readonly string? NetworkFunctionGroupName;
@@ -144,6 +152,10 @@ namespace Pulumi.AwsNative.NetworkManager
 
             ImmutableArray<string> lastModificationErrors,
 
+            Pulumi.AwsNative.NetworkManager.DirectConnectGatewayAttachmentNatGatewaySupport? natGatewaySupport,
+
+            bool? natSystemRouteSupport,
+
             string? networkFunctionGroupName,
 
             string? ownerAccountId,
@@ -169,6 +181,8 @@ namespace Pulumi.AwsNative.NetworkManager
             CreatedAt = createdAt;
             EdgeLocations = edgeLocations;
             LastModificationErrors = lastModificationErrors;
+            NatGatewaySupport = natGatewaySupport;
+            NatSystemRouteSupport = natSystemRouteSupport;
             NetworkFunctionGroupName = networkFunctionGroupName;
             OwnerAccountId = ownerAccountId;
             ProposedNetworkFunctionGroupChange = proposedNetworkFunctionGroupChange;

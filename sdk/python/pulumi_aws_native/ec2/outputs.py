@@ -27,6 +27,20 @@ __all__ = [
     'CapacityReservationFleetTagSpecification',
     'CapacityReservationTag',
     'CapacityReservationTagSpecification',
+    'ClientVpnEndpointAuthorizationPolicy',
+    'ClientVpnEndpointCertificateAuthenticationRequest',
+    'ClientVpnEndpointClientAuthenticationRequest',
+    'ClientVpnEndpointClientConnectOptions',
+    'ClientVpnEndpointClientLoginBannerOptions',
+    'ClientVpnEndpointClientRouteEnforcementOptions',
+    'ClientVpnEndpointConnectionLogOptions',
+    'ClientVpnEndpointDevicePostureOptions',
+    'ClientVpnEndpointDevicePostureTrustProvider',
+    'ClientVpnEndpointDirectoryServiceAuthenticationRequest',
+    'ClientVpnEndpointFederatedAuthenticationRequest',
+    'ClientVpnEndpointTag',
+    'ClientVpnEndpointTagSpecification',
+    'ClientVpnEndpointTransitGatewayConfiguration',
     'CommitmentInfoProperties',
     'CpuOptionsProperties',
     'CreditSpecificationProperties',
@@ -69,6 +83,11 @@ __all__ = [
     'Ec2FleetTotalLocalStorageGbRequest',
     'Ec2FleetVCpuCountRangeRequest',
     'EnclaveOptionsProperties',
+    'FcaPolicyCidrMapping',
+    'FcaPolicyCidrRangeSpecifications',
+    'FcaPolicyInstanceFcaPolicyDocument',
+    'FcaPolicyNatFcaPolicyDocument',
+    'FcaPolicyPcxFcaPolicyDocument',
     'FlowLogTagFieldSpecification',
     'FpgaImageStorageLocation',
     'HibernationOptionsProperties',
@@ -225,6 +244,7 @@ __all__ = [
     'TransitGatewayConnectOptions',
     'TransitGatewayConnectPeerConfiguration',
     'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration',
+    'TransitGatewayPeeringAttachmentOptions',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
     'TransitGatewayPolicyTableEntryTransitGatewayPolicyRule',
     'VerifiedAccessEndpointCidrOptions',
@@ -248,6 +268,7 @@ __all__ = [
     'VpcEncryptionControlResourceExclusions',
     'VpcEndpointDnsOptionsSpecification',
     'VpcEndpointServicePrivateDnsNameConfiguration',
+    'VpcPeeringConnectionOptions',
     'VpnConnectionCloudwatchLogOptionsSpecification',
     'VpnConnectionIkeVersionsRequestListValue',
     'VpnConnectionPhase1EncryptionAlgorithmsRequestListValue',
@@ -721,6 +742,697 @@ class CapacityReservationTagSpecification(dict):
         The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ClientVpnEndpointAuthorizationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDocument":
+            suggest = "policy_document"
+        elif key == "shadowMode":
+            suggest = "shadow_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointAuthorizationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointAuthorizationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointAuthorizationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_document: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 shadow_mode: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str policy_document: The Cedar policy document.
+        :param _builtins.str description: A brief description of the authorization policy.
+        :param _builtins.str shadow_mode: Whether the authorization policy runs in shadow (observe-only) mode.
+        """
+        pulumi.set(__self__, "policy_document", policy_document)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if shadow_mode is not None:
+            pulumi.set(__self__, "shadow_mode", shadow_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> _builtins.str:
+        """
+        The Cedar policy document.
+        """
+        return pulumi.get(self, "policy_document")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A brief description of the authorization policy.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="shadowMode")
+    def shadow_mode(self) -> Optional[_builtins.str]:
+        """
+        Whether the authorization policy runs in shadow (observe-only) mode.
+        """
+        return pulumi.get(self, "shadow_mode")
+
+
+@pulumi.output_type
+class ClientVpnEndpointCertificateAuthenticationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientRootCertificateChainArn":
+            suggest = "client_root_certificate_chain_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointCertificateAuthenticationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointCertificateAuthenticationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointCertificateAuthenticationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_root_certificate_chain_arn: _builtins.str):
+        """
+        :param _builtins.str client_root_certificate_chain_arn: The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+        """
+        pulumi.set(__self__, "client_root_certificate_chain_arn", client_root_certificate_chain_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="clientRootCertificateChainArn")
+    def client_root_certificate_chain_arn(self) -> _builtins.str:
+        """
+        The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+        """
+        return pulumi.get(self, "client_root_certificate_chain_arn")
+
+
+@pulumi.output_type
+class ClientVpnEndpointClientAuthenticationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectory":
+            suggest = "active_directory"
+        elif key == "federatedAuthentication":
+            suggest = "federated_authentication"
+        elif key == "mutualAuthentication":
+            suggest = "mutual_authentication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointClientAuthenticationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointClientAuthenticationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointClientAuthenticationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 active_directory: Optional['outputs.ClientVpnEndpointDirectoryServiceAuthenticationRequest'] = None,
+                 federated_authentication: Optional['outputs.ClientVpnEndpointFederatedAuthenticationRequest'] = None,
+                 mutual_authentication: Optional['outputs.ClientVpnEndpointCertificateAuthenticationRequest'] = None):
+        """
+        :param _builtins.str type: The type of client authentication to be used.
+        :param 'ClientVpnEndpointDirectoryServiceAuthenticationRequest' active_directory: Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+        :param 'ClientVpnEndpointFederatedAuthenticationRequest' federated_authentication: Information about the IAM SAML identity provider, if applicable.
+        :param 'ClientVpnEndpointCertificateAuthenticationRequest' mutual_authentication: Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+        """
+        pulumi.set(__self__, "type", type)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if federated_authentication is not None:
+            pulumi.set(__self__, "federated_authentication", federated_authentication)
+        if mutual_authentication is not None:
+            pulumi.set(__self__, "mutual_authentication", mutual_authentication)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of client authentication to be used.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional['outputs.ClientVpnEndpointDirectoryServiceAuthenticationRequest']:
+        """
+        Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+        """
+        return pulumi.get(self, "active_directory")
+
+    @_builtins.property
+    @pulumi.getter(name="federatedAuthentication")
+    def federated_authentication(self) -> Optional['outputs.ClientVpnEndpointFederatedAuthenticationRequest']:
+        """
+        Information about the IAM SAML identity provider, if applicable.
+        """
+        return pulumi.get(self, "federated_authentication")
+
+    @_builtins.property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> Optional['outputs.ClientVpnEndpointCertificateAuthenticationRequest']:
+        """
+        Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+        """
+        return pulumi.get(self, "mutual_authentication")
+
+
+@pulumi.output_type
+class ClientVpnEndpointClientConnectOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaFunctionArn":
+            suggest = "lambda_function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointClientConnectOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointClientConnectOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointClientConnectOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 lambda_function_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
+        :param _builtins.str lambda_function_arn: The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if lambda_function_arn is not None:
+            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Indicates whether client connect options are enabled. The default is `false` (not enabled).
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+
+@pulumi.output_type
+class ClientVpnEndpointClientLoginBannerOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bannerText":
+            suggest = "banner_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointClientLoginBannerOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointClientLoginBannerOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointClientLoginBannerOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 banner_text: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+               
+               Valid values: `true | false`
+               
+               Default value: `false`
+        :param _builtins.str banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if banner_text is not None:
+            pulumi.set(__self__, "banner_text", banner_text)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+
+        Valid values: `true | false`
+
+        Default value: `false`
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="bannerText")
+    def banner_text(self) -> Optional[_builtins.str]:
+        """
+        Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+        """
+        return pulumi.get(self, "banner_text")
+
+
+@pulumi.output_type
+class ClientVpnEndpointClientRouteEnforcementOptions(dict):
+    def __init__(__self__, *,
+                 enforced: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enforced: Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+               
+               Valid values: `true | false`
+               
+               Default value: `false`
+        """
+        if enforced is not None:
+            pulumi.set(__self__, "enforced", enforced)
+
+    @_builtins.property
+    @pulumi.getter
+    def enforced(self) -> Optional[_builtins.bool]:
+        """
+        Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+
+        Valid values: `true | false`
+
+        Default value: `false`
+        """
+        return pulumi.get(self, "enforced")
+
+
+@pulumi.output_type
+class ClientVpnEndpointConnectionLogOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogGroup":
+            suggest = "cloudwatch_log_group"
+        elif key == "cloudwatchLogStream":
+            suggest = "cloudwatch_log_stream"
+        elif key == "includeAuthorizationPolicyContext":
+            suggest = "include_authorization_policy_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointConnectionLogOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointConnectionLogOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointConnectionLogOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 cloudwatch_log_group: Optional[_builtins.str] = None,
+                 cloudwatch_log_stream: Optional[_builtins.str] = None,
+                 include_authorization_policy_context: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enabled: Indicates whether connection logging is enabled.
+        :param _builtins.str cloudwatch_log_group: The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+        :param _builtins.str cloudwatch_log_stream: The name of the CloudWatch Logs log stream to which the connection data is published.
+        :param _builtins.bool include_authorization_policy_context: Indicates whether authorization-policy evaluation context is included in the connection logs.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if cloudwatch_log_group is not None:
+            pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
+        if cloudwatch_log_stream is not None:
+            pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
+        if include_authorization_policy_context is not None:
+            pulumi.set(__self__, "include_authorization_policy_context", include_authorization_policy_context)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Indicates whether connection logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogGroup")
+    def cloudwatch_log_group(self) -> Optional[_builtins.str]:
+        """
+        The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+        """
+        return pulumi.get(self, "cloudwatch_log_group")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogStream")
+    def cloudwatch_log_stream(self) -> Optional[_builtins.str]:
+        """
+        The name of the CloudWatch Logs log stream to which the connection data is published.
+        """
+        return pulumi.get(self, "cloudwatch_log_stream")
+
+    @_builtins.property
+    @pulumi.getter(name="includeAuthorizationPolicyContext")
+    def include_authorization_policy_context(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether authorization-policy evaluation context is included in the connection logs.
+        """
+        return pulumi.get(self, "include_authorization_policy_context")
+
+
+@pulumi.output_type
+class ClientVpnEndpointDevicePostureOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustProviders":
+            suggest = "trust_providers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointDevicePostureOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointDevicePostureOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointDevicePostureOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 trust_providers: Sequence['outputs.ClientVpnEndpointDevicePostureTrustProvider']):
+        """
+        :param _builtins.bool enabled: Whether device posture is enabled for the Client VPN endpoint.
+        :param Sequence['ClientVpnEndpointDevicePostureTrustProvider'] trust_providers: The device-posture trust providers.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "trust_providers", trust_providers)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether device posture is enabled for the Client VPN endpoint.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="trustProviders")
+    def trust_providers(self) -> Sequence['outputs.ClientVpnEndpointDevicePostureTrustProvider']:
+        """
+        The device-posture trust providers.
+        """
+        return pulumi.get(self, "trust_providers")
+
+
+@pulumi.output_type
+class ClientVpnEndpointDevicePostureTrustProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "trustProviderType":
+            suggest = "trust_provider_type"
+        elif key == "publicSigningKeyUrl":
+            suggest = "public_signing_key_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointDevicePostureTrustProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointDevicePostureTrustProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointDevicePostureTrustProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tenant_id: _builtins.str,
+                 trust_provider_type: _builtins.str,
+                 public_signing_key_url: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str tenant_id: The tenant identifier registered with the trust provider.
+        :param _builtins.str trust_provider_type: The device-posture trust provider type.
+        :param _builtins.str public_signing_key_url: The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+        """
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "trust_provider_type", trust_provider_type)
+        if public_signing_key_url is not None:
+            pulumi.set(__self__, "public_signing_key_url", public_signing_key_url)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant identifier registered with the trust provider.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="trustProviderType")
+    def trust_provider_type(self) -> _builtins.str:
+        """
+        The device-posture trust provider type.
+        """
+        return pulumi.get(self, "trust_provider_type")
+
+    @_builtins.property
+    @pulumi.getter(name="publicSigningKeyUrl")
+    def public_signing_key_url(self) -> Optional[_builtins.str]:
+        """
+        The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+        """
+        return pulumi.get(self, "public_signing_key_url")
+
+
+@pulumi.output_type
+class ClientVpnEndpointDirectoryServiceAuthenticationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryId":
+            suggest = "directory_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointDirectoryServiceAuthenticationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointDirectoryServiceAuthenticationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointDirectoryServiceAuthenticationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_id: _builtins.str):
+        """
+        :param _builtins.str directory_id: The ID of the Active Directory to be used for authentication.
+        """
+        pulumi.set(__self__, "directory_id", directory_id)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> _builtins.str:
+        """
+        The ID of the Active Directory to be used for authentication.
+        """
+        return pulumi.get(self, "directory_id")
+
+
+@pulumi.output_type
+class ClientVpnEndpointFederatedAuthenticationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samlProviderArn":
+            suggest = "saml_provider_arn"
+        elif key == "selfServiceSamlProviderArn":
+            suggest = "self_service_saml_provider_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointFederatedAuthenticationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointFederatedAuthenticationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointFederatedAuthenticationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 saml_provider_arn: _builtins.str,
+                 self_service_saml_provider_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str saml_provider_arn: The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+        :param _builtins.str self_service_saml_provider_arn: The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+        """
+        pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
+        if self_service_saml_provider_arn is not None:
+            pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="samlProviderArn")
+    def saml_provider_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+        """
+        return pulumi.get(self, "saml_provider_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="selfServiceSamlProviderArn")
+    def self_service_saml_provider_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+        """
+        return pulumi.get(self, "self_service_saml_provider_arn")
+
+
+@pulumi.output_type
+class ClientVpnEndpointTag(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: The tag key.
+        :param _builtins.str value: The tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The tag value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ClientVpnEndpointTagSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointTagSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointTagSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointTagSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: _builtins.str,
+                 tags: Sequence['outputs.ClientVpnEndpointTag']):
+        """
+        :param _builtins.str resource_type: The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+        :param Sequence['ClientVpnEndpointTag'] tags: The tags to apply to the resource.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> _builtins.str:
+        """
+        The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+        """
+        return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.ClientVpnEndpointTag']:
+        """
+        The tags to apply to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ClientVpnEndpointTransitGatewayConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transitGatewayId":
+            suggest = "transit_gateway_id"
+        elif key == "availabilityZoneIds":
+            suggest = "availability_zone_ids"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointTransitGatewayConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointTransitGatewayConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointTransitGatewayConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transit_gateway_id: _builtins.str,
+                 availability_zone_ids: Optional[Sequence[_builtins.str]] = None,
+                 availability_zones: Optional[Sequence[_builtins.str]] = None):
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if availability_zone_ids is not None:
+            pulumi.set(__self__, "availability_zone_ids", availability_zone_ids)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> _builtins.str:
+        return pulumi.get(self, "transit_gateway_id")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneIds")
+    def availability_zone_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "availability_zone_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "availability_zones")
 
 
 @pulumi.output_type
@@ -3996,6 +4708,266 @@ class EnclaveOptionsProperties(dict):
         If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class FcaPolicyCidrMapping(dict):
+    """
+    A single CIDR range to label mapping.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrLabel":
+            suggest = "cidr_label"
+        elif key == "cidrRange":
+            suggest = "cidr_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FcaPolicyCidrMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FcaPolicyCidrMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FcaPolicyCidrMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_label: _builtins.str,
+                 cidr_range: _builtins.str):
+        """
+        A single CIDR range to label mapping.
+
+        :param _builtins.str cidr_label: The label for the CIDR range.
+        :param _builtins.str cidr_range: The CIDR range.
+        """
+        pulumi.set(__self__, "cidr_label", cidr_label)
+        pulumi.set(__self__, "cidr_range", cidr_range)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrLabel")
+    def cidr_label(self) -> _builtins.str:
+        """
+        The label for the CIDR range.
+        """
+        return pulumi.get(self, "cidr_label")
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRange")
+    def cidr_range(self) -> _builtins.str:
+        """
+        The CIDR range.
+        """
+        return pulumi.get(self, "cidr_range")
+
+
+@pulumi.output_type
+class FcaPolicyCidrRangeSpecifications(dict):
+    """
+    CIDR range specifications, used when the reporting granularity is 'cidr'.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prefixesType":
+            suggest = "prefixes_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FcaPolicyCidrRangeSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FcaPolicyCidrRangeSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FcaPolicyCidrRangeSpecifications.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefixes: Sequence['outputs.FcaPolicyCidrMapping'],
+                 prefixes_type: _builtins.str):
+        """
+        CIDR range specifications, used when the reporting granularity is 'cidr'.
+
+        :param Sequence['FcaPolicyCidrMapping'] prefixes: The CIDR range to label mappings.
+        :param _builtins.str prefixes_type: The type of prefixes the mappings apply to.
+        """
+        pulumi.set(__self__, "prefixes", prefixes)
+        pulumi.set(__self__, "prefixes_type", prefixes_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefixes(self) -> Sequence['outputs.FcaPolicyCidrMapping']:
+        """
+        The CIDR range to label mappings.
+        """
+        return pulumi.get(self, "prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixesType")
+    def prefixes_type(self) -> _builtins.str:
+        """
+        The type of prefixes the mappings apply to.
+        """
+        return pulumi.get(self, "prefixes_type")
+
+
+@pulumi.output_type
+class FcaPolicyInstanceFcaPolicyDocument(dict):
+    """
+    The FCA policy document for EC2 instance cost allocation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportingGranularity":
+            suggest = "reporting_granularity"
+        elif key == "cidrRangeSpecifications":
+            suggest = "cidr_range_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FcaPolicyInstanceFcaPolicyDocument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FcaPolicyInstanceFcaPolicyDocument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FcaPolicyInstanceFcaPolicyDocument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Sequence['FcaPolicyDimensionListItem'],
+                 reporting_granularity: Sequence['FcaPolicyReportingGranularityListItem'],
+                 cidr_range_specifications: Optional['outputs.FcaPolicyCidrRangeSpecifications'] = None):
+        """
+        The FCA policy document for EC2 instance cost allocation.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "reporting_granularity", reporting_granularity)
+        if cidr_range_specifications is not None:
+            pulumi.set(__self__, "cidr_range_specifications", cidr_range_specifications)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['FcaPolicyDimensionListItem']:
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="reportingGranularity")
+    def reporting_granularity(self) -> Sequence['FcaPolicyReportingGranularityListItem']:
+        return pulumi.get(self, "reporting_granularity")
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRangeSpecifications")
+    def cidr_range_specifications(self) -> Optional['outputs.FcaPolicyCidrRangeSpecifications']:
+        return pulumi.get(self, "cidr_range_specifications")
+
+
+@pulumi.output_type
+class FcaPolicyNatFcaPolicyDocument(dict):
+    """
+    The FCA policy document for NAT gateway cost allocation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportingGranularity":
+            suggest = "reporting_granularity"
+        elif key == "cidrRangeSpecifications":
+            suggest = "cidr_range_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FcaPolicyNatFcaPolicyDocument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FcaPolicyNatFcaPolicyDocument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FcaPolicyNatFcaPolicyDocument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Sequence['FcaPolicyDimensionListItem'],
+                 reporting_granularity: Sequence['FcaPolicyReportingGranularityListItem'],
+                 cidr_range_specifications: Optional['outputs.FcaPolicyCidrRangeSpecifications'] = None):
+        """
+        The FCA policy document for NAT gateway cost allocation.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "reporting_granularity", reporting_granularity)
+        if cidr_range_specifications is not None:
+            pulumi.set(__self__, "cidr_range_specifications", cidr_range_specifications)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['FcaPolicyDimensionListItem']:
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="reportingGranularity")
+    def reporting_granularity(self) -> Sequence['FcaPolicyReportingGranularityListItem']:
+        return pulumi.get(self, "reporting_granularity")
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRangeSpecifications")
+    def cidr_range_specifications(self) -> Optional['outputs.FcaPolicyCidrRangeSpecifications']:
+        return pulumi.get(self, "cidr_range_specifications")
+
+
+@pulumi.output_type
+class FcaPolicyPcxFcaPolicyDocument(dict):
+    """
+    The FCA policy document for VPC peering connection cost allocation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportingGranularity":
+            suggest = "reporting_granularity"
+        elif key == "cidrRangeSpecifications":
+            suggest = "cidr_range_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FcaPolicyPcxFcaPolicyDocument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FcaPolicyPcxFcaPolicyDocument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FcaPolicyPcxFcaPolicyDocument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Sequence['FcaPolicyDimensionListItem'],
+                 reporting_granularity: Sequence['FcaPolicyReportingGranularityListItem'],
+                 cidr_range_specifications: Optional['outputs.FcaPolicyCidrRangeSpecifications'] = None):
+        """
+        The FCA policy document for VPC peering connection cost allocation.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "reporting_granularity", reporting_granularity)
+        if cidr_range_specifications is not None:
+            pulumi.set(__self__, "cidr_range_specifications", cidr_range_specifications)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['FcaPolicyDimensionListItem']:
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="reportingGranularity")
+    def reporting_granularity(self) -> Sequence['FcaPolicyReportingGranularityListItem']:
+        return pulumi.get(self, "reporting_granularity")
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRangeSpecifications")
+    def cidr_range_specifications(self) -> Optional['outputs.FcaPolicyCidrRangeSpecifications']:
+        return pulumi.get(self, "cidr_range_specifications")
 
 
 @pulumi.output_type
@@ -16585,6 +17557,56 @@ class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration(dict):
 
 
 @pulumi.output_type
+class TransitGatewayPeeringAttachmentOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowMultipathResilience":
+            suggest = "allow_multipath_resilience"
+        elif key == "multipathResilienceMode":
+            suggest = "multipath_resilience_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransitGatewayPeeringAttachmentOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransitGatewayPeeringAttachmentOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransitGatewayPeeringAttachmentOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_multipath_resilience: Optional[_builtins.bool] = None,
+                 multipath_resilience_mode: Optional['TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode'] = None):
+        """
+        :param _builtins.bool allow_multipath_resilience: Whether to enable MultipathResilience on this side of the peering attachment.
+        :param 'TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode' multipath_resilience_mode: The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+        """
+        if allow_multipath_resilience is not None:
+            pulumi.set(__self__, "allow_multipath_resilience", allow_multipath_resilience)
+        if multipath_resilience_mode is not None:
+            pulumi.set(__self__, "multipath_resilience_mode", multipath_resilience_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="allowMultipathResilience")
+    def allow_multipath_resilience(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable MultipathResilience on this side of the peering attachment.
+        """
+        return pulumi.get(self, "allow_multipath_resilience")
+
+    @_builtins.property
+    @pulumi.getter(name="multipathResilienceMode")
+    def multipath_resilience_mode(self) -> Optional['TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode']:
+        """
+        The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+        """
+        return pulumi.get(self, "multipath_resilience_mode")
+
+
+@pulumi.output_type
 class TransitGatewayPeeringAttachmentPeeringAttachmentStatus(dict):
     def __init__(__self__, *,
                  code: Optional[_builtins.str] = None,
@@ -18558,6 +19580,70 @@ class VpcEndpointServicePrivateDnsNameConfiguration(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpcPeeringConnectionOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDnsResolutionFromRemoteVpc":
+            suggest = "allow_dns_resolution_from_remote_vpc"
+        elif key == "allowMultipathResilience":
+            suggest = "allow_multipath_resilience"
+        elif key == "multipathResilienceMode":
+            suggest = "multipath_resilience_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcPeeringConnectionOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcPeeringConnectionOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcPeeringConnectionOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_dns_resolution_from_remote_vpc: Optional[_builtins.bool] = None,
+                 allow_multipath_resilience: Optional[_builtins.bool] = None,
+                 multipath_resilience_mode: Optional['VpcPeeringConnectionOptionsMultipathResilienceMode'] = None):
+        """
+        :param _builtins.bool allow_dns_resolution_from_remote_vpc: If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        :param _builtins.bool allow_multipath_resilience: If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+        :param 'VpcPeeringConnectionOptionsMultipathResilienceMode' multipath_resilience_mode: The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+        """
+        if allow_dns_resolution_from_remote_vpc is not None:
+            pulumi.set(__self__, "allow_dns_resolution_from_remote_vpc", allow_dns_resolution_from_remote_vpc)
+        if allow_multipath_resilience is not None:
+            pulumi.set(__self__, "allow_multipath_resilience", allow_multipath_resilience)
+        if multipath_resilience_mode is not None:
+            pulumi.set(__self__, "multipath_resilience_mode", multipath_resilience_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDnsResolutionFromRemoteVpc")
+    def allow_dns_resolution_from_remote_vpc(self) -> Optional[_builtins.bool]:
+        """
+        If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        """
+        return pulumi.get(self, "allow_dns_resolution_from_remote_vpc")
+
+    @_builtins.property
+    @pulumi.getter(name="allowMultipathResilience")
+    def allow_multipath_resilience(self) -> Optional[_builtins.bool]:
+        """
+        If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+        """
+        return pulumi.get(self, "allow_multipath_resilience")
+
+    @_builtins.property
+    @pulumi.getter(name="multipathResilienceMode")
+    def multipath_resilience_mode(self) -> Optional['VpcPeeringConnectionOptionsMultipathResilienceMode']:
+        """
+        The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+        """
+        return pulumi.get(self, "multipath_resilience_mode")
 
 
 @pulumi.output_type

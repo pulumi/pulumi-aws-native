@@ -295,6 +295,37 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// The blockchain chain to use with a connected account. Connected accounts are mainnet only.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupConnectedAccountChain : IEquatable<RuleGroupConnectedAccountChain>
+    {
+        private readonly string _value;
+
+        private RuleGroupConnectedAccountChain(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupConnectedAccountChain Base { get; } = new RuleGroupConnectedAccountChain("BASE");
+        public static RuleGroupConnectedAccountChain Solana { get; } = new RuleGroupConnectedAccountChain("SOLANA");
+
+        public static bool operator ==(RuleGroupConnectedAccountChain left, RuleGroupConnectedAccountChain right) => left.Equals(right);
+        public static bool operator !=(RuleGroupConnectedAccountChain left, RuleGroupConnectedAccountChain right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupConnectedAccountChain value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupConnectedAccountChain other && Equals(other);
+        public bool Equals(RuleGroupConnectedAccountChain other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The cryptocurrency to use for payment.
     /// </summary>
     [EnumType]
@@ -1176,6 +1207,37 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAclBodyParsingFallbackBehavior other && Equals(other);
         public bool Equals(WebAclBodyParsingFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The blockchain chain to use with a connected account. Connected accounts are mainnet only.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclConnectedAccountChain : IEquatable<WebAclConnectedAccountChain>
+    {
+        private readonly string _value;
+
+        private WebAclConnectedAccountChain(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclConnectedAccountChain Base { get; } = new WebAclConnectedAccountChain("BASE");
+        public static WebAclConnectedAccountChain Solana { get; } = new WebAclConnectedAccountChain("SOLANA");
+
+        public static bool operator ==(WebAclConnectedAccountChain left, WebAclConnectedAccountChain right) => left.Equals(right);
+        public static bool operator !=(WebAclConnectedAccountChain left, WebAclConnectedAccountChain right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclConnectedAccountChain value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclConnectedAccountChain other && Equals(other);
+        public bool Equals(WebAclConnectedAccountChain other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2100,6 +2162,7 @@ namespace Pulumi.AwsNative.WaFv2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static WebAclSizeInspectionLimit Kb8 { get; } = new WebAclSizeInspectionLimit("KB_8");
         public static WebAclSizeInspectionLimit Kb16 { get; } = new WebAclSizeInspectionLimit("KB_16");
         public static WebAclSizeInspectionLimit Kb32 { get; } = new WebAclSizeInspectionLimit("KB_32");
         public static WebAclSizeInspectionLimit Kb48 { get; } = new WebAclSizeInspectionLimit("KB_48");

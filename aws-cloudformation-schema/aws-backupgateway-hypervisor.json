@@ -100,7 +100,7 @@
       "permissions" : [ "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors", "backup-gateway:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "backup-gateway:UpdateHypervisor", "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors", "backup-gateway:ImportHypervisorConfiguration", "backup-gateway:DeleteHypervisor", "backup-gateway:ListTagsForResource" ]
+      "permissions" : [ "backup-gateway:UpdateHypervisor", "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors", "backup-gateway:ImportHypervisorConfiguration", "backup-gateway:DeleteHypervisor", "backup-gateway:ListTagsForResource", "kms:CreateGrant", "kms:Encrypt", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "backup-gateway:DeleteHypervisor", "backup-gateway:GetHypervisor", "backup-gateway:ListHypervisors" ]

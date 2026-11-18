@@ -16,15 +16,19 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupMonetizationConfig
     {
+        public readonly ImmutableArray<Outputs.RuleGroupConnectedAccountConfig> ConnectedAccountConfigs;
         public readonly Outputs.RuleGroupCryptoConfig? CryptoConfig;
         public readonly Pulumi.AwsNative.WaFv2.RuleGroupCurrencyMode? CurrencyMode;
 
         [OutputConstructor]
         private RuleGroupMonetizationConfig(
+            ImmutableArray<Outputs.RuleGroupConnectedAccountConfig> connectedAccountConfigs,
+
             Outputs.RuleGroupCryptoConfig? cryptoConfig,
 
             Pulumi.AwsNative.WaFv2.RuleGroupCurrencyMode? currencyMode)
         {
+            ConnectedAccountConfigs = connectedAccountConfigs;
             CryptoConfig = cryptoConfig;
             CurrencyMode = currencyMode;
         }

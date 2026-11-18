@@ -27,6 +27,7 @@ __all__ = [
     'ServerProtocolDetails',
     'ServerProxyConfig',
     'ServerS3StorageOptions',
+    'ServerSftpPortWithOptions',
     'ServerWorkflowDetail',
     'ServerWorkflowDetails',
     'SftpConfigProperties',
@@ -700,6 +701,8 @@ class ServerProtocolDetails(dict):
             suggest = "proxy_config"
         elif key == "setStatOption":
             suggest = "set_stat_option"
+        elif key == "sftpPorts":
+            suggest = "sftp_ports"
         elif key == "tlsSessionResumptionMode":
             suggest = "tls_session_resumption_mode"
 
@@ -719,6 +722,7 @@ class ServerProtocolDetails(dict):
                  passive_ip: Optional[_builtins.str] = None,
                  proxy_config: Optional['outputs.ServerProxyConfig'] = None,
                  set_stat_option: Optional['ServerSetStatOption'] = None,
+                 sftp_ports: Optional[Sequence['outputs.ServerSftpPortWithOptions']] = None,
                  tls_session_resumption_mode: Optional['ServerTlsSessionResumptionMode'] = None):
         """
         :param Sequence['ServerAs2Transport'] as2_transports: List of `As2Transport` objects.
@@ -758,6 +762,8 @@ class ServerProtocolDetails(dict):
             pulumi.set(__self__, "proxy_config", proxy_config)
         if set_stat_option is not None:
             pulumi.set(__self__, "set_stat_option", set_stat_option)
+        if sftp_ports is not None:
+            pulumi.set(__self__, "sftp_ports", sftp_ports)
         if tls_session_resumption_mode is not None:
             pulumi.set(__self__, "tls_session_resumption_mode", tls_session_resumption_mode)
 
@@ -807,6 +813,11 @@ class ServerProtocolDetails(dict):
         > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
         """
         return pulumi.get(self, "set_stat_option")
+
+    @_builtins.property
+    @pulumi.getter(name="sftpPorts")
+    def sftp_ports(self) -> Optional[Sequence['outputs.ServerSftpPortWithOptions']]:
+        return pulumi.get(self, "sftp_ports")
 
     @_builtins.property
     @pulumi.getter(name="tlsSessionResumptionMode")
@@ -897,6 +908,45 @@ class ServerS3StorageOptions(dict):
         By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         """
         return pulumi.get(self, "directory_listing_optimization")
+
+
+@pulumi.output_type
+class ServerSftpPortWithOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sftpPort":
+            suggest = "sftp_port"
+        elif key == "communicationMode":
+            suggest = "communication_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerSftpPortWithOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerSftpPortWithOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerSftpPortWithOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sftp_port: _builtins.int,
+                 communication_mode: Optional['ServerCommunicationMode'] = None):
+        pulumi.set(__self__, "sftp_port", sftp_port)
+        if communication_mode is not None:
+            pulumi.set(__self__, "communication_mode", communication_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="sftpPort")
+    def sftp_port(self) -> _builtins.int:
+        return pulumi.get(self, "sftp_port")
+
+    @_builtins.property
+    @pulumi.getter(name="communicationMode")
+    def communication_mode(self) -> Optional['ServerCommunicationMode']:
+        return pulumi.get(self, "communication_mode")
 
 
 @pulumi.output_type

@@ -10,6 +10,7 @@ __all__ = [
     'CapacityReservationStatus',
     'DataCatalogStatus',
     'DataCatalogType',
+    'SystemTablesTableName',
     'WorkGroupEncryptionOption',
     'WorkGroupS3AclOption',
     'WorkGroupState',
@@ -51,6 +52,14 @@ class DataCatalogType(_builtins.str, Enum):
     GLUE = "GLUE"
     HIVE = "HIVE"
     FEDERATED = "FEDERATED"
+
+
+@pulumi.type_token("aws-native:athena:SystemTablesTableName")
+class SystemTablesTableName(_builtins.str, Enum):
+    """
+    The reserved keyword identifying the account-level System Tables configuration. The only accepted value is ALL, which enables all system tables for the account. This is the resource's primary identifier.
+    """
+    ALL = "ALL"
 
 
 @pulumi.type_token("aws-native:athena:WorkGroupEncryptionOption")

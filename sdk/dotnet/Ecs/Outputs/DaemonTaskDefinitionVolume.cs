@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
         /// </summary>
         public readonly Outputs.DaemonTaskDefinitionHostVolumeProperties? Host;
+        public readonly Outputs.DaemonTaskDefinitionLogDriverVolumeConfiguration? LogDriverVolumeConfiguration;
         /// <summary>
         /// The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
         ///  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
@@ -34,9 +35,12 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         private DaemonTaskDefinitionVolume(
             Outputs.DaemonTaskDefinitionHostVolumeProperties? host,
 
+            Outputs.DaemonTaskDefinitionLogDriverVolumeConfiguration? logDriverVolumeConfiguration,
+
             string? name)
         {
             Host = host;
+            LogDriverVolumeConfiguration = logDriverVolumeConfiguration;
             Name = name;
         }
     }

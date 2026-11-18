@@ -1401,6 +1401,7 @@ func (o OriginEndpointDashDvbSettingsPtrOutput) FontDownload() OriginEndpointDas
 type OriginEndpointDashManifestConfiguration struct {
 	AudioTimelinePattern               *OriginEndpointDashAudioTimelinePattern                         `pulumi:"audioTimelinePattern"`
 	AvailabilityStartTimeConfiguration *OriginEndpointDashAvailabilityStartTimeConfigurationProperties `pulumi:"availabilityStartTimeConfiguration"`
+	BandwidthReportingMode             *OriginEndpointDashBandwidthReportingMode                       `pulumi:"bandwidthReportingMode"`
 	// <p>The base URL to use for retrieving segments.</p>
 	BaseUrls []OriginEndpointDashBaseUrl `pulumi:"baseUrls"`
 	// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
@@ -1459,6 +1460,7 @@ type OriginEndpointDashManifestConfigurationInput interface {
 type OriginEndpointDashManifestConfigurationArgs struct {
 	AudioTimelinePattern               OriginEndpointDashAudioTimelinePatternPtrInput                         `pulumi:"audioTimelinePattern"`
 	AvailabilityStartTimeConfiguration OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput `pulumi:"availabilityStartTimeConfiguration"`
+	BandwidthReportingMode             OriginEndpointDashBandwidthReportingModePtrInput                       `pulumi:"bandwidthReportingMode"`
 	// <p>The base URL to use for retrieving segments.</p>
 	BaseUrls OriginEndpointDashBaseUrlArrayInput `pulumi:"baseUrls"`
 	// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
@@ -1564,6 +1566,12 @@ func (o OriginEndpointDashManifestConfigurationOutput) AvailabilityStartTimeConf
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashAvailabilityStartTimeConfigurationProperties {
 		return v.AvailabilityStartTimeConfiguration
 	}).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput)
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) BandwidthReportingMode() OriginEndpointDashBandwidthReportingModePtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashBandwidthReportingMode {
+		return v.BandwidthReportingMode
+	}).(OriginEndpointDashBandwidthReportingModePtrOutput)
 }
 
 // <p>The base URL to use for retrieving segments.</p>

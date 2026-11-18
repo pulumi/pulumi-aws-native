@@ -111,6 +111,36 @@ namespace Pulumi.AwsNative.Athena
     }
 
     /// <summary>
+    /// The reserved keyword identifying the account-level System Tables configuration. The only accepted value is ALL, which enables all system tables for the account. This is the resource's primary identifier.
+    /// </summary>
+    [EnumType]
+    public readonly struct SystemTablesTableName : IEquatable<SystemTablesTableName>
+    {
+        private readonly string _value;
+
+        private SystemTablesTableName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SystemTablesTableName All { get; } = new SystemTablesTableName("ALL");
+
+        public static bool operator ==(SystemTablesTableName left, SystemTablesTableName right) => left.Equals(right);
+        public static bool operator !=(SystemTablesTableName left, SystemTablesTableName right) => !left.Equals(right);
+
+        public static explicit operator string(SystemTablesTableName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SystemTablesTableName other && Equals(other);
+        public bool Equals(SystemTablesTableName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
     /// </summary>
     [EnumType]

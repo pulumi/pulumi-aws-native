@@ -3836,6 +3836,10 @@ type ImagePipelineImageScanningConfiguration struct {
 	EcrConfiguration *ImagePipelineEcrConfiguration `pulumi:"ecrConfiguration"`
 	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 	ImageScanningEnabled *bool `pulumi:"imageScanningEnabled"`
+	// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+	ImageScanningTypes []ImagePipelineImageScanningConfigurationImageScanningTypesItem `pulumi:"imageScanningTypes"`
+	// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+	ScanResultCondition *ImagePipelineScanResultCondition `pulumi:"scanResultCondition"`
 }
 
 // ImagePipelineImageScanningConfigurationInput is an input type that accepts ImagePipelineImageScanningConfigurationArgs and ImagePipelineImageScanningConfigurationOutput values.
@@ -3855,6 +3859,10 @@ type ImagePipelineImageScanningConfigurationArgs struct {
 	EcrConfiguration ImagePipelineEcrConfigurationPtrInput `pulumi:"ecrConfiguration"`
 	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 	ImageScanningEnabled pulumi.BoolPtrInput `pulumi:"imageScanningEnabled"`
+	// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+	ImageScanningTypes ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayInput `pulumi:"imageScanningTypes"`
+	// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+	ScanResultCondition ImagePipelineScanResultConditionPtrInput `pulumi:"scanResultCondition"`
 }
 
 func (ImagePipelineImageScanningConfigurationArgs) ElementType() reflect.Type {
@@ -3947,6 +3955,20 @@ func (o ImagePipelineImageScanningConfigurationOutput) ImageScanningEnabled() pu
 	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *bool { return v.ImageScanningEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+func (o ImagePipelineImageScanningConfigurationOutput) ImageScanningTypes() ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) []ImagePipelineImageScanningConfigurationImageScanningTypesItem {
+		return v.ImageScanningTypes
+	}).(ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput)
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+func (o ImagePipelineImageScanningConfigurationOutput) ScanResultCondition() ImagePipelineScanResultConditionPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *ImagePipelineScanResultCondition {
+		return v.ScanResultCondition
+	}).(ImagePipelineScanResultConditionPtrOutput)
+}
+
 type ImagePipelineImageScanningConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineImageScanningConfigurationPtrOutput) ElementType() reflect.Type {
@@ -3989,6 +4011,26 @@ func (o ImagePipelineImageScanningConfigurationPtrOutput) ImageScanningEnabled()
 		}
 		return v.ImageScanningEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ImageScanningTypes() ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) []ImagePipelineImageScanningConfigurationImageScanningTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.ImageScanningTypes
+	}).(ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput)
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ScanResultCondition() ImagePipelineScanResultConditionPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) *ImagePipelineScanResultCondition {
+		if v == nil {
+			return nil
+		}
+		return v.ScanResultCondition
+	}).(ImagePipelineScanResultConditionPtrOutput)
 }
 
 // Image tests configuration.
@@ -4307,6 +4349,167 @@ func (o ImagePipelinePipelineLoggingConfigurationPtrOutput) PipelineLogGroupName
 		}
 		return v.PipelineLogGroupName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+type ImagePipelineScanResultCondition struct {
+	// Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+	FixAvailable *bool `pulumi:"fixAvailable"`
+	// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+	MaximumSeverityLabel ImagePipelineScanResultConditionMaximumSeverityLabel `pulumi:"maximumSeverityLabel"`
+}
+
+// ImagePipelineScanResultConditionInput is an input type that accepts ImagePipelineScanResultConditionArgs and ImagePipelineScanResultConditionOutput values.
+// You can construct a concrete instance of `ImagePipelineScanResultConditionInput` via:
+//
+//	ImagePipelineScanResultConditionArgs{...}
+type ImagePipelineScanResultConditionInput interface {
+	pulumi.Input
+
+	ToImagePipelineScanResultConditionOutput() ImagePipelineScanResultConditionOutput
+	ToImagePipelineScanResultConditionOutputWithContext(context.Context) ImagePipelineScanResultConditionOutput
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+type ImagePipelineScanResultConditionArgs struct {
+	// Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+	FixAvailable pulumi.BoolPtrInput `pulumi:"fixAvailable"`
+	// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+	MaximumSeverityLabel ImagePipelineScanResultConditionMaximumSeverityLabelInput `pulumi:"maximumSeverityLabel"`
+}
+
+func (ImagePipelineScanResultConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineScanResultCondition)(nil)).Elem()
+}
+
+func (i ImagePipelineScanResultConditionArgs) ToImagePipelineScanResultConditionOutput() ImagePipelineScanResultConditionOutput {
+	return i.ToImagePipelineScanResultConditionOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineScanResultConditionArgs) ToImagePipelineScanResultConditionOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineScanResultConditionOutput)
+}
+
+func (i ImagePipelineScanResultConditionArgs) ToImagePipelineScanResultConditionPtrOutput() ImagePipelineScanResultConditionPtrOutput {
+	return i.ToImagePipelineScanResultConditionPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineScanResultConditionArgs) ToImagePipelineScanResultConditionPtrOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineScanResultConditionOutput).ToImagePipelineScanResultConditionPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineScanResultConditionPtrInput is an input type that accepts ImagePipelineScanResultConditionArgs, ImagePipelineScanResultConditionPtr and ImagePipelineScanResultConditionPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineScanResultConditionPtrInput` via:
+//
+//	        ImagePipelineScanResultConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineScanResultConditionPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineScanResultConditionPtrOutput() ImagePipelineScanResultConditionPtrOutput
+	ToImagePipelineScanResultConditionPtrOutputWithContext(context.Context) ImagePipelineScanResultConditionPtrOutput
+}
+
+type imagePipelineScanResultConditionPtrType ImagePipelineScanResultConditionArgs
+
+func ImagePipelineScanResultConditionPtr(v *ImagePipelineScanResultConditionArgs) ImagePipelineScanResultConditionPtrInput {
+	return (*imagePipelineScanResultConditionPtrType)(v)
+}
+
+func (*imagePipelineScanResultConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineScanResultCondition)(nil)).Elem()
+}
+
+func (i *imagePipelineScanResultConditionPtrType) ToImagePipelineScanResultConditionPtrOutput() ImagePipelineScanResultConditionPtrOutput {
+	return i.ToImagePipelineScanResultConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineScanResultConditionPtrType) ToImagePipelineScanResultConditionPtrOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineScanResultConditionPtrOutput)
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+type ImagePipelineScanResultConditionOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineScanResultConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineScanResultCondition)(nil)).Elem()
+}
+
+func (o ImagePipelineScanResultConditionOutput) ToImagePipelineScanResultConditionOutput() ImagePipelineScanResultConditionOutput {
+	return o
+}
+
+func (o ImagePipelineScanResultConditionOutput) ToImagePipelineScanResultConditionOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionOutput {
+	return o
+}
+
+func (o ImagePipelineScanResultConditionOutput) ToImagePipelineScanResultConditionPtrOutput() ImagePipelineScanResultConditionPtrOutput {
+	return o.ToImagePipelineScanResultConditionPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineScanResultConditionOutput) ToImagePipelineScanResultConditionPtrOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineScanResultCondition) *ImagePipelineScanResultCondition {
+		return &v
+	}).(ImagePipelineScanResultConditionPtrOutput)
+}
+
+// Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+func (o ImagePipelineScanResultConditionOutput) FixAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImagePipelineScanResultCondition) *bool { return v.FixAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+func (o ImagePipelineScanResultConditionOutput) MaximumSeverityLabel() ImagePipelineScanResultConditionMaximumSeverityLabelOutput {
+	return o.ApplyT(func(v ImagePipelineScanResultCondition) ImagePipelineScanResultConditionMaximumSeverityLabel {
+		return v.MaximumSeverityLabel
+	}).(ImagePipelineScanResultConditionMaximumSeverityLabelOutput)
+}
+
+type ImagePipelineScanResultConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineScanResultConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineScanResultCondition)(nil)).Elem()
+}
+
+func (o ImagePipelineScanResultConditionPtrOutput) ToImagePipelineScanResultConditionPtrOutput() ImagePipelineScanResultConditionPtrOutput {
+	return o
+}
+
+func (o ImagePipelineScanResultConditionPtrOutput) ToImagePipelineScanResultConditionPtrOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionPtrOutput {
+	return o
+}
+
+func (o ImagePipelineScanResultConditionPtrOutput) Elem() ImagePipelineScanResultConditionOutput {
+	return o.ApplyT(func(v *ImagePipelineScanResultCondition) ImagePipelineScanResultCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineScanResultCondition
+		return ret
+	}).(ImagePipelineScanResultConditionOutput)
+}
+
+// Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+func (o ImagePipelineScanResultConditionPtrOutput) FixAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineScanResultCondition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FixAvailable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+func (o ImagePipelineScanResultConditionPtrOutput) MaximumSeverityLabel() ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineScanResultCondition) *ImagePipelineScanResultConditionMaximumSeverityLabel {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumSeverityLabel
+	}).(ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput)
 }
 
 // The schedule of the image pipeline.
@@ -5780,12 +5983,177 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+type ImageScanResultCondition struct {
+	// Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+	FixAvailable *bool `pulumi:"fixAvailable"`
+	// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+	MaximumSeverityLabel ImageScanResultConditionMaximumSeverityLabel `pulumi:"maximumSeverityLabel"`
+}
+
+// ImageScanResultConditionInput is an input type that accepts ImageScanResultConditionArgs and ImageScanResultConditionOutput values.
+// You can construct a concrete instance of `ImageScanResultConditionInput` via:
+//
+//	ImageScanResultConditionArgs{...}
+type ImageScanResultConditionInput interface {
+	pulumi.Input
+
+	ToImageScanResultConditionOutput() ImageScanResultConditionOutput
+	ToImageScanResultConditionOutputWithContext(context.Context) ImageScanResultConditionOutput
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+type ImageScanResultConditionArgs struct {
+	// Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+	FixAvailable pulumi.BoolPtrInput `pulumi:"fixAvailable"`
+	// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+	MaximumSeverityLabel ImageScanResultConditionMaximumSeverityLabelInput `pulumi:"maximumSeverityLabel"`
+}
+
+func (ImageScanResultConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageScanResultCondition)(nil)).Elem()
+}
+
+func (i ImageScanResultConditionArgs) ToImageScanResultConditionOutput() ImageScanResultConditionOutput {
+	return i.ToImageScanResultConditionOutputWithContext(context.Background())
+}
+
+func (i ImageScanResultConditionArgs) ToImageScanResultConditionOutputWithContext(ctx context.Context) ImageScanResultConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageScanResultConditionOutput)
+}
+
+func (i ImageScanResultConditionArgs) ToImageScanResultConditionPtrOutput() ImageScanResultConditionPtrOutput {
+	return i.ToImageScanResultConditionPtrOutputWithContext(context.Background())
+}
+
+func (i ImageScanResultConditionArgs) ToImageScanResultConditionPtrOutputWithContext(ctx context.Context) ImageScanResultConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageScanResultConditionOutput).ToImageScanResultConditionPtrOutputWithContext(ctx)
+}
+
+// ImageScanResultConditionPtrInput is an input type that accepts ImageScanResultConditionArgs, ImageScanResultConditionPtr and ImageScanResultConditionPtrOutput values.
+// You can construct a concrete instance of `ImageScanResultConditionPtrInput` via:
+//
+//	        ImageScanResultConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImageScanResultConditionPtrInput interface {
+	pulumi.Input
+
+	ToImageScanResultConditionPtrOutput() ImageScanResultConditionPtrOutput
+	ToImageScanResultConditionPtrOutputWithContext(context.Context) ImageScanResultConditionPtrOutput
+}
+
+type imageScanResultConditionPtrType ImageScanResultConditionArgs
+
+func ImageScanResultConditionPtr(v *ImageScanResultConditionArgs) ImageScanResultConditionPtrInput {
+	return (*imageScanResultConditionPtrType)(v)
+}
+
+func (*imageScanResultConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageScanResultCondition)(nil)).Elem()
+}
+
+func (i *imageScanResultConditionPtrType) ToImageScanResultConditionPtrOutput() ImageScanResultConditionPtrOutput {
+	return i.ToImageScanResultConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *imageScanResultConditionPtrType) ToImageScanResultConditionPtrOutputWithContext(ctx context.Context) ImageScanResultConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageScanResultConditionPtrOutput)
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+type ImageScanResultConditionOutput struct{ *pulumi.OutputState }
+
+func (ImageScanResultConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageScanResultCondition)(nil)).Elem()
+}
+
+func (o ImageScanResultConditionOutput) ToImageScanResultConditionOutput() ImageScanResultConditionOutput {
+	return o
+}
+
+func (o ImageScanResultConditionOutput) ToImageScanResultConditionOutputWithContext(ctx context.Context) ImageScanResultConditionOutput {
+	return o
+}
+
+func (o ImageScanResultConditionOutput) ToImageScanResultConditionPtrOutput() ImageScanResultConditionPtrOutput {
+	return o.ToImageScanResultConditionPtrOutputWithContext(context.Background())
+}
+
+func (o ImageScanResultConditionOutput) ToImageScanResultConditionPtrOutputWithContext(ctx context.Context) ImageScanResultConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageScanResultCondition) *ImageScanResultCondition {
+		return &v
+	}).(ImageScanResultConditionPtrOutput)
+}
+
+// Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+func (o ImageScanResultConditionOutput) FixAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageScanResultCondition) *bool { return v.FixAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+func (o ImageScanResultConditionOutput) MaximumSeverityLabel() ImageScanResultConditionMaximumSeverityLabelOutput {
+	return o.ApplyT(func(v ImageScanResultCondition) ImageScanResultConditionMaximumSeverityLabel {
+		return v.MaximumSeverityLabel
+	}).(ImageScanResultConditionMaximumSeverityLabelOutput)
+}
+
+type ImageScanResultConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageScanResultConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageScanResultCondition)(nil)).Elem()
+}
+
+func (o ImageScanResultConditionPtrOutput) ToImageScanResultConditionPtrOutput() ImageScanResultConditionPtrOutput {
+	return o
+}
+
+func (o ImageScanResultConditionPtrOutput) ToImageScanResultConditionPtrOutputWithContext(ctx context.Context) ImageScanResultConditionPtrOutput {
+	return o
+}
+
+func (o ImageScanResultConditionPtrOutput) Elem() ImageScanResultConditionOutput {
+	return o.ApplyT(func(v *ImageScanResultCondition) ImageScanResultCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ImageScanResultCondition
+		return ret
+	}).(ImageScanResultConditionOutput)
+}
+
+// Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+func (o ImageScanResultConditionPtrOutput) FixAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageScanResultCondition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FixAvailable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+func (o ImageScanResultConditionPtrOutput) MaximumSeverityLabel() ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o.ApplyT(func(v *ImageScanResultCondition) *ImageScanResultConditionMaximumSeverityLabel {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumSeverityLabel
+	}).(ImageScanResultConditionMaximumSeverityLabelPtrOutput)
+}
+
 // Contains settings for Image Builder image resource and container image scans.
 type ImageScanningConfiguration struct {
 	// Contains ECR settings for vulnerability scans.
 	EcrConfiguration *ImageEcrConfiguration `pulumi:"ecrConfiguration"`
 	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 	ImageScanningEnabled *bool `pulumi:"imageScanningEnabled"`
+	// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+	ImageScanningTypes []ImageScanningConfigurationImageScanningTypesItem `pulumi:"imageScanningTypes"`
+	// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+	ScanResultCondition *ImageScanResultCondition `pulumi:"scanResultCondition"`
 }
 
 // ImageScanningConfigurationInput is an input type that accepts ImageScanningConfigurationArgs and ImageScanningConfigurationOutput values.
@@ -5805,6 +6173,10 @@ type ImageScanningConfigurationArgs struct {
 	EcrConfiguration ImageEcrConfigurationPtrInput `pulumi:"ecrConfiguration"`
 	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 	ImageScanningEnabled pulumi.BoolPtrInput `pulumi:"imageScanningEnabled"`
+	// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+	ImageScanningTypes ImageScanningConfigurationImageScanningTypesItemArrayInput `pulumi:"imageScanningTypes"`
+	// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+	ScanResultCondition ImageScanResultConditionPtrInput `pulumi:"scanResultCondition"`
 }
 
 func (ImageScanningConfigurationArgs) ElementType() reflect.Type {
@@ -5895,6 +6267,18 @@ func (o ImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolPtrO
 	return o.ApplyT(func(v ImageScanningConfiguration) *bool { return v.ImageScanningEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+func (o ImageScanningConfigurationOutput) ImageScanningTypes() ImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return o.ApplyT(func(v ImageScanningConfiguration) []ImageScanningConfigurationImageScanningTypesItem {
+		return v.ImageScanningTypes
+	}).(ImageScanningConfigurationImageScanningTypesItemArrayOutput)
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+func (o ImageScanningConfigurationOutput) ScanResultCondition() ImageScanResultConditionPtrOutput {
+	return o.ApplyT(func(v ImageScanningConfiguration) *ImageScanResultCondition { return v.ScanResultCondition }).(ImageScanResultConditionPtrOutput)
+}
+
 type ImageScanningConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ImageScanningConfigurationPtrOutput) ElementType() reflect.Type {
@@ -5937,6 +6321,26 @@ func (o ImageScanningConfigurationPtrOutput) ImageScanningEnabled() pulumi.BoolP
 		}
 		return v.ImageScanningEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+func (o ImageScanningConfigurationPtrOutput) ImageScanningTypes() ImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return o.ApplyT(func(v *ImageScanningConfiguration) []ImageScanningConfigurationImageScanningTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.ImageScanningTypes
+	}).(ImageScanningConfigurationImageScanningTypesItemArrayOutput)
+}
+
+// The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+func (o ImageScanningConfigurationPtrOutput) ScanResultCondition() ImageScanResultConditionPtrOutput {
+	return o.ApplyT(func(v *ImageScanningConfiguration) *ImageScanResultCondition {
+		if v == nil {
+			return nil
+		}
+		return v.ScanResultCondition
+	}).(ImageScanResultConditionPtrOutput)
 }
 
 // The image tests configuration used when creating this image.
@@ -8649,6 +9053,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelinePipelineLoggingConfigurationInput)(nil)).Elem(), ImagePipelinePipelineLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelinePipelineLoggingConfigurationPtrInput)(nil)).Elem(), ImagePipelinePipelineLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScanResultConditionInput)(nil)).Elem(), ImagePipelineScanResultConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScanResultConditionPtrInput)(nil)).Elem(), ImagePipelineScanResultConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineSchedulePtrInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowConfigurationInput)(nil)).Elem(), ImagePipelineWorkflowConfigurationArgs{})
@@ -8667,6 +9073,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeInstanceBlockDeviceMappingArrayInput)(nil)).Elem(), ImageRecipeInstanceBlockDeviceMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeSystemsManagerAgentInput)(nil)).Elem(), ImageRecipeSystemsManagerAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeSystemsManagerAgentPtrInput)(nil)).Elem(), ImageRecipeSystemsManagerAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanResultConditionInput)(nil)).Elem(), ImageScanResultConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanResultConditionPtrInput)(nil)).Elem(), ImageScanResultConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanningConfigurationInput)(nil)).Elem(), ImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanningConfigurationPtrInput)(nil)).Elem(), ImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTestsConfigurationInput)(nil)).Elem(), ImageTestsConfigurationArgs{})
@@ -8758,6 +9166,8 @@ func init() {
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelinePipelineLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelinePipelineLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineScanResultConditionOutput{})
+	pulumi.RegisterOutputType(ImagePipelineScanResultConditionPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineWorkflowConfigurationOutput{})
@@ -8778,6 +9188,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageRecipeLatestVersionPtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
+	pulumi.RegisterOutputType(ImageScanResultConditionOutput{})
+	pulumi.RegisterOutputType(ImageScanResultConditionPtrOutput{})
 	pulumi.RegisterOutputType(ImageScanningConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageTestsConfigurationOutput{})

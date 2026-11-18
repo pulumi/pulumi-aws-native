@@ -5,7 +5,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : true
   },
   "handlers" : {
     "read" : {

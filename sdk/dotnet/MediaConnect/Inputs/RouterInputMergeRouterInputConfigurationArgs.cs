@@ -28,14 +28,14 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public Input<string> NetworkInterfaceArn { get; set; } = null!;
 
         [Input("protocolConfigurations", required: true)]
-        private InputList<Union<Inputs.RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs, Inputs.RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs>>? _protocolConfigurations;
+        private InputList<object>? _protocolConfigurations;
 
         /// <summary>
         /// A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
         /// </summary>
-        public InputList<Union<Inputs.RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs, Inputs.RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs>> ProtocolConfigurations
+        public InputList<object> ProtocolConfigurations
         {
-            get => _protocolConfigurations ?? (_protocolConfigurations = new InputList<Union<Inputs.RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs, Inputs.RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs>>());
+            get => _protocolConfigurations ?? (_protocolConfigurations = new InputList<object>());
             set => _protocolConfigurations = value;
         }
 

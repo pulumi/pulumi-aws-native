@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class ServiceGatewayConnectorArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deregistrationDelay")]
+        public Input<Inputs.ServiceGatewayConnectorDeregistrationDelayArgs>? DeregistrationDelay { get; set; }
+
         [Input("filters")]
         public Input<Inputs.ServiceGatewayConnectorFiltersArgs>? Filters { get; set; }
 

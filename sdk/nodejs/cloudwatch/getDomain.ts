@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The account-level boundary for CloudWatch Omni. A domain configures the
- * identity providers users sign in through and exposes the endpoint URLs used
- * to reach CloudWatch Omni. Spaces are created within a domain.
+ * Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,14 +19,14 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetDomainArgs {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the domain.
      */
     arn: string;
 }
 
 export interface GetDomainResult {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the domain.
      */
     readonly arn?: string;
     /**
@@ -51,6 +49,9 @@ export interface GetDomainResult {
      * The ARN of the Identity Center application. Absent for IAM-only domains.
      */
     readonly identityCenterApplicationArn?: string;
+    /**
+     * Identity provider configuration for the domain.
+     */
     readonly identityProviderConfiguration?: outputs.cloudwatch.DomainIdentityProviderConfiguration;
     /**
      * The identity providers configured for the domain.
@@ -78,9 +79,7 @@ export interface GetDomainResult {
     readonly updatedAt?: string;
 }
 /**
- * The account-level boundary for CloudWatch Omni. A domain configures the
- * identity providers users sign in through and exposes the endpoint URLs used
- * to reach CloudWatch Omni. Spaces are created within a domain.
+ * Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,7 +90,7 @@ export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeO
 
 export interface GetDomainOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the domain.
      */
     arn: pulumi.Input<string>;
 }

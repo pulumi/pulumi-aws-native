@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'AssociationComplianceSeverity',
     'AssociationSyncCompliance',
+    'DefaultHostManagementConfigurationDhmcPermissionModel',
     'DocumentAttachmentsSourceKey',
     'DocumentFormat',
     'DocumentType',
@@ -48,6 +49,15 @@ class AssociationSyncCompliance(_builtins.str, Enum):
     """
     AUTO = "AUTO"
     MANUAL = "MANUAL"
+
+
+@pulumi.type_token("aws-native:ssm:DefaultHostManagementConfigurationDhmcPermissionModel")
+class DefaultHostManagementConfigurationDhmcPermissionModel(_builtins.str, Enum):
+    """
+    The permission model used to enable DHMC. SERVICE_MANAGED lets SSM create and manage the DHMC IAM role on your behalf. SELF_MANAGED registers an IAM role that you provide.
+    """
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    SELF_MANAGED = "SELF_MANAGED"
 
 
 @pulumi.type_token("aws-native:ssm:DocumentAttachmentsSourceKey")

@@ -4972,6 +4972,143 @@ type EventSourceMappingTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type FunctionAcceleratorConfig struct {
+	// The minimum amount of memory (in GB) of each accelerator device exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available. Valid values: 3, 6, 12, 16, 24, 48.
+	AcceleratorMemorySize int `pulumi:"acceleratorMemorySize"`
+}
+
+// FunctionAcceleratorConfigInput is an input type that accepts FunctionAcceleratorConfigArgs and FunctionAcceleratorConfigOutput values.
+// You can construct a concrete instance of `FunctionAcceleratorConfigInput` via:
+//
+//	FunctionAcceleratorConfigArgs{...}
+type FunctionAcceleratorConfigInput interface {
+	pulumi.Input
+
+	ToFunctionAcceleratorConfigOutput() FunctionAcceleratorConfigOutput
+	ToFunctionAcceleratorConfigOutputWithContext(context.Context) FunctionAcceleratorConfigOutput
+}
+
+type FunctionAcceleratorConfigArgs struct {
+	// The minimum amount of memory (in GB) of each accelerator device exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available. Valid values: 3, 6, 12, 16, 24, 48.
+	AcceleratorMemorySize pulumi.IntInput `pulumi:"acceleratorMemorySize"`
+}
+
+func (FunctionAcceleratorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAcceleratorConfig)(nil)).Elem()
+}
+
+func (i FunctionAcceleratorConfigArgs) ToFunctionAcceleratorConfigOutput() FunctionAcceleratorConfigOutput {
+	return i.ToFunctionAcceleratorConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionAcceleratorConfigArgs) ToFunctionAcceleratorConfigOutputWithContext(ctx context.Context) FunctionAcceleratorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAcceleratorConfigOutput)
+}
+
+func (i FunctionAcceleratorConfigArgs) ToFunctionAcceleratorConfigPtrOutput() FunctionAcceleratorConfigPtrOutput {
+	return i.ToFunctionAcceleratorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAcceleratorConfigArgs) ToFunctionAcceleratorConfigPtrOutputWithContext(ctx context.Context) FunctionAcceleratorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAcceleratorConfigOutput).ToFunctionAcceleratorConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionAcceleratorConfigPtrInput is an input type that accepts FunctionAcceleratorConfigArgs, FunctionAcceleratorConfigPtr and FunctionAcceleratorConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionAcceleratorConfigPtrInput` via:
+//
+//	        FunctionAcceleratorConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionAcceleratorConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAcceleratorConfigPtrOutput() FunctionAcceleratorConfigPtrOutput
+	ToFunctionAcceleratorConfigPtrOutputWithContext(context.Context) FunctionAcceleratorConfigPtrOutput
+}
+
+type functionAcceleratorConfigPtrType FunctionAcceleratorConfigArgs
+
+func FunctionAcceleratorConfigPtr(v *FunctionAcceleratorConfigArgs) FunctionAcceleratorConfigPtrInput {
+	return (*functionAcceleratorConfigPtrType)(v)
+}
+
+func (*functionAcceleratorConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAcceleratorConfig)(nil)).Elem()
+}
+
+func (i *functionAcceleratorConfigPtrType) ToFunctionAcceleratorConfigPtrOutput() FunctionAcceleratorConfigPtrOutput {
+	return i.ToFunctionAcceleratorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAcceleratorConfigPtrType) ToFunctionAcceleratorConfigPtrOutputWithContext(ctx context.Context) FunctionAcceleratorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAcceleratorConfigPtrOutput)
+}
+
+type FunctionAcceleratorConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionAcceleratorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAcceleratorConfig)(nil)).Elem()
+}
+
+func (o FunctionAcceleratorConfigOutput) ToFunctionAcceleratorConfigOutput() FunctionAcceleratorConfigOutput {
+	return o
+}
+
+func (o FunctionAcceleratorConfigOutput) ToFunctionAcceleratorConfigOutputWithContext(ctx context.Context) FunctionAcceleratorConfigOutput {
+	return o
+}
+
+func (o FunctionAcceleratorConfigOutput) ToFunctionAcceleratorConfigPtrOutput() FunctionAcceleratorConfigPtrOutput {
+	return o.ToFunctionAcceleratorConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAcceleratorConfigOutput) ToFunctionAcceleratorConfigPtrOutputWithContext(ctx context.Context) FunctionAcceleratorConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAcceleratorConfig) *FunctionAcceleratorConfig {
+		return &v
+	}).(FunctionAcceleratorConfigPtrOutput)
+}
+
+// The minimum amount of memory (in GB) of each accelerator device exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available. Valid values: 3, 6, 12, 16, 24, 48.
+func (o FunctionAcceleratorConfigOutput) AcceleratorMemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionAcceleratorConfig) int { return v.AcceleratorMemorySize }).(pulumi.IntOutput)
+}
+
+type FunctionAcceleratorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAcceleratorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAcceleratorConfig)(nil)).Elem()
+}
+
+func (o FunctionAcceleratorConfigPtrOutput) ToFunctionAcceleratorConfigPtrOutput() FunctionAcceleratorConfigPtrOutput {
+	return o
+}
+
+func (o FunctionAcceleratorConfigPtrOutput) ToFunctionAcceleratorConfigPtrOutputWithContext(ctx context.Context) FunctionAcceleratorConfigPtrOutput {
+	return o
+}
+
+func (o FunctionAcceleratorConfigPtrOutput) Elem() FunctionAcceleratorConfigOutput {
+	return o.ApplyT(func(v *FunctionAcceleratorConfig) FunctionAcceleratorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAcceleratorConfig
+		return ret
+	}).(FunctionAcceleratorConfigOutput)
+}
+
+// The minimum amount of memory (in GB) of each accelerator device exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available. Valid values: 3, 6, 12, 16, 24, 48.
+func (o FunctionAcceleratorConfigPtrOutput) AcceleratorMemorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionAcceleratorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AcceleratorMemorySize
+	}).(pulumi.IntPtrOutput)
+}
+
 // Configuration for the capacity provider that manages compute resources for Lambda functions.
 type FunctionCapacityProviderConfig struct {
 	// Configuration for Lambda-managed instances used by the capacity provider.
@@ -6621,6 +6758,162 @@ func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() FunctionLoggingConfigSy
 		}
 		return v.SystemLogLevel
 	}).(FunctionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+type FunctionRuntimeConfig struct {
+	// The name of the runtime alias that controls the function's runtime update cadence (for example, stable or latest).
+	RuntimeAlias string `pulumi:"runtimeAlias"`
+	// The Amazon Resource Name (ARN) of the runtime that the function uses.
+	RuntimeArn string `pulumi:"runtimeArn"`
+}
+
+// FunctionRuntimeConfigInput is an input type that accepts FunctionRuntimeConfigArgs and FunctionRuntimeConfigOutput values.
+// You can construct a concrete instance of `FunctionRuntimeConfigInput` via:
+//
+//	FunctionRuntimeConfigArgs{...}
+type FunctionRuntimeConfigInput interface {
+	pulumi.Input
+
+	ToFunctionRuntimeConfigOutput() FunctionRuntimeConfigOutput
+	ToFunctionRuntimeConfigOutputWithContext(context.Context) FunctionRuntimeConfigOutput
+}
+
+type FunctionRuntimeConfigArgs struct {
+	// The name of the runtime alias that controls the function's runtime update cadence (for example, stable or latest).
+	RuntimeAlias pulumi.StringInput `pulumi:"runtimeAlias"`
+	// The Amazon Resource Name (ARN) of the runtime that the function uses.
+	RuntimeArn pulumi.StringInput `pulumi:"runtimeArn"`
+}
+
+func (FunctionRuntimeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRuntimeConfig)(nil)).Elem()
+}
+
+func (i FunctionRuntimeConfigArgs) ToFunctionRuntimeConfigOutput() FunctionRuntimeConfigOutput {
+	return i.ToFunctionRuntimeConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionRuntimeConfigArgs) ToFunctionRuntimeConfigOutputWithContext(ctx context.Context) FunctionRuntimeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeConfigOutput)
+}
+
+func (i FunctionRuntimeConfigArgs) ToFunctionRuntimeConfigPtrOutput() FunctionRuntimeConfigPtrOutput {
+	return i.ToFunctionRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionRuntimeConfigArgs) ToFunctionRuntimeConfigPtrOutputWithContext(ctx context.Context) FunctionRuntimeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeConfigOutput).ToFunctionRuntimeConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionRuntimeConfigPtrInput is an input type that accepts FunctionRuntimeConfigArgs, FunctionRuntimeConfigPtr and FunctionRuntimeConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionRuntimeConfigPtrInput` via:
+//
+//	        FunctionRuntimeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionRuntimeConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionRuntimeConfigPtrOutput() FunctionRuntimeConfigPtrOutput
+	ToFunctionRuntimeConfigPtrOutputWithContext(context.Context) FunctionRuntimeConfigPtrOutput
+}
+
+type functionRuntimeConfigPtrType FunctionRuntimeConfigArgs
+
+func FunctionRuntimeConfigPtr(v *FunctionRuntimeConfigArgs) FunctionRuntimeConfigPtrInput {
+	return (*functionRuntimeConfigPtrType)(v)
+}
+
+func (*functionRuntimeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionRuntimeConfig)(nil)).Elem()
+}
+
+func (i *functionRuntimeConfigPtrType) ToFunctionRuntimeConfigPtrOutput() FunctionRuntimeConfigPtrOutput {
+	return i.ToFunctionRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionRuntimeConfigPtrType) ToFunctionRuntimeConfigPtrOutputWithContext(ctx context.Context) FunctionRuntimeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeConfigPtrOutput)
+}
+
+type FunctionRuntimeConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionRuntimeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRuntimeConfig)(nil)).Elem()
+}
+
+func (o FunctionRuntimeConfigOutput) ToFunctionRuntimeConfigOutput() FunctionRuntimeConfigOutput {
+	return o
+}
+
+func (o FunctionRuntimeConfigOutput) ToFunctionRuntimeConfigOutputWithContext(ctx context.Context) FunctionRuntimeConfigOutput {
+	return o
+}
+
+func (o FunctionRuntimeConfigOutput) ToFunctionRuntimeConfigPtrOutput() FunctionRuntimeConfigPtrOutput {
+	return o.ToFunctionRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRuntimeConfigOutput) ToFunctionRuntimeConfigPtrOutputWithContext(ctx context.Context) FunctionRuntimeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionRuntimeConfig) *FunctionRuntimeConfig {
+		return &v
+	}).(FunctionRuntimeConfigPtrOutput)
+}
+
+// The name of the runtime alias that controls the function's runtime update cadence (for example, stable or latest).
+func (o FunctionRuntimeConfigOutput) RuntimeAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionRuntimeConfig) string { return v.RuntimeAlias }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the runtime that the function uses.
+func (o FunctionRuntimeConfigOutput) RuntimeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionRuntimeConfig) string { return v.RuntimeArn }).(pulumi.StringOutput)
+}
+
+type FunctionRuntimeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionRuntimeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionRuntimeConfig)(nil)).Elem()
+}
+
+func (o FunctionRuntimeConfigPtrOutput) ToFunctionRuntimeConfigPtrOutput() FunctionRuntimeConfigPtrOutput {
+	return o
+}
+
+func (o FunctionRuntimeConfigPtrOutput) ToFunctionRuntimeConfigPtrOutputWithContext(ctx context.Context) FunctionRuntimeConfigPtrOutput {
+	return o
+}
+
+func (o FunctionRuntimeConfigPtrOutput) Elem() FunctionRuntimeConfigOutput {
+	return o.ApplyT(func(v *FunctionRuntimeConfig) FunctionRuntimeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionRuntimeConfig
+		return ret
+	}).(FunctionRuntimeConfigOutput)
+}
+
+// The name of the runtime alias that controls the function's runtime update cadence (for example, stable or latest).
+func (o FunctionRuntimeConfigPtrOutput) RuntimeAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionRuntimeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuntimeAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the runtime that the function uses.
+func (o FunctionRuntimeConfigPtrOutput) RuntimeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionRuntimeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuntimeArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
@@ -9023,6 +9316,148 @@ func (o NetworkConnectorConfigPtrOutput) VpcEgressConfiguration() NetworkConnect
 	}).(NetworkConnectorVpcEgressConfigurationPtrOutput)
 }
 
+// Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs). If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.
+type NetworkConnectorElasticIpConfiguration struct {
+	// The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+	Type NetworkConnectorElasticIpConfigurationType `pulumi:"type"`
+}
+
+// NetworkConnectorElasticIpConfigurationInput is an input type that accepts NetworkConnectorElasticIpConfigurationArgs and NetworkConnectorElasticIpConfigurationOutput values.
+// You can construct a concrete instance of `NetworkConnectorElasticIpConfigurationInput` via:
+//
+//	NetworkConnectorElasticIpConfigurationArgs{...}
+type NetworkConnectorElasticIpConfigurationInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorElasticIpConfigurationOutput() NetworkConnectorElasticIpConfigurationOutput
+	ToNetworkConnectorElasticIpConfigurationOutputWithContext(context.Context) NetworkConnectorElasticIpConfigurationOutput
+}
+
+// Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs). If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.
+type NetworkConnectorElasticIpConfigurationArgs struct {
+	// The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+	Type NetworkConnectorElasticIpConfigurationTypeInput `pulumi:"type"`
+}
+
+func (NetworkConnectorElasticIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorElasticIpConfiguration)(nil)).Elem()
+}
+
+func (i NetworkConnectorElasticIpConfigurationArgs) ToNetworkConnectorElasticIpConfigurationOutput() NetworkConnectorElasticIpConfigurationOutput {
+	return i.ToNetworkConnectorElasticIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectorElasticIpConfigurationArgs) ToNetworkConnectorElasticIpConfigurationOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectorElasticIpConfigurationOutput)
+}
+
+func (i NetworkConnectorElasticIpConfigurationArgs) ToNetworkConnectorElasticIpConfigurationPtrOutput() NetworkConnectorElasticIpConfigurationPtrOutput {
+	return i.ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectorElasticIpConfigurationArgs) ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectorElasticIpConfigurationOutput).ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// NetworkConnectorElasticIpConfigurationPtrInput is an input type that accepts NetworkConnectorElasticIpConfigurationArgs, NetworkConnectorElasticIpConfigurationPtr and NetworkConnectorElasticIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `NetworkConnectorElasticIpConfigurationPtrInput` via:
+//
+//	        NetworkConnectorElasticIpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkConnectorElasticIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorElasticIpConfigurationPtrOutput() NetworkConnectorElasticIpConfigurationPtrOutput
+	ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(context.Context) NetworkConnectorElasticIpConfigurationPtrOutput
+}
+
+type networkConnectorElasticIpConfigurationPtrType NetworkConnectorElasticIpConfigurationArgs
+
+func NetworkConnectorElasticIpConfigurationPtr(v *NetworkConnectorElasticIpConfigurationArgs) NetworkConnectorElasticIpConfigurationPtrInput {
+	return (*networkConnectorElasticIpConfigurationPtrType)(v)
+}
+
+func (*networkConnectorElasticIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectorElasticIpConfiguration)(nil)).Elem()
+}
+
+func (i *networkConnectorElasticIpConfigurationPtrType) ToNetworkConnectorElasticIpConfigurationPtrOutput() NetworkConnectorElasticIpConfigurationPtrOutput {
+	return i.ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkConnectorElasticIpConfigurationPtrType) ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectorElasticIpConfigurationPtrOutput)
+}
+
+// Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs). If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.
+type NetworkConnectorElasticIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorElasticIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorElasticIpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectorElasticIpConfigurationOutput) ToNetworkConnectorElasticIpConfigurationOutput() NetworkConnectorElasticIpConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectorElasticIpConfigurationOutput) ToNetworkConnectorElasticIpConfigurationOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectorElasticIpConfigurationOutput) ToNetworkConnectorElasticIpConfigurationPtrOutput() NetworkConnectorElasticIpConfigurationPtrOutput {
+	return o.ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorElasticIpConfigurationOutput) ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectorElasticIpConfiguration) *NetworkConnectorElasticIpConfiguration {
+		return &v
+	}).(NetworkConnectorElasticIpConfigurationPtrOutput)
+}
+
+// The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+func (o NetworkConnectorElasticIpConfigurationOutput) Type() NetworkConnectorElasticIpConfigurationTypeOutput {
+	return o.ApplyT(func(v NetworkConnectorElasticIpConfiguration) NetworkConnectorElasticIpConfigurationType {
+		return v.Type
+	}).(NetworkConnectorElasticIpConfigurationTypeOutput)
+}
+
+type NetworkConnectorElasticIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorElasticIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectorElasticIpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectorElasticIpConfigurationPtrOutput) ToNetworkConnectorElasticIpConfigurationPtrOutput() NetworkConnectorElasticIpConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorElasticIpConfigurationPtrOutput) ToNetworkConnectorElasticIpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorElasticIpConfigurationPtrOutput) Elem() NetworkConnectorElasticIpConfigurationOutput {
+	return o.ApplyT(func(v *NetworkConnectorElasticIpConfiguration) NetworkConnectorElasticIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectorElasticIpConfiguration
+		return ret
+	}).(NetworkConnectorElasticIpConfigurationOutput)
+}
+
+// The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+func (o NetworkConnectorElasticIpConfigurationPtrOutput) Type() NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *NetworkConnectorElasticIpConfiguration) *NetworkConnectorElasticIpConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(NetworkConnectorElasticIpConfigurationTypePtrOutput)
+}
+
 // A key-value pair that provides metadata for the network connector.
 type NetworkConnectorTag struct {
 	// The key name of the tag.
@@ -9035,6 +9470,7 @@ type NetworkConnectorTag struct {
 type NetworkConnectorVpcEgressConfiguration struct {
 	// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
 	AssociatedComputeResourceTypes []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem `pulumi:"associatedComputeResourceTypes"`
+	ElasticIpConfiguration         *NetworkConnectorElasticIpConfiguration                                    `pulumi:"elasticIpConfiguration"`
 	// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
 	NetworkProtocol NetworkConnectorVpcEgressConfigurationNetworkProtocol `pulumi:"networkProtocol"`
 	// The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
@@ -9058,6 +9494,7 @@ type NetworkConnectorVpcEgressConfigurationInput interface {
 type NetworkConnectorVpcEgressConfigurationArgs struct {
 	// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
 	AssociatedComputeResourceTypes NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput `pulumi:"associatedComputeResourceTypes"`
+	ElasticIpConfiguration         NetworkConnectorElasticIpConfigurationPtrInput                                     `pulumi:"elasticIpConfiguration"`
 	// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
 	NetworkProtocol NetworkConnectorVpcEgressConfigurationNetworkProtocolInput `pulumi:"networkProtocol"`
 	// The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
@@ -9098,6 +9535,12 @@ func (o NetworkConnectorVpcEgressConfigurationOutput) AssociatedComputeResourceT
 	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem {
 		return v.AssociatedComputeResourceTypes
 	}).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput)
+}
+
+func (o NetworkConnectorVpcEgressConfigurationOutput) ElasticIpConfiguration() NetworkConnectorElasticIpConfigurationPtrOutput {
+	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) *NetworkConnectorElasticIpConfiguration {
+		return v.ElasticIpConfiguration
+	}).(NetworkConnectorElasticIpConfigurationPtrOutput)
 }
 
 // The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
@@ -9151,6 +9594,15 @@ func (o NetworkConnectorVpcEgressConfigurationPtrOutput) AssociatedComputeResour
 	}).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput)
 }
 
+func (o NetworkConnectorVpcEgressConfigurationPtrOutput) ElasticIpConfiguration() NetworkConnectorElasticIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) *NetworkConnectorElasticIpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticIpConfiguration
+	}).(NetworkConnectorElasticIpConfigurationPtrOutput)
+}
+
 // The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
 func (o NetworkConnectorVpcEgressConfigurationPtrOutput) NetworkProtocol() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) *NetworkConnectorVpcEgressConfigurationNetworkProtocol {
@@ -9179,6 +9631,651 @@ func (o NetworkConnectorVpcEgressConfigurationPtrOutput) SubnetIds() pulumi.Stri
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// Compatibility matrix for the runtime version the alias points to.
+type RuntimeAliasCompatibility struct {
+	Architectures     []RuntimeAliasCompatibilityArchitecturesItem     `pulumi:"architectures"`
+	IntegrationModels []RuntimeAliasCompatibilityIntegrationModelsItem `pulumi:"integrationModels"`
+	ManagedInstances  *RuntimeAliasCompatibilityManagedInstances       `pulumi:"managedInstances"`
+}
+
+// Compatibility matrix for the runtime version the alias points to.
+type RuntimeAliasCompatibilityOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasCompatibility)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityOutput) ToRuntimeAliasCompatibilityOutput() RuntimeAliasCompatibilityOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityOutput) ToRuntimeAliasCompatibilityOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityOutput) Architectures() RuntimeAliasCompatibilityArchitecturesItemArrayOutput {
+	return o.ApplyT(func(v RuntimeAliasCompatibility) []RuntimeAliasCompatibilityArchitecturesItem { return v.Architectures }).(RuntimeAliasCompatibilityArchitecturesItemArrayOutput)
+}
+
+func (o RuntimeAliasCompatibilityOutput) IntegrationModels() RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput {
+	return o.ApplyT(func(v RuntimeAliasCompatibility) []RuntimeAliasCompatibilityIntegrationModelsItem {
+		return v.IntegrationModels
+	}).(RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput)
+}
+
+func (o RuntimeAliasCompatibilityOutput) ManagedInstances() RuntimeAliasCompatibilityManagedInstancesPtrOutput {
+	return o.ApplyT(func(v RuntimeAliasCompatibility) *RuntimeAliasCompatibilityManagedInstances {
+		return v.ManagedInstances
+	}).(RuntimeAliasCompatibilityManagedInstancesPtrOutput)
+}
+
+type RuntimeAliasCompatibilityPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAliasCompatibility)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityPtrOutput) ToRuntimeAliasCompatibilityPtrOutput() RuntimeAliasCompatibilityPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityPtrOutput) ToRuntimeAliasCompatibilityPtrOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityPtrOutput) Elem() RuntimeAliasCompatibilityOutput {
+	return o.ApplyT(func(v *RuntimeAliasCompatibility) RuntimeAliasCompatibility {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAliasCompatibility
+		return ret
+	}).(RuntimeAliasCompatibilityOutput)
+}
+
+func (o RuntimeAliasCompatibilityPtrOutput) Architectures() RuntimeAliasCompatibilityArchitecturesItemArrayOutput {
+	return o.ApplyT(func(v *RuntimeAliasCompatibility) []RuntimeAliasCompatibilityArchitecturesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Architectures
+	}).(RuntimeAliasCompatibilityArchitecturesItemArrayOutput)
+}
+
+func (o RuntimeAliasCompatibilityPtrOutput) IntegrationModels() RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput {
+	return o.ApplyT(func(v *RuntimeAliasCompatibility) []RuntimeAliasCompatibilityIntegrationModelsItem {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationModels
+	}).(RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput)
+}
+
+func (o RuntimeAliasCompatibilityPtrOutput) ManagedInstances() RuntimeAliasCompatibilityManagedInstancesPtrOutput {
+	return o.ApplyT(func(v *RuntimeAliasCompatibility) *RuntimeAliasCompatibilityManagedInstances {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedInstances
+	}).(RuntimeAliasCompatibilityManagedInstancesPtrOutput)
+}
+
+// The publisher's lifecycle declaration for the alias. Omitting it removes any stored declaration.
+type RuntimeAliasReleaseLifecycle struct {
+	// The date on which the alias becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+	DeprecationDate *string `pulumi:"deprecationDate"`
+	// The date on which creating new functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+	FunctionCreateBlockDate *string `pulumi:"functionCreateBlockDate"`
+	// The date on which updating existing functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+	FunctionUpdateBlockDate *string `pulumi:"functionUpdateBlockDate"`
+	// The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+	ReleaseState *RuntimeAliasReleaseLifecycleReleaseState `pulumi:"releaseState"`
+}
+
+// RuntimeAliasReleaseLifecycleInput is an input type that accepts RuntimeAliasReleaseLifecycleArgs and RuntimeAliasReleaseLifecycleOutput values.
+// You can construct a concrete instance of `RuntimeAliasReleaseLifecycleInput` via:
+//
+//	RuntimeAliasReleaseLifecycleArgs{...}
+type RuntimeAliasReleaseLifecycleInput interface {
+	pulumi.Input
+
+	ToRuntimeAliasReleaseLifecycleOutput() RuntimeAliasReleaseLifecycleOutput
+	ToRuntimeAliasReleaseLifecycleOutputWithContext(context.Context) RuntimeAliasReleaseLifecycleOutput
+}
+
+// The publisher's lifecycle declaration for the alias. Omitting it removes any stored declaration.
+type RuntimeAliasReleaseLifecycleArgs struct {
+	// The date on which the alias becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+	DeprecationDate pulumi.StringPtrInput `pulumi:"deprecationDate"`
+	// The date on which creating new functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+	FunctionCreateBlockDate pulumi.StringPtrInput `pulumi:"functionCreateBlockDate"`
+	// The date on which updating existing functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+	FunctionUpdateBlockDate pulumi.StringPtrInput `pulumi:"functionUpdateBlockDate"`
+	// The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+	ReleaseState RuntimeAliasReleaseLifecycleReleaseStatePtrInput `pulumi:"releaseState"`
+}
+
+func (RuntimeAliasReleaseLifecycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasReleaseLifecycle)(nil)).Elem()
+}
+
+func (i RuntimeAliasReleaseLifecycleArgs) ToRuntimeAliasReleaseLifecycleOutput() RuntimeAliasReleaseLifecycleOutput {
+	return i.ToRuntimeAliasReleaseLifecycleOutputWithContext(context.Background())
+}
+
+func (i RuntimeAliasReleaseLifecycleArgs) ToRuntimeAliasReleaseLifecycleOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeAliasReleaseLifecycleOutput)
+}
+
+func (i RuntimeAliasReleaseLifecycleArgs) ToRuntimeAliasReleaseLifecyclePtrOutput() RuntimeAliasReleaseLifecyclePtrOutput {
+	return i.ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeAliasReleaseLifecycleArgs) ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeAliasReleaseLifecycleOutput).ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(ctx)
+}
+
+// RuntimeAliasReleaseLifecyclePtrInput is an input type that accepts RuntimeAliasReleaseLifecycleArgs, RuntimeAliasReleaseLifecyclePtr and RuntimeAliasReleaseLifecyclePtrOutput values.
+// You can construct a concrete instance of `RuntimeAliasReleaseLifecyclePtrInput` via:
+//
+//	        RuntimeAliasReleaseLifecycleArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeAliasReleaseLifecyclePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeAliasReleaseLifecyclePtrOutput() RuntimeAliasReleaseLifecyclePtrOutput
+	ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(context.Context) RuntimeAliasReleaseLifecyclePtrOutput
+}
+
+type runtimeAliasReleaseLifecyclePtrType RuntimeAliasReleaseLifecycleArgs
+
+func RuntimeAliasReleaseLifecyclePtr(v *RuntimeAliasReleaseLifecycleArgs) RuntimeAliasReleaseLifecyclePtrInput {
+	return (*runtimeAliasReleaseLifecyclePtrType)(v)
+}
+
+func (*runtimeAliasReleaseLifecyclePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAliasReleaseLifecycle)(nil)).Elem()
+}
+
+func (i *runtimeAliasReleaseLifecyclePtrType) ToRuntimeAliasReleaseLifecyclePtrOutput() RuntimeAliasReleaseLifecyclePtrOutput {
+	return i.ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeAliasReleaseLifecyclePtrType) ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeAliasReleaseLifecyclePtrOutput)
+}
+
+// The publisher's lifecycle declaration for the alias. Omitting it removes any stored declaration.
+type RuntimeAliasReleaseLifecycleOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasReleaseLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasReleaseLifecycle)(nil)).Elem()
+}
+
+func (o RuntimeAliasReleaseLifecycleOutput) ToRuntimeAliasReleaseLifecycleOutput() RuntimeAliasReleaseLifecycleOutput {
+	return o
+}
+
+func (o RuntimeAliasReleaseLifecycleOutput) ToRuntimeAliasReleaseLifecycleOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecycleOutput {
+	return o
+}
+
+func (o RuntimeAliasReleaseLifecycleOutput) ToRuntimeAliasReleaseLifecyclePtrOutput() RuntimeAliasReleaseLifecyclePtrOutput {
+	return o.ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasReleaseLifecycleOutput) ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeAliasReleaseLifecycle) *RuntimeAliasReleaseLifecycle {
+		return &v
+	}).(RuntimeAliasReleaseLifecyclePtrOutput)
+}
+
+// The date on which the alias becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeAliasReleaseLifecycleOutput) DeprecationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeAliasReleaseLifecycle) *string { return v.DeprecationDate }).(pulumi.StringPtrOutput)
+}
+
+// The date on which creating new functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeAliasReleaseLifecycleOutput) FunctionCreateBlockDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeAliasReleaseLifecycle) *string { return v.FunctionCreateBlockDate }).(pulumi.StringPtrOutput)
+}
+
+// The date on which updating existing functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeAliasReleaseLifecycleOutput) FunctionUpdateBlockDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeAliasReleaseLifecycle) *string { return v.FunctionUpdateBlockDate }).(pulumi.StringPtrOutput)
+}
+
+// The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+func (o RuntimeAliasReleaseLifecycleOutput) ReleaseState() RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return o.ApplyT(func(v RuntimeAliasReleaseLifecycle) *RuntimeAliasReleaseLifecycleReleaseState { return v.ReleaseState }).(RuntimeAliasReleaseLifecycleReleaseStatePtrOutput)
+}
+
+type RuntimeAliasReleaseLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasReleaseLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAliasReleaseLifecycle)(nil)).Elem()
+}
+
+func (o RuntimeAliasReleaseLifecyclePtrOutput) ToRuntimeAliasReleaseLifecyclePtrOutput() RuntimeAliasReleaseLifecyclePtrOutput {
+	return o
+}
+
+func (o RuntimeAliasReleaseLifecyclePtrOutput) ToRuntimeAliasReleaseLifecyclePtrOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecyclePtrOutput {
+	return o
+}
+
+func (o RuntimeAliasReleaseLifecyclePtrOutput) Elem() RuntimeAliasReleaseLifecycleOutput {
+	return o.ApplyT(func(v *RuntimeAliasReleaseLifecycle) RuntimeAliasReleaseLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAliasReleaseLifecycle
+		return ret
+	}).(RuntimeAliasReleaseLifecycleOutput)
+}
+
+// The date on which the alias becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeAliasReleaseLifecyclePtrOutput) DeprecationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeAliasReleaseLifecycle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeprecationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The date on which creating new functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeAliasReleaseLifecyclePtrOutput) FunctionCreateBlockDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeAliasReleaseLifecycle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionCreateBlockDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The date on which updating existing functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeAliasReleaseLifecyclePtrOutput) FunctionUpdateBlockDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeAliasReleaseLifecycle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionUpdateBlockDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+func (o RuntimeAliasReleaseLifecyclePtrOutput) ReleaseState() RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return o.ApplyT(func(v *RuntimeAliasReleaseLifecycle) *RuntimeAliasReleaseLifecycleReleaseState {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseState
+	}).(RuntimeAliasReleaseLifecycleReleaseStatePtrOutput)
+}
+
+// The publisher's lifecycle declaration for the runtime. Omitting it removes any stored declaration.
+type RuntimeReleaseLifecycle struct {
+	// The date on which the runtime becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+	DeprecationDate *string `pulumi:"deprecationDate"`
+	// The date on which creating new functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+	FunctionCreateBlockDate *string `pulumi:"functionCreateBlockDate"`
+	// The date on which updating existing functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+	FunctionUpdateBlockDate *string `pulumi:"functionUpdateBlockDate"`
+	// The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+	ReleaseState *RuntimeReleaseLifecycleReleaseState `pulumi:"releaseState"`
+}
+
+// RuntimeReleaseLifecycleInput is an input type that accepts RuntimeReleaseLifecycleArgs and RuntimeReleaseLifecycleOutput values.
+// You can construct a concrete instance of `RuntimeReleaseLifecycleInput` via:
+//
+//	RuntimeReleaseLifecycleArgs{...}
+type RuntimeReleaseLifecycleInput interface {
+	pulumi.Input
+
+	ToRuntimeReleaseLifecycleOutput() RuntimeReleaseLifecycleOutput
+	ToRuntimeReleaseLifecycleOutputWithContext(context.Context) RuntimeReleaseLifecycleOutput
+}
+
+// The publisher's lifecycle declaration for the runtime. Omitting it removes any stored declaration.
+type RuntimeReleaseLifecycleArgs struct {
+	// The date on which the runtime becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+	DeprecationDate pulumi.StringPtrInput `pulumi:"deprecationDate"`
+	// The date on which creating new functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+	FunctionCreateBlockDate pulumi.StringPtrInput `pulumi:"functionCreateBlockDate"`
+	// The date on which updating existing functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+	FunctionUpdateBlockDate pulumi.StringPtrInput `pulumi:"functionUpdateBlockDate"`
+	// The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+	ReleaseState RuntimeReleaseLifecycleReleaseStatePtrInput `pulumi:"releaseState"`
+}
+
+func (RuntimeReleaseLifecycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeReleaseLifecycle)(nil)).Elem()
+}
+
+func (i RuntimeReleaseLifecycleArgs) ToRuntimeReleaseLifecycleOutput() RuntimeReleaseLifecycleOutput {
+	return i.ToRuntimeReleaseLifecycleOutputWithContext(context.Background())
+}
+
+func (i RuntimeReleaseLifecycleArgs) ToRuntimeReleaseLifecycleOutputWithContext(ctx context.Context) RuntimeReleaseLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeReleaseLifecycleOutput)
+}
+
+func (i RuntimeReleaseLifecycleArgs) ToRuntimeReleaseLifecyclePtrOutput() RuntimeReleaseLifecyclePtrOutput {
+	return i.ToRuntimeReleaseLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeReleaseLifecycleArgs) ToRuntimeReleaseLifecyclePtrOutputWithContext(ctx context.Context) RuntimeReleaseLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeReleaseLifecycleOutput).ToRuntimeReleaseLifecyclePtrOutputWithContext(ctx)
+}
+
+// RuntimeReleaseLifecyclePtrInput is an input type that accepts RuntimeReleaseLifecycleArgs, RuntimeReleaseLifecyclePtr and RuntimeReleaseLifecyclePtrOutput values.
+// You can construct a concrete instance of `RuntimeReleaseLifecyclePtrInput` via:
+//
+//	        RuntimeReleaseLifecycleArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeReleaseLifecyclePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeReleaseLifecyclePtrOutput() RuntimeReleaseLifecyclePtrOutput
+	ToRuntimeReleaseLifecyclePtrOutputWithContext(context.Context) RuntimeReleaseLifecyclePtrOutput
+}
+
+type runtimeReleaseLifecyclePtrType RuntimeReleaseLifecycleArgs
+
+func RuntimeReleaseLifecyclePtr(v *RuntimeReleaseLifecycleArgs) RuntimeReleaseLifecyclePtrInput {
+	return (*runtimeReleaseLifecyclePtrType)(v)
+}
+
+func (*runtimeReleaseLifecyclePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeReleaseLifecycle)(nil)).Elem()
+}
+
+func (i *runtimeReleaseLifecyclePtrType) ToRuntimeReleaseLifecyclePtrOutput() RuntimeReleaseLifecyclePtrOutput {
+	return i.ToRuntimeReleaseLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeReleaseLifecyclePtrType) ToRuntimeReleaseLifecyclePtrOutputWithContext(ctx context.Context) RuntimeReleaseLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeReleaseLifecyclePtrOutput)
+}
+
+// The publisher's lifecycle declaration for the runtime. Omitting it removes any stored declaration.
+type RuntimeReleaseLifecycleOutput struct{ *pulumi.OutputState }
+
+func (RuntimeReleaseLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeReleaseLifecycle)(nil)).Elem()
+}
+
+func (o RuntimeReleaseLifecycleOutput) ToRuntimeReleaseLifecycleOutput() RuntimeReleaseLifecycleOutput {
+	return o
+}
+
+func (o RuntimeReleaseLifecycleOutput) ToRuntimeReleaseLifecycleOutputWithContext(ctx context.Context) RuntimeReleaseLifecycleOutput {
+	return o
+}
+
+func (o RuntimeReleaseLifecycleOutput) ToRuntimeReleaseLifecyclePtrOutput() RuntimeReleaseLifecyclePtrOutput {
+	return o.ToRuntimeReleaseLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeReleaseLifecycleOutput) ToRuntimeReleaseLifecyclePtrOutputWithContext(ctx context.Context) RuntimeReleaseLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeReleaseLifecycle) *RuntimeReleaseLifecycle {
+		return &v
+	}).(RuntimeReleaseLifecyclePtrOutput)
+}
+
+// The date on which the runtime becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeReleaseLifecycleOutput) DeprecationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeReleaseLifecycle) *string { return v.DeprecationDate }).(pulumi.StringPtrOutput)
+}
+
+// The date on which creating new functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeReleaseLifecycleOutput) FunctionCreateBlockDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeReleaseLifecycle) *string { return v.FunctionCreateBlockDate }).(pulumi.StringPtrOutput)
+}
+
+// The date on which updating existing functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeReleaseLifecycleOutput) FunctionUpdateBlockDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeReleaseLifecycle) *string { return v.FunctionUpdateBlockDate }).(pulumi.StringPtrOutput)
+}
+
+// The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+func (o RuntimeReleaseLifecycleOutput) ReleaseState() RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return o.ApplyT(func(v RuntimeReleaseLifecycle) *RuntimeReleaseLifecycleReleaseState { return v.ReleaseState }).(RuntimeReleaseLifecycleReleaseStatePtrOutput)
+}
+
+type RuntimeReleaseLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeReleaseLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeReleaseLifecycle)(nil)).Elem()
+}
+
+func (o RuntimeReleaseLifecyclePtrOutput) ToRuntimeReleaseLifecyclePtrOutput() RuntimeReleaseLifecyclePtrOutput {
+	return o
+}
+
+func (o RuntimeReleaseLifecyclePtrOutput) ToRuntimeReleaseLifecyclePtrOutputWithContext(ctx context.Context) RuntimeReleaseLifecyclePtrOutput {
+	return o
+}
+
+func (o RuntimeReleaseLifecyclePtrOutput) Elem() RuntimeReleaseLifecycleOutput {
+	return o.ApplyT(func(v *RuntimeReleaseLifecycle) RuntimeReleaseLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeReleaseLifecycle
+		return ret
+	}).(RuntimeReleaseLifecycleOutput)
+}
+
+// The date on which the runtime becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeReleaseLifecyclePtrOutput) DeprecationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeReleaseLifecycle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeprecationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The date on which creating new functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeReleaseLifecyclePtrOutput) FunctionCreateBlockDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeReleaseLifecycle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionCreateBlockDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The date on which updating existing functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+func (o RuntimeReleaseLifecyclePtrOutput) FunctionUpdateBlockDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeReleaseLifecycle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionUpdateBlockDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+func (o RuntimeReleaseLifecyclePtrOutput) ReleaseState() RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return o.ApplyT(func(v *RuntimeReleaseLifecycle) *RuntimeReleaseLifecycleReleaseState {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseState
+	}).(RuntimeReleaseLifecycleReleaseStatePtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RuntimeTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+	Value string `pulumi:"value"`
+}
+
+// Compatibility matrix for the runtime version: supported integration models, architectures, and feature policies.
+type RuntimeVersionCompatibility struct {
+	// Supported CPU architectures for the runtime version.
+	Architectures []RuntimeVersionCompatibilityArchitecturesItem `pulumi:"architectures"`
+	// Supported integration models for the runtime version.
+	IntegrationModels []RuntimeVersionCompatibilityIntegrationModelsItem `pulumi:"integrationModels"`
+	// Whether the runtime version supports managed instances.
+	ManagedInstances *RuntimeVersionCompatibilityManagedInstances `pulumi:"managedInstances"`
+}
+
+// Compatibility matrix for the runtime version: supported integration models, architectures, and feature policies.
+type RuntimeVersionCompatibilityOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeVersionCompatibility)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityOutput) ToRuntimeVersionCompatibilityOutput() RuntimeVersionCompatibilityOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityOutput) ToRuntimeVersionCompatibilityOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityOutput {
+	return o
+}
+
+// Supported CPU architectures for the runtime version.
+func (o RuntimeVersionCompatibilityOutput) Architectures() RuntimeVersionCompatibilityArchitecturesItemArrayOutput {
+	return o.ApplyT(func(v RuntimeVersionCompatibility) []RuntimeVersionCompatibilityArchitecturesItem {
+		return v.Architectures
+	}).(RuntimeVersionCompatibilityArchitecturesItemArrayOutput)
+}
+
+// Supported integration models for the runtime version.
+func (o RuntimeVersionCompatibilityOutput) IntegrationModels() RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput {
+	return o.ApplyT(func(v RuntimeVersionCompatibility) []RuntimeVersionCompatibilityIntegrationModelsItem {
+		return v.IntegrationModels
+	}).(RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput)
+}
+
+// Whether the runtime version supports managed instances.
+func (o RuntimeVersionCompatibilityOutput) ManagedInstances() RuntimeVersionCompatibilityManagedInstancesPtrOutput {
+	return o.ApplyT(func(v RuntimeVersionCompatibility) *RuntimeVersionCompatibilityManagedInstances {
+		return v.ManagedInstances
+	}).(RuntimeVersionCompatibilityManagedInstancesPtrOutput)
+}
+
+type RuntimeVersionCompatibilityPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeVersionCompatibility)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityPtrOutput) ToRuntimeVersionCompatibilityPtrOutput() RuntimeVersionCompatibilityPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityPtrOutput) ToRuntimeVersionCompatibilityPtrOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityPtrOutput) Elem() RuntimeVersionCompatibilityOutput {
+	return o.ApplyT(func(v *RuntimeVersionCompatibility) RuntimeVersionCompatibility {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeVersionCompatibility
+		return ret
+	}).(RuntimeVersionCompatibilityOutput)
+}
+
+// Supported CPU architectures for the runtime version.
+func (o RuntimeVersionCompatibilityPtrOutput) Architectures() RuntimeVersionCompatibilityArchitecturesItemArrayOutput {
+	return o.ApplyT(func(v *RuntimeVersionCompatibility) []RuntimeVersionCompatibilityArchitecturesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Architectures
+	}).(RuntimeVersionCompatibilityArchitecturesItemArrayOutput)
+}
+
+// Supported integration models for the runtime version.
+func (o RuntimeVersionCompatibilityPtrOutput) IntegrationModels() RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput {
+	return o.ApplyT(func(v *RuntimeVersionCompatibility) []RuntimeVersionCompatibilityIntegrationModelsItem {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationModels
+	}).(RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput)
+}
+
+// Whether the runtime version supports managed instances.
+func (o RuntimeVersionCompatibilityPtrOutput) ManagedInstances() RuntimeVersionCompatibilityManagedInstancesPtrOutput {
+	return o.ApplyT(func(v *RuntimeVersionCompatibility) *RuntimeVersionCompatibilityManagedInstances {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedInstances
+	}).(RuntimeVersionCompatibilityManagedInstancesPtrOutput)
+}
+
+// A resolved OCI image platform descriptor.
+type RuntimeVersionPlatform struct {
+	Architecture string `pulumi:"architecture"`
+	Digest       string `pulumi:"digest"`
+	Os           string `pulumi:"os"`
+}
+
+// A resolved OCI image platform descriptor.
+type RuntimeVersionPlatformOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionPlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeVersionPlatform)(nil)).Elem()
+}
+
+func (o RuntimeVersionPlatformOutput) ToRuntimeVersionPlatformOutput() RuntimeVersionPlatformOutput {
+	return o
+}
+
+func (o RuntimeVersionPlatformOutput) ToRuntimeVersionPlatformOutputWithContext(ctx context.Context) RuntimeVersionPlatformOutput {
+	return o
+}
+
+func (o RuntimeVersionPlatformOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeVersionPlatform) string { return v.Architecture }).(pulumi.StringOutput)
+}
+
+func (o RuntimeVersionPlatformOutput) Digest() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeVersionPlatform) string { return v.Digest }).(pulumi.StringOutput)
+}
+
+func (o RuntimeVersionPlatformOutput) Os() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeVersionPlatform) string { return v.Os }).(pulumi.StringOutput)
+}
+
+type RuntimeVersionPlatformArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionPlatformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeVersionPlatform)(nil)).Elem()
+}
+
+func (o RuntimeVersionPlatformArrayOutput) ToRuntimeVersionPlatformArrayOutput() RuntimeVersionPlatformArrayOutput {
+	return o
+}
+
+func (o RuntimeVersionPlatformArrayOutput) ToRuntimeVersionPlatformArrayOutputWithContext(ctx context.Context) RuntimeVersionPlatformArrayOutput {
+	return o
+}
+
+func (o RuntimeVersionPlatformArrayOutput) Index(i pulumi.IntInput) RuntimeVersionPlatformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeVersionPlatform {
+		return vs[0].([]RuntimeVersionPlatform)[vs[1].(int)]
+	}).(RuntimeVersionPlatformOutput)
 }
 
 // The service configuration for the revision.
@@ -10946,6 +12043,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationArrayInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAcceleratorConfigInput)(nil)).Elem(), FunctionAcceleratorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAcceleratorConfigPtrInput)(nil)).Elem(), FunctionAcceleratorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCapacityProviderConfigInput)(nil)).Elem(), FunctionCapacityProviderConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCapacityProviderConfigPtrInput)(nil)).Elem(), FunctionCapacityProviderConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCodeInput)(nil)).Elem(), FunctionCodeArgs{})
@@ -10965,6 +12064,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLambdaManagedInstancesCapacityProviderConfigPtrInput)(nil)).Elem(), FunctionLambdaManagedInstancesCapacityProviderConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigPtrInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeConfigInput)(nil)).Elem(), FunctionRuntimeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeConfigPtrInput)(nil)).Elem(), FunctionRuntimeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionS3FilesConfigInput)(nil)).Elem(), FunctionS3FilesConfigArgs{})
@@ -10996,7 +12097,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageResourcesInput)(nil)).Elem(), MicrovmImageResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageResourcesArrayInput)(nil)).Elem(), MicrovmImageResourcesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorConfigInput)(nil)).Elem(), NetworkConnectorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorElasticIpConfigurationInput)(nil)).Elem(), NetworkConnectorElasticIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorElasticIpConfigurationPtrInput)(nil)).Elem(), NetworkConnectorElasticIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAliasReleaseLifecycleInput)(nil)).Elem(), RuntimeAliasReleaseLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAliasReleaseLifecyclePtrInput)(nil)).Elem(), RuntimeAliasReleaseLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeReleaseLifecycleInput)(nil)).Elem(), RuntimeReleaseLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeReleaseLifecyclePtrInput)(nil)).Elem(), RuntimeReleaseLifecycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConfigPropertiesInput)(nil)).Elem(), ServiceConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConfigPropertiesTelemetryConfigPropertiesInput)(nil)).Elem(), ServiceConfigPropertiesTelemetryConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConfigPropertiesTelemetryConfigPropertiesPtrInput)(nil)).Elem(), ServiceConfigPropertiesTelemetryConfigPropertiesArgs{})
@@ -11086,6 +12193,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAcceleratorConfigOutput{})
+	pulumi.RegisterOutputType(FunctionAcceleratorConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCapacityProviderConfigOutput{})
 	pulumi.RegisterOutputType(FunctionCapacityProviderConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCodeOutput{})
@@ -11106,6 +12215,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionRuntimeConfigOutput{})
+	pulumi.RegisterOutputType(FunctionRuntimeConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionS3FilesConfigOutput{})
@@ -11140,8 +12251,20 @@ func init() {
 	pulumi.RegisterOutputType(MicrovmImageResourcesArrayOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorConfigOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorConfigPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorElasticIpConfigurationOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorElasticIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasReleaseLifecycleOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasReleaseLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(RuntimeReleaseLifecycleOutput{})
+	pulumi.RegisterOutputType(RuntimeReleaseLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionPlatformOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionPlatformArrayOutput{})
 	pulumi.RegisterOutputType(ServiceConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceConfigPropertiesTelemetryConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput{})

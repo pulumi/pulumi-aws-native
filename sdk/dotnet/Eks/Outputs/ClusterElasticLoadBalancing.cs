@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Eks.Outputs
 {
 
     /// <summary>
-    /// Todo: add description
+    /// Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.
     /// </summary>
     [OutputType]
     public sealed class ClusterElasticLoadBalancing
     {
         /// <summary>
-        /// Todo: add description
+        /// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

@@ -356,6 +356,485 @@ func (o CalculatedAttributeDefinitionConditionsPtrOutput) Threshold() Calculated
 	}).(CalculatedAttributeDefinitionThresholdPtrOutput)
 }
 
+// Defines how to filter the objects coming in for calculated attributes.
+type CalculatedAttributeDefinitionFilter struct {
+	// Holds the list of Filter groups within the Filter definition.
+	Groups  []CalculatedAttributeDefinitionFilterGroup `pulumi:"groups"`
+	Include CalculatedAttributeDefinitionFilterInclude `pulumi:"include"`
+}
+
+// CalculatedAttributeDefinitionFilterInput is an input type that accepts CalculatedAttributeDefinitionFilterArgs and CalculatedAttributeDefinitionFilterOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionFilterInput` via:
+//
+//	CalculatedAttributeDefinitionFilterArgs{...}
+type CalculatedAttributeDefinitionFilterInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionFilterOutput() CalculatedAttributeDefinitionFilterOutput
+	ToCalculatedAttributeDefinitionFilterOutputWithContext(context.Context) CalculatedAttributeDefinitionFilterOutput
+}
+
+// Defines how to filter the objects coming in for calculated attributes.
+type CalculatedAttributeDefinitionFilterArgs struct {
+	// Holds the list of Filter groups within the Filter definition.
+	Groups  CalculatedAttributeDefinitionFilterGroupArrayInput `pulumi:"groups"`
+	Include CalculatedAttributeDefinitionFilterIncludeInput    `pulumi:"include"`
+}
+
+func (CalculatedAttributeDefinitionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionFilter)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionFilterArgs) ToCalculatedAttributeDefinitionFilterOutput() CalculatedAttributeDefinitionFilterOutput {
+	return i.ToCalculatedAttributeDefinitionFilterOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionFilterArgs) ToCalculatedAttributeDefinitionFilterOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterOutput)
+}
+
+func (i CalculatedAttributeDefinitionFilterArgs) ToCalculatedAttributeDefinitionFilterPtrOutput() CalculatedAttributeDefinitionFilterPtrOutput {
+	return i.ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionFilterArgs) ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterOutput).ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(ctx)
+}
+
+// CalculatedAttributeDefinitionFilterPtrInput is an input type that accepts CalculatedAttributeDefinitionFilterArgs, CalculatedAttributeDefinitionFilterPtr and CalculatedAttributeDefinitionFilterPtrOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionFilterPtrInput` via:
+//
+//	        CalculatedAttributeDefinitionFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type CalculatedAttributeDefinitionFilterPtrInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionFilterPtrOutput() CalculatedAttributeDefinitionFilterPtrOutput
+	ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(context.Context) CalculatedAttributeDefinitionFilterPtrOutput
+}
+
+type calculatedAttributeDefinitionFilterPtrType CalculatedAttributeDefinitionFilterArgs
+
+func CalculatedAttributeDefinitionFilterPtr(v *CalculatedAttributeDefinitionFilterArgs) CalculatedAttributeDefinitionFilterPtrInput {
+	return (*calculatedAttributeDefinitionFilterPtrType)(v)
+}
+
+func (*calculatedAttributeDefinitionFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionFilter)(nil)).Elem()
+}
+
+func (i *calculatedAttributeDefinitionFilterPtrType) ToCalculatedAttributeDefinitionFilterPtrOutput() CalculatedAttributeDefinitionFilterPtrOutput {
+	return i.ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *calculatedAttributeDefinitionFilterPtrType) ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterPtrOutput)
+}
+
+// Defines how to filter the objects coming in for calculated attributes.
+type CalculatedAttributeDefinitionFilterOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionFilter)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionFilterOutput) ToCalculatedAttributeDefinitionFilterOutput() CalculatedAttributeDefinitionFilterOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterOutput) ToCalculatedAttributeDefinitionFilterOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterOutput) ToCalculatedAttributeDefinitionFilterPtrOutput() CalculatedAttributeDefinitionFilterPtrOutput {
+	return o.ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionFilterOutput) ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CalculatedAttributeDefinitionFilter) *CalculatedAttributeDefinitionFilter {
+		return &v
+	}).(CalculatedAttributeDefinitionFilterPtrOutput)
+}
+
+// Holds the list of Filter groups within the Filter definition.
+func (o CalculatedAttributeDefinitionFilterOutput) Groups() CalculatedAttributeDefinitionFilterGroupArrayOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionFilter) []CalculatedAttributeDefinitionFilterGroup {
+		return v.Groups
+	}).(CalculatedAttributeDefinitionFilterGroupArrayOutput)
+}
+
+func (o CalculatedAttributeDefinitionFilterOutput) Include() CalculatedAttributeDefinitionFilterIncludeOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionFilter) CalculatedAttributeDefinitionFilterInclude {
+		return v.Include
+	}).(CalculatedAttributeDefinitionFilterIncludeOutput)
+}
+
+type CalculatedAttributeDefinitionFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionFilter)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionFilterPtrOutput) ToCalculatedAttributeDefinitionFilterPtrOutput() CalculatedAttributeDefinitionFilterPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterPtrOutput) ToCalculatedAttributeDefinitionFilterPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterPtrOutput) Elem() CalculatedAttributeDefinitionFilterOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionFilter) CalculatedAttributeDefinitionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionFilter
+		return ret
+	}).(CalculatedAttributeDefinitionFilterOutput)
+}
+
+// Holds the list of Filter groups within the Filter definition.
+func (o CalculatedAttributeDefinitionFilterPtrOutput) Groups() CalculatedAttributeDefinitionFilterGroupArrayOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionFilter) []CalculatedAttributeDefinitionFilterGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(CalculatedAttributeDefinitionFilterGroupArrayOutput)
+}
+
+func (o CalculatedAttributeDefinitionFilterPtrOutput) Include() CalculatedAttributeDefinitionFilterIncludePtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionFilter) *CalculatedAttributeDefinitionFilterInclude {
+		if v == nil {
+			return nil
+		}
+		return &v.Include
+	}).(CalculatedAttributeDefinitionFilterIncludePtrOutput)
+}
+
+// Object that defines how to filter the incoming objects for the calculated attribute.
+type CalculatedAttributeDefinitionFilterAttributeDimension struct {
+	DimensionType CalculatedAttributeDefinitionFilterDimensionType `pulumi:"dimensionType"`
+	// The values to apply the DimensionType on.
+	Values []string `pulumi:"values"`
+}
+
+// CalculatedAttributeDefinitionFilterAttributeDimensionInput is an input type that accepts CalculatedAttributeDefinitionFilterAttributeDimensionArgs and CalculatedAttributeDefinitionFilterAttributeDimensionOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionFilterAttributeDimensionInput` via:
+//
+//	CalculatedAttributeDefinitionFilterAttributeDimensionArgs{...}
+type CalculatedAttributeDefinitionFilterAttributeDimensionInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionFilterAttributeDimensionOutput() CalculatedAttributeDefinitionFilterAttributeDimensionOutput
+	ToCalculatedAttributeDefinitionFilterAttributeDimensionOutputWithContext(context.Context) CalculatedAttributeDefinitionFilterAttributeDimensionOutput
+}
+
+// Object that defines how to filter the incoming objects for the calculated attribute.
+type CalculatedAttributeDefinitionFilterAttributeDimensionArgs struct {
+	DimensionType CalculatedAttributeDefinitionFilterDimensionTypeInput `pulumi:"dimensionType"`
+	// The values to apply the DimensionType on.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CalculatedAttributeDefinitionFilterAttributeDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionFilterAttributeDimension)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionFilterAttributeDimensionArgs) ToCalculatedAttributeDefinitionFilterAttributeDimensionOutput() CalculatedAttributeDefinitionFilterAttributeDimensionOutput {
+	return i.ToCalculatedAttributeDefinitionFilterAttributeDimensionOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionFilterAttributeDimensionArgs) ToCalculatedAttributeDefinitionFilterAttributeDimensionOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterAttributeDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterAttributeDimensionOutput)
+}
+
+// CalculatedAttributeDefinitionFilterAttributeDimensionMapInput is an input type that accepts CalculatedAttributeDefinitionFilterAttributeDimensionMap and CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionFilterAttributeDimensionMapInput` via:
+//
+//	CalculatedAttributeDefinitionFilterAttributeDimensionMap{ "key": CalculatedAttributeDefinitionFilterAttributeDimensionArgs{...} }
+type CalculatedAttributeDefinitionFilterAttributeDimensionMapInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionFilterAttributeDimensionMapOutput() CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput
+	ToCalculatedAttributeDefinitionFilterAttributeDimensionMapOutputWithContext(context.Context) CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput
+}
+
+type CalculatedAttributeDefinitionFilterAttributeDimensionMap map[string]CalculatedAttributeDefinitionFilterAttributeDimensionInput
+
+func (CalculatedAttributeDefinitionFilterAttributeDimensionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CalculatedAttributeDefinitionFilterAttributeDimension)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionFilterAttributeDimensionMap) ToCalculatedAttributeDefinitionFilterAttributeDimensionMapOutput() CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput {
+	return i.ToCalculatedAttributeDefinitionFilterAttributeDimensionMapOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionFilterAttributeDimensionMap) ToCalculatedAttributeDefinitionFilterAttributeDimensionMapOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput)
+}
+
+// Object that defines how to filter the incoming objects for the calculated attribute.
+type CalculatedAttributeDefinitionFilterAttributeDimensionOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionFilterAttributeDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionFilterAttributeDimension)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionFilterAttributeDimensionOutput) ToCalculatedAttributeDefinitionFilterAttributeDimensionOutput() CalculatedAttributeDefinitionFilterAttributeDimensionOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterAttributeDimensionOutput) ToCalculatedAttributeDefinitionFilterAttributeDimensionOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterAttributeDimensionOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterAttributeDimensionOutput) DimensionType() CalculatedAttributeDefinitionFilterDimensionTypeOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionFilterAttributeDimension) CalculatedAttributeDefinitionFilterDimensionType {
+		return v.DimensionType
+	}).(CalculatedAttributeDefinitionFilterDimensionTypeOutput)
+}
+
+// The values to apply the DimensionType on.
+func (o CalculatedAttributeDefinitionFilterAttributeDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionFilterAttributeDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CalculatedAttributeDefinitionFilterAttributeDimension)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput) ToCalculatedAttributeDefinitionFilterAttributeDimensionMapOutput() CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput) ToCalculatedAttributeDefinitionFilterAttributeDimensionMapOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput) MapIndex(k pulumi.StringInput) CalculatedAttributeDefinitionFilterAttributeDimensionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CalculatedAttributeDefinitionFilterAttributeDimension {
+		return vs[0].(map[string]CalculatedAttributeDefinitionFilterAttributeDimension)[vs[1].(string)]
+	}).(CalculatedAttributeDefinitionFilterAttributeDimensionOutput)
+}
+
+// Contains the map of attribute names to attribute dimensions.
+type CalculatedAttributeDefinitionFilterDimension struct {
+	// Is the attribute within the FilterDimension map
+	Attributes map[string]CalculatedAttributeDefinitionFilterAttributeDimension `pulumi:"attributes"`
+}
+
+// CalculatedAttributeDefinitionFilterDimensionInput is an input type that accepts CalculatedAttributeDefinitionFilterDimensionArgs and CalculatedAttributeDefinitionFilterDimensionOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionFilterDimensionInput` via:
+//
+//	CalculatedAttributeDefinitionFilterDimensionArgs{...}
+type CalculatedAttributeDefinitionFilterDimensionInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionFilterDimensionOutput() CalculatedAttributeDefinitionFilterDimensionOutput
+	ToCalculatedAttributeDefinitionFilterDimensionOutputWithContext(context.Context) CalculatedAttributeDefinitionFilterDimensionOutput
+}
+
+// Contains the map of attribute names to attribute dimensions.
+type CalculatedAttributeDefinitionFilterDimensionArgs struct {
+	// Is the attribute within the FilterDimension map
+	Attributes CalculatedAttributeDefinitionFilterAttributeDimensionMapInput `pulumi:"attributes"`
+}
+
+func (CalculatedAttributeDefinitionFilterDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionFilterDimension)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionFilterDimensionArgs) ToCalculatedAttributeDefinitionFilterDimensionOutput() CalculatedAttributeDefinitionFilterDimensionOutput {
+	return i.ToCalculatedAttributeDefinitionFilterDimensionOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionFilterDimensionArgs) ToCalculatedAttributeDefinitionFilterDimensionOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterDimensionOutput)
+}
+
+// CalculatedAttributeDefinitionFilterDimensionArrayInput is an input type that accepts CalculatedAttributeDefinitionFilterDimensionArray and CalculatedAttributeDefinitionFilterDimensionArrayOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionFilterDimensionArrayInput` via:
+//
+//	CalculatedAttributeDefinitionFilterDimensionArray{ CalculatedAttributeDefinitionFilterDimensionArgs{...} }
+type CalculatedAttributeDefinitionFilterDimensionArrayInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionFilterDimensionArrayOutput() CalculatedAttributeDefinitionFilterDimensionArrayOutput
+	ToCalculatedAttributeDefinitionFilterDimensionArrayOutputWithContext(context.Context) CalculatedAttributeDefinitionFilterDimensionArrayOutput
+}
+
+type CalculatedAttributeDefinitionFilterDimensionArray []CalculatedAttributeDefinitionFilterDimensionInput
+
+func (CalculatedAttributeDefinitionFilterDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CalculatedAttributeDefinitionFilterDimension)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionFilterDimensionArray) ToCalculatedAttributeDefinitionFilterDimensionArrayOutput() CalculatedAttributeDefinitionFilterDimensionArrayOutput {
+	return i.ToCalculatedAttributeDefinitionFilterDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionFilterDimensionArray) ToCalculatedAttributeDefinitionFilterDimensionArrayOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterDimensionArrayOutput)
+}
+
+// Contains the map of attribute names to attribute dimensions.
+type CalculatedAttributeDefinitionFilterDimensionOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionFilterDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionFilterDimension)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionFilterDimensionOutput) ToCalculatedAttributeDefinitionFilterDimensionOutput() CalculatedAttributeDefinitionFilterDimensionOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterDimensionOutput) ToCalculatedAttributeDefinitionFilterDimensionOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterDimensionOutput {
+	return o
+}
+
+// Is the attribute within the FilterDimension map
+func (o CalculatedAttributeDefinitionFilterDimensionOutput) Attributes() CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionFilterDimension) map[string]CalculatedAttributeDefinitionFilterAttributeDimension {
+		return v.Attributes
+	}).(CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput)
+}
+
+type CalculatedAttributeDefinitionFilterDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionFilterDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CalculatedAttributeDefinitionFilterDimension)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionFilterDimensionArrayOutput) ToCalculatedAttributeDefinitionFilterDimensionArrayOutput() CalculatedAttributeDefinitionFilterDimensionArrayOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterDimensionArrayOutput) ToCalculatedAttributeDefinitionFilterDimensionArrayOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterDimensionArrayOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterDimensionArrayOutput) Index(i pulumi.IntInput) CalculatedAttributeDefinitionFilterDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CalculatedAttributeDefinitionFilterDimension {
+		return vs[0].([]CalculatedAttributeDefinitionFilterDimension)[vs[1].(int)]
+	}).(CalculatedAttributeDefinitionFilterDimensionOutput)
+}
+
+// Object that holds the dimensions to filter on.
+type CalculatedAttributeDefinitionFilterGroup struct {
+	// Object that holds the attributes to filter on.
+	Dimensions []CalculatedAttributeDefinitionFilterDimension `pulumi:"dimensions"`
+	Type       CalculatedAttributeDefinitionFilterGroupType   `pulumi:"type"`
+}
+
+// CalculatedAttributeDefinitionFilterGroupInput is an input type that accepts CalculatedAttributeDefinitionFilterGroupArgs and CalculatedAttributeDefinitionFilterGroupOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionFilterGroupInput` via:
+//
+//	CalculatedAttributeDefinitionFilterGroupArgs{...}
+type CalculatedAttributeDefinitionFilterGroupInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionFilterGroupOutput() CalculatedAttributeDefinitionFilterGroupOutput
+	ToCalculatedAttributeDefinitionFilterGroupOutputWithContext(context.Context) CalculatedAttributeDefinitionFilterGroupOutput
+}
+
+// Object that holds the dimensions to filter on.
+type CalculatedAttributeDefinitionFilterGroupArgs struct {
+	// Object that holds the attributes to filter on.
+	Dimensions CalculatedAttributeDefinitionFilterDimensionArrayInput `pulumi:"dimensions"`
+	Type       CalculatedAttributeDefinitionFilterGroupTypeInput      `pulumi:"type"`
+}
+
+func (CalculatedAttributeDefinitionFilterGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionFilterGroup)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionFilterGroupArgs) ToCalculatedAttributeDefinitionFilterGroupOutput() CalculatedAttributeDefinitionFilterGroupOutput {
+	return i.ToCalculatedAttributeDefinitionFilterGroupOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionFilterGroupArgs) ToCalculatedAttributeDefinitionFilterGroupOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterGroupOutput)
+}
+
+// CalculatedAttributeDefinitionFilterGroupArrayInput is an input type that accepts CalculatedAttributeDefinitionFilterGroupArray and CalculatedAttributeDefinitionFilterGroupArrayOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionFilterGroupArrayInput` via:
+//
+//	CalculatedAttributeDefinitionFilterGroupArray{ CalculatedAttributeDefinitionFilterGroupArgs{...} }
+type CalculatedAttributeDefinitionFilterGroupArrayInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionFilterGroupArrayOutput() CalculatedAttributeDefinitionFilterGroupArrayOutput
+	ToCalculatedAttributeDefinitionFilterGroupArrayOutputWithContext(context.Context) CalculatedAttributeDefinitionFilterGroupArrayOutput
+}
+
+type CalculatedAttributeDefinitionFilterGroupArray []CalculatedAttributeDefinitionFilterGroupInput
+
+func (CalculatedAttributeDefinitionFilterGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CalculatedAttributeDefinitionFilterGroup)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionFilterGroupArray) ToCalculatedAttributeDefinitionFilterGroupArrayOutput() CalculatedAttributeDefinitionFilterGroupArrayOutput {
+	return i.ToCalculatedAttributeDefinitionFilterGroupArrayOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionFilterGroupArray) ToCalculatedAttributeDefinitionFilterGroupArrayOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionFilterGroupArrayOutput)
+}
+
+// Object that holds the dimensions to filter on.
+type CalculatedAttributeDefinitionFilterGroupOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionFilterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionFilterGroup)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionFilterGroupOutput) ToCalculatedAttributeDefinitionFilterGroupOutput() CalculatedAttributeDefinitionFilterGroupOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterGroupOutput) ToCalculatedAttributeDefinitionFilterGroupOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterGroupOutput {
+	return o
+}
+
+// Object that holds the attributes to filter on.
+func (o CalculatedAttributeDefinitionFilterGroupOutput) Dimensions() CalculatedAttributeDefinitionFilterDimensionArrayOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionFilterGroup) []CalculatedAttributeDefinitionFilterDimension {
+		return v.Dimensions
+	}).(CalculatedAttributeDefinitionFilterDimensionArrayOutput)
+}
+
+func (o CalculatedAttributeDefinitionFilterGroupOutput) Type() CalculatedAttributeDefinitionFilterGroupTypeOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionFilterGroup) CalculatedAttributeDefinitionFilterGroupType {
+		return v.Type
+	}).(CalculatedAttributeDefinitionFilterGroupTypeOutput)
+}
+
+type CalculatedAttributeDefinitionFilterGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionFilterGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CalculatedAttributeDefinitionFilterGroup)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionFilterGroupArrayOutput) ToCalculatedAttributeDefinitionFilterGroupArrayOutput() CalculatedAttributeDefinitionFilterGroupArrayOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterGroupArrayOutput) ToCalculatedAttributeDefinitionFilterGroupArrayOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionFilterGroupArrayOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionFilterGroupArrayOutput) Index(i pulumi.IntInput) CalculatedAttributeDefinitionFilterGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CalculatedAttributeDefinitionFilterGroup {
+		return vs[0].([]CalculatedAttributeDefinitionFilterGroup)[vs[1].(int)]
+	}).(CalculatedAttributeDefinitionFilterGroupOutput)
+}
+
 // The relative time period over which data is included in the aggregation.
 type CalculatedAttributeDefinitionRange struct {
 	// The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
@@ -363,7 +842,7 @@ type CalculatedAttributeDefinitionRange struct {
 	// An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
 	TimestampSource *string `pulumi:"timestampSource"`
 	// The unit of time.
-	Unit CalculatedAttributeDefinitionRangeUnit `pulumi:"unit"`
+	Unit *CalculatedAttributeDefinitionRangeUnit `pulumi:"unit"`
 	// The amount of time of the specified unit.
 	Value *int `pulumi:"value"`
 	// A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
@@ -388,7 +867,7 @@ type CalculatedAttributeDefinitionRangeArgs struct {
 	// An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
 	TimestampSource pulumi.StringPtrInput `pulumi:"timestampSource"`
 	// The unit of time.
-	Unit CalculatedAttributeDefinitionRangeUnitInput `pulumi:"unit"`
+	Unit CalculatedAttributeDefinitionRangeUnitPtrInput `pulumi:"unit"`
 	// The amount of time of the specified unit.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 	// A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
@@ -484,8 +963,8 @@ func (o CalculatedAttributeDefinitionRangeOutput) TimestampSource() pulumi.Strin
 }
 
 // The unit of time.
-func (o CalculatedAttributeDefinitionRangeOutput) Unit() CalculatedAttributeDefinitionRangeUnitOutput {
-	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) CalculatedAttributeDefinitionRangeUnit { return v.Unit }).(CalculatedAttributeDefinitionRangeUnitOutput)
+func (o CalculatedAttributeDefinitionRangeOutput) Unit() CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionRangeUnit { return v.Unit }).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
 }
 
 // The amount of time of the specified unit.
@@ -550,7 +1029,7 @@ func (o CalculatedAttributeDefinitionRangePtrOutput) Unit() CalculatedAttributeD
 		if v == nil {
 			return nil
 		}
-		return &v.Unit
+		return v.Unit
 	}).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
 }
 
@@ -10707,6 +11186,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionAttributeItemArrayInput)(nil)).Elem(), CalculatedAttributeDefinitionAttributeItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionConditionsInput)(nil)).Elem(), CalculatedAttributeDefinitionConditionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionConditionsPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionFilterInput)(nil)).Elem(), CalculatedAttributeDefinitionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionFilterPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionFilterAttributeDimensionInput)(nil)).Elem(), CalculatedAttributeDefinitionFilterAttributeDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionFilterAttributeDimensionMapInput)(nil)).Elem(), CalculatedAttributeDefinitionFilterAttributeDimensionMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionFilterDimensionInput)(nil)).Elem(), CalculatedAttributeDefinitionFilterDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionFilterDimensionArrayInput)(nil)).Elem(), CalculatedAttributeDefinitionFilterDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionFilterGroupInput)(nil)).Elem(), CalculatedAttributeDefinitionFilterGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionFilterGroupArrayInput)(nil)).Elem(), CalculatedAttributeDefinitionFilterGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionRangeInput)(nil)).Elem(), CalculatedAttributeDefinitionRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionRangePtrInput)(nil)).Elem(), CalculatedAttributeDefinitionRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdArgs{})
@@ -10841,6 +11328,14 @@ func init() {
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeItemArrayOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionConditionsOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionConditionsPtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionFilterOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionFilterPtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionFilterAttributeDimensionOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionFilterAttributeDimensionMapOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionFilterDimensionOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionFilterDimensionArrayOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionFilterGroupOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionFilterGroupArrayOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangeOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangePtrOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionReadinessOutput{})

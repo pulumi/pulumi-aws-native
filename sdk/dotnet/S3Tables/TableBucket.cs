@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("encryptionConfiguration")]
         public Output<Outputs.TableBucketEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
+        [Output("loggingConfiguration")]
+        public Output<Outputs.TableBucketLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
+
         [Output("metricsConfiguration")]
         public Output<Outputs.TableBucketMetricsConfiguration?> MetricsConfiguration { get; private set; } = null!;
 
@@ -111,6 +114,9 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableBucketEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        [Input("loggingConfiguration")]
+        public Input<Inputs.TableBucketLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         [Input("metricsConfiguration")]
         public Input<Inputs.TableBucketMetricsConfigurationArgs>? MetricsConfiguration { get; set; }
