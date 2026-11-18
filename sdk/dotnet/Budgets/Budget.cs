@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Budgets
     ///         {
     ///             BudgetLimit = new AwsNative.Budgets.Inputs.BudgetSpendArgs
     ///             {
-    ///                 Amount = 100,
+    ///                 Amount = 100.0,
     ///                 Unit = "USD",
     ///             },
     ///             TimeUnit = "MONTHLY",
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Budgets
     ///             BudgetType = "COST",
     ///             CostFilters = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["az"] = new object?[]
+    ///                 ["az"] = new[]
     ///                 {
     ///                     "us-east-1",
     ///                     "us-west-1",
@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Budgets
     ///                 {
     ///                     NotificationType = "ACTUAL",
     ///                     ComparisonOperator = "GREATER_THAN",
-    ///                     Threshold = 99,
+    ///                     Threshold = 99.0,
     ///                 },
     ///                 Subscribers = new[]
     ///                 {
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Budgets
     ///                 {
     ///                     NotificationType = "ACTUAL",
     ///                     ComparisonOperator = "GREATER_THAN",
-    ///                     Threshold = 80,
+    ///                     Threshold = 80.0,
     ///                 },
     ///                 Subscribers = new[]
     ///                 {
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Budgets
     ///         {
     ///             BudgetLimit = new AwsNative.Budgets.Inputs.BudgetSpendArgs
     ///             {
-    ///                 Amount = 100,
+    ///                 Amount = 100.0,
     ///                 Unit = "USD",
     ///             },
     ///             TimeUnit = "MONTHLY",
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.Budgets
     ///             BudgetType = "COST",
     ///             CostFilters = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["az"] = new object?[]
+    ///                 ["az"] = new[]
     ///                 {
     ///                     "us-east-1",
     ///                     "us-west-1",
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.Budgets
     ///                 {
     ///                     NotificationType = "ACTUAL",
     ///                     ComparisonOperator = "GREATER_THAN",
-    ///                     Threshold = 99,
+    ///                     Threshold = 99.0,
     ///                 },
     ///                 Subscribers = new[]
     ///                 {
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.Budgets
     ///                 {
     ///                     NotificationType = "ACTUAL",
     ///                     ComparisonOperator = "GREATER_THAN",
-    ///                     Threshold = 80,
+    ///                     Threshold = 80.0,
     ///                 },
     ///                 Subscribers = new[]
     ///                 {

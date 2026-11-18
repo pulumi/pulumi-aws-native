@@ -262,7 +262,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                     DateRange = new AwsNative.SecurityHub.Inputs.AutomationRuleDateRangeArgs
     ///                     {
     ///                         Unit = AwsNative.SecurityHub.AutomationRuleDateRangeUnit.Days,
-    ///                         Value = 5,
+    ///                         Value = 5.0,
     ///                     },
     ///                 },
     ///             },
@@ -289,7 +289,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                     DateRange = new AwsNative.SecurityHub.Inputs.AutomationRuleDateRangeArgs
     ///                     {
     ///                         Unit = AwsNative.SecurityHub.AutomationRuleDateRangeUnit.Days,
-    ///                         Value = 5,
+    ///                         Value = 5.0,
     ///                     },
     ///                 },
     ///             },
@@ -300,7 +300,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                     DateRange = new AwsNative.SecurityHub.Inputs.AutomationRuleDateRangeArgs
     ///                     {
     ///                         Unit = AwsNative.SecurityHub.AutomationRuleDateRangeUnit.Days,
-    ///                         Value = 5,
+    ///                         Value = 5.0,
     ///                     },
     ///                 },
     ///             },
@@ -311,7 +311,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                     DateRange = new AwsNative.SecurityHub.Inputs.AutomationRuleDateRangeArgs
     ///                     {
     ///                         Unit = AwsNative.SecurityHub.AutomationRuleDateRangeUnit.Days,
-    ///                         Value = 5,
+    ///                         Value = 5.0,
     ///                     },
     ///                 },
     ///             },
@@ -372,16 +372,16 @@ namespace Pulumi.AwsNative.SecurityHub
     ///             {
     ///                 new AwsNative.SecurityHub.Inputs.AutomationRuleNumberFilterArgs
     ///                 {
-    ///                     Gte = 50,
-    ///                     Lte = 95,
+    ///                     Gte = 50.0,
+    ///                     Lte = 95.0,
     ///                 },
     ///             },
     ///             Criticality = new[]
     ///             {
     ///                 new AwsNative.SecurityHub.Inputs.AutomationRuleNumberFilterArgs
     ///                 {
-    ///                     Gte = 50,
-    ///                     Lte = 95,
+    ///                     Gte = 50.0,
+    ///                     Lte = 95.0,
     ///                 },
     ///             },
     ///         },
@@ -394,7 +394,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                 {
     ///                     Severity = new AwsNative.SecurityHub.Inputs.AutomationRuleSeverityUpdateArgs
     ///                     {
-    ///                         Product = 50,
+    ///                         Product = 50.0,
     ///                         Label = AwsNative.SecurityHub.AutomationRuleSeverityUpdateLabel.Medium,
     ///                         Normalized = 60,
     ///                     },
@@ -696,7 +696,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                     DateRange = new AwsNative.SecurityHub.Inputs.AutomationRuleDateRangeArgs
     ///                     {
     ///                         Unit = AwsNative.SecurityHub.AutomationRuleDateRangeUnit.Days,
-    ///                         Value = 5,
+    ///                         Value = 5.0,
     ///                     },
     ///                 },
     ///             },
@@ -723,7 +723,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                     DateRange = new AwsNative.SecurityHub.Inputs.AutomationRuleDateRangeArgs
     ///                     {
     ///                         Unit = AwsNative.SecurityHub.AutomationRuleDateRangeUnit.Days,
-    ///                         Value = 5,
+    ///                         Value = 5.0,
     ///                     },
     ///                 },
     ///             },
@@ -734,7 +734,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                     DateRange = new AwsNative.SecurityHub.Inputs.AutomationRuleDateRangeArgs
     ///                     {
     ///                         Unit = AwsNative.SecurityHub.AutomationRuleDateRangeUnit.Days,
-    ///                         Value = 5,
+    ///                         Value = 5.0,
     ///                     },
     ///                 },
     ///             },
@@ -745,7 +745,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                     DateRange = new AwsNative.SecurityHub.Inputs.AutomationRuleDateRangeArgs
     ///                     {
     ///                         Unit = AwsNative.SecurityHub.AutomationRuleDateRangeUnit.Days,
-    ///                         Value = 5,
+    ///                         Value = 5.0,
     ///                     },
     ///                 },
     ///             },
@@ -806,16 +806,16 @@ namespace Pulumi.AwsNative.SecurityHub
     ///             {
     ///                 new AwsNative.SecurityHub.Inputs.AutomationRuleNumberFilterArgs
     ///                 {
-    ///                     Gte = 50,
-    ///                     Lte = 95,
+    ///                     Gte = 50.0,
+    ///                     Lte = 95.0,
     ///                 },
     ///             },
     ///             Criticality = new[]
     ///             {
     ///                 new AwsNative.SecurityHub.Inputs.AutomationRuleNumberFilterArgs
     ///                 {
-    ///                     Gte = 50,
-    ///                     Lte = 95,
+    ///                     Gte = 50.0,
+    ///                     Lte = 95.0,
     ///                 },
     ///             },
     ///         },
@@ -828,7 +828,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///                 {
     ///                     Severity = new AwsNative.SecurityHub.Inputs.AutomationRuleSeverityUpdateArgs
     ///                     {
-    ///                         Product = 50,
+    ///                         Product = 50.0,
     ///                         Label = AwsNative.SecurityHub.AutomationRuleSeverityUpdateLabel.Medium,
     ///                         Normalized = 60,
     ///                     },

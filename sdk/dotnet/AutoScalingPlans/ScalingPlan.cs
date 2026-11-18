@@ -50,8 +50,8 @@ namespace Pulumi.AwsNative.AutoScalingPlans
     ///         {
     ///             new AwsNative.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionArgs
     ///             {
-    ///                 MinCapacity = asgMinCapacity,
-    ///                 MaxCapacity = asgMaxCapacity,
+    ///                 MinCapacity = (int)asgMinCapacity,
+    ///                 MaxCapacity = (int)asgMaxCapacity,
     ///                 ServiceNamespace = "autoscaling",
     ///                 ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity",
     ///                 ResourceId = $"autoScalingGroup/{myASGroup}",
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.AutoScalingPlans
     ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
     ///                         },
     ///                         TargetValue = asgTargetUtilization,
-    ///                         EstimatedInstanceWarmup = asgEstimatedInstanceWarmup,
+    ///                         EstimatedInstanceWarmup = (int)asgEstimatedInstanceWarmup,
     ///                     },
     ///                 },
     ///                 PredefinedLoadMetricSpecification = new AwsNative.AutoScalingPlans.Inputs.ScalingPlanPredefinedLoadMetricSpecificationArgs
@@ -120,8 +120,8 @@ namespace Pulumi.AwsNative.AutoScalingPlans
     ///         {
     ///             new AwsNative.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionArgs
     ///             {
-    ///                 MinCapacity = asgMinCapacity,
-    ///                 MaxCapacity = asgMaxCapacity,
+    ///                 MinCapacity = (int)asgMinCapacity,
+    ///                 MaxCapacity = (int)asgMaxCapacity,
     ///                 ServiceNamespace = "autoscaling",
     ///                 ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity",
     ///                 ResourceId = $"autoScalingGroup/{myASGroup}",
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.AutoScalingPlans
     ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
     ///                         },
     ///                         TargetValue = asgTargetUtilization,
-    ///                         EstimatedInstanceWarmup = asgEstimatedInstanceWarmup,
+    ///                         EstimatedInstanceWarmup = (int)asgEstimatedInstanceWarmup,
     ///                     },
     ///                 },
     ///                 PredefinedLoadMetricSpecification = new AwsNative.AutoScalingPlans.Inputs.ScalingPlanPredefinedLoadMetricSpecificationArgs

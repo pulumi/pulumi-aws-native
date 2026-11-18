@@ -199,7 +199,7 @@ namespace Pulumi.AwsNative.Ce
     ///     var anomalySubscription = new AwsNative.Ce.AnomalySubscription("anomalySubscription", new()
     ///     {
     ///         SubscriptionName = "SubscriptionName",
-    ///         Threshold = 100,
+    ///         Threshold = 100.0,
     ///         Frequency = AwsNative.Ce.AnomalySubscriptionFrequency.Daily,
     ///         MonitorArnList = new[]
     ///         {
@@ -246,7 +246,7 @@ namespace Pulumi.AwsNative.Ce
     ///     var anomalySubscription = new AwsNative.Ce.AnomalySubscription("anomalySubscription", new()
     ///     {
     ///         SubscriptionName = "SubscriptionName",
-    ///         Threshold = 100,
+    ///         Threshold = 100.0,
     ///         Frequency = AwsNative.Ce.AnomalySubscriptionFrequency.Daily,
     ///         MonitorArnList = new[]
     ///         {
@@ -293,7 +293,7 @@ namespace Pulumi.AwsNative.Ce
     ///     var anomalySubscription = new AwsNative.Ce.AnomalySubscription("anomalySubscription", new()
     ///     {
     ///         SubscriptionName = "SubscriptionName",
-    ///         Threshold = 100,
+    ///         Threshold = 100.0,
     ///         Frequency = AwsNative.Ce.AnomalySubscriptionFrequency.Daily,
     ///         MonitorArnList = new[]
     ///         {
@@ -340,7 +340,7 @@ namespace Pulumi.AwsNative.Ce
     ///     var anomalySubscription = new AwsNative.Ce.AnomalySubscription("anomalySubscription", new()
     ///     {
     ///         SubscriptionName = "SubscriptionName",
-    ///         Threshold = 100,
+    ///         Threshold = 100.0,
     ///         Frequency = AwsNative.Ce.AnomalySubscriptionFrequency.Daily,
     ///         MonitorArnList = new[]
     ///         {

@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.EventSchemas
     ///                 {
     ///                     ["aws"] = "arn:aws:iam::012345678901:user/TestAccountForRegistryPolicy",
     ///                 },
-    ///                 ["action"] = new object?[]
+    ///                 ["action"] = new[]
     ///                 {
     ///                     "schemas:DescribeRegistry",
     ///                     "schemas:CreateSchema",
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.EventSchemas
     ///                             "109876543210",
     ///                         },
     ///                     },
-    ///                     ["resource"] = new object?[]
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "arn:aws:schemas:us-east-1:012345678901:registry/MyRegistry",
     ///                         "arn:aws:schemas:us-east-1:012345678901:schema/MyRegistry*",
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.EventSchemas
     ///                             "109876543210",
     ///                         },
     ///                     },
-    ///                     ["resource"] = new object?[]
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "arn:aws:schemas:us-east-1:012345678901:registry/MyRegistry",
     ///                         "arn:aws:schemas:us-east-1:012345678901:schema/MyRegistry*",

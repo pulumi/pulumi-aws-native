@@ -265,8 +265,8 @@ namespace Pulumi.AwsNative.ApiGateway
     ///     {
     ///         Name = validatorName,
     ///         RestApiId = restApi.Id,
-    ///         ValidateRequestBody = validateRequestBody,
-    ///         ValidateRequestParameters = validateRequestParameters,
+    ///         ValidateRequestBody = validateRequestBody == "true",
+    ///         ValidateRequestParameters = validateRequestParameters == "true",
     ///     });
     /// 
     ///     var method = new AwsNative.ApiGateway.Method("method", new()
@@ -325,8 +325,8 @@ namespace Pulumi.AwsNative.ApiGateway
     ///     {
     ///         Name = validatorName,
     ///         RestApiId = restApi.Id,
-    ///         ValidateRequestBody = validateRequestBody,
-    ///         ValidateRequestParameters = validateRequestParameters,
+    ///         ValidateRequestBody = validateRequestBody == "true",
+    ///         ValidateRequestParameters = validateRequestParameters == "true",
     ///     });
     /// 
     ///     var method = new AwsNative.ApiGateway.Method("method", new()
@@ -383,8 +383,8 @@ namespace Pulumi.AwsNative.ApiGateway
     ///     {
     ///         Name = validatorName,
     ///         RestApiId = restApi.Id,
-    ///         ValidateRequestBody = validateRequestBody,
-    ///         ValidateRequestParameters = validateRequestParameters,
+    ///         ValidateRequestBody = validateRequestBody == "true",
+    ///         ValidateRequestParameters = validateRequestParameters == "true",
     ///     });
     /// 
     /// });
@@ -414,8 +414,8 @@ namespace Pulumi.AwsNative.ApiGateway
     ///     {
     ///         Name = validatorName,
     ///         RestApiId = restApi.Id,
-    ///         ValidateRequestBody = validateRequestBody,
-    ///         ValidateRequestParameters = validateRequestParameters,
+    ///         ValidateRequestBody = validateRequestBody == "true",
+    ///         ValidateRequestParameters = validateRequestParameters == "true",
     ///     });
     /// 
     /// });
@@ -587,7 +587,7 @@ namespace Pulumi.AwsNative.ApiGateway
     ///             binaryMediaType1,
     ///             binaryMediaType2,
     ///         },
-    ///         MinimumCompressionSize = minimumCompressionSize,
+    ///         MinimumCompressionSize = int.Parse(minimumCompressionSize, System.Globalization.CultureInfo.InvariantCulture),
     ///         Name = apiName,
     ///     });
     /// 
@@ -618,7 +618,7 @@ namespace Pulumi.AwsNative.ApiGateway
     ///             binaryMediaType1,
     ///             binaryMediaType2,
     ///         },
-    ///         MinimumCompressionSize = minimumCompressionSize,
+    ///         MinimumCompressionSize = int.Parse(minimumCompressionSize, System.Globalization.CultureInfo.InvariantCulture),
     ///         Name = apiName,
     ///     });
     /// 

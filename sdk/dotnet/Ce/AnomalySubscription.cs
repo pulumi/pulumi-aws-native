@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Ce
     ///     {
     ///         SubscriptionName = "SubscriptionName",
     ///         ThresholdExpression = "{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"Values\": [ \"100\" ], \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ] } }",
-    ///         MonitorArnList = new[] {},
+    ///         MonitorArnList = new() {},
     ///         Subscribers = new[]
     ///         {
     ///             new AwsNative.Ce.Inputs.AnomalySubscriptionSubscriberArgs
@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Ce
     ///         SubscriptionName = "Subscription 1",
     ///         ThresholdExpression = "{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }",
     ///         Frequency = AwsNative.Ce.AnomalySubscriptionFrequency.Daily,
-    ///         MonitorArnList = new[] {},
+    ///         MonitorArnList = new() {},
     ///         Subscribers = new[]
     ///         {
     ///             new AwsNative.Ce.Inputs.AnomalySubscriptionSubscriberArgs
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Ce
     ///     {
     ///         SubscriptionName = "SubscriptionName",
     ///         ThresholdExpression = "{ \"And\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"200\" ] } } ] }",
-    ///         MonitorArnList = new[] {},
+    ///         MonitorArnList = new() {},
     ///         Subscribers = new[]
     ///         {
     ///             new AwsNative.Ce.Inputs.AnomalySubscriptionSubscriberArgs
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Ce
     ///         SubscriptionName = "SubscriptionName",
     ///         ThresholdExpression = "{ \"And\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"200\" ] } } ] }",
     ///         Frequency = AwsNative.Ce.AnomalySubscriptionFrequency.Daily,
-    ///         MonitorArnList = new[] {},
+    ///         MonitorArnList = new() {},
     ///         Subscribers = new[]
     ///         {
     ///             new AwsNative.Ce.Inputs.AnomalySubscriptionSubscriberArgs
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.Ce
     ///     {
     ///         SubscriptionName = "SubscriptionName",
     ///         ThresholdExpression = "{ \"Or\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"200\" ] } } ] }",
-    ///         MonitorArnList = new[] {},
+    ///         MonitorArnList = new() {},
     ///         Subscribers = new[]
     ///         {
     ///             new AwsNative.Ce.Inputs.AnomalySubscriptionSubscriberArgs
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.Ce
     ///         SubscriptionName = "SubscriptionName",
     ///         ThresholdExpression = "{ \"Or\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"200\" ] } } ] }",
     ///         Frequency = AwsNative.Ce.AnomalySubscriptionFrequency.Daily,
-    ///         MonitorArnList = new[] {},
+    ///         MonitorArnList = new() {},
     ///         Subscribers = new[]
     ///         {
     ///             new AwsNative.Ce.Inputs.AnomalySubscriptionSubscriberArgs

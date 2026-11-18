@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Ecr
     ///                     {
     ///                         ["aws"] = "arn:aws:iam::210987654321:root",
     ///                     },
-    ///                     ["action"] = new object?[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ecr:CreateRepository",
     ///                         "ecr:ReplicateImage",

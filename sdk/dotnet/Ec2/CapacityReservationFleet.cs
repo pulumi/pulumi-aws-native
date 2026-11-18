@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Ec2
     ///                 InstanceType = "c4.large",
     ///                 InstancePlatform = "Linux/UNIX",
     ///                 AvailabilityZone = "us-east-1a",
-    ///                 Weight = 1,
+    ///                 Weight = 1.0,
     ///                 Priority = 1,
     ///             },
     ///             new AwsNative.Ec2.Inputs.CapacityReservationFleetInstanceTypeSpecificationArgs
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Ec2
     ///                 InstanceType = "c5.large",
     ///                 InstancePlatform = "Linux/UNIX",
     ///                 AvailabilityZone = "us-east-1a",
-    ///                 Weight = 1,
+    ///                 Weight = 1.0,
     ///                 Priority = 2,
     ///             },
     ///         },

@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Sqs
     ///         Statistic = "Sum",
     ///         Period = 300,
     ///         EvaluationPeriods = 1,
-    ///         Threshold = 10,
+    ///         Threshold = 10.0,
     ///         ComparisonOperator = "GreaterThanThreshold",
     ///         AlarmActions = new[]
     ///         {
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.Sqs
     ///         Statistic = "Sum",
     ///         Period = 300,
     ///         EvaluationPeriods = 1,
-    ///         Threshold = 10,
+    ///         Threshold = 10.0,
     ///         ComparisonOperator = "GreaterThanThreshold",
     ///         AlarmActions = new[]
     ///         {

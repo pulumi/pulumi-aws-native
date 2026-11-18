@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Acmpca
     ///         Validity = new AwsNative.Acmpca.Inputs.CertificateValidityArgs
     ///         {
     ///             Type = "DAYS",
-    ///             Value = 100,
+    ///             Value = 100.0,
     ///         },
     ///     });
     /// 
@@ -107,8 +107,8 @@ namespace Pulumi.AwsNative.Acmpca
     ///             Pseudonym = "string",
     ///             GenerationQualifier = "DBG",
     ///         },
-    ///         RevocationConfiguration = null,
-    ///         Tags = new[] {},
+    ///         RevocationConfiguration = new() { },
+    ///         Tags = new() {},
     ///     });
     /// 
     ///     var subordinateCAOneCACertificate = new AwsNative.Acmpca.Certificate("subordinateCAOneCACertificate", new()
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.Acmpca
     ///         Validity = new AwsNative.Acmpca.Inputs.CertificateValidityArgs
     ///         {
     ///             Type = "DAYS",
-    ///             Value = 90,
+    ///             Value = 90.0,
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -195,7 +195,7 @@ namespace Pulumi.AwsNative.Acmpca
     ///         Validity = new AwsNative.Acmpca.Inputs.CertificateValidityArgs
     ///         {
     ///             Type = "DAYS",
-    ///             Value = 80,
+    ///             Value = 80.0,
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -248,7 +248,7 @@ namespace Pulumi.AwsNative.Acmpca
     ///         Validity = new AwsNative.Acmpca.Inputs.CertificateValidityArgs
     ///         {
     ///             Type = "DAYS",
-    ///             Value = 70,
+    ///             Value = 70.0,
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.ApiGateway
     ///     var apiKey = new AwsNative.ApiGateway.ApiKey("apiKey", new()
     ///     {
     ///         CustomerId = customerId,
-    ///         GenerateDistinctId = generateDistinctId,
+    ///         GenerateDistinctId = generateDistinctId == "true",
     ///         Name = apiKeyName,
     ///     });
     /// 
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.ApiGateway
     ///     var apiKey = new AwsNative.ApiGateway.ApiKey("apiKey", new()
     ///     {
     ///         CustomerId = customerId,
-    ///         GenerateDistinctId = generateDistinctId,
+    ///         GenerateDistinctId = generateDistinctId == "true",
     ///         Name = apiKeyName,
     ///     });
     /// 
