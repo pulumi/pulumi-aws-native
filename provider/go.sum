@@ -312,8 +312,8 @@ github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54 h1:bKq2LqtQOtab1Zu
 github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54/go.mod h1:nXH0b0s3hX5wMv1UlCz9n/O6832x4dPIVl7t5aonm0Q=
 github.com/pulumi/providertest v0.8.0 h1:vaywtm+Yd85GnblY0z9gMPCL9qnXTRCij6bNDrLwLfg=
 github.com/pulumi/providertest v0.8.0/go.mod h1:jQptJqNGdkfopfc1l6P1uf/cWKw3pJ33wBk3Zml9VfY=
-github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.0 h1:LCEahuc8cQmKar/KaY42mn8ByP8UjNmlypi7kkWrWq8=
-github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.0/go.mod h1:aMwd3130zrFnJzpXi0X+Jd9DidPGT2I5zwGOhqqQ/GA=
+github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.1124 h1:ZRVyXpEa6P7p2M284fdTXw60AUikZLFDHcCmXJF3vOI=
+github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.1124/go.mod h1:aMwd3130zrFnJzpXi0X+Jd9DidPGT2I5zwGOhqqQ/GA=
 github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.120.0 h1:+WGPfuExw4bdt3pGBWe9Z7UVFk1Ildk2PkFhZ7xlwJU=
 github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.120.0/go.mod h1:WhDgw/5uytP3Aeexzy7YKkFN9xrl8hN+uJUywEUJ3aU=
 github.com/pulumi/pulumi-go-provider v0.26.0 h1:3ia10+irvv7qPph2NZ2YwUGI/KCf6li8Frlc1luv7D4=
