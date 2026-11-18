@@ -28,7 +28,7 @@ require (
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
-	github.com/pulumi/providertest v0.7.0
+	github.com/pulumi/providertest v0.8.0
 	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.120.0
 	github.com/pulumi/pulumi-go-provider v0.26.0
 	github.com/pulumi/pulumi/pkg/v3 v3.277.0
@@ -132,7 +132,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
-	github.com/pulumi/pulumi-cloud-sdk/go v1.20261117.1636 // indirect
+	github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
