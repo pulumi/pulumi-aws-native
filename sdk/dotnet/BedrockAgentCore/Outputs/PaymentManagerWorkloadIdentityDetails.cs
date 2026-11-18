@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 {
 
-    /// <summary>
-    /// The workload identity details for the payment manager
-    /// </summary>
     [OutputType]
     public sealed class PaymentManagerWorkloadIdentityDetails
     {

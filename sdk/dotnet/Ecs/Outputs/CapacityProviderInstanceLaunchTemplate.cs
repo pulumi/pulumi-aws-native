@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesNetworkConfiguration NetworkConfiguration;
+        public readonly bool? NitroEnclavesEnabled;
         /// <summary>
         /// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
         /// </summary>
@@ -78,6 +79,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             Outputs.CapacityProviderManagedInstancesNetworkConfiguration networkConfiguration,
 
+            bool? nitroEnclavesEnabled,
+
             Outputs.CapacityProviderManagedInstancesStorageConfiguration? storageConfiguration)
         {
             CapacityOptionType = capacityOptionType;
@@ -89,6 +92,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             LocalStorageConfiguration = localStorageConfiguration;
             Monitoring = monitoring;
             NetworkConfiguration = networkConfiguration;
+            NitroEnclavesEnabled = nitroEnclavesEnabled;
             StorageConfiguration = storageConfiguration;
         }
     }

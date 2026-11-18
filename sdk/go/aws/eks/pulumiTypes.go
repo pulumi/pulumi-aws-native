@@ -1864,9 +1864,9 @@ func (o ClusterActiveCertificateAuthorityPtrOutput) Id() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Todo: add description
+// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 type ClusterBlockStorage struct {
-	// Todo: add description
+	// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1881,9 +1881,9 @@ type ClusterBlockStorageInput interface {
 	ToClusterBlockStorageOutputWithContext(context.Context) ClusterBlockStorageOutput
 }
 
-// Todo: add description
+// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 type ClusterBlockStorageArgs struct {
-	// Todo: add description
+	// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1940,7 +1940,7 @@ func (i *clusterBlockStoragePtrType) ToClusterBlockStoragePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBlockStoragePtrOutput)
 }
 
-// Todo: add description
+// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 type ClusterBlockStorageOutput struct{ *pulumi.OutputState }
 
 func (ClusterBlockStorageOutput) ElementType() reflect.Type {
@@ -1965,7 +1965,7 @@ func (o ClusterBlockStorageOutput) ToClusterBlockStoragePtrOutputWithContext(ctx
 	}).(ClusterBlockStoragePtrOutput)
 }
 
-// Todo: add description
+// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 func (o ClusterBlockStorageOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBlockStorage) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1994,7 +1994,7 @@ func (o ClusterBlockStoragePtrOutput) Elem() ClusterBlockStorageOutput {
 	}).(ClusterBlockStorageOutput)
 }
 
-// Todo: add description
+// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 func (o ClusterBlockStoragePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterBlockStorage) *bool {
 		if v == nil {
@@ -2159,13 +2159,13 @@ func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Todo: add description
+// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
 type ClusterComputeConfig struct {
-	// Todo: add description
+	// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
 	Enabled *bool `pulumi:"enabled"`
-	// Todo: add description
+	// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
 	NodePools []string `pulumi:"nodePools"`
-	// Todo: add description
+	// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
 	NodeRoleArn *string `pulumi:"nodeRoleArn"`
 }
 
@@ -2180,13 +2180,13 @@ type ClusterComputeConfigInput interface {
 	ToClusterComputeConfigOutputWithContext(context.Context) ClusterComputeConfigOutput
 }
 
-// Todo: add description
+// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
 type ClusterComputeConfigArgs struct {
-	// Todo: add description
+	// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Todo: add description
+	// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
 	NodePools pulumi.StringArrayInput `pulumi:"nodePools"`
-	// Todo: add description
+	// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
 	NodeRoleArn pulumi.StringPtrInput `pulumi:"nodeRoleArn"`
 }
 
@@ -2243,7 +2243,7 @@ func (i *clusterComputeConfigPtrType) ToClusterComputeConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeConfigPtrOutput)
 }
 
-// Todo: add description
+// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
 type ClusterComputeConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterComputeConfigOutput) ElementType() reflect.Type {
@@ -2268,17 +2268,17 @@ func (o ClusterComputeConfigOutput) ToClusterComputeConfigPtrOutputWithContext(c
 	}).(ClusterComputeConfigPtrOutput)
 }
 
-// Todo: add description
+// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
 func (o ClusterComputeConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterComputeConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Todo: add description
+// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
 func (o ClusterComputeConfigOutput) NodePools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterComputeConfig) []string { return v.NodePools }).(pulumi.StringArrayOutput)
 }
 
-// Todo: add description
+// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
 func (o ClusterComputeConfigOutput) NodeRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterComputeConfig) *string { return v.NodeRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2307,7 +2307,7 @@ func (o ClusterComputeConfigPtrOutput) Elem() ClusterComputeConfigOutput {
 	}).(ClusterComputeConfigOutput)
 }
 
-// Todo: add description
+// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
 func (o ClusterComputeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterComputeConfig) *bool {
 		if v == nil {
@@ -2317,7 +2317,7 @@ func (o ClusterComputeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Todo: add description
+// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
 func (o ClusterComputeConfigPtrOutput) NodePools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterComputeConfig) []string {
 		if v == nil {
@@ -2327,7 +2327,7 @@ func (o ClusterComputeConfigPtrOutput) NodePools() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Todo: add description
+// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
 func (o ClusterComputeConfigPtrOutput) NodeRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterComputeConfig) *string {
 		if v == nil {
@@ -2636,9 +2636,9 @@ func (o ClusterControlPlaneScalingConfigPtrOutput) Tier() ClusterControlPlaneSca
 	}).(ClusterControlPlaneScalingConfigTierPtrOutput)
 }
 
-// Todo: add description
+// Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.
 type ClusterElasticLoadBalancing struct {
-	// Todo: add description
+	// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
 	Enabled *bool `pulumi:"enabled"`
 	// The Gateway API configuration for the cluster.
 	GatewayApi *ClusterGatewayApi `pulumi:"gatewayApi"`
@@ -2655,9 +2655,9 @@ type ClusterElasticLoadBalancingInput interface {
 	ToClusterElasticLoadBalancingOutputWithContext(context.Context) ClusterElasticLoadBalancingOutput
 }
 
-// Todo: add description
+// Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.
 type ClusterElasticLoadBalancingArgs struct {
-	// Todo: add description
+	// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The Gateway API configuration for the cluster.
 	GatewayApi ClusterGatewayApiPtrInput `pulumi:"gatewayApi"`
@@ -2716,7 +2716,7 @@ func (i *clusterElasticLoadBalancingPtrType) ToClusterElasticLoadBalancingPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterElasticLoadBalancingPtrOutput)
 }
 
-// Todo: add description
+// Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.
 type ClusterElasticLoadBalancingOutput struct{ *pulumi.OutputState }
 
 func (ClusterElasticLoadBalancingOutput) ElementType() reflect.Type {
@@ -2741,7 +2741,7 @@ func (o ClusterElasticLoadBalancingOutput) ToClusterElasticLoadBalancingPtrOutpu
 	}).(ClusterElasticLoadBalancingPtrOutput)
 }
 
-// Todo: add description
+// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
 func (o ClusterElasticLoadBalancingOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterElasticLoadBalancing) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2775,7 +2775,7 @@ func (o ClusterElasticLoadBalancingPtrOutput) Elem() ClusterElasticLoadBalancing
 	}).(ClusterElasticLoadBalancingOutput)
 }
 
-// Todo: add description
+// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your AWS account.
 func (o ClusterElasticLoadBalancingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterElasticLoadBalancing) *bool {
 		if v == nil {
@@ -3914,7 +3914,7 @@ func (o ClusterKubeSchedulerConfigPtrOutput) NodeResourcesFit() ClusterNodeResou
 
 // The Kubernetes network configuration for the cluster.
 type ClusterKubernetesNetworkConfig struct {
-	// Todo: add description
+	// Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
 	ElasticLoadBalancing *ClusterElasticLoadBalancing `pulumi:"elasticLoadBalancing"`
 	// Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
 	IpFamily *ClusterKubernetesNetworkConfigIpFamily `pulumi:"ipFamily"`
@@ -3937,7 +3937,7 @@ type ClusterKubernetesNetworkConfigInput interface {
 
 // The Kubernetes network configuration for the cluster.
 type ClusterKubernetesNetworkConfigArgs struct {
-	// Todo: add description
+	// Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
 	ElasticLoadBalancing ClusterElasticLoadBalancingPtrInput `pulumi:"elasticLoadBalancing"`
 	// Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
 	IpFamily ClusterKubernetesNetworkConfigIpFamilyPtrInput `pulumi:"ipFamily"`
@@ -4025,7 +4025,7 @@ func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPt
 	}).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
-// Todo: add description
+// Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
 func (o ClusterKubernetesNetworkConfigOutput) ElasticLoadBalancing() ClusterElasticLoadBalancingPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *ClusterElasticLoadBalancing { return v.ElasticLoadBalancing }).(ClusterElasticLoadBalancingPtrOutput)
 }
@@ -4069,7 +4069,7 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetwork
 	}).(ClusterKubernetesNetworkConfigOutput)
 }
 
-// Todo: add description
+// Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
 func (o ClusterKubernetesNetworkConfigPtrOutput) ElasticLoadBalancing() ClusterElasticLoadBalancingPtrOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *ClusterElasticLoadBalancing {
 		if v == nil {
@@ -6096,9 +6096,9 @@ func (o ClusterServiceNodePortRangePtrOutput) MinPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Todo: add description
+// Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.
 type ClusterStorageConfig struct {
-	// Todo: add description
+	// Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
 	BlockStorage *ClusterBlockStorage `pulumi:"blockStorage"`
 }
 
@@ -6113,9 +6113,9 @@ type ClusterStorageConfigInput interface {
 	ToClusterStorageConfigOutputWithContext(context.Context) ClusterStorageConfigOutput
 }
 
-// Todo: add description
+// Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.
 type ClusterStorageConfigArgs struct {
-	// Todo: add description
+	// Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
 	BlockStorage ClusterBlockStoragePtrInput `pulumi:"blockStorage"`
 }
 
@@ -6172,7 +6172,7 @@ func (i *clusterStorageConfigPtrType) ToClusterStorageConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterStorageConfigPtrOutput)
 }
 
-// Todo: add description
+// Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.
 type ClusterStorageConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterStorageConfigOutput) ElementType() reflect.Type {
@@ -6197,7 +6197,7 @@ func (o ClusterStorageConfigOutput) ToClusterStorageConfigPtrOutputWithContext(c
 	}).(ClusterStorageConfigPtrOutput)
 }
 
-// Todo: add description
+// Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
 func (o ClusterStorageConfigOutput) BlockStorage() ClusterBlockStoragePtrOutput {
 	return o.ApplyT(func(v ClusterStorageConfig) *ClusterBlockStorage { return v.BlockStorage }).(ClusterBlockStoragePtrOutput)
 }
@@ -6226,7 +6226,7 @@ func (o ClusterStorageConfigPtrOutput) Elem() ClusterStorageConfigOutput {
 	}).(ClusterStorageConfigOutput)
 }
 
-// Todo: add description
+// Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
 func (o ClusterStorageConfigPtrOutput) BlockStorage() ClusterBlockStoragePtrOutput {
 	return o.ApplyT(func(v *ClusterStorageConfig) *ClusterBlockStorage {
 		if v == nil {
@@ -8841,6 +8841,184 @@ type PodIdentityAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The workload identity configuration of the pod identity association. When enabled, the association also provisions a SPIFFE identity for the workload. Setting Enabled to false disables workload identity and keeps the ARNs. Removing the property from the template leaves the association unchanged; set Enabled to false to disable workload identity.
+type PodIdentityAssociationWorkloadIdentityConfig struct {
+	// Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.
+	Enabled bool `pulumi:"enabled"`
+	// The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.
+	ProviderArn *string `pulumi:"providerArn"`
+	// The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.
+	TemplateArn *string `pulumi:"templateArn"`
+}
+
+// PodIdentityAssociationWorkloadIdentityConfigInput is an input type that accepts PodIdentityAssociationWorkloadIdentityConfigArgs and PodIdentityAssociationWorkloadIdentityConfigOutput values.
+// You can construct a concrete instance of `PodIdentityAssociationWorkloadIdentityConfigInput` via:
+//
+//	PodIdentityAssociationWorkloadIdentityConfigArgs{...}
+type PodIdentityAssociationWorkloadIdentityConfigInput interface {
+	pulumi.Input
+
+	ToPodIdentityAssociationWorkloadIdentityConfigOutput() PodIdentityAssociationWorkloadIdentityConfigOutput
+	ToPodIdentityAssociationWorkloadIdentityConfigOutputWithContext(context.Context) PodIdentityAssociationWorkloadIdentityConfigOutput
+}
+
+// The workload identity configuration of the pod identity association. When enabled, the association also provisions a SPIFFE identity for the workload. Setting Enabled to false disables workload identity and keeps the ARNs. Removing the property from the template leaves the association unchanged; set Enabled to false to disable workload identity.
+type PodIdentityAssociationWorkloadIdentityConfigArgs struct {
+	// Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.
+	ProviderArn pulumi.StringPtrInput `pulumi:"providerArn"`
+	// The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.
+	TemplateArn pulumi.StringPtrInput `pulumi:"templateArn"`
+}
+
+func (PodIdentityAssociationWorkloadIdentityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PodIdentityAssociationWorkloadIdentityConfig)(nil)).Elem()
+}
+
+func (i PodIdentityAssociationWorkloadIdentityConfigArgs) ToPodIdentityAssociationWorkloadIdentityConfigOutput() PodIdentityAssociationWorkloadIdentityConfigOutput {
+	return i.ToPodIdentityAssociationWorkloadIdentityConfigOutputWithContext(context.Background())
+}
+
+func (i PodIdentityAssociationWorkloadIdentityConfigArgs) ToPodIdentityAssociationWorkloadIdentityConfigOutputWithContext(ctx context.Context) PodIdentityAssociationWorkloadIdentityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PodIdentityAssociationWorkloadIdentityConfigOutput)
+}
+
+func (i PodIdentityAssociationWorkloadIdentityConfigArgs) ToPodIdentityAssociationWorkloadIdentityConfigPtrOutput() PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return i.ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PodIdentityAssociationWorkloadIdentityConfigArgs) ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(ctx context.Context) PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PodIdentityAssociationWorkloadIdentityConfigOutput).ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(ctx)
+}
+
+// PodIdentityAssociationWorkloadIdentityConfigPtrInput is an input type that accepts PodIdentityAssociationWorkloadIdentityConfigArgs, PodIdentityAssociationWorkloadIdentityConfigPtr and PodIdentityAssociationWorkloadIdentityConfigPtrOutput values.
+// You can construct a concrete instance of `PodIdentityAssociationWorkloadIdentityConfigPtrInput` via:
+//
+//	        PodIdentityAssociationWorkloadIdentityConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PodIdentityAssociationWorkloadIdentityConfigPtrInput interface {
+	pulumi.Input
+
+	ToPodIdentityAssociationWorkloadIdentityConfigPtrOutput() PodIdentityAssociationWorkloadIdentityConfigPtrOutput
+	ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(context.Context) PodIdentityAssociationWorkloadIdentityConfigPtrOutput
+}
+
+type podIdentityAssociationWorkloadIdentityConfigPtrType PodIdentityAssociationWorkloadIdentityConfigArgs
+
+func PodIdentityAssociationWorkloadIdentityConfigPtr(v *PodIdentityAssociationWorkloadIdentityConfigArgs) PodIdentityAssociationWorkloadIdentityConfigPtrInput {
+	return (*podIdentityAssociationWorkloadIdentityConfigPtrType)(v)
+}
+
+func (*podIdentityAssociationWorkloadIdentityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PodIdentityAssociationWorkloadIdentityConfig)(nil)).Elem()
+}
+
+func (i *podIdentityAssociationWorkloadIdentityConfigPtrType) ToPodIdentityAssociationWorkloadIdentityConfigPtrOutput() PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return i.ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *podIdentityAssociationWorkloadIdentityConfigPtrType) ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(ctx context.Context) PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PodIdentityAssociationWorkloadIdentityConfigPtrOutput)
+}
+
+// The workload identity configuration of the pod identity association. When enabled, the association also provisions a SPIFFE identity for the workload. Setting Enabled to false disables workload identity and keeps the ARNs. Removing the property from the template leaves the association unchanged; set Enabled to false to disable workload identity.
+type PodIdentityAssociationWorkloadIdentityConfigOutput struct{ *pulumi.OutputState }
+
+func (PodIdentityAssociationWorkloadIdentityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PodIdentityAssociationWorkloadIdentityConfig)(nil)).Elem()
+}
+
+func (o PodIdentityAssociationWorkloadIdentityConfigOutput) ToPodIdentityAssociationWorkloadIdentityConfigOutput() PodIdentityAssociationWorkloadIdentityConfigOutput {
+	return o
+}
+
+func (o PodIdentityAssociationWorkloadIdentityConfigOutput) ToPodIdentityAssociationWorkloadIdentityConfigOutputWithContext(ctx context.Context) PodIdentityAssociationWorkloadIdentityConfigOutput {
+	return o
+}
+
+func (o PodIdentityAssociationWorkloadIdentityConfigOutput) ToPodIdentityAssociationWorkloadIdentityConfigPtrOutput() PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return o.ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PodIdentityAssociationWorkloadIdentityConfigOutput) ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(ctx context.Context) PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PodIdentityAssociationWorkloadIdentityConfig) *PodIdentityAssociationWorkloadIdentityConfig {
+		return &v
+	}).(PodIdentityAssociationWorkloadIdentityConfigPtrOutput)
+}
+
+// Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.
+func (o PodIdentityAssociationWorkloadIdentityConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v PodIdentityAssociationWorkloadIdentityConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.
+func (o PodIdentityAssociationWorkloadIdentityConfigOutput) ProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PodIdentityAssociationWorkloadIdentityConfig) *string { return v.ProviderArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.
+func (o PodIdentityAssociationWorkloadIdentityConfigOutput) TemplateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PodIdentityAssociationWorkloadIdentityConfig) *string { return v.TemplateArn }).(pulumi.StringPtrOutput)
+}
+
+type PodIdentityAssociationWorkloadIdentityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PodIdentityAssociationWorkloadIdentityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PodIdentityAssociationWorkloadIdentityConfig)(nil)).Elem()
+}
+
+func (o PodIdentityAssociationWorkloadIdentityConfigPtrOutput) ToPodIdentityAssociationWorkloadIdentityConfigPtrOutput() PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return o
+}
+
+func (o PodIdentityAssociationWorkloadIdentityConfigPtrOutput) ToPodIdentityAssociationWorkloadIdentityConfigPtrOutputWithContext(ctx context.Context) PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return o
+}
+
+func (o PodIdentityAssociationWorkloadIdentityConfigPtrOutput) Elem() PodIdentityAssociationWorkloadIdentityConfigOutput {
+	return o.ApplyT(func(v *PodIdentityAssociationWorkloadIdentityConfig) PodIdentityAssociationWorkloadIdentityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PodIdentityAssociationWorkloadIdentityConfig
+		return ret
+	}).(PodIdentityAssociationWorkloadIdentityConfigOutput)
+}
+
+// Whether workload identity is enabled for the association. Enabling it requires TemplateArn and ProviderArn, and cannot be combined with TargetRoleArn.
+func (o PodIdentityAssociationWorkloadIdentityConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PodIdentityAssociationWorkloadIdentityConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the customer-owned IAM workload identity provider that produces the trusted context assertion for the workload.
+func (o PodIdentityAssociationWorkloadIdentityConfigPtrOutput) ProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PodIdentityAssociationWorkloadIdentityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the customer-owned IAM workload identity template that renders the workload's SPIFFE identity.
+func (o PodIdentityAssociationWorkloadIdentityConfigPtrOutput) TemplateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PodIdentityAssociationWorkloadIdentityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateArn
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessPolicyInput)(nil)).Elem(), AccessEntryAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessPolicyArrayInput)(nil)).Elem(), AccessEntryAccessPolicyArray{})
@@ -8956,6 +9134,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupUpdateConfigPtrInput)(nil)).Elem(), NodegroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupWarmPoolConfigInput)(nil)).Elem(), NodegroupWarmPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupWarmPoolConfigPtrInput)(nil)).Elem(), NodegroupWarmPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PodIdentityAssociationWorkloadIdentityConfigInput)(nil)).Elem(), PodIdentityAssociationWorkloadIdentityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PodIdentityAssociationWorkloadIdentityConfigPtrInput)(nil)).Elem(), PodIdentityAssociationWorkloadIdentityConfigArgs{})
 	pulumi.RegisterOutputType(AccessEntryAccessPolicyOutput{})
 	pulumi.RegisterOutputType(AccessEntryAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(AccessEntryAccessScopeOutput{})
@@ -9075,4 +9255,6 @@ func init() {
 	pulumi.RegisterOutputType(NodegroupUpdateConfigPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupWarmPoolConfigOutput{})
 	pulumi.RegisterOutputType(NodegroupWarmPoolConfigPtrOutput{})
+	pulumi.RegisterOutputType(PodIdentityAssociationWorkloadIdentityConfigOutput{})
+	pulumi.RegisterOutputType(PodIdentityAssociationWorkloadIdentityConfigPtrOutput{})
 }

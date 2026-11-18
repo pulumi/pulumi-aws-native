@@ -15,10 +15,14 @@ __all__ = [
     'ContainerRecipeTargetContainerRepositoryService',
     'DistributionConfigurationSsmParameterConfigurationDataType',
     'DistributionConfigurationTargetContainerRepositoryService',
+    'ImagePipelineImageScanningConfigurationImageScanningTypesItem',
+    'ImagePipelineScanResultConditionMaximumSeverityLabel',
     'ImagePipelineSchedulePipelineExecutionStartCondition',
     'ImagePipelineStatus',
     'ImagePipelineWorkflowConfigurationOnFailure',
     'ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType',
+    'ImageScanResultConditionMaximumSeverityLabel',
+    'ImageScanningConfigurationImageScanningTypesItem',
     'ImageWorkflowConfigurationOnFailure',
     'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens',
     'InfrastructureConfigurationPlacementTenancy',
@@ -108,6 +112,23 @@ class DistributionConfigurationTargetContainerRepositoryService(_builtins.str, E
     ECR = "ECR"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ImagePipelineImageScanningConfigurationImageScanningTypesItem")
+class ImagePipelineImageScanningConfigurationImageScanningTypesItem(_builtins.str, Enum):
+    TEST_INSTANCE_CVE = "TEST_INSTANCE_CVE"
+    ON_DEMAND_AMI_CVE = "ON_DEMAND_AMI_CVE"
+
+
+@pulumi.type_token("aws-native:imagebuilder:ImagePipelineScanResultConditionMaximumSeverityLabel")
+class ImagePipelineScanResultConditionMaximumSeverityLabel(_builtins.str, Enum):
+    """
+    The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+    """
+    INFORMATIONAL = "INFORMATIONAL"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
 @pulumi.type_token("aws-native:imagebuilder:ImagePipelineSchedulePipelineExecutionStartCondition")
 class ImagePipelineSchedulePipelineExecutionStartCondition(_builtins.str, Enum):
     """
@@ -149,6 +170,23 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType(_builtins.str, En
     GP3A = "gp3a"
     SC1 = "sc1"
     ST1 = "st1"
+
+
+@pulumi.type_token("aws-native:imagebuilder:ImageScanResultConditionMaximumSeverityLabel")
+class ImageScanResultConditionMaximumSeverityLabel(_builtins.str, Enum):
+    """
+    The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+    """
+    INFORMATIONAL = "INFORMATIONAL"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
+@pulumi.type_token("aws-native:imagebuilder:ImageScanningConfigurationImageScanningTypesItem")
+class ImageScanningConfigurationImageScanningTypesItem(_builtins.str, Enum):
+    TEST_INSTANCE_CVE = "TEST_INSTANCE_CVE"
+    ON_DEMAND_AMI_CVE = "ON_DEMAND_AMI_CVE"
 
 
 @pulumi.type_token("aws-native:imagebuilder:ImageWorkflowConfigurationOnFailure")

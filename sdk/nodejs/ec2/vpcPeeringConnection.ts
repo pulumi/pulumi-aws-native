@@ -56,6 +56,10 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
+     * The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+     */
+    declare public /*out*/ readonly multipathResilienceStatus: pulumi.Output<enums.ec2.VpcPeeringConnectionMultipathResilienceStatus>;
+    /**
      * The AWS account ID of the owner of the accepter VPC.
      */
     declare public readonly peerOwnerId: pulumi.Output<string | undefined>;
@@ -72,6 +76,10 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     declare public readonly peerVpcId: pulumi.Output<string>;
     /**
+     * The VPC peering connection options corresponding to the accepter side of the connection.
+     */
+    declare public readonly peerVpcPeeringConnectionOptions: pulumi.Output<outputs.ec2.VpcPeeringConnectionOptions | undefined>;
+    /**
      * Any tags assigned to the resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -79,6 +87,10 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * The ID of the VPC.
      */
     declare public readonly vpcId: pulumi.Output<string>;
+    /**
+     * The VPC peering connection options corresponding to the requester side of the connection.
+     */
+    declare public readonly vpcPeeringConnectionOptions: pulumi.Output<outputs.ec2.VpcPeeringConnectionOptions | undefined>;
 
     /**
      * Create a VpcPeeringConnection resource with the given unique name, arguments, and options.
@@ -102,18 +114,24 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             resourceInputs["peerRegion"] = args?.peerRegion;
             resourceInputs["peerRoleArn"] = args?.peerRoleArn;
             resourceInputs["peerVpcId"] = args?.peerVpcId;
+            resourceInputs["peerVpcPeeringConnectionOptions"] = args?.peerVpcPeeringConnectionOptions;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["vpcPeeringConnectionOptions"] = args?.vpcPeeringConnectionOptions;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["multipathResilienceStatus"] = undefined /*out*/;
         } else {
             resourceInputs["assumeRoleRegion"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["multipathResilienceStatus"] = undefined /*out*/;
             resourceInputs["peerOwnerId"] = undefined /*out*/;
             resourceInputs["peerRegion"] = undefined /*out*/;
             resourceInputs["peerRoleArn"] = undefined /*out*/;
             resourceInputs["peerVpcId"] = undefined /*out*/;
+            resourceInputs["peerVpcPeeringConnectionOptions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
+            resourceInputs["vpcPeeringConnectionOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["peerOwnerId", "peerRegion", "peerVpcId", "vpcId"] };
@@ -147,6 +165,10 @@ export interface VpcPeeringConnectionArgs {
      */
     peerVpcId: pulumi.Input<string>;
     /**
+     * The VPC peering connection options corresponding to the accepter side of the connection.
+     */
+    peerVpcPeeringConnectionOptions?: pulumi.Input<inputs.ec2.VpcPeeringConnectionOptionsArgs | undefined>;
+    /**
      * Any tags assigned to the resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
@@ -154,4 +176,8 @@ export interface VpcPeeringConnectionArgs {
      * The ID of the VPC.
      */
     vpcId: pulumi.Input<string>;
+    /**
+     * The VPC peering connection options corresponding to the requester side of the connection.
+     */
+    vpcPeeringConnectionOptions?: pulumi.Input<inputs.ec2.VpcPeeringConnectionOptionsArgs | undefined>;
 }

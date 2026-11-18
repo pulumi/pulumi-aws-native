@@ -32,6 +32,10 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
         /// Full GitLab project path (e.g., namespace/project-name)
         /// </summary>
         public readonly string ProjectPath;
+        /// <summary>
+        /// The ID of the release management association that this project uses for automated testing
+        /// </summary>
+        public readonly string? ReleaseManagementAssociationId;
 
         [OutputConstructor]
         private AssociationGitLabConfiguration(
@@ -41,12 +45,15 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
 
             string projectId,
 
-            string projectPath)
+            string projectPath,
+
+            string? releaseManagementAssociationId)
         {
             EnableWebhookUpdates = enableWebhookUpdates;
             InstanceIdentifier = instanceIdentifier;
             ProjectId = projectId;
             ProjectPath = projectPath;
+            ReleaseManagementAssociationId = releaseManagementAssociationId;
         }
     }
 }

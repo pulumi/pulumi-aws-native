@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// <summary>
         /// A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.RouterInputMergeRouterInputProtocolConfiguration0Properties, Outputs.RouterInputMergeRouterInputProtocolConfiguration1Properties>> ProtocolConfigurations;
+        public readonly ImmutableArray<object> ProtocolConfigurations;
 
         [OutputConstructor]
         private RouterInputMergeRouterInputConfiguration(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             string networkInterfaceArn,
 
-            ImmutableArray<Union<Outputs.RouterInputMergeRouterInputProtocolConfiguration0Properties, Outputs.RouterInputMergeRouterInputProtocolConfiguration1Properties>> protocolConfigurations)
+            ImmutableArray<object> protocolConfigurations)
         {
             MergeRecoveryWindowMilliseconds = mergeRecoveryWindowMilliseconds;
             NetworkInterfaceArn = networkInterfaceArn;

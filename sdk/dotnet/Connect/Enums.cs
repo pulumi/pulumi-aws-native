@@ -477,6 +477,102 @@ namespace Pulumi.AwsNative.Connect
         public static EvaluationFormLanguageConfigurationFormLanguage KoKr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ko-KR");
         public static EvaluationFormLanguageConfigurationFormLanguage ZhCn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("zh-CN");
         public static EvaluationFormLanguageConfigurationFormLanguage MsMy { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ms-MY");
+        public static EvaluationFormLanguageConfigurationFormLanguage AfZa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("af-ZA");
+        public static EvaluationFormLanguageConfigurationFormLanguage SqAl { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sq-AL");
+        public static EvaluationFormLanguageConfigurationFormLanguage AmEt { get; } = new EvaluationFormLanguageConfigurationFormLanguage("am-ET");
+        public static EvaluationFormLanguageConfigurationFormLanguage ArAe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ar-AE");
+        public static EvaluationFormLanguageConfigurationFormLanguage ArSa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ar-SA");
+        public static EvaluationFormLanguageConfigurationFormLanguage HyAm { get; } = new EvaluationFormLanguageConfigurationFormLanguage("hy-AM");
+        public static EvaluationFormLanguageConfigurationFormLanguage EuEs { get; } = new EvaluationFormLanguageConfigurationFormLanguage("eu-ES");
+        public static EvaluationFormLanguageConfigurationFormLanguage BeBy { get; } = new EvaluationFormLanguageConfigurationFormLanguage("be-BY");
+        public static EvaluationFormLanguageConfigurationFormLanguage BsBa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("bs-BA");
+        public static EvaluationFormLanguageConfigurationFormLanguage BgBg { get; } = new EvaluationFormLanguageConfigurationFormLanguage("bg-BG");
+        public static EvaluationFormLanguageConfigurationFormLanguage CaEs { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ca-ES");
+        public static EvaluationFormLanguageConfigurationFormLanguage CkbIr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ckb-IR");
+        public static EvaluationFormLanguageConfigurationFormLanguage CkbIq { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ckb-IQ");
+        public static EvaluationFormLanguageConfigurationFormLanguage ZhTw { get; } = new EvaluationFormLanguageConfigurationFormLanguage("zh-TW");
+        public static EvaluationFormLanguageConfigurationFormLanguage HrHr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("hr-HR");
+        public static EvaluationFormLanguageConfigurationFormLanguage CsCz { get; } = new EvaluationFormLanguageConfigurationFormLanguage("cs-CZ");
+        public static EvaluationFormLanguageConfigurationFormLanguage DaDk { get; } = new EvaluationFormLanguageConfigurationFormLanguage("da-DK");
+        public static EvaluationFormLanguageConfigurationFormLanguage NlBe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("nl-BE");
+        public static EvaluationFormLanguageConfigurationFormLanguage NlNl { get; } = new EvaluationFormLanguageConfigurationFormLanguage("nl-NL");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnAu { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-AU");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnIe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-IE");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnNz { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-NZ");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnAb { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-AB");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnSg { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-SG");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnZa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-ZA");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnGb { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-GB");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnWl { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-WL");
+        public static EvaluationFormLanguageConfigurationFormLanguage FaIr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("fa-IR");
+        public static EvaluationFormLanguageConfigurationFormLanguage FaAf { get; } = new EvaluationFormLanguageConfigurationFormLanguage("fa-AF");
+        public static EvaluationFormLanguageConfigurationFormLanguage FiFi { get; } = new EvaluationFormLanguageConfigurationFormLanguage("fi-FI");
+        public static EvaluationFormLanguageConfigurationFormLanguage FrBe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("fr-BE");
+        public static EvaluationFormLanguageConfigurationFormLanguage FrCa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("fr-CA");
+        public static EvaluationFormLanguageConfigurationFormLanguage GaIe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ga-IE");
+        public static EvaluationFormLanguageConfigurationFormLanguage GlEs { get; } = new EvaluationFormLanguageConfigurationFormLanguage("gl-ES");
+        public static EvaluationFormLanguageConfigurationFormLanguage KaGe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ka-GE");
+        public static EvaluationFormLanguageConfigurationFormLanguage DeAt { get; } = new EvaluationFormLanguageConfigurationFormLanguage("de-AT");
+        public static EvaluationFormLanguageConfigurationFormLanguage DeCh { get; } = new EvaluationFormLanguageConfigurationFormLanguage("de-CH");
+        public static EvaluationFormLanguageConfigurationFormLanguage ElGr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("el-GR");
+        public static EvaluationFormLanguageConfigurationFormLanguage GuIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("gu-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage HtHt { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ht-HT");
+        public static EvaluationFormLanguageConfigurationFormLanguage HeIl { get; } = new EvaluationFormLanguageConfigurationFormLanguage("he-IL");
+        public static EvaluationFormLanguageConfigurationFormLanguage HiIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("hi-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage HuHu { get; } = new EvaluationFormLanguageConfigurationFormLanguage("hu-HU");
+        public static EvaluationFormLanguageConfigurationFormLanguage IsIs { get; } = new EvaluationFormLanguageConfigurationFormLanguage("is-IS");
+        public static EvaluationFormLanguageConfigurationFormLanguage IdId { get; } = new EvaluationFormLanguageConfigurationFormLanguage("id-ID");
+        public static EvaluationFormLanguageConfigurationFormLanguage JvId { get; } = new EvaluationFormLanguageConfigurationFormLanguage("jv-ID");
+        public static EvaluationFormLanguageConfigurationFormLanguage KmKh { get; } = new EvaluationFormLanguageConfigurationFormLanguage("km-KH");
+        public static EvaluationFormLanguageConfigurationFormLanguage KnIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("kn-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage KkKz { get; } = new EvaluationFormLanguageConfigurationFormLanguage("kk-KZ");
+        public static EvaluationFormLanguageConfigurationFormLanguage LoLa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("lo-LA");
+        public static EvaluationFormLanguageConfigurationFormLanguage LvLv { get; } = new EvaluationFormLanguageConfigurationFormLanguage("lv-LV");
+        public static EvaluationFormLanguageConfigurationFormLanguage LtLt { get; } = new EvaluationFormLanguageConfigurationFormLanguage("lt-LT");
+        public static EvaluationFormLanguageConfigurationFormLanguage MkMk { get; } = new EvaluationFormLanguageConfigurationFormLanguage("mk-MK");
+        public static EvaluationFormLanguageConfigurationFormLanguage MlIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ml-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage MrIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("mr-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage NeNp { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ne-NP");
+        public static EvaluationFormLanguageConfigurationFormLanguage NoNo { get; } = new EvaluationFormLanguageConfigurationFormLanguage("no-NO");
+        public static EvaluationFormLanguageConfigurationFormLanguage OrIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("or-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage PsAf { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ps-AF");
+        public static EvaluationFormLanguageConfigurationFormLanguage PlPl { get; } = new EvaluationFormLanguageConfigurationFormLanguage("pl-PL");
+        public static EvaluationFormLanguageConfigurationFormLanguage PtPt { get; } = new EvaluationFormLanguageConfigurationFormLanguage("pt-PT");
+        public static EvaluationFormLanguageConfigurationFormLanguage PaIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("pa-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage RoRo { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ro-RO");
+        public static EvaluationFormLanguageConfigurationFormLanguage RuRu { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ru-RU");
+        public static EvaluationFormLanguageConfigurationFormLanguage SrRs { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sr-RS");
+        public static EvaluationFormLanguageConfigurationFormLanguage SiLk { get; } = new EvaluationFormLanguageConfigurationFormLanguage("si-LK");
+        public static EvaluationFormLanguageConfigurationFormLanguage SkSk { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sk-SK");
+        public static EvaluationFormLanguageConfigurationFormLanguage SlSi { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sl-SI");
+        public static EvaluationFormLanguageConfigurationFormLanguage EsMx { get; } = new EvaluationFormLanguageConfigurationFormLanguage("es-MX");
+        public static EvaluationFormLanguageConfigurationFormLanguage EsUs { get; } = new EvaluationFormLanguageConfigurationFormLanguage("es-US");
+        public static EvaluationFormLanguageConfigurationFormLanguage SuId { get; } = new EvaluationFormLanguageConfigurationFormLanguage("su-ID");
+        public static EvaluationFormLanguageConfigurationFormLanguage SwBi { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sw-BI");
+        public static EvaluationFormLanguageConfigurationFormLanguage SwKe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sw-KE");
+        public static EvaluationFormLanguageConfigurationFormLanguage SwRw { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sw-RW");
+        public static EvaluationFormLanguageConfigurationFormLanguage SwTz { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sw-TZ");
+        public static EvaluationFormLanguageConfigurationFormLanguage SwUg { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sw-UG");
+        public static EvaluationFormLanguageConfigurationFormLanguage SvSe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("sv-SE");
+        public static EvaluationFormLanguageConfigurationFormLanguage TlPh { get; } = new EvaluationFormLanguageConfigurationFormLanguage("tl-PH");
+        public static EvaluationFormLanguageConfigurationFormLanguage TaIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ta-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage TeIn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("te-IN");
+        public static EvaluationFormLanguageConfigurationFormLanguage ThTh { get; } = new EvaluationFormLanguageConfigurationFormLanguage("th-TH");
+        public static EvaluationFormLanguageConfigurationFormLanguage TrTr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("tr-TR");
+        public static EvaluationFormLanguageConfigurationFormLanguage UkUa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("uk-UA");
+        public static EvaluationFormLanguageConfigurationFormLanguage UzUz { get; } = new EvaluationFormLanguageConfigurationFormLanguage("uz-UZ");
+        public static EvaluationFormLanguageConfigurationFormLanguage ViVn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("vi-VN");
+        public static EvaluationFormLanguageConfigurationFormLanguage ZuZa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("zu-ZA");
+        public static EvaluationFormLanguageConfigurationFormLanguage MyMm { get; } = new EvaluationFormLanguageConfigurationFormLanguage("my-MM");
+        public static EvaluationFormLanguageConfigurationFormLanguage SoSo { get; } = new EvaluationFormLanguageConfigurationFormLanguage("so-SO");
+        public static EvaluationFormLanguageConfigurationFormLanguage YueHk { get; } = new EvaluationFormLanguageConfigurationFormLanguage("yue-HK");
+        public static EvaluationFormLanguageConfigurationFormLanguage EtEe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("et-EE");
+        public static EvaluationFormLanguageConfigurationFormLanguage Hmn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("hmn");
+        public static EvaluationFormLanguageConfigurationFormLanguage LgUg { get; } = new EvaluationFormLanguageConfigurationFormLanguage("lg-UG");
+        public static EvaluationFormLanguageConfigurationFormLanguage CyGb { get; } = new EvaluationFormLanguageConfigurationFormLanguage("cy-GB");
+        public static EvaluationFormLanguageConfigurationFormLanguage XhZa { get; } = new EvaluationFormLanguageConfigurationFormLanguage("xh-ZA");
+        public static EvaluationFormLanguageConfigurationFormLanguage BnBd { get; } = new EvaluationFormLanguageConfigurationFormLanguage("bn-BD");
 
         public static bool operator ==(EvaluationFormLanguageConfigurationFormLanguage left, EvaluationFormLanguageConfigurationFormLanguage right) => left.Equals(right);
         public static bool operator !=(EvaluationFormLanguageConfigurationFormLanguage left, EvaluationFormLanguageConfigurationFormLanguage right) => !left.Equals(right);
@@ -1839,6 +1935,124 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleAssignSlaActionSlaAssignmentType other && Equals(other);
         public bool Equals(RuleAssignSlaActionSlaAssignmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuleCapabilityTiersItem : IEquatable<RuleCapabilityTiersItem>
+    {
+        private readonly string _value;
+
+        private RuleCapabilityTiersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleCapabilityTiersItem GenerativeAi { get; } = new RuleCapabilityTiersItem("GenerativeAI");
+
+        public static bool operator ==(RuleCapabilityTiersItem left, RuleCapabilityTiersItem right) => left.Equals(right);
+        public static bool operator !=(RuleCapabilityTiersItem left, RuleCapabilityTiersItem right) => !left.Equals(right);
+
+        public static explicit operator string(RuleCapabilityTiersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleCapabilityTiersItem other && Equals(other);
+        public bool Equals(RuleCapabilityTiersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct RulePreEvaluationFilterFilterType : IEquatable<RulePreEvaluationFilterFilterType>
+    {
+        private readonly string _value;
+
+        private RulePreEvaluationFilterFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RulePreEvaluationFilterFilterType Tag { get; } = new RulePreEvaluationFilterFilterType("TAG");
+
+        public static bool operator ==(RulePreEvaluationFilterFilterType left, RulePreEvaluationFilterFilterType right) => left.Equals(right);
+        public static bool operator !=(RulePreEvaluationFilterFilterType left, RulePreEvaluationFilterFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(RulePreEvaluationFilterFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RulePreEvaluationFilterFilterType other && Equals(other);
+        public bool Equals(RulePreEvaluationFilterFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The comparison operator for the filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct RulePreEvaluationFilterOperator : IEquatable<RulePreEvaluationFilterOperator>
+    {
+        private readonly string _value;
+
+        private RulePreEvaluationFilterOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RulePreEvaluationFilterOperator EqualsValue { get; } = new RulePreEvaluationFilterOperator("EQUALS");
+
+        public static bool operator ==(RulePreEvaluationFilterOperator left, RulePreEvaluationFilterOperator right) => left.Equals(right);
+        public static bool operator !=(RulePreEvaluationFilterOperator left, RulePreEvaluationFilterOperator right) => !left.Equals(right);
+
+        public static explicit operator string(RulePreEvaluationFilterOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RulePreEvaluationFilterOperator other && Equals(other);
+        public bool Equals(RulePreEvaluationFilterOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of resource the filter applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct RulePreEvaluationFilterResourceType : IEquatable<RulePreEvaluationFilterResourceType>
+    {
+        private readonly string _value;
+
+        private RulePreEvaluationFilterResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RulePreEvaluationFilterResourceType Contact { get; } = new RulePreEvaluationFilterResourceType("CONTACT");
+        public static RulePreEvaluationFilterResourceType ContactEvaluation { get; } = new RulePreEvaluationFilterResourceType("CONTACT_EVALUATION");
+
+        public static bool operator ==(RulePreEvaluationFilterResourceType left, RulePreEvaluationFilterResourceType right) => left.Equals(right);
+        public static bool operator !=(RulePreEvaluationFilterResourceType left, RulePreEvaluationFilterResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(RulePreEvaluationFilterResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RulePreEvaluationFilterResourceType other && Equals(other);
+        public bool Equals(RulePreEvaluationFilterResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

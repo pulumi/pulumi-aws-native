@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConformancePackType = {
+    Custom: "CUSTOM",
+    Managed: "MANAGED",
+} as const;
+
+/**
+ * The type of the conformance pack. CUSTOM for a conformance pack whose Config rules are managed by the customer; MANAGED for a managed conformance pack whose Config rules are managed by AWS.
+ */
+export type ConformancePackType = (typeof ConformancePackType)[keyof typeof ConformancePackType];
+
 export const DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency = {
     OneHour: "One_Hour",
     ThreeHours: "Three_Hours",

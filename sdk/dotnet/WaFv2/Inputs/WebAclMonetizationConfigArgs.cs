@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclMonetizationConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("connectedAccountConfigs")]
+        private InputList<Inputs.WebAclConnectedAccountConfigArgs>? _connectedAccountConfigs;
+        public InputList<Inputs.WebAclConnectedAccountConfigArgs> ConnectedAccountConfigs
+        {
+            get => _connectedAccountConfigs ?? (_connectedAccountConfigs = new InputList<Inputs.WebAclConnectedAccountConfigArgs>());
+            set => _connectedAccountConfigs = value;
+        }
+
         [Input("cryptoConfig")]
         public Input<Inputs.WebAclCryptoConfigArgs>? CryptoConfig { get; set; }
 

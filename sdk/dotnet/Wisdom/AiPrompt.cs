@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("inferenceConfiguration")]
+        public Output<Outputs.AiPromptAiPromptInferenceConfiguration?> InferenceConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The identifier of the model used for this AI Prompt. The following model Ids are supported:
         /// 
@@ -179,6 +182,9 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("inferenceConfiguration")]
+        public Input<Inputs.AiPromptAiPromptInferenceConfigurationArgs>? InferenceConfiguration { get; set; }
 
         /// <summary>
         /// The identifier of the model used for this AI Prompt. The following model Ids are supported:

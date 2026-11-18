@@ -24,6 +24,9 @@ __all__ = [
     'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
     'ClusterOrchestratorSlurmConfigSlurmConfigStrategy',
+    'ClusterSchedulerConfigSchedulerConfigFairShare',
+    'ClusterSchedulerConfigSchedulerConfigIdleResourceSharing',
+    'ClusterSchedulerConfigStatus',
     'ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy',
     'ClusterSlurmConfigNodeType',
     'ClusterStatus',
@@ -57,6 +60,7 @@ __all__ = [
     'DomainUnifiedStudioSettingsStudioWebPortalAccess',
     'DomainUserSettingsAutoMountHomeEfs',
     'DomainUserSettingsStudioWebPortal',
+    'ExtensionStatus',
     'FeatureGroupFeatureDefinitionFeatureType',
     'FeatureGroupStorageType',
     'FeatureGroupTableFormat',
@@ -480,6 +484,43 @@ class ClusterOrchestratorSlurmConfigSlurmConfigStrategy(_builtins.str, Enum):
     OVERWRITE = "Overwrite"
     MANAGED = "Managed"
     MERGE = "Merge"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterSchedulerConfigSchedulerConfigFairShare")
+class ClusterSchedulerConfigSchedulerConfigFairShare(_builtins.str, Enum):
+    """
+    When enabled, entities borrow idle compute based on assigned FairShareWeight.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterSchedulerConfigSchedulerConfigIdleResourceSharing")
+class ClusterSchedulerConfigSchedulerConfigIdleResourceSharing(_builtins.str, Enum):
+    """
+    Configuration for sharing idle compute resources across entities.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterSchedulerConfigStatus")
+class ClusterSchedulerConfigStatus(_builtins.str, Enum):
+    """
+    Status of the cluster policy.
+    """
+    CREATING = "Creating"
+    CREATE_FAILED = "CreateFailed"
+    CREATE_ROLLBACK_FAILED = "CreateRollbackFailed"
+    CREATED = "Created"
+    UPDATING = "Updating"
+    UPDATE_FAILED = "UpdateFailed"
+    UPDATE_ROLLBACK_FAILED = "UpdateRollbackFailed"
+    UPDATED = "Updated"
+    DELETING = "Deleting"
+    DELETE_FAILED = "DeleteFailed"
+    DELETE_ROLLBACK_FAILED = "DeleteRollbackFailed"
+    DELETED = "Deleted"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy")
@@ -1011,6 +1052,21 @@ class DomainUserSettingsStudioWebPortal(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:sagemaker:ExtensionStatus")
+class ExtensionStatus(_builtins.str, Enum):
+    """
+    The current status of the extension. CloudFormation doesn't wait for the extension to finish installing or updating on the cluster nodes. To check progress, use Status and NodeSummary.
+    """
+    CREATING = "Creating"
+    ACTIVE = "Active"
+    CREATE_FAILED = "CreateFailed"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    DELETE_FAILED = "DeleteFailed"
+    DEGRADED = "Degraded"
+    UPDATE_FAILED = "UpdateFailed"
 
 
 @pulumi.type_token("aws-native:sagemaker:FeatureGroupFeatureDefinitionFeatureType")

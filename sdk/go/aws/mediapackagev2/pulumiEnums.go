@@ -1771,6 +1771,171 @@ func (in *originEndpointDashAudioTimelinePatternPtr) ToOriginEndpointDashAudioTi
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashAudioTimelinePatternPtrOutput)
 }
 
+type OriginEndpointDashBandwidthReportingMode string
+
+const (
+	OriginEndpointDashBandwidthReportingModeAverage = OriginEndpointDashBandwidthReportingMode("AVERAGE")
+	OriginEndpointDashBandwidthReportingModeMax     = OriginEndpointDashBandwidthReportingMode("MAX")
+)
+
+func (OriginEndpointDashBandwidthReportingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashBandwidthReportingMode)(nil)).Elem()
+}
+
+func (e OriginEndpointDashBandwidthReportingMode) ToOriginEndpointDashBandwidthReportingModeOutput() OriginEndpointDashBandwidthReportingModeOutput {
+	return pulumi.ToOutput(e).(OriginEndpointDashBandwidthReportingModeOutput)
+}
+
+func (e OriginEndpointDashBandwidthReportingMode) ToOriginEndpointDashBandwidthReportingModeOutputWithContext(ctx context.Context) OriginEndpointDashBandwidthReportingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointDashBandwidthReportingModeOutput)
+}
+
+func (e OriginEndpointDashBandwidthReportingMode) ToOriginEndpointDashBandwidthReportingModePtrOutput() OriginEndpointDashBandwidthReportingModePtrOutput {
+	return e.ToOriginEndpointDashBandwidthReportingModePtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashBandwidthReportingMode) ToOriginEndpointDashBandwidthReportingModePtrOutputWithContext(ctx context.Context) OriginEndpointDashBandwidthReportingModePtrOutput {
+	return OriginEndpointDashBandwidthReportingMode(e).ToOriginEndpointDashBandwidthReportingModeOutputWithContext(ctx).ToOriginEndpointDashBandwidthReportingModePtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointDashBandwidthReportingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashBandwidthReportingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashBandwidthReportingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashBandwidthReportingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointDashBandwidthReportingModeOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashBandwidthReportingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashBandwidthReportingMode)(nil)).Elem()
+}
+
+func (o OriginEndpointDashBandwidthReportingModeOutput) ToOriginEndpointDashBandwidthReportingModeOutput() OriginEndpointDashBandwidthReportingModeOutput {
+	return o
+}
+
+func (o OriginEndpointDashBandwidthReportingModeOutput) ToOriginEndpointDashBandwidthReportingModeOutputWithContext(ctx context.Context) OriginEndpointDashBandwidthReportingModeOutput {
+	return o
+}
+
+func (o OriginEndpointDashBandwidthReportingModeOutput) ToOriginEndpointDashBandwidthReportingModePtrOutput() OriginEndpointDashBandwidthReportingModePtrOutput {
+	return o.ToOriginEndpointDashBandwidthReportingModePtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashBandwidthReportingModeOutput) ToOriginEndpointDashBandwidthReportingModePtrOutputWithContext(ctx context.Context) OriginEndpointDashBandwidthReportingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointDashBandwidthReportingMode) *OriginEndpointDashBandwidthReportingMode {
+		return &v
+	}).(OriginEndpointDashBandwidthReportingModePtrOutput)
+}
+
+func (o OriginEndpointDashBandwidthReportingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashBandwidthReportingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashBandwidthReportingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointDashBandwidthReportingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashBandwidthReportingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashBandwidthReportingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointDashBandwidthReportingModePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashBandwidthReportingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashBandwidthReportingMode)(nil)).Elem()
+}
+
+func (o OriginEndpointDashBandwidthReportingModePtrOutput) ToOriginEndpointDashBandwidthReportingModePtrOutput() OriginEndpointDashBandwidthReportingModePtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashBandwidthReportingModePtrOutput) ToOriginEndpointDashBandwidthReportingModePtrOutputWithContext(ctx context.Context) OriginEndpointDashBandwidthReportingModePtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashBandwidthReportingModePtrOutput) Elem() OriginEndpointDashBandwidthReportingModeOutput {
+	return o.ApplyT(func(v *OriginEndpointDashBandwidthReportingMode) OriginEndpointDashBandwidthReportingMode {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointDashBandwidthReportingMode
+		return ret
+	}).(OriginEndpointDashBandwidthReportingModeOutput)
+}
+
+func (o OriginEndpointDashBandwidthReportingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashBandwidthReportingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointDashBandwidthReportingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointDashBandwidthReportingModeInput is an input type that accepts values of the OriginEndpointDashBandwidthReportingMode enum
+// A concrete instance of `OriginEndpointDashBandwidthReportingModeInput` can be one of the following:
+//
+//	OriginEndpointDashBandwidthReportingModeAverage
+//	OriginEndpointDashBandwidthReportingModeMax
+type OriginEndpointDashBandwidthReportingModeInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashBandwidthReportingModeOutput() OriginEndpointDashBandwidthReportingModeOutput
+	ToOriginEndpointDashBandwidthReportingModeOutputWithContext(context.Context) OriginEndpointDashBandwidthReportingModeOutput
+}
+
+var originEndpointDashBandwidthReportingModePtrType = reflect.TypeOf((**OriginEndpointDashBandwidthReportingMode)(nil)).Elem()
+
+type OriginEndpointDashBandwidthReportingModePtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashBandwidthReportingModePtrOutput() OriginEndpointDashBandwidthReportingModePtrOutput
+	ToOriginEndpointDashBandwidthReportingModePtrOutputWithContext(context.Context) OriginEndpointDashBandwidthReportingModePtrOutput
+}
+
+type originEndpointDashBandwidthReportingModePtr string
+
+func OriginEndpointDashBandwidthReportingModePtr(v string) OriginEndpointDashBandwidthReportingModePtrInput {
+	return (*originEndpointDashBandwidthReportingModePtr)(&v)
+}
+
+func (*originEndpointDashBandwidthReportingModePtr) ElementType() reflect.Type {
+	return originEndpointDashBandwidthReportingModePtrType
+}
+
+func (in *originEndpointDashBandwidthReportingModePtr) ToOriginEndpointDashBandwidthReportingModePtrOutput() OriginEndpointDashBandwidthReportingModePtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointDashBandwidthReportingModePtrOutput)
+}
+
+func (in *originEndpointDashBandwidthReportingModePtr) ToOriginEndpointDashBandwidthReportingModePtrOutputWithContext(ctx context.Context) OriginEndpointDashBandwidthReportingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashBandwidthReportingModePtrOutput)
+}
+
 type OriginEndpointDashCompactness string
 
 const (
@@ -5895,6 +6060,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypeArrayInput)(nil)).Elem(), OriginEndpointCustomAdTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAudioTimelinePatternInput)(nil)).Elem(), OriginEndpointDashAudioTimelinePattern("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAudioTimelinePatternPtrInput)(nil)).Elem(), OriginEndpointDashAudioTimelinePattern("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashBandwidthReportingModeInput)(nil)).Elem(), OriginEndpointDashBandwidthReportingMode("AVERAGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashBandwidthReportingModePtrInput)(nil)).Elem(), OriginEndpointDashBandwidthReportingMode("AVERAGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashCompactnessInput)(nil)).Elem(), OriginEndpointDashCompactness("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashCompactnessPtrInput)(nil)).Elem(), OriginEndpointDashCompactness("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashDrmSignalingInput)(nil)).Elem(), OriginEndpointDashDrmSignaling("INDIVIDUAL"))
@@ -5968,6 +6135,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointCustomAdTypeArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashAudioTimelinePatternOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashAudioTimelinePatternPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashBandwidthReportingModeOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashBandwidthReportingModePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashCompactnessOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashCompactnessPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashDrmSignalingOutput{})

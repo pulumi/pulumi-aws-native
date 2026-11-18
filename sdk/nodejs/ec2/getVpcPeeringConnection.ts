@@ -30,9 +30,21 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly id?: string;
     /**
+     * The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+     */
+    readonly multipathResilienceStatus?: enums.ec2.VpcPeeringConnectionMultipathResilienceStatus;
+    /**
+     * The VPC peering connection options corresponding to the accepter side of the connection.
+     */
+    readonly peerVpcPeeringConnectionOptions?: outputs.ec2.VpcPeeringConnectionOptions;
+    /**
      * Any tags assigned to the resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The VPC peering connection options corresponding to the requester side of the connection.
+     */
+    readonly vpcPeeringConnectionOptions?: outputs.ec2.VpcPeeringConnectionOptions;
 }
 /**
  * Resource Type definition for AWS::EC2::VPCPeeringConnection

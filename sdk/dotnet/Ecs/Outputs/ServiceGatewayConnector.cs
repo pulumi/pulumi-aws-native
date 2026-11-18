@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class ServiceGatewayConnector
     {
+        public readonly Outputs.ServiceGatewayConnectorDeregistrationDelay? DeregistrationDelay;
         public readonly Outputs.ServiceGatewayConnectorFilters? Filters;
         public readonly Outputs.ServiceGatewayConnectorHealthCheck? HealthCheck;
         public readonly string PortName;
 
         [OutputConstructor]
         private ServiceGatewayConnector(
+            Outputs.ServiceGatewayConnectorDeregistrationDelay? deregistrationDelay,
+
             Outputs.ServiceGatewayConnectorFilters? filters,
 
             Outputs.ServiceGatewayConnectorHealthCheck? healthCheck,
 
             string portName)
         {
+            DeregistrationDelay = deregistrationDelay;
             Filters = filters;
             HealthCheck = healthCheck;
             PortName = portName;

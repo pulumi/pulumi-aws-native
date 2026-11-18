@@ -70,11 +70,13 @@ import * as deadline from "./deadline";
 import * as devicefarm from "./devicefarm";
 import * as devopsagent from "./devopsagent";
 import * as devopsguru from "./devopsguru";
+import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
 import * as docdbelastic from "./docdbelastic";
 import * as drs from "./drs";
+import * as dsql from "./dsql";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
@@ -316,11 +318,13 @@ export {
     devicefarm,
     devopsagent,
     devopsguru,
+    directconnect,
     directoryservice,
     dms,
     docdb,
     docdbelastic,
     drs,
+    dsql,
     dynamodb,
     ec2,
     ecr,

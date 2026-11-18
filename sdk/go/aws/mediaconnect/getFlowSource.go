@@ -46,7 +46,9 @@ type LookupFlowSourceResult struct {
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency *int `pulumi:"maxLatency"`
 	// The minimum latency in milliseconds.
-	MinLatency *int `pulumi:"minLatency"`
+	MinLatency       *int                        `pulumi:"minLatency"`
+	RtmpPushDetails  *FlowSourceRtmpPushDetails  `pulumi:"rtmpPushDetails"`
+	RtmpPushSettings *FlowSourceRtmpPushSettings `pulumi:"rtmpPushSettings"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
 	SenderControlPort *int `pulumi:"senderControlPort"`
 	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
@@ -140,6 +142,14 @@ func (o LookupFlowSourceResultOutput) MaxLatency() pulumi.IntPtrOutput {
 // The minimum latency in milliseconds.
 func (o LookupFlowSourceResultOutput) MinLatency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *int { return v.MinLatency }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupFlowSourceResultOutput) RtmpPushDetails() FlowSourceRtmpPushDetailsPtrOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) *FlowSourceRtmpPushDetails { return v.RtmpPushDetails }).(FlowSourceRtmpPushDetailsPtrOutput)
+}
+
+func (o LookupFlowSourceResultOutput) RtmpPushSettings() FlowSourceRtmpPushSettingsPtrOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) *FlowSourceRtmpPushSettings { return v.RtmpPushSettings }).(FlowSourceRtmpPushSettingsPtrOutput)
 }
 
 // The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }
 
+        [Input("resultFormat")]
+        public Input<Pulumi.AwsNative.CleanRooms.MembershipResultFormat>? ResultFormat { get; set; }
+
         public MembershipProtectedJobS3OutputConfigurationInputArgs()
         {
         }

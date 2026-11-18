@@ -70,6 +70,37 @@ namespace Pulumi.AwsNative.S3Tables
     }
 
     /// <summary>
+    /// The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+    /// </summary>
+    [EnumType]
+    public readonly struct TableBucketPartitionedPrefixPartitionDateSource : IEquatable<TableBucketPartitionedPrefixPartitionDateSource>
+    {
+        private readonly string _value;
+
+        private TableBucketPartitionedPrefixPartitionDateSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableBucketPartitionedPrefixPartitionDateSource EventTime { get; } = new TableBucketPartitionedPrefixPartitionDateSource("EventTime");
+        public static TableBucketPartitionedPrefixPartitionDateSource DeliveryTime { get; } = new TableBucketPartitionedPrefixPartitionDateSource("DeliveryTime");
+
+        public static bool operator ==(TableBucketPartitionedPrefixPartitionDateSource left, TableBucketPartitionedPrefixPartitionDateSource right) => left.Equals(right);
+        public static bool operator !=(TableBucketPartitionedPrefixPartitionDateSource left, TableBucketPartitionedPrefixPartitionDateSource right) => !left.Equals(right);
+
+        public static explicit operator string(TableBucketPartitionedPrefixPartitionDateSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableBucketPartitionedPrefixPartitionDateSource other && Equals(other);
+        public bool Equals(TableBucketPartitionedPrefixPartitionDateSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The storage class for the table bucket
     /// </summary>
     [EnumType]

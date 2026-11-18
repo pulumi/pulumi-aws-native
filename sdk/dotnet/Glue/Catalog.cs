@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Glue
         /// The time at which the catalog was created.
         /// </summary>
         [Output("createTime")]
-        public Output<int> CreateTime { get; private set; } = null!;
+        public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// A description of the catalog.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Glue
         /// The time at which the catalog was last updated.
         /// </summary>
         [Output("updateTime")]
-        public Output<int> UpdateTime { get; private set; } = null!;
+        public Output<string> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>

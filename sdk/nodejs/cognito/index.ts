@@ -45,6 +45,11 @@ export const getUserPoolClient: typeof import("./getUserPoolClient").getUserPool
 export const getUserPoolClientOutput: typeof import("./getUserPoolClient").getUserPoolClientOutput = null as any;
 utilities.lazyLoad(exports, ["getUserPoolClient","getUserPoolClientOutput"], () => require("./getUserPoolClient"));
 
+export { GetUserPoolClientSessionConfigurationAttachmentArgs, GetUserPoolClientSessionConfigurationAttachmentResult, GetUserPoolClientSessionConfigurationAttachmentOutputArgs } from "./getUserPoolClientSessionConfigurationAttachment";
+export const getUserPoolClientSessionConfigurationAttachment: typeof import("./getUserPoolClientSessionConfigurationAttachment").getUserPoolClientSessionConfigurationAttachment = null as any;
+export const getUserPoolClientSessionConfigurationAttachmentOutput: typeof import("./getUserPoolClientSessionConfigurationAttachment").getUserPoolClientSessionConfigurationAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolClientSessionConfigurationAttachment","getUserPoolClientSessionConfigurationAttachmentOutput"], () => require("./getUserPoolClientSessionConfigurationAttachment"));
+
 export { GetUserPoolDomainArgs, GetUserPoolDomainResult, GetUserPoolDomainOutputArgs } from "./getUserPoolDomain";
 export const getUserPoolDomain: typeof import("./getUserPoolDomain").getUserPoolDomain = null as any;
 export const getUserPoolDomainOutput: typeof import("./getUserPoolDomain").getUserPoolDomainOutput = null as any;
@@ -74,6 +79,11 @@ export { GetUserPoolRiskConfigurationAttachmentArgs, GetUserPoolRiskConfiguratio
 export const getUserPoolRiskConfigurationAttachment: typeof import("./getUserPoolRiskConfigurationAttachment").getUserPoolRiskConfigurationAttachment = null as any;
 export const getUserPoolRiskConfigurationAttachmentOutput: typeof import("./getUserPoolRiskConfigurationAttachment").getUserPoolRiskConfigurationAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getUserPoolRiskConfigurationAttachment","getUserPoolRiskConfigurationAttachmentOutput"], () => require("./getUserPoolRiskConfigurationAttachment"));
+
+export { GetUserPoolSessionConfigurationAttachmentArgs, GetUserPoolSessionConfigurationAttachmentResult, GetUserPoolSessionConfigurationAttachmentOutputArgs } from "./getUserPoolSessionConfigurationAttachment";
+export const getUserPoolSessionConfigurationAttachment: typeof import("./getUserPoolSessionConfigurationAttachment").getUserPoolSessionConfigurationAttachment = null as any;
+export const getUserPoolSessionConfigurationAttachmentOutput: typeof import("./getUserPoolSessionConfigurationAttachment").getUserPoolSessionConfigurationAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolSessionConfigurationAttachment","getUserPoolSessionConfigurationAttachmentOutput"], () => require("./getUserPoolSessionConfigurationAttachment"));
 
 export { GetUserPoolUiCustomizationAttachmentArgs, GetUserPoolUiCustomizationAttachmentResult, GetUserPoolUiCustomizationAttachmentOutputArgs } from "./getUserPoolUiCustomizationAttachment";
 export const getUserPoolUiCustomizationAttachment: typeof import("./getUserPoolUiCustomizationAttachment").getUserPoolUiCustomizationAttachment = null as any;
@@ -120,6 +130,11 @@ export type UserPoolClient = import("./userPoolClient").UserPoolClient;
 export const UserPoolClient: typeof import("./userPoolClient").UserPoolClient = null as any;
 utilities.lazyLoad(exports, ["UserPoolClient"], () => require("./userPoolClient"));
 
+export { UserPoolClientSessionConfigurationAttachmentArgs } from "./userPoolClientSessionConfigurationAttachment";
+export type UserPoolClientSessionConfigurationAttachment = import("./userPoolClientSessionConfigurationAttachment").UserPoolClientSessionConfigurationAttachment;
+export const UserPoolClientSessionConfigurationAttachment: typeof import("./userPoolClientSessionConfigurationAttachment").UserPoolClientSessionConfigurationAttachment = null as any;
+utilities.lazyLoad(exports, ["UserPoolClientSessionConfigurationAttachment"], () => require("./userPoolClientSessionConfigurationAttachment"));
+
 export { UserPoolDomainArgs } from "./userPoolDomain";
 export type UserPoolDomain = import("./userPoolDomain").UserPoolDomain;
 export const UserPoolDomain: typeof import("./userPoolDomain").UserPoolDomain = null as any;
@@ -154,6 +169,11 @@ export { UserPoolRiskConfigurationAttachmentArgs } from "./userPoolRiskConfigura
 export type UserPoolRiskConfigurationAttachment = import("./userPoolRiskConfigurationAttachment").UserPoolRiskConfigurationAttachment;
 export const UserPoolRiskConfigurationAttachment: typeof import("./userPoolRiskConfigurationAttachment").UserPoolRiskConfigurationAttachment = null as any;
 utilities.lazyLoad(exports, ["UserPoolRiskConfigurationAttachment"], () => require("./userPoolRiskConfigurationAttachment"));
+
+export { UserPoolSessionConfigurationAttachmentArgs } from "./userPoolSessionConfigurationAttachment";
+export type UserPoolSessionConfigurationAttachment = import("./userPoolSessionConfigurationAttachment").UserPoolSessionConfigurationAttachment;
+export const UserPoolSessionConfigurationAttachment: typeof import("./userPoolSessionConfigurationAttachment").UserPoolSessionConfigurationAttachment = null as any;
+utilities.lazyLoad(exports, ["UserPoolSessionConfigurationAttachment"], () => require("./userPoolSessionConfigurationAttachment"));
 
 export { UserPoolUiCustomizationAttachmentArgs } from "./userPoolUiCustomizationAttachment";
 export type UserPoolUiCustomizationAttachment = import("./userPoolUiCustomizationAttachment").UserPoolUiCustomizationAttachment;
@@ -194,6 +214,8 @@ const _module = {
                 return new UserPool(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolClient":
                 return new UserPoolClient(name, <any>undefined, { urn })
+            case "aws-native:cognito:UserPoolClientSessionConfigurationAttachment":
+                return new UserPoolClientSessionConfigurationAttachment(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolDomain":
                 return new UserPoolDomain(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolGroup":
@@ -208,6 +230,8 @@ const _module = {
                 return new UserPoolResourceServer(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolRiskConfigurationAttachment":
                 return new UserPoolRiskConfigurationAttachment(name, <any>undefined, { urn })
+            case "aws-native:cognito:UserPoolSessionConfigurationAttachment":
+                return new UserPoolSessionConfigurationAttachment(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolUiCustomizationAttachment":
                 return new UserPoolUiCustomizationAttachment(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolUser":

@@ -24,6 +24,9 @@ __all__ = [
     'CloudConnectorAzureSubscription',
     'CloudConnectorConfiguration',
     'CloudConnectorConfigurationTargets',
+    'CloudConnectorGcpConfiguration',
+    'CloudConnectorGcpConfigurationTargets',
+    'CloudConnectorGcpProject',
     'DocumentAttachmentsSource',
     'DocumentRequires',
     'MaintenanceWindowTargetTargets',
@@ -323,13 +326,15 @@ class CloudConnectorAzureSubscription(dict):
 @pulumi.output_type
 class CloudConnectorConfiguration(dict):
     """
-    The configuration for the cloud connector. Currently supports Azure.
+    The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "azureConfiguration":
             suggest = "azure_configuration"
+        elif key == "gcpConfiguration":
+            suggest = "gcp_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CloudConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -343,16 +348,25 @@ class CloudConnectorConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 azure_configuration: 'outputs.CloudConnectorAzureConfiguration'):
+                 azure_configuration: Optional['outputs.CloudConnectorAzureConfiguration'] = None,
+                 gcp_configuration: Optional['outputs.CloudConnectorGcpConfiguration'] = None):
         """
-        The configuration for the cloud connector. Currently supports Azure.
+        The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
         """
-        pulumi.set(__self__, "azure_configuration", azure_configuration)
+        if azure_configuration is not None:
+            pulumi.set(__self__, "azure_configuration", azure_configuration)
+        if gcp_configuration is not None:
+            pulumi.set(__self__, "gcp_configuration", gcp_configuration)
 
     @_builtins.property
     @pulumi.getter(name="azureConfiguration")
-    def azure_configuration(self) -> 'outputs.CloudConnectorAzureConfiguration':
+    def azure_configuration(self) -> Optional['outputs.CloudConnectorAzureConfiguration']:
         return pulumi.get(self, "azure_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="gcpConfiguration")
+    def gcp_configuration(self) -> Optional['outputs.CloudConnectorGcpConfiguration']:
+        return pulumi.get(self, "gcp_configuration")
 
 
 @pulumi.output_type
@@ -376,6 +390,158 @@ class CloudConnectorConfigurationTargets(dict):
         List of Azure subscriptions.
         """
         return pulumi.get(self, "subscriptions")
+
+
+@pulumi.output_type
+class CloudConnectorGcpConfiguration(dict):
+    """
+    Configuration for connecting to Google Cloud.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountEmail":
+            suggest = "service_account_email"
+        elif key == "workloadIdentityPoolProvider":
+            suggest = "workload_identity_pool_provider"
+        elif key == "organizationId":
+            suggest = "organization_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudConnectorGcpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudConnectorGcpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudConnectorGcpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_account_email: _builtins.str,
+                 workload_identity_pool_provider: _builtins.str,
+                 organization_id: Optional[_builtins.str] = None,
+                 targets: Optional['outputs.CloudConnectorGcpConfigurationTargets'] = None):
+        """
+        Configuration for connecting to Google Cloud.
+
+        :param _builtins.str service_account_email: The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+        :param _builtins.str workload_identity_pool_provider: The resource name of the workload identity pool provider that trusts the connector's IAM role.
+        :param _builtins.str organization_id: The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+        """
+        pulumi.set(__self__, "service_account_email", service_account_email)
+        pulumi.set(__self__, "workload_identity_pool_provider", workload_identity_pool_provider)
+        if organization_id is not None:
+            pulumi.set(__self__, "organization_id", organization_id)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> _builtins.str:
+        """
+        The GCP service account the connector impersonates. Its project is the connector's management project. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "service_account_email")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPoolProvider")
+    def workload_identity_pool_provider(self) -> _builtins.str:
+        """
+        The resource name of the workload identity pool provider that trusts the connector's IAM role.
+        """
+        return pulumi.get(self, "workload_identity_pool_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationId")
+    def organization_id(self) -> Optional[_builtins.str]:
+        """
+        The GCP organization ID. Required when Targets is omitted, which targets the entire organization. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "organization_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> Optional['outputs.CloudConnectorGcpConfigurationTargets']:
+        return pulumi.get(self, "targets")
+
+
+@pulumi.output_type
+class CloudConnectorGcpConfigurationTargets(dict):
+    """
+    The targets for the cloud connector. If omitted, the entire organization is targeted.
+    """
+    def __init__(__self__, *,
+                 projects: Sequence['outputs.CloudConnectorGcpProject']):
+        """
+        The targets for the cloud connector. If omitted, the entire organization is targeted.
+
+        :param Sequence['CloudConnectorGcpProject'] projects: List of GCP projects.
+        """
+        pulumi.set(__self__, "projects", projects)
+
+    @_builtins.property
+    @pulumi.getter
+    def projects(self) -> Sequence['outputs.CloudConnectorGcpProject']:
+        """
+        List of GCP projects.
+        """
+        return pulumi.get(self, "projects")
+
+
+@pulumi.output_type
+class CloudConnectorGcpProject(dict):
+    """
+    A GCP project with its ID and optional display name.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectId":
+            suggest = "project_id"
+        elif key == "projectDisplayName":
+            suggest = "project_display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudConnectorGcpProject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudConnectorGcpProject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudConnectorGcpProject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_id: _builtins.str,
+                 project_display_name: Optional[_builtins.str] = None):
+        """
+        A GCP project with its ID and optional display name.
+
+        :param _builtins.str project_id: The GCP project ID.
+        :param _builtins.str project_display_name: The display name of the GCP project.
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        if project_display_name is not None:
+            pulumi.set(__self__, "project_display_name", project_display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> _builtins.str:
+        """
+        The GCP project ID.
+        """
+        return pulumi.get(self, "project_id")
+
+    @_builtins.property
+    @pulumi.getter(name="projectDisplayName")
+    def project_display_name(self) -> Optional[_builtins.str]:
+        """
+        The display name of the GCP project.
+        """
+        return pulumi.get(self, "project_display_name")
 
 
 @pulumi.output_type

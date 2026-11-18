@@ -37,7 +37,8 @@ type LookupAiPromptResult struct {
 	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AssistantArn *string `pulumi:"assistantArn"`
 	// The description of the AI Prompt.
-	Description *string `pulumi:"description"`
+	Description            *string                                 `pulumi:"description"`
+	InferenceConfiguration *AiPromptAiPromptInferenceConfiguration `pulumi:"inferenceConfiguration"`
 	// The identifier of the model used for this AI Prompt. The following model Ids are supported:
 	//
 	// - `anthropic.claude-3-haiku--v1:0`
@@ -111,6 +112,10 @@ func (o LookupAiPromptResultOutput) AssistantArn() pulumi.StringPtrOutput {
 // The description of the AI Prompt.
 func (o LookupAiPromptResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiPromptResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAiPromptResultOutput) InferenceConfiguration() AiPromptAiPromptInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupAiPromptResult) *AiPromptAiPromptInferenceConfiguration { return v.InferenceConfiguration }).(AiPromptAiPromptInferenceConfigurationPtrOutput)
 }
 
 // The identifier of the model used for this AI Prompt. The following model Ids are supported:

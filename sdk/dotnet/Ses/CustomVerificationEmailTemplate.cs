@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ses
         public Output<string> SuccessRedirectionUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The tags (keys and values) associated with the tenant.
+        /// The tags (keys and values) associated with the custom verification email template.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.Ses
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags (keys and values) associated with the tenant.
+        /// The tags (keys and values) associated with the custom verification email template.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationAuthConfigArgs',
+    'ApplicationAuthConfigArgsDict',
     'ApplicationConfigArgs',
     'ApplicationConfigArgsDict',
     'ApplicationContactHandlingArgs',
@@ -33,6 +35,51 @@ __all__ = [
     'EventIntegrationEventFilterArgs',
     'EventIntegrationEventFilterArgsDict',
 ]
+
+class ApplicationAuthConfigArgsDict(TypedDict):
+    auth_type: pulumi.Input['ApplicationAuthConfigAuthType']
+    audience_override: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    credential_provider_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ApplicationAuthConfigArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input['ApplicationAuthConfigAuthType'],
+                 audience_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_provider_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "auth_type", auth_type)
+        if audience_override is not None:
+            pulumi.set(__self__, "audience_override", audience_override)
+        if credential_provider_identifier is not None:
+            pulumi.set(__self__, "credential_provider_identifier", credential_provider_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input['ApplicationAuthConfigAuthType']:
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input['ApplicationAuthConfigAuthType']):
+        pulumi.set(self, "auth_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="audienceOverride")
+    def audience_override(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "audience_override")
+
+    @audience_override.setter
+    def audience_override(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "audience_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProviderIdentifier")
+    def credential_provider_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "credential_provider_identifier")
+
+    @credential_provider_identifier.setter
+    def credential_provider_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "credential_provider_identifier", value)
+
 
 class ApplicationConfigArgsDict(TypedDict):
     contact_handling: NotRequired[pulumi.Input[Optional['ApplicationContactHandlingArgsDict']]]
@@ -55,21 +102,22 @@ class ApplicationConfigArgs:
 
 
 class ApplicationContactHandlingArgsDict(TypedDict):
-    scope: pulumi.Input['ApplicationContactHandlingScope']
+    scope: NotRequired[pulumi.Input[Optional['ApplicationContactHandlingScope']]]
 
 @pulumi.input_type
 class ApplicationContactHandlingArgs:
     def __init__(__self__, *,
-                 scope: pulumi.Input['ApplicationContactHandlingScope']):
-        pulumi.set(__self__, "scope", scope)
+                 scope: pulumi.Input[Optional['ApplicationContactHandlingScope']] = None):
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Input['ApplicationContactHandlingScope']:
+    def scope(self) -> pulumi.Input[Optional['ApplicationContactHandlingScope']]:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input['ApplicationContactHandlingScope']):
+    def scope(self, value: pulumi.Input[Optional['ApplicationContactHandlingScope']]):
         pulumi.set(self, "scope", value)
 
 
@@ -158,7 +206,7 @@ class ApplicationSourceConfigPropertiesArgsDict(TypedDict):
     """
     Application source config
     """
-    external_url_config: pulumi.Input['ApplicationExternalUrlConfigArgsDict']
+    external_url_config: NotRequired[pulumi.Input[Optional['ApplicationExternalUrlConfigArgsDict']]]
     """
     The external URL source for the application.
     """
@@ -166,24 +214,25 @@ class ApplicationSourceConfigPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationSourceConfigPropertiesArgs:
     def __init__(__self__, *,
-                 external_url_config: pulumi.Input['ApplicationExternalUrlConfigArgs']):
+                 external_url_config: pulumi.Input[Optional['ApplicationExternalUrlConfigArgs']] = None):
         """
         Application source config
 
         :param pulumi.Input['ApplicationExternalUrlConfigArgs'] external_url_config: The external URL source for the application.
         """
-        pulumi.set(__self__, "external_url_config", external_url_config)
+        if external_url_config is not None:
+            pulumi.set(__self__, "external_url_config", external_url_config)
 
     @_builtins.property
     @pulumi.getter(name="externalUrlConfig")
-    def external_url_config(self) -> pulumi.Input['ApplicationExternalUrlConfigArgs']:
+    def external_url_config(self) -> pulumi.Input[Optional['ApplicationExternalUrlConfigArgs']]:
         """
         The external URL source for the application.
         """
         return pulumi.get(self, "external_url_config")
 
     @external_url_config.setter
-    def external_url_config(self, value: pulumi.Input['ApplicationExternalUrlConfigArgs']):
+    def external_url_config(self, value: pulumi.Input[Optional['ApplicationExternalUrlConfigArgs']]):
         pulumi.set(self, "external_url_config", value)
 
 

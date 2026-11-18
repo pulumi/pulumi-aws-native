@@ -400,9 +400,9 @@ func (o KeyModesOfUsePtrOutput) Wrap() pulumi.BoolPtrOutput {
 
 type KeyReplicationStatusType struct {
 	// The ARN of the AWS KMS key that protects the replica in this region.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	KmsEncryptionKeyArn *string `pulumi:"kmsEncryptionKeyArn"`
 	// The AWS KMS key requested for this region, when replication failed before its ARN was known.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
+	KmsEncryptionKeyId *string `pulumi:"kmsEncryptionKeyId"`
 	// The current status of key replication in this AWS Region .
 	//
 	// This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
@@ -428,13 +428,13 @@ func (o KeyReplicationStatusTypeOutput) ToKeyReplicationStatusTypeOutputWithCont
 }
 
 // The ARN of the AWS KMS key that protects the replica in this region.
-func (o KeyReplicationStatusTypeOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyReplicationStatusType) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+func (o KeyReplicationStatusTypeOutput) KmsEncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyReplicationStatusType) *string { return v.KmsEncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS KMS key requested for this region, when replication failed before its ARN was known.
-func (o KeyReplicationStatusTypeOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyReplicationStatusType) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+func (o KeyReplicationStatusTypeOutput) KmsEncryptionKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyReplicationStatusType) *string { return v.KmsEncryptionKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The current status of key replication in this AWS Region .

@@ -57,6 +57,7 @@ export interface GetPodIdentityAssociationResult {
      * The Target Role Arn of the pod identity association.
      */
     readonly targetRoleArn?: string;
+    readonly workloadIdentityConfig?: outputs.eks.PodIdentityAssociationWorkloadIdentityConfig;
 }
 /**
  * An object representing an Amazon EKS PodIdentityAssociation.

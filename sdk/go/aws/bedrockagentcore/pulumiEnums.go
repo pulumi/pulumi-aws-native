@@ -8296,6 +8296,7 @@ type HarnessOAuthCredentialProviderGrantType string
 const (
 	HarnessOAuthCredentialProviderGrantTypeClientCredentials = HarnessOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS")
 	HarnessOAuthCredentialProviderGrantTypeAuthorizationCode = HarnessOAuthCredentialProviderGrantType("AUTHORIZATION_CODE")
+	HarnessOAuthCredentialProviderGrantTypeTokenExchange     = HarnessOAuthCredentialProviderGrantType("TOKEN_EXCHANGE")
 )
 
 func (HarnessOAuthCredentialProviderGrantType) ElementType() reflect.Type {
@@ -8422,6 +8423,7 @@ func (o HarnessOAuthCredentialProviderGrantTypePtrOutput) ToStringPtrOutputWithC
 //
 //	HarnessOAuthCredentialProviderGrantTypeClientCredentials
 //	HarnessOAuthCredentialProviderGrantTypeAuthorizationCode
+//	HarnessOAuthCredentialProviderGrantTypeTokenExchange
 type HarnessOAuthCredentialProviderGrantTypeInput interface {
 	pulumi.Input
 
@@ -16082,125 +16084,125 @@ func (in *paymentManagerAuthorizerTypePtr) ToPaymentManagerAuthorizerTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(PaymentManagerAuthorizerTypePtrOutput)
 }
 
-type PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator string
+type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator string
 
 const (
-	PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorEquals      = PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator("EQUALS")
-	PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorContains    = PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator("CONTAINS")
-	PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorContainsAny = PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator("CONTAINS_ANY")
+	PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorEquals      = PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS")
+	PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorContains    = PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS")
+	PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorContainsAny = PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS_ANY")
 )
 
-func (PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator)(nil)).Elem()
+func (PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator)(nil)).Elem()
 }
 
-func (e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput {
-	return pulumi.ToOutput(e).(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput)
+func (e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return pulumi.ToOutput(e).(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput)
 }
 
-func (e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput)
+func (e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput)
 }
 
-func (e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput {
-	return e.ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutputWithContext(context.Background())
+func (e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return e.ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(context.Background())
 }
 
-func (e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput {
-	return PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator(e).ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutputWithContext(ctx).ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutputWithContext(ctx)
+func (e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator(e).ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutputWithContext(ctx).ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx)
 }
 
-func (e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ToStringOutput() pulumi.StringOutput {
+func (e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput struct{ *pulumi.OutputState }
+type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput struct{ *pulumi.OutputState }
 
-func (PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator)(nil)).Elem()
+func (PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator)(nil)).Elem()
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput {
-	return o.ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutputWithContext(context.Background())
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return o.ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(context.Background())
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) *PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) *PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator {
 		return &v
-	}).(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput)
+	}).(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput)
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) string {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) *string {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput struct{ *pulumi.OutputState }
+type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput struct{ *pulumi.OutputState }
 
-func (PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator)(nil)).Elem()
+func (PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator)(nil)).Elem()
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
 	return o
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput) Elem() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput {
-	return o.ApplyT(func(v *PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) Elem() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return o.ApplyT(func(v *PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator {
 		if v != nil {
 			return *v
 		}
-		var ret PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator
+		var ret PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator
 		return ret
-	}).(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput)
+	}).(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput)
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator) *string {
+func (o PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator) *string {
 		if e == nil {
 			return nil
 		}
@@ -16209,44 +16211,44 @@ func (o PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorInput is an input type that accepts values of the PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator enum
-// A concrete instance of `PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorInput` can be one of the following:
+// PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorInput is an input type that accepts values of the PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator enum
+// A concrete instance of `PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorInput` can be one of the following:
 //
-//	PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorEquals
-//	PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorContains
-//	PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorContainsAny
-type PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorInput interface {
+//	PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorEquals
+//	PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorContains
+//	PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorContainsAny
+type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorInput interface {
 	pulumi.Input
 
-	ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput
-	ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutputWithContext(context.Context) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput
+	ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput
+	ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutputWithContext(context.Context) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput
 }
 
-var paymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrType = reflect.TypeOf((**PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator)(nil)).Elem()
+var paymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrType = reflect.TypeOf((**PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator)(nil)).Elem()
 
-type PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrInput interface {
+type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrInput interface {
 	pulumi.Input
 
-	ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput
-	ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutputWithContext(context.Context) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput
+	ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput
+	ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(context.Context) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput
 }
 
-type paymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtr string
+type paymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr string
 
-func PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtr(v string) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrInput {
-	return (*paymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtr)(&v)
+func PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr(v string) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrInput {
+	return (*paymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr)(&v)
 }
 
-func (*paymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtr) ElementType() reflect.Type {
-	return paymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrType
+func (*paymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr) ElementType() reflect.Type {
+	return paymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrType
 }
 
-func (in *paymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtr) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput {
-	return pulumi.ToOutput(in).(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput)
+func (in *paymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return pulumi.ToOutput(in).(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput)
 }
 
-func (in *paymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtr) ToPaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput)
+func (in *paymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr) ToPaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput)
 }
 
 type PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType string
@@ -18401,8 +18403,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderVendorTypePtrInput)(nil)).Elem(), PaymentCredentialProviderVendorType("CoinbaseCDP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizerTypeInput)(nil)).Elem(), PaymentManagerAuthorizerType("CUSTOM_JWT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizerTypePtrInput)(nil)).Elem(), PaymentManagerAuthorizerType("CUSTOM_JWT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorInput)(nil)).Elem(), PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator("EQUALS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrInput)(nil)).Elem(), PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorInput)(nil)).Elem(), PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrInput)(nil)).Elem(), PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypeInput)(nil)).Elem(), PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypePtrInput)(nil)).Elem(), PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEnforcementModeInput)(nil)).Elem(), PolicyEnforcementMode("ACTIVE"))
@@ -18634,8 +18636,8 @@ func init() {
 	pulumi.RegisterOutputType(PaymentCredentialProviderVendorTypePtrOutput{})
 	pulumi.RegisterOutputType(PaymentManagerAuthorizerTypeOutput{})
 	pulumi.RegisterOutputType(PaymentManagerAuthorizerTypePtrOutput{})
-	pulumi.RegisterOutputType(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorOutput{})
-	pulumi.RegisterOutputType(PaymentManagerAuthorizingClaimMatchValueClaimMatchOperatorPtrOutput{})
+	pulumi.RegisterOutputType(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput{})
+	pulumi.RegisterOutputType(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput{})
 	pulumi.RegisterOutputType(PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypeOutput{})
 	pulumi.RegisterOutputType(PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput{})
 	pulumi.RegisterOutputType(PaymentManagerStatusOutput{})

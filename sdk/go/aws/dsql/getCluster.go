@@ -39,6 +39,8 @@ type LookupClusterResult struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// The ID of the created cluster.
 	Identifier *string `pulumi:"identifier"`
+	// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+	MetricGroups []ClusterMetricGroup `pulumi:"metricGroups"`
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties *MultiRegionPropertiesProperties `pulumi:"multiRegionProperties"`
 	// The IAM policy applied to the cluster resource.
@@ -108,6 +110,11 @@ func (o LookupClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 // The ID of the created cluster.
 func (o LookupClusterResultOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+// The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+func (o LookupClusterResultOutput) MetricGroups() ClusterMetricGroupArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []ClusterMetricGroup { return v.MetricGroups }).(ClusterMetricGroupArrayOutput)
 }
 
 // The Multi-region properties associated to this cluster.

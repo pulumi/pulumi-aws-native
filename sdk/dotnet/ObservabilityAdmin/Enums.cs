@@ -376,6 +376,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static OrganizationTelemetryRuleResourceType AwsmskCluster { get; } = new OrganizationTelemetryRuleResourceType("AWS::MSK::Cluster");
         public static OrganizationTelemetryRuleResourceType AwsCloudFrontDistribution { get; } = new OrganizationTelemetryRuleResourceType("AWS::CloudFront::Distribution");
         public static OrganizationTelemetryRuleResourceType AwsCloudWatchOTelEnrichment { get; } = new OrganizationTelemetryRuleResourceType("AWS::CloudWatch::OTelEnrichment");
+        public static OrganizationTelemetryRuleResourceType AwsxRayTransactionSearchConfig { get; } = new OrganizationTelemetryRuleResourceType("AWS::XRay::TransactionSearchConfig");
 
         public static bool operator ==(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => !left.Equals(right);
@@ -475,7 +476,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         }
 
         public static OrganizationTelemetryRuleTelemetryType Logs { get; } = new OrganizationTelemetryRuleTelemetryType("Logs");
+        public static OrganizationTelemetryRuleTelemetryType Traces { get; } = new OrganizationTelemetryRuleTelemetryType("Traces");
         public static OrganizationTelemetryRuleTelemetryType Metrics { get; } = new OrganizationTelemetryRuleTelemetryType("Metrics");
+        public static OrganizationTelemetryRuleTelemetryType Insights { get; } = new OrganizationTelemetryRuleTelemetryType("Insights");
 
         public static bool operator ==(OrganizationTelemetryRuleTelemetryType left, OrganizationTelemetryRuleTelemetryType right) => left.Equals(right);
         public static bool operator !=(OrganizationTelemetryRuleTelemetryType left, OrganizationTelemetryRuleTelemetryType right) => !left.Equals(right);
@@ -870,6 +873,8 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static TelemetryRuleResourceType AwsBedrockAgentCoreMemory { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Memory");
         public static TelemetryRuleResourceType AwsBedrockAgentCoreGateway { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Gateway");
         public static TelemetryRuleResourceType AwsBedrockAgentCoreWorkloadIdentity { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::WorkloadIdentity");
+        public static TelemetryRuleResourceType AwsBedrockAgentCorePaymentManager { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::PaymentManager");
+        public static TelemetryRuleResourceType AwsxRayTransactionSearchConfig { get; } = new TelemetryRuleResourceType("AWS::XRay::TransactionSearchConfig");
 
         public static bool operator ==(TelemetryRuleResourceType left, TelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleResourceType left, TelemetryRuleResourceType right) => !left.Equals(right);
@@ -973,6 +978,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static TelemetryRuleTelemetryType Logs { get; } = new TelemetryRuleTelemetryType("Logs");
         public static TelemetryRuleTelemetryType Traces { get; } = new TelemetryRuleTelemetryType("Traces");
         public static TelemetryRuleTelemetryType Metrics { get; } = new TelemetryRuleTelemetryType("Metrics");
+        public static TelemetryRuleTelemetryType Insights { get; } = new TelemetryRuleTelemetryType("Insights");
 
         public static bool operator ==(TelemetryRuleTelemetryType left, TelemetryRuleTelemetryType right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleTelemetryType left, TelemetryRuleTelemetryType right) => !left.Equals(right);

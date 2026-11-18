@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Eks.Outputs
 {
 
     /// <summary>
-    /// Todo: add description
+    /// Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability.
     /// </summary>
     [OutputType]
     public sealed class ClusterStorageConfig
     {
         /// <summary>
-        /// Todo: add description
+        /// Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.
         /// </summary>
         public readonly Outputs.ClusterBlockStorage? BlockStorage;
 

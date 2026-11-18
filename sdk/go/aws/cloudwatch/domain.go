@@ -13,13 +13,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The account-level boundary for CloudWatch Omni. A domain configures the
-// identity providers users sign in through and exposes the endpoint URLs used
-// to reach CloudWatch Omni. Spaces are created within a domain.
+// Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the resource.
+	// The Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The timestamp when the domain was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -30,7 +28,8 @@ type Domain struct {
 	// The unique ID of the domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The ARN of the Identity Center application. Absent for IAM-only domains.
-	IdentityCenterApplicationArn  pulumi.StringOutput                          `pulumi:"identityCenterApplicationArn"`
+	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
+	// Identity provider configuration for the domain.
 	IdentityProviderConfiguration DomainIdentityProviderConfigurationPtrOutput `pulumi:"identityProviderConfiguration"`
 	// The identity providers configured for the domain.
 	IdentityProviders DomainIdentityProvidersItemArrayOutput `pulumi:"identityProviders"`
@@ -95,6 +94,7 @@ func DomainExists(ctx *pulumi.Context,
 }
 
 type domainArgs struct {
+	// Identity provider configuration for the domain.
 	IdentityProviderConfiguration *DomainIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
 	// The identity providers configured for the domain.
 	IdentityProviders []DomainIdentityProvidersItem `pulumi:"identityProviders"`
@@ -106,6 +106,7 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// Identity provider configuration for the domain.
 	IdentityProviderConfiguration DomainIdentityProviderConfigurationPtrInput
 	// The identity providers configured for the domain.
 	IdentityProviders DomainIdentityProvidersItemArrayInput
@@ -152,7 +153,7 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// The Amazon Resource Name (ARN) of the domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -182,6 +183,7 @@ func (o DomainOutput) IdentityCenterApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.IdentityCenterApplicationArn }).(pulumi.StringOutput)
 }
 
+// Identity provider configuration for the domain.
 func (o DomainOutput) IdentityProviderConfiguration() DomainIdentityProviderConfigurationPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainIdentityProviderConfigurationPtrOutput { return v.IdentityProviderConfiguration }).(DomainIdentityProviderConfigurationPtrOutput)
 }

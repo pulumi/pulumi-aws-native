@@ -22,36 +22,38 @@ __all__ = ['AccessSourceArgs', 'AccessSource']
 @pulumi.input_type
 class AccessSourceArgs:
     def __init__(__self__, *,
-                 cidr: pulumi.Input[_builtins.str],
                  dns_view_id: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input['AccessSourceDnsProtocol'],
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_address_type: pulumi.Input[Optional['AccessSourceIpAddressType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 segment: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessSource resource.
+
+        :param pulumi.Input[_builtins.str] cidr: The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+        :param pulumi.Input[_builtins.str] core_network_endpoint_id: The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+        :param pulumi.Input[_builtins.str] segment: The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
         """
-        pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "dns_view_id", dns_view_id)
         pulumi.set(__self__, "protocol", protocol)
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
+        if core_network_endpoint_id is not None:
+            pulumi.set(__self__, "core_network_endpoint_id", core_network_endpoint_id)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if segment is not None:
+            pulumi.set(__self__, "segment", segment)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter
-    def cidr(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "cidr")
-
-    @cidr.setter
-    def cidr(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsViewId")
@@ -72,6 +74,18 @@ class AccessSourceArgs:
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
+    @pulumi.getter
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cidr", value)
+
+    @_builtins.property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_token")
@@ -79,6 +93,18 @@ class AccessSourceArgs:
     @client_token.setter
     def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="coreNetworkEndpointId")
+    def core_network_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+        """
+        return pulumi.get(self, "core_network_endpoint_id")
+
+    @core_network_endpoint_id.setter
+    def core_network_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "core_network_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
@@ -100,6 +126,18 @@ class AccessSourceArgs:
 
     @_builtins.property
     @pulumi.getter
+    def segment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+        """
+        return pulumi.get(self, "segment")
+
+    @segment.setter
+    def segment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "segment", value)
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
@@ -116,10 +154,12 @@ class AccessSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_view_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_address_type: pulumi.Input[Optional['AccessSourceIpAddressType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional['AccessSourceDnsProtocol']] = None,
+                 segment: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
@@ -127,6 +167,9 @@ class AccessSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] cidr: The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+        :param pulumi.Input[_builtins.str] core_network_endpoint_id: The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+        :param pulumi.Input[_builtins.str] segment: The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
         """
         ...
     @overload
@@ -154,10 +197,12 @@ class AccessSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_view_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_address_type: pulumi.Input[Optional['AccessSourceIpAddressType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional['AccessSourceDnsProtocol']] = None,
+                 segment: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -168,10 +213,9 @@ class AccessSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessSourceArgs.__new__(AccessSourceArgs)
 
-            if cidr is None and not opts.urn:
-                raise TypeError("Missing required property 'cidr'")
             __props__.__dict__["cidr"] = cidr
             __props__.__dict__["client_token"] = client_token
+            __props__.__dict__["core_network_endpoint_id"] = core_network_endpoint_id
             if dns_view_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_view_id'")
             __props__.__dict__["dns_view_id"] = dns_view_id
@@ -180,13 +224,14 @@ class AccessSource(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["segment"] = segment
             __props__.__dict__["tags"] = tags
             __props__.__dict__["access_source_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "dnsViewId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "coreNetworkEndpointId", "dnsViewId", "segment"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessSource, __self__).__init__(
             'aws-native:route53globalresolver:AccessSource',
@@ -214,11 +259,13 @@ class AccessSource(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["cidr"] = None
         __props__.__dict__["client_token"] = None
+        __props__.__dict__["core_network_endpoint_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["dns_view_id"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["protocol"] = None
+        __props__.__dict__["segment"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
@@ -242,13 +289,24 @@ class AccessSource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> pulumi.Output[_builtins.str]:
+    def cidr(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+        """
         return pulumi.get(self, "cidr")
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "client_token")
+
+    @_builtins.property
+    @pulumi.getter(name="coreNetworkEndpointId")
+    def core_network_endpoint_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+        """
+        return pulumi.get(self, "core_network_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -274,6 +332,14 @@ class AccessSource(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output['AccessSourceDnsProtocol']:
         return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter
+    def segment(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+        """
+        return pulumi.get(self, "segment")
 
     @_builtins.property
     @pulumi.getter

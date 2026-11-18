@@ -47,6 +47,19 @@ export const AgentGoalPillar = {
  */
 export type AgentGoalPillar = (typeof AgentGoalPillar)[keyof typeof AgentGoalPillar];
 
+export const AgentOrganizationalProfilePillar = {
+    CostOptimization: "COST_OPTIMIZATION",
+    Security: "SECURITY",
+    Resilience: "RESILIENCE",
+    Performance: "PERFORMANCE",
+    OperationalExcellence: "OPERATIONAL_EXCELLENCE",
+} as const;
+
+/**
+ * A Well-Architected pillar the Agent Organizational Profile focuses on.
+ */
+export type AgentOrganizationalProfilePillar = (typeof AgentOrganizationalProfilePillar)[keyof typeof AgentOrganizationalProfilePillar];
+
 export const AgentProfilePillar = {
     CostOptimization: "COST_OPTIMIZATION",
     Security: "SECURITY",

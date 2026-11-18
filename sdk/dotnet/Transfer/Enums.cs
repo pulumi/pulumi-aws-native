@@ -569,6 +569,34 @@ namespace Pulumi.AwsNative.Transfer
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ServerCommunicationMode : IEquatable<ServerCommunicationMode>
+    {
+        private readonly string _value;
+
+        private ServerCommunicationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerCommunicationMode ClientTalkFirst { get; } = new ServerCommunicationMode("CLIENT_TALK_FIRST");
+        public static ServerCommunicationMode ServerTalkFirst { get; } = new ServerCommunicationMode("SERVER_TALK_FIRST");
+
+        public static bool operator ==(ServerCommunicationMode left, ServerCommunicationMode right) => left.Equals(right);
+        public static bool operator !=(ServerCommunicationMode left, ServerCommunicationMode right) => !left.Equals(right);
+
+        public static explicit operator string(ServerCommunicationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerCommunicationMode other && Equals(other);
+        public bool Equals(ServerCommunicationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Indicates whether optimization to directory listing on S3 servers is used. Disabled by default for compatibility.
     /// </summary>

@@ -35,6 +35,11 @@ export const getPreparedStatement: typeof import("./getPreparedStatement").getPr
 export const getPreparedStatementOutput: typeof import("./getPreparedStatement").getPreparedStatementOutput = null as any;
 utilities.lazyLoad(exports, ["getPreparedStatement","getPreparedStatementOutput"], () => require("./getPreparedStatement"));
 
+export { GetSystemTablesArgs, GetSystemTablesResult, GetSystemTablesOutputArgs } from "./getSystemTables";
+export const getSystemTables: typeof import("./getSystemTables").getSystemTables = null as any;
+export const getSystemTablesOutput: typeof import("./getSystemTables").getSystemTablesOutput = null as any;
+utilities.lazyLoad(exports, ["getSystemTables","getSystemTablesOutput"], () => require("./getSystemTables"));
+
 export { GetWorkGroupArgs, GetWorkGroupResult, GetWorkGroupOutputArgs } from "./getWorkGroup";
 export const getWorkGroup: typeof import("./getWorkGroup").getWorkGroup = null as any;
 export const getWorkGroupOutput: typeof import("./getWorkGroup").getWorkGroupOutput = null as any;
@@ -49,6 +54,11 @@ export { PreparedStatementArgs } from "./preparedStatement";
 export type PreparedStatement = import("./preparedStatement").PreparedStatement;
 export const PreparedStatement: typeof import("./preparedStatement").PreparedStatement = null as any;
 utilities.lazyLoad(exports, ["PreparedStatement"], () => require("./preparedStatement"));
+
+export { SystemTablesArgs } from "./systemTables";
+export type SystemTables = import("./systemTables").SystemTables;
+export const SystemTables: typeof import("./systemTables").SystemTables = null as any;
+utilities.lazyLoad(exports, ["SystemTables"], () => require("./systemTables"));
 
 export { WorkGroupArgs } from "./workGroup";
 export type WorkGroup = import("./workGroup").WorkGroup;
@@ -71,6 +81,8 @@ const _module = {
                 return new NamedQuery(name, <any>undefined, { urn })
             case "aws-native:athena:PreparedStatement":
                 return new PreparedStatement(name, <any>undefined, { urn })
+            case "aws-native:athena:SystemTables":
+                return new SystemTables(name, <any>undefined, { urn })
             case "aws-native:athena:WorkGroup":
                 return new WorkGroup(name, <any>undefined, { urn })
             default:

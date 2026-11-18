@@ -250,6 +250,37 @@ namespace Pulumi.AwsNative.Cognito
     }
 
     /// <summary>
+    /// Whether server-side user session tracking is enabled for the user pool. Requires the ESSENTIALS or PLUS feature plan.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserPoolSessionConfigurationAttachmentUserSessionTracking : IEquatable<UserPoolSessionConfigurationAttachmentUserSessionTracking>
+    {
+        private readonly string _value;
+
+        private UserPoolSessionConfigurationAttachmentUserSessionTracking(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserPoolSessionConfigurationAttachmentUserSessionTracking Enabled { get; } = new UserPoolSessionConfigurationAttachmentUserSessionTracking("ENABLED");
+        public static UserPoolSessionConfigurationAttachmentUserSessionTracking Disabled { get; } = new UserPoolSessionConfigurationAttachmentUserSessionTracking("DISABLED");
+
+        public static bool operator ==(UserPoolSessionConfigurationAttachmentUserSessionTracking left, UserPoolSessionConfigurationAttachmentUserSessionTracking right) => left.Equals(right);
+        public static bool operator !=(UserPoolSessionConfigurationAttachmentUserSessionTracking left, UserPoolSessionConfigurationAttachmentUserSessionTracking right) => !left.Equals(right);
+
+        public static explicit operator string(UserPoolSessionConfigurationAttachmentUserSessionTracking value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserPoolSessionConfigurationAttachmentUserSessionTracking other && Equals(other);
+        public bool Equals(UserPoolSessionConfigurationAttachmentUserSessionTracking other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
     /// </summary>
     [EnumType]

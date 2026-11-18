@@ -72,6 +72,8 @@ __all__ = [
     'JobDefinitionEksContainerArgsDict',
     'JobDefinitionEksContainerEnvironmentVariableArgs',
     'JobDefinitionEksContainerEnvironmentVariableArgsDict',
+    'JobDefinitionEksContainerLinuxCapabilitiesArgs',
+    'JobDefinitionEksContainerLinuxCapabilitiesArgsDict',
     'JobDefinitionEksContainerResourceRequirementsArgs',
     'JobDefinitionEksContainerResourceRequirementsArgsDict',
     'JobDefinitionEksContainerSecurityContextArgs',
@@ -88,8 +90,12 @@ __all__ = [
     'JobDefinitionEksPersistentVolumeClaimArgsDict',
     'JobDefinitionEksPodPropertiesArgs',
     'JobDefinitionEksPodPropertiesArgsDict',
+    'JobDefinitionEksPodSecurityContextArgs',
+    'JobDefinitionEksPodSecurityContextArgsDict',
     'JobDefinitionEksPropertiesArgs',
     'JobDefinitionEksPropertiesArgsDict',
+    'JobDefinitionEksSeccompProfileArgs',
+    'JobDefinitionEksSeccompProfileArgsDict',
     'JobDefinitionEksSecretArgs',
     'JobDefinitionEksSecretArgsDict',
     'JobDefinitionEksVolumeArgs',
@@ -3312,6 +3318,39 @@ class JobDefinitionEksContainerEnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
+class JobDefinitionEksContainerLinuxCapabilitiesArgsDict(TypedDict):
+    add: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    drop: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class JobDefinitionEksContainerLinuxCapabilitiesArgs:
+    def __init__(__self__, *,
+                 add: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 drop: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if add is not None:
+            pulumi.set(__self__, "add", add)
+        if drop is not None:
+            pulumi.set(__self__, "drop", drop)
+
+    @_builtins.property
+    @pulumi.getter
+    def add(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "add")
+
+    @add.setter
+    def add(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "add", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def drop(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "drop")
+
+    @drop.setter
+    def drop(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "drop", value)
+
+
 class JobDefinitionEksContainerResourceRequirementsArgsDict(TypedDict):
     limits: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -3402,6 +3441,7 @@ class JobDefinitionEksContainerSecurityContextArgsDict(TypedDict):
     """
     Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false` .
     """
+    capabilities: NotRequired[pulumi.Input[Optional['JobDefinitionEksContainerLinuxCapabilitiesArgsDict']]]
     privileged: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
@@ -3422,16 +3462,19 @@ class JobDefinitionEksContainerSecurityContextArgsDict(TypedDict):
     """
     When this parameter is specified, the container is run as the specified user ID ( `uid` ). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to `RunAsUser` and `MustRanAs` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
     """
+    seccomp_profile: NotRequired[pulumi.Input[Optional['JobDefinitionEksSeccompProfileArgsDict']]]
 
 @pulumi.input_type
 class JobDefinitionEksContainerSecurityContextArgs:
     def __init__(__self__, *,
                  allow_privilege_escalation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capabilities: pulumi.Input[Optional['JobDefinitionEksContainerLinuxCapabilitiesArgs']] = None,
                  privileged: pulumi.Input[Optional[_builtins.bool]] = None,
                  read_only_root_filesystem: pulumi.Input[Optional[_builtins.bool]] = None,
                  run_as_group: pulumi.Input[Optional[_builtins.int]] = None,
                  run_as_non_root: pulumi.Input[Optional[_builtins.bool]] = None,
-                 run_as_user: pulumi.Input[Optional[_builtins.int]] = None):
+                 run_as_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 seccomp_profile: pulumi.Input[Optional['JobDefinitionEksSeccompProfileArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_privilege_escalation: Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false` .
         :param pulumi.Input[_builtins.bool] privileged: When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
@@ -3442,6 +3485,8 @@ class JobDefinitionEksContainerSecurityContextArgs:
         """
         if allow_privilege_escalation is not None:
             pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
         if privileged is not None:
             pulumi.set(__self__, "privileged", privileged)
         if read_only_root_filesystem is not None:
@@ -3452,6 +3497,8 @@ class JobDefinitionEksContainerSecurityContextArgs:
             pulumi.set(__self__, "run_as_non_root", run_as_non_root)
         if run_as_user is not None:
             pulumi.set(__self__, "run_as_user", run_as_user)
+        if seccomp_profile is not None:
+            pulumi.set(__self__, "seccomp_profile", seccomp_profile)
 
     @_builtins.property
     @pulumi.getter(name="allowPrivilegeEscalation")
@@ -3464,6 +3511,15 @@ class JobDefinitionEksContainerSecurityContextArgs:
     @allow_privilege_escalation.setter
     def allow_privilege_escalation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_privilege_escalation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def capabilities(self) -> pulumi.Input[Optional['JobDefinitionEksContainerLinuxCapabilitiesArgs']]:
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: pulumi.Input[Optional['JobDefinitionEksContainerLinuxCapabilitiesArgs']]):
+        pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
@@ -3524,6 +3580,15 @@ class JobDefinitionEksContainerSecurityContextArgs:
     @run_as_user.setter
     def run_as_user(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "run_as_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="seccompProfile")
+    def seccomp_profile(self) -> pulumi.Input[Optional['JobDefinitionEksSeccompProfileArgs']]:
+        return pulumi.get(self, "seccomp_profile")
+
+    @seccomp_profile.setter
+    def seccomp_profile(self, value: pulumi.Input[Optional['JobDefinitionEksSeccompProfileArgs']]):
+        pulumi.set(self, "seccomp_profile", value)
 
 
 class JobDefinitionEksContainerVolumeMountArgsDict(TypedDict):
@@ -3894,6 +3959,7 @@ class JobDefinitionEksPodPropertiesArgsDict(TypedDict):
     """
     Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
     """
+    security_context: NotRequired[pulumi.Input[Optional['JobDefinitionEksPodSecurityContextArgsDict']]]
     service_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
@@ -3916,6 +3982,7 @@ class JobDefinitionEksPodPropertiesArgs:
                  image_pull_secrets: pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]] = None,
                  init_containers: pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
                  metadata: pulumi.Input[Optional['JobDefinitionEksMetadataArgs']] = None,
+                 security_context: pulumi.Input[Optional['JobDefinitionEksPodSecurityContextArgs']] = None,
                  service_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  share_process_namespace: pulumi.Input[Optional[_builtins.bool]] = None,
                  volumes: pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]] = None):
@@ -3950,6 +4017,8 @@ class JobDefinitionEksPodPropertiesArgs:
             pulumi.set(__self__, "init_containers", init_containers)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
         if service_account_name is not None:
             pulumi.set(__self__, "service_account_name", service_account_name)
         if share_process_namespace is not None:
@@ -4038,6 +4107,15 @@ class JobDefinitionEksPodPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> pulumi.Input[Optional['JobDefinitionEksPodSecurityContextArgs']]:
+        return pulumi.get(self, "security_context")
+
+    @security_context.setter
+    def security_context(self, value: pulumi.Input[Optional['JobDefinitionEksPodSecurityContextArgs']]):
+        pulumi.set(self, "security_context", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceAccountName")
     def service_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -4074,6 +4152,78 @@ class JobDefinitionEksPodPropertiesArgs:
         pulumi.set(self, "volumes", value)
 
 
+class JobDefinitionEksPodSecurityContextArgsDict(TypedDict):
+    fs_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    run_as_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    run_as_non_root: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    run_as_user: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    seccomp_profile: NotRequired[pulumi.Input[Optional['JobDefinitionEksSeccompProfileArgsDict']]]
+
+@pulumi.input_type
+class JobDefinitionEksPodSecurityContextArgs:
+    def __init__(__self__, *,
+                 fs_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 run_as_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 run_as_non_root: pulumi.Input[Optional[_builtins.bool]] = None,
+                 run_as_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 seccomp_profile: pulumi.Input[Optional['JobDefinitionEksSeccompProfileArgs']] = None):
+        if fs_group is not None:
+            pulumi.set(__self__, "fs_group", fs_group)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_non_root is not None:
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+        if seccomp_profile is not None:
+            pulumi.set(__self__, "seccomp_profile", seccomp_profile)
+
+    @_builtins.property
+    @pulumi.getter(name="fsGroup")
+    def fs_group(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "fs_group")
+
+    @fs_group.setter
+    def fs_group(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "fs_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "run_as_group")
+
+    @run_as_group.setter
+    def run_as_group(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "run_as_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runAsNonRoot")
+    def run_as_non_root(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "run_as_non_root")
+
+    @run_as_non_root.setter
+    def run_as_non_root(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "run_as_non_root", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "run_as_user")
+
+    @run_as_user.setter
+    def run_as_user(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "run_as_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="seccompProfile")
+    def seccomp_profile(self) -> pulumi.Input[Optional['JobDefinitionEksSeccompProfileArgs']]:
+        return pulumi.get(self, "seccomp_profile")
+
+    @seccomp_profile.setter
+    def seccomp_profile(self, value: pulumi.Input[Optional['JobDefinitionEksSeccompProfileArgs']]):
+        pulumi.set(self, "seccomp_profile", value)
+
+
 class JobDefinitionEksPropertiesArgsDict(TypedDict):
     pod_properties: NotRequired[pulumi.Input[Optional['JobDefinitionEksPodPropertiesArgsDict']]]
     """
@@ -4101,6 +4251,38 @@ class JobDefinitionEksPropertiesArgs:
     @pod_properties.setter
     def pod_properties(self, value: pulumi.Input[Optional['JobDefinitionEksPodPropertiesArgs']]):
         pulumi.set(self, "pod_properties", value)
+
+
+class JobDefinitionEksSeccompProfileArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    localhost_profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class JobDefinitionEksSeccompProfileArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 localhost_profile: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "type", type)
+        if localhost_profile is not None:
+            pulumi.set(__self__, "localhost_profile", localhost_profile)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localhostProfile")
+    def localhost_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "localhost_profile")
+
+    @localhost_profile.setter
+    def localhost_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "localhost_profile", value)
 
 
 class JobDefinitionEksSecretArgsDict(TypedDict):

@@ -7,11 +7,20 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'InfluxDbBackupDbInstanceType',
+    'InfluxDbBackupDbStorageType',
+    'InfluxDbBackupDeploymentType',
+    'InfluxDbBackupEngineType',
+    'InfluxDbBackupFailoverMode',
+    'InfluxDbBackupNetworkType',
+    'InfluxDbBackupStatus',
+    'InfluxDbBackupType',
     'InfluxDbClusterDbInstanceType',
     'InfluxDbClusterDbStorageType',
     'InfluxDbClusterDeploymentType',
     'InfluxDbClusterEngineType',
     'InfluxDbClusterFailoverMode',
+    'InfluxDbClusterMemberModeCountMode',
     'InfluxDbClusterNetworkType',
     'InfluxDbClusterStatus',
     'InfluxDbInstanceDbInstanceType',
@@ -26,6 +35,96 @@ __all__ = [
     'TablePartitionKeyEnforcementLevel',
     'TablePartitionKeyType',
 ]
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbBackupDbInstanceType")
+class InfluxDbBackupDbInstanceType(_builtins.str, Enum):
+    """
+    The DB instance type of the resource at the time of backup.
+    """
+    DB_INFLUX_MEDIUM = "db.influx.medium"
+    DB_INFLUX_LARGE = "db.influx.large"
+    DB_INFLUX_XLARGE = "db.influx.xlarge"
+    DB_INFLUX2XLARGE = "db.influx.2xlarge"
+    DB_INFLUX4XLARGE = "db.influx.4xlarge"
+    DB_INFLUX8XLARGE = "db.influx.8xlarge"
+    DB_INFLUX12XLARGE = "db.influx.12xlarge"
+    DB_INFLUX16XLARGE = "db.influx.16xlarge"
+    DB_INFLUX24XLARGE = "db.influx.24xlarge"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbBackupDbStorageType")
+class InfluxDbBackupDbStorageType(_builtins.str, Enum):
+    """
+    The storage type of the resource at the time of backup.
+    """
+    INFLUX_IO_INCLUDED_T1 = "InfluxIOIncludedT1"
+    INFLUX_IO_INCLUDED_T2 = "InfluxIOIncludedT2"
+    INFLUX_IO_INCLUDED_T3 = "InfluxIOIncludedT3"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbBackupDeploymentType")
+class InfluxDbBackupDeploymentType(_builtins.str, Enum):
+    """
+    The deployment type of the resource that the backup was created from.
+    """
+    SINGLE_AZ = "SINGLE_AZ"
+    WITH_MULTIAZ_STANDBY = "WITH_MULTIAZ_STANDBY"
+    MULTI_NODE_READ_REPLICAS = "MULTI_NODE_READ_REPLICAS"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbBackupEngineType")
+class InfluxDbBackupEngineType(_builtins.str, Enum):
+    """
+    The engine type of the resource that the backup was created from.
+    """
+    INFLUXDB_V2 = "INFLUXDB_V2"
+    INFLUXDB_V3_CORE = "INFLUXDB_V3_CORE"
+    INFLUXDB_V3_ENTERPRISE = "INFLUXDB_V3_ENTERPRISE"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbBackupFailoverMode")
+class InfluxDbBackupFailoverMode(_builtins.str, Enum):
+    """
+    The failover mode of the resource at the time of backup.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    NO_FAILOVER = "NO_FAILOVER"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbBackupNetworkType")
+class InfluxDbBackupNetworkType(_builtins.str, Enum):
+    """
+    The network type of the resource at the time of backup.
+    """
+    IPV4 = "IPV4"
+    DUAL = "DUAL"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbBackupStatus")
+class InfluxDbBackupStatus(_builtins.str, Enum):
+    """
+    The current status of the backup.
+    """
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbBackupType")
+class InfluxDbBackupType(_builtins.str, Enum):
+    """
+    The type of backup. Backups created through this resource type are always ON_DEMAND.
+    """
+    HOURLY = "HOURLY"
+    DAILY = "DAILY"
+    WEEKLY = "WEEKLY"
+    MONTHLY = "MONTHLY"
+    CUSTOM_SCHEDULE = "CUSTOM_SCHEDULE"
+    ON_DEMAND = "ON_DEMAND"
+    CONTINUOUS = "CONTINUOUS"
 
 
 @pulumi.type_token("aws-native:timestream:InfluxDbClusterDbInstanceType")
@@ -79,6 +178,20 @@ class InfluxDbClusterFailoverMode(_builtins.str, Enum):
     """
     AUTOMATIC = "AUTOMATIC"
     NO_FAILOVER = "NO_FAILOVER"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbClusterMemberModeCountMode")
+class InfluxDbClusterMemberModeCountMode(_builtins.str, Enum):
+    """
+    The instance mode reported by DB cluster members.
+    """
+    PRIMARY = "PRIMARY"
+    STANDBY = "STANDBY"
+    REPLICA = "REPLICA"
+    INGEST = "INGEST"
+    QUERY = "QUERY"
+    COMPACT = "COMPACT"
+    PROCESS = "PROCESS"
 
 
 @pulumi.type_token("aws-native:timestream:InfluxDbClusterNetworkType")

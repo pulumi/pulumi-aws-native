@@ -26,6 +26,7 @@ class FunctionArgs:
     def __init__(__self__, *,
                  code: pulumi.Input['FunctionCodeArgs'],
                  role: pulumi.Input[_builtins.str],
+                 accelerator_config: pulumi.Input[Optional['FunctionAcceleratorConfigArgs']] = None,
                  architectures: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
                  capacity_provider_config: pulumi.Input[Optional['FunctionCapacityProviderConfigArgs']] = None,
                  code_signing_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -48,6 +49,7 @@ class FunctionArgs:
                  recursive_loop: pulumi.Input[Optional['FunctionRecursiveLoop']] = None,
                  reserved_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_config: pulumi.Input[Optional['FunctionRuntimeConfigArgs']] = None,
                  runtime_management_config: pulumi.Input[Optional['FunctionRuntimeManagementConfigArgs']] = None,
                  snap_start: pulumi.Input[Optional['FunctionSnapStartArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -107,6 +109,8 @@ class FunctionArgs:
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "role", role)
+        if accelerator_config is not None:
+            pulumi.set(__self__, "accelerator_config", accelerator_config)
         if architectures is not None:
             pulumi.set(__self__, "architectures", architectures)
         if capacity_provider_config is not None:
@@ -151,6 +155,8 @@ class FunctionArgs:
             pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
         if runtime is not None:
             pulumi.set(__self__, "runtime", runtime)
+        if runtime_config is not None:
+            pulumi.set(__self__, "runtime_config", runtime_config)
         if runtime_management_config is not None:
             pulumi.set(__self__, "runtime_management_config", runtime_management_config)
         if snap_start is not None:
@@ -192,6 +198,15 @@ class FunctionArgs:
     @role.setter
     def role(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="acceleratorConfig")
+    def accelerator_config(self) -> pulumi.Input[Optional['FunctionAcceleratorConfigArgs']]:
+        return pulumi.get(self, "accelerator_config")
+
+    @accelerator_config.setter
+    def accelerator_config(self, value: pulumi.Input[Optional['FunctionAcceleratorConfigArgs']]):
+        pulumi.set(self, "accelerator_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -467,6 +482,15 @@ class FunctionArgs:
         pulumi.set(self, "runtime", value)
 
     @_builtins.property
+    @pulumi.getter(name="runtimeConfig")
+    def runtime_config(self) -> pulumi.Input[Optional['FunctionRuntimeConfigArgs']]:
+        return pulumi.get(self, "runtime_config")
+
+    @runtime_config.setter
+    def runtime_config(self, value: pulumi.Input[Optional['FunctionRuntimeConfigArgs']]):
+        pulumi.set(self, "runtime_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="runtimeManagementConfig")
     def runtime_management_config(self) -> pulumi.Input[Optional['FunctionRuntimeManagementConfigArgs']]:
         """
@@ -558,6 +582,7 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerator_config: pulumi.Input[Optional[Union['FunctionAcceleratorConfigArgs', 'FunctionAcceleratorConfigArgsDict', 'outputs.FunctionAcceleratorConfig']]] = None,
                  architectures: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
                  capacity_provider_config: pulumi.Input[Optional[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict', 'outputs.FunctionCapacityProviderConfig']]] = None,
                  code: pulumi.Input[Optional[Union['FunctionCodeArgs', 'FunctionCodeArgsDict', 'outputs.FunctionCode']]] = None,
@@ -582,6 +607,7 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_config: pulumi.Input[Optional[Union['FunctionRuntimeConfigArgs', 'FunctionRuntimeConfigArgsDict', 'outputs.FunctionRuntimeConfig']]] = None,
                  runtime_management_config: pulumi.Input[Optional[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict', 'outputs.FunctionRuntimeManagementConfig']]] = None,
                  snap_start: pulumi.Input[Optional[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict', 'outputs.FunctionSnapStart']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -1086,6 +1112,7 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerator_config: pulumi.Input[Optional[Union['FunctionAcceleratorConfigArgs', 'FunctionAcceleratorConfigArgsDict', 'outputs.FunctionAcceleratorConfig']]] = None,
                  architectures: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
                  capacity_provider_config: pulumi.Input[Optional[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict', 'outputs.FunctionCapacityProviderConfig']]] = None,
                  code: pulumi.Input[Optional[Union['FunctionCodeArgs', 'FunctionCodeArgsDict', 'outputs.FunctionCode']]] = None,
@@ -1110,6 +1137,7 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_config: pulumi.Input[Optional[Union['FunctionRuntimeConfigArgs', 'FunctionRuntimeConfigArgsDict', 'outputs.FunctionRuntimeConfig']]] = None,
                  runtime_management_config: pulumi.Input[Optional[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict', 'outputs.FunctionRuntimeManagementConfig']]] = None,
                  snap_start: pulumi.Input[Optional[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict', 'outputs.FunctionSnapStart']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -1126,6 +1154,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
+            __props__.__dict__["accelerator_config"] = accelerator_config
             __props__.__dict__["architectures"] = architectures
             __props__.__dict__["capacity_provider_config"] = capacity_provider_config
             if code is None and not opts.urn:
@@ -1154,6 +1183,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["runtime"] = runtime
+            __props__.__dict__["runtime_config"] = runtime_config
             __props__.__dict__["runtime_management_config"] = runtime_management_config
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["tags"] = tags
@@ -1187,6 +1217,7 @@ class Function(pulumi.CustomResource):
 
         __props__ = FunctionArgs.__new__(FunctionArgs)
 
+        __props__.__dict__["accelerator_config"] = None
         __props__.__dict__["architectures"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["capacity_provider_config"] = None
@@ -1212,6 +1243,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["reserved_concurrent_executions"] = None
         __props__.__dict__["role"] = None
         __props__.__dict__["runtime"] = None
+        __props__.__dict__["runtime_config"] = None
         __props__.__dict__["runtime_management_config"] = None
         __props__.__dict__["snap_start"] = None
         __props__.__dict__["snap_start_response"] = None
@@ -1227,6 +1259,11 @@ class Function(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         return pulumi.runtime.exists_resource(None, 'aws-native:lambda:Function', id, __props__, opts or pulumi.ResourceOptions())
+
+    @_builtins.property
+    @pulumi.getter(name="acceleratorConfig")
+    def accelerator_config(self) -> pulumi.Output[Optional['outputs.FunctionAcceleratorConfig']]:
+        return pulumi.get(self, "accelerator_config")
 
     @_builtins.property
     @pulumi.getter
@@ -1439,6 +1476,11 @@ class Function(pulumi.CustomResource):
          For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
         """
         return pulumi.get(self, "runtime")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeConfig")
+    def runtime_config(self) -> pulumi.Output[Optional['outputs.FunctionRuntimeConfig']]:
+        return pulumi.get(self, "runtime_config")
 
     @_builtins.property
     @pulumi.getter(name="runtimeManagementConfig")

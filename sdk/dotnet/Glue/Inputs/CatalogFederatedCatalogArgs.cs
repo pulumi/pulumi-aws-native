@@ -22,10 +22,19 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
+        /// The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+        /// </summary>
+        [Input("connectionType")]
+        public Input<string>? ConnectionType { get; set; }
+
+        /// <summary>
         /// A unique identifier for the federated catalog.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
+
+        [Input("syncConfiguration")]
+        public Input<Inputs.CatalogSyncConfigurationArgs>? SyncConfiguration { get; set; }
 
         public CatalogFederatedCatalogArgs()
         {

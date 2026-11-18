@@ -643,6 +643,8 @@ func (o ApplicationConfigurationObjectArrayOutput) Index(i pulumi.IntInput) Appl
 type ApplicationIdentityCenterConfiguration struct {
 	// The IAM IdentityCenter instance arn
 	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+	// Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+	UserBackgroundSessionsEnabled *bool `pulumi:"userBackgroundSessionsEnabled"`
 }
 
 // ApplicationIdentityCenterConfigurationInput is an input type that accepts ApplicationIdentityCenterConfigurationArgs and ApplicationIdentityCenterConfigurationOutput values.
@@ -660,6 +662,8 @@ type ApplicationIdentityCenterConfigurationInput interface {
 type ApplicationIdentityCenterConfigurationArgs struct {
 	// The IAM IdentityCenter instance arn
 	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
+	// Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+	UserBackgroundSessionsEnabled pulumi.BoolPtrInput `pulumi:"userBackgroundSessionsEnabled"`
 }
 
 func (ApplicationIdentityCenterConfigurationArgs) ElementType() reflect.Type {
@@ -745,6 +749,11 @@ func (o ApplicationIdentityCenterConfigurationOutput) IdentityCenterInstanceArn(
 	return o.ApplyT(func(v ApplicationIdentityCenterConfiguration) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
 }
 
+// Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+func (o ApplicationIdentityCenterConfigurationOutput) UserBackgroundSessionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationIdentityCenterConfiguration) *bool { return v.UserBackgroundSessionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type ApplicationIdentityCenterConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationIdentityCenterConfigurationPtrOutput) ElementType() reflect.Type {
@@ -777,6 +786,16 @@ func (o ApplicationIdentityCenterConfigurationPtrOutput) IdentityCenterInstanceA
 		}
 		return v.IdentityCenterInstanceArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+func (o ApplicationIdentityCenterConfigurationPtrOutput) UserBackgroundSessionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationIdentityCenterConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserBackgroundSessionsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The image configuration.

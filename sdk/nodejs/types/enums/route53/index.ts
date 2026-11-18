@@ -54,6 +54,49 @@ export const HealthCheckConfigPropertiesType = {
  */
 export type HealthCheckConfigPropertiesType = (typeof HealthCheckConfigPropertiesType)[keyof typeof HealthCheckConfigPropertiesType];
 
+export const HealthCheckSourceStatus = {
+    CreatePending: "CREATE_PENDING",
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    CreateCompleted: "CREATE_COMPLETED",
+    CreateFailed: "CREATE_FAILED",
+    DeletePending: "DELETE_PENDING",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteCompleted: "DELETE_COMPLETED",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * <p>The current status of the health check source. The health check source status can have one of the following values:</p>
+ *          <dl>
+ *             <dt>CREATE_PENDING, CREATE_IN_PROGRESS</dt>
+ *             <dd>
+ *                <p>Route 53 is creating the source. Health checks that reference the source don't send requests yet.</p>
+ *             </dd>
+ *             <dt>CREATE_COMPLETED</dt>
+ *             <dd>
+ *                <p>The source is ready to use.</p>
+ *             </dd>
+ *             <dt>CREATE_FAILED</dt>
+ *             <dd>
+ *                <p>Route 53 couldn't create the source. <code>StatusReasonCode</code> and <code>StatusReason</code> explain why.</p>
+ *             </dd>
+ *             <dt>DELETE_PENDING, DELETE_IN_PROGRESS</dt>
+ *             <dd>
+ *                <p>Route 53 is deleting the source.</p>
+ *             </dd>
+ *             <dt>DELETE_COMPLETED</dt>
+ *             <dd>
+ *                <p>Route 53 has deleted the source.</p>
+ *             </dd>
+ *             <dt>DELETE_FAILED</dt>
+ *             <dd>
+ *                <p>Route 53 couldn't delete the source. <code>StatusReasonCode</code> and <code>StatusReason</code> explain why.</p>
+ *             </dd>
+ *          </dl>
+ *          <p>If the status is <code>CREATE_FAILED</code>, delete the source and create a new one. If the status is <code>DELETE_FAILED</code>, retry the <code>DeleteHealthCheckSource</code> request.</p>
+ */
+export type HealthCheckSourceStatus = (typeof HealthCheckSourceStatus)[keyof typeof HealthCheckSourceStatus];
+
 export const KeySigningKeyStatus = {
     Active: "ACTIVE",
     Inactive: "INACTIVE",

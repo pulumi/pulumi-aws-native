@@ -1453,6 +1453,38 @@ namespace Pulumi.AwsNative.GameLift
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of service that receives the game session queue's placement logs.
+    /// </summary>
+    [EnumType]
+    public readonly struct GameSessionQueueDeliveryDestinationLogDestination : IEquatable<GameSessionQueueDeliveryDestinationLogDestination>
+    {
+        private readonly string _value;
+
+        private GameSessionQueueDeliveryDestinationLogDestination(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GameSessionQueueDeliveryDestinationLogDestination Cloudwatch { get; } = new GameSessionQueueDeliveryDestinationLogDestination("CLOUDWATCH");
+        public static GameSessionQueueDeliveryDestinationLogDestination S3 { get; } = new GameSessionQueueDeliveryDestinationLogDestination("S3");
+        public static GameSessionQueueDeliveryDestinationLogDestination Firehose { get; } = new GameSessionQueueDeliveryDestinationLogDestination("FIREHOSE");
+
+        public static bool operator ==(GameSessionQueueDeliveryDestinationLogDestination left, GameSessionQueueDeliveryDestinationLogDestination right) => left.Equals(right);
+        public static bool operator !=(GameSessionQueueDeliveryDestinationLogDestination left, GameSessionQueueDeliveryDestinationLogDestination right) => !left.Equals(right);
+
+        public static explicit operator string(GameSessionQueueDeliveryDestinationLogDestination value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GameSessionQueueDeliveryDestinationLogDestination other && Equals(other);
+        public bool Equals(GameSessionQueueDeliveryDestinationLogDestination other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct GameSessionQueuePriorityOrderItem : IEquatable<GameSessionQueuePriorityOrderItem>
     {

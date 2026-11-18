@@ -404,6 +404,57 @@ export const Ec2FleetType = {
  */
 export type Ec2FleetType = (typeof Ec2FleetType)[keyof typeof Ec2FleetType];
 
+export const FcaPolicyAssociationAssociationMode = {
+    Direct: "direct",
+    Scope: "scope",
+} as const;
+
+/**
+ * The mode of the association.
+ */
+export type FcaPolicyAssociationAssociationMode = (typeof FcaPolicyAssociationAssociationMode)[keyof typeof FcaPolicyAssociationAssociationMode];
+
+export const FcaPolicyAssociationNetworkResourceScopeType = {
+    Account: "account",
+    Vpc: "vpc",
+    Subnet: "subnet",
+} as const;
+
+/**
+ * Associate by scope instead of directly. When set, NetworkResourceId is the ID of the scope (an account ID, a VPC ID, or a subnet ID) and the association covers every eligible network resource in that scope; when omitted, NetworkResourceId is a direct network resource (for example a NAT gateway or instance) and must match the policy's NetworkResourceType.
+ */
+export type FcaPolicyAssociationNetworkResourceScopeType = (typeof FcaPolicyAssociationNetworkResourceScopeType)[keyof typeof FcaPolicyAssociationNetworkResourceScopeType];
+
+export const FcaPolicyDimensionListItem = {
+    DataTransfer: "data-transfer",
+    DataProcessing: "data-processing",
+} as const;
+
+export type FcaPolicyDimensionListItem = (typeof FcaPolicyDimensionListItem)[keyof typeof FcaPolicyDimensionListItem];
+
+export const FcaPolicyNetworkResourceType = {
+    Natgw: "natgw",
+    Pcx: "pcx",
+    Ec2: "ec2",
+} as const;
+
+/**
+ * The type of network resource the FCA policy applies to.
+ */
+export type FcaPolicyNetworkResourceType = (typeof FcaPolicyNetworkResourceType)[keyof typeof FcaPolicyNetworkResourceType];
+
+export const FcaPolicyReportingGranularityListItem = {
+    Eni: "eni",
+    Ec2: "ec2",
+    Subnet: "subnet",
+    Vpc: "vpc",
+    Account: "account",
+    PeeringId: "peering-id",
+    Cidr: "cidr",
+} as const;
+
+export type FcaPolicyReportingGranularityListItem = (typeof FcaPolicyReportingGranularityListItem)[keyof typeof FcaPolicyReportingGranularityListItem];
+
 export const FlowLogDestinationOptionsPropertiesFileFormat = {
     PlainText: "plain-text",
     Parquet: "parquet",
@@ -432,6 +483,9 @@ export const FlowLogResourceType = {
     TransitGateway: "TransitGateway",
     TransitGatewayAttachment: "TransitGatewayAttachment",
     RegionalNatGateway: "RegionalNatGateway",
+    CoreNetwork: "CoreNetwork",
+    CoreNetworkEdge: "CoreNetworkEdge",
+    CoreNetworkAttachment: "CoreNetworkAttachment",
 } as const;
 
 /**
@@ -1311,6 +1365,15 @@ export const TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType = 
 
 export type TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType = (typeof TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType)[keyof typeof TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType];
 
+export const TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode = {
+    AlwaysOn: "always-on",
+} as const;
+
+/**
+ * The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+ */
+export type TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode = (typeof TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode)[keyof typeof TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode];
+
 export const VpcBlockPublicAccessExclusionInternetGatewayExclusionMode = {
     AllowBidirectional: "allow-bidirectional",
     AllowEgress: "allow-egress",
@@ -1563,6 +1626,26 @@ export const VpcEndpointType = {
  *  Default: Gateway
  */
 export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];
+
+export const VpcPeeringConnectionMultipathResilienceStatus = {
+    Pending: "pending",
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+ */
+export type VpcPeeringConnectionMultipathResilienceStatus = (typeof VpcPeeringConnectionMultipathResilienceStatus)[keyof typeof VpcPeeringConnectionMultipathResilienceStatus];
+
+export const VpcPeeringConnectionOptionsMultipathResilienceMode = {
+    AlwaysOn: "always-on",
+} as const;
+
+/**
+ * The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+ */
+export type VpcPeeringConnectionOptionsMultipathResilienceMode = (typeof VpcPeeringConnectionOptionsMultipathResilienceMode)[keyof typeof VpcPeeringConnectionOptionsMultipathResilienceMode];
 
 export const VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat = {
     Json: "json",

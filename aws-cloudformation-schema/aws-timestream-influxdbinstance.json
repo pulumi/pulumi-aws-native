@@ -14,7 +14,7 @@
       "timeoutInMinutes" : 2160
     },
     "create" : {
-      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:GetDbInstance", "timestream-influxdb:ListDbInstances", "timestream-influxdb:CreateDbInstance", "timestream-influxdb:TagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole" ],
+      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:GetDbInstance", "timestream-influxdb:ListDbInstances", "timestream-influxdb:CreateDbInstance", "timestream-influxdb:TagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole", "kms:DescribeKey", "kms:CreateGrant" ],
       "timeoutInMinutes" : 2160
     },
     "update" : {
@@ -31,10 +31,10 @@
     }
   },
   "typeName" : "AWS::Timestream::InfluxDBInstance",
-  "readOnlyProperties" : [ "/properties/Status", "/properties/Arn", "/properties/Id", "/properties/AvailabilityZone", "/properties/Endpoint", "/properties/SecondaryAvailabilityZone", "/properties/InfluxAuthParametersSecretArn", "/properties/NextMaintenanceTime" ],
+  "readOnlyProperties" : [ "/properties/Status", "/properties/Arn", "/properties/Id", "/properties/DbClusterId", "/properties/AvailabilityZone", "/properties/Endpoint", "/properties/SecondaryAvailabilityZone", "/properties/InfluxAuthParametersSecretArn", "/properties/NextMaintenanceTime" ],
   "description" : "The AWS::Timestream::InfluxDBInstance resource creates an InfluxDB instance.",
   "writeOnlyProperties" : [ "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket", "/properties/VpcSubnetIds", "/properties/VpcSecurityGroupIds", "/properties/PubliclyAccessible", "/properties/NetworkType" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket", "/properties/VpcSubnetIds", "/properties/VpcSecurityGroupIds", "/properties/PubliclyAccessible", "/properties/NetworkType", "/properties/KmsKeyId" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Id" ],
   "definitions" : {
@@ -89,7 +89,7 @@
       "maxLength" : 64
     },
     "InfluxAuthParametersSecretArn" : {
-      "pattern" : "^arn:[a-z]*:secretsmanager:[a-z\\-0-9]*:[0-9]*:secret:[a-zA-Z0-9\\-]*",
+      "pattern" : "^arn:aws[a-z\\-]*:secretsmanager:[a-z\\-0-9]*:[0-9]*:secret:[a-zA-Z0-9\\-]*",
       "description" : "The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB instance.",
       "type" : "string"
     },
@@ -180,6 +180,13 @@
       "type" : "string",
       "enum" : [ "CREATING", "AVAILABLE", "DELETING", "MODIFYING", "MAINTENANCE", "UPDATING", "UPDATING_DEPLOYMENT_TYPE", "UPDATING_INSTANCE_TYPE", "REBOOTING", "REBOOT_FAILED", "DELETED", "FAILED" ]
     },
+    "KmsKeyId" : {
+      "minLength" : 1,
+      "pattern" : "^[a-zA-Z0-9:/_\\-]+$",
+      "description" : "The customer managed key used to encrypt data in the InfluxDB instance.",
+      "type" : "string",
+      "maxLength" : 2048
+    },
     "AvailabilityZone" : {
       "description" : "The Availability Zone (AZ) where the InfluxDB instance is created.",
       "type" : "string"
@@ -232,6 +239,13 @@
       "minLength" : 2,
       "pattern" : "^[^_][^\"]*$",
       "description" : "The bucket for the InfluxDB instance.",
+      "type" : "string",
+      "maxLength" : 64
+    },
+    "DbClusterId" : {
+      "minLength" : 3,
+      "pattern" : "^[a-zA-Z0-9]+$",
+      "description" : "The service generated unique identifier of the InfluxDB cluster containing this instance.",
       "type" : "string",
       "maxLength" : 64
     },

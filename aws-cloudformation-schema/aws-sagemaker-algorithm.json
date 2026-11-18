@@ -404,7 +404,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateAlgorithm", "sagemaker:DescribeAlgorithm", "sagemaker:AddTags" ]
+      "permissions" : [ "sagemaker:CreateAlgorithm", "ecr:BatchGetImage", "sagemaker:DescribeAlgorithm", "sagemaker:AddTags", "sagemaker:ListTags" ]
     },
     "read" : {
       "permissions" : [ "sagemaker:DescribeAlgorithm", "sagemaker:ListTags" ]

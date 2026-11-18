@@ -42,6 +42,10 @@ export interface GetApplicationResult {
      */
     readonly applicationType?: enums.appintegrations.ApplicationType;
     /**
+     * The authentication configuration. Required when ApplicationType is A2A_SERVER.
+     */
+    readonly authConfig?: outputs.appintegrations.ApplicationAuthConfig;
+    /**
      * The application description.
      */
     readonly description?: string;
@@ -61,6 +65,14 @@ export interface GetApplicationResult {
      * Indicates if the application is a service
      */
     readonly isService?: boolean;
+    /**
+     * The region in which the application was last modified.
+     */
+    readonly lastModifiedRegion?: string;
+    /**
+     * The time when the application was last modified.
+     */
+    readonly lastModifiedTime?: string;
     /**
      * The name of the application.
      */

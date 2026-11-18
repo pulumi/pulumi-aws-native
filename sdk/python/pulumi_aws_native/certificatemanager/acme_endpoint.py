@@ -116,7 +116,7 @@ class AcmeEndpoint(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+        Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class AcmeEndpoint(pulumi.CustomResource):
                  args: AcmeEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+        Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
 
         :param str resource_name: The name of the resource.
         :param AcmeEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,8 @@ type LookupProfileAssociationArgs struct {
 type LookupProfileAssociationResult struct {
 	// Primary Identifier for  Profile Association
 	Id *string `pulumi:"id"`
+	// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+	Priority *int `pulumi:"priority"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -66,6 +68,11 @@ func (o LookupProfileAssociationResultOutput) ToLookupProfileAssociationResultOu
 // Primary Identifier for  Profile Association
 func (o LookupProfileAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+func (o LookupProfileAssociationResultOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupProfileAssociationResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

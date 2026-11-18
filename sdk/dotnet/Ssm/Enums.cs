@@ -77,6 +77,37 @@ namespace Pulumi.AwsNative.Ssm
     }
 
     /// <summary>
+    /// The permission model used to enable DHMC. SERVICE_MANAGED lets SSM create and manage the DHMC IAM role on your behalf. SELF_MANAGED registers an IAM role that you provide.
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultHostManagementConfigurationDhmcPermissionModel : IEquatable<DefaultHostManagementConfigurationDhmcPermissionModel>
+    {
+        private readonly string _value;
+
+        private DefaultHostManagementConfigurationDhmcPermissionModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DefaultHostManagementConfigurationDhmcPermissionModel ServiceManaged { get; } = new DefaultHostManagementConfigurationDhmcPermissionModel("SERVICE_MANAGED");
+        public static DefaultHostManagementConfigurationDhmcPermissionModel SelfManaged { get; } = new DefaultHostManagementConfigurationDhmcPermissionModel("SELF_MANAGED");
+
+        public static bool operator ==(DefaultHostManagementConfigurationDhmcPermissionModel left, DefaultHostManagementConfigurationDhmcPermissionModel right) => left.Equals(right);
+        public static bool operator !=(DefaultHostManagementConfigurationDhmcPermissionModel left, DefaultHostManagementConfigurationDhmcPermissionModel right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultHostManagementConfigurationDhmcPermissionModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultHostManagementConfigurationDhmcPermissionModel other && Equals(other);
+        public bool Equals(DefaultHostManagementConfigurationDhmcPermissionModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The key of a key-value pair that identifies the location of an attachment to a document.
     /// </summary>
     [EnumType]

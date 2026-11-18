@@ -40,6 +40,11 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
+export { ClusterSchedulerConfigArgs } from "./clusterSchedulerConfig";
+export type ClusterSchedulerConfig = import("./clusterSchedulerConfig").ClusterSchedulerConfig;
+export const ClusterSchedulerConfig: typeof import("./clusterSchedulerConfig").ClusterSchedulerConfig = null as any;
+utilities.lazyLoad(exports, ["ClusterSchedulerConfig"], () => require("./clusterSchedulerConfig"));
+
 export { CodeRepositoryArgs } from "./codeRepository";
 export type CodeRepository = import("./codeRepository").CodeRepository;
 export const CodeRepository: typeof import("./codeRepository").CodeRepository = null as any;
@@ -95,6 +100,11 @@ export type ExperimentTrialComponent = import("./experimentTrialComponent").Expe
 export const ExperimentTrialComponent: typeof import("./experimentTrialComponent").ExperimentTrialComponent = null as any;
 utilities.lazyLoad(exports, ["ExperimentTrialComponent"], () => require("./experimentTrialComponent"));
 
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+
 export { FeatureGroupArgs } from "./featureGroup";
 export type FeatureGroup = import("./featureGroup").FeatureGroup;
 export const FeatureGroup: typeof import("./featureGroup").FeatureGroup = null as any;
@@ -134,6 +144,11 @@ export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getClu
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetClusterSchedulerConfigArgs, GetClusterSchedulerConfigResult, GetClusterSchedulerConfigOutputArgs } from "./getClusterSchedulerConfig";
+export const getClusterSchedulerConfig: typeof import("./getClusterSchedulerConfig").getClusterSchedulerConfig = null as any;
+export const getClusterSchedulerConfigOutput: typeof import("./getClusterSchedulerConfig").getClusterSchedulerConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterSchedulerConfig","getClusterSchedulerConfigOutput"], () => require("./getClusterSchedulerConfig"));
 
 export { GetCodeRepositoryArgs, GetCodeRepositoryResult, GetCodeRepositoryOutputArgs } from "./getCodeRepository";
 export const getCodeRepository: typeof import("./getCodeRepository").getCodeRepository = null as any;
@@ -184,6 +199,11 @@ export { GetExperimentTrialComponentArgs, GetExperimentTrialComponentResult, Get
 export const getExperimentTrialComponent: typeof import("./getExperimentTrialComponent").getExperimentTrialComponent = null as any;
 export const getExperimentTrialComponentOutput: typeof import("./getExperimentTrialComponent").getExperimentTrialComponentOutput = null as any;
 utilities.lazyLoad(exports, ["getExperimentTrialComponent","getExperimentTrialComponentOutput"], () => require("./getExperimentTrialComponent"));
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
 export { GetFeatureGroupArgs, GetFeatureGroupResult, GetFeatureGroupOutputArgs } from "./getFeatureGroup";
 export const getFeatureGroup: typeof import("./getFeatureGroup").getFeatureGroup = null as any;
@@ -492,6 +512,8 @@ const _module = {
                 return new Artifact(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:ClusterSchedulerConfig":
+                return new ClusterSchedulerConfig(name, <any>undefined, { urn })
             case "aws-native:sagemaker:CodeRepository":
                 return new CodeRepository(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ComputeQuota":
@@ -514,6 +536,8 @@ const _module = {
                 return new Experiment(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ExperimentTrialComponent":
                 return new ExperimentTrialComponent(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Extension":
+                return new Extension(name, <any>undefined, { urn })
             case "aws-native:sagemaker:FeatureGroup":
                 return new FeatureGroup(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Hub":

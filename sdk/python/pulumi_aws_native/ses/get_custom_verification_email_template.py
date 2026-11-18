@@ -72,7 +72,7 @@ class GetCustomVerificationEmailTemplateResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags (keys and values) associated with the tenant.
+        The tags (keys and values) associated with the custom verification email template.
         """
         return pulumi.get(self, "tags")
 

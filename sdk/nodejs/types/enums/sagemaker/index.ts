@@ -333,6 +333,46 @@ export const ClusterOrchestratorSlurmConfigSlurmConfigStrategy = {
  */
 export type ClusterOrchestratorSlurmConfigSlurmConfigStrategy = (typeof ClusterOrchestratorSlurmConfigSlurmConfigStrategy)[keyof typeof ClusterOrchestratorSlurmConfigSlurmConfigStrategy];
 
+export const ClusterSchedulerConfigSchedulerConfigFairShare = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * When enabled, entities borrow idle compute based on assigned FairShareWeight.
+ */
+export type ClusterSchedulerConfigSchedulerConfigFairShare = (typeof ClusterSchedulerConfigSchedulerConfigFairShare)[keyof typeof ClusterSchedulerConfigSchedulerConfigFairShare];
+
+export const ClusterSchedulerConfigSchedulerConfigIdleResourceSharing = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Configuration for sharing idle compute resources across entities.
+ */
+export type ClusterSchedulerConfigSchedulerConfigIdleResourceSharing = (typeof ClusterSchedulerConfigSchedulerConfigIdleResourceSharing)[keyof typeof ClusterSchedulerConfigSchedulerConfigIdleResourceSharing];
+
+export const ClusterSchedulerConfigStatus = {
+    Creating: "Creating",
+    CreateFailed: "CreateFailed",
+    CreateRollbackFailed: "CreateRollbackFailed",
+    Created: "Created",
+    Updating: "Updating",
+    UpdateFailed: "UpdateFailed",
+    UpdateRollbackFailed: "UpdateRollbackFailed",
+    Updated: "Updated",
+    Deleting: "Deleting",
+    DeleteFailed: "DeleteFailed",
+    DeleteRollbackFailed: "DeleteRollbackFailed",
+    Deleted: "Deleted",
+} as const;
+
+/**
+ * Status of the cluster policy.
+ */
+export type ClusterSchedulerConfigStatus = (typeof ClusterSchedulerConfigStatus)[keyof typeof ClusterSchedulerConfigStatus];
+
 export const ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy = {
     Keep: "Keep",
     DeleteIfNotUsed: "DeleteIfNotUsed",
@@ -896,6 +936,22 @@ export const DomainUserSettingsStudioWebPortal = {
  * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
  */
 export type DomainUserSettingsStudioWebPortal = (typeof DomainUserSettingsStudioWebPortal)[keyof typeof DomainUserSettingsStudioWebPortal];
+
+export const ExtensionStatus = {
+    Creating: "Creating",
+    Active: "Active",
+    CreateFailed: "CreateFailed",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    DeleteFailed: "DeleteFailed",
+    Degraded: "Degraded",
+    UpdateFailed: "UpdateFailed",
+} as const;
+
+/**
+ * The current status of the extension. CloudFormation doesn't wait for the extension to finish installing or updating on the cluster nodes. To check progress, use Status and NodeSummary.
+ */
+export type ExtensionStatus = (typeof ExtensionStatus)[keyof typeof ExtensionStatus];
 
 export const FeatureGroupFeatureDefinitionFeatureType = {
     Integral: "Integral",

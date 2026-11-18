@@ -13,8 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['VpcPeeringConnectionArgs', 'VpcPeeringConnection']
 
@@ -27,7 +30,9 @@ class VpcPeeringConnectionArgs:
                  peer_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 peer_vpc_peering_connection_options: pulumi.Input[Optional['VpcPeeringConnectionOptionsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_peering_connection_options: pulumi.Input[Optional['VpcPeeringConnectionOptionsArgs']] = None):
         """
         The set of arguments for constructing a VpcPeeringConnection resource.
 
@@ -37,7 +42,9 @@ class VpcPeeringConnectionArgs:
         :param pulumi.Input[_builtins.str] peer_owner_id: The AWS account ID of the owner of the accepter VPC.
         :param pulumi.Input[_builtins.str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
         :param pulumi.Input[_builtins.str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account. You can update this property. To manage PeerVpcPeeringConnectionOptions on a peering connection with another AWS account, the role must allow ec2:DescribeVpcPeeringConnections and ec2:ModifyVpcPeeringConnectionOptions.
+        :param pulumi.Input['VpcPeeringConnectionOptionsArgs'] peer_vpc_peering_connection_options: The VPC peering connection options corresponding to the accepter side of the connection.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the resource.
+        :param pulumi.Input['VpcPeeringConnectionOptionsArgs'] vpc_peering_connection_options: The VPC peering connection options corresponding to the requester side of the connection.
         """
         pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -49,8 +56,12 @@ class VpcPeeringConnectionArgs:
             pulumi.set(__self__, "peer_region", peer_region)
         if peer_role_arn is not None:
             pulumi.set(__self__, "peer_role_arn", peer_role_arn)
+        if peer_vpc_peering_connection_options is not None:
+            pulumi.set(__self__, "peer_vpc_peering_connection_options", peer_vpc_peering_connection_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vpc_peering_connection_options is not None:
+            pulumi.set(__self__, "vpc_peering_connection_options", vpc_peering_connection_options)
 
     @_builtins.property
     @pulumi.getter(name="peerVpcId")
@@ -125,6 +136,18 @@ class VpcPeeringConnectionArgs:
         pulumi.set(self, "peer_role_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="peerVpcPeeringConnectionOptions")
+    def peer_vpc_peering_connection_options(self) -> pulumi.Input[Optional['VpcPeeringConnectionOptionsArgs']]:
+        """
+        The VPC peering connection options corresponding to the accepter side of the connection.
+        """
+        return pulumi.get(self, "peer_vpc_peering_connection_options")
+
+    @peer_vpc_peering_connection_options.setter
+    def peer_vpc_peering_connection_options(self, value: pulumi.Input[Optional['VpcPeeringConnectionOptionsArgs']]):
+        pulumi.set(self, "peer_vpc_peering_connection_options", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -135,6 +158,18 @@ class VpcPeeringConnectionArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcPeeringConnectionOptions")
+    def vpc_peering_connection_options(self) -> pulumi.Input[Optional['VpcPeeringConnectionOptionsArgs']]:
+        """
+        The VPC peering connection options corresponding to the requester side of the connection.
+        """
+        return pulumi.get(self, "vpc_peering_connection_options")
+
+    @vpc_peering_connection_options.setter
+    def vpc_peering_connection_options(self, value: pulumi.Input[Optional['VpcPeeringConnectionOptionsArgs']]):
+        pulumi.set(self, "vpc_peering_connection_options", value)
 
 
 @pulumi.type_token("aws-native:ec2:VpcPeeringConnection")
@@ -148,8 +183,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_vpc_peering_connection_options: pulumi.Input[Optional[Union['VpcPeeringConnectionOptionsArgs', 'VpcPeeringConnectionOptionsArgsDict', 'outputs.VpcPeeringConnectionOptions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_peering_connection_options: pulumi.Input[Optional[Union['VpcPeeringConnectionOptionsArgs', 'VpcPeeringConnectionOptionsArgsDict', 'outputs.VpcPeeringConnectionOptions']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCPeeringConnection
@@ -161,8 +198,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
         :param pulumi.Input[_builtins.str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account. You can update this property. To manage PeerVpcPeeringConnectionOptions on a peering connection with another AWS account, the role must allow ec2:DescribeVpcPeeringConnections and ec2:ModifyVpcPeeringConnectionOptions.
         :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+        :param pulumi.Input[Union['VpcPeeringConnectionOptionsArgs', 'VpcPeeringConnectionOptionsArgsDict', 'outputs.VpcPeeringConnectionOptions']] peer_vpc_peering_connection_options: The VPC peering connection options corresponding to the accepter side of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Any tags assigned to the resource.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[Union['VpcPeeringConnectionOptionsArgs', 'VpcPeeringConnectionOptionsArgsDict', 'outputs.VpcPeeringConnectionOptions']] vpc_peering_connection_options: The VPC peering connection options corresponding to the requester side of the connection.
         """
         ...
     @overload
@@ -193,8 +232,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_vpc_peering_connection_options: pulumi.Input[Optional[Union['VpcPeeringConnectionOptionsArgs', 'VpcPeeringConnectionOptionsArgsDict', 'outputs.VpcPeeringConnectionOptions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_peering_connection_options: pulumi.Input[Optional[Union['VpcPeeringConnectionOptionsArgs', 'VpcPeeringConnectionOptionsArgsDict', 'outputs.VpcPeeringConnectionOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -211,11 +252,14 @@ class VpcPeeringConnection(pulumi.CustomResource):
             if peer_vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_vpc_id'")
             __props__.__dict__["peer_vpc_id"] = peer_vpc_id
+            __props__.__dict__["peer_vpc_peering_connection_options"] = peer_vpc_peering_connection_options
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["vpc_peering_connection_options"] = vpc_peering_connection_options
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["multipath_resilience_status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["peerOwnerId", "peerRegion", "peerVpcId", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcPeeringConnection, __self__).__init__(
@@ -242,12 +286,15 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         __props__.__dict__["assume_role_region"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["multipath_resilience_status"] = None
         __props__.__dict__["peer_owner_id"] = None
         __props__.__dict__["peer_region"] = None
         __props__.__dict__["peer_role_arn"] = None
         __props__.__dict__["peer_vpc_id"] = None
+        __props__.__dict__["peer_vpc_peering_connection_options"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
+        __props__.__dict__["vpc_peering_connection_options"] = None
         return VpcPeeringConnection(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -271,6 +318,14 @@ class VpcPeeringConnection(pulumi.CustomResource):
         The ID of the peering connection.
         """
         return pulumi.get(self, "aws_id")
+
+    @_builtins.property
+    @pulumi.getter(name="multipathResilienceStatus")
+    def multipath_resilience_status(self) -> pulumi.Output['VpcPeeringConnectionMultipathResilienceStatus']:
+        """
+        The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+        """
+        return pulumi.get(self, "multipath_resilience_status")
 
     @_builtins.property
     @pulumi.getter(name="peerOwnerId")
@@ -305,6 +360,14 @@ class VpcPeeringConnection(pulumi.CustomResource):
         return pulumi.get(self, "peer_vpc_id")
 
     @_builtins.property
+    @pulumi.getter(name="peerVpcPeeringConnectionOptions")
+    def peer_vpc_peering_connection_options(self) -> pulumi.Output[Optional['outputs.VpcPeeringConnectionOptions']]:
+        """
+        The VPC peering connection options corresponding to the accepter side of the connection.
+        """
+        return pulumi.get(self, "peer_vpc_peering_connection_options")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
@@ -319,4 +382,12 @@ class VpcPeeringConnection(pulumi.CustomResource):
         The ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcPeeringConnectionOptions")
+    def vpc_peering_connection_options(self) -> pulumi.Output[Optional['outputs.VpcPeeringConnectionOptions']]:
+        """
+        The VPC peering connection options corresponding to the requester side of the connection.
+        """
+        return pulumi.get(self, "vpc_peering_connection_options")
 

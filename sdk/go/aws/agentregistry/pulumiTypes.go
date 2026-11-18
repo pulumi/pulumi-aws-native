@@ -532,7 +532,7 @@ type RegistryCustomJwtAuthorizerConfiguration struct {
 	AllowedScopes []string `pulumi:"allowedScopes"`
 	// Additional custom claim validations applied to the inbound JWT.
 	CustomClaims []RegistryCustomClaimValidationType `pulumi:"customClaims"`
-	// The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+	// The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to retrieve the identity provider's metadata and signing keys. The URL contains /.well-known/openid-configuration or /.well-known/oauth-authorization-server, respectively.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -557,7 +557,7 @@ type RegistryCustomJwtAuthorizerConfigurationArgs struct {
 	AllowedScopes pulumi.StringArrayInput `pulumi:"allowedScopes"`
 	// Additional custom claim validations applied to the inbound JWT.
 	CustomClaims RegistryCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
-	// The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+	// The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to retrieve the identity provider's metadata and signing keys. The URL contains /.well-known/openid-configuration or /.well-known/oauth-authorization-server, respectively.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -661,7 +661,7 @@ func (o RegistryCustomJwtAuthorizerConfigurationOutput) CustomClaims() RegistryC
 	}).(RegistryCustomClaimValidationTypeArrayOutput)
 }
 
-// The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+// The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to retrieve the identity provider's metadata and signing keys. The URL contains /.well-known/openid-configuration or /.well-known/oauth-authorization-server, respectively.
 func (o RegistryCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
 }
@@ -730,7 +730,7 @@ func (o RegistryCustomJwtAuthorizerConfigurationPtrOutput) CustomClaims() Regist
 	}).(RegistryCustomClaimValidationTypeArrayOutput)
 }
 
-// The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+// The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to retrieve the identity provider's metadata and signing keys. The URL contains /.well-known/openid-configuration or /.well-known/oauth-authorization-server, respectively.
 func (o RegistryCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryCustomJwtAuthorizerConfiguration) *string {
 		if v == nil {

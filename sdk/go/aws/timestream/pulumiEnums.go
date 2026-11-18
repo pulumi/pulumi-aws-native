@@ -10,6 +10,752 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The DB instance type of the resource at the time of backup.
+type InfluxDbBackupDbInstanceType string
+
+const (
+	InfluxDbBackupDbInstanceTypeDbInfluxMedium   = InfluxDbBackupDbInstanceType("db.influx.medium")
+	InfluxDbBackupDbInstanceTypeDbInfluxLarge    = InfluxDbBackupDbInstanceType("db.influx.large")
+	InfluxDbBackupDbInstanceTypeDbInfluxXlarge   = InfluxDbBackupDbInstanceType("db.influx.xlarge")
+	InfluxDbBackupDbInstanceTypeDbInflux2xlarge  = InfluxDbBackupDbInstanceType("db.influx.2xlarge")
+	InfluxDbBackupDbInstanceTypeDbInflux4xlarge  = InfluxDbBackupDbInstanceType("db.influx.4xlarge")
+	InfluxDbBackupDbInstanceTypeDbInflux8xlarge  = InfluxDbBackupDbInstanceType("db.influx.8xlarge")
+	InfluxDbBackupDbInstanceTypeDbInflux12xlarge = InfluxDbBackupDbInstanceType("db.influx.12xlarge")
+	InfluxDbBackupDbInstanceTypeDbInflux16xlarge = InfluxDbBackupDbInstanceType("db.influx.16xlarge")
+	InfluxDbBackupDbInstanceTypeDbInflux24xlarge = InfluxDbBackupDbInstanceType("db.influx.24xlarge")
+)
+
+type InfluxDbBackupDbInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupDbInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupDbInstanceType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupDbInstanceTypeOutput) ToInfluxDbBackupDbInstanceTypeOutput() InfluxDbBackupDbInstanceTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupDbInstanceTypeOutput) ToInfluxDbBackupDbInstanceTypeOutputWithContext(ctx context.Context) InfluxDbBackupDbInstanceTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupDbInstanceTypeOutput) ToInfluxDbBackupDbInstanceTypePtrOutput() InfluxDbBackupDbInstanceTypePtrOutput {
+	return o.ToInfluxDbBackupDbInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDbInstanceTypeOutput) ToInfluxDbBackupDbInstanceTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupDbInstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbBackupDbInstanceType) *InfluxDbBackupDbInstanceType {
+		return &v
+	}).(InfluxDbBackupDbInstanceTypePtrOutput)
+}
+
+func (o InfluxDbBackupDbInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDbInstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupDbInstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbBackupDbInstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDbInstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupDbInstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbBackupDbInstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupDbInstanceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupDbInstanceType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupDbInstanceTypePtrOutput) ToInfluxDbBackupDbInstanceTypePtrOutput() InfluxDbBackupDbInstanceTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupDbInstanceTypePtrOutput) ToInfluxDbBackupDbInstanceTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupDbInstanceTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupDbInstanceTypePtrOutput) Elem() InfluxDbBackupDbInstanceTypeOutput {
+	return o.ApplyT(func(v *InfluxDbBackupDbInstanceType) InfluxDbBackupDbInstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupDbInstanceType
+		return ret
+	}).(InfluxDbBackupDbInstanceTypeOutput)
+}
+
+func (o InfluxDbBackupDbInstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDbInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbBackupDbInstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage type of the resource at the time of backup.
+type InfluxDbBackupDbStorageType string
+
+const (
+	InfluxDbBackupDbStorageTypeInfluxIoIncludedT1 = InfluxDbBackupDbStorageType("InfluxIOIncludedT1")
+	InfluxDbBackupDbStorageTypeInfluxIoIncludedT2 = InfluxDbBackupDbStorageType("InfluxIOIncludedT2")
+	InfluxDbBackupDbStorageTypeInfluxIoIncludedT3 = InfluxDbBackupDbStorageType("InfluxIOIncludedT3")
+)
+
+type InfluxDbBackupDbStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupDbStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupDbStorageType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupDbStorageTypeOutput) ToInfluxDbBackupDbStorageTypeOutput() InfluxDbBackupDbStorageTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupDbStorageTypeOutput) ToInfluxDbBackupDbStorageTypeOutputWithContext(ctx context.Context) InfluxDbBackupDbStorageTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupDbStorageTypeOutput) ToInfluxDbBackupDbStorageTypePtrOutput() InfluxDbBackupDbStorageTypePtrOutput {
+	return o.ToInfluxDbBackupDbStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDbStorageTypeOutput) ToInfluxDbBackupDbStorageTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupDbStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbBackupDbStorageType) *InfluxDbBackupDbStorageType {
+		return &v
+	}).(InfluxDbBackupDbStorageTypePtrOutput)
+}
+
+func (o InfluxDbBackupDbStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDbStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupDbStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbBackupDbStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDbStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupDbStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbBackupDbStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupDbStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupDbStorageType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupDbStorageTypePtrOutput) ToInfluxDbBackupDbStorageTypePtrOutput() InfluxDbBackupDbStorageTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupDbStorageTypePtrOutput) ToInfluxDbBackupDbStorageTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupDbStorageTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupDbStorageTypePtrOutput) Elem() InfluxDbBackupDbStorageTypeOutput {
+	return o.ApplyT(func(v *InfluxDbBackupDbStorageType) InfluxDbBackupDbStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupDbStorageType
+		return ret
+	}).(InfluxDbBackupDbStorageTypeOutput)
+}
+
+func (o InfluxDbBackupDbStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDbStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbBackupDbStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The deployment type of the resource that the backup was created from.
+type InfluxDbBackupDeploymentType string
+
+const (
+	InfluxDbBackupDeploymentTypeSingleAz              = InfluxDbBackupDeploymentType("SINGLE_AZ")
+	InfluxDbBackupDeploymentTypeWithMultiazStandby    = InfluxDbBackupDeploymentType("WITH_MULTIAZ_STANDBY")
+	InfluxDbBackupDeploymentTypeMultiNodeReadReplicas = InfluxDbBackupDeploymentType("MULTI_NODE_READ_REPLICAS")
+)
+
+type InfluxDbBackupDeploymentTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupDeploymentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupDeploymentType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupDeploymentTypeOutput) ToInfluxDbBackupDeploymentTypeOutput() InfluxDbBackupDeploymentTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupDeploymentTypeOutput) ToInfluxDbBackupDeploymentTypeOutputWithContext(ctx context.Context) InfluxDbBackupDeploymentTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupDeploymentTypeOutput) ToInfluxDbBackupDeploymentTypePtrOutput() InfluxDbBackupDeploymentTypePtrOutput {
+	return o.ToInfluxDbBackupDeploymentTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDeploymentTypeOutput) ToInfluxDbBackupDeploymentTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupDeploymentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbBackupDeploymentType) *InfluxDbBackupDeploymentType {
+		return &v
+	}).(InfluxDbBackupDeploymentTypePtrOutput)
+}
+
+func (o InfluxDbBackupDeploymentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDeploymentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupDeploymentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbBackupDeploymentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDeploymentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupDeploymentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbBackupDeploymentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupDeploymentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupDeploymentType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupDeploymentTypePtrOutput) ToInfluxDbBackupDeploymentTypePtrOutput() InfluxDbBackupDeploymentTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupDeploymentTypePtrOutput) ToInfluxDbBackupDeploymentTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupDeploymentTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupDeploymentTypePtrOutput) Elem() InfluxDbBackupDeploymentTypeOutput {
+	return o.ApplyT(func(v *InfluxDbBackupDeploymentType) InfluxDbBackupDeploymentType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupDeploymentType
+		return ret
+	}).(InfluxDbBackupDeploymentTypeOutput)
+}
+
+func (o InfluxDbBackupDeploymentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupDeploymentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbBackupDeploymentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The engine type of the resource that the backup was created from.
+type InfluxDbBackupEngineType string
+
+const (
+	InfluxDbBackupEngineTypeInfluxdbV2           = InfluxDbBackupEngineType("INFLUXDB_V2")
+	InfluxDbBackupEngineTypeInfluxdbV3Core       = InfluxDbBackupEngineType("INFLUXDB_V3_CORE")
+	InfluxDbBackupEngineTypeInfluxdbV3Enterprise = InfluxDbBackupEngineType("INFLUXDB_V3_ENTERPRISE")
+)
+
+type InfluxDbBackupEngineTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupEngineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupEngineType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupEngineTypeOutput) ToInfluxDbBackupEngineTypeOutput() InfluxDbBackupEngineTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupEngineTypeOutput) ToInfluxDbBackupEngineTypeOutputWithContext(ctx context.Context) InfluxDbBackupEngineTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupEngineTypeOutput) ToInfluxDbBackupEngineTypePtrOutput() InfluxDbBackupEngineTypePtrOutput {
+	return o.ToInfluxDbBackupEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupEngineTypeOutput) ToInfluxDbBackupEngineTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupEngineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbBackupEngineType) *InfluxDbBackupEngineType {
+		return &v
+	}).(InfluxDbBackupEngineTypePtrOutput)
+}
+
+func (o InfluxDbBackupEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupEngineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupEngineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbBackupEngineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupEngineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupEngineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbBackupEngineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupEngineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupEngineType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupEngineTypePtrOutput) ToInfluxDbBackupEngineTypePtrOutput() InfluxDbBackupEngineTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupEngineTypePtrOutput) ToInfluxDbBackupEngineTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupEngineTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupEngineTypePtrOutput) Elem() InfluxDbBackupEngineTypeOutput {
+	return o.ApplyT(func(v *InfluxDbBackupEngineType) InfluxDbBackupEngineType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupEngineType
+		return ret
+	}).(InfluxDbBackupEngineTypeOutput)
+}
+
+func (o InfluxDbBackupEngineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupEngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbBackupEngineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The failover mode of the resource at the time of backup.
+type InfluxDbBackupFailoverMode string
+
+const (
+	InfluxDbBackupFailoverModeAutomatic  = InfluxDbBackupFailoverMode("AUTOMATIC")
+	InfluxDbBackupFailoverModeNoFailover = InfluxDbBackupFailoverMode("NO_FAILOVER")
+)
+
+type InfluxDbBackupFailoverModeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupFailoverModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupFailoverMode)(nil)).Elem()
+}
+
+func (o InfluxDbBackupFailoverModeOutput) ToInfluxDbBackupFailoverModeOutput() InfluxDbBackupFailoverModeOutput {
+	return o
+}
+
+func (o InfluxDbBackupFailoverModeOutput) ToInfluxDbBackupFailoverModeOutputWithContext(ctx context.Context) InfluxDbBackupFailoverModeOutput {
+	return o
+}
+
+func (o InfluxDbBackupFailoverModeOutput) ToInfluxDbBackupFailoverModePtrOutput() InfluxDbBackupFailoverModePtrOutput {
+	return o.ToInfluxDbBackupFailoverModePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupFailoverModeOutput) ToInfluxDbBackupFailoverModePtrOutputWithContext(ctx context.Context) InfluxDbBackupFailoverModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbBackupFailoverMode) *InfluxDbBackupFailoverMode {
+		return &v
+	}).(InfluxDbBackupFailoverModePtrOutput)
+}
+
+func (o InfluxDbBackupFailoverModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupFailoverModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupFailoverMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbBackupFailoverModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupFailoverModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupFailoverMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbBackupFailoverModePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupFailoverModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupFailoverMode)(nil)).Elem()
+}
+
+func (o InfluxDbBackupFailoverModePtrOutput) ToInfluxDbBackupFailoverModePtrOutput() InfluxDbBackupFailoverModePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupFailoverModePtrOutput) ToInfluxDbBackupFailoverModePtrOutputWithContext(ctx context.Context) InfluxDbBackupFailoverModePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupFailoverModePtrOutput) Elem() InfluxDbBackupFailoverModeOutput {
+	return o.ApplyT(func(v *InfluxDbBackupFailoverMode) InfluxDbBackupFailoverMode {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupFailoverMode
+		return ret
+	}).(InfluxDbBackupFailoverModeOutput)
+}
+
+func (o InfluxDbBackupFailoverModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupFailoverModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbBackupFailoverMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network type of the resource at the time of backup.
+type InfluxDbBackupNetworkType string
+
+const (
+	InfluxDbBackupNetworkTypeIpv4 = InfluxDbBackupNetworkType("IPV4")
+	InfluxDbBackupNetworkTypeDual = InfluxDbBackupNetworkType("DUAL")
+)
+
+type InfluxDbBackupNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupNetworkType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupNetworkTypeOutput) ToInfluxDbBackupNetworkTypeOutput() InfluxDbBackupNetworkTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupNetworkTypeOutput) ToInfluxDbBackupNetworkTypeOutputWithContext(ctx context.Context) InfluxDbBackupNetworkTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupNetworkTypeOutput) ToInfluxDbBackupNetworkTypePtrOutput() InfluxDbBackupNetworkTypePtrOutput {
+	return o.ToInfluxDbBackupNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupNetworkTypeOutput) ToInfluxDbBackupNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbBackupNetworkType) *InfluxDbBackupNetworkType {
+		return &v
+	}).(InfluxDbBackupNetworkTypePtrOutput)
+}
+
+func (o InfluxDbBackupNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbBackupNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbBackupNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupNetworkType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupNetworkTypePtrOutput) ToInfluxDbBackupNetworkTypePtrOutput() InfluxDbBackupNetworkTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupNetworkTypePtrOutput) ToInfluxDbBackupNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupNetworkTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupNetworkTypePtrOutput) Elem() InfluxDbBackupNetworkTypeOutput {
+	return o.ApplyT(func(v *InfluxDbBackupNetworkType) InfluxDbBackupNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupNetworkType
+		return ret
+	}).(InfluxDbBackupNetworkTypeOutput)
+}
+
+func (o InfluxDbBackupNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbBackupNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the backup.
+type InfluxDbBackupStatus string
+
+const (
+	InfluxDbBackupStatusInProgress = InfluxDbBackupStatus("IN_PROGRESS")
+	InfluxDbBackupStatusCompleted  = InfluxDbBackupStatus("COMPLETED")
+	InfluxDbBackupStatusFailed     = InfluxDbBackupStatus("FAILED")
+	InfluxDbBackupStatusDeleting   = InfluxDbBackupStatus("DELETING")
+	InfluxDbBackupStatusDeleted    = InfluxDbBackupStatus("DELETED")
+)
+
+type InfluxDbBackupStatusOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupStatus)(nil)).Elem()
+}
+
+func (o InfluxDbBackupStatusOutput) ToInfluxDbBackupStatusOutput() InfluxDbBackupStatusOutput {
+	return o
+}
+
+func (o InfluxDbBackupStatusOutput) ToInfluxDbBackupStatusOutputWithContext(ctx context.Context) InfluxDbBackupStatusOutput {
+	return o
+}
+
+func (o InfluxDbBackupStatusOutput) ToInfluxDbBackupStatusPtrOutput() InfluxDbBackupStatusPtrOutput {
+	return o.ToInfluxDbBackupStatusPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupStatusOutput) ToInfluxDbBackupStatusPtrOutputWithContext(ctx context.Context) InfluxDbBackupStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbBackupStatus) *InfluxDbBackupStatus {
+		return &v
+	}).(InfluxDbBackupStatusPtrOutput)
+}
+
+func (o InfluxDbBackupStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbBackupStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbBackupStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupStatus)(nil)).Elem()
+}
+
+func (o InfluxDbBackupStatusPtrOutput) ToInfluxDbBackupStatusPtrOutput() InfluxDbBackupStatusPtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupStatusPtrOutput) ToInfluxDbBackupStatusPtrOutputWithContext(ctx context.Context) InfluxDbBackupStatusPtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupStatusPtrOutput) Elem() InfluxDbBackupStatusOutput {
+	return o.ApplyT(func(v *InfluxDbBackupStatus) InfluxDbBackupStatus {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupStatus
+		return ret
+	}).(InfluxDbBackupStatusOutput)
+}
+
+func (o InfluxDbBackupStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbBackupStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of backup. Backups created through this resource type are always ON_DEMAND.
+type InfluxDbBackupType string
+
+const (
+	InfluxDbBackupTypeHourly         = InfluxDbBackupType("HOURLY")
+	InfluxDbBackupTypeDaily          = InfluxDbBackupType("DAILY")
+	InfluxDbBackupTypeWeekly         = InfluxDbBackupType("WEEKLY")
+	InfluxDbBackupTypeMonthly        = InfluxDbBackupType("MONTHLY")
+	InfluxDbBackupTypeCustomSchedule = InfluxDbBackupType("CUSTOM_SCHEDULE")
+	InfluxDbBackupTypeOnDemand       = InfluxDbBackupType("ON_DEMAND")
+	InfluxDbBackupTypeContinuous     = InfluxDbBackupType("CONTINUOUS")
+)
+
+type InfluxDbBackupTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupTypeOutput) ToInfluxDbBackupTypeOutput() InfluxDbBackupTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupTypeOutput) ToInfluxDbBackupTypeOutputWithContext(ctx context.Context) InfluxDbBackupTypeOutput {
+	return o
+}
+
+func (o InfluxDbBackupTypeOutput) ToInfluxDbBackupTypePtrOutput() InfluxDbBackupTypePtrOutput {
+	return o.ToInfluxDbBackupTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupTypeOutput) ToInfluxDbBackupTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbBackupType) *InfluxDbBackupType {
+		return &v
+	}).(InfluxDbBackupTypePtrOutput)
+}
+
+func (o InfluxDbBackupTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbBackupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbBackupType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbBackupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupType)(nil)).Elem()
+}
+
+func (o InfluxDbBackupTypePtrOutput) ToInfluxDbBackupTypePtrOutput() InfluxDbBackupTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupTypePtrOutput) ToInfluxDbBackupTypePtrOutputWithContext(ctx context.Context) InfluxDbBackupTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupTypePtrOutput) Elem() InfluxDbBackupTypeOutput {
+	return o.ApplyT(func(v *InfluxDbBackupType) InfluxDbBackupType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupType
+		return ret
+	}).(InfluxDbBackupTypeOutput)
+}
+
+func (o InfluxDbBackupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbBackupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbBackupType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The compute instance of the InfluxDB cluster.
 type InfluxDbClusterDbInstanceType string
 
@@ -778,6 +1524,102 @@ func (in *influxDbClusterFailoverModePtr) ToInfluxDbClusterFailoverModePtrOutput
 
 func (in *influxDbClusterFailoverModePtr) ToInfluxDbClusterFailoverModePtrOutputWithContext(ctx context.Context) InfluxDbClusterFailoverModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InfluxDbClusterFailoverModePtrOutput)
+}
+
+// The instance mode reported by DB cluster members.
+type InfluxDbClusterMemberModeCountMode string
+
+const (
+	InfluxDbClusterMemberModeCountModePrimary = InfluxDbClusterMemberModeCountMode("PRIMARY")
+	InfluxDbClusterMemberModeCountModeStandby = InfluxDbClusterMemberModeCountMode("STANDBY")
+	InfluxDbClusterMemberModeCountModeReplica = InfluxDbClusterMemberModeCountMode("REPLICA")
+	InfluxDbClusterMemberModeCountModeIngest  = InfluxDbClusterMemberModeCountMode("INGEST")
+	InfluxDbClusterMemberModeCountModeQuery   = InfluxDbClusterMemberModeCountMode("QUERY")
+	InfluxDbClusterMemberModeCountModeCompact = InfluxDbClusterMemberModeCountMode("COMPACT")
+	InfluxDbClusterMemberModeCountModeProcess = InfluxDbClusterMemberModeCountMode("PROCESS")
+)
+
+type InfluxDbClusterMemberModeCountModeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterMemberModeCountModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterMemberModeCountMode)(nil)).Elem()
+}
+
+func (o InfluxDbClusterMemberModeCountModeOutput) ToInfluxDbClusterMemberModeCountModeOutput() InfluxDbClusterMemberModeCountModeOutput {
+	return o
+}
+
+func (o InfluxDbClusterMemberModeCountModeOutput) ToInfluxDbClusterMemberModeCountModeOutputWithContext(ctx context.Context) InfluxDbClusterMemberModeCountModeOutput {
+	return o
+}
+
+func (o InfluxDbClusterMemberModeCountModeOutput) ToInfluxDbClusterMemberModeCountModePtrOutput() InfluxDbClusterMemberModeCountModePtrOutput {
+	return o.ToInfluxDbClusterMemberModeCountModePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterMemberModeCountModeOutput) ToInfluxDbClusterMemberModeCountModePtrOutputWithContext(ctx context.Context) InfluxDbClusterMemberModeCountModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterMemberModeCountMode) *InfluxDbClusterMemberModeCountMode {
+		return &v
+	}).(InfluxDbClusterMemberModeCountModePtrOutput)
+}
+
+func (o InfluxDbClusterMemberModeCountModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterMemberModeCountModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterMemberModeCountMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbClusterMemberModeCountModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterMemberModeCountModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterMemberModeCountMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbClusterMemberModeCountModePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterMemberModeCountModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterMemberModeCountMode)(nil)).Elem()
+}
+
+func (o InfluxDbClusterMemberModeCountModePtrOutput) ToInfluxDbClusterMemberModeCountModePtrOutput() InfluxDbClusterMemberModeCountModePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterMemberModeCountModePtrOutput) ToInfluxDbClusterMemberModeCountModePtrOutputWithContext(ctx context.Context) InfluxDbClusterMemberModeCountModePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterMemberModeCountModePtrOutput) Elem() InfluxDbClusterMemberModeCountModeOutput {
+	return o.ApplyT(func(v *InfluxDbClusterMemberModeCountMode) InfluxDbClusterMemberModeCountMode {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterMemberModeCountMode
+		return ret
+	}).(InfluxDbClusterMemberModeCountModeOutput)
+}
+
+func (o InfluxDbClusterMemberModeCountModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterMemberModeCountModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbClusterMemberModeCountMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 // Network type of the InfluxDB cluster.
@@ -2864,6 +3706,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyEnforcementLevelPtrInput)(nil)).Elem(), TablePartitionKeyEnforcementLevel("REQUIRED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyTypeInput)(nil)).Elem(), TablePartitionKeyType("DIMENSION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyTypePtrInput)(nil)).Elem(), TablePartitionKeyType("DIMENSION"))
+	pulumi.RegisterOutputType(InfluxDbBackupDbInstanceTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupDbInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupDbStorageTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupDbStorageTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupDeploymentTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupDeploymentTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupEngineTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupEngineTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupFailoverModeOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupFailoverModePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupNetworkTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupNetworkTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupStatusOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupStatusPtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupTypePtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterDbInstanceTypeOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterDbInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterDbStorageTypeOutput{})
@@ -2874,6 +3732,8 @@ func init() {
 	pulumi.RegisterOutputType(InfluxDbClusterEngineTypePtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterFailoverModeOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterFailoverModePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterMemberModeCountModeOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterMemberModeCountModePtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterNetworkTypeOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterStatusOutput{})

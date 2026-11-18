@@ -201,6 +201,34 @@ namespace Pulumi.AwsNative.Msk
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ClusterBrokerNodeGroupInfoTopicReassignment : IEquatable<ClusterBrokerNodeGroupInfoTopicReassignment>
+    {
+        private readonly string _value;
+
+        private ClusterBrokerNodeGroupInfoTopicReassignment(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterBrokerNodeGroupInfoTopicReassignment Auto { get; } = new ClusterBrokerNodeGroupInfoTopicReassignment("AUTO");
+        public static ClusterBrokerNodeGroupInfoTopicReassignment Manual { get; } = new ClusterBrokerNodeGroupInfoTopicReassignment("MANUAL");
+
+        public static bool operator ==(ClusterBrokerNodeGroupInfoTopicReassignment left, ClusterBrokerNodeGroupInfoTopicReassignment right) => left.Equals(right);
+        public static bool operator !=(ClusterBrokerNodeGroupInfoTopicReassignment left, ClusterBrokerNodeGroupInfoTopicReassignment right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterBrokerNodeGroupInfoTopicReassignment value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterBrokerNodeGroupInfoTopicReassignment other && Equals(other);
+        public bool Equals(ClusterBrokerNodeGroupInfoTopicReassignment other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
     /// 

@@ -712,6 +712,172 @@ func (o ClusterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+type ComputeNodeGroupLaunchTemplateMode string
+
+const (
+	ComputeNodeGroupLaunchTemplateModeCustom  = ComputeNodeGroupLaunchTemplateMode("CUSTOM")
+	ComputeNodeGroupLaunchTemplateModeManaged = ComputeNodeGroupLaunchTemplateMode("MANAGED")
+)
+
+func (ComputeNodeGroupLaunchTemplateMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupLaunchTemplateMode)(nil)).Elem()
+}
+
+func (e ComputeNodeGroupLaunchTemplateMode) ToComputeNodeGroupLaunchTemplateModeOutput() ComputeNodeGroupLaunchTemplateModeOutput {
+	return pulumi.ToOutput(e).(ComputeNodeGroupLaunchTemplateModeOutput)
+}
+
+func (e ComputeNodeGroupLaunchTemplateMode) ToComputeNodeGroupLaunchTemplateModeOutputWithContext(ctx context.Context) ComputeNodeGroupLaunchTemplateModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeNodeGroupLaunchTemplateModeOutput)
+}
+
+func (e ComputeNodeGroupLaunchTemplateMode) ToComputeNodeGroupLaunchTemplateModePtrOutput() ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return e.ToComputeNodeGroupLaunchTemplateModePtrOutputWithContext(context.Background())
+}
+
+func (e ComputeNodeGroupLaunchTemplateMode) ToComputeNodeGroupLaunchTemplateModePtrOutputWithContext(ctx context.Context) ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return ComputeNodeGroupLaunchTemplateMode(e).ToComputeNodeGroupLaunchTemplateModeOutputWithContext(ctx).ToComputeNodeGroupLaunchTemplateModePtrOutputWithContext(ctx)
+}
+
+func (e ComputeNodeGroupLaunchTemplateMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeNodeGroupLaunchTemplateMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeNodeGroupLaunchTemplateMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeNodeGroupLaunchTemplateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeNodeGroupLaunchTemplateModeOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupLaunchTemplateModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupLaunchTemplateMode)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupLaunchTemplateModeOutput) ToComputeNodeGroupLaunchTemplateModeOutput() ComputeNodeGroupLaunchTemplateModeOutput {
+	return o
+}
+
+func (o ComputeNodeGroupLaunchTemplateModeOutput) ToComputeNodeGroupLaunchTemplateModeOutputWithContext(ctx context.Context) ComputeNodeGroupLaunchTemplateModeOutput {
+	return o
+}
+
+func (o ComputeNodeGroupLaunchTemplateModeOutput) ToComputeNodeGroupLaunchTemplateModePtrOutput() ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return o.ToComputeNodeGroupLaunchTemplateModePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeNodeGroupLaunchTemplateModeOutput) ToComputeNodeGroupLaunchTemplateModePtrOutputWithContext(ctx context.Context) ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeNodeGroupLaunchTemplateMode) *ComputeNodeGroupLaunchTemplateMode {
+		return &v
+	}).(ComputeNodeGroupLaunchTemplateModePtrOutput)
+}
+
+func (o ComputeNodeGroupLaunchTemplateModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeNodeGroupLaunchTemplateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeNodeGroupLaunchTemplateMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeNodeGroupLaunchTemplateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeNodeGroupLaunchTemplateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeNodeGroupLaunchTemplateMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeNodeGroupLaunchTemplateModePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupLaunchTemplateModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeNodeGroupLaunchTemplateMode)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupLaunchTemplateModePtrOutput) ToComputeNodeGroupLaunchTemplateModePtrOutput() ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return o
+}
+
+func (o ComputeNodeGroupLaunchTemplateModePtrOutput) ToComputeNodeGroupLaunchTemplateModePtrOutputWithContext(ctx context.Context) ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return o
+}
+
+func (o ComputeNodeGroupLaunchTemplateModePtrOutput) Elem() ComputeNodeGroupLaunchTemplateModeOutput {
+	return o.ApplyT(func(v *ComputeNodeGroupLaunchTemplateMode) ComputeNodeGroupLaunchTemplateMode {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeNodeGroupLaunchTemplateMode
+		return ret
+	}).(ComputeNodeGroupLaunchTemplateModeOutput)
+}
+
+func (o ComputeNodeGroupLaunchTemplateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeNodeGroupLaunchTemplateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeNodeGroupLaunchTemplateMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeNodeGroupLaunchTemplateModeInput is an input type that accepts values of the ComputeNodeGroupLaunchTemplateMode enum
+// A concrete instance of `ComputeNodeGroupLaunchTemplateModeInput` can be one of the following:
+//
+//	ComputeNodeGroupLaunchTemplateModeCustom
+//	ComputeNodeGroupLaunchTemplateModeManaged
+type ComputeNodeGroupLaunchTemplateModeInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupLaunchTemplateModeOutput() ComputeNodeGroupLaunchTemplateModeOutput
+	ToComputeNodeGroupLaunchTemplateModeOutputWithContext(context.Context) ComputeNodeGroupLaunchTemplateModeOutput
+}
+
+var computeNodeGroupLaunchTemplateModePtrType = reflect.TypeOf((**ComputeNodeGroupLaunchTemplateMode)(nil)).Elem()
+
+type ComputeNodeGroupLaunchTemplateModePtrInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupLaunchTemplateModePtrOutput() ComputeNodeGroupLaunchTemplateModePtrOutput
+	ToComputeNodeGroupLaunchTemplateModePtrOutputWithContext(context.Context) ComputeNodeGroupLaunchTemplateModePtrOutput
+}
+
+type computeNodeGroupLaunchTemplateModePtr string
+
+func ComputeNodeGroupLaunchTemplateModePtr(v string) ComputeNodeGroupLaunchTemplateModePtrInput {
+	return (*computeNodeGroupLaunchTemplateModePtr)(&v)
+}
+
+func (*computeNodeGroupLaunchTemplateModePtr) ElementType() reflect.Type {
+	return computeNodeGroupLaunchTemplateModePtrType
+}
+
+func (in *computeNodeGroupLaunchTemplateModePtr) ToComputeNodeGroupLaunchTemplateModePtrOutput() ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return pulumi.ToOutput(in).(ComputeNodeGroupLaunchTemplateModePtrOutput)
+}
+
+func (in *computeNodeGroupLaunchTemplateModePtr) ToComputeNodeGroupLaunchTemplateModePtrOutputWithContext(ctx context.Context) ComputeNodeGroupLaunchTemplateModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeNodeGroupLaunchTemplateModePtrOutput)
+}
+
 // Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
 type ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy string
 
@@ -1749,6 +1915,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSchedulerPropertiesTypePtrInput)(nil)).Elem(), ClusterSchedulerPropertiesType("SLURM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSizeInput)(nil)).Elem(), ClusterSize("SMALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSizePtrInput)(nil)).Elem(), ClusterSize("SMALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupLaunchTemplateModeInput)(nil)).Elem(), ComputeNodeGroupLaunchTemplateMode("CUSTOM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupLaunchTemplateModePtrInput)(nil)).Elem(), ComputeNodeGroupLaunchTemplateMode("CUSTOM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy("CACHE_ONCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyPtrInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy("CACHE_ONCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleScriptExecutionPolicyInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleScriptExecutionPolicy("FIRST_BOOT_ONLY"))
@@ -1769,6 +1937,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterSizePtrOutput{})
 	pulumi.RegisterOutputType(ClusterStatusOutput{})
 	pulumi.RegisterOutputType(ClusterStatusPtrOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupLaunchTemplateModeOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupLaunchTemplateModePtrOutput{})
 	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyOutput{})
 	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleScriptExecutionPolicyOutput{})

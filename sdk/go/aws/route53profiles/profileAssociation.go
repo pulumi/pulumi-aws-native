@@ -23,6 +23,8 @@ type ProfileAssociation struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The name of an association between a  Profile and a VPC.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// The ID of the  profile that you associated with the resource that is specified by ResourceId.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// The resource that you associated the  profile with.
@@ -93,6 +95,8 @@ type profileAssociationArgs struct {
 	Arn *string `pulumi:"arn"`
 	// The name of an association between a  Profile and a VPC.
 	Name *string `pulumi:"name"`
+	// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+	Priority *int `pulumi:"priority"`
 	// The ID of the  profile that you associated with the resource that is specified by ResourceId.
 	ProfileId string `pulumi:"profileId"`
 	// The resource that you associated the  profile with.
@@ -107,6 +111,8 @@ type ProfileAssociationArgs struct {
 	Arn pulumi.StringPtrInput
 	// The name of an association between a  Profile and a VPC.
 	Name pulumi.StringPtrInput
+	// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+	Priority pulumi.IntPtrInput
 	// The ID of the  profile that you associated with the resource that is specified by ResourceId.
 	ProfileId pulumi.StringInput
 	// The resource that you associated the  profile with.
@@ -165,6 +171,11 @@ func (o ProfileAssociationOutput) AwsId() pulumi.StringOutput {
 // The name of an association between a  Profile and a VPC.
 func (o ProfileAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+func (o ProfileAssociationOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProfileAssociation) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the  profile that you associated with the resource that is specified by ResourceId.

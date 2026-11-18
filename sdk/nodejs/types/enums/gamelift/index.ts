@@ -524,6 +524,17 @@ export const GameServerGroupGameServerProtectionPolicy = {
  */
 export type GameServerGroupGameServerProtectionPolicy = (typeof GameServerGroupGameServerProtectionPolicy)[keyof typeof GameServerGroupGameServerProtectionPolicy];
 
+export const GameSessionQueueDeliveryDestinationLogDestination = {
+    Cloudwatch: "CLOUDWATCH",
+    S3: "S3",
+    Firehose: "FIREHOSE",
+} as const;
+
+/**
+ * The type of service that receives the game session queue's placement logs.
+ */
+export type GameSessionQueueDeliveryDestinationLogDestination = (typeof GameSessionQueueDeliveryDestinationLogDestination)[keyof typeof GameSessionQueueDeliveryDestinationLogDestination];
+
 export const GameSessionQueuePriorityOrderItem = {
     Latency: "LATENCY",
     Cost: "COST",

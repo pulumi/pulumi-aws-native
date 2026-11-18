@@ -84,6 +84,18 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModificationErrors: pulumi.Output<string[]>;
     /**
+     * The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+     */
+    declare public readonly natGatewayRules: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentNatRule[] | undefined>;
+    /**
+     * Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+     */
+    declare public readonly natGatewaySupport: pulumi.Output<enums.networkmanager.DirectConnectGatewayAttachmentNatGatewaySupport | undefined>;
+    /**
+     * Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. If omitted, a new NAT gateway configuration uses the service default of true and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
+     */
+    declare public readonly natSystemRouteSupport: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the network function group attachment.
      */
     declare public /*out*/ readonly networkFunctionGroupName: pulumi.Output<string>;
@@ -147,6 +159,9 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = args?.coreNetworkId;
             resourceInputs["directConnectGatewayArn"] = args?.directConnectGatewayArn;
             resourceInputs["edgeLocations"] = args?.edgeLocations;
+            resourceInputs["natGatewayRules"] = args?.natGatewayRules;
+            resourceInputs["natGatewaySupport"] = args?.natGatewaySupport;
+            resourceInputs["natSystemRouteSupport"] = args?.natSystemRouteSupport;
             resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -173,6 +188,9 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["directConnectGatewayArn"] = undefined /*out*/;
             resourceInputs["edgeLocations"] = undefined /*out*/;
             resourceInputs["lastModificationErrors"] = undefined /*out*/;
+            resourceInputs["natGatewayRules"] = undefined /*out*/;
+            resourceInputs["natGatewaySupport"] = undefined /*out*/;
+            resourceInputs["natSystemRouteSupport"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
@@ -207,6 +225,18 @@ export interface DirectConnectGatewayAttachmentArgs {
      * The Regions where the edges are located.
      */
     edgeLocations: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+     */
+    natGatewayRules?: pulumi.Input<pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentNatRuleArgs>[] | undefined>;
+    /**
+     * Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+     */
+    natGatewaySupport?: pulumi.Input<enums.networkmanager.DirectConnectGatewayAttachmentNatGatewaySupport | undefined>;
+    /**
+     * Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. If omitted, a new NAT gateway configuration uses the service default of true and an existing configuration keeps its current value, so removing this property from a template doesn't reset the setting. Only the core network owner can configure this setting. Not available in AWS GovCloud (US).
+     */
+    natSystemRouteSupport?: pulumi.Input<boolean | undefined>;
     /**
      * Routing policy label
      */

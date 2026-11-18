@@ -17,6 +17,7 @@ import (
 type TrustAnchor struct {
 	pulumi.CustomResourceState
 
+	CrlDpRevocationEnabled pulumi.BoolPtrOutput `pulumi:"crlDpRevocationEnabled"`
 	// Indicates whether the trust anchor is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The name of the trust anchor.
@@ -82,6 +83,7 @@ func TrustAnchorExists(ctx *pulumi.Context,
 }
 
 type trustAnchorArgs struct {
+	CrlDpRevocationEnabled *bool `pulumi:"crlDpRevocationEnabled"`
 	// Indicates whether the trust anchor is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the trust anchor.
@@ -96,6 +98,7 @@ type trustAnchorArgs struct {
 
 // The set of arguments for constructing a TrustAnchor resource.
 type TrustAnchorArgs struct {
+	CrlDpRevocationEnabled pulumi.BoolPtrInput
 	// Indicates whether the trust anchor is enabled.
 	Enabled pulumi.BoolPtrInput
 	// The name of the trust anchor.
@@ -143,6 +146,10 @@ func (o TrustAnchorOutput) ToTrustAnchorOutput() TrustAnchorOutput {
 
 func (o TrustAnchorOutput) ToTrustAnchorOutputWithContext(ctx context.Context) TrustAnchorOutput {
 	return o
+}
+
+func (o TrustAnchorOutput) CrlDpRevocationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrustAnchor) pulumi.BoolPtrOutput { return v.CrlDpRevocationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether the trust anchor is enabled.

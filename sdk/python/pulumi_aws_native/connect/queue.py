@@ -46,7 +46,7 @@ class QueueArgs:
         :param pulumi.Input[_builtins.str] name: The name of the queue.
         :param pulumi.Input['QueueOutboundCallerConfigArgs'] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
         :param pulumi.Input['QueueOutboundEmailConfigArgs'] outbound_email_config: The outbound email configuration for a specified queue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_arns: The quick connects available to agents who are working the queue.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_arns: The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -171,7 +171,7 @@ class QueueArgs:
     @pulumi.getter(name="quickConnectArns")
     def quick_connect_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The quick connects available to agents who are working the queue.
+        The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
         """
         return pulumi.get(self, "quick_connect_arns")
 
@@ -235,7 +235,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the queue.
         :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
         :param pulumi.Input[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict', 'outputs.QueueOutboundEmailConfig']] outbound_email_config: The outbound email configuration for a specified queue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_arns: The quick connects available to agents who are working the queue.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_arns: The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -439,7 +439,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="quickConnectArns")
     def quick_connect_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The quick connects available to agents who are working the queue.
+        The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
         """
         return pulumi.get(self, "quick_connect_arns")
 

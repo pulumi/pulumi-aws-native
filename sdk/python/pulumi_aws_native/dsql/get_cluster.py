@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetClusterResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, encryption_details=None, endpoint=None, identifier=None, multi_region_properties=None, policy_document=None, policy_version=None, resource_arn=None, status=None, tags=None, vpc_endpoint=None, vpc_endpoint_service_name=None):
+    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, encryption_details=None, endpoint=None, identifier=None, metric_groups=None, multi_region_properties=None, policy_document=None, policy_version=None, resource_arn=None, status=None, tags=None, vpc_endpoint=None, vpc_endpoint_service_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -41,6 +42,9 @@ class GetClusterResult:
         if identifier and not isinstance(identifier, str):
             raise TypeError("Expected argument 'identifier' to be a str")
         pulumi.set(__self__, "identifier", identifier)
+        if metric_groups and not isinstance(metric_groups, list):
+            raise TypeError("Expected argument 'metric_groups' to be a list")
+        pulumi.set(__self__, "metric_groups", metric_groups)
         if multi_region_properties and not isinstance(multi_region_properties, dict):
             raise TypeError("Expected argument 'multi_region_properties' to be a dict")
         pulumi.set(__self__, "multi_region_properties", multi_region_properties)
@@ -105,6 +109,14 @@ class GetClusterResult:
         The ID of the created cluster.
         """
         return pulumi.get(self, "identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="metricGroups")
+    def metric_groups(self) -> Optional[Sequence['outputs.ClusterMetricGroup']]:
+        """
+        The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+        """
+        return pulumi.get(self, "metric_groups")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")
@@ -182,6 +194,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             encryption_details=self.encryption_details,
             endpoint=self.endpoint,
             identifier=self.identifier,
+            metric_groups=self.metric_groups,
             multi_region_properties=self.multi_region_properties,
             policy_document=self.policy_document,
             policy_version=self.policy_version,
@@ -210,6 +223,7 @@ def get_cluster(identifier: Optional[_builtins.str] = None,
         encryption_details=pulumi.get(__ret__, 'encryption_details'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         identifier=pulumi.get(__ret__, 'identifier'),
+        metric_groups=pulumi.get(__ret__, 'metric_groups'),
         multi_region_properties=pulumi.get(__ret__, 'multi_region_properties'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
         policy_version=pulumi.get(__ret__, 'policy_version'),
@@ -235,6 +249,7 @@ def get_cluster_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
         encryption_details=pulumi.get(__response__, 'encryption_details'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         identifier=pulumi.get(__response__, 'identifier'),
+        metric_groups=pulumi.get(__response__, 'metric_groups'),
         multi_region_properties=pulumi.get(__response__, 'multi_region_properties'),
         policy_document=pulumi.get(__response__, 'policy_document'),
         policy_version=pulumi.get(__response__, 'policy_version'),

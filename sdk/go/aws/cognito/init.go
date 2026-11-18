@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserPool{}
 	case "aws-native:cognito:UserPoolClient":
 		r = &UserPoolClient{}
+	case "aws-native:cognito:UserPoolClientSessionConfigurationAttachment":
+		r = &UserPoolClientSessionConfigurationAttachment{}
 	case "aws-native:cognito:UserPoolDomain":
 		r = &UserPoolDomain{}
 	case "aws-native:cognito:UserPoolGroup":
@@ -51,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserPoolResourceServer{}
 	case "aws-native:cognito:UserPoolRiskConfigurationAttachment":
 		r = &UserPoolRiskConfigurationAttachment{}
+	case "aws-native:cognito:UserPoolSessionConfigurationAttachment":
+		r = &UserPoolSessionConfigurationAttachment{}
 	case "aws-native:cognito:UserPoolUiCustomizationAttachment":
 		r = &UserPoolUiCustomizationAttachment{}
 	case "aws-native:cognito:UserPoolUser":

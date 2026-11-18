@@ -4055,6 +4055,7 @@ const (
 	FindingAggregatorRegionLinkingModeAllRegions                = FindingAggregatorRegionLinkingMode("ALL_REGIONS")
 	FindingAggregatorRegionLinkingModeAllRegionsExceptSpecified = FindingAggregatorRegionLinkingMode("ALL_REGIONS_EXCEPT_SPECIFIED")
 	FindingAggregatorRegionLinkingModeSpecifiedRegions          = FindingAggregatorRegionLinkingMode("SPECIFIED_REGIONS")
+	FindingAggregatorRegionLinkingModeNoRegions                 = FindingAggregatorRegionLinkingMode("NO_REGIONS")
 )
 
 func (FindingAggregatorRegionLinkingMode) ElementType() reflect.Type {
@@ -4182,6 +4183,7 @@ func (o FindingAggregatorRegionLinkingModePtrOutput) ToStringPtrOutputWithContex
 //	FindingAggregatorRegionLinkingModeAllRegions
 //	FindingAggregatorRegionLinkingModeAllRegionsExceptSpecified
 //	FindingAggregatorRegionLinkingModeSpecifiedRegions
+//	FindingAggregatorRegionLinkingModeNoRegions
 type FindingAggregatorRegionLinkingModeInput interface {
 	pulumi.Input
 

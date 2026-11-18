@@ -1079,6 +1079,2015 @@ type CarrierGatewayTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type ClientVpnEndpointAuthorizationPolicy struct {
+	// A brief description of the authorization policy.
+	Description *string `pulumi:"description"`
+	// The Cedar policy document.
+	PolicyDocument string `pulumi:"policyDocument"`
+	// Whether the authorization policy runs in shadow (observe-only) mode.
+	ShadowMode *string `pulumi:"shadowMode"`
+}
+
+// ClientVpnEndpointAuthorizationPolicyInput is an input type that accepts ClientVpnEndpointAuthorizationPolicyArgs and ClientVpnEndpointAuthorizationPolicyOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointAuthorizationPolicyInput` via:
+//
+//	ClientVpnEndpointAuthorizationPolicyArgs{...}
+type ClientVpnEndpointAuthorizationPolicyInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointAuthorizationPolicyOutput() ClientVpnEndpointAuthorizationPolicyOutput
+	ToClientVpnEndpointAuthorizationPolicyOutputWithContext(context.Context) ClientVpnEndpointAuthorizationPolicyOutput
+}
+
+type ClientVpnEndpointAuthorizationPolicyArgs struct {
+	// A brief description of the authorization policy.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Cedar policy document.
+	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
+	// Whether the authorization policy runs in shadow (observe-only) mode.
+	ShadowMode pulumi.StringPtrInput `pulumi:"shadowMode"`
+}
+
+func (ClientVpnEndpointAuthorizationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointAuthorizationPolicy)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointAuthorizationPolicyArgs) ToClientVpnEndpointAuthorizationPolicyOutput() ClientVpnEndpointAuthorizationPolicyOutput {
+	return i.ToClientVpnEndpointAuthorizationPolicyOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointAuthorizationPolicyArgs) ToClientVpnEndpointAuthorizationPolicyOutputWithContext(ctx context.Context) ClientVpnEndpointAuthorizationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointAuthorizationPolicyOutput)
+}
+
+func (i ClientVpnEndpointAuthorizationPolicyArgs) ToClientVpnEndpointAuthorizationPolicyPtrOutput() ClientVpnEndpointAuthorizationPolicyPtrOutput {
+	return i.ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointAuthorizationPolicyArgs) ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(ctx context.Context) ClientVpnEndpointAuthorizationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointAuthorizationPolicyOutput).ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointAuthorizationPolicyPtrInput is an input type that accepts ClientVpnEndpointAuthorizationPolicyArgs, ClientVpnEndpointAuthorizationPolicyPtr and ClientVpnEndpointAuthorizationPolicyPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointAuthorizationPolicyPtrInput` via:
+//
+//	        ClientVpnEndpointAuthorizationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointAuthorizationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointAuthorizationPolicyPtrOutput() ClientVpnEndpointAuthorizationPolicyPtrOutput
+	ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(context.Context) ClientVpnEndpointAuthorizationPolicyPtrOutput
+}
+
+type clientVpnEndpointAuthorizationPolicyPtrType ClientVpnEndpointAuthorizationPolicyArgs
+
+func ClientVpnEndpointAuthorizationPolicyPtr(v *ClientVpnEndpointAuthorizationPolicyArgs) ClientVpnEndpointAuthorizationPolicyPtrInput {
+	return (*clientVpnEndpointAuthorizationPolicyPtrType)(v)
+}
+
+func (*clientVpnEndpointAuthorizationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointAuthorizationPolicy)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointAuthorizationPolicyPtrType) ToClientVpnEndpointAuthorizationPolicyPtrOutput() ClientVpnEndpointAuthorizationPolicyPtrOutput {
+	return i.ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointAuthorizationPolicyPtrType) ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(ctx context.Context) ClientVpnEndpointAuthorizationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointAuthorizationPolicyPtrOutput)
+}
+
+type ClientVpnEndpointAuthorizationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointAuthorizationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointAuthorizationPolicy)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointAuthorizationPolicyOutput) ToClientVpnEndpointAuthorizationPolicyOutput() ClientVpnEndpointAuthorizationPolicyOutput {
+	return o
+}
+
+func (o ClientVpnEndpointAuthorizationPolicyOutput) ToClientVpnEndpointAuthorizationPolicyOutputWithContext(ctx context.Context) ClientVpnEndpointAuthorizationPolicyOutput {
+	return o
+}
+
+func (o ClientVpnEndpointAuthorizationPolicyOutput) ToClientVpnEndpointAuthorizationPolicyPtrOutput() ClientVpnEndpointAuthorizationPolicyPtrOutput {
+	return o.ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointAuthorizationPolicyOutput) ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(ctx context.Context) ClientVpnEndpointAuthorizationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointAuthorizationPolicy) *ClientVpnEndpointAuthorizationPolicy {
+		return &v
+	}).(ClientVpnEndpointAuthorizationPolicyPtrOutput)
+}
+
+// A brief description of the authorization policy.
+func (o ClientVpnEndpointAuthorizationPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointAuthorizationPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Cedar policy document.
+func (o ClientVpnEndpointAuthorizationPolicyOutput) PolicyDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointAuthorizationPolicy) string { return v.PolicyDocument }).(pulumi.StringOutput)
+}
+
+// Whether the authorization policy runs in shadow (observe-only) mode.
+func (o ClientVpnEndpointAuthorizationPolicyOutput) ShadowMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointAuthorizationPolicy) *string { return v.ShadowMode }).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointAuthorizationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointAuthorizationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointAuthorizationPolicy)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointAuthorizationPolicyPtrOutput) ToClientVpnEndpointAuthorizationPolicyPtrOutput() ClientVpnEndpointAuthorizationPolicyPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointAuthorizationPolicyPtrOutput) ToClientVpnEndpointAuthorizationPolicyPtrOutputWithContext(ctx context.Context) ClientVpnEndpointAuthorizationPolicyPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointAuthorizationPolicyPtrOutput) Elem() ClientVpnEndpointAuthorizationPolicyOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointAuthorizationPolicy) ClientVpnEndpointAuthorizationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointAuthorizationPolicy
+		return ret
+	}).(ClientVpnEndpointAuthorizationPolicyOutput)
+}
+
+// A brief description of the authorization policy.
+func (o ClientVpnEndpointAuthorizationPolicyPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointAuthorizationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Cedar policy document.
+func (o ClientVpnEndpointAuthorizationPolicyPtrOutput) PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointAuthorizationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the authorization policy runs in shadow (observe-only) mode.
+func (o ClientVpnEndpointAuthorizationPolicyPtrOutput) ShadowMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointAuthorizationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequest struct {
+	// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+	ClientRootCertificateChainArn string `pulumi:"clientRootCertificateChainArn"`
+}
+
+// ClientVpnEndpointCertificateAuthenticationRequestInput is an input type that accepts ClientVpnEndpointCertificateAuthenticationRequestArgs and ClientVpnEndpointCertificateAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointCertificateAuthenticationRequestInput` via:
+//
+//	ClientVpnEndpointCertificateAuthenticationRequestArgs{...}
+type ClientVpnEndpointCertificateAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput
+	ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequestArgs struct {
+	// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+	ClientRootCertificateChainArn pulumi.StringInput `pulumi:"clientRootCertificateChainArn"`
+}
+
+func (ClientVpnEndpointCertificateAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestOutput).ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointCertificateAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointCertificateAuthenticationRequestArgs, ClientVpnEndpointCertificateAuthenticationRequestPtr and ClientVpnEndpointCertificateAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointCertificateAuthenticationRequestPtrInput` via:
+//
+//	        ClientVpnEndpointCertificateAuthenticationRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointCertificateAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput
+	ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointCertificateAuthenticationRequestPtrType ClientVpnEndpointCertificateAuthenticationRequestArgs
+
+func ClientVpnEndpointCertificateAuthenticationRequestPtr(v *ClientVpnEndpointCertificateAuthenticationRequestArgs) ClientVpnEndpointCertificateAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointCertificateAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointCertificateAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointCertificateAuthenticationRequestPtrType) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointCertificateAuthenticationRequestPtrType) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointCertificateAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointCertificateAuthenticationRequest) *ClientVpnEndpointCertificateAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ClientRootCertificateChainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointCertificateAuthenticationRequest) string {
+		return v.ClientRootCertificateChainArn
+	}).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointCertificateAuthenticationRequest) ClientVpnEndpointCertificateAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointCertificateAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointCertificateAuthenticationRequestOutput)
+}
+
+// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ClientRootCertificateChainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointCertificateAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientRootCertificateChainArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointClientAuthenticationRequest struct {
+	// Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+	ActiveDirectory *ClientVpnEndpointDirectoryServiceAuthenticationRequest `pulumi:"activeDirectory"`
+	// Information about the IAM SAML identity provider, if applicable.
+	FederatedAuthentication *ClientVpnEndpointFederatedAuthenticationRequest `pulumi:"federatedAuthentication"`
+	// Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+	MutualAuthentication *ClientVpnEndpointCertificateAuthenticationRequest `pulumi:"mutualAuthentication"`
+	// The type of client authentication to be used.
+	Type string `pulumi:"type"`
+}
+
+// ClientVpnEndpointClientAuthenticationRequestInput is an input type that accepts ClientVpnEndpointClientAuthenticationRequestArgs and ClientVpnEndpointClientAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientAuthenticationRequestInput` via:
+//
+//	ClientVpnEndpointClientAuthenticationRequestArgs{...}
+type ClientVpnEndpointClientAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput
+	ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointClientAuthenticationRequestOutput
+}
+
+type ClientVpnEndpointClientAuthenticationRequestArgs struct {
+	// Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+	ActiveDirectory ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput `pulumi:"activeDirectory"`
+	// Information about the IAM SAML identity provider, if applicable.
+	FederatedAuthentication ClientVpnEndpointFederatedAuthenticationRequestPtrInput `pulumi:"federatedAuthentication"`
+	// Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+	MutualAuthentication ClientVpnEndpointCertificateAuthenticationRequestPtrInput `pulumi:"mutualAuthentication"`
+	// The type of client authentication to be used.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ClientVpnEndpointClientAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArgs) ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArgs) ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientAuthenticationRequestOutput)
+}
+
+// ClientVpnEndpointClientAuthenticationRequestArrayInput is an input type that accepts ClientVpnEndpointClientAuthenticationRequestArray and ClientVpnEndpointClientAuthenticationRequestArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientAuthenticationRequestArrayInput` via:
+//
+//	ClientVpnEndpointClientAuthenticationRequestArray{ ClientVpnEndpointClientAuthenticationRequestArgs{...} }
+type ClientVpnEndpointClientAuthenticationRequestArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput
+	ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput
+}
+
+type ClientVpnEndpointClientAuthenticationRequestArray []ClientVpnEndpointClientAuthenticationRequestInput
+
+func (ClientVpnEndpointClientAuthenticationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArray) ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return i.ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArray) ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientAuthenticationRequestArrayOutput)
+}
+
+type ClientVpnEndpointClientAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return o
+}
+
+// Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ActiveDirectory() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		return v.ActiveDirectory
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+// Information about the IAM SAML identity provider, if applicable.
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) FederatedAuthentication() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointFederatedAuthenticationRequest {
+		return v.FederatedAuthentication
+	}).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+// Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) MutualAuthentication() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointCertificateAuthenticationRequest {
+		return v.MutualAuthentication
+	}).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+// The type of client authentication to be used.
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointClientAuthenticationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientAuthenticationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointClientAuthenticationRequest {
+		return vs[0].([]ClientVpnEndpointClientAuthenticationRequest)[vs[1].(int)]
+	}).(ClientVpnEndpointClientAuthenticationRequestOutput)
+}
+
+type ClientVpnEndpointClientConnectOptions struct {
+	// Indicates whether client connect options are enabled. The default is `false` (not enabled).
+	Enabled bool `pulumi:"enabled"`
+	// The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
+}
+
+// ClientVpnEndpointClientConnectOptionsInput is an input type that accepts ClientVpnEndpointClientConnectOptionsArgs and ClientVpnEndpointClientConnectOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientConnectOptionsInput` via:
+//
+//	ClientVpnEndpointClientConnectOptionsArgs{...}
+type ClientVpnEndpointClientConnectOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput
+	ToClientVpnEndpointClientConnectOptionsOutputWithContext(context.Context) ClientVpnEndpointClientConnectOptionsOutput
+}
+
+type ClientVpnEndpointClientConnectOptionsArgs struct {
+	// Indicates whether client connect options are enabled. The default is `false` (not enabled).
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (ClientVpnEndpointClientConnectOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsOutput)
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsOutput).ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointClientConnectOptionsPtrInput is an input type that accepts ClientVpnEndpointClientConnectOptionsArgs, ClientVpnEndpointClientConnectOptionsPtr and ClientVpnEndpointClientConnectOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientConnectOptionsPtrInput` via:
+//
+//	        ClientVpnEndpointClientConnectOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointClientConnectOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput
+	ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput
+}
+
+type clientVpnEndpointClientConnectOptionsPtrType ClientVpnEndpointClientConnectOptionsArgs
+
+func ClientVpnEndpointClientConnectOptionsPtr(v *ClientVpnEndpointClientConnectOptionsArgs) ClientVpnEndpointClientConnectOptionsPtrInput {
+	return (*clientVpnEndpointClientConnectOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointClientConnectOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointClientConnectOptionsPtrType) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointClientConnectOptionsPtrType) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+type ClientVpnEndpointClientConnectOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientConnectOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointClientConnectOptions) *ClientVpnEndpointClientConnectOptions {
+		return &v
+	}).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+// Indicates whether client connect options are enabled. The default is `false` (not enabled).
+func (o ClientVpnEndpointClientConnectOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+func (o ClientVpnEndpointClientConnectOptionsOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointClientConnectOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientConnectOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) Elem() ClientVpnEndpointClientConnectOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) ClientVpnEndpointClientConnectOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointClientConnectOptions
+		return ret
+	}).(ClientVpnEndpointClientConnectOptionsOutput)
+}
+
+// Indicates whether client connect options are enabled. The default is `false` (not enabled).
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointClientLoginBannerOptions struct {
+	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+	BannerText *string `pulumi:"bannerText"`
+	// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	//
+	// Valid values: `true | false`
+	//
+	// Default value: `false`
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ClientVpnEndpointClientLoginBannerOptionsInput is an input type that accepts ClientVpnEndpointClientLoginBannerOptionsArgs and ClientVpnEndpointClientLoginBannerOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientLoginBannerOptionsInput` via:
+//
+//	ClientVpnEndpointClientLoginBannerOptionsArgs{...}
+type ClientVpnEndpointClientLoginBannerOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientLoginBannerOptionsOutput() ClientVpnEndpointClientLoginBannerOptionsOutput
+	ToClientVpnEndpointClientLoginBannerOptionsOutputWithContext(context.Context) ClientVpnEndpointClientLoginBannerOptionsOutput
+}
+
+type ClientVpnEndpointClientLoginBannerOptionsArgs struct {
+	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+	BannerText pulumi.StringPtrInput `pulumi:"bannerText"`
+	// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	//
+	// Valid values: `true | false`
+	//
+	// Default value: `false`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ClientVpnEndpointClientLoginBannerOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientLoginBannerOptionsArgs) ToClientVpnEndpointClientLoginBannerOptionsOutput() ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return i.ToClientVpnEndpointClientLoginBannerOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientLoginBannerOptionsArgs) ToClientVpnEndpointClientLoginBannerOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientLoginBannerOptionsOutput)
+}
+
+func (i ClientVpnEndpointClientLoginBannerOptionsArgs) ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientLoginBannerOptionsArgs) ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientLoginBannerOptionsOutput).ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointClientLoginBannerOptionsPtrInput is an input type that accepts ClientVpnEndpointClientLoginBannerOptionsArgs, ClientVpnEndpointClientLoginBannerOptionsPtr and ClientVpnEndpointClientLoginBannerOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientLoginBannerOptionsPtrInput` via:
+//
+//	        ClientVpnEndpointClientLoginBannerOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointClientLoginBannerOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput
+	ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput
+}
+
+type clientVpnEndpointClientLoginBannerOptionsPtrType ClientVpnEndpointClientLoginBannerOptionsArgs
+
+func ClientVpnEndpointClientLoginBannerOptionsPtr(v *ClientVpnEndpointClientLoginBannerOptionsArgs) ClientVpnEndpointClientLoginBannerOptionsPtrInput {
+	return (*clientVpnEndpointClientLoginBannerOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointClientLoginBannerOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointClientLoginBannerOptionsPtrType) ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointClientLoginBannerOptionsPtrType) ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientLoginBannerOptionsPtrOutput)
+}
+
+type ClientVpnEndpointClientLoginBannerOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientLoginBannerOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) ToClientVpnEndpointClientLoginBannerOptionsOutput() ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) ToClientVpnEndpointClientLoginBannerOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o.ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointClientLoginBannerOptions) *ClientVpnEndpointClientLoginBannerOptions {
+		return &v
+	}).(ClientVpnEndpointClientLoginBannerOptionsPtrOutput)
+}
+
+// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) BannerText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientLoginBannerOptions) *string { return v.BannerText }).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+//
+// Valid values: `true | false`
+//
+// Default value: `false`
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientLoginBannerOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClientVpnEndpointClientLoginBannerOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientLoginBannerOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) Elem() ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientLoginBannerOptions) ClientVpnEndpointClientLoginBannerOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointClientLoginBannerOptions
+		return ret
+	}).(ClientVpnEndpointClientLoginBannerOptionsOutput)
+}
+
+// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) BannerText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientLoginBannerOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BannerText
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+//
+// Valid values: `true | false`
+//
+// Default value: `false`
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientLoginBannerOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClientVpnEndpointClientRouteEnforcementOptions struct {
+	// Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+	//
+	// Valid values: `true | false`
+	//
+	// Default value: `false`
+	Enforced *bool `pulumi:"enforced"`
+}
+
+// ClientVpnEndpointClientRouteEnforcementOptionsInput is an input type that accepts ClientVpnEndpointClientRouteEnforcementOptionsArgs and ClientVpnEndpointClientRouteEnforcementOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientRouteEnforcementOptionsInput` via:
+//
+//	ClientVpnEndpointClientRouteEnforcementOptionsArgs{...}
+type ClientVpnEndpointClientRouteEnforcementOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientRouteEnforcementOptionsOutput() ClientVpnEndpointClientRouteEnforcementOptionsOutput
+	ToClientVpnEndpointClientRouteEnforcementOptionsOutputWithContext(context.Context) ClientVpnEndpointClientRouteEnforcementOptionsOutput
+}
+
+type ClientVpnEndpointClientRouteEnforcementOptionsArgs struct {
+	// Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+	//
+	// Valid values: `true | false`
+	//
+	// Default value: `false`
+	Enforced pulumi.BoolPtrInput `pulumi:"enforced"`
+}
+
+func (ClientVpnEndpointClientRouteEnforcementOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientRouteEnforcementOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientRouteEnforcementOptionsArgs) ToClientVpnEndpointClientRouteEnforcementOptionsOutput() ClientVpnEndpointClientRouteEnforcementOptionsOutput {
+	return i.ToClientVpnEndpointClientRouteEnforcementOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientRouteEnforcementOptionsArgs) ToClientVpnEndpointClientRouteEnforcementOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteEnforcementOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteEnforcementOptionsOutput)
+}
+
+func (i ClientVpnEndpointClientRouteEnforcementOptionsArgs) ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutput() ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientRouteEnforcementOptionsArgs) ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteEnforcementOptionsOutput).ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointClientRouteEnforcementOptionsPtrInput is an input type that accepts ClientVpnEndpointClientRouteEnforcementOptionsArgs, ClientVpnEndpointClientRouteEnforcementOptionsPtr and ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientRouteEnforcementOptionsPtrInput` via:
+//
+//	        ClientVpnEndpointClientRouteEnforcementOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointClientRouteEnforcementOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutput() ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput
+	ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput
+}
+
+type clientVpnEndpointClientRouteEnforcementOptionsPtrType ClientVpnEndpointClientRouteEnforcementOptionsArgs
+
+func ClientVpnEndpointClientRouteEnforcementOptionsPtr(v *ClientVpnEndpointClientRouteEnforcementOptionsArgs) ClientVpnEndpointClientRouteEnforcementOptionsPtrInput {
+	return (*clientVpnEndpointClientRouteEnforcementOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointClientRouteEnforcementOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientRouteEnforcementOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointClientRouteEnforcementOptionsPtrType) ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutput() ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointClientRouteEnforcementOptionsPtrType) ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput)
+}
+
+type ClientVpnEndpointClientRouteEnforcementOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientRouteEnforcementOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientRouteEnforcementOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientRouteEnforcementOptionsOutput) ToClientVpnEndpointClientRouteEnforcementOptionsOutput() ClientVpnEndpointClientRouteEnforcementOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientRouteEnforcementOptionsOutput) ToClientVpnEndpointClientRouteEnforcementOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteEnforcementOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientRouteEnforcementOptionsOutput) ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutput() ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput {
+	return o.ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointClientRouteEnforcementOptionsOutput) ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointClientRouteEnforcementOptions) *ClientVpnEndpointClientRouteEnforcementOptions {
+		return &v
+	}).(ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput)
+}
+
+// Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+//
+// Valid values: `true | false`
+//
+// Default value: `false`
+func (o ClientVpnEndpointClientRouteEnforcementOptionsOutput) Enforced() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientRouteEnforcementOptions) *bool { return v.Enforced }).(pulumi.BoolPtrOutput)
+}
+
+type ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientRouteEnforcementOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput) ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutput() ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput) ToClientVpnEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput) Elem() ClientVpnEndpointClientRouteEnforcementOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientRouteEnforcementOptions) ClientVpnEndpointClientRouteEnforcementOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointClientRouteEnforcementOptions
+		return ret
+	}).(ClientVpnEndpointClientRouteEnforcementOptionsOutput)
+}
+
+// Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+//
+// Valid values: `true | false`
+//
+// Default value: `false`
+func (o ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput) Enforced() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientRouteEnforcementOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enforced
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClientVpnEndpointConnectionLogOptions struct {
+	// The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+	CloudwatchLogGroup *string `pulumi:"cloudwatchLogGroup"`
+	// The name of the CloudWatch Logs log stream to which the connection data is published.
+	CloudwatchLogStream *string `pulumi:"cloudwatchLogStream"`
+	// Indicates whether connection logging is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// Indicates whether authorization-policy evaluation context is included in the connection logs.
+	IncludeAuthorizationPolicyContext *bool `pulumi:"includeAuthorizationPolicyContext"`
+}
+
+// ClientVpnEndpointConnectionLogOptionsInput is an input type that accepts ClientVpnEndpointConnectionLogOptionsArgs and ClientVpnEndpointConnectionLogOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointConnectionLogOptionsInput` via:
+//
+//	ClientVpnEndpointConnectionLogOptionsArgs{...}
+type ClientVpnEndpointConnectionLogOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput
+	ToClientVpnEndpointConnectionLogOptionsOutputWithContext(context.Context) ClientVpnEndpointConnectionLogOptionsOutput
+}
+
+type ClientVpnEndpointConnectionLogOptionsArgs struct {
+	// The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+	CloudwatchLogGroup pulumi.StringPtrInput `pulumi:"cloudwatchLogGroup"`
+	// The name of the CloudWatch Logs log stream to which the connection data is published.
+	CloudwatchLogStream pulumi.StringPtrInput `pulumi:"cloudwatchLogStream"`
+	// Indicates whether connection logging is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Indicates whether authorization-policy evaluation context is included in the connection logs.
+	IncludeAuthorizationPolicyContext pulumi.BoolPtrInput `pulumi:"includeAuthorizationPolicyContext"`
+}
+
+func (ClientVpnEndpointConnectionLogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput {
+	return i.ToClientVpnEndpointConnectionLogOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsOutput)
+}
+
+type ClientVpnEndpointConnectionLogOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointConnectionLogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsOutput {
+	return o
+}
+
+// The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+func (o ClientVpnEndpointConnectionLogOptionsOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) *string { return v.CloudwatchLogGroup }).(pulumi.StringPtrOutput)
+}
+
+// The name of the CloudWatch Logs log stream to which the connection data is published.
+func (o ClientVpnEndpointConnectionLogOptionsOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) *string { return v.CloudwatchLogStream }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether connection logging is enabled.
+func (o ClientVpnEndpointConnectionLogOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Indicates whether authorization-policy evaluation context is included in the connection logs.
+func (o ClientVpnEndpointConnectionLogOptionsOutput) IncludeAuthorizationPolicyContext() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) *bool { return v.IncludeAuthorizationPolicyContext }).(pulumi.BoolPtrOutput)
+}
+
+type ClientVpnEndpointConnectionLogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointConnectionLogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Elem() ClientVpnEndpointConnectionLogOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) ClientVpnEndpointConnectionLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointConnectionLogOptions
+		return ret
+	}).(ClientVpnEndpointConnectionLogOptionsOutput)
+}
+
+// The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the CloudWatch Logs log stream to which the connection data is published.
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether connection logging is enabled.
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether authorization-policy evaluation context is included in the connection logs.
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) IncludeAuthorizationPolicyContext() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAuthorizationPolicyContext
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClientVpnEndpointDevicePostureOptions struct {
+	// Whether device posture is enabled for the Client VPN endpoint.
+	Enabled bool `pulumi:"enabled"`
+	// The device-posture trust providers.
+	TrustProviders []ClientVpnEndpointDevicePostureTrustProvider `pulumi:"trustProviders"`
+}
+
+// ClientVpnEndpointDevicePostureOptionsInput is an input type that accepts ClientVpnEndpointDevicePostureOptionsArgs and ClientVpnEndpointDevicePostureOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDevicePostureOptionsInput` via:
+//
+//	ClientVpnEndpointDevicePostureOptionsArgs{...}
+type ClientVpnEndpointDevicePostureOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDevicePostureOptionsOutput() ClientVpnEndpointDevicePostureOptionsOutput
+	ToClientVpnEndpointDevicePostureOptionsOutputWithContext(context.Context) ClientVpnEndpointDevicePostureOptionsOutput
+}
+
+type ClientVpnEndpointDevicePostureOptionsArgs struct {
+	// Whether device posture is enabled for the Client VPN endpoint.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The device-posture trust providers.
+	TrustProviders ClientVpnEndpointDevicePostureTrustProviderArrayInput `pulumi:"trustProviders"`
+}
+
+func (ClientVpnEndpointDevicePostureOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDevicePostureOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointDevicePostureOptionsArgs) ToClientVpnEndpointDevicePostureOptionsOutput() ClientVpnEndpointDevicePostureOptionsOutput {
+	return i.ToClientVpnEndpointDevicePostureOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDevicePostureOptionsArgs) ToClientVpnEndpointDevicePostureOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDevicePostureOptionsOutput)
+}
+
+func (i ClientVpnEndpointDevicePostureOptionsArgs) ToClientVpnEndpointDevicePostureOptionsPtrOutput() ClientVpnEndpointDevicePostureOptionsPtrOutput {
+	return i.ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDevicePostureOptionsArgs) ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDevicePostureOptionsOutput).ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointDevicePostureOptionsPtrInput is an input type that accepts ClientVpnEndpointDevicePostureOptionsArgs, ClientVpnEndpointDevicePostureOptionsPtr and ClientVpnEndpointDevicePostureOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDevicePostureOptionsPtrInput` via:
+//
+//	        ClientVpnEndpointDevicePostureOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointDevicePostureOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDevicePostureOptionsPtrOutput() ClientVpnEndpointDevicePostureOptionsPtrOutput
+	ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointDevicePostureOptionsPtrOutput
+}
+
+type clientVpnEndpointDevicePostureOptionsPtrType ClientVpnEndpointDevicePostureOptionsArgs
+
+func ClientVpnEndpointDevicePostureOptionsPtr(v *ClientVpnEndpointDevicePostureOptionsArgs) ClientVpnEndpointDevicePostureOptionsPtrInput {
+	return (*clientVpnEndpointDevicePostureOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointDevicePostureOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointDevicePostureOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointDevicePostureOptionsPtrType) ToClientVpnEndpointDevicePostureOptionsPtrOutput() ClientVpnEndpointDevicePostureOptionsPtrOutput {
+	return i.ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointDevicePostureOptionsPtrType) ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDevicePostureOptionsPtrOutput)
+}
+
+type ClientVpnEndpointDevicePostureOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDevicePostureOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDevicePostureOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDevicePostureOptionsOutput) ToClientVpnEndpointDevicePostureOptionsOutput() ClientVpnEndpointDevicePostureOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDevicePostureOptionsOutput) ToClientVpnEndpointDevicePostureOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDevicePostureOptionsOutput) ToClientVpnEndpointDevicePostureOptionsPtrOutput() ClientVpnEndpointDevicePostureOptionsPtrOutput {
+	return o.ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointDevicePostureOptionsOutput) ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointDevicePostureOptions) *ClientVpnEndpointDevicePostureOptions {
+		return &v
+	}).(ClientVpnEndpointDevicePostureOptionsPtrOutput)
+}
+
+// Whether device posture is enabled for the Client VPN endpoint.
+func (o ClientVpnEndpointDevicePostureOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointDevicePostureOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The device-posture trust providers.
+func (o ClientVpnEndpointDevicePostureOptionsOutput) TrustProviders() ClientVpnEndpointDevicePostureTrustProviderArrayOutput {
+	return o.ApplyT(func(v ClientVpnEndpointDevicePostureOptions) []ClientVpnEndpointDevicePostureTrustProvider {
+		return v.TrustProviders
+	}).(ClientVpnEndpointDevicePostureTrustProviderArrayOutput)
+}
+
+type ClientVpnEndpointDevicePostureOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDevicePostureOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointDevicePostureOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDevicePostureOptionsPtrOutput) ToClientVpnEndpointDevicePostureOptionsPtrOutput() ClientVpnEndpointDevicePostureOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDevicePostureOptionsPtrOutput) ToClientVpnEndpointDevicePostureOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDevicePostureOptionsPtrOutput) Elem() ClientVpnEndpointDevicePostureOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDevicePostureOptions) ClientVpnEndpointDevicePostureOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointDevicePostureOptions
+		return ret
+	}).(ClientVpnEndpointDevicePostureOptionsOutput)
+}
+
+// Whether device posture is enabled for the Client VPN endpoint.
+func (o ClientVpnEndpointDevicePostureOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDevicePostureOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The device-posture trust providers.
+func (o ClientVpnEndpointDevicePostureOptionsPtrOutput) TrustProviders() ClientVpnEndpointDevicePostureTrustProviderArrayOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDevicePostureOptions) []ClientVpnEndpointDevicePostureTrustProvider {
+		if v == nil {
+			return nil
+		}
+		return v.TrustProviders
+	}).(ClientVpnEndpointDevicePostureTrustProviderArrayOutput)
+}
+
+type ClientVpnEndpointDevicePostureTrustProvider struct {
+	// The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+	PublicSigningKeyUrl *string `pulumi:"publicSigningKeyUrl"`
+	// The tenant identifier registered with the trust provider.
+	TenantId string `pulumi:"tenantId"`
+	// The device-posture trust provider type.
+	TrustProviderType string `pulumi:"trustProviderType"`
+}
+
+// ClientVpnEndpointDevicePostureTrustProviderInput is an input type that accepts ClientVpnEndpointDevicePostureTrustProviderArgs and ClientVpnEndpointDevicePostureTrustProviderOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDevicePostureTrustProviderInput` via:
+//
+//	ClientVpnEndpointDevicePostureTrustProviderArgs{...}
+type ClientVpnEndpointDevicePostureTrustProviderInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDevicePostureTrustProviderOutput() ClientVpnEndpointDevicePostureTrustProviderOutput
+	ToClientVpnEndpointDevicePostureTrustProviderOutputWithContext(context.Context) ClientVpnEndpointDevicePostureTrustProviderOutput
+}
+
+type ClientVpnEndpointDevicePostureTrustProviderArgs struct {
+	// The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+	PublicSigningKeyUrl pulumi.StringPtrInput `pulumi:"publicSigningKeyUrl"`
+	// The tenant identifier registered with the trust provider.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The device-posture trust provider type.
+	TrustProviderType pulumi.StringInput `pulumi:"trustProviderType"`
+}
+
+func (ClientVpnEndpointDevicePostureTrustProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDevicePostureTrustProvider)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointDevicePostureTrustProviderArgs) ToClientVpnEndpointDevicePostureTrustProviderOutput() ClientVpnEndpointDevicePostureTrustProviderOutput {
+	return i.ToClientVpnEndpointDevicePostureTrustProviderOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDevicePostureTrustProviderArgs) ToClientVpnEndpointDevicePostureTrustProviderOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureTrustProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDevicePostureTrustProviderOutput)
+}
+
+// ClientVpnEndpointDevicePostureTrustProviderArrayInput is an input type that accepts ClientVpnEndpointDevicePostureTrustProviderArray and ClientVpnEndpointDevicePostureTrustProviderArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDevicePostureTrustProviderArrayInput` via:
+//
+//	ClientVpnEndpointDevicePostureTrustProviderArray{ ClientVpnEndpointDevicePostureTrustProviderArgs{...} }
+type ClientVpnEndpointDevicePostureTrustProviderArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDevicePostureTrustProviderArrayOutput() ClientVpnEndpointDevicePostureTrustProviderArrayOutput
+	ToClientVpnEndpointDevicePostureTrustProviderArrayOutputWithContext(context.Context) ClientVpnEndpointDevicePostureTrustProviderArrayOutput
+}
+
+type ClientVpnEndpointDevicePostureTrustProviderArray []ClientVpnEndpointDevicePostureTrustProviderInput
+
+func (ClientVpnEndpointDevicePostureTrustProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointDevicePostureTrustProvider)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointDevicePostureTrustProviderArray) ToClientVpnEndpointDevicePostureTrustProviderArrayOutput() ClientVpnEndpointDevicePostureTrustProviderArrayOutput {
+	return i.ToClientVpnEndpointDevicePostureTrustProviderArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDevicePostureTrustProviderArray) ToClientVpnEndpointDevicePostureTrustProviderArrayOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureTrustProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDevicePostureTrustProviderArrayOutput)
+}
+
+type ClientVpnEndpointDevicePostureTrustProviderOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDevicePostureTrustProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDevicePostureTrustProvider)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDevicePostureTrustProviderOutput) ToClientVpnEndpointDevicePostureTrustProviderOutput() ClientVpnEndpointDevicePostureTrustProviderOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDevicePostureTrustProviderOutput) ToClientVpnEndpointDevicePostureTrustProviderOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureTrustProviderOutput {
+	return o
+}
+
+// The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+func (o ClientVpnEndpointDevicePostureTrustProviderOutput) PublicSigningKeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointDevicePostureTrustProvider) *string { return v.PublicSigningKeyUrl }).(pulumi.StringPtrOutput)
+}
+
+// The tenant identifier registered with the trust provider.
+func (o ClientVpnEndpointDevicePostureTrustProviderOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointDevicePostureTrustProvider) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The device-posture trust provider type.
+func (o ClientVpnEndpointDevicePostureTrustProviderOutput) TrustProviderType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointDevicePostureTrustProvider) string { return v.TrustProviderType }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointDevicePostureTrustProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDevicePostureTrustProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointDevicePostureTrustProvider)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDevicePostureTrustProviderArrayOutput) ToClientVpnEndpointDevicePostureTrustProviderArrayOutput() ClientVpnEndpointDevicePostureTrustProviderArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDevicePostureTrustProviderArrayOutput) ToClientVpnEndpointDevicePostureTrustProviderArrayOutputWithContext(ctx context.Context) ClientVpnEndpointDevicePostureTrustProviderArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDevicePostureTrustProviderArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointDevicePostureTrustProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointDevicePostureTrustProvider {
+		return vs[0].([]ClientVpnEndpointDevicePostureTrustProvider)[vs[1].(int)]
+	}).(ClientVpnEndpointDevicePostureTrustProviderOutput)
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequest struct {
+	// The ID of the Active Directory to be used for authentication.
+	DirectoryId string `pulumi:"directoryId"`
+}
+
+// ClientVpnEndpointDirectoryServiceAuthenticationRequestInput is an input type that accepts ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs and ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDirectoryServiceAuthenticationRequestInput` via:
+//
+//	ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{...}
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs struct {
+	// The ID of the Active Directory to be used for authentication.
+	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
+}
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput).ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs, ClientVpnEndpointDirectoryServiceAuthenticationRequestPtr and ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput` via:
+//
+//	        ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs
+
+func ClientVpnEndpointDirectoryServiceAuthenticationRequestPtr(v *ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointDirectoryServiceAuthenticationRequest) *ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+// The ID of the Active Directory to be used for authentication.
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) DirectoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointDirectoryServiceAuthenticationRequest) string { return v.DirectoryId }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDirectoryServiceAuthenticationRequest) ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointDirectoryServiceAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput)
+}
+
+// The ID of the Active Directory to be used for authentication.
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDirectoryServiceAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DirectoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequest struct {
+	// The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+	SamlProviderArn string `pulumi:"samlProviderArn"`
+	// The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+	SelfServiceSamlProviderArn *string `pulumi:"selfServiceSamlProviderArn"`
+}
+
+// ClientVpnEndpointFederatedAuthenticationRequestInput is an input type that accepts ClientVpnEndpointFederatedAuthenticationRequestArgs and ClientVpnEndpointFederatedAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointFederatedAuthenticationRequestInput` via:
+//
+//	ClientVpnEndpointFederatedAuthenticationRequestArgs{...}
+type ClientVpnEndpointFederatedAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput
+	ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequestArgs struct {
+	// The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+	SamlProviderArn pulumi.StringInput `pulumi:"samlProviderArn"`
+	// The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+	SelfServiceSamlProviderArn pulumi.StringPtrInput `pulumi:"selfServiceSamlProviderArn"`
+}
+
+func (ClientVpnEndpointFederatedAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestOutput).ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointFederatedAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointFederatedAuthenticationRequestArgs, ClientVpnEndpointFederatedAuthenticationRequestPtr and ClientVpnEndpointFederatedAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointFederatedAuthenticationRequestPtrInput` via:
+//
+//	        ClientVpnEndpointFederatedAuthenticationRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointFederatedAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput
+	ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointFederatedAuthenticationRequestPtrType ClientVpnEndpointFederatedAuthenticationRequestArgs
+
+func ClientVpnEndpointFederatedAuthenticationRequestPtr(v *ClientVpnEndpointFederatedAuthenticationRequestArgs) ClientVpnEndpointFederatedAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointFederatedAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointFederatedAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointFederatedAuthenticationRequestPtrType) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointFederatedAuthenticationRequestPtrType) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointFederatedAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointFederatedAuthenticationRequest) *ClientVpnEndpointFederatedAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SamlProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) string { return v.SamlProviderArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SelfServiceSamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) *string { return v.SelfServiceSamlProviderArn }).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) ClientVpnEndpointFederatedAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointFederatedAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointFederatedAuthenticationRequestOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SamlProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SelfServiceSamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelfServiceSamlProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// ClientVpnEndpointTagInput is an input type that accepts ClientVpnEndpointTagArgs and ClientVpnEndpointTagOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagInput` via:
+//
+//	ClientVpnEndpointTagArgs{...}
+type ClientVpnEndpointTagInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagOutput() ClientVpnEndpointTagOutput
+	ToClientVpnEndpointTagOutputWithContext(context.Context) ClientVpnEndpointTagOutput
+}
+
+type ClientVpnEndpointTagArgs struct {
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClientVpnEndpointTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTag)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagArgs) ToClientVpnEndpointTagOutput() ClientVpnEndpointTagOutput {
+	return i.ToClientVpnEndpointTagOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagArgs) ToClientVpnEndpointTagOutputWithContext(ctx context.Context) ClientVpnEndpointTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagOutput)
+}
+
+// ClientVpnEndpointTagArrayInput is an input type that accepts ClientVpnEndpointTagArray and ClientVpnEndpointTagArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagArrayInput` via:
+//
+//	ClientVpnEndpointTagArray{ ClientVpnEndpointTagArgs{...} }
+type ClientVpnEndpointTagArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagArrayOutput() ClientVpnEndpointTagArrayOutput
+	ToClientVpnEndpointTagArrayOutputWithContext(context.Context) ClientVpnEndpointTagArrayOutput
+}
+
+type ClientVpnEndpointTagArray []ClientVpnEndpointTagInput
+
+func (ClientVpnEndpointTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTag)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagArray) ToClientVpnEndpointTagArrayOutput() ClientVpnEndpointTagArrayOutput {
+	return i.ToClientVpnEndpointTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagArray) ToClientVpnEndpointTagArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagArrayOutput)
+}
+
+type ClientVpnEndpointTagOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTag)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagOutput) ToClientVpnEndpointTagOutput() ClientVpnEndpointTagOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagOutput) ToClientVpnEndpointTagOutputWithContext(ctx context.Context) ClientVpnEndpointTagOutput {
+	return o
+}
+
+// The tag key.
+func (o ClientVpnEndpointTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag value.
+func (o ClientVpnEndpointTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTag)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagArrayOutput) ToClientVpnEndpointTagArrayOutput() ClientVpnEndpointTagArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagArrayOutput) ToClientVpnEndpointTagArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointTag {
+		return vs[0].([]ClientVpnEndpointTag)[vs[1].(int)]
+	}).(ClientVpnEndpointTagOutput)
+}
+
+type ClientVpnEndpointTagSpecification struct {
+	// The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+	ResourceType string `pulumi:"resourceType"`
+	// The tags to apply to the resource.
+	Tags []ClientVpnEndpointTag `pulumi:"tags"`
+}
+
+// ClientVpnEndpointTagSpecificationInput is an input type that accepts ClientVpnEndpointTagSpecificationArgs and ClientVpnEndpointTagSpecificationOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagSpecificationInput` via:
+//
+//	ClientVpnEndpointTagSpecificationArgs{...}
+type ClientVpnEndpointTagSpecificationInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput
+	ToClientVpnEndpointTagSpecificationOutputWithContext(context.Context) ClientVpnEndpointTagSpecificationOutput
+}
+
+type ClientVpnEndpointTagSpecificationArgs struct {
+	// The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// The tags to apply to the resource.
+	Tags ClientVpnEndpointTagArrayInput `pulumi:"tags"`
+}
+
+func (ClientVpnEndpointTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagSpecificationArgs) ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput {
+	return i.ToClientVpnEndpointTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagSpecificationArgs) ToClientVpnEndpointTagSpecificationOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagSpecificationOutput)
+}
+
+// ClientVpnEndpointTagSpecificationArrayInput is an input type that accepts ClientVpnEndpointTagSpecificationArray and ClientVpnEndpointTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagSpecificationArrayInput` via:
+//
+//	ClientVpnEndpointTagSpecificationArray{ ClientVpnEndpointTagSpecificationArgs{...} }
+type ClientVpnEndpointTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput
+	ToClientVpnEndpointTagSpecificationArrayOutputWithContext(context.Context) ClientVpnEndpointTagSpecificationArrayOutput
+}
+
+type ClientVpnEndpointTagSpecificationArray []ClientVpnEndpointTagSpecificationInput
+
+func (ClientVpnEndpointTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagSpecificationArray) ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput {
+	return i.ToClientVpnEndpointTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagSpecificationArray) ToClientVpnEndpointTagSpecificationArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagSpecificationArrayOutput)
+}
+
+type ClientVpnEndpointTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagSpecificationOutput) ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationOutput) ToClientVpnEndpointTagSpecificationOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationOutput {
+	return o
+}
+
+// The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+func (o ClientVpnEndpointTagSpecificationOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// The tags to apply to the resource.
+func (o ClientVpnEndpointTagSpecificationOutput) Tags() ClientVpnEndpointTagArrayOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTagSpecification) []ClientVpnEndpointTag { return v.Tags }).(ClientVpnEndpointTagArrayOutput)
+}
+
+type ClientVpnEndpointTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) ToClientVpnEndpointTagSpecificationArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointTagSpecification {
+		return vs[0].([]ClientVpnEndpointTagSpecification)[vs[1].(int)]
+	}).(ClientVpnEndpointTagSpecificationOutput)
+}
+
+type ClientVpnEndpointTransitGatewayConfiguration struct {
+	AvailabilityZoneIds []string `pulumi:"availabilityZoneIds"`
+	AvailabilityZones   []string `pulumi:"availabilityZones"`
+	TransitGatewayId    string   `pulumi:"transitGatewayId"`
+}
+
+// ClientVpnEndpointTransitGatewayConfigurationInput is an input type that accepts ClientVpnEndpointTransitGatewayConfigurationArgs and ClientVpnEndpointTransitGatewayConfigurationOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTransitGatewayConfigurationInput` via:
+//
+//	ClientVpnEndpointTransitGatewayConfigurationArgs{...}
+type ClientVpnEndpointTransitGatewayConfigurationInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTransitGatewayConfigurationOutput() ClientVpnEndpointTransitGatewayConfigurationOutput
+	ToClientVpnEndpointTransitGatewayConfigurationOutputWithContext(context.Context) ClientVpnEndpointTransitGatewayConfigurationOutput
+}
+
+type ClientVpnEndpointTransitGatewayConfigurationArgs struct {
+	AvailabilityZoneIds pulumi.StringArrayInput `pulumi:"availabilityZoneIds"`
+	AvailabilityZones   pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	TransitGatewayId    pulumi.StringInput      `pulumi:"transitGatewayId"`
+}
+
+func (ClientVpnEndpointTransitGatewayConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTransitGatewayConfigurationArgs) ToClientVpnEndpointTransitGatewayConfigurationOutput() ClientVpnEndpointTransitGatewayConfigurationOutput {
+	return i.ToClientVpnEndpointTransitGatewayConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTransitGatewayConfigurationArgs) ToClientVpnEndpointTransitGatewayConfigurationOutputWithContext(ctx context.Context) ClientVpnEndpointTransitGatewayConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTransitGatewayConfigurationOutput)
+}
+
+func (i ClientVpnEndpointTransitGatewayConfigurationArgs) ToClientVpnEndpointTransitGatewayConfigurationPtrOutput() ClientVpnEndpointTransitGatewayConfigurationPtrOutput {
+	return i.ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTransitGatewayConfigurationArgs) ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) ClientVpnEndpointTransitGatewayConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTransitGatewayConfigurationOutput).ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointTransitGatewayConfigurationPtrInput is an input type that accepts ClientVpnEndpointTransitGatewayConfigurationArgs, ClientVpnEndpointTransitGatewayConfigurationPtr and ClientVpnEndpointTransitGatewayConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTransitGatewayConfigurationPtrInput` via:
+//
+//	        ClientVpnEndpointTransitGatewayConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClientVpnEndpointTransitGatewayConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTransitGatewayConfigurationPtrOutput() ClientVpnEndpointTransitGatewayConfigurationPtrOutput
+	ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(context.Context) ClientVpnEndpointTransitGatewayConfigurationPtrOutput
+}
+
+type clientVpnEndpointTransitGatewayConfigurationPtrType ClientVpnEndpointTransitGatewayConfigurationArgs
+
+func ClientVpnEndpointTransitGatewayConfigurationPtr(v *ClientVpnEndpointTransitGatewayConfigurationArgs) ClientVpnEndpointTransitGatewayConfigurationPtrInput {
+	return (*clientVpnEndpointTransitGatewayConfigurationPtrType)(v)
+}
+
+func (*clientVpnEndpointTransitGatewayConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointTransitGatewayConfigurationPtrType) ToClientVpnEndpointTransitGatewayConfigurationPtrOutput() ClientVpnEndpointTransitGatewayConfigurationPtrOutput {
+	return i.ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointTransitGatewayConfigurationPtrType) ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) ClientVpnEndpointTransitGatewayConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTransitGatewayConfigurationPtrOutput)
+}
+
+type ClientVpnEndpointTransitGatewayConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTransitGatewayConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationOutput) ToClientVpnEndpointTransitGatewayConfigurationOutput() ClientVpnEndpointTransitGatewayConfigurationOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationOutput) ToClientVpnEndpointTransitGatewayConfigurationOutputWithContext(ctx context.Context) ClientVpnEndpointTransitGatewayConfigurationOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationOutput) ToClientVpnEndpointTransitGatewayConfigurationPtrOutput() ClientVpnEndpointTransitGatewayConfigurationPtrOutput {
+	return o.ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationOutput) ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) ClientVpnEndpointTransitGatewayConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointTransitGatewayConfiguration) *ClientVpnEndpointTransitGatewayConfiguration {
+		return &v
+	}).(ClientVpnEndpointTransitGatewayConfigurationPtrOutput)
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationOutput) AvailabilityZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTransitGatewayConfiguration) []string { return v.AvailabilityZoneIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTransitGatewayConfiguration) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTransitGatewayConfiguration) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointTransitGatewayConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTransitGatewayConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationPtrOutput) ToClientVpnEndpointTransitGatewayConfigurationPtrOutput() ClientVpnEndpointTransitGatewayConfigurationPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationPtrOutput) ToClientVpnEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) ClientVpnEndpointTransitGatewayConfigurationPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationPtrOutput) Elem() ClientVpnEndpointTransitGatewayConfigurationOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointTransitGatewayConfiguration) ClientVpnEndpointTransitGatewayConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointTransitGatewayConfiguration
+		return ret
+	}).(ClientVpnEndpointTransitGatewayConfigurationOutput)
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationPtrOutput) AvailabilityZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointTransitGatewayConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZoneIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointTransitGatewayConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClientVpnEndpointTransitGatewayConfigurationPtrOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointTransitGatewayConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TransitGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
 type CommitmentInfoProperties struct {
 	// The date and time at which the commitment duration expires, in the ISO8601 format in the UTC time zone ( `YYYY-MM-DDThh:mm:ss.sssZ` ). You can't decrease the instance count or cancel the Capacity Reservation before this date and time.
 	CommitmentEndDate *string `pulumi:"commitmentEndDate"`
@@ -9313,6 +11322,789 @@ func (o EnclaveOptionsPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// A single CIDR range to label mapping.
+type FcaPolicyCidrMapping struct {
+	// The label for the CIDR range.
+	CidrLabel string `pulumi:"cidrLabel"`
+	// The CIDR range.
+	CidrRange string `pulumi:"cidrRange"`
+}
+
+// FcaPolicyCidrMappingInput is an input type that accepts FcaPolicyCidrMappingArgs and FcaPolicyCidrMappingOutput values.
+// You can construct a concrete instance of `FcaPolicyCidrMappingInput` via:
+//
+//	FcaPolicyCidrMappingArgs{...}
+type FcaPolicyCidrMappingInput interface {
+	pulumi.Input
+
+	ToFcaPolicyCidrMappingOutput() FcaPolicyCidrMappingOutput
+	ToFcaPolicyCidrMappingOutputWithContext(context.Context) FcaPolicyCidrMappingOutput
+}
+
+// A single CIDR range to label mapping.
+type FcaPolicyCidrMappingArgs struct {
+	// The label for the CIDR range.
+	CidrLabel pulumi.StringInput `pulumi:"cidrLabel"`
+	// The CIDR range.
+	CidrRange pulumi.StringInput `pulumi:"cidrRange"`
+}
+
+func (FcaPolicyCidrMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyCidrMapping)(nil)).Elem()
+}
+
+func (i FcaPolicyCidrMappingArgs) ToFcaPolicyCidrMappingOutput() FcaPolicyCidrMappingOutput {
+	return i.ToFcaPolicyCidrMappingOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyCidrMappingArgs) ToFcaPolicyCidrMappingOutputWithContext(ctx context.Context) FcaPolicyCidrMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyCidrMappingOutput)
+}
+
+// FcaPolicyCidrMappingArrayInput is an input type that accepts FcaPolicyCidrMappingArray and FcaPolicyCidrMappingArrayOutput values.
+// You can construct a concrete instance of `FcaPolicyCidrMappingArrayInput` via:
+//
+//	FcaPolicyCidrMappingArray{ FcaPolicyCidrMappingArgs{...} }
+type FcaPolicyCidrMappingArrayInput interface {
+	pulumi.Input
+
+	ToFcaPolicyCidrMappingArrayOutput() FcaPolicyCidrMappingArrayOutput
+	ToFcaPolicyCidrMappingArrayOutputWithContext(context.Context) FcaPolicyCidrMappingArrayOutput
+}
+
+type FcaPolicyCidrMappingArray []FcaPolicyCidrMappingInput
+
+func (FcaPolicyCidrMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FcaPolicyCidrMapping)(nil)).Elem()
+}
+
+func (i FcaPolicyCidrMappingArray) ToFcaPolicyCidrMappingArrayOutput() FcaPolicyCidrMappingArrayOutput {
+	return i.ToFcaPolicyCidrMappingArrayOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyCidrMappingArray) ToFcaPolicyCidrMappingArrayOutputWithContext(ctx context.Context) FcaPolicyCidrMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyCidrMappingArrayOutput)
+}
+
+// A single CIDR range to label mapping.
+type FcaPolicyCidrMappingOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyCidrMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyCidrMapping)(nil)).Elem()
+}
+
+func (o FcaPolicyCidrMappingOutput) ToFcaPolicyCidrMappingOutput() FcaPolicyCidrMappingOutput {
+	return o
+}
+
+func (o FcaPolicyCidrMappingOutput) ToFcaPolicyCidrMappingOutputWithContext(ctx context.Context) FcaPolicyCidrMappingOutput {
+	return o
+}
+
+// The label for the CIDR range.
+func (o FcaPolicyCidrMappingOutput) CidrLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v FcaPolicyCidrMapping) string { return v.CidrLabel }).(pulumi.StringOutput)
+}
+
+// The CIDR range.
+func (o FcaPolicyCidrMappingOutput) CidrRange() pulumi.StringOutput {
+	return o.ApplyT(func(v FcaPolicyCidrMapping) string { return v.CidrRange }).(pulumi.StringOutput)
+}
+
+type FcaPolicyCidrMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyCidrMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FcaPolicyCidrMapping)(nil)).Elem()
+}
+
+func (o FcaPolicyCidrMappingArrayOutput) ToFcaPolicyCidrMappingArrayOutput() FcaPolicyCidrMappingArrayOutput {
+	return o
+}
+
+func (o FcaPolicyCidrMappingArrayOutput) ToFcaPolicyCidrMappingArrayOutputWithContext(ctx context.Context) FcaPolicyCidrMappingArrayOutput {
+	return o
+}
+
+func (o FcaPolicyCidrMappingArrayOutput) Index(i pulumi.IntInput) FcaPolicyCidrMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FcaPolicyCidrMapping {
+		return vs[0].([]FcaPolicyCidrMapping)[vs[1].(int)]
+	}).(FcaPolicyCidrMappingOutput)
+}
+
+// CIDR range specifications, used when the reporting granularity is 'cidr'.
+type FcaPolicyCidrRangeSpecifications struct {
+	// The CIDR range to label mappings.
+	Prefixes []FcaPolicyCidrMapping `pulumi:"prefixes"`
+	// The type of prefixes the mappings apply to.
+	PrefixesType string `pulumi:"prefixesType"`
+}
+
+// FcaPolicyCidrRangeSpecificationsInput is an input type that accepts FcaPolicyCidrRangeSpecificationsArgs and FcaPolicyCidrRangeSpecificationsOutput values.
+// You can construct a concrete instance of `FcaPolicyCidrRangeSpecificationsInput` via:
+//
+//	FcaPolicyCidrRangeSpecificationsArgs{...}
+type FcaPolicyCidrRangeSpecificationsInput interface {
+	pulumi.Input
+
+	ToFcaPolicyCidrRangeSpecificationsOutput() FcaPolicyCidrRangeSpecificationsOutput
+	ToFcaPolicyCidrRangeSpecificationsOutputWithContext(context.Context) FcaPolicyCidrRangeSpecificationsOutput
+}
+
+// CIDR range specifications, used when the reporting granularity is 'cidr'.
+type FcaPolicyCidrRangeSpecificationsArgs struct {
+	// The CIDR range to label mappings.
+	Prefixes FcaPolicyCidrMappingArrayInput `pulumi:"prefixes"`
+	// The type of prefixes the mappings apply to.
+	PrefixesType pulumi.StringInput `pulumi:"prefixesType"`
+}
+
+func (FcaPolicyCidrRangeSpecificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyCidrRangeSpecifications)(nil)).Elem()
+}
+
+func (i FcaPolicyCidrRangeSpecificationsArgs) ToFcaPolicyCidrRangeSpecificationsOutput() FcaPolicyCidrRangeSpecificationsOutput {
+	return i.ToFcaPolicyCidrRangeSpecificationsOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyCidrRangeSpecificationsArgs) ToFcaPolicyCidrRangeSpecificationsOutputWithContext(ctx context.Context) FcaPolicyCidrRangeSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyCidrRangeSpecificationsOutput)
+}
+
+func (i FcaPolicyCidrRangeSpecificationsArgs) ToFcaPolicyCidrRangeSpecificationsPtrOutput() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return i.ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyCidrRangeSpecificationsArgs) ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(ctx context.Context) FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyCidrRangeSpecificationsOutput).ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(ctx)
+}
+
+// FcaPolicyCidrRangeSpecificationsPtrInput is an input type that accepts FcaPolicyCidrRangeSpecificationsArgs, FcaPolicyCidrRangeSpecificationsPtr and FcaPolicyCidrRangeSpecificationsPtrOutput values.
+// You can construct a concrete instance of `FcaPolicyCidrRangeSpecificationsPtrInput` via:
+//
+//	        FcaPolicyCidrRangeSpecificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FcaPolicyCidrRangeSpecificationsPtrInput interface {
+	pulumi.Input
+
+	ToFcaPolicyCidrRangeSpecificationsPtrOutput() FcaPolicyCidrRangeSpecificationsPtrOutput
+	ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(context.Context) FcaPolicyCidrRangeSpecificationsPtrOutput
+}
+
+type fcaPolicyCidrRangeSpecificationsPtrType FcaPolicyCidrRangeSpecificationsArgs
+
+func FcaPolicyCidrRangeSpecificationsPtr(v *FcaPolicyCidrRangeSpecificationsArgs) FcaPolicyCidrRangeSpecificationsPtrInput {
+	return (*fcaPolicyCidrRangeSpecificationsPtrType)(v)
+}
+
+func (*fcaPolicyCidrRangeSpecificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyCidrRangeSpecifications)(nil)).Elem()
+}
+
+func (i *fcaPolicyCidrRangeSpecificationsPtrType) ToFcaPolicyCidrRangeSpecificationsPtrOutput() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return i.ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *fcaPolicyCidrRangeSpecificationsPtrType) ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(ctx context.Context) FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyCidrRangeSpecificationsPtrOutput)
+}
+
+// CIDR range specifications, used when the reporting granularity is 'cidr'.
+type FcaPolicyCidrRangeSpecificationsOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyCidrRangeSpecificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyCidrRangeSpecifications)(nil)).Elem()
+}
+
+func (o FcaPolicyCidrRangeSpecificationsOutput) ToFcaPolicyCidrRangeSpecificationsOutput() FcaPolicyCidrRangeSpecificationsOutput {
+	return o
+}
+
+func (o FcaPolicyCidrRangeSpecificationsOutput) ToFcaPolicyCidrRangeSpecificationsOutputWithContext(ctx context.Context) FcaPolicyCidrRangeSpecificationsOutput {
+	return o
+}
+
+func (o FcaPolicyCidrRangeSpecificationsOutput) ToFcaPolicyCidrRangeSpecificationsPtrOutput() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o.ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyCidrRangeSpecificationsOutput) ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(ctx context.Context) FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyCidrRangeSpecifications) *FcaPolicyCidrRangeSpecifications {
+		return &v
+	}).(FcaPolicyCidrRangeSpecificationsPtrOutput)
+}
+
+// The CIDR range to label mappings.
+func (o FcaPolicyCidrRangeSpecificationsOutput) Prefixes() FcaPolicyCidrMappingArrayOutput {
+	return o.ApplyT(func(v FcaPolicyCidrRangeSpecifications) []FcaPolicyCidrMapping { return v.Prefixes }).(FcaPolicyCidrMappingArrayOutput)
+}
+
+// The type of prefixes the mappings apply to.
+func (o FcaPolicyCidrRangeSpecificationsOutput) PrefixesType() pulumi.StringOutput {
+	return o.ApplyT(func(v FcaPolicyCidrRangeSpecifications) string { return v.PrefixesType }).(pulumi.StringOutput)
+}
+
+type FcaPolicyCidrRangeSpecificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyCidrRangeSpecificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyCidrRangeSpecifications)(nil)).Elem()
+}
+
+func (o FcaPolicyCidrRangeSpecificationsPtrOutput) ToFcaPolicyCidrRangeSpecificationsPtrOutput() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o
+}
+
+func (o FcaPolicyCidrRangeSpecificationsPtrOutput) ToFcaPolicyCidrRangeSpecificationsPtrOutputWithContext(ctx context.Context) FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o
+}
+
+func (o FcaPolicyCidrRangeSpecificationsPtrOutput) Elem() FcaPolicyCidrRangeSpecificationsOutput {
+	return o.ApplyT(func(v *FcaPolicyCidrRangeSpecifications) FcaPolicyCidrRangeSpecifications {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyCidrRangeSpecifications
+		return ret
+	}).(FcaPolicyCidrRangeSpecificationsOutput)
+}
+
+// The CIDR range to label mappings.
+func (o FcaPolicyCidrRangeSpecificationsPtrOutput) Prefixes() FcaPolicyCidrMappingArrayOutput {
+	return o.ApplyT(func(v *FcaPolicyCidrRangeSpecifications) []FcaPolicyCidrMapping {
+		if v == nil {
+			return nil
+		}
+		return v.Prefixes
+	}).(FcaPolicyCidrMappingArrayOutput)
+}
+
+// The type of prefixes the mappings apply to.
+func (o FcaPolicyCidrRangeSpecificationsPtrOutput) PrefixesType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FcaPolicyCidrRangeSpecifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrefixesType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The FCA policy document for EC2 instance cost allocation.
+type FcaPolicyInstanceFcaPolicyDocument struct {
+	CidrRangeSpecifications *FcaPolicyCidrRangeSpecifications       `pulumi:"cidrRangeSpecifications"`
+	Dimensions              []FcaPolicyDimensionListItem            `pulumi:"dimensions"`
+	ReportingGranularity    []FcaPolicyReportingGranularityListItem `pulumi:"reportingGranularity"`
+}
+
+// FcaPolicyInstanceFcaPolicyDocumentInput is an input type that accepts FcaPolicyInstanceFcaPolicyDocumentArgs and FcaPolicyInstanceFcaPolicyDocumentOutput values.
+// You can construct a concrete instance of `FcaPolicyInstanceFcaPolicyDocumentInput` via:
+//
+//	FcaPolicyInstanceFcaPolicyDocumentArgs{...}
+type FcaPolicyInstanceFcaPolicyDocumentInput interface {
+	pulumi.Input
+
+	ToFcaPolicyInstanceFcaPolicyDocumentOutput() FcaPolicyInstanceFcaPolicyDocumentOutput
+	ToFcaPolicyInstanceFcaPolicyDocumentOutputWithContext(context.Context) FcaPolicyInstanceFcaPolicyDocumentOutput
+}
+
+// The FCA policy document for EC2 instance cost allocation.
+type FcaPolicyInstanceFcaPolicyDocumentArgs struct {
+	CidrRangeSpecifications FcaPolicyCidrRangeSpecificationsPtrInput        `pulumi:"cidrRangeSpecifications"`
+	Dimensions              FcaPolicyDimensionListItemArrayInput            `pulumi:"dimensions"`
+	ReportingGranularity    FcaPolicyReportingGranularityListItemArrayInput `pulumi:"reportingGranularity"`
+}
+
+func (FcaPolicyInstanceFcaPolicyDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyInstanceFcaPolicyDocument)(nil)).Elem()
+}
+
+func (i FcaPolicyInstanceFcaPolicyDocumentArgs) ToFcaPolicyInstanceFcaPolicyDocumentOutput() FcaPolicyInstanceFcaPolicyDocumentOutput {
+	return i.ToFcaPolicyInstanceFcaPolicyDocumentOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyInstanceFcaPolicyDocumentArgs) ToFcaPolicyInstanceFcaPolicyDocumentOutputWithContext(ctx context.Context) FcaPolicyInstanceFcaPolicyDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyInstanceFcaPolicyDocumentOutput)
+}
+
+func (i FcaPolicyInstanceFcaPolicyDocumentArgs) ToFcaPolicyInstanceFcaPolicyDocumentPtrOutput() FcaPolicyInstanceFcaPolicyDocumentPtrOutput {
+	return i.ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyInstanceFcaPolicyDocumentArgs) ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyInstanceFcaPolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyInstanceFcaPolicyDocumentOutput).ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(ctx)
+}
+
+// FcaPolicyInstanceFcaPolicyDocumentPtrInput is an input type that accepts FcaPolicyInstanceFcaPolicyDocumentArgs, FcaPolicyInstanceFcaPolicyDocumentPtr and FcaPolicyInstanceFcaPolicyDocumentPtrOutput values.
+// You can construct a concrete instance of `FcaPolicyInstanceFcaPolicyDocumentPtrInput` via:
+//
+//	        FcaPolicyInstanceFcaPolicyDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FcaPolicyInstanceFcaPolicyDocumentPtrInput interface {
+	pulumi.Input
+
+	ToFcaPolicyInstanceFcaPolicyDocumentPtrOutput() FcaPolicyInstanceFcaPolicyDocumentPtrOutput
+	ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(context.Context) FcaPolicyInstanceFcaPolicyDocumentPtrOutput
+}
+
+type fcaPolicyInstanceFcaPolicyDocumentPtrType FcaPolicyInstanceFcaPolicyDocumentArgs
+
+func FcaPolicyInstanceFcaPolicyDocumentPtr(v *FcaPolicyInstanceFcaPolicyDocumentArgs) FcaPolicyInstanceFcaPolicyDocumentPtrInput {
+	return (*fcaPolicyInstanceFcaPolicyDocumentPtrType)(v)
+}
+
+func (*fcaPolicyInstanceFcaPolicyDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyInstanceFcaPolicyDocument)(nil)).Elem()
+}
+
+func (i *fcaPolicyInstanceFcaPolicyDocumentPtrType) ToFcaPolicyInstanceFcaPolicyDocumentPtrOutput() FcaPolicyInstanceFcaPolicyDocumentPtrOutput {
+	return i.ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *fcaPolicyInstanceFcaPolicyDocumentPtrType) ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyInstanceFcaPolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyInstanceFcaPolicyDocumentPtrOutput)
+}
+
+// The FCA policy document for EC2 instance cost allocation.
+type FcaPolicyInstanceFcaPolicyDocumentOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyInstanceFcaPolicyDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyInstanceFcaPolicyDocument)(nil)).Elem()
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentOutput) ToFcaPolicyInstanceFcaPolicyDocumentOutput() FcaPolicyInstanceFcaPolicyDocumentOutput {
+	return o
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentOutput) ToFcaPolicyInstanceFcaPolicyDocumentOutputWithContext(ctx context.Context) FcaPolicyInstanceFcaPolicyDocumentOutput {
+	return o
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentOutput) ToFcaPolicyInstanceFcaPolicyDocumentPtrOutput() FcaPolicyInstanceFcaPolicyDocumentPtrOutput {
+	return o.ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentOutput) ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyInstanceFcaPolicyDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyInstanceFcaPolicyDocument) *FcaPolicyInstanceFcaPolicyDocument {
+		return &v
+	}).(FcaPolicyInstanceFcaPolicyDocumentPtrOutput)
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentOutput) CidrRangeSpecifications() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o.ApplyT(func(v FcaPolicyInstanceFcaPolicyDocument) *FcaPolicyCidrRangeSpecifications {
+		return v.CidrRangeSpecifications
+	}).(FcaPolicyCidrRangeSpecificationsPtrOutput)
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentOutput) Dimensions() FcaPolicyDimensionListItemArrayOutput {
+	return o.ApplyT(func(v FcaPolicyInstanceFcaPolicyDocument) []FcaPolicyDimensionListItem { return v.Dimensions }).(FcaPolicyDimensionListItemArrayOutput)
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentOutput) ReportingGranularity() FcaPolicyReportingGranularityListItemArrayOutput {
+	return o.ApplyT(func(v FcaPolicyInstanceFcaPolicyDocument) []FcaPolicyReportingGranularityListItem {
+		return v.ReportingGranularity
+	}).(FcaPolicyReportingGranularityListItemArrayOutput)
+}
+
+type FcaPolicyInstanceFcaPolicyDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyInstanceFcaPolicyDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyInstanceFcaPolicyDocument)(nil)).Elem()
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentPtrOutput) ToFcaPolicyInstanceFcaPolicyDocumentPtrOutput() FcaPolicyInstanceFcaPolicyDocumentPtrOutput {
+	return o
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentPtrOutput) ToFcaPolicyInstanceFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyInstanceFcaPolicyDocumentPtrOutput {
+	return o
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentPtrOutput) Elem() FcaPolicyInstanceFcaPolicyDocumentOutput {
+	return o.ApplyT(func(v *FcaPolicyInstanceFcaPolicyDocument) FcaPolicyInstanceFcaPolicyDocument {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyInstanceFcaPolicyDocument
+		return ret
+	}).(FcaPolicyInstanceFcaPolicyDocumentOutput)
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentPtrOutput) CidrRangeSpecifications() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o.ApplyT(func(v *FcaPolicyInstanceFcaPolicyDocument) *FcaPolicyCidrRangeSpecifications {
+		if v == nil {
+			return nil
+		}
+		return v.CidrRangeSpecifications
+	}).(FcaPolicyCidrRangeSpecificationsPtrOutput)
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentPtrOutput) Dimensions() FcaPolicyDimensionListItemArrayOutput {
+	return o.ApplyT(func(v *FcaPolicyInstanceFcaPolicyDocument) []FcaPolicyDimensionListItem {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(FcaPolicyDimensionListItemArrayOutput)
+}
+
+func (o FcaPolicyInstanceFcaPolicyDocumentPtrOutput) ReportingGranularity() FcaPolicyReportingGranularityListItemArrayOutput {
+	return o.ApplyT(func(v *FcaPolicyInstanceFcaPolicyDocument) []FcaPolicyReportingGranularityListItem {
+		if v == nil {
+			return nil
+		}
+		return v.ReportingGranularity
+	}).(FcaPolicyReportingGranularityListItemArrayOutput)
+}
+
+// The FCA policy document for NAT gateway cost allocation.
+type FcaPolicyNatFcaPolicyDocument struct {
+	CidrRangeSpecifications *FcaPolicyCidrRangeSpecifications       `pulumi:"cidrRangeSpecifications"`
+	Dimensions              []FcaPolicyDimensionListItem            `pulumi:"dimensions"`
+	ReportingGranularity    []FcaPolicyReportingGranularityListItem `pulumi:"reportingGranularity"`
+}
+
+// FcaPolicyNatFcaPolicyDocumentInput is an input type that accepts FcaPolicyNatFcaPolicyDocumentArgs and FcaPolicyNatFcaPolicyDocumentOutput values.
+// You can construct a concrete instance of `FcaPolicyNatFcaPolicyDocumentInput` via:
+//
+//	FcaPolicyNatFcaPolicyDocumentArgs{...}
+type FcaPolicyNatFcaPolicyDocumentInput interface {
+	pulumi.Input
+
+	ToFcaPolicyNatFcaPolicyDocumentOutput() FcaPolicyNatFcaPolicyDocumentOutput
+	ToFcaPolicyNatFcaPolicyDocumentOutputWithContext(context.Context) FcaPolicyNatFcaPolicyDocumentOutput
+}
+
+// The FCA policy document for NAT gateway cost allocation.
+type FcaPolicyNatFcaPolicyDocumentArgs struct {
+	CidrRangeSpecifications FcaPolicyCidrRangeSpecificationsPtrInput        `pulumi:"cidrRangeSpecifications"`
+	Dimensions              FcaPolicyDimensionListItemArrayInput            `pulumi:"dimensions"`
+	ReportingGranularity    FcaPolicyReportingGranularityListItemArrayInput `pulumi:"reportingGranularity"`
+}
+
+func (FcaPolicyNatFcaPolicyDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyNatFcaPolicyDocument)(nil)).Elem()
+}
+
+func (i FcaPolicyNatFcaPolicyDocumentArgs) ToFcaPolicyNatFcaPolicyDocumentOutput() FcaPolicyNatFcaPolicyDocumentOutput {
+	return i.ToFcaPolicyNatFcaPolicyDocumentOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyNatFcaPolicyDocumentArgs) ToFcaPolicyNatFcaPolicyDocumentOutputWithContext(ctx context.Context) FcaPolicyNatFcaPolicyDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyNatFcaPolicyDocumentOutput)
+}
+
+func (i FcaPolicyNatFcaPolicyDocumentArgs) ToFcaPolicyNatFcaPolicyDocumentPtrOutput() FcaPolicyNatFcaPolicyDocumentPtrOutput {
+	return i.ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyNatFcaPolicyDocumentArgs) ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyNatFcaPolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyNatFcaPolicyDocumentOutput).ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(ctx)
+}
+
+// FcaPolicyNatFcaPolicyDocumentPtrInput is an input type that accepts FcaPolicyNatFcaPolicyDocumentArgs, FcaPolicyNatFcaPolicyDocumentPtr and FcaPolicyNatFcaPolicyDocumentPtrOutput values.
+// You can construct a concrete instance of `FcaPolicyNatFcaPolicyDocumentPtrInput` via:
+//
+//	        FcaPolicyNatFcaPolicyDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FcaPolicyNatFcaPolicyDocumentPtrInput interface {
+	pulumi.Input
+
+	ToFcaPolicyNatFcaPolicyDocumentPtrOutput() FcaPolicyNatFcaPolicyDocumentPtrOutput
+	ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(context.Context) FcaPolicyNatFcaPolicyDocumentPtrOutput
+}
+
+type fcaPolicyNatFcaPolicyDocumentPtrType FcaPolicyNatFcaPolicyDocumentArgs
+
+func FcaPolicyNatFcaPolicyDocumentPtr(v *FcaPolicyNatFcaPolicyDocumentArgs) FcaPolicyNatFcaPolicyDocumentPtrInput {
+	return (*fcaPolicyNatFcaPolicyDocumentPtrType)(v)
+}
+
+func (*fcaPolicyNatFcaPolicyDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyNatFcaPolicyDocument)(nil)).Elem()
+}
+
+func (i *fcaPolicyNatFcaPolicyDocumentPtrType) ToFcaPolicyNatFcaPolicyDocumentPtrOutput() FcaPolicyNatFcaPolicyDocumentPtrOutput {
+	return i.ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *fcaPolicyNatFcaPolicyDocumentPtrType) ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyNatFcaPolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyNatFcaPolicyDocumentPtrOutput)
+}
+
+// The FCA policy document for NAT gateway cost allocation.
+type FcaPolicyNatFcaPolicyDocumentOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyNatFcaPolicyDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyNatFcaPolicyDocument)(nil)).Elem()
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentOutput) ToFcaPolicyNatFcaPolicyDocumentOutput() FcaPolicyNatFcaPolicyDocumentOutput {
+	return o
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentOutput) ToFcaPolicyNatFcaPolicyDocumentOutputWithContext(ctx context.Context) FcaPolicyNatFcaPolicyDocumentOutput {
+	return o
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentOutput) ToFcaPolicyNatFcaPolicyDocumentPtrOutput() FcaPolicyNatFcaPolicyDocumentPtrOutput {
+	return o.ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentOutput) ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyNatFcaPolicyDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyNatFcaPolicyDocument) *FcaPolicyNatFcaPolicyDocument {
+		return &v
+	}).(FcaPolicyNatFcaPolicyDocumentPtrOutput)
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentOutput) CidrRangeSpecifications() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o.ApplyT(func(v FcaPolicyNatFcaPolicyDocument) *FcaPolicyCidrRangeSpecifications {
+		return v.CidrRangeSpecifications
+	}).(FcaPolicyCidrRangeSpecificationsPtrOutput)
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentOutput) Dimensions() FcaPolicyDimensionListItemArrayOutput {
+	return o.ApplyT(func(v FcaPolicyNatFcaPolicyDocument) []FcaPolicyDimensionListItem { return v.Dimensions }).(FcaPolicyDimensionListItemArrayOutput)
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentOutput) ReportingGranularity() FcaPolicyReportingGranularityListItemArrayOutput {
+	return o.ApplyT(func(v FcaPolicyNatFcaPolicyDocument) []FcaPolicyReportingGranularityListItem {
+		return v.ReportingGranularity
+	}).(FcaPolicyReportingGranularityListItemArrayOutput)
+}
+
+type FcaPolicyNatFcaPolicyDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyNatFcaPolicyDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyNatFcaPolicyDocument)(nil)).Elem()
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentPtrOutput) ToFcaPolicyNatFcaPolicyDocumentPtrOutput() FcaPolicyNatFcaPolicyDocumentPtrOutput {
+	return o
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentPtrOutput) ToFcaPolicyNatFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyNatFcaPolicyDocumentPtrOutput {
+	return o
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentPtrOutput) Elem() FcaPolicyNatFcaPolicyDocumentOutput {
+	return o.ApplyT(func(v *FcaPolicyNatFcaPolicyDocument) FcaPolicyNatFcaPolicyDocument {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyNatFcaPolicyDocument
+		return ret
+	}).(FcaPolicyNatFcaPolicyDocumentOutput)
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentPtrOutput) CidrRangeSpecifications() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o.ApplyT(func(v *FcaPolicyNatFcaPolicyDocument) *FcaPolicyCidrRangeSpecifications {
+		if v == nil {
+			return nil
+		}
+		return v.CidrRangeSpecifications
+	}).(FcaPolicyCidrRangeSpecificationsPtrOutput)
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentPtrOutput) Dimensions() FcaPolicyDimensionListItemArrayOutput {
+	return o.ApplyT(func(v *FcaPolicyNatFcaPolicyDocument) []FcaPolicyDimensionListItem {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(FcaPolicyDimensionListItemArrayOutput)
+}
+
+func (o FcaPolicyNatFcaPolicyDocumentPtrOutput) ReportingGranularity() FcaPolicyReportingGranularityListItemArrayOutput {
+	return o.ApplyT(func(v *FcaPolicyNatFcaPolicyDocument) []FcaPolicyReportingGranularityListItem {
+		if v == nil {
+			return nil
+		}
+		return v.ReportingGranularity
+	}).(FcaPolicyReportingGranularityListItemArrayOutput)
+}
+
+// The FCA policy document for VPC peering connection cost allocation.
+type FcaPolicyPcxFcaPolicyDocument struct {
+	CidrRangeSpecifications *FcaPolicyCidrRangeSpecifications       `pulumi:"cidrRangeSpecifications"`
+	Dimensions              []FcaPolicyDimensionListItem            `pulumi:"dimensions"`
+	ReportingGranularity    []FcaPolicyReportingGranularityListItem `pulumi:"reportingGranularity"`
+}
+
+// FcaPolicyPcxFcaPolicyDocumentInput is an input type that accepts FcaPolicyPcxFcaPolicyDocumentArgs and FcaPolicyPcxFcaPolicyDocumentOutput values.
+// You can construct a concrete instance of `FcaPolicyPcxFcaPolicyDocumentInput` via:
+//
+//	FcaPolicyPcxFcaPolicyDocumentArgs{...}
+type FcaPolicyPcxFcaPolicyDocumentInput interface {
+	pulumi.Input
+
+	ToFcaPolicyPcxFcaPolicyDocumentOutput() FcaPolicyPcxFcaPolicyDocumentOutput
+	ToFcaPolicyPcxFcaPolicyDocumentOutputWithContext(context.Context) FcaPolicyPcxFcaPolicyDocumentOutput
+}
+
+// The FCA policy document for VPC peering connection cost allocation.
+type FcaPolicyPcxFcaPolicyDocumentArgs struct {
+	CidrRangeSpecifications FcaPolicyCidrRangeSpecificationsPtrInput        `pulumi:"cidrRangeSpecifications"`
+	Dimensions              FcaPolicyDimensionListItemArrayInput            `pulumi:"dimensions"`
+	ReportingGranularity    FcaPolicyReportingGranularityListItemArrayInput `pulumi:"reportingGranularity"`
+}
+
+func (FcaPolicyPcxFcaPolicyDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyPcxFcaPolicyDocument)(nil)).Elem()
+}
+
+func (i FcaPolicyPcxFcaPolicyDocumentArgs) ToFcaPolicyPcxFcaPolicyDocumentOutput() FcaPolicyPcxFcaPolicyDocumentOutput {
+	return i.ToFcaPolicyPcxFcaPolicyDocumentOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyPcxFcaPolicyDocumentArgs) ToFcaPolicyPcxFcaPolicyDocumentOutputWithContext(ctx context.Context) FcaPolicyPcxFcaPolicyDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyPcxFcaPolicyDocumentOutput)
+}
+
+func (i FcaPolicyPcxFcaPolicyDocumentArgs) ToFcaPolicyPcxFcaPolicyDocumentPtrOutput() FcaPolicyPcxFcaPolicyDocumentPtrOutput {
+	return i.ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyPcxFcaPolicyDocumentArgs) ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyPcxFcaPolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyPcxFcaPolicyDocumentOutput).ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(ctx)
+}
+
+// FcaPolicyPcxFcaPolicyDocumentPtrInput is an input type that accepts FcaPolicyPcxFcaPolicyDocumentArgs, FcaPolicyPcxFcaPolicyDocumentPtr and FcaPolicyPcxFcaPolicyDocumentPtrOutput values.
+// You can construct a concrete instance of `FcaPolicyPcxFcaPolicyDocumentPtrInput` via:
+//
+//	        FcaPolicyPcxFcaPolicyDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FcaPolicyPcxFcaPolicyDocumentPtrInput interface {
+	pulumi.Input
+
+	ToFcaPolicyPcxFcaPolicyDocumentPtrOutput() FcaPolicyPcxFcaPolicyDocumentPtrOutput
+	ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(context.Context) FcaPolicyPcxFcaPolicyDocumentPtrOutput
+}
+
+type fcaPolicyPcxFcaPolicyDocumentPtrType FcaPolicyPcxFcaPolicyDocumentArgs
+
+func FcaPolicyPcxFcaPolicyDocumentPtr(v *FcaPolicyPcxFcaPolicyDocumentArgs) FcaPolicyPcxFcaPolicyDocumentPtrInput {
+	return (*fcaPolicyPcxFcaPolicyDocumentPtrType)(v)
+}
+
+func (*fcaPolicyPcxFcaPolicyDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyPcxFcaPolicyDocument)(nil)).Elem()
+}
+
+func (i *fcaPolicyPcxFcaPolicyDocumentPtrType) ToFcaPolicyPcxFcaPolicyDocumentPtrOutput() FcaPolicyPcxFcaPolicyDocumentPtrOutput {
+	return i.ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *fcaPolicyPcxFcaPolicyDocumentPtrType) ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyPcxFcaPolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyPcxFcaPolicyDocumentPtrOutput)
+}
+
+// The FCA policy document for VPC peering connection cost allocation.
+type FcaPolicyPcxFcaPolicyDocumentOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyPcxFcaPolicyDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyPcxFcaPolicyDocument)(nil)).Elem()
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentOutput) ToFcaPolicyPcxFcaPolicyDocumentOutput() FcaPolicyPcxFcaPolicyDocumentOutput {
+	return o
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentOutput) ToFcaPolicyPcxFcaPolicyDocumentOutputWithContext(ctx context.Context) FcaPolicyPcxFcaPolicyDocumentOutput {
+	return o
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentOutput) ToFcaPolicyPcxFcaPolicyDocumentPtrOutput() FcaPolicyPcxFcaPolicyDocumentPtrOutput {
+	return o.ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentOutput) ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyPcxFcaPolicyDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyPcxFcaPolicyDocument) *FcaPolicyPcxFcaPolicyDocument {
+		return &v
+	}).(FcaPolicyPcxFcaPolicyDocumentPtrOutput)
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentOutput) CidrRangeSpecifications() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o.ApplyT(func(v FcaPolicyPcxFcaPolicyDocument) *FcaPolicyCidrRangeSpecifications {
+		return v.CidrRangeSpecifications
+	}).(FcaPolicyCidrRangeSpecificationsPtrOutput)
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentOutput) Dimensions() FcaPolicyDimensionListItemArrayOutput {
+	return o.ApplyT(func(v FcaPolicyPcxFcaPolicyDocument) []FcaPolicyDimensionListItem { return v.Dimensions }).(FcaPolicyDimensionListItemArrayOutput)
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentOutput) ReportingGranularity() FcaPolicyReportingGranularityListItemArrayOutput {
+	return o.ApplyT(func(v FcaPolicyPcxFcaPolicyDocument) []FcaPolicyReportingGranularityListItem {
+		return v.ReportingGranularity
+	}).(FcaPolicyReportingGranularityListItemArrayOutput)
+}
+
+type FcaPolicyPcxFcaPolicyDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyPcxFcaPolicyDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyPcxFcaPolicyDocument)(nil)).Elem()
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentPtrOutput) ToFcaPolicyPcxFcaPolicyDocumentPtrOutput() FcaPolicyPcxFcaPolicyDocumentPtrOutput {
+	return o
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentPtrOutput) ToFcaPolicyPcxFcaPolicyDocumentPtrOutputWithContext(ctx context.Context) FcaPolicyPcxFcaPolicyDocumentPtrOutput {
+	return o
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentPtrOutput) Elem() FcaPolicyPcxFcaPolicyDocumentOutput {
+	return o.ApplyT(func(v *FcaPolicyPcxFcaPolicyDocument) FcaPolicyPcxFcaPolicyDocument {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyPcxFcaPolicyDocument
+		return ret
+	}).(FcaPolicyPcxFcaPolicyDocumentOutput)
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentPtrOutput) CidrRangeSpecifications() FcaPolicyCidrRangeSpecificationsPtrOutput {
+	return o.ApplyT(func(v *FcaPolicyPcxFcaPolicyDocument) *FcaPolicyCidrRangeSpecifications {
+		if v == nil {
+			return nil
+		}
+		return v.CidrRangeSpecifications
+	}).(FcaPolicyCidrRangeSpecificationsPtrOutput)
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentPtrOutput) Dimensions() FcaPolicyDimensionListItemArrayOutput {
+	return o.ApplyT(func(v *FcaPolicyPcxFcaPolicyDocument) []FcaPolicyDimensionListItem {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(FcaPolicyDimensionListItemArrayOutput)
+}
+
+func (o FcaPolicyPcxFcaPolicyDocumentPtrOutput) ReportingGranularity() FcaPolicyReportingGranularityListItemArrayOutput {
+	return o.ApplyT(func(v *FcaPolicyPcxFcaPolicyDocument) []FcaPolicyReportingGranularityListItem {
+		if v == nil {
+			return nil
+		}
+		return v.ReportingGranularity
+	}).(FcaPolicyReportingGranularityListItemArrayOutput)
+}
+
+type FcaPolicyTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 type FlowLogTag struct {
@@ -35863,6 +38655,171 @@ type TransitGatewayMulticastDomainTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type TransitGatewayNetworkFunctionAttachmentTag struct {
+	// The key of the tag.
+	Key *string `pulumi:"key"`
+	// The value of the tag.
+	Value *string `pulumi:"value"`
+}
+
+type TransitGatewayPeeringAttachmentOptions struct {
+	// Whether to enable MultipathResilience on this side of the peering attachment.
+	AllowMultipathResilience *bool `pulumi:"allowMultipathResilience"`
+	// The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+	MultipathResilienceMode *TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode `pulumi:"multipathResilienceMode"`
+}
+
+// TransitGatewayPeeringAttachmentOptionsInput is an input type that accepts TransitGatewayPeeringAttachmentOptionsArgs and TransitGatewayPeeringAttachmentOptionsOutput values.
+// You can construct a concrete instance of `TransitGatewayPeeringAttachmentOptionsInput` via:
+//
+//	TransitGatewayPeeringAttachmentOptionsArgs{...}
+type TransitGatewayPeeringAttachmentOptionsInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentOptionsOutput() TransitGatewayPeeringAttachmentOptionsOutput
+	ToTransitGatewayPeeringAttachmentOptionsOutputWithContext(context.Context) TransitGatewayPeeringAttachmentOptionsOutput
+}
+
+type TransitGatewayPeeringAttachmentOptionsArgs struct {
+	// Whether to enable MultipathResilience on this side of the peering attachment.
+	AllowMultipathResilience pulumi.BoolPtrInput `pulumi:"allowMultipathResilience"`
+	// The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+	MultipathResilienceMode TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrInput `pulumi:"multipathResilienceMode"`
+}
+
+func (TransitGatewayPeeringAttachmentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (i TransitGatewayPeeringAttachmentOptionsArgs) ToTransitGatewayPeeringAttachmentOptionsOutput() TransitGatewayPeeringAttachmentOptionsOutput {
+	return i.ToTransitGatewayPeeringAttachmentOptionsOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPeeringAttachmentOptionsArgs) ToTransitGatewayPeeringAttachmentOptionsOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentOptionsOutput)
+}
+
+func (i TransitGatewayPeeringAttachmentOptionsArgs) ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return i.ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPeeringAttachmentOptionsArgs) ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentOptionsOutput).ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx)
+}
+
+// TransitGatewayPeeringAttachmentOptionsPtrInput is an input type that accepts TransitGatewayPeeringAttachmentOptionsArgs, TransitGatewayPeeringAttachmentOptionsPtr and TransitGatewayPeeringAttachmentOptionsPtrOutput values.
+// You can construct a concrete instance of `TransitGatewayPeeringAttachmentOptionsPtrInput` via:
+//
+//	        TransitGatewayPeeringAttachmentOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransitGatewayPeeringAttachmentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput
+	ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput
+}
+
+type transitGatewayPeeringAttachmentOptionsPtrType TransitGatewayPeeringAttachmentOptionsArgs
+
+func TransitGatewayPeeringAttachmentOptionsPtr(v *TransitGatewayPeeringAttachmentOptionsArgs) TransitGatewayPeeringAttachmentOptionsPtrInput {
+	return (*transitGatewayPeeringAttachmentOptionsPtrType)(v)
+}
+
+func (*transitGatewayPeeringAttachmentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (i *transitGatewayPeeringAttachmentOptionsPtrType) ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return i.ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayPeeringAttachmentOptionsPtrType) ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentOptionsPtrOutput)
+}
+
+type TransitGatewayPeeringAttachmentOptionsOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsOutput) ToTransitGatewayPeeringAttachmentOptionsOutput() TransitGatewayPeeringAttachmentOptionsOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsOutput) ToTransitGatewayPeeringAttachmentOptionsOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsOutput) ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return o.ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsOutput) ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayPeeringAttachmentOptions) *TransitGatewayPeeringAttachmentOptions {
+		return &v
+	}).(TransitGatewayPeeringAttachmentOptionsPtrOutput)
+}
+
+// Whether to enable MultipathResilience on this side of the peering attachment.
+func (o TransitGatewayPeeringAttachmentOptionsOutput) AllowMultipathResilience() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TransitGatewayPeeringAttachmentOptions) *bool { return v.AllowMultipathResilience }).(pulumi.BoolPtrOutput)
+}
+
+// The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+func (o TransitGatewayPeeringAttachmentOptionsOutput) MultipathResilienceMode() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return o.ApplyT(func(v TransitGatewayPeeringAttachmentOptions) *TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode {
+		return v.MultipathResilienceMode
+	}).(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput)
+}
+
+type TransitGatewayPeeringAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) Elem() TransitGatewayPeeringAttachmentOptionsOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentOptions) TransitGatewayPeeringAttachmentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayPeeringAttachmentOptions
+		return ret
+	}).(TransitGatewayPeeringAttachmentOptionsOutput)
+}
+
+// Whether to enable MultipathResilience on this side of the peering attachment.
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) AllowMultipathResilience() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowMultipathResilience
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) MultipathResilienceMode() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentOptions) *TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode {
+		if v == nil {
+			return nil
+		}
+		return v.MultipathResilienceMode
+	}).(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput)
+}
+
 type TransitGatewayPeeringAttachmentPeeringAttachmentStatus struct {
 	// The status code.
 	Code *string `pulumi:"code"`
@@ -40450,6 +43407,183 @@ type VpcEndpointTag struct {
 	Value string `pulumi:"value"`
 }
 
+type VpcPeeringConnectionOptions struct {
+	// If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+	AllowDnsResolutionFromRemoteVpc *bool `pulumi:"allowDnsResolutionFromRemoteVpc"`
+	// If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+	AllowMultipathResilience *bool `pulumi:"allowMultipathResilience"`
+	// The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+	MultipathResilienceMode *VpcPeeringConnectionOptionsMultipathResilienceMode `pulumi:"multipathResilienceMode"`
+}
+
+// VpcPeeringConnectionOptionsInput is an input type that accepts VpcPeeringConnectionOptionsArgs and VpcPeeringConnectionOptionsOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionOptionsInput` via:
+//
+//	VpcPeeringConnectionOptionsArgs{...}
+type VpcPeeringConnectionOptionsInput interface {
+	pulumi.Input
+
+	ToVpcPeeringConnectionOptionsOutput() VpcPeeringConnectionOptionsOutput
+	ToVpcPeeringConnectionOptionsOutputWithContext(context.Context) VpcPeeringConnectionOptionsOutput
+}
+
+type VpcPeeringConnectionOptionsArgs struct {
+	// If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+	AllowDnsResolutionFromRemoteVpc pulumi.BoolPtrInput `pulumi:"allowDnsResolutionFromRemoteVpc"`
+	// If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+	AllowMultipathResilience pulumi.BoolPtrInput `pulumi:"allowMultipathResilience"`
+	// The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+	MultipathResilienceMode VpcPeeringConnectionOptionsMultipathResilienceModePtrInput `pulumi:"multipathResilienceMode"`
+}
+
+func (VpcPeeringConnectionOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionOptions)(nil)).Elem()
+}
+
+func (i VpcPeeringConnectionOptionsArgs) ToVpcPeeringConnectionOptionsOutput() VpcPeeringConnectionOptionsOutput {
+	return i.ToVpcPeeringConnectionOptionsOutputWithContext(context.Background())
+}
+
+func (i VpcPeeringConnectionOptionsArgs) ToVpcPeeringConnectionOptionsOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionOptionsOutput)
+}
+
+func (i VpcPeeringConnectionOptionsArgs) ToVpcPeeringConnectionOptionsPtrOutput() VpcPeeringConnectionOptionsPtrOutput {
+	return i.ToVpcPeeringConnectionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcPeeringConnectionOptionsArgs) ToVpcPeeringConnectionOptionsPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionOptionsOutput).ToVpcPeeringConnectionOptionsPtrOutputWithContext(ctx)
+}
+
+// VpcPeeringConnectionOptionsPtrInput is an input type that accepts VpcPeeringConnectionOptionsArgs, VpcPeeringConnectionOptionsPtr and VpcPeeringConnectionOptionsPtrOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionOptionsPtrInput` via:
+//
+//	        VpcPeeringConnectionOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcPeeringConnectionOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpcPeeringConnectionOptionsPtrOutput() VpcPeeringConnectionOptionsPtrOutput
+	ToVpcPeeringConnectionOptionsPtrOutputWithContext(context.Context) VpcPeeringConnectionOptionsPtrOutput
+}
+
+type vpcPeeringConnectionOptionsPtrType VpcPeeringConnectionOptionsArgs
+
+func VpcPeeringConnectionOptionsPtr(v *VpcPeeringConnectionOptionsArgs) VpcPeeringConnectionOptionsPtrInput {
+	return (*vpcPeeringConnectionOptionsPtrType)(v)
+}
+
+func (*vpcPeeringConnectionOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcPeeringConnectionOptions)(nil)).Elem()
+}
+
+func (i *vpcPeeringConnectionOptionsPtrType) ToVpcPeeringConnectionOptionsPtrOutput() VpcPeeringConnectionOptionsPtrOutput {
+	return i.ToVpcPeeringConnectionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcPeeringConnectionOptionsPtrType) ToVpcPeeringConnectionOptionsPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionOptionsPtrOutput)
+}
+
+type VpcPeeringConnectionOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpcPeeringConnectionOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionOptions)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionOptionsOutput) ToVpcPeeringConnectionOptionsOutput() VpcPeeringConnectionOptionsOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOptionsOutput) ToVpcPeeringConnectionOptionsOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOptionsOutput) ToVpcPeeringConnectionOptionsPtrOutput() VpcPeeringConnectionOptionsPtrOutput {
+	return o.ToVpcPeeringConnectionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionOptionsOutput) ToVpcPeeringConnectionOptionsPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionOptions) *VpcPeeringConnectionOptions {
+		return &v
+	}).(VpcPeeringConnectionOptionsPtrOutput)
+}
+
+// If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+func (o VpcPeeringConnectionOptionsOutput) AllowDnsResolutionFromRemoteVpc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcPeeringConnectionOptions) *bool { return v.AllowDnsResolutionFromRemoteVpc }).(pulumi.BoolPtrOutput)
+}
+
+// If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+func (o VpcPeeringConnectionOptionsOutput) AllowMultipathResilience() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcPeeringConnectionOptions) *bool { return v.AllowMultipathResilience }).(pulumi.BoolPtrOutput)
+}
+
+// The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+func (o VpcPeeringConnectionOptionsOutput) MultipathResilienceMode() VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return o.ApplyT(func(v VpcPeeringConnectionOptions) *VpcPeeringConnectionOptionsMultipathResilienceMode {
+		return v.MultipathResilienceMode
+	}).(VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput)
+}
+
+type VpcPeeringConnectionOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcPeeringConnectionOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcPeeringConnectionOptions)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionOptionsPtrOutput) ToVpcPeeringConnectionOptionsPtrOutput() VpcPeeringConnectionOptionsPtrOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOptionsPtrOutput) ToVpcPeeringConnectionOptionsPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsPtrOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOptionsPtrOutput) Elem() VpcPeeringConnectionOptionsOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionOptions) VpcPeeringConnectionOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpcPeeringConnectionOptions
+		return ret
+	}).(VpcPeeringConnectionOptionsOutput)
+}
+
+// If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+func (o VpcPeeringConnectionOptionsPtrOutput) AllowDnsResolutionFromRemoteVpc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowDnsResolutionFromRemoteVpc
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+func (o VpcPeeringConnectionOptionsPtrOutput) AllowMultipathResilience() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowMultipathResilience
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+func (o VpcPeeringConnectionOptionsPtrOutput) MultipathResilienceMode() VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionOptions) *VpcPeeringConnectionOptionsMultipathResilienceMode {
+		if v == nil {
+			return nil
+		}
+		return v.MultipathResilienceMode
+	}).(VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type VpcPeeringConnectionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -42032,6 +45166,33 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagArrayInput)(nil)).Elem(), CapacityReservationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagSpecificationInput)(nil)).Elem(), CapacityReservationTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagSpecificationArrayInput)(nil)).Elem(), CapacityReservationTagSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointAuthorizationPolicyInput)(nil)).Elem(), ClientVpnEndpointAuthorizationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointAuthorizationPolicyPtrInput)(nil)).Elem(), ClientVpnEndpointAuthorizationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointCertificateAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointCertificateAuthenticationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointCertificateAuthenticationRequestPtrInput)(nil)).Elem(), ClientVpnEndpointCertificateAuthenticationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointClientAuthenticationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequestArrayInput)(nil)).Elem(), ClientVpnEndpointClientAuthenticationRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientConnectOptionsInput)(nil)).Elem(), ClientVpnEndpointClientConnectOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientConnectOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientConnectOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientRouteEnforcementOptionsInput)(nil)).Elem(), ClientVpnEndpointClientRouteEnforcementOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientRouteEnforcementOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientRouteEnforcementOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointConnectionLogOptionsInput)(nil)).Elem(), ClientVpnEndpointConnectionLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDevicePostureOptionsInput)(nil)).Elem(), ClientVpnEndpointDevicePostureOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDevicePostureOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointDevicePostureOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDevicePostureTrustProviderInput)(nil)).Elem(), ClientVpnEndpointDevicePostureTrustProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDevicePostureTrustProviderArrayInput)(nil)).Elem(), ClientVpnEndpointDevicePostureTrustProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointFederatedAuthenticationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequestPtrInput)(nil)).Elem(), ClientVpnEndpointFederatedAuthenticationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointTagInput)(nil)).Elem(), ClientVpnEndpointTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointTagArrayInput)(nil)).Elem(), ClientVpnEndpointTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointTagSpecificationInput)(nil)).Elem(), ClientVpnEndpointTagSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointTagSpecificationArrayInput)(nil)).Elem(), ClientVpnEndpointTagSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointTransitGatewayConfigurationInput)(nil)).Elem(), ClientVpnEndpointTransitGatewayConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointTransitGatewayConfigurationPtrInput)(nil)).Elem(), ClientVpnEndpointTransitGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CpuOptionsPropertiesInput)(nil)).Elem(), CpuOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CpuOptionsPropertiesPtrInput)(nil)).Elem(), CpuOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CreditSpecificationPropertiesInput)(nil)).Elem(), CreditSpecificationPropertiesArgs{})
@@ -42113,6 +45274,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetVCpuCountRangeRequestPtrInput)(nil)).Elem(), Ec2FleetVCpuCountRangeRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveOptionsPropertiesInput)(nil)).Elem(), EnclaveOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveOptionsPropertiesPtrInput)(nil)).Elem(), EnclaveOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyCidrMappingInput)(nil)).Elem(), FcaPolicyCidrMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyCidrMappingArrayInput)(nil)).Elem(), FcaPolicyCidrMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyCidrRangeSpecificationsInput)(nil)).Elem(), FcaPolicyCidrRangeSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyCidrRangeSpecificationsPtrInput)(nil)).Elem(), FcaPolicyCidrRangeSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyInstanceFcaPolicyDocumentInput)(nil)).Elem(), FcaPolicyInstanceFcaPolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyInstanceFcaPolicyDocumentPtrInput)(nil)).Elem(), FcaPolicyInstanceFcaPolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyNatFcaPolicyDocumentInput)(nil)).Elem(), FcaPolicyNatFcaPolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyNatFcaPolicyDocumentPtrInput)(nil)).Elem(), FcaPolicyNatFcaPolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyPcxFcaPolicyDocumentInput)(nil)).Elem(), FcaPolicyPcxFcaPolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyPcxFcaPolicyDocumentPtrInput)(nil)).Elem(), FcaPolicyPcxFcaPolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagFieldSpecificationInput)(nil)).Elem(), FlowLogTagFieldSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagFieldSpecificationArrayInput)(nil)).Elem(), FlowLogTagFieldSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FpgaImageStorageLocationInput)(nil)).Elem(), FpgaImageStorageLocationArgs{})
@@ -42382,6 +45553,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerConfigurationInput)(nil)).Elem(), TransitGatewayConnectPeerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationInput)(nil)).Elem(), TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayInput)(nil)).Elem(), TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentOptionsInput)(nil)).Elem(), TransitGatewayPeeringAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentOptionsPtrInput)(nil)).Elem(), TransitGatewayPeeringAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleInput)(nil)).Elem(), TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointCidrOptionsInput)(nil)).Elem(), VerifiedAccessEndpointCidrOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointCidrOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointCidrOptionsArgs{})
@@ -42423,6 +45596,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationPtrInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionOptionsInput)(nil)).Elem(), VpcPeeringConnectionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionOptionsPtrInput)(nil)).Elem(), VpcPeeringConnectionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationPtrInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionIkeVersionsRequestListValueInput)(nil)).Elem(), VpnConnectionIkeVersionsRequestListValueArgs{})
@@ -42463,6 +45638,34 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationTagArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointAuthorizationPolicyOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointAuthorizationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointCertificateAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientRouteEnforcementOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientRouteEnforcementOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDevicePostureOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDevicePostureOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDevicePostureTrustProviderOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDevicePostureTrustProviderArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointFederatedAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagSpecificationOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTransitGatewayConfigurationOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTransitGatewayConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CommitmentInfoPropertiesOutput{})
 	pulumi.RegisterOutputType(CommitmentInfoPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CpuOptionsPropertiesOutput{})
@@ -42547,6 +45750,16 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetVCpuCountRangeRequestPtrOutput{})
 	pulumi.RegisterOutputType(EnclaveOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(EnclaveOptionsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyCidrMappingOutput{})
+	pulumi.RegisterOutputType(FcaPolicyCidrMappingArrayOutput{})
+	pulumi.RegisterOutputType(FcaPolicyCidrRangeSpecificationsOutput{})
+	pulumi.RegisterOutputType(FcaPolicyCidrRangeSpecificationsPtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyInstanceFcaPolicyDocumentOutput{})
+	pulumi.RegisterOutputType(FcaPolicyInstanceFcaPolicyDocumentPtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyNatFcaPolicyDocumentOutput{})
+	pulumi.RegisterOutputType(FcaPolicyNatFcaPolicyDocumentPtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyPcxFcaPolicyDocumentOutput{})
+	pulumi.RegisterOutputType(FcaPolicyPcxFcaPolicyDocumentPtrOutput{})
 	pulumi.RegisterOutputType(FlowLogTagFieldSpecificationOutput{})
 	pulumi.RegisterOutputType(FlowLogTagFieldSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(FpgaImageStorageLocationOutput{})
@@ -42857,6 +46070,8 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayConnectPeerConfigurationOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput{})
@@ -42903,6 +46118,8 @@ func init() {
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionOptionsOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionIkeVersionsRequestListValueOutput{})

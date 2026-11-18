@@ -49,7 +49,8 @@ type RouterInput struct {
 	// Indicates whether the router input is configured for Regional or global routing.
 	RoutingScope RouterInputRoutingScopeOutput `pulumi:"routingScope"`
 	// The current state of the router input.
-	State RouterInputStateEnumOutput `pulumi:"state"`
+	State         RouterInputStateEnumOutput `pulumi:"state"`
+	StreamDetails pulumi.AnyOutput           `pulumi:"streamDetails"`
 	// Key-value pairs that can be used to tag and organize this router input.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The tier level of the router input.
@@ -295,6 +296,10 @@ func (o RouterInputOutput) RoutingScope() RouterInputRoutingScopeOutput {
 // The current state of the router input.
 func (o RouterInputOutput) State() RouterInputStateEnumOutput {
 	return o.ApplyT(func(v *RouterInput) RouterInputStateEnumOutput { return v.State }).(RouterInputStateEnumOutput)
+}
+
+func (o RouterInputOutput) StreamDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RouterInput) pulumi.AnyOutput { return v.StreamDetails }).(pulumi.AnyOutput)
 }
 
 // Key-value pairs that can be used to tag and organize this router input.

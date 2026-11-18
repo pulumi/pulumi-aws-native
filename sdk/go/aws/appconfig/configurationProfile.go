@@ -59,7 +59,6 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"applicationId",
 		"locationUri",
-		"type",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

@@ -70,6 +70,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("networkConfiguration", required: true)]
         public Input<Inputs.CapacityProviderManagedInstancesNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
 
+        [Input("nitroEnclavesEnabled")]
+        public Input<bool>? NitroEnclavesEnabled { get; set; }
+
         /// <summary>
         /// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
         /// </summary>

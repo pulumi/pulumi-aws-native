@@ -31,8 +31,14 @@ type LookupVpcPeeringConnectionArgs struct {
 type LookupVpcPeeringConnectionResult struct {
 	// The ID of the peering connection.
 	Id *string `pulumi:"id"`
+	// The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+	MultipathResilienceStatus *VpcPeeringConnectionMultipathResilienceStatus `pulumi:"multipathResilienceStatus"`
+	// The VPC peering connection options corresponding to the accepter side of the connection.
+	PeerVpcPeeringConnectionOptions *VpcPeeringConnectionOptions `pulumi:"peerVpcPeeringConnectionOptions"`
 	// Any tags assigned to the resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC peering connection options corresponding to the requester side of the connection.
+	VpcPeeringConnectionOptions *VpcPeeringConnectionOptions `pulumi:"vpcPeeringConnectionOptions"`
 }
 
 func LookupVpcPeeringConnectionOutput(ctx *pulumi.Context, args LookupVpcPeeringConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcPeeringConnectionResultOutput {
@@ -68,9 +74,30 @@ func (o LookupVpcPeeringConnectionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+func (o LookupVpcPeeringConnectionResultOutput) MultipathResilienceStatus() VpcPeeringConnectionMultipathResilienceStatusPtrOutput {
+	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) *VpcPeeringConnectionMultipathResilienceStatus {
+		return v.MultipathResilienceStatus
+	}).(VpcPeeringConnectionMultipathResilienceStatusPtrOutput)
+}
+
+// The VPC peering connection options corresponding to the accepter side of the connection.
+func (o LookupVpcPeeringConnectionResultOutput) PeerVpcPeeringConnectionOptions() VpcPeeringConnectionOptionsPtrOutput {
+	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) *VpcPeeringConnectionOptions {
+		return v.PeerVpcPeeringConnectionOptions
+	}).(VpcPeeringConnectionOptionsPtrOutput)
+}
+
 // Any tags assigned to the resource.
 func (o LookupVpcPeeringConnectionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The VPC peering connection options corresponding to the requester side of the connection.
+func (o LookupVpcPeeringConnectionResultOutput) VpcPeeringConnectionOptions() VpcPeeringConnectionOptionsPtrOutput {
+	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) *VpcPeeringConnectionOptions {
+		return v.VpcPeeringConnectionOptions
+	}).(VpcPeeringConnectionOptionsPtrOutput)
 }
 
 func init() {

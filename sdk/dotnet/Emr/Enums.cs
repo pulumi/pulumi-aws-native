@@ -8,6 +8,426 @@ using Pulumi;
 namespace Pulumi.AwsNative.Emr
 {
     /// <summary>
+    /// Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterCloudWatchAlarmDefinitionComparisonOperator : IEquatable<ClusterCloudWatchAlarmDefinitionComparisonOperator>
+    {
+        private readonly string _value;
+
+        private ClusterCloudWatchAlarmDefinitionComparisonOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterCloudWatchAlarmDefinitionComparisonOperator GreaterThanOrEqual { get; } = new ClusterCloudWatchAlarmDefinitionComparisonOperator("GREATER_THAN_OR_EQUAL");
+        public static ClusterCloudWatchAlarmDefinitionComparisonOperator GreaterThan { get; } = new ClusterCloudWatchAlarmDefinitionComparisonOperator("GREATER_THAN");
+        public static ClusterCloudWatchAlarmDefinitionComparisonOperator LessThan { get; } = new ClusterCloudWatchAlarmDefinitionComparisonOperator("LESS_THAN");
+        public static ClusterCloudWatchAlarmDefinitionComparisonOperator LessThanOrEqual { get; } = new ClusterCloudWatchAlarmDefinitionComparisonOperator("LESS_THAN_OR_EQUAL");
+
+        public static bool operator ==(ClusterCloudWatchAlarmDefinitionComparisonOperator left, ClusterCloudWatchAlarmDefinitionComparisonOperator right) => left.Equals(right);
+        public static bool operator !=(ClusterCloudWatchAlarmDefinitionComparisonOperator left, ClusterCloudWatchAlarmDefinitionComparisonOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterCloudWatchAlarmDefinitionComparisonOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterCloudWatchAlarmDefinitionComparisonOperator other && Equals(other);
+        public bool Equals(ClusterCloudWatchAlarmDefinitionComparisonOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterCloudWatchAlarmDefinitionStatistic : IEquatable<ClusterCloudWatchAlarmDefinitionStatistic>
+    {
+        private readonly string _value;
+
+        private ClusterCloudWatchAlarmDefinitionStatistic(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterCloudWatchAlarmDefinitionStatistic SampleCount { get; } = new ClusterCloudWatchAlarmDefinitionStatistic("SAMPLE_COUNT");
+        public static ClusterCloudWatchAlarmDefinitionStatistic Average { get; } = new ClusterCloudWatchAlarmDefinitionStatistic("AVERAGE");
+        public static ClusterCloudWatchAlarmDefinitionStatistic Sum { get; } = new ClusterCloudWatchAlarmDefinitionStatistic("SUM");
+        public static ClusterCloudWatchAlarmDefinitionStatistic Minimum { get; } = new ClusterCloudWatchAlarmDefinitionStatistic("MINIMUM");
+        public static ClusterCloudWatchAlarmDefinitionStatistic Maximum { get; } = new ClusterCloudWatchAlarmDefinitionStatistic("MAXIMUM");
+
+        public static bool operator ==(ClusterCloudWatchAlarmDefinitionStatistic left, ClusterCloudWatchAlarmDefinitionStatistic right) => left.Equals(right);
+        public static bool operator !=(ClusterCloudWatchAlarmDefinitionStatistic left, ClusterCloudWatchAlarmDefinitionStatistic right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterCloudWatchAlarmDefinitionStatistic value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterCloudWatchAlarmDefinitionStatistic other && Equals(other);
+        public bool Equals(ClusterCloudWatchAlarmDefinitionStatistic other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterCloudWatchAlarmDefinitionUnit : IEquatable<ClusterCloudWatchAlarmDefinitionUnit>
+    {
+        private readonly string _value;
+
+        private ClusterCloudWatchAlarmDefinitionUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterCloudWatchAlarmDefinitionUnit None { get; } = new ClusterCloudWatchAlarmDefinitionUnit("NONE");
+        public static ClusterCloudWatchAlarmDefinitionUnit Seconds { get; } = new ClusterCloudWatchAlarmDefinitionUnit("SECONDS");
+        public static ClusterCloudWatchAlarmDefinitionUnit MicroSeconds { get; } = new ClusterCloudWatchAlarmDefinitionUnit("MICRO_SECONDS");
+        public static ClusterCloudWatchAlarmDefinitionUnit MilliSeconds { get; } = new ClusterCloudWatchAlarmDefinitionUnit("MILLI_SECONDS");
+        public static ClusterCloudWatchAlarmDefinitionUnit Bytes { get; } = new ClusterCloudWatchAlarmDefinitionUnit("BYTES");
+        public static ClusterCloudWatchAlarmDefinitionUnit KiloBytes { get; } = new ClusterCloudWatchAlarmDefinitionUnit("KILO_BYTES");
+        public static ClusterCloudWatchAlarmDefinitionUnit MegaBytes { get; } = new ClusterCloudWatchAlarmDefinitionUnit("MEGA_BYTES");
+        public static ClusterCloudWatchAlarmDefinitionUnit GigaBytes { get; } = new ClusterCloudWatchAlarmDefinitionUnit("GIGA_BYTES");
+        public static ClusterCloudWatchAlarmDefinitionUnit TeraBytes { get; } = new ClusterCloudWatchAlarmDefinitionUnit("TERA_BYTES");
+        public static ClusterCloudWatchAlarmDefinitionUnit Bits { get; } = new ClusterCloudWatchAlarmDefinitionUnit("BITS");
+        public static ClusterCloudWatchAlarmDefinitionUnit KiloBits { get; } = new ClusterCloudWatchAlarmDefinitionUnit("KILO_BITS");
+        public static ClusterCloudWatchAlarmDefinitionUnit MegaBits { get; } = new ClusterCloudWatchAlarmDefinitionUnit("MEGA_BITS");
+        public static ClusterCloudWatchAlarmDefinitionUnit GigaBits { get; } = new ClusterCloudWatchAlarmDefinitionUnit("GIGA_BITS");
+        public static ClusterCloudWatchAlarmDefinitionUnit TeraBits { get; } = new ClusterCloudWatchAlarmDefinitionUnit("TERA_BITS");
+        public static ClusterCloudWatchAlarmDefinitionUnit Percent { get; } = new ClusterCloudWatchAlarmDefinitionUnit("PERCENT");
+        public static ClusterCloudWatchAlarmDefinitionUnit Count { get; } = new ClusterCloudWatchAlarmDefinitionUnit("COUNT");
+        public static ClusterCloudWatchAlarmDefinitionUnit BytesPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("BYTES_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit KiloBytesPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("KILO_BYTES_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit MegaBytesPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("MEGA_BYTES_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit GigaBytesPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("GIGA_BYTES_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit TeraBytesPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("TERA_BYTES_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit BitsPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("BITS_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit KiloBitsPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("KILO_BITS_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit MegaBitsPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("MEGA_BITS_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit GigaBitsPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("GIGA_BITS_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit TeraBitsPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("TERA_BITS_PER_SECOND");
+        public static ClusterCloudWatchAlarmDefinitionUnit CountPerSecond { get; } = new ClusterCloudWatchAlarmDefinitionUnit("COUNT_PER_SECOND");
+
+        public static bool operator ==(ClusterCloudWatchAlarmDefinitionUnit left, ClusterCloudWatchAlarmDefinitionUnit right) => left.Equals(right);
+        public static bool operator !=(ClusterCloudWatchAlarmDefinitionUnit left, ClusterCloudWatchAlarmDefinitionUnit right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterCloudWatchAlarmDefinitionUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterCloudWatchAlarmDefinitionUnit other && Equals(other);
+        public bool Equals(ClusterCloudWatchAlarmDefinitionUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The unit type used for specifying a managed scaling policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterComputeLimitsUnitType : IEquatable<ClusterComputeLimitsUnitType>
+    {
+        private readonly string _value;
+
+        private ClusterComputeLimitsUnitType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterComputeLimitsUnitType InstanceFleetUnits { get; } = new ClusterComputeLimitsUnitType("InstanceFleetUnits");
+        public static ClusterComputeLimitsUnitType Instances { get; } = new ClusterComputeLimitsUnitType("Instances");
+        public static ClusterComputeLimitsUnitType Vcpu { get; } = new ClusterComputeLimitsUnitType("VCPU");
+
+        public static bool operator ==(ClusterComputeLimitsUnitType left, ClusterComputeLimitsUnitType right) => left.Equals(right);
+        public static bool operator !=(ClusterComputeLimitsUnitType left, ClusterComputeLimitsUnitType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterComputeLimitsUnitType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterComputeLimitsUnitType other && Equals(other);
+        public bool Equals(ClusterComputeLimitsUnitType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Market type of the EC2 instances used to create a cluster node.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterInstanceGroupConfigMarket : IEquatable<ClusterInstanceGroupConfigMarket>
+    {
+        private readonly string _value;
+
+        private ClusterInstanceGroupConfigMarket(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterInstanceGroupConfigMarket OnDemand { get; } = new ClusterInstanceGroupConfigMarket("ON_DEMAND");
+        public static ClusterInstanceGroupConfigMarket Spot { get; } = new ClusterInstanceGroupConfigMarket("SPOT");
+
+        public static bool operator ==(ClusterInstanceGroupConfigMarket left, ClusterInstanceGroupConfigMarket right) => left.Equals(right);
+        public static bool operator !=(ClusterInstanceGroupConfigMarket left, ClusterInstanceGroupConfigMarket right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterInstanceGroupConfigMarket value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterInstanceGroupConfigMarket other && Equals(other);
+        public bool Equals(ClusterInstanceGroupConfigMarket other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Role of the instance in the cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterPlacementGroupConfigInstanceRole : IEquatable<ClusterPlacementGroupConfigInstanceRole>
+    {
+        private readonly string _value;
+
+        private ClusterPlacementGroupConfigInstanceRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterPlacementGroupConfigInstanceRole Master { get; } = new ClusterPlacementGroupConfigInstanceRole("MASTER");
+        public static ClusterPlacementGroupConfigInstanceRole Core { get; } = new ClusterPlacementGroupConfigInstanceRole("CORE");
+        public static ClusterPlacementGroupConfigInstanceRole Task { get; } = new ClusterPlacementGroupConfigInstanceRole("TASK");
+
+        public static bool operator ==(ClusterPlacementGroupConfigInstanceRole left, ClusterPlacementGroupConfigInstanceRole right) => left.Equals(right);
+        public static bool operator !=(ClusterPlacementGroupConfigInstanceRole left, ClusterPlacementGroupConfigInstanceRole right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterPlacementGroupConfigInstanceRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterPlacementGroupConfigInstanceRole other && Equals(other);
+        public bool Equals(ClusterPlacementGroupConfigInstanceRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Amazon EC2 Placement Group strategy associated with instance role.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterPlacementGroupConfigPlacementStrategy : IEquatable<ClusterPlacementGroupConfigPlacementStrategy>
+    {
+        private readonly string _value;
+
+        private ClusterPlacementGroupConfigPlacementStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterPlacementGroupConfigPlacementStrategy Spread { get; } = new ClusterPlacementGroupConfigPlacementStrategy("SPREAD");
+        public static ClusterPlacementGroupConfigPlacementStrategy Partition { get; } = new ClusterPlacementGroupConfigPlacementStrategy("PARTITION");
+        public static ClusterPlacementGroupConfigPlacementStrategy Cluster { get; } = new ClusterPlacementGroupConfigPlacementStrategy("CLUSTER");
+        public static ClusterPlacementGroupConfigPlacementStrategy None { get; } = new ClusterPlacementGroupConfigPlacementStrategy("NONE");
+
+        public static bool operator ==(ClusterPlacementGroupConfigPlacementStrategy left, ClusterPlacementGroupConfigPlacementStrategy right) => left.Equals(right);
+        public static bool operator !=(ClusterPlacementGroupConfigPlacementStrategy left, ClusterPlacementGroupConfigPlacementStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterPlacementGroupConfigPlacementStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterPlacementGroupConfigPlacementStrategy other && Equals(other);
+        public bool Equals(ClusterPlacementGroupConfigPlacementStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterScaleDownBehavior : IEquatable<ClusterScaleDownBehavior>
+    {
+        private readonly string _value;
+
+        private ClusterScaleDownBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterScaleDownBehavior TerminateAtInstanceHour { get; } = new ClusterScaleDownBehavior("TERMINATE_AT_INSTANCE_HOUR");
+        public static ClusterScaleDownBehavior TerminateAtTaskCompletion { get; } = new ClusterScaleDownBehavior("TERMINATE_AT_TASK_COMPLETION");
+
+        public static bool operator ==(ClusterScaleDownBehavior left, ClusterScaleDownBehavior right) => left.Equals(right);
+        public static bool operator !=(ClusterScaleDownBehavior left, ClusterScaleDownBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterScaleDownBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterScaleDownBehavior other && Equals(other);
+        public bool Equals(ClusterScaleDownBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Not available for instance groups. Instance groups use the market type specified for the group.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterScalingActionMarket : IEquatable<ClusterScalingActionMarket>
+    {
+        private readonly string _value;
+
+        private ClusterScalingActionMarket(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterScalingActionMarket OnDemand { get; } = new ClusterScalingActionMarket("ON_DEMAND");
+        public static ClusterScalingActionMarket Spot { get; } = new ClusterScalingActionMarket("SPOT");
+
+        public static bool operator ==(ClusterScalingActionMarket left, ClusterScalingActionMarket right) => left.Equals(right);
+        public static bool operator !=(ClusterScalingActionMarket left, ClusterScalingActionMarket right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterScalingActionMarket value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterScalingActionMarket other && Equals(other);
+        public bool Equals(ClusterScalingActionMarket other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSimpleScalingPolicyConfigurationAdjustmentType : IEquatable<ClusterSimpleScalingPolicyConfigurationAdjustmentType>
+    {
+        private readonly string _value;
+
+        private ClusterSimpleScalingPolicyConfigurationAdjustmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSimpleScalingPolicyConfigurationAdjustmentType ChangeInCapacity { get; } = new ClusterSimpleScalingPolicyConfigurationAdjustmentType("CHANGE_IN_CAPACITY");
+        public static ClusterSimpleScalingPolicyConfigurationAdjustmentType ExactCapacity { get; } = new ClusterSimpleScalingPolicyConfigurationAdjustmentType("EXACT_CAPACITY");
+        public static ClusterSimpleScalingPolicyConfigurationAdjustmentType PercentChangeInCapacity { get; } = new ClusterSimpleScalingPolicyConfigurationAdjustmentType("PERCENT_CHANGE_IN_CAPACITY");
+
+        public static bool operator ==(ClusterSimpleScalingPolicyConfigurationAdjustmentType left, ClusterSimpleScalingPolicyConfigurationAdjustmentType right) => left.Equals(right);
+        public static bool operator !=(ClusterSimpleScalingPolicyConfigurationAdjustmentType left, ClusterSimpleScalingPolicyConfigurationAdjustmentType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSimpleScalingPolicyConfigurationAdjustmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSimpleScalingPolicyConfigurationAdjustmentType other && Equals(other);
+        public bool Equals(ClusterSimpleScalingPolicyConfigurationAdjustmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSpotProvisioningSpecificationTimeoutAction : IEquatable<ClusterSpotProvisioningSpecificationTimeoutAction>
+    {
+        private readonly string _value;
+
+        private ClusterSpotProvisioningSpecificationTimeoutAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSpotProvisioningSpecificationTimeoutAction SwitchToOnDemand { get; } = new ClusterSpotProvisioningSpecificationTimeoutAction("SWITCH_TO_ON_DEMAND");
+        public static ClusterSpotProvisioningSpecificationTimeoutAction TerminateCluster { get; } = new ClusterSpotProvisioningSpecificationTimeoutAction("TERMINATE_CLUSTER");
+
+        public static bool operator ==(ClusterSpotProvisioningSpecificationTimeoutAction left, ClusterSpotProvisioningSpecificationTimeoutAction right) => left.Equals(right);
+        public static bool operator !=(ClusterSpotProvisioningSpecificationTimeoutAction left, ClusterSpotProvisioningSpecificationTimeoutAction right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSpotProvisioningSpecificationTimeoutAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSpotProvisioningSpecificationTimeoutAction other && Equals(other);
+        public bool Equals(ClusterSpotProvisioningSpecificationTimeoutAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The action to take when the step fails. Use one of the following values:
+    /// 
+    ///     TERMINATE_CLUSTER - Shuts down the cluster.
+    ///     
+    ///     CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+    ///     
+    ///     CONTINUE - Continues to the next step in the queue.
+    ///     
+    ///     TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+    ///  If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+    /// 
+    /// If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterStepConfigActionOnFailure : IEquatable<ClusterStepConfigActionOnFailure>
+    {
+        private readonly string _value;
+
+        private ClusterStepConfigActionOnFailure(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterStepConfigActionOnFailure CancelAndWait { get; } = new ClusterStepConfigActionOnFailure("CANCEL_AND_WAIT");
+        public static ClusterStepConfigActionOnFailure Continue { get; } = new ClusterStepConfigActionOnFailure("CONTINUE");
+        public static ClusterStepConfigActionOnFailure TerminateCluster { get; } = new ClusterStepConfigActionOnFailure("TERMINATE_CLUSTER");
+        public static ClusterStepConfigActionOnFailure TerminateJobFlow { get; } = new ClusterStepConfigActionOnFailure("TERMINATE_JOB_FLOW");
+
+        public static bool operator ==(ClusterStepConfigActionOnFailure left, ClusterStepConfigActionOnFailure right) => left.Equals(right);
+        public static bool operator !=(ClusterStepConfigActionOnFailure left, ClusterStepConfigActionOnFailure right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterStepConfigActionOnFailure value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterStepConfigActionOnFailure other && Equals(other);
+        public bool Equals(ClusterStepConfigActionOnFailure other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
     /// </summary>
     [EnumType]

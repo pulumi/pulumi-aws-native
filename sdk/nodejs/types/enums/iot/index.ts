@@ -610,6 +610,7 @@ export const TopicRuleDestinationStatus = {
     Enabled: "ENABLED",
     InProgress: "IN_PROGRESS",
     Disabled: "DISABLED",
+    Error: "ERROR",
 } as const;
 
 export type TopicRuleDestinationStatus = (typeof TopicRuleDestinationStatus)[keyof typeof TopicRuleDestinationStatus];

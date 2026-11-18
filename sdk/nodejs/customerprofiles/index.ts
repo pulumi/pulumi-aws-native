@@ -70,6 +70,11 @@ export const getRecommender: typeof import("./getRecommender").getRecommender = 
 export const getRecommenderOutput: typeof import("./getRecommender").getRecommenderOutput = null as any;
 utilities.lazyLoad(exports, ["getRecommender","getRecommenderOutput"], () => require("./getRecommender"));
 
+export { GetRecommenderFilterArgs, GetRecommenderFilterResult, GetRecommenderFilterOutputArgs } from "./getRecommenderFilter";
+export const getRecommenderFilter: typeof import("./getRecommenderFilter").getRecommenderFilter = null as any;
+export const getRecommenderFilterOutput: typeof import("./getRecommenderFilter").getRecommenderFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getRecommenderFilter","getRecommenderFilterOutput"], () => require("./getRecommenderFilter"));
+
 export { GetRecommenderSchemaArgs, GetRecommenderSchemaResult, GetRecommenderSchemaOutputArgs } from "./getRecommenderSchema";
 export const getRecommenderSchema: typeof import("./getRecommenderSchema").getRecommenderSchema = null as any;
 export const getRecommenderSchemaOutput: typeof import("./getRecommenderSchema").getRecommenderSchemaOutput = null as any;
@@ -94,6 +99,11 @@ export { RecommenderArgs } from "./recommender";
 export type Recommender = import("./recommender").Recommender;
 export const Recommender: typeof import("./recommender").Recommender = null as any;
 utilities.lazyLoad(exports, ["Recommender"], () => require("./recommender"));
+
+export { RecommenderFilterArgs } from "./recommenderFilter";
+export type RecommenderFilter = import("./recommenderFilter").RecommenderFilter;
+export const RecommenderFilter: typeof import("./recommenderFilter").RecommenderFilter = null as any;
+utilities.lazyLoad(exports, ["RecommenderFilter"], () => require("./recommenderFilter"));
 
 export { RecommenderSchemaArgs } from "./recommenderSchema";
 export type RecommenderSchema = import("./recommenderSchema").RecommenderSchema;
@@ -129,6 +139,8 @@ const _module = {
                 return new ObjectType(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:Recommender":
                 return new Recommender(name, <any>undefined, { urn })
+            case "aws-native:customerprofiles:RecommenderFilter":
+                return new RecommenderFilter(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:RecommenderSchema":
                 return new RecommenderSchema(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:SegmentDefinition":

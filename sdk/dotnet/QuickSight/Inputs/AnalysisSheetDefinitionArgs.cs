@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("contentType")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSheetContentType>? ContentType { get; set; }
 
+        [Input("customActionDefaults")]
+        public Input<Inputs.AnalysisVisualCustomActionDefaultsArgs>? CustomActionDefaults { get; set; }
+
         /// <summary>
         /// A description of the sheet.
         /// </summary>

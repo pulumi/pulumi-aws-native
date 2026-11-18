@@ -70,6 +70,11 @@ export const getReplicationConfig: typeof import("./getReplicationConfig").getRe
 export const getReplicationConfigOutput: typeof import("./getReplicationConfig").getReplicationConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationConfig","getReplicationConfigOutput"], () => require("./getReplicationConfig"));
 
+export { GetReplicationInstanceArgs, GetReplicationInstanceResult, GetReplicationInstanceOutputArgs } from "./getReplicationInstance";
+export const getReplicationInstance: typeof import("./getReplicationInstance").getReplicationInstance = null as any;
+export const getReplicationInstanceOutput: typeof import("./getReplicationInstance").getReplicationInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationInstance","getReplicationInstanceOutput"], () => require("./getReplicationInstance"));
+
 export { GetReplicationSubnetGroupArgs, GetReplicationSubnetGroupResult, GetReplicationSubnetGroupOutputArgs } from "./getReplicationSubnetGroup";
 export const getReplicationSubnetGroup: typeof import("./getReplicationSubnetGroup").getReplicationSubnetGroup = null as any;
 export const getReplicationSubnetGroupOutput: typeof import("./getReplicationSubnetGroup").getReplicationSubnetGroupOutput = null as any;
@@ -94,6 +99,11 @@ export { ReplicationConfigArgs } from "./replicationConfig";
 export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
 export const ReplicationConfig: typeof import("./replicationConfig").ReplicationConfig = null as any;
 utilities.lazyLoad(exports, ["ReplicationConfig"], () => require("./replicationConfig"));
+
+export { ReplicationInstanceArgs } from "./replicationInstance";
+export type ReplicationInstance = import("./replicationInstance").ReplicationInstance;
+export const ReplicationInstance: typeof import("./replicationInstance").ReplicationInstance = null as any;
+utilities.lazyLoad(exports, ["ReplicationInstance"], () => require("./replicationInstance"));
 
 export { ReplicationSubnetGroupArgs } from "./replicationSubnetGroup";
 export type ReplicationSubnetGroup = import("./replicationSubnetGroup").ReplicationSubnetGroup;
@@ -129,6 +139,8 @@ const _module = {
                 return new MigrationProject(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
+            case "aws-native:dms:ReplicationInstance":
+                return new ReplicationInstance(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationSubnetGroup":
                 return new ReplicationSubnetGroup(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationTask":

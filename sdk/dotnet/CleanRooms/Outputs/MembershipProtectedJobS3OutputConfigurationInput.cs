@@ -21,15 +21,19 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         /// The S3 prefix to unload the protected job results.
         /// </summary>
         public readonly string? KeyPrefix;
+        public readonly Pulumi.AwsNative.CleanRooms.MembershipResultFormat? ResultFormat;
 
         [OutputConstructor]
         private MembershipProtectedJobS3OutputConfigurationInput(
             string bucket,
 
-            string? keyPrefix)
+            string? keyPrefix,
+
+            Pulumi.AwsNative.CleanRooms.MembershipResultFormat? resultFormat)
         {
             Bucket = bucket;
             KeyPrefix = keyPrefix;
+            ResultFormat = resultFormat;
         }
     }
 }

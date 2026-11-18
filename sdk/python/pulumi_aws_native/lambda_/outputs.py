@@ -54,6 +54,7 @@ __all__ = [
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSelfManagedKafkaEventSourceConfig',
     'EventSourceMappingSourceAccessConfiguration',
+    'FunctionAcceleratorConfig',
     'FunctionCapacityProviderConfig',
     'FunctionCode',
     'FunctionDeadLetterConfig',
@@ -64,6 +65,7 @@ __all__ = [
     'FunctionImageConfig',
     'FunctionLambdaManagedInstancesCapacityProviderConfig',
     'FunctionLoggingConfig',
+    'FunctionRuntimeConfig',
     'FunctionRuntimeManagementConfig',
     'FunctionS3FilesConfig',
     'FunctionScalingConfig',
@@ -83,7 +85,13 @@ __all__ = [
     'MicrovmImageMicrovmHooks',
     'MicrovmImageResources',
     'NetworkConnectorConfig',
+    'NetworkConnectorElasticIpConfiguration',
     'NetworkConnectorVpcEgressConfiguration',
+    'RuntimeAliasCompatibility',
+    'RuntimeAliasReleaseLifecycle',
+    'RuntimeReleaseLifecycle',
+    'RuntimeVersionCompatibility',
+    'RuntimeVersionPlatform',
     'ServiceConfigProperties',
     'ServiceConfigPropertiesTelemetryConfigProperties',
     'UrlCors',
@@ -1771,6 +1779,41 @@ class EventSourceMappingSourceAccessConfiguration(dict):
 
 
 @pulumi.output_type
+class FunctionAcceleratorConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceleratorMemorySize":
+            suggest = "accelerator_memory_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAcceleratorConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAcceleratorConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAcceleratorConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accelerator_memory_size: _builtins.int):
+        """
+        :param _builtins.int accelerator_memory_size: The minimum amount of memory (in GB) of each accelerator device exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available. Valid values: 3, 6, 12, 16, 24, 48.
+        """
+        pulumi.set(__self__, "accelerator_memory_size", accelerator_memory_size)
+
+    @_builtins.property
+    @pulumi.getter(name="acceleratorMemorySize")
+    def accelerator_memory_size(self) -> _builtins.int:
+        """
+        The minimum amount of memory (in GB) of each accelerator device exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available. Valid values: 3, 6, 12, 16, 24, 48.
+        """
+        return pulumi.get(self, "accelerator_memory_size")
+
+
+@pulumi.output_type
 class FunctionCapacityProviderConfig(dict):
     """
     Configuration for the capacity provider that manages compute resources for Lambda functions.
@@ -2386,6 +2429,54 @@ class FunctionLoggingConfig(dict):
         Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
         """
         return pulumi.get(self, "system_log_level")
+
+
+@pulumi.output_type
+class FunctionRuntimeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeAlias":
+            suggest = "runtime_alias"
+        elif key == "runtimeArn":
+            suggest = "runtime_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionRuntimeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionRuntimeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionRuntimeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 runtime_alias: _builtins.str,
+                 runtime_arn: _builtins.str):
+        """
+        :param _builtins.str runtime_alias: The name of the runtime alias that controls the function's runtime update cadence (for example, stable or latest).
+        :param _builtins.str runtime_arn: The Amazon Resource Name (ARN) of the runtime that the function uses.
+        """
+        pulumi.set(__self__, "runtime_alias", runtime_alias)
+        pulumi.set(__self__, "runtime_arn", runtime_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeAlias")
+    def runtime_alias(self) -> _builtins.str:
+        """
+        The name of the runtime alias that controls the function's runtime update cadence (for example, stable or latest).
+        """
+        return pulumi.get(self, "runtime_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeArn")
+    def runtime_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the runtime that the function uses.
+        """
+        return pulumi.get(self, "runtime_arn")
 
 
 @pulumi.output_type
@@ -3250,6 +3341,29 @@ class NetworkConnectorConfig(dict):
 
 
 @pulumi.output_type
+class NetworkConnectorElasticIpConfiguration(dict):
+    """
+    Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs). If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.
+    """
+    def __init__(__self__, *,
+                 type: 'NetworkConnectorElasticIpConfigurationType'):
+        """
+        Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs). If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.
+
+        :param 'NetworkConnectorElasticIpConfigurationType' type: The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'NetworkConnectorElasticIpConfigurationType':
+        """
+        The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class NetworkConnectorVpcEgressConfiguration(dict):
     """
     The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
@@ -3265,6 +3379,8 @@ class NetworkConnectorVpcEgressConfiguration(dict):
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
+        elif key == "elasticIpConfiguration":
+            suggest = "elastic_ip_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkConnectorVpcEgressConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -3281,7 +3397,8 @@ class NetworkConnectorVpcEgressConfiguration(dict):
                  associated_compute_resource_types: Sequence['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem'],
                  network_protocol: 'NetworkConnectorVpcEgressConfigurationNetworkProtocol',
                  security_group_ids: Sequence[_builtins.str],
-                 subnet_ids: Sequence[_builtins.str]):
+                 subnet_ids: Sequence[_builtins.str],
+                 elastic_ip_configuration: Optional['outputs.NetworkConnectorElasticIpConfiguration'] = None):
         """
         The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
 
@@ -3294,6 +3411,8 @@ class NetworkConnectorVpcEgressConfiguration(dict):
         pulumi.set(__self__, "network_protocol", network_protocol)
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if elastic_ip_configuration is not None:
+            pulumi.set(__self__, "elastic_ip_configuration", elastic_ip_configuration)
 
     @_builtins.property
     @pulumi.getter(name="associatedComputeResourceTypes")
@@ -3326,6 +3445,330 @@ class NetworkConnectorVpcEgressConfiguration(dict):
         The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="elasticIpConfiguration")
+    def elastic_ip_configuration(self) -> Optional['outputs.NetworkConnectorElasticIpConfiguration']:
+        return pulumi.get(self, "elastic_ip_configuration")
+
+
+@pulumi.output_type
+class RuntimeAliasCompatibility(dict):
+    """
+    Compatibility matrix for the runtime version the alias points to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "integrationModels":
+            suggest = "integration_models"
+        elif key == "managedInstances":
+            suggest = "managed_instances"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeAliasCompatibility. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeAliasCompatibility.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeAliasCompatibility.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 architectures: Optional[Sequence['RuntimeAliasCompatibilityArchitecturesItem']] = None,
+                 integration_models: Optional[Sequence['RuntimeAliasCompatibilityIntegrationModelsItem']] = None,
+                 managed_instances: Optional['RuntimeAliasCompatibilityManagedInstances'] = None):
+        """
+        Compatibility matrix for the runtime version the alias points to.
+        """
+        if architectures is not None:
+            pulumi.set(__self__, "architectures", architectures)
+        if integration_models is not None:
+            pulumi.set(__self__, "integration_models", integration_models)
+        if managed_instances is not None:
+            pulumi.set(__self__, "managed_instances", managed_instances)
+
+    @_builtins.property
+    @pulumi.getter
+    def architectures(self) -> Optional[Sequence['RuntimeAliasCompatibilityArchitecturesItem']]:
+        return pulumi.get(self, "architectures")
+
+    @_builtins.property
+    @pulumi.getter(name="integrationModels")
+    def integration_models(self) -> Optional[Sequence['RuntimeAliasCompatibilityIntegrationModelsItem']]:
+        return pulumi.get(self, "integration_models")
+
+    @_builtins.property
+    @pulumi.getter(name="managedInstances")
+    def managed_instances(self) -> Optional['RuntimeAliasCompatibilityManagedInstances']:
+        return pulumi.get(self, "managed_instances")
+
+
+@pulumi.output_type
+class RuntimeAliasReleaseLifecycle(dict):
+    """
+    The publisher's lifecycle declaration for the alias. Omitting it removes any stored declaration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deprecationDate":
+            suggest = "deprecation_date"
+        elif key == "functionCreateBlockDate":
+            suggest = "function_create_block_date"
+        elif key == "functionUpdateBlockDate":
+            suggest = "function_update_block_date"
+        elif key == "releaseState":
+            suggest = "release_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeAliasReleaseLifecycle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeAliasReleaseLifecycle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeAliasReleaseLifecycle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deprecation_date: Optional[_builtins.str] = None,
+                 function_create_block_date: Optional[_builtins.str] = None,
+                 function_update_block_date: Optional[_builtins.str] = None,
+                 release_state: Optional['RuntimeAliasReleaseLifecycleReleaseState'] = None):
+        """
+        The publisher's lifecycle declaration for the alias. Omitting it removes any stored declaration.
+
+        :param _builtins.str deprecation_date: The date on which the alias becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+        :param _builtins.str function_create_block_date: The date on which creating new functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+        :param _builtins.str function_update_block_date: The date on which updating existing functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+        :param 'RuntimeAliasReleaseLifecycleReleaseState' release_state: The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+        """
+        if deprecation_date is not None:
+            pulumi.set(__self__, "deprecation_date", deprecation_date)
+        if function_create_block_date is not None:
+            pulumi.set(__self__, "function_create_block_date", function_create_block_date)
+        if function_update_block_date is not None:
+            pulumi.set(__self__, "function_update_block_date", function_update_block_date)
+        if release_state is not None:
+            pulumi.set(__self__, "release_state", release_state)
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationDate")
+    def deprecation_date(self) -> Optional[_builtins.str]:
+        """
+        The date on which the alias becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+        """
+        return pulumi.get(self, "deprecation_date")
+
+    @_builtins.property
+    @pulumi.getter(name="functionCreateBlockDate")
+    def function_create_block_date(self) -> Optional[_builtins.str]:
+        """
+        The date on which creating new functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+        """
+        return pulumi.get(self, "function_create_block_date")
+
+    @_builtins.property
+    @pulumi.getter(name="functionUpdateBlockDate")
+    def function_update_block_date(self) -> Optional[_builtins.str]:
+        """
+        The date on which updating existing functions on this alias is blocked. A UTC calendar date in yyyy-mm-dd format.
+        """
+        return pulumi.get(self, "function_update_block_date")
+
+    @_builtins.property
+    @pulumi.getter(name="releaseState")
+    def release_state(self) -> Optional['RuntimeAliasReleaseLifecycleReleaseState']:
+        """
+        The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+        """
+        return pulumi.get(self, "release_state")
+
+
+@pulumi.output_type
+class RuntimeReleaseLifecycle(dict):
+    """
+    The publisher's lifecycle declaration for the runtime. Omitting it removes any stored declaration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deprecationDate":
+            suggest = "deprecation_date"
+        elif key == "functionCreateBlockDate":
+            suggest = "function_create_block_date"
+        elif key == "functionUpdateBlockDate":
+            suggest = "function_update_block_date"
+        elif key == "releaseState":
+            suggest = "release_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeReleaseLifecycle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeReleaseLifecycle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeReleaseLifecycle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deprecation_date: Optional[_builtins.str] = None,
+                 function_create_block_date: Optional[_builtins.str] = None,
+                 function_update_block_date: Optional[_builtins.str] = None,
+                 release_state: Optional['RuntimeReleaseLifecycleReleaseState'] = None):
+        """
+        The publisher's lifecycle declaration for the runtime. Omitting it removes any stored declaration.
+
+        :param _builtins.str deprecation_date: The date on which the runtime becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+        :param _builtins.str function_create_block_date: The date on which creating new functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+        :param _builtins.str function_update_block_date: The date on which updating existing functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+        :param 'RuntimeReleaseLifecycleReleaseState' release_state: The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+        """
+        if deprecation_date is not None:
+            pulumi.set(__self__, "deprecation_date", deprecation_date)
+        if function_create_block_date is not None:
+            pulumi.set(__self__, "function_create_block_date", function_create_block_date)
+        if function_update_block_date is not None:
+            pulumi.set(__self__, "function_update_block_date", function_update_block_date)
+        if release_state is not None:
+            pulumi.set(__self__, "release_state", release_state)
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationDate")
+    def deprecation_date(self) -> Optional[_builtins.str]:
+        """
+        The date on which the runtime becomes deprecated. A UTC calendar date in yyyy-mm-dd format.
+        """
+        return pulumi.get(self, "deprecation_date")
+
+    @_builtins.property
+    @pulumi.getter(name="functionCreateBlockDate")
+    def function_create_block_date(self) -> Optional[_builtins.str]:
+        """
+        The date on which creating new functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+        """
+        return pulumi.get(self, "function_create_block_date")
+
+    @_builtins.property
+    @pulumi.getter(name="functionUpdateBlockDate")
+    def function_update_block_date(self) -> Optional[_builtins.str]:
+        """
+        The date on which updating existing functions on this runtime is blocked. A UTC calendar date in yyyy-mm-dd format.
+        """
+        return pulumi.get(self, "function_update_block_date")
+
+    @_builtins.property
+    @pulumi.getter(name="releaseState")
+    def release_state(self) -> Optional['RuntimeReleaseLifecycleReleaseState']:
+        """
+        The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+        """
+        return pulumi.get(self, "release_state")
+
+
+@pulumi.output_type
+class RuntimeVersionCompatibility(dict):
+    """
+    Compatibility matrix for the runtime version: supported integration models, architectures, and feature policies.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "integrationModels":
+            suggest = "integration_models"
+        elif key == "managedInstances":
+            suggest = "managed_instances"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeVersionCompatibility. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeVersionCompatibility.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeVersionCompatibility.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 architectures: Optional[Sequence['RuntimeVersionCompatibilityArchitecturesItem']] = None,
+                 integration_models: Optional[Sequence['RuntimeVersionCompatibilityIntegrationModelsItem']] = None,
+                 managed_instances: Optional['RuntimeVersionCompatibilityManagedInstances'] = None):
+        """
+        Compatibility matrix for the runtime version: supported integration models, architectures, and feature policies.
+
+        :param Sequence['RuntimeVersionCompatibilityArchitecturesItem'] architectures: Supported CPU architectures for the runtime version.
+        :param Sequence['RuntimeVersionCompatibilityIntegrationModelsItem'] integration_models: Supported integration models for the runtime version.
+        :param 'RuntimeVersionCompatibilityManagedInstances' managed_instances: Whether the runtime version supports managed instances.
+        """
+        if architectures is not None:
+            pulumi.set(__self__, "architectures", architectures)
+        if integration_models is not None:
+            pulumi.set(__self__, "integration_models", integration_models)
+        if managed_instances is not None:
+            pulumi.set(__self__, "managed_instances", managed_instances)
+
+    @_builtins.property
+    @pulumi.getter
+    def architectures(self) -> Optional[Sequence['RuntimeVersionCompatibilityArchitecturesItem']]:
+        """
+        Supported CPU architectures for the runtime version.
+        """
+        return pulumi.get(self, "architectures")
+
+    @_builtins.property
+    @pulumi.getter(name="integrationModels")
+    def integration_models(self) -> Optional[Sequence['RuntimeVersionCompatibilityIntegrationModelsItem']]:
+        """
+        Supported integration models for the runtime version.
+        """
+        return pulumi.get(self, "integration_models")
+
+    @_builtins.property
+    @pulumi.getter(name="managedInstances")
+    def managed_instances(self) -> Optional['RuntimeVersionCompatibilityManagedInstances']:
+        """
+        Whether the runtime version supports managed instances.
+        """
+        return pulumi.get(self, "managed_instances")
+
+
+@pulumi.output_type
+class RuntimeVersionPlatform(dict):
+    """
+    A resolved OCI image platform descriptor.
+    """
+    def __init__(__self__, *,
+                 architecture: _builtins.str,
+                 digest: _builtins.str,
+                 os: _builtins.str):
+        """
+        A resolved OCI image platform descriptor.
+        """
+        pulumi.set(__self__, "architecture", architecture)
+        pulumi.set(__self__, "digest", digest)
+        pulumi.set(__self__, "os", os)
+
+    @_builtins.property
+    @pulumi.getter
+    def architecture(self) -> _builtins.str:
+        return pulumi.get(self, "architecture")
+
+    @_builtins.property
+    @pulumi.getter
+    def digest(self) -> _builtins.str:
+        return pulumi.get(self, "digest")
+
+    @_builtins.property
+    @pulumi.getter
+    def os(self) -> _builtins.str:
+        return pulumi.get(self, "os")
 
 
 @pulumi.output_type

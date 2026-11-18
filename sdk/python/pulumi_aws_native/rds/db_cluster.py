@@ -83,7 +83,8 @@ class DbClusterArgs:
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
-                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 with_express_configuration: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DbCluster resource.
 
@@ -517,6 +518,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+        if with_express_configuration is not None:
+            pulumi.set(__self__, "with_express_configuration", with_express_configuration)
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
@@ -1496,6 +1499,15 @@ class DbClusterArgs:
     def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
+    @_builtins.property
+    @pulumi.getter(name="withExpressConfiguration")
+    def with_express_configuration(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "with_express_configuration")
+
+    @with_express_configuration.setter
+    def with_express_configuration(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "with_express_configuration", value)
+
 
 @pulumi.type_token("aws-native:rds:DbCluster")
 class DbCluster(pulumi.CustomResource):
@@ -1564,6 +1576,7 @@ class DbCluster(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 with_express_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::DBCluster`` resource creates an Amazon Aurora DB cluster or Multi-AZ DB cluster.
@@ -1995,6 +2008,7 @@ class DbCluster(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 with_express_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2065,13 +2079,14 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["with_express_configuration"] = with_express_configuration
             __props__.__dict__["db_cluster_arn"] = None
             __props__.__dict__["db_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["read_endpoint"] = None
             __props__.__dict__["storage_encryption_type"] = None
             __props__.__dict__["storage_throughput"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime", "withExpressConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbCluster, __self__).__init__(
             'aws-native:rds:DbCluster',
@@ -2162,6 +2177,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["use_latest_restorable_time"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
+        __props__.__dict__["with_express_configuration"] = None
         return DbCluster(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -2944,4 +2960,9 @@ class DbCluster(pulumi.CustomResource):
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "vpc_security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="withExpressConfiguration")
+    def with_express_configuration(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "with_express_configuration")
 

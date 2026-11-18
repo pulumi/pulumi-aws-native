@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs : global::Pulumi.ResourceArgs
     {
+        [Input("certificateConfigurations")]
+        private InputList<Inputs.OAuth2CredentialProviderCertificateConfigurationArgs>? _certificateConfigurations;
+        public InputList<Inputs.OAuth2CredentialProviderCertificateConfigurationArgs> CertificateConfigurations
+        {
+            get => _certificateConfigurations ?? (_certificateConfigurations = new InputList<Inputs.OAuth2CredentialProviderCertificateConfigurationArgs>());
+            set => _certificateConfigurations = value;
+        }
+
         /// <summary>
         /// The client authentication method to use when authenticating with the token endpoint
         /// </summary>

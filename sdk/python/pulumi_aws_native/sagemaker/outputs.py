@@ -76,6 +76,8 @@ __all__ = [
     'ClusterRestrictedInstanceGroupsConfig',
     'ClusterRollingUpdatePolicy',
     'ClusterScheduledUpdateConfig',
+    'ClusterSchedulerConfigPriorityClass',
+    'ClusterSchedulerConfigSchedulerConfig',
     'ClusterSharedEnvironmentConfig',
     'ClusterSlurmConfig',
     'ClusterSpotOptions',
@@ -168,6 +170,7 @@ __all__ = [
     'EndpointVariantProperty',
     'ExperimentTrialComponentMetadataProperties',
     'ExperimentTrialComponentStatus',
+    'ExtensionNodeSummary',
     'FeatureGroupDataCatalogConfig',
     'FeatureGroupFeatureDefinition',
     'FeatureGroupOnlineStoreSecurityConfig',
@@ -3676,6 +3679,109 @@ class ClusterScheduledUpdateConfig(dict):
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> Optional['outputs.ClusterDeploymentConfig']:
         return pulumi.get(self, "deployment_config")
+
+
+@pulumi.output_type
+class ClusterSchedulerConfigPriorityClass(dict):
+    """
+    Priority class configuration.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 weight: _builtins.int):
+        """
+        Priority class configuration.
+
+        :param _builtins.str name: Name of the priority class.
+        :param _builtins.int weight: Weight of the priority class. Range 0-100, default 0.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the priority class.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.int:
+        """
+        Weight of the priority class. Range 0-100, default 0.
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class ClusterSchedulerConfigSchedulerConfig(dict):
+    """
+    Cluster policy configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fairShare":
+            suggest = "fair_share"
+        elif key == "idleResourceSharing":
+            suggest = "idle_resource_sharing"
+        elif key == "priorityClasses":
+            suggest = "priority_classes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSchedulerConfigSchedulerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSchedulerConfigSchedulerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSchedulerConfigSchedulerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fair_share: Optional['ClusterSchedulerConfigSchedulerConfigFairShare'] = None,
+                 idle_resource_sharing: Optional['ClusterSchedulerConfigSchedulerConfigIdleResourceSharing'] = None,
+                 priority_classes: Optional[Sequence['outputs.ClusterSchedulerConfigPriorityClass']] = None):
+        """
+        Cluster policy configuration.
+
+        :param 'ClusterSchedulerConfigSchedulerConfigFairShare' fair_share: When enabled, entities borrow idle compute based on assigned FairShareWeight.
+        :param 'ClusterSchedulerConfigSchedulerConfigIdleResourceSharing' idle_resource_sharing: Configuration for sharing idle compute resources across entities.
+        :param Sequence['ClusterSchedulerConfigPriorityClass'] priority_classes: List of priority class configurations.
+        """
+        if fair_share is not None:
+            pulumi.set(__self__, "fair_share", fair_share)
+        if idle_resource_sharing is not None:
+            pulumi.set(__self__, "idle_resource_sharing", idle_resource_sharing)
+        if priority_classes is not None:
+            pulumi.set(__self__, "priority_classes", priority_classes)
+
+    @_builtins.property
+    @pulumi.getter(name="fairShare")
+    def fair_share(self) -> Optional['ClusterSchedulerConfigSchedulerConfigFairShare']:
+        """
+        When enabled, entities borrow idle compute based on assigned FairShareWeight.
+        """
+        return pulumi.get(self, "fair_share")
+
+    @_builtins.property
+    @pulumi.getter(name="idleResourceSharing")
+    def idle_resource_sharing(self) -> Optional['ClusterSchedulerConfigSchedulerConfigIdleResourceSharing']:
+        """
+        Configuration for sharing idle compute resources across entities.
+        """
+        return pulumi.get(self, "idle_resource_sharing")
+
+    @_builtins.property
+    @pulumi.getter(name="priorityClasses")
+    def priority_classes(self) -> Optional[Sequence['outputs.ClusterSchedulerConfigPriorityClass']]:
+        """
+        List of priority class configurations.
+        """
+        return pulumi.get(self, "priority_classes")
 
 
 @pulumi.output_type
@@ -9834,6 +9940,59 @@ class ExperimentTrialComponentStatus(dict):
     @pulumi.getter(name="primaryStatus")
     def primary_status(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "primary_status")
+
+
+@pulumi.output_type
+class ExtensionNodeSummary(dict):
+    """
+    The number of cluster nodes that the extension applies to, and how many of them run the requested extension version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeCount":
+            suggest = "active_count"
+        elif key == "totalCount":
+            suggest = "total_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionNodeSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtensionNodeSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtensionNodeSummary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_count: _builtins.int,
+                 total_count: _builtins.int):
+        """
+        The number of cluster nodes that the extension applies to, and how many of them run the requested extension version.
+
+        :param _builtins.int active_count: The number of cluster nodes that run the requested extension version.
+        :param _builtins.int total_count: The number of cluster nodes that the extension applies to.
+        """
+        pulumi.set(__self__, "active_count", active_count)
+        pulumi.set(__self__, "total_count", total_count)
+
+    @_builtins.property
+    @pulumi.getter(name="activeCount")
+    def active_count(self) -> _builtins.int:
+        """
+        The number of cluster nodes that run the requested extension version.
+        """
+        return pulumi.get(self, "active_count")
+
+    @_builtins.property
+    @pulumi.getter(name="totalCount")
+    def total_count(self) -> _builtins.int:
+        """
+        The number of cluster nodes that the extension applies to.
+        """
+        return pulumi.get(self, "total_count")
 
 
 @pulumi.output_type

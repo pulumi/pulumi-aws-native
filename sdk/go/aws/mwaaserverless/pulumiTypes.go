@@ -460,6 +460,142 @@ func (o WorkflowEncryptionConfigurationPtrOutput) Type() WorkflowEncryptionConfi
 	}).(WorkflowEncryptionConfigurationTypePtrOutput)
 }
 
+// Contains the environment variables that tasks in a workflow use during execution.
+type WorkflowEnvironment struct {
+	Variables map[string]string `pulumi:"variables"`
+}
+
+// WorkflowEnvironmentInput is an input type that accepts WorkflowEnvironmentArgs and WorkflowEnvironmentOutput values.
+// You can construct a concrete instance of `WorkflowEnvironmentInput` via:
+//
+//	WorkflowEnvironmentArgs{...}
+type WorkflowEnvironmentInput interface {
+	pulumi.Input
+
+	ToWorkflowEnvironmentOutput() WorkflowEnvironmentOutput
+	ToWorkflowEnvironmentOutputWithContext(context.Context) WorkflowEnvironmentOutput
+}
+
+// Contains the environment variables that tasks in a workflow use during execution.
+type WorkflowEnvironmentArgs struct {
+	Variables pulumi.StringMapInput `pulumi:"variables"`
+}
+
+func (WorkflowEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowEnvironment)(nil)).Elem()
+}
+
+func (i WorkflowEnvironmentArgs) ToWorkflowEnvironmentOutput() WorkflowEnvironmentOutput {
+	return i.ToWorkflowEnvironmentOutputWithContext(context.Background())
+}
+
+func (i WorkflowEnvironmentArgs) ToWorkflowEnvironmentOutputWithContext(ctx context.Context) WorkflowEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnvironmentOutput)
+}
+
+func (i WorkflowEnvironmentArgs) ToWorkflowEnvironmentPtrOutput() WorkflowEnvironmentPtrOutput {
+	return i.ToWorkflowEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowEnvironmentArgs) ToWorkflowEnvironmentPtrOutputWithContext(ctx context.Context) WorkflowEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnvironmentOutput).ToWorkflowEnvironmentPtrOutputWithContext(ctx)
+}
+
+// WorkflowEnvironmentPtrInput is an input type that accepts WorkflowEnvironmentArgs, WorkflowEnvironmentPtr and WorkflowEnvironmentPtrOutput values.
+// You can construct a concrete instance of `WorkflowEnvironmentPtrInput` via:
+//
+//	        WorkflowEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowEnvironmentPtrOutput() WorkflowEnvironmentPtrOutput
+	ToWorkflowEnvironmentPtrOutputWithContext(context.Context) WorkflowEnvironmentPtrOutput
+}
+
+type workflowEnvironmentPtrType WorkflowEnvironmentArgs
+
+func WorkflowEnvironmentPtr(v *WorkflowEnvironmentArgs) WorkflowEnvironmentPtrInput {
+	return (*workflowEnvironmentPtrType)(v)
+}
+
+func (*workflowEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowEnvironment)(nil)).Elem()
+}
+
+func (i *workflowEnvironmentPtrType) ToWorkflowEnvironmentPtrOutput() WorkflowEnvironmentPtrOutput {
+	return i.ToWorkflowEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowEnvironmentPtrType) ToWorkflowEnvironmentPtrOutputWithContext(ctx context.Context) WorkflowEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnvironmentPtrOutput)
+}
+
+// Contains the environment variables that tasks in a workflow use during execution.
+type WorkflowEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (WorkflowEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowEnvironment)(nil)).Elem()
+}
+
+func (o WorkflowEnvironmentOutput) ToWorkflowEnvironmentOutput() WorkflowEnvironmentOutput {
+	return o
+}
+
+func (o WorkflowEnvironmentOutput) ToWorkflowEnvironmentOutputWithContext(ctx context.Context) WorkflowEnvironmentOutput {
+	return o
+}
+
+func (o WorkflowEnvironmentOutput) ToWorkflowEnvironmentPtrOutput() WorkflowEnvironmentPtrOutput {
+	return o.ToWorkflowEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowEnvironmentOutput) ToWorkflowEnvironmentPtrOutputWithContext(ctx context.Context) WorkflowEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowEnvironment) *WorkflowEnvironment {
+		return &v
+	}).(WorkflowEnvironmentPtrOutput)
+}
+
+func (o WorkflowEnvironmentOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkflowEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
+}
+
+type WorkflowEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowEnvironment)(nil)).Elem()
+}
+
+func (o WorkflowEnvironmentPtrOutput) ToWorkflowEnvironmentPtrOutput() WorkflowEnvironmentPtrOutput {
+	return o
+}
+
+func (o WorkflowEnvironmentPtrOutput) ToWorkflowEnvironmentPtrOutputWithContext(ctx context.Context) WorkflowEnvironmentPtrOutput {
+	return o
+}
+
+func (o WorkflowEnvironmentPtrOutput) Elem() WorkflowEnvironmentOutput {
+	return o.ApplyT(func(v *WorkflowEnvironment) WorkflowEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowEnvironment
+		return ret
+	}).(WorkflowEnvironmentOutput)
+}
+
+func (o WorkflowEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkflowEnvironment) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(pulumi.StringMapOutput)
+}
+
 type WorkflowLoggingConfiguration struct {
 	LogGroupName string `pulumi:"logGroupName"`
 }
@@ -915,6 +1051,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowCodeS3LocationPtrInput)(nil)).Elem(), WorkflowCodeS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEncryptionConfigurationInput)(nil)).Elem(), WorkflowEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEncryptionConfigurationPtrInput)(nil)).Elem(), WorkflowEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnvironmentInput)(nil)).Elem(), WorkflowEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnvironmentPtrInput)(nil)).Elem(), WorkflowEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowLoggingConfigurationInput)(nil)).Elem(), WorkflowLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowLoggingConfigurationPtrInput)(nil)).Elem(), WorkflowLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowNetworkConfigurationInput)(nil)).Elem(), WorkflowNetworkConfigurationArgs{})
@@ -926,6 +1064,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowCodeS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkflowEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowEnvironmentOutput{})
+	pulumi.RegisterOutputType(WorkflowEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkflowLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowNetworkConfigurationOutput{})

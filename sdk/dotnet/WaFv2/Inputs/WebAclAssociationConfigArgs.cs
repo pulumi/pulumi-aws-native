@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclAssociationConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("challengeJavascriptSdkInjection")]
+        private InputMap<Inputs.WebAclChallengeJavascriptSdkInjectionConfigArgs>? _challengeJavascriptSdkInjection;
+        public InputMap<Inputs.WebAclChallengeJavascriptSdkInjectionConfigArgs> ChallengeJavascriptSdkInjection
+        {
+            get => _challengeJavascriptSdkInjection ?? (_challengeJavascriptSdkInjection = new InputMap<Inputs.WebAclChallengeJavascriptSdkInjectionConfigArgs>());
+            set => _challengeJavascriptSdkInjection = value;
+        }
+
         [Input("requestBody")]
         private InputMap<Inputs.WebAclRequestBodyAssociatedResourceTypeConfigArgs>? _requestBody;
 

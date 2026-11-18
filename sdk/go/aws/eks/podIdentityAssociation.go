@@ -38,7 +38,8 @@ type PodIdentityAssociation struct {
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The Target Role Arn of the pod identity association.
-	TargetRoleArn pulumi.StringPtrOutput `pulumi:"targetRoleArn"`
+	TargetRoleArn          pulumi.StringPtrOutput                                `pulumi:"targetRoleArn"`
+	WorkloadIdentityConfig PodIdentityAssociationWorkloadIdentityConfigPtrOutput `pulumi:"workloadIdentityConfig"`
 }
 
 // NewPodIdentityAssociation registers a new resource with the given unique name, arguments, and options.
@@ -120,7 +121,8 @@ type podIdentityAssociationArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The Target Role Arn of the pod identity association.
-	TargetRoleArn *string `pulumi:"targetRoleArn"`
+	TargetRoleArn          *string                                       `pulumi:"targetRoleArn"`
+	WorkloadIdentityConfig *PodIdentityAssociationWorkloadIdentityConfig `pulumi:"workloadIdentityConfig"`
 }
 
 // The set of arguments for constructing a PodIdentityAssociation resource.
@@ -140,7 +142,8 @@ type PodIdentityAssociationArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// The Target Role Arn of the pod identity association.
-	TargetRoleArn pulumi.StringPtrInput
+	TargetRoleArn          pulumi.StringPtrInput
+	WorkloadIdentityConfig PodIdentityAssociationWorkloadIdentityConfigPtrInput
 }
 
 func (PodIdentityAssociationArgs) ElementType() reflect.Type {
@@ -233,6 +236,12 @@ func (o PodIdentityAssociationOutput) Tags() aws.TagArrayOutput {
 // The Target Role Arn of the pod identity association.
 func (o PodIdentityAssociationOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringPtrOutput { return v.TargetRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o PodIdentityAssociationOutput) WorkloadIdentityConfig() PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return o.ApplyT(func(v *PodIdentityAssociation) PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+		return v.WorkloadIdentityConfig
+	}).(PodIdentityAssociationWorkloadIdentityConfigPtrOutput)
 }
 
 func init() {

@@ -4950,6 +4950,10 @@ class SettingsPropertiesOracleSettingsProperties(dict):
             suggest = "asm_server"
         elif key == "certificateArn":
             suggest = "certificate_arn"
+        elif key == "s3AccessRoleArn":
+            suggest = "s3_access_role_arn"
+        elif key == "s3Path":
+            suggest = "s3_path"
         elif key == "secretsManagerOracleAsmAccessRoleArn":
             suggest = "secrets_manager_oracle_asm_access_role_arn"
         elif key == "secretsManagerOracleAsmSecretId":
@@ -4977,12 +4981,17 @@ class SettingsPropertiesOracleSettingsProperties(dict):
                  ssl_mode: 'DataProviderDmsSslModeValue',
                  asm_server: Optional[_builtins.str] = None,
                  certificate_arn: Optional[_builtins.str] = None,
+                 s3_access_role_arn: Optional[_builtins.str] = None,
+                 s3_path: Optional[_builtins.str] = None,
                  secrets_manager_oracle_asm_access_role_arn: Optional[_builtins.str] = None,
                  secrets_manager_oracle_asm_secret_id: Optional[_builtins.str] = None,
                  secrets_manager_security_db_encryption_access_role_arn: Optional[_builtins.str] = None,
                  secrets_manager_security_db_encryption_secret_id: Optional[_builtins.str] = None):
         """
         OracleSettings property identifier.
+
+        :param _builtins.str s3_access_role_arn: The ARN for the role the application uses to access its Amazon S3 bucket.
+        :param _builtins.str s3_path: The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "port", port)
@@ -4992,6 +5001,10 @@ class SettingsPropertiesOracleSettingsProperties(dict):
             pulumi.set(__self__, "asm_server", asm_server)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
         if secrets_manager_oracle_asm_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
         if secrets_manager_oracle_asm_secret_id is not None:
@@ -5030,6 +5043,22 @@ class SettingsPropertiesOracleSettingsProperties(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN for the role the application uses to access its Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> Optional[_builtins.str]:
+        """
+        The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")

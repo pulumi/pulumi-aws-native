@@ -11,17 +11,22 @@ namespace Pulumi.AwsNative.Ssm.Outputs
 {
 
     /// <summary>
-    /// The configuration for the cloud connector. Currently supports Azure.
+    /// The configuration for the cloud connector. Exactly one of AzureConfiguration or GcpConfiguration.
     /// </summary>
     [OutputType]
     public sealed class CloudConnectorConfiguration
     {
-        public readonly Outputs.CloudConnectorAzureConfiguration AzureConfiguration;
+        public readonly Outputs.CloudConnectorAzureConfiguration? AzureConfiguration;
+        public readonly Outputs.CloudConnectorGcpConfiguration? GcpConfiguration;
 
         [OutputConstructor]
-        private CloudConnectorConfiguration(Outputs.CloudConnectorAzureConfiguration azureConfiguration)
+        private CloudConnectorConfiguration(
+            Outputs.CloudConnectorAzureConfiguration? azureConfiguration,
+
+            Outputs.CloudConnectorGcpConfiguration? gcpConfiguration)
         {
             AzureConfiguration = azureConfiguration;
+            GcpConfiguration = gcpConfiguration;
         }
     }
 }

@@ -61,6 +61,8 @@ func NewCloudConnector(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"configConnectorArn",
 		"configuration.azureConfiguration.tenantId",
+		"configuration.gcpConfiguration.organizationId",
+		"configuration.gcpConfiguration.serviceAccountEmail",
 		"roleArn",
 	})
 	opts = append(opts, replaceOnChanges)

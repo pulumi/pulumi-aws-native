@@ -64,9 +64,25 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetTransitGatewayPeeringAttachmentResult
     {
         /// <summary>
+        /// Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+        /// </summary>
+        public readonly bool? AccepterAllowMultipathResilience;
+        /// <summary>
         /// The time the transit gateway peering attachment was created.
         /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)
+        /// </summary>
+        public readonly string? MultipathResilienceStatus;
+        /// <summary>
+        /// Whether the requester side of the peering attachment has opted in to MultipathResilience.
+        /// </summary>
+        public readonly bool? RequesterAllowMultipathResilience;
+        /// <summary>
+        /// The MultipathResilience mode chosen by the requester side of the peering attachment.
+        /// </summary>
+        public readonly string? RequesterMultipathResilienceMode;
         /// <summary>
         /// The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
         /// </summary>
@@ -86,7 +102,15 @@ namespace Pulumi.AwsNative.Ec2
 
         [OutputConstructor]
         private GetTransitGatewayPeeringAttachmentResult(
+            bool? accepterAllowMultipathResilience,
+
             string? creationTime,
+
+            string? multipathResilienceStatus,
+
+            bool? requesterAllowMultipathResilience,
+
+            string? requesterMultipathResilienceMode,
 
             string? state,
 
@@ -96,7 +120,11 @@ namespace Pulumi.AwsNative.Ec2
 
             string? transitGatewayAttachmentId)
         {
+            AccepterAllowMultipathResilience = accepterAllowMultipathResilience;
             CreationTime = creationTime;
+            MultipathResilienceStatus = multipathResilienceStatus;
+            RequesterAllowMultipathResilience = requesterAllowMultipathResilience;
+            RequesterMultipathResilienceMode = requesterMultipathResilienceMode;
             State = state;
             Status = status;
             Tags = tags;

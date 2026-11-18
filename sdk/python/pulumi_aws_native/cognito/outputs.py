@@ -34,6 +34,7 @@ __all__ = [
     'UserPoolAdvancedSecurityAdditionalFlows',
     'UserPoolClientAnalyticsConfiguration',
     'UserPoolClientRefreshTokenRotation',
+    'UserPoolClientSessionConfigurationAttachmentSsoSession',
     'UserPoolClientTokenValidityUnits',
     'UserPoolCustomEmailSender',
     'UserPoolCustomSmsSender',
@@ -71,6 +72,7 @@ __all__ = [
     'UserPoolRiskConfigurationAttachmentNotifyEmailType',
     'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType',
     'UserPoolSchemaAttribute',
+    'UserPoolSessionConfigurationAttachmentTokenSession',
     'UserPoolSignInPolicy',
     'UserPoolSmsConfiguration',
     'UserPoolStringAttributeConstraints',
@@ -942,6 +944,46 @@ class UserPoolClientRefreshTokenRotation(dict):
         When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
         """
         return pulumi.get(self, "retry_grace_period_seconds")
+
+
+@pulumi.output_type
+class UserPoolClientSessionConfigurationAttachmentSsoSession(dict):
+    """
+    Managed login single sign-on session settings for the app client.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValidityMinutes":
+            suggest = "max_validity_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolClientSessionConfigurationAttachmentSsoSession. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolClientSessionConfigurationAttachmentSsoSession.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolClientSessionConfigurationAttachmentSsoSession.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_validity_minutes: _builtins.int):
+        """
+        Managed login single sign-on session settings for the app client.
+
+        :param _builtins.int max_validity_minutes: The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+        """
+        pulumi.set(__self__, "max_validity_minutes", max_validity_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValidityMinutes")
+    def max_validity_minutes(self) -> _builtins.int:
+        """
+        The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+        """
+        return pulumi.get(self, "max_validity_minutes")
 
 
 @pulumi.output_type
@@ -3366,6 +3408,46 @@ class UserPoolSchemaAttribute(dict):
         Specifies the constraints for an attribute of the string type.
         """
         return pulumi.get(self, "string_attribute_constraints")
+
+
+@pulumi.output_type
+class UserPoolSessionConfigurationAttachmentTokenSession(dict):
+    """
+    Token session settings that apply to every app client in the user pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPerUser":
+            suggest = "max_per_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolSessionConfigurationAttachmentTokenSession. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolSessionConfigurationAttachmentTokenSession.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolSessionConfigurationAttachmentTokenSession.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_per_user: _builtins.int):
+        """
+        Token session settings that apply to every app client in the user pool.
+
+        :param _builtins.int max_per_user: The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+        """
+        pulumi.set(__self__, "max_per_user", max_per_user)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPerUser")
+    def max_per_user(self) -> _builtins.int:
+        """
+        The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+        """
+        return pulumi.get(self, "max_per_user")
 
 
 @pulumi.output_type

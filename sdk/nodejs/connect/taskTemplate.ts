@@ -64,6 +64,10 @@ export class TaskTemplate extends pulumi.CustomResource {
      */
     declare public readonly contactFlowArn: pulumi.Output<string | undefined>;
     /**
+     * The contact hooks for the task template.
+     */
+    declare public readonly contactHooks: pulumi.Output<outputs.connect.ContactHooksProperties | undefined>;
+    /**
      * The default values for fields when a task is created by referencing this template.
      */
     declare public readonly defaults: pulumi.Output<outputs.connect.TaskTemplateDefaultFieldValue[] | undefined>;
@@ -113,6 +117,7 @@ export class TaskTemplate extends pulumi.CustomResource {
             resourceInputs["clientToken"] = args?.clientToken;
             resourceInputs["constraints"] = args?.constraints;
             resourceInputs["contactFlowArn"] = args?.contactFlowArn;
+            resourceInputs["contactHooks"] = args?.contactHooks;
             resourceInputs["defaults"] = args?.defaults;
             resourceInputs["description"] = args?.description;
             resourceInputs["fields"] = args?.fields;
@@ -127,6 +132,7 @@ export class TaskTemplate extends pulumi.CustomResource {
             resourceInputs["clientToken"] = undefined /*out*/;
             resourceInputs["constraints"] = undefined /*out*/;
             resourceInputs["contactFlowArn"] = undefined /*out*/;
+            resourceInputs["contactHooks"] = undefined /*out*/;
             resourceInputs["defaults"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["fields"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface TaskTemplateArgs {
      * The identifier of the contact flow.
      */
     contactFlowArn?: pulumi.Input<string | undefined>;
+    /**
+     * The contact hooks for the task template.
+     */
+    contactHooks?: pulumi.Input<inputs.connect.ContactHooksPropertiesArgs | undefined>;
     /**
      * The default values for fields when a task is created by referencing this template.
      */

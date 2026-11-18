@@ -117,6 +117,12 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         [Input("routerIntegrationTransitDecryption")]
         public Input<Inputs.FlowTransitEncryptionArgs>? RouterIntegrationTransitDecryption { get; set; }
 
+        [Input("rtmpPushDetails")]
+        public Input<Inputs.FlowRtmpPushDetailsArgs>? RtmpPushDetails { get; set; }
+
+        [Input("rtmpPushSettings")]
+        public Input<Inputs.FlowRtmpPushSettingsArgs>? RtmpPushSettings { get; set; }
+
         /// <summary>
         /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
         /// </summary>

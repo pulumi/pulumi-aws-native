@@ -13,7 +13,9 @@ from .capacity_reservation import *
 from .capacity_reservation_fleet import *
 from .carrier_gateway import *
 from .client_vpn_authorization_rule import *
+from .client_vpn_endpoint import *
 from .client_vpn_route import *
+from .client_vpn_target_network_association import *
 from .customer_gateway import *
 from .dhcp_options import *
 from .ec2_fleet import *
@@ -21,6 +23,8 @@ from .egress_only_internet_gateway import *
 from .eip import *
 from .eip_association import *
 from .enclave_certificate_iam_role_association import *
+from .fca_policy import *
+from .fca_policy_association import *
 from .flow_log import *
 from .fpga_image import *
 from .gateway_route_table_association import *
@@ -30,7 +34,9 @@ from .get_capacity_reservation import *
 from .get_capacity_reservation_fleet import *
 from .get_carrier_gateway import *
 from .get_client_vpn_authorization_rule import *
+from .get_client_vpn_endpoint import *
 from .get_client_vpn_route import *
+from .get_client_vpn_target_network_association import *
 from .get_customer_gateway import *
 from .get_dhcp_options import *
 from .get_ec2_fleet import *
@@ -38,6 +44,8 @@ from .get_egress_only_internet_gateway import *
 from .get_eip import *
 from .get_eip_association import *
 from .get_enclave_certificate_iam_role_association import *
+from .get_fca_policy import *
+from .get_fca_policy_association import *
 from .get_flow_log import *
 from .get_fpga_image import *
 from .get_gateway_route_table_association import *
@@ -111,6 +119,7 @@ from .get_transit_gateway_multicast_domain import *
 from .get_transit_gateway_multicast_domain_association import *
 from .get_transit_gateway_multicast_group_member import *
 from .get_transit_gateway_multicast_group_source import *
+from .get_transit_gateway_network_function_attachment import *
 from .get_transit_gateway_peering_attachment import *
 from .get_transit_gateway_policy_table import *
 from .get_transit_gateway_policy_table_association import *
@@ -209,6 +218,7 @@ from .transit_gateway_multicast_domain import *
 from .transit_gateway_multicast_domain_association import *
 from .transit_gateway_multicast_group_member import *
 from .transit_gateway_multicast_group_source import *
+from .transit_gateway_network_function_attachment import *
 from .transit_gateway_peering_attachment import *
 from .transit_gateway_policy_table import *
 from .transit_gateway_policy_table_association import *

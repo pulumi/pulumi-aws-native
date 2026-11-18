@@ -76,6 +76,13 @@ export const AssociationSourceAwsConfigurationAccountType = {
  */
 export type AssociationSourceAwsConfigurationAccountType = (typeof AssociationSourceAwsConfigurationAccountType)[keyof typeof AssociationSourceAwsConfigurationAccountType];
 
+export const AssociationTriggerFilterGroupEventsItem = {
+    PullRequestReadyForReview: "PULL_REQUEST_READY_FOR_REVIEW",
+    PullRequestDraft: "PULL_REQUEST_DRAFT",
+} as const;
+
+export type AssociationTriggerFilterGroupEventsItem = (typeof AssociationTriggerFilterGroupEventsItem)[keyof typeof AssociationTriggerFilterGroupEventsItem];
+
 export const PrivateConnectionServiceManagedModeDnsResolution = {
     Public: "PUBLIC",
     InVpc: "IN_VPC",

@@ -128,6 +128,7 @@ export const OrganizationTelemetryRuleResourceType = {
     AwsmskCluster: "AWS::MSK::Cluster",
     AwsCloudFrontDistribution: "AWS::CloudFront::Distribution",
     AwsCloudWatchOTelEnrichment: "AWS::CloudWatch::OTelEnrichment",
+    AwsxRayTransactionSearchConfig: "AWS::XRay::TransactionSearchConfig",
 } as const;
 
 /**
@@ -164,7 +165,9 @@ export type OrganizationTelemetryRuleTelemetrySourceType = (typeof OrganizationT
 
 export const OrganizationTelemetryRuleTelemetryType = {
     Logs: "Logs",
+    Traces: "Traces",
     Metrics: "Metrics",
+    Insights: "Insights",
 } as const;
 
 /**
@@ -307,6 +310,8 @@ export const TelemetryRuleResourceType = {
     AwsBedrockAgentCoreMemory: "AWS::BedrockAgentCore::Memory",
     AwsBedrockAgentCoreGateway: "AWS::BedrockAgentCore::Gateway",
     AwsBedrockAgentCoreWorkloadIdentity: "AWS::BedrockAgentCore::WorkloadIdentity",
+    AwsBedrockAgentCorePaymentManager: "AWS::BedrockAgentCore::PaymentManager",
+    AwsxRayTransactionSearchConfig: "AWS::XRay::TransactionSearchConfig",
 } as const;
 
 /**
@@ -347,6 +352,7 @@ export const TelemetryRuleTelemetryType = {
     Logs: "Logs",
     Traces: "Traces",
     Metrics: "Metrics",
+    Insights: "Insights",
 } as const;
 
 /**

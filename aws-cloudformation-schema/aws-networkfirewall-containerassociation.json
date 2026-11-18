@@ -146,13 +146,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "network-firewall:CreateContainerAssociation", "network-firewall:TagResource", "network-firewall:DescribeContainerAssociation", "ecs:DescribeClusters", "eks:DescribeCluster", "events:PutRule", "events:PutTargets", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "network-firewall:CreateContainerAssociation", "network-firewall:TagResource", "network-firewall:DescribeContainerAssociation", "ecs:DescribeClusters", "ecs:ListContainerInstances", "eks:DescribeCluster", "events:PutRule", "events:PutTargets", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "network-firewall:DescribeContainerAssociation" ]
     },
     "update" : {
-      "permissions" : [ "network-firewall:UpdateContainerAssociation", "network-firewall:DescribeContainerAssociation", "network-firewall:TagResource", "network-firewall:UntagResource", "ecs:DescribeClusters", "eks:DescribeCluster", "events:PutRule", "events:PutTargets", "events:DeleteRule", "events:RemoveTargets" ]
+      "permissions" : [ "network-firewall:UpdateContainerAssociation", "network-firewall:DescribeContainerAssociation", "network-firewall:TagResource", "network-firewall:UntagResource", "ecs:DescribeClusters", "ecs:ListContainerInstances", "eks:DescribeCluster", "events:PutRule", "events:PutTargets", "events:DeleteRule", "events:RemoveTargets" ]
     },
     "delete" : {
       "permissions" : [ "network-firewall:DeleteContainerAssociation", "network-firewall:DescribeContainerAssociation", "events:DeleteRule", "events:RemoveTargets" ]

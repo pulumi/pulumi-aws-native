@@ -25,6 +25,8 @@ type Application struct {
 	ApplicationSourceConfig ApplicationSourceConfigPropertiesOutput `pulumi:"applicationSourceConfig"`
 	// The type of application
 	ApplicationType ApplicationTypePtrOutput `pulumi:"applicationType"`
+	// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+	AuthConfig ApplicationAuthConfigPtrOutput `pulumi:"authConfig"`
 	// The id of the application.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The application description.
@@ -35,6 +37,10 @@ type Application struct {
 	InitializationTimeout pulumi.IntPtrOutput `pulumi:"initializationTimeout"`
 	// Indicates if the application is a service
 	IsService pulumi.BoolPtrOutput `pulumi:"isService"`
+	// The region in which the application was last modified.
+	LastModifiedRegion pulumi.StringOutput `pulumi:"lastModifiedRegion"`
+	// The time when the application was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The namespace of the application.
@@ -103,6 +109,8 @@ type applicationArgs struct {
 	ApplicationSourceConfig ApplicationSourceConfigProperties `pulumi:"applicationSourceConfig"`
 	// The type of application
 	ApplicationType *ApplicationType `pulumi:"applicationType"`
+	// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+	AuthConfig *ApplicationAuthConfig `pulumi:"authConfig"`
 	// The application description.
 	Description *string `pulumi:"description"`
 	// The iframe configuration
@@ -129,6 +137,8 @@ type ApplicationArgs struct {
 	ApplicationSourceConfig ApplicationSourceConfigPropertiesInput
 	// The type of application
 	ApplicationType ApplicationTypePtrInput
+	// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+	AuthConfig ApplicationAuthConfigPtrInput
 	// The application description.
 	Description pulumi.StringPtrInput
 	// The iframe configuration
@@ -204,6 +214,11 @@ func (o ApplicationOutput) ApplicationType() ApplicationTypePtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationTypePtrOutput { return v.ApplicationType }).(ApplicationTypePtrOutput)
 }
 
+// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+func (o ApplicationOutput) AuthConfig() ApplicationAuthConfigPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationAuthConfigPtrOutput { return v.AuthConfig }).(ApplicationAuthConfigPtrOutput)
+}
+
 // The id of the application.
 func (o ApplicationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
@@ -227,6 +242,16 @@ func (o ApplicationOutput) InitializationTimeout() pulumi.IntPtrOutput {
 // Indicates if the application is a service
 func (o ApplicationOutput) IsService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.IsService }).(pulumi.BoolPtrOutput)
+}
+
+// The region in which the application was last modified.
+func (o ApplicationOutput) LastModifiedRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.LastModifiedRegion }).(pulumi.StringOutput)
+}
+
+// The time when the application was last modified.
+func (o ApplicationOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
 // The name of the application.

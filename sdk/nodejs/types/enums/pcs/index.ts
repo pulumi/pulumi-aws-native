@@ -78,6 +78,16 @@ export const ClusterStatus = {
  */
 export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
+export const ComputeNodeGroupLaunchTemplateMode = {
+    Custom: "CUSTOM",
+    Managed: "MANAGED",
+} as const;
+
+/**
+ * How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+ */
+export type ComputeNodeGroupLaunchTemplateMode = (typeof ComputeNodeGroupLaunchTemplateMode)[keyof typeof ComputeNodeGroupLaunchTemplateMode];
+
 export const ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy = {
     CacheOnce: "CACHE_ONCE",
     RefreshOnReboot: "REFRESH_ON_REBOOT",

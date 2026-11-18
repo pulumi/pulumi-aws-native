@@ -207,6 +207,34 @@ namespace Pulumi.AwsNative.DevOpsAgent
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct AssociationTriggerFilterGroupEventsItem : IEquatable<AssociationTriggerFilterGroupEventsItem>
+    {
+        private readonly string _value;
+
+        private AssociationTriggerFilterGroupEventsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationTriggerFilterGroupEventsItem PullRequestReadyForReview { get; } = new AssociationTriggerFilterGroupEventsItem("PULL_REQUEST_READY_FOR_REVIEW");
+        public static AssociationTriggerFilterGroupEventsItem PullRequestDraft { get; } = new AssociationTriggerFilterGroupEventsItem("PULL_REQUEST_DRAFT");
+
+        public static bool operator ==(AssociationTriggerFilterGroupEventsItem left, AssociationTriggerFilterGroupEventsItem right) => left.Equals(right);
+        public static bool operator !=(AssociationTriggerFilterGroupEventsItem left, AssociationTriggerFilterGroupEventsItem right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationTriggerFilterGroupEventsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationTriggerFilterGroupEventsItem other && Equals(other);
+        public bool Equals(AssociationTriggerFilterGroupEventsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
     /// </summary>

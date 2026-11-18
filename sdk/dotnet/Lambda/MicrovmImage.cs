@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string> ImageArn { get; private set; } = null!;
 
         /// <summary>
+        /// The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.
+        /// </summary>
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The latest active version of the MicroVM image.
         /// </summary>
         [Output("latestActiveImageVersion")]
@@ -237,6 +243,12 @@ namespace Pulumi.AwsNative.Lambda
 
         [Input("hooks", required: true)]
         public Input<Inputs.HooksArgs> Hooks { get; set; } = null!;
+
+        /// <summary>
+        /// The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// Configuration for MicroVM image logging.

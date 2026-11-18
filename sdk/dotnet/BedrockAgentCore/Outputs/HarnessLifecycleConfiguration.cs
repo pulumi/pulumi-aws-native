@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class HarnessLifecycleConfiguration
     {
+        /// <summary>
+        /// Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Valid range: 60 to 28800 seconds (8 hours), and must be less than or equal to MaxLifetime. Default: 900 seconds (15 minutes).
+        /// </summary>
         public readonly int? IdleRuntimeSessionTimeout;
+        /// <summary>
+        /// Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Valid range: 60 to 28800 seconds (8 hours). Default: 28800 seconds (8 hours).
+        /// </summary>
         public readonly int? MaxLifetime;
 
         [OutputConstructor]

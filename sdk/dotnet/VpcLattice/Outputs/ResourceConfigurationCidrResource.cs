@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VpcLattice.Outputs
 {
 
+    /// <summary>
+    /// The CIDR ranges that make up a CIDR resource configuration. Only valid when ResourceConfigurationType is CIDR, and the resource gateway must have ResourceConfigDnsResolution set to IN_VPC.
+    /// </summary>
     [OutputType]
     public sealed class ResourceConfigurationCidrResource
     {
+        /// <summary>
+        /// The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
+        /// </summary>
         public readonly ImmutableArray<string> CidrRanges;
 
         [OutputConstructor]

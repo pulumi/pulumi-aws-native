@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowSourceResult:
-    def __init__(__self__, decryption=None, description=None, entitlement_arn=None, gateway_bridge_source=None, ingest_ip=None, ingest_port=None, max_bitrate=None, max_latency=None, min_latency=None, sender_control_port=None, sender_ip_address=None, source_arn=None, source_ingest_port=None, source_listener_address=None, source_listener_port=None, stream_id=None, tags=None, vpc_interface_name=None, whitelist_cidr=None):
+    def __init__(__self__, decryption=None, description=None, entitlement_arn=None, gateway_bridge_source=None, ingest_ip=None, ingest_port=None, max_bitrate=None, max_latency=None, min_latency=None, rtmp_push_details=None, rtmp_push_settings=None, sender_control_port=None, sender_ip_address=None, source_arn=None, source_ingest_port=None, source_listener_address=None, source_listener_port=None, stream_id=None, tags=None, vpc_interface_name=None, whitelist_cidr=None):
         if decryption and not isinstance(decryption, dict):
             raise TypeError("Expected argument 'decryption' to be a dict")
         pulumi.set(__self__, "decryption", decryption)
@@ -54,6 +54,12 @@ class GetFlowSourceResult:
         if min_latency and not isinstance(min_latency, int):
             raise TypeError("Expected argument 'min_latency' to be a int")
         pulumi.set(__self__, "min_latency", min_latency)
+        if rtmp_push_details and not isinstance(rtmp_push_details, dict):
+            raise TypeError("Expected argument 'rtmp_push_details' to be a dict")
+        pulumi.set(__self__, "rtmp_push_details", rtmp_push_details)
+        if rtmp_push_settings and not isinstance(rtmp_push_settings, dict):
+            raise TypeError("Expected argument 'rtmp_push_settings' to be a dict")
+        pulumi.set(__self__, "rtmp_push_settings", rtmp_push_settings)
         if sender_control_port and not isinstance(sender_control_port, int):
             raise TypeError("Expected argument 'sender_control_port' to be a int")
         pulumi.set(__self__, "sender_control_port", sender_control_port)
@@ -158,6 +164,16 @@ class GetFlowSourceResult:
         return pulumi.get(self, "min_latency")
 
     @_builtins.property
+    @pulumi.getter(name="rtmpPushDetails")
+    def rtmp_push_details(self) -> Optional['outputs.FlowSourceRtmpPushDetails']:
+        return pulumi.get(self, "rtmp_push_details")
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPushSettings")
+    def rtmp_push_settings(self) -> Optional['outputs.FlowSourceRtmpPushSettings']:
+        return pulumi.get(self, "rtmp_push_settings")
+
+    @_builtins.property
     @pulumi.getter(name="senderControlPort")
     def sender_control_port(self) -> Optional[_builtins.int]:
         """
@@ -253,6 +269,8 @@ class AwaitableGetFlowSourceResult(GetFlowSourceResult):
             max_bitrate=self.max_bitrate,
             max_latency=self.max_latency,
             min_latency=self.min_latency,
+            rtmp_push_details=self.rtmp_push_details,
+            rtmp_push_settings=self.rtmp_push_settings,
             sender_control_port=self.sender_control_port,
             sender_ip_address=self.sender_ip_address,
             source_arn=self.source_arn,
@@ -287,6 +305,8 @@ def get_flow_source(source_arn: Optional[_builtins.str] = None,
         max_bitrate=pulumi.get(__ret__, 'max_bitrate'),
         max_latency=pulumi.get(__ret__, 'max_latency'),
         min_latency=pulumi.get(__ret__, 'min_latency'),
+        rtmp_push_details=pulumi.get(__ret__, 'rtmp_push_details'),
+        rtmp_push_settings=pulumi.get(__ret__, 'rtmp_push_settings'),
         sender_control_port=pulumi.get(__ret__, 'sender_control_port'),
         sender_ip_address=pulumi.get(__ret__, 'sender_ip_address'),
         source_arn=pulumi.get(__ret__, 'source_arn'),
@@ -318,6 +338,8 @@ def get_flow_source_output(source_arn: pulumi.Input[Optional[_builtins.str]] = N
         max_bitrate=pulumi.get(__response__, 'max_bitrate'),
         max_latency=pulumi.get(__response__, 'max_latency'),
         min_latency=pulumi.get(__response__, 'min_latency'),
+        rtmp_push_details=pulumi.get(__response__, 'rtmp_push_details'),
+        rtmp_push_settings=pulumi.get(__response__, 'rtmp_push_settings'),
         sender_control_port=pulumi.get(__response__, 'sender_control_port'),
         sender_ip_address=pulumi.get(__response__, 'sender_ip_address'),
         source_arn=pulumi.get(__response__, 'source_arn'),

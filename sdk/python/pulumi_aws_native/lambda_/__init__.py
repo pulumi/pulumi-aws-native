@@ -25,6 +25,9 @@ from .get_microvm_image import *
 from .get_network_connector import *
 from .get_permission import *
 from .get_resource_policy import *
+from .get_runtime import *
+from .get_runtime_alias import *
+from .get_runtime_version import *
 from .get_url import *
 from .get_version import *
 from .get_web_function import *
@@ -36,6 +39,9 @@ from .microvm_image import *
 from .network_connector import *
 from .permission import *
 from .resource_policy import *
+from .runtime import *
+from .runtime_alias import *
+from .runtime_version import *
 from .url import *
 from .version import *
 from .web_function import *

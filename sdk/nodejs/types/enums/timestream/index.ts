@@ -2,6 +2,104 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const InfluxDbBackupDbInstanceType = {
+    DbInfluxMedium: "db.influx.medium",
+    DbInfluxLarge: "db.influx.large",
+    DbInfluxXlarge: "db.influx.xlarge",
+    DbInflux2xlarge: "db.influx.2xlarge",
+    DbInflux4xlarge: "db.influx.4xlarge",
+    DbInflux8xlarge: "db.influx.8xlarge",
+    DbInflux12xlarge: "db.influx.12xlarge",
+    DbInflux16xlarge: "db.influx.16xlarge",
+    DbInflux24xlarge: "db.influx.24xlarge",
+} as const;
+
+/**
+ * The DB instance type of the resource at the time of backup.
+ */
+export type InfluxDbBackupDbInstanceType = (typeof InfluxDbBackupDbInstanceType)[keyof typeof InfluxDbBackupDbInstanceType];
+
+export const InfluxDbBackupDbStorageType = {
+    InfluxIoIncludedT1: "InfluxIOIncludedT1",
+    InfluxIoIncludedT2: "InfluxIOIncludedT2",
+    InfluxIoIncludedT3: "InfluxIOIncludedT3",
+} as const;
+
+/**
+ * The storage type of the resource at the time of backup.
+ */
+export type InfluxDbBackupDbStorageType = (typeof InfluxDbBackupDbStorageType)[keyof typeof InfluxDbBackupDbStorageType];
+
+export const InfluxDbBackupDeploymentType = {
+    SingleAz: "SINGLE_AZ",
+    WithMultiazStandby: "WITH_MULTIAZ_STANDBY",
+    MultiNodeReadReplicas: "MULTI_NODE_READ_REPLICAS",
+} as const;
+
+/**
+ * The deployment type of the resource that the backup was created from.
+ */
+export type InfluxDbBackupDeploymentType = (typeof InfluxDbBackupDeploymentType)[keyof typeof InfluxDbBackupDeploymentType];
+
+export const InfluxDbBackupEngineType = {
+    InfluxdbV2: "INFLUXDB_V2",
+    InfluxdbV3Core: "INFLUXDB_V3_CORE",
+    InfluxdbV3Enterprise: "INFLUXDB_V3_ENTERPRISE",
+} as const;
+
+/**
+ * The engine type of the resource that the backup was created from.
+ */
+export type InfluxDbBackupEngineType = (typeof InfluxDbBackupEngineType)[keyof typeof InfluxDbBackupEngineType];
+
+export const InfluxDbBackupFailoverMode = {
+    Automatic: "AUTOMATIC",
+    NoFailover: "NO_FAILOVER",
+} as const;
+
+/**
+ * The failover mode of the resource at the time of backup.
+ */
+export type InfluxDbBackupFailoverMode = (typeof InfluxDbBackupFailoverMode)[keyof typeof InfluxDbBackupFailoverMode];
+
+export const InfluxDbBackupNetworkType = {
+    Ipv4: "IPV4",
+    Dual: "DUAL",
+} as const;
+
+/**
+ * The network type of the resource at the time of backup.
+ */
+export type InfluxDbBackupNetworkType = (typeof InfluxDbBackupNetworkType)[keyof typeof InfluxDbBackupNetworkType];
+
+export const InfluxDbBackupStatus = {
+    InProgress: "IN_PROGRESS",
+    Completed: "COMPLETED",
+    Failed: "FAILED",
+    Deleting: "DELETING",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * The current status of the backup.
+ */
+export type InfluxDbBackupStatus = (typeof InfluxDbBackupStatus)[keyof typeof InfluxDbBackupStatus];
+
+export const InfluxDbBackupType = {
+    Hourly: "HOURLY",
+    Daily: "DAILY",
+    Weekly: "WEEKLY",
+    Monthly: "MONTHLY",
+    CustomSchedule: "CUSTOM_SCHEDULE",
+    OnDemand: "ON_DEMAND",
+    Continuous: "CONTINUOUS",
+} as const;
+
+/**
+ * The type of backup. Backups created through this resource type are always ON_DEMAND.
+ */
+export type InfluxDbBackupType = (typeof InfluxDbBackupType)[keyof typeof InfluxDbBackupType];
+
 export const InfluxDbClusterDbInstanceType = {
     DbInfluxMedium: "db.influx.medium",
     DbInfluxLarge: "db.influx.large",
@@ -59,6 +157,21 @@ export const InfluxDbClusterFailoverMode = {
  * Failover mode of the InfluxDB cluster.
  */
 export type InfluxDbClusterFailoverMode = (typeof InfluxDbClusterFailoverMode)[keyof typeof InfluxDbClusterFailoverMode];
+
+export const InfluxDbClusterMemberModeCountMode = {
+    Primary: "PRIMARY",
+    Standby: "STANDBY",
+    Replica: "REPLICA",
+    Ingest: "INGEST",
+    Query: "QUERY",
+    Compact: "COMPACT",
+    Process: "PROCESS",
+} as const;
+
+/**
+ * The instance mode reported by DB cluster members.
+ */
+export type InfluxDbClusterMemberModeCountMode = (typeof InfluxDbClusterMemberModeCountMode)[keyof typeof InfluxDbClusterMemberModeCountMode];
 
 export const InfluxDbClusterNetworkType = {
     Ipv4: "IPV4",

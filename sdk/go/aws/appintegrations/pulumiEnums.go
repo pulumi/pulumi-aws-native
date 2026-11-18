@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ApplicationAuthConfigAuthType string
+
+const (
+	ApplicationAuthConfigAuthTypeApiKey     = ApplicationAuthConfigAuthType("API_KEY")
+	ApplicationAuthConfigAuthTypeConnectJwt = ApplicationAuthConfigAuthType("CONNECT_JWT")
+)
+
+func (ApplicationAuthConfigAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthConfigAuthType)(nil)).Elem()
+}
+
+func (e ApplicationAuthConfigAuthType) ToApplicationAuthConfigAuthTypeOutput() ApplicationAuthConfigAuthTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationAuthConfigAuthTypeOutput)
+}
+
+func (e ApplicationAuthConfigAuthType) ToApplicationAuthConfigAuthTypeOutputWithContext(ctx context.Context) ApplicationAuthConfigAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationAuthConfigAuthTypeOutput)
+}
+
+func (e ApplicationAuthConfigAuthType) ToApplicationAuthConfigAuthTypePtrOutput() ApplicationAuthConfigAuthTypePtrOutput {
+	return e.ToApplicationAuthConfigAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationAuthConfigAuthType) ToApplicationAuthConfigAuthTypePtrOutputWithContext(ctx context.Context) ApplicationAuthConfigAuthTypePtrOutput {
+	return ApplicationAuthConfigAuthType(e).ToApplicationAuthConfigAuthTypeOutputWithContext(ctx).ToApplicationAuthConfigAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationAuthConfigAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationAuthConfigAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationAuthConfigAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationAuthConfigAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationAuthConfigAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAuthConfigAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthConfigAuthType)(nil)).Elem()
+}
+
+func (o ApplicationAuthConfigAuthTypeOutput) ToApplicationAuthConfigAuthTypeOutput() ApplicationAuthConfigAuthTypeOutput {
+	return o
+}
+
+func (o ApplicationAuthConfigAuthTypeOutput) ToApplicationAuthConfigAuthTypeOutputWithContext(ctx context.Context) ApplicationAuthConfigAuthTypeOutput {
+	return o
+}
+
+func (o ApplicationAuthConfigAuthTypeOutput) ToApplicationAuthConfigAuthTypePtrOutput() ApplicationAuthConfigAuthTypePtrOutput {
+	return o.ToApplicationAuthConfigAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationAuthConfigAuthTypeOutput) ToApplicationAuthConfigAuthTypePtrOutputWithContext(ctx context.Context) ApplicationAuthConfigAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationAuthConfigAuthType) *ApplicationAuthConfigAuthType {
+		return &v
+	}).(ApplicationAuthConfigAuthTypePtrOutput)
+}
+
+func (o ApplicationAuthConfigAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationAuthConfigAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationAuthConfigAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationAuthConfigAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationAuthConfigAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationAuthConfigAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationAuthConfigAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAuthConfigAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationAuthConfigAuthType)(nil)).Elem()
+}
+
+func (o ApplicationAuthConfigAuthTypePtrOutput) ToApplicationAuthConfigAuthTypePtrOutput() ApplicationAuthConfigAuthTypePtrOutput {
+	return o
+}
+
+func (o ApplicationAuthConfigAuthTypePtrOutput) ToApplicationAuthConfigAuthTypePtrOutputWithContext(ctx context.Context) ApplicationAuthConfigAuthTypePtrOutput {
+	return o
+}
+
+func (o ApplicationAuthConfigAuthTypePtrOutput) Elem() ApplicationAuthConfigAuthTypeOutput {
+	return o.ApplyT(func(v *ApplicationAuthConfigAuthType) ApplicationAuthConfigAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationAuthConfigAuthType
+		return ret
+	}).(ApplicationAuthConfigAuthTypeOutput)
+}
+
+func (o ApplicationAuthConfigAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationAuthConfigAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationAuthConfigAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationAuthConfigAuthTypeInput is an input type that accepts values of the ApplicationAuthConfigAuthType enum
+// A concrete instance of `ApplicationAuthConfigAuthTypeInput` can be one of the following:
+//
+//	ApplicationAuthConfigAuthTypeApiKey
+//	ApplicationAuthConfigAuthTypeConnectJwt
+type ApplicationAuthConfigAuthTypeInput interface {
+	pulumi.Input
+
+	ToApplicationAuthConfigAuthTypeOutput() ApplicationAuthConfigAuthTypeOutput
+	ToApplicationAuthConfigAuthTypeOutputWithContext(context.Context) ApplicationAuthConfigAuthTypeOutput
+}
+
+var applicationAuthConfigAuthTypePtrType = reflect.TypeOf((**ApplicationAuthConfigAuthType)(nil)).Elem()
+
+type ApplicationAuthConfigAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationAuthConfigAuthTypePtrOutput() ApplicationAuthConfigAuthTypePtrOutput
+	ToApplicationAuthConfigAuthTypePtrOutputWithContext(context.Context) ApplicationAuthConfigAuthTypePtrOutput
+}
+
+type applicationAuthConfigAuthTypePtr string
+
+func ApplicationAuthConfigAuthTypePtr(v string) ApplicationAuthConfigAuthTypePtrInput {
+	return (*applicationAuthConfigAuthTypePtr)(&v)
+}
+
+func (*applicationAuthConfigAuthTypePtr) ElementType() reflect.Type {
+	return applicationAuthConfigAuthTypePtrType
+}
+
+func (in *applicationAuthConfigAuthTypePtr) ToApplicationAuthConfigAuthTypePtrOutput() ApplicationAuthConfigAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationAuthConfigAuthTypePtrOutput)
+}
+
+func (in *applicationAuthConfigAuthTypePtr) ToApplicationAuthConfigAuthTypePtrOutputWithContext(ctx context.Context) ApplicationAuthConfigAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAuthConfigAuthTypePtrOutput)
+}
+
 type ApplicationContactHandlingScope string
 
 const (
@@ -182,6 +347,7 @@ const (
 	ApplicationTypeStandard  = ApplicationType("STANDARD")
 	ApplicationTypeService   = ApplicationType("SERVICE")
 	ApplicationTypeMcpServer = ApplicationType("MCP_SERVER")
+	ApplicationTypeA2aServer = ApplicationType("A2A_SERVER")
 )
 
 func (ApplicationType) ElementType() reflect.Type {
@@ -309,6 +475,7 @@ func (o ApplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 //	ApplicationTypeStandard
 //	ApplicationTypeService
 //	ApplicationTypeMcpServer
+//	ApplicationTypeA2aServer
 type ApplicationTypeInput interface {
 	pulumi.Input
 
@@ -344,10 +511,14 @@ func (in *applicationTypePtr) ToApplicationTypePtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAuthConfigAuthTypeInput)(nil)).Elem(), ApplicationAuthConfigAuthType("API_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAuthConfigAuthTypePtrInput)(nil)).Elem(), ApplicationAuthConfigAuthType("API_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationContactHandlingScopeInput)(nil)).Elem(), ApplicationContactHandlingScope("CROSS_CONTACTS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationContactHandlingScopePtrInput)(nil)).Elem(), ApplicationContactHandlingScope("CROSS_CONTACTS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypeInput)(nil)).Elem(), ApplicationType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypePtrInput)(nil)).Elem(), ApplicationType("STANDARD"))
+	pulumi.RegisterOutputType(ApplicationAuthConfigAuthTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationAuthConfigAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationContactHandlingScopeOutput{})
 	pulumi.RegisterOutputType(ApplicationContactHandlingScopePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeOutput{})

@@ -376,7 +376,7 @@
         "Namespace" : {
           "description" : "The namespace to use for aggregation.",
           "type" : "string",
-          "pattern" : "^[0-9A-Za-z_:-]{1,1024}$"
+          "pattern" : "^[0-9A-Za-z_:.-]{1,1024}$"
         }
       },
       "required" : [ "Namespace" ],
@@ -1018,7 +1018,7 @@
     "LabelName" : {
       "description" : "Name of the Label.",
       "type" : "string",
-      "pattern" : "^[0-9A-Za-z_:-]{1,1024}$"
+      "pattern" : "^[0-9A-Za-z_:.-]{1,1024}$"
     },
     "LabelSummary" : {
       "type" : "object",
@@ -1041,7 +1041,7 @@
     },
     "LabelMatchKey" : {
       "type" : "string",
-      "pattern" : "^[0-9A-Za-z_:-]{1,1024}$"
+      "pattern" : "^[0-9A-Za-z_:.-]{1,1024}$"
     },
     "LabelMatchScope" : {
       "type" : "string",
@@ -1312,11 +1312,105 @@
         "CryptoConfig" : {
           "$ref" : "#/definitions/CryptoConfig"
         },
+        "ConnectedAccountConfigs" : {
+          "$ref" : "#/definitions/ConnectedAccountConfigs"
+        },
         "CurrencyMode" : {
           "$ref" : "#/definitions/CurrencyMode"
         }
       },
       "additionalProperties" : false
+    },
+    "ConnectedAccountConfigs" : {
+      "description" : "List of connected account configurations. A connected account delegates deposit-address provisioning to the payments provider instead of specifying a wallet directly.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ConnectedAccountConfig"
+      },
+      "insertionOrder" : false,
+      "minItems" : 1,
+      "maxItems" : 1
+    },
+    "ConnectedAccountConfig" : {
+      "description" : "Configuration for a single connected account and the chains it accepts payment on.",
+      "type" : "object",
+      "properties" : {
+        "ConnectedAccountArn" : {
+          "$ref" : "#/definitions/ConnectedAccountArn"
+        },
+        "PaymentNetworks" : {
+          "$ref" : "#/definitions/ConnectedAccountChainConfigs"
+        }
+      },
+      "required" : [ "ConnectedAccountArn", "PaymentNetworks" ],
+      "additionalProperties" : false
+    },
+    "ConnectedAccountArn" : {
+      "description" : "The ARN of the connected account that provisions deposit addresses for this configuration.",
+      "type" : "string",
+      "pattern" : "^arn:aws(-[a-z]+)*:payments::[0-9]{12}:connectedaccount/[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}-[A-Za-z0-9]{6}$",
+      "minLength" : 56,
+      "maxLength" : 140
+    },
+    "ConnectedAccountChainConfigs" : {
+      "description" : "List of per-chain configurations for a connected account.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ConnectedAccountChainConfig"
+      },
+      "insertionOrder" : false,
+      "minItems" : 1,
+      "maxItems" : 2
+    },
+    "ConnectedAccountChainConfig" : {
+      "description" : "Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.",
+      "type" : "object",
+      "properties" : {
+        "Chain" : {
+          "$ref" : "#/definitions/ConnectedAccountChain"
+        },
+        "Prices" : {
+          "$ref" : "#/definitions/ConnectedAccountPrices"
+        }
+      },
+      "required" : [ "Chain", "Prices" ],
+      "additionalProperties" : false
+    },
+    "ConnectedAccountChain" : {
+      "description" : "The blockchain chain to use with a connected account. Connected accounts are mainnet only.",
+      "type" : "string",
+      "enum" : [ "BASE", "SOLANA" ]
+    },
+    "ConnectedAccountPrices" : {
+      "description" : "List of connected-account price configurations. A single price is supported.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ConnectedAccountPrice"
+      },
+      "insertionOrder" : false,
+      "minItems" : 1,
+      "maxItems" : 1
+    },
+    "ConnectedAccountPrice" : {
+      "description" : "A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.",
+      "type" : "object",
+      "properties" : {
+        "Amount" : {
+          "$ref" : "#/definitions/ConnectedAccountPriceAmount"
+        },
+        "Currency" : {
+          "$ref" : "#/definitions/CryptoCurrency"
+        }
+      },
+      "required" : [ "Amount", "Currency" ],
+      "additionalProperties" : false
+    },
+    "ConnectedAccountPriceAmount" : {
+      "description" : "The price amount for a connected account. Whole cents only, from 0.01 up to the payment provider's maximum of 999999.99.",
+      "type" : "string",
+      "pattern" : "^([1-9][0-9]{0,5}(\\.[0-9]{1,2})?|0\\.(0[1-9]|[1-9][0-9]?))$",
+      "minLength" : 1,
+      "maxLength" : 9
     },
     "CurrencyMode" : {
       "description" : "The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.",

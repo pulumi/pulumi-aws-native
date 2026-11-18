@@ -400,6 +400,7 @@ type AnalysisTemplateFormat string
 const (
 	AnalysisTemplateFormatSql       = AnalysisTemplateFormat("SQL")
 	AnalysisTemplateFormatPyspark10 = AnalysisTemplateFormat("PYSPARK_1_0")
+	AnalysisTemplateFormatPyspark20 = AnalysisTemplateFormat("PYSPARK_2_0")
 )
 
 func (AnalysisTemplateFormat) ElementType() reflect.Type {
@@ -526,6 +527,7 @@ func (o AnalysisTemplateFormatPtrOutput) ToStringPtrOutputWithContext(ctx contex
 //
 //	AnalysisTemplateFormatSql
 //	AnalysisTemplateFormatPyspark10
+//	AnalysisTemplateFormatPyspark20
 type AnalysisTemplateFormatInput interface {
 	pulumi.Input
 

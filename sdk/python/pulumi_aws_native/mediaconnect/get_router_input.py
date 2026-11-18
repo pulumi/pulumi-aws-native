@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouterInputResult:
-    def __init__(__self__, arn=None, associated_destination_endpoint_arns=None, configuration=None, content_quality_analysis_configuration=None, content_quality_analysis_type=None, created_at=None, id=None, input_type=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, routed_outputs=None, routing_scope=None, state=None, tags=None, tier=None, transit_encryption=None, updated_at=None):
+    def __init__(__self__, arn=None, associated_destination_endpoint_arns=None, configuration=None, content_quality_analysis_configuration=None, content_quality_analysis_type=None, created_at=None, id=None, input_type=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, routed_outputs=None, routing_scope=None, state=None, stream_details=None, tags=None, tier=None, transit_encryption=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -75,6 +75,9 @@ class GetRouterInputResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if stream_details and not isinstance(stream_details, dict):
+            raise TypeError("Expected argument 'stream_details' to be a dict")
+        pulumi.set(__self__, "stream_details", stream_details)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -208,6 +211,11 @@ class GetRouterInputResult:
         return pulumi.get(self, "state")
 
     @_builtins.property
+    @pulumi.getter(name="streamDetails")
+    def stream_details(self) -> Optional[Union['outputs.RouterInputStreamDetails0Properties', 'outputs.RouterInputStreamDetails1Properties', 'outputs.RouterInputStreamDetails2Properties', 'outputs.RouterInputStreamDetails3Properties', 'outputs.RouterInputStreamDetails4Properties', 'outputs.RouterInputStreamDetails5Properties']]:
+        return pulumi.get(self, "stream_details")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -262,6 +270,7 @@ class AwaitableGetRouterInputResult(GetRouterInputResult):
             routed_outputs=self.routed_outputs,
             routing_scope=self.routing_scope,
             state=self.state,
+            stream_details=self.stream_details,
             tags=self.tags,
             tier=self.tier,
             transit_encryption=self.transit_encryption,
@@ -297,6 +306,7 @@ def get_router_input(arn: Optional[_builtins.str] = None,
         routed_outputs=pulumi.get(__ret__, 'routed_outputs'),
         routing_scope=pulumi.get(__ret__, 'routing_scope'),
         state=pulumi.get(__ret__, 'state'),
+        stream_details=pulumi.get(__ret__, 'stream_details'),
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'),
         transit_encryption=pulumi.get(__ret__, 'transit_encryption'),
@@ -329,6 +339,7 @@ def get_router_input_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         routed_outputs=pulumi.get(__response__, 'routed_outputs'),
         routing_scope=pulumi.get(__response__, 'routing_scope'),
         state=pulumi.get(__response__, 'state'),
+        stream_details=pulumi.get(__response__, 'stream_details'),
         tags=pulumi.get(__response__, 'tags'),
         tier=pulumi.get(__response__, 'tier'),
         transit_encryption=pulumi.get(__response__, 'transit_encryption'),

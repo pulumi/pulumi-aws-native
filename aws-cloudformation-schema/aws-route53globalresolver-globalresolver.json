@@ -41,6 +41,10 @@
       "type" : "string",
       "enum" : [ "IPV4", "DUAL_STACK" ]
     },
+    "PublicIpStatus" : {
+      "type" : "string",
+      "enum" : [ "ENABLED_RESERVED", "DISABLED_RESERVED", "DISABLED_RELEASED" ]
+    },
     "CRResourceStatus" : {
       "type" : "string",
       "enum" : [ "CREATING", "OPERATIONAL", "UPDATING", "DELETING" ]
@@ -111,6 +115,10 @@
     "IpAddressType" : {
       "$ref" : "#/definitions/GlobalResolverIpAddressType"
     },
+    "PublicIpStatus" : {
+      "$ref" : "#/definitions/PublicIpStatus",
+      "description" : "Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create."
+    },
     "Status" : {
       "$ref" : "#/definitions/CRResourceStatus"
     },
@@ -142,7 +150,7 @@
       "permissions" : [ "route53globalresolver:GetGlobalResolver", "route53globalresolver:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "route53globalresolver:UpdateGlobalResolver", "route53globalresolver:GetGlobalResolver", "route53globalresolver:TagResource", "route53globalresolver:UntagResource", "route53globalresolver:ListTagsForResource" ],
+      "permissions" : [ "route53globalresolver:UpdateGlobalResolver", "route53globalresolver:GetGlobalResolver", "route53globalresolver:TagResource", "route53globalresolver:UntagResource", "route53globalresolver:ListTagsForResource", "networkmanager:GetCoreNetwork" ],
       "timeoutInMinutes" : 120
     },
     "delete" : {

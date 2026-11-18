@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     {
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashAudioTimelinePattern? AudioTimelinePattern;
         public readonly Outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties? AvailabilityStartTimeConfiguration;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashBandwidthReportingMode? BandwidthReportingMode;
         /// <summary>
         /// &lt;p&gt;The base URL to use for retrieving segments.&lt;/p&gt;
         /// </summary>
@@ -100,6 +101,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             Outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties? availabilityStartTimeConfiguration,
 
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashBandwidthReportingMode? bandwidthReportingMode,
+
             ImmutableArray<Outputs.OriginEndpointDashBaseUrl> baseUrls,
 
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashCompactness? compactness,
@@ -138,6 +141,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         {
             AudioTimelinePattern = audioTimelinePattern;
             AvailabilityStartTimeConfiguration = availabilityStartTimeConfiguration;
+            BandwidthReportingMode = bandwidthReportingMode;
             BaseUrls = baseUrls;
             Compactness = compactness;
             DrmSignaling = drmSignaling;

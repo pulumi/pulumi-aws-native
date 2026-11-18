@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'AttributeConfigurationProperties',
     'ConstraintsProperties',
+    'ContactHooksProperties',
     'DataTableRecordProperties',
     'DataTableRecordValue',
     'EmailAddressAliasConfiguration',
@@ -115,6 +116,8 @@ __all__ = [
     'RuleInAppNotificationRecipientType',
     'RuleNotificationContent',
     'RuleNotificationRecipientType',
+    'RulePreEvaluationFilter',
+    'RulePreEvaluationFilters',
     'RuleReference',
     'RuleSendInAppNotificationAction',
     'RuleSendNotificationAction',
@@ -290,6 +293,47 @@ class ConstraintsProperties(dict):
         Lists the fields that are required to be filled by agents.
         """
         return pulumi.get(self, "required_fields")
+
+
+@pulumi.output_type
+class ContactHooksProperties(dict):
+    """
+    The contact hooks for the task template.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "wrapUpFlowArn":
+            suggest = "wrap_up_flow_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactHooksProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactHooksProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactHooksProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 wrap_up_flow_arn: Optional[_builtins.str] = None):
+        """
+        The contact hooks for the task template.
+
+        :param _builtins.str wrap_up_flow_arn: The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+        """
+        if wrap_up_flow_arn is not None:
+            pulumi.set(__self__, "wrap_up_flow_arn", wrap_up_flow_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="wrapUpFlowArn")
+    def wrap_up_flow_arn(self) -> Optional[_builtins.str]:
+        """
+        The identifier (arn) of the flow module that runs when an agent attempts to disconnect from a task created by referencing this template. If no agent ever connects to the task, the flow module runs when the task is terminated.
+        """
+        return pulumi.get(self, "wrap_up_flow_arn")
 
 
 @pulumi.output_type
@@ -5621,6 +5665,127 @@ class RuleNotificationRecipientType(dict):
         The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
         """
         return pulumi.get(self, "user_tags")
+
+
+@pulumi.output_type
+class RulePreEvaluationFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterKey":
+            suggest = "filter_key"
+        elif key == "filterType":
+            suggest = "filter_type"
+        elif key == "filterValue":
+            suggest = "filter_value"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulePreEvaluationFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulePreEvaluationFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulePreEvaluationFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_key: _builtins.str,
+                 filter_type: 'RulePreEvaluationFilterFilterType',
+                 filter_value: _builtins.str,
+                 operator: 'RulePreEvaluationFilterOperator',
+                 resource_type: 'RulePreEvaluationFilterResourceType'):
+        """
+        :param _builtins.str filter_key: The key of the filter.
+        :param 'RulePreEvaluationFilterFilterType' filter_type: The type of the filter.
+        :param _builtins.str filter_value: The value of the filter.
+        :param 'RulePreEvaluationFilterOperator' operator: The comparison operator for the filter.
+        :param 'RulePreEvaluationFilterResourceType' resource_type: The type of resource the filter applies to.
+        """
+        pulumi.set(__self__, "filter_key", filter_key)
+        pulumi.set(__self__, "filter_type", filter_type)
+        pulumi.set(__self__, "filter_value", filter_value)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="filterKey")
+    def filter_key(self) -> _builtins.str:
+        """
+        The key of the filter.
+        """
+        return pulumi.get(self, "filter_key")
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> 'RulePreEvaluationFilterFilterType':
+        """
+        The type of the filter.
+        """
+        return pulumi.get(self, "filter_type")
+
+    @_builtins.property
+    @pulumi.getter(name="filterValue")
+    def filter_value(self) -> _builtins.str:
+        """
+        The value of the filter.
+        """
+        return pulumi.get(self, "filter_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> 'RulePreEvaluationFilterOperator':
+        """
+        The comparison operator for the filter.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> 'RulePreEvaluationFilterResourceType':
+        """
+        The type of resource the filter applies to.
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class RulePreEvaluationFilters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andConditions":
+            suggest = "and_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulePreEvaluationFilters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulePreEvaluationFilters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulePreEvaluationFilters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_conditions: Optional[Sequence['outputs.RulePreEvaluationFilter']] = None):
+        """
+        :param Sequence['RulePreEvaluationFilter'] and_conditions: A list of filter conditions that are combined with AND logic.
+        """
+        if and_conditions is not None:
+            pulumi.set(__self__, "and_conditions", and_conditions)
+
+    @_builtins.property
+    @pulumi.getter(name="andConditions")
+    def and_conditions(self) -> Optional[Sequence['outputs.RulePreEvaluationFilter']]:
+        """
+        A list of filter conditions that are combined with AND logic.
+        """
+        return pulumi.get(self, "and_conditions")
 
 
 @pulumi.output_type

@@ -17,11 +17,124 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DeploymentAssociatedPolicy',
+    'DeploymentAssociatedScope',
+    'DeploymentConfiguration',
     'PolicyAssociatedTemplateAndRule',
     'PolicyConfiguration',
     'PolicyWafConfig',
     'TemplateAssociatedRule',
 ]
+
+@pulumi.output_type
+class DeploymentAssociatedPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyArn":
+            suggest = "policy_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentAssociatedPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentAssociatedPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentAssociatedPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_arn: _builtins.str):
+        """
+        :param _builtins.str policy_arn: ARN of the associated policy.
+        """
+        pulumi.set(__self__, "policy_arn", policy_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> _builtins.str:
+        """
+        ARN of the associated policy.
+        """
+        return pulumi.get(self, "policy_arn")
+
+
+@pulumi.output_type
+class DeploymentAssociatedScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scopeArn":
+            suggest = "scope_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentAssociatedScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentAssociatedScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentAssociatedScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scope_arn: _builtins.str):
+        """
+        :param _builtins.str scope_arn: ARN of the associated scope.
+        """
+        pulumi.set(__self__, "scope_arn", scope_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeArn")
+    def scope_arn(self) -> _builtins.str:
+        """
+        ARN of the associated scope.
+        """
+        return pulumi.get(self, "scope_arn")
+
+
+@pulumi.output_type
+class DeploymentConfiguration(dict):
+    """
+    Configuration settings for the deployment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableCrossAccountVisibility":
+            suggest = "enable_cross_account_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_cross_account_visibility: _builtins.bool):
+        """
+        Configuration settings for the deployment.
+
+        :param _builtins.bool enable_cross_account_visibility: Whether cross-account visibility is enabled for the deployment.
+        """
+        pulumi.set(__self__, "enable_cross_account_visibility", enable_cross_account_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="enableCrossAccountVisibility")
+    def enable_cross_account_visibility(self) -> _builtins.bool:
+        """
+        Whether cross-account visibility is enabled for the deployment.
+        """
+        return pulumi.get(self, "enable_cross_account_visibility")
+
 
 @pulumi.output_type
 class PolicyAssociatedTemplateAndRule(dict):

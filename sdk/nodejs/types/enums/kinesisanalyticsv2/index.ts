@@ -128,3 +128,88 @@ export const ApplicationZeppelinMonitoringConfigurationLogLevel = {
  * The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
  */
 export type ApplicationZeppelinMonitoringConfigurationLogLevel = (typeof ApplicationZeppelinMonitoringConfigurationLogLevel)[keyof typeof ApplicationZeppelinMonitoringConfigurationLogLevel];
+
+export const SnapshotEncryptionConfigurationDescriptionKeyType = {
+    AwsOwnedKey: "AWS_OWNED_KEY",
+    CustomerManagedKey: "CUSTOMER_MANAGED_KEY",
+} as const;
+
+/**
+ * The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+ */
+export type SnapshotEncryptionConfigurationDescriptionKeyType = (typeof SnapshotEncryptionConfigurationDescriptionKeyType)[keyof typeof SnapshotEncryptionConfigurationDescriptionKeyType];
+
+export const SnapshotFormat = {
+    Canonical: "CANONICAL",
+} as const;
+
+/**
+ * The format of the snapshot (CANONICAL). Sent to ImportSnapshot with ImportSourceConfiguration; with ApplicationName it may only be CANONICAL, the format CreateSnapshot produces. Returned by DescribeSnapshot. Immutable after create.
+ */
+export type SnapshotFormat = (typeof SnapshotFormat)[keyof typeof SnapshotFormat];
+
+export const SnapshotImportSourceConfigurationSourceType = {
+    S3: "S3",
+} as const;
+
+/**
+ * The type of storage the snapshot is imported from.
+ */
+export type SnapshotImportSourceConfigurationSourceType = (typeof SnapshotImportSourceConfigurationSourceType)[keyof typeof SnapshotImportSourceConfigurationSourceType];
+
+export const SnapshotInitiator = {
+    User: "USER",
+    System: "SYSTEM",
+} as const;
+
+/**
+ * Indicates whether the snapshot was initiated by the customer or by the service. Populated by DescribeSnapshot.
+ */
+export type SnapshotInitiator = (typeof SnapshotInitiator)[keyof typeof SnapshotInitiator];
+
+export const SnapshotInitiatorOperation = {
+    CreateSnapshot: "CreateSnapshot",
+    ImportSnapshot: "ImportSnapshot",
+    SystemCreateSnapshot: "SystemCreateSnapshot",
+} as const;
+
+/**
+ * The operation that initiated the snapshot. Populated by DescribeSnapshot.
+ */
+export type SnapshotInitiatorOperation = (typeof SnapshotInitiatorOperation)[keyof typeof SnapshotInitiatorOperation];
+
+export const SnapshotRuntimeEnvironment = {
+    Sql10: "SQL-1_0",
+    Flink16: "FLINK-1_6",
+    Flink18: "FLINK-1_8",
+    ZeppelinFlink10: "ZEPPELIN-FLINK-1_0",
+    Flink111: "FLINK-1_11",
+    Flink113: "FLINK-1_13",
+    ZeppelinFlink20: "ZEPPELIN-FLINK-2_0",
+    Flink115: "FLINK-1_15",
+    ZeppelinFlink30: "ZEPPELIN-FLINK-3_0",
+    Flink118: "FLINK-1_18",
+    Flink119: "FLINK-1_19",
+    Flink120: "FLINK-1_20",
+    Flink21: "FLINK-2_1",
+    Flink22: "FLINK-2_2",
+    Flink23: "FLINK-2_3",
+    Flink24: "FLINK-2_4",
+} as const;
+
+/**
+ * The runtime environment of the source application when the snapshot was taken with ApplicationName (CreateSnapshot), for example FLINK-1_20. Populated by DescribeSnapshot. Not returned for snapshots created with ImportSourceConfiguration (ImportSnapshot), which carry no runtime version.
+ */
+export type SnapshotRuntimeEnvironment = (typeof SnapshotRuntimeEnvironment)[keyof typeof SnapshotRuntimeEnvironment];
+
+export const SnapshotStatus = {
+    Creating: "CREATING",
+    Ready: "READY",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The lifecycle status of the snapshot as reported by the service (CREATING, READY, DELETING, FAILED). Populated by DescribeSnapshot.
+ */
+export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];

@@ -88,6 +88,8 @@ __all__ = [
     'FlowAudioMonitoringSettingArgsDict',
     'FlowAutomaticEncryptionKeyConfigurationArgs',
     'FlowAutomaticEncryptionKeyConfigurationArgsDict',
+    'FlowAutomaticRtmpPushNamingConfigurationArgs',
+    'FlowAutomaticRtmpPushNamingConfigurationArgsDict',
     'FlowBlackFramesArgs',
     'FlowBlackFramesArgsDict',
     'FlowEncodingConfigArgs',
@@ -112,6 +114,8 @@ __all__ = [
     'FlowInterfaceArgsDict',
     'FlowMaintenanceArgs',
     'FlowMaintenanceArgsDict',
+    'FlowManualRtmpPushNamingConfigurationArgs',
+    'FlowManualRtmpPushNamingConfigurationArgsDict',
     'FlowMediaStreamArgs',
     'FlowMediaStreamArgsDict',
     'FlowMediaStreamAttributesArgs',
@@ -146,22 +150,48 @@ __all__ = [
     'FlowOutputInterfaceArgsDict',
     'FlowOutputMediaStreamOutputConfigurationArgs',
     'FlowOutputMediaStreamOutputConfigurationArgsDict',
+    'FlowOutputPublicTlsEncryptionConfigurationArgs',
+    'FlowOutputPublicTlsEncryptionConfigurationArgsDict',
+    'FlowOutputRtmpPushSettingsArgs',
+    'FlowOutputRtmpPushSettingsArgsDict',
     'FlowOutputSecretsManagerEncryptionKeyConfigurationArgs',
     'FlowOutputSecretsManagerEncryptionKeyConfigurationArgsDict',
+    'FlowOutputTlsEncryptionArgs',
+    'FlowOutputTlsEncryptionArgsDict',
+    'FlowOutputTlsEncryptionConfigurationPropertiesArgs',
+    'FlowOutputTlsEncryptionConfigurationPropertiesArgsDict',
     'FlowOutputVpcInterfaceAttachmentArgs',
     'FlowOutputVpcInterfaceAttachmentArgsDict',
+    'FlowRtmpPushDetailsArgs',
+    'FlowRtmpPushDetailsArgsDict',
+    'FlowRtmpPushNamingConfiguration0PropertiesArgs',
+    'FlowRtmpPushNamingConfiguration0PropertiesArgsDict',
+    'FlowRtmpPushNamingConfiguration1PropertiesArgs',
+    'FlowRtmpPushNamingConfiguration1PropertiesArgsDict',
+    'FlowRtmpPushSettingsArgs',
+    'FlowRtmpPushSettingsArgsDict',
     'FlowSecretsManagerEncryptionKeyConfigurationArgs',
     'FlowSecretsManagerEncryptionKeyConfigurationArgsDict',
     'FlowSilentAudioArgs',
     'FlowSilentAudioArgsDict',
     'FlowSourceArgs',
     'FlowSourceArgsDict',
+    'FlowSourceAutomaticRtmpPushNamingConfigurationArgs',
+    'FlowSourceAutomaticRtmpPushNamingConfigurationArgsDict',
     'FlowSourceEncryptionArgs',
     'FlowSourceEncryptionArgsDict',
     'FlowSourceGatewayBridgeSourceArgs',
     'FlowSourceGatewayBridgeSourceArgsDict',
+    'FlowSourceManualRtmpPushNamingConfigurationArgs',
+    'FlowSourceManualRtmpPushNamingConfigurationArgsDict',
     'FlowSourceMonitoringConfigArgs',
     'FlowSourceMonitoringConfigArgsDict',
+    'FlowSourceRtmpPushNamingConfiguration0PropertiesArgs',
+    'FlowSourceRtmpPushNamingConfiguration0PropertiesArgsDict',
+    'FlowSourceRtmpPushNamingConfiguration1PropertiesArgs',
+    'FlowSourceRtmpPushNamingConfiguration1PropertiesArgsDict',
+    'FlowSourceRtmpPushSettingsArgs',
+    'FlowSourceRtmpPushSettingsArgsDict',
     'FlowSourceVpcInterfaceAttachmentArgs',
     'FlowSourceVpcInterfaceAttachmentArgsDict',
     'FlowTagArgs',
@@ -184,6 +214,8 @@ __all__ = [
     'RouterInputAutomaticEncryptionKeyConfigurationArgsDict',
     'RouterInputAutomaticEndpointEncryptionConfigurationArgs',
     'RouterInputAutomaticEndpointEncryptionConfigurationArgsDict',
+    'RouterInputAutomaticRtmpPushNamingConfigurationArgs',
+    'RouterInputAutomaticRtmpPushNamingConfigurationArgsDict',
     'RouterInputBlackFramesConfigurationArgs',
     'RouterInputBlackFramesConfigurationArgsDict',
     'RouterInputConfiguration0PropertiesArgs',
@@ -220,6 +252,8 @@ __all__ = [
     'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict',
     'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs',
     'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict',
+    'RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs',
+    'RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgsDict',
     'RouterInputFlowTransitEncryptionArgs',
     'RouterInputFlowTransitEncryptionArgsDict',
     'RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs',
@@ -232,6 +266,8 @@ __all__ = [
     'RouterInputMaintenanceConfiguration0PropertiesArgsDict',
     'RouterInputMaintenanceConfiguration1PropertiesArgs',
     'RouterInputMaintenanceConfiguration1PropertiesArgsDict',
+    'RouterInputManualRtmpPushNamingConfigurationArgs',
+    'RouterInputManualRtmpPushNamingConfigurationArgsDict',
     'RouterInputMediaConnectFlowRouterInputConfigurationArgs',
     'RouterInputMediaConnectFlowRouterInputConfigurationArgsDict',
     'RouterInputMediaLiveChannelRouterInputConfigurationArgs',
@@ -248,6 +284,10 @@ __all__ = [
     'RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgsDict',
     'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs',
     'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgsDict',
+    'RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs',
+    'RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgsDict',
+    'RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs',
+    'RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgsDict',
     'RouterInputPreferredDayTimeMaintenanceConfigurationArgs',
     'RouterInputPreferredDayTimeMaintenanceConfigurationArgsDict',
     'RouterInputProtocolConfiguration0PropertiesArgs',
@@ -258,10 +298,18 @@ __all__ = [
     'RouterInputProtocolConfiguration2PropertiesArgsDict',
     'RouterInputProtocolConfiguration3PropertiesArgs',
     'RouterInputProtocolConfiguration3PropertiesArgsDict',
+    'RouterInputProtocolConfiguration4PropertiesArgs',
+    'RouterInputProtocolConfiguration4PropertiesArgsDict',
     'RouterInputRistRouterInputConfigurationArgs',
     'RouterInputRistRouterInputConfigurationArgsDict',
     'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs',
     'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict',
+    'RouterInputRtmpPushNamingConfiguration0PropertiesArgs',
+    'RouterInputRtmpPushNamingConfiguration0PropertiesArgsDict',
+    'RouterInputRtmpPushNamingConfiguration1PropertiesArgs',
+    'RouterInputRtmpPushNamingConfiguration1PropertiesArgsDict',
+    'RouterInputRtmpPushRouterInputConfigurationArgs',
+    'RouterInputRtmpPushRouterInputConfigurationArgsDict',
     'RouterInputRtpRouterInputConfigurationArgs',
     'RouterInputRtpRouterInputConfigurationArgsDict',
     'RouterInputSecretsManagerEncryptionKeyConfigurationArgs',
@@ -2220,6 +2268,21 @@ class FlowAutomaticEncryptionKeyConfigurationArgs:
         pass
 
 
+class FlowAutomaticRtmpPushNamingConfigurationArgsDict(TypedDict):
+    """
+    The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+    """
+    pass
+
+@pulumi.input_type
+class FlowAutomaticRtmpPushNamingConfigurationArgs:
+    def __init__(__self__):
+        """
+        The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+        """
+        pass
+
+
 class FlowBlackFramesArgsDict(TypedDict):
     """
     Configures settings for the BlackFrames metric.
@@ -3224,6 +3287,58 @@ class FlowMaintenanceArgs:
     @maintenance_start_hour.setter
     def maintenance_start_hour(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "maintenance_start_hour", value)
+
+
+class FlowManualRtmpPushNamingConfigurationArgsDict(TypedDict):
+    """
+    The manual RTMP naming configuration, where you specify the application and stream names.
+    """
+    application_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+    """
+    stream_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+    """
+
+@pulumi.input_type
+class FlowManualRtmpPushNamingConfigurationArgs:
+    def __init__(__self__, *,
+                 application_name: pulumi.Input[_builtins.str],
+                 stream_name: pulumi.Input[_builtins.str]):
+        """
+        The manual RTMP naming configuration, where you specify the application and stream names.
+
+        :param pulumi.Input[_builtins.str] application_name: The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+        :param pulumi.Input[_builtins.str] stream_name: The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+        """
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "stream_name", stream_name)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @stream_name.setter
+    def stream_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stream_name", value)
 
 
 class FlowMediaStreamArgsDict(TypedDict):
@@ -4376,6 +4491,86 @@ class FlowOutputMediaStreamOutputConfigurationArgs:
         pulumi.set(self, "encoding_parameters", value)
 
 
+class FlowOutputPublicTlsEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+    """
+    pass
+
+@pulumi.input_type
+class FlowOutputPublicTlsEncryptionConfigurationArgs:
+    def __init__(__self__):
+        """
+        The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+        """
+        pass
+
+
+class FlowOutputRtmpPushSettingsArgsDict(TypedDict):
+    """
+    The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the application and stream names, and optional TLS encryption configuration.
+    """
+    application_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+    """
+    stream_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+    """
+    tls_encryption: NotRequired[pulumi.Input[Optional['FlowOutputTlsEncryptionArgsDict']]]
+
+@pulumi.input_type
+class FlowOutputRtmpPushSettingsArgs:
+    def __init__(__self__, *,
+                 application_name: pulumi.Input[_builtins.str],
+                 stream_name: pulumi.Input[_builtins.str],
+                 tls_encryption: pulumi.Input[Optional['FlowOutputTlsEncryptionArgs']] = None):
+        """
+        The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the application and stream names, and optional TLS encryption configuration.
+
+        :param pulumi.Input[_builtins.str] application_name: The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+        :param pulumi.Input[_builtins.str] stream_name: The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+        """
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "stream_name", stream_name)
+        if tls_encryption is not None:
+            pulumi.set(__self__, "tls_encryption", tls_encryption)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @stream_name.setter
+    def stream_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stream_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tlsEncryption")
+    def tls_encryption(self) -> pulumi.Input[Optional['FlowOutputTlsEncryptionArgs']]:
+        return pulumi.get(self, "tls_encryption")
+
+    @tls_encryption.setter
+    def tls_encryption(self, value: pulumi.Input[Optional['FlowOutputTlsEncryptionArgs']]):
+        pulumi.set(self, "tls_encryption", value)
+
+
 class FlowOutputSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
     """
     The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
@@ -4428,6 +4623,69 @@ class FlowOutputSecretsManagerEncryptionKeyConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
 
+class FlowOutputTlsEncryptionArgsDict(TypedDict):
+    """
+    The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+    """
+    encryption_configuration: pulumi.Input['FlowOutputTlsEncryptionConfigurationPropertiesArgsDict']
+    encryption_type: NotRequired[pulumi.Input[Optional['FlowOutputTlsEncryptionType']]]
+
+@pulumi.input_type
+class FlowOutputTlsEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_configuration: pulumi.Input['FlowOutputTlsEncryptionConfigurationPropertiesArgs'],
+                 encryption_type: pulumi.Input[Optional['FlowOutputTlsEncryptionType']] = None):
+        """
+        The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+        """
+        pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Input['FlowOutputTlsEncryptionConfigurationPropertiesArgs']:
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: pulumi.Input['FlowOutputTlsEncryptionConfigurationPropertiesArgs']):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Input[Optional['FlowOutputTlsEncryptionType']]:
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: pulumi.Input[Optional['FlowOutputTlsEncryptionType']]):
+        pulumi.set(self, "encryption_type", value)
+
+
+class FlowOutputTlsEncryptionConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for TLS encryption.
+    """
+    public: pulumi.Input['FlowOutputPublicTlsEncryptionConfigurationArgsDict']
+
+@pulumi.input_type
+class FlowOutputTlsEncryptionConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 public: pulumi.Input['FlowOutputPublicTlsEncryptionConfigurationArgs']):
+        """
+        The configuration settings for TLS encryption.
+        """
+        pulumi.set(__self__, "public", public)
+
+    @_builtins.property
+    @pulumi.getter
+    def public(self) -> pulumi.Input['FlowOutputPublicTlsEncryptionConfigurationArgs']:
+        return pulumi.get(self, "public")
+
+    @public.setter
+    def public(self, value: pulumi.Input['FlowOutputPublicTlsEncryptionConfigurationArgs']):
+        pulumi.set(self, "public", value)
+
+
 class FlowOutputVpcInterfaceAttachmentArgsDict(TypedDict):
     """
     The settings for attaching a VPC interface to an output.
@@ -4460,6 +4718,133 @@ class FlowOutputVpcInterfaceAttachmentArgs:
     @vpc_interface_name.setter
     def vpc_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_interface_name", value)
+
+
+class FlowRtmpPushDetailsArgsDict(TypedDict):
+    """
+    The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+    """
+    application_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+    """
+    stream_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+    """
+
+@pulumi.input_type
+class FlowRtmpPushDetailsArgs:
+    def __init__(__self__, *,
+                 application_name: pulumi.Input[_builtins.str],
+                 stream_name: pulumi.Input[_builtins.str]):
+        """
+        The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+
+        :param pulumi.Input[_builtins.str] application_name: The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+        :param pulumi.Input[_builtins.str] stream_name: The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+        """
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "stream_name", stream_name)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @stream_name.setter
+    def stream_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stream_name", value)
+
+
+class FlowRtmpPushNamingConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+    """
+    manual: pulumi.Input['FlowManualRtmpPushNamingConfigurationArgsDict']
+
+@pulumi.input_type
+class FlowRtmpPushNamingConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 manual: pulumi.Input['FlowManualRtmpPushNamingConfigurationArgs']):
+        """
+        The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+        """
+        pulumi.set(__self__, "manual", manual)
+
+    @_builtins.property
+    @pulumi.getter
+    def manual(self) -> pulumi.Input['FlowManualRtmpPushNamingConfigurationArgs']:
+        return pulumi.get(self, "manual")
+
+    @manual.setter
+    def manual(self, value: pulumi.Input['FlowManualRtmpPushNamingConfigurationArgs']):
+        pulumi.set(self, "manual", value)
+
+
+class FlowRtmpPushNamingConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+    """
+    automatic: pulumi.Input['FlowAutomaticRtmpPushNamingConfigurationArgsDict']
+
+@pulumi.input_type
+class FlowRtmpPushNamingConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 automatic: pulumi.Input['FlowAutomaticRtmpPushNamingConfigurationArgs']):
+        """
+        The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> pulumi.Input['FlowAutomaticRtmpPushNamingConfigurationArgs']:
+        return pulumi.get(self, "automatic")
+
+    @automatic.setter
+    def automatic(self, value: pulumi.Input['FlowAutomaticRtmpPushNamingConfigurationArgs']):
+        pulumi.set(self, "automatic", value)
+
+
+class FlowRtmpPushSettingsArgsDict(TypedDict):
+    """
+    The settings for the RTMP (Real-Time Messaging Protocol) source.
+    """
+    naming_configuration: pulumi.Input[Union['FlowRtmpPushNamingConfiguration0PropertiesArgsDict', 'FlowRtmpPushNamingConfiguration1PropertiesArgsDict']]
+
+@pulumi.input_type
+class FlowRtmpPushSettingsArgs:
+    def __init__(__self__, *,
+                 naming_configuration: pulumi.Input[Union['FlowRtmpPushNamingConfiguration0PropertiesArgs', 'FlowRtmpPushNamingConfiguration1PropertiesArgs']]):
+        """
+        The settings for the RTMP (Real-Time Messaging Protocol) source.
+        """
+        pulumi.set(__self__, "naming_configuration", naming_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="namingConfiguration")
+    def naming_configuration(self) -> pulumi.Input[Union['FlowRtmpPushNamingConfiguration0PropertiesArgs', 'FlowRtmpPushNamingConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "naming_configuration")
+
+    @naming_configuration.setter
+    def naming_configuration(self, value: pulumi.Input[Union['FlowRtmpPushNamingConfiguration0PropertiesArgs', 'FlowRtmpPushNamingConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "naming_configuration", value)
 
 
 class FlowSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
@@ -4636,6 +5021,8 @@ class FlowSourceArgsDict(TypedDict):
     """
     The decryption configuration for the flow source when router integration is enabled.
     """
+    rtmp_push_details: NotRequired[pulumi.Input[Optional['FlowRtmpPushDetailsArgsDict']]]
+    rtmp_push_settings: NotRequired[pulumi.Input[Optional['FlowRtmpPushSettingsArgsDict']]]
     sender_control_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
@@ -4696,6 +5083,8 @@ class FlowSourceArgs:
                  protocol: pulumi.Input[Optional['FlowSourceProtocol']] = None,
                  router_integration_state: pulumi.Input[Optional['FlowSourceRouterIntegrationState']] = None,
                  router_integration_transit_decryption: pulumi.Input[Optional['FlowTransitEncryptionArgs']] = None,
+                 rtmp_push_details: pulumi.Input[Optional['FlowRtmpPushDetailsArgs']] = None,
+                 rtmp_push_settings: pulumi.Input[Optional['FlowRtmpPushSettingsArgs']] = None,
                  sender_control_port: pulumi.Input[Optional[_builtins.int]] = None,
                  sender_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -4768,6 +5157,10 @@ class FlowSourceArgs:
             pulumi.set(__self__, "router_integration_state", router_integration_state)
         if router_integration_transit_decryption is not None:
             pulumi.set(__self__, "router_integration_transit_decryption", router_integration_transit_decryption)
+        if rtmp_push_details is not None:
+            pulumi.set(__self__, "rtmp_push_details", rtmp_push_details)
+        if rtmp_push_settings is not None:
+            pulumi.set(__self__, "rtmp_push_settings", rtmp_push_settings)
         if sender_control_port is not None:
             pulumi.set(__self__, "sender_control_port", sender_control_port)
         if sender_ip_address is not None:
@@ -4982,6 +5375,24 @@ class FlowSourceArgs:
         pulumi.set(self, "router_integration_transit_decryption", value)
 
     @_builtins.property
+    @pulumi.getter(name="rtmpPushDetails")
+    def rtmp_push_details(self) -> pulumi.Input[Optional['FlowRtmpPushDetailsArgs']]:
+        return pulumi.get(self, "rtmp_push_details")
+
+    @rtmp_push_details.setter
+    def rtmp_push_details(self, value: pulumi.Input[Optional['FlowRtmpPushDetailsArgs']]):
+        pulumi.set(self, "rtmp_push_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPushSettings")
+    def rtmp_push_settings(self) -> pulumi.Input[Optional['FlowRtmpPushSettingsArgs']]:
+        return pulumi.get(self, "rtmp_push_settings")
+
+    @rtmp_push_settings.setter
+    def rtmp_push_settings(self, value: pulumi.Input[Optional['FlowRtmpPushSettingsArgs']]):
+        pulumi.set(self, "rtmp_push_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="senderControlPort")
     def sender_control_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -5100,6 +5511,21 @@ class FlowSourceArgs:
     @whitelist_cidr.setter
     def whitelist_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "whitelist_cidr", value)
+
+
+class FlowSourceAutomaticRtmpPushNamingConfigurationArgsDict(TypedDict):
+    """
+    The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+    """
+    pass
+
+@pulumi.input_type
+class FlowSourceAutomaticRtmpPushNamingConfigurationArgs:
+    def __init__(__self__):
+        """
+        The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+        """
+        pass
 
 
 class FlowSourceEncryptionArgsDict(TypedDict):
@@ -5348,6 +5774,58 @@ class FlowSourceGatewayBridgeSourceArgs:
         pulumi.set(self, "vpc_interface_attachment", value)
 
 
+class FlowSourceManualRtmpPushNamingConfigurationArgsDict(TypedDict):
+    """
+    The manual RTMP naming configuration, where you specify the application and stream names.
+    """
+    application_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+    """
+    stream_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+    """
+
+@pulumi.input_type
+class FlowSourceManualRtmpPushNamingConfigurationArgs:
+    def __init__(__self__, *,
+                 application_name: pulumi.Input[_builtins.str],
+                 stream_name: pulumi.Input[_builtins.str]):
+        """
+        The manual RTMP naming configuration, where you specify the application and stream names.
+
+        :param pulumi.Input[_builtins.str] application_name: The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+        :param pulumi.Input[_builtins.str] stream_name: The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+        """
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "stream_name", stream_name)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @stream_name.setter
+    def stream_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stream_name", value)
+
+
 class FlowSourceMonitoringConfigArgsDict(TypedDict):
     """
     The settings for source monitoring.
@@ -5440,6 +5918,81 @@ class FlowSourceMonitoringConfigArgs:
     @video_monitoring_settings.setter
     def video_monitoring_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]]):
         pulumi.set(self, "video_monitoring_settings", value)
+
+
+class FlowSourceRtmpPushNamingConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+    """
+    manual: pulumi.Input['FlowSourceManualRtmpPushNamingConfigurationArgsDict']
+
+@pulumi.input_type
+class FlowSourceRtmpPushNamingConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 manual: pulumi.Input['FlowSourceManualRtmpPushNamingConfigurationArgs']):
+        """
+        The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+        """
+        pulumi.set(__self__, "manual", manual)
+
+    @_builtins.property
+    @pulumi.getter
+    def manual(self) -> pulumi.Input['FlowSourceManualRtmpPushNamingConfigurationArgs']:
+        return pulumi.get(self, "manual")
+
+    @manual.setter
+    def manual(self, value: pulumi.Input['FlowSourceManualRtmpPushNamingConfigurationArgs']):
+        pulumi.set(self, "manual", value)
+
+
+class FlowSourceRtmpPushNamingConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+    """
+    automatic: pulumi.Input['FlowSourceAutomaticRtmpPushNamingConfigurationArgsDict']
+
+@pulumi.input_type
+class FlowSourceRtmpPushNamingConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 automatic: pulumi.Input['FlowSourceAutomaticRtmpPushNamingConfigurationArgs']):
+        """
+        The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> pulumi.Input['FlowSourceAutomaticRtmpPushNamingConfigurationArgs']:
+        return pulumi.get(self, "automatic")
+
+    @automatic.setter
+    def automatic(self, value: pulumi.Input['FlowSourceAutomaticRtmpPushNamingConfigurationArgs']):
+        pulumi.set(self, "automatic", value)
+
+
+class FlowSourceRtmpPushSettingsArgsDict(TypedDict):
+    """
+    The settings for the RTMP (Real-Time Messaging Protocol) source.
+    """
+    naming_configuration: pulumi.Input[Union['FlowSourceRtmpPushNamingConfiguration0PropertiesArgsDict', 'FlowSourceRtmpPushNamingConfiguration1PropertiesArgsDict']]
+
+@pulumi.input_type
+class FlowSourceRtmpPushSettingsArgs:
+    def __init__(__self__, *,
+                 naming_configuration: pulumi.Input[Union['FlowSourceRtmpPushNamingConfiguration0PropertiesArgs', 'FlowSourceRtmpPushNamingConfiguration1PropertiesArgs']]):
+        """
+        The settings for the RTMP (Real-Time Messaging Protocol) source.
+        """
+        pulumi.set(__self__, "naming_configuration", naming_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="namingConfiguration")
+    def naming_configuration(self) -> pulumi.Input[Union['FlowSourceRtmpPushNamingConfiguration0PropertiesArgs', 'FlowSourceRtmpPushNamingConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "naming_configuration")
+
+    @naming_configuration.setter
+    def naming_configuration(self, value: pulumi.Input[Union['FlowSourceRtmpPushNamingConfiguration0PropertiesArgs', 'FlowSourceRtmpPushNamingConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "naming_configuration", value)
 
 
 class FlowSourceVpcInterfaceAttachmentArgsDict(TypedDict):
@@ -5915,6 +6468,21 @@ class RouterInputAutomaticEndpointEncryptionConfigurationArgs:
         pass
 
 
+class RouterInputAutomaticRtmpPushNamingConfigurationArgsDict(TypedDict):
+    """
+    The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+    """
+    pass
+
+@pulumi.input_type
+class RouterInputAutomaticRtmpPushNamingConfigurationArgs:
+    def __init__(__self__):
+        """
+        The automatic RTMP naming configuration, where MediaConnect generates the application and stream names. This type does not require any additional settings.
+        """
+        pass
+
+
 class RouterInputBlackFramesConfigurationArgsDict(TypedDict):
     """
     Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
@@ -6318,7 +6886,7 @@ class RouterInputFailoverRouterInputConfigurationArgsDict(TypedDict):
     """
     The ARN of the network interface to use for this failover router input.
     """
-    protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict']]]]
+    protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgsDict']]]]
     """
     A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
     """
@@ -6332,14 +6900,14 @@ class RouterInputFailoverRouterInputConfigurationArgsDict(TypedDict):
 class RouterInputFailoverRouterInputConfigurationArgs:
     def __init__(__self__, *,
                  network_interface_arn: pulumi.Input[_builtins.str],
-                 protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs']]]],
+                 protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs']]]],
                  source_priority_mode: pulumi.Input['RouterInputFailoverInputSourcePriorityMode'],
                  primary_source_index: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration settings for a failover router input that allows switching between two input sources.
 
         :param pulumi.Input[_builtins.str] network_interface_arn: The ARN of the network interface to use for this failover router input.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs']]]] protocol_configurations: A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs']]]] protocol_configurations: A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
         :param pulumi.Input[_builtins.int] primary_source_index: The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
         """
         pulumi.set(__self__, "network_interface_arn", network_interface_arn)
@@ -6362,14 +6930,14 @@ class RouterInputFailoverRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="protocolConfigurations")
-    def protocol_configurations(self) -> pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs']]]]:
+    def protocol_configurations(self) -> pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs']]]]:
         """
         A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
         """
         return pulumi.get(self, "protocol_configurations")
 
     @protocol_configurations.setter
-    def protocol_configurations(self, value: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs']]]]):
+    def protocol_configurations(self, value: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs']]]]):
         pulumi.set(self, "protocol_configurations", value)
 
     @_builtins.property
@@ -6448,10 +7016,35 @@ class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict(Typ
     """
     Protocol configuration settings for failover router inputs.
     """
-    srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
+    rtmp_push: pulumi.Input['RouterInputRtmpPushRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 rtmp_push: pulumi.Input['RouterInputRtmpPushRouterInputConfigurationArgs']):
+        """
+        Protocol configuration settings for failover router inputs.
+        """
+        pulumi.set(__self__, "rtmp_push", rtmp_push)
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPush")
+    def rtmp_push(self) -> pulumi.Input['RouterInputRtmpPushRouterInputConfigurationArgs']:
+        return pulumi.get(self, "rtmp_push")
+
+    @rtmp_push.setter
+    def rtmp_push(self, value: pulumi.Input['RouterInputRtmpPushRouterInputConfigurationArgs']):
+        pulumi.set(self, "rtmp_push", value)
+
+
+class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs:
     def __init__(__self__, *,
                  srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']):
         """
@@ -6469,14 +7062,14 @@ class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs:
         pulumi.set(self, "srt_caller", value)
 
 
-class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+class RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgsDict(TypedDict):
     """
     Protocol configuration settings for failover router inputs.
     """
     rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs:
+class RouterInputFailoverRouterInputProtocolConfiguration4PropertiesArgs:
     def __init__(__self__, *,
                  rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
         """
@@ -6675,6 +7268,58 @@ class RouterInputMaintenanceConfiguration1PropertiesArgs:
     @default.setter
     def default(self, value: pulumi.Input['RouterInputDefaultMaintenanceConfigurationArgs']):
         pulumi.set(self, "default", value)
+
+
+class RouterInputManualRtmpPushNamingConfigurationArgsDict(TypedDict):
+    """
+    The manual RTMP naming configuration, where you specify the application and stream names.
+    """
+    application_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+    """
+    stream_name: pulumi.Input[_builtins.str]
+    """
+    The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+    """
+
+@pulumi.input_type
+class RouterInputManualRtmpPushNamingConfigurationArgs:
+    def __init__(__self__, *,
+                 application_name: pulumi.Input[_builtins.str],
+                 stream_name: pulumi.Input[_builtins.str]):
+        """
+        The manual RTMP naming configuration, where you specify the application and stream names.
+
+        :param pulumi.Input[_builtins.str] application_name: The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+        :param pulumi.Input[_builtins.str] stream_name: The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+        """
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "stream_name", stream_name)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP application. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the RTMP stream. The stream name forms the final segment of the RTMP URL path.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @stream_name.setter
+    def stream_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stream_name", value)
 
 
 class RouterInputMediaConnectFlowRouterInputConfigurationArgsDict(TypedDict):
@@ -6922,7 +7567,7 @@ class RouterInputMergeRouterInputConfigurationArgsDict(TypedDict):
     """
     The ARN of the network interface to use for this merge router input.
     """
-    protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgsDict']]]]
+    protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgsDict']]]]
     """
     A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
     """
@@ -6932,13 +7577,13 @@ class RouterInputMergeRouterInputConfigurationArgs:
     def __init__(__self__, *,
                  merge_recovery_window_milliseconds: pulumi.Input[_builtins.int],
                  network_interface_arn: pulumi.Input[_builtins.str],
-                 protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs']]]]):
+                 protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs']]]]):
         """
         Configuration settings for a merge router input that combines two input sources.
 
         :param pulumi.Input[_builtins.int] merge_recovery_window_milliseconds: The time window in milliseconds for merging the two input sources.
         :param pulumi.Input[_builtins.str] network_interface_arn: The ARN of the network interface to use for this merge router input.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs']]]] protocol_configurations: A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs']]]] protocol_configurations: A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
         """
         pulumi.set(__self__, "merge_recovery_window_milliseconds", merge_recovery_window_milliseconds)
         pulumi.set(__self__, "network_interface_arn", network_interface_arn)
@@ -6970,14 +7615,14 @@ class RouterInputMergeRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="protocolConfigurations")
-    def protocol_configurations(self) -> pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs']]]]:
+    def protocol_configurations(self) -> pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs']]]]:
         """
         A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
         """
         return pulumi.get(self, "protocol_configurations")
 
     @protocol_configurations.setter
-    def protocol_configurations(self, value: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs']]]]):
+    def protocol_configurations(self, value: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs']]]]):
         pulumi.set(self, "protocol_configurations", value)
 
 
@@ -7029,6 +7674,56 @@ class RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs:
     @rist.setter
     def rist(self, value: pulumi.Input['RouterInputRistRouterInputConfigurationArgs']):
         pulumi.set(self, "rist", value)
+
+
+class RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for merge router inputs.
+    """
+    srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputMergeRouterInputProtocolConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgs']):
+        """
+        Protocol configuration settings for merge router inputs.
+        """
+        pulumi.set(__self__, "srt_listener", srt_listener)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListener")
+    def srt_listener(self) -> pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgs']:
+        return pulumi.get(self, "srt_listener")
+
+    @srt_listener.setter
+    def srt_listener(self, value: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgs']):
+        pulumi.set(self, "srt_listener", value)
+
+
+class RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for merge router inputs.
+    """
+    srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputMergeRouterInputProtocolConfiguration3PropertiesArgs:
+    def __init__(__self__, *,
+                 srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']):
+        """
+        Protocol configuration settings for merge router inputs.
+        """
+        pulumi.set(__self__, "srt_caller", srt_caller)
+
+    @_builtins.property
+    @pulumi.getter(name="srtCaller")
+    def srt_caller(self) -> pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']:
+        return pulumi.get(self, "srt_caller")
+
+    @srt_caller.setter
+    def srt_caller(self, value: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']):
+        pulumi.set(self, "srt_caller", value)
 
 
 class RouterInputPreferredDayTimeMaintenanceConfigurationArgsDict(TypedDict):
@@ -7130,10 +7825,35 @@ class RouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
     """
     The protocol configuration settings for a router input.
     """
-    srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
+    rtmp_push: pulumi.Input['RouterInputRtmpPushRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputProtocolConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 rtmp_push: pulumi.Input['RouterInputRtmpPushRouterInputConfigurationArgs']):
+        """
+        The protocol configuration settings for a router input.
+        """
+        pulumi.set(__self__, "rtmp_push", rtmp_push)
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPush")
+    def rtmp_push(self) -> pulumi.Input['RouterInputRtmpPushRouterInputConfigurationArgs']:
+        return pulumi.get(self, "rtmp_push")
+
+    @rtmp_push.setter
+    def rtmp_push(self, value: pulumi.Input['RouterInputRtmpPushRouterInputConfigurationArgs']):
+        pulumi.set(self, "rtmp_push", value)
+
+
+class RouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputProtocolConfiguration3PropertiesArgs:
     def __init__(__self__, *,
                  srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgs']):
         """
@@ -7151,14 +7871,14 @@ class RouterInputProtocolConfiguration2PropertiesArgs:
         pulumi.set(self, "srt_caller", value)
 
 
-class RouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+class RouterInputProtocolConfiguration4PropertiesArgsDict(TypedDict):
     """
     The protocol configuration settings for a router input.
     """
     rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
-class RouterInputProtocolConfiguration3PropertiesArgs:
+class RouterInputProtocolConfiguration4PropertiesArgs:
     def __init__(__self__, *,
                  rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgs']):
         """
@@ -7251,6 +7971,114 @@ class RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs:
     @content_level.setter
     def content_level(self, value: pulumi.Input['RouterInputContentQualityAnalysisFeatureConfigurationArgs']):
         pulumi.set(self, "content_level", value)
+
+
+class RouterInputRtmpPushNamingConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+    """
+    manual: pulumi.Input['RouterInputManualRtmpPushNamingConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputRtmpPushNamingConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 manual: pulumi.Input['RouterInputManualRtmpPushNamingConfigurationArgs']):
+        """
+        The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+        """
+        pulumi.set(__self__, "manual", manual)
+
+    @_builtins.property
+    @pulumi.getter
+    def manual(self) -> pulumi.Input['RouterInputManualRtmpPushNamingConfigurationArgs']:
+        return pulumi.get(self, "manual")
+
+    @manual.setter
+    def manual(self, value: pulumi.Input['RouterInputManualRtmpPushNamingConfigurationArgs']):
+        pulumi.set(self, "manual", value)
+
+
+class RouterInputRtmpPushNamingConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+    """
+    automatic: pulumi.Input['RouterInputAutomaticRtmpPushNamingConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputRtmpPushNamingConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 automatic: pulumi.Input['RouterInputAutomaticRtmpPushNamingConfigurationArgs']):
+        """
+        The configuration settings for the RTMP (Real-Time Messaging Protocol) application and stream names.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> pulumi.Input['RouterInputAutomaticRtmpPushNamingConfigurationArgs']:
+        return pulumi.get(self, "automatic")
+
+    @automatic.setter
+    def automatic(self, value: pulumi.Input['RouterInputAutomaticRtmpPushNamingConfigurationArgs']):
+        pulumi.set(self, "automatic", value)
+
+
+class RouterInputRtmpPushRouterInputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router input using the RTMP (Real-Time Messaging Protocol) protocol.
+    """
+    naming_configuration: pulumi.Input[Union['RouterInputRtmpPushNamingConfiguration0PropertiesArgsDict', 'RouterInputRtmpPushNamingConfiguration1PropertiesArgsDict']]
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number for the RTMP protocol. The only valid value is 1935.
+    """
+    naming_type: NotRequired[pulumi.Input[Optional['RouterInputRtmpPushNamingType']]]
+
+@pulumi.input_type
+class RouterInputRtmpPushRouterInputConfigurationArgs:
+    def __init__(__self__, *,
+                 naming_configuration: pulumi.Input[Union['RouterInputRtmpPushNamingConfiguration0PropertiesArgs', 'RouterInputRtmpPushNamingConfiguration1PropertiesArgs']],
+                 port: pulumi.Input[_builtins.int],
+                 naming_type: pulumi.Input[Optional['RouterInputRtmpPushNamingType']] = None):
+        """
+        The configuration settings for a router input using the RTMP (Real-Time Messaging Protocol) protocol.
+
+        :param pulumi.Input[_builtins.int] port: The port number for the RTMP protocol. The only valid value is 1935.
+        """
+        pulumi.set(__self__, "naming_configuration", naming_configuration)
+        pulumi.set(__self__, "port", port)
+        if naming_type is not None:
+            pulumi.set(__self__, "naming_type", naming_type)
+
+    @_builtins.property
+    @pulumi.getter(name="namingConfiguration")
+    def naming_configuration(self) -> pulumi.Input[Union['RouterInputRtmpPushNamingConfiguration0PropertiesArgs', 'RouterInputRtmpPushNamingConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "naming_configuration")
+
+    @naming_configuration.setter
+    def naming_configuration(self, value: pulumi.Input[Union['RouterInputRtmpPushNamingConfiguration0PropertiesArgs', 'RouterInputRtmpPushNamingConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "naming_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port number for the RTMP protocol. The only valid value is 1935.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namingType")
+    def naming_type(self) -> pulumi.Input[Optional['RouterInputRtmpPushNamingType']]:
+        return pulumi.get(self, "naming_type")
+
+    @naming_type.setter
+    def naming_type(self, value: pulumi.Input[Optional['RouterInputRtmpPushNamingType']]):
+        pulumi.set(self, "naming_type", value)
 
 
 class RouterInputRtpRouterInputConfigurationArgsDict(TypedDict):
@@ -7636,14 +8464,14 @@ class RouterInputStandardRouterInputConfigurationArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
     """
-    protocol_configuration: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputProtocolConfiguration3PropertiesArgsDict']]
+    protocol_configuration: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputProtocolConfiguration3PropertiesArgsDict', 'RouterInputProtocolConfiguration4PropertiesArgsDict']]
     protocol: NotRequired[pulumi.Input[Optional['RouterInputProtocol']]]
 
 @pulumi.input_type
 class RouterInputStandardRouterInputConfigurationArgs:
     def __init__(__self__, *,
                  network_interface_arn: pulumi.Input[_builtins.str],
-                 protocol_configuration: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputProtocolConfiguration3PropertiesArgs']],
+                 protocol_configuration: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputProtocolConfiguration3PropertiesArgs', 'RouterInputProtocolConfiguration4PropertiesArgs']],
                  protocol: pulumi.Input[Optional['RouterInputProtocol']] = None):
         """
         The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
@@ -7669,11 +8497,11 @@ class RouterInputStandardRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
-    def protocol_configuration(self) -> pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputProtocolConfiguration3PropertiesArgs']]:
+    def protocol_configuration(self) -> pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputProtocolConfiguration3PropertiesArgs', 'RouterInputProtocolConfiguration4PropertiesArgs']]:
         return pulumi.get(self, "protocol_configuration")
 
     @protocol_configuration.setter
-    def protocol_configuration(self, value: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputProtocolConfiguration3PropertiesArgs']]):
+    def protocol_configuration(self, value: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputProtocolConfiguration3PropertiesArgs', 'RouterInputProtocolConfiguration4PropertiesArgs']]):
         pulumi.set(self, "protocol_configuration", value)
 
     @_builtins.property

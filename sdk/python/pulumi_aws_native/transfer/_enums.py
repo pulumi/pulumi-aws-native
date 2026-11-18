@@ -25,6 +25,7 @@ __all__ = [
     'HostKeyStorageType',
     'ProfileType',
     'ServerAs2Transport',
+    'ServerCommunicationMode',
     'ServerDirectoryListingOptimization',
     'ServerDomain',
     'ServerEndpointType',
@@ -211,6 +212,12 @@ class ProfileType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:transfer:ServerAs2Transport")
 class ServerAs2Transport(_builtins.str, Enum):
     HTTP = "HTTP"
+
+
+@pulumi.type_token("aws-native:transfer:ServerCommunicationMode")
+class ServerCommunicationMode(_builtins.str, Enum):
+    CLIENT_TALK_FIRST = "CLIENT_TALK_FIRST"
+    SERVER_TALK_FIRST = "SERVER_TALK_FIRST"
 
 
 @pulumi.type_token("aws-native:transfer:ServerDirectoryListingOptimization")

@@ -7,10 +7,178 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ClusterCloudWatchAlarmDefinitionComparisonOperator',
+    'ClusterCloudWatchAlarmDefinitionStatistic',
+    'ClusterCloudWatchAlarmDefinitionUnit',
+    'ClusterComputeLimitsUnitType',
+    'ClusterInstanceGroupConfigMarket',
+    'ClusterPlacementGroupConfigInstanceRole',
+    'ClusterPlacementGroupConfigPlacementStrategy',
+    'ClusterScaleDownBehavior',
+    'ClusterScalingActionMarket',
+    'ClusterSimpleScalingPolicyConfigurationAdjustmentType',
+    'ClusterSpotProvisioningSpecificationTimeoutAction',
+    'ClusterStepConfigActionOnFailure',
     'StudioAuthMode',
     'StudioIdcUserAssignment',
     'StudioSessionMappingIdentityType',
 ]
+
+
+@pulumi.type_token("aws-native:emr:ClusterCloudWatchAlarmDefinitionComparisonOperator")
+class ClusterCloudWatchAlarmDefinitionComparisonOperator(_builtins.str, Enum):
+    """
+    Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+    """
+    GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+    LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+
+
+@pulumi.type_token("aws-native:emr:ClusterCloudWatchAlarmDefinitionStatistic")
+class ClusterCloudWatchAlarmDefinitionStatistic(_builtins.str, Enum):
+    """
+    The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+    """
+    SAMPLE_COUNT = "SAMPLE_COUNT"
+    AVERAGE = "AVERAGE"
+    SUM = "SUM"
+    MINIMUM = "MINIMUM"
+    MAXIMUM = "MAXIMUM"
+
+
+@pulumi.type_token("aws-native:emr:ClusterCloudWatchAlarmDefinitionUnit")
+class ClusterCloudWatchAlarmDefinitionUnit(_builtins.str, Enum):
+    """
+    The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+    """
+    NONE = "NONE"
+    SECONDS = "SECONDS"
+    MICRO_SECONDS = "MICRO_SECONDS"
+    MILLI_SECONDS = "MILLI_SECONDS"
+    BYTES = "BYTES"
+    KILO_BYTES = "KILO_BYTES"
+    MEGA_BYTES = "MEGA_BYTES"
+    GIGA_BYTES = "GIGA_BYTES"
+    TERA_BYTES = "TERA_BYTES"
+    BITS = "BITS"
+    KILO_BITS = "KILO_BITS"
+    MEGA_BITS = "MEGA_BITS"
+    GIGA_BITS = "GIGA_BITS"
+    TERA_BITS = "TERA_BITS"
+    PERCENT = "PERCENT"
+    COUNT = "COUNT"
+    BYTES_PER_SECOND = "BYTES_PER_SECOND"
+    KILO_BYTES_PER_SECOND = "KILO_BYTES_PER_SECOND"
+    MEGA_BYTES_PER_SECOND = "MEGA_BYTES_PER_SECOND"
+    GIGA_BYTES_PER_SECOND = "GIGA_BYTES_PER_SECOND"
+    TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND"
+    BITS_PER_SECOND = "BITS_PER_SECOND"
+    KILO_BITS_PER_SECOND = "KILO_BITS_PER_SECOND"
+    MEGA_BITS_PER_SECOND = "MEGA_BITS_PER_SECOND"
+    GIGA_BITS_PER_SECOND = "GIGA_BITS_PER_SECOND"
+    TERA_BITS_PER_SECOND = "TERA_BITS_PER_SECOND"
+    COUNT_PER_SECOND = "COUNT_PER_SECOND"
+
+
+@pulumi.type_token("aws-native:emr:ClusterComputeLimitsUnitType")
+class ClusterComputeLimitsUnitType(_builtins.str, Enum):
+    """
+    The unit type used for specifying a managed scaling policy.
+    """
+    INSTANCE_FLEET_UNITS = "InstanceFleetUnits"
+    INSTANCES = "Instances"
+    VCPU = "VCPU"
+
+
+@pulumi.type_token("aws-native:emr:ClusterInstanceGroupConfigMarket")
+class ClusterInstanceGroupConfigMarket(_builtins.str, Enum):
+    """
+    Market type of the EC2 instances used to create a cluster node.
+    """
+    ON_DEMAND = "ON_DEMAND"
+    SPOT = "SPOT"
+
+
+@pulumi.type_token("aws-native:emr:ClusterPlacementGroupConfigInstanceRole")
+class ClusterPlacementGroupConfigInstanceRole(_builtins.str, Enum):
+    """
+    Role of the instance in the cluster.
+    """
+    MASTER = "MASTER"
+    CORE = "CORE"
+    TASK = "TASK"
+
+
+@pulumi.type_token("aws-native:emr:ClusterPlacementGroupConfigPlacementStrategy")
+class ClusterPlacementGroupConfigPlacementStrategy(_builtins.str, Enum):
+    """
+    Amazon EC2 Placement Group strategy associated with instance role.
+    """
+    SPREAD = "SPREAD"
+    PARTITION = "PARTITION"
+    CLUSTER = "CLUSTER"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:emr:ClusterScaleDownBehavior")
+class ClusterScaleDownBehavior(_builtins.str, Enum):
+    """
+    The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
+    """
+    TERMINATE_AT_INSTANCE_HOUR = "TERMINATE_AT_INSTANCE_HOUR"
+    TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION"
+
+
+@pulumi.type_token("aws-native:emr:ClusterScalingActionMarket")
+class ClusterScalingActionMarket(_builtins.str, Enum):
+    """
+    Not available for instance groups. Instance groups use the market type specified for the group.
+    """
+    ON_DEMAND = "ON_DEMAND"
+    SPOT = "SPOT"
+
+
+@pulumi.type_token("aws-native:emr:ClusterSimpleScalingPolicyConfigurationAdjustmentType")
+class ClusterSimpleScalingPolicyConfigurationAdjustmentType(_builtins.str, Enum):
+    """
+    The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+    """
+    CHANGE_IN_CAPACITY = "CHANGE_IN_CAPACITY"
+    EXACT_CAPACITY = "EXACT_CAPACITY"
+    PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY"
+
+
+@pulumi.type_token("aws-native:emr:ClusterSpotProvisioningSpecificationTimeoutAction")
+class ClusterSpotProvisioningSpecificationTimeoutAction(_builtins.str, Enum):
+    """
+    The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+    """
+    SWITCH_TO_ON_DEMAND = "SWITCH_TO_ON_DEMAND"
+    TERMINATE_CLUSTER = "TERMINATE_CLUSTER"
+
+
+@pulumi.type_token("aws-native:emr:ClusterStepConfigActionOnFailure")
+class ClusterStepConfigActionOnFailure(_builtins.str, Enum):
+    """
+    The action to take when the step fails. Use one of the following values:
+
+        TERMINATE_CLUSTER - Shuts down the cluster.
+        
+        CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+        
+        CONTINUE - Continues to the next step in the queue.
+        
+        TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+     If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+
+    If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+    """
+    CANCEL_AND_WAIT = "CANCEL_AND_WAIT"
+    CONTINUE_ = "CONTINUE"
+    TERMINATE_CLUSTER = "TERMINATE_CLUSTER"
+    TERMINATE_JOB_FLOW = "TERMINATE_JOB_FLOW"
 
 
 @pulumi.type_token("aws-native:emr:StudioAuthMode")

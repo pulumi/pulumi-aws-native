@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetConnectAttachmentResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectAttachmentResult:
-    def __init__(__self__, attachment_id=None, attachment_policy_rule_number=None, attachment_type=None, core_network_arn=None, created_at=None, last_modification_errors=None, network_function_group_name=None, owner_account_id=None, proposed_network_function_group_change=None, proposed_segment_change=None, resource_arn=None, segment_name=None, state=None, tags=None, updated_at=None):
+    def __init__(__self__, attachment_id=None, attachment_policy_rule_number=None, attachment_type=None, core_network_arn=None, created_at=None, last_modification_errors=None, nat_gateway_support=None, nat_system_route_support=None, network_function_group_name=None, owner_account_id=None, proposed_network_function_group_change=None, proposed_segment_change=None, resource_arn=None, segment_name=None, state=None, tags=None, updated_at=None):
         if attachment_id and not isinstance(attachment_id, str):
             raise TypeError("Expected argument 'attachment_id' to be a str")
         pulumi.set(__self__, "attachment_id", attachment_id)
@@ -44,6 +45,12 @@ class GetConnectAttachmentResult:
         if last_modification_errors and not isinstance(last_modification_errors, list):
             raise TypeError("Expected argument 'last_modification_errors' to be a list")
         pulumi.set(__self__, "last_modification_errors", last_modification_errors)
+        if nat_gateway_support and not isinstance(nat_gateway_support, str):
+            raise TypeError("Expected argument 'nat_gateway_support' to be a str")
+        pulumi.set(__self__, "nat_gateway_support", nat_gateway_support)
+        if nat_system_route_support and not isinstance(nat_system_route_support, bool):
+            raise TypeError("Expected argument 'nat_system_route_support' to be a bool")
+        pulumi.set(__self__, "nat_system_route_support", nat_system_route_support)
         if network_function_group_name and not isinstance(network_function_group_name, str):
             raise TypeError("Expected argument 'network_function_group_name' to be a str")
         pulumi.set(__self__, "network_function_group_name", network_function_group_name)
@@ -119,6 +126,22 @@ class GetConnectAttachmentResult:
         Errors from the last modification of the attachment.
         """
         return pulumi.get(self, "last_modification_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewaySupport")
+    def nat_gateway_support(self) -> Optional['ConnectAttachmentNatGatewaySupport']:
+        """
+        Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_support")
+
+    @_builtins.property
+    @pulumi.getter(name="natSystemRouteSupport")
+    def nat_system_route_support(self) -> Optional[_builtins.bool]:
+        """
+        Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On Connect attachments this is always false and is not configurable. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_system_route_support")
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionGroupName")
@@ -205,6 +228,8 @@ class AwaitableGetConnectAttachmentResult(GetConnectAttachmentResult):
             core_network_arn=self.core_network_arn,
             created_at=self.created_at,
             last_modification_errors=self.last_modification_errors,
+            nat_gateway_support=self.nat_gateway_support,
+            nat_system_route_support=self.nat_system_route_support,
             network_function_group_name=self.network_function_group_name,
             owner_account_id=self.owner_account_id,
             proposed_network_function_group_change=self.proposed_network_function_group_change,
@@ -235,6 +260,8 @@ def get_connect_attachment(attachment_id: Optional[_builtins.str] = None,
         core_network_arn=pulumi.get(__ret__, 'core_network_arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
         last_modification_errors=pulumi.get(__ret__, 'last_modification_errors'),
+        nat_gateway_support=pulumi.get(__ret__, 'nat_gateway_support'),
+        nat_system_route_support=pulumi.get(__ret__, 'nat_system_route_support'),
         network_function_group_name=pulumi.get(__ret__, 'network_function_group_name'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         proposed_network_function_group_change=pulumi.get(__ret__, 'proposed_network_function_group_change'),
@@ -262,6 +289,8 @@ def get_connect_attachment_output(attachment_id: pulumi.Input[Optional[_builtins
         core_network_arn=pulumi.get(__response__, 'core_network_arn'),
         created_at=pulumi.get(__response__, 'created_at'),
         last_modification_errors=pulumi.get(__response__, 'last_modification_errors'),
+        nat_gateway_support=pulumi.get(__response__, 'nat_gateway_support'),
+        nat_system_route_support=pulumi.get(__response__, 'nat_system_route_support'),
         network_function_group_name=pulumi.get(__response__, 'network_function_group_name'),
         owner_account_id=pulumi.get(__response__, 'owner_account_id'),
         proposed_network_function_group_change=pulumi.get(__response__, 'proposed_network_function_group_change'),

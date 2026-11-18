@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSheetContentType? ContentType;
+        public readonly Outputs.AnalysisVisualCustomActionDefaults? CustomActionDefaults;
         /// <summary>
         /// A description of the sheet.
         /// </summary>
@@ -75,6 +76,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisSheetDefinition(
             Pulumi.AwsNative.QuickSight.AnalysisSheetContentType? contentType,
 
+            Outputs.AnalysisVisualCustomActionDefaults? customActionDefaults,
+
             string? description,
 
             ImmutableArray<Outputs.AnalysisFilterControl> filterControls,
@@ -98,6 +101,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ImmutableArray<Outputs.AnalysisVisual> visuals)
         {
             ContentType = contentType;
+            CustomActionDefaults = customActionDefaults;
             Description = description;
             FilterControls = filterControls;
             Images = images;

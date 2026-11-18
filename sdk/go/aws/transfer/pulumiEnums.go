@@ -2839,6 +2839,171 @@ func (o ServerAs2TransportArrayOutput) Index(i pulumi.IntInput) ServerAs2Transpo
 	}).(ServerAs2TransportOutput)
 }
 
+type ServerCommunicationMode string
+
+const (
+	ServerCommunicationModeClientTalkFirst = ServerCommunicationMode("CLIENT_TALK_FIRST")
+	ServerCommunicationModeServerTalkFirst = ServerCommunicationMode("SERVER_TALK_FIRST")
+)
+
+func (ServerCommunicationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerCommunicationMode)(nil)).Elem()
+}
+
+func (e ServerCommunicationMode) ToServerCommunicationModeOutput() ServerCommunicationModeOutput {
+	return pulumi.ToOutput(e).(ServerCommunicationModeOutput)
+}
+
+func (e ServerCommunicationMode) ToServerCommunicationModeOutputWithContext(ctx context.Context) ServerCommunicationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerCommunicationModeOutput)
+}
+
+func (e ServerCommunicationMode) ToServerCommunicationModePtrOutput() ServerCommunicationModePtrOutput {
+	return e.ToServerCommunicationModePtrOutputWithContext(context.Background())
+}
+
+func (e ServerCommunicationMode) ToServerCommunicationModePtrOutputWithContext(ctx context.Context) ServerCommunicationModePtrOutput {
+	return ServerCommunicationMode(e).ToServerCommunicationModeOutputWithContext(ctx).ToServerCommunicationModePtrOutputWithContext(ctx)
+}
+
+func (e ServerCommunicationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerCommunicationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerCommunicationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerCommunicationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerCommunicationModeOutput struct{ *pulumi.OutputState }
+
+func (ServerCommunicationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerCommunicationMode)(nil)).Elem()
+}
+
+func (o ServerCommunicationModeOutput) ToServerCommunicationModeOutput() ServerCommunicationModeOutput {
+	return o
+}
+
+func (o ServerCommunicationModeOutput) ToServerCommunicationModeOutputWithContext(ctx context.Context) ServerCommunicationModeOutput {
+	return o
+}
+
+func (o ServerCommunicationModeOutput) ToServerCommunicationModePtrOutput() ServerCommunicationModePtrOutput {
+	return o.ToServerCommunicationModePtrOutputWithContext(context.Background())
+}
+
+func (o ServerCommunicationModeOutput) ToServerCommunicationModePtrOutputWithContext(ctx context.Context) ServerCommunicationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerCommunicationMode) *ServerCommunicationMode {
+		return &v
+	}).(ServerCommunicationModePtrOutput)
+}
+
+func (o ServerCommunicationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerCommunicationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerCommunicationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerCommunicationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerCommunicationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerCommunicationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerCommunicationModePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerCommunicationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerCommunicationMode)(nil)).Elem()
+}
+
+func (o ServerCommunicationModePtrOutput) ToServerCommunicationModePtrOutput() ServerCommunicationModePtrOutput {
+	return o
+}
+
+func (o ServerCommunicationModePtrOutput) ToServerCommunicationModePtrOutputWithContext(ctx context.Context) ServerCommunicationModePtrOutput {
+	return o
+}
+
+func (o ServerCommunicationModePtrOutput) Elem() ServerCommunicationModeOutput {
+	return o.ApplyT(func(v *ServerCommunicationMode) ServerCommunicationMode {
+		if v != nil {
+			return *v
+		}
+		var ret ServerCommunicationMode
+		return ret
+	}).(ServerCommunicationModeOutput)
+}
+
+func (o ServerCommunicationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerCommunicationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerCommunicationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerCommunicationModeInput is an input type that accepts values of the ServerCommunicationMode enum
+// A concrete instance of `ServerCommunicationModeInput` can be one of the following:
+//
+//	ServerCommunicationModeClientTalkFirst
+//	ServerCommunicationModeServerTalkFirst
+type ServerCommunicationModeInput interface {
+	pulumi.Input
+
+	ToServerCommunicationModeOutput() ServerCommunicationModeOutput
+	ToServerCommunicationModeOutputWithContext(context.Context) ServerCommunicationModeOutput
+}
+
+var serverCommunicationModePtrType = reflect.TypeOf((**ServerCommunicationMode)(nil)).Elem()
+
+type ServerCommunicationModePtrInput interface {
+	pulumi.Input
+
+	ToServerCommunicationModePtrOutput() ServerCommunicationModePtrOutput
+	ToServerCommunicationModePtrOutputWithContext(context.Context) ServerCommunicationModePtrOutput
+}
+
+type serverCommunicationModePtr string
+
+func ServerCommunicationModePtr(v string) ServerCommunicationModePtrInput {
+	return (*serverCommunicationModePtr)(&v)
+}
+
+func (*serverCommunicationModePtr) ElementType() reflect.Type {
+	return serverCommunicationModePtrType
+}
+
+func (in *serverCommunicationModePtr) ToServerCommunicationModePtrOutput() ServerCommunicationModePtrOutput {
+	return pulumi.ToOutput(in).(ServerCommunicationModePtrOutput)
+}
+
+func (in *serverCommunicationModePtr) ToServerCommunicationModePtrOutputWithContext(ctx context.Context) ServerCommunicationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerCommunicationModePtrOutput)
+}
+
 // Indicates whether optimization to directory listing on S3 servers is used. Disabled by default for compatibility.
 type ServerDirectoryListingOptimization string
 
@@ -6005,6 +6170,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportInput)(nil)).Elem(), ServerAs2Transport("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportPtrInput)(nil)).Elem(), ServerAs2Transport("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportArrayInput)(nil)).Elem(), ServerAs2TransportArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerCommunicationModeInput)(nil)).Elem(), ServerCommunicationMode("CLIENT_TALK_FIRST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerCommunicationModePtrInput)(nil)).Elem(), ServerCommunicationMode("CLIENT_TALK_FIRST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerDirectoryListingOptimizationInput)(nil)).Elem(), ServerDirectoryListingOptimization("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerDirectoryListingOptimizationPtrInput)(nil)).Elem(), ServerDirectoryListingOptimization("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerDomainInput)(nil)).Elem(), ServerDomain("S3"))
@@ -6079,6 +6246,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerAs2TransportOutput{})
 	pulumi.RegisterOutputType(ServerAs2TransportPtrOutput{})
 	pulumi.RegisterOutputType(ServerAs2TransportArrayOutput{})
+	pulumi.RegisterOutputType(ServerCommunicationModeOutput{})
+	pulumi.RegisterOutputType(ServerCommunicationModePtrOutput{})
 	pulumi.RegisterOutputType(ServerDirectoryListingOptimizationOutput{})
 	pulumi.RegisterOutputType(ServerDirectoryListingOptimizationPtrOutput{})
 	pulumi.RegisterOutputType(ServerDomainOutput{})

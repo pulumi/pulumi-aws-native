@@ -308,7 +308,7 @@ class RegistryCustomJwtAuthorizerConfiguration(dict):
         """
         Configuration for a custom JWT authorizer that validates inbound bearer tokens against an OpenID Connect identity provider.
 
-        :param _builtins.str discovery_url: The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+        :param _builtins.str discovery_url: The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to retrieve the identity provider's metadata and signing keys. The URL contains /.well-known/openid-configuration or /.well-known/oauth-authorization-server, respectively.
         :param Sequence[_builtins.str] allowed_audience: The audience values accepted during JWT validation.
         :param Sequence[_builtins.str] allowed_clients: The client identifiers accepted during JWT validation.
         :param Sequence[_builtins.str] allowed_scopes: The scopes accepted during JWT validation.
@@ -328,7 +328,7 @@ class RegistryCustomJwtAuthorizerConfiguration(dict):
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+        The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to retrieve the identity provider's metadata and signing keys. The URL contains /.well-known/openid-configuration or /.well-known/oauth-authorization-server, respectively.
         """
         return pulumi.get(self, "discovery_url")
 

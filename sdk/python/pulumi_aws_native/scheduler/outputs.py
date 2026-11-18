@@ -22,6 +22,8 @@ __all__ = [
     'ScheduleDeadLetterConfig',
     'ScheduleEcsParameters',
     'ScheduleEventBridgeParameters',
+    'ScheduleEventBridgePutEventsV2Parameters',
+    'ScheduleEventBridgePutRawEventsParameters',
     'ScheduleFlexibleTimeWindow',
     'ScheduleKinesisParameters',
     'ScheduleNetworkConfiguration',
@@ -458,6 +460,76 @@ class ScheduleEventBridgeParameters(dict):
 
 
 @pulumi.output_type
+class ScheduleEventBridgePutEventsV2Parameters(dict):
+    """
+    EventBridge PutEvent V2 predefined target type
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailType":
+            suggest = "detail_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleEventBridgePutEventsV2Parameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleEventBridgePutEventsV2Parameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleEventBridgePutEventsV2Parameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 detail_type: _builtins.str,
+                 source: _builtins.str):
+        """
+        EventBridge PutEvent V2 predefined target type
+
+        :param _builtins.str detail_type: Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+        :param _builtins.str source: The source of the event.
+        """
+        pulumi.set(__self__, "detail_type", detail_type)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="detailType")
+    def detail_type(self) -> _builtins.str:
+        """
+        Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+        """
+        return pulumi.get(self, "detail_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        The source of the event.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class ScheduleEventBridgePutRawEventsParameters(dict):
+    """
+    EventBridge PutRawEvent predefined target type
+    """
+    def __init__(__self__, *,
+                 metadata: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        EventBridge PutRawEvent predefined target type
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
 class ScheduleFlexibleTimeWindow(dict):
     """
     Flexible time window allows configuration of a window within which a schedule can be invoked
@@ -853,6 +925,10 @@ class ScheduleTarget(dict):
             suggest = "ecs_parameters"
         elif key == "eventBridgeParameters":
             suggest = "event_bridge_parameters"
+        elif key == "eventBridgePutEventsV2Parameters":
+            suggest = "event_bridge_put_events_v2_parameters"
+        elif key == "eventBridgePutRawEventsParameters":
+            suggest = "event_bridge_put_raw_events_parameters"
         elif key == "kinesisParameters":
             suggest = "kinesis_parameters"
         elif key == "retryPolicy":
@@ -879,6 +955,8 @@ class ScheduleTarget(dict):
                  dead_letter_config: Optional['outputs.ScheduleDeadLetterConfig'] = None,
                  ecs_parameters: Optional['outputs.ScheduleEcsParameters'] = None,
                  event_bridge_parameters: Optional['outputs.ScheduleEventBridgeParameters'] = None,
+                 event_bridge_put_events_v2_parameters: Optional['outputs.ScheduleEventBridgePutEventsV2Parameters'] = None,
+                 event_bridge_put_raw_events_parameters: Optional['outputs.ScheduleEventBridgePutRawEventsParameters'] = None,
                  input: Optional[_builtins.str] = None,
                  kinesis_parameters: Optional['outputs.ScheduleKinesisParameters'] = None,
                  retry_policy: Optional['outputs.ScheduleRetryPolicy'] = None,
@@ -906,6 +984,10 @@ class ScheduleTarget(dict):
             pulumi.set(__self__, "ecs_parameters", ecs_parameters)
         if event_bridge_parameters is not None:
             pulumi.set(__self__, "event_bridge_parameters", event_bridge_parameters)
+        if event_bridge_put_events_v2_parameters is not None:
+            pulumi.set(__self__, "event_bridge_put_events_v2_parameters", event_bridge_put_events_v2_parameters)
+        if event_bridge_put_raw_events_parameters is not None:
+            pulumi.set(__self__, "event_bridge_put_raw_events_parameters", event_bridge_put_raw_events_parameters)
         if input is not None:
             pulumi.set(__self__, "input", input)
         if kinesis_parameters is not None:
@@ -956,6 +1038,16 @@ class ScheduleTarget(dict):
         The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
         """
         return pulumi.get(self, "event_bridge_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="eventBridgePutEventsV2Parameters")
+    def event_bridge_put_events_v2_parameters(self) -> Optional['outputs.ScheduleEventBridgePutEventsV2Parameters']:
+        return pulumi.get(self, "event_bridge_put_events_v2_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="eventBridgePutRawEventsParameters")
+    def event_bridge_put_raw_events_parameters(self) -> Optional['outputs.ScheduleEventBridgePutRawEventsParameters']:
+        return pulumi.get(self, "event_bridge_put_raw_events_parameters")
 
     @_builtins.property
     @pulumi.getter

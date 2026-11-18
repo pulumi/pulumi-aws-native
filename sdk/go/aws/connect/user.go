@@ -39,7 +39,7 @@ type User struct {
 	PhoneNumberConfigs UserPhoneNumberConfigArrayOutput `pulumi:"phoneNumberConfigs"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileArn pulumi.StringOutput `pulumi:"routingProfileArn"`
-	// One or more security profile arns for the user
+	// One or more customer-managed or AWS-managed security profile ARNs for the user.
 	SecurityProfileArns pulumi.StringArrayOutput `pulumi:"securityProfileArns"`
 	// One or more tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -130,7 +130,7 @@ type userArgs struct {
 	PhoneNumberConfigs []UserPhoneNumberConfig `pulumi:"phoneNumberConfigs"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileArn string `pulumi:"routingProfileArn"`
-	// One or more security profile arns for the user
+	// One or more customer-managed or AWS-managed security profile ARNs for the user.
 	SecurityProfileArns []string `pulumi:"securityProfileArns"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -166,7 +166,7 @@ type UserArgs struct {
 	PhoneNumberConfigs UserPhoneNumberConfigArrayInput
 	// The identifier of the routing profile for the user.
 	RoutingProfileArn pulumi.StringInput
-	// One or more security profile arns for the user
+	// One or more customer-managed or AWS-managed security profile ARNs for the user.
 	SecurityProfileArns pulumi.StringArrayInput
 	// One or more tags.
 	Tags aws.TagArrayInput
@@ -270,7 +270,7 @@ func (o UserOutput) RoutingProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.RoutingProfileArn }).(pulumi.StringOutput)
 }
 
-// One or more security profile arns for the user
+// One or more customer-managed or AWS-managed security profile ARNs for the user.
 func (o UserOutput) SecurityProfileArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.SecurityProfileArns }).(pulumi.StringArrayOutput)
 }

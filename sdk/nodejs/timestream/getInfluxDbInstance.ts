@@ -38,6 +38,10 @@ export interface GetInfluxDbInstanceResult {
      */
     readonly availabilityZone?: string;
     /**
+     * The service generated unique identifier of the InfluxDB cluster containing this instance.
+     */
+    readonly dbClusterId?: string;
+    /**
      * The compute instance of the InfluxDB instance.
      */
     readonly dbInstanceType?: enums.timestream.InfluxDbInstanceDbInstanceType;

@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectAttachmentArgs', 'ConnectAttachment']
@@ -27,6 +28,8 @@ class ConnectAttachmentArgs:
                  edge_location: pulumi.Input[_builtins.str],
                  options: pulumi.Input['ConnectAttachmentOptionsArgs'],
                  transport_attachment_id: pulumi.Input[_builtins.str],
+                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectAttachmentNatRuleArgs']]]] = None,
+                 nat_gateway_support: pulumi.Input[Optional['ConnectAttachmentNatGatewaySupport']] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -37,6 +40,8 @@ class ConnectAttachmentArgs:
         :param pulumi.Input[_builtins.str] edge_location: Edge location of the attachment.
         :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Protocol options for connect attachment
         :param pulumi.Input[_builtins.str] transport_attachment_id: Id of transport attachment
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentNatRuleArgs']]] nat_gateway_rules: The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        :param pulumi.Input['ConnectAttachmentNatGatewaySupport'] nat_gateway_support: Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the attachment.
@@ -45,6 +50,10 @@ class ConnectAttachmentArgs:
         pulumi.set(__self__, "edge_location", edge_location)
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
+        if nat_gateway_rules is not None:
+            pulumi.set(__self__, "nat_gateway_rules", nat_gateway_rules)
+        if nat_gateway_support is not None:
+            pulumi.set(__self__, "nat_gateway_support", nat_gateway_support)
         if network_function_group_name is not None:
             pulumi.set(__self__, "network_function_group_name", network_function_group_name)
         if routing_policy_label is not None:
@@ -101,6 +110,30 @@ class ConnectAttachmentArgs:
         pulumi.set(self, "transport_attachment_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="natGatewayRules")
+    def nat_gateway_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectAttachmentNatRuleArgs']]]]:
+        """
+        The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_rules")
+
+    @nat_gateway_rules.setter
+    def nat_gateway_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectAttachmentNatRuleArgs']]]]):
+        pulumi.set(self, "nat_gateway_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewaySupport")
+    def nat_gateway_support(self) -> pulumi.Input[Optional['ConnectAttachmentNatGatewaySupport']]:
+        """
+        Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_support")
+
+    @nat_gateway_support.setter
+    def nat_gateway_support(self, value: pulumi.Input[Optional['ConnectAttachmentNatGatewaySupport']]):
+        pulumi.set(self, "nat_gateway_support", value)
+
+    @_builtins.property
     @pulumi.getter(name="networkFunctionGroupName")
     def network_function_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -145,6 +178,8 @@ class ConnectAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectAttachmentNatRuleArgs', 'ConnectAttachmentNatRuleArgsDict', 'outputs.ConnectAttachmentNatRule']]]]] = None,
+                 nat_gateway_support: pulumi.Input[Optional['ConnectAttachmentNatGatewaySupport']] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
@@ -158,6 +193,8 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: ID of the CoreNetwork that the attachment will be attached to.
         :param pulumi.Input[_builtins.str] edge_location: Edge location of the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectAttachmentNatRuleArgs', 'ConnectAttachmentNatRuleArgsDict', 'outputs.ConnectAttachmentNatRule']]]] nat_gateway_rules: The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        :param pulumi.Input['ConnectAttachmentNatGatewaySupport'] nat_gateway_support: Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
         :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']] options: Protocol options for connect attachment
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
@@ -190,6 +227,8 @@ class ConnectAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectAttachmentNatRuleArgs', 'ConnectAttachmentNatRuleArgsDict', 'outputs.ConnectAttachmentNatRule']]]]] = None,
+                 nat_gateway_support: pulumi.Input[Optional['ConnectAttachmentNatGatewaySupport']] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
@@ -210,6 +249,8 @@ class ConnectAttachment(pulumi.CustomResource):
             if edge_location is None and not opts.urn:
                 raise TypeError("Missing required property 'edge_location'")
             __props__.__dict__["edge_location"] = edge_location
+            __props__.__dict__["nat_gateway_rules"] = nat_gateway_rules
+            __props__.__dict__["nat_gateway_support"] = nat_gateway_support
             __props__.__dict__["network_function_group_name"] = network_function_group_name
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")
@@ -225,6 +266,7 @@ class ConnectAttachment(pulumi.CustomResource):
             __props__.__dict__["core_network_arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_modification_errors"] = None
+            __props__.__dict__["nat_system_route_support"] = None
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["proposed_network_function_group_change"] = None
             __props__.__dict__["proposed_segment_change"] = None
@@ -264,6 +306,9 @@ class ConnectAttachment(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["edge_location"] = None
         __props__.__dict__["last_modification_errors"] = None
+        __props__.__dict__["nat_gateway_rules"] = None
+        __props__.__dict__["nat_gateway_support"] = None
+        __props__.__dict__["nat_system_route_support"] = None
         __props__.__dict__["network_function_group_name"] = None
         __props__.__dict__["options"] = None
         __props__.__dict__["owner_account_id"] = None
@@ -347,6 +392,30 @@ class ConnectAttachment(pulumi.CustomResource):
         Errors from the last modification of the attachment.
         """
         return pulumi.get(self, "last_modification_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewayRules")
+    def nat_gateway_rules(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectAttachmentNatRule']]]:
+        """
+        The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewaySupport")
+    def nat_gateway_support(self) -> pulumi.Output[Optional['ConnectAttachmentNatGatewaySupport']]:
+        """
+        Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_gateway_support")
+
+    @_builtins.property
+    @pulumi.getter(name="natSystemRouteSupport")
+    def nat_system_route_support(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On Connect attachments this is always false and is not configurable. Not available in AWS GovCloud (US).
+        """
+        return pulumi.get(self, "nat_system_route_support")
 
     @_builtins.property
     @pulumi.getter(name="networkFunctionGroupName")

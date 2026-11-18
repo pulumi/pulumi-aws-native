@@ -72,6 +72,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly kmsEncryptionKey: pulumi.Output<string | undefined>;
     /**
+     * The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+     */
+    declare public readonly metricGroups: pulumi.Output<outputs.dsql.ClusterMetricGroup[] | undefined>;
+    /**
      * The Multi-region properties associated to this cluster.
      */
     declare public readonly multiRegionProperties: pulumi.Output<outputs.dsql.MultiRegionPropertiesProperties | undefined>;
@@ -117,6 +121,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
             resourceInputs["kmsEncryptionKey"] = args?.kmsEncryptionKey;
+            resourceInputs["metricGroups"] = args?.metricGroups;
             resourceInputs["multiRegionProperties"] = args?.multiRegionProperties;
             resourceInputs["policyDocument"] = args?.policyDocument;
             resourceInputs["tags"] = args?.tags;
@@ -136,6 +141,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["kmsEncryptionKey"] = undefined /*out*/;
+            resourceInputs["metricGroups"] = undefined /*out*/;
             resourceInputs["multiRegionProperties"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["policyVersion"] = undefined /*out*/;
@@ -162,6 +168,10 @@ export interface ClusterArgs {
      * The KMS key that encrypts data on the cluster.
      */
     kmsEncryptionKey?: pulumi.Input<string | undefined>;
+    /**
+     * The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+     */
+    metricGroups?: pulumi.Input<pulumi.Input<inputs.dsql.ClusterMetricGroupArgs>[] | undefined>;
     /**
      * The Multi-region properties associated to this cluster.
      */

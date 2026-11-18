@@ -99,7 +99,6 @@ namespace Pulumi.AwsNative.VpcLattice
                 {
                     "ipAddressType",
                     "name",
-                    "resourceConfigDnsResolution",
                     "subnetIds[*]",
                     "vpcIdentifier",
                 },

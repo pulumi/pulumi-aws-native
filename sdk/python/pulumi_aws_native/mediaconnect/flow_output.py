@@ -43,6 +43,7 @@ class FlowOutputArgs:
                  remote_id: pulumi.Input[Optional[_builtins.str]] = None,
                  router_integration_state: pulumi.Input[Optional['FlowOutputRouterIntegrationState']] = None,
                  router_integration_transit_encryption: pulumi.Input[Optional['FlowOutputFlowTransitEncryptionArgs']] = None,
+                 rtmp_push_settings: pulumi.Input[Optional['FlowOutputRtmpPushSettingsArgs']] = None,
                  smoothing_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -110,6 +111,8 @@ class FlowOutputArgs:
             pulumi.set(__self__, "router_integration_state", router_integration_state)
         if router_integration_transit_encryption is not None:
             pulumi.set(__self__, "router_integration_transit_encryption", router_integration_transit_encryption)
+        if rtmp_push_settings is not None:
+            pulumi.set(__self__, "rtmp_push_settings", rtmp_push_settings)
         if smoothing_latency is not None:
             pulumi.set(__self__, "smoothing_latency", smoothing_latency)
         if stream_id is not None:
@@ -345,6 +348,15 @@ class FlowOutputArgs:
         pulumi.set(self, "router_integration_transit_encryption", value)
 
     @_builtins.property
+    @pulumi.getter(name="rtmpPushSettings")
+    def rtmp_push_settings(self) -> pulumi.Input[Optional['FlowOutputRtmpPushSettingsArgs']]:
+        return pulumi.get(self, "rtmp_push_settings")
+
+    @rtmp_push_settings.setter
+    def rtmp_push_settings(self, value: pulumi.Input[Optional['FlowOutputRtmpPushSettingsArgs']]):
+        pulumi.set(self, "rtmp_push_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="smoothingLatency")
     def smoothing_latency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -418,6 +430,7 @@ class FlowOutput(pulumi.CustomResource):
                  remote_id: pulumi.Input[Optional[_builtins.str]] = None,
                  router_integration_state: pulumi.Input[Optional['FlowOutputRouterIntegrationState']] = None,
                  router_integration_transit_encryption: pulumi.Input[Optional[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict', 'outputs.FlowOutputFlowTransitEncryption']]] = None,
+                 rtmp_push_settings: pulumi.Input[Optional[Union['FlowOutputRtmpPushSettingsArgs', 'FlowOutputRtmpPushSettingsArgsDict', 'outputs.FlowOutputRtmpPushSettings']]] = None,
                  smoothing_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -494,6 +507,7 @@ class FlowOutput(pulumi.CustomResource):
                  remote_id: pulumi.Input[Optional[_builtins.str]] = None,
                  router_integration_state: pulumi.Input[Optional['FlowOutputRouterIntegrationState']] = None,
                  router_integration_transit_encryption: pulumi.Input[Optional[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict', 'outputs.FlowOutputFlowTransitEncryption']]] = None,
+                 rtmp_push_settings: pulumi.Input[Optional[Union['FlowOutputRtmpPushSettingsArgs', 'FlowOutputRtmpPushSettingsArgsDict', 'outputs.FlowOutputRtmpPushSettings']]] = None,
                  smoothing_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -528,6 +542,7 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["remote_id"] = remote_id
             __props__.__dict__["router_integration_state"] = router_integration_state
             __props__.__dict__["router_integration_transit_encryption"] = router_integration_transit_encryption
+            __props__.__dict__["rtmp_push_settings"] = rtmp_push_settings
             __props__.__dict__["smoothing_latency"] = smoothing_latency
             __props__.__dict__["stream_id"] = stream_id
             __props__.__dict__["tags"] = tags
@@ -577,6 +592,7 @@ class FlowOutput(pulumi.CustomResource):
         __props__.__dict__["remote_id"] = None
         __props__.__dict__["router_integration_state"] = None
         __props__.__dict__["router_integration_transit_encryption"] = None
+        __props__.__dict__["rtmp_push_settings"] = None
         __props__.__dict__["smoothing_latency"] = None
         __props__.__dict__["stream_id"] = None
         __props__.__dict__["tags"] = None
@@ -745,6 +761,11 @@ class FlowOutput(pulumi.CustomResource):
         Encryption information.
         """
         return pulumi.get(self, "router_integration_transit_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPushSettings")
+    def rtmp_push_settings(self) -> pulumi.Output[Optional['outputs.FlowOutputRtmpPushSettings']]:
+        return pulumi.get(self, "rtmp_push_settings")
 
     @_builtins.property
     @pulumi.getter(name="smoothingLatency")

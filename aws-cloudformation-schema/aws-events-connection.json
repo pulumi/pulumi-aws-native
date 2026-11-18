@@ -235,13 +235,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "events:CreateConnection", "events:DescribeConnection", "secretsmanager:CreateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutSecretValue", "iam:CreateServiceLinkedRole", "kms:DescribeKey", "kms:GenerateDataKey" ]
+      "permissions" : [ "events:CreateConnection", "events:DescribeConnection", "secretsmanager:CreateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutSecretValue", "iam:CreateServiceLinkedRole", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:AssociateViaAWSService-EventsAndStates", "vpc-lattice:TagResource" ]
     },
     "read" : {
       "permissions" : [ "events:DescribeConnection", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "events:UpdateConnection", "events:DescribeConnection", "secretsmanager:CreateSecret", "secretsmanager:UpdateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutSecretValue", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKey" ]
+      "permissions" : [ "events:UpdateConnection", "events:DescribeConnection", "secretsmanager:CreateSecret", "secretsmanager:UpdateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutSecretValue", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKey", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:AssociateViaAWSService-EventsAndStates", "vpc-lattice:TagResource" ]
     },
     "delete" : {
       "permissions" : [ "events:DeleteConnection", "events:DescribeConnection" ]

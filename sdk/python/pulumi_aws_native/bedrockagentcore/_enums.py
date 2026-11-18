@@ -111,7 +111,7 @@ __all__ = [
     'PaymentCredentialProviderSecretSourceType',
     'PaymentCredentialProviderVendorType',
     'PaymentManagerAuthorizerType',
-    'PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator',
+    'PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator',
     'PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType',
     'PaymentManagerStatus',
     'PolicyEnforcementMode',
@@ -618,6 +618,7 @@ class HarnessNetworkConfigurationNetworkMode(_builtins.str, Enum):
 class HarnessOAuthCredentialProviderGrantType(_builtins.str, Enum):
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
+    TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:HarnessOpenAiModelConfigApiFormat")
@@ -1093,8 +1094,8 @@ class PaymentManagerAuthorizerType(_builtins.str, Enum):
     AWS_IAM = "AWS_IAM"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator")
-class PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator(_builtins.str, Enum):
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator")
+class PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator(_builtins.str, Enum):
     EQUALS = "EQUALS"
     CONTAINS = "CONTAINS"
     CONTAINS_ANY = "CONTAINS_ANY"

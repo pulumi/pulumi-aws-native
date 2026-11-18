@@ -5395,6 +5395,7 @@ type MicrovmImageCpuConfigurationArchitecture string
 
 const (
 	MicrovmImageCpuConfigurationArchitectureArm64 = MicrovmImageCpuConfigurationArchitecture("ARM_64")
+	MicrovmImageCpuConfigurationArchitectureX8664 = MicrovmImageCpuConfigurationArchitecture("X86_64")
 )
 
 func (MicrovmImageCpuConfigurationArchitecture) ElementType() reflect.Type {
@@ -5520,6 +5521,7 @@ func (o MicrovmImageCpuConfigurationArchitecturePtrOutput) ToStringPtrOutputWith
 // A concrete instance of `MicrovmImageCpuConfigurationArchitectureInput` can be one of the following:
 //
 //	MicrovmImageCpuConfigurationArchitectureArm64
+//	MicrovmImageCpuConfigurationArchitectureX8664
 type MicrovmImageCpuConfigurationArchitectureInput interface {
 	pulumi.Input
 
@@ -5814,6 +5816,172 @@ func (o MicrovmImageStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+type NetworkConnectorElasticIpConfigurationType string
+
+const (
+	NetworkConnectorElasticIpConfigurationTypeNone           = NetworkConnectorElasticIpConfigurationType("None")
+	NetworkConnectorElasticIpConfigurationTypeServiceManaged = NetworkConnectorElasticIpConfigurationType("ServiceManaged")
+)
+
+func (NetworkConnectorElasticIpConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorElasticIpConfigurationType)(nil)).Elem()
+}
+
+func (e NetworkConnectorElasticIpConfigurationType) ToNetworkConnectorElasticIpConfigurationTypeOutput() NetworkConnectorElasticIpConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(NetworkConnectorElasticIpConfigurationTypeOutput)
+}
+
+func (e NetworkConnectorElasticIpConfigurationType) ToNetworkConnectorElasticIpConfigurationTypeOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkConnectorElasticIpConfigurationTypeOutput)
+}
+
+func (e NetworkConnectorElasticIpConfigurationType) ToNetworkConnectorElasticIpConfigurationTypePtrOutput() NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return e.ToNetworkConnectorElasticIpConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e NetworkConnectorElasticIpConfigurationType) ToNetworkConnectorElasticIpConfigurationTypePtrOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return NetworkConnectorElasticIpConfigurationType(e).ToNetworkConnectorElasticIpConfigurationTypeOutputWithContext(ctx).ToNetworkConnectorElasticIpConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e NetworkConnectorElasticIpConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkConnectorElasticIpConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkConnectorElasticIpConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkConnectorElasticIpConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkConnectorElasticIpConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorElasticIpConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorElasticIpConfigurationType)(nil)).Elem()
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypeOutput) ToNetworkConnectorElasticIpConfigurationTypeOutput() NetworkConnectorElasticIpConfigurationTypeOutput {
+	return o
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypeOutput) ToNetworkConnectorElasticIpConfigurationTypeOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationTypeOutput {
+	return o
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypeOutput) ToNetworkConnectorElasticIpConfigurationTypePtrOutput() NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return o.ToNetworkConnectorElasticIpConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypeOutput) ToNetworkConnectorElasticIpConfigurationTypePtrOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectorElasticIpConfigurationType) *NetworkConnectorElasticIpConfigurationType {
+		return &v
+	}).(NetworkConnectorElasticIpConfigurationTypePtrOutput)
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkConnectorElasticIpConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkConnectorElasticIpConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectorElasticIpConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorElasticIpConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectorElasticIpConfigurationType)(nil)).Elem()
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypePtrOutput) ToNetworkConnectorElasticIpConfigurationTypePtrOutput() NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return o
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypePtrOutput) ToNetworkConnectorElasticIpConfigurationTypePtrOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return o
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypePtrOutput) Elem() NetworkConnectorElasticIpConfigurationTypeOutput {
+	return o.ApplyT(func(v *NetworkConnectorElasticIpConfigurationType) NetworkConnectorElasticIpConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectorElasticIpConfigurationType
+		return ret
+	}).(NetworkConnectorElasticIpConfigurationTypeOutput)
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorElasticIpConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkConnectorElasticIpConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NetworkConnectorElasticIpConfigurationTypeInput is an input type that accepts values of the NetworkConnectorElasticIpConfigurationType enum
+// A concrete instance of `NetworkConnectorElasticIpConfigurationTypeInput` can be one of the following:
+//
+//	NetworkConnectorElasticIpConfigurationTypeNone
+//	NetworkConnectorElasticIpConfigurationTypeServiceManaged
+type NetworkConnectorElasticIpConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorElasticIpConfigurationTypeOutput() NetworkConnectorElasticIpConfigurationTypeOutput
+	ToNetworkConnectorElasticIpConfigurationTypeOutputWithContext(context.Context) NetworkConnectorElasticIpConfigurationTypeOutput
+}
+
+var networkConnectorElasticIpConfigurationTypePtrType = reflect.TypeOf((**NetworkConnectorElasticIpConfigurationType)(nil)).Elem()
+
+type NetworkConnectorElasticIpConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorElasticIpConfigurationTypePtrOutput() NetworkConnectorElasticIpConfigurationTypePtrOutput
+	ToNetworkConnectorElasticIpConfigurationTypePtrOutputWithContext(context.Context) NetworkConnectorElasticIpConfigurationTypePtrOutput
+}
+
+type networkConnectorElasticIpConfigurationTypePtr string
+
+func NetworkConnectorElasticIpConfigurationTypePtr(v string) NetworkConnectorElasticIpConfigurationTypePtrInput {
+	return (*networkConnectorElasticIpConfigurationTypePtr)(&v)
+}
+
+func (*networkConnectorElasticIpConfigurationTypePtr) ElementType() reflect.Type {
+	return networkConnectorElasticIpConfigurationTypePtrType
+}
+
+func (in *networkConnectorElasticIpConfigurationTypePtr) ToNetworkConnectorElasticIpConfigurationTypePtrOutput() NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(NetworkConnectorElasticIpConfigurationTypePtrOutput)
+}
+
+func (in *networkConnectorElasticIpConfigurationTypePtr) ToNetworkConnectorElasticIpConfigurationTypePtrOutputWithContext(ctx context.Context) NetworkConnectorElasticIpConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkConnectorElasticIpConfigurationTypePtrOutput)
 }
 
 // The current state of the network connector.
@@ -6451,6 +6619,1242 @@ func (in *permissionFunctionUrlAuthTypePtr) ToPermissionFunctionUrlAuthTypePtrOu
 
 func (in *permissionFunctionUrlAuthTypePtr) ToPermissionFunctionUrlAuthTypePtrOutputWithContext(ctx context.Context) PermissionFunctionUrlAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PermissionFunctionUrlAuthTypePtrOutput)
+}
+
+type RuntimeAliasCompatibilityArchitecturesItem string
+
+const (
+	RuntimeAliasCompatibilityArchitecturesItemX8664 = RuntimeAliasCompatibilityArchitecturesItem("x86_64")
+	RuntimeAliasCompatibilityArchitecturesItemArm64 = RuntimeAliasCompatibilityArchitecturesItem("arm64")
+)
+
+type RuntimeAliasCompatibilityArchitecturesItemOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityArchitecturesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasCompatibilityArchitecturesItem)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemOutput) ToRuntimeAliasCompatibilityArchitecturesItemOutput() RuntimeAliasCompatibilityArchitecturesItemOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemOutput) ToRuntimeAliasCompatibilityArchitecturesItemOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityArchitecturesItemOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemOutput) ToRuntimeAliasCompatibilityArchitecturesItemPtrOutput() RuntimeAliasCompatibilityArchitecturesItemPtrOutput {
+	return o.ToRuntimeAliasCompatibilityArchitecturesItemPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemOutput) ToRuntimeAliasCompatibilityArchitecturesItemPtrOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityArchitecturesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeAliasCompatibilityArchitecturesItem) *RuntimeAliasCompatibilityArchitecturesItem {
+		return &v
+	}).(RuntimeAliasCompatibilityArchitecturesItemPtrOutput)
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasCompatibilityArchitecturesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasCompatibilityArchitecturesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeAliasCompatibilityArchitecturesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityArchitecturesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAliasCompatibilityArchitecturesItem)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemPtrOutput) ToRuntimeAliasCompatibilityArchitecturesItemPtrOutput() RuntimeAliasCompatibilityArchitecturesItemPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemPtrOutput) ToRuntimeAliasCompatibilityArchitecturesItemPtrOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityArchitecturesItemPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemPtrOutput) Elem() RuntimeAliasCompatibilityArchitecturesItemOutput {
+	return o.ApplyT(func(v *RuntimeAliasCompatibilityArchitecturesItem) RuntimeAliasCompatibilityArchitecturesItem {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAliasCompatibilityArchitecturesItem
+		return ret
+	}).(RuntimeAliasCompatibilityArchitecturesItemOutput)
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeAliasCompatibilityArchitecturesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeAliasCompatibilityArchitecturesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityArchitecturesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeAliasCompatibilityArchitecturesItem)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemArrayOutput) ToRuntimeAliasCompatibilityArchitecturesItemArrayOutput() RuntimeAliasCompatibilityArchitecturesItemArrayOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemArrayOutput) ToRuntimeAliasCompatibilityArchitecturesItemArrayOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityArchitecturesItemArrayOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityArchitecturesItemArrayOutput) Index(i pulumi.IntInput) RuntimeAliasCompatibilityArchitecturesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeAliasCompatibilityArchitecturesItem {
+		return vs[0].([]RuntimeAliasCompatibilityArchitecturesItem)[vs[1].(int)]
+	}).(RuntimeAliasCompatibilityArchitecturesItemOutput)
+}
+
+type RuntimeAliasCompatibilityIntegrationModelsItem string
+
+const (
+	RuntimeAliasCompatibilityIntegrationModelsItemRuntimeApi = RuntimeAliasCompatibilityIntegrationModelsItem("RuntimeAPI")
+)
+
+type RuntimeAliasCompatibilityIntegrationModelsItemOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityIntegrationModelsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasCompatibilityIntegrationModelsItem)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemOutput) ToRuntimeAliasCompatibilityIntegrationModelsItemOutput() RuntimeAliasCompatibilityIntegrationModelsItemOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemOutput) ToRuntimeAliasCompatibilityIntegrationModelsItemOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityIntegrationModelsItemOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemOutput) ToRuntimeAliasCompatibilityIntegrationModelsItemPtrOutput() RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput {
+	return o.ToRuntimeAliasCompatibilityIntegrationModelsItemPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemOutput) ToRuntimeAliasCompatibilityIntegrationModelsItemPtrOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeAliasCompatibilityIntegrationModelsItem) *RuntimeAliasCompatibilityIntegrationModelsItem {
+		return &v
+	}).(RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput)
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasCompatibilityIntegrationModelsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasCompatibilityIntegrationModelsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAliasCompatibilityIntegrationModelsItem)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput) ToRuntimeAliasCompatibilityIntegrationModelsItemPtrOutput() RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput) ToRuntimeAliasCompatibilityIntegrationModelsItemPtrOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput) Elem() RuntimeAliasCompatibilityIntegrationModelsItemOutput {
+	return o.ApplyT(func(v *RuntimeAliasCompatibilityIntegrationModelsItem) RuntimeAliasCompatibilityIntegrationModelsItem {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAliasCompatibilityIntegrationModelsItem
+		return ret
+	}).(RuntimeAliasCompatibilityIntegrationModelsItemOutput)
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeAliasCompatibilityIntegrationModelsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeAliasCompatibilityIntegrationModelsItem)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput) ToRuntimeAliasCompatibilityIntegrationModelsItemArrayOutput() RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput) ToRuntimeAliasCompatibilityIntegrationModelsItemArrayOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput) Index(i pulumi.IntInput) RuntimeAliasCompatibilityIntegrationModelsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeAliasCompatibilityIntegrationModelsItem {
+		return vs[0].([]RuntimeAliasCompatibilityIntegrationModelsItem)[vs[1].(int)]
+	}).(RuntimeAliasCompatibilityIntegrationModelsItemOutput)
+}
+
+type RuntimeAliasCompatibilityManagedInstances string
+
+const (
+	RuntimeAliasCompatibilityManagedInstancesSupported    = RuntimeAliasCompatibilityManagedInstances("Supported")
+	RuntimeAliasCompatibilityManagedInstancesNotSupported = RuntimeAliasCompatibilityManagedInstances("NotSupported")
+)
+
+type RuntimeAliasCompatibilityManagedInstancesOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityManagedInstancesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasCompatibilityManagedInstances)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesOutput) ToRuntimeAliasCompatibilityManagedInstancesOutput() RuntimeAliasCompatibilityManagedInstancesOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesOutput) ToRuntimeAliasCompatibilityManagedInstancesOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityManagedInstancesOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesOutput) ToRuntimeAliasCompatibilityManagedInstancesPtrOutput() RuntimeAliasCompatibilityManagedInstancesPtrOutput {
+	return o.ToRuntimeAliasCompatibilityManagedInstancesPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesOutput) ToRuntimeAliasCompatibilityManagedInstancesPtrOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityManagedInstancesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeAliasCompatibilityManagedInstances) *RuntimeAliasCompatibilityManagedInstances {
+		return &v
+	}).(RuntimeAliasCompatibilityManagedInstancesPtrOutput)
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasCompatibilityManagedInstances) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasCompatibilityManagedInstances) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeAliasCompatibilityManagedInstancesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasCompatibilityManagedInstancesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAliasCompatibilityManagedInstances)(nil)).Elem()
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesPtrOutput) ToRuntimeAliasCompatibilityManagedInstancesPtrOutput() RuntimeAliasCompatibilityManagedInstancesPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesPtrOutput) ToRuntimeAliasCompatibilityManagedInstancesPtrOutputWithContext(ctx context.Context) RuntimeAliasCompatibilityManagedInstancesPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesPtrOutput) Elem() RuntimeAliasCompatibilityManagedInstancesOutput {
+	return o.ApplyT(func(v *RuntimeAliasCompatibilityManagedInstances) RuntimeAliasCompatibilityManagedInstances {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAliasCompatibilityManagedInstances
+		return ret
+	}).(RuntimeAliasCompatibilityManagedInstancesOutput)
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasCompatibilityManagedInstancesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeAliasCompatibilityManagedInstances) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+type RuntimeAliasReleaseLifecycleReleaseState string
+
+const (
+	RuntimeAliasReleaseLifecycleReleaseStatePreview    = RuntimeAliasReleaseLifecycleReleaseState("PREVIEW")
+	RuntimeAliasReleaseLifecycleReleaseStateGa         = RuntimeAliasReleaseLifecycleReleaseState("GA")
+	RuntimeAliasReleaseLifecycleReleaseStateDeprecated = RuntimeAliasReleaseLifecycleReleaseState("DEPRECATED")
+)
+
+func (RuntimeAliasReleaseLifecycleReleaseState) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasReleaseLifecycleReleaseState)(nil)).Elem()
+}
+
+func (e RuntimeAliasReleaseLifecycleReleaseState) ToRuntimeAliasReleaseLifecycleReleaseStateOutput() RuntimeAliasReleaseLifecycleReleaseStateOutput {
+	return pulumi.ToOutput(e).(RuntimeAliasReleaseLifecycleReleaseStateOutput)
+}
+
+func (e RuntimeAliasReleaseLifecycleReleaseState) ToRuntimeAliasReleaseLifecycleReleaseStateOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecycleReleaseStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuntimeAliasReleaseLifecycleReleaseStateOutput)
+}
+
+func (e RuntimeAliasReleaseLifecycleReleaseState) ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutput() RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return e.ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeAliasReleaseLifecycleReleaseState) ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return RuntimeAliasReleaseLifecycleReleaseState(e).ToRuntimeAliasReleaseLifecycleReleaseStateOutputWithContext(ctx).ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutputWithContext(ctx)
+}
+
+func (e RuntimeAliasReleaseLifecycleReleaseState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeAliasReleaseLifecycleReleaseState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeAliasReleaseLifecycleReleaseState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeAliasReleaseLifecycleReleaseState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuntimeAliasReleaseLifecycleReleaseStateOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasReleaseLifecycleReleaseStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasReleaseLifecycleReleaseState)(nil)).Elem()
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStateOutput) ToRuntimeAliasReleaseLifecycleReleaseStateOutput() RuntimeAliasReleaseLifecycleReleaseStateOutput {
+	return o
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStateOutput) ToRuntimeAliasReleaseLifecycleReleaseStateOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecycleReleaseStateOutput {
+	return o
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStateOutput) ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutput() RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return o.ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStateOutput) ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeAliasReleaseLifecycleReleaseState) *RuntimeAliasReleaseLifecycleReleaseState {
+		return &v
+	}).(RuntimeAliasReleaseLifecycleReleaseStatePtrOutput)
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasReleaseLifecycleReleaseState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasReleaseLifecycleReleaseState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeAliasReleaseLifecycleReleaseStatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasReleaseLifecycleReleaseStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAliasReleaseLifecycleReleaseState)(nil)).Elem()
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStatePtrOutput) ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutput() RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return o
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStatePtrOutput) ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return o
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStatePtrOutput) Elem() RuntimeAliasReleaseLifecycleReleaseStateOutput {
+	return o.ApplyT(func(v *RuntimeAliasReleaseLifecycleReleaseState) RuntimeAliasReleaseLifecycleReleaseState {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAliasReleaseLifecycleReleaseState
+		return ret
+	}).(RuntimeAliasReleaseLifecycleReleaseStateOutput)
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasReleaseLifecycleReleaseStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeAliasReleaseLifecycleReleaseState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuntimeAliasReleaseLifecycleReleaseStateInput is an input type that accepts values of the RuntimeAliasReleaseLifecycleReleaseState enum
+// A concrete instance of `RuntimeAliasReleaseLifecycleReleaseStateInput` can be one of the following:
+//
+//	RuntimeAliasReleaseLifecycleReleaseStatePreview
+//	RuntimeAliasReleaseLifecycleReleaseStateGa
+//	RuntimeAliasReleaseLifecycleReleaseStateDeprecated
+type RuntimeAliasReleaseLifecycleReleaseStateInput interface {
+	pulumi.Input
+
+	ToRuntimeAliasReleaseLifecycleReleaseStateOutput() RuntimeAliasReleaseLifecycleReleaseStateOutput
+	ToRuntimeAliasReleaseLifecycleReleaseStateOutputWithContext(context.Context) RuntimeAliasReleaseLifecycleReleaseStateOutput
+}
+
+var runtimeAliasReleaseLifecycleReleaseStatePtrType = reflect.TypeOf((**RuntimeAliasReleaseLifecycleReleaseState)(nil)).Elem()
+
+type RuntimeAliasReleaseLifecycleReleaseStatePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutput() RuntimeAliasReleaseLifecycleReleaseStatePtrOutput
+	ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutputWithContext(context.Context) RuntimeAliasReleaseLifecycleReleaseStatePtrOutput
+}
+
+type runtimeAliasReleaseLifecycleReleaseStatePtr string
+
+func RuntimeAliasReleaseLifecycleReleaseStatePtr(v string) RuntimeAliasReleaseLifecycleReleaseStatePtrInput {
+	return (*runtimeAliasReleaseLifecycleReleaseStatePtr)(&v)
+}
+
+func (*runtimeAliasReleaseLifecycleReleaseStatePtr) ElementType() reflect.Type {
+	return runtimeAliasReleaseLifecycleReleaseStatePtrType
+}
+
+func (in *runtimeAliasReleaseLifecycleReleaseStatePtr) ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutput() RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return pulumi.ToOutput(in).(RuntimeAliasReleaseLifecycleReleaseStatePtrOutput)
+}
+
+func (in *runtimeAliasReleaseLifecycleReleaseStatePtr) ToRuntimeAliasReleaseLifecycleReleaseStatePtrOutputWithContext(ctx context.Context) RuntimeAliasReleaseLifecycleReleaseStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuntimeAliasReleaseLifecycleReleaseStatePtrOutput)
+}
+
+// The lifecycle state of the runtime alias.
+type RuntimeAliasStateEnum string
+
+const (
+	RuntimeAliasStateEnumCreating        = RuntimeAliasStateEnum("CREATING")
+	RuntimeAliasStateEnumActive          = RuntimeAliasStateEnum("ACTIVE")
+	RuntimeAliasStateEnumUpdating        = RuntimeAliasStateEnum("UPDATING")
+	RuntimeAliasStateEnumDeleting        = RuntimeAliasStateEnum("DELETING")
+	RuntimeAliasStateEnumPendingDeletion = RuntimeAliasStateEnum("PENDING_DELETION")
+)
+
+type RuntimeAliasStateEnumOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAliasStateEnum)(nil)).Elem()
+}
+
+func (o RuntimeAliasStateEnumOutput) ToRuntimeAliasStateEnumOutput() RuntimeAliasStateEnumOutput {
+	return o
+}
+
+func (o RuntimeAliasStateEnumOutput) ToRuntimeAliasStateEnumOutputWithContext(ctx context.Context) RuntimeAliasStateEnumOutput {
+	return o
+}
+
+func (o RuntimeAliasStateEnumOutput) ToRuntimeAliasStateEnumPtrOutput() RuntimeAliasStateEnumPtrOutput {
+	return o.ToRuntimeAliasStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasStateEnumOutput) ToRuntimeAliasStateEnumPtrOutputWithContext(ctx context.Context) RuntimeAliasStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeAliasStateEnum) *RuntimeAliasStateEnum {
+		return &v
+	}).(RuntimeAliasStateEnumPtrOutput)
+}
+
+func (o RuntimeAliasStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeAliasStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAliasStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeAliasStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAliasStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAliasStateEnum)(nil)).Elem()
+}
+
+func (o RuntimeAliasStateEnumPtrOutput) ToRuntimeAliasStateEnumPtrOutput() RuntimeAliasStateEnumPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasStateEnumPtrOutput) ToRuntimeAliasStateEnumPtrOutputWithContext(ctx context.Context) RuntimeAliasStateEnumPtrOutput {
+	return o
+}
+
+func (o RuntimeAliasStateEnumPtrOutput) Elem() RuntimeAliasStateEnumOutput {
+	return o.ApplyT(func(v *RuntimeAliasStateEnum) RuntimeAliasStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAliasStateEnum
+		return ret
+	}).(RuntimeAliasStateEnumOutput)
+}
+
+func (o RuntimeAliasStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAliasStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeAliasStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+type RuntimeReleaseLifecycleReleaseState string
+
+const (
+	RuntimeReleaseLifecycleReleaseStatePreview    = RuntimeReleaseLifecycleReleaseState("PREVIEW")
+	RuntimeReleaseLifecycleReleaseStateGa         = RuntimeReleaseLifecycleReleaseState("GA")
+	RuntimeReleaseLifecycleReleaseStateDeprecated = RuntimeReleaseLifecycleReleaseState("DEPRECATED")
+)
+
+func (RuntimeReleaseLifecycleReleaseState) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeReleaseLifecycleReleaseState)(nil)).Elem()
+}
+
+func (e RuntimeReleaseLifecycleReleaseState) ToRuntimeReleaseLifecycleReleaseStateOutput() RuntimeReleaseLifecycleReleaseStateOutput {
+	return pulumi.ToOutput(e).(RuntimeReleaseLifecycleReleaseStateOutput)
+}
+
+func (e RuntimeReleaseLifecycleReleaseState) ToRuntimeReleaseLifecycleReleaseStateOutputWithContext(ctx context.Context) RuntimeReleaseLifecycleReleaseStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuntimeReleaseLifecycleReleaseStateOutput)
+}
+
+func (e RuntimeReleaseLifecycleReleaseState) ToRuntimeReleaseLifecycleReleaseStatePtrOutput() RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return e.ToRuntimeReleaseLifecycleReleaseStatePtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeReleaseLifecycleReleaseState) ToRuntimeReleaseLifecycleReleaseStatePtrOutputWithContext(ctx context.Context) RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return RuntimeReleaseLifecycleReleaseState(e).ToRuntimeReleaseLifecycleReleaseStateOutputWithContext(ctx).ToRuntimeReleaseLifecycleReleaseStatePtrOutputWithContext(ctx)
+}
+
+func (e RuntimeReleaseLifecycleReleaseState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeReleaseLifecycleReleaseState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeReleaseLifecycleReleaseState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeReleaseLifecycleReleaseState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuntimeReleaseLifecycleReleaseStateOutput struct{ *pulumi.OutputState }
+
+func (RuntimeReleaseLifecycleReleaseStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeReleaseLifecycleReleaseState)(nil)).Elem()
+}
+
+func (o RuntimeReleaseLifecycleReleaseStateOutput) ToRuntimeReleaseLifecycleReleaseStateOutput() RuntimeReleaseLifecycleReleaseStateOutput {
+	return o
+}
+
+func (o RuntimeReleaseLifecycleReleaseStateOutput) ToRuntimeReleaseLifecycleReleaseStateOutputWithContext(ctx context.Context) RuntimeReleaseLifecycleReleaseStateOutput {
+	return o
+}
+
+func (o RuntimeReleaseLifecycleReleaseStateOutput) ToRuntimeReleaseLifecycleReleaseStatePtrOutput() RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return o.ToRuntimeReleaseLifecycleReleaseStatePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeReleaseLifecycleReleaseStateOutput) ToRuntimeReleaseLifecycleReleaseStatePtrOutputWithContext(ctx context.Context) RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeReleaseLifecycleReleaseState) *RuntimeReleaseLifecycleReleaseState {
+		return &v
+	}).(RuntimeReleaseLifecycleReleaseStatePtrOutput)
+}
+
+func (o RuntimeReleaseLifecycleReleaseStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeReleaseLifecycleReleaseStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeReleaseLifecycleReleaseState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeReleaseLifecycleReleaseStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeReleaseLifecycleReleaseStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeReleaseLifecycleReleaseState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeReleaseLifecycleReleaseStatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeReleaseLifecycleReleaseStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeReleaseLifecycleReleaseState)(nil)).Elem()
+}
+
+func (o RuntimeReleaseLifecycleReleaseStatePtrOutput) ToRuntimeReleaseLifecycleReleaseStatePtrOutput() RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return o
+}
+
+func (o RuntimeReleaseLifecycleReleaseStatePtrOutput) ToRuntimeReleaseLifecycleReleaseStatePtrOutputWithContext(ctx context.Context) RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return o
+}
+
+func (o RuntimeReleaseLifecycleReleaseStatePtrOutput) Elem() RuntimeReleaseLifecycleReleaseStateOutput {
+	return o.ApplyT(func(v *RuntimeReleaseLifecycleReleaseState) RuntimeReleaseLifecycleReleaseState {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeReleaseLifecycleReleaseState
+		return ret
+	}).(RuntimeReleaseLifecycleReleaseStateOutput)
+}
+
+func (o RuntimeReleaseLifecycleReleaseStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeReleaseLifecycleReleaseStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeReleaseLifecycleReleaseState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuntimeReleaseLifecycleReleaseStateInput is an input type that accepts values of the RuntimeReleaseLifecycleReleaseState enum
+// A concrete instance of `RuntimeReleaseLifecycleReleaseStateInput` can be one of the following:
+//
+//	RuntimeReleaseLifecycleReleaseStatePreview
+//	RuntimeReleaseLifecycleReleaseStateGa
+//	RuntimeReleaseLifecycleReleaseStateDeprecated
+type RuntimeReleaseLifecycleReleaseStateInput interface {
+	pulumi.Input
+
+	ToRuntimeReleaseLifecycleReleaseStateOutput() RuntimeReleaseLifecycleReleaseStateOutput
+	ToRuntimeReleaseLifecycleReleaseStateOutputWithContext(context.Context) RuntimeReleaseLifecycleReleaseStateOutput
+}
+
+var runtimeReleaseLifecycleReleaseStatePtrType = reflect.TypeOf((**RuntimeReleaseLifecycleReleaseState)(nil)).Elem()
+
+type RuntimeReleaseLifecycleReleaseStatePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeReleaseLifecycleReleaseStatePtrOutput() RuntimeReleaseLifecycleReleaseStatePtrOutput
+	ToRuntimeReleaseLifecycleReleaseStatePtrOutputWithContext(context.Context) RuntimeReleaseLifecycleReleaseStatePtrOutput
+}
+
+type runtimeReleaseLifecycleReleaseStatePtr string
+
+func RuntimeReleaseLifecycleReleaseStatePtr(v string) RuntimeReleaseLifecycleReleaseStatePtrInput {
+	return (*runtimeReleaseLifecycleReleaseStatePtr)(&v)
+}
+
+func (*runtimeReleaseLifecycleReleaseStatePtr) ElementType() reflect.Type {
+	return runtimeReleaseLifecycleReleaseStatePtrType
+}
+
+func (in *runtimeReleaseLifecycleReleaseStatePtr) ToRuntimeReleaseLifecycleReleaseStatePtrOutput() RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return pulumi.ToOutput(in).(RuntimeReleaseLifecycleReleaseStatePtrOutput)
+}
+
+func (in *runtimeReleaseLifecycleReleaseStatePtr) ToRuntimeReleaseLifecycleReleaseStatePtrOutputWithContext(ctx context.Context) RuntimeReleaseLifecycleReleaseStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuntimeReleaseLifecycleReleaseStatePtrOutput)
+}
+
+// The lifecycle state of the runtime.
+type RuntimeStateEnum string
+
+const (
+	RuntimeStateEnumActive          = RuntimeStateEnum("ACTIVE")
+	RuntimeStateEnumPendingDeletion = RuntimeStateEnum("PENDING_DELETION")
+	RuntimeStateEnumDeleting        = RuntimeStateEnum("DELETING")
+	RuntimeStateEnumFailed          = RuntimeStateEnum("FAILED")
+)
+
+type RuntimeStateEnumOutput struct{ *pulumi.OutputState }
+
+func (RuntimeStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeStateEnum)(nil)).Elem()
+}
+
+func (o RuntimeStateEnumOutput) ToRuntimeStateEnumOutput() RuntimeStateEnumOutput {
+	return o
+}
+
+func (o RuntimeStateEnumOutput) ToRuntimeStateEnumOutputWithContext(ctx context.Context) RuntimeStateEnumOutput {
+	return o
+}
+
+func (o RuntimeStateEnumOutput) ToRuntimeStateEnumPtrOutput() RuntimeStateEnumPtrOutput {
+	return o.ToRuntimeStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeStateEnumOutput) ToRuntimeStateEnumPtrOutputWithContext(ctx context.Context) RuntimeStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeStateEnum) *RuntimeStateEnum {
+		return &v
+	}).(RuntimeStateEnumPtrOutput)
+}
+
+func (o RuntimeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeStateEnum)(nil)).Elem()
+}
+
+func (o RuntimeStateEnumPtrOutput) ToRuntimeStateEnumPtrOutput() RuntimeStateEnumPtrOutput {
+	return o
+}
+
+func (o RuntimeStateEnumPtrOutput) ToRuntimeStateEnumPtrOutputWithContext(ctx context.Context) RuntimeStateEnumPtrOutput {
+	return o
+}
+
+func (o RuntimeStateEnumPtrOutput) Elem() RuntimeStateEnumOutput {
+	return o.ApplyT(func(v *RuntimeStateEnum) RuntimeStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeStateEnum
+		return ret
+	}).(RuntimeStateEnumOutput)
+}
+
+func (o RuntimeStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeVersionCompatibilityArchitecturesItem string
+
+const (
+	RuntimeVersionCompatibilityArchitecturesItemX8664 = RuntimeVersionCompatibilityArchitecturesItem("x86_64")
+	RuntimeVersionCompatibilityArchitecturesItemArm64 = RuntimeVersionCompatibilityArchitecturesItem("arm64")
+)
+
+type RuntimeVersionCompatibilityArchitecturesItemOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityArchitecturesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeVersionCompatibilityArchitecturesItem)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemOutput) ToRuntimeVersionCompatibilityArchitecturesItemOutput() RuntimeVersionCompatibilityArchitecturesItemOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemOutput) ToRuntimeVersionCompatibilityArchitecturesItemOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityArchitecturesItemOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemOutput) ToRuntimeVersionCompatibilityArchitecturesItemPtrOutput() RuntimeVersionCompatibilityArchitecturesItemPtrOutput {
+	return o.ToRuntimeVersionCompatibilityArchitecturesItemPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemOutput) ToRuntimeVersionCompatibilityArchitecturesItemPtrOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityArchitecturesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeVersionCompatibilityArchitecturesItem) *RuntimeVersionCompatibilityArchitecturesItem {
+		return &v
+	}).(RuntimeVersionCompatibilityArchitecturesItemPtrOutput)
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeVersionCompatibilityArchitecturesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeVersionCompatibilityArchitecturesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeVersionCompatibilityArchitecturesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityArchitecturesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeVersionCompatibilityArchitecturesItem)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemPtrOutput) ToRuntimeVersionCompatibilityArchitecturesItemPtrOutput() RuntimeVersionCompatibilityArchitecturesItemPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemPtrOutput) ToRuntimeVersionCompatibilityArchitecturesItemPtrOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityArchitecturesItemPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemPtrOutput) Elem() RuntimeVersionCompatibilityArchitecturesItemOutput {
+	return o.ApplyT(func(v *RuntimeVersionCompatibilityArchitecturesItem) RuntimeVersionCompatibilityArchitecturesItem {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeVersionCompatibilityArchitecturesItem
+		return ret
+	}).(RuntimeVersionCompatibilityArchitecturesItemOutput)
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeVersionCompatibilityArchitecturesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeVersionCompatibilityArchitecturesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityArchitecturesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeVersionCompatibilityArchitecturesItem)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemArrayOutput) ToRuntimeVersionCompatibilityArchitecturesItemArrayOutput() RuntimeVersionCompatibilityArchitecturesItemArrayOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemArrayOutput) ToRuntimeVersionCompatibilityArchitecturesItemArrayOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityArchitecturesItemArrayOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityArchitecturesItemArrayOutput) Index(i pulumi.IntInput) RuntimeVersionCompatibilityArchitecturesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeVersionCompatibilityArchitecturesItem {
+		return vs[0].([]RuntimeVersionCompatibilityArchitecturesItem)[vs[1].(int)]
+	}).(RuntimeVersionCompatibilityArchitecturesItemOutput)
+}
+
+type RuntimeVersionCompatibilityIntegrationModelsItem string
+
+const (
+	RuntimeVersionCompatibilityIntegrationModelsItemRuntimeApi = RuntimeVersionCompatibilityIntegrationModelsItem("RuntimeAPI")
+)
+
+type RuntimeVersionCompatibilityIntegrationModelsItemOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityIntegrationModelsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeVersionCompatibilityIntegrationModelsItem)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemOutput) ToRuntimeVersionCompatibilityIntegrationModelsItemOutput() RuntimeVersionCompatibilityIntegrationModelsItemOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemOutput) ToRuntimeVersionCompatibilityIntegrationModelsItemOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityIntegrationModelsItemOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemOutput) ToRuntimeVersionCompatibilityIntegrationModelsItemPtrOutput() RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput {
+	return o.ToRuntimeVersionCompatibilityIntegrationModelsItemPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemOutput) ToRuntimeVersionCompatibilityIntegrationModelsItemPtrOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeVersionCompatibilityIntegrationModelsItem) *RuntimeVersionCompatibilityIntegrationModelsItem {
+		return &v
+	}).(RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput)
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeVersionCompatibilityIntegrationModelsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeVersionCompatibilityIntegrationModelsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeVersionCompatibilityIntegrationModelsItem)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput) ToRuntimeVersionCompatibilityIntegrationModelsItemPtrOutput() RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput) ToRuntimeVersionCompatibilityIntegrationModelsItemPtrOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput) Elem() RuntimeVersionCompatibilityIntegrationModelsItemOutput {
+	return o.ApplyT(func(v *RuntimeVersionCompatibilityIntegrationModelsItem) RuntimeVersionCompatibilityIntegrationModelsItem {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeVersionCompatibilityIntegrationModelsItem
+		return ret
+	}).(RuntimeVersionCompatibilityIntegrationModelsItemOutput)
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeVersionCompatibilityIntegrationModelsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeVersionCompatibilityIntegrationModelsItem)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput) ToRuntimeVersionCompatibilityIntegrationModelsItemArrayOutput() RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput) ToRuntimeVersionCompatibilityIntegrationModelsItemArrayOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput) Index(i pulumi.IntInput) RuntimeVersionCompatibilityIntegrationModelsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeVersionCompatibilityIntegrationModelsItem {
+		return vs[0].([]RuntimeVersionCompatibilityIntegrationModelsItem)[vs[1].(int)]
+	}).(RuntimeVersionCompatibilityIntegrationModelsItemOutput)
+}
+
+// Whether the runtime version supports managed instances.
+type RuntimeVersionCompatibilityManagedInstances string
+
+const (
+	RuntimeVersionCompatibilityManagedInstancesSupported    = RuntimeVersionCompatibilityManagedInstances("Supported")
+	RuntimeVersionCompatibilityManagedInstancesNotSupported = RuntimeVersionCompatibilityManagedInstances("NotSupported")
+)
+
+type RuntimeVersionCompatibilityManagedInstancesOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityManagedInstancesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeVersionCompatibilityManagedInstances)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesOutput) ToRuntimeVersionCompatibilityManagedInstancesOutput() RuntimeVersionCompatibilityManagedInstancesOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesOutput) ToRuntimeVersionCompatibilityManagedInstancesOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityManagedInstancesOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesOutput) ToRuntimeVersionCompatibilityManagedInstancesPtrOutput() RuntimeVersionCompatibilityManagedInstancesPtrOutput {
+	return o.ToRuntimeVersionCompatibilityManagedInstancesPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesOutput) ToRuntimeVersionCompatibilityManagedInstancesPtrOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityManagedInstancesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeVersionCompatibilityManagedInstances) *RuntimeVersionCompatibilityManagedInstances {
+		return &v
+	}).(RuntimeVersionCompatibilityManagedInstancesPtrOutput)
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeVersionCompatibilityManagedInstances) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeVersionCompatibilityManagedInstances) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeVersionCompatibilityManagedInstancesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionCompatibilityManagedInstancesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeVersionCompatibilityManagedInstances)(nil)).Elem()
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesPtrOutput) ToRuntimeVersionCompatibilityManagedInstancesPtrOutput() RuntimeVersionCompatibilityManagedInstancesPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesPtrOutput) ToRuntimeVersionCompatibilityManagedInstancesPtrOutputWithContext(ctx context.Context) RuntimeVersionCompatibilityManagedInstancesPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesPtrOutput) Elem() RuntimeVersionCompatibilityManagedInstancesOutput {
+	return o.ApplyT(func(v *RuntimeVersionCompatibilityManagedInstances) RuntimeVersionCompatibilityManagedInstances {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeVersionCompatibilityManagedInstances
+		return ret
+	}).(RuntimeVersionCompatibilityManagedInstancesOutput)
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionCompatibilityManagedInstancesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeVersionCompatibilityManagedInstances) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lifecycle state of the runtime version.
+type RuntimeVersionStateEnum string
+
+const (
+	RuntimeVersionStateEnumCreating        = RuntimeVersionStateEnum("CREATING")
+	RuntimeVersionStateEnumActive          = RuntimeVersionStateEnum("ACTIVE")
+	RuntimeVersionStateEnumFailed          = RuntimeVersionStateEnum("FAILED")
+	RuntimeVersionStateEnumDeleting        = RuntimeVersionStateEnum("DELETING")
+	RuntimeVersionStateEnumPendingDeletion = RuntimeVersionStateEnum("PENDING_DELETION")
+)
+
+type RuntimeVersionStateEnumOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeVersionStateEnum)(nil)).Elem()
+}
+
+func (o RuntimeVersionStateEnumOutput) ToRuntimeVersionStateEnumOutput() RuntimeVersionStateEnumOutput {
+	return o
+}
+
+func (o RuntimeVersionStateEnumOutput) ToRuntimeVersionStateEnumOutputWithContext(ctx context.Context) RuntimeVersionStateEnumOutput {
+	return o
+}
+
+func (o RuntimeVersionStateEnumOutput) ToRuntimeVersionStateEnumPtrOutput() RuntimeVersionStateEnumPtrOutput {
+	return o.ToRuntimeVersionStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionStateEnumOutput) ToRuntimeVersionStateEnumPtrOutputWithContext(ctx context.Context) RuntimeVersionStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeVersionStateEnum) *RuntimeVersionStateEnum {
+		return &v
+	}).(RuntimeVersionStateEnumPtrOutput)
+}
+
+func (o RuntimeVersionStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeVersionStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeVersionStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeVersionStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeVersionStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVersionStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeVersionStateEnum)(nil)).Elem()
+}
+
+func (o RuntimeVersionStateEnumPtrOutput) ToRuntimeVersionStateEnumPtrOutput() RuntimeVersionStateEnumPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionStateEnumPtrOutput) ToRuntimeVersionStateEnumPtrOutputWithContext(ctx context.Context) RuntimeVersionStateEnumPtrOutput {
+	return o
+}
+
+func (o RuntimeVersionStateEnumPtrOutput) Elem() RuntimeVersionStateEnumOutput {
+	return o.ApplyT(func(v *RuntimeVersionStateEnum) RuntimeVersionStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeVersionStateEnum
+		return ret
+	}).(RuntimeVersionStateEnumOutput)
+}
+
+func (o RuntimeVersionStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVersionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeVersionStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 type UrlAllowMethodsItem string
@@ -8395,6 +9799,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageCpuConfigurationArchitecturePtrInput)(nil)).Elem(), MicrovmImageCpuConfigurationArchitecture("ARM_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageHookStateInput)(nil)).Elem(), MicrovmImageHookState("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageHookStatePtrInput)(nil)).Elem(), MicrovmImageHookState("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorElasticIpConfigurationTypeInput)(nil)).Elem(), NetworkConnectorElasticIpConfigurationType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorElasticIpConfigurationTypePtrInput)(nil)).Elem(), NetworkConnectorElasticIpConfigurationType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArray{})
@@ -8402,6 +9808,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationNetworkProtocol("IPv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionFunctionUrlAuthTypeInput)(nil)).Elem(), PermissionFunctionUrlAuthType("AWS_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionFunctionUrlAuthTypePtrInput)(nil)).Elem(), PermissionFunctionUrlAuthType("AWS_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAliasReleaseLifecycleReleaseStateInput)(nil)).Elem(), RuntimeAliasReleaseLifecycleReleaseState("PREVIEW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAliasReleaseLifecycleReleaseStatePtrInput)(nil)).Elem(), RuntimeAliasReleaseLifecycleReleaseState("PREVIEW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeReleaseLifecycleReleaseStateInput)(nil)).Elem(), RuntimeReleaseLifecycleReleaseState("PREVIEW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeReleaseLifecycleReleaseStatePtrInput)(nil)).Elem(), RuntimeReleaseLifecycleReleaseState("PREVIEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemInput)(nil)).Elem(), UrlAllowMethodsItem("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemPtrInput)(nil)).Elem(), UrlAllowMethodsItem("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemArrayInput)(nil)).Elem(), UrlAllowMethodsItemArray{})
@@ -8492,6 +9902,8 @@ func init() {
 	pulumi.RegisterOutputType(MicrovmImageHookStatePtrOutput{})
 	pulumi.RegisterOutputType(MicrovmImageStateEnumOutput{})
 	pulumi.RegisterOutputType(MicrovmImageStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorElasticIpConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorElasticIpConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorStateEnumOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput{})
@@ -8501,6 +9913,32 @@ func init() {
 	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput{})
 	pulumi.RegisterOutputType(PermissionFunctionUrlAuthTypeOutput{})
 	pulumi.RegisterOutputType(PermissionFunctionUrlAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityArchitecturesItemOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityArchitecturesItemPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityArchitecturesItemArrayOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityIntegrationModelsItemOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityIntegrationModelsItemPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityIntegrationModelsItemArrayOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityManagedInstancesOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasCompatibilityManagedInstancesPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasReleaseLifecycleReleaseStateOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasReleaseLifecycleReleaseStatePtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasStateEnumOutput{})
+	pulumi.RegisterOutputType(RuntimeAliasStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeReleaseLifecycleReleaseStateOutput{})
+	pulumi.RegisterOutputType(RuntimeReleaseLifecycleReleaseStatePtrOutput{})
+	pulumi.RegisterOutputType(RuntimeStateEnumOutput{})
+	pulumi.RegisterOutputType(RuntimeStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityArchitecturesItemOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityArchitecturesItemPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityArchitecturesItemArrayOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityIntegrationModelsItemOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityIntegrationModelsItemPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityIntegrationModelsItemArrayOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityManagedInstancesOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionCompatibilityManagedInstancesPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionStateEnumOutput{})
+	pulumi.RegisterOutputType(RuntimeVersionStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(UrlAllowMethodsItemOutput{})
 	pulumi.RegisterOutputType(UrlAllowMethodsItemPtrOutput{})
 	pulumi.RegisterOutputType(UrlAllowMethodsItemArrayOutput{})

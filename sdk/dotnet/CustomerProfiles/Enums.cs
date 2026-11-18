@@ -8,6 +8,114 @@ using Pulumi;
 namespace Pulumi.AwsNative.CustomerProfiles
 {
     /// <summary>
+    /// The action to filter with.
+    /// </summary>
+    [EnumType]
+    public readonly struct CalculatedAttributeDefinitionFilterDimensionType : IEquatable<CalculatedAttributeDefinitionFilterDimensionType>
+    {
+        private readonly string _value;
+
+        private CalculatedAttributeDefinitionFilterDimensionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CalculatedAttributeDefinitionFilterDimensionType Inclusive { get; } = new CalculatedAttributeDefinitionFilterDimensionType("INCLUSIVE");
+        public static CalculatedAttributeDefinitionFilterDimensionType Exclusive { get; } = new CalculatedAttributeDefinitionFilterDimensionType("EXCLUSIVE");
+        public static CalculatedAttributeDefinitionFilterDimensionType Contains { get; } = new CalculatedAttributeDefinitionFilterDimensionType("CONTAINS");
+        public static CalculatedAttributeDefinitionFilterDimensionType BeginsWith { get; } = new CalculatedAttributeDefinitionFilterDimensionType("BEGINS_WITH");
+        public static CalculatedAttributeDefinitionFilterDimensionType EndsWith { get; } = new CalculatedAttributeDefinitionFilterDimensionType("ENDS_WITH");
+        public static CalculatedAttributeDefinitionFilterDimensionType Before { get; } = new CalculatedAttributeDefinitionFilterDimensionType("BEFORE");
+        public static CalculatedAttributeDefinitionFilterDimensionType After { get; } = new CalculatedAttributeDefinitionFilterDimensionType("AFTER");
+        public static CalculatedAttributeDefinitionFilterDimensionType Between { get; } = new CalculatedAttributeDefinitionFilterDimensionType("BETWEEN");
+        public static CalculatedAttributeDefinitionFilterDimensionType NotBetween { get; } = new CalculatedAttributeDefinitionFilterDimensionType("NOT_BETWEEN");
+        public static CalculatedAttributeDefinitionFilterDimensionType On { get; } = new CalculatedAttributeDefinitionFilterDimensionType("ON");
+        public static CalculatedAttributeDefinitionFilterDimensionType GreaterThan { get; } = new CalculatedAttributeDefinitionFilterDimensionType("GREATER_THAN");
+        public static CalculatedAttributeDefinitionFilterDimensionType LessThan { get; } = new CalculatedAttributeDefinitionFilterDimensionType("LESS_THAN");
+        public static CalculatedAttributeDefinitionFilterDimensionType GreaterThanOrEqual { get; } = new CalculatedAttributeDefinitionFilterDimensionType("GREATER_THAN_OR_EQUAL");
+        public static CalculatedAttributeDefinitionFilterDimensionType LessThanOrEqual { get; } = new CalculatedAttributeDefinitionFilterDimensionType("LESS_THAN_OR_EQUAL");
+        public static CalculatedAttributeDefinitionFilterDimensionType Equal { get; } = new CalculatedAttributeDefinitionFilterDimensionType("EQUAL");
+
+        public static bool operator ==(CalculatedAttributeDefinitionFilterDimensionType left, CalculatedAttributeDefinitionFilterDimensionType right) => left.Equals(right);
+        public static bool operator !=(CalculatedAttributeDefinitionFilterDimensionType left, CalculatedAttributeDefinitionFilterDimensionType right) => !left.Equals(right);
+
+        public static explicit operator string(CalculatedAttributeDefinitionFilterDimensionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CalculatedAttributeDefinitionFilterDimensionType other && Equals(other);
+        public bool Equals(CalculatedAttributeDefinitionFilterDimensionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of logical relationship between the dimensions of the Filter group.
+    /// </summary>
+    [EnumType]
+    public readonly struct CalculatedAttributeDefinitionFilterGroupType : IEquatable<CalculatedAttributeDefinitionFilterGroupType>
+    {
+        private readonly string _value;
+
+        private CalculatedAttributeDefinitionFilterGroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CalculatedAttributeDefinitionFilterGroupType All { get; } = new CalculatedAttributeDefinitionFilterGroupType("ALL");
+        public static CalculatedAttributeDefinitionFilterGroupType Any { get; } = new CalculatedAttributeDefinitionFilterGroupType("ANY");
+        public static CalculatedAttributeDefinitionFilterGroupType None { get; } = new CalculatedAttributeDefinitionFilterGroupType("NONE");
+
+        public static bool operator ==(CalculatedAttributeDefinitionFilterGroupType left, CalculatedAttributeDefinitionFilterGroupType right) => left.Equals(right);
+        public static bool operator !=(CalculatedAttributeDefinitionFilterGroupType left, CalculatedAttributeDefinitionFilterGroupType right) => !left.Equals(right);
+
+        public static explicit operator string(CalculatedAttributeDefinitionFilterGroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CalculatedAttributeDefinitionFilterGroupType other && Equals(other);
+        public bool Equals(CalculatedAttributeDefinitionFilterGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Define whether to include or exclude objects for Calculated Attributed calculation that fit the filter groups criteria.
+    /// </summary>
+    [EnumType]
+    public readonly struct CalculatedAttributeDefinitionFilterInclude : IEquatable<CalculatedAttributeDefinitionFilterInclude>
+    {
+        private readonly string _value;
+
+        private CalculatedAttributeDefinitionFilterInclude(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CalculatedAttributeDefinitionFilterInclude All { get; } = new CalculatedAttributeDefinitionFilterInclude("ALL");
+        public static CalculatedAttributeDefinitionFilterInclude Any { get; } = new CalculatedAttributeDefinitionFilterInclude("ANY");
+        public static CalculatedAttributeDefinitionFilterInclude None { get; } = new CalculatedAttributeDefinitionFilterInclude("NONE");
+
+        public static bool operator ==(CalculatedAttributeDefinitionFilterInclude left, CalculatedAttributeDefinitionFilterInclude right) => left.Equals(right);
+        public static bool operator !=(CalculatedAttributeDefinitionFilterInclude left, CalculatedAttributeDefinitionFilterInclude right) => !left.Equals(right);
+
+        public static explicit operator string(CalculatedAttributeDefinitionFilterInclude value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CalculatedAttributeDefinitionFilterInclude other && Equals(other);
+        public bool Equals(CalculatedAttributeDefinitionFilterInclude other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The unit of time.
     /// </summary>
     [EnumType]

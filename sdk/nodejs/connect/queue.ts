@@ -92,7 +92,7 @@ export class Queue extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly queueArn: pulumi.Output<string>;
     /**
-     * The quick connects available to agents who are working the queue.
+     * The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
      */
     declare public readonly quickConnectArns: pulumi.Output<string[] | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface QueueArgs {
      */
     outboundEmailConfig?: pulumi.Input<inputs.connect.QueueOutboundEmailConfigArgs | undefined>;
     /**
-     * The quick connects available to agents who are working the queue.
+     * The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
      */
     quickConnectArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

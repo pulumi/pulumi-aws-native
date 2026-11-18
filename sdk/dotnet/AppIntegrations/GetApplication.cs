@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         public readonly Pulumi.AwsNative.AppIntegrations.ApplicationType? ApplicationType;
         /// <summary>
+        /// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+        /// </summary>
+        public readonly Outputs.ApplicationAuthConfig? AuthConfig;
+        /// <summary>
         /// The application description.
         /// </summary>
         public readonly string? Description;
@@ -99,6 +103,14 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// Indicates if the application is a service
         /// </summary>
         public readonly bool? IsService;
+        /// <summary>
+        /// The region in which the application was last modified.
+        /// </summary>
+        public readonly string? LastModifiedRegion;
+        /// <summary>
+        /// The time when the application was last modified.
+        /// </summary>
+        public readonly string? LastModifiedTime;
         /// <summary>
         /// The name of the application.
         /// </summary>
@@ -126,6 +138,8 @@ namespace Pulumi.AwsNative.AppIntegrations
 
             Pulumi.AwsNative.AppIntegrations.ApplicationType? applicationType,
 
+            Outputs.ApplicationAuthConfig? authConfig,
+
             string? description,
 
             string? id,
@@ -135,6 +149,10 @@ namespace Pulumi.AwsNative.AppIntegrations
             int? initializationTimeout,
 
             bool? isService,
+
+            string? lastModifiedRegion,
+
+            string? lastModifiedTime,
 
             string? name,
 
@@ -148,11 +166,14 @@ namespace Pulumi.AwsNative.AppIntegrations
             ApplicationConfig = applicationConfig;
             ApplicationSourceConfig = applicationSourceConfig;
             ApplicationType = applicationType;
+            AuthConfig = authConfig;
             Description = description;
             Id = id;
             IframeConfig = iframeConfig;
             InitializationTimeout = initializationTimeout;
             IsService = isService;
+            LastModifiedRegion = lastModifiedRegion;
+            LastModifiedTime = lastModifiedTime;
             Name = name;
             Namespace = @namespace;
             Permissions = permissions;

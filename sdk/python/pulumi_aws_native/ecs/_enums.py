@@ -64,6 +64,7 @@ __all__ = [
     'TaskDefinitionContainerDefinitionVersionConsistency',
     'TaskDefinitionEfsVolumeConfigurationTransitEncryption',
     'TaskDefinitionPortMappingAppProtocol',
+    'TaskDefinitionTrustedExecutionConfigurationIsolationMode',
     'TaskSetAwsVpcConfigurationAssignPublicIp',
     'TaskSetLaunchType',
     'TaskSetScaleUnit',
@@ -646,6 +647,16 @@ class TaskDefinitionPortMappingAppProtocol(_builtins.str, Enum):
     HTTP = "http"
     HTTP2 = "http2"
     GRPC = "grpc"
+
+
+@pulumi.type_token("aws-native:ecs:TaskDefinitionTrustedExecutionConfigurationIsolationMode")
+class TaskDefinitionTrustedExecutionConfigurationIsolationMode(_builtins.str, Enum):
+    """
+    The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+    """
+    SHARED = "SHARED"
+    ISOLATED_SANDBOX = "ISOLATED_SANDBOX"
+    CONFIDENTIAL_SANDBOX = "CONFIDENTIAL_SANDBOX"
 
 
 @pulumi.type_token("aws-native:ecs:TaskSetAwsVpcConfigurationAssignPublicIp")

@@ -111,6 +111,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
         public static AnalysisTemplateFormat Sql { get; } = new AnalysisTemplateFormat("SQL");
         public static AnalysisTemplateFormat Pyspark10 { get; } = new AnalysisTemplateFormat("PYSPARK_1_0");
+        public static AnalysisTemplateFormat Pyspark20 { get; } = new AnalysisTemplateFormat("PYSPARK_2_0");
 
         public static bool operator ==(AnalysisTemplateFormat left, AnalysisTemplateFormat right) => left.Equals(right);
         public static bool operator !=(AnalysisTemplateFormat left, AnalysisTemplateFormat right) => !left.Equals(right);

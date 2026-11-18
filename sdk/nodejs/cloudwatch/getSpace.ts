@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS::CloudWatch::Space
+ * Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
  */
 export function getSpace(args: GetSpaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSpaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,27 +30,27 @@ export interface GetSpaceResult {
      */
     readonly arn?: string;
     /**
-     * The time the space was created.
+     * The timestamp when the space was created.
      */
     readonly createdAt?: string;
     /**
-     * The encryption configuration for the space.
+     * How the space's data at rest is encrypted. Always populated.
      */
     readonly encryptionConfiguration?: outputs.cloudwatch.SpaceEncryptionConfiguration;
     /**
-     * The name of the space.
+     * A name that identifies the space.
      */
     readonly name?: string;
     /**
-     * The AWS account that owns the space.
+     * AWS account ID that owns this space.
      */
     readonly ownerAccountId?: string;
     /**
-     * The AWS Region the space resides in.
+     * The region where this space was created.
      */
     readonly region?: string;
     /**
-     * The unique identifier of the space.
+     * The unique ID of the space.
      */
     readonly spaceId?: string;
     /**
@@ -62,12 +62,12 @@ export interface GetSpaceResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The time the space was last updated.
+     * The timestamp when the space was last updated.
      */
     readonly updatedAt?: string;
 }
 /**
- * Resource type definition for AWS::CloudWatch::Space
+ * Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
  */
 export function getSpaceOutput(args: GetSpaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

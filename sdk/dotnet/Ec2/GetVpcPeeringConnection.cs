@@ -68,18 +68,39 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ec2.VpcPeeringConnectionMultipathResilienceStatus? MultipathResilienceStatus;
+        /// <summary>
+        /// The VPC peering connection options corresponding to the accepter side of the connection.
+        /// </summary>
+        public readonly Outputs.VpcPeeringConnectionOptions? PeerVpcPeeringConnectionOptions;
+        /// <summary>
         /// Any tags assigned to the resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The VPC peering connection options corresponding to the requester side of the connection.
+        /// </summary>
+        public readonly Outputs.VpcPeeringConnectionOptions? VpcPeeringConnectionOptions;
 
         [OutputConstructor]
         private GetVpcPeeringConnectionResult(
             string? id,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            Pulumi.AwsNative.Ec2.VpcPeeringConnectionMultipathResilienceStatus? multipathResilienceStatus,
+
+            Outputs.VpcPeeringConnectionOptions? peerVpcPeeringConnectionOptions,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.VpcPeeringConnectionOptions? vpcPeeringConnectionOptions)
         {
             Id = id;
+            MultipathResilienceStatus = multipathResilienceStatus;
+            PeerVpcPeeringConnectionOptions = peerVpcPeeringConnectionOptions;
             Tags = tags;
+            VpcPeeringConnectionOptions = vpcPeeringConnectionOptions;
         }
     }
 }

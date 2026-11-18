@@ -448,6 +448,354 @@ func (o MonitorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the performance monitor.
+type PerformanceMonitorMonitorStatus string
+
+const (
+	PerformanceMonitorMonitorStatusPending  = PerformanceMonitorMonitorStatus("PENDING")
+	PerformanceMonitorMonitorStatusActive   = PerformanceMonitorMonitorStatus("ACTIVE")
+	PerformanceMonitorMonitorStatusInactive = PerformanceMonitorMonitorStatus("INACTIVE")
+	PerformanceMonitorMonitorStatusError    = PerformanceMonitorMonitorStatus("ERROR")
+	PerformanceMonitorMonitorStatusDeleting = PerformanceMonitorMonitorStatus("DELETING")
+)
+
+type PerformanceMonitorMonitorStatusOutput struct{ *pulumi.OutputState }
+
+func (PerformanceMonitorMonitorStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerformanceMonitorMonitorStatus)(nil)).Elem()
+}
+
+func (o PerformanceMonitorMonitorStatusOutput) ToPerformanceMonitorMonitorStatusOutput() PerformanceMonitorMonitorStatusOutput {
+	return o
+}
+
+func (o PerformanceMonitorMonitorStatusOutput) ToPerformanceMonitorMonitorStatusOutputWithContext(ctx context.Context) PerformanceMonitorMonitorStatusOutput {
+	return o
+}
+
+func (o PerformanceMonitorMonitorStatusOutput) ToPerformanceMonitorMonitorStatusPtrOutput() PerformanceMonitorMonitorStatusPtrOutput {
+	return o.ToPerformanceMonitorMonitorStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorMonitorStatusOutput) ToPerformanceMonitorMonitorStatusPtrOutputWithContext(ctx context.Context) PerformanceMonitorMonitorStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PerformanceMonitorMonitorStatus) *PerformanceMonitorMonitorStatus {
+		return &v
+	}).(PerformanceMonitorMonitorStatusPtrOutput)
+}
+
+func (o PerformanceMonitorMonitorStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorMonitorStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PerformanceMonitorMonitorStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PerformanceMonitorMonitorStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorMonitorStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PerformanceMonitorMonitorStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PerformanceMonitorMonitorStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PerformanceMonitorMonitorStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PerformanceMonitorMonitorStatus)(nil)).Elem()
+}
+
+func (o PerformanceMonitorMonitorStatusPtrOutput) ToPerformanceMonitorMonitorStatusPtrOutput() PerformanceMonitorMonitorStatusPtrOutput {
+	return o
+}
+
+func (o PerformanceMonitorMonitorStatusPtrOutput) ToPerformanceMonitorMonitorStatusPtrOutputWithContext(ctx context.Context) PerformanceMonitorMonitorStatusPtrOutput {
+	return o
+}
+
+func (o PerformanceMonitorMonitorStatusPtrOutput) Elem() PerformanceMonitorMonitorStatusOutput {
+	return o.ApplyT(func(v *PerformanceMonitorMonitorStatus) PerformanceMonitorMonitorStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PerformanceMonitorMonitorStatus
+		return ret
+	}).(PerformanceMonitorMonitorStatusOutput)
+}
+
+func (o PerformanceMonitorMonitorStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorMonitorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PerformanceMonitorMonitorStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the performance monitor.
+type PerformanceMonitorMonitorType string
+
+const (
+	PerformanceMonitorMonitorTypeVpc = PerformanceMonitorMonitorType("VPC")
+)
+
+type PerformanceMonitorMonitorTypeOutput struct{ *pulumi.OutputState }
+
+func (PerformanceMonitorMonitorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerformanceMonitorMonitorType)(nil)).Elem()
+}
+
+func (o PerformanceMonitorMonitorTypeOutput) ToPerformanceMonitorMonitorTypeOutput() PerformanceMonitorMonitorTypeOutput {
+	return o
+}
+
+func (o PerformanceMonitorMonitorTypeOutput) ToPerformanceMonitorMonitorTypeOutputWithContext(ctx context.Context) PerformanceMonitorMonitorTypeOutput {
+	return o
+}
+
+func (o PerformanceMonitorMonitorTypeOutput) ToPerformanceMonitorMonitorTypePtrOutput() PerformanceMonitorMonitorTypePtrOutput {
+	return o.ToPerformanceMonitorMonitorTypePtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorMonitorTypeOutput) ToPerformanceMonitorMonitorTypePtrOutputWithContext(ctx context.Context) PerformanceMonitorMonitorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PerformanceMonitorMonitorType) *PerformanceMonitorMonitorType {
+		return &v
+	}).(PerformanceMonitorMonitorTypePtrOutput)
+}
+
+func (o PerformanceMonitorMonitorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorMonitorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PerformanceMonitorMonitorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PerformanceMonitorMonitorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorMonitorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PerformanceMonitorMonitorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PerformanceMonitorMonitorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PerformanceMonitorMonitorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PerformanceMonitorMonitorType)(nil)).Elem()
+}
+
+func (o PerformanceMonitorMonitorTypePtrOutput) ToPerformanceMonitorMonitorTypePtrOutput() PerformanceMonitorMonitorTypePtrOutput {
+	return o
+}
+
+func (o PerformanceMonitorMonitorTypePtrOutput) ToPerformanceMonitorMonitorTypePtrOutputWithContext(ctx context.Context) PerformanceMonitorMonitorTypePtrOutput {
+	return o
+}
+
+func (o PerformanceMonitorMonitorTypePtrOutput) Elem() PerformanceMonitorMonitorTypeOutput {
+	return o.ApplyT(func(v *PerformanceMonitorMonitorType) PerformanceMonitorMonitorType {
+		if v != nil {
+			return *v
+		}
+		var ret PerformanceMonitorMonitorType
+		return ret
+	}).(PerformanceMonitorMonitorTypeOutput)
+}
+
+func (o PerformanceMonitorMonitorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorMonitorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PerformanceMonitorMonitorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the target.
+type PerformanceMonitorTargetType string
+
+const (
+	PerformanceMonitorTargetTypeAwsec2vpc = PerformanceMonitorTargetType("AWS::EC2::VPC")
+)
+
+func (PerformanceMonitorTargetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerformanceMonitorTargetType)(nil)).Elem()
+}
+
+func (e PerformanceMonitorTargetType) ToPerformanceMonitorTargetTypeOutput() PerformanceMonitorTargetTypeOutput {
+	return pulumi.ToOutput(e).(PerformanceMonitorTargetTypeOutput)
+}
+
+func (e PerformanceMonitorTargetType) ToPerformanceMonitorTargetTypeOutputWithContext(ctx context.Context) PerformanceMonitorTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PerformanceMonitorTargetTypeOutput)
+}
+
+func (e PerformanceMonitorTargetType) ToPerformanceMonitorTargetTypePtrOutput() PerformanceMonitorTargetTypePtrOutput {
+	return e.ToPerformanceMonitorTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (e PerformanceMonitorTargetType) ToPerformanceMonitorTargetTypePtrOutputWithContext(ctx context.Context) PerformanceMonitorTargetTypePtrOutput {
+	return PerformanceMonitorTargetType(e).ToPerformanceMonitorTargetTypeOutputWithContext(ctx).ToPerformanceMonitorTargetTypePtrOutputWithContext(ctx)
+}
+
+func (e PerformanceMonitorTargetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PerformanceMonitorTargetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PerformanceMonitorTargetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PerformanceMonitorTargetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PerformanceMonitorTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (PerformanceMonitorTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerformanceMonitorTargetType)(nil)).Elem()
+}
+
+func (o PerformanceMonitorTargetTypeOutput) ToPerformanceMonitorTargetTypeOutput() PerformanceMonitorTargetTypeOutput {
+	return o
+}
+
+func (o PerformanceMonitorTargetTypeOutput) ToPerformanceMonitorTargetTypeOutputWithContext(ctx context.Context) PerformanceMonitorTargetTypeOutput {
+	return o
+}
+
+func (o PerformanceMonitorTargetTypeOutput) ToPerformanceMonitorTargetTypePtrOutput() PerformanceMonitorTargetTypePtrOutput {
+	return o.ToPerformanceMonitorTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorTargetTypeOutput) ToPerformanceMonitorTargetTypePtrOutputWithContext(ctx context.Context) PerformanceMonitorTargetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PerformanceMonitorTargetType) *PerformanceMonitorTargetType {
+		return &v
+	}).(PerformanceMonitorTargetTypePtrOutput)
+}
+
+func (o PerformanceMonitorTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorTargetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PerformanceMonitorTargetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PerformanceMonitorTargetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorTargetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PerformanceMonitorTargetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PerformanceMonitorTargetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PerformanceMonitorTargetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PerformanceMonitorTargetType)(nil)).Elem()
+}
+
+func (o PerformanceMonitorTargetTypePtrOutput) ToPerformanceMonitorTargetTypePtrOutput() PerformanceMonitorTargetTypePtrOutput {
+	return o
+}
+
+func (o PerformanceMonitorTargetTypePtrOutput) ToPerformanceMonitorTargetTypePtrOutputWithContext(ctx context.Context) PerformanceMonitorTargetTypePtrOutput {
+	return o
+}
+
+func (o PerformanceMonitorTargetTypePtrOutput) Elem() PerformanceMonitorTargetTypeOutput {
+	return o.ApplyT(func(v *PerformanceMonitorTargetType) PerformanceMonitorTargetType {
+		if v != nil {
+			return *v
+		}
+		var ret PerformanceMonitorTargetType
+		return ret
+	}).(PerformanceMonitorTargetTypeOutput)
+}
+
+func (o PerformanceMonitorTargetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PerformanceMonitorTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PerformanceMonitorTargetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PerformanceMonitorTargetTypeInput is an input type that accepts values of the PerformanceMonitorTargetType enum
+// A concrete instance of `PerformanceMonitorTargetTypeInput` can be one of the following:
+//
+//	PerformanceMonitorTargetTypeAwsec2vpc
+type PerformanceMonitorTargetTypeInput interface {
+	pulumi.Input
+
+	ToPerformanceMonitorTargetTypeOutput() PerformanceMonitorTargetTypeOutput
+	ToPerformanceMonitorTargetTypeOutputWithContext(context.Context) PerformanceMonitorTargetTypeOutput
+}
+
+var performanceMonitorTargetTypePtrType = reflect.TypeOf((**PerformanceMonitorTargetType)(nil)).Elem()
+
+type PerformanceMonitorTargetTypePtrInput interface {
+	pulumi.Input
+
+	ToPerformanceMonitorTargetTypePtrOutput() PerformanceMonitorTargetTypePtrOutput
+	ToPerformanceMonitorTargetTypePtrOutputWithContext(context.Context) PerformanceMonitorTargetTypePtrOutput
+}
+
+type performanceMonitorTargetTypePtr string
+
+func PerformanceMonitorTargetTypePtr(v string) PerformanceMonitorTargetTypePtrInput {
+	return (*performanceMonitorTargetTypePtr)(&v)
+}
+
+func (*performanceMonitorTargetTypePtr) ElementType() reflect.Type {
+	return performanceMonitorTargetTypePtrType
+}
+
+func (in *performanceMonitorTargetTypePtr) ToPerformanceMonitorTargetTypePtrOutput() PerformanceMonitorTargetTypePtrOutput {
+	return pulumi.ToOutput(in).(PerformanceMonitorTargetTypePtrOutput)
+}
+
+func (in *performanceMonitorTargetTypePtr) ToPerformanceMonitorTargetTypePtrOutputWithContext(ctx context.Context) PerformanceMonitorTargetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PerformanceMonitorTargetTypePtrOutput)
+}
+
 // The status of the scope.
 type ScopeStatus string
 
@@ -709,6 +1057,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalResourceTypePtrInput)(nil)).Elem(), MonitorLocalResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorRemoteResourceTypeInput)(nil)).Elem(), MonitorRemoteResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorRemoteResourceTypePtrInput)(nil)).Elem(), MonitorRemoteResourceType("AWS::EC2::VPC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PerformanceMonitorTargetTypeInput)(nil)).Elem(), PerformanceMonitorTargetType("AWS::EC2::VPC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PerformanceMonitorTargetTypePtrInput)(nil)).Elem(), PerformanceMonitorTargetType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetIdentifierTargetTypeInput)(nil)).Elem(), ScopeTargetIdentifierTargetType("ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetIdentifierTargetTypePtrInput)(nil)).Elem(), ScopeTargetIdentifierTargetType("ACCOUNT"))
 	pulumi.RegisterOutputType(MonitorLocalResourceTypeOutput{})
@@ -717,6 +1067,12 @@ func init() {
 	pulumi.RegisterOutputType(MonitorRemoteResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitorStatusOutput{})
 	pulumi.RegisterOutputType(MonitorStatusPtrOutput{})
+	pulumi.RegisterOutputType(PerformanceMonitorMonitorStatusOutput{})
+	pulumi.RegisterOutputType(PerformanceMonitorMonitorStatusPtrOutput{})
+	pulumi.RegisterOutputType(PerformanceMonitorMonitorTypeOutput{})
+	pulumi.RegisterOutputType(PerformanceMonitorMonitorTypePtrOutput{})
+	pulumi.RegisterOutputType(PerformanceMonitorTargetTypeOutput{})
+	pulumi.RegisterOutputType(PerformanceMonitorTargetTypePtrOutput{})
 	pulumi.RegisterOutputType(ScopeStatusOutput{})
 	pulumi.RegisterOutputType(ScopeStatusPtrOutput{})
 	pulumi.RegisterOutputType(ScopeTargetIdentifierTargetTypeOutput{})

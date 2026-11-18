@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// The number of IPv4 addresses to allocate per ENI for the resource gateway
         /// </summary>
         public readonly int? Ipv4AddressesPerEni;
+        public readonly Pulumi.AwsNative.VpcLattice.ResourceGatewayResourceConfigDnsResolution? ResourceConfigDnsResolution;
         /// <summary>
         /// The ID of one or more security groups to associate with the endpoint network interface.
         /// </summary>
@@ -92,6 +93,8 @@ namespace Pulumi.AwsNative.VpcLattice
 
             int? ipv4AddressesPerEni,
 
+            Pulumi.AwsNative.VpcLattice.ResourceGatewayResourceConfigDnsResolution? resourceConfigDnsResolution,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -99,6 +102,7 @@ namespace Pulumi.AwsNative.VpcLattice
             Arn = arn;
             Id = id;
             Ipv4AddressesPerEni = ipv4AddressesPerEni;
+            ResourceConfigDnsResolution = resourceConfigDnsResolution;
             SecurityGroupIds = securityGroupIds;
             Tags = tags;
         }

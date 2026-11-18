@@ -236,6 +236,120 @@ type MonitorTag struct {
 	Value string `pulumi:"value"`
 }
 
+type PerformanceMonitorTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// A target that is monitored by a performance monitor.
+type PerformanceMonitorTarget struct {
+	// The identifier of the target.
+	Identifier string `pulumi:"identifier"`
+	// The type of the target.
+	Type PerformanceMonitorTargetType `pulumi:"type"`
+}
+
+// PerformanceMonitorTargetInput is an input type that accepts PerformanceMonitorTargetArgs and PerformanceMonitorTargetOutput values.
+// You can construct a concrete instance of `PerformanceMonitorTargetInput` via:
+//
+//	PerformanceMonitorTargetArgs{...}
+type PerformanceMonitorTargetInput interface {
+	pulumi.Input
+
+	ToPerformanceMonitorTargetOutput() PerformanceMonitorTargetOutput
+	ToPerformanceMonitorTargetOutputWithContext(context.Context) PerformanceMonitorTargetOutput
+}
+
+// A target that is monitored by a performance monitor.
+type PerformanceMonitorTargetArgs struct {
+	// The identifier of the target.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	// The type of the target.
+	Type PerformanceMonitorTargetTypeInput `pulumi:"type"`
+}
+
+func (PerformanceMonitorTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerformanceMonitorTarget)(nil)).Elem()
+}
+
+func (i PerformanceMonitorTargetArgs) ToPerformanceMonitorTargetOutput() PerformanceMonitorTargetOutput {
+	return i.ToPerformanceMonitorTargetOutputWithContext(context.Background())
+}
+
+func (i PerformanceMonitorTargetArgs) ToPerformanceMonitorTargetOutputWithContext(ctx context.Context) PerformanceMonitorTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerformanceMonitorTargetOutput)
+}
+
+// PerformanceMonitorTargetArrayInput is an input type that accepts PerformanceMonitorTargetArray and PerformanceMonitorTargetArrayOutput values.
+// You can construct a concrete instance of `PerformanceMonitorTargetArrayInput` via:
+//
+//	PerformanceMonitorTargetArray{ PerformanceMonitorTargetArgs{...} }
+type PerformanceMonitorTargetArrayInput interface {
+	pulumi.Input
+
+	ToPerformanceMonitorTargetArrayOutput() PerformanceMonitorTargetArrayOutput
+	ToPerformanceMonitorTargetArrayOutputWithContext(context.Context) PerformanceMonitorTargetArrayOutput
+}
+
+type PerformanceMonitorTargetArray []PerformanceMonitorTargetInput
+
+func (PerformanceMonitorTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerformanceMonitorTarget)(nil)).Elem()
+}
+
+func (i PerformanceMonitorTargetArray) ToPerformanceMonitorTargetArrayOutput() PerformanceMonitorTargetArrayOutput {
+	return i.ToPerformanceMonitorTargetArrayOutputWithContext(context.Background())
+}
+
+func (i PerformanceMonitorTargetArray) ToPerformanceMonitorTargetArrayOutputWithContext(ctx context.Context) PerformanceMonitorTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerformanceMonitorTargetArrayOutput)
+}
+
+// A target that is monitored by a performance monitor.
+type PerformanceMonitorTargetOutput struct{ *pulumi.OutputState }
+
+func (PerformanceMonitorTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerformanceMonitorTarget)(nil)).Elem()
+}
+
+func (o PerformanceMonitorTargetOutput) ToPerformanceMonitorTargetOutput() PerformanceMonitorTargetOutput {
+	return o
+}
+
+func (o PerformanceMonitorTargetOutput) ToPerformanceMonitorTargetOutputWithContext(ctx context.Context) PerformanceMonitorTargetOutput {
+	return o
+}
+
+// The identifier of the target.
+func (o PerformanceMonitorTargetOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PerformanceMonitorTarget) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+// The type of the target.
+func (o PerformanceMonitorTargetOutput) Type() PerformanceMonitorTargetTypeOutput {
+	return o.ApplyT(func(v PerformanceMonitorTarget) PerformanceMonitorTargetType { return v.Type }).(PerformanceMonitorTargetTypeOutput)
+}
+
+type PerformanceMonitorTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (PerformanceMonitorTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerformanceMonitorTarget)(nil)).Elem()
+}
+
+func (o PerformanceMonitorTargetArrayOutput) ToPerformanceMonitorTargetArrayOutput() PerformanceMonitorTargetArrayOutput {
+	return o
+}
+
+func (o PerformanceMonitorTargetArrayOutput) ToPerformanceMonitorTargetArrayOutputWithContext(ctx context.Context) PerformanceMonitorTargetArrayOutput {
+	return o
+}
+
+func (o PerformanceMonitorTargetArrayOutput) Index(i pulumi.IntInput) PerformanceMonitorTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PerformanceMonitorTarget {
+		return vs[0].([]PerformanceMonitorTarget)[vs[1].(int)]
+	}).(PerformanceMonitorTargetOutput)
+}
+
 type ScopeTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -468,6 +582,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalResourceArrayInput)(nil)).Elem(), MonitorLocalResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorRemoteResourceInput)(nil)).Elem(), MonitorRemoteResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorRemoteResourceArrayInput)(nil)).Elem(), MonitorRemoteResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PerformanceMonitorTargetInput)(nil)).Elem(), PerformanceMonitorTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PerformanceMonitorTargetArrayInput)(nil)).Elem(), PerformanceMonitorTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetIdInput)(nil)).Elem(), ScopeTargetIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetIdentifierInput)(nil)).Elem(), ScopeTargetIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetResourceInput)(nil)).Elem(), ScopeTargetResourceArgs{})
@@ -476,6 +592,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitorLocalResourceArrayOutput{})
 	pulumi.RegisterOutputType(MonitorRemoteResourceOutput{})
 	pulumi.RegisterOutputType(MonitorRemoteResourceArrayOutput{})
+	pulumi.RegisterOutputType(PerformanceMonitorTargetOutput{})
+	pulumi.RegisterOutputType(PerformanceMonitorTargetArrayOutput{})
 	pulumi.RegisterOutputType(ScopeTargetIdOutput{})
 	pulumi.RegisterOutputType(ScopeTargetIdentifierOutput{})
 	pulumi.RegisterOutputType(ScopeTargetResourceOutput{})

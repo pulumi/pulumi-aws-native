@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("preEvaluationFilters")]
+        public Output<Outputs.RulePreEvaluationFilters?> PreEvaluationFilters { get; private set; } = null!;
+
         /// <summary>
         /// The publish status of the rule.
         ///  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
@@ -51,6 +54,9 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
+
+        [Output("ruleCapabilityTiers")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Connect.RuleCapabilityTiersItem>> RuleCapabilityTiers { get; private set; } = null!;
 
         /// <summary>
         /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
@@ -137,6 +143,9 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("preEvaluationFilters")]
+        public Input<Inputs.RulePreEvaluationFiltersArgs>? PreEvaluationFilters { get; set; }
 
         /// <summary>
         /// The publish status of the rule.

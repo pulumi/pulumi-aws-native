@@ -35,6 +35,10 @@ export interface GetAssociationResult {
      */
     readonly associationId?: string;
     /**
+     * Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+     */
+    readonly capabilities?: outputs.devopsagent.AssociationCapabilities;
+    /**
      * The configuration that directs how AgentSpace interacts with the given service
      */
     readonly configuration?: outputs.devopsagent.AssociationServiceConfiguration;

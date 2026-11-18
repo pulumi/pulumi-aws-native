@@ -27,6 +27,7 @@ class GameSessionQueueArgs:
                  custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
                  destinations: pulumi.Input[Optional[Sequence[pulumi.Input['GameSessionQueueDestinationArgs']]]] = None,
                  filter_configuration: pulumi.Input[Optional['GameSessionQueueFilterConfigurationArgs']] = None,
+                 log_configuration: pulumi.Input[Optional['GameSessionQueueLogConfigurationArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_target: pulumi.Input[Optional[_builtins.str]] = None,
                  player_latency_policies: pulumi.Input[Optional[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]] = None,
@@ -39,6 +40,7 @@ class GameSessionQueueArgs:
         :param pulumi.Input[_builtins.str] custom_event_data: Information that is added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDestinationArgs']]] destinations: A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
         :param pulumi.Input['GameSessionQueueFilterConfigurationArgs'] filter_configuration: A list of locations where a queue is allowed to place new game sessions.
+        :param pulumi.Input['GameSessionQueueLogConfigurationArgs'] log_configuration: A policy that determines where a game session queue's placement logs are delivered.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
         :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
         :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]] player_latency_policies: A set of policies that act as a sliding cap on player latency.
@@ -52,6 +54,8 @@ class GameSessionQueueArgs:
             pulumi.set(__self__, "destinations", destinations)
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_target is not None:
@@ -100,6 +104,18 @@ class GameSessionQueueArgs:
     @filter_configuration.setter
     def filter_configuration(self, value: pulumi.Input[Optional['GameSessionQueueFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> pulumi.Input[Optional['GameSessionQueueLogConfigurationArgs']]:
+        """
+        A policy that determines where a game session queue's placement logs are delivered.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: pulumi.Input[Optional['GameSessionQueueLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -183,6 +199,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
                  destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict', 'outputs.GameSessionQueueDestination']]]]] = None,
                  filter_configuration: pulumi.Input[Optional[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict', 'outputs.GameSessionQueueFilterConfiguration']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['GameSessionQueueLogConfigurationArgs', 'GameSessionQueueLogConfigurationArgsDict', 'outputs.GameSessionQueueLogConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_target: pulumi.Input[Optional[_builtins.str]] = None,
                  player_latency_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict', 'outputs.GameSessionQueuePlayerLatencyPolicy']]]]] = None,
@@ -282,6 +299,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_event_data: Information that is added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict', 'outputs.GameSessionQueueDestination']]]] destinations: A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
         :param pulumi.Input[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict', 'outputs.GameSessionQueueFilterConfiguration']] filter_configuration: A list of locations where a queue is allowed to place new game sessions.
+        :param pulumi.Input[Union['GameSessionQueueLogConfigurationArgs', 'GameSessionQueueLogConfigurationArgsDict', 'outputs.GameSessionQueueLogConfiguration']] log_configuration: A policy that determines where a game session queue's placement logs are delivered.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
         :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict', 'outputs.GameSessionQueuePlayerLatencyPolicy']]]] player_latency_policies: A set of policies that act as a sliding cap on player latency.
@@ -400,6 +418,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
                  destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueueDestinationArgs', 'GameSessionQueueDestinationArgsDict', 'outputs.GameSessionQueueDestination']]]]] = None,
                  filter_configuration: pulumi.Input[Optional[Union['GameSessionQueueFilterConfigurationArgs', 'GameSessionQueueFilterConfigurationArgsDict', 'outputs.GameSessionQueueFilterConfiguration']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['GameSessionQueueLogConfigurationArgs', 'GameSessionQueueLogConfigurationArgsDict', 'outputs.GameSessionQueueLogConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_target: pulumi.Input[Optional[_builtins.str]] = None,
                  player_latency_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict', 'outputs.GameSessionQueuePlayerLatencyPolicy']]]]] = None,
@@ -418,6 +437,7 @@ class GameSessionQueue(pulumi.CustomResource):
             __props__.__dict__["custom_event_data"] = custom_event_data
             __props__.__dict__["destinations"] = destinations
             __props__.__dict__["filter_configuration"] = filter_configuration
+            __props__.__dict__["log_configuration"] = log_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_target"] = notification_target
             __props__.__dict__["player_latency_policies"] = player_latency_policies
@@ -453,6 +473,7 @@ class GameSessionQueue(pulumi.CustomResource):
         __props__.__dict__["custom_event_data"] = None
         __props__.__dict__["destinations"] = None
         __props__.__dict__["filter_configuration"] = None
+        __props__.__dict__["log_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notification_target"] = None
         __props__.__dict__["player_latency_policies"] = None
@@ -498,6 +519,14 @@ class GameSessionQueue(pulumi.CustomResource):
         A list of locations where a queue is allowed to place new game sessions.
         """
         return pulumi.get(self, "filter_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> pulumi.Output[Optional['outputs.GameSessionQueueLogConfiguration']]:
+        """
+        A policy that determines where a game session queue's placement logs are delivered.
+        """
+        return pulumi.get(self, "log_configuration")
 
     @_builtins.property
     @pulumi.getter

@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Output<Pulumi.AwsNative.AppIntegrations.ApplicationType?> ApplicationType { get; private set; } = null!;
 
         /// <summary>
+        /// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+        /// </summary>
+        [Output("authConfig")]
+        public Output<Outputs.ApplicationAuthConfig?> AuthConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The id of the application.
         /// </summary>
         [Output("awsId")]
@@ -68,6 +74,18 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         [Output("isService")]
         public Output<bool?> IsService { get; private set; } = null!;
+
+        /// <summary>
+        /// The region in which the application was last modified.
+        /// </summary>
+        [Output("lastModifiedRegion")]
+        public Output<string> LastModifiedRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// The time when the application was last modified.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The name of the application.
@@ -155,6 +173,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         [Input("applicationType")]
         public Input<Pulumi.AwsNative.AppIntegrations.ApplicationType>? ApplicationType { get; set; }
+
+        /// <summary>
+        /// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+        /// </summary>
+        [Input("authConfig")]
+        public Input<Inputs.ApplicationAuthConfigArgs>? AuthConfig { get; set; }
 
         /// <summary>
         /// The application description.

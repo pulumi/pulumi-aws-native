@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessSource{}
 	case "aws-native:route53globalresolver:AccessToken":
 		r = &AccessToken{}
+	case "aws-native:route53globalresolver:CoreNetworkEndpoint":
+		r = &CoreNetworkEndpoint{}
 	case "aws-native:route53globalresolver:DnsView":
 		r = &DnsView{}
 	case "aws-native:route53globalresolver:FirewallDomainList":

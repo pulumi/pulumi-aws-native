@@ -1069,6 +1069,198 @@ func (o HealthCheckConfigPropertiesPtrOutput) Type() HealthCheckConfigProperties
 	}).(HealthCheckConfigPropertiesTypePtrOutput)
 }
 
+// <p>A complex type that contains the VPC, subnets, and security groups for a health check source. You can't change these values after you create the source.</p>
+type HealthCheckSourceConfig struct {
+	// <p>A complex type that contains one <code>SubnetConfiguration</code> element for each Availability Zone that Route 53 uses for private endpoint health checks in the Amazon Web Services Region. Each element must be in a different Availability Zone. Most Regions require three elements. Regions that have only two such Availability Zones, such as US West (N. California), require two elements. Route 53 creates network interfaces in each subnet and sends health check requests from all of them.</p>
+	SubnetConfigurationList []HealthCheckSourceSubnetConfiguration `pulumi:"subnetConfigurationList"`
+	// <p>The ID of the VPC that contains the subnets for the health check source. All subnets in <code>SubnetConfigurationList</code> must belong to this VPC.</p>
+	VpcId string `pulumi:"vpcId"`
+}
+
+// HealthCheckSourceConfigInput is an input type that accepts HealthCheckSourceConfigArgs and HealthCheckSourceConfigOutput values.
+// You can construct a concrete instance of `HealthCheckSourceConfigInput` via:
+//
+//	HealthCheckSourceConfigArgs{...}
+type HealthCheckSourceConfigInput interface {
+	pulumi.Input
+
+	ToHealthCheckSourceConfigOutput() HealthCheckSourceConfigOutput
+	ToHealthCheckSourceConfigOutputWithContext(context.Context) HealthCheckSourceConfigOutput
+}
+
+// <p>A complex type that contains the VPC, subnets, and security groups for a health check source. You can't change these values after you create the source.</p>
+type HealthCheckSourceConfigArgs struct {
+	// <p>A complex type that contains one <code>SubnetConfiguration</code> element for each Availability Zone that Route 53 uses for private endpoint health checks in the Amazon Web Services Region. Each element must be in a different Availability Zone. Most Regions require three elements. Regions that have only two such Availability Zones, such as US West (N. California), require two elements. Route 53 creates network interfaces in each subnet and sends health check requests from all of them.</p>
+	SubnetConfigurationList HealthCheckSourceSubnetConfigurationArrayInput `pulumi:"subnetConfigurationList"`
+	// <p>The ID of the VPC that contains the subnets for the health check source. All subnets in <code>SubnetConfigurationList</code> must belong to this VPC.</p>
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (HealthCheckSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckSourceConfig)(nil)).Elem()
+}
+
+func (i HealthCheckSourceConfigArgs) ToHealthCheckSourceConfigOutput() HealthCheckSourceConfigOutput {
+	return i.ToHealthCheckSourceConfigOutputWithContext(context.Background())
+}
+
+func (i HealthCheckSourceConfigArgs) ToHealthCheckSourceConfigOutputWithContext(ctx context.Context) HealthCheckSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckSourceConfigOutput)
+}
+
+// <p>A complex type that contains the VPC, subnets, and security groups for a health check source. You can't change these values after you create the source.</p>
+type HealthCheckSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckSourceConfig)(nil)).Elem()
+}
+
+func (o HealthCheckSourceConfigOutput) ToHealthCheckSourceConfigOutput() HealthCheckSourceConfigOutput {
+	return o
+}
+
+func (o HealthCheckSourceConfigOutput) ToHealthCheckSourceConfigOutputWithContext(ctx context.Context) HealthCheckSourceConfigOutput {
+	return o
+}
+
+// <p>A complex type that contains one <code>SubnetConfiguration</code> element for each Availability Zone that Route 53 uses for private endpoint health checks in the Amazon Web Services Region. Each element must be in a different Availability Zone. Most Regions require three elements. Regions that have only two such Availability Zones, such as US West (N. California), require two elements. Route 53 creates network interfaces in each subnet and sends health check requests from all of them.</p>
+func (o HealthCheckSourceConfigOutput) SubnetConfigurationList() HealthCheckSourceSubnetConfigurationArrayOutput {
+	return o.ApplyT(func(v HealthCheckSourceConfig) []HealthCheckSourceSubnetConfiguration {
+		return v.SubnetConfigurationList
+	}).(HealthCheckSourceSubnetConfigurationArrayOutput)
+}
+
+// <p>The ID of the VPC that contains the subnets for the health check source. All subnets in <code>SubnetConfigurationList</code> must belong to this VPC.</p>
+func (o HealthCheckSourceConfigOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckSourceConfig) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+// <p>A complex type that identifies one subnet for a health check source and the security groups that Route 53 associates with the network interfaces that it creates in that subnet.</p>
+type HealthCheckSourceSubnetConfiguration struct {
+	// <p>The ID of the Availability Zone that contains the subnet, for example <code>use1-az1</code>. Specify the Availability Zone ID, not the Availability Zone name. Each subnet in a health check source must be in a different Availability Zone.</p>
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	// <p>The IDs of one to ten security groups in the same VPC to associate with the network interfaces that Route 53 creates in this subnet. The security groups must allow outbound traffic to the endpoints that the health checks monitor.</p>
+	SecurityGroupIdList []string `pulumi:"securityGroupIdList"`
+	// <p>The ID of the subnet. The subnet must have free IP addresses for the network interfaces that Route 53 creates.</p>
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// HealthCheckSourceSubnetConfigurationInput is an input type that accepts HealthCheckSourceSubnetConfigurationArgs and HealthCheckSourceSubnetConfigurationOutput values.
+// You can construct a concrete instance of `HealthCheckSourceSubnetConfigurationInput` via:
+//
+//	HealthCheckSourceSubnetConfigurationArgs{...}
+type HealthCheckSourceSubnetConfigurationInput interface {
+	pulumi.Input
+
+	ToHealthCheckSourceSubnetConfigurationOutput() HealthCheckSourceSubnetConfigurationOutput
+	ToHealthCheckSourceSubnetConfigurationOutputWithContext(context.Context) HealthCheckSourceSubnetConfigurationOutput
+}
+
+// <p>A complex type that identifies one subnet for a health check source and the security groups that Route 53 associates with the network interfaces that it creates in that subnet.</p>
+type HealthCheckSourceSubnetConfigurationArgs struct {
+	// <p>The ID of the Availability Zone that contains the subnet, for example <code>use1-az1</code>. Specify the Availability Zone ID, not the Availability Zone name. Each subnet in a health check source must be in a different Availability Zone.</p>
+	AvailabilityZoneId pulumi.StringInput `pulumi:"availabilityZoneId"`
+	// <p>The IDs of one to ten security groups in the same VPC to associate with the network interfaces that Route 53 creates in this subnet. The security groups must allow outbound traffic to the endpoints that the health checks monitor.</p>
+	SecurityGroupIdList pulumi.StringArrayInput `pulumi:"securityGroupIdList"`
+	// <p>The ID of the subnet. The subnet must have free IP addresses for the network interfaces that Route 53 creates.</p>
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (HealthCheckSourceSubnetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckSourceSubnetConfiguration)(nil)).Elem()
+}
+
+func (i HealthCheckSourceSubnetConfigurationArgs) ToHealthCheckSourceSubnetConfigurationOutput() HealthCheckSourceSubnetConfigurationOutput {
+	return i.ToHealthCheckSourceSubnetConfigurationOutputWithContext(context.Background())
+}
+
+func (i HealthCheckSourceSubnetConfigurationArgs) ToHealthCheckSourceSubnetConfigurationOutputWithContext(ctx context.Context) HealthCheckSourceSubnetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckSourceSubnetConfigurationOutput)
+}
+
+// HealthCheckSourceSubnetConfigurationArrayInput is an input type that accepts HealthCheckSourceSubnetConfigurationArray and HealthCheckSourceSubnetConfigurationArrayOutput values.
+// You can construct a concrete instance of `HealthCheckSourceSubnetConfigurationArrayInput` via:
+//
+//	HealthCheckSourceSubnetConfigurationArray{ HealthCheckSourceSubnetConfigurationArgs{...} }
+type HealthCheckSourceSubnetConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToHealthCheckSourceSubnetConfigurationArrayOutput() HealthCheckSourceSubnetConfigurationArrayOutput
+	ToHealthCheckSourceSubnetConfigurationArrayOutputWithContext(context.Context) HealthCheckSourceSubnetConfigurationArrayOutput
+}
+
+type HealthCheckSourceSubnetConfigurationArray []HealthCheckSourceSubnetConfigurationInput
+
+func (HealthCheckSourceSubnetConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthCheckSourceSubnetConfiguration)(nil)).Elem()
+}
+
+func (i HealthCheckSourceSubnetConfigurationArray) ToHealthCheckSourceSubnetConfigurationArrayOutput() HealthCheckSourceSubnetConfigurationArrayOutput {
+	return i.ToHealthCheckSourceSubnetConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i HealthCheckSourceSubnetConfigurationArray) ToHealthCheckSourceSubnetConfigurationArrayOutputWithContext(ctx context.Context) HealthCheckSourceSubnetConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckSourceSubnetConfigurationArrayOutput)
+}
+
+// <p>A complex type that identifies one subnet for a health check source and the security groups that Route 53 associates with the network interfaces that it creates in that subnet.</p>
+type HealthCheckSourceSubnetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckSourceSubnetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckSourceSubnetConfiguration)(nil)).Elem()
+}
+
+func (o HealthCheckSourceSubnetConfigurationOutput) ToHealthCheckSourceSubnetConfigurationOutput() HealthCheckSourceSubnetConfigurationOutput {
+	return o
+}
+
+func (o HealthCheckSourceSubnetConfigurationOutput) ToHealthCheckSourceSubnetConfigurationOutputWithContext(ctx context.Context) HealthCheckSourceSubnetConfigurationOutput {
+	return o
+}
+
+// <p>The ID of the Availability Zone that contains the subnet, for example <code>use1-az1</code>. Specify the Availability Zone ID, not the Availability Zone name. Each subnet in a health check source must be in a different Availability Zone.</p>
+func (o HealthCheckSourceSubnetConfigurationOutput) AvailabilityZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckSourceSubnetConfiguration) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+}
+
+// <p>The IDs of one to ten security groups in the same VPC to associate with the network interfaces that Route 53 creates in this subnet. The security groups must allow outbound traffic to the endpoints that the health checks monitor.</p>
+func (o HealthCheckSourceSubnetConfigurationOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HealthCheckSourceSubnetConfiguration) []string { return v.SecurityGroupIdList }).(pulumi.StringArrayOutput)
+}
+
+// <p>The ID of the subnet. The subnet must have free IP addresses for the network interfaces that Route 53 creates.</p>
+func (o HealthCheckSourceSubnetConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckSourceSubnetConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type HealthCheckSourceSubnetConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckSourceSubnetConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthCheckSourceSubnetConfiguration)(nil)).Elem()
+}
+
+func (o HealthCheckSourceSubnetConfigurationArrayOutput) ToHealthCheckSourceSubnetConfigurationArrayOutput() HealthCheckSourceSubnetConfigurationArrayOutput {
+	return o
+}
+
+func (o HealthCheckSourceSubnetConfigurationArrayOutput) ToHealthCheckSourceSubnetConfigurationArrayOutputWithContext(ctx context.Context) HealthCheckSourceSubnetConfigurationArrayOutput {
+	return o
+}
+
+func (o HealthCheckSourceSubnetConfigurationArrayOutput) Index(i pulumi.IntInput) HealthCheckSourceSubnetConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthCheckSourceSubnetConfiguration {
+		return vs[0].([]HealthCheckSourceSubnetConfiguration)[vs[1].(int)]
+	}).(HealthCheckSourceSubnetConfigurationOutput)
+}
+
+// A key-value pair to associate with a resource.
+type HealthCheckSourceTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type HealthCheckTag struct {
 	// The key name of the tag.
@@ -2142,6 +2334,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckAlarmIdentifierInput)(nil)).Elem(), HealthCheckAlarmIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckAlarmIdentifierPtrInput)(nil)).Elem(), HealthCheckAlarmIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInput)(nil)).Elem(), HealthCheckConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckSourceConfigInput)(nil)).Elem(), HealthCheckSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckSourceSubnetConfigurationInput)(nil)).Elem(), HealthCheckSourceSubnetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckSourceSubnetConfigurationArrayInput)(nil)).Elem(), HealthCheckSourceSubnetConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigInput)(nil)).Elem(), HostedZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigPtrInput)(nil)).Elem(), HostedZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneFeaturesInput)(nil)).Elem(), HostedZoneFeaturesArgs{})
@@ -2162,6 +2357,9 @@ func init() {
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(HealthCheckSourceConfigOutput{})
+	pulumi.RegisterOutputType(HealthCheckSourceSubnetConfigurationOutput{})
+	pulumi.RegisterOutputType(HealthCheckSourceSubnetConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneFeaturesOutput{})

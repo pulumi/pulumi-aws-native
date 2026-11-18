@@ -321,10 +321,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:GetRole", "iam:CreateServiceLinkedRole", "ec2:DescribeLaunchTemplates", "ec2:CreateLaunchTemplateVersion", "ec2:ModifyLaunchTemplate", "ssm:GetParameter", "imagebuilder:TagResource", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateDistributionConfiguration" ]
+      "permissions" : [ "iam:GetRole", "iam:CreateServiceLinkedRole", "ec2:DescribeLaunchTemplates", "ec2:CreateLaunchTemplateVersion", "ec2:ModifyLaunchTemplate", "ssm:GetParameter", "imagebuilder:TagResource", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateDistributionConfiguration", "ecr:DescribeRepositories" ]
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeLaunchTemplates", "ec2:CreateLaunchTemplateVersion", "ec2:ModifyLaunchTemplate", "ssm:GetParameter", "imagebuilder:GetDistributionConfiguration", "imagebuilder:UpdateDistributionConfiguration", "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
+      "permissions" : [ "ec2:DescribeLaunchTemplates", "ec2:CreateLaunchTemplateVersion", "ec2:ModifyLaunchTemplate", "ssm:GetParameter", "imagebuilder:GetDistributionConfiguration", "imagebuilder:UpdateDistributionConfiguration", "imagebuilder:TagResource", "imagebuilder:UntagResource", "ecr:DescribeRepositories" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetDistributionConfiguration" ]

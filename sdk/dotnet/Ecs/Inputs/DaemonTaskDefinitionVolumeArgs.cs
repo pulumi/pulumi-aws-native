@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("host")]
         public Input<Inputs.DaemonTaskDefinitionHostVolumePropertiesArgs>? Host { get; set; }
 
+        [Input("logDriverVolumeConfiguration")]
+        public Input<Inputs.DaemonTaskDefinitionLogDriverVolumeConfigurationArgs>? LogDriverVolumeConfiguration { get; set; }
+
         /// <summary>
         /// The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
         ///  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.

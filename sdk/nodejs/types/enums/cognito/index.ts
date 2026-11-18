@@ -76,6 +76,16 @@ export const UserPoolIssuerConfigurationType = {
 
 export type UserPoolIssuerConfigurationType = (typeof UserPoolIssuerConfigurationType)[keyof typeof UserPoolIssuerConfigurationType];
 
+export const UserPoolSessionConfigurationAttachmentUserSessionTracking = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether server-side user session tracking is enabled for the user pool. Requires the ESSENTIALS or PLUS feature plan.
+ */
+export type UserPoolSessionConfigurationAttachmentUserSessionTracking = (typeof UserPoolSessionConfigurationAttachmentUserSessionTracking)[keyof typeof UserPoolSessionConfigurationAttachmentUserSessionTracking];
+
 export const UserPoolTier = {
     Lite: "LITE",
     Essentials: "ESSENTIALS",

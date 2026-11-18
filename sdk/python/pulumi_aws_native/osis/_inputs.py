@@ -20,6 +20,8 @@ __all__ = [
     'PipelineBufferOptionsArgsDict',
     'PipelineEncryptionAtRestOptionsArgs',
     'PipelineEncryptionAtRestOptionsArgsDict',
+    'PipelineEndpointVpcOptionsArgs',
+    'PipelineEndpointVpcOptionsArgsDict',
     'PipelineLogPublishingOptionsArgs',
     'PipelineLogPublishingOptionsArgsDict',
     'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs',
@@ -96,6 +98,60 @@ class PipelineEncryptionAtRestOptionsArgs:
     @kms_key_arn.setter
     def kms_key_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kms_key_arn", value)
+
+
+class PipelineEndpointVpcOptionsArgsDict(TypedDict):
+    """
+    Configuration settings for the VPC endpoint.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of security group IDs that control network access to the pipeline endpoint.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of subnet IDs where the pipeline endpoint network interfaces are created.
+    """
+
+@pulumi.input_type
+class PipelineEndpointVpcOptionsArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration settings for the VPC endpoint.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs that control network access to the pipeline endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs where the pipeline endpoint network interfaces are created.
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of security group IDs that control network access to the pipeline endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of subnet IDs where the pipeline endpoint network interfaces are created.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 class PipelineLogPublishingOptionsArgsDict(TypedDict):

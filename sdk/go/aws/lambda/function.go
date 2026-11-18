@@ -365,6 +365,7 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
+	AcceleratorConfig FunctionAcceleratorConfigPtrOutput `pulumi:"acceleratorConfig"`
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures FunctionArchitecturesItemArrayOutput `pulumi:"architectures"`
 	// The Amazon Resource Name (ARN) of the function.
@@ -428,7 +429,8 @@ type Function struct {
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
 	//  The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
 	//  For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
-	Runtime pulumi.StringPtrOutput `pulumi:"runtime"`
+	Runtime       pulumi.StringPtrOutput         `pulumi:"runtime"`
+	RuntimeConfig FunctionRuntimeConfigPtrOutput `pulumi:"runtimeConfig"`
 	// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 	RuntimeManagementConfig FunctionRuntimeManagementConfigPtrOutput `pulumi:"runtimeManagementConfig"`
 	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
@@ -505,6 +507,7 @@ func FunctionExists(ctx *pulumi.Context,
 }
 
 type functionArgs struct {
+	AcceleratorConfig *FunctionAcceleratorConfig `pulumi:"acceleratorConfig"`
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
 	// Configuration for the capacity provider that manages compute resources for Lambda functions.
@@ -566,7 +569,8 @@ type functionArgs struct {
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
 	//  The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
 	//  For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
-	Runtime *string `pulumi:"runtime"`
+	Runtime       *string                `pulumi:"runtime"`
+	RuntimeConfig *FunctionRuntimeConfig `pulumi:"runtimeConfig"`
 	// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 	RuntimeManagementConfig *FunctionRuntimeManagementConfig `pulumi:"runtimeManagementConfig"`
 	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
@@ -586,6 +590,7 @@ type functionArgs struct {
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
+	AcceleratorConfig FunctionAcceleratorConfigPtrInput
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures FunctionArchitecturesItemArrayInput
 	// Configuration for the capacity provider that manages compute resources for Lambda functions.
@@ -647,7 +652,8 @@ type FunctionArgs struct {
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
 	//  The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
 	//  For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
-	Runtime pulumi.StringPtrInput
+	Runtime       pulumi.StringPtrInput
+	RuntimeConfig FunctionRuntimeConfigPtrInput
 	// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 	RuntimeManagementConfig FunctionRuntimeManagementConfigPtrInput
 	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
@@ -700,6 +706,10 @@ func (o FunctionOutput) ToFunctionOutput() FunctionOutput {
 
 func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) FunctionOutput {
 	return o
+}
+
+func (o FunctionOutput) AcceleratorConfig() FunctionAcceleratorConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionAcceleratorConfigPtrOutput { return v.AcceleratorConfig }).(FunctionAcceleratorConfigPtrOutput)
 }
 
 // The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is “x86_64“.
@@ -847,6 +857,10 @@ func (o FunctionOutput) Role() pulumi.StringOutput {
 //	For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
 func (o FunctionOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionOutput) RuntimeConfig() FunctionRuntimeConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionRuntimeConfigPtrOutput { return v.RuntimeConfig }).(FunctionRuntimeConfigPtrOutput)
 }
 
 // Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).

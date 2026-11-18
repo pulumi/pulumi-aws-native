@@ -90,6 +90,9 @@
     }
   },
   "properties" : {
+    "CrlDpRevocationEnabled" : {
+      "type" : "boolean"
+    },
     "Enabled" : {
       "type" : "boolean"
     },

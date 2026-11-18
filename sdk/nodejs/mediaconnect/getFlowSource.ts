@@ -61,6 +61,8 @@ export interface GetFlowSourceResult {
      * The minimum latency in milliseconds.
      */
     readonly minLatency?: number;
+    readonly rtmpPushDetails?: outputs.mediaconnect.FlowSourceRtmpPushDetails;
+    readonly rtmpPushSettings?: outputs.mediaconnect.FlowSourceRtmpPushSettings;
     /**
      * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
      */

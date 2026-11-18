@@ -123,6 +123,7 @@ namespace Pulumi.AwsNative.MediaLive
         }
 
         public static CloudWatchAlarmTemplateTargetResourceType CloudfrontDistribution { get; } = new CloudWatchAlarmTemplateTargetResourceType("CLOUDFRONT_DISTRIBUTION");
+        public static CloudWatchAlarmTemplateTargetResourceType ElementalInferenceFeed { get; } = new CloudWatchAlarmTemplateTargetResourceType("ELEMENTAL_INFERENCE_FEED");
         public static CloudWatchAlarmTemplateTargetResourceType MedialiveMultiplex { get; } = new CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_MULTIPLEX");
         public static CloudWatchAlarmTemplateTargetResourceType MedialiveChannel { get; } = new CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_CHANNEL");
         public static CloudWatchAlarmTemplateTargetResourceType MedialiveInputDevice { get; } = new CloudWatchAlarmTemplateTargetResourceType("MEDIALIVE_INPUT_DEVICE");

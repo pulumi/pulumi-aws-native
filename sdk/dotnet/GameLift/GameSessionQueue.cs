@@ -167,6 +167,12 @@ namespace Pulumi.AwsNative.GameLift
         public Output<Outputs.GameSessionQueueFilterConfiguration?> FilterConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// A policy that determines where a game session queue's placement logs are delivered.
+        /// </summary>
+        [Output("logConfiguration")]
+        public Output<Outputs.GameSessionQueueLogConfiguration?> LogConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
         /// </summary>
         [Output("name")]
@@ -274,6 +280,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("filterConfiguration")]
         public Input<Inputs.GameSessionQueueFilterConfigurationArgs>? FilterConfiguration { get; set; }
+
+        /// <summary>
+        /// A policy that determines where a game session queue's placement logs are delivered.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.GameSessionQueueLogConfigurationArgs>? LogConfiguration { get; set; }
 
         /// <summary>
         /// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.

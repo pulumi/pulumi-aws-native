@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DeploymentArgs } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
+
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
@@ -53,6 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:networksecuritymanager:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             case "aws-native:networksecuritymanager:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "aws-native:networksecuritymanager:Rule":

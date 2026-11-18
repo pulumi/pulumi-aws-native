@@ -25,10 +25,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayPeeringAttachmentResult:
-    def __init__(__self__, creation_time=None, state=None, status=None, tags=None, transit_gateway_attachment_id=None):
+    def __init__(__self__, accepter_allow_multipath_resilience=None, creation_time=None, multipath_resilience_status=None, requester_allow_multipath_resilience=None, requester_multipath_resilience_mode=None, state=None, status=None, tags=None, transit_gateway_attachment_id=None):
+        if accepter_allow_multipath_resilience and not isinstance(accepter_allow_multipath_resilience, bool):
+            raise TypeError("Expected argument 'accepter_allow_multipath_resilience' to be a bool")
+        pulumi.set(__self__, "accepter_allow_multipath_resilience", accepter_allow_multipath_resilience)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if multipath_resilience_status and not isinstance(multipath_resilience_status, str):
+            raise TypeError("Expected argument 'multipath_resilience_status' to be a str")
+        pulumi.set(__self__, "multipath_resilience_status", multipath_resilience_status)
+        if requester_allow_multipath_resilience and not isinstance(requester_allow_multipath_resilience, bool):
+            raise TypeError("Expected argument 'requester_allow_multipath_resilience' to be a bool")
+        pulumi.set(__self__, "requester_allow_multipath_resilience", requester_allow_multipath_resilience)
+        if requester_multipath_resilience_mode and not isinstance(requester_multipath_resilience_mode, str):
+            raise TypeError("Expected argument 'requester_multipath_resilience_mode' to be a str")
+        pulumi.set(__self__, "requester_multipath_resilience_mode", requester_multipath_resilience_mode)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -43,12 +55,44 @@ class GetTransitGatewayPeeringAttachmentResult:
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @_builtins.property
+    @pulumi.getter(name="accepterAllowMultipathResilience")
+    def accepter_allow_multipath_resilience(self) -> Optional[_builtins.bool]:
+        """
+        Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+        """
+        return pulumi.get(self, "accepter_allow_multipath_resilience")
+
+    @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[_builtins.str]:
         """
         The time the transit gateway peering attachment was created.
         """
         return pulumi.get(self, "creation_time")
+
+    @_builtins.property
+    @pulumi.getter(name="multipathResilienceStatus")
+    def multipath_resilience_status(self) -> Optional[_builtins.str]:
+        """
+        The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)
+        """
+        return pulumi.get(self, "multipath_resilience_status")
+
+    @_builtins.property
+    @pulumi.getter(name="requesterAllowMultipathResilience")
+    def requester_allow_multipath_resilience(self) -> Optional[_builtins.bool]:
+        """
+        Whether the requester side of the peering attachment has opted in to MultipathResilience.
+        """
+        return pulumi.get(self, "requester_allow_multipath_resilience")
+
+    @_builtins.property
+    @pulumi.getter(name="requesterMultipathResilienceMode")
+    def requester_multipath_resilience_mode(self) -> Optional[_builtins.str]:
+        """
+        The MultipathResilience mode chosen by the requester side of the peering attachment.
+        """
+        return pulumi.get(self, "requester_multipath_resilience_mode")
 
     @_builtins.property
     @pulumi.getter
@@ -89,7 +133,11 @@ class AwaitableGetTransitGatewayPeeringAttachmentResult(GetTransitGatewayPeering
         if False:
             yield self
         return GetTransitGatewayPeeringAttachmentResult(
+            accepter_allow_multipath_resilience=self.accepter_allow_multipath_resilience,
             creation_time=self.creation_time,
+            multipath_resilience_status=self.multipath_resilience_status,
+            requester_allow_multipath_resilience=self.requester_allow_multipath_resilience,
+            requester_multipath_resilience_mode=self.requester_multipath_resilience_mode,
             state=self.state,
             status=self.status,
             tags=self.tags,
@@ -109,7 +157,11 @@ def get_transit_gateway_peering_attachment(transit_gateway_attachment_id: Option
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayPeeringAttachment', __args__, opts=opts, typ=GetTransitGatewayPeeringAttachmentResult).value
 
     return AwaitableGetTransitGatewayPeeringAttachmentResult(
+        accepter_allow_multipath_resilience=pulumi.get(__ret__, 'accepter_allow_multipath_resilience'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
+        multipath_resilience_status=pulumi.get(__ret__, 'multipath_resilience_status'),
+        requester_allow_multipath_resilience=pulumi.get(__ret__, 'requester_allow_multipath_resilience'),
+        requester_multipath_resilience_mode=pulumi.get(__ret__, 'requester_multipath_resilience_mode'),
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -126,7 +178,11 @@ def get_transit_gateway_peering_attachment_output(transit_gateway_attachment_id:
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayPeeringAttachment', __args__, opts=opts, typ=GetTransitGatewayPeeringAttachmentResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayPeeringAttachmentResult(
+        accepter_allow_multipath_resilience=pulumi.get(__response__, 'accepter_allow_multipath_resilience'),
         creation_time=pulumi.get(__response__, 'creation_time'),
+        multipath_resilience_status=pulumi.get(__response__, 'multipath_resilience_status'),
+        requester_allow_multipath_resilience=pulumi.get(__response__, 'requester_allow_multipath_resilience'),
+        requester_multipath_resilience_mode=pulumi.get(__response__, 'requester_multipath_resilience_mode'),
         state=pulumi.get(__response__, 'state'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),

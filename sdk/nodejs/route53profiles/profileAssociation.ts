@@ -60,6 +60,10 @@ export class ProfileAssociation extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+     */
+    declare public readonly priority: pulumi.Output<number | undefined>;
+    /**
      * The ID of the  profile that you associated with the resource that is specified by ResourceId.
      */
     declare public readonly profileId: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class ProfileAssociation extends pulumi.CustomResource {
             }
             resourceInputs["arn"] = args?.arn;
             resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
             resourceInputs["profileId"] = args?.profileId;
             resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["tags"] = args?.tags;
@@ -99,6 +104,7 @@ export class ProfileAssociation extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["profileId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -122,6 +128,10 @@ export interface ProfileAssociationArgs {
      * The name of an association between a  Profile and a VPC.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+     */
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the  profile that you associated with the resource that is specified by ResourceId.
      */

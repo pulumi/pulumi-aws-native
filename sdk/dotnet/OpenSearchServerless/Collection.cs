@@ -155,10 +155,10 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas?> StandbyReplicas { get; private set; } = null!;
 
         /// <summary>
-        /// List of tags to be added to the resource
+        /// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
@@ -198,7 +198,6 @@ namespace Pulumi.AwsNative.OpenSearchServerless
                     "encryptionConfig",
                     "name",
                     "standbyReplicas",
-                    "tags[*]",
                     "type",
                 },
             };
@@ -260,14 +259,14 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Input<Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas>? StandbyReplicas { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// List of tags to be added to the resource
+        /// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

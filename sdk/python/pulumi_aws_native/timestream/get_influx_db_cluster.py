@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInfluxDbClusterResult:
-    def __init__(__self__, arn=None, db_instance_type=None, db_parameter_group_identifier=None, endpoint=None, engine_type=None, failover_mode=None, id=None, influx_auth_parameters_secret_arn=None, log_delivery_configuration=None, maintenance_schedule=None, next_maintenance_time=None, port=None, reader_endpoint=None, status=None, tags=None):
+    def __init__(__self__, arn=None, db_instance_type=None, db_parameter_group_identifier=None, effective_db_parameter_group_identifier=None, endpoint=None, engine_type=None, failover_mode=None, id=None, influx_auth_parameters_secret_arn=None, log_delivery_configuration=None, maintenance_schedule=None, member_count=None, member_mode_counts=None, next_maintenance_time=None, port=None, reader_endpoint=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetInfluxDbClusterResult:
         if db_parameter_group_identifier and not isinstance(db_parameter_group_identifier, str):
             raise TypeError("Expected argument 'db_parameter_group_identifier' to be a str")
         pulumi.set(__self__, "db_parameter_group_identifier", db_parameter_group_identifier)
+        if effective_db_parameter_group_identifier and not isinstance(effective_db_parameter_group_identifier, str):
+            raise TypeError("Expected argument 'effective_db_parameter_group_identifier' to be a str")
+        pulumi.set(__self__, "effective_db_parameter_group_identifier", effective_db_parameter_group_identifier)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -57,6 +60,12 @@ class GetInfluxDbClusterResult:
         if maintenance_schedule and not isinstance(maintenance_schedule, dict):
             raise TypeError("Expected argument 'maintenance_schedule' to be a dict")
         pulumi.set(__self__, "maintenance_schedule", maintenance_schedule)
+        if member_count and not isinstance(member_count, int):
+            raise TypeError("Expected argument 'member_count' to be a int")
+        pulumi.set(__self__, "member_count", member_count)
+        if member_mode_counts and not isinstance(member_mode_counts, list):
+            raise TypeError("Expected argument 'member_mode_counts' to be a list")
+        pulumi.set(__self__, "member_mode_counts", member_mode_counts)
         if next_maintenance_time and not isinstance(next_maintenance_time, str):
             raise TypeError("Expected argument 'next_maintenance_time' to be a str")
         pulumi.set(__self__, "next_maintenance_time", next_maintenance_time)
@@ -96,6 +105,14 @@ class GetInfluxDbClusterResult:
         The name of an existing InfluxDB parameter group.
         """
         return pulumi.get(self, "db_parameter_group_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveDbParameterGroupIdentifier")
+    def effective_db_parameter_group_identifier(self) -> Optional[_builtins.str]:
+        """
+        The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+        """
+        return pulumi.get(self, "effective_db_parameter_group_identifier")
 
     @_builtins.property
     @pulumi.getter
@@ -154,6 +171,22 @@ class GetInfluxDbClusterResult:
         return pulumi.get(self, "maintenance_schedule")
 
     @_builtins.property
+    @pulumi.getter(name="memberCount")
+    def member_count(self) -> Optional[_builtins.int]:
+        """
+        The number of DB instances that belong to the InfluxDB cluster.
+        """
+        return pulumi.get(self, "member_count")
+
+    @_builtins.property
+    @pulumi.getter(name="memberModeCounts")
+    def member_mode_counts(self) -> Optional[Sequence['outputs.InfluxDbClusterMemberModeCount']]:
+        """
+        DB cluster member counts grouped by instance mode.
+        """
+        return pulumi.get(self, "member_mode_counts")
+
+    @_builtins.property
     @pulumi.getter(name="nextMaintenanceTime")
     def next_maintenance_time(self) -> Optional[_builtins.str]:
         """
@@ -203,6 +236,7 @@ class AwaitableGetInfluxDbClusterResult(GetInfluxDbClusterResult):
             arn=self.arn,
             db_instance_type=self.db_instance_type,
             db_parameter_group_identifier=self.db_parameter_group_identifier,
+            effective_db_parameter_group_identifier=self.effective_db_parameter_group_identifier,
             endpoint=self.endpoint,
             engine_type=self.engine_type,
             failover_mode=self.failover_mode,
@@ -210,6 +244,8 @@ class AwaitableGetInfluxDbClusterResult(GetInfluxDbClusterResult):
             influx_auth_parameters_secret_arn=self.influx_auth_parameters_secret_arn,
             log_delivery_configuration=self.log_delivery_configuration,
             maintenance_schedule=self.maintenance_schedule,
+            member_count=self.member_count,
+            member_mode_counts=self.member_mode_counts,
             next_maintenance_time=self.next_maintenance_time,
             port=self.port,
             reader_endpoint=self.reader_endpoint,
@@ -233,6 +269,7 @@ def get_influx_db_cluster(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         db_instance_type=pulumi.get(__ret__, 'db_instance_type'),
         db_parameter_group_identifier=pulumi.get(__ret__, 'db_parameter_group_identifier'),
+        effective_db_parameter_group_identifier=pulumi.get(__ret__, 'effective_db_parameter_group_identifier'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         engine_type=pulumi.get(__ret__, 'engine_type'),
         failover_mode=pulumi.get(__ret__, 'failover_mode'),
@@ -240,6 +277,8 @@ def get_influx_db_cluster(id: Optional[_builtins.str] = None,
         influx_auth_parameters_secret_arn=pulumi.get(__ret__, 'influx_auth_parameters_secret_arn'),
         log_delivery_configuration=pulumi.get(__ret__, 'log_delivery_configuration'),
         maintenance_schedule=pulumi.get(__ret__, 'maintenance_schedule'),
+        member_count=pulumi.get(__ret__, 'member_count'),
+        member_mode_counts=pulumi.get(__ret__, 'member_mode_counts'),
         next_maintenance_time=pulumi.get(__ret__, 'next_maintenance_time'),
         port=pulumi.get(__ret__, 'port'),
         reader_endpoint=pulumi.get(__ret__, 'reader_endpoint'),
@@ -260,6 +299,7 @@ def get_influx_db_cluster_output(id: pulumi.Input[Optional[_builtins.str]] = Non
         arn=pulumi.get(__response__, 'arn'),
         db_instance_type=pulumi.get(__response__, 'db_instance_type'),
         db_parameter_group_identifier=pulumi.get(__response__, 'db_parameter_group_identifier'),
+        effective_db_parameter_group_identifier=pulumi.get(__response__, 'effective_db_parameter_group_identifier'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         engine_type=pulumi.get(__response__, 'engine_type'),
         failover_mode=pulumi.get(__response__, 'failover_mode'),
@@ -267,6 +307,8 @@ def get_influx_db_cluster_output(id: pulumi.Input[Optional[_builtins.str]] = Non
         influx_auth_parameters_secret_arn=pulumi.get(__response__, 'influx_auth_parameters_secret_arn'),
         log_delivery_configuration=pulumi.get(__response__, 'log_delivery_configuration'),
         maintenance_schedule=pulumi.get(__response__, 'maintenance_schedule'),
+        member_count=pulumi.get(__response__, 'member_count'),
+        member_mode_counts=pulumi.get(__response__, 'member_mode_counts'),
         next_maintenance_time=pulumi.get(__response__, 'next_maintenance_time'),
         port=pulumi.get(__response__, 'port'),
         reader_endpoint=pulumi.get(__response__, 'reader_endpoint'),

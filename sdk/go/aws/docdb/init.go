@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:docdb:DbClusterParameterGroup":
 		r = &DbClusterParameterGroup{}
+	case "aws-native:docdb:DbInstance":
+		r = &DbInstance{}
 	case "aws-native:docdb:DbSubnetGroup":
 		r = &DbSubnetGroup{}
 	case "aws-native:docdb:EventSubscription":

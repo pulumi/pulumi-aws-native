@@ -194,7 +194,7 @@ namespace Pulumi.AwsNative.VpcLattice
     }
 
     /// <summary>
-    /// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+    /// The protocol the resource configuration accepts. SINGLE and GROUP resource configurations support TCP. CIDR resource configurations support TCP and TCP_UDP; use TCP_UDP to carry UDP traffic such as DNS on port 53.
     /// </summary>
     [EnumType]
     public readonly struct ResourceConfigurationProtocolType : IEquatable<ResourceConfigurationProtocolType>
@@ -207,6 +207,7 @@ namespace Pulumi.AwsNative.VpcLattice
         }
 
         public static ResourceConfigurationProtocolType Tcp { get; } = new ResourceConfigurationProtocolType("TCP");
+        public static ResourceConfigurationProtocolType TcpUdp { get; } = new ResourceConfigurationProtocolType("TCP_UDP");
 
         public static bool operator ==(ResourceConfigurationProtocolType left, ResourceConfigurationProtocolType right) => left.Equals(right);
         public static bool operator !=(ResourceConfigurationProtocolType left, ResourceConfigurationProtocolType right) => !left.Equals(right);

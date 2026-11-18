@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? ContactFlowArn;
         /// <summary>
+        /// The contact hooks for the task template.
+        /// </summary>
+        public readonly Outputs.ContactHooksProperties? ContactHooks;
+        /// <summary>
         /// The default values for fields when a task is created by referencing this template.
         /// </summary>
         public readonly ImmutableArray<Outputs.TaskTemplateDefaultFieldValue> Defaults;
@@ -122,6 +126,8 @@ namespace Pulumi.AwsNative.Connect
 
             string? contactFlowArn,
 
+            Outputs.ContactHooksProperties? contactHooks,
+
             ImmutableArray<Outputs.TaskTemplateDefaultFieldValue> defaults,
 
             string? description,
@@ -142,6 +148,7 @@ namespace Pulumi.AwsNative.Connect
             ClientToken = clientToken;
             Constraints = constraints;
             ContactFlowArn = contactFlowArn;
+            ContactHooks = contactHooks;
             Defaults = defaults;
             Description = description;
             Fields = fields;

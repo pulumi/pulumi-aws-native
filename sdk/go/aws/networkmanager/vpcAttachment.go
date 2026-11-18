@@ -33,6 +33,12 @@ type VpcAttachment struct {
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
 	// Errors from the last modification of the attachment.
 	LastModificationErrors pulumi.StringArrayOutput `pulumi:"lastModificationErrors"`
+	// The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+	NatGatewayRules VpcAttachmentNatRuleArrayOutput `pulumi:"natGatewayRules"`
+	// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+	NatGatewaySupport VpcAttachmentNatGatewaySupportPtrOutput `pulumi:"natGatewaySupport"`
+	// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On VPC attachments this is always true and is not configurable. Not available in AWS GovCloud (US).
+	NatSystemRouteSupport pulumi.BoolOutput `pulumi:"natSystemRouteSupport"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName pulumi.StringOutput `pulumi:"networkFunctionGroupName"`
 	// Vpc options of the attachment.
@@ -123,6 +129,10 @@ func VpcAttachmentExists(ctx *pulumi.Context,
 type vpcAttachmentArgs struct {
 	// The ID of a core network for the VPC attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`
+	// The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+	NatGatewayRules []VpcAttachmentNatRule `pulumi:"natGatewayRules"`
+	// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+	NatGatewaySupport *VpcAttachmentNatGatewaySupport `pulumi:"natGatewaySupport"`
 	// Vpc options of the attachment.
 	Options *VpcAttachmentVpcOptions `pulumi:"options"`
 	// Routing policy label
@@ -139,6 +149,10 @@ type vpcAttachmentArgs struct {
 type VpcAttachmentArgs struct {
 	// The ID of a core network for the VPC attachment.
 	CoreNetworkId pulumi.StringInput
+	// The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+	NatGatewayRules VpcAttachmentNatRuleArrayInput
+	// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+	NatGatewaySupport VpcAttachmentNatGatewaySupportPtrInput
 	// Vpc options of the attachment.
 	Options VpcAttachmentVpcOptionsPtrInput
 	// Routing policy label
@@ -226,6 +240,21 @@ func (o VpcAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 // Errors from the last modification of the attachment.
 func (o VpcAttachmentOutput) LastModificationErrors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringArrayOutput { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
+}
+
+// The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+func (o VpcAttachmentOutput) NatGatewayRules() VpcAttachmentNatRuleArrayOutput {
+	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentNatRuleArrayOutput { return v.NatGatewayRules }).(VpcAttachmentNatRuleArrayOutput)
+}
+
+// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+func (o VpcAttachmentOutput) NatGatewaySupport() VpcAttachmentNatGatewaySupportPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentNatGatewaySupportPtrOutput { return v.NatGatewaySupport }).(VpcAttachmentNatGatewaySupportPtrOutput)
+}
+
+// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On VPC attachments this is always true and is not configurable. Not available in AWS GovCloud (US).
+func (o VpcAttachmentOutput) NatSystemRouteSupport() pulumi.BoolOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.BoolOutput { return v.NatSystemRouteSupport }).(pulumi.BoolOutput)
 }
 
 // The name of the network function group attachment.

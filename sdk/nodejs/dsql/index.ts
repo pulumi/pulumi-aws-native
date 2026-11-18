@@ -16,6 +16,9 @@ export const getClusterOutput: typeof import("./getCluster").getClusterOutput = 
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 
+// Export enums:
+export * from "../types/enums/dsql";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

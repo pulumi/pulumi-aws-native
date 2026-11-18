@@ -71,6 +71,7 @@ export class AiPrompt extends pulumi.CustomResource {
      * The description of the AI Prompt.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly inferenceConfiguration: pulumi.Output<outputs.wisdom.AiPromptAiPromptInferenceConfiguration | undefined>;
     /**
      * The identifier of the model used for this AI Prompt. The following model Ids are supported:
      *
@@ -144,6 +145,7 @@ export class AiPrompt extends pulumi.CustomResource {
             resourceInputs["apiFormat"] = args?.apiFormat;
             resourceInputs["assistantId"] = args?.assistantId;
             resourceInputs["description"] = args?.description;
+            resourceInputs["inferenceConfiguration"] = args?.inferenceConfiguration;
             resourceInputs["modelId"] = args?.modelId;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
@@ -161,6 +163,7 @@ export class AiPrompt extends pulumi.CustomResource {
             resourceInputs["assistantArn"] = undefined /*out*/;
             resourceInputs["assistantId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["inferenceConfiguration"] = undefined /*out*/;
             resourceInputs["modelId"] = undefined /*out*/;
             resourceInputs["modifiedTimeSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -192,6 +195,7 @@ export interface AiPromptArgs {
      * The description of the AI Prompt.
      */
     description?: pulumi.Input<string | undefined>;
+    inferenceConfiguration?: pulumi.Input<inputs.wisdom.AiPromptAiPromptInferenceConfigurationArgs | undefined>;
     /**
      * The identifier of the model used for this AI Prompt. The following model Ids are supported:
      *

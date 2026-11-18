@@ -45,6 +45,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Permission{}
 	case "aws-native:lambda:ResourcePolicy":
 		r = &ResourcePolicy{}
+	case "aws-native:lambda:Runtime":
+		r = &Runtime{}
+	case "aws-native:lambda:RuntimeAlias":
+		r = &RuntimeAlias{}
+	case "aws-native:lambda:RuntimeVersion":
+		r = &RuntimeVersion{}
 	case "aws-native:lambda:Url":
 		r = &Url{}
 	case "aws-native:lambda:Version":

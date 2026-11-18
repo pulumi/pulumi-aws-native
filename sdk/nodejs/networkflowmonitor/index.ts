@@ -10,6 +10,11 @@ export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
 
+export { GetPerformanceMonitorArgs, GetPerformanceMonitorResult, GetPerformanceMonitorOutputArgs } from "./getPerformanceMonitor";
+export const getPerformanceMonitor: typeof import("./getPerformanceMonitor").getPerformanceMonitor = null as any;
+export const getPerformanceMonitorOutput: typeof import("./getPerformanceMonitor").getPerformanceMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getPerformanceMonitor","getPerformanceMonitorOutput"], () => require("./getPerformanceMonitor"));
+
 export { GetScopeArgs, GetScopeResult, GetScopeOutputArgs } from "./getScope";
 export const getScope: typeof import("./getScope").getScope = null as any;
 export const getScopeOutput: typeof import("./getScope").getScopeOutput = null as any;
@@ -19,6 +24,11 @@ export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+
+export { PerformanceMonitorArgs } from "./performanceMonitor";
+export type PerformanceMonitor = import("./performanceMonitor").PerformanceMonitor;
+export const PerformanceMonitor: typeof import("./performanceMonitor").PerformanceMonitor = null as any;
+utilities.lazyLoad(exports, ["PerformanceMonitor"], () => require("./performanceMonitor"));
 
 export { ScopeArgs } from "./scope";
 export type Scope = import("./scope").Scope;
@@ -35,6 +45,8 @@ const _module = {
         switch (type) {
             case "aws-native:networkflowmonitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "aws-native:networkflowmonitor:PerformanceMonitor":
+                return new PerformanceMonitor(name, <any>undefined, { urn })
             case "aws-native:networkflowmonitor:Scope":
                 return new Scope(name, <any>undefined, { urn })
             default:

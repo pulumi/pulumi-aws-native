@@ -2,6 +2,51 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CalculatedAttributeDefinitionFilterDimensionType = {
+    Inclusive: "INCLUSIVE",
+    Exclusive: "EXCLUSIVE",
+    Contains: "CONTAINS",
+    BeginsWith: "BEGINS_WITH",
+    EndsWith: "ENDS_WITH",
+    Before: "BEFORE",
+    After: "AFTER",
+    Between: "BETWEEN",
+    NotBetween: "NOT_BETWEEN",
+    On: "ON",
+    GreaterThan: "GREATER_THAN",
+    LessThan: "LESS_THAN",
+    GreaterThanOrEqual: "GREATER_THAN_OR_EQUAL",
+    LessThanOrEqual: "LESS_THAN_OR_EQUAL",
+    Equal: "EQUAL",
+} as const;
+
+/**
+ * The action to filter with.
+ */
+export type CalculatedAttributeDefinitionFilterDimensionType = (typeof CalculatedAttributeDefinitionFilterDimensionType)[keyof typeof CalculatedAttributeDefinitionFilterDimensionType];
+
+export const CalculatedAttributeDefinitionFilterGroupType = {
+    All: "ALL",
+    Any: "ANY",
+    None: "NONE",
+} as const;
+
+/**
+ * The type of logical relationship between the dimensions of the Filter group.
+ */
+export type CalculatedAttributeDefinitionFilterGroupType = (typeof CalculatedAttributeDefinitionFilterGroupType)[keyof typeof CalculatedAttributeDefinitionFilterGroupType];
+
+export const CalculatedAttributeDefinitionFilterInclude = {
+    All: "ALL",
+    Any: "ANY",
+    None: "NONE",
+} as const;
+
+/**
+ * Define whether to include or exclude objects for Calculated Attributed calculation that fit the filter groups criteria.
+ */
+export type CalculatedAttributeDefinitionFilterInclude = (typeof CalculatedAttributeDefinitionFilterInclude)[keyof typeof CalculatedAttributeDefinitionFilterInclude];
+
 export const CalculatedAttributeDefinitionRangeUnit = {
     Days: "DAYS",
 } as const;

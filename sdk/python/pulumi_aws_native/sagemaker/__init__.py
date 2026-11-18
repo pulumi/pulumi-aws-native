@@ -14,6 +14,7 @@ from .app import *
 from .app_image_config import *
 from .artifact import *
 from .cluster import *
+from .cluster_scheduler_config import *
 from .code_repository import *
 from .compute_quota import *
 from .context import *
@@ -25,6 +26,7 @@ from .endpoint import *
 from .endpoint_config import *
 from .experiment import *
 from .experiment_trial_component import *
+from .extension import *
 from .feature_group import *
 from .get_action import *
 from .get_ai_workload_config import *
@@ -33,6 +35,7 @@ from .get_app import *
 from .get_app_image_config import *
 from .get_artifact import *
 from .get_cluster import *
+from .get_cluster_scheduler_config import *
 from .get_code_repository import *
 from .get_compute_quota import *
 from .get_context import *
@@ -43,6 +46,7 @@ from .get_endpoint import *
 from .get_endpoint_config import *
 from .get_experiment import *
 from .get_experiment_trial_component import *
+from .get_extension import *
 from .get_feature_group import *
 from .get_hub import *
 from .get_human_task_ui import *

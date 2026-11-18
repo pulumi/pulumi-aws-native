@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
         [Input("eventBridgeParameters")]
         public Input<Inputs.ScheduleEventBridgeParametersArgs>? EventBridgeParameters { get; set; }
 
+        [Input("eventBridgePutEventsV2Parameters")]
+        public Input<Inputs.ScheduleEventBridgePutEventsV2ParametersArgs>? EventBridgePutEventsV2Parameters { get; set; }
+
+        [Input("eventBridgePutRawEventsParameters")]
+        public Input<Inputs.ScheduleEventBridgePutRawEventsParametersArgs>? EventBridgePutRawEventsParameters { get; set; }
+
         /// <summary>
         /// The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
         /// </summary>

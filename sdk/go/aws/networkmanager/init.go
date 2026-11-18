@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConnectPeer{}
 	case "aws-native:networkmanager:Connection":
 		r = &Connection{}
+	case "aws-native:networkmanager:ContextStore":
+		r = &ContextStore{}
+	case "aws-native:networkmanager:ContextStoreAssociation":
+		r = &ContextStoreAssociation{}
 	case "aws-native:networkmanager:CoreNetwork":
 		r = &CoreNetwork{}
 	case "aws-native:networkmanager:CoreNetworkPrefixListAssociation":

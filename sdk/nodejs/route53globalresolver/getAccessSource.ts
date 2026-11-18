@@ -24,6 +24,9 @@ export interface GetAccessSourceArgs {
 export interface GetAccessSourceResult {
     readonly accessSourceId?: string;
     readonly arn?: string;
+    /**
+     * The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+     */
     readonly cidr?: string;
     readonly createdAt?: string;
     readonly ipAddressType?: enums.route53globalresolver.AccessSourceIpAddressType;

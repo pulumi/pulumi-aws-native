@@ -8624,6 +8624,7 @@ const (
 	TopicRuleDestinationStatusEnabled    = TopicRuleDestinationStatus("ENABLED")
 	TopicRuleDestinationStatusInProgress = TopicRuleDestinationStatus("IN_PROGRESS")
 	TopicRuleDestinationStatusDisabled   = TopicRuleDestinationStatus("DISABLED")
+	TopicRuleDestinationStatusError      = TopicRuleDestinationStatus("ERROR")
 )
 
 func (TopicRuleDestinationStatus) ElementType() reflect.Type {
@@ -8751,6 +8752,7 @@ func (o TopicRuleDestinationStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 //	TopicRuleDestinationStatusEnabled
 //	TopicRuleDestinationStatusInProgress
 //	TopicRuleDestinationStatusDisabled
+//	TopicRuleDestinationStatusError
 type TopicRuleDestinationStatusInput interface {
 	pulumi.Input
 

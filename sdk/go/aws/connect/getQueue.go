@@ -51,7 +51,7 @@ type LookupQueueResult struct {
 	OutboundEmailConfig *QueueOutboundEmailConfig `pulumi:"outboundEmailConfig"`
 	// The Amazon Resource Name (ARN) for the queue.
 	QueueArn *string `pulumi:"queueArn"`
-	// The quick connects available to agents who are working the queue.
+	// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
 	QuickConnectArns []string `pulumi:"quickConnectArns"`
 	// The status of the queue.
 	Status *QueueStatus `pulumi:"status"`
@@ -144,7 +144,7 @@ func (o LookupQueueResultOutput) QueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.QueueArn }).(pulumi.StringPtrOutput)
 }
 
-// The quick connects available to agents who are working the queue.
+// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
 func (o LookupQueueResultOutput) QuickConnectArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupQueueResult) []string { return v.QuickConnectArns }).(pulumi.StringArrayOutput)
 }

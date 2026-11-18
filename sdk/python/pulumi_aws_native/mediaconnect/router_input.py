@@ -300,6 +300,7 @@ class RouterInput(pulumi.CustomResource):
             __props__.__dict__["maintenance_type"] = None
             __props__.__dict__["routed_outputs"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["stream_details"] = None
             __props__.__dict__["updated_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "regionName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -343,6 +344,7 @@ class RouterInput(pulumi.CustomResource):
         __props__.__dict__["routed_outputs"] = None
         __props__.__dict__["routing_scope"] = None
         __props__.__dict__["state"] = None
+        __props__.__dict__["stream_details"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tier"] = None
         __props__.__dict__["transit_encryption"] = None
@@ -489,6 +491,11 @@ class RouterInput(pulumi.CustomResource):
         The current state of the router input.
         """
         return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="streamDetails")
+    def stream_details(self) -> pulumi.Output[Union['outputs.RouterInputStreamDetails0Properties', 'outputs.RouterInputStreamDetails1Properties', 'outputs.RouterInputStreamDetails2Properties', 'outputs.RouterInputStreamDetails3Properties', 'outputs.RouterInputStreamDetails4Properties', 'outputs.RouterInputStreamDetails5Properties']]:
+        return pulumi.get(self, "stream_details")
 
     @_builtins.property
     @pulumi.getter

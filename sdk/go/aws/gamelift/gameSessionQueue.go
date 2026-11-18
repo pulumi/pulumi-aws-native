@@ -149,6 +149,8 @@ type GameSessionQueue struct {
 	Destinations GameSessionQueueDestinationArrayOutput `pulumi:"destinations"`
 	// A list of locations where a queue is allowed to place new game sessions.
 	FilterConfiguration GameSessionQueueFilterConfigurationPtrOutput `pulumi:"filterConfiguration"`
+	// A policy that determines where a game session queue's placement logs are delivered.
+	LogConfiguration GameSessionQueueLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An SNS topic ARN that is set up to receive game session placement notifications.
@@ -219,6 +221,8 @@ type gameSessionQueueArgs struct {
 	Destinations []GameSessionQueueDestination `pulumi:"destinations"`
 	// A list of locations where a queue is allowed to place new game sessions.
 	FilterConfiguration *GameSessionQueueFilterConfiguration `pulumi:"filterConfiguration"`
+	// A policy that determines where a game session queue's placement logs are delivered.
+	LogConfiguration *GameSessionQueueLogConfiguration `pulumi:"logConfiguration"`
 	// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
 	Name *string `pulumi:"name"`
 	// An SNS topic ARN that is set up to receive game session placement notifications.
@@ -241,6 +245,8 @@ type GameSessionQueueArgs struct {
 	Destinations GameSessionQueueDestinationArrayInput
 	// A list of locations where a queue is allowed to place new game sessions.
 	FilterConfiguration GameSessionQueueFilterConfigurationPtrInput
+	// A policy that determines where a game session queue's placement logs are delivered.
+	LogConfiguration GameSessionQueueLogConfigurationPtrInput
 	// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
 	Name pulumi.StringPtrInput
 	// An SNS topic ARN that is set up to receive game session placement notifications.
@@ -310,6 +316,11 @@ func (o GameSessionQueueOutput) Destinations() GameSessionQueueDestinationArrayO
 // A list of locations where a queue is allowed to place new game sessions.
 func (o GameSessionQueueOutput) FilterConfiguration() GameSessionQueueFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueFilterConfigurationPtrOutput { return v.FilterConfiguration }).(GameSessionQueueFilterConfigurationPtrOutput)
+}
+
+// A policy that determines where a game session queue's placement logs are delivered.
+func (o GameSessionQueueOutput) LogConfiguration() GameSessionQueueLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueLogConfigurationPtrOutput { return v.LogConfiguration }).(GameSessionQueueLogConfigurationPtrOutput)
 }
 
 // A descriptive label that is associated with game session queue. Queue names must be unique within each Region.

@@ -21,6 +21,180 @@ type BlueprintTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configuration for synchronizing assets from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing assets.
+type CatalogAssetsSyncConfiguration struct {
+	ManagedCrawlerDetails *CatalogManagedCrawlerDetails `pulumi:"managedCrawlerDetails"`
+	// How often the crawler synchronizes assets, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+	RefreshIntervalMinutes *int `pulumi:"refreshIntervalMinutes"`
+	// Whether asset synchronization is enabled.
+	Status CatalogAssetsSyncConfigurationStatus `pulumi:"status"`
+}
+
+// CatalogAssetsSyncConfigurationInput is an input type that accepts CatalogAssetsSyncConfigurationArgs and CatalogAssetsSyncConfigurationOutput values.
+// You can construct a concrete instance of `CatalogAssetsSyncConfigurationInput` via:
+//
+//	CatalogAssetsSyncConfigurationArgs{...}
+type CatalogAssetsSyncConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogAssetsSyncConfigurationOutput() CatalogAssetsSyncConfigurationOutput
+	ToCatalogAssetsSyncConfigurationOutputWithContext(context.Context) CatalogAssetsSyncConfigurationOutput
+}
+
+// Configuration for synchronizing assets from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing assets.
+type CatalogAssetsSyncConfigurationArgs struct {
+	ManagedCrawlerDetails CatalogManagedCrawlerDetailsPtrInput `pulumi:"managedCrawlerDetails"`
+	// How often the crawler synchronizes assets, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+	RefreshIntervalMinutes pulumi.IntPtrInput `pulumi:"refreshIntervalMinutes"`
+	// Whether asset synchronization is enabled.
+	Status CatalogAssetsSyncConfigurationStatusInput `pulumi:"status"`
+}
+
+func (CatalogAssetsSyncConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogAssetsSyncConfiguration)(nil)).Elem()
+}
+
+func (i CatalogAssetsSyncConfigurationArgs) ToCatalogAssetsSyncConfigurationOutput() CatalogAssetsSyncConfigurationOutput {
+	return i.ToCatalogAssetsSyncConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogAssetsSyncConfigurationArgs) ToCatalogAssetsSyncConfigurationOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogAssetsSyncConfigurationOutput)
+}
+
+func (i CatalogAssetsSyncConfigurationArgs) ToCatalogAssetsSyncConfigurationPtrOutput() CatalogAssetsSyncConfigurationPtrOutput {
+	return i.ToCatalogAssetsSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogAssetsSyncConfigurationArgs) ToCatalogAssetsSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogAssetsSyncConfigurationOutput).ToCatalogAssetsSyncConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogAssetsSyncConfigurationPtrInput is an input type that accepts CatalogAssetsSyncConfigurationArgs, CatalogAssetsSyncConfigurationPtr and CatalogAssetsSyncConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogAssetsSyncConfigurationPtrInput` via:
+//
+//	        CatalogAssetsSyncConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogAssetsSyncConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogAssetsSyncConfigurationPtrOutput() CatalogAssetsSyncConfigurationPtrOutput
+	ToCatalogAssetsSyncConfigurationPtrOutputWithContext(context.Context) CatalogAssetsSyncConfigurationPtrOutput
+}
+
+type catalogAssetsSyncConfigurationPtrType CatalogAssetsSyncConfigurationArgs
+
+func CatalogAssetsSyncConfigurationPtr(v *CatalogAssetsSyncConfigurationArgs) CatalogAssetsSyncConfigurationPtrInput {
+	return (*catalogAssetsSyncConfigurationPtrType)(v)
+}
+
+func (*catalogAssetsSyncConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogAssetsSyncConfiguration)(nil)).Elem()
+}
+
+func (i *catalogAssetsSyncConfigurationPtrType) ToCatalogAssetsSyncConfigurationPtrOutput() CatalogAssetsSyncConfigurationPtrOutput {
+	return i.ToCatalogAssetsSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogAssetsSyncConfigurationPtrType) ToCatalogAssetsSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogAssetsSyncConfigurationPtrOutput)
+}
+
+// Configuration for synchronizing assets from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing assets.
+type CatalogAssetsSyncConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogAssetsSyncConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogAssetsSyncConfiguration)(nil)).Elem()
+}
+
+func (o CatalogAssetsSyncConfigurationOutput) ToCatalogAssetsSyncConfigurationOutput() CatalogAssetsSyncConfigurationOutput {
+	return o
+}
+
+func (o CatalogAssetsSyncConfigurationOutput) ToCatalogAssetsSyncConfigurationOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationOutput {
+	return o
+}
+
+func (o CatalogAssetsSyncConfigurationOutput) ToCatalogAssetsSyncConfigurationPtrOutput() CatalogAssetsSyncConfigurationPtrOutput {
+	return o.ToCatalogAssetsSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogAssetsSyncConfigurationOutput) ToCatalogAssetsSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogAssetsSyncConfiguration) *CatalogAssetsSyncConfiguration {
+		return &v
+	}).(CatalogAssetsSyncConfigurationPtrOutput)
+}
+
+func (o CatalogAssetsSyncConfigurationOutput) ManagedCrawlerDetails() CatalogManagedCrawlerDetailsPtrOutput {
+	return o.ApplyT(func(v CatalogAssetsSyncConfiguration) *CatalogManagedCrawlerDetails { return v.ManagedCrawlerDetails }).(CatalogManagedCrawlerDetailsPtrOutput)
+}
+
+// How often the crawler synchronizes assets, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+func (o CatalogAssetsSyncConfigurationOutput) RefreshIntervalMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogAssetsSyncConfiguration) *int { return v.RefreshIntervalMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Whether asset synchronization is enabled.
+func (o CatalogAssetsSyncConfigurationOutput) Status() CatalogAssetsSyncConfigurationStatusOutput {
+	return o.ApplyT(func(v CatalogAssetsSyncConfiguration) CatalogAssetsSyncConfigurationStatus { return v.Status }).(CatalogAssetsSyncConfigurationStatusOutput)
+}
+
+type CatalogAssetsSyncConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogAssetsSyncConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogAssetsSyncConfiguration)(nil)).Elem()
+}
+
+func (o CatalogAssetsSyncConfigurationPtrOutput) ToCatalogAssetsSyncConfigurationPtrOutput() CatalogAssetsSyncConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogAssetsSyncConfigurationPtrOutput) ToCatalogAssetsSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogAssetsSyncConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogAssetsSyncConfigurationPtrOutput) Elem() CatalogAssetsSyncConfigurationOutput {
+	return o.ApplyT(func(v *CatalogAssetsSyncConfiguration) CatalogAssetsSyncConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogAssetsSyncConfiguration
+		return ret
+	}).(CatalogAssetsSyncConfigurationOutput)
+}
+
+func (o CatalogAssetsSyncConfigurationPtrOutput) ManagedCrawlerDetails() CatalogManagedCrawlerDetailsPtrOutput {
+	return o.ApplyT(func(v *CatalogAssetsSyncConfiguration) *CatalogManagedCrawlerDetails {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedCrawlerDetails
+	}).(CatalogManagedCrawlerDetailsPtrOutput)
+}
+
+// How often the crawler synchronizes assets, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+func (o CatalogAssetsSyncConfigurationPtrOutput) RefreshIntervalMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogAssetsSyncConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshIntervalMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether asset synchronization is enabled.
+func (o CatalogAssetsSyncConfigurationPtrOutput) Status() CatalogAssetsSyncConfigurationStatusPtrOutput {
+	return o.ApplyT(func(v *CatalogAssetsSyncConfiguration) *CatalogAssetsSyncConfigurationStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(CatalogAssetsSyncConfigurationStatusPtrOutput)
+}
+
 // Data lake access properties for the catalog.
 type CatalogDataLakeAccessProperties struct {
 	// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
@@ -436,12 +610,174 @@ func (o CatalogDataLakePrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Details about an error.
+type CatalogErrorDetail struct {
+	// The code associated with this error.
+	ErrorCode *string `pulumi:"errorCode"`
+	// A message describing the error.
+	ErrorMessage *string `pulumi:"errorMessage"`
+}
+
+// CatalogErrorDetailInput is an input type that accepts CatalogErrorDetailArgs and CatalogErrorDetailOutput values.
+// You can construct a concrete instance of `CatalogErrorDetailInput` via:
+//
+//	CatalogErrorDetailArgs{...}
+type CatalogErrorDetailInput interface {
+	pulumi.Input
+
+	ToCatalogErrorDetailOutput() CatalogErrorDetailOutput
+	ToCatalogErrorDetailOutputWithContext(context.Context) CatalogErrorDetailOutput
+}
+
+// Details about an error.
+type CatalogErrorDetailArgs struct {
+	// The code associated with this error.
+	ErrorCode pulumi.StringPtrInput `pulumi:"errorCode"`
+	// A message describing the error.
+	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
+}
+
+func (CatalogErrorDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogErrorDetail)(nil)).Elem()
+}
+
+func (i CatalogErrorDetailArgs) ToCatalogErrorDetailOutput() CatalogErrorDetailOutput {
+	return i.ToCatalogErrorDetailOutputWithContext(context.Background())
+}
+
+func (i CatalogErrorDetailArgs) ToCatalogErrorDetailOutputWithContext(ctx context.Context) CatalogErrorDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogErrorDetailOutput)
+}
+
+func (i CatalogErrorDetailArgs) ToCatalogErrorDetailPtrOutput() CatalogErrorDetailPtrOutput {
+	return i.ToCatalogErrorDetailPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogErrorDetailArgs) ToCatalogErrorDetailPtrOutputWithContext(ctx context.Context) CatalogErrorDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogErrorDetailOutput).ToCatalogErrorDetailPtrOutputWithContext(ctx)
+}
+
+// CatalogErrorDetailPtrInput is an input type that accepts CatalogErrorDetailArgs, CatalogErrorDetailPtr and CatalogErrorDetailPtrOutput values.
+// You can construct a concrete instance of `CatalogErrorDetailPtrInput` via:
+//
+//	        CatalogErrorDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogErrorDetailPtrInput interface {
+	pulumi.Input
+
+	ToCatalogErrorDetailPtrOutput() CatalogErrorDetailPtrOutput
+	ToCatalogErrorDetailPtrOutputWithContext(context.Context) CatalogErrorDetailPtrOutput
+}
+
+type catalogErrorDetailPtrType CatalogErrorDetailArgs
+
+func CatalogErrorDetailPtr(v *CatalogErrorDetailArgs) CatalogErrorDetailPtrInput {
+	return (*catalogErrorDetailPtrType)(v)
+}
+
+func (*catalogErrorDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogErrorDetail)(nil)).Elem()
+}
+
+func (i *catalogErrorDetailPtrType) ToCatalogErrorDetailPtrOutput() CatalogErrorDetailPtrOutput {
+	return i.ToCatalogErrorDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogErrorDetailPtrType) ToCatalogErrorDetailPtrOutputWithContext(ctx context.Context) CatalogErrorDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogErrorDetailPtrOutput)
+}
+
+// Details about an error.
+type CatalogErrorDetailOutput struct{ *pulumi.OutputState }
+
+func (CatalogErrorDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogErrorDetail)(nil)).Elem()
+}
+
+func (o CatalogErrorDetailOutput) ToCatalogErrorDetailOutput() CatalogErrorDetailOutput {
+	return o
+}
+
+func (o CatalogErrorDetailOutput) ToCatalogErrorDetailOutputWithContext(ctx context.Context) CatalogErrorDetailOutput {
+	return o
+}
+
+func (o CatalogErrorDetailOutput) ToCatalogErrorDetailPtrOutput() CatalogErrorDetailPtrOutput {
+	return o.ToCatalogErrorDetailPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogErrorDetailOutput) ToCatalogErrorDetailPtrOutputWithContext(ctx context.Context) CatalogErrorDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogErrorDetail) *CatalogErrorDetail {
+		return &v
+	}).(CatalogErrorDetailPtrOutput)
+}
+
+// The code associated with this error.
+func (o CatalogErrorDetailOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogErrorDetail) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
+}
+
+// A message describing the error.
+func (o CatalogErrorDetailOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogErrorDetail) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+type CatalogErrorDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogErrorDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogErrorDetail)(nil)).Elem()
+}
+
+func (o CatalogErrorDetailPtrOutput) ToCatalogErrorDetailPtrOutput() CatalogErrorDetailPtrOutput {
+	return o
+}
+
+func (o CatalogErrorDetailPtrOutput) ToCatalogErrorDetailPtrOutputWithContext(ctx context.Context) CatalogErrorDetailPtrOutput {
+	return o
+}
+
+func (o CatalogErrorDetailPtrOutput) Elem() CatalogErrorDetailOutput {
+	return o.ApplyT(func(v *CatalogErrorDetail) CatalogErrorDetail {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogErrorDetail
+		return ret
+	}).(CatalogErrorDetailOutput)
+}
+
+// The code associated with this error.
+func (o CatalogErrorDetailPtrOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogErrorDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message describing the error.
+func (o CatalogErrorDetailPtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogErrorDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
 // A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
 type CatalogFederatedCatalog struct {
 	// The name of the connection to an external data source.
 	ConnectionName *string `pulumi:"connectionName"`
+	// The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+	ConnectionType *string `pulumi:"connectionType"`
 	// A unique identifier for the federated catalog.
-	Identifier *string `pulumi:"identifier"`
+	Identifier        *string                   `pulumi:"identifier"`
+	SyncConfiguration *CatalogSyncConfiguration `pulumi:"syncConfiguration"`
 }
 
 // CatalogFederatedCatalogInput is an input type that accepts CatalogFederatedCatalogArgs and CatalogFederatedCatalogOutput values.
@@ -459,8 +795,11 @@ type CatalogFederatedCatalogInput interface {
 type CatalogFederatedCatalogArgs struct {
 	// The name of the connection to an external data source.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+	ConnectionType pulumi.StringPtrInput `pulumi:"connectionType"`
 	// A unique identifier for the federated catalog.
-	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+	Identifier        pulumi.StringPtrInput            `pulumi:"identifier"`
+	SyncConfiguration CatalogSyncConfigurationPtrInput `pulumi:"syncConfiguration"`
 }
 
 func (CatalogFederatedCatalogArgs) ElementType() reflect.Type {
@@ -546,9 +885,18 @@ func (o CatalogFederatedCatalogOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogFederatedCatalog) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
+// The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+func (o CatalogFederatedCatalogOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogFederatedCatalog) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
 // A unique identifier for the federated catalog.
 func (o CatalogFederatedCatalogOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogFederatedCatalog) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogFederatedCatalogOutput) SyncConfiguration() CatalogSyncConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogFederatedCatalog) *CatalogSyncConfiguration { return v.SyncConfiguration }).(CatalogSyncConfigurationPtrOutput)
 }
 
 type CatalogFederatedCatalogPtrOutput struct{ *pulumi.OutputState }
@@ -585,6 +933,16 @@ func (o CatalogFederatedCatalogPtrOutput) ConnectionName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+func (o CatalogFederatedCatalogPtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
 // A unique identifier for the federated catalog.
 func (o CatalogFederatedCatalogPtrOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogFederatedCatalog) *string {
@@ -593,6 +951,363 @@ func (o CatalogFederatedCatalogPtrOutput) Identifier() pulumi.StringPtrOutput {
 		}
 		return v.Identifier
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogFederatedCatalogPtrOutput) SyncConfiguration() CatalogSyncConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) *CatalogSyncConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SyncConfiguration
+	}).(CatalogSyncConfigurationPtrOutput)
+}
+
+// Configuration for synchronizing lineage from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing lineage.
+type CatalogLineageSyncConfiguration struct {
+	ManagedCrawlerDetails *CatalogManagedCrawlerDetails `pulumi:"managedCrawlerDetails"`
+	// How often the crawler synchronizes lineage, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+	RefreshIntervalMinutes *int `pulumi:"refreshIntervalMinutes"`
+	// Whether lineage synchronization is enabled.
+	Status CatalogLineageSyncConfigurationStatus `pulumi:"status"`
+}
+
+// CatalogLineageSyncConfigurationInput is an input type that accepts CatalogLineageSyncConfigurationArgs and CatalogLineageSyncConfigurationOutput values.
+// You can construct a concrete instance of `CatalogLineageSyncConfigurationInput` via:
+//
+//	CatalogLineageSyncConfigurationArgs{...}
+type CatalogLineageSyncConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogLineageSyncConfigurationOutput() CatalogLineageSyncConfigurationOutput
+	ToCatalogLineageSyncConfigurationOutputWithContext(context.Context) CatalogLineageSyncConfigurationOutput
+}
+
+// Configuration for synchronizing lineage from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing lineage.
+type CatalogLineageSyncConfigurationArgs struct {
+	ManagedCrawlerDetails CatalogManagedCrawlerDetailsPtrInput `pulumi:"managedCrawlerDetails"`
+	// How often the crawler synchronizes lineage, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+	RefreshIntervalMinutes pulumi.IntPtrInput `pulumi:"refreshIntervalMinutes"`
+	// Whether lineage synchronization is enabled.
+	Status CatalogLineageSyncConfigurationStatusInput `pulumi:"status"`
+}
+
+func (CatalogLineageSyncConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogLineageSyncConfiguration)(nil)).Elem()
+}
+
+func (i CatalogLineageSyncConfigurationArgs) ToCatalogLineageSyncConfigurationOutput() CatalogLineageSyncConfigurationOutput {
+	return i.ToCatalogLineageSyncConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogLineageSyncConfigurationArgs) ToCatalogLineageSyncConfigurationOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogLineageSyncConfigurationOutput)
+}
+
+func (i CatalogLineageSyncConfigurationArgs) ToCatalogLineageSyncConfigurationPtrOutput() CatalogLineageSyncConfigurationPtrOutput {
+	return i.ToCatalogLineageSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogLineageSyncConfigurationArgs) ToCatalogLineageSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogLineageSyncConfigurationOutput).ToCatalogLineageSyncConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogLineageSyncConfigurationPtrInput is an input type that accepts CatalogLineageSyncConfigurationArgs, CatalogLineageSyncConfigurationPtr and CatalogLineageSyncConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogLineageSyncConfigurationPtrInput` via:
+//
+//	        CatalogLineageSyncConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogLineageSyncConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogLineageSyncConfigurationPtrOutput() CatalogLineageSyncConfigurationPtrOutput
+	ToCatalogLineageSyncConfigurationPtrOutputWithContext(context.Context) CatalogLineageSyncConfigurationPtrOutput
+}
+
+type catalogLineageSyncConfigurationPtrType CatalogLineageSyncConfigurationArgs
+
+func CatalogLineageSyncConfigurationPtr(v *CatalogLineageSyncConfigurationArgs) CatalogLineageSyncConfigurationPtrInput {
+	return (*catalogLineageSyncConfigurationPtrType)(v)
+}
+
+func (*catalogLineageSyncConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogLineageSyncConfiguration)(nil)).Elem()
+}
+
+func (i *catalogLineageSyncConfigurationPtrType) ToCatalogLineageSyncConfigurationPtrOutput() CatalogLineageSyncConfigurationPtrOutput {
+	return i.ToCatalogLineageSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogLineageSyncConfigurationPtrType) ToCatalogLineageSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogLineageSyncConfigurationPtrOutput)
+}
+
+// Configuration for synchronizing lineage from the external data source. Omitting this property on an update leaves the stored configuration unchanged; set Status to DISABLED to stop synchronizing lineage.
+type CatalogLineageSyncConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogLineageSyncConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogLineageSyncConfiguration)(nil)).Elem()
+}
+
+func (o CatalogLineageSyncConfigurationOutput) ToCatalogLineageSyncConfigurationOutput() CatalogLineageSyncConfigurationOutput {
+	return o
+}
+
+func (o CatalogLineageSyncConfigurationOutput) ToCatalogLineageSyncConfigurationOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationOutput {
+	return o
+}
+
+func (o CatalogLineageSyncConfigurationOutput) ToCatalogLineageSyncConfigurationPtrOutput() CatalogLineageSyncConfigurationPtrOutput {
+	return o.ToCatalogLineageSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogLineageSyncConfigurationOutput) ToCatalogLineageSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogLineageSyncConfiguration) *CatalogLineageSyncConfiguration {
+		return &v
+	}).(CatalogLineageSyncConfigurationPtrOutput)
+}
+
+func (o CatalogLineageSyncConfigurationOutput) ManagedCrawlerDetails() CatalogManagedCrawlerDetailsPtrOutput {
+	return o.ApplyT(func(v CatalogLineageSyncConfiguration) *CatalogManagedCrawlerDetails { return v.ManagedCrawlerDetails }).(CatalogManagedCrawlerDetailsPtrOutput)
+}
+
+// How often the crawler synchronizes lineage, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+func (o CatalogLineageSyncConfigurationOutput) RefreshIntervalMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogLineageSyncConfiguration) *int { return v.RefreshIntervalMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Whether lineage synchronization is enabled.
+func (o CatalogLineageSyncConfigurationOutput) Status() CatalogLineageSyncConfigurationStatusOutput {
+	return o.ApplyT(func(v CatalogLineageSyncConfiguration) CatalogLineageSyncConfigurationStatus { return v.Status }).(CatalogLineageSyncConfigurationStatusOutput)
+}
+
+type CatalogLineageSyncConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogLineageSyncConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogLineageSyncConfiguration)(nil)).Elem()
+}
+
+func (o CatalogLineageSyncConfigurationPtrOutput) ToCatalogLineageSyncConfigurationPtrOutput() CatalogLineageSyncConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogLineageSyncConfigurationPtrOutput) ToCatalogLineageSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogLineageSyncConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogLineageSyncConfigurationPtrOutput) Elem() CatalogLineageSyncConfigurationOutput {
+	return o.ApplyT(func(v *CatalogLineageSyncConfiguration) CatalogLineageSyncConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogLineageSyncConfiguration
+		return ret
+	}).(CatalogLineageSyncConfigurationOutput)
+}
+
+func (o CatalogLineageSyncConfigurationPtrOutput) ManagedCrawlerDetails() CatalogManagedCrawlerDetailsPtrOutput {
+	return o.ApplyT(func(v *CatalogLineageSyncConfiguration) *CatalogManagedCrawlerDetails {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedCrawlerDetails
+	}).(CatalogManagedCrawlerDetailsPtrOutput)
+}
+
+// How often the crawler synchronizes lineage, in minutes. Glue enforces a service-side minimum that may be higher than the minimum accepted here.
+func (o CatalogLineageSyncConfigurationPtrOutput) RefreshIntervalMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogLineageSyncConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshIntervalMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether lineage synchronization is enabled.
+func (o CatalogLineageSyncConfigurationPtrOutput) Status() CatalogLineageSyncConfigurationStatusPtrOutput {
+	return o.ApplyT(func(v *CatalogLineageSyncConfiguration) *CatalogLineageSyncConfigurationStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(CatalogLineageSyncConfigurationStatusPtrOutput)
+}
+
+// The state of the crawler Glue manages on your behalf for a synchronization mode. Returned by the service; Glue rejects it as input.
+type CatalogManagedCrawlerDetails struct {
+	// The Amazon Resource Name (ARN) of the crawler.
+	CrawlerArn *string             `pulumi:"crawlerArn"`
+	Error      *CatalogErrorDetail `pulumi:"error"`
+	// The provisioning state of the crawler.
+	Status *CatalogManagedCrawlerDetailsStatus `pulumi:"status"`
+}
+
+// CatalogManagedCrawlerDetailsInput is an input type that accepts CatalogManagedCrawlerDetailsArgs and CatalogManagedCrawlerDetailsOutput values.
+// You can construct a concrete instance of `CatalogManagedCrawlerDetailsInput` via:
+//
+//	CatalogManagedCrawlerDetailsArgs{...}
+type CatalogManagedCrawlerDetailsInput interface {
+	pulumi.Input
+
+	ToCatalogManagedCrawlerDetailsOutput() CatalogManagedCrawlerDetailsOutput
+	ToCatalogManagedCrawlerDetailsOutputWithContext(context.Context) CatalogManagedCrawlerDetailsOutput
+}
+
+// The state of the crawler Glue manages on your behalf for a synchronization mode. Returned by the service; Glue rejects it as input.
+type CatalogManagedCrawlerDetailsArgs struct {
+	// The Amazon Resource Name (ARN) of the crawler.
+	CrawlerArn pulumi.StringPtrInput      `pulumi:"crawlerArn"`
+	Error      CatalogErrorDetailPtrInput `pulumi:"error"`
+	// The provisioning state of the crawler.
+	Status CatalogManagedCrawlerDetailsStatusPtrInput `pulumi:"status"`
+}
+
+func (CatalogManagedCrawlerDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogManagedCrawlerDetails)(nil)).Elem()
+}
+
+func (i CatalogManagedCrawlerDetailsArgs) ToCatalogManagedCrawlerDetailsOutput() CatalogManagedCrawlerDetailsOutput {
+	return i.ToCatalogManagedCrawlerDetailsOutputWithContext(context.Background())
+}
+
+func (i CatalogManagedCrawlerDetailsArgs) ToCatalogManagedCrawlerDetailsOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogManagedCrawlerDetailsOutput)
+}
+
+func (i CatalogManagedCrawlerDetailsArgs) ToCatalogManagedCrawlerDetailsPtrOutput() CatalogManagedCrawlerDetailsPtrOutput {
+	return i.ToCatalogManagedCrawlerDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogManagedCrawlerDetailsArgs) ToCatalogManagedCrawlerDetailsPtrOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogManagedCrawlerDetailsOutput).ToCatalogManagedCrawlerDetailsPtrOutputWithContext(ctx)
+}
+
+// CatalogManagedCrawlerDetailsPtrInput is an input type that accepts CatalogManagedCrawlerDetailsArgs, CatalogManagedCrawlerDetailsPtr and CatalogManagedCrawlerDetailsPtrOutput values.
+// You can construct a concrete instance of `CatalogManagedCrawlerDetailsPtrInput` via:
+//
+//	        CatalogManagedCrawlerDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogManagedCrawlerDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCatalogManagedCrawlerDetailsPtrOutput() CatalogManagedCrawlerDetailsPtrOutput
+	ToCatalogManagedCrawlerDetailsPtrOutputWithContext(context.Context) CatalogManagedCrawlerDetailsPtrOutput
+}
+
+type catalogManagedCrawlerDetailsPtrType CatalogManagedCrawlerDetailsArgs
+
+func CatalogManagedCrawlerDetailsPtr(v *CatalogManagedCrawlerDetailsArgs) CatalogManagedCrawlerDetailsPtrInput {
+	return (*catalogManagedCrawlerDetailsPtrType)(v)
+}
+
+func (*catalogManagedCrawlerDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogManagedCrawlerDetails)(nil)).Elem()
+}
+
+func (i *catalogManagedCrawlerDetailsPtrType) ToCatalogManagedCrawlerDetailsPtrOutput() CatalogManagedCrawlerDetailsPtrOutput {
+	return i.ToCatalogManagedCrawlerDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogManagedCrawlerDetailsPtrType) ToCatalogManagedCrawlerDetailsPtrOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogManagedCrawlerDetailsPtrOutput)
+}
+
+// The state of the crawler Glue manages on your behalf for a synchronization mode. Returned by the service; Glue rejects it as input.
+type CatalogManagedCrawlerDetailsOutput struct{ *pulumi.OutputState }
+
+func (CatalogManagedCrawlerDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogManagedCrawlerDetails)(nil)).Elem()
+}
+
+func (o CatalogManagedCrawlerDetailsOutput) ToCatalogManagedCrawlerDetailsOutput() CatalogManagedCrawlerDetailsOutput {
+	return o
+}
+
+func (o CatalogManagedCrawlerDetailsOutput) ToCatalogManagedCrawlerDetailsOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsOutput {
+	return o
+}
+
+func (o CatalogManagedCrawlerDetailsOutput) ToCatalogManagedCrawlerDetailsPtrOutput() CatalogManagedCrawlerDetailsPtrOutput {
+	return o.ToCatalogManagedCrawlerDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogManagedCrawlerDetailsOutput) ToCatalogManagedCrawlerDetailsPtrOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogManagedCrawlerDetails) *CatalogManagedCrawlerDetails {
+		return &v
+	}).(CatalogManagedCrawlerDetailsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the crawler.
+func (o CatalogManagedCrawlerDetailsOutput) CrawlerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogManagedCrawlerDetails) *string { return v.CrawlerArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogManagedCrawlerDetailsOutput) Error() CatalogErrorDetailPtrOutput {
+	return o.ApplyT(func(v CatalogManagedCrawlerDetails) *CatalogErrorDetail { return v.Error }).(CatalogErrorDetailPtrOutput)
+}
+
+// The provisioning state of the crawler.
+func (o CatalogManagedCrawlerDetailsOutput) Status() CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return o.ApplyT(func(v CatalogManagedCrawlerDetails) *CatalogManagedCrawlerDetailsStatus { return v.Status }).(CatalogManagedCrawlerDetailsStatusPtrOutput)
+}
+
+type CatalogManagedCrawlerDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogManagedCrawlerDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogManagedCrawlerDetails)(nil)).Elem()
+}
+
+func (o CatalogManagedCrawlerDetailsPtrOutput) ToCatalogManagedCrawlerDetailsPtrOutput() CatalogManagedCrawlerDetailsPtrOutput {
+	return o
+}
+
+func (o CatalogManagedCrawlerDetailsPtrOutput) ToCatalogManagedCrawlerDetailsPtrOutputWithContext(ctx context.Context) CatalogManagedCrawlerDetailsPtrOutput {
+	return o
+}
+
+func (o CatalogManagedCrawlerDetailsPtrOutput) Elem() CatalogManagedCrawlerDetailsOutput {
+	return o.ApplyT(func(v *CatalogManagedCrawlerDetails) CatalogManagedCrawlerDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogManagedCrawlerDetails
+		return ret
+	}).(CatalogManagedCrawlerDetailsOutput)
+}
+
+// The Amazon Resource Name (ARN) of the crawler.
+func (o CatalogManagedCrawlerDetailsPtrOutput) CrawlerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogManagedCrawlerDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogManagedCrawlerDetailsPtrOutput) Error() CatalogErrorDetailPtrOutput {
+	return o.ApplyT(func(v *CatalogManagedCrawlerDetails) *CatalogErrorDetail {
+		if v == nil {
+			return nil
+		}
+		return v.Error
+	}).(CatalogErrorDetailPtrOutput)
+}
+
+// The provisioning state of the crawler.
+func (o CatalogManagedCrawlerDetailsPtrOutput) Status() CatalogManagedCrawlerDetailsStatusPtrOutput {
+	return o.ApplyT(func(v *CatalogManagedCrawlerDetails) *CatalogManagedCrawlerDetailsStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(CatalogManagedCrawlerDetailsStatusPtrOutput)
 }
 
 // Permissions granted to a principal.
@@ -854,6 +1569,176 @@ func (o CatalogPropertiesPtrOutput) DataLakeAccessProperties() CatalogDataLakeAc
 		}
 		return v.DataLakeAccessProperties
 	}).(CatalogDataLakeAccessPropertiesPtrOutput)
+}
+
+// Configuration for synchronizing a federated catalog with its external data source. Removing this property does not disable synchronization: Glue keeps the stored configuration for anything omitted from an update. To stop synchronizing, set the Status of each mode to DISABLED.
+type CatalogSyncConfiguration struct {
+	AssetsSyncConfiguration  *CatalogAssetsSyncConfiguration  `pulumi:"assetsSyncConfiguration"`
+	LineageSyncConfiguration *CatalogLineageSyncConfiguration `pulumi:"lineageSyncConfiguration"`
+	// The IAM role, in the catalog owner's account, that the crawlers Glue manages on your behalf assume.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// CatalogSyncConfigurationInput is an input type that accepts CatalogSyncConfigurationArgs and CatalogSyncConfigurationOutput values.
+// You can construct a concrete instance of `CatalogSyncConfigurationInput` via:
+//
+//	CatalogSyncConfigurationArgs{...}
+type CatalogSyncConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogSyncConfigurationOutput() CatalogSyncConfigurationOutput
+	ToCatalogSyncConfigurationOutputWithContext(context.Context) CatalogSyncConfigurationOutput
+}
+
+// Configuration for synchronizing a federated catalog with its external data source. Removing this property does not disable synchronization: Glue keeps the stored configuration for anything omitted from an update. To stop synchronizing, set the Status of each mode to DISABLED.
+type CatalogSyncConfigurationArgs struct {
+	AssetsSyncConfiguration  CatalogAssetsSyncConfigurationPtrInput  `pulumi:"assetsSyncConfiguration"`
+	LineageSyncConfiguration CatalogLineageSyncConfigurationPtrInput `pulumi:"lineageSyncConfiguration"`
+	// The IAM role, in the catalog owner's account, that the crawlers Glue manages on your behalf assume.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (CatalogSyncConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogSyncConfiguration)(nil)).Elem()
+}
+
+func (i CatalogSyncConfigurationArgs) ToCatalogSyncConfigurationOutput() CatalogSyncConfigurationOutput {
+	return i.ToCatalogSyncConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogSyncConfigurationArgs) ToCatalogSyncConfigurationOutputWithContext(ctx context.Context) CatalogSyncConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogSyncConfigurationOutput)
+}
+
+func (i CatalogSyncConfigurationArgs) ToCatalogSyncConfigurationPtrOutput() CatalogSyncConfigurationPtrOutput {
+	return i.ToCatalogSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogSyncConfigurationArgs) ToCatalogSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogSyncConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogSyncConfigurationOutput).ToCatalogSyncConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogSyncConfigurationPtrInput is an input type that accepts CatalogSyncConfigurationArgs, CatalogSyncConfigurationPtr and CatalogSyncConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogSyncConfigurationPtrInput` via:
+//
+//	        CatalogSyncConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogSyncConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogSyncConfigurationPtrOutput() CatalogSyncConfigurationPtrOutput
+	ToCatalogSyncConfigurationPtrOutputWithContext(context.Context) CatalogSyncConfigurationPtrOutput
+}
+
+type catalogSyncConfigurationPtrType CatalogSyncConfigurationArgs
+
+func CatalogSyncConfigurationPtr(v *CatalogSyncConfigurationArgs) CatalogSyncConfigurationPtrInput {
+	return (*catalogSyncConfigurationPtrType)(v)
+}
+
+func (*catalogSyncConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogSyncConfiguration)(nil)).Elem()
+}
+
+func (i *catalogSyncConfigurationPtrType) ToCatalogSyncConfigurationPtrOutput() CatalogSyncConfigurationPtrOutput {
+	return i.ToCatalogSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogSyncConfigurationPtrType) ToCatalogSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogSyncConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogSyncConfigurationPtrOutput)
+}
+
+// Configuration for synchronizing a federated catalog with its external data source. Removing this property does not disable synchronization: Glue keeps the stored configuration for anything omitted from an update. To stop synchronizing, set the Status of each mode to DISABLED.
+type CatalogSyncConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogSyncConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogSyncConfiguration)(nil)).Elem()
+}
+
+func (o CatalogSyncConfigurationOutput) ToCatalogSyncConfigurationOutput() CatalogSyncConfigurationOutput {
+	return o
+}
+
+func (o CatalogSyncConfigurationOutput) ToCatalogSyncConfigurationOutputWithContext(ctx context.Context) CatalogSyncConfigurationOutput {
+	return o
+}
+
+func (o CatalogSyncConfigurationOutput) ToCatalogSyncConfigurationPtrOutput() CatalogSyncConfigurationPtrOutput {
+	return o.ToCatalogSyncConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogSyncConfigurationOutput) ToCatalogSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogSyncConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogSyncConfiguration) *CatalogSyncConfiguration {
+		return &v
+	}).(CatalogSyncConfigurationPtrOutput)
+}
+
+func (o CatalogSyncConfigurationOutput) AssetsSyncConfiguration() CatalogAssetsSyncConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogSyncConfiguration) *CatalogAssetsSyncConfiguration { return v.AssetsSyncConfiguration }).(CatalogAssetsSyncConfigurationPtrOutput)
+}
+
+func (o CatalogSyncConfigurationOutput) LineageSyncConfiguration() CatalogLineageSyncConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogSyncConfiguration) *CatalogLineageSyncConfiguration { return v.LineageSyncConfiguration }).(CatalogLineageSyncConfigurationPtrOutput)
+}
+
+// The IAM role, in the catalog owner's account, that the crawlers Glue manages on your behalf assume.
+func (o CatalogSyncConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogSyncConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type CatalogSyncConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogSyncConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogSyncConfiguration)(nil)).Elem()
+}
+
+func (o CatalogSyncConfigurationPtrOutput) ToCatalogSyncConfigurationPtrOutput() CatalogSyncConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogSyncConfigurationPtrOutput) ToCatalogSyncConfigurationPtrOutputWithContext(ctx context.Context) CatalogSyncConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogSyncConfigurationPtrOutput) Elem() CatalogSyncConfigurationOutput {
+	return o.ApplyT(func(v *CatalogSyncConfiguration) CatalogSyncConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogSyncConfiguration
+		return ret
+	}).(CatalogSyncConfigurationOutput)
+}
+
+func (o CatalogSyncConfigurationPtrOutput) AssetsSyncConfiguration() CatalogAssetsSyncConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogSyncConfiguration) *CatalogAssetsSyncConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AssetsSyncConfiguration
+	}).(CatalogAssetsSyncConfigurationPtrOutput)
+}
+
+func (o CatalogSyncConfigurationPtrOutput) LineageSyncConfiguration() CatalogLineageSyncConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogSyncConfiguration) *CatalogLineageSyncConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LineageSyncConfiguration
+	}).(CatalogLineageSyncConfigurationPtrOutput)
+}
+
+// The IAM role, in the catalog owner's account, that the crawlers Glue manages on your behalf assume.
+func (o CatalogSyncConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogSyncConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type CatalogTag struct {
@@ -21825,16 +22710,26 @@ func (o UserDefinedFunctionResourceUriArrayOutput) Index(i pulumi.IntInput) User
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAssetsSyncConfigurationInput)(nil)).Elem(), CatalogAssetsSyncConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAssetsSyncConfigurationPtrInput)(nil)).Elem(), CatalogAssetsSyncConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesPtrInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakePrincipalInput)(nil)).Elem(), CatalogDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakePrincipalPtrInput)(nil)).Elem(), CatalogDataLakePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogErrorDetailInput)(nil)).Elem(), CatalogErrorDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogErrorDetailPtrInput)(nil)).Elem(), CatalogErrorDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogFederatedCatalogInput)(nil)).Elem(), CatalogFederatedCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogFederatedCatalogPtrInput)(nil)).Elem(), CatalogFederatedCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogLineageSyncConfigurationInput)(nil)).Elem(), CatalogLineageSyncConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogLineageSyncConfigurationPtrInput)(nil)).Elem(), CatalogLineageSyncConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogManagedCrawlerDetailsInput)(nil)).Elem(), CatalogManagedCrawlerDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogManagedCrawlerDetailsPtrInput)(nil)).Elem(), CatalogManagedCrawlerDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsInput)(nil)).Elem(), CatalogPrincipalPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsArrayInput)(nil)).Elem(), CatalogPrincipalPermissionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPropertiesInput)(nil)).Elem(), CatalogPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPropertiesPtrInput)(nil)).Elem(), CatalogPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogSyncConfigurationInput)(nil)).Elem(), CatalogSyncConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogSyncConfigurationPtrInput)(nil)).Elem(), CatalogSyncConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTargetRedshiftCatalogInput)(nil)).Elem(), CatalogTargetRedshiftCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTargetRedshiftCatalogPtrInput)(nil)).Elem(), CatalogTargetRedshiftCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierCsvClassifierInput)(nil)).Elem(), ClassifierCsvClassifierArgs{})
@@ -22076,16 +22971,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileProfileConfigurationPtrInput)(nil)).Elem(), UsageProfileProfileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriInput)(nil)).Elem(), UserDefinedFunctionResourceUriArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriArrayInput)(nil)).Elem(), UserDefinedFunctionResourceUriArray{})
+	pulumi.RegisterOutputType(CatalogAssetsSyncConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogAssetsSyncConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakePrincipalOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(CatalogErrorDetailOutput{})
+	pulumi.RegisterOutputType(CatalogErrorDetailPtrOutput{})
 	pulumi.RegisterOutputType(CatalogFederatedCatalogOutput{})
 	pulumi.RegisterOutputType(CatalogFederatedCatalogPtrOutput{})
+	pulumi.RegisterOutputType(CatalogLineageSyncConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogLineageSyncConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogManagedCrawlerDetailsOutput{})
+	pulumi.RegisterOutputType(CatalogManagedCrawlerDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CatalogPrincipalPermissionsOutput{})
 	pulumi.RegisterOutputType(CatalogPrincipalPermissionsArrayOutput{})
 	pulumi.RegisterOutputType(CatalogPropertiesOutput{})
 	pulumi.RegisterOutputType(CatalogPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CatalogSyncConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogSyncConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTargetRedshiftCatalogOutput{})
 	pulumi.RegisterOutputType(CatalogTargetRedshiftCatalogPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierCsvClassifierOutput{})

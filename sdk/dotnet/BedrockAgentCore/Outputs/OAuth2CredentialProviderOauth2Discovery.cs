@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     {
         public readonly Outputs.OAuth2CredentialProviderOauth2AuthorizationServerMetadata? AuthorizationServerMetadata;
         /// <summary>
-        /// The discovery URL for the OAuth2 provider
+        /// OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL
         /// </summary>
         public readonly string? DiscoveryUrl;
 

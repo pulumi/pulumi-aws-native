@@ -1043,6 +1043,7 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         public static MicrovmImageCpuConfigurationArchitecture Arm64 { get; } = new MicrovmImageCpuConfigurationArchitecture("ARM_64");
+        public static MicrovmImageCpuConfigurationArchitecture X8664 { get; } = new MicrovmImageCpuConfigurationArchitecture("X86_64");
 
         public static bool operator ==(MicrovmImageCpuConfigurationArchitecture left, MicrovmImageCpuConfigurationArchitecture right) => left.Equals(right);
         public static bool operator !=(MicrovmImageCpuConfigurationArchitecture left, MicrovmImageCpuConfigurationArchitecture right) => !left.Equals(right);
@@ -1115,6 +1116,37 @@ namespace Pulumi.AwsNative.Lambda
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MicrovmImageState other && Equals(other);
         public bool Equals(MicrovmImageState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Elastic IP address type for the connector's ENIs. With None, Lambda doesn't assign an Elastic IP address. With ServiceManaged, Lambda allocates a service-managed Elastic IP address in your account for each ENI, associates it with that ENI, and releases it when it deletes the ENI. The connector's operator role must allow the ec2:AllocateAddress and ec2:AssociateAddress actions on Elastic IP addresses and on the connector's ENIs.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkConnectorElasticIpConfigurationType : IEquatable<NetworkConnectorElasticIpConfigurationType>
+    {
+        private readonly string _value;
+
+        private NetworkConnectorElasticIpConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkConnectorElasticIpConfigurationType None { get; } = new NetworkConnectorElasticIpConfigurationType("None");
+        public static NetworkConnectorElasticIpConfigurationType ServiceManaged { get; } = new NetworkConnectorElasticIpConfigurationType("ServiceManaged");
+
+        public static bool operator ==(NetworkConnectorElasticIpConfigurationType left, NetworkConnectorElasticIpConfigurationType right) => left.Equals(right);
+        public static bool operator !=(NetworkConnectorElasticIpConfigurationType left, NetworkConnectorElasticIpConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkConnectorElasticIpConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkConnectorElasticIpConfigurationType other && Equals(other);
+        public bool Equals(NetworkConnectorElasticIpConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1240,6 +1272,340 @@ namespace Pulumi.AwsNative.Lambda
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PermissionFunctionUrlAuthType other && Equals(other);
         public bool Equals(PermissionFunctionUrlAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuntimeAliasCompatibilityArchitecturesItem : IEquatable<RuntimeAliasCompatibilityArchitecturesItem>
+    {
+        private readonly string _value;
+
+        private RuntimeAliasCompatibilityArchitecturesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeAliasCompatibilityArchitecturesItem X8664 { get; } = new RuntimeAliasCompatibilityArchitecturesItem("x86_64");
+        public static RuntimeAliasCompatibilityArchitecturesItem Arm64 { get; } = new RuntimeAliasCompatibilityArchitecturesItem("arm64");
+
+        public static bool operator ==(RuntimeAliasCompatibilityArchitecturesItem left, RuntimeAliasCompatibilityArchitecturesItem right) => left.Equals(right);
+        public static bool operator !=(RuntimeAliasCompatibilityArchitecturesItem left, RuntimeAliasCompatibilityArchitecturesItem right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeAliasCompatibilityArchitecturesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeAliasCompatibilityArchitecturesItem other && Equals(other);
+        public bool Equals(RuntimeAliasCompatibilityArchitecturesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuntimeAliasCompatibilityIntegrationModelsItem : IEquatable<RuntimeAliasCompatibilityIntegrationModelsItem>
+    {
+        private readonly string _value;
+
+        private RuntimeAliasCompatibilityIntegrationModelsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeAliasCompatibilityIntegrationModelsItem RuntimeApi { get; } = new RuntimeAliasCompatibilityIntegrationModelsItem("RuntimeAPI");
+
+        public static bool operator ==(RuntimeAliasCompatibilityIntegrationModelsItem left, RuntimeAliasCompatibilityIntegrationModelsItem right) => left.Equals(right);
+        public static bool operator !=(RuntimeAliasCompatibilityIntegrationModelsItem left, RuntimeAliasCompatibilityIntegrationModelsItem right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeAliasCompatibilityIntegrationModelsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeAliasCompatibilityIntegrationModelsItem other && Equals(other);
+        public bool Equals(RuntimeAliasCompatibilityIntegrationModelsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuntimeAliasCompatibilityManagedInstances : IEquatable<RuntimeAliasCompatibilityManagedInstances>
+    {
+        private readonly string _value;
+
+        private RuntimeAliasCompatibilityManagedInstances(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeAliasCompatibilityManagedInstances Supported { get; } = new RuntimeAliasCompatibilityManagedInstances("Supported");
+        public static RuntimeAliasCompatibilityManagedInstances NotSupported { get; } = new RuntimeAliasCompatibilityManagedInstances("NotSupported");
+
+        public static bool operator ==(RuntimeAliasCompatibilityManagedInstances left, RuntimeAliasCompatibilityManagedInstances right) => left.Equals(right);
+        public static bool operator !=(RuntimeAliasCompatibilityManagedInstances left, RuntimeAliasCompatibilityManagedInstances right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeAliasCompatibilityManagedInstances value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeAliasCompatibilityManagedInstances other && Equals(other);
+        public bool Equals(RuntimeAliasCompatibilityManagedInstances other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The release state of the alias. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeAliasReleaseLifecycleReleaseState : IEquatable<RuntimeAliasReleaseLifecycleReleaseState>
+    {
+        private readonly string _value;
+
+        private RuntimeAliasReleaseLifecycleReleaseState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeAliasReleaseLifecycleReleaseState Preview { get; } = new RuntimeAliasReleaseLifecycleReleaseState("PREVIEW");
+        public static RuntimeAliasReleaseLifecycleReleaseState Ga { get; } = new RuntimeAliasReleaseLifecycleReleaseState("GA");
+        public static RuntimeAliasReleaseLifecycleReleaseState Deprecated { get; } = new RuntimeAliasReleaseLifecycleReleaseState("DEPRECATED");
+
+        public static bool operator ==(RuntimeAliasReleaseLifecycleReleaseState left, RuntimeAliasReleaseLifecycleReleaseState right) => left.Equals(right);
+        public static bool operator !=(RuntimeAliasReleaseLifecycleReleaseState left, RuntimeAliasReleaseLifecycleReleaseState right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeAliasReleaseLifecycleReleaseState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeAliasReleaseLifecycleReleaseState other && Equals(other);
+        public bool Equals(RuntimeAliasReleaseLifecycleReleaseState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle state of the runtime alias.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeAliasState : IEquatable<RuntimeAliasState>
+    {
+        private readonly string _value;
+
+        private RuntimeAliasState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeAliasState Creating { get; } = new RuntimeAliasState("CREATING");
+        public static RuntimeAliasState Active { get; } = new RuntimeAliasState("ACTIVE");
+        public static RuntimeAliasState Updating { get; } = new RuntimeAliasState("UPDATING");
+        public static RuntimeAliasState Deleting { get; } = new RuntimeAliasState("DELETING");
+        public static RuntimeAliasState PendingDeletion { get; } = new RuntimeAliasState("PENDING_DELETION");
+
+        public static bool operator ==(RuntimeAliasState left, RuntimeAliasState right) => left.Equals(right);
+        public static bool operator !=(RuntimeAliasState left, RuntimeAliasState right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeAliasState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeAliasState other && Equals(other);
+        public bool Equals(RuntimeAliasState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The release state of the runtime. DEPRECATED requires a DeprecationDate on or before today (UTC); PREVIEW and GA require a later DeprecationDate, or none. Reads report DEPRECATED once DeprecationDate is reached.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeReleaseLifecycleReleaseState : IEquatable<RuntimeReleaseLifecycleReleaseState>
+    {
+        private readonly string _value;
+
+        private RuntimeReleaseLifecycleReleaseState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeReleaseLifecycleReleaseState Preview { get; } = new RuntimeReleaseLifecycleReleaseState("PREVIEW");
+        public static RuntimeReleaseLifecycleReleaseState Ga { get; } = new RuntimeReleaseLifecycleReleaseState("GA");
+        public static RuntimeReleaseLifecycleReleaseState Deprecated { get; } = new RuntimeReleaseLifecycleReleaseState("DEPRECATED");
+
+        public static bool operator ==(RuntimeReleaseLifecycleReleaseState left, RuntimeReleaseLifecycleReleaseState right) => left.Equals(right);
+        public static bool operator !=(RuntimeReleaseLifecycleReleaseState left, RuntimeReleaseLifecycleReleaseState right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeReleaseLifecycleReleaseState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeReleaseLifecycleReleaseState other && Equals(other);
+        public bool Equals(RuntimeReleaseLifecycleReleaseState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle state of the runtime.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeState : IEquatable<RuntimeState>
+    {
+        private readonly string _value;
+
+        private RuntimeState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeState Active { get; } = new RuntimeState("ACTIVE");
+        public static RuntimeState PendingDeletion { get; } = new RuntimeState("PENDING_DELETION");
+        public static RuntimeState Deleting { get; } = new RuntimeState("DELETING");
+        public static RuntimeState Failed { get; } = new RuntimeState("FAILED");
+
+        public static bool operator ==(RuntimeState left, RuntimeState right) => left.Equals(right);
+        public static bool operator !=(RuntimeState left, RuntimeState right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeState other && Equals(other);
+        public bool Equals(RuntimeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuntimeVersionCompatibilityArchitecturesItem : IEquatable<RuntimeVersionCompatibilityArchitecturesItem>
+    {
+        private readonly string _value;
+
+        private RuntimeVersionCompatibilityArchitecturesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeVersionCompatibilityArchitecturesItem X8664 { get; } = new RuntimeVersionCompatibilityArchitecturesItem("x86_64");
+        public static RuntimeVersionCompatibilityArchitecturesItem Arm64 { get; } = new RuntimeVersionCompatibilityArchitecturesItem("arm64");
+
+        public static bool operator ==(RuntimeVersionCompatibilityArchitecturesItem left, RuntimeVersionCompatibilityArchitecturesItem right) => left.Equals(right);
+        public static bool operator !=(RuntimeVersionCompatibilityArchitecturesItem left, RuntimeVersionCompatibilityArchitecturesItem right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeVersionCompatibilityArchitecturesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeVersionCompatibilityArchitecturesItem other && Equals(other);
+        public bool Equals(RuntimeVersionCompatibilityArchitecturesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuntimeVersionCompatibilityIntegrationModelsItem : IEquatable<RuntimeVersionCompatibilityIntegrationModelsItem>
+    {
+        private readonly string _value;
+
+        private RuntimeVersionCompatibilityIntegrationModelsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeVersionCompatibilityIntegrationModelsItem RuntimeApi { get; } = new RuntimeVersionCompatibilityIntegrationModelsItem("RuntimeAPI");
+
+        public static bool operator ==(RuntimeVersionCompatibilityIntegrationModelsItem left, RuntimeVersionCompatibilityIntegrationModelsItem right) => left.Equals(right);
+        public static bool operator !=(RuntimeVersionCompatibilityIntegrationModelsItem left, RuntimeVersionCompatibilityIntegrationModelsItem right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeVersionCompatibilityIntegrationModelsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeVersionCompatibilityIntegrationModelsItem other && Equals(other);
+        public bool Equals(RuntimeVersionCompatibilityIntegrationModelsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the runtime version supports managed instances.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeVersionCompatibilityManagedInstances : IEquatable<RuntimeVersionCompatibilityManagedInstances>
+    {
+        private readonly string _value;
+
+        private RuntimeVersionCompatibilityManagedInstances(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeVersionCompatibilityManagedInstances Supported { get; } = new RuntimeVersionCompatibilityManagedInstances("Supported");
+        public static RuntimeVersionCompatibilityManagedInstances NotSupported { get; } = new RuntimeVersionCompatibilityManagedInstances("NotSupported");
+
+        public static bool operator ==(RuntimeVersionCompatibilityManagedInstances left, RuntimeVersionCompatibilityManagedInstances right) => left.Equals(right);
+        public static bool operator !=(RuntimeVersionCompatibilityManagedInstances left, RuntimeVersionCompatibilityManagedInstances right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeVersionCompatibilityManagedInstances value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeVersionCompatibilityManagedInstances other && Equals(other);
+        public bool Equals(RuntimeVersionCompatibilityManagedInstances other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle state of the runtime version.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeVersionState : IEquatable<RuntimeVersionState>
+    {
+        private readonly string _value;
+
+        private RuntimeVersionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeVersionState Creating { get; } = new RuntimeVersionState("CREATING");
+        public static RuntimeVersionState Active { get; } = new RuntimeVersionState("ACTIVE");
+        public static RuntimeVersionState Failed { get; } = new RuntimeVersionState("FAILED");
+        public static RuntimeVersionState Deleting { get; } = new RuntimeVersionState("DELETING");
+        public static RuntimeVersionState PendingDeletion { get; } = new RuntimeVersionState("PENDING_DELETION");
+
+        public static bool operator ==(RuntimeVersionState left, RuntimeVersionState right) => left.Equals(right);
+        public static bool operator !=(RuntimeVersionState left, RuntimeVersionState right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeVersionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeVersionState other && Equals(other);
+        public bool Equals(RuntimeVersionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

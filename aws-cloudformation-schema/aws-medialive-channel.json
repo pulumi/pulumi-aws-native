@@ -166,6 +166,15 @@
         "TemporalFilterSettings" : {
           "$ref" : "#/definitions/TemporalFilterSettings"
         },
+        "AutoFilterSettings" : {
+          "$ref" : "#/definitions/AutoFilterSettings"
+        },
+        "NoneFilterSettings" : {
+          "$ref" : "#/definitions/NoneFilterSettings"
+        },
+        "PerceptualFilterSettings" : {
+          "$ref" : "#/definitions/PerceptualFilterSettings"
+        },
         "BandwidthReductionFilterSettings" : {
           "$ref" : "#/definitions/BandwidthReductionFilterSettings"
         }
@@ -312,6 +321,9 @@
         },
         "MinQp" : {
           "type" : "integer"
+        },
+        "AllowExplicitWeightedPrediction" : {
+          "type" : "string"
         },
         "ColorSpaceSettings" : {
           "$ref" : "#/definitions/H264ColorSpaceSettings"
@@ -756,6 +768,10 @@
         }
       }
     },
+    "NoneFilterSettings" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
     "Mpeg2FilterSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -1124,6 +1140,15 @@
           "type" : "string"
         },
         "NoRegionalBlackoutFlag" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PerceptualFilterSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Strength" : {
           "type" : "string"
         }
       }
@@ -1733,6 +1758,21 @@
         },
         "ContainerSettings" : {
           "$ref" : "#/definitions/UdpMediaConnectRouterContainerSettings"
+        }
+      }
+    },
+    "Av1FilterSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AutoFilterSettings" : {
+          "$ref" : "#/definitions/AutoFilterSettings"
+        },
+        "NoneFilterSettings" : {
+          "$ref" : "#/definitions/NoneFilterSettings"
+        },
+        "PerceptualFilterSettings" : {
+          "$ref" : "#/definitions/PerceptualFilterSettings"
         }
       }
     },
@@ -2989,6 +3029,10 @@
         }
       }
     },
+    "AutoFilterSettings" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
     "MotionGraphicsSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -3488,6 +3532,9 @@
         },
         "GopSize" : {
           "type" : "number"
+        },
+        "FilterSettings" : {
+          "$ref" : "#/definitions/Av1FilterSettings"
         },
         "ColorSpaceSettings" : {
           "$ref" : "#/definitions/Av1ColorSpaceSettings"

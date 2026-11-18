@@ -52,6 +52,7 @@ export type AnalysisTemplateErrorMessageConfigurationType = (typeof AnalysisTemp
 export const AnalysisTemplateFormat = {
     Sql: "SQL",
     Pyspark10: "PYSPARK_1_0",
+    Pyspark20: "PYSPARK_2_0",
 } as const;
 
 /**

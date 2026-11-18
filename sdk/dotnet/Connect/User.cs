@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> RoutingProfileArn { get; private set; } = null!;
 
         /// <summary>
-        /// One or more security profile arns for the user
+        /// One or more customer-managed or AWS-managed security profile ARNs for the user.
         /// </summary>
         [Output("securityProfileArns")]
         public Output<ImmutableArray<string>> SecurityProfileArns { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.AwsNative.Connect
         private InputList<string>? _securityProfileArns;
 
         /// <summary>
-        /// One or more security profile arns for the user
+        /// One or more customer-managed or AWS-managed security profile ARNs for the user.
         /// </summary>
         public InputList<string> SecurityProfileArns
         {

@@ -3789,6 +3789,8 @@ func (o PentestActorArrayOutput) Index(i pulumi.IntInput) PentestActorOutput {
 type PentestAssets struct {
 	// List of actors used during testing
 	Actors []PentestActor `pulumi:"actors"`
+	// Client certificates that AWS Security Agent presents to target hosts that require mutual TLS (mTLS)
+	ClientCertificates []PentestClientCertificate `pulumi:"clientCertificates"`
 	// List of documents providing additional context for the pentest
 	Documents []PentestDocumentInfo `pulumi:"documents"`
 	// List of endpoints to test
@@ -3816,6 +3818,8 @@ type PentestAssetsInput interface {
 type PentestAssetsArgs struct {
 	// List of actors used during testing
 	Actors PentestActorArrayInput `pulumi:"actors"`
+	// Client certificates that AWS Security Agent presents to target hosts that require mutual TLS (mTLS)
+	ClientCertificates PentestClientCertificateArrayInput `pulumi:"clientCertificates"`
 	// List of documents providing additional context for the pentest
 	Documents PentestDocumentInfoArrayInput `pulumi:"documents"`
 	// List of endpoints to test
@@ -3858,6 +3862,11 @@ func (o PentestAssetsOutput) ToPentestAssetsOutputWithContext(ctx context.Contex
 // List of actors used during testing
 func (o PentestAssetsOutput) Actors() PentestActorArrayOutput {
 	return o.ApplyT(func(v PentestAssets) []PentestActor { return v.Actors }).(PentestActorArrayOutput)
+}
+
+// Client certificates that AWS Security Agent presents to target hosts that require mutual TLS (mTLS)
+func (o PentestAssetsOutput) ClientCertificates() PentestClientCertificateArrayOutput {
+	return o.ApplyT(func(v PentestAssets) []PentestClientCertificate { return v.ClientCertificates }).(PentestClientCertificateArrayOutput)
 }
 
 // List of documents providing additional context for the pentest
@@ -3917,6 +3926,16 @@ func (o PentestAssetsPtrOutput) Actors() PentestActorArrayOutput {
 		}
 		return v.Actors
 	}).(PentestActorArrayOutput)
+}
+
+// Client certificates that AWS Security Agent presents to target hosts that require mutual TLS (mTLS)
+func (o PentestAssetsPtrOutput) ClientCertificates() PentestClientCertificateArrayOutput {
+	return o.ApplyT(func(v *PentestAssets) []PentestClientCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificates
+	}).(PentestClientCertificateArrayOutput)
 }
 
 // List of documents providing additional context for the pentest
@@ -4339,6 +4358,124 @@ func (o PentestCiCdConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Client certificate presented during the TLS handshake to the hosts it applies to
+type PentestClientCertificate struct {
+	// Name of the client certificate, unique within the pentest
+	Name string `pulumi:"name"`
+	// Target hosts the certificate applies to, as https://host[:port] origins
+	Origins []string `pulumi:"origins"`
+	// ARN of the Secrets Manager secret that holds the certificate and private key
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// PentestClientCertificateInput is an input type that accepts PentestClientCertificateArgs and PentestClientCertificateOutput values.
+// You can construct a concrete instance of `PentestClientCertificateInput` via:
+//
+//	PentestClientCertificateArgs{...}
+type PentestClientCertificateInput interface {
+	pulumi.Input
+
+	ToPentestClientCertificateOutput() PentestClientCertificateOutput
+	ToPentestClientCertificateOutputWithContext(context.Context) PentestClientCertificateOutput
+}
+
+// Client certificate presented during the TLS handshake to the hosts it applies to
+type PentestClientCertificateArgs struct {
+	// Name of the client certificate, unique within the pentest
+	Name pulumi.StringInput `pulumi:"name"`
+	// Target hosts the certificate applies to, as https://host[:port] origins
+	Origins pulumi.StringArrayInput `pulumi:"origins"`
+	// ARN of the Secrets Manager secret that holds the certificate and private key
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (PentestClientCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestClientCertificate)(nil)).Elem()
+}
+
+func (i PentestClientCertificateArgs) ToPentestClientCertificateOutput() PentestClientCertificateOutput {
+	return i.ToPentestClientCertificateOutputWithContext(context.Background())
+}
+
+func (i PentestClientCertificateArgs) ToPentestClientCertificateOutputWithContext(ctx context.Context) PentestClientCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestClientCertificateOutput)
+}
+
+// PentestClientCertificateArrayInput is an input type that accepts PentestClientCertificateArray and PentestClientCertificateArrayOutput values.
+// You can construct a concrete instance of `PentestClientCertificateArrayInput` via:
+//
+//	PentestClientCertificateArray{ PentestClientCertificateArgs{...} }
+type PentestClientCertificateArrayInput interface {
+	pulumi.Input
+
+	ToPentestClientCertificateArrayOutput() PentestClientCertificateArrayOutput
+	ToPentestClientCertificateArrayOutputWithContext(context.Context) PentestClientCertificateArrayOutput
+}
+
+type PentestClientCertificateArray []PentestClientCertificateInput
+
+func (PentestClientCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestClientCertificate)(nil)).Elem()
+}
+
+func (i PentestClientCertificateArray) ToPentestClientCertificateArrayOutput() PentestClientCertificateArrayOutput {
+	return i.ToPentestClientCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i PentestClientCertificateArray) ToPentestClientCertificateArrayOutputWithContext(ctx context.Context) PentestClientCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestClientCertificateArrayOutput)
+}
+
+// Client certificate presented during the TLS handshake to the hosts it applies to
+type PentestClientCertificateOutput struct{ *pulumi.OutputState }
+
+func (PentestClientCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestClientCertificate)(nil)).Elem()
+}
+
+func (o PentestClientCertificateOutput) ToPentestClientCertificateOutput() PentestClientCertificateOutput {
+	return o
+}
+
+func (o PentestClientCertificateOutput) ToPentestClientCertificateOutputWithContext(ctx context.Context) PentestClientCertificateOutput {
+	return o
+}
+
+// Name of the client certificate, unique within the pentest
+func (o PentestClientCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PentestClientCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Target hosts the certificate applies to, as https://host[:port] origins
+func (o PentestClientCertificateOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PentestClientCertificate) []string { return v.Origins }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the Secrets Manager secret that holds the certificate and private key
+func (o PentestClientCertificateOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PentestClientCertificate) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type PentestClientCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (PentestClientCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestClientCertificate)(nil)).Elem()
+}
+
+func (o PentestClientCertificateArrayOutput) ToPentestClientCertificateArrayOutput() PentestClientCertificateArrayOutput {
+	return o
+}
+
+func (o PentestClientCertificateArrayOutput) ToPentestClientCertificateArrayOutputWithContext(ctx context.Context) PentestClientCertificateArrayOutput {
+	return o
+}
+
+func (o PentestClientCertificateArrayOutput) Index(i pulumi.IntInput) PentestClientCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestClientCertificate {
+		return vs[0].([]PentestClientCertificate)[vs[1].(int)]
+	}).(PentestClientCertificateOutput)
 }
 
 // CloudWatch Logs configuration for pentest output
@@ -7234,6 +7371,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCaCertificateSourceInput)(nil)).Elem(), PentestCaCertificateSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCiCdConfigurationInput)(nil)).Elem(), PentestCiCdConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCiCdConfigurationPtrInput)(nil)).Elem(), PentestCiCdConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestClientCertificateInput)(nil)).Elem(), PentestClientCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestClientCertificateArrayInput)(nil)).Elem(), PentestClientCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCloudWatchLogInput)(nil)).Elem(), PentestCloudWatchLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCloudWatchLogPtrInput)(nil)).Elem(), PentestCloudWatchLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCustomHeaderInput)(nil)).Elem(), PentestCustomHeaderArgs{})
@@ -7319,6 +7458,8 @@ func init() {
 	pulumi.RegisterOutputType(PentestCaCertificateSourceOutput{})
 	pulumi.RegisterOutputType(PentestCiCdConfigurationOutput{})
 	pulumi.RegisterOutputType(PentestCiCdConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PentestClientCertificateOutput{})
+	pulumi.RegisterOutputType(PentestClientCertificateArrayOutput{})
 	pulumi.RegisterOutputType(PentestCloudWatchLogOutput{})
 	pulumi.RegisterOutputType(PentestCloudWatchLogPtrOutput{})
 	pulumi.RegisterOutputType(PentestCustomHeaderOutput{})

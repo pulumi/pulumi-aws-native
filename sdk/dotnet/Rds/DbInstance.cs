@@ -555,6 +555,8 @@ namespace Pulumi.AwsNative.Rds
         ///   +   ``sqlserver-se``
         ///   +   ``sqlserver-ex``
         ///   +   ``sqlserver-web``
+        ///   +  ``sqlserver-dev-ee`` (for RDS for SQL Server Developer Edition with Enterprise Edition capabilities)
+        ///   +  ``sqlserver-dev-se`` (for RDS for SQL Server Developer Edition with Standard Edition capabilities)
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -1671,6 +1673,8 @@ namespace Pulumi.AwsNative.Rds
         ///   +   ``sqlserver-se``
         ///   +   ``sqlserver-ex``
         ///   +   ``sqlserver-web``
+        ///   +  ``sqlserver-dev-ee`` (for RDS for SQL Server Developer Edition with Enterprise Edition capabilities)
+        ///   +  ``sqlserver-dev-se`` (for RDS for SQL Server Developer Edition with Standard Edition capabilities)
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

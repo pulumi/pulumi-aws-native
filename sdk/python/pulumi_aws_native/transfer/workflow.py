@@ -27,6 +27,7 @@ class WorkflowArgs:
                  steps: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  on_exception_steps: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowStepArgs']]]] = None,
+                 structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
@@ -34,6 +35,7 @@ class WorkflowArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow.
         :param pulumi.Input[_builtins.str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] structured_log_destinations: Specifies the log destinations for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         """
         pulumi.set(__self__, "steps", steps)
@@ -41,6 +43,8 @@ class WorkflowArgs:
             pulumi.set(__self__, "description", description)
         if on_exception_steps is not None:
             pulumi.set(__self__, "on_exception_steps", on_exception_steps)
+        if structured_log_destinations is not None:
+            pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -81,6 +85,18 @@ class WorkflowArgs:
         pulumi.set(self, "on_exception_steps", value)
 
     @_builtins.property
+    @pulumi.getter(name="structuredLogDestinations")
+    def structured_log_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the log destinations for the workflow.
+        """
+        return pulumi.get(self, "structured_log_destinations")
+
+    @structured_log_destinations.setter
+    def structured_log_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "structured_log_destinations", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -102,6 +118,7 @@ class Workflow(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  on_exception_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict', 'outputs.WorkflowStep']]]]] = None,
                  steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict', 'outputs.WorkflowStep']]]]] = None,
+                 structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
@@ -112,6 +129,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict', 'outputs.WorkflowStep']]]] on_exception_steps: Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict', 'outputs.WorkflowStep']]]] steps: Specifies the details for the steps that are in the specified workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] structured_log_destinations: Specifies the log destinations for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         """
         ...
@@ -141,6 +159,7 @@ class Workflow(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  on_exception_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict', 'outputs.WorkflowStep']]]]] = None,
                  steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict', 'outputs.WorkflowStep']]]]] = None,
+                 structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -156,10 +175,11 @@ class Workflow(pulumi.CustomResource):
             if steps is None and not opts.urn:
                 raise TypeError("Missing required property 'steps'")
             __props__.__dict__["steps"] = steps
+            __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["workflow_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "onExceptionSteps[*]", "steps[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "onExceptionSteps[*]", "steps[*]", "structuredLogDestinations[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
             'aws-native:transfer:Workflow',
@@ -187,6 +207,7 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["on_exception_steps"] = None
         __props__.__dict__["steps"] = None
+        __props__.__dict__["structured_log_destinations"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["workflow_id"] = None
         return Workflow(resource_name, opts=opts, __props__=__props__)
@@ -228,6 +249,14 @@ class Workflow(pulumi.CustomResource):
         Specifies the details for the steps that are in the specified workflow.
         """
         return pulumi.get(self, "steps")
+
+    @_builtins.property
+    @pulumi.getter(name="structuredLogDestinations")
+    def structured_log_destinations(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Specifies the log destinations for the workflow.
+        """
+        return pulumi.get(self, "structured_log_destinations")
 
     @_builtins.property
     @pulumi.getter

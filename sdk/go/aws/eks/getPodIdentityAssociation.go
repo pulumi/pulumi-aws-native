@@ -44,7 +44,8 @@ type LookupPodIdentityAssociationResult struct {
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The Target Role Arn of the pod identity association.
-	TargetRoleArn *string `pulumi:"targetRoleArn"`
+	TargetRoleArn          *string                                       `pulumi:"targetRoleArn"`
+	WorkloadIdentityConfig *PodIdentityAssociationWorkloadIdentityConfig `pulumi:"workloadIdentityConfig"`
 }
 
 func LookupPodIdentityAssociationOutput(ctx *pulumi.Context, args LookupPodIdentityAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupPodIdentityAssociationResultOutput {
@@ -113,6 +114,12 @@ func (o LookupPodIdentityAssociationResultOutput) Tags() aws.TagArrayOutput {
 // The Target Role Arn of the pod identity association.
 func (o LookupPodIdentityAssociationResultOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *string { return v.TargetRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPodIdentityAssociationResultOutput) WorkloadIdentityConfig() PodIdentityAssociationWorkloadIdentityConfigPtrOutput {
+	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *PodIdentityAssociationWorkloadIdentityConfig {
+		return v.WorkloadIdentityConfig
+	}).(PodIdentityAssociationWorkloadIdentityConfigPtrOutput)
 }
 
 func init() {

@@ -66,6 +66,8 @@ __all__ = [
     'ImagePipelineImageTestsConfigurationArgsDict',
     'ImagePipelinePipelineLoggingConfigurationArgs',
     'ImagePipelinePipelineLoggingConfigurationArgsDict',
+    'ImagePipelineScanResultConditionArgs',
+    'ImagePipelineScanResultConditionArgsDict',
     'ImagePipelineScheduleArgs',
     'ImagePipelineScheduleArgsDict',
     'ImagePipelineWorkflowConfigurationArgs',
@@ -84,6 +86,8 @@ __all__ = [
     'ImageRecipeInstanceBlockDeviceMappingArgsDict',
     'ImageRecipeSystemsManagerAgentArgs',
     'ImageRecipeSystemsManagerAgentArgsDict',
+    'ImageScanResultConditionArgs',
+    'ImageScanResultConditionArgsDict',
     'ImageScanningConfigurationArgs',
     'ImageScanningConfigurationArgsDict',
     'ImageTestsConfigurationArgs',
@@ -1758,22 +1762,38 @@ class ImagePipelineImageScanningConfigurationArgsDict(TypedDict):
     """
     This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
     """
+    image_scanning_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineImageScanningConfigurationImageScanningTypesItem']]]]]
+    """
+    The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+    """
+    scan_result_condition: NotRequired[pulumi.Input[Optional['ImagePipelineScanResultConditionArgsDict']]]
+    """
+    The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+    """
 
 @pulumi.input_type
 class ImagePipelineImageScanningConfigurationArgs:
     def __init__(__self__, *,
                  ecr_configuration: pulumi.Input[Optional['ImagePipelineEcrConfigurationArgs']] = None,
-                 image_scanning_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 image_scanning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_scanning_types: pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineImageScanningConfigurationImageScanningTypesItem']]]] = None,
+                 scan_result_condition: pulumi.Input[Optional['ImagePipelineScanResultConditionArgs']] = None):
         """
         Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
 
         :param pulumi.Input['ImagePipelineEcrConfigurationArgs'] ecr_configuration: Contains ECR settings for vulnerability scans.
         :param pulumi.Input[_builtins.bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
+        :param pulumi.Input[Sequence[pulumi.Input['ImagePipelineImageScanningConfigurationImageScanningTypesItem']]] image_scanning_types: The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+        :param pulumi.Input['ImagePipelineScanResultConditionArgs'] scan_result_condition: The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
         """
         if ecr_configuration is not None:
             pulumi.set(__self__, "ecr_configuration", ecr_configuration)
         if image_scanning_enabled is not None:
             pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+        if image_scanning_types is not None:
+            pulumi.set(__self__, "image_scanning_types", image_scanning_types)
+        if scan_result_condition is not None:
+            pulumi.set(__self__, "scan_result_condition", scan_result_condition)
 
     @_builtins.property
     @pulumi.getter(name="ecrConfiguration")
@@ -1798,6 +1818,30 @@ class ImagePipelineImageScanningConfigurationArgs:
     @image_scanning_enabled.setter
     def image_scanning_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "image_scanning_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageScanningTypes")
+    def image_scanning_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineImageScanningConfigurationImageScanningTypesItem']]]]:
+        """
+        The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+        """
+        return pulumi.get(self, "image_scanning_types")
+
+    @image_scanning_types.setter
+    def image_scanning_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineImageScanningConfigurationImageScanningTypesItem']]]]):
+        pulumi.set(self, "image_scanning_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scanResultCondition")
+    def scan_result_condition(self) -> pulumi.Input[Optional['ImagePipelineScanResultConditionArgs']]:
+        """
+        The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+        """
+        return pulumi.get(self, "scan_result_condition")
+
+    @scan_result_condition.setter
+    def scan_result_condition(self, value: pulumi.Input[Optional['ImagePipelineScanResultConditionArgs']]):
+        pulumi.set(self, "scan_result_condition", value)
 
 
 class ImagePipelineImageTestsConfigurationArgsDict(TypedDict):
@@ -1906,6 +1950,59 @@ class ImagePipelinePipelineLoggingConfigurationArgs:
     @pipeline_log_group_name.setter
     def pipeline_log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_log_group_name", value)
+
+
+class ImagePipelineScanResultConditionArgsDict(TypedDict):
+    """
+    The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+    """
+    maximum_severity_label: pulumi.Input['ImagePipelineScanResultConditionMaximumSeverityLabel']
+    """
+    The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+    """
+    fix_available: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+    """
+
+@pulumi.input_type
+class ImagePipelineScanResultConditionArgs:
+    def __init__(__self__, *,
+                 maximum_severity_label: pulumi.Input['ImagePipelineScanResultConditionMaximumSeverityLabel'],
+                 fix_available: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+
+        :param pulumi.Input['ImagePipelineScanResultConditionMaximumSeverityLabel'] maximum_severity_label: The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+        :param pulumi.Input[_builtins.bool] fix_available: Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+        """
+        pulumi.set(__self__, "maximum_severity_label", maximum_severity_label)
+        if fix_available is not None:
+            pulumi.set(__self__, "fix_available", fix_available)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumSeverityLabel")
+    def maximum_severity_label(self) -> pulumi.Input['ImagePipelineScanResultConditionMaximumSeverityLabel']:
+        """
+        The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+        """
+        return pulumi.get(self, "maximum_severity_label")
+
+    @maximum_severity_label.setter
+    def maximum_severity_label(self, value: pulumi.Input['ImagePipelineScanResultConditionMaximumSeverityLabel']):
+        pulumi.set(self, "maximum_severity_label", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fixAvailable")
+    def fix_available(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+        """
+        return pulumi.get(self, "fix_available")
+
+    @fix_available.setter
+    def fix_available(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "fix_available", value)
 
 
 class ImagePipelineScheduleArgsDict(TypedDict):
@@ -2612,6 +2709,59 @@ class ImageRecipeSystemsManagerAgentArgs:
         pulumi.set(self, "uninstall_after_build", value)
 
 
+class ImageScanResultConditionArgsDict(TypedDict):
+    """
+    The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+    """
+    maximum_severity_label: pulumi.Input['ImageScanResultConditionMaximumSeverityLabel']
+    """
+    The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+    """
+    fix_available: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+    """
+
+@pulumi.input_type
+class ImageScanResultConditionArgs:
+    def __init__(__self__, *,
+                 maximum_severity_label: pulumi.Input['ImageScanResultConditionMaximumSeverityLabel'],
+                 fix_available: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The condition that the output AMI's scan results must meet for the image to pass. When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+
+        :param pulumi.Input['ImageScanResultConditionMaximumSeverityLabel'] maximum_severity_label: The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+        :param pulumi.Input[_builtins.bool] fix_available: Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+        """
+        pulumi.set(__self__, "maximum_severity_label", maximum_severity_label)
+        if fix_available is not None:
+            pulumi.set(__self__, "fix_available", fix_available)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumSeverityLabel")
+    def maximum_severity_label(self) -> pulumi.Input['ImageScanResultConditionMaximumSeverityLabel']:
+        """
+        The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+        """
+        return pulumi.get(self, "maximum_severity_label")
+
+    @maximum_severity_label.setter
+    def maximum_severity_label(self, value: pulumi.Input['ImageScanResultConditionMaximumSeverityLabel']):
+        pulumi.set(self, "maximum_severity_label", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fixAvailable")
+    def fix_available(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether only findings that have a fix available count toward MaximumSeverityLabel. When false, Image Builder counts every finding. The default is true.
+        """
+        return pulumi.get(self, "fix_available")
+
+    @fix_available.setter
+    def fix_available(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "fix_available", value)
+
+
 class ImageScanningConfigurationArgsDict(TypedDict):
     """
     Contains settings for Image Builder image resource and container image scans.
@@ -2624,22 +2774,38 @@ class ImageScanningConfigurationArgsDict(TypedDict):
     """
     This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
     """
+    image_scanning_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageScanningConfigurationImageScanningTypesItem']]]]]
+    """
+    The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+    """
+    scan_result_condition: NotRequired[pulumi.Input[Optional['ImageScanResultConditionArgsDict']]]
+    """
+    The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+    """
 
 @pulumi.input_type
 class ImageScanningConfigurationArgs:
     def __init__(__self__, *,
                  ecr_configuration: pulumi.Input[Optional['ImageEcrConfigurationArgs']] = None,
-                 image_scanning_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 image_scanning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_scanning_types: pulumi.Input[Optional[Sequence[pulumi.Input['ImageScanningConfigurationImageScanningTypesItem']]]] = None,
+                 scan_result_condition: pulumi.Input[Optional['ImageScanResultConditionArgs']] = None):
         """
         Contains settings for Image Builder image resource and container image scans.
 
         :param pulumi.Input['ImageEcrConfigurationArgs'] ecr_configuration: Contains ECR settings for vulnerability scans.
         :param pulumi.Input[_builtins.bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageScanningConfigurationImageScanningTypesItem']]] image_scanning_types: The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+        :param pulumi.Input['ImageScanResultConditionArgs'] scan_result_condition: The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
         """
         if ecr_configuration is not None:
             pulumi.set(__self__, "ecr_configuration", ecr_configuration)
         if image_scanning_enabled is not None:
             pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+        if image_scanning_types is not None:
+            pulumi.set(__self__, "image_scanning_types", image_scanning_types)
+        if scan_result_condition is not None:
+            pulumi.set(__self__, "scan_result_condition", scan_result_condition)
 
     @_builtins.property
     @pulumi.getter(name="ecrConfiguration")
@@ -2664,6 +2830,30 @@ class ImageScanningConfigurationArgs:
     @image_scanning_enabled.setter
     def image_scanning_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "image_scanning_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageScanningTypes")
+    def image_scanning_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageScanningConfigurationImageScanningTypesItem']]]]:
+        """
+        The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true. Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+        """
+        return pulumi.get(self, "image_scanning_types")
+
+    @image_scanning_types.setter
+    def image_scanning_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageScanningConfigurationImageScanningTypesItem']]]]):
+        pulumi.set(self, "image_scanning_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scanResultCondition")
+    def scan_result_condition(self) -> pulumi.Input[Optional['ImageScanResultConditionArgs']]:
+        """
+        The condition that the output AMI's scan results must meet for the image to pass. You can set ScanResultCondition only when ImageScanningTypes is ON_DEMAND_AMI_CVE. If you omit it, Image Builder starts the scan but does not wait for it or use its results to pass or fail the image.
+        """
+        return pulumi.get(self, "scan_result_condition")
+
+    @scan_result_condition.setter
+    def scan_result_condition(self, value: pulumi.Input[Optional['ImageScanResultConditionArgs']]):
+        pulumi.set(self, "scan_result_condition", value)
 
 
 class ImageTestsConfigurationArgsDict(TypedDict):

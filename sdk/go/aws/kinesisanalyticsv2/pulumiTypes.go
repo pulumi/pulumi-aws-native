@@ -4256,6 +4256,702 @@ func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) LogLevel() Applicat
 	}).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
 }
 
+// A KMS encryption configuration for snapshot data: the key type, and the key when it is a customer managed key.
+type SnapshotEncryptionConfigurationDescription struct {
+	// The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+	KeyId *string `pulumi:"keyId"`
+	// The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+	KeyType SnapshotEncryptionConfigurationDescriptionKeyType `pulumi:"keyType"`
+}
+
+// SnapshotEncryptionConfigurationDescriptionInput is an input type that accepts SnapshotEncryptionConfigurationDescriptionArgs and SnapshotEncryptionConfigurationDescriptionOutput values.
+// You can construct a concrete instance of `SnapshotEncryptionConfigurationDescriptionInput` via:
+//
+//	SnapshotEncryptionConfigurationDescriptionArgs{...}
+type SnapshotEncryptionConfigurationDescriptionInput interface {
+	pulumi.Input
+
+	ToSnapshotEncryptionConfigurationDescriptionOutput() SnapshotEncryptionConfigurationDescriptionOutput
+	ToSnapshotEncryptionConfigurationDescriptionOutputWithContext(context.Context) SnapshotEncryptionConfigurationDescriptionOutput
+}
+
+// A KMS encryption configuration for snapshot data: the key type, and the key when it is a customer managed key.
+type SnapshotEncryptionConfigurationDescriptionArgs struct {
+	// The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+	KeyType SnapshotEncryptionConfigurationDescriptionKeyTypeInput `pulumi:"keyType"`
+}
+
+func (SnapshotEncryptionConfigurationDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotEncryptionConfigurationDescription)(nil)).Elem()
+}
+
+func (i SnapshotEncryptionConfigurationDescriptionArgs) ToSnapshotEncryptionConfigurationDescriptionOutput() SnapshotEncryptionConfigurationDescriptionOutput {
+	return i.ToSnapshotEncryptionConfigurationDescriptionOutputWithContext(context.Background())
+}
+
+func (i SnapshotEncryptionConfigurationDescriptionArgs) ToSnapshotEncryptionConfigurationDescriptionOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionConfigurationDescriptionOutput)
+}
+
+func (i SnapshotEncryptionConfigurationDescriptionArgs) ToSnapshotEncryptionConfigurationDescriptionPtrOutput() SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return i.ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i SnapshotEncryptionConfigurationDescriptionArgs) ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionConfigurationDescriptionOutput).ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(ctx)
+}
+
+// SnapshotEncryptionConfigurationDescriptionPtrInput is an input type that accepts SnapshotEncryptionConfigurationDescriptionArgs, SnapshotEncryptionConfigurationDescriptionPtr and SnapshotEncryptionConfigurationDescriptionPtrOutput values.
+// You can construct a concrete instance of `SnapshotEncryptionConfigurationDescriptionPtrInput` via:
+//
+//	        SnapshotEncryptionConfigurationDescriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SnapshotEncryptionConfigurationDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToSnapshotEncryptionConfigurationDescriptionPtrOutput() SnapshotEncryptionConfigurationDescriptionPtrOutput
+	ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(context.Context) SnapshotEncryptionConfigurationDescriptionPtrOutput
+}
+
+type snapshotEncryptionConfigurationDescriptionPtrType SnapshotEncryptionConfigurationDescriptionArgs
+
+func SnapshotEncryptionConfigurationDescriptionPtr(v *SnapshotEncryptionConfigurationDescriptionArgs) SnapshotEncryptionConfigurationDescriptionPtrInput {
+	return (*snapshotEncryptionConfigurationDescriptionPtrType)(v)
+}
+
+func (*snapshotEncryptionConfigurationDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotEncryptionConfigurationDescription)(nil)).Elem()
+}
+
+func (i *snapshotEncryptionConfigurationDescriptionPtrType) ToSnapshotEncryptionConfigurationDescriptionPtrOutput() SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return i.ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotEncryptionConfigurationDescriptionPtrType) ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionConfigurationDescriptionPtrOutput)
+}
+
+// A KMS encryption configuration for snapshot data: the key type, and the key when it is a customer managed key.
+type SnapshotEncryptionConfigurationDescriptionOutput struct{ *pulumi.OutputState }
+
+func (SnapshotEncryptionConfigurationDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotEncryptionConfigurationDescription)(nil)).Elem()
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionOutput) ToSnapshotEncryptionConfigurationDescriptionOutput() SnapshotEncryptionConfigurationDescriptionOutput {
+	return o
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionOutput) ToSnapshotEncryptionConfigurationDescriptionOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionOutput {
+	return o
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionOutput) ToSnapshotEncryptionConfigurationDescriptionPtrOutput() SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return o.ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionOutput) ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotEncryptionConfigurationDescription) *SnapshotEncryptionConfigurationDescription {
+		return &v
+	}).(SnapshotEncryptionConfigurationDescriptionPtrOutput)
+}
+
+// The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+func (o SnapshotEncryptionConfigurationDescriptionOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotEncryptionConfigurationDescription) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+func (o SnapshotEncryptionConfigurationDescriptionOutput) KeyType() SnapshotEncryptionConfigurationDescriptionKeyTypeOutput {
+	return o.ApplyT(func(v SnapshotEncryptionConfigurationDescription) SnapshotEncryptionConfigurationDescriptionKeyType {
+		return v.KeyType
+	}).(SnapshotEncryptionConfigurationDescriptionKeyTypeOutput)
+}
+
+type SnapshotEncryptionConfigurationDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotEncryptionConfigurationDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotEncryptionConfigurationDescription)(nil)).Elem()
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionPtrOutput) ToSnapshotEncryptionConfigurationDescriptionPtrOutput() SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return o
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionPtrOutput) ToSnapshotEncryptionConfigurationDescriptionPtrOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return o
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionPtrOutput) Elem() SnapshotEncryptionConfigurationDescriptionOutput {
+	return o.ApplyT(func(v *SnapshotEncryptionConfigurationDescription) SnapshotEncryptionConfigurationDescription {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotEncryptionConfigurationDescription
+		return ret
+	}).(SnapshotEncryptionConfigurationDescriptionOutput)
+}
+
+// The ARN of the customer managed KMS key. Required when KeyType is CUSTOMER_MANAGED_KEY; must be omitted for AWS_OWNED_KEY.
+func (o SnapshotEncryptionConfigurationDescriptionPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotEncryptionConfigurationDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+func (o SnapshotEncryptionConfigurationDescriptionPtrOutput) KeyType() SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return o.ApplyT(func(v *SnapshotEncryptionConfigurationDescription) *SnapshotEncryptionConfigurationDescriptionKeyType {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
+	}).(SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput)
+}
+
+// The Amazon S3 location to import a snapshot from, and the role the service assumes to read it.
+type SnapshotImportSourceConfiguration struct {
+	// The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+	ImportRoleArn string `pulumi:"importRoleArn"`
+	// The encryption of the snapshot files in Amazon S3.
+	SourceEncryptionConfiguration *SnapshotEncryptionConfigurationDescription `pulumi:"sourceEncryptionConfiguration"`
+	// The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+	SourceS3PrefixLocation SnapshotS3PrefixLocation `pulumi:"sourceS3PrefixLocation"`
+	// The type of storage the snapshot is imported from.
+	SourceType SnapshotImportSourceConfigurationSourceType `pulumi:"sourceType"`
+}
+
+// SnapshotImportSourceConfigurationInput is an input type that accepts SnapshotImportSourceConfigurationArgs and SnapshotImportSourceConfigurationOutput values.
+// You can construct a concrete instance of `SnapshotImportSourceConfigurationInput` via:
+//
+//	SnapshotImportSourceConfigurationArgs{...}
+type SnapshotImportSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToSnapshotImportSourceConfigurationOutput() SnapshotImportSourceConfigurationOutput
+	ToSnapshotImportSourceConfigurationOutputWithContext(context.Context) SnapshotImportSourceConfigurationOutput
+}
+
+// The Amazon S3 location to import a snapshot from, and the role the service assumes to read it.
+type SnapshotImportSourceConfigurationArgs struct {
+	// The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+	ImportRoleArn pulumi.StringInput `pulumi:"importRoleArn"`
+	// The encryption of the snapshot files in Amazon S3.
+	SourceEncryptionConfiguration SnapshotEncryptionConfigurationDescriptionPtrInput `pulumi:"sourceEncryptionConfiguration"`
+	// The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+	SourceS3PrefixLocation SnapshotS3PrefixLocationInput `pulumi:"sourceS3PrefixLocation"`
+	// The type of storage the snapshot is imported from.
+	SourceType SnapshotImportSourceConfigurationSourceTypeInput `pulumi:"sourceType"`
+}
+
+func (SnapshotImportSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotImportSourceConfiguration)(nil)).Elem()
+}
+
+func (i SnapshotImportSourceConfigurationArgs) ToSnapshotImportSourceConfigurationOutput() SnapshotImportSourceConfigurationOutput {
+	return i.ToSnapshotImportSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i SnapshotImportSourceConfigurationArgs) ToSnapshotImportSourceConfigurationOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportSourceConfigurationOutput)
+}
+
+func (i SnapshotImportSourceConfigurationArgs) ToSnapshotImportSourceConfigurationPtrOutput() SnapshotImportSourceConfigurationPtrOutput {
+	return i.ToSnapshotImportSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SnapshotImportSourceConfigurationArgs) ToSnapshotImportSourceConfigurationPtrOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportSourceConfigurationOutput).ToSnapshotImportSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// SnapshotImportSourceConfigurationPtrInput is an input type that accepts SnapshotImportSourceConfigurationArgs, SnapshotImportSourceConfigurationPtr and SnapshotImportSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `SnapshotImportSourceConfigurationPtrInput` via:
+//
+//	        SnapshotImportSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SnapshotImportSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSnapshotImportSourceConfigurationPtrOutput() SnapshotImportSourceConfigurationPtrOutput
+	ToSnapshotImportSourceConfigurationPtrOutputWithContext(context.Context) SnapshotImportSourceConfigurationPtrOutput
+}
+
+type snapshotImportSourceConfigurationPtrType SnapshotImportSourceConfigurationArgs
+
+func SnapshotImportSourceConfigurationPtr(v *SnapshotImportSourceConfigurationArgs) SnapshotImportSourceConfigurationPtrInput {
+	return (*snapshotImportSourceConfigurationPtrType)(v)
+}
+
+func (*snapshotImportSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotImportSourceConfiguration)(nil)).Elem()
+}
+
+func (i *snapshotImportSourceConfigurationPtrType) ToSnapshotImportSourceConfigurationPtrOutput() SnapshotImportSourceConfigurationPtrOutput {
+	return i.ToSnapshotImportSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotImportSourceConfigurationPtrType) ToSnapshotImportSourceConfigurationPtrOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportSourceConfigurationPtrOutput)
+}
+
+// The Amazon S3 location to import a snapshot from, and the role the service assumes to read it.
+type SnapshotImportSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SnapshotImportSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotImportSourceConfiguration)(nil)).Elem()
+}
+
+func (o SnapshotImportSourceConfigurationOutput) ToSnapshotImportSourceConfigurationOutput() SnapshotImportSourceConfigurationOutput {
+	return o
+}
+
+func (o SnapshotImportSourceConfigurationOutput) ToSnapshotImportSourceConfigurationOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationOutput {
+	return o
+}
+
+func (o SnapshotImportSourceConfigurationOutput) ToSnapshotImportSourceConfigurationPtrOutput() SnapshotImportSourceConfigurationPtrOutput {
+	return o.ToSnapshotImportSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotImportSourceConfigurationOutput) ToSnapshotImportSourceConfigurationPtrOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotImportSourceConfiguration) *SnapshotImportSourceConfiguration {
+		return &v
+	}).(SnapshotImportSourceConfigurationPtrOutput)
+}
+
+// The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+func (o SnapshotImportSourceConfigurationOutput) ImportRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotImportSourceConfiguration) string { return v.ImportRoleArn }).(pulumi.StringOutput)
+}
+
+// The encryption of the snapshot files in Amazon S3.
+func (o SnapshotImportSourceConfigurationOutput) SourceEncryptionConfiguration() SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return o.ApplyT(func(v SnapshotImportSourceConfiguration) *SnapshotEncryptionConfigurationDescription {
+		return v.SourceEncryptionConfiguration
+	}).(SnapshotEncryptionConfigurationDescriptionPtrOutput)
+}
+
+// The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+func (o SnapshotImportSourceConfigurationOutput) SourceS3PrefixLocation() SnapshotS3PrefixLocationOutput {
+	return o.ApplyT(func(v SnapshotImportSourceConfiguration) SnapshotS3PrefixLocation { return v.SourceS3PrefixLocation }).(SnapshotS3PrefixLocationOutput)
+}
+
+// The type of storage the snapshot is imported from.
+func (o SnapshotImportSourceConfigurationOutput) SourceType() SnapshotImportSourceConfigurationSourceTypeOutput {
+	return o.ApplyT(func(v SnapshotImportSourceConfiguration) SnapshotImportSourceConfigurationSourceType {
+		return v.SourceType
+	}).(SnapshotImportSourceConfigurationSourceTypeOutput)
+}
+
+type SnapshotImportSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotImportSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotImportSourceConfiguration)(nil)).Elem()
+}
+
+func (o SnapshotImportSourceConfigurationPtrOutput) ToSnapshotImportSourceConfigurationPtrOutput() SnapshotImportSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o SnapshotImportSourceConfigurationPtrOutput) ToSnapshotImportSourceConfigurationPtrOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o SnapshotImportSourceConfigurationPtrOutput) Elem() SnapshotImportSourceConfigurationOutput {
+	return o.ApplyT(func(v *SnapshotImportSourceConfiguration) SnapshotImportSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotImportSourceConfiguration
+		return ret
+	}).(SnapshotImportSourceConfigurationOutput)
+}
+
+// The ARN of the IAM role that the service assumes to read the snapshot files from Amazon S3 (and to decrypt them, if they are encrypted with a customer managed key).
+func (o SnapshotImportSourceConfigurationPtrOutput) ImportRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotImportSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ImportRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption of the snapshot files in Amazon S3.
+func (o SnapshotImportSourceConfigurationPtrOutput) SourceEncryptionConfiguration() SnapshotEncryptionConfigurationDescriptionPtrOutput {
+	return o.ApplyT(func(v *SnapshotImportSourceConfiguration) *SnapshotEncryptionConfigurationDescription {
+		if v == nil {
+			return nil
+		}
+		return v.SourceEncryptionConfiguration
+	}).(SnapshotEncryptionConfigurationDescriptionPtrOutput)
+}
+
+// The Amazon S3 bucket and key prefix that hold the snapshot files, for example the prefix an ExportSnapshot operation wrote them to.
+func (o SnapshotImportSourceConfigurationPtrOutput) SourceS3PrefixLocation() SnapshotS3PrefixLocationPtrOutput {
+	return o.ApplyT(func(v *SnapshotImportSourceConfiguration) *SnapshotS3PrefixLocation {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceS3PrefixLocation
+	}).(SnapshotS3PrefixLocationPtrOutput)
+}
+
+// The type of storage the snapshot is imported from.
+func (o SnapshotImportSourceConfigurationPtrOutput) SourceType() SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return o.ApplyT(func(v *SnapshotImportSourceConfiguration) *SnapshotImportSourceConfigurationSourceType {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceType
+	}).(SnapshotImportSourceConfigurationSourceTypePtrOutput)
+}
+
+// An Amazon S3 prefix location.
+type SnapshotS3PrefixLocation struct {
+	// The ARN of the S3 bucket.
+	BucketArn string `pulumi:"bucketArn"`
+	// The S3 key prefix.
+	KeyPrefix string `pulumi:"keyPrefix"`
+}
+
+// SnapshotS3PrefixLocationInput is an input type that accepts SnapshotS3PrefixLocationArgs and SnapshotS3PrefixLocationOutput values.
+// You can construct a concrete instance of `SnapshotS3PrefixLocationInput` via:
+//
+//	SnapshotS3PrefixLocationArgs{...}
+type SnapshotS3PrefixLocationInput interface {
+	pulumi.Input
+
+	ToSnapshotS3PrefixLocationOutput() SnapshotS3PrefixLocationOutput
+	ToSnapshotS3PrefixLocationOutputWithContext(context.Context) SnapshotS3PrefixLocationOutput
+}
+
+// An Amazon S3 prefix location.
+type SnapshotS3PrefixLocationArgs struct {
+	// The ARN of the S3 bucket.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// The S3 key prefix.
+	KeyPrefix pulumi.StringInput `pulumi:"keyPrefix"`
+}
+
+func (SnapshotS3PrefixLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotS3PrefixLocation)(nil)).Elem()
+}
+
+func (i SnapshotS3PrefixLocationArgs) ToSnapshotS3PrefixLocationOutput() SnapshotS3PrefixLocationOutput {
+	return i.ToSnapshotS3PrefixLocationOutputWithContext(context.Background())
+}
+
+func (i SnapshotS3PrefixLocationArgs) ToSnapshotS3PrefixLocationOutputWithContext(ctx context.Context) SnapshotS3PrefixLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotS3PrefixLocationOutput)
+}
+
+func (i SnapshotS3PrefixLocationArgs) ToSnapshotS3PrefixLocationPtrOutput() SnapshotS3PrefixLocationPtrOutput {
+	return i.ToSnapshotS3PrefixLocationPtrOutputWithContext(context.Background())
+}
+
+func (i SnapshotS3PrefixLocationArgs) ToSnapshotS3PrefixLocationPtrOutputWithContext(ctx context.Context) SnapshotS3PrefixLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotS3PrefixLocationOutput).ToSnapshotS3PrefixLocationPtrOutputWithContext(ctx)
+}
+
+// SnapshotS3PrefixLocationPtrInput is an input type that accepts SnapshotS3PrefixLocationArgs, SnapshotS3PrefixLocationPtr and SnapshotS3PrefixLocationPtrOutput values.
+// You can construct a concrete instance of `SnapshotS3PrefixLocationPtrInput` via:
+//
+//	        SnapshotS3PrefixLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SnapshotS3PrefixLocationPtrInput interface {
+	pulumi.Input
+
+	ToSnapshotS3PrefixLocationPtrOutput() SnapshotS3PrefixLocationPtrOutput
+	ToSnapshotS3PrefixLocationPtrOutputWithContext(context.Context) SnapshotS3PrefixLocationPtrOutput
+}
+
+type snapshotS3PrefixLocationPtrType SnapshotS3PrefixLocationArgs
+
+func SnapshotS3PrefixLocationPtr(v *SnapshotS3PrefixLocationArgs) SnapshotS3PrefixLocationPtrInput {
+	return (*snapshotS3PrefixLocationPtrType)(v)
+}
+
+func (*snapshotS3PrefixLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotS3PrefixLocation)(nil)).Elem()
+}
+
+func (i *snapshotS3PrefixLocationPtrType) ToSnapshotS3PrefixLocationPtrOutput() SnapshotS3PrefixLocationPtrOutput {
+	return i.ToSnapshotS3PrefixLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotS3PrefixLocationPtrType) ToSnapshotS3PrefixLocationPtrOutputWithContext(ctx context.Context) SnapshotS3PrefixLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotS3PrefixLocationPtrOutput)
+}
+
+// An Amazon S3 prefix location.
+type SnapshotS3PrefixLocationOutput struct{ *pulumi.OutputState }
+
+func (SnapshotS3PrefixLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotS3PrefixLocation)(nil)).Elem()
+}
+
+func (o SnapshotS3PrefixLocationOutput) ToSnapshotS3PrefixLocationOutput() SnapshotS3PrefixLocationOutput {
+	return o
+}
+
+func (o SnapshotS3PrefixLocationOutput) ToSnapshotS3PrefixLocationOutputWithContext(ctx context.Context) SnapshotS3PrefixLocationOutput {
+	return o
+}
+
+func (o SnapshotS3PrefixLocationOutput) ToSnapshotS3PrefixLocationPtrOutput() SnapshotS3PrefixLocationPtrOutput {
+	return o.ToSnapshotS3PrefixLocationPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotS3PrefixLocationOutput) ToSnapshotS3PrefixLocationPtrOutputWithContext(ctx context.Context) SnapshotS3PrefixLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotS3PrefixLocation) *SnapshotS3PrefixLocation {
+		return &v
+	}).(SnapshotS3PrefixLocationPtrOutput)
+}
+
+// The ARN of the S3 bucket.
+func (o SnapshotS3PrefixLocationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotS3PrefixLocation) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// The S3 key prefix.
+func (o SnapshotS3PrefixLocationOutput) KeyPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotS3PrefixLocation) string { return v.KeyPrefix }).(pulumi.StringOutput)
+}
+
+type SnapshotS3PrefixLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotS3PrefixLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotS3PrefixLocation)(nil)).Elem()
+}
+
+func (o SnapshotS3PrefixLocationPtrOutput) ToSnapshotS3PrefixLocationPtrOutput() SnapshotS3PrefixLocationPtrOutput {
+	return o
+}
+
+func (o SnapshotS3PrefixLocationPtrOutput) ToSnapshotS3PrefixLocationPtrOutputWithContext(ctx context.Context) SnapshotS3PrefixLocationPtrOutput {
+	return o
+}
+
+func (o SnapshotS3PrefixLocationPtrOutput) Elem() SnapshotS3PrefixLocationOutput {
+	return o.ApplyT(func(v *SnapshotS3PrefixLocation) SnapshotS3PrefixLocation {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotS3PrefixLocation
+		return ret
+	}).(SnapshotS3PrefixLocationOutput)
+}
+
+// The ARN of the S3 bucket.
+func (o SnapshotS3PrefixLocationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotS3PrefixLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 key prefix.
+func (o SnapshotS3PrefixLocationPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotS3PrefixLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details about the application the snapshot was taken from.
+type SnapshotSourceApplicationDescription struct {
+	// The time at which the source application was created.
+	ApplicationCreationTimestamp string `pulumi:"applicationCreationTimestamp"`
+	// The name of the source application.
+	ApplicationName string `pulumi:"applicationName"`
+	// The version of the source application captured in the snapshot.
+	ApplicationVersionId int `pulumi:"applicationVersionId"`
+}
+
+// Details about the application the snapshot was taken from.
+type SnapshotSourceApplicationDescriptionOutput struct{ *pulumi.OutputState }
+
+func (SnapshotSourceApplicationDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotSourceApplicationDescription)(nil)).Elem()
+}
+
+func (o SnapshotSourceApplicationDescriptionOutput) ToSnapshotSourceApplicationDescriptionOutput() SnapshotSourceApplicationDescriptionOutput {
+	return o
+}
+
+func (o SnapshotSourceApplicationDescriptionOutput) ToSnapshotSourceApplicationDescriptionOutputWithContext(ctx context.Context) SnapshotSourceApplicationDescriptionOutput {
+	return o
+}
+
+// The time at which the source application was created.
+func (o SnapshotSourceApplicationDescriptionOutput) ApplicationCreationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotSourceApplicationDescription) string { return v.ApplicationCreationTimestamp }).(pulumi.StringOutput)
+}
+
+// The name of the source application.
+func (o SnapshotSourceApplicationDescriptionOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotSourceApplicationDescription) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The version of the source application captured in the snapshot.
+func (o SnapshotSourceApplicationDescriptionOutput) ApplicationVersionId() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotSourceApplicationDescription) int { return v.ApplicationVersionId }).(pulumi.IntOutput)
+}
+
+type SnapshotSourceApplicationDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotSourceApplicationDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotSourceApplicationDescription)(nil)).Elem()
+}
+
+func (o SnapshotSourceApplicationDescriptionPtrOutput) ToSnapshotSourceApplicationDescriptionPtrOutput() SnapshotSourceApplicationDescriptionPtrOutput {
+	return o
+}
+
+func (o SnapshotSourceApplicationDescriptionPtrOutput) ToSnapshotSourceApplicationDescriptionPtrOutputWithContext(ctx context.Context) SnapshotSourceApplicationDescriptionPtrOutput {
+	return o
+}
+
+func (o SnapshotSourceApplicationDescriptionPtrOutput) Elem() SnapshotSourceApplicationDescriptionOutput {
+	return o.ApplyT(func(v *SnapshotSourceApplicationDescription) SnapshotSourceApplicationDescription {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSourceApplicationDescription
+		return ret
+	}).(SnapshotSourceApplicationDescriptionOutput)
+}
+
+// The time at which the source application was created.
+func (o SnapshotSourceApplicationDescriptionPtrOutput) ApplicationCreationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotSourceApplicationDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationCreationTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the source application.
+func (o SnapshotSourceApplicationDescriptionPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotSourceApplicationDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the source application captured in the snapshot.
+func (o SnapshotSourceApplicationDescriptionPtrOutput) ApplicationVersionId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotSourceApplicationDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationVersionId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Details about the source (application and/or S3 location) the snapshot was taken from. Populated by DescribeSnapshot.
+type SnapshotSourceDescription struct {
+	S3PrefixLocation             *SnapshotS3PrefixLocation             `pulumi:"s3PrefixLocation"`
+	SourceApplicationDescription *SnapshotSourceApplicationDescription `pulumi:"sourceApplicationDescription"`
+}
+
+// Details about the source (application and/or S3 location) the snapshot was taken from. Populated by DescribeSnapshot.
+type SnapshotSourceDescriptionOutput struct{ *pulumi.OutputState }
+
+func (SnapshotSourceDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotSourceDescription)(nil)).Elem()
+}
+
+func (o SnapshotSourceDescriptionOutput) ToSnapshotSourceDescriptionOutput() SnapshotSourceDescriptionOutput {
+	return o
+}
+
+func (o SnapshotSourceDescriptionOutput) ToSnapshotSourceDescriptionOutputWithContext(ctx context.Context) SnapshotSourceDescriptionOutput {
+	return o
+}
+
+func (o SnapshotSourceDescriptionOutput) S3PrefixLocation() SnapshotS3PrefixLocationPtrOutput {
+	return o.ApplyT(func(v SnapshotSourceDescription) *SnapshotS3PrefixLocation { return v.S3PrefixLocation }).(SnapshotS3PrefixLocationPtrOutput)
+}
+
+func (o SnapshotSourceDescriptionOutput) SourceApplicationDescription() SnapshotSourceApplicationDescriptionPtrOutput {
+	return o.ApplyT(func(v SnapshotSourceDescription) *SnapshotSourceApplicationDescription {
+		return v.SourceApplicationDescription
+	}).(SnapshotSourceApplicationDescriptionPtrOutput)
+}
+
+type SnapshotSourceDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotSourceDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotSourceDescription)(nil)).Elem()
+}
+
+func (o SnapshotSourceDescriptionPtrOutput) ToSnapshotSourceDescriptionPtrOutput() SnapshotSourceDescriptionPtrOutput {
+	return o
+}
+
+func (o SnapshotSourceDescriptionPtrOutput) ToSnapshotSourceDescriptionPtrOutputWithContext(ctx context.Context) SnapshotSourceDescriptionPtrOutput {
+	return o
+}
+
+func (o SnapshotSourceDescriptionPtrOutput) Elem() SnapshotSourceDescriptionOutput {
+	return o.ApplyT(func(v *SnapshotSourceDescription) SnapshotSourceDescription {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSourceDescription
+		return ret
+	}).(SnapshotSourceDescriptionOutput)
+}
+
+func (o SnapshotSourceDescriptionPtrOutput) S3PrefixLocation() SnapshotS3PrefixLocationPtrOutput {
+	return o.ApplyT(func(v *SnapshotSourceDescription) *SnapshotS3PrefixLocation {
+		if v == nil {
+			return nil
+		}
+		return v.S3PrefixLocation
+	}).(SnapshotS3PrefixLocationPtrOutput)
+}
+
+func (o SnapshotSourceDescriptionPtrOutput) SourceApplicationDescription() SnapshotSourceApplicationDescriptionPtrOutput {
+	return o.ApplyT(func(v *SnapshotSourceDescription) *SnapshotSourceApplicationDescription {
+		if v == nil {
+			return nil
+		}
+		return v.SourceApplicationDescription
+	}).(SnapshotSourceApplicationDescriptionPtrOutput)
+}
+
+// A key-value pair to associate with a snapshot.
+type SnapshotTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCatalogConfigurationInput)(nil)).Elem(), ApplicationCatalogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCatalogConfigurationPtrInput)(nil)).Elem(), ApplicationCatalogConfigurationArgs{})
@@ -4309,6 +5005,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationZeppelinApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotEncryptionConfigurationDescriptionInput)(nil)).Elem(), SnapshotEncryptionConfigurationDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotEncryptionConfigurationDescriptionPtrInput)(nil)).Elem(), SnapshotEncryptionConfigurationDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportSourceConfigurationInput)(nil)).Elem(), SnapshotImportSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportSourceConfigurationPtrInput)(nil)).Elem(), SnapshotImportSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotS3PrefixLocationInput)(nil)).Elem(), SnapshotS3PrefixLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotS3PrefixLocationPtrInput)(nil)).Elem(), SnapshotS3PrefixLocationArgs{})
 	pulumi.RegisterOutputType(ApplicationCatalogConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationCatalogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCheckpointConfigurationOutput{})
@@ -4361,4 +5063,14 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationZeppelinApplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotEncryptionConfigurationDescriptionOutput{})
+	pulumi.RegisterOutputType(SnapshotEncryptionConfigurationDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotImportSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(SnapshotImportSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotS3PrefixLocationOutput{})
+	pulumi.RegisterOutputType(SnapshotS3PrefixLocationPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotSourceApplicationDescriptionOutput{})
+	pulumi.RegisterOutputType(SnapshotSourceApplicationDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotSourceDescriptionOutput{})
+	pulumi.RegisterOutputType(SnapshotSourceDescriptionPtrOutput{})
 }

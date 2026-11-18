@@ -47,6 +47,7 @@ export class TrustAnchor extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustAnchor.__pulumiType;
     }
 
+    declare public readonly crlDpRevocationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the trust anchor is enabled.
      */
@@ -90,6 +91,7 @@ export class TrustAnchor extends pulumi.CustomResource {
             if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
+            resourceInputs["crlDpRevocationEnabled"] = args?.crlDpRevocationEnabled;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["name"] = args?.name;
             resourceInputs["notificationSettings"] = args?.notificationSettings;
@@ -98,6 +100,7 @@ export class TrustAnchor extends pulumi.CustomResource {
             resourceInputs["trustAnchorArn"] = undefined /*out*/;
             resourceInputs["trustAnchorId"] = undefined /*out*/;
         } else {
+            resourceInputs["crlDpRevocationEnabled"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notificationSettings"] = undefined /*out*/;
@@ -115,6 +118,7 @@ export class TrustAnchor extends pulumi.CustomResource {
  * The set of arguments for constructing a TrustAnchor resource.
  */
 export interface TrustAnchorArgs {
+    crlDpRevocationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether the trust anchor is enabled.
      */

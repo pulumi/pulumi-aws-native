@@ -36,9 +36,11 @@ type LookupConformancePackResult struct {
 	// AWS Config stores intermediate files while processing conformance pack template.
 	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
 	// The prefix for delivery S3 bucket.
-	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
+	DeliveryS3KeyPrefix *string               `pulumi:"deliveryS3KeyPrefix"`
+	Scope               *ConformancePackScope `pulumi:"scope"`
 	// The tags for the conformance pack.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []aws.Tag            `pulumi:"tags"`
+	Type *ConformancePackType `pulumi:"type"`
 }
 
 func LookupConformancePackOutput(ctx *pulumi.Context, args LookupConformancePackOutputArgs, opts ...pulumi.InvokeOption) LookupConformancePackResultOutput {
@@ -91,9 +93,17 @@ func (o LookupConformancePackResultOutput) DeliveryS3KeyPrefix() pulumi.StringPt
 	return o.ApplyT(func(v LookupConformancePackResult) *string { return v.DeliveryS3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupConformancePackResultOutput) Scope() ConformancePackScopePtrOutput {
+	return o.ApplyT(func(v LookupConformancePackResult) *ConformancePackScope { return v.Scope }).(ConformancePackScopePtrOutput)
+}
+
 // The tags for the conformance pack.
 func (o LookupConformancePackResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupConformancePackResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupConformancePackResultOutput) Type() ConformancePackTypePtrOutput {
+	return o.ApplyT(func(v LookupConformancePackResult) *ConformancePackType { return v.Type }).(ConformancePackTypePtrOutput)
 }
 
 func init() {

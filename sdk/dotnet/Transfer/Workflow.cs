@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Transfer
         public Output<ImmutableArray<Outputs.WorkflowStep>> Steps { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the log destinations for the workflow.
+        /// </summary>
+        [Output("structuredLogDestinations")]
+        public Output<ImmutableArray<string>> StructuredLogDestinations { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         /// </summary>
         [Output("tags")]
@@ -79,6 +85,7 @@ namespace Pulumi.AwsNative.Transfer
                     "description",
                     "onExceptionSteps[*]",
                     "steps[*]",
+                    "structuredLogDestinations[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,6 +137,18 @@ namespace Pulumi.AwsNative.Transfer
         {
             get => _steps ?? (_steps = new InputList<Inputs.WorkflowStepArgs>());
             set => _steps = value;
+        }
+
+        [Input("structuredLogDestinations")]
+        private InputList<string>? _structuredLogDestinations;
+
+        /// <summary>
+        /// Specifies the log destinations for the workflow.
+        /// </summary>
+        public InputList<string> StructuredLogDestinations
+        {
+            get => _structuredLogDestinations ?? (_structuredLogDestinations = new InputList<string>());
+            set => _structuredLogDestinations = value;
         }
 
         [Input("tags")]

@@ -25,6 +25,7 @@ __all__ = ['TrustAnchorArgs', 'TrustAnchor']
 class TrustAnchorArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['TrustAnchorSourceArgs'],
+                 crl_dp_revocation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]] = None,
@@ -39,6 +40,8 @@ class TrustAnchorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to attach to the trust anchor.
         """
         pulumi.set(__self__, "source", source)
+        if crl_dp_revocation_enabled is not None:
+            pulumi.set(__self__, "crl_dp_revocation_enabled", crl_dp_revocation_enabled)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
@@ -59,6 +62,15 @@ class TrustAnchorArgs:
     @source.setter
     def source(self, value: pulumi.Input['TrustAnchorSourceArgs']):
         pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crlDpRevocationEnabled")
+    def crl_dp_revocation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "crl_dp_revocation_enabled")
+
+    @crl_dp_revocation_enabled.setter
+    def crl_dp_revocation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "crl_dp_revocation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -115,6 +127,7 @@ class TrustAnchor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 crl_dp_revocation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict', 'outputs.TrustAnchorNotificationSetting']]]]] = None,
@@ -156,6 +169,7 @@ class TrustAnchor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 crl_dp_revocation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict', 'outputs.TrustAnchorNotificationSetting']]]]] = None,
@@ -170,6 +184,7 @@ class TrustAnchor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TrustAnchorArgs.__new__(TrustAnchorArgs)
 
+            __props__.__dict__["crl_dp_revocation_enabled"] = crl_dp_revocation_enabled
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_settings"] = notification_settings
@@ -201,6 +216,7 @@ class TrustAnchor(pulumi.CustomResource):
 
         __props__ = TrustAnchorArgs.__new__(TrustAnchorArgs)
 
+        __props__.__dict__["crl_dp_revocation_enabled"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notification_settings"] = None
@@ -215,6 +231,11 @@ class TrustAnchor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         return pulumi.runtime.exists_resource(None, 'aws-native:rolesanywhere:TrustAnchor', id, __props__, opts or pulumi.ResourceOptions())
+
+    @_builtins.property
+    @pulumi.getter(name="crlDpRevocationEnabled")
+    def crl_dp_revocation_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "crl_dp_revocation_enabled")
 
     @_builtins.property
     @pulumi.getter

@@ -3,24 +3,57 @@
   "description" : "Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation",
   "additionalProperties" : false,
   "properties" : {
-    "AvailabilityZoneId" : {
-      "type" : "string"
-    },
-    "AvailabilityZone" : {
-      "type" : "string"
+    "AssociationId" : {
+      "type" : "string",
+      "description" : "The ID of the association between the Client VPN endpoint and the target network."
     },
     "ClientVpnEndpointId" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The ID of the Client VPN endpoint."
     },
     "SubnetId" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The ID of the subnet to associate with the Client VPN endpoint. Required for VPC-based endpoints. For Transit Gateway-based endpoints, use AvailabilityZone or AvailabilityZoneId instead."
     },
-    "Id" : {
-      "type" : "string"
+    "AvailabilityZone" : {
+      "type" : "string",
+      "description" : "The Availability Zone to associate with the Client VPN endpoint. Used for Transit Gateway-based endpoints in place of SubnetId."
+    },
+    "AvailabilityZoneId" : {
+      "type" : "string",
+      "description" : "The ID of the Availability Zone to associate with the Client VPN endpoint. Used for Transit Gateway-based endpoints in place of SubnetId."
     }
   },
   "required" : [ "ClientVpnEndpointId" ],
-  "createOnlyProperties" : [ "/properties/ClientVpnEndpointId", "/properties/AvailabilityZoneId", "/properties/AvailabilityZone", "/properties/SubnetId" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "createOnlyProperties" : [ "/properties/ClientVpnEndpointId", "/properties/SubnetId", "/properties/AvailabilityZone", "/properties/AvailabilityZoneId" ],
+  "writeOnlyProperties" : [ "/properties/AvailabilityZone", "/properties/AvailabilityZoneId" ],
+  "readOnlyProperties" : [ "/properties/AssociationId" ],
+  "primaryIdentifier" : [ "/properties/ClientVpnEndpointId", "/properties/AssociationId" ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ec2:AssociateClientVpnTargetNetwork", "ec2:DescribeClientVpnTargetNetworks" ],
+      "timeoutInMinutes" : 130
+    },
+    "read" : {
+      "permissions" : [ "ec2:DescribeClientVpnTargetNetworks" ]
+    },
+    "delete" : {
+      "permissions" : [ "ec2:DisassociateClientVpnTargetNetwork", "ec2:DescribeClientVpnTargetNetworks" ],
+      "timeoutInMinutes" : 130
+    },
+    "list" : {
+      "permissions" : [ "ec2:DescribeClientVpnTargetNetworks" ],
+      "handlerSchema" : {
+        "properties" : {
+          "ClientVpnEndpointId" : {
+            "$ref" : "resource-schema.json#/properties/ClientVpnEndpointId"
+          }
+        },
+        "required" : [ "ClientVpnEndpointId" ]
+      }
+    }
+  }
 }

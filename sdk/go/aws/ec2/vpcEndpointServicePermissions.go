@@ -20,6 +20,8 @@ type VpcEndpointServicePermissions struct {
 	AllowedPrincipals pulumi.StringArrayOutput `pulumi:"allowedPrincipals"`
 	// The ID of the service.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
+	// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+	TransitGatewayAttachmentAllowedPrincipals pulumi.StringArrayOutput `pulumi:"transitGatewayAttachmentAllowedPrincipals"`
 }
 
 // NewVpcEndpointServicePermissions registers a new resource with the given unique name, arguments, and options.
@@ -79,6 +81,8 @@ type vpcEndpointServicePermissionsArgs struct {
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
 	// The ID of the service.
 	ServiceId string `pulumi:"serviceId"`
+	// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+	TransitGatewayAttachmentAllowedPrincipals []string `pulumi:"transitGatewayAttachmentAllowedPrincipals"`
 }
 
 // The set of arguments for constructing a VpcEndpointServicePermissions resource.
@@ -87,6 +91,8 @@ type VpcEndpointServicePermissionsArgs struct {
 	AllowedPrincipals pulumi.StringArrayInput
 	// The ID of the service.
 	ServiceId pulumi.StringInput
+	// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+	TransitGatewayAttachmentAllowedPrincipals pulumi.StringArrayInput
 }
 
 func (VpcEndpointServicePermissionsArgs) ElementType() reflect.Type {
@@ -134,6 +140,13 @@ func (o VpcEndpointServicePermissionsOutput) AllowedPrincipals() pulumi.StringAr
 // The ID of the service.
 func (o VpcEndpointServicePermissionsOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServicePermissions) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
+}
+
+// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+func (o VpcEndpointServicePermissionsOutput) TransitGatewayAttachmentAllowedPrincipals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointServicePermissions) pulumi.StringArrayOutput {
+		return v.TransitGatewayAttachmentAllowedPrincipals
+	}).(pulumi.StringArrayOutput)
 }
 
 func init() {

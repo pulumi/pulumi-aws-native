@@ -53,6 +53,7 @@ __all__ = [
     'FlowOutputOutputStatus',
     'FlowOutputProtocol',
     'FlowOutputRouterIntegrationState',
+    'FlowOutputTlsEncryptionType',
     'FlowSilentAudioState',
     'FlowSize',
     'FlowSourceEncryptionAlgorithm',
@@ -78,6 +79,7 @@ __all__ = [
     'RouterInputProtocol',
     'RouterInputRouterContentQualityAnalysisType',
     'RouterInputRoutingScope',
+    'RouterInputRtmpPushNamingType',
     'RouterInputState',
     'RouterInputTier',
     'RouterInputTransitEncryptionKeyType',
@@ -548,12 +550,18 @@ class FlowOutputProtocol(_builtins.str, Enum):
     ST2110_JPEGXS = "st2110-jpegxs"
     CDI = "cdi"
     NDI_SPEED_HQ = "ndi-speed-hq"
+    RTMP_PUSH = "rtmp-push"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowOutputRouterIntegrationState")
 class FlowOutputRouterIntegrationState(_builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:mediaconnect:FlowOutputTlsEncryptionType")
+class FlowOutputTlsEncryptionType(_builtins.str, Enum):
+    PUBLIC = "PUBLIC"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowSilentAudioState")
@@ -627,6 +635,7 @@ class FlowSourceProtocol(_builtins.str, Enum):
     ST2110_JPEGXS = "st2110-jpegxs"
     CDI = "cdi"
     NDI_SPEED_HQ = "ndi-speed-hq"
+    RTMP_PUSH = "rtmp-push"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowSourceRouterIntegrationState")
@@ -745,6 +754,7 @@ class RouterInputProtocol(_builtins.str, Enum):
     RIST = "RIST"
     SRT_CALLER = "SRT_CALLER"
     SRT_LISTENER = "SRT_LISTENER"
+    RTMP_PUSH = "RTMP_PUSH"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterInputRouterContentQualityAnalysisType")
@@ -756,6 +766,12 @@ class RouterInputRouterContentQualityAnalysisType(_builtins.str, Enum):
 class RouterInputRoutingScope(_builtins.str, Enum):
     REGIONAL = "REGIONAL"
     GLOBAL_ = "GLOBAL"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterInputRtmpPushNamingType")
+class RouterInputRtmpPushNamingType(_builtins.str, Enum):
+    MANUAL = "MANUAL"
+    AUTOMATIC = "AUTOMATIC"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterInputState")

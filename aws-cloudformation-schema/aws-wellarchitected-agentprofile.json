@@ -119,7 +119,7 @@
       "uniqueItems" : true,
       "insertionOrder" : false,
       "minItems" : 0,
-      "maxItems" : 100,
+      "maxItems" : 1000,
       "items" : {
         "$ref" : "#/definitions/AggregationConfiguration"
       }

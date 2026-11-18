@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
     public sealed class SpaceEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the space is encrypted with an AWS owned key or a customer managed key.
+        /// Which kind of key to use. Required.
         /// </summary>
         [Input("encryptionStrategy", required: true)]
         public Input<Pulumi.AwsNative.CloudWatch.SpaceEncryptionConfigurationEncryptionStrategy> EncryptionStrategy { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+        /// Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

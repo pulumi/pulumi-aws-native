@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+// Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
 func LookupAcmeEndpoint(ctx *pulumi.Context, args *LookupAcmeEndpointArgs, opts ...pulumi.InvokeOption) (*LookupAcmeEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAcmeEndpointResult

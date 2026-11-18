@@ -234,17 +234,31 @@ class ListenerWeightedTargetGroupArgs:
 
 
 class ResourceConfigurationCidrResourceArgsDict(TypedDict):
+    """
+    The CIDR ranges that make up a CIDR resource configuration. Only valid when ResourceConfigurationType is CIDR, and the resource gateway must have ResourceConfigDnsResolution set to IN_VPC.
+    """
     cidr_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
+    """
 
 @pulumi.input_type
 class ResourceConfigurationCidrResourceArgs:
     def __init__(__self__, *,
                  cidr_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        The CIDR ranges that make up a CIDR resource configuration. Only valid when ResourceConfigurationType is CIDR, and the resource gateway must have ResourceConfigDnsResolution set to IN_VPC.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_ranges: The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
+        """
         pulumi.set(__self__, "cidr_ranges", cidr_ranges)
 
     @_builtins.property
     @pulumi.getter(name="cidrRanges")
     def cidr_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The IPv4 CIDR ranges reachable through this resource configuration, in CIDR notation (for example, 10.0.0.0/24).
+        """
         return pulumi.get(self, "cidr_ranges")
 
     @cidr_ranges.setter

@@ -85,6 +85,13 @@ export const OriginEndpointDashAudioTimelinePattern = {
 
 export type OriginEndpointDashAudioTimelinePattern = (typeof OriginEndpointDashAudioTimelinePattern)[keyof typeof OriginEndpointDashAudioTimelinePattern];
 
+export const OriginEndpointDashBandwidthReportingMode = {
+    Average: "AVERAGE",
+    Max: "MAX",
+} as const;
+
+export type OriginEndpointDashBandwidthReportingMode = (typeof OriginEndpointDashBandwidthReportingMode)[keyof typeof OriginEndpointDashBandwidthReportingMode];
+
 export const OriginEndpointDashCompactness = {
     Standard: "STANDARD",
     None: "NONE",

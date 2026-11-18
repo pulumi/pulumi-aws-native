@@ -35,6 +35,11 @@ export const getHealthCheck: typeof import("./getHealthCheck").getHealthCheck = 
 export const getHealthCheckOutput: typeof import("./getHealthCheck").getHealthCheckOutput = null as any;
 utilities.lazyLoad(exports, ["getHealthCheck","getHealthCheckOutput"], () => require("./getHealthCheck"));
 
+export { GetHealthCheckSourceArgs, GetHealthCheckSourceResult, GetHealthCheckSourceOutputArgs } from "./getHealthCheckSource";
+export const getHealthCheckSource: typeof import("./getHealthCheckSource").getHealthCheckSource = null as any;
+export const getHealthCheckSourceOutput: typeof import("./getHealthCheckSource").getHealthCheckSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getHealthCheckSource","getHealthCheckSourceOutput"], () => require("./getHealthCheckSource"));
+
 export { GetHostedZoneArgs, GetHostedZoneResult, GetHostedZoneOutputArgs } from "./getHostedZone";
 export const getHostedZone: typeof import("./getHostedZone").getHostedZone = null as any;
 export const getHostedZoneOutput: typeof import("./getHostedZone").getHostedZoneOutput = null as any;
@@ -44,6 +49,11 @@ export { GetKeySigningKeyArgs, GetKeySigningKeyResult, GetKeySigningKeyOutputArg
 export const getKeySigningKey: typeof import("./getKeySigningKey").getKeySigningKey = null as any;
 export const getKeySigningKeyOutput: typeof import("./getKeySigningKey").getKeySigningKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getKeySigningKey","getKeySigningKeyOutput"], () => require("./getKeySigningKey"));
+
+export { GetQueryLoggingConfigArgs, GetQueryLoggingConfigResult, GetQueryLoggingConfigOutputArgs } from "./getQueryLoggingConfig";
+export const getQueryLoggingConfig: typeof import("./getQueryLoggingConfig").getQueryLoggingConfig = null as any;
+export const getQueryLoggingConfigOutput: typeof import("./getQueryLoggingConfig").getQueryLoggingConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getQueryLoggingConfig","getQueryLoggingConfigOutput"], () => require("./getQueryLoggingConfig"));
 
 export { GetRecordSetArgs, GetRecordSetResult, GetRecordSetOutputArgs } from "./getRecordSet";
 export const getRecordSet: typeof import("./getRecordSet").getRecordSet = null as any;
@@ -60,6 +70,11 @@ export type HealthCheck = import("./healthCheck").HealthCheck;
 export const HealthCheck: typeof import("./healthCheck").HealthCheck = null as any;
 utilities.lazyLoad(exports, ["HealthCheck"], () => require("./healthCheck"));
 
+export { HealthCheckSourceArgs } from "./healthCheckSource";
+export type HealthCheckSource = import("./healthCheckSource").HealthCheckSource;
+export const HealthCheckSource: typeof import("./healthCheckSource").HealthCheckSource = null as any;
+utilities.lazyLoad(exports, ["HealthCheckSource"], () => require("./healthCheckSource"));
+
 export { HostedZoneArgs } from "./hostedZone";
 export type HostedZone = import("./hostedZone").HostedZone;
 export const HostedZone: typeof import("./hostedZone").HostedZone = null as any;
@@ -70,10 +85,20 @@ export type KeySigningKey = import("./keySigningKey").KeySigningKey;
 export const KeySigningKey: typeof import("./keySigningKey").KeySigningKey = null as any;
 utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
 
+export { QueryLoggingConfigArgs } from "./queryLoggingConfig";
+export type QueryLoggingConfig = import("./queryLoggingConfig").QueryLoggingConfig;
+export const QueryLoggingConfig: typeof import("./queryLoggingConfig").QueryLoggingConfig = null as any;
+utilities.lazyLoad(exports, ["QueryLoggingConfig"], () => require("./queryLoggingConfig"));
+
 export { RecordSetArgs } from "./recordSet";
 export type RecordSet = import("./recordSet").RecordSet;
 export const RecordSet: typeof import("./recordSet").RecordSet = null as any;
 utilities.lazyLoad(exports, ["RecordSet"], () => require("./recordSet"));
+
+export { RecordSetProtectionArgs } from "./recordSetProtection";
+export type RecordSetProtection = import("./recordSetProtection").RecordSetProtection;
+export const RecordSetProtection: typeof import("./recordSetProtection").RecordSetProtection = null as any;
+utilities.lazyLoad(exports, ["RecordSetProtection"], () => require("./recordSetProtection"));
 
 export { TrafficPolicyArgs } from "./trafficPolicy";
 export type TrafficPolicy = import("./trafficPolicy").TrafficPolicy;
@@ -96,12 +121,18 @@ const _module = {
                 return new Dnssec(name, <any>undefined, { urn })
             case "aws-native:route53:HealthCheck":
                 return new HealthCheck(name, <any>undefined, { urn })
+            case "aws-native:route53:HealthCheckSource":
+                return new HealthCheckSource(name, <any>undefined, { urn })
             case "aws-native:route53:HostedZone":
                 return new HostedZone(name, <any>undefined, { urn })
             case "aws-native:route53:KeySigningKey":
                 return new KeySigningKey(name, <any>undefined, { urn })
+            case "aws-native:route53:QueryLoggingConfig":
+                return new QueryLoggingConfig(name, <any>undefined, { urn })
             case "aws-native:route53:RecordSet":
                 return new RecordSet(name, <any>undefined, { urn })
+            case "aws-native:route53:RecordSetProtection":
+                return new RecordSetProtection(name, <any>undefined, { urn })
             case "aws-native:route53:TrafficPolicy":
                 return new TrafficPolicy(name, <any>undefined, { urn })
             default:

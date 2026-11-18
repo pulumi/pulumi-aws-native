@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         public Input<Inputs.OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs>? AuthorizationServerMetadata { get; set; }
 
         /// <summary>
-        /// The discovery URL for the OAuth2 provider
+        /// OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL
         /// </summary>
         [Input("discoveryUrl")]
         public Input<string>? DiscoveryUrl { get; set; }

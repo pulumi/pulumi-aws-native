@@ -28,6 +28,7 @@ export const FleetAcceleratorSelectionName = {
     L4: "l4",
     L40s: "l40s",
     RtxProServer6000: "rtx-pro-server-6000",
+    RtxPro4500: "rtx-pro-4500",
 } as const;
 
 export type FleetAcceleratorSelectionName = (typeof FleetAcceleratorSelectionName)[keyof typeof FleetAcceleratorSelectionName];

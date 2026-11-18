@@ -10,10 +10,20 @@ export const getPipeline: typeof import("./getPipeline").getPipeline = null as a
 export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
 utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
 
+export { GetPipelineEndpointArgs, GetPipelineEndpointResult, GetPipelineEndpointOutputArgs } from "./getPipelineEndpoint";
+export const getPipelineEndpoint: typeof import("./getPipelineEndpoint").getPipelineEndpoint = null as any;
+export const getPipelineEndpointOutput: typeof import("./getPipelineEndpoint").getPipelineEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getPipelineEndpoint","getPipelineEndpointOutput"], () => require("./getPipelineEndpoint"));
+
 export { PipelineArgs } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
 utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
+
+export { PipelineEndpointArgs } from "./pipelineEndpoint";
+export type PipelineEndpoint = import("./pipelineEndpoint").PipelineEndpoint;
+export const PipelineEndpoint: typeof import("./pipelineEndpoint").PipelineEndpoint = null as any;
+utilities.lazyLoad(exports, ["PipelineEndpoint"], () => require("./pipelineEndpoint"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:osis:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
+            case "aws-native:osis:PipelineEndpoint":
+                return new PipelineEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

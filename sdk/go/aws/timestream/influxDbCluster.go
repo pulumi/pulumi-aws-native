@@ -32,6 +32,8 @@ type InfluxDbCluster struct {
 	DbStorageType InfluxDbClusterDbStorageTypePtrOutput `pulumi:"dbStorageType"`
 	// Deployment type of the InfluxDB cluster.
 	DeploymentType InfluxDbClusterDeploymentTypePtrOutput `pulumi:"deploymentType"`
+	// The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+	EffectiveDbParameterGroupIdentifier pulumi.StringOutput `pulumi:"effectiveDbParameterGroupIdentifier"`
 	// The connection endpoint for the InfluxDB cluster.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The engine type for the InfluxDB cluster.
@@ -40,10 +42,16 @@ type InfluxDbCluster struct {
 	FailoverMode InfluxDbClusterFailoverModePtrOutput `pulumi:"failoverMode"`
 	// The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB cluster.
 	InfluxAuthParametersSecretArn pulumi.StringOutput `pulumi:"influxAuthParametersSecretArn"`
+	// The customer managed key used to encrypt data in the InfluxDB cluster.
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrOutput `pulumi:"logDeliveryConfiguration"`
 	// The maintenance schedule for the InfluxDB cluster.
 	MaintenanceSchedule InfluxDbClusterMaintenanceSchedulePtrOutput `pulumi:"maintenanceSchedule"`
+	// The number of DB instances that belong to the InfluxDB cluster.
+	MemberCount pulumi.IntOutput `pulumi:"memberCount"`
+	// DB cluster member counts grouped by instance mode.
+	MemberModeCounts InfluxDbClusterMemberModeCountArrayOutput `pulumi:"memberModeCounts"`
 	// The unique name that is associated with the InfluxDB cluster.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Network type of the InfluxDB cluster.
@@ -84,6 +92,7 @@ func NewInfluxDbCluster(ctx *pulumi.Context,
 		"bucket",
 		"dbStorageType",
 		"deploymentType",
+		"kmsKeyId",
 		"name",
 		"networkType",
 		"organization",
@@ -147,6 +156,8 @@ type influxDbClusterArgs struct {
 	DeploymentType *InfluxDbClusterDeploymentType `pulumi:"deploymentType"`
 	// Failover mode of the InfluxDB cluster.
 	FailoverMode *InfluxDbClusterFailoverMode `pulumi:"failoverMode"`
+	// The customer managed key used to encrypt data in the InfluxDB cluster.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	LogDeliveryConfiguration *LogDeliveryConfigurationProperties `pulumi:"logDeliveryConfiguration"`
 	// The maintenance schedule for the InfluxDB cluster.
@@ -189,6 +200,8 @@ type InfluxDbClusterArgs struct {
 	DeploymentType InfluxDbClusterDeploymentTypePtrInput
 	// Failover mode of the InfluxDB cluster.
 	FailoverMode InfluxDbClusterFailoverModePtrInput
+	// The customer managed key used to encrypt data in the InfluxDB cluster.
+	KmsKeyId pulumi.StringPtrInput
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	LogDeliveryConfiguration LogDeliveryConfigurationPropertiesPtrInput
 	// The maintenance schedule for the InfluxDB cluster.
@@ -292,6 +305,11 @@ func (o InfluxDbClusterOutput) DeploymentType() InfluxDbClusterDeploymentTypePtr
 	return o.ApplyT(func(v *InfluxDbCluster) InfluxDbClusterDeploymentTypePtrOutput { return v.DeploymentType }).(InfluxDbClusterDeploymentTypePtrOutput)
 }
 
+// The parameter group actually applied to the InfluxDB cluster. When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+func (o InfluxDbClusterOutput) EffectiveDbParameterGroupIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfluxDbCluster) pulumi.StringOutput { return v.EffectiveDbParameterGroupIdentifier }).(pulumi.StringOutput)
+}
+
 // The connection endpoint for the InfluxDB cluster.
 func (o InfluxDbClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfluxDbCluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
@@ -312,6 +330,11 @@ func (o InfluxDbClusterOutput) InfluxAuthParametersSecretArn() pulumi.StringOutp
 	return o.ApplyT(func(v *InfluxDbCluster) pulumi.StringOutput { return v.InfluxAuthParametersSecretArn }).(pulumi.StringOutput)
 }
 
+// The customer managed key used to encrypt data in the InfluxDB cluster.
+func (o InfluxDbClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbCluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
 // Configuration for sending logs to customer account from the InfluxDB cluster.
 func (o InfluxDbClusterOutput) LogDeliveryConfiguration() LogDeliveryConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *InfluxDbCluster) LogDeliveryConfigurationPropertiesPtrOutput {
@@ -322,6 +345,16 @@ func (o InfluxDbClusterOutput) LogDeliveryConfiguration() LogDeliveryConfigurati
 // The maintenance schedule for the InfluxDB cluster.
 func (o InfluxDbClusterOutput) MaintenanceSchedule() InfluxDbClusterMaintenanceSchedulePtrOutput {
 	return o.ApplyT(func(v *InfluxDbCluster) InfluxDbClusterMaintenanceSchedulePtrOutput { return v.MaintenanceSchedule }).(InfluxDbClusterMaintenanceSchedulePtrOutput)
+}
+
+// The number of DB instances that belong to the InfluxDB cluster.
+func (o InfluxDbClusterOutput) MemberCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *InfluxDbCluster) pulumi.IntOutput { return v.MemberCount }).(pulumi.IntOutput)
+}
+
+// DB cluster member counts grouped by instance mode.
+func (o InfluxDbClusterOutput) MemberModeCounts() InfluxDbClusterMemberModeCountArrayOutput {
+	return o.ApplyT(func(v *InfluxDbCluster) InfluxDbClusterMemberModeCountArrayOutput { return v.MemberModeCounts }).(InfluxDbClusterMemberModeCountArrayOutput)
 }
 
 // The unique name that is associated with the InfluxDB cluster.

@@ -56,6 +56,10 @@ export class Association extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
+     * Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+     */
+    declare public readonly capabilities: pulumi.Output<outputs.devopsagent.AssociationCapabilities | undefined>;
+    /**
      * The configuration that directs how AgentSpace interacts with the given service
      */
     declare public readonly configuration: pulumi.Output<outputs.devopsagent.AssociationServiceConfiguration>;
@@ -97,6 +101,7 @@ export class Association extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceId'");
             }
             resourceInputs["agentSpaceId"] = args?.agentSpaceId;
+            resourceInputs["capabilities"] = args?.capabilities;
             resourceInputs["configuration"] = args?.configuration;
             resourceInputs["linkedAssociationIds"] = args?.linkedAssociationIds;
             resourceInputs["serviceId"] = args?.serviceId;
@@ -106,6 +111,7 @@ export class Association extends pulumi.CustomResource {
         } else {
             resourceInputs["agentSpaceId"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
+            resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["linkedAssociationIds"] = undefined /*out*/;
@@ -127,6 +133,10 @@ export interface AssociationArgs {
      * The unique identifier of the AgentSpace
      */
     agentSpaceId: pulumi.Input<string>;
+    /**
+     * Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+     */
+    capabilities?: pulumi.Input<inputs.devopsagent.AssociationCapabilitiesArgs | undefined>;
     /**
      * The configuration that directs how AgentSpace interacts with the given service
      */

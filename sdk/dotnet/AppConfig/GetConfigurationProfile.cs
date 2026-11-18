@@ -104,6 +104,10 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+        /// </summary>
+        public readonly string? Type;
+        /// <summary>
         /// A list of methods for validating the configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationProfileValidators> Validators;
@@ -124,6 +128,8 @@ namespace Pulumi.AwsNative.AppConfig
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            string? type,
+
             ImmutableArray<Outputs.ConfigurationProfileValidators> validators)
         {
             ConfigurationProfileId = configurationProfileId;
@@ -133,6 +139,7 @@ namespace Pulumi.AwsNative.AppConfig
             Name = name;
             RetrievalRoleArn = retrievalRoleArn;
             Tags = tags;
+            Type = type;
             Validators = validators;
         }
     }

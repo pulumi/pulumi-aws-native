@@ -48,6 +48,24 @@ __all__ = [
     'AlarmWallClockWindowArgsDict',
     'AlarmWarmUpConfigurationArgs',
     'AlarmWarmUpConfigurationArgsDict',
+    'AlertConditionArgs',
+    'AlertConditionArgsDict',
+    'AlertEvaluationArgs',
+    'AlertEvaluationArgsDict',
+    'AlertNoDataArgs',
+    'AlertNoDataArgsDict',
+    'AlertNotificationRuleArgs',
+    'AlertNotificationRuleArgsDict',
+    'AlertQueryArgs',
+    'AlertQueryArgsDict',
+    'AlertRuleArgs',
+    'AlertRuleArgsDict',
+    'AlertTargetArgs',
+    'AlertTargetArgsDict',
+    'AlertTelemetryRuleArgs',
+    'AlertTelemetryRuleArgsDict',
+    'AlertTriggerArgs',
+    'AlertTriggerArgsDict',
     'CompositeAlarmActionConfigurationArgs',
     'CompositeAlarmActionConfigurationArgsDict',
     'CompositeAlarmAlarmTagsPropagationArgs',
@@ -1242,6 +1260,501 @@ class AlarmWarmUpConfigurationArgs:
     @warm_up_period_duration_in_minutes.setter
     def warm_up_period_duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "warm_up_period_duration_in_minutes", value)
+
+
+class AlertConditionArgsDict(TypedDict):
+    """
+    The thresholds that set the alert's state. Specify at least one of WarningThreshold and CriticalThreshold.
+    """
+    comparator: NotRequired[pulumi.Input[Optional['AlertConditionComparator']]]
+    """
+    The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+    """
+    critical_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The value at which the alert enters the CRITICAL state.
+    """
+    threshold_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+    """
+    threshold_mode: NotRequired[pulumi.Input[Optional['AlertConditionThresholdMode']]]
+    """
+    How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+    """
+    warning_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The value at which the alert enters the WARNING state.
+    """
+
+@pulumi.input_type
+class AlertConditionArgs:
+    def __init__(__self__, *,
+                 comparator: pulumi.Input[Optional['AlertConditionComparator']] = None,
+                 critical_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 threshold_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold_mode: pulumi.Input[Optional['AlertConditionThresholdMode']] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        The thresholds that set the alert's state. Specify at least one of WarningThreshold and CriticalThreshold.
+
+        :param pulumi.Input['AlertConditionComparator'] comparator: The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+        :param pulumi.Input[_builtins.float] critical_threshold: The value at which the alert enters the CRITICAL state.
+        :param pulumi.Input[_builtins.str] threshold_field: The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+        :param pulumi.Input['AlertConditionThresholdMode'] threshold_mode: How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+        :param pulumi.Input[_builtins.float] warning_threshold: The value at which the alert enters the WARNING state.
+        """
+        if comparator is not None:
+            pulumi.set(__self__, "comparator", comparator)
+        if critical_threshold is not None:
+            pulumi.set(__self__, "critical_threshold", critical_threshold)
+        if threshold_field is not None:
+            pulumi.set(__self__, "threshold_field", threshold_field)
+        if threshold_mode is not None:
+            pulumi.set(__self__, "threshold_mode", threshold_mode)
+        if warning_threshold is not None:
+            pulumi.set(__self__, "warning_threshold", warning_threshold)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparator(self) -> pulumi.Input[Optional['AlertConditionComparator']]:
+        """
+        The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+        """
+        return pulumi.get(self, "comparator")
+
+    @comparator.setter
+    def comparator(self, value: pulumi.Input[Optional['AlertConditionComparator']]):
+        pulumi.set(self, "comparator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="criticalThreshold")
+    def critical_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The value at which the alert enters the CRITICAL state.
+        """
+        return pulumi.get(self, "critical_threshold")
+
+    @critical_threshold.setter
+    def critical_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "critical_threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdField")
+    def threshold_field(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The result field to compare against the threshold. Required when ThresholdMode is FIELD_VALUE.
+        """
+        return pulumi.get(self, "threshold_field")
+
+    @threshold_field.setter
+    def threshold_field(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "threshold_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdMode")
+    def threshold_mode(self) -> pulumi.Input[Optional['AlertConditionThresholdMode']]:
+        """
+        How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+        """
+        return pulumi.get(self, "threshold_mode")
+
+    @threshold_mode.setter
+    def threshold_mode(self, value: pulumi.Input[Optional['AlertConditionThresholdMode']]):
+        pulumi.set(self, "threshold_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warningThreshold")
+    def warning_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The value at which the alert enters the WARNING state.
+        """
+        return pulumi.get(self, "warning_threshold")
+
+    @warning_threshold.setter
+    def warning_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "warning_threshold", value)
+
+
+class AlertEvaluationArgsDict(TypedDict):
+    """
+    How often the alert is evaluated, and how long a change must last before the state changes.
+    """
+    interval_seconds: pulumi.Input[_builtins.int]
+    """
+    The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+    """
+    pending_duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+    """
+    recovery_duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+    """
+
+@pulumi.input_type
+class AlertEvaluationArgs:
+    def __init__(__self__, *,
+                 interval_seconds: pulumi.Input[_builtins.int],
+                 pending_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        How often the alert is evaluated, and how long a change must last before the state changes.
+
+        :param pulumi.Input[_builtins.int] interval_seconds: The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+        :param pulumi.Input[_builtins.int] pending_duration_seconds: How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+        :param pulumi.Input[_builtins.int] recovery_duration_seconds: How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+        """
+        pulumi.set(__self__, "interval_seconds", interval_seconds)
+        if pending_duration_seconds is not None:
+            pulumi.set(__self__, "pending_duration_seconds", pending_duration_seconds)
+        if recovery_duration_seconds is not None:
+            pulumi.set(__self__, "recovery_duration_seconds", recovery_duration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The time between evaluations, in seconds. Valid values: 30, 60, 120, 300, 600, 900, 1800, 3600.
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @interval_seconds.setter
+    def interval_seconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "interval_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pendingDurationSeconds")
+    def pending_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How long a threshold breach must last before the alert changes state, in seconds. Must be a multiple of IntervalSeconds. 0 changes state immediately.
+        """
+        return pulumi.get(self, "pending_duration_seconds")
+
+    @pending_duration_seconds.setter
+    def pending_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "pending_duration_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryDurationSeconds")
+    def recovery_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How long the result must stay within its thresholds before the alert returns to OK, in seconds. Must be a multiple of IntervalSeconds. 0 returns to OK immediately.
+        """
+        return pulumi.get(self, "recovery_duration_seconds")
+
+    @recovery_duration_seconds.setter
+    def recovery_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "recovery_duration_seconds", value)
+
+
+class AlertNoDataArgsDict(TypedDict):
+    """
+    How the alert behaves when an evaluation returns no data. If omitted, the alert reports NODATA.
+    """
+    treat_as: pulumi.Input['AlertNoDataTreatAs']
+    """
+    The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+    """
+
+@pulumi.input_type
+class AlertNoDataArgs:
+    def __init__(__self__, *,
+                 treat_as: pulumi.Input['AlertNoDataTreatAs']):
+        """
+        How the alert behaves when an evaluation returns no data. If omitted, the alert reports NODATA.
+
+        :param pulumi.Input['AlertNoDataTreatAs'] treat_as: The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+        """
+        pulumi.set(__self__, "treat_as", treat_as)
+
+    @_builtins.property
+    @pulumi.getter(name="treatAs")
+    def treat_as(self) -> pulumi.Input['AlertNoDataTreatAs']:
+        """
+        The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+        """
+        return pulumi.get(self, "treat_as")
+
+    @treat_as.setter
+    def treat_as(self, value: pulumi.Input['AlertNoDataTreatAs']):
+        pulumi.set(self, "treat_as", value)
+
+
+class AlertNotificationRuleArgsDict(TypedDict):
+    """
+    A notification rule: which alert states trigger it, and where the notification is sent.
+    """
+    target: pulumi.Input['AlertTargetArgsDict']
+    trigger: pulumi.Input['AlertTriggerArgsDict']
+
+@pulumi.input_type
+class AlertNotificationRuleArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input['AlertTargetArgs'],
+                 trigger: pulumi.Input['AlertTriggerArgs']):
+        """
+        A notification rule: which alert states trigger it, and where the notification is sent.
+        """
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['AlertTargetArgs']:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['AlertTargetArgs']):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['AlertTriggerArgs']:
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['AlertTriggerArgs']):
+        pulumi.set(self, "trigger", value)
+
+
+class AlertQueryArgsDict(TypedDict):
+    """
+    The query the alert runs, and the language it is written in.
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    The query expression. For PromQL, the series value is returned in a field named value.
+    """
+    language: pulumi.Input['AlertQueryLanguage']
+    """
+    The query language. Valid values: SQL, PROMQL.
+    """
+
+@pulumi.input_type
+class AlertQueryArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[_builtins.str],
+                 language: pulumi.Input['AlertQueryLanguage']):
+        """
+        The query the alert runs, and the language it is written in.
+
+        :param pulumi.Input[_builtins.str] expression: The query expression. For PromQL, the series value is returned in a field named value.
+        :param pulumi.Input['AlertQueryLanguage'] language: The query language. Valid values: SQL, PROMQL.
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "language", language)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        The query expression. For PromQL, the series value is returned in a field named value.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> pulumi.Input['AlertQueryLanguage']:
+        """
+        The query language. Valid values: SQL, PROMQL.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: pulumi.Input['AlertQueryLanguage']):
+        pulumi.set(self, "language", value)
+
+
+class AlertRuleArgsDict(TypedDict):
+    """
+    The rule that defines how the alert is evaluated.
+    """
+    telemetry_rule: pulumi.Input['AlertTelemetryRuleArgsDict']
+
+@pulumi.input_type
+class AlertRuleArgs:
+    def __init__(__self__, *,
+                 telemetry_rule: pulumi.Input['AlertTelemetryRuleArgs']):
+        """
+        The rule that defines how the alert is evaluated.
+        """
+        pulumi.set(__self__, "telemetry_rule", telemetry_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetryRule")
+    def telemetry_rule(self) -> pulumi.Input['AlertTelemetryRuleArgs']:
+        return pulumi.get(self, "telemetry_rule")
+
+    @telemetry_rule.setter
+    def telemetry_rule(self, value: pulumi.Input['AlertTelemetryRuleArgs']):
+        pulumi.set(self, "telemetry_rule", value)
+
+
+class AlertTargetArgsDict(TypedDict):
+    """
+    Where the notification is sent.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+    """
+    type: pulumi.Input['AlertTargetType']
+    """
+    The target type. Valid values: sns, slack, pagerduty.
+    """
+    metadata: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class AlertTargetArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['AlertTargetType'],
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Where the notification is sent.
+
+        :param pulumi.Input[_builtins.str] arn: The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+        :param pulumi.Input['AlertTargetType'] type: The target type. Valid values: sns, slack, pagerduty.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "type", type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the target. For sns, the ARN of the Amazon SNS topic. For slack and pagerduty, the ARN of a CloudWatch Omni integration.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AlertTargetType']:
+        """
+        The target type. Valid values: sns, slack, pagerduty.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AlertTargetType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metadata", value)
+
+
+class AlertTelemetryRuleArgsDict(TypedDict):
+    """
+    A rule that queries telemetry, evaluates the result against a condition, and sets how missing data is handled.
+    """
+    condition: pulumi.Input['AlertConditionArgsDict']
+    evaluation: pulumi.Input['AlertEvaluationArgsDict']
+    query: pulumi.Input['AlertQueryArgsDict']
+    no_data: NotRequired[pulumi.Input[Optional['AlertNoDataArgsDict']]]
+
+@pulumi.input_type
+class AlertTelemetryRuleArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input['AlertConditionArgs'],
+                 evaluation: pulumi.Input['AlertEvaluationArgs'],
+                 query: pulumi.Input['AlertQueryArgs'],
+                 no_data: pulumi.Input[Optional['AlertNoDataArgs']] = None):
+        """
+        A rule that queries telemetry, evaluates the result against a condition, and sets how missing data is handled.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "evaluation", evaluation)
+        pulumi.set(__self__, "query", query)
+        if no_data is not None:
+            pulumi.set(__self__, "no_data", no_data)
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input['AlertConditionArgs']:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input['AlertConditionArgs']):
+        pulumi.set(self, "condition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluation(self) -> pulumi.Input['AlertEvaluationArgs']:
+        return pulumi.get(self, "evaluation")
+
+    @evaluation.setter
+    def evaluation(self, value: pulumi.Input['AlertEvaluationArgs']):
+        pulumi.set(self, "evaluation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input['AlertQueryArgs']:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input['AlertQueryArgs']):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noData")
+    def no_data(self) -> pulumi.Input[Optional['AlertNoDataArgs']]:
+        return pulumi.get(self, "no_data")
+
+    @no_data.setter
+    def no_data(self, value: pulumi.Input[Optional['AlertNoDataArgs']]):
+        pulumi.set(self, "no_data", value)
+
+
+class AlertTriggerArgsDict(TypedDict):
+    """
+    The alert states that trigger the notification rule.
+    """
+    state_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertTriggerStateValuesItem']]]]]
+    """
+    The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+    """
+
+@pulumi.input_type
+class AlertTriggerArgs:
+    def __init__(__self__, *,
+                 state_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertTriggerStateValuesItem']]]] = None):
+        """
+        The alert states that trigger the notification rule.
+
+        :param pulumi.Input[Sequence[pulumi.Input['AlertTriggerStateValuesItem']]] state_values: The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+        """
+        if state_values is not None:
+            pulumi.set(__self__, "state_values", state_values)
+
+    @_builtins.property
+    @pulumi.getter(name="stateValues")
+    def state_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertTriggerStateValuesItem']]]]:
+        """
+        The alert states that trigger this rule. A notification is sent when the alert enters any listed state. If omitted or empty, every state triggers the rule.
+        """
+        return pulumi.get(self, "state_values")
+
+    @state_values.setter
+    def state_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertTriggerStateValuesItem']]]]):
+        pulumi.set(self, "state_values", value)
 
 
 class CompositeAlarmActionConfigurationArgsDict(TypedDict):
@@ -2456,11 +2969,11 @@ class SpaceEncryptionConfigurationArgsDict(TypedDict):
     """
     encryption_strategy: pulumi.Input['SpaceEncryptionConfigurationEncryptionStrategy']
     """
-    Whether the space is encrypted with an AWS owned key or a customer managed key.
+    Which kind of key to use. Required.
     """
     kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+    Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
     """
 
 @pulumi.input_type
@@ -2471,8 +2984,8 @@ class SpaceEncryptionConfigurationArgs:
         """
         The encryption configuration for the space.
 
-        :param pulumi.Input['SpaceEncryptionConfigurationEncryptionStrategy'] encryption_strategy: Whether the space is encrypted with an AWS owned key or a customer managed key.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+        :param pulumi.Input['SpaceEncryptionConfigurationEncryptionStrategy'] encryption_strategy: Which kind of key to use. Required.
+        :param pulumi.Input[_builtins.str] kms_key_arn: Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
         """
         pulumi.set(__self__, "encryption_strategy", encryption_strategy)
         if kms_key_arn is not None:
@@ -2482,7 +2995,7 @@ class SpaceEncryptionConfigurationArgs:
     @pulumi.getter(name="encryptionStrategy")
     def encryption_strategy(self) -> pulumi.Input['SpaceEncryptionConfigurationEncryptionStrategy']:
         """
-        Whether the space is encrypted with an AWS owned key or a customer managed key.
+        Which kind of key to use. Required.
         """
         return pulumi.get(self, "encryption_strategy")
 
@@ -2494,7 +3007,7 @@ class SpaceEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the customer managed KMS key. Required when encryptionStrategy is CUSTOMER_MANAGED.
+        Customer managed KMS key ARN. Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
         """
         return pulumi.get(self, "kms_key_arn")
 

@@ -67,7 +67,7 @@ export class Catalog extends pulumi.CustomResource {
     /**
      * The time at which the catalog was created.
      */
-    declare public /*out*/ readonly createTime: pulumi.Output<number>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * A description of the catalog.
      */
@@ -97,7 +97,7 @@ export class Catalog extends pulumi.CustomResource {
     /**
      * The time at which the catalog was last updated.
      */
-    declare public /*out*/ readonly updateTime: pulumi.Output<number>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a Catalog resource with the given unique name, arguments, and options.

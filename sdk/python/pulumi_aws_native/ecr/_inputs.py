@@ -22,6 +22,8 @@ __all__ = [
     'RegistryScanningConfigurationScanningRuleArgsDict',
     'ReplicationConfigurationArgs',
     'ReplicationConfigurationArgsDict',
+    'ReplicationConfigurationDeleteReplicationArgs',
+    'ReplicationConfigurationDeleteReplicationArgsDict',
     'ReplicationConfigurationReplicationDestinationArgs',
     'ReplicationConfigurationReplicationDestinationArgsDict',
     'ReplicationConfigurationReplicationRuleArgs',
@@ -185,6 +187,34 @@ class ReplicationConfigurationArgs:
         pulumi.set(self, "rules", value)
 
 
+class ReplicationConfigurationDeleteReplicationArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether image deletions and image tag removals in the source registry are replicated to the replication destinations.
+    """
+
+@pulumi.input_type
+class ReplicationConfigurationDeleteReplicationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether image deletions and image tag removals in the source registry are replicated to the replication destinations.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether image deletions and image tag removals in the source registry are replicated to the replication destinations.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+
 class ReplicationConfigurationReplicationDestinationArgsDict(TypedDict):
     """
     An array of objects representing the destination for a replication rule.
@@ -245,6 +275,7 @@ class ReplicationConfigurationReplicationRuleArgsDict(TypedDict):
     """
     An array of objects representing the destination for a replication rule.
     """
+    delete_replication: NotRequired[pulumi.Input[Optional['ReplicationConfigurationDeleteReplicationArgsDict']]]
     repository_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgsDict']]]]]
     """
     An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
@@ -254,6 +285,7 @@ class ReplicationConfigurationReplicationRuleArgsDict(TypedDict):
 class ReplicationConfigurationReplicationRuleArgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]],
+                 delete_replication: pulumi.Input[Optional['ReplicationConfigurationDeleteReplicationArgs']] = None,
                  repository_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]] = None):
         """
         An array of objects representing the replication destinations and repository filters for a replication configuration.
@@ -262,6 +294,8 @@ class ReplicationConfigurationReplicationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]] repository_filters: An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
         """
         pulumi.set(__self__, "destinations", destinations)
+        if delete_replication is not None:
+            pulumi.set(__self__, "delete_replication", delete_replication)
         if repository_filters is not None:
             pulumi.set(__self__, "repository_filters", repository_filters)
 
@@ -276,6 +310,15 @@ class ReplicationConfigurationReplicationRuleArgs:
     @destinations.setter
     def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]):
         pulumi.set(self, "destinations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteReplication")
+    def delete_replication(self) -> pulumi.Input[Optional['ReplicationConfigurationDeleteReplicationArgs']]:
+        return pulumi.get(self, "delete_replication")
+
+    @delete_replication.setter
+    def delete_replication(self, value: pulumi.Input[Optional['ReplicationConfigurationDeleteReplicationArgs']]):
+        pulumi.set(self, "delete_replication", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryFilters")

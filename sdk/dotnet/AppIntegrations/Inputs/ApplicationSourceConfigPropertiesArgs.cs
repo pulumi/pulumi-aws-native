@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
         /// <summary>
         /// The external URL source for the application.
         /// </summary>
-        [Input("externalUrlConfig", required: true)]
-        public Input<Inputs.ApplicationExternalUrlConfigArgs> ExternalUrlConfig { get; set; } = null!;
+        [Input("externalUrlConfig")]
+        public Input<Inputs.ApplicationExternalUrlConfigArgs>? ExternalUrlConfig { get; set; }
 
         public ApplicationSourceConfigPropertiesArgs()
         {

@@ -2,6 +2,174 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ClusterCloudWatchAlarmDefinitionComparisonOperator = {
+    GreaterThanOrEqual: "GREATER_THAN_OR_EQUAL",
+    GreaterThan: "GREATER_THAN",
+    LessThan: "LESS_THAN",
+    LessThanOrEqual: "LESS_THAN_OR_EQUAL",
+} as const;
+
+/**
+ * Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+ */
+export type ClusterCloudWatchAlarmDefinitionComparisonOperator = (typeof ClusterCloudWatchAlarmDefinitionComparisonOperator)[keyof typeof ClusterCloudWatchAlarmDefinitionComparisonOperator];
+
+export const ClusterCloudWatchAlarmDefinitionStatistic = {
+    SampleCount: "SAMPLE_COUNT",
+    Average: "AVERAGE",
+    Sum: "SUM",
+    Minimum: "MINIMUM",
+    Maximum: "MAXIMUM",
+} as const;
+
+/**
+ * The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+ */
+export type ClusterCloudWatchAlarmDefinitionStatistic = (typeof ClusterCloudWatchAlarmDefinitionStatistic)[keyof typeof ClusterCloudWatchAlarmDefinitionStatistic];
+
+export const ClusterCloudWatchAlarmDefinitionUnit = {
+    None: "NONE",
+    Seconds: "SECONDS",
+    MicroSeconds: "MICRO_SECONDS",
+    MilliSeconds: "MILLI_SECONDS",
+    Bytes: "BYTES",
+    KiloBytes: "KILO_BYTES",
+    MegaBytes: "MEGA_BYTES",
+    GigaBytes: "GIGA_BYTES",
+    TeraBytes: "TERA_BYTES",
+    Bits: "BITS",
+    KiloBits: "KILO_BITS",
+    MegaBits: "MEGA_BITS",
+    GigaBits: "GIGA_BITS",
+    TeraBits: "TERA_BITS",
+    Percent: "PERCENT",
+    Count: "COUNT",
+    BytesPerSecond: "BYTES_PER_SECOND",
+    KiloBytesPerSecond: "KILO_BYTES_PER_SECOND",
+    MegaBytesPerSecond: "MEGA_BYTES_PER_SECOND",
+    GigaBytesPerSecond: "GIGA_BYTES_PER_SECOND",
+    TeraBytesPerSecond: "TERA_BYTES_PER_SECOND",
+    BitsPerSecond: "BITS_PER_SECOND",
+    KiloBitsPerSecond: "KILO_BITS_PER_SECOND",
+    MegaBitsPerSecond: "MEGA_BITS_PER_SECOND",
+    GigaBitsPerSecond: "GIGA_BITS_PER_SECOND",
+    TeraBitsPerSecond: "TERA_BITS_PER_SECOND",
+    CountPerSecond: "COUNT_PER_SECOND",
+} as const;
+
+/**
+ * The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+ */
+export type ClusterCloudWatchAlarmDefinitionUnit = (typeof ClusterCloudWatchAlarmDefinitionUnit)[keyof typeof ClusterCloudWatchAlarmDefinitionUnit];
+
+export const ClusterComputeLimitsUnitType = {
+    InstanceFleetUnits: "InstanceFleetUnits",
+    Instances: "Instances",
+    Vcpu: "VCPU",
+} as const;
+
+/**
+ * The unit type used for specifying a managed scaling policy.
+ */
+export type ClusterComputeLimitsUnitType = (typeof ClusterComputeLimitsUnitType)[keyof typeof ClusterComputeLimitsUnitType];
+
+export const ClusterInstanceGroupConfigMarket = {
+    OnDemand: "ON_DEMAND",
+    Spot: "SPOT",
+} as const;
+
+/**
+ * Market type of the EC2 instances used to create a cluster node.
+ */
+export type ClusterInstanceGroupConfigMarket = (typeof ClusterInstanceGroupConfigMarket)[keyof typeof ClusterInstanceGroupConfigMarket];
+
+export const ClusterPlacementGroupConfigInstanceRole = {
+    Master: "MASTER",
+    Core: "CORE",
+    Task: "TASK",
+} as const;
+
+/**
+ * Role of the instance in the cluster.
+ */
+export type ClusterPlacementGroupConfigInstanceRole = (typeof ClusterPlacementGroupConfigInstanceRole)[keyof typeof ClusterPlacementGroupConfigInstanceRole];
+
+export const ClusterPlacementGroupConfigPlacementStrategy = {
+    Spread: "SPREAD",
+    Partition: "PARTITION",
+    Cluster: "CLUSTER",
+    None: "NONE",
+} as const;
+
+/**
+ * Amazon EC2 Placement Group strategy associated with instance role.
+ */
+export type ClusterPlacementGroupConfigPlacementStrategy = (typeof ClusterPlacementGroupConfigPlacementStrategy)[keyof typeof ClusterPlacementGroupConfigPlacementStrategy];
+
+export const ClusterScaleDownBehavior = {
+    TerminateAtInstanceHour: "TERMINATE_AT_INSTANCE_HOUR",
+    TerminateAtTaskCompletion: "TERMINATE_AT_TASK_COMPLETION",
+} as const;
+
+/**
+ * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized.
+ */
+export type ClusterScaleDownBehavior = (typeof ClusterScaleDownBehavior)[keyof typeof ClusterScaleDownBehavior];
+
+export const ClusterScalingActionMarket = {
+    OnDemand: "ON_DEMAND",
+    Spot: "SPOT",
+} as const;
+
+/**
+ * Not available for instance groups. Instance groups use the market type specified for the group.
+ */
+export type ClusterScalingActionMarket = (typeof ClusterScalingActionMarket)[keyof typeof ClusterScalingActionMarket];
+
+export const ClusterSimpleScalingPolicyConfigurationAdjustmentType = {
+    ChangeInCapacity: "CHANGE_IN_CAPACITY",
+    ExactCapacity: "EXACT_CAPACITY",
+    PercentChangeInCapacity: "PERCENT_CHANGE_IN_CAPACITY",
+} as const;
+
+/**
+ * The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+ */
+export type ClusterSimpleScalingPolicyConfigurationAdjustmentType = (typeof ClusterSimpleScalingPolicyConfigurationAdjustmentType)[keyof typeof ClusterSimpleScalingPolicyConfigurationAdjustmentType];
+
+export const ClusterSpotProvisioningSpecificationTimeoutAction = {
+    SwitchToOnDemand: "SWITCH_TO_ON_DEMAND",
+    TerminateCluster: "TERMINATE_CLUSTER",
+} as const;
+
+/**
+ * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+ */
+export type ClusterSpotProvisioningSpecificationTimeoutAction = (typeof ClusterSpotProvisioningSpecificationTimeoutAction)[keyof typeof ClusterSpotProvisioningSpecificationTimeoutAction];
+
+export const ClusterStepConfigActionOnFailure = {
+    CancelAndWait: "CANCEL_AND_WAIT",
+    Continue: "CONTINUE",
+    TerminateCluster: "TERMINATE_CLUSTER",
+    TerminateJobFlow: "TERMINATE_JOB_FLOW",
+} as const;
+
+/**
+ * The action to take when the step fails. Use one of the following values:
+ *
+ *     TERMINATE_CLUSTER - Shuts down the cluster.
+ *     
+ *     CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+ *     
+ *     CONTINUE - Continues to the next step in the queue.
+ *     
+ *     TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+ *  If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+ *
+ * If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+ */
+export type ClusterStepConfigActionOnFailure = (typeof ClusterStepConfigActionOnFailure)[keyof typeof ClusterStepConfigActionOnFailure];
+
 export const StudioAuthMode = {
     Sso: "SSO",
     Iam: "IAM",

@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAiPromptResult:
-    def __init__(__self__, ai_prompt_arn=None, ai_prompt_id=None, assistant_arn=None, description=None, model_id=None, modified_time_seconds=None, template_configuration=None):
+    def __init__(__self__, ai_prompt_arn=None, ai_prompt_id=None, assistant_arn=None, description=None, inference_configuration=None, model_id=None, modified_time_seconds=None, template_configuration=None):
         if ai_prompt_arn and not isinstance(ai_prompt_arn, str):
             raise TypeError("Expected argument 'ai_prompt_arn' to be a str")
         pulumi.set(__self__, "ai_prompt_arn", ai_prompt_arn)
@@ -37,6 +37,9 @@ class GetAiPromptResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if inference_configuration and not isinstance(inference_configuration, dict):
+            raise TypeError("Expected argument 'inference_configuration' to be a dict")
+        pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id and not isinstance(model_id, str):
             raise TypeError("Expected argument 'model_id' to be a str")
         pulumi.set(__self__, "model_id", model_id)
@@ -78,6 +81,11 @@ class GetAiPromptResult:
         The description of the AI Prompt.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional['outputs.AiPromptAiPromptInferenceConfiguration']:
+        return pulumi.get(self, "inference_configuration")
 
     @_builtins.property
     @pulumi.getter(name="modelId")
@@ -129,6 +137,7 @@ class AwaitableGetAiPromptResult(GetAiPromptResult):
             ai_prompt_id=self.ai_prompt_id,
             assistant_arn=self.assistant_arn,
             description=self.description,
+            inference_configuration=self.inference_configuration,
             model_id=self.model_id,
             modified_time_seconds=self.modified_time_seconds,
             template_configuration=self.template_configuration)
@@ -154,6 +163,7 @@ def get_ai_prompt(ai_prompt_id: Optional[_builtins.str] = None,
         ai_prompt_id=pulumi.get(__ret__, 'ai_prompt_id'),
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         description=pulumi.get(__ret__, 'description'),
+        inference_configuration=pulumi.get(__ret__, 'inference_configuration'),
         model_id=pulumi.get(__ret__, 'model_id'),
         modified_time_seconds=pulumi.get(__ret__, 'modified_time_seconds'),
         template_configuration=pulumi.get(__ret__, 'template_configuration'))
@@ -176,6 +186,7 @@ def get_ai_prompt_output(ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = N
         ai_prompt_id=pulumi.get(__response__, 'ai_prompt_id'),
         assistant_arn=pulumi.get(__response__, 'assistant_arn'),
         description=pulumi.get(__response__, 'description'),
+        inference_configuration=pulumi.get(__response__, 'inference_configuration'),
         model_id=pulumi.get(__response__, 'model_id'),
         modified_time_seconds=pulumi.get(__response__, 'modified_time_seconds'),
         template_configuration=pulumi.get(__response__, 'template_configuration')))

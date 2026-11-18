@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, application_config=None, application_source_config=None, application_type=None, description=None, id=None, iframe_config=None, initialization_timeout=None, is_service=None, name=None, namespace=None, permissions=None, tags=None):
+    def __init__(__self__, application_arn=None, application_config=None, application_source_config=None, application_type=None, auth_config=None, description=None, id=None, iframe_config=None, initialization_timeout=None, is_service=None, last_modified_region=None, last_modified_time=None, name=None, namespace=None, permissions=None, tags=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
@@ -39,6 +39,9 @@ class GetApplicationResult:
         if application_type and not isinstance(application_type, str):
             raise TypeError("Expected argument 'application_type' to be a str")
         pulumi.set(__self__, "application_type", application_type)
+        if auth_config and not isinstance(auth_config, dict):
+            raise TypeError("Expected argument 'auth_config' to be a dict")
+        pulumi.set(__self__, "auth_config", auth_config)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -54,6 +57,12 @@ class GetApplicationResult:
         if is_service and not isinstance(is_service, bool):
             raise TypeError("Expected argument 'is_service' to be a bool")
         pulumi.set(__self__, "is_service", is_service)
+        if last_modified_region and not isinstance(last_modified_region, str):
+            raise TypeError("Expected argument 'last_modified_region' to be a str")
+        pulumi.set(__self__, "last_modified_region", last_modified_region)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -100,6 +109,14 @@ class GetApplicationResult:
         return pulumi.get(self, "application_type")
 
     @_builtins.property
+    @pulumi.getter(name="authConfig")
+    def auth_config(self) -> Optional['outputs.ApplicationAuthConfig']:
+        """
+        The authentication configuration. Required when ApplicationType is A2A_SERVER.
+        """
+        return pulumi.get(self, "auth_config")
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
@@ -138,6 +155,22 @@ class GetApplicationResult:
         Indicates if the application is a service
         """
         return pulumi.get(self, "is_service")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedRegion")
+    def last_modified_region(self) -> Optional[_builtins.str]:
+        """
+        The region in which the application was last modified.
+        """
+        return pulumi.get(self, "last_modified_region")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[_builtins.str]:
+        """
+        The time when the application was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
@@ -182,11 +215,14 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             application_config=self.application_config,
             application_source_config=self.application_source_config,
             application_type=self.application_type,
+            auth_config=self.auth_config,
             description=self.description,
             id=self.id,
             iframe_config=self.iframe_config,
             initialization_timeout=self.initialization_timeout,
             is_service=self.is_service,
+            last_modified_region=self.last_modified_region,
+            last_modified_time=self.last_modified_time,
             name=self.name,
             namespace=self.namespace,
             permissions=self.permissions,
@@ -210,11 +246,14 @@ def get_application(application_arn: Optional[_builtins.str] = None,
         application_config=pulumi.get(__ret__, 'application_config'),
         application_source_config=pulumi.get(__ret__, 'application_source_config'),
         application_type=pulumi.get(__ret__, 'application_type'),
+        auth_config=pulumi.get(__ret__, 'auth_config'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         iframe_config=pulumi.get(__ret__, 'iframe_config'),
         initialization_timeout=pulumi.get(__ret__, 'initialization_timeout'),
         is_service=pulumi.get(__ret__, 'is_service'),
+        last_modified_region=pulumi.get(__ret__, 'last_modified_region'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         name=pulumi.get(__ret__, 'name'),
         namespace=pulumi.get(__ret__, 'namespace'),
         permissions=pulumi.get(__ret__, 'permissions'),
@@ -235,11 +274,14 @@ def get_application_output(application_arn: pulumi.Input[Optional[_builtins.str]
         application_config=pulumi.get(__response__, 'application_config'),
         application_source_config=pulumi.get(__response__, 'application_source_config'),
         application_type=pulumi.get(__response__, 'application_type'),
+        auth_config=pulumi.get(__response__, 'auth_config'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         iframe_config=pulumi.get(__response__, 'iframe_config'),
         initialization_timeout=pulumi.get(__response__, 'initialization_timeout'),
         is_service=pulumi.get(__response__, 'is_service'),
+        last_modified_region=pulumi.get(__response__, 'last_modified_region'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         name=pulumi.get(__response__, 'name'),
         namespace=pulumi.get(__response__, 'namespace'),
         permissions=pulumi.get(__response__, 'permissions'),

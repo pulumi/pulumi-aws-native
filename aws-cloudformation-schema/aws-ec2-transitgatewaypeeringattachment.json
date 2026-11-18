@@ -8,7 +8,7 @@
     "cloudFormationSystemTags" : true
   },
   "typeName" : "AWS::EC2::TransitGatewayPeeringAttachment",
-  "readOnlyProperties" : [ "/properties/TransitGatewayAttachmentId", "/properties/Status", "/properties/State", "/properties/CreationTime" ],
+  "readOnlyProperties" : [ "/properties/TransitGatewayAttachmentId", "/properties/Status", "/properties/State", "/properties/CreationTime", "/properties/RequesterAllowMultipathResilience", "/properties/RequesterMultipathResilienceMode", "/properties/AccepterAllowMultipathResilience", "/properties/MultipathResilienceStatus" ],
   "description" : "The AWS::EC2::TransitGatewayPeeringAttachment type",
   "createOnlyProperties" : [ "/properties/TransitGatewayId", "/properties/PeerTransitGatewayId", "/properties/PeerRegion", "/properties/PeerAccountId" ],
   "primaryIdentifier" : [ "/properties/TransitGatewayAttachmentId" ],
@@ -31,8 +31,24 @@
       "permissions" : [ "ec2:DeleteTransitGatewayPeeringAttachment", "ec2:DescribeTransitGatewayPeeringAttachments", "ec2:DeleteTags", "ec2:DescribeTags" ]
     }
   },
+  "writeOnlyProperties" : [ "/properties/Options" ],
   "additionalProperties" : false,
   "definitions" : {
+    "TransitGatewayPeeringAttachmentOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "MultipathResilienceMode" : {
+          "description" : "The MultipathResilience mode. Only valid when AllowMultipathResilience is true.",
+          "type" : "string",
+          "enum" : [ "always-on" ]
+        },
+        "AllowMultipathResilience" : {
+          "description" : "Whether to enable MultipathResilience on this side of the peering attachment.",
+          "type" : "boolean"
+        }
+      }
+    },
     "Tag" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -67,6 +83,18 @@
       "description" : "The status of the transit gateway peering attachment.",
       "$ref" : "#/definitions/PeeringAttachmentStatus"
     },
+    "Options" : {
+      "description" : "Options for transit gateway peering attachment",
+      "$ref" : "#/definitions/TransitGatewayPeeringAttachmentOptions"
+    },
+    "PeerAccountId" : {
+      "description" : "The ID of the peer account",
+      "type" : "string"
+    },
+    "PeerRegion" : {
+      "description" : "Peer Region",
+      "type" : "string"
+    },
     "TransitGatewayId" : {
       "description" : "The ID of the transit gateway.",
       "type" : "string"
@@ -75,8 +103,12 @@
       "description" : "The ID of the peer transit gateway.",
       "type" : "string"
     },
-    "PeerAccountId" : {
-      "description" : "The ID of the peer account",
+    "AccepterAllowMultipathResilience" : {
+      "description" : "Whether the accepter side of the peering attachment has opted in to MultipathResilience.",
+      "type" : "boolean"
+    },
+    "RequesterMultipathResilienceMode" : {
+      "description" : "The MultipathResilience mode chosen by the requester side of the peering attachment.",
       "type" : "string"
     },
     "State" : {
@@ -88,9 +120,9 @@
       "description" : "The time the transit gateway peering attachment was created.",
       "type" : "string"
     },
-    "PeerRegion" : {
-      "description" : "Peer Region",
-      "type" : "string"
+    "RequesterAllowMultipathResilience" : {
+      "description" : "Whether the requester side of the peering attachment has opted in to MultipathResilience.",
+      "type" : "boolean"
     },
     "Tags" : {
       "description" : "The tags for the transit gateway peering attachment.",
@@ -101,6 +133,10 @@
     },
     "TransitGatewayAttachmentId" : {
       "description" : "The ID of the transit gateway peering attachment.",
+      "type" : "string"
+    },
+    "MultipathResilienceStatus" : {
+      "description" : "The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)",
       "type" : "string"
     }
   }

@@ -15,10 +15,20 @@ export type AgentGoal = import("./agentGoal").AgentGoal;
 export const AgentGoal: typeof import("./agentGoal").AgentGoal = null as any;
 utilities.lazyLoad(exports, ["AgentGoal"], () => require("./agentGoal"));
 
+export { AgentOrganizationalProfileArgs } from "./agentOrganizationalProfile";
+export type AgentOrganizationalProfile = import("./agentOrganizationalProfile").AgentOrganizationalProfile;
+export const AgentOrganizationalProfile: typeof import("./agentOrganizationalProfile").AgentOrganizationalProfile = null as any;
+utilities.lazyLoad(exports, ["AgentOrganizationalProfile"], () => require("./agentOrganizationalProfile"));
+
 export { AgentProfileArgs } from "./agentProfile";
 export type AgentProfile = import("./agentProfile").AgentProfile;
 export const AgentProfile: typeof import("./agentProfile").AgentProfile = null as any;
 utilities.lazyLoad(exports, ["AgentProfile"], () => require("./agentProfile"));
+
+export { AgentProfilePolicyArgs } from "./agentProfilePolicy";
+export type AgentProfilePolicy = import("./agentProfilePolicy").AgentProfilePolicy;
+export const AgentProfilePolicy: typeof import("./agentProfilePolicy").AgentProfilePolicy = null as any;
+utilities.lazyLoad(exports, ["AgentProfilePolicy"], () => require("./agentProfilePolicy"));
 
 export { GetAgentContextArgs, GetAgentContextResult, GetAgentContextOutputArgs } from "./getAgentContext";
 export const getAgentContext: typeof import("./getAgentContext").getAgentContext = null as any;
@@ -30,10 +40,20 @@ export const getAgentGoal: typeof import("./getAgentGoal").getAgentGoal = null a
 export const getAgentGoalOutput: typeof import("./getAgentGoal").getAgentGoalOutput = null as any;
 utilities.lazyLoad(exports, ["getAgentGoal","getAgentGoalOutput"], () => require("./getAgentGoal"));
 
+export { GetAgentOrganizationalProfileArgs, GetAgentOrganizationalProfileResult, GetAgentOrganizationalProfileOutputArgs } from "./getAgentOrganizationalProfile";
+export const getAgentOrganizationalProfile: typeof import("./getAgentOrganizationalProfile").getAgentOrganizationalProfile = null as any;
+export const getAgentOrganizationalProfileOutput: typeof import("./getAgentOrganizationalProfile").getAgentOrganizationalProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentOrganizationalProfile","getAgentOrganizationalProfileOutput"], () => require("./getAgentOrganizationalProfile"));
+
 export { GetAgentProfileArgs, GetAgentProfileResult, GetAgentProfileOutputArgs } from "./getAgentProfile";
 export const getAgentProfile: typeof import("./getAgentProfile").getAgentProfile = null as any;
 export const getAgentProfileOutput: typeof import("./getAgentProfile").getAgentProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getAgentProfile","getAgentProfileOutput"], () => require("./getAgentProfile"));
+
+export { GetAgentProfilePolicyArgs, GetAgentProfilePolicyResult, GetAgentProfilePolicyOutputArgs } from "./getAgentProfilePolicy";
+export const getAgentProfilePolicy: typeof import("./getAgentProfilePolicy").getAgentProfilePolicy = null as any;
+export const getAgentProfilePolicyOutput: typeof import("./getAgentProfilePolicy").getAgentProfilePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentProfilePolicy","getAgentProfilePolicyOutput"], () => require("./getAgentProfilePolicy"));
 
 export { GetLensArgs, GetLensResult, GetLensOutputArgs } from "./getLens";
 export const getLens: typeof import("./getLens").getLens = null as any;
@@ -87,8 +107,12 @@ const _module = {
                 return new AgentContext(name, <any>undefined, { urn })
             case "aws-native:wellarchitected:AgentGoal":
                 return new AgentGoal(name, <any>undefined, { urn })
+            case "aws-native:wellarchitected:AgentOrganizationalProfile":
+                return new AgentOrganizationalProfile(name, <any>undefined, { urn })
             case "aws-native:wellarchitected:AgentProfile":
                 return new AgentProfile(name, <any>undefined, { urn })
+            case "aws-native:wellarchitected:AgentProfilePolicy":
+                return new AgentProfilePolicy(name, <any>undefined, { urn })
             case "aws-native:wellarchitected:Lens":
                 return new Lens(name, <any>undefined, { urn })
             case "aws-native:wellarchitected:Profile":

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS::CloudWatch::Space
+ * Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
  */
 export class Space extends pulumi.CustomResource {
     /**
@@ -48,7 +48,7 @@ export class Space extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+     * The ARN of the IAM role used by AgentCore online evaluation. Absent when the space was created without one.
      */
     declare public readonly agentCoreEvaluationRoleArn: pulumi.Output<string | undefined>;
     /**
@@ -56,35 +56,35 @@ export class Space extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The time the space was created.
+     * The timestamp when the space was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+     * The ARN of the IAM role used for data access.
      */
     declare public readonly dataAccessRoleArn: pulumi.Output<string>;
     /**
-     * The identifier of the domain the space belongs to.
+     * The ID of the domain to create the space in.
      */
     declare public readonly domainId: pulumi.Output<string>;
     /**
-     * The encryption configuration for the space.
+     * How the space's data at rest is encrypted. Always populated.
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.cloudwatch.SpaceEncryptionConfiguration | undefined>;
     /**
-     * The name of the space.
+     * A name that identifies the space.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The AWS account that owns the space.
+     * AWS account ID that owns this space.
      */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
-     * The AWS Region the space resides in.
+     * The region where this space was created.
      */
     declare public /*out*/ readonly region: pulumi.Output<string>;
     /**
-     * The unique identifier of the space.
+     * The unique ID of the space.
      */
     declare public /*out*/ readonly spaceId: pulumi.Output<string>;
     /**
@@ -96,7 +96,7 @@ export class Space extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The time the space was last updated.
+     * The timestamp when the space was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -157,23 +157,23 @@ export class Space extends pulumi.CustomResource {
  */
 export interface SpaceArgs {
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+     * The ARN of the IAM role used by AgentCore online evaluation. Absent when the space was created without one.
      */
     agentCoreEvaluationRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+     * The ARN of the IAM role used for data access.
      */
     dataAccessRoleArn: pulumi.Input<string>;
     /**
-     * The identifier of the domain the space belongs to.
+     * The ID of the domain to create the space in.
      */
     domainId: pulumi.Input<string>;
     /**
-     * The encryption configuration for the space.
+     * How the space's data at rest is encrypted. Always populated.
      */
     encryptionConfiguration?: pulumi.Input<inputs.cloudwatch.SpaceEncryptionConfigurationArgs | undefined>;
     /**
-     * The name of the space.
+     * A name that identifies the space.
      */
     name?: pulumi.Input<string | undefined>;
     /**

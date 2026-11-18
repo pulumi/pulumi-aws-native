@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
         public Input<Pulumi.AwsNative.DevOpsAgent.AssociationGitHubConfigurationOwnerType> OwnerType { get; set; } = null!;
 
         /// <summary>
+        /// The ID of the release management association that this repository uses for automated testing
+        /// </summary>
+        [Input("releaseManagementAssociationId")]
+        public Input<string>? ReleaseManagementAssociationId { get; set; }
+
+        /// <summary>
         /// Associated Github repo ID
         /// </summary>
         [Input("repoId", required: true)]

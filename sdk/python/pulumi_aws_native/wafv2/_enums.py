@@ -16,6 +16,7 @@ __all__ = [
     'RegexPatternSetScope',
     'RuleGroupBlockchainChain',
     'RuleGroupBodyParsingFallbackBehavior',
+    'RuleGroupConnectedAccountChain',
     'RuleGroupCryptoCurrency',
     'RuleGroupCurrencyMode',
     'RuleGroupForwardedIpConfigurationFallbackBehavior',
@@ -41,6 +42,7 @@ __all__ = [
     'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
     'WebAclBlockchainChain',
     'WebAclBodyParsingFallbackBehavior',
+    'WebAclConnectedAccountChain',
     'WebAclCryptoCurrency',
     'WebAclCurrencyMode',
     'WebAclDataProtectionAction',
@@ -162,6 +164,15 @@ class RuleGroupBodyParsingFallbackBehavior(_builtins.str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
+
+
+@pulumi.type_token("aws-native:wafv2:RuleGroupConnectedAccountChain")
+class RuleGroupConnectedAccountChain(_builtins.str, Enum):
+    """
+    The blockchain chain to use with a connected account. Connected accounts are mainnet only.
+    """
+    BASE = "BASE"
+    SOLANA = "SOLANA"
 
 
 @pulumi.type_token("aws-native:wafv2:RuleGroupCryptoCurrency")
@@ -503,6 +514,15 @@ class WebAclBodyParsingFallbackBehavior(_builtins.str, Enum):
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclConnectedAccountChain")
+class WebAclConnectedAccountChain(_builtins.str, Enum):
+    """
+    The blockchain chain to use with a connected account. Connected accounts are mainnet only.
+    """
+    BASE = "BASE"
+    SOLANA = "SOLANA"
+
+
 @pulumi.type_token("aws-native:wafv2:WebAclCryptoCurrency")
 class WebAclCryptoCurrency(_builtins.str, Enum):
     """
@@ -818,6 +838,7 @@ class WebAclSizeConstraintStatementComparisonOperator(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:wafv2:WebAclSizeInspectionLimit")
 class WebAclSizeInspectionLimit(_builtins.str, Enum):
+    KB8 = "KB_8"
     KB16 = "KB_16"
     KB32 = "KB_32"
     KB48 = "KB_48"

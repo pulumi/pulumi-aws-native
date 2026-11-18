@@ -50,6 +50,8 @@ __all__ = [
     'UserPoolClientAnalyticsConfigurationArgsDict',
     'UserPoolClientRefreshTokenRotationArgs',
     'UserPoolClientRefreshTokenRotationArgsDict',
+    'UserPoolClientSessionConfigurationAttachmentSsoSessionArgs',
+    'UserPoolClientSessionConfigurationAttachmentSsoSessionArgsDict',
     'UserPoolClientTokenValidityUnitsArgs',
     'UserPoolClientTokenValidityUnitsArgsDict',
     'UserPoolCustomEmailSenderArgs',
@@ -124,6 +126,8 @@ __all__ = [
     'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict',
     'UserPoolSchemaAttributeArgs',
     'UserPoolSchemaAttributeArgsDict',
+    'UserPoolSessionConfigurationAttachmentTokenSessionArgs',
+    'UserPoolSessionConfigurationAttachmentTokenSessionArgsDict',
     'UserPoolSignInPolicyArgs',
     'UserPoolSignInPolicyArgsDict',
     'UserPoolSmsConfigurationArgs',
@@ -1020,6 +1024,39 @@ class UserPoolClientRefreshTokenRotationArgs:
     @retry_grace_period_seconds.setter
     def retry_grace_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_grace_period_seconds", value)
+
+
+class UserPoolClientSessionConfigurationAttachmentSsoSessionArgsDict(TypedDict):
+    """
+    Managed login single sign-on session settings for the app client.
+    """
+    max_validity_minutes: pulumi.Input[_builtins.int]
+    """
+    The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+    """
+
+@pulumi.input_type
+class UserPoolClientSessionConfigurationAttachmentSsoSessionArgs:
+    def __init__(__self__, *,
+                 max_validity_minutes: pulumi.Input[_builtins.int]):
+        """
+        Managed login single sign-on session settings for the app client.
+
+        :param pulumi.Input[_builtins.int] max_validity_minutes: The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+        """
+        pulumi.set(__self__, "max_validity_minutes", max_validity_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValidityMinutes")
+    def max_validity_minutes(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum time in minutes since the last authentication during which this app client can reuse an existing managed login SSO session without asking the user to sign in again. 0 means the app client always asks the user to sign in.
+        """
+        return pulumi.get(self, "max_validity_minutes")
+
+    @max_validity_minutes.setter
+    def max_validity_minutes(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_validity_minutes", value)
 
 
 class UserPoolClientTokenValidityUnitsArgsDict(TypedDict):
@@ -3706,6 +3743,39 @@ class UserPoolSchemaAttributeArgs:
     @string_attribute_constraints.setter
     def string_attribute_constraints(self, value: pulumi.Input[Optional['UserPoolStringAttributeConstraintsArgs']]):
         pulumi.set(self, "string_attribute_constraints", value)
+
+
+class UserPoolSessionConfigurationAttachmentTokenSessionArgsDict(TypedDict):
+    """
+    Token session settings that apply to every app client in the user pool.
+    """
+    max_per_user: pulumi.Input[_builtins.int]
+    """
+    The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+    """
+
+@pulumi.input_type
+class UserPoolSessionConfigurationAttachmentTokenSessionArgs:
+    def __init__(__self__, *,
+                 max_per_user: pulumi.Input[_builtins.int]):
+        """
+        Token session settings that apply to every app client in the user pool.
+
+        :param pulumi.Input[_builtins.int] max_per_user: The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+        """
+        pulumi.set(__self__, "max_per_user", max_per_user)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPerUser")
+    def max_per_user(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum number of concurrent token sessions per user across all app clients. When a new session would exceed this number, the least recently used session ends.
+        """
+        return pulumi.get(self, "max_per_user")
+
+    @max_per_user.setter
+    def max_per_user(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_per_user", value)
 
 
 class UserPoolSignInPolicyArgsDict(TypedDict):

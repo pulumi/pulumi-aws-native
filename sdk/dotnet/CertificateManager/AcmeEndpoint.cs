@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CertificateManager
 {
     /// <summary>
-    /// Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+    /// Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
     /// </summary>
     [AwsNativeResourceType("aws-native:certificatemanager:AcmeEndpoint")]
     public partial class AcmeEndpoint : global::Pulumi.CustomResource

@@ -95,6 +95,21 @@ export const getResourcePolicy: typeof import("./getResourcePolicy").getResource
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
 
+export { GetRuntimeArgs, GetRuntimeResult, GetRuntimeOutputArgs } from "./getRuntime";
+export const getRuntime: typeof import("./getRuntime").getRuntime = null as any;
+export const getRuntimeOutput: typeof import("./getRuntime").getRuntimeOutput = null as any;
+utilities.lazyLoad(exports, ["getRuntime","getRuntimeOutput"], () => require("./getRuntime"));
+
+export { GetRuntimeAliasArgs, GetRuntimeAliasResult, GetRuntimeAliasOutputArgs } from "./getRuntimeAlias";
+export const getRuntimeAlias: typeof import("./getRuntimeAlias").getRuntimeAlias = null as any;
+export const getRuntimeAliasOutput: typeof import("./getRuntimeAlias").getRuntimeAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getRuntimeAlias","getRuntimeAliasOutput"], () => require("./getRuntimeAlias"));
+
+export { GetRuntimeVersionArgs, GetRuntimeVersionResult, GetRuntimeVersionOutputArgs } from "./getRuntimeVersion";
+export const getRuntimeVersion: typeof import("./getRuntimeVersion").getRuntimeVersion = null as any;
+export const getRuntimeVersionOutput: typeof import("./getRuntimeVersion").getRuntimeVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getRuntimeVersion","getRuntimeVersionOutput"], () => require("./getRuntimeVersion"));
+
 export { GetUrlArgs, GetUrlResult, GetUrlOutputArgs } from "./getUrl";
 export const getUrl: typeof import("./getUrl").getUrl = null as any;
 export const getUrlOutput: typeof import("./getUrl").getUrlOutput = null as any;
@@ -149,6 +164,21 @@ export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
 utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
+export { RuntimeArgs } from "./runtime";
+export type Runtime = import("./runtime").Runtime;
+export const Runtime: typeof import("./runtime").Runtime = null as any;
+utilities.lazyLoad(exports, ["Runtime"], () => require("./runtime"));
+
+export { RuntimeAliasArgs } from "./runtimeAlias";
+export type RuntimeAlias = import("./runtimeAlias").RuntimeAlias;
+export const RuntimeAlias: typeof import("./runtimeAlias").RuntimeAlias = null as any;
+utilities.lazyLoad(exports, ["RuntimeAlias"], () => require("./runtimeAlias"));
+
+export { RuntimeVersionArgs } from "./runtimeVersion";
+export type RuntimeVersion = import("./runtimeVersion").RuntimeVersion;
+export const RuntimeVersion: typeof import("./runtimeVersion").RuntimeVersion = null as any;
+utilities.lazyLoad(exports, ["RuntimeVersion"], () => require("./runtimeVersion"));
 
 export { UrlArgs } from "./url";
 export type Url = import("./url").Url;
@@ -207,6 +237,12 @@ const _module = {
                 return new Permission(name, <any>undefined, { urn })
             case "aws-native:lambda:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
+            case "aws-native:lambda:Runtime":
+                return new Runtime(name, <any>undefined, { urn })
+            case "aws-native:lambda:RuntimeAlias":
+                return new RuntimeAlias(name, <any>undefined, { urn })
+            case "aws-native:lambda:RuntimeVersion":
+                return new RuntimeVersion(name, <any>undefined, { urn })
             case "aws-native:lambda:Url":
                 return new Url(name, <any>undefined, { urn })
             case "aws-native:lambda:Version":

@@ -32,6 +32,8 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
         /// The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
         /// </summary>
         public readonly Outputs.ScheduleEventBridgeParameters? EventBridgeParameters;
+        public readonly Outputs.ScheduleEventBridgePutEventsV2Parameters? EventBridgePutEventsV2Parameters;
+        public readonly Outputs.ScheduleEventBridgePutRawEventsParameters? EventBridgePutRawEventsParameters;
         /// <summary>
         /// The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
         /// </summary>
@@ -67,6 +69,10 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
 
             Outputs.ScheduleEventBridgeParameters? eventBridgeParameters,
 
+            Outputs.ScheduleEventBridgePutEventsV2Parameters? eventBridgePutEventsV2Parameters,
+
+            Outputs.ScheduleEventBridgePutRawEventsParameters? eventBridgePutRawEventsParameters,
+
             string? input,
 
             Outputs.ScheduleKinesisParameters? kinesisParameters,
@@ -83,6 +89,8 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
             DeadLetterConfig = deadLetterConfig;
             EcsParameters = ecsParameters;
             EventBridgeParameters = eventBridgeParameters;
+            EventBridgePutEventsV2Parameters = eventBridgePutEventsV2Parameters;
+            EventBridgePutRawEventsParameters = eventBridgePutRawEventsParameters;
             Input = input;
             KinesisParameters = kinesisParameters;
             RetryPolicy = retryPolicy;

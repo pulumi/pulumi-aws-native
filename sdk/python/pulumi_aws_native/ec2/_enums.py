@@ -38,6 +38,11 @@ __all__ = [
     'Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType',
     'Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType',
     'Ec2FleetType',
+    'FcaPolicyAssociationAssociationMode',
+    'FcaPolicyAssociationNetworkResourceScopeType',
+    'FcaPolicyDimensionListItem',
+    'FcaPolicyNetworkResourceType',
+    'FcaPolicyReportingGranularityListItem',
     'FlowLogDestinationOptionsPropertiesFileFormat',
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
@@ -114,6 +119,7 @@ __all__ = [
     'TransitGatewayEncryptionSupport',
     'TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType',
     'TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType',
+    'TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode',
     'VpcBlockPublicAccessExclusionInternetGatewayExclusionMode',
     'VpcBlockPublicAccessOptionsInternetGatewayBlockMode',
     'VpcEncryptionControlEgressOnlyInternetGatewayExclusion',
@@ -140,6 +146,8 @@ __all__ = [
     'VpcEndpointIpAddressType',
     'VpcEndpointServiceIpAddressType',
     'VpcEndpointType',
+    'VpcPeeringConnectionMultipathResilienceStatus',
+    'VpcPeeringConnectionOptionsMultipathResilienceMode',
     'VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat',
     'VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat',
     'VpnConnectionIkeVersionsRequestListValueValue',
@@ -525,6 +533,52 @@ class Ec2FleetType(_builtins.str, Enum):
     INSTANT = "instant"
 
 
+@pulumi.type_token("aws-native:ec2:FcaPolicyAssociationAssociationMode")
+class FcaPolicyAssociationAssociationMode(_builtins.str, Enum):
+    """
+    The mode of the association.
+    """
+    DIRECT = "direct"
+    SCOPE = "scope"
+
+
+@pulumi.type_token("aws-native:ec2:FcaPolicyAssociationNetworkResourceScopeType")
+class FcaPolicyAssociationNetworkResourceScopeType(_builtins.str, Enum):
+    """
+    Associate by scope instead of directly. When set, NetworkResourceId is the ID of the scope (an account ID, a VPC ID, or a subnet ID) and the association covers every eligible network resource in that scope; when omitted, NetworkResourceId is a direct network resource (for example a NAT gateway or instance) and must match the policy's NetworkResourceType.
+    """
+    ACCOUNT = "account"
+    VPC = "vpc"
+    SUBNET = "subnet"
+
+
+@pulumi.type_token("aws-native:ec2:FcaPolicyDimensionListItem")
+class FcaPolicyDimensionListItem(_builtins.str, Enum):
+    DATA_TRANSFER = "data-transfer"
+    DATA_PROCESSING = "data-processing"
+
+
+@pulumi.type_token("aws-native:ec2:FcaPolicyNetworkResourceType")
+class FcaPolicyNetworkResourceType(_builtins.str, Enum):
+    """
+    The type of network resource the FCA policy applies to.
+    """
+    NATGW = "natgw"
+    PCX = "pcx"
+    EC2 = "ec2"
+
+
+@pulumi.type_token("aws-native:ec2:FcaPolicyReportingGranularityListItem")
+class FcaPolicyReportingGranularityListItem(_builtins.str, Enum):
+    ENI = "eni"
+    EC2 = "ec2"
+    SUBNET = "subnet"
+    VPC = "vpc"
+    ACCOUNT = "account"
+    PEERING_ID = "peering-id"
+    CIDR = "cidr"
+
+
 @pulumi.type_token("aws-native:ec2:FlowLogDestinationOptionsPropertiesFileFormat")
 class FlowLogDestinationOptionsPropertiesFileFormat(_builtins.str, Enum):
     """
@@ -555,6 +609,9 @@ class FlowLogResourceType(_builtins.str, Enum):
     TRANSIT_GATEWAY = "TransitGateway"
     TRANSIT_GATEWAY_ATTACHMENT = "TransitGatewayAttachment"
     REGIONAL_NAT_GATEWAY = "RegionalNatGateway"
+    CORE_NETWORK = "CoreNetwork"
+    CORE_NETWORK_EDGE = "CoreNetworkEdge"
+    CORE_NETWORK_ATTACHMENT = "CoreNetworkAttachment"
 
 
 @pulumi.type_token("aws-native:ec2:FlowLogTrafficType")
@@ -1356,6 +1413,14 @@ class TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType(_builtins
     TRANSIT_GATEWAY_OWNER = "transit-gateway-owner"
 
 
+@pulumi.type_token("aws-native:ec2:TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode")
+class TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode(_builtins.str, Enum):
+    """
+    The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+    """
+    ALWAYS_ON = "always-on"
+
+
 @pulumi.type_token("aws-native:ec2:VpcBlockPublicAccessExclusionInternetGatewayExclusionMode")
 class VpcBlockPublicAccessExclusionInternetGatewayExclusionMode(_builtins.str, Enum):
     """
@@ -1581,6 +1646,24 @@ class VpcEndpointType(_builtins.str, Enum):
     SERVICE_NETWORK = "ServiceNetwork"
     RESOURCE = "Resource"
     TUNNEL = "Tunnel"
+
+
+@pulumi.type_token("aws-native:ec2:VpcPeeringConnectionMultipathResilienceStatus")
+class VpcPeeringConnectionMultipathResilienceStatus(_builtins.str, Enum):
+    """
+    The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+    """
+    PENDING = "pending"
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:ec2:VpcPeeringConnectionOptionsMultipathResilienceMode")
+class VpcPeeringConnectionOptionsMultipathResilienceMode(_builtins.str, Enum):
+    """
+    The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+    """
+    ALWAYS_ON = "always-on"
 
 
 @pulumi.type_token("aws-native:ec2:VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat")

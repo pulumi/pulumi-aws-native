@@ -32,6 +32,34 @@ __all__ = [
     'CapacityReservationTagArgsDict',
     'CapacityReservationTagSpecificationArgs',
     'CapacityReservationTagSpecificationArgsDict',
+    'ClientVpnEndpointAuthorizationPolicyArgs',
+    'ClientVpnEndpointAuthorizationPolicyArgsDict',
+    'ClientVpnEndpointCertificateAuthenticationRequestArgs',
+    'ClientVpnEndpointCertificateAuthenticationRequestArgsDict',
+    'ClientVpnEndpointClientAuthenticationRequestArgs',
+    'ClientVpnEndpointClientAuthenticationRequestArgsDict',
+    'ClientVpnEndpointClientConnectOptionsArgs',
+    'ClientVpnEndpointClientConnectOptionsArgsDict',
+    'ClientVpnEndpointClientLoginBannerOptionsArgs',
+    'ClientVpnEndpointClientLoginBannerOptionsArgsDict',
+    'ClientVpnEndpointClientRouteEnforcementOptionsArgs',
+    'ClientVpnEndpointClientRouteEnforcementOptionsArgsDict',
+    'ClientVpnEndpointConnectionLogOptionsArgs',
+    'ClientVpnEndpointConnectionLogOptionsArgsDict',
+    'ClientVpnEndpointDevicePostureOptionsArgs',
+    'ClientVpnEndpointDevicePostureOptionsArgsDict',
+    'ClientVpnEndpointDevicePostureTrustProviderArgs',
+    'ClientVpnEndpointDevicePostureTrustProviderArgsDict',
+    'ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs',
+    'ClientVpnEndpointDirectoryServiceAuthenticationRequestArgsDict',
+    'ClientVpnEndpointFederatedAuthenticationRequestArgs',
+    'ClientVpnEndpointFederatedAuthenticationRequestArgsDict',
+    'ClientVpnEndpointTagArgs',
+    'ClientVpnEndpointTagArgsDict',
+    'ClientVpnEndpointTagSpecificationArgs',
+    'ClientVpnEndpointTagSpecificationArgsDict',
+    'ClientVpnEndpointTransitGatewayConfigurationArgs',
+    'ClientVpnEndpointTransitGatewayConfigurationArgsDict',
     'CpuOptionsPropertiesArgs',
     'CpuOptionsPropertiesArgsDict',
     'CreditSpecificationPropertiesArgs',
@@ -114,6 +142,16 @@ __all__ = [
     'Ec2FleetVCpuCountRangeRequestArgsDict',
     'EnclaveOptionsPropertiesArgs',
     'EnclaveOptionsPropertiesArgsDict',
+    'FcaPolicyCidrMappingArgs',
+    'FcaPolicyCidrMappingArgsDict',
+    'FcaPolicyCidrRangeSpecificationsArgs',
+    'FcaPolicyCidrRangeSpecificationsArgsDict',
+    'FcaPolicyInstanceFcaPolicyDocumentArgs',
+    'FcaPolicyInstanceFcaPolicyDocumentArgsDict',
+    'FcaPolicyNatFcaPolicyDocumentArgs',
+    'FcaPolicyNatFcaPolicyDocumentArgsDict',
+    'FcaPolicyPcxFcaPolicyDocumentArgs',
+    'FcaPolicyPcxFcaPolicyDocumentArgsDict',
     'FlowLogTagFieldSpecificationArgs',
     'FlowLogTagFieldSpecificationArgsDict',
     'FpgaImageStorageLocationArgs',
@@ -388,6 +426,8 @@ __all__ = [
     'TransitGatewayConnectPeerConfigurationArgsDict',
     'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs',
     'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict',
+    'TransitGatewayPeeringAttachmentOptionsArgs',
+    'TransitGatewayPeeringAttachmentOptionsArgsDict',
     'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs',
     'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict',
     'VerifiedAccessEndpointCidrOptionsArgs',
@@ -430,6 +470,8 @@ __all__ = [
     'VpcEndpointDnsOptionsSpecificationArgsDict',
     'VpcEndpointServicePrivateDnsNameConfigurationArgs',
     'VpcEndpointServicePrivateDnsNameConfigurationArgsDict',
+    'VpcPeeringConnectionOptionsArgs',
+    'VpcPeeringConnectionOptionsArgsDict',
     'VpnConnectionCloudwatchLogOptionsSpecificationArgs',
     'VpnConnectionCloudwatchLogOptionsSpecificationArgsDict',
     'VpnConnectionIkeVersionsRequestListValueArgs',
@@ -902,6 +944,756 @@ class CapacityReservationTagSpecificationArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+
+class ClientVpnEndpointAuthorizationPolicyArgsDict(TypedDict):
+    policy_document: pulumi.Input[_builtins.str]
+    """
+    The Cedar policy document.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A brief description of the authorization policy.
+    """
+    shadow_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the authorization policy runs in shadow (observe-only) mode.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointAuthorizationPolicyArgs:
+    def __init__(__self__, *,
+                 policy_document: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 shadow_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] policy_document: The Cedar policy document.
+        :param pulumi.Input[_builtins.str] description: A brief description of the authorization policy.
+        :param pulumi.Input[_builtins.str] shadow_mode: Whether the authorization policy runs in shadow (observe-only) mode.
+        """
+        pulumi.set(__self__, "policy_document", policy_document)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if shadow_mode is not None:
+            pulumi.set(__self__, "shadow_mode", shadow_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Cedar policy document.
+        """
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_document", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A brief description of the authorization policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shadowMode")
+    def shadow_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the authorization policy runs in shadow (observe-only) mode.
+        """
+        return pulumi.get(self, "shadow_mode")
+
+    @shadow_mode.setter
+    def shadow_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "shadow_mode", value)
+
+
+class ClientVpnEndpointCertificateAuthenticationRequestArgsDict(TypedDict):
+    client_root_certificate_chain_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointCertificateAuthenticationRequestArgs:
+    def __init__(__self__, *,
+                 client_root_certificate_chain_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] client_root_certificate_chain_arn: The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+        """
+        pulumi.set(__self__, "client_root_certificate_chain_arn", client_root_certificate_chain_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="clientRootCertificateChainArn")
+    def client_root_certificate_chain_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in Certificate Manager (ACM).
+        """
+        return pulumi.get(self, "client_root_certificate_chain_arn")
+
+    @client_root_certificate_chain_arn.setter
+    def client_root_certificate_chain_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_root_certificate_chain_arn", value)
+
+
+class ClientVpnEndpointClientAuthenticationRequestArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of client authentication to be used.
+    """
+    active_directory: NotRequired[pulumi.Input[Optional['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgsDict']]]
+    """
+    Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+    """
+    federated_authentication: NotRequired[pulumi.Input[Optional['ClientVpnEndpointFederatedAuthenticationRequestArgsDict']]]
+    """
+    Information about the IAM SAML identity provider, if applicable.
+    """
+    mutual_authentication: NotRequired[pulumi.Input[Optional['ClientVpnEndpointCertificateAuthenticationRequestArgsDict']]]
+    """
+    Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointClientAuthenticationRequestArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 active_directory: pulumi.Input[Optional['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs']] = None,
+                 federated_authentication: pulumi.Input[Optional['ClientVpnEndpointFederatedAuthenticationRequestArgs']] = None,
+                 mutual_authentication: pulumi.Input[Optional['ClientVpnEndpointCertificateAuthenticationRequestArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: The type of client authentication to be used.
+        :param pulumi.Input['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs'] active_directory: Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+        :param pulumi.Input['ClientVpnEndpointFederatedAuthenticationRequestArgs'] federated_authentication: Information about the IAM SAML identity provider, if applicable.
+        :param pulumi.Input['ClientVpnEndpointCertificateAuthenticationRequestArgs'] mutual_authentication: Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+        """
+        pulumi.set(__self__, "type", type)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if federated_authentication is not None:
+            pulumi.set(__self__, "federated_authentication", federated_authentication)
+        if mutual_authentication is not None:
+            pulumi.set(__self__, "mutual_authentication", mutual_authentication)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of client authentication to be used.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> pulumi.Input[Optional['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs']]:
+        """
+        Information about the Active Directory to be used, if applicable. You must provide this information if *Type* is `directory-service-authentication` .
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: pulumi.Input[Optional['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @_builtins.property
+    @pulumi.getter(name="federatedAuthentication")
+    def federated_authentication(self) -> pulumi.Input[Optional['ClientVpnEndpointFederatedAuthenticationRequestArgs']]:
+        """
+        Information about the IAM SAML identity provider, if applicable.
+        """
+        return pulumi.get(self, "federated_authentication")
+
+    @federated_authentication.setter
+    def federated_authentication(self, value: pulumi.Input[Optional['ClientVpnEndpointFederatedAuthenticationRequestArgs']]):
+        pulumi.set(self, "federated_authentication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> pulumi.Input[Optional['ClientVpnEndpointCertificateAuthenticationRequestArgs']]:
+        """
+        Information about the authentication certificates to be used, if applicable. You must provide this information if *Type* is `certificate-authentication` .
+        """
+        return pulumi.get(self, "mutual_authentication")
+
+    @mutual_authentication.setter
+    def mutual_authentication(self, value: pulumi.Input[Optional['ClientVpnEndpointCertificateAuthenticationRequestArgs']]):
+        pulumi.set(self, "mutual_authentication", value)
+
+
+class ClientVpnEndpointClientConnectOptionsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether client connect options are enabled. The default is `false` (not enabled).
+    """
+    lambda_function_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointClientConnectOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 lambda_function_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
+        :param pulumi.Input[_builtins.str] lambda_function_arn: The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if lambda_function_arn is not None:
+            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates whether client connect options are enabled. The default is `false` (not enabled).
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+    @lambda_function_arn.setter
+    def lambda_function_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "lambda_function_arn", value)
+
+
+class ClientVpnEndpointClientLoginBannerOptionsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+
+    Valid values: `true | false`
+
+    Default value: `false`
+    """
+    banner_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointClientLoginBannerOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 banner_text: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+               
+               Valid values: `true | false`
+               
+               Default value: `false`
+        :param pulumi.Input[_builtins.str] banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if banner_text is not None:
+            pulumi.set(__self__, "banner_text", banner_text)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+
+        Valid values: `true | false`
+
+        Default value: `false`
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bannerText")
+    def banner_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+        """
+        return pulumi.get(self, "banner_text")
+
+    @banner_text.setter
+    def banner_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "banner_text", value)
+
+
+class ClientVpnEndpointClientRouteEnforcementOptionsArgsDict(TypedDict):
+    enforced: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+
+    Valid values: `true | false`
+
+    Default value: `false`
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointClientRouteEnforcementOptionsArgs:
+    def __init__(__self__, *,
+                 enforced: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enforced: Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+               
+               Valid values: `true | false`
+               
+               Default value: `false`
+        """
+        if enforced is not None:
+            pulumi.set(__self__, "enforced", enforced)
+
+    @_builtins.property
+    @pulumi.getter
+    def enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable or disable Client Route Enforcement. The state can either be `true` (enabled) or `false` (disabled). The default is `false` .
+
+        Valid values: `true | false`
+
+        Default value: `false`
+        """
+        return pulumi.get(self, "enforced")
+
+    @enforced.setter
+    def enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enforced", value)
+
+
+class ClientVpnEndpointConnectionLogOptionsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether connection logging is enabled.
+    """
+    cloudwatch_log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+    """
+    cloudwatch_log_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the CloudWatch Logs log stream to which the connection data is published.
+    """
+    include_authorization_policy_context: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether authorization-policy evaluation context is included in the connection logs.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointConnectionLogOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 cloudwatch_log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_log_stream: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_authorization_policy_context: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Indicates whether connection logging is enabled.
+        :param pulumi.Input[_builtins.str] cloudwatch_log_group: The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+        :param pulumi.Input[_builtins.str] cloudwatch_log_stream: The name of the CloudWatch Logs log stream to which the connection data is published.
+        :param pulumi.Input[_builtins.bool] include_authorization_policy_context: Indicates whether authorization-policy evaluation context is included in the connection logs.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if cloudwatch_log_group is not None:
+            pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
+        if cloudwatch_log_stream is not None:
+            pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
+        if include_authorization_policy_context is not None:
+            pulumi.set(__self__, "include_authorization_policy_context", include_authorization_policy_context)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates whether connection logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogGroup")
+    def cloudwatch_log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the CloudWatch Logs log group. Required if connection logging is enabled.
+        """
+        return pulumi.get(self, "cloudwatch_log_group")
+
+    @cloudwatch_log_group.setter
+    def cloudwatch_log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cloudwatch_log_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogStream")
+    def cloudwatch_log_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the CloudWatch Logs log stream to which the connection data is published.
+        """
+        return pulumi.get(self, "cloudwatch_log_stream")
+
+    @cloudwatch_log_stream.setter
+    def cloudwatch_log_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cloudwatch_log_stream", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeAuthorizationPolicyContext")
+    def include_authorization_policy_context(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether authorization-policy evaluation context is included in the connection logs.
+        """
+        return pulumi.get(self, "include_authorization_policy_context")
+
+    @include_authorization_policy_context.setter
+    def include_authorization_policy_context(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_authorization_policy_context", value)
+
+
+class ClientVpnEndpointDevicePostureOptionsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether device posture is enabled for the Client VPN endpoint.
+    """
+    trust_providers: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointDevicePostureTrustProviderArgsDict']]]
+    """
+    The device-posture trust providers.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointDevicePostureOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 trust_providers: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointDevicePostureTrustProviderArgs']]]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether device posture is enabled for the Client VPN endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointDevicePostureTrustProviderArgs']]] trust_providers: The device-posture trust providers.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "trust_providers", trust_providers)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether device posture is enabled for the Client VPN endpoint.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trustProviders")
+    def trust_providers(self) -> pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointDevicePostureTrustProviderArgs']]]:
+        """
+        The device-posture trust providers.
+        """
+        return pulumi.get(self, "trust_providers")
+
+    @trust_providers.setter
+    def trust_providers(self, value: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointDevicePostureTrustProviderArgs']]]):
+        pulumi.set(self, "trust_providers", value)
+
+
+class ClientVpnEndpointDevicePostureTrustProviderArgsDict(TypedDict):
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    The tenant identifier registered with the trust provider.
+    """
+    trust_provider_type: pulumi.Input[_builtins.str]
+    """
+    The device-posture trust provider type.
+    """
+    public_signing_key_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointDevicePostureTrustProviderArgs:
+    def __init__(__self__, *,
+                 tenant_id: pulumi.Input[_builtins.str],
+                 trust_provider_type: pulumi.Input[_builtins.str],
+                 public_signing_key_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant identifier registered with the trust provider.
+        :param pulumi.Input[_builtins.str] trust_provider_type: The device-posture trust provider type.
+        :param pulumi.Input[_builtins.str] public_signing_key_url: The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+        """
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "trust_provider_type", trust_provider_type)
+        if public_signing_key_url is not None:
+            pulumi.set(__self__, "public_signing_key_url", public_signing_key_url)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tenant identifier registered with the trust provider.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trustProviderType")
+    def trust_provider_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The device-posture trust provider type.
+        """
+        return pulumi.get(self, "trust_provider_type")
+
+    @trust_provider_type.setter
+    def trust_provider_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "trust_provider_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicSigningKeyUrl")
+    def public_signing_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL of the public signing key. Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
+        """
+        return pulumi.get(self, "public_signing_key_url")
+
+    @public_signing_key_url.setter
+    def public_signing_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "public_signing_key_url", value)
+
+
+class ClientVpnEndpointDirectoryServiceAuthenticationRequestArgsDict(TypedDict):
+    directory_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Active Directory to be used for authentication.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs:
+    def __init__(__self__, *,
+                 directory_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] directory_id: The ID of the Active Directory to be used for authentication.
+        """
+        pulumi.set(__self__, "directory_id", directory_id)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Active Directory to be used for authentication.
+        """
+        return pulumi.get(self, "directory_id")
+
+    @directory_id.setter
+    def directory_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "directory_id", value)
+
+
+class ClientVpnEndpointFederatedAuthenticationRequestArgsDict(TypedDict):
+    saml_provider_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+    """
+    self_service_saml_provider_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointFederatedAuthenticationRequestArgs:
+    def __init__(__self__, *,
+                 saml_provider_arn: pulumi.Input[_builtins.str],
+                 self_service_saml_provider_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] saml_provider_arn: The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+        :param pulumi.Input[_builtins.str] self_service_saml_provider_arn: The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+        """
+        pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
+        if self_service_saml_provider_arn is not None:
+            pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="samlProviderArn")
+    def saml_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+        """
+        return pulumi.get(self, "saml_provider_arn")
+
+    @saml_provider_arn.setter
+    def saml_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "saml_provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selfServiceSamlProviderArn")
+    def self_service_saml_provider_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+        """
+        return pulumi.get(self, "self_service_saml_provider_arn")
+
+    @self_service_saml_provider_arn.setter
+    def self_service_saml_provider_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "self_service_saml_provider_arn", value)
+
+
+class ClientVpnEndpointTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The tag value.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key: The tag key.
+        :param pulumi.Input[_builtins.str] value: The tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tag value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class ClientVpnEndpointTagSpecificationArgsDict(TypedDict):
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+    """
+    tags: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgsDict']]]
+    """
+    The tags to apply to the resource.
+    """
+
+@pulumi.input_type
+class ClientVpnEndpointTagSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[_builtins.str],
+                 tags: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]]):
+        """
+        :param pulumi.Input[_builtins.str] resource_type: The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+        :param pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]] tags: The tags to apply to the resource.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of resource to tag. To tag a Client VPN endpoint, `ResourceType` must be `client-vpn-endpoint` .
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]]:
+        """
+        The tags to apply to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]]):
+        pulumi.set(self, "tags", value)
+
+
+class ClientVpnEndpointTransitGatewayConfigurationArgsDict(TypedDict):
+    transit_gateway_id: pulumi.Input[_builtins.str]
+    availability_zone_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class ClientVpnEndpointTransitGatewayConfigurationArgs:
+    def __init__(__self__, *,
+                 transit_gateway_id: pulumi.Input[_builtins.str],
+                 availability_zone_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if availability_zone_ids is not None:
+            pulumi.set(__self__, "availability_zone_ids", availability_zone_ids)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "transit_gateway_id")
+
+    @transit_gateway_id.setter
+    def transit_gateway_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transit_gateway_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneIds")
+    def availability_zone_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "availability_zone_ids")
+
+    @availability_zone_ids.setter
+    def availability_zone_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "availability_zone_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "availability_zones", value)
 
 
 class CpuOptionsPropertiesArgsDict(TypedDict):
@@ -4995,6 +5787,260 @@ class EnclaveOptionsPropertiesArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+
+class FcaPolicyCidrMappingArgsDict(TypedDict):
+    """
+    A single CIDR range to label mapping.
+    """
+    cidr_label: pulumi.Input[_builtins.str]
+    """
+    The label for the CIDR range.
+    """
+    cidr_range: pulumi.Input[_builtins.str]
+    """
+    The CIDR range.
+    """
+
+@pulumi.input_type
+class FcaPolicyCidrMappingArgs:
+    def __init__(__self__, *,
+                 cidr_label: pulumi.Input[_builtins.str],
+                 cidr_range: pulumi.Input[_builtins.str]):
+        """
+        A single CIDR range to label mapping.
+
+        :param pulumi.Input[_builtins.str] cidr_label: The label for the CIDR range.
+        :param pulumi.Input[_builtins.str] cidr_range: The CIDR range.
+        """
+        pulumi.set(__self__, "cidr_label", cidr_label)
+        pulumi.set(__self__, "cidr_range", cidr_range)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrLabel")
+    def cidr_label(self) -> pulumi.Input[_builtins.str]:
+        """
+        The label for the CIDR range.
+        """
+        return pulumi.get(self, "cidr_label")
+
+    @cidr_label.setter
+    def cidr_label(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cidr_label", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRange")
+    def cidr_range(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CIDR range.
+        """
+        return pulumi.get(self, "cidr_range")
+
+    @cidr_range.setter
+    def cidr_range(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cidr_range", value)
+
+
+class FcaPolicyCidrRangeSpecificationsArgsDict(TypedDict):
+    """
+    CIDR range specifications, used when the reporting granularity is 'cidr'.
+    """
+    prefixes: pulumi.Input[Sequence[pulumi.Input['FcaPolicyCidrMappingArgsDict']]]
+    """
+    The CIDR range to label mappings.
+    """
+    prefixes_type: pulumi.Input[_builtins.str]
+    """
+    The type of prefixes the mappings apply to.
+    """
+
+@pulumi.input_type
+class FcaPolicyCidrRangeSpecificationsArgs:
+    def __init__(__self__, *,
+                 prefixes: pulumi.Input[Sequence[pulumi.Input['FcaPolicyCidrMappingArgs']]],
+                 prefixes_type: pulumi.Input[_builtins.str]):
+        """
+        CIDR range specifications, used when the reporting granularity is 'cidr'.
+
+        :param pulumi.Input[Sequence[pulumi.Input['FcaPolicyCidrMappingArgs']]] prefixes: The CIDR range to label mappings.
+        :param pulumi.Input[_builtins.str] prefixes_type: The type of prefixes the mappings apply to.
+        """
+        pulumi.set(__self__, "prefixes", prefixes)
+        pulumi.set(__self__, "prefixes_type", prefixes_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefixes(self) -> pulumi.Input[Sequence[pulumi.Input['FcaPolicyCidrMappingArgs']]]:
+        """
+        The CIDR range to label mappings.
+        """
+        return pulumi.get(self, "prefixes")
+
+    @prefixes.setter
+    def prefixes(self, value: pulumi.Input[Sequence[pulumi.Input['FcaPolicyCidrMappingArgs']]]):
+        pulumi.set(self, "prefixes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixesType")
+    def prefixes_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of prefixes the mappings apply to.
+        """
+        return pulumi.get(self, "prefixes_type")
+
+    @prefixes_type.setter
+    def prefixes_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "prefixes_type", value)
+
+
+class FcaPolicyInstanceFcaPolicyDocumentArgsDict(TypedDict):
+    """
+    The FCA policy document for EC2 instance cost allocation.
+    """
+    dimensions: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]
+    reporting_granularity: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]
+    cidr_range_specifications: NotRequired[pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgsDict']]]
+
+@pulumi.input_type
+class FcaPolicyInstanceFcaPolicyDocumentArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]],
+                 reporting_granularity: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]],
+                 cidr_range_specifications: pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']] = None):
+        """
+        The FCA policy document for EC2 instance cost allocation.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "reporting_granularity", reporting_granularity)
+        if cidr_range_specifications is not None:
+            pulumi.set(__self__, "cidr_range_specifications", cidr_range_specifications)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reportingGranularity")
+    def reporting_granularity(self) -> pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]:
+        return pulumi.get(self, "reporting_granularity")
+
+    @reporting_granularity.setter
+    def reporting_granularity(self, value: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]):
+        pulumi.set(self, "reporting_granularity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRangeSpecifications")
+    def cidr_range_specifications(self) -> pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']]:
+        return pulumi.get(self, "cidr_range_specifications")
+
+    @cidr_range_specifications.setter
+    def cidr_range_specifications(self, value: pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']]):
+        pulumi.set(self, "cidr_range_specifications", value)
+
+
+class FcaPolicyNatFcaPolicyDocumentArgsDict(TypedDict):
+    """
+    The FCA policy document for NAT gateway cost allocation.
+    """
+    dimensions: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]
+    reporting_granularity: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]
+    cidr_range_specifications: NotRequired[pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgsDict']]]
+
+@pulumi.input_type
+class FcaPolicyNatFcaPolicyDocumentArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]],
+                 reporting_granularity: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]],
+                 cidr_range_specifications: pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']] = None):
+        """
+        The FCA policy document for NAT gateway cost allocation.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "reporting_granularity", reporting_granularity)
+        if cidr_range_specifications is not None:
+            pulumi.set(__self__, "cidr_range_specifications", cidr_range_specifications)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reportingGranularity")
+    def reporting_granularity(self) -> pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]:
+        return pulumi.get(self, "reporting_granularity")
+
+    @reporting_granularity.setter
+    def reporting_granularity(self, value: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]):
+        pulumi.set(self, "reporting_granularity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRangeSpecifications")
+    def cidr_range_specifications(self) -> pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']]:
+        return pulumi.get(self, "cidr_range_specifications")
+
+    @cidr_range_specifications.setter
+    def cidr_range_specifications(self, value: pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']]):
+        pulumi.set(self, "cidr_range_specifications", value)
+
+
+class FcaPolicyPcxFcaPolicyDocumentArgsDict(TypedDict):
+    """
+    The FCA policy document for VPC peering connection cost allocation.
+    """
+    dimensions: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]
+    reporting_granularity: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]
+    cidr_range_specifications: NotRequired[pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgsDict']]]
+
+@pulumi.input_type
+class FcaPolicyPcxFcaPolicyDocumentArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]],
+                 reporting_granularity: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]],
+                 cidr_range_specifications: pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']] = None):
+        """
+        The FCA policy document for VPC peering connection cost allocation.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "reporting_granularity", reporting_granularity)
+        if cidr_range_specifications is not None:
+            pulumi.set(__self__, "cidr_range_specifications", cidr_range_specifications)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['FcaPolicyDimensionListItem']]]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reportingGranularity")
+    def reporting_granularity(self) -> pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]:
+        return pulumi.get(self, "reporting_granularity")
+
+    @reporting_granularity.setter
+    def reporting_granularity(self, value: pulumi.Input[Sequence[pulumi.Input['FcaPolicyReportingGranularityListItem']]]):
+        pulumi.set(self, "reporting_granularity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRangeSpecifications")
+    def cidr_range_specifications(self) -> pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']]:
+        return pulumi.get(self, "cidr_range_specifications")
+
+    @cidr_range_specifications.setter
+    def cidr_range_specifications(self, value: pulumi.Input[Optional['FcaPolicyCidrRangeSpecificationsArgs']]):
+        pulumi.set(self, "cidr_range_specifications", value)
 
 
 class FlowLogTagFieldSpecificationArgsDict(TypedDict):
@@ -17771,6 +18817,55 @@ class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs:
         pulumi.set(self, "transit_gateway_asn", value)
 
 
+class TransitGatewayPeeringAttachmentOptionsArgsDict(TypedDict):
+    allow_multipath_resilience: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable MultipathResilience on this side of the peering attachment.
+    """
+    multipath_resilience_mode: NotRequired[pulumi.Input[Optional['TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode']]]
+    """
+    The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+    """
+
+@pulumi.input_type
+class TransitGatewayPeeringAttachmentOptionsArgs:
+    def __init__(__self__, *,
+                 allow_multipath_resilience: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multipath_resilience_mode: pulumi.Input[Optional['TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] allow_multipath_resilience: Whether to enable MultipathResilience on this side of the peering attachment.
+        :param pulumi.Input['TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode'] multipath_resilience_mode: The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+        """
+        if allow_multipath_resilience is not None:
+            pulumi.set(__self__, "allow_multipath_resilience", allow_multipath_resilience)
+        if multipath_resilience_mode is not None:
+            pulumi.set(__self__, "multipath_resilience_mode", multipath_resilience_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="allowMultipathResilience")
+    def allow_multipath_resilience(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable MultipathResilience on this side of the peering attachment.
+        """
+        return pulumi.get(self, "allow_multipath_resilience")
+
+    @allow_multipath_resilience.setter
+    def allow_multipath_resilience(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "allow_multipath_resilience", value)
+
+    @_builtins.property
+    @pulumi.getter(name="multipathResilienceMode")
+    def multipath_resilience_mode(self) -> pulumi.Input[Optional['TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode']]:
+        """
+        The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+        """
+        return pulumi.get(self, "multipath_resilience_mode")
+
+    @multipath_resilience_mode.setter
+    def multipath_resilience_mode(self, value: pulumi.Input[Optional['TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode']]):
+        pulumi.set(self, "multipath_resilience_mode", value)
+
+
 class TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict(TypedDict):
     destination_cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -19926,6 +21021,75 @@ class VpcEndpointServicePrivateDnsNameConfigurationArgs:
     @value.setter
     def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+class VpcPeeringConnectionOptionsArgsDict(TypedDict):
+    allow_dns_resolution_from_remote_vpc: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+    """
+    allow_multipath_resilience: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+    """
+    multipath_resilience_mode: NotRequired[pulumi.Input[Optional['VpcPeeringConnectionOptionsMultipathResilienceMode']]]
+    """
+    The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+    """
+
+@pulumi.input_type
+class VpcPeeringConnectionOptionsArgs:
+    def __init__(__self__, *,
+                 allow_dns_resolution_from_remote_vpc: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_multipath_resilience: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multipath_resilience_mode: pulumi.Input[Optional['VpcPeeringConnectionOptionsMultipathResilienceMode']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] allow_dns_resolution_from_remote_vpc: If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        :param pulumi.Input[_builtins.bool] allow_multipath_resilience: If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+        :param pulumi.Input['VpcPeeringConnectionOptionsMultipathResilienceMode'] multipath_resilience_mode: The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+        """
+        if allow_dns_resolution_from_remote_vpc is not None:
+            pulumi.set(__self__, "allow_dns_resolution_from_remote_vpc", allow_dns_resolution_from_remote_vpc)
+        if allow_multipath_resilience is not None:
+            pulumi.set(__self__, "allow_multipath_resilience", allow_multipath_resilience)
+        if multipath_resilience_mode is not None:
+            pulumi.set(__self__, "multipath_resilience_mode", multipath_resilience_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDnsResolutionFromRemoteVpc")
+    def allow_dns_resolution_from_remote_vpc(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        """
+        return pulumi.get(self, "allow_dns_resolution_from_remote_vpc")
+
+    @allow_dns_resolution_from_remote_vpc.setter
+    def allow_dns_resolution_from_remote_vpc(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "allow_dns_resolution_from_remote_vpc", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowMultipathResilience")
+    def allow_multipath_resilience(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, allows multipath resilience on this side of the peering connection. Multipath resilience is enabled only when both the requester and accepter sides allow it; MultipathResilienceStatus reports the result.
+        """
+        return pulumi.get(self, "allow_multipath_resilience")
+
+    @allow_multipath_resilience.setter
+    def allow_multipath_resilience(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "allow_multipath_resilience", value)
+
+    @_builtins.property
+    @pulumi.getter(name="multipathResilienceMode")
+    def multipath_resilience_mode(self) -> pulumi.Input[Optional['VpcPeeringConnectionOptionsMultipathResilienceMode']]:
+        """
+        The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+        """
+        return pulumi.get(self, "multipath_resilience_mode")
+
+    @multipath_resilience_mode.setter
+    def multipath_resilience_mode(self, value: pulumi.Input[Optional['VpcPeeringConnectionOptionsMultipathResilienceMode']]):
+        pulumi.set(self, "multipath_resilience_mode", value)
 
 
 class VpnConnectionCloudwatchLogOptionsSpecificationArgsDict(TypedDict):

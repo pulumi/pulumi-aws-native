@@ -478,6 +478,7 @@ export const FlowOutputProtocol = {
     St2110Jpegxs: "st2110-jpegxs",
     Cdi: "cdi",
     NdiSpeedHq: "ndi-speed-hq",
+    RtmpPush: "rtmp-push",
 } as const;
 
 /**
@@ -491,6 +492,12 @@ export const FlowOutputRouterIntegrationState = {
 } as const;
 
 export type FlowOutputRouterIntegrationState = (typeof FlowOutputRouterIntegrationState)[keyof typeof FlowOutputRouterIntegrationState];
+
+export const FlowOutputTlsEncryptionType = {
+    Public: "PUBLIC",
+} as const;
+
+export type FlowOutputTlsEncryptionType = (typeof FlowOutputTlsEncryptionType)[keyof typeof FlowOutputTlsEncryptionType];
 
 export const FlowSilentAudioState = {
     Enabled: "ENABLED",
@@ -565,6 +572,7 @@ export const FlowSourceProtocol = {
     St2110Jpegxs: "st2110-jpegxs",
     Cdi: "cdi",
     NdiSpeedHq: "ndi-speed-hq",
+    RtmpPush: "rtmp-push",
 } as const;
 
 /**
@@ -702,6 +710,7 @@ export const RouterInputProtocol = {
     Rist: "RIST",
     SrtCaller: "SRT_CALLER",
     SrtListener: "SRT_LISTENER",
+    RtmpPush: "RTMP_PUSH",
 } as const;
 
 export type RouterInputProtocol = (typeof RouterInputProtocol)[keyof typeof RouterInputProtocol];
@@ -718,6 +727,13 @@ export const RouterInputRoutingScope = {
 } as const;
 
 export type RouterInputRoutingScope = (typeof RouterInputRoutingScope)[keyof typeof RouterInputRoutingScope];
+
+export const RouterInputRtmpPushNamingType = {
+    Manual: "MANUAL",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type RouterInputRtmpPushNamingType = (typeof RouterInputRtmpPushNamingType)[keyof typeof RouterInputRtmpPushNamingType];
 
 export const RouterInputState = {
     Creating: "CREATING",

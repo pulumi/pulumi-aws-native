@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
     /// <summary>
-    /// The configuration for the connector. Specify the third-party cloud provider configuration.
+    /// The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
     /// </summary>
     public sealed class ConnectorConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -20,6 +20,12 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         /// </summary>
         [Input("azure")]
         public Input<Inputs.ConnectorAzureConnectorConfigurationArgs>? Azure { get; set; }
+
+        /// <summary>
+        /// The configuration for connecting to Google Cloud.
+        /// </summary>
+        [Input("gcp")]
+        public Input<Inputs.ConnectorGcpConnectorConfigurationArgs>? Gcp { get; set; }
 
         public ConnectorConfigurationArgs()
         {

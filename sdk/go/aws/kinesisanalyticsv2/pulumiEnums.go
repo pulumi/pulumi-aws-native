@@ -2016,6 +2016,881 @@ func (in *applicationZeppelinMonitoringConfigurationLogLevelPtr) ToApplicationZe
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
 }
 
+// The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+type SnapshotEncryptionConfigurationDescriptionKeyType string
+
+const (
+	SnapshotEncryptionConfigurationDescriptionKeyTypeAwsOwnedKey        = SnapshotEncryptionConfigurationDescriptionKeyType("AWS_OWNED_KEY")
+	SnapshotEncryptionConfigurationDescriptionKeyTypeCustomerManagedKey = SnapshotEncryptionConfigurationDescriptionKeyType("CUSTOMER_MANAGED_KEY")
+)
+
+func (SnapshotEncryptionConfigurationDescriptionKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotEncryptionConfigurationDescriptionKeyType)(nil)).Elem()
+}
+
+func (e SnapshotEncryptionConfigurationDescriptionKeyType) ToSnapshotEncryptionConfigurationDescriptionKeyTypeOutput() SnapshotEncryptionConfigurationDescriptionKeyTypeOutput {
+	return pulumi.ToOutput(e).(SnapshotEncryptionConfigurationDescriptionKeyTypeOutput)
+}
+
+func (e SnapshotEncryptionConfigurationDescriptionKeyType) ToSnapshotEncryptionConfigurationDescriptionKeyTypeOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SnapshotEncryptionConfigurationDescriptionKeyTypeOutput)
+}
+
+func (e SnapshotEncryptionConfigurationDescriptionKeyType) ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput() SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return e.ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotEncryptionConfigurationDescriptionKeyType) ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return SnapshotEncryptionConfigurationDescriptionKeyType(e).ToSnapshotEncryptionConfigurationDescriptionKeyTypeOutputWithContext(ctx).ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutputWithContext(ctx)
+}
+
+func (e SnapshotEncryptionConfigurationDescriptionKeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotEncryptionConfigurationDescriptionKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotEncryptionConfigurationDescriptionKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotEncryptionConfigurationDescriptionKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SnapshotEncryptionConfigurationDescriptionKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotEncryptionConfigurationDescriptionKeyType)(nil)).Elem()
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ToSnapshotEncryptionConfigurationDescriptionKeyTypeOutput() SnapshotEncryptionConfigurationDescriptionKeyTypeOutput {
+	return o
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ToSnapshotEncryptionConfigurationDescriptionKeyTypeOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionKeyTypeOutput {
+	return o
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput() SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return o.ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotEncryptionConfigurationDescriptionKeyType) *SnapshotEncryptionConfigurationDescriptionKeyType {
+		return &v
+	}).(SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput)
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotEncryptionConfigurationDescriptionKeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotEncryptionConfigurationDescriptionKeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotEncryptionConfigurationDescriptionKeyType)(nil)).Elem()
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput) ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput() SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return o
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput) ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return o
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput) Elem() SnapshotEncryptionConfigurationDescriptionKeyTypeOutput {
+	return o.ApplyT(func(v *SnapshotEncryptionConfigurationDescriptionKeyType) SnapshotEncryptionConfigurationDescriptionKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotEncryptionConfigurationDescriptionKeyType
+		return ret
+	}).(SnapshotEncryptionConfigurationDescriptionKeyTypeOutput)
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotEncryptionConfigurationDescriptionKeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SnapshotEncryptionConfigurationDescriptionKeyTypeInput is an input type that accepts values of the SnapshotEncryptionConfigurationDescriptionKeyType enum
+// A concrete instance of `SnapshotEncryptionConfigurationDescriptionKeyTypeInput` can be one of the following:
+//
+//	SnapshotEncryptionConfigurationDescriptionKeyTypeAwsOwnedKey
+//	SnapshotEncryptionConfigurationDescriptionKeyTypeCustomerManagedKey
+type SnapshotEncryptionConfigurationDescriptionKeyTypeInput interface {
+	pulumi.Input
+
+	ToSnapshotEncryptionConfigurationDescriptionKeyTypeOutput() SnapshotEncryptionConfigurationDescriptionKeyTypeOutput
+	ToSnapshotEncryptionConfigurationDescriptionKeyTypeOutputWithContext(context.Context) SnapshotEncryptionConfigurationDescriptionKeyTypeOutput
+}
+
+var snapshotEncryptionConfigurationDescriptionKeyTypePtrType = reflect.TypeOf((**SnapshotEncryptionConfigurationDescriptionKeyType)(nil)).Elem()
+
+type SnapshotEncryptionConfigurationDescriptionKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput() SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput
+	ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutputWithContext(context.Context) SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput
+}
+
+type snapshotEncryptionConfigurationDescriptionKeyTypePtr string
+
+func SnapshotEncryptionConfigurationDescriptionKeyTypePtr(v string) SnapshotEncryptionConfigurationDescriptionKeyTypePtrInput {
+	return (*snapshotEncryptionConfigurationDescriptionKeyTypePtr)(&v)
+}
+
+func (*snapshotEncryptionConfigurationDescriptionKeyTypePtr) ElementType() reflect.Type {
+	return snapshotEncryptionConfigurationDescriptionKeyTypePtrType
+}
+
+func (in *snapshotEncryptionConfigurationDescriptionKeyTypePtr) ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput() SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput)
+}
+
+func (in *snapshotEncryptionConfigurationDescriptionKeyTypePtr) ToSnapshotEncryptionConfigurationDescriptionKeyTypePtrOutputWithContext(ctx context.Context) SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput)
+}
+
+// The format of the snapshot (CANONICAL). Sent to ImportSnapshot with ImportSourceConfiguration; with ApplicationName it may only be CANONICAL, the format CreateSnapshot produces. Returned by DescribeSnapshot. Immutable after create.
+type SnapshotFormat string
+
+const (
+	SnapshotFormatCanonical = SnapshotFormat("CANONICAL")
+)
+
+func (SnapshotFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotFormat)(nil)).Elem()
+}
+
+func (e SnapshotFormat) ToSnapshotFormatOutput() SnapshotFormatOutput {
+	return pulumi.ToOutput(e).(SnapshotFormatOutput)
+}
+
+func (e SnapshotFormat) ToSnapshotFormatOutputWithContext(ctx context.Context) SnapshotFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SnapshotFormatOutput)
+}
+
+func (e SnapshotFormat) ToSnapshotFormatPtrOutput() SnapshotFormatPtrOutput {
+	return e.ToSnapshotFormatPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotFormat) ToSnapshotFormatPtrOutputWithContext(ctx context.Context) SnapshotFormatPtrOutput {
+	return SnapshotFormat(e).ToSnapshotFormatOutputWithContext(ctx).ToSnapshotFormatPtrOutputWithContext(ctx)
+}
+
+func (e SnapshotFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SnapshotFormatOutput struct{ *pulumi.OutputState }
+
+func (SnapshotFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotFormat)(nil)).Elem()
+}
+
+func (o SnapshotFormatOutput) ToSnapshotFormatOutput() SnapshotFormatOutput {
+	return o
+}
+
+func (o SnapshotFormatOutput) ToSnapshotFormatOutputWithContext(ctx context.Context) SnapshotFormatOutput {
+	return o
+}
+
+func (o SnapshotFormatOutput) ToSnapshotFormatPtrOutput() SnapshotFormatPtrOutput {
+	return o.ToSnapshotFormatPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotFormatOutput) ToSnapshotFormatPtrOutputWithContext(ctx context.Context) SnapshotFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotFormat) *SnapshotFormat {
+		return &v
+	}).(SnapshotFormatPtrOutput)
+}
+
+func (o SnapshotFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotFormat)(nil)).Elem()
+}
+
+func (o SnapshotFormatPtrOutput) ToSnapshotFormatPtrOutput() SnapshotFormatPtrOutput {
+	return o
+}
+
+func (o SnapshotFormatPtrOutput) ToSnapshotFormatPtrOutputWithContext(ctx context.Context) SnapshotFormatPtrOutput {
+	return o
+}
+
+func (o SnapshotFormatPtrOutput) Elem() SnapshotFormatOutput {
+	return o.ApplyT(func(v *SnapshotFormat) SnapshotFormat {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotFormat
+		return ret
+	}).(SnapshotFormatOutput)
+}
+
+func (o SnapshotFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SnapshotFormatInput is an input type that accepts values of the SnapshotFormat enum
+// A concrete instance of `SnapshotFormatInput` can be one of the following:
+//
+//	SnapshotFormatCanonical
+type SnapshotFormatInput interface {
+	pulumi.Input
+
+	ToSnapshotFormatOutput() SnapshotFormatOutput
+	ToSnapshotFormatOutputWithContext(context.Context) SnapshotFormatOutput
+}
+
+var snapshotFormatPtrType = reflect.TypeOf((**SnapshotFormat)(nil)).Elem()
+
+type SnapshotFormatPtrInput interface {
+	pulumi.Input
+
+	ToSnapshotFormatPtrOutput() SnapshotFormatPtrOutput
+	ToSnapshotFormatPtrOutputWithContext(context.Context) SnapshotFormatPtrOutput
+}
+
+type snapshotFormatPtr string
+
+func SnapshotFormatPtr(v string) SnapshotFormatPtrInput {
+	return (*snapshotFormatPtr)(&v)
+}
+
+func (*snapshotFormatPtr) ElementType() reflect.Type {
+	return snapshotFormatPtrType
+}
+
+func (in *snapshotFormatPtr) ToSnapshotFormatPtrOutput() SnapshotFormatPtrOutput {
+	return pulumi.ToOutput(in).(SnapshotFormatPtrOutput)
+}
+
+func (in *snapshotFormatPtr) ToSnapshotFormatPtrOutputWithContext(ctx context.Context) SnapshotFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SnapshotFormatPtrOutput)
+}
+
+// The type of storage the snapshot is imported from.
+type SnapshotImportSourceConfigurationSourceType string
+
+const (
+	SnapshotImportSourceConfigurationSourceTypeS3 = SnapshotImportSourceConfigurationSourceType("S3")
+)
+
+func (SnapshotImportSourceConfigurationSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotImportSourceConfigurationSourceType)(nil)).Elem()
+}
+
+func (e SnapshotImportSourceConfigurationSourceType) ToSnapshotImportSourceConfigurationSourceTypeOutput() SnapshotImportSourceConfigurationSourceTypeOutput {
+	return pulumi.ToOutput(e).(SnapshotImportSourceConfigurationSourceTypeOutput)
+}
+
+func (e SnapshotImportSourceConfigurationSourceType) ToSnapshotImportSourceConfigurationSourceTypeOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SnapshotImportSourceConfigurationSourceTypeOutput)
+}
+
+func (e SnapshotImportSourceConfigurationSourceType) ToSnapshotImportSourceConfigurationSourceTypePtrOutput() SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return e.ToSnapshotImportSourceConfigurationSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotImportSourceConfigurationSourceType) ToSnapshotImportSourceConfigurationSourceTypePtrOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return SnapshotImportSourceConfigurationSourceType(e).ToSnapshotImportSourceConfigurationSourceTypeOutputWithContext(ctx).ToSnapshotImportSourceConfigurationSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e SnapshotImportSourceConfigurationSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotImportSourceConfigurationSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotImportSourceConfigurationSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotImportSourceConfigurationSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SnapshotImportSourceConfigurationSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (SnapshotImportSourceConfigurationSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotImportSourceConfigurationSourceType)(nil)).Elem()
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypeOutput) ToSnapshotImportSourceConfigurationSourceTypeOutput() SnapshotImportSourceConfigurationSourceTypeOutput {
+	return o
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypeOutput) ToSnapshotImportSourceConfigurationSourceTypeOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationSourceTypeOutput {
+	return o
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypeOutput) ToSnapshotImportSourceConfigurationSourceTypePtrOutput() SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return o.ToSnapshotImportSourceConfigurationSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypeOutput) ToSnapshotImportSourceConfigurationSourceTypePtrOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotImportSourceConfigurationSourceType) *SnapshotImportSourceConfigurationSourceType {
+		return &v
+	}).(SnapshotImportSourceConfigurationSourceTypePtrOutput)
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotImportSourceConfigurationSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotImportSourceConfigurationSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotImportSourceConfigurationSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotImportSourceConfigurationSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotImportSourceConfigurationSourceType)(nil)).Elem()
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypePtrOutput) ToSnapshotImportSourceConfigurationSourceTypePtrOutput() SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return o
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypePtrOutput) ToSnapshotImportSourceConfigurationSourceTypePtrOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return o
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypePtrOutput) Elem() SnapshotImportSourceConfigurationSourceTypeOutput {
+	return o.ApplyT(func(v *SnapshotImportSourceConfigurationSourceType) SnapshotImportSourceConfigurationSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotImportSourceConfigurationSourceType
+		return ret
+	}).(SnapshotImportSourceConfigurationSourceTypeOutput)
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotImportSourceConfigurationSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotImportSourceConfigurationSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SnapshotImportSourceConfigurationSourceTypeInput is an input type that accepts values of the SnapshotImportSourceConfigurationSourceType enum
+// A concrete instance of `SnapshotImportSourceConfigurationSourceTypeInput` can be one of the following:
+//
+//	SnapshotImportSourceConfigurationSourceTypeS3
+type SnapshotImportSourceConfigurationSourceTypeInput interface {
+	pulumi.Input
+
+	ToSnapshotImportSourceConfigurationSourceTypeOutput() SnapshotImportSourceConfigurationSourceTypeOutput
+	ToSnapshotImportSourceConfigurationSourceTypeOutputWithContext(context.Context) SnapshotImportSourceConfigurationSourceTypeOutput
+}
+
+var snapshotImportSourceConfigurationSourceTypePtrType = reflect.TypeOf((**SnapshotImportSourceConfigurationSourceType)(nil)).Elem()
+
+type SnapshotImportSourceConfigurationSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToSnapshotImportSourceConfigurationSourceTypePtrOutput() SnapshotImportSourceConfigurationSourceTypePtrOutput
+	ToSnapshotImportSourceConfigurationSourceTypePtrOutputWithContext(context.Context) SnapshotImportSourceConfigurationSourceTypePtrOutput
+}
+
+type snapshotImportSourceConfigurationSourceTypePtr string
+
+func SnapshotImportSourceConfigurationSourceTypePtr(v string) SnapshotImportSourceConfigurationSourceTypePtrInput {
+	return (*snapshotImportSourceConfigurationSourceTypePtr)(&v)
+}
+
+func (*snapshotImportSourceConfigurationSourceTypePtr) ElementType() reflect.Type {
+	return snapshotImportSourceConfigurationSourceTypePtrType
+}
+
+func (in *snapshotImportSourceConfigurationSourceTypePtr) ToSnapshotImportSourceConfigurationSourceTypePtrOutput() SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(SnapshotImportSourceConfigurationSourceTypePtrOutput)
+}
+
+func (in *snapshotImportSourceConfigurationSourceTypePtr) ToSnapshotImportSourceConfigurationSourceTypePtrOutputWithContext(ctx context.Context) SnapshotImportSourceConfigurationSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SnapshotImportSourceConfigurationSourceTypePtrOutput)
+}
+
+// Indicates whether the snapshot was initiated by the customer or by the service. Populated by DescribeSnapshot.
+type SnapshotInitiator string
+
+const (
+	SnapshotInitiatorUser   = SnapshotInitiator("USER")
+	SnapshotInitiatorSystem = SnapshotInitiator("SYSTEM")
+)
+
+type SnapshotInitiatorOutput struct{ *pulumi.OutputState }
+
+func (SnapshotInitiatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotInitiator)(nil)).Elem()
+}
+
+func (o SnapshotInitiatorOutput) ToSnapshotInitiatorOutput() SnapshotInitiatorOutput {
+	return o
+}
+
+func (o SnapshotInitiatorOutput) ToSnapshotInitiatorOutputWithContext(ctx context.Context) SnapshotInitiatorOutput {
+	return o
+}
+
+func (o SnapshotInitiatorOutput) ToSnapshotInitiatorPtrOutput() SnapshotInitiatorPtrOutput {
+	return o.ToSnapshotInitiatorPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotInitiatorOutput) ToSnapshotInitiatorPtrOutputWithContext(ctx context.Context) SnapshotInitiatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotInitiator) *SnapshotInitiator {
+		return &v
+	}).(SnapshotInitiatorPtrOutput)
+}
+
+func (o SnapshotInitiatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotInitiatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotInitiator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotInitiatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotInitiatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotInitiator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotInitiatorPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotInitiatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotInitiator)(nil)).Elem()
+}
+
+func (o SnapshotInitiatorPtrOutput) ToSnapshotInitiatorPtrOutput() SnapshotInitiatorPtrOutput {
+	return o
+}
+
+func (o SnapshotInitiatorPtrOutput) ToSnapshotInitiatorPtrOutputWithContext(ctx context.Context) SnapshotInitiatorPtrOutput {
+	return o
+}
+
+func (o SnapshotInitiatorPtrOutput) Elem() SnapshotInitiatorOutput {
+	return o.ApplyT(func(v *SnapshotInitiator) SnapshotInitiator {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotInitiator
+		return ret
+	}).(SnapshotInitiatorOutput)
+}
+
+func (o SnapshotInitiatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotInitiatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotInitiator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operation that initiated the snapshot. Populated by DescribeSnapshot.
+type SnapshotInitiatorOperation string
+
+const (
+	SnapshotInitiatorOperationCreateSnapshot       = SnapshotInitiatorOperation("CreateSnapshot")
+	SnapshotInitiatorOperationImportSnapshot       = SnapshotInitiatorOperation("ImportSnapshot")
+	SnapshotInitiatorOperationSystemCreateSnapshot = SnapshotInitiatorOperation("SystemCreateSnapshot")
+)
+
+type SnapshotInitiatorOperationOutput struct{ *pulumi.OutputState }
+
+func (SnapshotInitiatorOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotInitiatorOperation)(nil)).Elem()
+}
+
+func (o SnapshotInitiatorOperationOutput) ToSnapshotInitiatorOperationOutput() SnapshotInitiatorOperationOutput {
+	return o
+}
+
+func (o SnapshotInitiatorOperationOutput) ToSnapshotInitiatorOperationOutputWithContext(ctx context.Context) SnapshotInitiatorOperationOutput {
+	return o
+}
+
+func (o SnapshotInitiatorOperationOutput) ToSnapshotInitiatorOperationPtrOutput() SnapshotInitiatorOperationPtrOutput {
+	return o.ToSnapshotInitiatorOperationPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotInitiatorOperationOutput) ToSnapshotInitiatorOperationPtrOutputWithContext(ctx context.Context) SnapshotInitiatorOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotInitiatorOperation) *SnapshotInitiatorOperation {
+		return &v
+	}).(SnapshotInitiatorOperationPtrOutput)
+}
+
+func (o SnapshotInitiatorOperationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotInitiatorOperationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotInitiatorOperation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotInitiatorOperationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotInitiatorOperationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotInitiatorOperation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotInitiatorOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotInitiatorOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotInitiatorOperation)(nil)).Elem()
+}
+
+func (o SnapshotInitiatorOperationPtrOutput) ToSnapshotInitiatorOperationPtrOutput() SnapshotInitiatorOperationPtrOutput {
+	return o
+}
+
+func (o SnapshotInitiatorOperationPtrOutput) ToSnapshotInitiatorOperationPtrOutputWithContext(ctx context.Context) SnapshotInitiatorOperationPtrOutput {
+	return o
+}
+
+func (o SnapshotInitiatorOperationPtrOutput) Elem() SnapshotInitiatorOperationOutput {
+	return o.ApplyT(func(v *SnapshotInitiatorOperation) SnapshotInitiatorOperation {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotInitiatorOperation
+		return ret
+	}).(SnapshotInitiatorOperationOutput)
+}
+
+func (o SnapshotInitiatorOperationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotInitiatorOperationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotInitiatorOperation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The runtime environment of the source application when the snapshot was taken with ApplicationName (CreateSnapshot), for example FLINK-1_20. Populated by DescribeSnapshot. Not returned for snapshots created with ImportSourceConfiguration (ImportSnapshot), which carry no runtime version.
+type SnapshotRuntimeEnvironment string
+
+const (
+	SnapshotRuntimeEnvironmentSql10           = SnapshotRuntimeEnvironment("SQL-1_0")
+	SnapshotRuntimeEnvironmentFlink16         = SnapshotRuntimeEnvironment("FLINK-1_6")
+	SnapshotRuntimeEnvironmentFlink18         = SnapshotRuntimeEnvironment("FLINK-1_8")
+	SnapshotRuntimeEnvironmentZeppelinFlink10 = SnapshotRuntimeEnvironment("ZEPPELIN-FLINK-1_0")
+	SnapshotRuntimeEnvironmentFlink111        = SnapshotRuntimeEnvironment("FLINK-1_11")
+	SnapshotRuntimeEnvironmentFlink113        = SnapshotRuntimeEnvironment("FLINK-1_13")
+	SnapshotRuntimeEnvironmentZeppelinFlink20 = SnapshotRuntimeEnvironment("ZEPPELIN-FLINK-2_0")
+	SnapshotRuntimeEnvironmentFlink115        = SnapshotRuntimeEnvironment("FLINK-1_15")
+	SnapshotRuntimeEnvironmentZeppelinFlink30 = SnapshotRuntimeEnvironment("ZEPPELIN-FLINK-3_0")
+	SnapshotRuntimeEnvironmentFlink118        = SnapshotRuntimeEnvironment("FLINK-1_18")
+	SnapshotRuntimeEnvironmentFlink119        = SnapshotRuntimeEnvironment("FLINK-1_19")
+	SnapshotRuntimeEnvironmentFlink120        = SnapshotRuntimeEnvironment("FLINK-1_20")
+	SnapshotRuntimeEnvironmentFlink21         = SnapshotRuntimeEnvironment("FLINK-2_1")
+	SnapshotRuntimeEnvironmentFlink22         = SnapshotRuntimeEnvironment("FLINK-2_2")
+	SnapshotRuntimeEnvironmentFlink23         = SnapshotRuntimeEnvironment("FLINK-2_3")
+	SnapshotRuntimeEnvironmentFlink24         = SnapshotRuntimeEnvironment("FLINK-2_4")
+)
+
+type SnapshotRuntimeEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (SnapshotRuntimeEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotRuntimeEnvironment)(nil)).Elem()
+}
+
+func (o SnapshotRuntimeEnvironmentOutput) ToSnapshotRuntimeEnvironmentOutput() SnapshotRuntimeEnvironmentOutput {
+	return o
+}
+
+func (o SnapshotRuntimeEnvironmentOutput) ToSnapshotRuntimeEnvironmentOutputWithContext(ctx context.Context) SnapshotRuntimeEnvironmentOutput {
+	return o
+}
+
+func (o SnapshotRuntimeEnvironmentOutput) ToSnapshotRuntimeEnvironmentPtrOutput() SnapshotRuntimeEnvironmentPtrOutput {
+	return o.ToSnapshotRuntimeEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotRuntimeEnvironmentOutput) ToSnapshotRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) SnapshotRuntimeEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotRuntimeEnvironment) *SnapshotRuntimeEnvironment {
+		return &v
+	}).(SnapshotRuntimeEnvironmentPtrOutput)
+}
+
+func (o SnapshotRuntimeEnvironmentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotRuntimeEnvironmentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotRuntimeEnvironment) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotRuntimeEnvironmentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotRuntimeEnvironmentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotRuntimeEnvironment) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotRuntimeEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotRuntimeEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotRuntimeEnvironment)(nil)).Elem()
+}
+
+func (o SnapshotRuntimeEnvironmentPtrOutput) ToSnapshotRuntimeEnvironmentPtrOutput() SnapshotRuntimeEnvironmentPtrOutput {
+	return o
+}
+
+func (o SnapshotRuntimeEnvironmentPtrOutput) ToSnapshotRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) SnapshotRuntimeEnvironmentPtrOutput {
+	return o
+}
+
+func (o SnapshotRuntimeEnvironmentPtrOutput) Elem() SnapshotRuntimeEnvironmentOutput {
+	return o.ApplyT(func(v *SnapshotRuntimeEnvironment) SnapshotRuntimeEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotRuntimeEnvironment
+		return ret
+	}).(SnapshotRuntimeEnvironmentOutput)
+}
+
+func (o SnapshotRuntimeEnvironmentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotRuntimeEnvironmentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotRuntimeEnvironment) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lifecycle status of the snapshot as reported by the service (CREATING, READY, DELETING, FAILED). Populated by DescribeSnapshot.
+type SnapshotStatus string
+
+const (
+	SnapshotStatusCreating = SnapshotStatus("CREATING")
+	SnapshotStatusReady    = SnapshotStatus("READY")
+	SnapshotStatusDeleting = SnapshotStatus("DELETING")
+	SnapshotStatusFailed   = SnapshotStatus("FAILED")
+)
+
+type SnapshotStatusOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotStatus)(nil)).Elem()
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusOutput() SnapshotStatusOutput {
+	return o
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusOutputWithContext(ctx context.Context) SnapshotStatusOutput {
+	return o
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusPtrOutput() SnapshotStatusPtrOutput {
+	return o.ToSnapshotStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusPtrOutputWithContext(ctx context.Context) SnapshotStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotStatus) *SnapshotStatus {
+		return &v
+	}).(SnapshotStatusPtrOutput)
+}
+
+func (o SnapshotStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotStatus)(nil)).Elem()
+}
+
+func (o SnapshotStatusPtrOutput) ToSnapshotStatusPtrOutput() SnapshotStatusPtrOutput {
+	return o
+}
+
+func (o SnapshotStatusPtrOutput) ToSnapshotStatusPtrOutputWithContext(ctx context.Context) SnapshotStatusPtrOutput {
+	return o
+}
+
+func (o SnapshotStatusPtrOutput) Elem() SnapshotStatusOutput {
+	return o.ApplyT(func(v *SnapshotStatus) SnapshotStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotStatus
+		return ret
+	}).(SnapshotStatusOutput)
+}
+
+func (o SnapshotStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCheckpointConfigurationConfigurationTypeInput)(nil)).Elem(), ApplicationCheckpointConfigurationConfigurationType("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCheckpointConfigurationConfigurationTypePtrInput)(nil)).Elem(), ApplicationCheckpointConfigurationConfigurationType("DEFAULT"))
@@ -2041,6 +2916,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSnapshotConfigurationSnapshotModePtrInput)(nil)).Elem(), ApplicationSnapshotConfigurationSnapshotMode("APPLICATION_SNAPSHOTS_LEGACY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationLogLevelInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationZeppelinMonitoringConfigurationLogLevelPtrInput)(nil)).Elem(), ApplicationZeppelinMonitoringConfigurationLogLevel("DEBUG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotEncryptionConfigurationDescriptionKeyTypeInput)(nil)).Elem(), SnapshotEncryptionConfigurationDescriptionKeyType("AWS_OWNED_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotEncryptionConfigurationDescriptionKeyTypePtrInput)(nil)).Elem(), SnapshotEncryptionConfigurationDescriptionKeyType("AWS_OWNED_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotFormatInput)(nil)).Elem(), SnapshotFormat("CANONICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotFormatPtrInput)(nil)).Elem(), SnapshotFormat("CANONICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportSourceConfigurationSourceTypeInput)(nil)).Elem(), SnapshotImportSourceConfigurationSourceType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportSourceConfigurationSourceTypePtrInput)(nil)).Elem(), SnapshotImportSourceConfigurationSourceType("S3"))
 	pulumi.RegisterOutputType(ApplicationCheckpointConfigurationConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationCheckpointConfigurationConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCodeConfigurationCodeContentTypeOutput{})
@@ -2065,4 +2946,18 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSnapshotConfigurationSnapshotModePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationLogLevelOutput{})
 	pulumi.RegisterOutputType(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotEncryptionConfigurationDescriptionKeyTypeOutput{})
+	pulumi.RegisterOutputType(SnapshotEncryptionConfigurationDescriptionKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(SnapshotFormatOutput{})
+	pulumi.RegisterOutputType(SnapshotFormatPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotImportSourceConfigurationSourceTypeOutput{})
+	pulumi.RegisterOutputType(SnapshotImportSourceConfigurationSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(SnapshotInitiatorOutput{})
+	pulumi.RegisterOutputType(SnapshotInitiatorPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotInitiatorOperationOutput{})
+	pulumi.RegisterOutputType(SnapshotInitiatorOperationPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotRuntimeEnvironmentOutput{})
+	pulumi.RegisterOutputType(SnapshotRuntimeEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotStatusOutput{})
+	pulumi.RegisterOutputType(SnapshotStatusPtrOutput{})
 }

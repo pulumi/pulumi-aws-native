@@ -215,6 +215,7 @@ __all__ = [
     'HarnessHookLambdaTarget',
     'HarnessHookSnsTarget',
     'HarnessHookTarget',
+    'HarnessIamCredentialProvider',
     'HarnessInlineFunctionConfig',
     'HarnessLifecycleConfiguration',
     'HarnessLiteLlmModelConfig',
@@ -228,6 +229,7 @@ __all__ = [
     'HarnessPrivateEndpoint',
     'HarnessPrivateEndpointOverride',
     'HarnessRemoteMcpConfig',
+    'HarnessRemoteMcpOutboundAuth',
     'HarnessS3FilesAccessPointConfiguration',
     'HarnessSelfManagedLatticeResource',
     'HarnessSessionStorageConfiguration',
@@ -288,6 +290,7 @@ __all__ = [
     'MemoryUserPreferenceOverrideExtractionConfigurationInput',
     'MemoryValidation',
     'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderCertificateConfiguration',
     'OAuth2CredentialProviderClientSecretArn',
     'OAuth2CredentialProviderCustomOauth2ProviderConfigInput',
     'OAuth2CredentialProviderGithubOauth2ProviderConfigInput',
@@ -306,8 +309,10 @@ __all__ = [
     'OAuth2CredentialProviderPrivateEndpointOverride',
     'OAuth2CredentialProviderPrivateKeyJwtConfig',
     'OAuth2CredentialProviderPrivateKeySource',
+    'OAuth2CredentialProviderS3CertificateConfiguration',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput',
     'OAuth2CredentialProviderSecretReference',
+    'OAuth2CredentialProviderSecretsManagerCertificateConfiguration',
     'OAuth2CredentialProviderSelfManagedLatticeResource',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInput',
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfig',
@@ -334,11 +339,11 @@ __all__ = [
     'PaymentCredentialProviderStripePrivyConfigurationInput',
     'PaymentCredentialProviderStripePrivyConfigurationOutput',
     'PaymentManagerAuthorizerConfigurationProperties',
-    'PaymentManagerAuthorizingClaimMatchValue',
-    'PaymentManagerClaimMatchValue0Properties',
-    'PaymentManagerClaimMatchValue1Properties',
+    'PaymentManagerAuthorizingClaimMatchValueType',
+    'PaymentManagerClaimMatchValueType0Properties',
+    'PaymentManagerClaimMatchValueType1Properties',
     'PaymentManagerCustomClaimValidationType',
-    'PaymentManagerCustomJwtAuthorizer',
+    'PaymentManagerCustomJwtAuthorizerConfiguration',
     'PaymentManagerWorkloadIdentityDetails',
     'PolicyCedarPolicy',
     'PolicyDefinition',
@@ -8235,6 +8240,41 @@ class HarnessHookTarget(dict):
 
 
 @pulumi.output_type
+class HarnessIamCredentialProvider(dict):
+    """
+    IAM credentials used to SigV4-sign requests.
+    """
+    def __init__(__self__, *,
+                 service: _builtins.str,
+                 region: Optional[_builtins.str] = None):
+        """
+        IAM credentials used to SigV4-sign requests.
+
+        :param _builtins.str service: The AWS service name used for SigV4 signing.
+        :param _builtins.str region: The AWS Region used for SigV4 signing.
+        """
+        pulumi.set(__self__, "service", service)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> _builtins.str:
+        """
+        The AWS service name used for SigV4 signing.
+        """
+        return pulumi.get(self, "service")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        The AWS Region used for SigV4 signing.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
 class HarnessInlineFunctionConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8300,6 +8340,10 @@ class HarnessLifecycleConfiguration(dict):
     def __init__(__self__, *,
                  idle_runtime_session_timeout: Optional[_builtins.int] = None,
                  max_lifetime: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int idle_runtime_session_timeout: Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Valid range: 60 to 28800 seconds (8 hours), and must be less than or equal to MaxLifetime. Default: 900 seconds (15 minutes).
+        :param _builtins.int max_lifetime: Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Valid range: 60 to 28800 seconds (8 hours). Default: 28800 seconds (8 hours).
+        """
         if idle_runtime_session_timeout is not None:
             pulumi.set(__self__, "idle_runtime_session_timeout", idle_runtime_session_timeout)
         if max_lifetime is not None:
@@ -8308,11 +8352,17 @@ class HarnessLifecycleConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="idleRuntimeSessionTimeout")
     def idle_runtime_session_timeout(self) -> Optional[_builtins.int]:
+        """
+        Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Valid range: 60 to 28800 seconds (8 hours), and must be less than or equal to MaxLifetime. Default: 900 seconds (15 minutes).
+        """
         return pulumi.get(self, "idle_runtime_session_timeout")
 
     @_builtins.property
     @pulumi.getter(name="maxLifetime")
     def max_lifetime(self) -> Optional[_builtins.int]:
+        """
+        Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Valid range: 60 to 28800 seconds (8 hours). Default: 28800 seconds (8 hours).
+        """
         return pulumi.get(self, "max_lifetime")
 
 
@@ -8978,12 +9028,35 @@ class HarnessPrivateEndpointOverride(dict):
 
 @pulumi.output_type
 class HarnessRemoteMcpConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outboundAuth":
+            suggest = "outbound_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessRemoteMcpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessRemoteMcpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessRemoteMcpConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: _builtins.str,
-                 headers: Optional[Mapping[str, _builtins.str]] = None):
+                 headers: Optional[Mapping[str, _builtins.str]] = None,
+                 outbound_auth: Optional['outputs.HarnessRemoteMcpOutboundAuth'] = None):
+        """
+        :param 'HarnessRemoteMcpOutboundAuth' outbound_auth: How the harness authenticates to this MCP endpoint. Defaults to None if omitted.
+        """
         pulumi.set(__self__, "url", url)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
+        if outbound_auth is not None:
+            pulumi.set(__self__, "outbound_auth", outbound_auth)
 
     @_builtins.property
     @pulumi.getter
@@ -8994,6 +9067,67 @@ class HarnessRemoteMcpConfig(dict):
     @pulumi.getter
     def headers(self) -> Optional[Mapping[str, _builtins.str]]:
         return pulumi.get(self, "headers")
+
+    @_builtins.property
+    @pulumi.getter(name="outboundAuth")
+    def outbound_auth(self) -> Optional['outputs.HarnessRemoteMcpOutboundAuth']:
+        """
+        How the harness authenticates to this MCP endpoint. Defaults to None if omitted.
+        """
+        return pulumi.get(self, "outbound_auth")
+
+
+@pulumi.output_type
+class HarnessRemoteMcpOutboundAuth(dict):
+    """
+    Authentication method for calling a remote MCP server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsIam":
+            suggest = "aws_iam"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessRemoteMcpOutboundAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessRemoteMcpOutboundAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessRemoteMcpOutboundAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_iam: Optional['outputs.HarnessIamCredentialProvider'] = None,
+                 none: Optional[Any] = None):
+        """
+        Authentication method for calling a remote MCP server.
+
+        :param 'HarnessIamCredentialProvider' aws_iam: SigV4-sign requests using the harness execution role. Region defaults to the harness Region if omitted.
+        :param Any none: No authentication.
+        """
+        if aws_iam is not None:
+            pulumi.set(__self__, "aws_iam", aws_iam)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIam")
+    def aws_iam(self) -> Optional['outputs.HarnessIamCredentialProvider']:
+        """
+        SigV4-sign requests using the harness execution role. Region defaults to the harness Region if omitted.
+        """
+        return pulumi.get(self, "aws_iam")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional[Any]:
+        """
+        No authentication.
+        """
+        return pulumi.get(self, "none")
 
 
 @pulumi.output_type
@@ -11842,6 +11976,50 @@ class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput(dict):
 
 
 @pulumi.output_type
+class OAuth2CredentialProviderCertificateConfiguration(dict):
+    """
+    A reference to a private CA certificate. Specify exactly one certificate source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3: Optional['outputs.OAuth2CredentialProviderS3CertificateConfiguration'] = None,
+                 secrets_manager: Optional['outputs.OAuth2CredentialProviderSecretsManagerCertificateConfiguration'] = None):
+        """
+        A reference to a private CA certificate. Specify exactly one certificate source.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+        if secrets_manager is not None:
+            pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.OAuth2CredentialProviderS3CertificateConfiguration']:
+        return pulumi.get(self, "s3")
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> Optional['outputs.OAuth2CredentialProviderSecretsManagerCertificateConfiguration']:
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
 class OAuth2CredentialProviderClientSecretArn(dict):
     """
     Contains information about a secret in AWS Secrets Manager
@@ -11891,6 +12069,8 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
         suggest = None
         if key == "oauthDiscovery":
             suggest = "oauth_discovery"
+        elif key == "certificateConfigurations":
+            suggest = "certificate_configurations"
         elif key == "clientAuthenticationMethod":
             suggest = "client_authentication_method"
         elif key == "clientId":
@@ -11923,6 +12103,7 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  oauth_discovery: 'outputs.OAuth2CredentialProviderOauth2Discovery',
+                 certificate_configurations: Optional[Sequence['outputs.OAuth2CredentialProviderCertificateConfiguration']] = None,
                  client_authentication_method: Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod'] = None,
                  client_id: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
@@ -11942,6 +12123,8 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
         :param Sequence['OAuth2CredentialProviderPrivateEndpointOverride'] private_endpoint_overrides: A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
         """
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if certificate_configurations is not None:
+            pulumi.set(__self__, "certificate_configurations", certificate_configurations)
         if client_authentication_method is not None:
             pulumi.set(__self__, "client_authentication_method", client_authentication_method)
         if client_id is not None:
@@ -11965,6 +12148,11 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
     @pulumi.getter(name="oauthDiscovery")
     def oauth_discovery(self) -> 'outputs.OAuth2CredentialProviderOauth2Discovery':
         return pulumi.get(self, "oauth_discovery")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateConfigurations")
+    def certificate_configurations(self) -> Optional[Sequence['outputs.OAuth2CredentialProviderCertificateConfiguration']]:
+        return pulumi.get(self, "certificate_configurations")
 
     @_builtins.property
     @pulumi.getter(name="clientAuthenticationMethod")
@@ -12662,7 +12850,7 @@ class OAuth2CredentialProviderOauth2Discovery(dict):
         """
         Discovery information for an OAuth2 provider
 
-        :param _builtins.str discovery_url: The discovery URL for the OAuth2 provider
+        :param _builtins.str discovery_url: OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL
         """
         if authorization_server_metadata is not None:
             pulumi.set(__self__, "authorization_server_metadata", authorization_server_metadata)
@@ -12678,7 +12866,7 @@ class OAuth2CredentialProviderOauth2Discovery(dict):
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> Optional[_builtins.str]:
         """
-        The discovery URL for the OAuth2 provider
+        OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL
         """
         return pulumi.get(self, "discovery_url")
 
@@ -12807,7 +12995,9 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientAuthenticationMethod":
+        if key == "certificateConfigurations":
+            suggest = "certificate_configurations"
+        elif key == "clientAuthenticationMethod":
             suggest = "client_authentication_method"
         elif key == "clientId":
             suggest = "client_id"
@@ -12834,6 +13024,7 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 certificate_configurations: Optional[Sequence['outputs.OAuth2CredentialProviderCertificateConfiguration']] = None,
                  client_authentication_method: Optional['OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod'] = None,
                  client_id: Optional[_builtins.str] = None,
                  oauth_discovery: Optional['outputs.OAuth2CredentialProviderOauth2Discovery'] = None,
@@ -12847,6 +13038,8 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
         :param 'OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod' client_authentication_method: The client authentication method used when authenticating with the token endpoint
         :param Sequence['OAuth2CredentialProviderPrivateEndpointOverride'] private_endpoint_overrides: The list of private endpoint overrides for the OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
         """
+        if certificate_configurations is not None:
+            pulumi.set(__self__, "certificate_configurations", certificate_configurations)
         if client_authentication_method is not None:
             pulumi.set(__self__, "client_authentication_method", client_authentication_method)
         if client_id is not None:
@@ -12861,6 +13054,11 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
             pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
         if private_key_jwt_config is not None:
             pulumi.set(__self__, "private_key_jwt_config", private_key_jwt_config)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateConfigurations")
+    def certificate_configurations(self) -> Optional[Sequence['outputs.OAuth2CredentialProviderCertificateConfiguration']]:
+        return pulumi.get(self, "certificate_configurations")
 
     @_builtins.property
     @pulumi.getter(name="clientAuthenticationMethod")
@@ -13155,6 +13353,58 @@ class OAuth2CredentialProviderPrivateKeySource(dict):
 
 
 @pulumi.output_type
+class OAuth2CredentialProviderS3CertificateConfiguration(dict):
+    """
+    A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderS3CertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderS3CertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderS3CertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: _builtins.str,
+                 bucket_owner_account_id: Optional[_builtins.str] = None):
+        """
+        A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object
+
+        :param _builtins.str uri: The URI of the Amazon S3 object that contains the PEM-encoded certificate
+        :param _builtins.str bucket_owner_account_id: The account ID of the Amazon S3 bucket owner, used for cross-account access to the bucket
+        """
+        pulumi.set(__self__, "uri", uri)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> _builtins.str:
+        """
+        The URI of the Amazon S3 object that contains the PEM-encoded certificate
+        """
+        return pulumi.get(self, "uri")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[_builtins.str]:
+        """
+        The account ID of the Amazon S3 bucket owner, used for cross-account access to the bucket
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+
+@pulumi.output_type
 class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput(dict):
     """
     Input configuration for a Salesforce OAuth2 provider
@@ -13270,6 +13520,46 @@ class OAuth2CredentialProviderSecretReference(dict):
         The ID or ARN of the secret in AWS Secrets Manager
         """
         return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderSecretsManagerCertificateConfiguration(dict):
+    """
+    A reference to a PEM-encoded private CA certificate stored in an AWS Secrets Manager secret
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderSecretsManagerCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderSecretsManagerCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderSecretsManagerCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        A reference to a PEM-encoded private CA certificate stored in an AWS Secrets Manager secret
+
+        :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret that contains the PEM-encoded certificate
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS Secrets Manager secret that contains the PEM-encoded certificate
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type
@@ -14707,9 +14997,6 @@ class PaymentCredentialProviderStripePrivyConfigurationOutput(dict):
 
 @pulumi.output_type
 class PaymentManagerAuthorizerConfigurationProperties(dict):
-    """
-    The authorizer configuration for the payment manager
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14728,20 +15015,17 @@ class PaymentManagerAuthorizerConfigurationProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_jwt_authorizer: 'outputs.PaymentManagerCustomJwtAuthorizer'):
-        """
-        The authorizer configuration for the payment manager
-        """
+                 custom_jwt_authorizer: 'outputs.PaymentManagerCustomJwtAuthorizerConfiguration'):
         pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
 
     @_builtins.property
     @pulumi.getter(name="customJwtAuthorizer")
-    def custom_jwt_authorizer(self) -> 'outputs.PaymentManagerCustomJwtAuthorizer':
+    def custom_jwt_authorizer(self) -> 'outputs.PaymentManagerCustomJwtAuthorizerConfiguration':
         return pulumi.get(self, "custom_jwt_authorizer")
 
 
 @pulumi.output_type
-class PaymentManagerAuthorizingClaimMatchValue(dict):
+class PaymentManagerAuthorizingClaimMatchValueType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14751,35 +15035,35 @@ class PaymentManagerAuthorizingClaimMatchValue(dict):
             suggest = "claim_match_value"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerAuthorizingClaimMatchValue. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerAuthorizingClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PaymentManagerAuthorizingClaimMatchValue.__key_warning(key)
+        PaymentManagerAuthorizingClaimMatchValueType.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PaymentManagerAuthorizingClaimMatchValue.__key_warning(key)
+        PaymentManagerAuthorizingClaimMatchValueType.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 claim_match_operator: 'PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator',
-                 claim_match_value: Union['outputs.PaymentManagerClaimMatchValue0Properties', 'outputs.PaymentManagerClaimMatchValue1Properties']):
+                 claim_match_operator: 'PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator',
+                 claim_match_value: Union['outputs.PaymentManagerClaimMatchValueType0Properties', 'outputs.PaymentManagerClaimMatchValueType1Properties']):
         pulumi.set(__self__, "claim_match_operator", claim_match_operator)
         pulumi.set(__self__, "claim_match_value", claim_match_value)
 
     @_builtins.property
     @pulumi.getter(name="claimMatchOperator")
-    def claim_match_operator(self) -> 'PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator':
+    def claim_match_operator(self) -> 'PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator':
         return pulumi.get(self, "claim_match_operator")
 
     @_builtins.property
     @pulumi.getter(name="claimMatchValue")
-    def claim_match_value(self) -> Union['outputs.PaymentManagerClaimMatchValue0Properties', 'outputs.PaymentManagerClaimMatchValue1Properties']:
+    def claim_match_value(self) -> Union['outputs.PaymentManagerClaimMatchValueType0Properties', 'outputs.PaymentManagerClaimMatchValueType1Properties']:
         return pulumi.get(self, "claim_match_value")
 
 
 @pulumi.output_type
-class PaymentManagerClaimMatchValue0Properties(dict):
+class PaymentManagerClaimMatchValueType0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14787,14 +15071,14 @@ class PaymentManagerClaimMatchValue0Properties(dict):
             suggest = "match_value_string"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerClaimMatchValue0Properties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerClaimMatchValueType0Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PaymentManagerClaimMatchValue0Properties.__key_warning(key)
+        PaymentManagerClaimMatchValueType0Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PaymentManagerClaimMatchValue0Properties.__key_warning(key)
+        PaymentManagerClaimMatchValueType0Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -14808,7 +15092,7 @@ class PaymentManagerClaimMatchValue0Properties(dict):
 
 
 @pulumi.output_type
-class PaymentManagerClaimMatchValue1Properties(dict):
+class PaymentManagerClaimMatchValueType1Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14816,14 +15100,14 @@ class PaymentManagerClaimMatchValue1Properties(dict):
             suggest = "match_value_string_list"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerClaimMatchValue1Properties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerClaimMatchValueType1Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PaymentManagerClaimMatchValue1Properties.__key_warning(key)
+        PaymentManagerClaimMatchValueType1Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PaymentManagerClaimMatchValue1Properties.__key_warning(key)
+        PaymentManagerClaimMatchValueType1Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -14860,7 +15144,7 @@ class PaymentManagerCustomClaimValidationType(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 authorizing_claim_match_value: 'outputs.PaymentManagerAuthorizingClaimMatchValue',
+                 authorizing_claim_match_value: 'outputs.PaymentManagerAuthorizingClaimMatchValueType',
                  inbound_token_claim_name: _builtins.str,
                  inbound_token_claim_value_type: 'PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType'):
         pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
@@ -14869,7 +15153,7 @@ class PaymentManagerCustomClaimValidationType(dict):
 
     @_builtins.property
     @pulumi.getter(name="authorizingClaimMatchValue")
-    def authorizing_claim_match_value(self) -> 'outputs.PaymentManagerAuthorizingClaimMatchValue':
+    def authorizing_claim_match_value(self) -> 'outputs.PaymentManagerAuthorizingClaimMatchValueType':
         return pulumi.get(self, "authorizing_claim_match_value")
 
     @_builtins.property
@@ -14884,7 +15168,7 @@ class PaymentManagerCustomClaimValidationType(dict):
 
 
 @pulumi.output_type
-class PaymentManagerCustomJwtAuthorizer(dict):
+class PaymentManagerCustomJwtAuthorizerConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14900,14 +15184,14 @@ class PaymentManagerCustomJwtAuthorizer(dict):
             suggest = "custom_claims"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerCustomJwtAuthorizer. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerCustomJwtAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PaymentManagerCustomJwtAuthorizer.__key_warning(key)
+        PaymentManagerCustomJwtAuthorizerConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PaymentManagerCustomJwtAuthorizer.__key_warning(key)
+        PaymentManagerCustomJwtAuthorizerConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -14954,9 +15238,6 @@ class PaymentManagerCustomJwtAuthorizer(dict):
 
 @pulumi.output_type
 class PaymentManagerWorkloadIdentityDetails(dict):
-    """
-    The workload identity details for the payment manager
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14976,9 +15257,6 @@ class PaymentManagerWorkloadIdentityDetails(dict):
 
     def __init__(__self__, *,
                  workload_identity_arn: Optional[_builtins.str] = None):
-        """
-        The workload identity details for the payment manager
-        """
         if workload_identity_arn is not None:
             pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
 

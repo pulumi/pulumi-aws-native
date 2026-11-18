@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -22,7 +21,7 @@ type Backup struct {
 	// The time when the backup was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The ID of the file system to back up.
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
+	FileSystemId pulumi.StringPtrOutput `pulumi:"fileSystemId"`
 	// The lifecycle status of the backup.
 	Lifecycle BackupLifecycleOutput `pulumi:"lifecycle"`
 	// The Amazon Resource Name (ARN) of the backup.
@@ -37,12 +36,9 @@ type Backup struct {
 func NewBackup(ctx *pulumi.Context,
 	name string, args *BackupArgs, opts ...pulumi.ResourceOption) (*Backup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &BackupArgs{}
 	}
 
-	if args.FileSystemId == nil {
-		return nil, errors.New("invalid value for required argument 'FileSystemId'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"fileSystemId",
 	})
@@ -87,7 +83,7 @@ func BackupExists(ctx *pulumi.Context,
 
 type backupArgs struct {
 	// The ID of the file system to back up.
-	FileSystemId string `pulumi:"fileSystemId"`
+	FileSystemId *string `pulumi:"fileSystemId"`
 	// The tags to apply to the backup at backup creation.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -95,7 +91,7 @@ type backupArgs struct {
 // The set of arguments for constructing a Backup resource.
 type BackupArgs struct {
 	// The ID of the file system to back up.
-	FileSystemId pulumi.StringInput
+	FileSystemId pulumi.StringPtrInput
 	// The tags to apply to the backup at backup creation.
 	Tags aws.TagArrayInput
 }
@@ -148,8 +144,8 @@ func (o BackupOutput) CreationTime() pulumi.StringOutput {
 }
 
 // The ID of the file system to back up.
-func (o BackupOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+func (o BackupOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringPtrOutput { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
 // The lifecycle status of the backup.

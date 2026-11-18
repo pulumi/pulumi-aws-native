@@ -28,7 +28,7 @@
       "permissions" : [ "ssm:ListAssociations" ]
     },
     "delete" : {
-      "permissions" : [ "ssm:DeleteAssociation" ]
+      "permissions" : [ "ssm:DeleteAssociation", "ssm:DescribeAssociation" ]
     }
   },
   "writeOnlyProperties" : [ "/properties/WaitForSuccessTimeoutSeconds" ],

@@ -479,10 +479,10 @@
   "primaryIdentifier" : [ "/properties/FleetId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "gamelift:CreateContainerFleet", "gamelift:DescribeContainerFleet", "gamelift:DescribeFleetDeployment", "gamelift:DescribeFleetLocationAttributes", "gamelift:DescribeFleetLocationCapacity", "gamelift:DescribeScalingPolicies", "gamelift:ListTagsForResource", "gamelift:PutScalingPolicy", "gamelift:StopFleetActions", "gamelift:TagResource", "gamelift:UpdateFleetCapacity", "iam:PassRole" ]
+      "permissions" : [ "gamelift:CreateContainerFleet", "gamelift:DescribeContainerFleet", "gamelift:DescribeFleetCapacity", "gamelift:DescribeFleetDeployment", "gamelift:DescribeFleetLocationAttributes", "gamelift:DescribeFleetLocationCapacity", "gamelift:DescribeScalingPolicies", "gamelift:ListTagsForResource", "gamelift:PutScalingPolicy", "gamelift:StopFleetActions", "gamelift:TagResource", "gamelift:UpdateFleetCapacity", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "gamelift:DescribeContainerFleet", "gamelift:DescribeFleetLocationAttributes", "gamelift:DescribeFleetLocationCapacity", "gamelift:DescribeScalingPolicies", "gamelift:ListTagsForResource" ]
+      "permissions" : [ "gamelift:DescribeContainerFleet", "gamelift:DescribeFleetCapacity", "gamelift:DescribeFleetLocationAttributes", "gamelift:DescribeFleetLocationCapacity", "gamelift:DescribeScalingPolicies", "gamelift:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "gamelift:DeleteContainerFleet", "gamelift:DescribeContainerFleet" ]
@@ -491,7 +491,7 @@
       "permissions" : [ "gamelift:ListContainerFleets" ]
     },
     "update" : {
-      "permissions" : [ "gamelift:CreateFleetLocations", "gamelift:DeleteFleetLocations", "gamelift:DeleteScalingPolicy", "gamelift:DescribeContainerFleet", "gamelift:DescribeFleetDeployment", "gamelift:DescribeFleetLocationAttributes", "gamelift:DescribeFleetLocationCapacity", "gamelift:DescribeScalingPolicies", "gamelift:ListTagsForResource", "gamelift:PutScalingPolicy", "gamelift:StartFleetActions", "gamelift:StopFleetActions", "gamelift:TagResource", "gamelift:UntagResource", "gamelift:UpdateContainerFleet", "gamelift:UpdateFleetCapacity", "iam:PassRole" ]
+      "permissions" : [ "gamelift:CreateFleetLocations", "gamelift:DeleteFleetLocations", "gamelift:DeleteScalingPolicy", "gamelift:DescribeContainerFleet", "gamelift:DescribeFleetCapacity", "gamelift:DescribeFleetDeployment", "gamelift:DescribeFleetLocationAttributes", "gamelift:DescribeFleetLocationCapacity", "gamelift:DescribeScalingPolicies", "gamelift:ListTagsForResource", "gamelift:PutScalingPolicy", "gamelift:StartFleetActions", "gamelift:StopFleetActions", "gamelift:TagResource", "gamelift:UntagResource", "gamelift:UpdateContainerFleet", "gamelift:UpdateFleetCapacity", "iam:PassRole" ]
     }
   }
 }

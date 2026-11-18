@@ -352,6 +352,172 @@ func (in *associationSyncCompliancePtr) ToAssociationSyncCompliancePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(AssociationSyncCompliancePtrOutput)
 }
 
+// The permission model used to enable DHMC. SERVICE_MANAGED lets SSM create and manage the DHMC IAM role on your behalf. SELF_MANAGED registers an IAM role that you provide.
+type DefaultHostManagementConfigurationDhmcPermissionModel string
+
+const (
+	DefaultHostManagementConfigurationDhmcPermissionModelServiceManaged = DefaultHostManagementConfigurationDhmcPermissionModel("SERVICE_MANAGED")
+	DefaultHostManagementConfigurationDhmcPermissionModelSelfManaged    = DefaultHostManagementConfigurationDhmcPermissionModel("SELF_MANAGED")
+)
+
+func (DefaultHostManagementConfigurationDhmcPermissionModel) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultHostManagementConfigurationDhmcPermissionModel)(nil)).Elem()
+}
+
+func (e DefaultHostManagementConfigurationDhmcPermissionModel) ToDefaultHostManagementConfigurationDhmcPermissionModelOutput() DefaultHostManagementConfigurationDhmcPermissionModelOutput {
+	return pulumi.ToOutput(e).(DefaultHostManagementConfigurationDhmcPermissionModelOutput)
+}
+
+func (e DefaultHostManagementConfigurationDhmcPermissionModel) ToDefaultHostManagementConfigurationDhmcPermissionModelOutputWithContext(ctx context.Context) DefaultHostManagementConfigurationDhmcPermissionModelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DefaultHostManagementConfigurationDhmcPermissionModelOutput)
+}
+
+func (e DefaultHostManagementConfigurationDhmcPermissionModel) ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutput() DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput {
+	return e.ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutputWithContext(context.Background())
+}
+
+func (e DefaultHostManagementConfigurationDhmcPermissionModel) ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutputWithContext(ctx context.Context) DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput {
+	return DefaultHostManagementConfigurationDhmcPermissionModel(e).ToDefaultHostManagementConfigurationDhmcPermissionModelOutputWithContext(ctx).ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutputWithContext(ctx)
+}
+
+func (e DefaultHostManagementConfigurationDhmcPermissionModel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DefaultHostManagementConfigurationDhmcPermissionModel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DefaultHostManagementConfigurationDhmcPermissionModel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DefaultHostManagementConfigurationDhmcPermissionModel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DefaultHostManagementConfigurationDhmcPermissionModelOutput struct{ *pulumi.OutputState }
+
+func (DefaultHostManagementConfigurationDhmcPermissionModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultHostManagementConfigurationDhmcPermissionModel)(nil)).Elem()
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelOutput) ToDefaultHostManagementConfigurationDhmcPermissionModelOutput() DefaultHostManagementConfigurationDhmcPermissionModelOutput {
+	return o
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelOutput) ToDefaultHostManagementConfigurationDhmcPermissionModelOutputWithContext(ctx context.Context) DefaultHostManagementConfigurationDhmcPermissionModelOutput {
+	return o
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelOutput) ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutput() DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput {
+	return o.ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelOutput) ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutputWithContext(ctx context.Context) DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultHostManagementConfigurationDhmcPermissionModel) *DefaultHostManagementConfigurationDhmcPermissionModel {
+		return &v
+	}).(DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput)
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DefaultHostManagementConfigurationDhmcPermissionModel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DefaultHostManagementConfigurationDhmcPermissionModel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultHostManagementConfigurationDhmcPermissionModel)(nil)).Elem()
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput) ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutput() DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput {
+	return o
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput) ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutputWithContext(ctx context.Context) DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput {
+	return o
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput) Elem() DefaultHostManagementConfigurationDhmcPermissionModelOutput {
+	return o.ApplyT(func(v *DefaultHostManagementConfigurationDhmcPermissionModel) DefaultHostManagementConfigurationDhmcPermissionModel {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultHostManagementConfigurationDhmcPermissionModel
+		return ret
+	}).(DefaultHostManagementConfigurationDhmcPermissionModelOutput)
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DefaultHostManagementConfigurationDhmcPermissionModel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DefaultHostManagementConfigurationDhmcPermissionModelInput is an input type that accepts values of the DefaultHostManagementConfigurationDhmcPermissionModel enum
+// A concrete instance of `DefaultHostManagementConfigurationDhmcPermissionModelInput` can be one of the following:
+//
+//	DefaultHostManagementConfigurationDhmcPermissionModelServiceManaged
+//	DefaultHostManagementConfigurationDhmcPermissionModelSelfManaged
+type DefaultHostManagementConfigurationDhmcPermissionModelInput interface {
+	pulumi.Input
+
+	ToDefaultHostManagementConfigurationDhmcPermissionModelOutput() DefaultHostManagementConfigurationDhmcPermissionModelOutput
+	ToDefaultHostManagementConfigurationDhmcPermissionModelOutputWithContext(context.Context) DefaultHostManagementConfigurationDhmcPermissionModelOutput
+}
+
+var defaultHostManagementConfigurationDhmcPermissionModelPtrType = reflect.TypeOf((**DefaultHostManagementConfigurationDhmcPermissionModel)(nil)).Elem()
+
+type DefaultHostManagementConfigurationDhmcPermissionModelPtrInput interface {
+	pulumi.Input
+
+	ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutput() DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput
+	ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutputWithContext(context.Context) DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput
+}
+
+type defaultHostManagementConfigurationDhmcPermissionModelPtr string
+
+func DefaultHostManagementConfigurationDhmcPermissionModelPtr(v string) DefaultHostManagementConfigurationDhmcPermissionModelPtrInput {
+	return (*defaultHostManagementConfigurationDhmcPermissionModelPtr)(&v)
+}
+
+func (*defaultHostManagementConfigurationDhmcPermissionModelPtr) ElementType() reflect.Type {
+	return defaultHostManagementConfigurationDhmcPermissionModelPtrType
+}
+
+func (in *defaultHostManagementConfigurationDhmcPermissionModelPtr) ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutput() DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput {
+	return pulumi.ToOutput(in).(DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput)
+}
+
+func (in *defaultHostManagementConfigurationDhmcPermissionModelPtr) ToDefaultHostManagementConfigurationDhmcPermissionModelPtrOutputWithContext(ctx context.Context) DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput)
+}
+
 // The key of a key-value pair that identifies the location of an attachment to a document.
 type DocumentAttachmentsSourceKey string
 
@@ -2627,6 +2793,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityPtrInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSyncComplianceInput)(nil)).Elem(), AssociationSyncCompliance("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSyncCompliancePtrInput)(nil)).Elem(), AssociationSyncCompliance("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultHostManagementConfigurationDhmcPermissionModelInput)(nil)).Elem(), DefaultHostManagementConfigurationDhmcPermissionModel("SERVICE_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultHostManagementConfigurationDhmcPermissionModelPtrInput)(nil)).Elem(), DefaultHostManagementConfigurationDhmcPermissionModel("SERVICE_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceKeyInput)(nil)).Elem(), DocumentAttachmentsSourceKey("SourceUrl"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceKeyPtrInput)(nil)).Elem(), DocumentAttachmentsSourceKey("SourceUrl"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentFormatInput)(nil)).Elem(), DocumentFormat("YAML"))
@@ -2657,6 +2825,8 @@ func init() {
 	pulumi.RegisterOutputType(AssociationComplianceSeverityPtrOutput{})
 	pulumi.RegisterOutputType(AssociationSyncComplianceOutput{})
 	pulumi.RegisterOutputType(AssociationSyncCompliancePtrOutput{})
+	pulumi.RegisterOutputType(DefaultHostManagementConfigurationDhmcPermissionModelOutput{})
+	pulumi.RegisterOutputType(DefaultHostManagementConfigurationDhmcPermissionModelPtrOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceKeyOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceKeyPtrOutput{})
 	pulumi.RegisterOutputType(DocumentFormatOutput{})

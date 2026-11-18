@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? QueueArn;
         /// <summary>
-        /// The quick connects available to agents who are working the queue.
+        /// The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
         /// </summary>
         public readonly ImmutableArray<string> QuickConnectArns;
         /// <summary>

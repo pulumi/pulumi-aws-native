@@ -68,6 +68,10 @@ export class InfluxDbInstance extends pulumi.CustomResource {
      */
     declare public readonly bucket: pulumi.Output<string | undefined>;
     /**
+     * The service generated unique identifier of the InfluxDB cluster containing this instance.
+     */
+    declare public /*out*/ readonly dbClusterId: pulumi.Output<string>;
+    /**
      * The compute instance of the InfluxDB instance.
      */
     declare public readonly dbInstanceType: pulumi.Output<enums.timestream.InfluxDbInstanceDbInstanceType | undefined>;
@@ -91,6 +95,10 @@ export class InfluxDbInstance extends pulumi.CustomResource {
      * The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB instance.
      */
     declare public /*out*/ readonly influxAuthParametersSecretArn: pulumi.Output<string>;
+    /**
+     * The customer managed key used to encrypt data in the InfluxDB instance.
+     */
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Configuration for sending logs to customer account from the InfluxDB instance.
      */
@@ -169,6 +177,7 @@ export class InfluxDbInstance extends pulumi.CustomResource {
             resourceInputs["dbParameterGroupIdentifier"] = args?.dbParameterGroupIdentifier;
             resourceInputs["dbStorageType"] = args?.dbStorageType;
             resourceInputs["deploymentType"] = args?.deploymentType;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["logDeliveryConfiguration"] = args?.logDeliveryConfiguration;
             resourceInputs["maintenanceSchedule"] = args?.maintenanceSchedule;
             resourceInputs["name"] = args?.name;
@@ -184,6 +193,7 @@ export class InfluxDbInstance extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["dbClusterId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["influxAuthParametersSecretArn"] = undefined /*out*/;
             resourceInputs["nextMaintenanceTime"] = undefined /*out*/;
@@ -195,12 +205,14 @@ export class InfluxDbInstance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["bucket"] = undefined /*out*/;
+            resourceInputs["dbClusterId"] = undefined /*out*/;
             resourceInputs["dbInstanceType"] = undefined /*out*/;
             resourceInputs["dbParameterGroupIdentifier"] = undefined /*out*/;
             resourceInputs["dbStorageType"] = undefined /*out*/;
             resourceInputs["deploymentType"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["influxAuthParametersSecretArn"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["logDeliveryConfiguration"] = undefined /*out*/;
             resourceInputs["maintenanceSchedule"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -218,7 +230,7 @@ export class InfluxDbInstance extends pulumi.CustomResource {
             resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["bucket", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["bucket", "kmsKeyId", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(InfluxDbInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -252,6 +264,10 @@ export interface InfluxDbInstanceArgs {
      * Deployment type of the InfluxDB Instance.
      */
     deploymentType?: pulumi.Input<enums.timestream.InfluxDbInstanceDeploymentType | undefined>;
+    /**
+     * The customer managed key used to encrypt data in the InfluxDB instance.
+     */
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Configuration for sending logs to customer account from the InfluxDB instance.
      */

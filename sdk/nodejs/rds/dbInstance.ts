@@ -495,6 +495,8 @@ export class DbInstance extends pulumi.CustomResource {
      *   +   ``sqlserver-se``
      *   +   ``sqlserver-ex``
      *   +   ``sqlserver-web``
+     *   +  ``sqlserver-dev-ee`` (for RDS for SQL Server Developer Edition with Enterprise Edition capabilities)
+     *   +  ``sqlserver-dev-se`` (for RDS for SQL Server Developer Edition with Standard Edition capabilities)
      */
     declare public readonly engine: pulumi.Output<string | undefined>;
     /**
@@ -1556,6 +1558,8 @@ export interface DbInstanceArgs {
      *   +   ``sqlserver-se``
      *   +   ``sqlserver-ex``
      *   +   ``sqlserver-web``
+     *   +  ``sqlserver-dev-ee`` (for RDS for SQL Server Developer Edition with Enterprise Edition capabilities)
+     *   +  ``sqlserver-dev-se`` (for RDS for SQL Server Developer Edition with Standard Edition capabilities)
      */
     engine?: pulumi.Input<string | undefined>;
     /**

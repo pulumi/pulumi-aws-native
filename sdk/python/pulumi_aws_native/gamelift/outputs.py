@@ -55,8 +55,10 @@ __all__ = [
     'GameServerGroupInstanceDefinition',
     'GameServerGroupLaunchTemplate',
     'GameServerGroupTargetTrackingConfiguration',
+    'GameSessionQueueDeliveryDestination',
     'GameSessionQueueDestination',
     'GameSessionQueueFilterConfiguration',
+    'GameSessionQueueLogConfiguration',
     'GameSessionQueuePlayerLatencyPolicy',
     'GameSessionQueuePriorityConfiguration',
     'MatchmakingConfigurationGameProperty',
@@ -2724,6 +2726,60 @@ class GameServerGroupTargetTrackingConfiguration(dict):
 
 
 @pulumi.output_type
+class GameSessionQueueDeliveryDestination(dict):
+    """
+    The destination to deliver a game session queue's placement logs to. Omit DestinationArn for a CLOUDWATCH or S3 destination to have GameLift create one; FIREHOSE requires DestinationArn.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestination":
+            suggest = "log_destination"
+        elif key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameSessionQueueDeliveryDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameSessionQueueDeliveryDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameSessionQueueDeliveryDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_destination: 'GameSessionQueueDeliveryDestinationLogDestination',
+                 destination_arn: Optional[_builtins.str] = None):
+        """
+        The destination to deliver a game session queue's placement logs to. Omit DestinationArn for a CLOUDWATCH or S3 destination to have GameLift create one; FIREHOSE requires DestinationArn.
+
+        :param 'GameSessionQueueDeliveryDestinationLogDestination' log_destination: The type of service that receives the game session queue's placement logs.
+        :param _builtins.str destination_arn: The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+        """
+        pulumi.set(__self__, "log_destination", log_destination)
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> 'GameSessionQueueDeliveryDestinationLogDestination':
+        """
+        The type of service that receives the game session queue's placement logs.
+        """
+        return pulumi.get(self, "log_destination")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+        """
+        return pulumi.get(self, "destination_arn")
+
+
+@pulumi.output_type
 class GameSessionQueueDestination(dict):
     """
     A fleet or alias designated in a game session queue.
@@ -2798,6 +2854,46 @@ class GameSessionQueueFilterConfiguration(dict):
         A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
         """
         return pulumi.get(self, "allowed_locations")
+
+
+@pulumi.output_type
+class GameSessionQueueLogConfiguration(dict):
+    """
+    A policy that determines where a game session queue's placement logs are delivered.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryDestinations":
+            suggest = "delivery_destinations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameSessionQueueLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameSessionQueueLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameSessionQueueLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_destinations: Sequence['outputs.GameSessionQueueDeliveryDestination']):
+        """
+        A policy that determines where a game session queue's placement logs are delivered.
+
+        :param Sequence['GameSessionQueueDeliveryDestination'] delivery_destinations: The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+        """
+        pulumi.set(__self__, "delivery_destinations", delivery_destinations)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryDestinations")
+    def delivery_destinations(self) -> Sequence['outputs.GameSessionQueueDeliveryDestination']:
+        """
+        The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+        """
+        return pulumi.get(self, "delivery_destinations")
 
 
 @pulumi.output_type

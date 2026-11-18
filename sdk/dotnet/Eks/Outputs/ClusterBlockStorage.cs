@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Eks.Outputs
 {
 
     /// <summary>
-    /// Todo: add description
+    /// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
     /// </summary>
     [OutputType]
     public sealed class ClusterBlockStorage
     {
         /// <summary>
-        /// Todo: add description
+        /// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
         /// </summary>
         public readonly bool? Enabled;
 

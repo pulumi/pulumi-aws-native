@@ -26,9 +26,25 @@ export interface GetTransitGatewayPeeringAttachmentArgs {
 
 export interface GetTransitGatewayPeeringAttachmentResult {
     /**
+     * Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+     */
+    readonly accepterAllowMultipathResilience?: boolean;
+    /**
      * The time the transit gateway peering attachment was created.
      */
     readonly creationTime?: string;
+    /**
+     * The connection-level MultipathResilience status, computed from both sides of the peering attachment. (enabled/pending/disabled)
+     */
+    readonly multipathResilienceStatus?: string;
+    /**
+     * Whether the requester side of the peering attachment has opted in to MultipathResilience.
+     */
+    readonly requesterAllowMultipathResilience?: boolean;
+    /**
+     * The MultipathResilience mode chosen by the requester side of the peering attachment.
+     */
+    readonly requesterMultipathResilienceMode?: string;
     /**
      * The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
      */

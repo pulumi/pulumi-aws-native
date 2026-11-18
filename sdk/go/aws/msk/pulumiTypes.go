@@ -2875,6 +2875,169 @@ func (o ChannelTopicConfigurationArrayOutput) Index(i pulumi.IntInput) ChannelTo
 	}).(ChannelTopicConfigurationOutput)
 }
 
+type ClusterAuthorizerLogs struct {
+	CloudWatchLogs *ClusterCloudWatchLogs `pulumi:"cloudWatchLogs"`
+	Firehose       *ClusterFirehose       `pulumi:"firehose"`
+	S3             *ClusterS3             `pulumi:"s3"`
+}
+
+// ClusterAuthorizerLogsInput is an input type that accepts ClusterAuthorizerLogsArgs and ClusterAuthorizerLogsOutput values.
+// You can construct a concrete instance of `ClusterAuthorizerLogsInput` via:
+//
+//	ClusterAuthorizerLogsArgs{...}
+type ClusterAuthorizerLogsInput interface {
+	pulumi.Input
+
+	ToClusterAuthorizerLogsOutput() ClusterAuthorizerLogsOutput
+	ToClusterAuthorizerLogsOutputWithContext(context.Context) ClusterAuthorizerLogsOutput
+}
+
+type ClusterAuthorizerLogsArgs struct {
+	CloudWatchLogs ClusterCloudWatchLogsPtrInput `pulumi:"cloudWatchLogs"`
+	Firehose       ClusterFirehosePtrInput       `pulumi:"firehose"`
+	S3             ClusterS3PtrInput             `pulumi:"s3"`
+}
+
+func (ClusterAuthorizerLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAuthorizerLogs)(nil)).Elem()
+}
+
+func (i ClusterAuthorizerLogsArgs) ToClusterAuthorizerLogsOutput() ClusterAuthorizerLogsOutput {
+	return i.ToClusterAuthorizerLogsOutputWithContext(context.Background())
+}
+
+func (i ClusterAuthorizerLogsArgs) ToClusterAuthorizerLogsOutputWithContext(ctx context.Context) ClusterAuthorizerLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthorizerLogsOutput)
+}
+
+func (i ClusterAuthorizerLogsArgs) ToClusterAuthorizerLogsPtrOutput() ClusterAuthorizerLogsPtrOutput {
+	return i.ToClusterAuthorizerLogsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAuthorizerLogsArgs) ToClusterAuthorizerLogsPtrOutputWithContext(ctx context.Context) ClusterAuthorizerLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthorizerLogsOutput).ToClusterAuthorizerLogsPtrOutputWithContext(ctx)
+}
+
+// ClusterAuthorizerLogsPtrInput is an input type that accepts ClusterAuthorizerLogsArgs, ClusterAuthorizerLogsPtr and ClusterAuthorizerLogsPtrOutput values.
+// You can construct a concrete instance of `ClusterAuthorizerLogsPtrInput` via:
+//
+//	        ClusterAuthorizerLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAuthorizerLogsPtrInput interface {
+	pulumi.Input
+
+	ToClusterAuthorizerLogsPtrOutput() ClusterAuthorizerLogsPtrOutput
+	ToClusterAuthorizerLogsPtrOutputWithContext(context.Context) ClusterAuthorizerLogsPtrOutput
+}
+
+type clusterAuthorizerLogsPtrType ClusterAuthorizerLogsArgs
+
+func ClusterAuthorizerLogsPtr(v *ClusterAuthorizerLogsArgs) ClusterAuthorizerLogsPtrInput {
+	return (*clusterAuthorizerLogsPtrType)(v)
+}
+
+func (*clusterAuthorizerLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAuthorizerLogs)(nil)).Elem()
+}
+
+func (i *clusterAuthorizerLogsPtrType) ToClusterAuthorizerLogsPtrOutput() ClusterAuthorizerLogsPtrOutput {
+	return i.ToClusterAuthorizerLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAuthorizerLogsPtrType) ToClusterAuthorizerLogsPtrOutputWithContext(ctx context.Context) ClusterAuthorizerLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAuthorizerLogsPtrOutput)
+}
+
+type ClusterAuthorizerLogsOutput struct{ *pulumi.OutputState }
+
+func (ClusterAuthorizerLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAuthorizerLogs)(nil)).Elem()
+}
+
+func (o ClusterAuthorizerLogsOutput) ToClusterAuthorizerLogsOutput() ClusterAuthorizerLogsOutput {
+	return o
+}
+
+func (o ClusterAuthorizerLogsOutput) ToClusterAuthorizerLogsOutputWithContext(ctx context.Context) ClusterAuthorizerLogsOutput {
+	return o
+}
+
+func (o ClusterAuthorizerLogsOutput) ToClusterAuthorizerLogsPtrOutput() ClusterAuthorizerLogsPtrOutput {
+	return o.ToClusterAuthorizerLogsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAuthorizerLogsOutput) ToClusterAuthorizerLogsPtrOutputWithContext(ctx context.Context) ClusterAuthorizerLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAuthorizerLogs) *ClusterAuthorizerLogs {
+		return &v
+	}).(ClusterAuthorizerLogsPtrOutput)
+}
+
+func (o ClusterAuthorizerLogsOutput) CloudWatchLogs() ClusterCloudWatchLogsPtrOutput {
+	return o.ApplyT(func(v ClusterAuthorizerLogs) *ClusterCloudWatchLogs { return v.CloudWatchLogs }).(ClusterCloudWatchLogsPtrOutput)
+}
+
+func (o ClusterAuthorizerLogsOutput) Firehose() ClusterFirehosePtrOutput {
+	return o.ApplyT(func(v ClusterAuthorizerLogs) *ClusterFirehose { return v.Firehose }).(ClusterFirehosePtrOutput)
+}
+
+func (o ClusterAuthorizerLogsOutput) S3() ClusterS3PtrOutput {
+	return o.ApplyT(func(v ClusterAuthorizerLogs) *ClusterS3 { return v.S3 }).(ClusterS3PtrOutput)
+}
+
+type ClusterAuthorizerLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAuthorizerLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAuthorizerLogs)(nil)).Elem()
+}
+
+func (o ClusterAuthorizerLogsPtrOutput) ToClusterAuthorizerLogsPtrOutput() ClusterAuthorizerLogsPtrOutput {
+	return o
+}
+
+func (o ClusterAuthorizerLogsPtrOutput) ToClusterAuthorizerLogsPtrOutputWithContext(ctx context.Context) ClusterAuthorizerLogsPtrOutput {
+	return o
+}
+
+func (o ClusterAuthorizerLogsPtrOutput) Elem() ClusterAuthorizerLogsOutput {
+	return o.ApplyT(func(v *ClusterAuthorizerLogs) ClusterAuthorizerLogs {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAuthorizerLogs
+		return ret
+	}).(ClusterAuthorizerLogsOutput)
+}
+
+func (o ClusterAuthorizerLogsPtrOutput) CloudWatchLogs() ClusterCloudWatchLogsPtrOutput {
+	return o.ApplyT(func(v *ClusterAuthorizerLogs) *ClusterCloudWatchLogs {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogs
+	}).(ClusterCloudWatchLogsPtrOutput)
+}
+
+func (o ClusterAuthorizerLogsPtrOutput) Firehose() ClusterFirehosePtrOutput {
+	return o.ApplyT(func(v *ClusterAuthorizerLogs) *ClusterFirehose {
+		if v == nil {
+			return nil
+		}
+		return v.Firehose
+	}).(ClusterFirehosePtrOutput)
+}
+
+func (o ClusterAuthorizerLogsPtrOutput) S3() ClusterS3PtrOutput {
+	return o.ApplyT(func(v *ClusterAuthorizerLogs) *ClusterS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(ClusterS3PtrOutput)
+}
+
 type ClusterBrokerLogs struct {
 	CloudWatchLogs *ClusterCloudWatchLogs `pulumi:"cloudWatchLogs"`
 	// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
@@ -3076,7 +3239,8 @@ type ClusterBrokerNodeGroupInfo struct {
 	// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Contains information about storage volumes attached to Amazon MSK broker nodes.
-	StorageInfo *ClusterStorageInfo `pulumi:"storageInfo"`
+	StorageInfo       *ClusterStorageInfo                          `pulumi:"storageInfo"`
+	TopicReassignment *ClusterBrokerNodeGroupInfoTopicReassignment `pulumi:"topicReassignment"`
 }
 
 // ClusterBrokerNodeGroupInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoArgs and ClusterBrokerNodeGroupInfoOutput values.
@@ -3120,7 +3284,8 @@ type ClusterBrokerNodeGroupInfoArgs struct {
 	// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// Contains information about storage volumes attached to Amazon MSK broker nodes.
-	StorageInfo ClusterStorageInfoPtrInput `pulumi:"storageInfo"`
+	StorageInfo       ClusterStorageInfoPtrInput                          `pulumi:"storageInfo"`
+	TopicReassignment ClusterBrokerNodeGroupInfoTopicReassignmentPtrInput `pulumi:"topicReassignment"`
 }
 
 func (ClusterBrokerNodeGroupInfoArgs) ElementType() reflect.Type {
@@ -3195,6 +3360,12 @@ func (o ClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOut
 // Contains information about storage volumes attached to Amazon MSK broker nodes.
 func (o ClusterBrokerNodeGroupInfoOutput) StorageInfo() ClusterStorageInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterStorageInfo { return v.StorageInfo }).(ClusterStorageInfoPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoOutput) TopicReassignment() ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoTopicReassignment {
+		return v.TopicReassignment
+	}).(ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput)
 }
 
 type ClusterBrokerNodeGroupInfoPtrOutput struct{ *pulumi.OutputState }
@@ -3297,6 +3468,15 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterStorageInfoPtr
 		}
 		return v.StorageInfo
 	}).(ClusterStorageInfoPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) TopicReassignment() ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoTopicReassignment {
+		if v == nil {
+			return nil
+		}
+		return v.TopicReassignment
+	}).(ClusterBrokerNodeGroupInfoTopicReassignmentPtrOutput)
 }
 
 type ClusterClientAuthentication struct {
@@ -5025,8 +5205,9 @@ func (o ClusterJmxExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 }
 
 type ClusterLoggingInfo struct {
+	AuthorizerLogs *ClusterAuthorizerLogs `pulumi:"authorizerLogs"`
 	// You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
-	BrokerLogs ClusterBrokerLogs `pulumi:"brokerLogs"`
+	BrokerLogs *ClusterBrokerLogs `pulumi:"brokerLogs"`
 }
 
 // ClusterLoggingInfoInput is an input type that accepts ClusterLoggingInfoArgs and ClusterLoggingInfoOutput values.
@@ -5041,8 +5222,9 @@ type ClusterLoggingInfoInput interface {
 }
 
 type ClusterLoggingInfoArgs struct {
+	AuthorizerLogs ClusterAuthorizerLogsPtrInput `pulumi:"authorizerLogs"`
 	// You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
-	BrokerLogs ClusterBrokerLogsInput `pulumi:"brokerLogs"`
+	BrokerLogs ClusterBrokerLogsPtrInput `pulumi:"brokerLogs"`
 }
 
 func (ClusterLoggingInfoArgs) ElementType() reflect.Type {
@@ -5122,9 +5304,13 @@ func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoPtrOutputWithContext(ctx c
 	}).(ClusterLoggingInfoPtrOutput)
 }
 
+func (o ClusterLoggingInfoOutput) AuthorizerLogs() ClusterAuthorizerLogsPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfo) *ClusterAuthorizerLogs { return v.AuthorizerLogs }).(ClusterAuthorizerLogsPtrOutput)
+}
+
 // You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
-func (o ClusterLoggingInfoOutput) BrokerLogs() ClusterBrokerLogsOutput {
-	return o.ApplyT(func(v ClusterLoggingInfo) ClusterBrokerLogs { return v.BrokerLogs }).(ClusterBrokerLogsOutput)
+func (o ClusterLoggingInfoOutput) BrokerLogs() ClusterBrokerLogsPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfo) *ClusterBrokerLogs { return v.BrokerLogs }).(ClusterBrokerLogsPtrOutput)
 }
 
 type ClusterLoggingInfoPtrOutput struct{ *pulumi.OutputState }
@@ -5151,13 +5337,22 @@ func (o ClusterLoggingInfoPtrOutput) Elem() ClusterLoggingInfoOutput {
 	}).(ClusterLoggingInfoOutput)
 }
 
+func (o ClusterLoggingInfoPtrOutput) AuthorizerLogs() ClusterAuthorizerLogsPtrOutput {
+	return o.ApplyT(func(v *ClusterLoggingInfo) *ClusterAuthorizerLogs {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizerLogs
+	}).(ClusterAuthorizerLogsPtrOutput)
+}
+
 // You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
 func (o ClusterLoggingInfoPtrOutput) BrokerLogs() ClusterBrokerLogsPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfo) *ClusterBrokerLogs {
 		if v == nil {
 			return nil
 		}
-		return &v.BrokerLogs
+		return v.BrokerLogs
 	}).(ClusterBrokerLogsPtrOutput)
 }
 
@@ -11847,6 +12042,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTableCreationPtrInput)(nil)).Elem(), ChannelTableCreationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTopicConfigurationInput)(nil)).Elem(), ChannelTopicConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTopicConfigurationArrayInput)(nil)).Elem(), ChannelTopicConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAuthorizerLogsInput)(nil)).Elem(), ClusterAuthorizerLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAuthorizerLogsPtrInput)(nil)).Elem(), ClusterAuthorizerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerLogsInput)(nil)).Elem(), ClusterBrokerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerLogsPtrInput)(nil)).Elem(), ClusterBrokerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
@@ -11998,6 +12195,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelTableCreationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTopicConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelTopicConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ClusterAuthorizerLogsOutput{})
+	pulumi.RegisterOutputType(ClusterAuthorizerLogsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerLogsOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerLogsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})

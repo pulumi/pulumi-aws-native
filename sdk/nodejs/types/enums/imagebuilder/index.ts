@@ -87,6 +87,25 @@ export const DistributionConfigurationTargetContainerRepositoryService = {
  */
 export type DistributionConfigurationTargetContainerRepositoryService = (typeof DistributionConfigurationTargetContainerRepositoryService)[keyof typeof DistributionConfigurationTargetContainerRepositoryService];
 
+export const ImagePipelineImageScanningConfigurationImageScanningTypesItem = {
+    TestInstanceCve: "TEST_INSTANCE_CVE",
+    OnDemandAmiCve: "ON_DEMAND_AMI_CVE",
+} as const;
+
+export type ImagePipelineImageScanningConfigurationImageScanningTypesItem = (typeof ImagePipelineImageScanningConfigurationImageScanningTypesItem)[keyof typeof ImagePipelineImageScanningConfigurationImageScanningTypesItem];
+
+export const ImagePipelineScanResultConditionMaximumSeverityLabel = {
+    Informational: "INFORMATIONAL",
+    Low: "LOW",
+    Medium: "MEDIUM",
+    High: "HIGH",
+} as const;
+
+/**
+ * The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+ */
+export type ImagePipelineScanResultConditionMaximumSeverityLabel = (typeof ImagePipelineScanResultConditionMaximumSeverityLabel)[keyof typeof ImagePipelineScanResultConditionMaximumSeverityLabel];
+
 export const ImagePipelineSchedulePipelineExecutionStartCondition = {
     ExpressionMatchOnly: "EXPRESSION_MATCH_ONLY",
     ExpressionMatchAndDependencyUpdatesAvailable: "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
@@ -133,6 +152,25 @@ export const ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType = {
  * Use to override the device's volume type.
  */
 export type ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType = (typeof ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType)[keyof typeof ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType];
+
+export const ImageScanResultConditionMaximumSeverityLabel = {
+    Informational: "INFORMATIONAL",
+    Low: "LOW",
+    Medium: "MEDIUM",
+    High: "HIGH",
+} as const;
+
+/**
+ * The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+ */
+export type ImageScanResultConditionMaximumSeverityLabel = (typeof ImageScanResultConditionMaximumSeverityLabel)[keyof typeof ImageScanResultConditionMaximumSeverityLabel];
+
+export const ImageScanningConfigurationImageScanningTypesItem = {
+    TestInstanceCve: "TEST_INSTANCE_CVE",
+    OnDemandAmiCve: "ON_DEMAND_AMI_CVE",
+} as const;
+
+export type ImageScanningConfigurationImageScanningTypesItem = (typeof ImageScanningConfigurationImageScanningTypesItem)[keyof typeof ImageScanningConfigurationImageScanningTypesItem];
 
 export const ImageWorkflowConfigurationOnFailure = {
     Continue: "CONTINUE",

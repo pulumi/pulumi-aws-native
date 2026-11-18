@@ -21,18 +21,29 @@ namespace Pulumi.AwsNative.Glue.Outputs
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
+        /// The type of connection used to access the federated catalog. Synchronization is only supported for certain connection types.
+        /// </summary>
+        public readonly string? ConnectionType;
+        /// <summary>
         /// A unique identifier for the federated catalog.
         /// </summary>
         public readonly string? Identifier;
+        public readonly Outputs.CatalogSyncConfiguration? SyncConfiguration;
 
         [OutputConstructor]
         private CatalogFederatedCatalog(
             string? connectionName,
 
-            string? identifier)
+            string? connectionType,
+
+            string? identifier,
+
+            Outputs.CatalogSyncConfiguration? syncConfiguration)
         {
             ConnectionName = connectionName;
+            ConnectionType = connectionType;
             Identifier = identifier;
+            SyncConfiguration = syncConfiguration;
         }
     }
 }

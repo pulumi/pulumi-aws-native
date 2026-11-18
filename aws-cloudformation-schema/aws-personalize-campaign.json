@@ -139,7 +139,8 @@
       "permissions" : [ "personalize:UpdateCampaign", "personalize:DescribeCampaign", "personalize:TagResource", "personalize:UntagResource", "personalize:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "personalize:DeleteCampaign", "personalize:DescribeCampaign" ]
+      "permissions" : [ "personalize:DeleteCampaign", "personalize:DescribeCampaign" ],
+      "timeoutInMinutes" : 360
     },
     "list" : {
       "permissions" : [ "personalize:ListCampaigns" ]

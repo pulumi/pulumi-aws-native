@@ -125,7 +125,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             resourceInputs["vpcIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["ipAddressType", "name", "resourceConfigDnsResolution", "subnetIds[*]", "vpcIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["ipAddressType", "name", "subnetIds[*]", "vpcIdentifier"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceGateway.__pulumiType, name, resourceInputs, opts);
     }

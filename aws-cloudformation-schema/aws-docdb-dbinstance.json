@@ -36,9 +36,6 @@
     "Endpoint" : {
       "type" : "string"
     },
-    "Id" : {
-      "type" : "string"
-    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -64,6 +61,32 @@
   },
   "required" : [ "DBInstanceClass", "DBClusterIdentifier" ],
   "createOnlyProperties" : [ "/properties/DBClusterIdentifier", "/properties/AvailabilityZone", "/properties/DBInstanceIdentifier" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Port", "/properties/Id", "/properties/Endpoint" ]
+  "primaryIdentifier" : [ "/properties/DBInstanceIdentifier" ],
+  "readOnlyProperties" : [ "/properties/Port", "/properties/Endpoint" ],
+  "writeOnlyProperties" : [ "/properties/CertificateRotationRestart" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "rds:AddTagsToResource", "rds:ListTagsForResource", "rds:RemoveTagsFromResource" ]
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "rds:CreateDBInstance", "rds:AddTagsToResource", "rds:DescribeDBInstances" ]
+    },
+    "read" : {
+      "permissions" : [ "rds:DescribeDBInstances" ]
+    },
+    "update" : {
+      "permissions" : [ "rds:ModifyDBInstance", "rds:ListTagsForResource", "rds:DescribeDBInstances", "rds:AddTagsToResource", "rds:RemoveTagsFromResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "rds:DeleteDBInstance", "rds:DescribeDBInstances" ]
+    },
+    "list" : {
+      "permissions" : [ "rds:DescribeDBInstances" ]
+    }
+  }
 }

@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
         [Input("projectPath", required: true)]
         public Input<string> ProjectPath { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the release management association that this project uses for automated testing
+        /// </summary>
+        [Input("releaseManagementAssociationId")]
+        public Input<string>? ReleaseManagementAssociationId { get; set; }
+
         public AssociationGitLabConfigurationArgs()
         {
         }

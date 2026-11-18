@@ -168,6 +168,7 @@ import * as elasticache from "./elasticache";
 import * as elasticbeanstalk from "./elasticbeanstalk";
 import * as elasticloadbalancing from "./elasticloadbalancing";
 import * as elasticloadbalancingv2 from "./elasticloadbalancingv2";
+import * as elasticsearch from "./elasticsearch";
 import * as elementalinference from "./elementalinference";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
@@ -461,6 +462,7 @@ export {
     elasticbeanstalk,
     elasticloadbalancing,
     elasticloadbalancingv2,
+    elasticsearch,
     elementalinference,
     emr,
     emrcontainers,

@@ -25,6 +25,11 @@ export type AlarmMuteRule = import("./alarmMuteRule").AlarmMuteRule;
 export const AlarmMuteRule: typeof import("./alarmMuteRule").AlarmMuteRule = null as any;
 utilities.lazyLoad(exports, ["AlarmMuteRule"], () => require("./alarmMuteRule"));
 
+export { AlertArgs } from "./alert";
+export type Alert = import("./alert").Alert;
+export const Alert: typeof import("./alert").Alert = null as any;
+utilities.lazyLoad(exports, ["Alert"], () => require("./alert"));
+
 export { CompositeAlarmArgs } from "./compositeAlarm";
 export type CompositeAlarm = import("./compositeAlarm").CompositeAlarm;
 export const CompositeAlarm: typeof import("./compositeAlarm").CompositeAlarm = null as any;
@@ -70,6 +75,11 @@ export const getAlarmMuteRule: typeof import("./getAlarmMuteRule").getAlarmMuteR
 export const getAlarmMuteRuleOutput: typeof import("./getAlarmMuteRule").getAlarmMuteRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getAlarmMuteRule","getAlarmMuteRuleOutput"], () => require("./getAlarmMuteRule"));
 
+export { GetAlertArgs, GetAlertResult, GetAlertOutputArgs } from "./getAlert";
+export const getAlert: typeof import("./getAlert").getAlert = null as any;
+export const getAlertOutput: typeof import("./getAlert").getAlertOutput = null as any;
+utilities.lazyLoad(exports, ["getAlert","getAlertOutput"], () => require("./getAlert"));
+
 export { GetCompositeAlarmArgs, GetCompositeAlarmResult, GetCompositeAlarmOutputArgs } from "./getCompositeAlarm";
 export const getCompositeAlarm: typeof import("./getCompositeAlarm").getCompositeAlarm = null as any;
 export const getCompositeAlarmOutput: typeof import("./getCompositeAlarm").getCompositeAlarmOutput = null as any;
@@ -109,6 +119,11 @@ export { GetLogAlarmArgs, GetLogAlarmResult, GetLogAlarmOutputArgs } from "./get
 export const getLogAlarm: typeof import("./getLogAlarm").getLogAlarm = null as any;
 export const getLogAlarmOutput: typeof import("./getLogAlarm").getLogAlarmOutput = null as any;
 utilities.lazyLoad(exports, ["getLogAlarm","getLogAlarmOutput"], () => require("./getLogAlarm"));
+
+export { GetMetricDataQueryDefinitionArgs, GetMetricDataQueryDefinitionResult, GetMetricDataQueryDefinitionOutputArgs } from "./getMetricDataQueryDefinition";
+export const getMetricDataQueryDefinition: typeof import("./getMetricDataQueryDefinition").getMetricDataQueryDefinition = null as any;
+export const getMetricDataQueryDefinitionOutput: typeof import("./getMetricDataQueryDefinition").getMetricDataQueryDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getMetricDataQueryDefinition","getMetricDataQueryDefinitionOutput"], () => require("./getMetricDataQueryDefinition"));
 
 export { GetMetricStreamArgs, GetMetricStreamResult, GetMetricStreamOutputArgs } from "./getMetricStream";
 export const getMetricStream: typeof import("./getMetricStream").getMetricStream = null as any;
@@ -154,6 +169,11 @@ export { LogAlarmArgs } from "./logAlarm";
 export type LogAlarm = import("./logAlarm").LogAlarm;
 export const LogAlarm: typeof import("./logAlarm").LogAlarm = null as any;
 utilities.lazyLoad(exports, ["LogAlarm"], () => require("./logAlarm"));
+
+export { MetricDataQueryDefinitionArgs } from "./metricDataQueryDefinition";
+export type MetricDataQueryDefinition = import("./metricDataQueryDefinition").MetricDataQueryDefinition;
+export const MetricDataQueryDefinition: typeof import("./metricDataQueryDefinition").MetricDataQueryDefinition = null as any;
+utilities.lazyLoad(exports, ["MetricDataQueryDefinition"], () => require("./metricDataQueryDefinition"));
 
 export { MetricStreamArgs } from "./metricStream";
 export type MetricStream = import("./metricStream").MetricStream;
@@ -201,6 +221,8 @@ const _module = {
                 return new Alarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:AlarmMuteRule":
                 return new AlarmMuteRule(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:Alert":
+                return new Alert(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:CompositeAlarm":
                 return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:Dashboard":
@@ -217,6 +239,8 @@ const _module = {
                 return new Integration(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:LogAlarm":
                 return new LogAlarm(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:MetricDataQueryDefinition":
+                return new MetricDataQueryDefinition(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:MetricStream":
                 return new MetricStream(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:OTelEnrichment":

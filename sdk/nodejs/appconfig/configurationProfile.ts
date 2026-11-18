@@ -140,7 +140,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["validators"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["applicationId", "locationUri", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["applicationId", "locationUri"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfigurationProfile.__pulumiType, name, resourceInputs, opts);
     }

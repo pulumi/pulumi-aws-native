@@ -34,7 +34,8 @@ type LookupResourceGatewayResult struct {
 	// The ID of the resource gateway.
 	Id *string `pulumi:"id"`
 	// The number of IPv4 addresses to allocate per ENI for the resource gateway
-	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
+	Ipv4AddressesPerEni         *int                                        `pulumi:"ipv4AddressesPerEni"`
+	ResourceConfigDnsResolution *ResourceGatewayResourceConfigDnsResolution `pulumi:"resourceConfigDnsResolution"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The tags for the resource gateway.
@@ -82,6 +83,12 @@ func (o LookupResourceGatewayResultOutput) Id() pulumi.StringPtrOutput {
 // The number of IPv4 addresses to allocate per ENI for the resource gateway
 func (o LookupResourceGatewayResultOutput) Ipv4AddressesPerEni() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupResourceGatewayResult) *int { return v.Ipv4AddressesPerEni }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupResourceGatewayResultOutput) ResourceConfigDnsResolution() ResourceGatewayResourceConfigDnsResolutionPtrOutput {
+	return o.ApplyT(func(v LookupResourceGatewayResult) *ResourceGatewayResourceConfigDnsResolution {
+		return v.ResourceConfigDnsResolution
+	}).(ResourceGatewayResourceConfigDnsResolutionPtrOutput)
 }
 
 // The ID of one or more security groups to associate with the endpoint network interface.

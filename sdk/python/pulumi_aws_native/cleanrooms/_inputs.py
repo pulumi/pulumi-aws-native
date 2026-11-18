@@ -3418,12 +3418,14 @@ class MembershipProtectedJobS3OutputConfigurationInputArgsDict(TypedDict):
     """
     The S3 prefix to unload the protected job results.
     """
+    result_format: NotRequired[pulumi.Input[Optional['MembershipResultFormat']]]
 
 @pulumi.input_type
 class MembershipProtectedJobS3OutputConfigurationInputArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 result_format: pulumi.Input[Optional['MembershipResultFormat']] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The S3 bucket for job output.
         :param pulumi.Input[_builtins.str] key_prefix: The S3 prefix to unload the protected job results.
@@ -3431,6 +3433,8 @@ class MembershipProtectedJobS3OutputConfigurationInputArgs:
         pulumi.set(__self__, "bucket", bucket)
         if key_prefix is not None:
             pulumi.set(__self__, "key_prefix", key_prefix)
+        if result_format is not None:
+            pulumi.set(__self__, "result_format", result_format)
 
     @_builtins.property
     @pulumi.getter
@@ -3455,6 +3459,15 @@ class MembershipProtectedJobS3OutputConfigurationInputArgs:
     @key_prefix.setter
     def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resultFormat")
+    def result_format(self) -> pulumi.Input[Optional['MembershipResultFormat']]:
+        return pulumi.get(self, "result_format")
+
+    @result_format.setter
+    def result_format(self, value: pulumi.Input[Optional['MembershipResultFormat']]):
+        pulumi.set(self, "result_format", value)
 
 
 class MembershipProtectedQueryOutputConfigurationArgsDict(TypedDict):

@@ -2684,6 +2684,317 @@ func (o RuleGroupChallengeConfigPtrOutput) ImmunityTimeProperty() RuleGroupImmun
 	}).(RuleGroupImmunityTimePropertyPtrOutput)
 }
 
+// Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+type RuleGroupConnectedAccountChainConfig struct {
+	Chain  RuleGroupConnectedAccountChain   `pulumi:"chain"`
+	Prices []RuleGroupConnectedAccountPrice `pulumi:"prices"`
+}
+
+// RuleGroupConnectedAccountChainConfigInput is an input type that accepts RuleGroupConnectedAccountChainConfigArgs and RuleGroupConnectedAccountChainConfigOutput values.
+// You can construct a concrete instance of `RuleGroupConnectedAccountChainConfigInput` via:
+//
+//	RuleGroupConnectedAccountChainConfigArgs{...}
+type RuleGroupConnectedAccountChainConfigInput interface {
+	pulumi.Input
+
+	ToRuleGroupConnectedAccountChainConfigOutput() RuleGroupConnectedAccountChainConfigOutput
+	ToRuleGroupConnectedAccountChainConfigOutputWithContext(context.Context) RuleGroupConnectedAccountChainConfigOutput
+}
+
+// Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+type RuleGroupConnectedAccountChainConfigArgs struct {
+	Chain  RuleGroupConnectedAccountChainInput      `pulumi:"chain"`
+	Prices RuleGroupConnectedAccountPriceArrayInput `pulumi:"prices"`
+}
+
+func (RuleGroupConnectedAccountChainConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupConnectedAccountChainConfig)(nil)).Elem()
+}
+
+func (i RuleGroupConnectedAccountChainConfigArgs) ToRuleGroupConnectedAccountChainConfigOutput() RuleGroupConnectedAccountChainConfigOutput {
+	return i.ToRuleGroupConnectedAccountChainConfigOutputWithContext(context.Background())
+}
+
+func (i RuleGroupConnectedAccountChainConfigArgs) ToRuleGroupConnectedAccountChainConfigOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupConnectedAccountChainConfigOutput)
+}
+
+// RuleGroupConnectedAccountChainConfigArrayInput is an input type that accepts RuleGroupConnectedAccountChainConfigArray and RuleGroupConnectedAccountChainConfigArrayOutput values.
+// You can construct a concrete instance of `RuleGroupConnectedAccountChainConfigArrayInput` via:
+//
+//	RuleGroupConnectedAccountChainConfigArray{ RuleGroupConnectedAccountChainConfigArgs{...} }
+type RuleGroupConnectedAccountChainConfigArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupConnectedAccountChainConfigArrayOutput() RuleGroupConnectedAccountChainConfigArrayOutput
+	ToRuleGroupConnectedAccountChainConfigArrayOutputWithContext(context.Context) RuleGroupConnectedAccountChainConfigArrayOutput
+}
+
+type RuleGroupConnectedAccountChainConfigArray []RuleGroupConnectedAccountChainConfigInput
+
+func (RuleGroupConnectedAccountChainConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupConnectedAccountChainConfig)(nil)).Elem()
+}
+
+func (i RuleGroupConnectedAccountChainConfigArray) ToRuleGroupConnectedAccountChainConfigArrayOutput() RuleGroupConnectedAccountChainConfigArrayOutput {
+	return i.ToRuleGroupConnectedAccountChainConfigArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupConnectedAccountChainConfigArray) ToRuleGroupConnectedAccountChainConfigArrayOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupConnectedAccountChainConfigArrayOutput)
+}
+
+// Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+type RuleGroupConnectedAccountChainConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupConnectedAccountChainConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupConnectedAccountChainConfig)(nil)).Elem()
+}
+
+func (o RuleGroupConnectedAccountChainConfigOutput) ToRuleGroupConnectedAccountChainConfigOutput() RuleGroupConnectedAccountChainConfigOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountChainConfigOutput) ToRuleGroupConnectedAccountChainConfigOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainConfigOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountChainConfigOutput) Chain() RuleGroupConnectedAccountChainOutput {
+	return o.ApplyT(func(v RuleGroupConnectedAccountChainConfig) RuleGroupConnectedAccountChain { return v.Chain }).(RuleGroupConnectedAccountChainOutput)
+}
+
+func (o RuleGroupConnectedAccountChainConfigOutput) Prices() RuleGroupConnectedAccountPriceArrayOutput {
+	return o.ApplyT(func(v RuleGroupConnectedAccountChainConfig) []RuleGroupConnectedAccountPrice { return v.Prices }).(RuleGroupConnectedAccountPriceArrayOutput)
+}
+
+type RuleGroupConnectedAccountChainConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupConnectedAccountChainConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupConnectedAccountChainConfig)(nil)).Elem()
+}
+
+func (o RuleGroupConnectedAccountChainConfigArrayOutput) ToRuleGroupConnectedAccountChainConfigArrayOutput() RuleGroupConnectedAccountChainConfigArrayOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountChainConfigArrayOutput) ToRuleGroupConnectedAccountChainConfigArrayOutputWithContext(ctx context.Context) RuleGroupConnectedAccountChainConfigArrayOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountChainConfigArrayOutput) Index(i pulumi.IntInput) RuleGroupConnectedAccountChainConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupConnectedAccountChainConfig {
+		return vs[0].([]RuleGroupConnectedAccountChainConfig)[vs[1].(int)]
+	}).(RuleGroupConnectedAccountChainConfigOutput)
+}
+
+// Configuration for a single connected account and the chains it accepts payment on.
+type RuleGroupConnectedAccountConfig struct {
+	ConnectedAccountArn string                                 `pulumi:"connectedAccountArn"`
+	PaymentNetworks     []RuleGroupConnectedAccountChainConfig `pulumi:"paymentNetworks"`
+}
+
+// RuleGroupConnectedAccountConfigInput is an input type that accepts RuleGroupConnectedAccountConfigArgs and RuleGroupConnectedAccountConfigOutput values.
+// You can construct a concrete instance of `RuleGroupConnectedAccountConfigInput` via:
+//
+//	RuleGroupConnectedAccountConfigArgs{...}
+type RuleGroupConnectedAccountConfigInput interface {
+	pulumi.Input
+
+	ToRuleGroupConnectedAccountConfigOutput() RuleGroupConnectedAccountConfigOutput
+	ToRuleGroupConnectedAccountConfigOutputWithContext(context.Context) RuleGroupConnectedAccountConfigOutput
+}
+
+// Configuration for a single connected account and the chains it accepts payment on.
+type RuleGroupConnectedAccountConfigArgs struct {
+	ConnectedAccountArn pulumi.StringInput                             `pulumi:"connectedAccountArn"`
+	PaymentNetworks     RuleGroupConnectedAccountChainConfigArrayInput `pulumi:"paymentNetworks"`
+}
+
+func (RuleGroupConnectedAccountConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupConnectedAccountConfig)(nil)).Elem()
+}
+
+func (i RuleGroupConnectedAccountConfigArgs) ToRuleGroupConnectedAccountConfigOutput() RuleGroupConnectedAccountConfigOutput {
+	return i.ToRuleGroupConnectedAccountConfigOutputWithContext(context.Background())
+}
+
+func (i RuleGroupConnectedAccountConfigArgs) ToRuleGroupConnectedAccountConfigOutputWithContext(ctx context.Context) RuleGroupConnectedAccountConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupConnectedAccountConfigOutput)
+}
+
+// RuleGroupConnectedAccountConfigArrayInput is an input type that accepts RuleGroupConnectedAccountConfigArray and RuleGroupConnectedAccountConfigArrayOutput values.
+// You can construct a concrete instance of `RuleGroupConnectedAccountConfigArrayInput` via:
+//
+//	RuleGroupConnectedAccountConfigArray{ RuleGroupConnectedAccountConfigArgs{...} }
+type RuleGroupConnectedAccountConfigArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupConnectedAccountConfigArrayOutput() RuleGroupConnectedAccountConfigArrayOutput
+	ToRuleGroupConnectedAccountConfigArrayOutputWithContext(context.Context) RuleGroupConnectedAccountConfigArrayOutput
+}
+
+type RuleGroupConnectedAccountConfigArray []RuleGroupConnectedAccountConfigInput
+
+func (RuleGroupConnectedAccountConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupConnectedAccountConfig)(nil)).Elem()
+}
+
+func (i RuleGroupConnectedAccountConfigArray) ToRuleGroupConnectedAccountConfigArrayOutput() RuleGroupConnectedAccountConfigArrayOutput {
+	return i.ToRuleGroupConnectedAccountConfigArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupConnectedAccountConfigArray) ToRuleGroupConnectedAccountConfigArrayOutputWithContext(ctx context.Context) RuleGroupConnectedAccountConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupConnectedAccountConfigArrayOutput)
+}
+
+// Configuration for a single connected account and the chains it accepts payment on.
+type RuleGroupConnectedAccountConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupConnectedAccountConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupConnectedAccountConfig)(nil)).Elem()
+}
+
+func (o RuleGroupConnectedAccountConfigOutput) ToRuleGroupConnectedAccountConfigOutput() RuleGroupConnectedAccountConfigOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountConfigOutput) ToRuleGroupConnectedAccountConfigOutputWithContext(ctx context.Context) RuleGroupConnectedAccountConfigOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountConfigOutput) ConnectedAccountArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupConnectedAccountConfig) string { return v.ConnectedAccountArn }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupConnectedAccountConfigOutput) PaymentNetworks() RuleGroupConnectedAccountChainConfigArrayOutput {
+	return o.ApplyT(func(v RuleGroupConnectedAccountConfig) []RuleGroupConnectedAccountChainConfig {
+		return v.PaymentNetworks
+	}).(RuleGroupConnectedAccountChainConfigArrayOutput)
+}
+
+type RuleGroupConnectedAccountConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupConnectedAccountConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupConnectedAccountConfig)(nil)).Elem()
+}
+
+func (o RuleGroupConnectedAccountConfigArrayOutput) ToRuleGroupConnectedAccountConfigArrayOutput() RuleGroupConnectedAccountConfigArrayOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountConfigArrayOutput) ToRuleGroupConnectedAccountConfigArrayOutputWithContext(ctx context.Context) RuleGroupConnectedAccountConfigArrayOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountConfigArrayOutput) Index(i pulumi.IntInput) RuleGroupConnectedAccountConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupConnectedAccountConfig {
+		return vs[0].([]RuleGroupConnectedAccountConfig)[vs[1].(int)]
+	}).(RuleGroupConnectedAccountConfigOutput)
+}
+
+// A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+type RuleGroupConnectedAccountPrice struct {
+	Amount   string                  `pulumi:"amount"`
+	Currency RuleGroupCryptoCurrency `pulumi:"currency"`
+}
+
+// RuleGroupConnectedAccountPriceInput is an input type that accepts RuleGroupConnectedAccountPriceArgs and RuleGroupConnectedAccountPriceOutput values.
+// You can construct a concrete instance of `RuleGroupConnectedAccountPriceInput` via:
+//
+//	RuleGroupConnectedAccountPriceArgs{...}
+type RuleGroupConnectedAccountPriceInput interface {
+	pulumi.Input
+
+	ToRuleGroupConnectedAccountPriceOutput() RuleGroupConnectedAccountPriceOutput
+	ToRuleGroupConnectedAccountPriceOutputWithContext(context.Context) RuleGroupConnectedAccountPriceOutput
+}
+
+// A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+type RuleGroupConnectedAccountPriceArgs struct {
+	Amount   pulumi.StringInput           `pulumi:"amount"`
+	Currency RuleGroupCryptoCurrencyInput `pulumi:"currency"`
+}
+
+func (RuleGroupConnectedAccountPriceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupConnectedAccountPrice)(nil)).Elem()
+}
+
+func (i RuleGroupConnectedAccountPriceArgs) ToRuleGroupConnectedAccountPriceOutput() RuleGroupConnectedAccountPriceOutput {
+	return i.ToRuleGroupConnectedAccountPriceOutputWithContext(context.Background())
+}
+
+func (i RuleGroupConnectedAccountPriceArgs) ToRuleGroupConnectedAccountPriceOutputWithContext(ctx context.Context) RuleGroupConnectedAccountPriceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupConnectedAccountPriceOutput)
+}
+
+// RuleGroupConnectedAccountPriceArrayInput is an input type that accepts RuleGroupConnectedAccountPriceArray and RuleGroupConnectedAccountPriceArrayOutput values.
+// You can construct a concrete instance of `RuleGroupConnectedAccountPriceArrayInput` via:
+//
+//	RuleGroupConnectedAccountPriceArray{ RuleGroupConnectedAccountPriceArgs{...} }
+type RuleGroupConnectedAccountPriceArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupConnectedAccountPriceArrayOutput() RuleGroupConnectedAccountPriceArrayOutput
+	ToRuleGroupConnectedAccountPriceArrayOutputWithContext(context.Context) RuleGroupConnectedAccountPriceArrayOutput
+}
+
+type RuleGroupConnectedAccountPriceArray []RuleGroupConnectedAccountPriceInput
+
+func (RuleGroupConnectedAccountPriceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupConnectedAccountPrice)(nil)).Elem()
+}
+
+func (i RuleGroupConnectedAccountPriceArray) ToRuleGroupConnectedAccountPriceArrayOutput() RuleGroupConnectedAccountPriceArrayOutput {
+	return i.ToRuleGroupConnectedAccountPriceArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupConnectedAccountPriceArray) ToRuleGroupConnectedAccountPriceArrayOutputWithContext(ctx context.Context) RuleGroupConnectedAccountPriceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupConnectedAccountPriceArrayOutput)
+}
+
+// A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+type RuleGroupConnectedAccountPriceOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupConnectedAccountPriceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupConnectedAccountPrice)(nil)).Elem()
+}
+
+func (o RuleGroupConnectedAccountPriceOutput) ToRuleGroupConnectedAccountPriceOutput() RuleGroupConnectedAccountPriceOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountPriceOutput) ToRuleGroupConnectedAccountPriceOutputWithContext(ctx context.Context) RuleGroupConnectedAccountPriceOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountPriceOutput) Amount() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupConnectedAccountPrice) string { return v.Amount }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupConnectedAccountPriceOutput) Currency() RuleGroupCryptoCurrencyOutput {
+	return o.ApplyT(func(v RuleGroupConnectedAccountPrice) RuleGroupCryptoCurrency { return v.Currency }).(RuleGroupCryptoCurrencyOutput)
+}
+
+type RuleGroupConnectedAccountPriceArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupConnectedAccountPriceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupConnectedAccountPrice)(nil)).Elem()
+}
+
+func (o RuleGroupConnectedAccountPriceArrayOutput) ToRuleGroupConnectedAccountPriceArrayOutput() RuleGroupConnectedAccountPriceArrayOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountPriceArrayOutput) ToRuleGroupConnectedAccountPriceArrayOutputWithContext(ctx context.Context) RuleGroupConnectedAccountPriceArrayOutput {
+	return o
+}
+
+func (o RuleGroupConnectedAccountPriceArrayOutput) Index(i pulumi.IntInput) RuleGroupConnectedAccountPriceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupConnectedAccountPrice {
+		return vs[0].([]RuleGroupConnectedAccountPrice)[vs[1].(int)]
+	}).(RuleGroupConnectedAccountPriceOutput)
+}
+
 // The pattern to look for in the request cookies.
 type RuleGroupCookieMatchPattern struct {
 	// Inspect all parts of the web request cookies.
@@ -7387,8 +7698,9 @@ func (o RuleGroupLabelSummaryArrayOutput) Index(i pulumi.IntInput) RuleGroupLabe
 
 // Configures monetization for the web ACL or rule group.
 type RuleGroupMonetizationConfig struct {
-	CryptoConfig *RuleGroupCryptoConfig `pulumi:"cryptoConfig"`
-	CurrencyMode *RuleGroupCurrencyMode `pulumi:"currencyMode"`
+	ConnectedAccountConfigs []RuleGroupConnectedAccountConfig `pulumi:"connectedAccountConfigs"`
+	CryptoConfig            *RuleGroupCryptoConfig            `pulumi:"cryptoConfig"`
+	CurrencyMode            *RuleGroupCurrencyMode            `pulumi:"currencyMode"`
 }
 
 // RuleGroupMonetizationConfigInput is an input type that accepts RuleGroupMonetizationConfigArgs and RuleGroupMonetizationConfigOutput values.
@@ -7404,8 +7716,9 @@ type RuleGroupMonetizationConfigInput interface {
 
 // Configures monetization for the web ACL or rule group.
 type RuleGroupMonetizationConfigArgs struct {
-	CryptoConfig RuleGroupCryptoConfigPtrInput `pulumi:"cryptoConfig"`
-	CurrencyMode RuleGroupCurrencyModePtrInput `pulumi:"currencyMode"`
+	ConnectedAccountConfigs RuleGroupConnectedAccountConfigArrayInput `pulumi:"connectedAccountConfigs"`
+	CryptoConfig            RuleGroupCryptoConfigPtrInput             `pulumi:"cryptoConfig"`
+	CurrencyMode            RuleGroupCurrencyModePtrInput             `pulumi:"currencyMode"`
 }
 
 func (RuleGroupMonetizationConfigArgs) ElementType() reflect.Type {
@@ -7486,6 +7799,12 @@ func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigPtrOutpu
 	}).(RuleGroupMonetizationConfigPtrOutput)
 }
 
+func (o RuleGroupMonetizationConfigOutput) ConnectedAccountConfigs() RuleGroupConnectedAccountConfigArrayOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfig) []RuleGroupConnectedAccountConfig {
+		return v.ConnectedAccountConfigs
+	}).(RuleGroupConnectedAccountConfigArrayOutput)
+}
+
 func (o RuleGroupMonetizationConfigOutput) CryptoConfig() RuleGroupCryptoConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupMonetizationConfig) *RuleGroupCryptoConfig { return v.CryptoConfig }).(RuleGroupCryptoConfigPtrOutput)
 }
@@ -7516,6 +7835,15 @@ func (o RuleGroupMonetizationConfigPtrOutput) Elem() RuleGroupMonetizationConfig
 		var ret RuleGroupMonetizationConfig
 		return ret
 	}).(RuleGroupMonetizationConfigOutput)
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) ConnectedAccountConfigs() RuleGroupConnectedAccountConfigArrayOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfig) []RuleGroupConnectedAccountConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectedAccountConfigs
+	}).(RuleGroupConnectedAccountConfigArrayOutput)
 }
 
 func (o RuleGroupMonetizationConfigPtrOutput) CryptoConfig() RuleGroupCryptoConfigPtrOutput {
@@ -13845,6 +14173,7 @@ func (o WebAclAsnMatchStatementPtrOutput) ForwardedIpConfig() WebAclForwardedIpC
 
 // AssociationConfig for body inspection
 type WebAclAssociationConfig struct {
+	ChallengeJavascriptSdkInjection map[string]WebAclChallengeJavascriptSdkInjectionConfig `pulumi:"challengeJavascriptSdkInjection"`
 	// Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
 	//
 	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
@@ -13868,6 +14197,7 @@ type WebAclAssociationConfigInput interface {
 
 // AssociationConfig for body inspection
 type WebAclAssociationConfigArgs struct {
+	ChallengeJavascriptSdkInjection WebAclChallengeJavascriptSdkInjectionConfigMapInput `pulumi:"challengeJavascriptSdkInjection"`
 	// Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
 	//
 	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
@@ -13956,6 +14286,12 @@ func (o WebAclAssociationConfigOutput) ToWebAclAssociationConfigPtrOutputWithCon
 	}).(WebAclAssociationConfigPtrOutput)
 }
 
+func (o WebAclAssociationConfigOutput) ChallengeJavascriptSdkInjection() WebAclChallengeJavascriptSdkInjectionConfigMapOutput {
+	return o.ApplyT(func(v WebAclAssociationConfig) map[string]WebAclChallengeJavascriptSdkInjectionConfig {
+		return v.ChallengeJavascriptSdkInjection
+	}).(WebAclChallengeJavascriptSdkInjectionConfigMapOutput)
+}
+
 // Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
 //
 // > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
@@ -13991,6 +14327,15 @@ func (o WebAclAssociationConfigPtrOutput) Elem() WebAclAssociationConfigOutput {
 		var ret WebAclAssociationConfig
 		return ret
 	}).(WebAclAssociationConfigOutput)
+}
+
+func (o WebAclAssociationConfigPtrOutput) ChallengeJavascriptSdkInjection() WebAclChallengeJavascriptSdkInjectionConfigMapOutput {
+	return o.ApplyT(func(v *WebAclAssociationConfig) map[string]WebAclChallengeJavascriptSdkInjectionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ChallengeJavascriptSdkInjection
+	}).(WebAclChallengeJavascriptSdkInjectionConfigMapOutput)
 }
 
 // Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
@@ -16147,6 +16492,97 @@ func (o WebAclChallengeConfigPtrOutput) ImmunityTimeProperty() WebAclImmunityTim
 	}).(WebAclImmunityTimePropertyPtrOutput)
 }
 
+// Configures the challenge JavaScript SDK injection for the associated resource.
+type WebAclChallengeJavascriptSdkInjectionConfig struct {
+}
+
+// WebAclChallengeJavascriptSdkInjectionConfigInput is an input type that accepts WebAclChallengeJavascriptSdkInjectionConfigArgs and WebAclChallengeJavascriptSdkInjectionConfigOutput values.
+// You can construct a concrete instance of `WebAclChallengeJavascriptSdkInjectionConfigInput` via:
+//
+//	WebAclChallengeJavascriptSdkInjectionConfigArgs{...}
+type WebAclChallengeJavascriptSdkInjectionConfigInput interface {
+	pulumi.Input
+
+	ToWebAclChallengeJavascriptSdkInjectionConfigOutput() WebAclChallengeJavascriptSdkInjectionConfigOutput
+	ToWebAclChallengeJavascriptSdkInjectionConfigOutputWithContext(context.Context) WebAclChallengeJavascriptSdkInjectionConfigOutput
+}
+
+// Configures the challenge JavaScript SDK injection for the associated resource.
+type WebAclChallengeJavascriptSdkInjectionConfigArgs struct {
+}
+
+func (WebAclChallengeJavascriptSdkInjectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclChallengeJavascriptSdkInjectionConfig)(nil)).Elem()
+}
+
+func (i WebAclChallengeJavascriptSdkInjectionConfigArgs) ToWebAclChallengeJavascriptSdkInjectionConfigOutput() WebAclChallengeJavascriptSdkInjectionConfigOutput {
+	return i.ToWebAclChallengeJavascriptSdkInjectionConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclChallengeJavascriptSdkInjectionConfigArgs) ToWebAclChallengeJavascriptSdkInjectionConfigOutputWithContext(ctx context.Context) WebAclChallengeJavascriptSdkInjectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclChallengeJavascriptSdkInjectionConfigOutput)
+}
+
+// WebAclChallengeJavascriptSdkInjectionConfigMapInput is an input type that accepts WebAclChallengeJavascriptSdkInjectionConfigMap and WebAclChallengeJavascriptSdkInjectionConfigMapOutput values.
+// You can construct a concrete instance of `WebAclChallengeJavascriptSdkInjectionConfigMapInput` via:
+//
+//	WebAclChallengeJavascriptSdkInjectionConfigMap{ "key": WebAclChallengeJavascriptSdkInjectionConfigArgs{...} }
+type WebAclChallengeJavascriptSdkInjectionConfigMapInput interface {
+	pulumi.Input
+
+	ToWebAclChallengeJavascriptSdkInjectionConfigMapOutput() WebAclChallengeJavascriptSdkInjectionConfigMapOutput
+	ToWebAclChallengeJavascriptSdkInjectionConfigMapOutputWithContext(context.Context) WebAclChallengeJavascriptSdkInjectionConfigMapOutput
+}
+
+type WebAclChallengeJavascriptSdkInjectionConfigMap map[string]WebAclChallengeJavascriptSdkInjectionConfigInput
+
+func (WebAclChallengeJavascriptSdkInjectionConfigMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebAclChallengeJavascriptSdkInjectionConfig)(nil)).Elem()
+}
+
+func (i WebAclChallengeJavascriptSdkInjectionConfigMap) ToWebAclChallengeJavascriptSdkInjectionConfigMapOutput() WebAclChallengeJavascriptSdkInjectionConfigMapOutput {
+	return i.ToWebAclChallengeJavascriptSdkInjectionConfigMapOutputWithContext(context.Background())
+}
+
+func (i WebAclChallengeJavascriptSdkInjectionConfigMap) ToWebAclChallengeJavascriptSdkInjectionConfigMapOutputWithContext(ctx context.Context) WebAclChallengeJavascriptSdkInjectionConfigMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclChallengeJavascriptSdkInjectionConfigMapOutput)
+}
+
+// Configures the challenge JavaScript SDK injection for the associated resource.
+type WebAclChallengeJavascriptSdkInjectionConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclChallengeJavascriptSdkInjectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclChallengeJavascriptSdkInjectionConfig)(nil)).Elem()
+}
+
+func (o WebAclChallengeJavascriptSdkInjectionConfigOutput) ToWebAclChallengeJavascriptSdkInjectionConfigOutput() WebAclChallengeJavascriptSdkInjectionConfigOutput {
+	return o
+}
+
+func (o WebAclChallengeJavascriptSdkInjectionConfigOutput) ToWebAclChallengeJavascriptSdkInjectionConfigOutputWithContext(ctx context.Context) WebAclChallengeJavascriptSdkInjectionConfigOutput {
+	return o
+}
+
+type WebAclChallengeJavascriptSdkInjectionConfigMapOutput struct{ *pulumi.OutputState }
+
+func (WebAclChallengeJavascriptSdkInjectionConfigMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebAclChallengeJavascriptSdkInjectionConfig)(nil)).Elem()
+}
+
+func (o WebAclChallengeJavascriptSdkInjectionConfigMapOutput) ToWebAclChallengeJavascriptSdkInjectionConfigMapOutput() WebAclChallengeJavascriptSdkInjectionConfigMapOutput {
+	return o
+}
+
+func (o WebAclChallengeJavascriptSdkInjectionConfigMapOutput) ToWebAclChallengeJavascriptSdkInjectionConfigMapOutputWithContext(ctx context.Context) WebAclChallengeJavascriptSdkInjectionConfigMapOutput {
+	return o
+}
+
+func (o WebAclChallengeJavascriptSdkInjectionConfigMapOutput) MapIndex(k pulumi.StringInput) WebAclChallengeJavascriptSdkInjectionConfigOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebAclChallengeJavascriptSdkInjectionConfig {
+		return vs[0].(map[string]WebAclChallengeJavascriptSdkInjectionConfig)[vs[1].(string)]
+	}).(WebAclChallengeJavascriptSdkInjectionConfigOutput)
+}
+
 // Client side action config for AntiDDOS AMR.
 type WebAclClientSideAction struct {
 	// The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
@@ -16607,6 +17043,315 @@ func (o WebAclClientSideActionConfigPtrOutput) Challenge() WebAclClientSideActio
 		}
 		return &v.Challenge
 	}).(WebAclClientSideActionPtrOutput)
+}
+
+// Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+type WebAclConnectedAccountChainConfig struct {
+	Chain  WebAclConnectedAccountChain   `pulumi:"chain"`
+	Prices []WebAclConnectedAccountPrice `pulumi:"prices"`
+}
+
+// WebAclConnectedAccountChainConfigInput is an input type that accepts WebAclConnectedAccountChainConfigArgs and WebAclConnectedAccountChainConfigOutput values.
+// You can construct a concrete instance of `WebAclConnectedAccountChainConfigInput` via:
+//
+//	WebAclConnectedAccountChainConfigArgs{...}
+type WebAclConnectedAccountChainConfigInput interface {
+	pulumi.Input
+
+	ToWebAclConnectedAccountChainConfigOutput() WebAclConnectedAccountChainConfigOutput
+	ToWebAclConnectedAccountChainConfigOutputWithContext(context.Context) WebAclConnectedAccountChainConfigOutput
+}
+
+// Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+type WebAclConnectedAccountChainConfigArgs struct {
+	Chain  WebAclConnectedAccountChainInput      `pulumi:"chain"`
+	Prices WebAclConnectedAccountPriceArrayInput `pulumi:"prices"`
+}
+
+func (WebAclConnectedAccountChainConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclConnectedAccountChainConfig)(nil)).Elem()
+}
+
+func (i WebAclConnectedAccountChainConfigArgs) ToWebAclConnectedAccountChainConfigOutput() WebAclConnectedAccountChainConfigOutput {
+	return i.ToWebAclConnectedAccountChainConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclConnectedAccountChainConfigArgs) ToWebAclConnectedAccountChainConfigOutputWithContext(ctx context.Context) WebAclConnectedAccountChainConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclConnectedAccountChainConfigOutput)
+}
+
+// WebAclConnectedAccountChainConfigArrayInput is an input type that accepts WebAclConnectedAccountChainConfigArray and WebAclConnectedAccountChainConfigArrayOutput values.
+// You can construct a concrete instance of `WebAclConnectedAccountChainConfigArrayInput` via:
+//
+//	WebAclConnectedAccountChainConfigArray{ WebAclConnectedAccountChainConfigArgs{...} }
+type WebAclConnectedAccountChainConfigArrayInput interface {
+	pulumi.Input
+
+	ToWebAclConnectedAccountChainConfigArrayOutput() WebAclConnectedAccountChainConfigArrayOutput
+	ToWebAclConnectedAccountChainConfigArrayOutputWithContext(context.Context) WebAclConnectedAccountChainConfigArrayOutput
+}
+
+type WebAclConnectedAccountChainConfigArray []WebAclConnectedAccountChainConfigInput
+
+func (WebAclConnectedAccountChainConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclConnectedAccountChainConfig)(nil)).Elem()
+}
+
+func (i WebAclConnectedAccountChainConfigArray) ToWebAclConnectedAccountChainConfigArrayOutput() WebAclConnectedAccountChainConfigArrayOutput {
+	return i.ToWebAclConnectedAccountChainConfigArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclConnectedAccountChainConfigArray) ToWebAclConnectedAccountChainConfigArrayOutputWithContext(ctx context.Context) WebAclConnectedAccountChainConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclConnectedAccountChainConfigArrayOutput)
+}
+
+// Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+type WebAclConnectedAccountChainConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclConnectedAccountChainConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclConnectedAccountChainConfig)(nil)).Elem()
+}
+
+func (o WebAclConnectedAccountChainConfigOutput) ToWebAclConnectedAccountChainConfigOutput() WebAclConnectedAccountChainConfigOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountChainConfigOutput) ToWebAclConnectedAccountChainConfigOutputWithContext(ctx context.Context) WebAclConnectedAccountChainConfigOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountChainConfigOutput) Chain() WebAclConnectedAccountChainOutput {
+	return o.ApplyT(func(v WebAclConnectedAccountChainConfig) WebAclConnectedAccountChain { return v.Chain }).(WebAclConnectedAccountChainOutput)
+}
+
+func (o WebAclConnectedAccountChainConfigOutput) Prices() WebAclConnectedAccountPriceArrayOutput {
+	return o.ApplyT(func(v WebAclConnectedAccountChainConfig) []WebAclConnectedAccountPrice { return v.Prices }).(WebAclConnectedAccountPriceArrayOutput)
+}
+
+type WebAclConnectedAccountChainConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclConnectedAccountChainConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclConnectedAccountChainConfig)(nil)).Elem()
+}
+
+func (o WebAclConnectedAccountChainConfigArrayOutput) ToWebAclConnectedAccountChainConfigArrayOutput() WebAclConnectedAccountChainConfigArrayOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountChainConfigArrayOutput) ToWebAclConnectedAccountChainConfigArrayOutputWithContext(ctx context.Context) WebAclConnectedAccountChainConfigArrayOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountChainConfigArrayOutput) Index(i pulumi.IntInput) WebAclConnectedAccountChainConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclConnectedAccountChainConfig {
+		return vs[0].([]WebAclConnectedAccountChainConfig)[vs[1].(int)]
+	}).(WebAclConnectedAccountChainConfigOutput)
+}
+
+// Configuration for a single connected account and the chains it accepts payment on.
+type WebAclConnectedAccountConfig struct {
+	ConnectedAccountArn string                              `pulumi:"connectedAccountArn"`
+	PaymentNetworks     []WebAclConnectedAccountChainConfig `pulumi:"paymentNetworks"`
+}
+
+// WebAclConnectedAccountConfigInput is an input type that accepts WebAclConnectedAccountConfigArgs and WebAclConnectedAccountConfigOutput values.
+// You can construct a concrete instance of `WebAclConnectedAccountConfigInput` via:
+//
+//	WebAclConnectedAccountConfigArgs{...}
+type WebAclConnectedAccountConfigInput interface {
+	pulumi.Input
+
+	ToWebAclConnectedAccountConfigOutput() WebAclConnectedAccountConfigOutput
+	ToWebAclConnectedAccountConfigOutputWithContext(context.Context) WebAclConnectedAccountConfigOutput
+}
+
+// Configuration for a single connected account and the chains it accepts payment on.
+type WebAclConnectedAccountConfigArgs struct {
+	ConnectedAccountArn pulumi.StringInput                          `pulumi:"connectedAccountArn"`
+	PaymentNetworks     WebAclConnectedAccountChainConfigArrayInput `pulumi:"paymentNetworks"`
+}
+
+func (WebAclConnectedAccountConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclConnectedAccountConfig)(nil)).Elem()
+}
+
+func (i WebAclConnectedAccountConfigArgs) ToWebAclConnectedAccountConfigOutput() WebAclConnectedAccountConfigOutput {
+	return i.ToWebAclConnectedAccountConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclConnectedAccountConfigArgs) ToWebAclConnectedAccountConfigOutputWithContext(ctx context.Context) WebAclConnectedAccountConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclConnectedAccountConfigOutput)
+}
+
+// WebAclConnectedAccountConfigArrayInput is an input type that accepts WebAclConnectedAccountConfigArray and WebAclConnectedAccountConfigArrayOutput values.
+// You can construct a concrete instance of `WebAclConnectedAccountConfigArrayInput` via:
+//
+//	WebAclConnectedAccountConfigArray{ WebAclConnectedAccountConfigArgs{...} }
+type WebAclConnectedAccountConfigArrayInput interface {
+	pulumi.Input
+
+	ToWebAclConnectedAccountConfigArrayOutput() WebAclConnectedAccountConfigArrayOutput
+	ToWebAclConnectedAccountConfigArrayOutputWithContext(context.Context) WebAclConnectedAccountConfigArrayOutput
+}
+
+type WebAclConnectedAccountConfigArray []WebAclConnectedAccountConfigInput
+
+func (WebAclConnectedAccountConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclConnectedAccountConfig)(nil)).Elem()
+}
+
+func (i WebAclConnectedAccountConfigArray) ToWebAclConnectedAccountConfigArrayOutput() WebAclConnectedAccountConfigArrayOutput {
+	return i.ToWebAclConnectedAccountConfigArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclConnectedAccountConfigArray) ToWebAclConnectedAccountConfigArrayOutputWithContext(ctx context.Context) WebAclConnectedAccountConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclConnectedAccountConfigArrayOutput)
+}
+
+// Configuration for a single connected account and the chains it accepts payment on.
+type WebAclConnectedAccountConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclConnectedAccountConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclConnectedAccountConfig)(nil)).Elem()
+}
+
+func (o WebAclConnectedAccountConfigOutput) ToWebAclConnectedAccountConfigOutput() WebAclConnectedAccountConfigOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountConfigOutput) ToWebAclConnectedAccountConfigOutputWithContext(ctx context.Context) WebAclConnectedAccountConfigOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountConfigOutput) ConnectedAccountArn() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclConnectedAccountConfig) string { return v.ConnectedAccountArn }).(pulumi.StringOutput)
+}
+
+func (o WebAclConnectedAccountConfigOutput) PaymentNetworks() WebAclConnectedAccountChainConfigArrayOutput {
+	return o.ApplyT(func(v WebAclConnectedAccountConfig) []WebAclConnectedAccountChainConfig { return v.PaymentNetworks }).(WebAclConnectedAccountChainConfigArrayOutput)
+}
+
+type WebAclConnectedAccountConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclConnectedAccountConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclConnectedAccountConfig)(nil)).Elem()
+}
+
+func (o WebAclConnectedAccountConfigArrayOutput) ToWebAclConnectedAccountConfigArrayOutput() WebAclConnectedAccountConfigArrayOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountConfigArrayOutput) ToWebAclConnectedAccountConfigArrayOutputWithContext(ctx context.Context) WebAclConnectedAccountConfigArrayOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountConfigArrayOutput) Index(i pulumi.IntInput) WebAclConnectedAccountConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclConnectedAccountConfig {
+		return vs[0].([]WebAclConnectedAccountConfig)[vs[1].(int)]
+	}).(WebAclConnectedAccountConfigOutput)
+}
+
+// A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+type WebAclConnectedAccountPrice struct {
+	Amount   string               `pulumi:"amount"`
+	Currency WebAclCryptoCurrency `pulumi:"currency"`
+}
+
+// WebAclConnectedAccountPriceInput is an input type that accepts WebAclConnectedAccountPriceArgs and WebAclConnectedAccountPriceOutput values.
+// You can construct a concrete instance of `WebAclConnectedAccountPriceInput` via:
+//
+//	WebAclConnectedAccountPriceArgs{...}
+type WebAclConnectedAccountPriceInput interface {
+	pulumi.Input
+
+	ToWebAclConnectedAccountPriceOutput() WebAclConnectedAccountPriceOutput
+	ToWebAclConnectedAccountPriceOutputWithContext(context.Context) WebAclConnectedAccountPriceOutput
+}
+
+// A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+type WebAclConnectedAccountPriceArgs struct {
+	Amount   pulumi.StringInput        `pulumi:"amount"`
+	Currency WebAclCryptoCurrencyInput `pulumi:"currency"`
+}
+
+func (WebAclConnectedAccountPriceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclConnectedAccountPrice)(nil)).Elem()
+}
+
+func (i WebAclConnectedAccountPriceArgs) ToWebAclConnectedAccountPriceOutput() WebAclConnectedAccountPriceOutput {
+	return i.ToWebAclConnectedAccountPriceOutputWithContext(context.Background())
+}
+
+func (i WebAclConnectedAccountPriceArgs) ToWebAclConnectedAccountPriceOutputWithContext(ctx context.Context) WebAclConnectedAccountPriceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclConnectedAccountPriceOutput)
+}
+
+// WebAclConnectedAccountPriceArrayInput is an input type that accepts WebAclConnectedAccountPriceArray and WebAclConnectedAccountPriceArrayOutput values.
+// You can construct a concrete instance of `WebAclConnectedAccountPriceArrayInput` via:
+//
+//	WebAclConnectedAccountPriceArray{ WebAclConnectedAccountPriceArgs{...} }
+type WebAclConnectedAccountPriceArrayInput interface {
+	pulumi.Input
+
+	ToWebAclConnectedAccountPriceArrayOutput() WebAclConnectedAccountPriceArrayOutput
+	ToWebAclConnectedAccountPriceArrayOutputWithContext(context.Context) WebAclConnectedAccountPriceArrayOutput
+}
+
+type WebAclConnectedAccountPriceArray []WebAclConnectedAccountPriceInput
+
+func (WebAclConnectedAccountPriceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclConnectedAccountPrice)(nil)).Elem()
+}
+
+func (i WebAclConnectedAccountPriceArray) ToWebAclConnectedAccountPriceArrayOutput() WebAclConnectedAccountPriceArrayOutput {
+	return i.ToWebAclConnectedAccountPriceArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclConnectedAccountPriceArray) ToWebAclConnectedAccountPriceArrayOutputWithContext(ctx context.Context) WebAclConnectedAccountPriceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclConnectedAccountPriceArrayOutput)
+}
+
+// A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+type WebAclConnectedAccountPriceOutput struct{ *pulumi.OutputState }
+
+func (WebAclConnectedAccountPriceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclConnectedAccountPrice)(nil)).Elem()
+}
+
+func (o WebAclConnectedAccountPriceOutput) ToWebAclConnectedAccountPriceOutput() WebAclConnectedAccountPriceOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountPriceOutput) ToWebAclConnectedAccountPriceOutputWithContext(ctx context.Context) WebAclConnectedAccountPriceOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountPriceOutput) Amount() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclConnectedAccountPrice) string { return v.Amount }).(pulumi.StringOutput)
+}
+
+func (o WebAclConnectedAccountPriceOutput) Currency() WebAclCryptoCurrencyOutput {
+	return o.ApplyT(func(v WebAclConnectedAccountPrice) WebAclCryptoCurrency { return v.Currency }).(WebAclCryptoCurrencyOutput)
+}
+
+type WebAclConnectedAccountPriceArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclConnectedAccountPriceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclConnectedAccountPrice)(nil)).Elem()
+}
+
+func (o WebAclConnectedAccountPriceArrayOutput) ToWebAclConnectedAccountPriceArrayOutput() WebAclConnectedAccountPriceArrayOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountPriceArrayOutput) ToWebAclConnectedAccountPriceArrayOutputWithContext(ctx context.Context) WebAclConnectedAccountPriceArrayOutput {
+	return o
+}
+
+func (o WebAclConnectedAccountPriceArrayOutput) Index(i pulumi.IntInput) WebAclConnectedAccountPriceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclConnectedAccountPrice {
+		return vs[0].([]WebAclConnectedAccountPrice)[vs[1].(int)]
+	}).(WebAclConnectedAccountPriceOutput)
 }
 
 // The pattern to look for in the request cookies.
@@ -22398,8 +23143,9 @@ func (o WebAclManagedRuleGroupStatementPtrOutput) Version() pulumi.StringPtrOutp
 
 // Configures monetization for the web ACL or rule group.
 type WebAclMonetizationConfig struct {
-	CryptoConfig *WebAclCryptoConfig `pulumi:"cryptoConfig"`
-	CurrencyMode *WebAclCurrencyMode `pulumi:"currencyMode"`
+	ConnectedAccountConfigs []WebAclConnectedAccountConfig `pulumi:"connectedAccountConfigs"`
+	CryptoConfig            *WebAclCryptoConfig            `pulumi:"cryptoConfig"`
+	CurrencyMode            *WebAclCurrencyMode            `pulumi:"currencyMode"`
 }
 
 // WebAclMonetizationConfigInput is an input type that accepts WebAclMonetizationConfigArgs and WebAclMonetizationConfigOutput values.
@@ -22415,8 +23161,9 @@ type WebAclMonetizationConfigInput interface {
 
 // Configures monetization for the web ACL or rule group.
 type WebAclMonetizationConfigArgs struct {
-	CryptoConfig WebAclCryptoConfigPtrInput `pulumi:"cryptoConfig"`
-	CurrencyMode WebAclCurrencyModePtrInput `pulumi:"currencyMode"`
+	ConnectedAccountConfigs WebAclConnectedAccountConfigArrayInput `pulumi:"connectedAccountConfigs"`
+	CryptoConfig            WebAclCryptoConfigPtrInput             `pulumi:"cryptoConfig"`
+	CurrencyMode            WebAclCurrencyModePtrInput             `pulumi:"currencyMode"`
 }
 
 func (WebAclMonetizationConfigArgs) ElementType() reflect.Type {
@@ -22497,6 +23244,10 @@ func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigPtrOutputWithC
 	}).(WebAclMonetizationConfigPtrOutput)
 }
 
+func (o WebAclMonetizationConfigOutput) ConnectedAccountConfigs() WebAclConnectedAccountConfigArrayOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfig) []WebAclConnectedAccountConfig { return v.ConnectedAccountConfigs }).(WebAclConnectedAccountConfigArrayOutput)
+}
+
 func (o WebAclMonetizationConfigOutput) CryptoConfig() WebAclCryptoConfigPtrOutput {
 	return o.ApplyT(func(v WebAclMonetizationConfig) *WebAclCryptoConfig { return v.CryptoConfig }).(WebAclCryptoConfigPtrOutput)
 }
@@ -22527,6 +23278,15 @@ func (o WebAclMonetizationConfigPtrOutput) Elem() WebAclMonetizationConfigOutput
 		var ret WebAclMonetizationConfig
 		return ret
 	}).(WebAclMonetizationConfigOutput)
+}
+
+func (o WebAclMonetizationConfigPtrOutput) ConnectedAccountConfigs() WebAclConnectedAccountConfigArrayOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfig) []WebAclConnectedAccountConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectedAccountConfigs
+	}).(WebAclConnectedAccountConfigArrayOutput)
 }
 
 func (o WebAclMonetizationConfigPtrOutput) CryptoConfig() WebAclCryptoConfigPtrOutput {
@@ -30740,6 +31500,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeActionPtrInput)(nil)).Elem(), RuleGroupChallengeActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeConfigInput)(nil)).Elem(), RuleGroupChallengeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeConfigPtrInput)(nil)).Elem(), RuleGroupChallengeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupConnectedAccountChainConfigInput)(nil)).Elem(), RuleGroupConnectedAccountChainConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupConnectedAccountChainConfigArrayInput)(nil)).Elem(), RuleGroupConnectedAccountChainConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupConnectedAccountConfigInput)(nil)).Elem(), RuleGroupConnectedAccountConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupConnectedAccountConfigArrayInput)(nil)).Elem(), RuleGroupConnectedAccountConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupConnectedAccountPriceInput)(nil)).Elem(), RuleGroupConnectedAccountPriceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupConnectedAccountPriceArrayInput)(nil)).Elem(), RuleGroupConnectedAccountPriceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookieMatchPatternInput)(nil)).Elem(), RuleGroupCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookieMatchPatternPtrInput)(nil)).Elem(), RuleGroupCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookiesInput)(nil)).Elem(), RuleGroupCookiesArgs{})
@@ -30890,10 +31656,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclChallengeActionPtrInput)(nil)).Elem(), WebAclChallengeActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclChallengeConfigInput)(nil)).Elem(), WebAclChallengeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclChallengeConfigPtrInput)(nil)).Elem(), WebAclChallengeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclChallengeJavascriptSdkInjectionConfigInput)(nil)).Elem(), WebAclChallengeJavascriptSdkInjectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclChallengeJavascriptSdkInjectionConfigMapInput)(nil)).Elem(), WebAclChallengeJavascriptSdkInjectionConfigMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclClientSideActionInput)(nil)).Elem(), WebAclClientSideActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclClientSideActionPtrInput)(nil)).Elem(), WebAclClientSideActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclClientSideActionConfigInput)(nil)).Elem(), WebAclClientSideActionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclClientSideActionConfigPtrInput)(nil)).Elem(), WebAclClientSideActionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclConnectedAccountChainConfigInput)(nil)).Elem(), WebAclConnectedAccountChainConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclConnectedAccountChainConfigArrayInput)(nil)).Elem(), WebAclConnectedAccountChainConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclConnectedAccountConfigInput)(nil)).Elem(), WebAclConnectedAccountConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclConnectedAccountConfigArrayInput)(nil)).Elem(), WebAclConnectedAccountConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclConnectedAccountPriceInput)(nil)).Elem(), WebAclConnectedAccountPriceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclConnectedAccountPriceArrayInput)(nil)).Elem(), WebAclConnectedAccountPriceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCookieMatchPatternInput)(nil)).Elem(), WebAclCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCookieMatchPatternPtrInput)(nil)).Elem(), WebAclCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCookiesInput)(nil)).Elem(), WebAclCookiesArgs{})
@@ -31083,6 +31857,12 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupChallengeActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupChallengeConfigOutput{})
 	pulumi.RegisterOutputType(RuleGroupChallengeConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupConnectedAccountChainConfigOutput{})
+	pulumi.RegisterOutputType(RuleGroupConnectedAccountChainConfigArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupConnectedAccountConfigOutput{})
+	pulumi.RegisterOutputType(RuleGroupConnectedAccountConfigArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupConnectedAccountPriceOutput{})
+	pulumi.RegisterOutputType(RuleGroupConnectedAccountPriceArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookieMatchPatternOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookieMatchPatternPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookiesOutput{})
@@ -31234,10 +32014,18 @@ func init() {
 	pulumi.RegisterOutputType(WebAclChallengeActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclChallengeConfigOutput{})
 	pulumi.RegisterOutputType(WebAclChallengeConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclChallengeJavascriptSdkInjectionConfigOutput{})
+	pulumi.RegisterOutputType(WebAclChallengeJavascriptSdkInjectionConfigMapOutput{})
 	pulumi.RegisterOutputType(WebAclClientSideActionOutput{})
 	pulumi.RegisterOutputType(WebAclClientSideActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclClientSideActionConfigOutput{})
 	pulumi.RegisterOutputType(WebAclClientSideActionConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclConnectedAccountChainConfigOutput{})
+	pulumi.RegisterOutputType(WebAclConnectedAccountChainConfigArrayOutput{})
+	pulumi.RegisterOutputType(WebAclConnectedAccountConfigOutput{})
+	pulumi.RegisterOutputType(WebAclConnectedAccountConfigArrayOutput{})
+	pulumi.RegisterOutputType(WebAclConnectedAccountPriceOutput{})
+	pulumi.RegisterOutputType(WebAclConnectedAccountPriceArrayOutput{})
 	pulumi.RegisterOutputType(WebAclCookieMatchPatternOutput{})
 	pulumi.RegisterOutputType(WebAclCookieMatchPatternPtrOutput{})
 	pulumi.RegisterOutputType(WebAclCookiesOutput{})

@@ -97,6 +97,13 @@
       },
       "maxItems" : 50
     },
+    "KmsKeyIdentifier" : {
+      "description" : "The customer managed KMS key used to encrypt the MicroVM image configuration at rest. When omitted, a service owned key is used.",
+      "type" : "string",
+      "pattern" : "^(arn:aws[a-z-]*:kms:[a-z0-9-]+:[0-9]{12}:(key|alias)/[a-zA-Z0-9:/_-]+|alias/[a-zA-Z0-9:/_-]+|[a-zA-Z0-9-]+)$",
+      "minLength" : 1,
+      "maxLength" : 2048
+    },
     "Tags" : {
       "description" : "Key-value pairs to associate with the MicroVM image for organization and management.",
       "type" : "array",
@@ -165,7 +172,7 @@
       "properties" : {
         "Architecture" : {
           "type" : "string",
-          "enum" : [ "ARM_64" ]
+          "enum" : [ "ARM_64", "X86_64" ]
         }
       },
       "required" : [ "Architecture" ]
@@ -316,7 +323,7 @@
   "additionalIdentifiers" : [ [ "/properties/Name" ] ],
   "readOnlyProperties" : [ "/properties/ImageArn", "/properties/State", "/properties/LatestActiveImageVersion", "/properties/LatestFailedImageVersion", "/properties/CreatedAt", "/properties/UpdatedAt" ],
   "createOnlyProperties" : [ "/properties/Name" ],
-  "writeOnlyProperties" : [ "/properties/BaseImageArn", "/properties/BaseImageVersion", "/properties/BuildRoleArn", "/properties/Description", "/properties/CodeArtifact", "/properties/Logging", "/properties/EgressNetworkConnectors", "/properties/CpuConfigurations", "/properties/Resources", "/properties/AdditionalOsCapabilities", "/properties/Hooks", "/properties/EnvironmentVariables" ],
+  "writeOnlyProperties" : [ "/properties/BaseImageArn", "/properties/BaseImageVersion", "/properties/BuildRoleArn", "/properties/Description", "/properties/CodeArtifact", "/properties/Logging", "/properties/EgressNetworkConnectors", "/properties/CpuConfigurations", "/properties/Resources", "/properties/AdditionalOsCapabilities", "/properties/Hooks", "/properties/EnvironmentVariables", "/properties/KmsKeyIdentifier" ],
   "required" : [ "Name", "BaseImageArn", "BaseImageVersion", "BuildRoleArn", "Description", "CodeArtifact", "Logging", "EgressNetworkConnectors", "CpuConfigurations", "Resources", "AdditionalOsCapabilities", "Hooks", "EnvironmentVariables" ],
   "tagging" : {
     "taggable" : true,
@@ -328,10 +335,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "lambda:TagResource", "lambda:TagResource20170331v2", "lambda:GetMicrovmImage", "lambda:CreateMicrovmImage", "lambda:PassNetworkConnector", "iam:PassRole" ]
+      "permissions" : [ "lambda:TagResource", "lambda:TagResource20170331v2", "lambda:GetMicrovmImage", "lambda:CreateMicrovmImage", "lambda:PassNetworkConnector", "iam:PassRole", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext" ]
     },
     "update" : {
-      "permissions" : [ "lambda:TagResource", "lambda:TagResource20170331v2", "lambda:GetMicrovmImage", "lambda:UpdateMicrovmImage", "lambda:UntagResource", "lambda:UntagResource20170331v2", "lambda:PassNetworkConnector", "iam:PassRole", "lambda:DeleteMicrovmImageVersion", "lambda:GetMicrovmImageVersion" ]
+      "permissions" : [ "lambda:TagResource", "lambda:TagResource20170331v2", "lambda:GetMicrovmImage", "lambda:UpdateMicrovmImage", "lambda:UntagResource", "lambda:UntagResource20170331v2", "lambda:PassNetworkConnector", "iam:PassRole", "lambda:DeleteMicrovmImageVersion", "lambda:GetMicrovmImageVersion", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext" ]
     },
     "read" : {
       "permissions" : [ "lambda:GetMicrovmImage", "lambda:ListTags" ]

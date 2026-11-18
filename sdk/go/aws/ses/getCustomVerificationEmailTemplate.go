@@ -35,7 +35,7 @@ type LookupCustomVerificationEmailTemplateResult struct {
 	FromEmailAddress *string `pulumi:"fromEmailAddress"`
 	// The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 	SuccessRedirectionUrl *string `pulumi:"successRedirectionUrl"`
-	// The tags (keys and values) associated with the tenant.
+	// The tags (keys and values) associated with the custom verification email template.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations.
 	TemplateContent *string `pulumi:"templateContent"`
@@ -86,7 +86,7 @@ func (o LookupCustomVerificationEmailTemplateResultOutput) SuccessRedirectionUrl
 	return o.ApplyT(func(v LookupCustomVerificationEmailTemplateResult) *string { return v.SuccessRedirectionUrl }).(pulumi.StringPtrOutput)
 }
 
-// The tags (keys and values) associated with the tenant.
+// The tags (keys and values) associated with the custom verification email template.
 func (o LookupCustomVerificationEmailTemplateResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCustomVerificationEmailTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

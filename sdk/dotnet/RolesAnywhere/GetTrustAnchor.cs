@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [OutputType]
     public sealed class GetTrustAnchorResult
     {
+        public readonly bool? CrlDpRevocationEnabled;
         /// <summary>
         /// Indicates whether the trust anchor is enabled.
         /// </summary>
@@ -94,6 +95,8 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
         [OutputConstructor]
         private GetTrustAnchorResult(
+            bool? crlDpRevocationEnabled,
+
             bool? enabled,
 
             string? name,
@@ -108,6 +111,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
             string? trustAnchorId)
         {
+            CrlDpRevocationEnabled = crlDpRevocationEnabled;
             Enabled = enabled;
             Name = name;
             NotificationSettings = notificationSettings;

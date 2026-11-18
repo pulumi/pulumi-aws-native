@@ -79,10 +79,12 @@ namespace Pulumi.AwsNative.Configuration
         /// The prefix for delivery S3 bucket.
         /// </summary>
         public readonly string? DeliveryS3KeyPrefix;
+        public readonly Outputs.ConformancePackScope? Scope;
         /// <summary>
         /// The tags for the conformance pack.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Pulumi.AwsNative.Configuration.ConformancePackType? Type;
 
         [OutputConstructor]
         private GetConformancePackResult(
@@ -94,13 +96,19 @@ namespace Pulumi.AwsNative.Configuration
 
             string? deliveryS3KeyPrefix,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            Outputs.ConformancePackScope? scope,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Pulumi.AwsNative.Configuration.ConformancePackType? type)
         {
             ConformancePackArn = conformancePackArn;
             ConformancePackInputParameters = conformancePackInputParameters;
             DeliveryS3Bucket = deliveryS3Bucket;
             DeliveryS3KeyPrefix = deliveryS3KeyPrefix;
+            Scope = scope;
             Tags = tags;
+            Type = type;
         }
     }
 }

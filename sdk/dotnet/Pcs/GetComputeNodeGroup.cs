@@ -87,6 +87,10 @@ namespace Pulumi.AwsNative.Pcs
         /// The generated unique ID of the compute node group.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Pcs.ComputeNodeGroupLaunchTemplateMode? LaunchTemplateMode;
         public readonly Outputs.ComputeNodeGroupNodeLifecycleActions? NodeLifecycleActions;
         /// <summary>
         /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
@@ -97,6 +101,10 @@ namespace Pulumi.AwsNative.Pcs
         /// </summary>
         public readonly Outputs.ScalingConfigurationProperties? ScalingConfiguration;
         /// <summary>
+        /// The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+        /// </summary>
+        public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
         /// Additional options related to the Slurm scheduler.
         /// </summary>
         public readonly Outputs.SlurmConfigurationProperties? SlurmConfiguration;
@@ -104,6 +112,10 @@ namespace Pulumi.AwsNative.Pcs
         /// Additional configuration when you specify SPOT as the purchase option.
         /// </summary>
         public readonly Outputs.SpotOptionsProperties? SpotOptions;
+        /// <summary>
+        /// The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+        /// </summary>
+        public readonly string? SshKeyName;
         /// <summary>
         /// The provisioning status of the compute node group. The provisioning status doesn't indicate the overall health of the compute node group.
         /// </summary>
@@ -131,15 +143,21 @@ namespace Pulumi.AwsNative.Pcs
 
             string? id,
 
+            Pulumi.AwsNative.Pcs.ComputeNodeGroupLaunchTemplateMode? launchTemplateMode,
+
             Outputs.ComputeNodeGroupNodeLifecycleActions? nodeLifecycleActions,
 
             Pulumi.AwsNative.Pcs.ComputeNodeGroupPurchaseOption? purchaseOption,
 
             Outputs.ScalingConfigurationProperties? scalingConfiguration,
 
+            ImmutableArray<string> securityGroupIds,
+
             Outputs.SlurmConfigurationProperties? slurmConfiguration,
 
             Outputs.SpotOptionsProperties? spotOptions,
+
+            string? sshKeyName,
 
             Pulumi.AwsNative.Pcs.ComputeNodeGroupStatus? status,
 
@@ -153,11 +171,14 @@ namespace Pulumi.AwsNative.Pcs
             ErrorInfo = errorInfo;
             IamInstanceProfileArn = iamInstanceProfileArn;
             Id = id;
+            LaunchTemplateMode = launchTemplateMode;
             NodeLifecycleActions = nodeLifecycleActions;
             PurchaseOption = purchaseOption;
             ScalingConfiguration = scalingConfiguration;
+            SecurityGroupIds = securityGroupIds;
             SlurmConfiguration = slurmConfiguration;
             SpotOptions = spotOptions;
+            SshKeyName = sshKeyName;
             Status = status;
             SubnetIds = subnetIds;
             Tags = tags;

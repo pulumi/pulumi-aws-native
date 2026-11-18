@@ -6021,6 +6021,117 @@ func (o GameServerGroupTargetTrackingConfigurationPtrOutput) TargetValue() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The destination to deliver a game session queue's placement logs to. Omit DestinationArn for a CLOUDWATCH or S3 destination to have GameLift create one; FIREHOSE requires DestinationArn.
+type GameSessionQueueDeliveryDestination struct {
+	// The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+	DestinationArn *string `pulumi:"destinationArn"`
+	// The type of service that receives the game session queue's placement logs.
+	LogDestination GameSessionQueueDeliveryDestinationLogDestination `pulumi:"logDestination"`
+}
+
+// GameSessionQueueDeliveryDestinationInput is an input type that accepts GameSessionQueueDeliveryDestinationArgs and GameSessionQueueDeliveryDestinationOutput values.
+// You can construct a concrete instance of `GameSessionQueueDeliveryDestinationInput` via:
+//
+//	GameSessionQueueDeliveryDestinationArgs{...}
+type GameSessionQueueDeliveryDestinationInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueDeliveryDestinationOutput() GameSessionQueueDeliveryDestinationOutput
+	ToGameSessionQueueDeliveryDestinationOutputWithContext(context.Context) GameSessionQueueDeliveryDestinationOutput
+}
+
+// The destination to deliver a game session queue's placement logs to. Omit DestinationArn for a CLOUDWATCH or S3 destination to have GameLift create one; FIREHOSE requires DestinationArn.
+type GameSessionQueueDeliveryDestinationArgs struct {
+	// The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	// The type of service that receives the game session queue's placement logs.
+	LogDestination GameSessionQueueDeliveryDestinationLogDestinationInput `pulumi:"logDestination"`
+}
+
+func (GameSessionQueueDeliveryDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueDeliveryDestination)(nil)).Elem()
+}
+
+func (i GameSessionQueueDeliveryDestinationArgs) ToGameSessionQueueDeliveryDestinationOutput() GameSessionQueueDeliveryDestinationOutput {
+	return i.ToGameSessionQueueDeliveryDestinationOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueDeliveryDestinationArgs) ToGameSessionQueueDeliveryDestinationOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueDeliveryDestinationOutput)
+}
+
+// GameSessionQueueDeliveryDestinationArrayInput is an input type that accepts GameSessionQueueDeliveryDestinationArray and GameSessionQueueDeliveryDestinationArrayOutput values.
+// You can construct a concrete instance of `GameSessionQueueDeliveryDestinationArrayInput` via:
+//
+//	GameSessionQueueDeliveryDestinationArray{ GameSessionQueueDeliveryDestinationArgs{...} }
+type GameSessionQueueDeliveryDestinationArrayInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueDeliveryDestinationArrayOutput() GameSessionQueueDeliveryDestinationArrayOutput
+	ToGameSessionQueueDeliveryDestinationArrayOutputWithContext(context.Context) GameSessionQueueDeliveryDestinationArrayOutput
+}
+
+type GameSessionQueueDeliveryDestinationArray []GameSessionQueueDeliveryDestinationInput
+
+func (GameSessionQueueDeliveryDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueueDeliveryDestination)(nil)).Elem()
+}
+
+func (i GameSessionQueueDeliveryDestinationArray) ToGameSessionQueueDeliveryDestinationArrayOutput() GameSessionQueueDeliveryDestinationArrayOutput {
+	return i.ToGameSessionQueueDeliveryDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueDeliveryDestinationArray) ToGameSessionQueueDeliveryDestinationArrayOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueDeliveryDestinationArrayOutput)
+}
+
+// The destination to deliver a game session queue's placement logs to. Omit DestinationArn for a CLOUDWATCH or S3 destination to have GameLift create one; FIREHOSE requires DestinationArn.
+type GameSessionQueueDeliveryDestinationOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueDeliveryDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueDeliveryDestination)(nil)).Elem()
+}
+
+func (o GameSessionQueueDeliveryDestinationOutput) ToGameSessionQueueDeliveryDestinationOutput() GameSessionQueueDeliveryDestinationOutput {
+	return o
+}
+
+func (o GameSessionQueueDeliveryDestinationOutput) ToGameSessionQueueDeliveryDestinationOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+func (o GameSessionQueueDeliveryDestinationOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameSessionQueueDeliveryDestination) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// The type of service that receives the game session queue's placement logs.
+func (o GameSessionQueueDeliveryDestinationOutput) LogDestination() GameSessionQueueDeliveryDestinationLogDestinationOutput {
+	return o.ApplyT(func(v GameSessionQueueDeliveryDestination) GameSessionQueueDeliveryDestinationLogDestination {
+		return v.LogDestination
+	}).(GameSessionQueueDeliveryDestinationLogDestinationOutput)
+}
+
+type GameSessionQueueDeliveryDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueDeliveryDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueueDeliveryDestination)(nil)).Elem()
+}
+
+func (o GameSessionQueueDeliveryDestinationArrayOutput) ToGameSessionQueueDeliveryDestinationArrayOutput() GameSessionQueueDeliveryDestinationArrayOutput {
+	return o
+}
+
+func (o GameSessionQueueDeliveryDestinationArrayOutput) ToGameSessionQueueDeliveryDestinationArrayOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationArrayOutput {
+	return o
+}
+
+func (o GameSessionQueueDeliveryDestinationArrayOutput) Index(i pulumi.IntInput) GameSessionQueueDeliveryDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameSessionQueueDeliveryDestination {
+		return vs[0].([]GameSessionQueueDeliveryDestination)[vs[1].(int)]
+	}).(GameSessionQueueDeliveryDestinationOutput)
+}
+
 // A fleet or alias designated in a game session queue.
 type GameSessionQueueDestination struct {
 	// The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
@@ -6256,6 +6367,148 @@ func (o GameSessionQueueFilterConfigurationPtrOutput) AllowedLocations() pulumi.
 		}
 		return v.AllowedLocations
 	}).(pulumi.StringArrayOutput)
+}
+
+// A policy that determines where a game session queue's placement logs are delivered.
+type GameSessionQueueLogConfiguration struct {
+	// The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+	DeliveryDestinations []GameSessionQueueDeliveryDestination `pulumi:"deliveryDestinations"`
+}
+
+// GameSessionQueueLogConfigurationInput is an input type that accepts GameSessionQueueLogConfigurationArgs and GameSessionQueueLogConfigurationOutput values.
+// You can construct a concrete instance of `GameSessionQueueLogConfigurationInput` via:
+//
+//	GameSessionQueueLogConfigurationArgs{...}
+type GameSessionQueueLogConfigurationInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueLogConfigurationOutput() GameSessionQueueLogConfigurationOutput
+	ToGameSessionQueueLogConfigurationOutputWithContext(context.Context) GameSessionQueueLogConfigurationOutput
+}
+
+// A policy that determines where a game session queue's placement logs are delivered.
+type GameSessionQueueLogConfigurationArgs struct {
+	// The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+	DeliveryDestinations GameSessionQueueDeliveryDestinationArrayInput `pulumi:"deliveryDestinations"`
+}
+
+func (GameSessionQueueLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueLogConfiguration)(nil)).Elem()
+}
+
+func (i GameSessionQueueLogConfigurationArgs) ToGameSessionQueueLogConfigurationOutput() GameSessionQueueLogConfigurationOutput {
+	return i.ToGameSessionQueueLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueLogConfigurationArgs) ToGameSessionQueueLogConfigurationOutputWithContext(ctx context.Context) GameSessionQueueLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueLogConfigurationOutput)
+}
+
+func (i GameSessionQueueLogConfigurationArgs) ToGameSessionQueueLogConfigurationPtrOutput() GameSessionQueueLogConfigurationPtrOutput {
+	return i.ToGameSessionQueueLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueLogConfigurationArgs) ToGameSessionQueueLogConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueueLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueLogConfigurationOutput).ToGameSessionQueueLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// GameSessionQueueLogConfigurationPtrInput is an input type that accepts GameSessionQueueLogConfigurationArgs, GameSessionQueueLogConfigurationPtr and GameSessionQueueLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `GameSessionQueueLogConfigurationPtrInput` via:
+//
+//	        GameSessionQueueLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GameSessionQueueLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueLogConfigurationPtrOutput() GameSessionQueueLogConfigurationPtrOutput
+	ToGameSessionQueueLogConfigurationPtrOutputWithContext(context.Context) GameSessionQueueLogConfigurationPtrOutput
+}
+
+type gameSessionQueueLogConfigurationPtrType GameSessionQueueLogConfigurationArgs
+
+func GameSessionQueueLogConfigurationPtr(v *GameSessionQueueLogConfigurationArgs) GameSessionQueueLogConfigurationPtrInput {
+	return (*gameSessionQueueLogConfigurationPtrType)(v)
+}
+
+func (*gameSessionQueueLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueueLogConfiguration)(nil)).Elem()
+}
+
+func (i *gameSessionQueueLogConfigurationPtrType) ToGameSessionQueueLogConfigurationPtrOutput() GameSessionQueueLogConfigurationPtrOutput {
+	return i.ToGameSessionQueueLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gameSessionQueueLogConfigurationPtrType) ToGameSessionQueueLogConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueueLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueLogConfigurationPtrOutput)
+}
+
+// A policy that determines where a game session queue's placement logs are delivered.
+type GameSessionQueueLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueLogConfiguration)(nil)).Elem()
+}
+
+func (o GameSessionQueueLogConfigurationOutput) ToGameSessionQueueLogConfigurationOutput() GameSessionQueueLogConfigurationOutput {
+	return o
+}
+
+func (o GameSessionQueueLogConfigurationOutput) ToGameSessionQueueLogConfigurationOutputWithContext(ctx context.Context) GameSessionQueueLogConfigurationOutput {
+	return o
+}
+
+func (o GameSessionQueueLogConfigurationOutput) ToGameSessionQueueLogConfigurationPtrOutput() GameSessionQueueLogConfigurationPtrOutput {
+	return o.ToGameSessionQueueLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueueLogConfigurationOutput) ToGameSessionQueueLogConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueueLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameSessionQueueLogConfiguration) *GameSessionQueueLogConfiguration {
+		return &v
+	}).(GameSessionQueueLogConfigurationPtrOutput)
+}
+
+// The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+func (o GameSessionQueueLogConfigurationOutput) DeliveryDestinations() GameSessionQueueDeliveryDestinationArrayOutput {
+	return o.ApplyT(func(v GameSessionQueueLogConfiguration) []GameSessionQueueDeliveryDestination {
+		return v.DeliveryDestinations
+	}).(GameSessionQueueDeliveryDestinationArrayOutput)
+}
+
+type GameSessionQueueLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueueLogConfiguration)(nil)).Elem()
+}
+
+func (o GameSessionQueueLogConfigurationPtrOutput) ToGameSessionQueueLogConfigurationPtrOutput() GameSessionQueueLogConfigurationPtrOutput {
+	return o
+}
+
+func (o GameSessionQueueLogConfigurationPtrOutput) ToGameSessionQueueLogConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueueLogConfigurationPtrOutput {
+	return o
+}
+
+func (o GameSessionQueueLogConfigurationPtrOutput) Elem() GameSessionQueueLogConfigurationOutput {
+	return o.ApplyT(func(v *GameSessionQueueLogConfiguration) GameSessionQueueLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GameSessionQueueLogConfiguration
+		return ret
+	}).(GameSessionQueueLogConfigurationOutput)
+}
+
+// The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+func (o GameSessionQueueLogConfigurationPtrOutput) DeliveryDestinations() GameSessionQueueDeliveryDestinationArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueueLogConfiguration) []GameSessionQueueDeliveryDestination {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryDestinations
+	}).(GameSessionQueueDeliveryDestinationArrayOutput)
 }
 
 // Sets a latency cap for individual players when placing a game session.
@@ -6911,10 +7164,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplatePtrInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTargetTrackingConfigurationInput)(nil)).Elem(), GameServerGroupTargetTrackingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTargetTrackingConfigurationPtrInput)(nil)).Elem(), GameServerGroupTargetTrackingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueDeliveryDestinationInput)(nil)).Elem(), GameSessionQueueDeliveryDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueDeliveryDestinationArrayInput)(nil)).Elem(), GameSessionQueueDeliveryDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueDestinationInput)(nil)).Elem(), GameSessionQueueDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueDestinationArrayInput)(nil)).Elem(), GameSessionQueueDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueFilterConfigurationInput)(nil)).Elem(), GameSessionQueueFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueFilterConfigurationPtrInput)(nil)).Elem(), GameSessionQueueFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueLogConfigurationInput)(nil)).Elem(), GameSessionQueueLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueLogConfigurationPtrInput)(nil)).Elem(), GameSessionQueueLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyArrayInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityConfigurationInput)(nil)).Elem(), GameSessionQueuePriorityConfigurationArgs{})
@@ -6998,10 +7255,14 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueDeliveryDestinationOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueDeliveryDestinationArrayOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueDestinationOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueDestinationArrayOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueFilterConfigurationOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueFilterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueLogConfigurationOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePriorityConfigurationOutput{})

@@ -398,6 +398,8 @@ __all__ = [
     'HarnessHookSnsTargetArgsDict',
     'HarnessHookTargetArgs',
     'HarnessHookTargetArgsDict',
+    'HarnessIamCredentialProviderArgs',
+    'HarnessIamCredentialProviderArgsDict',
     'HarnessInlineFunctionConfigArgs',
     'HarnessInlineFunctionConfigArgsDict',
     'HarnessLifecycleConfigurationArgs',
@@ -424,6 +426,8 @@ __all__ = [
     'HarnessPrivateEndpointOverrideArgsDict',
     'HarnessRemoteMcpConfigArgs',
     'HarnessRemoteMcpConfigArgsDict',
+    'HarnessRemoteMcpOutboundAuthArgs',
+    'HarnessRemoteMcpOutboundAuthArgsDict',
     'HarnessS3FilesAccessPointConfigurationArgs',
     'HarnessS3FilesAccessPointConfigurationArgsDict',
     'HarnessSelfManagedLatticeResourceArgs',
@@ -544,6 +548,8 @@ __all__ = [
     'MemoryValidationArgsDict',
     'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderCertificateConfigurationArgs',
+    'OAuth2CredentialProviderCertificateConfigurationArgsDict',
     'OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict',
     'OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs',
@@ -576,10 +582,14 @@ __all__ = [
     'OAuth2CredentialProviderPrivateKeyJwtConfigArgsDict',
     'OAuth2CredentialProviderPrivateKeySourceArgs',
     'OAuth2CredentialProviderPrivateKeySourceArgsDict',
+    'OAuth2CredentialProviderS3CertificateConfigurationArgs',
+    'OAuth2CredentialProviderS3CertificateConfigurationArgsDict',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict',
     'OAuth2CredentialProviderSecretReferenceArgs',
     'OAuth2CredentialProviderSecretReferenceArgsDict',
+    'OAuth2CredentialProviderSecretsManagerCertificateConfigurationArgs',
+    'OAuth2CredentialProviderSecretsManagerCertificateConfigurationArgsDict',
     'OAuth2CredentialProviderSelfManagedLatticeResourceArgs',
     'OAuth2CredentialProviderSelfManagedLatticeResourceArgsDict',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs',
@@ -624,16 +634,16 @@ __all__ = [
     'PaymentCredentialProviderStripePrivyConfigurationInputArgsDict',
     'PaymentManagerAuthorizerConfigurationPropertiesArgs',
     'PaymentManagerAuthorizerConfigurationPropertiesArgsDict',
-    'PaymentManagerAuthorizingClaimMatchValueArgs',
-    'PaymentManagerAuthorizingClaimMatchValueArgsDict',
-    'PaymentManagerClaimMatchValue0PropertiesArgs',
-    'PaymentManagerClaimMatchValue0PropertiesArgsDict',
-    'PaymentManagerClaimMatchValue1PropertiesArgs',
-    'PaymentManagerClaimMatchValue1PropertiesArgsDict',
+    'PaymentManagerAuthorizingClaimMatchValueTypeArgs',
+    'PaymentManagerAuthorizingClaimMatchValueTypeArgsDict',
+    'PaymentManagerClaimMatchValueType0PropertiesArgs',
+    'PaymentManagerClaimMatchValueType0PropertiesArgsDict',
+    'PaymentManagerClaimMatchValueType1PropertiesArgs',
+    'PaymentManagerClaimMatchValueType1PropertiesArgsDict',
     'PaymentManagerCustomClaimValidationTypeArgs',
     'PaymentManagerCustomClaimValidationTypeArgsDict',
-    'PaymentManagerCustomJwtAuthorizerArgs',
-    'PaymentManagerCustomJwtAuthorizerArgsDict',
+    'PaymentManagerCustomJwtAuthorizerConfigurationArgs',
+    'PaymentManagerCustomJwtAuthorizerConfigurationArgsDict',
     'PolicyCedarPolicyArgs',
     'PolicyCedarPolicyArgsDict',
     'PolicyDefinitionArgs',
@@ -8470,6 +8480,59 @@ class HarnessHookTargetArgs:
         pulumi.set(self, "sns", value)
 
 
+class HarnessIamCredentialProviderArgsDict(TypedDict):
+    """
+    IAM credentials used to SigV4-sign requests.
+    """
+    service: pulumi.Input[_builtins.str]
+    """
+    The AWS service name used for SigV4 signing.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS Region used for SigV4 signing.
+    """
+
+@pulumi.input_type
+class HarnessIamCredentialProviderArgs:
+    def __init__(__self__, *,
+                 service: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        IAM credentials used to SigV4-sign requests.
+
+        :param pulumi.Input[_builtins.str] service: The AWS service name used for SigV4 signing.
+        :param pulumi.Input[_builtins.str] region: The AWS Region used for SigV4 signing.
+        """
+        pulumi.set(__self__, "service", service)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AWS service name used for SigV4 signing.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS Region used for SigV4 signing.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
 class HarnessInlineFunctionConfigArgsDict(TypedDict):
     description: pulumi.Input[_builtins.str]
     input_schema: Any
@@ -8512,13 +8575,23 @@ class HarnessInlineFunctionConfigArgs:
 
 class HarnessLifecycleConfigurationArgsDict(TypedDict):
     idle_runtime_session_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Valid range: 60 to 28800 seconds (8 hours), and must be less than or equal to MaxLifetime. Default: 900 seconds (15 minutes).
+    """
     max_lifetime: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Valid range: 60 to 28800 seconds (8 hours). Default: 28800 seconds (8 hours).
+    """
 
 @pulumi.input_type
 class HarnessLifecycleConfigurationArgs:
     def __init__(__self__, *,
                  idle_runtime_session_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  max_lifetime: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] idle_runtime_session_timeout: Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Valid range: 60 to 28800 seconds (8 hours), and must be less than or equal to MaxLifetime. Default: 900 seconds (15 minutes).
+        :param pulumi.Input[_builtins.int] max_lifetime: Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Valid range: 60 to 28800 seconds (8 hours). Default: 28800 seconds (8 hours).
+        """
         if idle_runtime_session_timeout is not None:
             pulumi.set(__self__, "idle_runtime_session_timeout", idle_runtime_session_timeout)
         if max_lifetime is not None:
@@ -8527,6 +8600,9 @@ class HarnessLifecycleConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="idleRuntimeSessionTimeout")
     def idle_runtime_session_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Valid range: 60 to 28800 seconds (8 hours), and must be less than or equal to MaxLifetime. Default: 900 seconds (15 minutes).
+        """
         return pulumi.get(self, "idle_runtime_session_timeout")
 
     @idle_runtime_session_timeout.setter
@@ -8536,6 +8612,9 @@ class HarnessLifecycleConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="maxLifetime")
     def max_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Valid range: 60 to 28800 seconds (8 hours). Default: 28800 seconds (8 hours).
+        """
         return pulumi.get(self, "max_lifetime")
 
     @max_lifetime.setter
@@ -9242,15 +9321,25 @@ class HarnessPrivateEndpointOverrideArgs:
 class HarnessRemoteMcpConfigArgsDict(TypedDict):
     url: pulumi.Input[_builtins.str]
     headers: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    outbound_auth: NotRequired[pulumi.Input[Optional['HarnessRemoteMcpOutboundAuthArgsDict']]]
+    """
+    How the harness authenticates to this MCP endpoint. Defaults to None if omitted.
+    """
 
 @pulumi.input_type
 class HarnessRemoteMcpConfigArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 outbound_auth: pulumi.Input[Optional['HarnessRemoteMcpOutboundAuthArgs']] = None):
+        """
+        :param pulumi.Input['HarnessRemoteMcpOutboundAuthArgs'] outbound_auth: How the harness authenticates to this MCP endpoint. Defaults to None if omitted.
+        """
         pulumi.set(__self__, "url", url)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
+        if outbound_auth is not None:
+            pulumi.set(__self__, "outbound_auth", outbound_auth)
 
     @_builtins.property
     @pulumi.getter
@@ -9269,6 +9358,72 @@ class HarnessRemoteMcpConfigArgs:
     @headers.setter
     def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundAuth")
+    def outbound_auth(self) -> pulumi.Input[Optional['HarnessRemoteMcpOutboundAuthArgs']]:
+        """
+        How the harness authenticates to this MCP endpoint. Defaults to None if omitted.
+        """
+        return pulumi.get(self, "outbound_auth")
+
+    @outbound_auth.setter
+    def outbound_auth(self, value: pulumi.Input[Optional['HarnessRemoteMcpOutboundAuthArgs']]):
+        pulumi.set(self, "outbound_auth", value)
+
+
+class HarnessRemoteMcpOutboundAuthArgsDict(TypedDict):
+    """
+    Authentication method for calling a remote MCP server.
+    """
+    aws_iam: NotRequired[pulumi.Input[Optional['HarnessIamCredentialProviderArgsDict']]]
+    """
+    SigV4-sign requests using the harness execution role. Region defaults to the harness Region if omitted.
+    """
+    none: NotRequired[Any]
+    """
+    No authentication.
+    """
+
+@pulumi.input_type
+class HarnessRemoteMcpOutboundAuthArgs:
+    def __init__(__self__, *,
+                 aws_iam: pulumi.Input[Optional['HarnessIamCredentialProviderArgs']] = None,
+                 none: Optional[Any] = None):
+        """
+        Authentication method for calling a remote MCP server.
+
+        :param pulumi.Input['HarnessIamCredentialProviderArgs'] aws_iam: SigV4-sign requests using the harness execution role. Region defaults to the harness Region if omitted.
+        :param Any none: No authentication.
+        """
+        if aws_iam is not None:
+            pulumi.set(__self__, "aws_iam", aws_iam)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIam")
+    def aws_iam(self) -> pulumi.Input[Optional['HarnessIamCredentialProviderArgs']]:
+        """
+        SigV4-sign requests using the harness execution role. Region defaults to the harness Region if omitted.
+        """
+        return pulumi.get(self, "aws_iam")
+
+    @aws_iam.setter
+    def aws_iam(self, value: pulumi.Input[Optional['HarnessIamCredentialProviderArgs']]):
+        pulumi.set(self, "aws_iam", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional[Any]:
+        """
+        No authentication.
+        """
+        return pulumi.get(self, "none")
+
+    @none.setter
+    def none(self, value: Optional[Any]):
+        pulumi.set(self, "none", value)
 
 
 class HarnessS3FilesAccessPointConfigurationArgsDict(TypedDict):
@@ -12345,11 +12500,51 @@ class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs:
         pulumi.set(self, "client_secret_source", value)
 
 
+class OAuth2CredentialProviderCertificateConfigurationArgsDict(TypedDict):
+    """
+    A reference to a private CA certificate. Specify exactly one certificate source.
+    """
+    s3: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderS3CertificateConfigurationArgsDict']]]
+    secrets_manager: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderSecretsManagerCertificateConfigurationArgsDict']]]
+
+@pulumi.input_type
+class OAuth2CredentialProviderCertificateConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: pulumi.Input[Optional['OAuth2CredentialProviderS3CertificateConfigurationArgs']] = None,
+                 secrets_manager: pulumi.Input[Optional['OAuth2CredentialProviderSecretsManagerCertificateConfigurationArgs']] = None):
+        """
+        A reference to a private CA certificate. Specify exactly one certificate source.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+        if secrets_manager is not None:
+            pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['OAuth2CredentialProviderS3CertificateConfigurationArgs']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['OAuth2CredentialProviderS3CertificateConfigurationArgs']]):
+        pulumi.set(self, "s3", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> pulumi.Input[Optional['OAuth2CredentialProviderSecretsManagerCertificateConfigurationArgs']]:
+        return pulumi.get(self, "secrets_manager")
+
+    @secrets_manager.setter
+    def secrets_manager(self, value: pulumi.Input[Optional['OAuth2CredentialProviderSecretsManagerCertificateConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager", value)
+
+
 class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict(TypedDict):
     """
     Input configuration for a custom OAuth2 provider
     """
     oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgsDict']
+    certificate_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OAuth2CredentialProviderCertificateConfigurationArgsDict']]]]]
     client_authentication_method: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod']]]
     """
     The client authentication method to use when authenticating with the token endpoint
@@ -12379,6 +12574,7 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict(TypedDict)
 class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs'],
+                 certificate_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['OAuth2CredentialProviderCertificateConfigurationArgs']]]] = None,
                  client_authentication_method: pulumi.Input[Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod']] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_secret: pulumi.Input[Optional[_builtins.str]] = None,
@@ -12398,6 +12594,8 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OAuth2CredentialProviderPrivateEndpointOverrideArgs']]] private_endpoint_overrides: A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
         """
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if certificate_configurations is not None:
+            pulumi.set(__self__, "certificate_configurations", certificate_configurations)
         if client_authentication_method is not None:
             pulumi.set(__self__, "client_authentication_method", client_authentication_method)
         if client_id is not None:
@@ -12425,6 +12623,15 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
     @oauth_discovery.setter
     def oauth_discovery(self, value: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs']):
         pulumi.set(self, "oauth_discovery", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateConfigurations")
+    def certificate_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OAuth2CredentialProviderCertificateConfigurationArgs']]]]:
+        return pulumi.get(self, "certificate_configurations")
+
+    @certificate_configurations.setter
+    def certificate_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OAuth2CredentialProviderCertificateConfigurationArgs']]]]):
+        pulumi.set(self, "certificate_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAuthenticationMethod")
@@ -13187,7 +13394,7 @@ class OAuth2CredentialProviderOauth2DiscoveryArgsDict(TypedDict):
     authorization_server_metadata: NotRequired[pulumi.Input[Optional['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgsDict']]]
     discovery_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The discovery URL for the OAuth2 provider
+    OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL
     """
 
 @pulumi.input_type
@@ -13198,7 +13405,7 @@ class OAuth2CredentialProviderOauth2DiscoveryArgs:
         """
         Discovery information for an OAuth2 provider
 
-        :param pulumi.Input[_builtins.str] discovery_url: The discovery URL for the OAuth2 provider
+        :param pulumi.Input[_builtins.str] discovery_url: OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL
         """
         if authorization_server_metadata is not None:
             pulumi.set(__self__, "authorization_server_metadata", authorization_server_metadata)
@@ -13218,7 +13425,7 @@ class OAuth2CredentialProviderOauth2DiscoveryArgs:
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The discovery URL for the OAuth2 provider
+        OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL
         """
         return pulumi.get(self, "discovery_url")
 
@@ -13586,6 +13793,59 @@ class OAuth2CredentialProviderPrivateKeySourceArgs:
         pulumi.set(self, "kms_key_source", value)
 
 
+class OAuth2CredentialProviderS3CertificateConfigurationArgsDict(TypedDict):
+    """
+    A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The URI of the Amazon S3 object that contains the PEM-encoded certificate
+    """
+    bucket_owner_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The account ID of the Amazon S3 bucket owner, used for cross-account access to the bucket
+    """
+
+@pulumi.input_type
+class OAuth2CredentialProviderS3CertificateConfigurationArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[_builtins.str],
+                 bucket_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object
+
+        :param pulumi.Input[_builtins.str] uri: The URI of the Amazon S3 object that contains the PEM-encoded certificate
+        :param pulumi.Input[_builtins.str] bucket_owner_account_id: The account ID of the Amazon S3 bucket owner, used for cross-account access to the bucket
+        """
+        pulumi.set(__self__, "uri", uri)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        The URI of the Amazon S3 object that contains the PEM-encoded certificate
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The account ID of the Amazon S3 bucket owner, used for cross-account access to the bucket
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
+
+
 class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict(TypedDict):
     """
     Input configuration for a Salesforce OAuth2 provider
@@ -13700,6 +13960,39 @@ class OAuth2CredentialProviderSecretReferenceArgs:
     @secret_id.setter
     def secret_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "secret_id", value)
+
+
+class OAuth2CredentialProviderSecretsManagerCertificateConfigurationArgsDict(TypedDict):
+    """
+    A reference to a PEM-encoded private CA certificate stored in an AWS Secrets Manager secret
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Secrets Manager secret that contains the PEM-encoded certificate
+    """
+
+@pulumi.input_type
+class OAuth2CredentialProviderSecretsManagerCertificateConfigurationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        A reference to a PEM-encoded private CA certificate stored in an AWS Secrets Manager secret
+
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret that contains the PEM-encoded certificate
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Secrets Manager secret that contains the PEM-encoded certificate
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class OAuth2CredentialProviderSelfManagedLatticeResourceArgsDict(TypedDict):
@@ -14834,66 +15127,60 @@ class PaymentCredentialProviderStripePrivyConfigurationInputArgs:
 
 
 class PaymentManagerAuthorizerConfigurationPropertiesArgsDict(TypedDict):
-    """
-    The authorizer configuration for the payment manager
-    """
-    custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerArgsDict']
+    custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgsDict']
 
 @pulumi.input_type
 class PaymentManagerAuthorizerConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerArgs']):
-        """
-        The authorizer configuration for the payment manager
-        """
+                 custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']):
         pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
 
     @_builtins.property
     @pulumi.getter(name="customJwtAuthorizer")
-    def custom_jwt_authorizer(self) -> pulumi.Input['PaymentManagerCustomJwtAuthorizerArgs']:
+    def custom_jwt_authorizer(self) -> pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']:
         return pulumi.get(self, "custom_jwt_authorizer")
 
     @custom_jwt_authorizer.setter
-    def custom_jwt_authorizer(self, value: pulumi.Input['PaymentManagerCustomJwtAuthorizerArgs']):
+    def custom_jwt_authorizer(self, value: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']):
         pulumi.set(self, "custom_jwt_authorizer", value)
 
 
-class PaymentManagerAuthorizingClaimMatchValueArgsDict(TypedDict):
-    claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator']
-    claim_match_value: pulumi.Input[Union['PaymentManagerClaimMatchValue0PropertiesArgsDict', 'PaymentManagerClaimMatchValue1PropertiesArgsDict']]
+class PaymentManagerAuthorizingClaimMatchValueTypeArgsDict(TypedDict):
+    claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']
+    claim_match_value: pulumi.Input[Union['PaymentManagerClaimMatchValueType0PropertiesArgsDict', 'PaymentManagerClaimMatchValueType1PropertiesArgsDict']]
 
 @pulumi.input_type
-class PaymentManagerAuthorizingClaimMatchValueArgs:
+class PaymentManagerAuthorizingClaimMatchValueTypeArgs:
     def __init__(__self__, *,
-                 claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator'],
-                 claim_match_value: pulumi.Input[Union['PaymentManagerClaimMatchValue0PropertiesArgs', 'PaymentManagerClaimMatchValue1PropertiesArgs']]):
+                 claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator'],
+                 claim_match_value: pulumi.Input[Union['PaymentManagerClaimMatchValueType0PropertiesArgs', 'PaymentManagerClaimMatchValueType1PropertiesArgs']]):
         pulumi.set(__self__, "claim_match_operator", claim_match_operator)
         pulumi.set(__self__, "claim_match_value", claim_match_value)
 
     @_builtins.property
     @pulumi.getter(name="claimMatchOperator")
-    def claim_match_operator(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator']:
+    def claim_match_operator(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']:
         return pulumi.get(self, "claim_match_operator")
 
     @claim_match_operator.setter
-    def claim_match_operator(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueClaimMatchOperator']):
+    def claim_match_operator(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']):
         pulumi.set(self, "claim_match_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="claimMatchValue")
-    def claim_match_value(self) -> pulumi.Input[Union['PaymentManagerClaimMatchValue0PropertiesArgs', 'PaymentManagerClaimMatchValue1PropertiesArgs']]:
+    def claim_match_value(self) -> pulumi.Input[Union['PaymentManagerClaimMatchValueType0PropertiesArgs', 'PaymentManagerClaimMatchValueType1PropertiesArgs']]:
         return pulumi.get(self, "claim_match_value")
 
     @claim_match_value.setter
-    def claim_match_value(self, value: pulumi.Input[Union['PaymentManagerClaimMatchValue0PropertiesArgs', 'PaymentManagerClaimMatchValue1PropertiesArgs']]):
+    def claim_match_value(self, value: pulumi.Input[Union['PaymentManagerClaimMatchValueType0PropertiesArgs', 'PaymentManagerClaimMatchValueType1PropertiesArgs']]):
         pulumi.set(self, "claim_match_value", value)
 
 
-class PaymentManagerClaimMatchValue0PropertiesArgsDict(TypedDict):
+class PaymentManagerClaimMatchValueType0PropertiesArgsDict(TypedDict):
     match_value_string: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
-class PaymentManagerClaimMatchValue0PropertiesArgs:
+class PaymentManagerClaimMatchValueType0PropertiesArgs:
     def __init__(__self__, *,
                  match_value_string: pulumi.Input[_builtins.str]):
         pulumi.set(__self__, "match_value_string", match_value_string)
@@ -14908,11 +15195,11 @@ class PaymentManagerClaimMatchValue0PropertiesArgs:
         pulumi.set(self, "match_value_string", value)
 
 
-class PaymentManagerClaimMatchValue1PropertiesArgsDict(TypedDict):
+class PaymentManagerClaimMatchValueType1PropertiesArgsDict(TypedDict):
     match_value_string_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
-class PaymentManagerClaimMatchValue1PropertiesArgs:
+class PaymentManagerClaimMatchValueType1PropertiesArgs:
     def __init__(__self__, *,
                  match_value_string_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(__self__, "match_value_string_list", match_value_string_list)
@@ -14928,14 +15215,14 @@ class PaymentManagerClaimMatchValue1PropertiesArgs:
 
 
 class PaymentManagerCustomClaimValidationTypeArgsDict(TypedDict):
-    authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueArgsDict']
+    authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgsDict']
     inbound_token_claim_name: pulumi.Input[_builtins.str]
     inbound_token_claim_value_type: pulumi.Input['PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType']
 
 @pulumi.input_type
 class PaymentManagerCustomClaimValidationTypeArgs:
     def __init__(__self__, *,
-                 authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueArgs'],
+                 authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs'],
                  inbound_token_claim_name: pulumi.Input[_builtins.str],
                  inbound_token_claim_value_type: pulumi.Input['PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType']):
         pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
@@ -14944,11 +15231,11 @@ class PaymentManagerCustomClaimValidationTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizingClaimMatchValue")
-    def authorizing_claim_match_value(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueArgs']:
+    def authorizing_claim_match_value(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs']:
         return pulumi.get(self, "authorizing_claim_match_value")
 
     @authorizing_claim_match_value.setter
-    def authorizing_claim_match_value(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueArgs']):
+    def authorizing_claim_match_value(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs']):
         pulumi.set(self, "authorizing_claim_match_value", value)
 
     @_builtins.property
@@ -14970,7 +15257,7 @@ class PaymentManagerCustomClaimValidationTypeArgs:
         pulumi.set(self, "inbound_token_claim_value_type", value)
 
 
-class PaymentManagerCustomJwtAuthorizerArgsDict(TypedDict):
+class PaymentManagerCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
     discovery_url: pulumi.Input[_builtins.str]
     allowed_audience: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
@@ -14978,7 +15265,7 @@ class PaymentManagerCustomJwtAuthorizerArgsDict(TypedDict):
     custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PaymentManagerCustomClaimValidationTypeArgsDict']]]]]
 
 @pulumi.input_type
-class PaymentManagerCustomJwtAuthorizerArgs:
+class PaymentManagerCustomJwtAuthorizerConfigurationArgs:
     def __init__(__self__, *,
                  discovery_url: pulumi.Input[_builtins.str],
                  allowed_audience: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,

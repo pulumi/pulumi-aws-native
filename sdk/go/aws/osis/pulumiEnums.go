@@ -10,6 +10,101 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The current status of the pipeline endpoint.
+type PipelineEndpointStatus string
+
+const (
+	PipelineEndpointStatusCreating     = PipelineEndpointStatus("CREATING")
+	PipelineEndpointStatusActive       = PipelineEndpointStatus("ACTIVE")
+	PipelineEndpointStatusCreateFailed = PipelineEndpointStatus("CREATE_FAILED")
+	PipelineEndpointStatusDeleting     = PipelineEndpointStatus("DELETING")
+	PipelineEndpointStatusRevoking     = PipelineEndpointStatus("REVOKING")
+	PipelineEndpointStatusRevoked      = PipelineEndpointStatus("REVOKED")
+)
+
+type PipelineEndpointStatusOutput struct{ *pulumi.OutputState }
+
+func (PipelineEndpointStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEndpointStatus)(nil)).Elem()
+}
+
+func (o PipelineEndpointStatusOutput) ToPipelineEndpointStatusOutput() PipelineEndpointStatusOutput {
+	return o
+}
+
+func (o PipelineEndpointStatusOutput) ToPipelineEndpointStatusOutputWithContext(ctx context.Context) PipelineEndpointStatusOutput {
+	return o
+}
+
+func (o PipelineEndpointStatusOutput) ToPipelineEndpointStatusPtrOutput() PipelineEndpointStatusPtrOutput {
+	return o.ToPipelineEndpointStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEndpointStatusOutput) ToPipelineEndpointStatusPtrOutputWithContext(ctx context.Context) PipelineEndpointStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineEndpointStatus) *PipelineEndpointStatus {
+		return &v
+	}).(PipelineEndpointStatusPtrOutput)
+}
+
+func (o PipelineEndpointStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipelineEndpointStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipelineEndpointStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineEndpointStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEndpointStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipelineEndpointStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineEndpointStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineEndpointStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineEndpointStatus)(nil)).Elem()
+}
+
+func (o PipelineEndpointStatusPtrOutput) ToPipelineEndpointStatusPtrOutput() PipelineEndpointStatusPtrOutput {
+	return o
+}
+
+func (o PipelineEndpointStatusPtrOutput) ToPipelineEndpointStatusPtrOutputWithContext(ctx context.Context) PipelineEndpointStatusPtrOutput {
+	return o
+}
+
+func (o PipelineEndpointStatusPtrOutput) Elem() PipelineEndpointStatusOutput {
+	return o.ApplyT(func(v *PipelineEndpointStatus) PipelineEndpointStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineEndpointStatus
+		return ret
+	}).(PipelineEndpointStatusOutput)
+}
+
+func (o PipelineEndpointStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEndpointStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipelineEndpointStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
 type PipelineVpcOptionsVpcEndpointManagement string
 
@@ -179,6 +274,8 @@ func (in *pipelineVpcOptionsVpcEndpointManagementPtr) ToPipelineVpcOptionsVpcEnd
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsVpcEndpointManagementInput)(nil)).Elem(), PipelineVpcOptionsVpcEndpointManagement("CUSTOMER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsVpcEndpointManagementPtrInput)(nil)).Elem(), PipelineVpcOptionsVpcEndpointManagement("CUSTOMER"))
+	pulumi.RegisterOutputType(PipelineEndpointStatusOutput{})
+	pulumi.RegisterOutputType(PipelineEndpointStatusPtrOutput{})
 	pulumi.RegisterOutputType(PipelineVpcOptionsVpcEndpointManagementOutput{})
 	pulumi.RegisterOutputType(PipelineVpcOptionsVpcEndpointManagementPtrOutput{})
 }

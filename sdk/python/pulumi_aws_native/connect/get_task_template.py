@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTaskTemplateResult:
-    def __init__(__self__, arn=None, client_token=None, constraints=None, contact_flow_arn=None, defaults=None, description=None, fields=None, instance_arn=None, name=None, self_assign_contact_flow_arn=None, status=None, tags=None):
+    def __init__(__self__, arn=None, client_token=None, constraints=None, contact_flow_arn=None, contact_hooks=None, defaults=None, description=None, fields=None, instance_arn=None, name=None, self_assign_contact_flow_arn=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetTaskTemplateResult:
         if contact_flow_arn and not isinstance(contact_flow_arn, str):
             raise TypeError("Expected argument 'contact_flow_arn' to be a str")
         pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+        if contact_hooks and not isinstance(contact_hooks, dict):
+            raise TypeError("Expected argument 'contact_hooks' to be a dict")
+        pulumi.set(__self__, "contact_hooks", contact_hooks)
         if defaults and not isinstance(defaults, list):
             raise TypeError("Expected argument 'defaults' to be a list")
         pulumi.set(__self__, "defaults", defaults)
@@ -95,6 +98,14 @@ class GetTaskTemplateResult:
         The identifier of the contact flow.
         """
         return pulumi.get(self, "contact_flow_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="contactHooks")
+    def contact_hooks(self) -> Optional['outputs.ContactHooksProperties']:
+        """
+        The contact hooks for the task template.
+        """
+        return pulumi.get(self, "contact_hooks")
 
     @_builtins.property
     @pulumi.getter
@@ -171,6 +182,7 @@ class AwaitableGetTaskTemplateResult(GetTaskTemplateResult):
             client_token=self.client_token,
             constraints=self.constraints,
             contact_flow_arn=self.contact_flow_arn,
+            contact_hooks=self.contact_hooks,
             defaults=self.defaults,
             description=self.description,
             fields=self.fields,
@@ -198,6 +210,7 @@ def get_task_template(arn: Optional[_builtins.str] = None,
         client_token=pulumi.get(__ret__, 'client_token'),
         constraints=pulumi.get(__ret__, 'constraints'),
         contact_flow_arn=pulumi.get(__ret__, 'contact_flow_arn'),
+        contact_hooks=pulumi.get(__ret__, 'contact_hooks'),
         defaults=pulumi.get(__ret__, 'defaults'),
         description=pulumi.get(__ret__, 'description'),
         fields=pulumi.get(__ret__, 'fields'),
@@ -222,6 +235,7 @@ def get_task_template_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         client_token=pulumi.get(__response__, 'client_token'),
         constraints=pulumi.get(__response__, 'constraints'),
         contact_flow_arn=pulumi.get(__response__, 'contact_flow_arn'),
+        contact_hooks=pulumi.get(__response__, 'contact_hooks'),
         defaults=pulumi.get(__response__, 'defaults'),
         description=pulumi.get(__response__, 'description'),
         fields=pulumi.get(__response__, 'fields'),

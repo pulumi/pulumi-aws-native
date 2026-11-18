@@ -137,9 +137,9 @@ export class Collection extends pulumi.CustomResource {
      */
     declare public readonly standbyReplicas: pulumi.Output<enums.opensearchserverless.CollectionStandbyReplicas | undefined>;
     /**
-     * List of tags to be added to the resource
+     * List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
      */
-    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
      */
@@ -190,7 +190,7 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["vectorOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collection.__pulumiType, name, resourceInputs, opts);
     }
@@ -225,9 +225,9 @@ export interface CollectionArgs {
      */
     standbyReplicas?: pulumi.Input<enums.opensearchserverless.CollectionStandbyReplicas | undefined>;
     /**
-     * List of tags to be added to the resource
+     * List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
      */

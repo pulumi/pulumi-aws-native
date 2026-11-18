@@ -27,6 +27,7 @@ export interface GetWorkflowResult {
     readonly createdAt?: string;
     readonly definitionS3Location?: outputs.mwaaserverless.WorkflowS3Location;
     readonly description?: string;
+    readonly environment?: outputs.mwaaserverless.WorkflowEnvironment;
     readonly loggingConfiguration?: outputs.mwaaserverless.WorkflowLoggingConfiguration;
     readonly modifiedAt?: string;
     readonly networkConfiguration?: outputs.mwaaserverless.WorkflowNetworkConfiguration;

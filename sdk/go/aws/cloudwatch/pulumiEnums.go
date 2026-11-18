@@ -1097,6 +1097,1060 @@ func (o AlarmMuteRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// The comparison operator. Valid values: GT, GTE, LT, LTE (greater than, greater than or equal to, less than, less than or equal to).
+type AlertConditionComparator string
+
+const (
+	AlertConditionComparatorGt  = AlertConditionComparator("GT")
+	AlertConditionComparatorLt  = AlertConditionComparator("LT")
+	AlertConditionComparatorGte = AlertConditionComparator("GTE")
+	AlertConditionComparatorLte = AlertConditionComparator("LTE")
+)
+
+func (AlertConditionComparator) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertConditionComparator)(nil)).Elem()
+}
+
+func (e AlertConditionComparator) ToAlertConditionComparatorOutput() AlertConditionComparatorOutput {
+	return pulumi.ToOutput(e).(AlertConditionComparatorOutput)
+}
+
+func (e AlertConditionComparator) ToAlertConditionComparatorOutputWithContext(ctx context.Context) AlertConditionComparatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlertConditionComparatorOutput)
+}
+
+func (e AlertConditionComparator) ToAlertConditionComparatorPtrOutput() AlertConditionComparatorPtrOutput {
+	return e.ToAlertConditionComparatorPtrOutputWithContext(context.Background())
+}
+
+func (e AlertConditionComparator) ToAlertConditionComparatorPtrOutputWithContext(ctx context.Context) AlertConditionComparatorPtrOutput {
+	return AlertConditionComparator(e).ToAlertConditionComparatorOutputWithContext(ctx).ToAlertConditionComparatorPtrOutputWithContext(ctx)
+}
+
+func (e AlertConditionComparator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertConditionComparator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertConditionComparator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertConditionComparator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlertConditionComparatorOutput struct{ *pulumi.OutputState }
+
+func (AlertConditionComparatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertConditionComparator)(nil)).Elem()
+}
+
+func (o AlertConditionComparatorOutput) ToAlertConditionComparatorOutput() AlertConditionComparatorOutput {
+	return o
+}
+
+func (o AlertConditionComparatorOutput) ToAlertConditionComparatorOutputWithContext(ctx context.Context) AlertConditionComparatorOutput {
+	return o
+}
+
+func (o AlertConditionComparatorOutput) ToAlertConditionComparatorPtrOutput() AlertConditionComparatorPtrOutput {
+	return o.ToAlertConditionComparatorPtrOutputWithContext(context.Background())
+}
+
+func (o AlertConditionComparatorOutput) ToAlertConditionComparatorPtrOutputWithContext(ctx context.Context) AlertConditionComparatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertConditionComparator) *AlertConditionComparator {
+		return &v
+	}).(AlertConditionComparatorPtrOutput)
+}
+
+func (o AlertConditionComparatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlertConditionComparatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertConditionComparator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlertConditionComparatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertConditionComparatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertConditionComparator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertConditionComparatorPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertConditionComparatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertConditionComparator)(nil)).Elem()
+}
+
+func (o AlertConditionComparatorPtrOutput) ToAlertConditionComparatorPtrOutput() AlertConditionComparatorPtrOutput {
+	return o
+}
+
+func (o AlertConditionComparatorPtrOutput) ToAlertConditionComparatorPtrOutputWithContext(ctx context.Context) AlertConditionComparatorPtrOutput {
+	return o
+}
+
+func (o AlertConditionComparatorPtrOutput) Elem() AlertConditionComparatorOutput {
+	return o.ApplyT(func(v *AlertConditionComparator) AlertConditionComparator {
+		if v != nil {
+			return *v
+		}
+		var ret AlertConditionComparator
+		return ret
+	}).(AlertConditionComparatorOutput)
+}
+
+func (o AlertConditionComparatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertConditionComparatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlertConditionComparator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlertConditionComparatorInput is an input type that accepts values of the AlertConditionComparator enum
+// A concrete instance of `AlertConditionComparatorInput` can be one of the following:
+//
+//	AlertConditionComparatorGt
+//	AlertConditionComparatorLt
+//	AlertConditionComparatorGte
+//	AlertConditionComparatorLte
+type AlertConditionComparatorInput interface {
+	pulumi.Input
+
+	ToAlertConditionComparatorOutput() AlertConditionComparatorOutput
+	ToAlertConditionComparatorOutputWithContext(context.Context) AlertConditionComparatorOutput
+}
+
+var alertConditionComparatorPtrType = reflect.TypeOf((**AlertConditionComparator)(nil)).Elem()
+
+type AlertConditionComparatorPtrInput interface {
+	pulumi.Input
+
+	ToAlertConditionComparatorPtrOutput() AlertConditionComparatorPtrOutput
+	ToAlertConditionComparatorPtrOutputWithContext(context.Context) AlertConditionComparatorPtrOutput
+}
+
+type alertConditionComparatorPtr string
+
+func AlertConditionComparatorPtr(v string) AlertConditionComparatorPtrInput {
+	return (*alertConditionComparatorPtr)(&v)
+}
+
+func (*alertConditionComparatorPtr) ElementType() reflect.Type {
+	return alertConditionComparatorPtrType
+}
+
+func (in *alertConditionComparatorPtr) ToAlertConditionComparatorPtrOutput() AlertConditionComparatorPtrOutput {
+	return pulumi.ToOutput(in).(AlertConditionComparatorPtrOutput)
+}
+
+func (in *alertConditionComparatorPtr) ToAlertConditionComparatorPtrOutputWithContext(ctx context.Context) AlertConditionComparatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlertConditionComparatorPtrOutput)
+}
+
+// How the threshold is applied. COUNT_OF_RESULTS compares the number of rows the query returns. FIELD_VALUE compares the value of ThresholdField in each result row; each row is tracked separately.
+type AlertConditionThresholdMode string
+
+const (
+	AlertConditionThresholdModeCountOfResults = AlertConditionThresholdMode("COUNT_OF_RESULTS")
+	AlertConditionThresholdModeFieldValue     = AlertConditionThresholdMode("FIELD_VALUE")
+)
+
+func (AlertConditionThresholdMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertConditionThresholdMode)(nil)).Elem()
+}
+
+func (e AlertConditionThresholdMode) ToAlertConditionThresholdModeOutput() AlertConditionThresholdModeOutput {
+	return pulumi.ToOutput(e).(AlertConditionThresholdModeOutput)
+}
+
+func (e AlertConditionThresholdMode) ToAlertConditionThresholdModeOutputWithContext(ctx context.Context) AlertConditionThresholdModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlertConditionThresholdModeOutput)
+}
+
+func (e AlertConditionThresholdMode) ToAlertConditionThresholdModePtrOutput() AlertConditionThresholdModePtrOutput {
+	return e.ToAlertConditionThresholdModePtrOutputWithContext(context.Background())
+}
+
+func (e AlertConditionThresholdMode) ToAlertConditionThresholdModePtrOutputWithContext(ctx context.Context) AlertConditionThresholdModePtrOutput {
+	return AlertConditionThresholdMode(e).ToAlertConditionThresholdModeOutputWithContext(ctx).ToAlertConditionThresholdModePtrOutputWithContext(ctx)
+}
+
+func (e AlertConditionThresholdMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertConditionThresholdMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertConditionThresholdMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertConditionThresholdMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlertConditionThresholdModeOutput struct{ *pulumi.OutputState }
+
+func (AlertConditionThresholdModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertConditionThresholdMode)(nil)).Elem()
+}
+
+func (o AlertConditionThresholdModeOutput) ToAlertConditionThresholdModeOutput() AlertConditionThresholdModeOutput {
+	return o
+}
+
+func (o AlertConditionThresholdModeOutput) ToAlertConditionThresholdModeOutputWithContext(ctx context.Context) AlertConditionThresholdModeOutput {
+	return o
+}
+
+func (o AlertConditionThresholdModeOutput) ToAlertConditionThresholdModePtrOutput() AlertConditionThresholdModePtrOutput {
+	return o.ToAlertConditionThresholdModePtrOutputWithContext(context.Background())
+}
+
+func (o AlertConditionThresholdModeOutput) ToAlertConditionThresholdModePtrOutputWithContext(ctx context.Context) AlertConditionThresholdModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertConditionThresholdMode) *AlertConditionThresholdMode {
+		return &v
+	}).(AlertConditionThresholdModePtrOutput)
+}
+
+func (o AlertConditionThresholdModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlertConditionThresholdModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertConditionThresholdMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlertConditionThresholdModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertConditionThresholdModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertConditionThresholdMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertConditionThresholdModePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertConditionThresholdModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertConditionThresholdMode)(nil)).Elem()
+}
+
+func (o AlertConditionThresholdModePtrOutput) ToAlertConditionThresholdModePtrOutput() AlertConditionThresholdModePtrOutput {
+	return o
+}
+
+func (o AlertConditionThresholdModePtrOutput) ToAlertConditionThresholdModePtrOutputWithContext(ctx context.Context) AlertConditionThresholdModePtrOutput {
+	return o
+}
+
+func (o AlertConditionThresholdModePtrOutput) Elem() AlertConditionThresholdModeOutput {
+	return o.ApplyT(func(v *AlertConditionThresholdMode) AlertConditionThresholdMode {
+		if v != nil {
+			return *v
+		}
+		var ret AlertConditionThresholdMode
+		return ret
+	}).(AlertConditionThresholdModeOutput)
+}
+
+func (o AlertConditionThresholdModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertConditionThresholdModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlertConditionThresholdMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlertConditionThresholdModeInput is an input type that accepts values of the AlertConditionThresholdMode enum
+// A concrete instance of `AlertConditionThresholdModeInput` can be one of the following:
+//
+//	AlertConditionThresholdModeCountOfResults
+//	AlertConditionThresholdModeFieldValue
+type AlertConditionThresholdModeInput interface {
+	pulumi.Input
+
+	ToAlertConditionThresholdModeOutput() AlertConditionThresholdModeOutput
+	ToAlertConditionThresholdModeOutputWithContext(context.Context) AlertConditionThresholdModeOutput
+}
+
+var alertConditionThresholdModePtrType = reflect.TypeOf((**AlertConditionThresholdMode)(nil)).Elem()
+
+type AlertConditionThresholdModePtrInput interface {
+	pulumi.Input
+
+	ToAlertConditionThresholdModePtrOutput() AlertConditionThresholdModePtrOutput
+	ToAlertConditionThresholdModePtrOutputWithContext(context.Context) AlertConditionThresholdModePtrOutput
+}
+
+type alertConditionThresholdModePtr string
+
+func AlertConditionThresholdModePtr(v string) AlertConditionThresholdModePtrInput {
+	return (*alertConditionThresholdModePtr)(&v)
+}
+
+func (*alertConditionThresholdModePtr) ElementType() reflect.Type {
+	return alertConditionThresholdModePtrType
+}
+
+func (in *alertConditionThresholdModePtr) ToAlertConditionThresholdModePtrOutput() AlertConditionThresholdModePtrOutput {
+	return pulumi.ToOutput(in).(AlertConditionThresholdModePtrOutput)
+}
+
+func (in *alertConditionThresholdModePtr) ToAlertConditionThresholdModePtrOutputWithContext(ctx context.Context) AlertConditionThresholdModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlertConditionThresholdModePtrOutput)
+}
+
+// The state to report when an evaluation returns no data. Valid values: OK, WARNING, CRITICAL, NODATA.
+type AlertNoDataTreatAs string
+
+const (
+	AlertNoDataTreatAsOk       = AlertNoDataTreatAs("OK")
+	AlertNoDataTreatAsWarning  = AlertNoDataTreatAs("WARNING")
+	AlertNoDataTreatAsCritical = AlertNoDataTreatAs("CRITICAL")
+	AlertNoDataTreatAsNodata   = AlertNoDataTreatAs("NODATA")
+)
+
+func (AlertNoDataTreatAs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertNoDataTreatAs)(nil)).Elem()
+}
+
+func (e AlertNoDataTreatAs) ToAlertNoDataTreatAsOutput() AlertNoDataTreatAsOutput {
+	return pulumi.ToOutput(e).(AlertNoDataTreatAsOutput)
+}
+
+func (e AlertNoDataTreatAs) ToAlertNoDataTreatAsOutputWithContext(ctx context.Context) AlertNoDataTreatAsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlertNoDataTreatAsOutput)
+}
+
+func (e AlertNoDataTreatAs) ToAlertNoDataTreatAsPtrOutput() AlertNoDataTreatAsPtrOutput {
+	return e.ToAlertNoDataTreatAsPtrOutputWithContext(context.Background())
+}
+
+func (e AlertNoDataTreatAs) ToAlertNoDataTreatAsPtrOutputWithContext(ctx context.Context) AlertNoDataTreatAsPtrOutput {
+	return AlertNoDataTreatAs(e).ToAlertNoDataTreatAsOutputWithContext(ctx).ToAlertNoDataTreatAsPtrOutputWithContext(ctx)
+}
+
+func (e AlertNoDataTreatAs) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertNoDataTreatAs) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertNoDataTreatAs) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertNoDataTreatAs) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlertNoDataTreatAsOutput struct{ *pulumi.OutputState }
+
+func (AlertNoDataTreatAsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertNoDataTreatAs)(nil)).Elem()
+}
+
+func (o AlertNoDataTreatAsOutput) ToAlertNoDataTreatAsOutput() AlertNoDataTreatAsOutput {
+	return o
+}
+
+func (o AlertNoDataTreatAsOutput) ToAlertNoDataTreatAsOutputWithContext(ctx context.Context) AlertNoDataTreatAsOutput {
+	return o
+}
+
+func (o AlertNoDataTreatAsOutput) ToAlertNoDataTreatAsPtrOutput() AlertNoDataTreatAsPtrOutput {
+	return o.ToAlertNoDataTreatAsPtrOutputWithContext(context.Background())
+}
+
+func (o AlertNoDataTreatAsOutput) ToAlertNoDataTreatAsPtrOutputWithContext(ctx context.Context) AlertNoDataTreatAsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertNoDataTreatAs) *AlertNoDataTreatAs {
+		return &v
+	}).(AlertNoDataTreatAsPtrOutput)
+}
+
+func (o AlertNoDataTreatAsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlertNoDataTreatAsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertNoDataTreatAs) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlertNoDataTreatAsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertNoDataTreatAsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertNoDataTreatAs) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertNoDataTreatAsPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertNoDataTreatAsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertNoDataTreatAs)(nil)).Elem()
+}
+
+func (o AlertNoDataTreatAsPtrOutput) ToAlertNoDataTreatAsPtrOutput() AlertNoDataTreatAsPtrOutput {
+	return o
+}
+
+func (o AlertNoDataTreatAsPtrOutput) ToAlertNoDataTreatAsPtrOutputWithContext(ctx context.Context) AlertNoDataTreatAsPtrOutput {
+	return o
+}
+
+func (o AlertNoDataTreatAsPtrOutput) Elem() AlertNoDataTreatAsOutput {
+	return o.ApplyT(func(v *AlertNoDataTreatAs) AlertNoDataTreatAs {
+		if v != nil {
+			return *v
+		}
+		var ret AlertNoDataTreatAs
+		return ret
+	}).(AlertNoDataTreatAsOutput)
+}
+
+func (o AlertNoDataTreatAsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertNoDataTreatAsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlertNoDataTreatAs) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlertNoDataTreatAsInput is an input type that accepts values of the AlertNoDataTreatAs enum
+// A concrete instance of `AlertNoDataTreatAsInput` can be one of the following:
+//
+//	AlertNoDataTreatAsOk
+//	AlertNoDataTreatAsWarning
+//	AlertNoDataTreatAsCritical
+//	AlertNoDataTreatAsNodata
+type AlertNoDataTreatAsInput interface {
+	pulumi.Input
+
+	ToAlertNoDataTreatAsOutput() AlertNoDataTreatAsOutput
+	ToAlertNoDataTreatAsOutputWithContext(context.Context) AlertNoDataTreatAsOutput
+}
+
+var alertNoDataTreatAsPtrType = reflect.TypeOf((**AlertNoDataTreatAs)(nil)).Elem()
+
+type AlertNoDataTreatAsPtrInput interface {
+	pulumi.Input
+
+	ToAlertNoDataTreatAsPtrOutput() AlertNoDataTreatAsPtrOutput
+	ToAlertNoDataTreatAsPtrOutputWithContext(context.Context) AlertNoDataTreatAsPtrOutput
+}
+
+type alertNoDataTreatAsPtr string
+
+func AlertNoDataTreatAsPtr(v string) AlertNoDataTreatAsPtrInput {
+	return (*alertNoDataTreatAsPtr)(&v)
+}
+
+func (*alertNoDataTreatAsPtr) ElementType() reflect.Type {
+	return alertNoDataTreatAsPtrType
+}
+
+func (in *alertNoDataTreatAsPtr) ToAlertNoDataTreatAsPtrOutput() AlertNoDataTreatAsPtrOutput {
+	return pulumi.ToOutput(in).(AlertNoDataTreatAsPtrOutput)
+}
+
+func (in *alertNoDataTreatAsPtr) ToAlertNoDataTreatAsPtrOutputWithContext(ctx context.Context) AlertNoDataTreatAsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlertNoDataTreatAsPtrOutput)
+}
+
+// The query language. Valid values: SQL, PROMQL.
+type AlertQueryLanguage string
+
+const (
+	AlertQueryLanguageSql    = AlertQueryLanguage("SQL")
+	AlertQueryLanguagePromql = AlertQueryLanguage("PROMQL")
+)
+
+func (AlertQueryLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertQueryLanguage)(nil)).Elem()
+}
+
+func (e AlertQueryLanguage) ToAlertQueryLanguageOutput() AlertQueryLanguageOutput {
+	return pulumi.ToOutput(e).(AlertQueryLanguageOutput)
+}
+
+func (e AlertQueryLanguage) ToAlertQueryLanguageOutputWithContext(ctx context.Context) AlertQueryLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlertQueryLanguageOutput)
+}
+
+func (e AlertQueryLanguage) ToAlertQueryLanguagePtrOutput() AlertQueryLanguagePtrOutput {
+	return e.ToAlertQueryLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e AlertQueryLanguage) ToAlertQueryLanguagePtrOutputWithContext(ctx context.Context) AlertQueryLanguagePtrOutput {
+	return AlertQueryLanguage(e).ToAlertQueryLanguageOutputWithContext(ctx).ToAlertQueryLanguagePtrOutputWithContext(ctx)
+}
+
+func (e AlertQueryLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertQueryLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertQueryLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertQueryLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlertQueryLanguageOutput struct{ *pulumi.OutputState }
+
+func (AlertQueryLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertQueryLanguage)(nil)).Elem()
+}
+
+func (o AlertQueryLanguageOutput) ToAlertQueryLanguageOutput() AlertQueryLanguageOutput {
+	return o
+}
+
+func (o AlertQueryLanguageOutput) ToAlertQueryLanguageOutputWithContext(ctx context.Context) AlertQueryLanguageOutput {
+	return o
+}
+
+func (o AlertQueryLanguageOutput) ToAlertQueryLanguagePtrOutput() AlertQueryLanguagePtrOutput {
+	return o.ToAlertQueryLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o AlertQueryLanguageOutput) ToAlertQueryLanguagePtrOutputWithContext(ctx context.Context) AlertQueryLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertQueryLanguage) *AlertQueryLanguage {
+		return &v
+	}).(AlertQueryLanguagePtrOutput)
+}
+
+func (o AlertQueryLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlertQueryLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertQueryLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlertQueryLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertQueryLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertQueryLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertQueryLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertQueryLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertQueryLanguage)(nil)).Elem()
+}
+
+func (o AlertQueryLanguagePtrOutput) ToAlertQueryLanguagePtrOutput() AlertQueryLanguagePtrOutput {
+	return o
+}
+
+func (o AlertQueryLanguagePtrOutput) ToAlertQueryLanguagePtrOutputWithContext(ctx context.Context) AlertQueryLanguagePtrOutput {
+	return o
+}
+
+func (o AlertQueryLanguagePtrOutput) Elem() AlertQueryLanguageOutput {
+	return o.ApplyT(func(v *AlertQueryLanguage) AlertQueryLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret AlertQueryLanguage
+		return ret
+	}).(AlertQueryLanguageOutput)
+}
+
+func (o AlertQueryLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertQueryLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlertQueryLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlertQueryLanguageInput is an input type that accepts values of the AlertQueryLanguage enum
+// A concrete instance of `AlertQueryLanguageInput` can be one of the following:
+//
+//	AlertQueryLanguageSql
+//	AlertQueryLanguagePromql
+type AlertQueryLanguageInput interface {
+	pulumi.Input
+
+	ToAlertQueryLanguageOutput() AlertQueryLanguageOutput
+	ToAlertQueryLanguageOutputWithContext(context.Context) AlertQueryLanguageOutput
+}
+
+var alertQueryLanguagePtrType = reflect.TypeOf((**AlertQueryLanguage)(nil)).Elem()
+
+type AlertQueryLanguagePtrInput interface {
+	pulumi.Input
+
+	ToAlertQueryLanguagePtrOutput() AlertQueryLanguagePtrOutput
+	ToAlertQueryLanguagePtrOutputWithContext(context.Context) AlertQueryLanguagePtrOutput
+}
+
+type alertQueryLanguagePtr string
+
+func AlertQueryLanguagePtr(v string) AlertQueryLanguagePtrInput {
+	return (*alertQueryLanguagePtr)(&v)
+}
+
+func (*alertQueryLanguagePtr) ElementType() reflect.Type {
+	return alertQueryLanguagePtrType
+}
+
+func (in *alertQueryLanguagePtr) ToAlertQueryLanguagePtrOutput() AlertQueryLanguagePtrOutput {
+	return pulumi.ToOutput(in).(AlertQueryLanguagePtrOutput)
+}
+
+func (in *alertQueryLanguagePtr) ToAlertQueryLanguagePtrOutputWithContext(ctx context.Context) AlertQueryLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlertQueryLanguagePtrOutput)
+}
+
+// The target type. Valid values: sns, slack, pagerduty.
+type AlertTargetType string
+
+const (
+	AlertTargetTypeSns       = AlertTargetType("sns")
+	AlertTargetTypeSlack     = AlertTargetType("slack")
+	AlertTargetTypePagerduty = AlertTargetType("pagerduty")
+)
+
+func (AlertTargetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTargetType)(nil)).Elem()
+}
+
+func (e AlertTargetType) ToAlertTargetTypeOutput() AlertTargetTypeOutput {
+	return pulumi.ToOutput(e).(AlertTargetTypeOutput)
+}
+
+func (e AlertTargetType) ToAlertTargetTypeOutputWithContext(ctx context.Context) AlertTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlertTargetTypeOutput)
+}
+
+func (e AlertTargetType) ToAlertTargetTypePtrOutput() AlertTargetTypePtrOutput {
+	return e.ToAlertTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (e AlertTargetType) ToAlertTargetTypePtrOutputWithContext(ctx context.Context) AlertTargetTypePtrOutput {
+	return AlertTargetType(e).ToAlertTargetTypeOutputWithContext(ctx).ToAlertTargetTypePtrOutputWithContext(ctx)
+}
+
+func (e AlertTargetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertTargetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertTargetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertTargetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlertTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (AlertTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTargetType)(nil)).Elem()
+}
+
+func (o AlertTargetTypeOutput) ToAlertTargetTypeOutput() AlertTargetTypeOutput {
+	return o
+}
+
+func (o AlertTargetTypeOutput) ToAlertTargetTypeOutputWithContext(ctx context.Context) AlertTargetTypeOutput {
+	return o
+}
+
+func (o AlertTargetTypeOutput) ToAlertTargetTypePtrOutput() AlertTargetTypePtrOutput {
+	return o.ToAlertTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (o AlertTargetTypeOutput) ToAlertTargetTypePtrOutputWithContext(ctx context.Context) AlertTargetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertTargetType) *AlertTargetType {
+		return &v
+	}).(AlertTargetTypePtrOutput)
+}
+
+func (o AlertTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlertTargetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertTargetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlertTargetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertTargetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertTargetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertTargetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertTargetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertTargetType)(nil)).Elem()
+}
+
+func (o AlertTargetTypePtrOutput) ToAlertTargetTypePtrOutput() AlertTargetTypePtrOutput {
+	return o
+}
+
+func (o AlertTargetTypePtrOutput) ToAlertTargetTypePtrOutputWithContext(ctx context.Context) AlertTargetTypePtrOutput {
+	return o
+}
+
+func (o AlertTargetTypePtrOutput) Elem() AlertTargetTypeOutput {
+	return o.ApplyT(func(v *AlertTargetType) AlertTargetType {
+		if v != nil {
+			return *v
+		}
+		var ret AlertTargetType
+		return ret
+	}).(AlertTargetTypeOutput)
+}
+
+func (o AlertTargetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlertTargetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlertTargetTypeInput is an input type that accepts values of the AlertTargetType enum
+// A concrete instance of `AlertTargetTypeInput` can be one of the following:
+//
+//	AlertTargetTypeSns
+//	AlertTargetTypeSlack
+//	AlertTargetTypePagerduty
+type AlertTargetTypeInput interface {
+	pulumi.Input
+
+	ToAlertTargetTypeOutput() AlertTargetTypeOutput
+	ToAlertTargetTypeOutputWithContext(context.Context) AlertTargetTypeOutput
+}
+
+var alertTargetTypePtrType = reflect.TypeOf((**AlertTargetType)(nil)).Elem()
+
+type AlertTargetTypePtrInput interface {
+	pulumi.Input
+
+	ToAlertTargetTypePtrOutput() AlertTargetTypePtrOutput
+	ToAlertTargetTypePtrOutputWithContext(context.Context) AlertTargetTypePtrOutput
+}
+
+type alertTargetTypePtr string
+
+func AlertTargetTypePtr(v string) AlertTargetTypePtrInput {
+	return (*alertTargetTypePtr)(&v)
+}
+
+func (*alertTargetTypePtr) ElementType() reflect.Type {
+	return alertTargetTypePtrType
+}
+
+func (in *alertTargetTypePtr) ToAlertTargetTypePtrOutput() AlertTargetTypePtrOutput {
+	return pulumi.ToOutput(in).(AlertTargetTypePtrOutput)
+}
+
+func (in *alertTargetTypePtr) ToAlertTargetTypePtrOutputWithContext(ctx context.Context) AlertTargetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlertTargetTypePtrOutput)
+}
+
+type AlertTriggerStateValuesItem string
+
+const (
+	AlertTriggerStateValuesItemOk       = AlertTriggerStateValuesItem("OK")
+	AlertTriggerStateValuesItemWarning  = AlertTriggerStateValuesItem("WARNING")
+	AlertTriggerStateValuesItemCritical = AlertTriggerStateValuesItem("CRITICAL")
+	AlertTriggerStateValuesItemNodata   = AlertTriggerStateValuesItem("NODATA")
+)
+
+func (AlertTriggerStateValuesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTriggerStateValuesItem)(nil)).Elem()
+}
+
+func (e AlertTriggerStateValuesItem) ToAlertTriggerStateValuesItemOutput() AlertTriggerStateValuesItemOutput {
+	return pulumi.ToOutput(e).(AlertTriggerStateValuesItemOutput)
+}
+
+func (e AlertTriggerStateValuesItem) ToAlertTriggerStateValuesItemOutputWithContext(ctx context.Context) AlertTriggerStateValuesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlertTriggerStateValuesItemOutput)
+}
+
+func (e AlertTriggerStateValuesItem) ToAlertTriggerStateValuesItemPtrOutput() AlertTriggerStateValuesItemPtrOutput {
+	return e.ToAlertTriggerStateValuesItemPtrOutputWithContext(context.Background())
+}
+
+func (e AlertTriggerStateValuesItem) ToAlertTriggerStateValuesItemPtrOutputWithContext(ctx context.Context) AlertTriggerStateValuesItemPtrOutput {
+	return AlertTriggerStateValuesItem(e).ToAlertTriggerStateValuesItemOutputWithContext(ctx).ToAlertTriggerStateValuesItemPtrOutputWithContext(ctx)
+}
+
+func (e AlertTriggerStateValuesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertTriggerStateValuesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertTriggerStateValuesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertTriggerStateValuesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlertTriggerStateValuesItemOutput struct{ *pulumi.OutputState }
+
+func (AlertTriggerStateValuesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertTriggerStateValuesItem)(nil)).Elem()
+}
+
+func (o AlertTriggerStateValuesItemOutput) ToAlertTriggerStateValuesItemOutput() AlertTriggerStateValuesItemOutput {
+	return o
+}
+
+func (o AlertTriggerStateValuesItemOutput) ToAlertTriggerStateValuesItemOutputWithContext(ctx context.Context) AlertTriggerStateValuesItemOutput {
+	return o
+}
+
+func (o AlertTriggerStateValuesItemOutput) ToAlertTriggerStateValuesItemPtrOutput() AlertTriggerStateValuesItemPtrOutput {
+	return o.ToAlertTriggerStateValuesItemPtrOutputWithContext(context.Background())
+}
+
+func (o AlertTriggerStateValuesItemOutput) ToAlertTriggerStateValuesItemPtrOutputWithContext(ctx context.Context) AlertTriggerStateValuesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertTriggerStateValuesItem) *AlertTriggerStateValuesItem {
+		return &v
+	}).(AlertTriggerStateValuesItemPtrOutput)
+}
+
+func (o AlertTriggerStateValuesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlertTriggerStateValuesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertTriggerStateValuesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlertTriggerStateValuesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertTriggerStateValuesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertTriggerStateValuesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertTriggerStateValuesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertTriggerStateValuesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertTriggerStateValuesItem)(nil)).Elem()
+}
+
+func (o AlertTriggerStateValuesItemPtrOutput) ToAlertTriggerStateValuesItemPtrOutput() AlertTriggerStateValuesItemPtrOutput {
+	return o
+}
+
+func (o AlertTriggerStateValuesItemPtrOutput) ToAlertTriggerStateValuesItemPtrOutputWithContext(ctx context.Context) AlertTriggerStateValuesItemPtrOutput {
+	return o
+}
+
+func (o AlertTriggerStateValuesItemPtrOutput) Elem() AlertTriggerStateValuesItemOutput {
+	return o.ApplyT(func(v *AlertTriggerStateValuesItem) AlertTriggerStateValuesItem {
+		if v != nil {
+			return *v
+		}
+		var ret AlertTriggerStateValuesItem
+		return ret
+	}).(AlertTriggerStateValuesItemOutput)
+}
+
+func (o AlertTriggerStateValuesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlertTriggerStateValuesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlertTriggerStateValuesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlertTriggerStateValuesItemInput is an input type that accepts values of the AlertTriggerStateValuesItem enum
+// A concrete instance of `AlertTriggerStateValuesItemInput` can be one of the following:
+//
+//	AlertTriggerStateValuesItemOk
+//	AlertTriggerStateValuesItemWarning
+//	AlertTriggerStateValuesItemCritical
+//	AlertTriggerStateValuesItemNodata
+type AlertTriggerStateValuesItemInput interface {
+	pulumi.Input
+
+	ToAlertTriggerStateValuesItemOutput() AlertTriggerStateValuesItemOutput
+	ToAlertTriggerStateValuesItemOutputWithContext(context.Context) AlertTriggerStateValuesItemOutput
+}
+
+var alertTriggerStateValuesItemPtrType = reflect.TypeOf((**AlertTriggerStateValuesItem)(nil)).Elem()
+
+type AlertTriggerStateValuesItemPtrInput interface {
+	pulumi.Input
+
+	ToAlertTriggerStateValuesItemPtrOutput() AlertTriggerStateValuesItemPtrOutput
+	ToAlertTriggerStateValuesItemPtrOutputWithContext(context.Context) AlertTriggerStateValuesItemPtrOutput
+}
+
+type alertTriggerStateValuesItemPtr string
+
+func AlertTriggerStateValuesItemPtr(v string) AlertTriggerStateValuesItemPtrInput {
+	return (*alertTriggerStateValuesItemPtr)(&v)
+}
+
+func (*alertTriggerStateValuesItemPtr) ElementType() reflect.Type {
+	return alertTriggerStateValuesItemPtrType
+}
+
+func (in *alertTriggerStateValuesItemPtr) ToAlertTriggerStateValuesItemPtrOutput() AlertTriggerStateValuesItemPtrOutput {
+	return pulumi.ToOutput(in).(AlertTriggerStateValuesItemPtrOutput)
+}
+
+func (in *alertTriggerStateValuesItemPtr) ToAlertTriggerStateValuesItemPtrOutputWithContext(ctx context.Context) AlertTriggerStateValuesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlertTriggerStateValuesItemPtrOutput)
+}
+
+// AlertTriggerStateValuesItemArrayInput is an input type that accepts AlertTriggerStateValuesItemArray and AlertTriggerStateValuesItemArrayOutput values.
+// You can construct a concrete instance of `AlertTriggerStateValuesItemArrayInput` via:
+//
+//	AlertTriggerStateValuesItemArray{ AlertTriggerStateValuesItemArgs{...} }
+type AlertTriggerStateValuesItemArrayInput interface {
+	pulumi.Input
+
+	ToAlertTriggerStateValuesItemArrayOutput() AlertTriggerStateValuesItemArrayOutput
+	ToAlertTriggerStateValuesItemArrayOutputWithContext(context.Context) AlertTriggerStateValuesItemArrayOutput
+}
+
+type AlertTriggerStateValuesItemArray []AlertTriggerStateValuesItem
+
+func (AlertTriggerStateValuesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertTriggerStateValuesItem)(nil)).Elem()
+}
+
+func (i AlertTriggerStateValuesItemArray) ToAlertTriggerStateValuesItemArrayOutput() AlertTriggerStateValuesItemArrayOutput {
+	return i.ToAlertTriggerStateValuesItemArrayOutputWithContext(context.Background())
+}
+
+func (i AlertTriggerStateValuesItemArray) ToAlertTriggerStateValuesItemArrayOutputWithContext(ctx context.Context) AlertTriggerStateValuesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertTriggerStateValuesItemArrayOutput)
+}
+
+type AlertTriggerStateValuesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertTriggerStateValuesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertTriggerStateValuesItem)(nil)).Elem()
+}
+
+func (o AlertTriggerStateValuesItemArrayOutput) ToAlertTriggerStateValuesItemArrayOutput() AlertTriggerStateValuesItemArrayOutput {
+	return o
+}
+
+func (o AlertTriggerStateValuesItemArrayOutput) ToAlertTriggerStateValuesItemArrayOutputWithContext(ctx context.Context) AlertTriggerStateValuesItemArrayOutput {
+	return o
+}
+
+func (o AlertTriggerStateValuesItemArrayOutput) Index(i pulumi.IntInput) AlertTriggerStateValuesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertTriggerStateValuesItem {
+		return vs[0].([]AlertTriggerStateValuesItem)[vs[1].(int)]
+	}).(AlertTriggerStateValuesItemOutput)
+}
+
 // Who manages the grant.
 type DomainAccessGrantForOrganizationGrantType string
 
@@ -2553,6 +3607,174 @@ func (in *integrationTypePtr) ToIntegrationTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationTypePtrOutput)
 }
 
+// The query language of Expression.
+type MetricDataQueryDefinitionType string
+
+const (
+	MetricDataQueryDefinitionTypePromql     = MetricDataQueryDefinitionType("PROMQL")
+	MetricDataQueryDefinitionTypeSql        = MetricDataQueryDefinitionType("SQL")
+	MetricDataQueryDefinitionTypeMetricMath = MetricDataQueryDefinitionType("METRIC_MATH")
+)
+
+func (MetricDataQueryDefinitionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDataQueryDefinitionType)(nil)).Elem()
+}
+
+func (e MetricDataQueryDefinitionType) ToMetricDataQueryDefinitionTypeOutput() MetricDataQueryDefinitionTypeOutput {
+	return pulumi.ToOutput(e).(MetricDataQueryDefinitionTypeOutput)
+}
+
+func (e MetricDataQueryDefinitionType) ToMetricDataQueryDefinitionTypeOutputWithContext(ctx context.Context) MetricDataQueryDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MetricDataQueryDefinitionTypeOutput)
+}
+
+func (e MetricDataQueryDefinitionType) ToMetricDataQueryDefinitionTypePtrOutput() MetricDataQueryDefinitionTypePtrOutput {
+	return e.ToMetricDataQueryDefinitionTypePtrOutputWithContext(context.Background())
+}
+
+func (e MetricDataQueryDefinitionType) ToMetricDataQueryDefinitionTypePtrOutputWithContext(ctx context.Context) MetricDataQueryDefinitionTypePtrOutput {
+	return MetricDataQueryDefinitionType(e).ToMetricDataQueryDefinitionTypeOutputWithContext(ctx).ToMetricDataQueryDefinitionTypePtrOutputWithContext(ctx)
+}
+
+func (e MetricDataQueryDefinitionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MetricDataQueryDefinitionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MetricDataQueryDefinitionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MetricDataQueryDefinitionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MetricDataQueryDefinitionTypeOutput struct{ *pulumi.OutputState }
+
+func (MetricDataQueryDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDataQueryDefinitionType)(nil)).Elem()
+}
+
+func (o MetricDataQueryDefinitionTypeOutput) ToMetricDataQueryDefinitionTypeOutput() MetricDataQueryDefinitionTypeOutput {
+	return o
+}
+
+func (o MetricDataQueryDefinitionTypeOutput) ToMetricDataQueryDefinitionTypeOutputWithContext(ctx context.Context) MetricDataQueryDefinitionTypeOutput {
+	return o
+}
+
+func (o MetricDataQueryDefinitionTypeOutput) ToMetricDataQueryDefinitionTypePtrOutput() MetricDataQueryDefinitionTypePtrOutput {
+	return o.ToMetricDataQueryDefinitionTypePtrOutputWithContext(context.Background())
+}
+
+func (o MetricDataQueryDefinitionTypeOutput) ToMetricDataQueryDefinitionTypePtrOutputWithContext(ctx context.Context) MetricDataQueryDefinitionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricDataQueryDefinitionType) *MetricDataQueryDefinitionType {
+		return &v
+	}).(MetricDataQueryDefinitionTypePtrOutput)
+}
+
+func (o MetricDataQueryDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MetricDataQueryDefinitionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MetricDataQueryDefinitionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricDataQueryDefinitionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MetricDataQueryDefinitionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MetricDataQueryDefinitionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MetricDataQueryDefinitionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MetricDataQueryDefinitionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricDataQueryDefinitionType)(nil)).Elem()
+}
+
+func (o MetricDataQueryDefinitionTypePtrOutput) ToMetricDataQueryDefinitionTypePtrOutput() MetricDataQueryDefinitionTypePtrOutput {
+	return o
+}
+
+func (o MetricDataQueryDefinitionTypePtrOutput) ToMetricDataQueryDefinitionTypePtrOutputWithContext(ctx context.Context) MetricDataQueryDefinitionTypePtrOutput {
+	return o
+}
+
+func (o MetricDataQueryDefinitionTypePtrOutput) Elem() MetricDataQueryDefinitionTypeOutput {
+	return o.ApplyT(func(v *MetricDataQueryDefinitionType) MetricDataQueryDefinitionType {
+		if v != nil {
+			return *v
+		}
+		var ret MetricDataQueryDefinitionType
+		return ret
+	}).(MetricDataQueryDefinitionTypeOutput)
+}
+
+func (o MetricDataQueryDefinitionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MetricDataQueryDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MetricDataQueryDefinitionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MetricDataQueryDefinitionTypeInput is an input type that accepts values of the MetricDataQueryDefinitionType enum
+// A concrete instance of `MetricDataQueryDefinitionTypeInput` can be one of the following:
+//
+//	MetricDataQueryDefinitionTypePromql
+//	MetricDataQueryDefinitionTypeSql
+//	MetricDataQueryDefinitionTypeMetricMath
+type MetricDataQueryDefinitionTypeInput interface {
+	pulumi.Input
+
+	ToMetricDataQueryDefinitionTypeOutput() MetricDataQueryDefinitionTypeOutput
+	ToMetricDataQueryDefinitionTypeOutputWithContext(context.Context) MetricDataQueryDefinitionTypeOutput
+}
+
+var metricDataQueryDefinitionTypePtrType = reflect.TypeOf((**MetricDataQueryDefinitionType)(nil)).Elem()
+
+type MetricDataQueryDefinitionTypePtrInput interface {
+	pulumi.Input
+
+	ToMetricDataQueryDefinitionTypePtrOutput() MetricDataQueryDefinitionTypePtrOutput
+	ToMetricDataQueryDefinitionTypePtrOutputWithContext(context.Context) MetricDataQueryDefinitionTypePtrOutput
+}
+
+type metricDataQueryDefinitionTypePtr string
+
+func MetricDataQueryDefinitionTypePtr(v string) MetricDataQueryDefinitionTypePtrInput {
+	return (*metricDataQueryDefinitionTypePtr)(&v)
+}
+
+func (*metricDataQueryDefinitionTypePtr) ElementType() reflect.Type {
+	return metricDataQueryDefinitionTypePtrType
+}
+
+func (in *metricDataQueryDefinitionTypePtr) ToMetricDataQueryDefinitionTypePtrOutput() MetricDataQueryDefinitionTypePtrOutput {
+	return pulumi.ToOutput(in).(MetricDataQueryDefinitionTypePtrOutput)
+}
+
+func (in *metricDataQueryDefinitionTypePtr) ToMetricDataQueryDefinitionTypePtrOutputWithContext(ctx context.Context) MetricDataQueryDefinitionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MetricDataQueryDefinitionTypePtrOutput)
+}
+
 // Current status of OTel enrichment (RUNNING or STOPPED).
 type OTelEnrichmentStatus string
 
@@ -2644,7 +3866,7 @@ func (o OTelEnrichmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the space is encrypted with an AWS owned key or a customer managed key.
+// Which kind of key to use. Required.
 type SpaceEncryptionConfigurationEncryptionStrategy string
 
 const (
@@ -3003,6 +4225,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantResourceScopeSignalTypesItemArrayInput)(nil)).Elem(), AccessGrantResourceScopeSignalTypesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantRowScopeOperatorInput)(nil)).Elem(), AccessGrantRowScopeOperator("IN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantRowScopeOperatorPtrInput)(nil)).Elem(), AccessGrantRowScopeOperator("IN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionComparatorInput)(nil)).Elem(), AlertConditionComparator("GT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionComparatorPtrInput)(nil)).Elem(), AlertConditionComparator("GT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionThresholdModeInput)(nil)).Elem(), AlertConditionThresholdMode("COUNT_OF_RESULTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionThresholdModePtrInput)(nil)).Elem(), AlertConditionThresholdMode("COUNT_OF_RESULTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertNoDataTreatAsInput)(nil)).Elem(), AlertNoDataTreatAs("OK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertNoDataTreatAsPtrInput)(nil)).Elem(), AlertNoDataTreatAs("OK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertQueryLanguageInput)(nil)).Elem(), AlertQueryLanguage("SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertQueryLanguagePtrInput)(nil)).Elem(), AlertQueryLanguage("SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertTargetTypeInput)(nil)).Elem(), AlertTargetType("sns"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertTargetTypePtrInput)(nil)).Elem(), AlertTargetType("sns"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertTriggerStateValuesItemInput)(nil)).Elem(), AlertTriggerStateValuesItem("OK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertTriggerStateValuesItemPtrInput)(nil)).Elem(), AlertTriggerStateValuesItem("OK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertTriggerStateValuesItemArrayInput)(nil)).Elem(), AlertTriggerStateValuesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeInput)(nil)).Elem(), DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IDC_USER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypePtrInput)(nil)).Elem(), DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalType("IDC_USER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAccessGrantForOrganizationPermissionInput)(nil)).Elem(), DomainAccessGrantForOrganizationPermission("ADMIN"))
@@ -3017,6 +4252,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStatePtrInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTypeInput)(nil)).Elem(), IntegrationType("AWS_CONFIG_SLREC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTypePtrInput)(nil)).Elem(), IntegrationType("AWS_CONFIG_SLREC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricDataQueryDefinitionTypeInput)(nil)).Elem(), MetricDataQueryDefinitionType("PROMQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricDataQueryDefinitionTypePtrInput)(nil)).Elem(), MetricDataQueryDefinitionType("PROMQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationEncryptionStrategyInput)(nil)).Elem(), SpaceEncryptionConfigurationEncryptionStrategy("AWS_OWNED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEncryptionConfigurationEncryptionStrategyPtrInput)(nil)).Elem(), SpaceEncryptionConfigurationEncryptionStrategy("AWS_OWNED"))
 	pulumi.RegisterOutputType(AccessGrantGrantTypeOutput{})
@@ -3036,6 +4273,19 @@ func init() {
 	pulumi.RegisterOutputType(AccessProfileProfileTypePtrOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusPtrOutput{})
+	pulumi.RegisterOutputType(AlertConditionComparatorOutput{})
+	pulumi.RegisterOutputType(AlertConditionComparatorPtrOutput{})
+	pulumi.RegisterOutputType(AlertConditionThresholdModeOutput{})
+	pulumi.RegisterOutputType(AlertConditionThresholdModePtrOutput{})
+	pulumi.RegisterOutputType(AlertNoDataTreatAsOutput{})
+	pulumi.RegisterOutputType(AlertNoDataTreatAsPtrOutput{})
+	pulumi.RegisterOutputType(AlertQueryLanguageOutput{})
+	pulumi.RegisterOutputType(AlertQueryLanguagePtrOutput{})
+	pulumi.RegisterOutputType(AlertTargetTypeOutput{})
+	pulumi.RegisterOutputType(AlertTargetTypePtrOutput{})
+	pulumi.RegisterOutputType(AlertTriggerStateValuesItemOutput{})
+	pulumi.RegisterOutputType(AlertTriggerStateValuesItemPtrOutput{})
+	pulumi.RegisterOutputType(AlertTriggerStateValuesItemArrayOutput{})
 	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationGrantTypeOutput{})
 	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationGrantTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainAccessGrantForOrganizationOrganizationAccessGrantPrincipalPrincipalTypeOutput{})
@@ -3058,6 +4308,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationStatusPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationTypePtrOutput{})
+	pulumi.RegisterOutputType(MetricDataQueryDefinitionTypeOutput{})
+	pulumi.RegisterOutputType(MetricDataQueryDefinitionTypePtrOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(SpaceEncryptionConfigurationEncryptionStrategyOutput{})

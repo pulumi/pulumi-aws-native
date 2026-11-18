@@ -39,7 +39,7 @@ type LookupCatalogResult struct {
 	// An array of PrincipalPermissions objects for default table permissions.
 	CreateTableDefaultPermissions []CatalogPrincipalPermissions `pulumi:"createTableDefaultPermissions"`
 	// The time at which the catalog was created.
-	CreateTime *int `pulumi:"createTime"`
+	CreateTime *string `pulumi:"createTime"`
 	// A description of the catalog.
 	Description      *string                  `pulumi:"description"`
 	FederatedCatalog *CatalogFederatedCatalog `pulumi:"federatedCatalog"`
@@ -51,7 +51,7 @@ type LookupCatalogResult struct {
 	Tags                  []aws.Tag                     `pulumi:"tags"`
 	TargetRedshiftCatalog *CatalogTargetRedshiftCatalog `pulumi:"targetRedshiftCatalog"`
 	// The time at which the catalog was last updated.
-	UpdateTime *int `pulumi:"updateTime"`
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupCatalogOutput(ctx *pulumi.Context, args LookupCatalogOutputArgs, opts ...pulumi.InvokeOption) LookupCatalogResultOutput {
@@ -109,8 +109,8 @@ func (o LookupCatalogResultOutput) CreateTableDefaultPermissions() CatalogPrinci
 }
 
 // The time at which the catalog was created.
-func (o LookupCatalogResultOutput) CreateTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupCatalogResult) *int { return v.CreateTime }).(pulumi.IntPtrOutput)
+func (o LookupCatalogResultOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // A description of the catalog.
@@ -142,8 +142,8 @@ func (o LookupCatalogResultOutput) TargetRedshiftCatalog() CatalogTargetRedshift
 }
 
 // The time at which the catalog was last updated.
-func (o LookupCatalogResultOutput) UpdateTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupCatalogResult) *int { return v.UpdateTime }).(pulumi.IntPtrOutput)
+func (o LookupCatalogResultOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCatalogResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 func init() {

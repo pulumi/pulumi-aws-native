@@ -17,6 +17,7 @@ __all__ = [
     'OriginEndpointContentKeyPeriodTiming',
     'OriginEndpointCustomAdType',
     'OriginEndpointDashAudioTimelinePattern',
+    'OriginEndpointDashBandwidthReportingMode',
     'OriginEndpointDashCompactness',
     'OriginEndpointDashDrmSignaling',
     'OriginEndpointDashPeriodTrigger',
@@ -114,6 +115,12 @@ class OriginEndpointCustomAdType(_builtins.str, Enum):
 class OriginEndpointDashAudioTimelinePattern(_builtins.str, Enum):
     NONE = "NONE"
     PATTERNED = "PATTERNED"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashBandwidthReportingMode")
+class OriginEndpointDashBandwidthReportingMode(_builtins.str, Enum):
+    AVERAGE = "AVERAGE"
+    MAX = "MAX"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashCompactness")

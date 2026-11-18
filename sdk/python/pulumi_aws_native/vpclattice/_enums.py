@@ -92,9 +92,10 @@ class ResourceConfigurationDnsResourceIpAddressType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:vpclattice:ResourceConfigurationProtocolType")
 class ResourceConfigurationProtocolType(_builtins.str, Enum):
     """
-    (SINGLE, GROUP) The protocol accepted by the resource configuration.
+    The protocol the resource configuration accepts. SINGLE and GROUP resource configurations support TCP. CIDR resource configurations support TCP and TCP_UDP; use TCP_UDP to carry UDP traffic such as DNS on port 53.
     """
     TCP = "TCP"
+    TCP_UDP = "TCP_UDP"
 
 
 @pulumi.type_token("aws-native:vpclattice:ResourceConfigurationType")

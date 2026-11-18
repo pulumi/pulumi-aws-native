@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApplicationAuthConfig',
     'ApplicationConfig',
     'ApplicationContactHandling',
     'ApplicationExternalUrlConfig',
@@ -26,6 +27,55 @@ __all__ = [
     'DataIntegrationScheduleConfig',
     'EventIntegrationEventFilter',
 ]
+
+@pulumi.output_type
+class ApplicationAuthConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "audienceOverride":
+            suggest = "audience_override"
+        elif key == "credentialProviderIdentifier":
+            suggest = "credential_provider_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAuthConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAuthConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAuthConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: 'ApplicationAuthConfigAuthType',
+                 audience_override: Optional[_builtins.str] = None,
+                 credential_provider_identifier: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "auth_type", auth_type)
+        if audience_override is not None:
+            pulumi.set(__self__, "audience_override", audience_override)
+        if credential_provider_identifier is not None:
+            pulumi.set(__self__, "credential_provider_identifier", credential_provider_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> 'ApplicationAuthConfigAuthType':
+        return pulumi.get(self, "auth_type")
+
+    @_builtins.property
+    @pulumi.getter(name="audienceOverride")
+    def audience_override(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "audience_override")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProviderIdentifier")
+    def credential_provider_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "credential_provider_identifier")
+
 
 @pulumi.output_type
 class ApplicationConfig(dict):
@@ -60,12 +110,13 @@ class ApplicationConfig(dict):
 @pulumi.output_type
 class ApplicationContactHandling(dict):
     def __init__(__self__, *,
-                 scope: 'ApplicationContactHandlingScope'):
-        pulumi.set(__self__, "scope", scope)
+                 scope: Optional['ApplicationContactHandlingScope'] = None):
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> 'ApplicationContactHandlingScope':
+    def scope(self) -> Optional['ApplicationContactHandlingScope']:
         return pulumi.get(self, "scope")
 
 
@@ -162,17 +213,18 @@ class ApplicationSourceConfigProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 external_url_config: 'outputs.ApplicationExternalUrlConfig'):
+                 external_url_config: Optional['outputs.ApplicationExternalUrlConfig'] = None):
         """
         Application source config
 
         :param 'ApplicationExternalUrlConfig' external_url_config: The external URL source for the application.
         """
-        pulumi.set(__self__, "external_url_config", external_url_config)
+        if external_url_config is not None:
+            pulumi.set(__self__, "external_url_config", external_url_config)
 
     @_builtins.property
     @pulumi.getter(name="externalUrlConfig")
-    def external_url_config(self) -> 'outputs.ApplicationExternalUrlConfig':
+    def external_url_config(self) -> Optional['outputs.ApplicationExternalUrlConfig']:
         """
         The external URL source for the application.
         """

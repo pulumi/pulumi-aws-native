@@ -20,6 +20,8 @@ __all__ = [
     'MonitorLocalResourceArgsDict',
     'MonitorRemoteResourceArgs',
     'MonitorRemoteResourceArgsDict',
+    'PerformanceMonitorTargetArgs',
+    'PerformanceMonitorTargetArgsDict',
     'ScopeTargetIdArgs',
     'ScopeTargetIdArgsDict',
     'ScopeTargetIdentifierArgs',
@@ -129,6 +131,58 @@ class MonitorRemoteResourceArgs:
 
     @type.setter
     def type(self, value: pulumi.Input['MonitorRemoteResourceType']):
+        pulumi.set(self, "type", value)
+
+
+class PerformanceMonitorTargetArgsDict(TypedDict):
+    """
+    A target that is monitored by a performance monitor.
+    """
+    identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the target.
+    """
+    type: pulumi.Input['PerformanceMonitorTargetType']
+    """
+    The type of the target.
+    """
+
+@pulumi.input_type
+class PerformanceMonitorTargetArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['PerformanceMonitorTargetType']):
+        """
+        A target that is monitored by a performance monitor.
+
+        :param pulumi.Input[_builtins.str] identifier: The identifier of the target.
+        :param pulumi.Input['PerformanceMonitorTargetType'] type: The type of the target.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the target.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['PerformanceMonitorTargetType']:
+        """
+        The type of the target.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['PerformanceMonitorTargetType']):
         pulumi.set(self, "type", value)
 
 

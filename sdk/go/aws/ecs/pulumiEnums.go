@@ -9425,6 +9425,174 @@ func (in *taskDefinitionPortMappingAppProtocolPtr) ToTaskDefinitionPortMappingAp
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionPortMappingAppProtocolPtrOutput)
 }
 
+// The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+type TaskDefinitionTrustedExecutionConfigurationIsolationMode string
+
+const (
+	TaskDefinitionTrustedExecutionConfigurationIsolationModeShared              = TaskDefinitionTrustedExecutionConfigurationIsolationMode("SHARED")
+	TaskDefinitionTrustedExecutionConfigurationIsolationModeIsolatedSandbox     = TaskDefinitionTrustedExecutionConfigurationIsolationMode("ISOLATED_SANDBOX")
+	TaskDefinitionTrustedExecutionConfigurationIsolationModeConfidentialSandbox = TaskDefinitionTrustedExecutionConfigurationIsolationMode("CONFIDENTIAL_SANDBOX")
+)
+
+func (TaskDefinitionTrustedExecutionConfigurationIsolationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionTrustedExecutionConfigurationIsolationMode)(nil)).Elem()
+}
+
+func (e TaskDefinitionTrustedExecutionConfigurationIsolationMode) ToTaskDefinitionTrustedExecutionConfigurationIsolationModeOutput() TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput {
+	return pulumi.ToOutput(e).(TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput)
+}
+
+func (e TaskDefinitionTrustedExecutionConfigurationIsolationMode) ToTaskDefinitionTrustedExecutionConfigurationIsolationModeOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput)
+}
+
+func (e TaskDefinitionTrustedExecutionConfigurationIsolationMode) ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput() TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return e.ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutputWithContext(context.Background())
+}
+
+func (e TaskDefinitionTrustedExecutionConfigurationIsolationMode) ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return TaskDefinitionTrustedExecutionConfigurationIsolationMode(e).ToTaskDefinitionTrustedExecutionConfigurationIsolationModeOutputWithContext(ctx).ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutputWithContext(ctx)
+}
+
+func (e TaskDefinitionTrustedExecutionConfigurationIsolationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskDefinitionTrustedExecutionConfigurationIsolationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskDefinitionTrustedExecutionConfigurationIsolationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskDefinitionTrustedExecutionConfigurationIsolationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionTrustedExecutionConfigurationIsolationMode)(nil)).Elem()
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ToTaskDefinitionTrustedExecutionConfigurationIsolationModeOutput() TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput {
+	return o
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ToTaskDefinitionTrustedExecutionConfigurationIsolationModeOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput {
+	return o
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput() TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return o.ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionTrustedExecutionConfigurationIsolationMode) *TaskDefinitionTrustedExecutionConfigurationIsolationMode {
+		return &v
+	}).(TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput)
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionTrustedExecutionConfigurationIsolationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionTrustedExecutionConfigurationIsolationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionTrustedExecutionConfigurationIsolationMode)(nil)).Elem()
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput) ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput() TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return o
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput) ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return o
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput) Elem() TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput {
+	return o.ApplyT(func(v *TaskDefinitionTrustedExecutionConfigurationIsolationMode) TaskDefinitionTrustedExecutionConfigurationIsolationMode {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionTrustedExecutionConfigurationIsolationMode
+		return ret
+	}).(TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput)
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskDefinitionTrustedExecutionConfigurationIsolationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskDefinitionTrustedExecutionConfigurationIsolationModeInput is an input type that accepts values of the TaskDefinitionTrustedExecutionConfigurationIsolationMode enum
+// A concrete instance of `TaskDefinitionTrustedExecutionConfigurationIsolationModeInput` can be one of the following:
+//
+//	TaskDefinitionTrustedExecutionConfigurationIsolationModeShared
+//	TaskDefinitionTrustedExecutionConfigurationIsolationModeIsolatedSandbox
+//	TaskDefinitionTrustedExecutionConfigurationIsolationModeConfidentialSandbox
+type TaskDefinitionTrustedExecutionConfigurationIsolationModeInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionTrustedExecutionConfigurationIsolationModeOutput() TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput
+	ToTaskDefinitionTrustedExecutionConfigurationIsolationModeOutputWithContext(context.Context) TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput
+}
+
+var taskDefinitionTrustedExecutionConfigurationIsolationModePtrType = reflect.TypeOf((**TaskDefinitionTrustedExecutionConfigurationIsolationMode)(nil)).Elem()
+
+type TaskDefinitionTrustedExecutionConfigurationIsolationModePtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput() TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput
+	ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutputWithContext(context.Context) TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput
+}
+
+type taskDefinitionTrustedExecutionConfigurationIsolationModePtr string
+
+func TaskDefinitionTrustedExecutionConfigurationIsolationModePtr(v string) TaskDefinitionTrustedExecutionConfigurationIsolationModePtrInput {
+	return (*taskDefinitionTrustedExecutionConfigurationIsolationModePtr)(&v)
+}
+
+func (*taskDefinitionTrustedExecutionConfigurationIsolationModePtr) ElementType() reflect.Type {
+	return taskDefinitionTrustedExecutionConfigurationIsolationModePtrType
+}
+
+func (in *taskDefinitionTrustedExecutionConfigurationIsolationModePtr) ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput() TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return pulumi.ToOutput(in).(TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput)
+}
+
+func (in *taskDefinitionTrustedExecutionConfigurationIsolationModePtr) ToTaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutputWithContext(ctx context.Context) TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput)
+}
+
 // Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
 type TaskSetAwsVpcConfigurationAssignPublicIp string
 
@@ -10031,6 +10199,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrInput)(nil)).Elem(), TaskDefinitionEfsVolumeConfigurationTransitEncryption("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPortMappingAppProtocolInput)(nil)).Elem(), TaskDefinitionPortMappingAppProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPortMappingAppProtocolPtrInput)(nil)).Elem(), TaskDefinitionPortMappingAppProtocol("http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTrustedExecutionConfigurationIsolationModeInput)(nil)).Elem(), TaskDefinitionTrustedExecutionConfigurationIsolationMode("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTrustedExecutionConfigurationIsolationModePtrInput)(nil)).Elem(), TaskDefinitionTrustedExecutionConfigurationIsolationMode("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetAwsVpcConfigurationAssignPublicIpInput)(nil)).Elem(), TaskSetAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetAwsVpcConfigurationAssignPublicIpPtrInput)(nil)).Elem(), TaskSetAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetLaunchTypeInput)(nil)).Elem(), TaskSetLaunchType("EC2"))
@@ -10158,6 +10328,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPortMappingAppProtocolOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPortMappingAppProtocolPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTrustedExecutionConfigurationIsolationModeOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTrustedExecutionConfigurationIsolationModePtrOutput{})
 	pulumi.RegisterOutputType(TaskSetAwsVpcConfigurationAssignPublicIpOutput{})
 	pulumi.RegisterOutputType(TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput{})
 	pulumi.RegisterOutputType(TaskSetLaunchTypeOutput{})

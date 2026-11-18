@@ -13,6 +13,169 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationAuthConfig struct {
+	AudienceOverride             *string                       `pulumi:"audienceOverride"`
+	AuthType                     ApplicationAuthConfigAuthType `pulumi:"authType"`
+	CredentialProviderIdentifier *string                       `pulumi:"credentialProviderIdentifier"`
+}
+
+// ApplicationAuthConfigInput is an input type that accepts ApplicationAuthConfigArgs and ApplicationAuthConfigOutput values.
+// You can construct a concrete instance of `ApplicationAuthConfigInput` via:
+//
+//	ApplicationAuthConfigArgs{...}
+type ApplicationAuthConfigInput interface {
+	pulumi.Input
+
+	ToApplicationAuthConfigOutput() ApplicationAuthConfigOutput
+	ToApplicationAuthConfigOutputWithContext(context.Context) ApplicationAuthConfigOutput
+}
+
+type ApplicationAuthConfigArgs struct {
+	AudienceOverride             pulumi.StringPtrInput              `pulumi:"audienceOverride"`
+	AuthType                     ApplicationAuthConfigAuthTypeInput `pulumi:"authType"`
+	CredentialProviderIdentifier pulumi.StringPtrInput              `pulumi:"credentialProviderIdentifier"`
+}
+
+func (ApplicationAuthConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthConfig)(nil)).Elem()
+}
+
+func (i ApplicationAuthConfigArgs) ToApplicationAuthConfigOutput() ApplicationAuthConfigOutput {
+	return i.ToApplicationAuthConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationAuthConfigArgs) ToApplicationAuthConfigOutputWithContext(ctx context.Context) ApplicationAuthConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthConfigOutput)
+}
+
+func (i ApplicationAuthConfigArgs) ToApplicationAuthConfigPtrOutput() ApplicationAuthConfigPtrOutput {
+	return i.ToApplicationAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationAuthConfigArgs) ToApplicationAuthConfigPtrOutputWithContext(ctx context.Context) ApplicationAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthConfigOutput).ToApplicationAuthConfigPtrOutputWithContext(ctx)
+}
+
+// ApplicationAuthConfigPtrInput is an input type that accepts ApplicationAuthConfigArgs, ApplicationAuthConfigPtr and ApplicationAuthConfigPtrOutput values.
+// You can construct a concrete instance of `ApplicationAuthConfigPtrInput` via:
+//
+//	        ApplicationAuthConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationAuthConfigPtrInput interface {
+	pulumi.Input
+
+	ToApplicationAuthConfigPtrOutput() ApplicationAuthConfigPtrOutput
+	ToApplicationAuthConfigPtrOutputWithContext(context.Context) ApplicationAuthConfigPtrOutput
+}
+
+type applicationAuthConfigPtrType ApplicationAuthConfigArgs
+
+func ApplicationAuthConfigPtr(v *ApplicationAuthConfigArgs) ApplicationAuthConfigPtrInput {
+	return (*applicationAuthConfigPtrType)(v)
+}
+
+func (*applicationAuthConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationAuthConfig)(nil)).Elem()
+}
+
+func (i *applicationAuthConfigPtrType) ToApplicationAuthConfigPtrOutput() ApplicationAuthConfigPtrOutput {
+	return i.ToApplicationAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationAuthConfigPtrType) ToApplicationAuthConfigPtrOutputWithContext(ctx context.Context) ApplicationAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthConfigPtrOutput)
+}
+
+type ApplicationAuthConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAuthConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthConfig)(nil)).Elem()
+}
+
+func (o ApplicationAuthConfigOutput) ToApplicationAuthConfigOutput() ApplicationAuthConfigOutput {
+	return o
+}
+
+func (o ApplicationAuthConfigOutput) ToApplicationAuthConfigOutputWithContext(ctx context.Context) ApplicationAuthConfigOutput {
+	return o
+}
+
+func (o ApplicationAuthConfigOutput) ToApplicationAuthConfigPtrOutput() ApplicationAuthConfigPtrOutput {
+	return o.ToApplicationAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationAuthConfigOutput) ToApplicationAuthConfigPtrOutputWithContext(ctx context.Context) ApplicationAuthConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationAuthConfig) *ApplicationAuthConfig {
+		return &v
+	}).(ApplicationAuthConfigPtrOutput)
+}
+
+func (o ApplicationAuthConfigOutput) AudienceOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationAuthConfig) *string { return v.AudienceOverride }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationAuthConfigOutput) AuthType() ApplicationAuthConfigAuthTypeOutput {
+	return o.ApplyT(func(v ApplicationAuthConfig) ApplicationAuthConfigAuthType { return v.AuthType }).(ApplicationAuthConfigAuthTypeOutput)
+}
+
+func (o ApplicationAuthConfigOutput) CredentialProviderIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationAuthConfig) *string { return v.CredentialProviderIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationAuthConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAuthConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationAuthConfig)(nil)).Elem()
+}
+
+func (o ApplicationAuthConfigPtrOutput) ToApplicationAuthConfigPtrOutput() ApplicationAuthConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationAuthConfigPtrOutput) ToApplicationAuthConfigPtrOutputWithContext(ctx context.Context) ApplicationAuthConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationAuthConfigPtrOutput) Elem() ApplicationAuthConfigOutput {
+	return o.ApplyT(func(v *ApplicationAuthConfig) ApplicationAuthConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationAuthConfig
+		return ret
+	}).(ApplicationAuthConfigOutput)
+}
+
+func (o ApplicationAuthConfigPtrOutput) AudienceOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationAuthConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AudienceOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationAuthConfigPtrOutput) AuthType() ApplicationAuthConfigAuthTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationAuthConfig) *ApplicationAuthConfigAuthType {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthType
+	}).(ApplicationAuthConfigAuthTypePtrOutput)
+}
+
+func (o ApplicationAuthConfigPtrOutput) CredentialProviderIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationAuthConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialProviderIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationConfig struct {
 	ContactHandling *ApplicationContactHandling `pulumi:"contactHandling"`
 }
@@ -147,7 +310,7 @@ func (o ApplicationConfigPtrOutput) ContactHandling() ApplicationContactHandling
 }
 
 type ApplicationContactHandling struct {
-	Scope ApplicationContactHandlingScope `pulumi:"scope"`
+	Scope *ApplicationContactHandlingScope `pulumi:"scope"`
 }
 
 // ApplicationContactHandlingInput is an input type that accepts ApplicationContactHandlingArgs and ApplicationContactHandlingOutput values.
@@ -162,7 +325,7 @@ type ApplicationContactHandlingInput interface {
 }
 
 type ApplicationContactHandlingArgs struct {
-	Scope ApplicationContactHandlingScopeInput `pulumi:"scope"`
+	Scope ApplicationContactHandlingScopePtrInput `pulumi:"scope"`
 }
 
 func (ApplicationContactHandlingArgs) ElementType() reflect.Type {
@@ -242,8 +405,8 @@ func (o ApplicationContactHandlingOutput) ToApplicationContactHandlingPtrOutputW
 	}).(ApplicationContactHandlingPtrOutput)
 }
 
-func (o ApplicationContactHandlingOutput) Scope() ApplicationContactHandlingScopeOutput {
-	return o.ApplyT(func(v ApplicationContactHandling) ApplicationContactHandlingScope { return v.Scope }).(ApplicationContactHandlingScopeOutput)
+func (o ApplicationContactHandlingOutput) Scope() ApplicationContactHandlingScopePtrOutput {
+	return o.ApplyT(func(v ApplicationContactHandling) *ApplicationContactHandlingScope { return v.Scope }).(ApplicationContactHandlingScopePtrOutput)
 }
 
 type ApplicationContactHandlingPtrOutput struct{ *pulumi.OutputState }
@@ -275,7 +438,7 @@ func (o ApplicationContactHandlingPtrOutput) Scope() ApplicationContactHandlingS
 		if v == nil {
 			return nil
 		}
-		return &v.Scope
+		return v.Scope
 	}).(ApplicationContactHandlingScopePtrOutput)
 }
 
@@ -316,6 +479,47 @@ func (i ApplicationExternalUrlConfigArgs) ToApplicationExternalUrlConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationExternalUrlConfigOutput)
 }
 
+func (i ApplicationExternalUrlConfigArgs) ToApplicationExternalUrlConfigPtrOutput() ApplicationExternalUrlConfigPtrOutput {
+	return i.ToApplicationExternalUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationExternalUrlConfigArgs) ToApplicationExternalUrlConfigPtrOutputWithContext(ctx context.Context) ApplicationExternalUrlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationExternalUrlConfigOutput).ToApplicationExternalUrlConfigPtrOutputWithContext(ctx)
+}
+
+// ApplicationExternalUrlConfigPtrInput is an input type that accepts ApplicationExternalUrlConfigArgs, ApplicationExternalUrlConfigPtr and ApplicationExternalUrlConfigPtrOutput values.
+// You can construct a concrete instance of `ApplicationExternalUrlConfigPtrInput` via:
+//
+//	        ApplicationExternalUrlConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationExternalUrlConfigPtrInput interface {
+	pulumi.Input
+
+	ToApplicationExternalUrlConfigPtrOutput() ApplicationExternalUrlConfigPtrOutput
+	ToApplicationExternalUrlConfigPtrOutputWithContext(context.Context) ApplicationExternalUrlConfigPtrOutput
+}
+
+type applicationExternalUrlConfigPtrType ApplicationExternalUrlConfigArgs
+
+func ApplicationExternalUrlConfigPtr(v *ApplicationExternalUrlConfigArgs) ApplicationExternalUrlConfigPtrInput {
+	return (*applicationExternalUrlConfigPtrType)(v)
+}
+
+func (*applicationExternalUrlConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationExternalUrlConfig)(nil)).Elem()
+}
+
+func (i *applicationExternalUrlConfigPtrType) ToApplicationExternalUrlConfigPtrOutput() ApplicationExternalUrlConfigPtrOutput {
+	return i.ToApplicationExternalUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationExternalUrlConfigPtrType) ToApplicationExternalUrlConfigPtrOutputWithContext(ctx context.Context) ApplicationExternalUrlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationExternalUrlConfigPtrOutput)
+}
+
 type ApplicationExternalUrlConfigOutput struct{ *pulumi.OutputState }
 
 func (ApplicationExternalUrlConfigOutput) ElementType() reflect.Type {
@@ -328,6 +532,16 @@ func (o ApplicationExternalUrlConfigOutput) ToApplicationExternalUrlConfigOutput
 
 func (o ApplicationExternalUrlConfigOutput) ToApplicationExternalUrlConfigOutputWithContext(ctx context.Context) ApplicationExternalUrlConfigOutput {
 	return o
+}
+
+func (o ApplicationExternalUrlConfigOutput) ToApplicationExternalUrlConfigPtrOutput() ApplicationExternalUrlConfigPtrOutput {
+	return o.ToApplicationExternalUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationExternalUrlConfigOutput) ToApplicationExternalUrlConfigPtrOutputWithContext(ctx context.Context) ApplicationExternalUrlConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationExternalUrlConfig) *ApplicationExternalUrlConfig {
+		return &v
+	}).(ApplicationExternalUrlConfigPtrOutput)
 }
 
 // The URL to access the application.
@@ -535,7 +749,7 @@ func (o ApplicationIframeConfigPtrOutput) Sandbox() pulumi.StringArrayOutput {
 // Application source config
 type ApplicationSourceConfigProperties struct {
 	// The external URL source for the application.
-	ExternalUrlConfig ApplicationExternalUrlConfig `pulumi:"externalUrlConfig"`
+	ExternalUrlConfig *ApplicationExternalUrlConfig `pulumi:"externalUrlConfig"`
 }
 
 // ApplicationSourceConfigPropertiesInput is an input type that accepts ApplicationSourceConfigPropertiesArgs and ApplicationSourceConfigPropertiesOutput values.
@@ -552,7 +766,7 @@ type ApplicationSourceConfigPropertiesInput interface {
 // Application source config
 type ApplicationSourceConfigPropertiesArgs struct {
 	// The external URL source for the application.
-	ExternalUrlConfig ApplicationExternalUrlConfigInput `pulumi:"externalUrlConfig"`
+	ExternalUrlConfig ApplicationExternalUrlConfigPtrInput `pulumi:"externalUrlConfig"`
 }
 
 func (ApplicationSourceConfigPropertiesArgs) ElementType() reflect.Type {
@@ -583,8 +797,8 @@ func (o ApplicationSourceConfigPropertiesOutput) ToApplicationSourceConfigProper
 }
 
 // The external URL source for the application.
-func (o ApplicationSourceConfigPropertiesOutput) ExternalUrlConfig() ApplicationExternalUrlConfigOutput {
-	return o.ApplyT(func(v ApplicationSourceConfigProperties) ApplicationExternalUrlConfig { return v.ExternalUrlConfig }).(ApplicationExternalUrlConfigOutput)
+func (o ApplicationSourceConfigPropertiesOutput) ExternalUrlConfig() ApplicationExternalUrlConfigPtrOutput {
+	return o.ApplyT(func(v ApplicationSourceConfigProperties) *ApplicationExternalUrlConfig { return v.ExternalUrlConfig }).(ApplicationExternalUrlConfigPtrOutput)
 }
 
 type ApplicationSourceConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -617,7 +831,7 @@ func (o ApplicationSourceConfigPropertiesPtrOutput) ExternalUrlConfig() Applicat
 		if v == nil {
 			return nil
 		}
-		return &v.ExternalUrlConfig
+		return v.ExternalUrlConfig
 	}).(ApplicationExternalUrlConfigPtrOutput)
 }
 
@@ -1031,11 +1245,14 @@ type EventIntegrationTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAuthConfigInput)(nil)).Elem(), ApplicationAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAuthConfigPtrInput)(nil)).Elem(), ApplicationAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigInput)(nil)).Elem(), ApplicationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigPtrInput)(nil)).Elem(), ApplicationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationContactHandlingInput)(nil)).Elem(), ApplicationContactHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationContactHandlingPtrInput)(nil)).Elem(), ApplicationContactHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationExternalUrlConfigInput)(nil)).Elem(), ApplicationExternalUrlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationExternalUrlConfigPtrInput)(nil)).Elem(), ApplicationExternalUrlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIframeConfigInput)(nil)).Elem(), ApplicationIframeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIframeConfigPtrInput)(nil)).Elem(), ApplicationIframeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSourceConfigPropertiesInput)(nil)).Elem(), ApplicationSourceConfigPropertiesArgs{})
@@ -1044,6 +1261,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigPtrInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
+	pulumi.RegisterOutputType(ApplicationAuthConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationContactHandlingOutput{})

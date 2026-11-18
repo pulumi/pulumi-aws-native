@@ -124,6 +124,7 @@ export class FlowOutput extends pulumi.CustomResource {
      * Encryption information.
      */
     declare public readonly routerIntegrationTransitEncryption: pulumi.Output<outputs.mediaconnect.FlowOutputFlowTransitEncryption | undefined>;
+    declare public readonly rtmpPushSettings: pulumi.Output<outputs.mediaconnect.FlowOutputRtmpPushSettings | undefined>;
     /**
      * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
      */
@@ -174,6 +175,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["remoteId"] = args?.remoteId;
             resourceInputs["routerIntegrationState"] = args?.routerIntegrationState;
             resourceInputs["routerIntegrationTransitEncryption"] = args?.routerIntegrationTransitEncryption;
+            resourceInputs["rtmpPushSettings"] = args?.rtmpPushSettings;
             resourceInputs["smoothingLatency"] = args?.smoothingLatency;
             resourceInputs["streamId"] = args?.streamId;
             resourceInputs["tags"] = args?.tags;
@@ -200,6 +202,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["remoteId"] = undefined /*out*/;
             resourceInputs["routerIntegrationState"] = undefined /*out*/;
             resourceInputs["routerIntegrationTransitEncryption"] = undefined /*out*/;
+            resourceInputs["rtmpPushSettings"] = undefined /*out*/;
             resourceInputs["smoothingLatency"] = undefined /*out*/;
             resourceInputs["streamId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -289,6 +292,7 @@ export interface FlowOutputArgs {
      * Encryption information.
      */
     routerIntegrationTransitEncryption?: pulumi.Input<inputs.mediaconnect.FlowOutputFlowTransitEncryptionArgs | undefined>;
+    rtmpPushSettings?: pulumi.Input<inputs.mediaconnect.FlowOutputRtmpPushSettingsArgs | undefined>;
     /**
      * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
      */

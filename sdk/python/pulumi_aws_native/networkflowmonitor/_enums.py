@@ -10,6 +10,9 @@ __all__ = [
     'MonitorLocalResourceType',
     'MonitorRemoteResourceType',
     'MonitorStatus',
+    'PerformanceMonitorMonitorStatus',
+    'PerformanceMonitorMonitorType',
+    'PerformanceMonitorTargetType',
     'ScopeStatus',
     'ScopeTargetIdentifierTargetType',
 ]
@@ -49,6 +52,34 @@ class MonitorStatus(_builtins.str, Enum):
     INACTIVE = "INACTIVE"
     ERROR = "ERROR"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:networkflowmonitor:PerformanceMonitorMonitorStatus")
+class PerformanceMonitorMonitorStatus(_builtins.str, Enum):
+    """
+    The status of the performance monitor.
+    """
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    ERROR = "ERROR"
+    DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:networkflowmonitor:PerformanceMonitorMonitorType")
+class PerformanceMonitorMonitorType(_builtins.str, Enum):
+    """
+    The type of the performance monitor.
+    """
+    VPC = "VPC"
+
+
+@pulumi.type_token("aws-native:networkflowmonitor:PerformanceMonitorTargetType")
+class PerformanceMonitorTargetType(_builtins.str, Enum):
+    """
+    The type of the target.
+    """
+    AWSEC2VPC = "AWS::EC2::VPC"
 
 
 @pulumi.type_token("aws-native:networkflowmonitor:ScopeStatus")

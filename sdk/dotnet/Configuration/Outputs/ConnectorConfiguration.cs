@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
     /// <summary>
-    /// The configuration for the connector. Specify the third-party cloud provider configuration.
+    /// The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
     /// </summary>
     [OutputType]
     public sealed class ConnectorConfiguration
@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Configuration.Outputs
         /// The configuration for connecting to Microsoft Azure.
         /// </summary>
         public readonly Outputs.ConnectorAzureConnectorConfiguration? Azure;
+        /// <summary>
+        /// The configuration for connecting to Google Cloud.
+        /// </summary>
+        public readonly Outputs.ConnectorGcpConnectorConfiguration? Gcp;
 
         [OutputConstructor]
-        private ConnectorConfiguration(Outputs.ConnectorAzureConnectorConfiguration? azure)
+        private ConnectorConfiguration(
+            Outputs.ConnectorAzureConnectorConfiguration? azure,
+
+            Outputs.ConnectorGcpConnectorConfiguration? gcp)
         {
             Azure = azure;
+            Gcp = gcp;
         }
     }
 }

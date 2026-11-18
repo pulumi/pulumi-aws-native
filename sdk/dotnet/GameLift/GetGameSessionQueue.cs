@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public readonly Outputs.GameSessionQueueFilterConfiguration? FilterConfiguration;
         /// <summary>
+        /// A policy that determines where a game session queue's placement logs are delivered.
+        /// </summary>
+        public readonly Outputs.GameSessionQueueLogConfiguration? LogConfiguration;
+        /// <summary>
         /// An SNS topic ARN that is set up to receive game session placement notifications.
         /// </summary>
         public readonly string? NotificationTarget;
@@ -110,6 +114,8 @@ namespace Pulumi.AwsNative.GameLift
 
             Outputs.GameSessionQueueFilterConfiguration? filterConfiguration,
 
+            Outputs.GameSessionQueueLogConfiguration? logConfiguration,
+
             string? notificationTarget,
 
             ImmutableArray<Outputs.GameSessionQueuePlayerLatencyPolicy> playerLatencyPolicies,
@@ -124,6 +130,7 @@ namespace Pulumi.AwsNative.GameLift
             CustomEventData = customEventData;
             Destinations = destinations;
             FilterConfiguration = filterConfiguration;
+            LogConfiguration = logConfiguration;
             NotificationTarget = notificationTarget;
             PlayerLatencyPolicies = playerLatencyPolicies;
             PriorityConfiguration = priorityConfiguration;

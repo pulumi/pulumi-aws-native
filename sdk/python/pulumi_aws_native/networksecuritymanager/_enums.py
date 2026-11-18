@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'DeploymentStatus',
     'PolicyFirewallType',
     'PolicyStatus',
     'PolicyWafConfigConflictResolution',
@@ -18,6 +19,16 @@ __all__ = [
     'TemplateFirewallType',
     'TemplateStatus',
 ]
+
+
+@pulumi.type_token("aws-native:networksecuritymanager:DeploymentStatus")
+class DeploymentStatus(_builtins.str, Enum):
+    """
+    The status of the deployment.
+    """
+    DRAFT = "DRAFT"
+    ACTIVE = "ACTIVE"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:networksecuritymanager:PolicyFirewallType")

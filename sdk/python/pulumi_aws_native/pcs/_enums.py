@@ -14,6 +14,7 @@ __all__ = [
     'ClusterSize',
     'ClusterSlurmRestMode',
     'ClusterStatus',
+    'ComputeNodeGroupLaunchTemplateMode',
     'ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy',
     'ComputeNodeGroupNodeLifecycleScriptExecutionPolicy',
     'ComputeNodeGroupNodeLifecycleScriptOnError',
@@ -91,6 +92,15 @@ class ClusterStatus(_builtins.str, Enum):
     CREATE_FAILED = "CREATE_FAILED"
     DELETE_FAILED = "DELETE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
+
+
+@pulumi.type_token("aws-native:pcs:ComputeNodeGroupLaunchTemplateMode")
+class ComputeNodeGroupLaunchTemplateMode(_builtins.str, Enum):
+    """
+    How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+    """
+    CUSTOM = "CUSTOM"
+    MANAGED = "MANAGED"
 
 
 @pulumi.type_token("aws-native:pcs:ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy")

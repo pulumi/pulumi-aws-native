@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 {
 
-    /// <summary>
-    /// The authorizer configuration for the payment manager
-    /// </summary>
     public sealed class PaymentManagerAuthorizerConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("customJwtAuthorizer", required: true)]
-        public Input<Inputs.PaymentManagerCustomJwtAuthorizerArgs> CustomJwtAuthorizer { get; set; } = null!;
+        public Input<Inputs.PaymentManagerCustomJwtAuthorizerConfigurationArgs> CustomJwtAuthorizer { get; set; } = null!;
 
         public PaymentManagerAuthorizerConfigurationPropertiesArgs()
         {

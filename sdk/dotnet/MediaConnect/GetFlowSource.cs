@@ -99,6 +99,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The minimum latency in milliseconds.
         /// </summary>
         public readonly int? MinLatency;
+        public readonly Outputs.FlowSourceRtmpPushDetails? RtmpPushDetails;
+        public readonly Outputs.FlowSourceRtmpPushSettings? RtmpPushSettings;
         /// <summary>
         /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
         /// </summary>
@@ -160,6 +162,10 @@ namespace Pulumi.AwsNative.MediaConnect
 
             int? minLatency,
 
+            Outputs.FlowSourceRtmpPushDetails? rtmpPushDetails,
+
+            Outputs.FlowSourceRtmpPushSettings? rtmpPushSettings,
+
             int? senderControlPort,
 
             string? senderIpAddress,
@@ -189,6 +195,8 @@ namespace Pulumi.AwsNative.MediaConnect
             MaxBitrate = maxBitrate;
             MaxLatency = maxLatency;
             MinLatency = minLatency;
+            RtmpPushDetails = rtmpPushDetails;
+            RtmpPushSettings = rtmpPushSettings;
             SenderControlPort = senderControlPort;
             SenderIpAddress = senderIpAddress;
             SourceArn = sourceArn;

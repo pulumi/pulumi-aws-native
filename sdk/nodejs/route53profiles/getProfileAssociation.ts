@@ -30,6 +30,10 @@ export interface GetProfileAssociationResult {
      */
     readonly id?: string;
     /**
+     * The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it. Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+     */
+    readonly priority?: number;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];

@@ -13184,6 +13184,141 @@ func (o AnalysisVisualCustomActionArrayOutput) Index(i pulumi.IntInput) Analysis
 	}).(AnalysisVisualCustomActionOutput)
 }
 
+type AnalysisVisualCustomActionDefaults struct {
+	HighlightOperation *AnalysisVisualHighlightOperation `pulumi:"highlightOperation"`
+}
+
+// AnalysisVisualCustomActionDefaultsInput is an input type that accepts AnalysisVisualCustomActionDefaultsArgs and AnalysisVisualCustomActionDefaultsOutput values.
+// You can construct a concrete instance of `AnalysisVisualCustomActionDefaultsInput` via:
+//
+//	AnalysisVisualCustomActionDefaultsArgs{...}
+type AnalysisVisualCustomActionDefaultsInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualCustomActionDefaultsOutput() AnalysisVisualCustomActionDefaultsOutput
+	ToAnalysisVisualCustomActionDefaultsOutputWithContext(context.Context) AnalysisVisualCustomActionDefaultsOutput
+}
+
+type AnalysisVisualCustomActionDefaultsArgs struct {
+	HighlightOperation AnalysisVisualHighlightOperationPtrInput `pulumi:"highlightOperation"`
+}
+
+func (AnalysisVisualCustomActionDefaultsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualCustomActionDefaults)(nil)).Elem()
+}
+
+func (i AnalysisVisualCustomActionDefaultsArgs) ToAnalysisVisualCustomActionDefaultsOutput() AnalysisVisualCustomActionDefaultsOutput {
+	return i.ToAnalysisVisualCustomActionDefaultsOutputWithContext(context.Background())
+}
+
+func (i AnalysisVisualCustomActionDefaultsArgs) ToAnalysisVisualCustomActionDefaultsOutputWithContext(ctx context.Context) AnalysisVisualCustomActionDefaultsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualCustomActionDefaultsOutput)
+}
+
+func (i AnalysisVisualCustomActionDefaultsArgs) ToAnalysisVisualCustomActionDefaultsPtrOutput() AnalysisVisualCustomActionDefaultsPtrOutput {
+	return i.ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisVisualCustomActionDefaultsArgs) ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(ctx context.Context) AnalysisVisualCustomActionDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualCustomActionDefaultsOutput).ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(ctx)
+}
+
+// AnalysisVisualCustomActionDefaultsPtrInput is an input type that accepts AnalysisVisualCustomActionDefaultsArgs, AnalysisVisualCustomActionDefaultsPtr and AnalysisVisualCustomActionDefaultsPtrOutput values.
+// You can construct a concrete instance of `AnalysisVisualCustomActionDefaultsPtrInput` via:
+//
+//	        AnalysisVisualCustomActionDefaultsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisVisualCustomActionDefaultsPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualCustomActionDefaultsPtrOutput() AnalysisVisualCustomActionDefaultsPtrOutput
+	ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(context.Context) AnalysisVisualCustomActionDefaultsPtrOutput
+}
+
+type analysisVisualCustomActionDefaultsPtrType AnalysisVisualCustomActionDefaultsArgs
+
+func AnalysisVisualCustomActionDefaultsPtr(v *AnalysisVisualCustomActionDefaultsArgs) AnalysisVisualCustomActionDefaultsPtrInput {
+	return (*analysisVisualCustomActionDefaultsPtrType)(v)
+}
+
+func (*analysisVisualCustomActionDefaultsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualCustomActionDefaults)(nil)).Elem()
+}
+
+func (i *analysisVisualCustomActionDefaultsPtrType) ToAnalysisVisualCustomActionDefaultsPtrOutput() AnalysisVisualCustomActionDefaultsPtrOutput {
+	return i.ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisVisualCustomActionDefaultsPtrType) ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(ctx context.Context) AnalysisVisualCustomActionDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualCustomActionDefaultsPtrOutput)
+}
+
+type AnalysisVisualCustomActionDefaultsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualCustomActionDefaultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualCustomActionDefaults)(nil)).Elem()
+}
+
+func (o AnalysisVisualCustomActionDefaultsOutput) ToAnalysisVisualCustomActionDefaultsOutput() AnalysisVisualCustomActionDefaultsOutput {
+	return o
+}
+
+func (o AnalysisVisualCustomActionDefaultsOutput) ToAnalysisVisualCustomActionDefaultsOutputWithContext(ctx context.Context) AnalysisVisualCustomActionDefaultsOutput {
+	return o
+}
+
+func (o AnalysisVisualCustomActionDefaultsOutput) ToAnalysisVisualCustomActionDefaultsPtrOutput() AnalysisVisualCustomActionDefaultsPtrOutput {
+	return o.ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisVisualCustomActionDefaultsOutput) ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(ctx context.Context) AnalysisVisualCustomActionDefaultsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisVisualCustomActionDefaults) *AnalysisVisualCustomActionDefaults {
+		return &v
+	}).(AnalysisVisualCustomActionDefaultsPtrOutput)
+}
+
+func (o AnalysisVisualCustomActionDefaultsOutput) HighlightOperation() AnalysisVisualHighlightOperationPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualCustomActionDefaults) *AnalysisVisualHighlightOperation {
+		return v.HighlightOperation
+	}).(AnalysisVisualHighlightOperationPtrOutput)
+}
+
+type AnalysisVisualCustomActionDefaultsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualCustomActionDefaultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualCustomActionDefaults)(nil)).Elem()
+}
+
+func (o AnalysisVisualCustomActionDefaultsPtrOutput) ToAnalysisVisualCustomActionDefaultsPtrOutput() AnalysisVisualCustomActionDefaultsPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualCustomActionDefaultsPtrOutput) ToAnalysisVisualCustomActionDefaultsPtrOutputWithContext(ctx context.Context) AnalysisVisualCustomActionDefaultsPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualCustomActionDefaultsPtrOutput) Elem() AnalysisVisualCustomActionDefaultsOutput {
+	return o.ApplyT(func(v *AnalysisVisualCustomActionDefaults) AnalysisVisualCustomActionDefaults {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisVisualCustomActionDefaults
+		return ret
+	}).(AnalysisVisualCustomActionDefaultsOutput)
+}
+
+func (o AnalysisVisualCustomActionDefaultsPtrOutput) HighlightOperation() AnalysisVisualHighlightOperationPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualCustomActionDefaults) *AnalysisVisualHighlightOperation {
+		if v == nil {
+			return nil
+		}
+		return v.HighlightOperation
+	}).(AnalysisVisualHighlightOperationPtrOutput)
+}
+
 type AnalysisVisualCustomActionOperation struct {
 	// The filter operation that filters data included in a visual or in an entire sheet.
 	FilterOperation *AnalysisCustomActionFilterOperation `pulumi:"filterOperation"`
@@ -13312,6 +13447,139 @@ func (o AnalysisVisualCustomActionOperationArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisVisualCustomActionOperation {
 		return vs[0].([]AnalysisVisualCustomActionOperation)[vs[1].(int)]
 	}).(AnalysisVisualCustomActionOperationOutput)
+}
+
+type AnalysisVisualHighlightOperation struct {
+	Trigger AnalysisVisualHighlightTrigger `pulumi:"trigger"`
+}
+
+// AnalysisVisualHighlightOperationInput is an input type that accepts AnalysisVisualHighlightOperationArgs and AnalysisVisualHighlightOperationOutput values.
+// You can construct a concrete instance of `AnalysisVisualHighlightOperationInput` via:
+//
+//	AnalysisVisualHighlightOperationArgs{...}
+type AnalysisVisualHighlightOperationInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualHighlightOperationOutput() AnalysisVisualHighlightOperationOutput
+	ToAnalysisVisualHighlightOperationOutputWithContext(context.Context) AnalysisVisualHighlightOperationOutput
+}
+
+type AnalysisVisualHighlightOperationArgs struct {
+	Trigger AnalysisVisualHighlightTriggerInput `pulumi:"trigger"`
+}
+
+func (AnalysisVisualHighlightOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualHighlightOperation)(nil)).Elem()
+}
+
+func (i AnalysisVisualHighlightOperationArgs) ToAnalysisVisualHighlightOperationOutput() AnalysisVisualHighlightOperationOutput {
+	return i.ToAnalysisVisualHighlightOperationOutputWithContext(context.Background())
+}
+
+func (i AnalysisVisualHighlightOperationArgs) ToAnalysisVisualHighlightOperationOutputWithContext(ctx context.Context) AnalysisVisualHighlightOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualHighlightOperationOutput)
+}
+
+func (i AnalysisVisualHighlightOperationArgs) ToAnalysisVisualHighlightOperationPtrOutput() AnalysisVisualHighlightOperationPtrOutput {
+	return i.ToAnalysisVisualHighlightOperationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisVisualHighlightOperationArgs) ToAnalysisVisualHighlightOperationPtrOutputWithContext(ctx context.Context) AnalysisVisualHighlightOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualHighlightOperationOutput).ToAnalysisVisualHighlightOperationPtrOutputWithContext(ctx)
+}
+
+// AnalysisVisualHighlightOperationPtrInput is an input type that accepts AnalysisVisualHighlightOperationArgs, AnalysisVisualHighlightOperationPtr and AnalysisVisualHighlightOperationPtrOutput values.
+// You can construct a concrete instance of `AnalysisVisualHighlightOperationPtrInput` via:
+//
+//	        AnalysisVisualHighlightOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisVisualHighlightOperationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualHighlightOperationPtrOutput() AnalysisVisualHighlightOperationPtrOutput
+	ToAnalysisVisualHighlightOperationPtrOutputWithContext(context.Context) AnalysisVisualHighlightOperationPtrOutput
+}
+
+type analysisVisualHighlightOperationPtrType AnalysisVisualHighlightOperationArgs
+
+func AnalysisVisualHighlightOperationPtr(v *AnalysisVisualHighlightOperationArgs) AnalysisVisualHighlightOperationPtrInput {
+	return (*analysisVisualHighlightOperationPtrType)(v)
+}
+
+func (*analysisVisualHighlightOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualHighlightOperation)(nil)).Elem()
+}
+
+func (i *analysisVisualHighlightOperationPtrType) ToAnalysisVisualHighlightOperationPtrOutput() AnalysisVisualHighlightOperationPtrOutput {
+	return i.ToAnalysisVisualHighlightOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisVisualHighlightOperationPtrType) ToAnalysisVisualHighlightOperationPtrOutputWithContext(ctx context.Context) AnalysisVisualHighlightOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualHighlightOperationPtrOutput)
+}
+
+type AnalysisVisualHighlightOperationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualHighlightOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualHighlightOperation)(nil)).Elem()
+}
+
+func (o AnalysisVisualHighlightOperationOutput) ToAnalysisVisualHighlightOperationOutput() AnalysisVisualHighlightOperationOutput {
+	return o
+}
+
+func (o AnalysisVisualHighlightOperationOutput) ToAnalysisVisualHighlightOperationOutputWithContext(ctx context.Context) AnalysisVisualHighlightOperationOutput {
+	return o
+}
+
+func (o AnalysisVisualHighlightOperationOutput) ToAnalysisVisualHighlightOperationPtrOutput() AnalysisVisualHighlightOperationPtrOutput {
+	return o.ToAnalysisVisualHighlightOperationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisVisualHighlightOperationOutput) ToAnalysisVisualHighlightOperationPtrOutputWithContext(ctx context.Context) AnalysisVisualHighlightOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisVisualHighlightOperation) *AnalysisVisualHighlightOperation {
+		return &v
+	}).(AnalysisVisualHighlightOperationPtrOutput)
+}
+
+func (o AnalysisVisualHighlightOperationOutput) Trigger() AnalysisVisualHighlightTriggerOutput {
+	return o.ApplyT(func(v AnalysisVisualHighlightOperation) AnalysisVisualHighlightTrigger { return v.Trigger }).(AnalysisVisualHighlightTriggerOutput)
+}
+
+type AnalysisVisualHighlightOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualHighlightOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualHighlightOperation)(nil)).Elem()
+}
+
+func (o AnalysisVisualHighlightOperationPtrOutput) ToAnalysisVisualHighlightOperationPtrOutput() AnalysisVisualHighlightOperationPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualHighlightOperationPtrOutput) ToAnalysisVisualHighlightOperationPtrOutputWithContext(ctx context.Context) AnalysisVisualHighlightOperationPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualHighlightOperationPtrOutput) Elem() AnalysisVisualHighlightOperationOutput {
+	return o.ApplyT(func(v *AnalysisVisualHighlightOperation) AnalysisVisualHighlightOperation {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisVisualHighlightOperation
+		return ret
+	}).(AnalysisVisualHighlightOperationOutput)
+}
+
+func (o AnalysisVisualHighlightOperationPtrOutput) Trigger() AnalysisVisualHighlightTriggerPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualHighlightOperation) *AnalysisVisualHighlightTrigger {
+		if v == nil {
+			return nil
+		}
+		return &v.Trigger
+	}).(AnalysisVisualHighlightTriggerPtrOutput)
 }
 
 type AnalysisVisualInteractionOptions struct {
@@ -13605,6 +13873,377 @@ func (o AnalysisVisualMenuOptionPtrOutput) AvailabilityStatus() AnalysisDashboar
 		}
 		return v.AvailabilityStatus
 	}).(AnalysisDashboardBehaviorPtrOutput)
+}
+
+type AnalysisVisualMessageConfiguration struct {
+	Description           *string             `pulumi:"description"`
+	DescriptionVisibility *AnalysisVisibility `pulumi:"descriptionVisibility"`
+	Enabled               *bool               `pulumi:"enabled"`
+	LinkText              *string             `pulumi:"linkText"`
+	LinkUrl               *string             `pulumi:"linkUrl"`
+	LinkVisibility        *AnalysisVisibility `pulumi:"linkVisibility"`
+	Title                 *string             `pulumi:"title"`
+	TitleVisibility       *AnalysisVisibility `pulumi:"titleVisibility"`
+}
+
+// AnalysisVisualMessageConfigurationInput is an input type that accepts AnalysisVisualMessageConfigurationArgs and AnalysisVisualMessageConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisVisualMessageConfigurationInput` via:
+//
+//	AnalysisVisualMessageConfigurationArgs{...}
+type AnalysisVisualMessageConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualMessageConfigurationOutput() AnalysisVisualMessageConfigurationOutput
+	ToAnalysisVisualMessageConfigurationOutputWithContext(context.Context) AnalysisVisualMessageConfigurationOutput
+}
+
+type AnalysisVisualMessageConfigurationArgs struct {
+	Description           pulumi.StringPtrInput      `pulumi:"description"`
+	DescriptionVisibility AnalysisVisibilityPtrInput `pulumi:"descriptionVisibility"`
+	Enabled               pulumi.BoolPtrInput        `pulumi:"enabled"`
+	LinkText              pulumi.StringPtrInput      `pulumi:"linkText"`
+	LinkUrl               pulumi.StringPtrInput      `pulumi:"linkUrl"`
+	LinkVisibility        AnalysisVisibilityPtrInput `pulumi:"linkVisibility"`
+	Title                 pulumi.StringPtrInput      `pulumi:"title"`
+	TitleVisibility       AnalysisVisibilityPtrInput `pulumi:"titleVisibility"`
+}
+
+func (AnalysisVisualMessageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualMessageConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisVisualMessageConfigurationArgs) ToAnalysisVisualMessageConfigurationOutput() AnalysisVisualMessageConfigurationOutput {
+	return i.ToAnalysisVisualMessageConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisVisualMessageConfigurationArgs) ToAnalysisVisualMessageConfigurationOutputWithContext(ctx context.Context) AnalysisVisualMessageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualMessageConfigurationOutput)
+}
+
+func (i AnalysisVisualMessageConfigurationArgs) ToAnalysisVisualMessageConfigurationPtrOutput() AnalysisVisualMessageConfigurationPtrOutput {
+	return i.ToAnalysisVisualMessageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisVisualMessageConfigurationArgs) ToAnalysisVisualMessageConfigurationPtrOutputWithContext(ctx context.Context) AnalysisVisualMessageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualMessageConfigurationOutput).ToAnalysisVisualMessageConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisVisualMessageConfigurationPtrInput is an input type that accepts AnalysisVisualMessageConfigurationArgs, AnalysisVisualMessageConfigurationPtr and AnalysisVisualMessageConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisVisualMessageConfigurationPtrInput` via:
+//
+//	        AnalysisVisualMessageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisVisualMessageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualMessageConfigurationPtrOutput() AnalysisVisualMessageConfigurationPtrOutput
+	ToAnalysisVisualMessageConfigurationPtrOutputWithContext(context.Context) AnalysisVisualMessageConfigurationPtrOutput
+}
+
+type analysisVisualMessageConfigurationPtrType AnalysisVisualMessageConfigurationArgs
+
+func AnalysisVisualMessageConfigurationPtr(v *AnalysisVisualMessageConfigurationArgs) AnalysisVisualMessageConfigurationPtrInput {
+	return (*analysisVisualMessageConfigurationPtrType)(v)
+}
+
+func (*analysisVisualMessageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualMessageConfiguration)(nil)).Elem()
+}
+
+func (i *analysisVisualMessageConfigurationPtrType) ToAnalysisVisualMessageConfigurationPtrOutput() AnalysisVisualMessageConfigurationPtrOutput {
+	return i.ToAnalysisVisualMessageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisVisualMessageConfigurationPtrType) ToAnalysisVisualMessageConfigurationPtrOutputWithContext(ctx context.Context) AnalysisVisualMessageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualMessageConfigurationPtrOutput)
+}
+
+type AnalysisVisualMessageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualMessageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualMessageConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) ToAnalysisVisualMessageConfigurationOutput() AnalysisVisualMessageConfigurationOutput {
+	return o
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) ToAnalysisVisualMessageConfigurationOutputWithContext(ctx context.Context) AnalysisVisualMessageConfigurationOutput {
+	return o
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) ToAnalysisVisualMessageConfigurationPtrOutput() AnalysisVisualMessageConfigurationPtrOutput {
+	return o.ToAnalysisVisualMessageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) ToAnalysisVisualMessageConfigurationPtrOutputWithContext(ctx context.Context) AnalysisVisualMessageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisVisualMessageConfiguration) *AnalysisVisualMessageConfiguration {
+		return &v
+	}).(AnalysisVisualMessageConfigurationPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessageConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) DescriptionVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessageConfiguration) *AnalysisVisibility { return v.DescriptionVisibility }).(AnalysisVisibilityPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessageConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) LinkText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessageConfiguration) *string { return v.LinkText }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) LinkUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessageConfiguration) *string { return v.LinkUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) LinkVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessageConfiguration) *AnalysisVisibility { return v.LinkVisibility }).(AnalysisVisibilityPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessageConfiguration) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationOutput) TitleVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessageConfiguration) *AnalysisVisibility { return v.TitleVisibility }).(AnalysisVisibilityPtrOutput)
+}
+
+type AnalysisVisualMessageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualMessageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualMessageConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) ToAnalysisVisualMessageConfigurationPtrOutput() AnalysisVisualMessageConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) ToAnalysisVisualMessageConfigurationPtrOutputWithContext(ctx context.Context) AnalysisVisualMessageConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) Elem() AnalysisVisualMessageConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) AnalysisVisualMessageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisVisualMessageConfiguration
+		return ret
+	}).(AnalysisVisualMessageConfigurationOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) DescriptionVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) *AnalysisVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.DescriptionVisibility
+	}).(AnalysisVisibilityPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) LinkText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkText
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) LinkUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) LinkVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) *AnalysisVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.LinkVisibility
+	}).(AnalysisVisibilityPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisVisualMessageConfigurationPtrOutput) TitleVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessageConfiguration) *AnalysisVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.TitleVisibility
+	}).(AnalysisVisibilityPtrOutput)
+}
+
+type AnalysisVisualMessages struct {
+	NoDataMessage *AnalysisVisualMessageConfiguration `pulumi:"noDataMessage"`
+}
+
+// AnalysisVisualMessagesInput is an input type that accepts AnalysisVisualMessagesArgs and AnalysisVisualMessagesOutput values.
+// You can construct a concrete instance of `AnalysisVisualMessagesInput` via:
+//
+//	AnalysisVisualMessagesArgs{...}
+type AnalysisVisualMessagesInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualMessagesOutput() AnalysisVisualMessagesOutput
+	ToAnalysisVisualMessagesOutputWithContext(context.Context) AnalysisVisualMessagesOutput
+}
+
+type AnalysisVisualMessagesArgs struct {
+	NoDataMessage AnalysisVisualMessageConfigurationPtrInput `pulumi:"noDataMessage"`
+}
+
+func (AnalysisVisualMessagesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualMessages)(nil)).Elem()
+}
+
+func (i AnalysisVisualMessagesArgs) ToAnalysisVisualMessagesOutput() AnalysisVisualMessagesOutput {
+	return i.ToAnalysisVisualMessagesOutputWithContext(context.Background())
+}
+
+func (i AnalysisVisualMessagesArgs) ToAnalysisVisualMessagesOutputWithContext(ctx context.Context) AnalysisVisualMessagesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualMessagesOutput)
+}
+
+func (i AnalysisVisualMessagesArgs) ToAnalysisVisualMessagesPtrOutput() AnalysisVisualMessagesPtrOutput {
+	return i.ToAnalysisVisualMessagesPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisVisualMessagesArgs) ToAnalysisVisualMessagesPtrOutputWithContext(ctx context.Context) AnalysisVisualMessagesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualMessagesOutput).ToAnalysisVisualMessagesPtrOutputWithContext(ctx)
+}
+
+// AnalysisVisualMessagesPtrInput is an input type that accepts AnalysisVisualMessagesArgs, AnalysisVisualMessagesPtr and AnalysisVisualMessagesPtrOutput values.
+// You can construct a concrete instance of `AnalysisVisualMessagesPtrInput` via:
+//
+//	        AnalysisVisualMessagesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisVisualMessagesPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualMessagesPtrOutput() AnalysisVisualMessagesPtrOutput
+	ToAnalysisVisualMessagesPtrOutputWithContext(context.Context) AnalysisVisualMessagesPtrOutput
+}
+
+type analysisVisualMessagesPtrType AnalysisVisualMessagesArgs
+
+func AnalysisVisualMessagesPtr(v *AnalysisVisualMessagesArgs) AnalysisVisualMessagesPtrInput {
+	return (*analysisVisualMessagesPtrType)(v)
+}
+
+func (*analysisVisualMessagesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualMessages)(nil)).Elem()
+}
+
+func (i *analysisVisualMessagesPtrType) ToAnalysisVisualMessagesPtrOutput() AnalysisVisualMessagesPtrOutput {
+	return i.ToAnalysisVisualMessagesPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisVisualMessagesPtrType) ToAnalysisVisualMessagesPtrOutputWithContext(ctx context.Context) AnalysisVisualMessagesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisVisualMessagesPtrOutput)
+}
+
+type AnalysisVisualMessagesOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualMessagesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualMessages)(nil)).Elem()
+}
+
+func (o AnalysisVisualMessagesOutput) ToAnalysisVisualMessagesOutput() AnalysisVisualMessagesOutput {
+	return o
+}
+
+func (o AnalysisVisualMessagesOutput) ToAnalysisVisualMessagesOutputWithContext(ctx context.Context) AnalysisVisualMessagesOutput {
+	return o
+}
+
+func (o AnalysisVisualMessagesOutput) ToAnalysisVisualMessagesPtrOutput() AnalysisVisualMessagesPtrOutput {
+	return o.ToAnalysisVisualMessagesPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisVisualMessagesOutput) ToAnalysisVisualMessagesPtrOutputWithContext(ctx context.Context) AnalysisVisualMessagesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisVisualMessages) *AnalysisVisualMessages {
+		return &v
+	}).(AnalysisVisualMessagesPtrOutput)
+}
+
+func (o AnalysisVisualMessagesOutput) NoDataMessage() AnalysisVisualMessageConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualMessages) *AnalysisVisualMessageConfiguration { return v.NoDataMessage }).(AnalysisVisualMessageConfigurationPtrOutput)
+}
+
+type AnalysisVisualMessagesPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualMessagesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualMessages)(nil)).Elem()
+}
+
+func (o AnalysisVisualMessagesPtrOutput) ToAnalysisVisualMessagesPtrOutput() AnalysisVisualMessagesPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualMessagesPtrOutput) ToAnalysisVisualMessagesPtrOutputWithContext(ctx context.Context) AnalysisVisualMessagesPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualMessagesPtrOutput) Elem() AnalysisVisualMessagesOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessages) AnalysisVisualMessages {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisVisualMessages
+		return ret
+	}).(AnalysisVisualMessagesOutput)
+}
+
+func (o AnalysisVisualMessagesPtrOutput) NoDataMessage() AnalysisVisualMessageConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisVisualMessages) *AnalysisVisualMessageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NoDataMessage
+	}).(AnalysisVisualMessageConfigurationPtrOutput)
 }
 
 type AnalysisVisualPalette struct {
@@ -26456,12 +27095,14 @@ func (o DashboardArcOptionsPtrOutput) ArcThickness() DashboardArcThicknessPtrOut
 }
 
 type DashboardAssetOptions struct {
+	CustomActionDefaults *DashboardVisualCustomActionDefaults `pulumi:"customActionDefaults"`
 	// A list of dataset ARNS to exclude from Dashboard Q&A.
 	ExcludedDataSetArns []string `pulumi:"excludedDataSetArns"`
 	// Determines whether insight summaries from Amazon Q Business are allowed in Dashboard Q&A.
 	QBusinessInsightsStatus *DashboardQBusinessInsightsStatus `pulumi:"qBusinessInsightsStatus"`
 	// Determines the timezone for the analysis.
-	Timezone *string `pulumi:"timezone"`
+	Timezone       *string                  `pulumi:"timezone"`
+	VisualMessages *DashboardVisualMessages `pulumi:"visualMessages"`
 	// Determines the week start day for an analysis.
 	WeekStart *DashboardDayOfTheWeek `pulumi:"weekStart"`
 }
@@ -26478,12 +27119,14 @@ type DashboardAssetOptionsInput interface {
 }
 
 type DashboardAssetOptionsArgs struct {
+	CustomActionDefaults DashboardVisualCustomActionDefaultsPtrInput `pulumi:"customActionDefaults"`
 	// A list of dataset ARNS to exclude from Dashboard Q&A.
 	ExcludedDataSetArns pulumi.StringArrayInput `pulumi:"excludedDataSetArns"`
 	// Determines whether insight summaries from Amazon Q Business are allowed in Dashboard Q&A.
 	QBusinessInsightsStatus DashboardQBusinessInsightsStatusPtrInput `pulumi:"qBusinessInsightsStatus"`
 	// Determines the timezone for the analysis.
-	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	Timezone       pulumi.StringPtrInput           `pulumi:"timezone"`
+	VisualMessages DashboardVisualMessagesPtrInput `pulumi:"visualMessages"`
 	// Determines the week start day for an analysis.
 	WeekStart DashboardDayOfTheWeekPtrInput `pulumi:"weekStart"`
 }
@@ -26565,6 +27208,10 @@ func (o DashboardAssetOptionsOutput) ToDashboardAssetOptionsPtrOutputWithContext
 	}).(DashboardAssetOptionsPtrOutput)
 }
 
+func (o DashboardAssetOptionsOutput) CustomActionDefaults() DashboardVisualCustomActionDefaultsPtrOutput {
+	return o.ApplyT(func(v DashboardAssetOptions) *DashboardVisualCustomActionDefaults { return v.CustomActionDefaults }).(DashboardVisualCustomActionDefaultsPtrOutput)
+}
+
 // A list of dataset ARNS to exclude from Dashboard Q&A.
 func (o DashboardAssetOptionsOutput) ExcludedDataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardAssetOptions) []string { return v.ExcludedDataSetArns }).(pulumi.StringArrayOutput)
@@ -26578,6 +27225,10 @@ func (o DashboardAssetOptionsOutput) QBusinessInsightsStatus() DashboardQBusines
 // Determines the timezone for the analysis.
 func (o DashboardAssetOptionsOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardAssetOptions) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardAssetOptionsOutput) VisualMessages() DashboardVisualMessagesPtrOutput {
+	return o.ApplyT(func(v DashboardAssetOptions) *DashboardVisualMessages { return v.VisualMessages }).(DashboardVisualMessagesPtrOutput)
 }
 
 // Determines the week start day for an analysis.
@@ -26609,6 +27260,15 @@ func (o DashboardAssetOptionsPtrOutput) Elem() DashboardAssetOptionsOutput {
 	}).(DashboardAssetOptionsOutput)
 }
 
+func (o DashboardAssetOptionsPtrOutput) CustomActionDefaults() DashboardVisualCustomActionDefaultsPtrOutput {
+	return o.ApplyT(func(v *DashboardAssetOptions) *DashboardVisualCustomActionDefaults {
+		if v == nil {
+			return nil
+		}
+		return v.CustomActionDefaults
+	}).(DashboardVisualCustomActionDefaultsPtrOutput)
+}
+
 // A list of dataset ARNS to exclude from Dashboard Q&A.
 func (o DashboardAssetOptionsPtrOutput) ExcludedDataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardAssetOptions) []string {
@@ -26637,6 +27297,15 @@ func (o DashboardAssetOptionsPtrOutput) Timezone() pulumi.StringPtrOutput {
 		}
 		return v.Timezone
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardAssetOptionsPtrOutput) VisualMessages() DashboardVisualMessagesPtrOutput {
+	return o.ApplyT(func(v *DashboardAssetOptions) *DashboardVisualMessages {
+		if v == nil {
+			return nil
+		}
+		return v.VisualMessages
+	}).(DashboardVisualMessagesPtrOutput)
 }
 
 // Determines the week start day for an analysis.
@@ -93407,531 +94076,6 @@ func (o DashboardPivotTableOptionsPtrOutput) ToggleButtonsVisibility() Dashboard
 	}).(DashboardVisibilityPtrOutput)
 }
 
-type DashboardPivotTablePaginatedReportOptions struct {
-	// The visibility of the repeating header rows on each page.
-	OverflowColumnHeaderVisibility *DashboardVisibility `pulumi:"overflowColumnHeaderVisibility"`
-	// The visibility of the printing table overflow across pages.
-	VerticalOverflowVisibility *DashboardVisibility `pulumi:"verticalOverflowVisibility"`
-}
-
-// DashboardPivotTablePaginatedReportOptionsInput is an input type that accepts DashboardPivotTablePaginatedReportOptionsArgs and DashboardPivotTablePaginatedReportOptionsOutput values.
-// You can construct a concrete instance of `DashboardPivotTablePaginatedReportOptionsInput` via:
-//
-//	DashboardPivotTablePaginatedReportOptionsArgs{...}
-type DashboardPivotTablePaginatedReportOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTablePaginatedReportOptionsOutput() DashboardPivotTablePaginatedReportOptionsOutput
-	ToDashboardPivotTablePaginatedReportOptionsOutputWithContext(context.Context) DashboardPivotTablePaginatedReportOptionsOutput
-}
-
-type DashboardPivotTablePaginatedReportOptionsArgs struct {
-	// The visibility of the repeating header rows on each page.
-	OverflowColumnHeaderVisibility DashboardVisibilityPtrInput `pulumi:"overflowColumnHeaderVisibility"`
-	// The visibility of the printing table overflow across pages.
-	VerticalOverflowVisibility DashboardVisibilityPtrInput `pulumi:"verticalOverflowVisibility"`
-}
-
-func (DashboardPivotTablePaginatedReportOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTablePaginatedReportOptions)(nil)).Elem()
-}
-
-func (i DashboardPivotTablePaginatedReportOptionsArgs) ToDashboardPivotTablePaginatedReportOptionsOutput() DashboardPivotTablePaginatedReportOptionsOutput {
-	return i.ToDashboardPivotTablePaginatedReportOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTablePaginatedReportOptionsArgs) ToDashboardPivotTablePaginatedReportOptionsOutputWithContext(ctx context.Context) DashboardPivotTablePaginatedReportOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTablePaginatedReportOptionsOutput)
-}
-
-func (i DashboardPivotTablePaginatedReportOptionsArgs) ToDashboardPivotTablePaginatedReportOptionsPtrOutput() DashboardPivotTablePaginatedReportOptionsPtrOutput {
-	return i.ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTablePaginatedReportOptionsArgs) ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTablePaginatedReportOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTablePaginatedReportOptionsOutput).ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardPivotTablePaginatedReportOptionsPtrInput is an input type that accepts DashboardPivotTablePaginatedReportOptionsArgs, DashboardPivotTablePaginatedReportOptionsPtr and DashboardPivotTablePaginatedReportOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardPivotTablePaginatedReportOptionsPtrInput` via:
-//
-//	        DashboardPivotTablePaginatedReportOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPivotTablePaginatedReportOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTablePaginatedReportOptionsPtrOutput() DashboardPivotTablePaginatedReportOptionsPtrOutput
-	ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(context.Context) DashboardPivotTablePaginatedReportOptionsPtrOutput
-}
-
-type dashboardPivotTablePaginatedReportOptionsPtrType DashboardPivotTablePaginatedReportOptionsArgs
-
-func DashboardPivotTablePaginatedReportOptionsPtr(v *DashboardPivotTablePaginatedReportOptionsArgs) DashboardPivotTablePaginatedReportOptionsPtrInput {
-	return (*dashboardPivotTablePaginatedReportOptionsPtrType)(v)
-}
-
-func (*dashboardPivotTablePaginatedReportOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTablePaginatedReportOptions)(nil)).Elem()
-}
-
-func (i *dashboardPivotTablePaginatedReportOptionsPtrType) ToDashboardPivotTablePaginatedReportOptionsPtrOutput() DashboardPivotTablePaginatedReportOptionsPtrOutput {
-	return i.ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPivotTablePaginatedReportOptionsPtrType) ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTablePaginatedReportOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTablePaginatedReportOptionsPtrOutput)
-}
-
-type DashboardPivotTablePaginatedReportOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTablePaginatedReportOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTablePaginatedReportOptions)(nil)).Elem()
-}
-
-func (o DashboardPivotTablePaginatedReportOptionsOutput) ToDashboardPivotTablePaginatedReportOptionsOutput() DashboardPivotTablePaginatedReportOptionsOutput {
-	return o
-}
-
-func (o DashboardPivotTablePaginatedReportOptionsOutput) ToDashboardPivotTablePaginatedReportOptionsOutputWithContext(ctx context.Context) DashboardPivotTablePaginatedReportOptionsOutput {
-	return o
-}
-
-func (o DashboardPivotTablePaginatedReportOptionsOutput) ToDashboardPivotTablePaginatedReportOptionsPtrOutput() DashboardPivotTablePaginatedReportOptionsPtrOutput {
-	return o.ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPivotTablePaginatedReportOptionsOutput) ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTablePaginatedReportOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPivotTablePaginatedReportOptions) *DashboardPivotTablePaginatedReportOptions {
-		return &v
-	}).(DashboardPivotTablePaginatedReportOptionsPtrOutput)
-}
-
-// The visibility of the repeating header rows on each page.
-func (o DashboardPivotTablePaginatedReportOptionsOutput) OverflowColumnHeaderVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTablePaginatedReportOptions) *DashboardVisibility {
-		return v.OverflowColumnHeaderVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-// The visibility of the printing table overflow across pages.
-func (o DashboardPivotTablePaginatedReportOptionsOutput) VerticalOverflowVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTablePaginatedReportOptions) *DashboardVisibility {
-		return v.VerticalOverflowVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardPivotTablePaginatedReportOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTablePaginatedReportOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTablePaginatedReportOptions)(nil)).Elem()
-}
-
-func (o DashboardPivotTablePaginatedReportOptionsPtrOutput) ToDashboardPivotTablePaginatedReportOptionsPtrOutput() DashboardPivotTablePaginatedReportOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTablePaginatedReportOptionsPtrOutput) ToDashboardPivotTablePaginatedReportOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTablePaginatedReportOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTablePaginatedReportOptionsPtrOutput) Elem() DashboardPivotTablePaginatedReportOptionsOutput {
-	return o.ApplyT(func(v *DashboardPivotTablePaginatedReportOptions) DashboardPivotTablePaginatedReportOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPivotTablePaginatedReportOptions
-		return ret
-	}).(DashboardPivotTablePaginatedReportOptionsOutput)
-}
-
-// The visibility of the repeating header rows on each page.
-func (o DashboardPivotTablePaginatedReportOptionsPtrOutput) OverflowColumnHeaderVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTablePaginatedReportOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.OverflowColumnHeaderVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-// The visibility of the printing table overflow across pages.
-func (o DashboardPivotTablePaginatedReportOptionsPtrOutput) VerticalOverflowVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTablePaginatedReportOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.VerticalOverflowVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardPivotTableRowsLabelOptions struct {
-	// The custom label string for the rows label.
-	CustomLabel *string `pulumi:"customLabel"`
-	// The visibility of the rows label.
-	Visibility *DashboardVisibility `pulumi:"visibility"`
-}
-
-// DashboardPivotTableRowsLabelOptionsInput is an input type that accepts DashboardPivotTableRowsLabelOptionsArgs and DashboardPivotTableRowsLabelOptionsOutput values.
-// You can construct a concrete instance of `DashboardPivotTableRowsLabelOptionsInput` via:
-//
-//	DashboardPivotTableRowsLabelOptionsArgs{...}
-type DashboardPivotTableRowsLabelOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableRowsLabelOptionsOutput() DashboardPivotTableRowsLabelOptionsOutput
-	ToDashboardPivotTableRowsLabelOptionsOutputWithContext(context.Context) DashboardPivotTableRowsLabelOptionsOutput
-}
-
-type DashboardPivotTableRowsLabelOptionsArgs struct {
-	// The custom label string for the rows label.
-	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
-	// The visibility of the rows label.
-	Visibility DashboardVisibilityPtrInput `pulumi:"visibility"`
-}
-
-func (DashboardPivotTableRowsLabelOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableRowsLabelOptions)(nil)).Elem()
-}
-
-func (i DashboardPivotTableRowsLabelOptionsArgs) ToDashboardPivotTableRowsLabelOptionsOutput() DashboardPivotTableRowsLabelOptionsOutput {
-	return i.ToDashboardPivotTableRowsLabelOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableRowsLabelOptionsArgs) ToDashboardPivotTableRowsLabelOptionsOutputWithContext(ctx context.Context) DashboardPivotTableRowsLabelOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableRowsLabelOptionsOutput)
-}
-
-func (i DashboardPivotTableRowsLabelOptionsArgs) ToDashboardPivotTableRowsLabelOptionsPtrOutput() DashboardPivotTableRowsLabelOptionsPtrOutput {
-	return i.ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableRowsLabelOptionsArgs) ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTableRowsLabelOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableRowsLabelOptionsOutput).ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardPivotTableRowsLabelOptionsPtrInput is an input type that accepts DashboardPivotTableRowsLabelOptionsArgs, DashboardPivotTableRowsLabelOptionsPtr and DashboardPivotTableRowsLabelOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardPivotTableRowsLabelOptionsPtrInput` via:
-//
-//	        DashboardPivotTableRowsLabelOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPivotTableRowsLabelOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableRowsLabelOptionsPtrOutput() DashboardPivotTableRowsLabelOptionsPtrOutput
-	ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(context.Context) DashboardPivotTableRowsLabelOptionsPtrOutput
-}
-
-type dashboardPivotTableRowsLabelOptionsPtrType DashboardPivotTableRowsLabelOptionsArgs
-
-func DashboardPivotTableRowsLabelOptionsPtr(v *DashboardPivotTableRowsLabelOptionsArgs) DashboardPivotTableRowsLabelOptionsPtrInput {
-	return (*dashboardPivotTableRowsLabelOptionsPtrType)(v)
-}
-
-func (*dashboardPivotTableRowsLabelOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTableRowsLabelOptions)(nil)).Elem()
-}
-
-func (i *dashboardPivotTableRowsLabelOptionsPtrType) ToDashboardPivotTableRowsLabelOptionsPtrOutput() DashboardPivotTableRowsLabelOptionsPtrOutput {
-	return i.ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPivotTableRowsLabelOptionsPtrType) ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTableRowsLabelOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableRowsLabelOptionsPtrOutput)
-}
-
-type DashboardPivotTableRowsLabelOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableRowsLabelOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableRowsLabelOptions)(nil)).Elem()
-}
-
-func (o DashboardPivotTableRowsLabelOptionsOutput) ToDashboardPivotTableRowsLabelOptionsOutput() DashboardPivotTableRowsLabelOptionsOutput {
-	return o
-}
-
-func (o DashboardPivotTableRowsLabelOptionsOutput) ToDashboardPivotTableRowsLabelOptionsOutputWithContext(ctx context.Context) DashboardPivotTableRowsLabelOptionsOutput {
-	return o
-}
-
-func (o DashboardPivotTableRowsLabelOptionsOutput) ToDashboardPivotTableRowsLabelOptionsPtrOutput() DashboardPivotTableRowsLabelOptionsPtrOutput {
-	return o.ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPivotTableRowsLabelOptionsOutput) ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTableRowsLabelOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPivotTableRowsLabelOptions) *DashboardPivotTableRowsLabelOptions {
-		return &v
-	}).(DashboardPivotTableRowsLabelOptionsPtrOutput)
-}
-
-// The custom label string for the rows label.
-func (o DashboardPivotTableRowsLabelOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableRowsLabelOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
-}
-
-// The visibility of the rows label.
-func (o DashboardPivotTableRowsLabelOptionsOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableRowsLabelOptions) *DashboardVisibility { return v.Visibility }).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardPivotTableRowsLabelOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableRowsLabelOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTableRowsLabelOptions)(nil)).Elem()
-}
-
-func (o DashboardPivotTableRowsLabelOptionsPtrOutput) ToDashboardPivotTableRowsLabelOptionsPtrOutput() DashboardPivotTableRowsLabelOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTableRowsLabelOptionsPtrOutput) ToDashboardPivotTableRowsLabelOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTableRowsLabelOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTableRowsLabelOptionsPtrOutput) Elem() DashboardPivotTableRowsLabelOptionsOutput {
-	return o.ApplyT(func(v *DashboardPivotTableRowsLabelOptions) DashboardPivotTableRowsLabelOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPivotTableRowsLabelOptions
-		return ret
-	}).(DashboardPivotTableRowsLabelOptionsOutput)
-}
-
-// The custom label string for the rows label.
-func (o DashboardPivotTableRowsLabelOptionsPtrOutput) CustomLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableRowsLabelOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomLabel
-	}).(pulumi.StringPtrOutput)
-}
-
-// The visibility of the rows label.
-func (o DashboardPivotTableRowsLabelOptionsPtrOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableRowsLabelOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardPivotTableSortBy struct {
-	// The column sort (field id, direction) for the pivot table sort by options.
-	Column *DashboardColumnSort `pulumi:"column"`
-	// The data path sort (data path value, direction) for the pivot table sort by options.
-	DataPath *DashboardDataPathSort `pulumi:"dataPath"`
-	// The field sort (field id, direction) for the pivot table sort by options.
-	Field *DashboardFieldSort `pulumi:"field"`
-}
-
-// DashboardPivotTableSortByInput is an input type that accepts DashboardPivotTableSortByArgs and DashboardPivotTableSortByOutput values.
-// You can construct a concrete instance of `DashboardPivotTableSortByInput` via:
-//
-//	DashboardPivotTableSortByArgs{...}
-type DashboardPivotTableSortByInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableSortByOutput() DashboardPivotTableSortByOutput
-	ToDashboardPivotTableSortByOutputWithContext(context.Context) DashboardPivotTableSortByOutput
-}
-
-type DashboardPivotTableSortByArgs struct {
-	// The column sort (field id, direction) for the pivot table sort by options.
-	Column DashboardColumnSortPtrInput `pulumi:"column"`
-	// The data path sort (data path value, direction) for the pivot table sort by options.
-	DataPath DashboardDataPathSortPtrInput `pulumi:"dataPath"`
-	// The field sort (field id, direction) for the pivot table sort by options.
-	Field DashboardFieldSortPtrInput `pulumi:"field"`
-}
-
-func (DashboardPivotTableSortByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableSortBy)(nil)).Elem()
-}
-
-func (i DashboardPivotTableSortByArgs) ToDashboardPivotTableSortByOutput() DashboardPivotTableSortByOutput {
-	return i.ToDashboardPivotTableSortByOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableSortByArgs) ToDashboardPivotTableSortByOutputWithContext(ctx context.Context) DashboardPivotTableSortByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableSortByOutput)
-}
-
-type DashboardPivotTableSortByOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableSortByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableSortBy)(nil)).Elem()
-}
-
-func (o DashboardPivotTableSortByOutput) ToDashboardPivotTableSortByOutput() DashboardPivotTableSortByOutput {
-	return o
-}
-
-func (o DashboardPivotTableSortByOutput) ToDashboardPivotTableSortByOutputWithContext(ctx context.Context) DashboardPivotTableSortByOutput {
-	return o
-}
-
-// The column sort (field id, direction) for the pivot table sort by options.
-func (o DashboardPivotTableSortByOutput) Column() DashboardColumnSortPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableSortBy) *DashboardColumnSort { return v.Column }).(DashboardColumnSortPtrOutput)
-}
-
-// The data path sort (data path value, direction) for the pivot table sort by options.
-func (o DashboardPivotTableSortByOutput) DataPath() DashboardDataPathSortPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableSortBy) *DashboardDataPathSort { return v.DataPath }).(DashboardDataPathSortPtrOutput)
-}
-
-// The field sort (field id, direction) for the pivot table sort by options.
-func (o DashboardPivotTableSortByOutput) Field() DashboardFieldSortPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableSortBy) *DashboardFieldSort { return v.Field }).(DashboardFieldSortPtrOutput)
-}
-
-type DashboardPivotTableSortConfiguration struct {
-	// The field sort options for a pivot table sort configuration.
-	FieldSortOptions []DashboardPivotFieldSortOptions `pulumi:"fieldSortOptions"`
-}
-
-// DashboardPivotTableSortConfigurationInput is an input type that accepts DashboardPivotTableSortConfigurationArgs and DashboardPivotTableSortConfigurationOutput values.
-// You can construct a concrete instance of `DashboardPivotTableSortConfigurationInput` via:
-//
-//	DashboardPivotTableSortConfigurationArgs{...}
-type DashboardPivotTableSortConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableSortConfigurationOutput() DashboardPivotTableSortConfigurationOutput
-	ToDashboardPivotTableSortConfigurationOutputWithContext(context.Context) DashboardPivotTableSortConfigurationOutput
-}
-
-type DashboardPivotTableSortConfigurationArgs struct {
-	// The field sort options for a pivot table sort configuration.
-	FieldSortOptions DashboardPivotFieldSortOptionsArrayInput `pulumi:"fieldSortOptions"`
-}
-
-func (DashboardPivotTableSortConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableSortConfiguration)(nil)).Elem()
-}
-
-func (i DashboardPivotTableSortConfigurationArgs) ToDashboardPivotTableSortConfigurationOutput() DashboardPivotTableSortConfigurationOutput {
-	return i.ToDashboardPivotTableSortConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableSortConfigurationArgs) ToDashboardPivotTableSortConfigurationOutputWithContext(ctx context.Context) DashboardPivotTableSortConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableSortConfigurationOutput)
-}
-
-func (i DashboardPivotTableSortConfigurationArgs) ToDashboardPivotTableSortConfigurationPtrOutput() DashboardPivotTableSortConfigurationPtrOutput {
-	return i.ToDashboardPivotTableSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableSortConfigurationArgs) ToDashboardPivotTableSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardPivotTableSortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableSortConfigurationOutput).ToDashboardPivotTableSortConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardPivotTableSortConfigurationPtrInput is an input type that accepts DashboardPivotTableSortConfigurationArgs, DashboardPivotTableSortConfigurationPtr and DashboardPivotTableSortConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardPivotTableSortConfigurationPtrInput` via:
-//
-//	        DashboardPivotTableSortConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPivotTableSortConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableSortConfigurationPtrOutput() DashboardPivotTableSortConfigurationPtrOutput
-	ToDashboardPivotTableSortConfigurationPtrOutputWithContext(context.Context) DashboardPivotTableSortConfigurationPtrOutput
-}
-
-type dashboardPivotTableSortConfigurationPtrType DashboardPivotTableSortConfigurationArgs
-
-func DashboardPivotTableSortConfigurationPtr(v *DashboardPivotTableSortConfigurationArgs) DashboardPivotTableSortConfigurationPtrInput {
-	return (*dashboardPivotTableSortConfigurationPtrType)(v)
-}
-
-func (*dashboardPivotTableSortConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTableSortConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardPivotTableSortConfigurationPtrType) ToDashboardPivotTableSortConfigurationPtrOutput() DashboardPivotTableSortConfigurationPtrOutput {
-	return i.ToDashboardPivotTableSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPivotTableSortConfigurationPtrType) ToDashboardPivotTableSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardPivotTableSortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableSortConfigurationPtrOutput)
-}
-
-type DashboardPivotTableSortConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableSortConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableSortConfiguration)(nil)).Elem()
-}
-
-func (o DashboardPivotTableSortConfigurationOutput) ToDashboardPivotTableSortConfigurationOutput() DashboardPivotTableSortConfigurationOutput {
-	return o
-}
-
-func (o DashboardPivotTableSortConfigurationOutput) ToDashboardPivotTableSortConfigurationOutputWithContext(ctx context.Context) DashboardPivotTableSortConfigurationOutput {
-	return o
-}
-
-func (o DashboardPivotTableSortConfigurationOutput) ToDashboardPivotTableSortConfigurationPtrOutput() DashboardPivotTableSortConfigurationPtrOutput {
-	return o.ToDashboardPivotTableSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPivotTableSortConfigurationOutput) ToDashboardPivotTableSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardPivotTableSortConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPivotTableSortConfiguration) *DashboardPivotTableSortConfiguration {
-		return &v
-	}).(DashboardPivotTableSortConfigurationPtrOutput)
-}
-
-// The field sort options for a pivot table sort configuration.
-func (o DashboardPivotTableSortConfigurationOutput) FieldSortOptions() DashboardPivotFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v DashboardPivotTableSortConfiguration) []DashboardPivotFieldSortOptions {
-		return v.FieldSortOptions
-	}).(DashboardPivotFieldSortOptionsArrayOutput)
-}
-
-type DashboardPivotTableSortConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableSortConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTableSortConfiguration)(nil)).Elem()
-}
-
-func (o DashboardPivotTableSortConfigurationPtrOutput) ToDashboardPivotTableSortConfigurationPtrOutput() DashboardPivotTableSortConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTableSortConfigurationPtrOutput) ToDashboardPivotTableSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardPivotTableSortConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTableSortConfigurationPtrOutput) Elem() DashboardPivotTableSortConfigurationOutput {
-	return o.ApplyT(func(v *DashboardPivotTableSortConfiguration) DashboardPivotTableSortConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPivotTableSortConfiguration
-		return ret
-	}).(DashboardPivotTableSortConfigurationOutput)
-}
-
-// The field sort options for a pivot table sort configuration.
-func (o DashboardPivotTableSortConfigurationPtrOutput) FieldSortOptions() DashboardPivotFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v *DashboardPivotTableSortConfiguration) []DashboardPivotFieldSortOptions {
-		if v == nil {
-			return nil
-		}
-		return v.FieldSortOptions
-	}).(DashboardPivotFieldSortOptionsArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpacingInput)(nil)).Elem(), AnalysisSpacingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpacingPtrInput)(nil)).Elem(), AnalysisSpacingArgs{})
@@ -94081,12 +94225,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualArrayInput)(nil)).Elem(), AnalysisVisualArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualCustomActionInput)(nil)).Elem(), AnalysisVisualCustomActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualCustomActionArrayInput)(nil)).Elem(), AnalysisVisualCustomActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualCustomActionDefaultsInput)(nil)).Elem(), AnalysisVisualCustomActionDefaultsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualCustomActionDefaultsPtrInput)(nil)).Elem(), AnalysisVisualCustomActionDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualCustomActionOperationInput)(nil)).Elem(), AnalysisVisualCustomActionOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualCustomActionOperationArrayInput)(nil)).Elem(), AnalysisVisualCustomActionOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualHighlightOperationInput)(nil)).Elem(), AnalysisVisualHighlightOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualHighlightOperationPtrInput)(nil)).Elem(), AnalysisVisualHighlightOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualInteractionOptionsInput)(nil)).Elem(), AnalysisVisualInteractionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualInteractionOptionsPtrInput)(nil)).Elem(), AnalysisVisualInteractionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualMenuOptionInput)(nil)).Elem(), AnalysisVisualMenuOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualMenuOptionPtrInput)(nil)).Elem(), AnalysisVisualMenuOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualMessageConfigurationInput)(nil)).Elem(), AnalysisVisualMessageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualMessageConfigurationPtrInput)(nil)).Elem(), AnalysisVisualMessageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualMessagesInput)(nil)).Elem(), AnalysisVisualMessagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualMessagesPtrInput)(nil)).Elem(), AnalysisVisualMessagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualPaletteInput)(nil)).Elem(), AnalysisVisualPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualPalettePtrInput)(nil)).Elem(), AnalysisVisualPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualSubtitleLabelOptionsInput)(nil)).Elem(), AnalysisVisualSubtitleLabelOptionsArgs{})
@@ -94917,13 +95069,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableFieldWellsPtrInput)(nil)).Elem(), DashboardPivotTableFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableOptionsInput)(nil)).Elem(), DashboardPivotTableOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableOptionsPtrInput)(nil)).Elem(), DashboardPivotTableOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTablePaginatedReportOptionsInput)(nil)).Elem(), DashboardPivotTablePaginatedReportOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTablePaginatedReportOptionsPtrInput)(nil)).Elem(), DashboardPivotTablePaginatedReportOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableRowsLabelOptionsInput)(nil)).Elem(), DashboardPivotTableRowsLabelOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableRowsLabelOptionsPtrInput)(nil)).Elem(), DashboardPivotTableRowsLabelOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSortByInput)(nil)).Elem(), DashboardPivotTableSortByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSortConfigurationInput)(nil)).Elem(), DashboardPivotTableSortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSortConfigurationPtrInput)(nil)).Elem(), DashboardPivotTableSortConfigurationArgs{})
 	pulumi.RegisterOutputType(AnalysisSpacingOutput{})
 	pulumi.RegisterOutputType(AnalysisSpacingPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSparklinesOptionsOutput{})
@@ -95072,12 +95217,20 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisVisualArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualCustomActionOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualCustomActionArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualCustomActionDefaultsOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualCustomActionDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualCustomActionOperationOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualCustomActionOperationArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualHighlightOperationOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualHighlightOperationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualInteractionOptionsOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualInteractionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualMenuOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualMenuOptionPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualMessageConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualMessageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualMessagesOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualMessagesPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualPaletteOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualPalettePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualSubtitleLabelOptionsOutput{})
@@ -95913,11 +96066,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardPivotTableFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTablePaginatedReportOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTablePaginatedReportOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableRowsLabelOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableRowsLabelOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableSortByOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableSortConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableSortConfigurationPtrOutput{})
 }

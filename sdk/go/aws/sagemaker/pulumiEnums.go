@@ -3309,6 +3309,439 @@ func (in *clusterOrchestratorSlurmConfigSlurmConfigStrategyPtr) ToClusterOrchest
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput)
 }
 
+// When enabled, entities borrow idle compute based on assigned FairShareWeight.
+type ClusterSchedulerConfigSchedulerConfigFairShare string
+
+const (
+	ClusterSchedulerConfigSchedulerConfigFairShareEnabled  = ClusterSchedulerConfigSchedulerConfigFairShare("Enabled")
+	ClusterSchedulerConfigSchedulerConfigFairShareDisabled = ClusterSchedulerConfigSchedulerConfigFairShare("Disabled")
+)
+
+func (ClusterSchedulerConfigSchedulerConfigFairShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigFairShare)(nil)).Elem()
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigFairShare) ToClusterSchedulerConfigSchedulerConfigFairShareOutput() ClusterSchedulerConfigSchedulerConfigFairShareOutput {
+	return pulumi.ToOutput(e).(ClusterSchedulerConfigSchedulerConfigFairShareOutput)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigFairShare) ToClusterSchedulerConfigSchedulerConfigFairShareOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigFairShareOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterSchedulerConfigSchedulerConfigFairShareOutput)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigFairShare) ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutput() ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return e.ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigFairShare) ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return ClusterSchedulerConfigSchedulerConfigFairShare(e).ToClusterSchedulerConfigSchedulerConfigFairShareOutputWithContext(ctx).ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutputWithContext(ctx)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigFairShare) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigFairShare) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigFairShare) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigFairShare) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterSchedulerConfigSchedulerConfigFairShareOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigSchedulerConfigFairShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigFairShare)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairShareOutput) ToClusterSchedulerConfigSchedulerConfigFairShareOutput() ClusterSchedulerConfigSchedulerConfigFairShareOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairShareOutput) ToClusterSchedulerConfigSchedulerConfigFairShareOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigFairShareOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairShareOutput) ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutput() ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return o.ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairShareOutput) ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSchedulerConfigSchedulerConfigFairShare) *ClusterSchedulerConfigSchedulerConfigFairShare {
+		return &v
+	}).(ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput)
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairShareOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairShareOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSchedulerConfigSchedulerConfigFairShare) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairShareOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairShareOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSchedulerConfigSchedulerConfigFairShare) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSchedulerConfigSchedulerConfigFairShare)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput) ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutput() ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput) ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput) Elem() ClusterSchedulerConfigSchedulerConfigFairShareOutput {
+	return o.ApplyT(func(v *ClusterSchedulerConfigSchedulerConfigFairShare) ClusterSchedulerConfigSchedulerConfigFairShare {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSchedulerConfigSchedulerConfigFairShare
+		return ret
+	}).(ClusterSchedulerConfigSchedulerConfigFairShareOutput)
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSchedulerConfigSchedulerConfigFairShare) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterSchedulerConfigSchedulerConfigFairShareInput is an input type that accepts values of the ClusterSchedulerConfigSchedulerConfigFairShare enum
+// A concrete instance of `ClusterSchedulerConfigSchedulerConfigFairShareInput` can be one of the following:
+//
+//	ClusterSchedulerConfigSchedulerConfigFairShareEnabled
+//	ClusterSchedulerConfigSchedulerConfigFairShareDisabled
+type ClusterSchedulerConfigSchedulerConfigFairShareInput interface {
+	pulumi.Input
+
+	ToClusterSchedulerConfigSchedulerConfigFairShareOutput() ClusterSchedulerConfigSchedulerConfigFairShareOutput
+	ToClusterSchedulerConfigSchedulerConfigFairShareOutputWithContext(context.Context) ClusterSchedulerConfigSchedulerConfigFairShareOutput
+}
+
+var clusterSchedulerConfigSchedulerConfigFairSharePtrType = reflect.TypeOf((**ClusterSchedulerConfigSchedulerConfigFairShare)(nil)).Elem()
+
+type ClusterSchedulerConfigSchedulerConfigFairSharePtrInput interface {
+	pulumi.Input
+
+	ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutput() ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput
+	ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutputWithContext(context.Context) ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput
+}
+
+type clusterSchedulerConfigSchedulerConfigFairSharePtr string
+
+func ClusterSchedulerConfigSchedulerConfigFairSharePtr(v string) ClusterSchedulerConfigSchedulerConfigFairSharePtrInput {
+	return (*clusterSchedulerConfigSchedulerConfigFairSharePtr)(&v)
+}
+
+func (*clusterSchedulerConfigSchedulerConfigFairSharePtr) ElementType() reflect.Type {
+	return clusterSchedulerConfigSchedulerConfigFairSharePtrType
+}
+
+func (in *clusterSchedulerConfigSchedulerConfigFairSharePtr) ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutput() ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return pulumi.ToOutput(in).(ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput)
+}
+
+func (in *clusterSchedulerConfigSchedulerConfigFairSharePtr) ToClusterSchedulerConfigSchedulerConfigFairSharePtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput)
+}
+
+// Configuration for sharing idle compute resources across entities.
+type ClusterSchedulerConfigSchedulerConfigIdleResourceSharing string
+
+const (
+	ClusterSchedulerConfigSchedulerConfigIdleResourceSharingEnabled  = ClusterSchedulerConfigSchedulerConfigIdleResourceSharing("Enabled")
+	ClusterSchedulerConfigSchedulerConfigIdleResourceSharingDisabled = ClusterSchedulerConfigSchedulerConfigIdleResourceSharing("Disabled")
+)
+
+func (ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigIdleResourceSharing)(nil)).Elem()
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput {
+	return pulumi.ToOutput(e).(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return e.ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return ClusterSchedulerConfigSchedulerConfigIdleResourceSharing(e).ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutputWithContext(ctx).ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutputWithContext(ctx)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigIdleResourceSharing)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return o.ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) *ClusterSchedulerConfigSchedulerConfigIdleResourceSharing {
+		return &v
+	}).(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput)
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSchedulerConfigSchedulerConfigIdleResourceSharing)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput) Elem() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput {
+	return o.ApplyT(func(v *ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) ClusterSchedulerConfigSchedulerConfigIdleResourceSharing {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSchedulerConfigSchedulerConfigIdleResourceSharing
+		return ret
+	}).(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput)
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSchedulerConfigSchedulerConfigIdleResourceSharing) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterSchedulerConfigSchedulerConfigIdleResourceSharingInput is an input type that accepts values of the ClusterSchedulerConfigSchedulerConfigIdleResourceSharing enum
+// A concrete instance of `ClusterSchedulerConfigSchedulerConfigIdleResourceSharingInput` can be one of the following:
+//
+//	ClusterSchedulerConfigSchedulerConfigIdleResourceSharingEnabled
+//	ClusterSchedulerConfigSchedulerConfigIdleResourceSharingDisabled
+type ClusterSchedulerConfigSchedulerConfigIdleResourceSharingInput interface {
+	pulumi.Input
+
+	ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput
+	ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutputWithContext(context.Context) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput
+}
+
+var clusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrType = reflect.TypeOf((**ClusterSchedulerConfigSchedulerConfigIdleResourceSharing)(nil)).Elem()
+
+type ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrInput interface {
+	pulumi.Input
+
+	ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput
+	ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutputWithContext(context.Context) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput
+}
+
+type clusterSchedulerConfigSchedulerConfigIdleResourceSharingPtr string
+
+func ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtr(v string) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrInput {
+	return (*clusterSchedulerConfigSchedulerConfigIdleResourceSharingPtr)(&v)
+}
+
+func (*clusterSchedulerConfigSchedulerConfigIdleResourceSharingPtr) ElementType() reflect.Type {
+	return clusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrType
+}
+
+func (in *clusterSchedulerConfigSchedulerConfigIdleResourceSharingPtr) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput() ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return pulumi.ToOutput(in).(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput)
+}
+
+func (in *clusterSchedulerConfigSchedulerConfigIdleResourceSharingPtr) ToClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput)
+}
+
+// Status of the cluster policy.
+type ClusterSchedulerConfigStatus string
+
+const (
+	ClusterSchedulerConfigStatusCreating             = ClusterSchedulerConfigStatus("Creating")
+	ClusterSchedulerConfigStatusCreateFailed         = ClusterSchedulerConfigStatus("CreateFailed")
+	ClusterSchedulerConfigStatusCreateRollbackFailed = ClusterSchedulerConfigStatus("CreateRollbackFailed")
+	ClusterSchedulerConfigStatusCreated              = ClusterSchedulerConfigStatus("Created")
+	ClusterSchedulerConfigStatusUpdating             = ClusterSchedulerConfigStatus("Updating")
+	ClusterSchedulerConfigStatusUpdateFailed         = ClusterSchedulerConfigStatus("UpdateFailed")
+	ClusterSchedulerConfigStatusUpdateRollbackFailed = ClusterSchedulerConfigStatus("UpdateRollbackFailed")
+	ClusterSchedulerConfigStatusUpdated              = ClusterSchedulerConfigStatus("Updated")
+	ClusterSchedulerConfigStatusDeleting             = ClusterSchedulerConfigStatus("Deleting")
+	ClusterSchedulerConfigStatusDeleteFailed         = ClusterSchedulerConfigStatus("DeleteFailed")
+	ClusterSchedulerConfigStatusDeleteRollbackFailed = ClusterSchedulerConfigStatus("DeleteRollbackFailed")
+	ClusterSchedulerConfigStatusDeleted              = ClusterSchedulerConfigStatus("Deleted")
+)
+
+type ClusterSchedulerConfigStatusOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSchedulerConfigStatus)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigStatusOutput) ToClusterSchedulerConfigStatusOutput() ClusterSchedulerConfigStatusOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigStatusOutput) ToClusterSchedulerConfigStatusOutputWithContext(ctx context.Context) ClusterSchedulerConfigStatusOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigStatusOutput) ToClusterSchedulerConfigStatusPtrOutput() ClusterSchedulerConfigStatusPtrOutput {
+	return o.ToClusterSchedulerConfigStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigStatusOutput) ToClusterSchedulerConfigStatusPtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSchedulerConfigStatus) *ClusterSchedulerConfigStatus {
+		return &v
+	}).(ClusterSchedulerConfigStatusPtrOutput)
+}
+
+func (o ClusterSchedulerConfigStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSchedulerConfigStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSchedulerConfigStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSchedulerConfigStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSchedulerConfigStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSchedulerConfigStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSchedulerConfigStatus)(nil)).Elem()
+}
+
+func (o ClusterSchedulerConfigStatusPtrOutput) ToClusterSchedulerConfigStatusPtrOutput() ClusterSchedulerConfigStatusPtrOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigStatusPtrOutput) ToClusterSchedulerConfigStatusPtrOutputWithContext(ctx context.Context) ClusterSchedulerConfigStatusPtrOutput {
+	return o
+}
+
+func (o ClusterSchedulerConfigStatusPtrOutput) Elem() ClusterSchedulerConfigStatusOutput {
+	return o.ApplyT(func(v *ClusterSchedulerConfigStatus) ClusterSchedulerConfigStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSchedulerConfigStatus
+		return ret
+	}).(ClusterSchedulerConfigStatusOutput)
+}
+
+func (o ClusterSchedulerConfigStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSchedulerConfigStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSchedulerConfigStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
 type ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy string
 
@@ -9228,6 +9661,103 @@ func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPor
 
 func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainUserSettingsStudioWebPortalPtrOutput)
+}
+
+// The current status of the extension. CloudFormation doesn't wait for the extension to finish installing or updating on the cluster nodes. To check progress, use Status and NodeSummary.
+type ExtensionStatus string
+
+const (
+	ExtensionStatusCreating     = ExtensionStatus("Creating")
+	ExtensionStatusActive       = ExtensionStatus("Active")
+	ExtensionStatusCreateFailed = ExtensionStatus("CreateFailed")
+	ExtensionStatusUpdating     = ExtensionStatus("Updating")
+	ExtensionStatusDeleting     = ExtensionStatus("Deleting")
+	ExtensionStatusDeleteFailed = ExtensionStatus("DeleteFailed")
+	ExtensionStatusDegraded     = ExtensionStatus("Degraded")
+	ExtensionStatusUpdateFailed = ExtensionStatus("UpdateFailed")
+)
+
+type ExtensionStatusOutput struct{ *pulumi.OutputState }
+
+func (ExtensionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionStatus)(nil)).Elem()
+}
+
+func (o ExtensionStatusOutput) ToExtensionStatusOutput() ExtensionStatusOutput {
+	return o
+}
+
+func (o ExtensionStatusOutput) ToExtensionStatusOutputWithContext(ctx context.Context) ExtensionStatusOutput {
+	return o
+}
+
+func (o ExtensionStatusOutput) ToExtensionStatusPtrOutput() ExtensionStatusPtrOutput {
+	return o.ToExtensionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ExtensionStatusOutput) ToExtensionStatusPtrOutputWithContext(ctx context.Context) ExtensionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtensionStatus) *ExtensionStatus {
+		return &v
+	}).(ExtensionStatusPtrOutput)
+}
+
+func (o ExtensionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ExtensionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExtensionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ExtensionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExtensionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExtensionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExtensionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtensionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtensionStatus)(nil)).Elem()
+}
+
+func (o ExtensionStatusPtrOutput) ToExtensionStatusPtrOutput() ExtensionStatusPtrOutput {
+	return o
+}
+
+func (o ExtensionStatusPtrOutput) ToExtensionStatusPtrOutputWithContext(ctx context.Context) ExtensionStatusPtrOutput {
+	return o
+}
+
+func (o ExtensionStatusPtrOutput) Elem() ExtensionStatusOutput {
+	return o.ApplyT(func(v *ExtensionStatus) ExtensionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ExtensionStatus
+		return ret
+	}).(ExtensionStatusOutput)
+}
+
+func (o ExtensionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExtensionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExtensionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 // The value type of a feature. Valid values are Integral, Fractional, or String.
@@ -27681,6 +28211,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryPtrInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorSlurmConfigSlurmConfigStrategyInput)(nil)).Elem(), ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Overwrite"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrInput)(nil)).Elem(), ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Overwrite"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigFairShareInput)(nil)).Elem(), ClusterSchedulerConfigSchedulerConfigFairShare("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigFairSharePtrInput)(nil)).Elem(), ClusterSchedulerConfigSchedulerConfigFairShare("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigIdleResourceSharingInput)(nil)).Elem(), ClusterSchedulerConfigSchedulerConfigIdleResourceSharing("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrInput)(nil)).Elem(), ClusterSchedulerConfigSchedulerConfigIdleResourceSharing("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyInput)(nil)).Elem(), ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("Keep"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrInput)(nil)).Elem(), ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("Keep"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigNodeTypeInput)(nil)).Elem(), ClusterSlurmConfigNodeType("Controller"))
@@ -27982,6 +28516,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNodeRecoveryPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigSchedulerConfigFairShareOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigSchedulerConfigFairSharePtrOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigSchedulerConfigIdleResourceSharingPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigStatusOutput{})
+	pulumi.RegisterOutputType(ClusterSchedulerConfigStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSlurmConfigNodeTypeOutput{})
@@ -28051,6 +28591,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainUserSettingsAutoMountHomeEfsPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalPtrOutput{})
+	pulumi.RegisterOutputType(ExtensionStatusOutput{})
+	pulumi.RegisterOutputType(ExtensionStatusPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypeOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupStorageTypeOutput{})

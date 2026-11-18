@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.AppIntegrations.Outputs
     [OutputType]
     public sealed class ApplicationContactHandling
     {
-        public readonly Pulumi.AwsNative.AppIntegrations.ApplicationContactHandlingScope Scope;
+        public readonly Pulumi.AwsNative.AppIntegrations.ApplicationContactHandlingScope? Scope;
 
         [OutputConstructor]
-        private ApplicationContactHandling(Pulumi.AwsNative.AppIntegrations.ApplicationContactHandlingScope scope)
+        private ApplicationContactHandling(Pulumi.AwsNative.AppIntegrations.ApplicationContactHandlingScope? scope)
         {
             Scope = scope;
         }

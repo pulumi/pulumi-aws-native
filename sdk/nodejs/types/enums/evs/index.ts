@@ -34,6 +34,8 @@ export const EnvironmentHostInfoForCreateInstanceType = {
     I4iMetal: "i4i.metal",
     I7iMetal24xl: "i7i.metal-24xl",
     I7iMetal48xl: "i7i.metal-48xl",
+    R7iMetal24xl: "r7i.metal-24xl",
+    R7iMetal48xl: "r7i.metal-48xl",
 } as const;
 
 /**

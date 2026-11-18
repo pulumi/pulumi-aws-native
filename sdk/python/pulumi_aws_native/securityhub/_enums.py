@@ -349,6 +349,7 @@ class FindingAggregatorRegionLinkingMode(_builtins.str, Enum):
     ALL_REGIONS = "ALL_REGIONS"
     ALL_REGIONS_EXCEPT_SPECIFIED = "ALL_REGIONS_EXCEPT_SPECIFIED"
     SPECIFIED_REGIONS = "SPECIFIED_REGIONS"
+    NO_REGIONS = "NO_REGIONS"
 
 
 @pulumi.type_token("aws-native:securityhub:HubV2NetworkScanningStatus")

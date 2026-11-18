@@ -134,7 +134,7 @@ export class CloudConnector extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["configConnectorArn", "configuration.azureConfiguration.tenantId", "roleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["configConnectorArn", "configuration.azureConfiguration.tenantId", "configuration.gcpConfiguration.organizationId", "configuration.gcpConfiguration.serviceAccountEmail", "roleArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CloudConnector.__pulumiType, name, resourceInputs, opts);
     }

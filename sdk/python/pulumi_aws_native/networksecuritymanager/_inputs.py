@@ -16,6 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DeploymentAssociatedPolicyArgs',
+    'DeploymentAssociatedPolicyArgsDict',
+    'DeploymentAssociatedScopeArgs',
+    'DeploymentAssociatedScopeArgsDict',
+    'DeploymentConfigurationArgs',
+    'DeploymentConfigurationArgsDict',
     'PolicyAssociatedTemplateAndRuleArgs',
     'PolicyAssociatedTemplateAndRuleArgsDict',
     'PolicyConfigurationArgs',
@@ -25,6 +31,95 @@ __all__ = [
     'TemplateAssociatedRuleArgs',
     'TemplateAssociatedRuleArgsDict',
 ]
+
+class DeploymentAssociatedPolicyArgsDict(TypedDict):
+    policy_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the associated policy.
+    """
+
+@pulumi.input_type
+class DeploymentAssociatedPolicyArgs:
+    def __init__(__self__, *,
+                 policy_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] policy_arn: ARN of the associated policy.
+        """
+        pulumi.set(__self__, "policy_arn", policy_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the associated policy.
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @policy_arn.setter
+    def policy_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_arn", value)
+
+
+class DeploymentAssociatedScopeArgsDict(TypedDict):
+    scope_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the associated scope.
+    """
+
+@pulumi.input_type
+class DeploymentAssociatedScopeArgs:
+    def __init__(__self__, *,
+                 scope_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] scope_arn: ARN of the associated scope.
+        """
+        pulumi.set(__self__, "scope_arn", scope_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeArn")
+    def scope_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the associated scope.
+        """
+        return pulumi.get(self, "scope_arn")
+
+    @scope_arn.setter
+    def scope_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scope_arn", value)
+
+
+class DeploymentConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for the deployment.
+    """
+    enable_cross_account_visibility: pulumi.Input[_builtins.bool]
+    """
+    Whether cross-account visibility is enabled for the deployment.
+    """
+
+@pulumi.input_type
+class DeploymentConfigurationArgs:
+    def __init__(__self__, *,
+                 enable_cross_account_visibility: pulumi.Input[_builtins.bool]):
+        """
+        Configuration settings for the deployment.
+
+        :param pulumi.Input[_builtins.bool] enable_cross_account_visibility: Whether cross-account visibility is enabled for the deployment.
+        """
+        pulumi.set(__self__, "enable_cross_account_visibility", enable_cross_account_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="enableCrossAccountVisibility")
+    def enable_cross_account_visibility(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether cross-account visibility is enabled for the deployment.
+        """
+        return pulumi.get(self, "enable_cross_account_visibility")
+
+    @enable_cross_account_visibility.setter
+    def enable_cross_account_visibility(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enable_cross_account_visibility", value)
+
 
 class PolicyAssociatedTemplateAndRuleArgsDict(TypedDict):
     """

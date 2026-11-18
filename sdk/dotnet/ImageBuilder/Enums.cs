@@ -260,6 +260,67 @@ namespace Pulumi.AwsNative.ImageBuilder
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ImagePipelineImageScanningConfigurationImageScanningTypesItem : IEquatable<ImagePipelineImageScanningConfigurationImageScanningTypesItem>
+    {
+        private readonly string _value;
+
+        private ImagePipelineImageScanningConfigurationImageScanningTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImagePipelineImageScanningConfigurationImageScanningTypesItem TestInstanceCve { get; } = new ImagePipelineImageScanningConfigurationImageScanningTypesItem("TEST_INSTANCE_CVE");
+        public static ImagePipelineImageScanningConfigurationImageScanningTypesItem OnDemandAmiCve { get; } = new ImagePipelineImageScanningConfigurationImageScanningTypesItem("ON_DEMAND_AMI_CVE");
+
+        public static bool operator ==(ImagePipelineImageScanningConfigurationImageScanningTypesItem left, ImagePipelineImageScanningConfigurationImageScanningTypesItem right) => left.Equals(right);
+        public static bool operator !=(ImagePipelineImageScanningConfigurationImageScanningTypesItem left, ImagePipelineImageScanningConfigurationImageScanningTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(ImagePipelineImageScanningConfigurationImageScanningTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImagePipelineImageScanningConfigurationImageScanningTypesItem other && Equals(other);
+        public bool Equals(ImagePipelineImageScanningConfigurationImageScanningTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImagePipelineScanResultConditionMaximumSeverityLabel : IEquatable<ImagePipelineScanResultConditionMaximumSeverityLabel>
+    {
+        private readonly string _value;
+
+        private ImagePipelineScanResultConditionMaximumSeverityLabel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImagePipelineScanResultConditionMaximumSeverityLabel Informational { get; } = new ImagePipelineScanResultConditionMaximumSeverityLabel("INFORMATIONAL");
+        public static ImagePipelineScanResultConditionMaximumSeverityLabel Low { get; } = new ImagePipelineScanResultConditionMaximumSeverityLabel("LOW");
+        public static ImagePipelineScanResultConditionMaximumSeverityLabel Medium { get; } = new ImagePipelineScanResultConditionMaximumSeverityLabel("MEDIUM");
+        public static ImagePipelineScanResultConditionMaximumSeverityLabel High { get; } = new ImagePipelineScanResultConditionMaximumSeverityLabel("HIGH");
+
+        public static bool operator ==(ImagePipelineScanResultConditionMaximumSeverityLabel left, ImagePipelineScanResultConditionMaximumSeverityLabel right) => left.Equals(right);
+        public static bool operator !=(ImagePipelineScanResultConditionMaximumSeverityLabel left, ImagePipelineScanResultConditionMaximumSeverityLabel right) => !left.Equals(right);
+
+        public static explicit operator string(ImagePipelineScanResultConditionMaximumSeverityLabel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImagePipelineScanResultConditionMaximumSeverityLabel other && Equals(other);
+        public bool Equals(ImagePipelineScanResultConditionMaximumSeverityLabel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The condition configures when the pipeline should trigger a new image build.
     /// </summary>
@@ -384,6 +445,67 @@ namespace Pulumi.AwsNative.ImageBuilder
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType other && Equals(other);
         public bool Equals(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageScanResultConditionMaximumSeverityLabel : IEquatable<ImageScanResultConditionMaximumSeverityLabel>
+    {
+        private readonly string _value;
+
+        private ImageScanResultConditionMaximumSeverityLabel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageScanResultConditionMaximumSeverityLabel Informational { get; } = new ImageScanResultConditionMaximumSeverityLabel("INFORMATIONAL");
+        public static ImageScanResultConditionMaximumSeverityLabel Low { get; } = new ImageScanResultConditionMaximumSeverityLabel("LOW");
+        public static ImageScanResultConditionMaximumSeverityLabel Medium { get; } = new ImageScanResultConditionMaximumSeverityLabel("MEDIUM");
+        public static ImageScanResultConditionMaximumSeverityLabel High { get; } = new ImageScanResultConditionMaximumSeverityLabel("HIGH");
+
+        public static bool operator ==(ImageScanResultConditionMaximumSeverityLabel left, ImageScanResultConditionMaximumSeverityLabel right) => left.Equals(right);
+        public static bool operator !=(ImageScanResultConditionMaximumSeverityLabel left, ImageScanResultConditionMaximumSeverityLabel right) => !left.Equals(right);
+
+        public static explicit operator string(ImageScanResultConditionMaximumSeverityLabel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageScanResultConditionMaximumSeverityLabel other && Equals(other);
+        public bool Equals(ImageScanResultConditionMaximumSeverityLabel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ImageScanningConfigurationImageScanningTypesItem : IEquatable<ImageScanningConfigurationImageScanningTypesItem>
+    {
+        private readonly string _value;
+
+        private ImageScanningConfigurationImageScanningTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageScanningConfigurationImageScanningTypesItem TestInstanceCve { get; } = new ImageScanningConfigurationImageScanningTypesItem("TEST_INSTANCE_CVE");
+        public static ImageScanningConfigurationImageScanningTypesItem OnDemandAmiCve { get; } = new ImageScanningConfigurationImageScanningTypesItem("ON_DEMAND_AMI_CVE");
+
+        public static bool operator ==(ImageScanningConfigurationImageScanningTypesItem left, ImageScanningConfigurationImageScanningTypesItem right) => left.Equals(right);
+        public static bool operator !=(ImageScanningConfigurationImageScanningTypesItem left, ImageScanningConfigurationImageScanningTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(ImageScanningConfigurationImageScanningTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageScanningConfigurationImageScanningTypesItem other && Equals(other);
+        public bool Equals(ImageScanningConfigurationImageScanningTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

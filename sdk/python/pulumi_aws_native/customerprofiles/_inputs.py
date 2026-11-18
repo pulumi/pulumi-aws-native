@@ -22,6 +22,14 @@ __all__ = [
     'CalculatedAttributeDefinitionAttributeItemArgsDict',
     'CalculatedAttributeDefinitionConditionsArgs',
     'CalculatedAttributeDefinitionConditionsArgsDict',
+    'CalculatedAttributeDefinitionFilterArgs',
+    'CalculatedAttributeDefinitionFilterArgsDict',
+    'CalculatedAttributeDefinitionFilterAttributeDimensionArgs',
+    'CalculatedAttributeDefinitionFilterAttributeDimensionArgsDict',
+    'CalculatedAttributeDefinitionFilterDimensionArgs',
+    'CalculatedAttributeDefinitionFilterDimensionArgsDict',
+    'CalculatedAttributeDefinitionFilterGroupArgs',
+    'CalculatedAttributeDefinitionFilterGroupArgsDict',
     'CalculatedAttributeDefinitionRangeArgs',
     'CalculatedAttributeDefinitionRangeArgsDict',
     'CalculatedAttributeDefinitionThresholdArgs',
@@ -307,13 +315,177 @@ class CalculatedAttributeDefinitionConditionsArgs:
         pulumi.set(self, "threshold", value)
 
 
+class CalculatedAttributeDefinitionFilterArgsDict(TypedDict):
+    """
+    Defines how to filter the objects coming in for calculated attributes.
+    """
+    groups: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterGroupArgsDict']]]
+    """
+    Holds the list of Filter groups within the Filter definition.
+    """
+    include: pulumi.Input['CalculatedAttributeDefinitionFilterInclude']
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionFilterArgs:
+    def __init__(__self__, *,
+                 groups: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterGroupArgs']]],
+                 include: pulumi.Input['CalculatedAttributeDefinitionFilterInclude']):
+        """
+        Defines how to filter the objects coming in for calculated attributes.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterGroupArgs']]] groups: Holds the list of Filter groups within the Filter definition.
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "include", include)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterGroupArgs']]]:
+        """
+        Holds the list of Filter groups within the Filter definition.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterGroupArgs']]]):
+        pulumi.set(self, "groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def include(self) -> pulumi.Input['CalculatedAttributeDefinitionFilterInclude']:
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: pulumi.Input['CalculatedAttributeDefinitionFilterInclude']):
+        pulumi.set(self, "include", value)
+
+
+class CalculatedAttributeDefinitionFilterAttributeDimensionArgsDict(TypedDict):
+    """
+    Object that defines how to filter the incoming objects for the calculated attribute.
+    """
+    dimension_type: pulumi.Input['CalculatedAttributeDefinitionFilterDimensionType']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The values to apply the DimensionType on.
+    """
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionFilterAttributeDimensionArgs:
+    def __init__(__self__, *,
+                 dimension_type: pulumi.Input['CalculatedAttributeDefinitionFilterDimensionType'],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Object that defines how to filter the incoming objects for the calculated attribute.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The values to apply the DimensionType on.
+        """
+        pulumi.set(__self__, "dimension_type", dimension_type)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionType")
+    def dimension_type(self) -> pulumi.Input['CalculatedAttributeDefinitionFilterDimensionType']:
+        return pulumi.get(self, "dimension_type")
+
+    @dimension_type.setter
+    def dimension_type(self, value: pulumi.Input['CalculatedAttributeDefinitionFilterDimensionType']):
+        pulumi.set(self, "dimension_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The values to apply the DimensionType on.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class CalculatedAttributeDefinitionFilterDimensionArgsDict(TypedDict):
+    """
+    Contains the map of attribute names to attribute dimensions.
+    """
+    attributes: pulumi.Input[Mapping[str, pulumi.Input['CalculatedAttributeDefinitionFilterAttributeDimensionArgsDict']]]
+    """
+    Is the attribute within the FilterDimension map
+    """
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionFilterDimensionArgs:
+    def __init__(__self__, *,
+                 attributes: pulumi.Input[Mapping[str, pulumi.Input['CalculatedAttributeDefinitionFilterAttributeDimensionArgs']]]):
+        """
+        Contains the map of attribute names to attribute dimensions.
+
+        :param pulumi.Input[Mapping[str, pulumi.Input['CalculatedAttributeDefinitionFilterAttributeDimensionArgs']]] attributes: Is the attribute within the FilterDimension map
+        """
+        pulumi.set(__self__, "attributes", attributes)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Input[Mapping[str, pulumi.Input['CalculatedAttributeDefinitionFilterAttributeDimensionArgs']]]:
+        """
+        Is the attribute within the FilterDimension map
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: pulumi.Input[Mapping[str, pulumi.Input['CalculatedAttributeDefinitionFilterAttributeDimensionArgs']]]):
+        pulumi.set(self, "attributes", value)
+
+
+class CalculatedAttributeDefinitionFilterGroupArgsDict(TypedDict):
+    """
+    Object that holds the dimensions to filter on.
+    """
+    dimensions: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterDimensionArgsDict']]]
+    """
+    Object that holds the attributes to filter on.
+    """
+    type: pulumi.Input['CalculatedAttributeDefinitionFilterGroupType']
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionFilterGroupArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterDimensionArgs']]],
+                 type: pulumi.Input['CalculatedAttributeDefinitionFilterGroupType']):
+        """
+        Object that holds the dimensions to filter on.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterDimensionArgs']]] dimensions: Object that holds the attributes to filter on.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterDimensionArgs']]]:
+        """
+        Object that holds the attributes to filter on.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionFilterDimensionArgs']]]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['CalculatedAttributeDefinitionFilterGroupType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['CalculatedAttributeDefinitionFilterGroupType']):
+        pulumi.set(self, "type", value)
+
+
 class CalculatedAttributeDefinitionRangeArgsDict(TypedDict):
     """
     The relative time period over which data is included in the aggregation.
-    """
-    unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit']
-    """
-    The unit of time.
     """
     timestamp_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -322,6 +494,10 @@ class CalculatedAttributeDefinitionRangeArgsDict(TypedDict):
     timestamp_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+    """
+    unit: NotRequired[pulumi.Input[Optional['CalculatedAttributeDefinitionRangeUnit']]]
+    """
+    The unit of time.
     """
     value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -335,41 +511,30 @@ class CalculatedAttributeDefinitionRangeArgsDict(TypedDict):
 @pulumi.input_type
 class CalculatedAttributeDefinitionRangeArgs:
     def __init__(__self__, *,
-                 unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit'],
                  timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
                  timestamp_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit: pulumi.Input[Optional['CalculatedAttributeDefinitionRangeUnit']] = None,
                  value: pulumi.Input[Optional[_builtins.int]] = None,
                  value_range: pulumi.Input[Optional['CalculatedAttributeDefinitionValueRangeArgs']] = None):
         """
         The relative time period over which data is included in the aggregation.
 
-        :param pulumi.Input['CalculatedAttributeDefinitionRangeUnit'] unit: The unit of time.
         :param pulumi.Input[_builtins.str] timestamp_format: The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
         :param pulumi.Input[_builtins.str] timestamp_source: An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+        :param pulumi.Input['CalculatedAttributeDefinitionRangeUnit'] unit: The unit of time.
         :param pulumi.Input[_builtins.int] value: The amount of time of the specified unit.
         :param pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs'] value_range: A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
         """
-        pulumi.set(__self__, "unit", unit)
         if timestamp_format is not None:
             pulumi.set(__self__, "timestamp_format", timestamp_format)
         if timestamp_source is not None:
             pulumi.set(__self__, "timestamp_source", timestamp_source)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
         if value is not None:
             pulumi.set(__self__, "value", value)
         if value_range is not None:
             pulumi.set(__self__, "value_range", value_range)
-
-    @_builtins.property
-    @pulumi.getter
-    def unit(self) -> pulumi.Input['CalculatedAttributeDefinitionRangeUnit']:
-        """
-        The unit of time.
-        """
-        return pulumi.get(self, "unit")
-
-    @unit.setter
-    def unit(self, value: pulumi.Input['CalculatedAttributeDefinitionRangeUnit']):
-        pulumi.set(self, "unit", value)
 
     @_builtins.property
     @pulumi.getter(name="timestampFormat")
@@ -394,6 +559,18 @@ class CalculatedAttributeDefinitionRangeArgs:
     @timestamp_source.setter
     def timestamp_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timestamp_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[Optional['CalculatedAttributeDefinitionRangeUnit']]:
+        """
+        The unit of time.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[Optional['CalculatedAttributeDefinitionRangeUnit']]):
+        pulumi.set(self, "unit", value)
 
     @_builtins.property
     @pulumi.getter

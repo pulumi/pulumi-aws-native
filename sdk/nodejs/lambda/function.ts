@@ -269,6 +269,7 @@ export class Function extends pulumi.CustomResource {
         return obj['__pulumiType'] === Function.__pulumiType;
     }
 
+    declare public readonly acceleratorConfig: pulumi.Output<outputs.lambda.FunctionAcceleratorConfig | undefined>;
     /**
      * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
      */
@@ -381,6 +382,7 @@ export class Function extends pulumi.CustomResource {
      *  For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
      */
     declare public readonly runtime: pulumi.Output<string | undefined>;
+    declare public readonly runtimeConfig: pulumi.Output<outputs.lambda.FunctionRuntimeConfig | undefined>;
     /**
      * Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
      */
@@ -429,6 +431,7 @@ export class Function extends pulumi.CustomResource {
             if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
+            resourceInputs["acceleratorConfig"] = args?.acceleratorConfig;
             resourceInputs["architectures"] = args?.architectures;
             resourceInputs["capacityProviderConfig"] = args?.capacityProviderConfig;
             resourceInputs["code"] = args?.code;
@@ -453,6 +456,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["reservedConcurrentExecutions"] = args?.reservedConcurrentExecutions;
             resourceInputs["role"] = args?.role;
             resourceInputs["runtime"] = args?.runtime;
+            resourceInputs["runtimeConfig"] = args?.runtimeConfig;
             resourceInputs["runtimeManagementConfig"] = args?.runtimeManagementConfig;
             resourceInputs["snapStart"] = args?.snapStart;
             resourceInputs["tags"] = args?.tags;
@@ -463,6 +467,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["snapStartResponse"] = undefined /*out*/;
         } else {
+            resourceInputs["acceleratorConfig"] = undefined /*out*/;
             resourceInputs["architectures"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capacityProviderConfig"] = undefined /*out*/;
@@ -488,6 +493,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["reservedConcurrentExecutions"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
             resourceInputs["runtime"] = undefined /*out*/;
+            resourceInputs["runtimeConfig"] = undefined /*out*/;
             resourceInputs["runtimeManagementConfig"] = undefined /*out*/;
             resourceInputs["snapStart"] = undefined /*out*/;
             resourceInputs["snapStartResponse"] = undefined /*out*/;
@@ -508,6 +514,7 @@ export class Function extends pulumi.CustomResource {
  * The set of arguments for constructing a Function resource.
  */
 export interface FunctionArgs {
+    acceleratorConfig?: pulumi.Input<inputs.lambda.FunctionAcceleratorConfigArgs | undefined>;
     /**
      * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
      */
@@ -616,6 +623,7 @@ export interface FunctionArgs {
      *  For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
      */
     runtime?: pulumi.Input<string | undefined>;
+    runtimeConfig?: pulumi.Input<inputs.lambda.FunctionRuntimeConfigArgs | undefined>;
     /**
      * Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
      */

@@ -124,6 +124,34 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
     }
 
     [EnumType]
+    public readonly struct CoreNetworkEndpointRegionScope : IEquatable<CoreNetworkEndpointRegionScope>
+    {
+        private readonly string _value;
+
+        private CoreNetworkEndpointRegionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CoreNetworkEndpointRegionScope All { get; } = new CoreNetworkEndpointRegionScope("ALL");
+        public static CoreNetworkEndpointRegionScope Regional { get; } = new CoreNetworkEndpointRegionScope("REGIONAL");
+
+        public static bool operator ==(CoreNetworkEndpointRegionScope left, CoreNetworkEndpointRegionScope right) => left.Equals(right);
+        public static bool operator !=(CoreNetworkEndpointRegionScope left, CoreNetworkEndpointRegionScope right) => !left.Equals(right);
+
+        public static explicit operator string(CoreNetworkEndpointRegionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CoreNetworkEndpointRegionScope other && Equals(other);
+        public bool Equals(CoreNetworkEndpointRegionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DnsViewDnsSecValidationType : IEquatable<DnsViewDnsSecValidationType>
     {
         private readonly string _value;
@@ -494,6 +522,35 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GlobalResolverIpAddressType other && Equals(other);
         public bool Equals(GlobalResolverIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GlobalResolverPublicIpStatus : IEquatable<GlobalResolverPublicIpStatus>
+    {
+        private readonly string _value;
+
+        private GlobalResolverPublicIpStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalResolverPublicIpStatus EnabledReserved { get; } = new GlobalResolverPublicIpStatus("ENABLED_RESERVED");
+        public static GlobalResolverPublicIpStatus DisabledReserved { get; } = new GlobalResolverPublicIpStatus("DISABLED_RESERVED");
+        public static GlobalResolverPublicIpStatus DisabledReleased { get; } = new GlobalResolverPublicIpStatus("DISABLED_RELEASED");
+
+        public static bool operator ==(GlobalResolverPublicIpStatus left, GlobalResolverPublicIpStatus right) => left.Equals(right);
+        public static bool operator !=(GlobalResolverPublicIpStatus left, GlobalResolverPublicIpStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalResolverPublicIpStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalResolverPublicIpStatus other && Equals(other);
+        public bool Equals(GlobalResolverPublicIpStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

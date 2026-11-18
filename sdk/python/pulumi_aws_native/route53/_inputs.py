@@ -22,6 +22,10 @@ __all__ = [
     'HealthCheckAlarmIdentifierArgsDict',
     'HealthCheckConfigPropertiesArgs',
     'HealthCheckConfigPropertiesArgsDict',
+    'HealthCheckSourceConfigArgs',
+    'HealthCheckSourceConfigArgsDict',
+    'HealthCheckSourceSubnetConfigurationArgs',
+    'HealthCheckSourceSubnetConfigurationArgsDict',
     'HostedZoneConfigArgs',
     'HostedZoneConfigArgsDict',
     'HostedZoneFeaturesArgs',
@@ -785,6 +789,129 @@ class HealthCheckConfigPropertiesArgs:
     @search_string.setter
     def search_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_string", value)
+
+
+class HealthCheckSourceConfigArgsDict(TypedDict):
+    """
+    <p>A complex type that contains the VPC, subnets, and security groups for a health check source. You can't change these values after you create the source.</p>
+    """
+    subnet_configuration_list: pulumi.Input[Sequence[pulumi.Input['HealthCheckSourceSubnetConfigurationArgsDict']]]
+    """
+    <p>A complex type that contains one <code>SubnetConfiguration</code> element for each Availability Zone that Route 53 uses for private endpoint health checks in the Amazon Web Services Region. Each element must be in a different Availability Zone. Most Regions require three elements. Regions that have only two such Availability Zones, such as US West (N. California), require two elements. Route 53 creates network interfaces in each subnet and sends health check requests from all of them.</p>
+    """
+    vpc_id: pulumi.Input[_builtins.str]
+    """
+    <p>The ID of the VPC that contains the subnets for the health check source. All subnets in <code>SubnetConfigurationList</code> must belong to this VPC.</p>
+    """
+
+@pulumi.input_type
+class HealthCheckSourceConfigArgs:
+    def __init__(__self__, *,
+                 subnet_configuration_list: pulumi.Input[Sequence[pulumi.Input['HealthCheckSourceSubnetConfigurationArgs']]],
+                 vpc_id: pulumi.Input[_builtins.str]):
+        """
+        <p>A complex type that contains the VPC, subnets, and security groups for a health check source. You can't change these values after you create the source.</p>
+
+        :param pulumi.Input[Sequence[pulumi.Input['HealthCheckSourceSubnetConfigurationArgs']]] subnet_configuration_list: <p>A complex type that contains one <code>SubnetConfiguration</code> element for each Availability Zone that Route 53 uses for private endpoint health checks in the Amazon Web Services Region. Each element must be in a different Availability Zone. Most Regions require three elements. Regions that have only two such Availability Zones, such as US West (N. California), require two elements. Route 53 creates network interfaces in each subnet and sends health check requests from all of them.</p>
+        :param pulumi.Input[_builtins.str] vpc_id: <p>The ID of the VPC that contains the subnets for the health check source. All subnets in <code>SubnetConfigurationList</code> must belong to this VPC.</p>
+        """
+        pulumi.set(__self__, "subnet_configuration_list", subnet_configuration_list)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetConfigurationList")
+    def subnet_configuration_list(self) -> pulumi.Input[Sequence[pulumi.Input['HealthCheckSourceSubnetConfigurationArgs']]]:
+        """
+        <p>A complex type that contains one <code>SubnetConfiguration</code> element for each Availability Zone that Route 53 uses for private endpoint health checks in the Amazon Web Services Region. Each element must be in a different Availability Zone. Most Regions require three elements. Regions that have only two such Availability Zones, such as US West (N. California), require two elements. Route 53 creates network interfaces in each subnet and sends health check requests from all of them.</p>
+        """
+        return pulumi.get(self, "subnet_configuration_list")
+
+    @subnet_configuration_list.setter
+    def subnet_configuration_list(self, value: pulumi.Input[Sequence[pulumi.Input['HealthCheckSourceSubnetConfigurationArgs']]]):
+        pulumi.set(self, "subnet_configuration_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        <p>The ID of the VPC that contains the subnets for the health check source. All subnets in <code>SubnetConfigurationList</code> must belong to this VPC.</p>
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_id", value)
+
+
+class HealthCheckSourceSubnetConfigurationArgsDict(TypedDict):
+    """
+    <p>A complex type that identifies one subnet for a health check source and the security groups that Route 53 associates with the network interfaces that it creates in that subnet.</p>
+    """
+    availability_zone_id: pulumi.Input[_builtins.str]
+    """
+    <p>The ID of the Availability Zone that contains the subnet, for example <code>use1-az1</code>. Specify the Availability Zone ID, not the Availability Zone name. Each subnet in a health check source must be in a different Availability Zone.</p>
+    """
+    security_group_id_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    <p>The IDs of one to ten security groups in the same VPC to associate with the network interfaces that Route 53 creates in this subnet. The security groups must allow outbound traffic to the endpoints that the health checks monitor.</p>
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    <p>The ID of the subnet. The subnet must have free IP addresses for the network interfaces that Route 53 creates.</p>
+    """
+
+@pulumi.input_type
+class HealthCheckSourceSubnetConfigurationArgs:
+    def __init__(__self__, *,
+                 availability_zone_id: pulumi.Input[_builtins.str],
+                 security_group_id_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_id: pulumi.Input[_builtins.str]):
+        """
+        <p>A complex type that identifies one subnet for a health check source and the security groups that Route 53 associates with the network interfaces that it creates in that subnet.</p>
+
+        :param pulumi.Input[_builtins.str] availability_zone_id: <p>The ID of the Availability Zone that contains the subnet, for example <code>use1-az1</code>. Specify the Availability Zone ID, not the Availability Zone name. Each subnet in a health check source must be in a different Availability Zone.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_id_list: <p>The IDs of one to ten security groups in the same VPC to associate with the network interfaces that Route 53 creates in this subnet. The security groups must allow outbound traffic to the endpoints that the health checks monitor.</p>
+        :param pulumi.Input[_builtins.str] subnet_id: <p>The ID of the subnet. The subnet must have free IP addresses for the network interfaces that Route 53 creates.</p>
+        """
+        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        pulumi.set(__self__, "security_group_id_list", security_group_id_list)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        <p>The ID of the Availability Zone that contains the subnet, for example <code>use1-az1</code>. Specify the Availability Zone ID, not the Availability Zone name. Each subnet in a health check source must be in a different Availability Zone.</p>
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "availability_zone_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIdList")
+    def security_group_id_list(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        <p>The IDs of one to ten security groups in the same VPC to associate with the network interfaces that Route 53 creates in this subnet. The security groups must allow outbound traffic to the endpoints that the health checks monitor.</p>
+        """
+        return pulumi.get(self, "security_group_id_list")
+
+    @security_group_id_list.setter
+    def security_group_id_list(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_id_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        <p>The ID of the subnet. The subnet must have free IP addresses for the network interfaces that Route 53 creates.</p>
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class HostedZoneConfigArgsDict(TypedDict):

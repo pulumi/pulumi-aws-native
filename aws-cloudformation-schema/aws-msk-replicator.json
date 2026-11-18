@@ -618,7 +618,7 @@
       "permissions" : [ "kafka:DescribeReplicator", "kafka:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "kafka:DescribeReplicator", "kafka:ListTagsForResource", "kafka:TagResource", "kafka:UntagResource", "kafka:UpdateReplicationInfo", "logs:CreateLogDelivery", "logs:DeleteLogDelivery", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream" ]
+      "permissions" : [ "kafka:DescribeReplicator", "kafka:ListTagsForResource", "kafka:TagResource", "kafka:UntagResource", "kafka:UpdateReplicationInfo", "logs:CreateLogDelivery", "logs:DeleteLogDelivery", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:UpdateLogDelivery", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream" ]
     },
     "delete" : {
       "permissions" : [ "kafka:DeleteReplicator", "kafka:DescribeReplicator", "kafka:ListTagsForResource", "kafka:UntagResource", "logs:DeleteLogDelivery", "logs:ListLogDeliveries" ]

@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     [OutputType]
     public sealed class RouterInputProtocolConfiguration3Properties
     {
-        public readonly Outputs.RouterInputRtpRouterInputConfiguration Rtp;
+        public readonly Outputs.RouterInputSrtCallerRouterInputConfiguration SrtCaller;
 
         [OutputConstructor]
-        private RouterInputProtocolConfiguration3Properties(Outputs.RouterInputRtpRouterInputConfiguration rtp)
+        private RouterInputProtocolConfiguration3Properties(Outputs.RouterInputSrtCallerRouterInputConfiguration srtCaller)
         {
-            Rtp = rtp;
+            SrtCaller = srtCaller;
         }
     }
 }

@@ -21,6 +21,19 @@
       },
       "required" : [ "Key", "Value" ],
       "additionalProperties" : false
+    },
+    "MetricGroup" : {
+      "description" : "An Advanced monitoring metric group.",
+      "type" : "object",
+      "properties" : {
+        "MetricGroup" : {
+          "description" : "The name of the metric group. Valid values: STATEMENT_STATISTICS.",
+          "type" : "string",
+          "enum" : [ "STATEMENT_STATISTICS" ]
+        }
+      },
+      "required" : [ "MetricGroup" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -114,6 +127,16 @@
     "PolicyDocument" : {
       "description" : "The IAM policy applied to the cluster resource.",
       "type" : "string"
+    },
+    "MetricGroups" : {
+      "description" : "The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/MetricGroup"
+      },
+      "insertionOrder" : false,
+      "uniqueItems" : true,
+      "maxItems" : 20
     }
   },
   "additionalProperties" : false,

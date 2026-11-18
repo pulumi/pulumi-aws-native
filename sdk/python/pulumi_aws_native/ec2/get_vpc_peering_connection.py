@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetVpcPeeringConnectionResult',
@@ -24,13 +26,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcPeeringConnectionResult:
-    def __init__(__self__, id=None, tags=None):
+    def __init__(__self__, id=None, multipath_resilience_status=None, peer_vpc_peering_connection_options=None, tags=None, vpc_peering_connection_options=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if multipath_resilience_status and not isinstance(multipath_resilience_status, str):
+            raise TypeError("Expected argument 'multipath_resilience_status' to be a str")
+        pulumi.set(__self__, "multipath_resilience_status", multipath_resilience_status)
+        if peer_vpc_peering_connection_options and not isinstance(peer_vpc_peering_connection_options, dict):
+            raise TypeError("Expected argument 'peer_vpc_peering_connection_options' to be a dict")
+        pulumi.set(__self__, "peer_vpc_peering_connection_options", peer_vpc_peering_connection_options)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vpc_peering_connection_options and not isinstance(vpc_peering_connection_options, dict):
+            raise TypeError("Expected argument 'vpc_peering_connection_options' to be a dict")
+        pulumi.set(__self__, "vpc_peering_connection_options", vpc_peering_connection_options)
 
     @_builtins.property
     @pulumi.getter
@@ -41,12 +52,36 @@ class GetVpcPeeringConnectionResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="multipathResilienceStatus")
+    def multipath_resilience_status(self) -> Optional['VpcPeeringConnectionMultipathResilienceStatus']:
+        """
+        The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+        """
+        return pulumi.get(self, "multipath_resilience_status")
+
+    @_builtins.property
+    @pulumi.getter(name="peerVpcPeeringConnectionOptions")
+    def peer_vpc_peering_connection_options(self) -> Optional['outputs.VpcPeeringConnectionOptions']:
+        """
+        The VPC peering connection options corresponding to the accepter side of the connection.
+        """
+        return pulumi.get(self, "peer_vpc_peering_connection_options")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Any tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcPeeringConnectionOptions")
+    def vpc_peering_connection_options(self) -> Optional['outputs.VpcPeeringConnectionOptions']:
+        """
+        The VPC peering connection options corresponding to the requester side of the connection.
+        """
+        return pulumi.get(self, "vpc_peering_connection_options")
 
 
 class AwaitableGetVpcPeeringConnectionResult(GetVpcPeeringConnectionResult):
@@ -56,7 +91,10 @@ class AwaitableGetVpcPeeringConnectionResult(GetVpcPeeringConnectionResult):
             yield self
         return GetVpcPeeringConnectionResult(
             id=self.id,
-            tags=self.tags)
+            multipath_resilience_status=self.multipath_resilience_status,
+            peer_vpc_peering_connection_options=self.peer_vpc_peering_connection_options,
+            tags=self.tags,
+            vpc_peering_connection_options=self.vpc_peering_connection_options)
 
 
 def get_vpc_peering_connection(id: Optional[_builtins.str] = None,
@@ -73,7 +111,10 @@ def get_vpc_peering_connection(id: Optional[_builtins.str] = None,
 
     return AwaitableGetVpcPeeringConnectionResult(
         id=pulumi.get(__ret__, 'id'),
-        tags=pulumi.get(__ret__, 'tags'))
+        multipath_resilience_status=pulumi.get(__ret__, 'multipath_resilience_status'),
+        peer_vpc_peering_connection_options=pulumi.get(__ret__, 'peer_vpc_peering_connection_options'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_peering_connection_options=pulumi.get(__ret__, 'vpc_peering_connection_options'))
 def get_vpc_peering_connection_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcPeeringConnectionResult]:
     """
@@ -87,4 +128,7 @@ def get_vpc_peering_connection_output(id: pulumi.Input[Optional[_builtins.str]] 
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcPeeringConnection', __args__, opts=opts, typ=GetVpcPeeringConnectionResult)
     return __ret__.apply(lambda __response__: GetVpcPeeringConnectionResult(
         id=pulumi.get(__response__, 'id'),
-        tags=pulumi.get(__response__, 'tags')))
+        multipath_resilience_status=pulumi.get(__response__, 'multipath_resilience_status'),
+        peer_vpc_peering_connection_options=pulumi.get(__response__, 'peer_vpc_peering_connection_options'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_peering_connection_options=pulumi.get(__response__, 'vpc_peering_connection_options')))

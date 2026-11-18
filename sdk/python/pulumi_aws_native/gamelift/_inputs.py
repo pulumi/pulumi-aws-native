@@ -90,10 +90,14 @@ __all__ = [
     'GameServerGroupLaunchTemplateArgsDict',
     'GameServerGroupTargetTrackingConfigurationArgs',
     'GameServerGroupTargetTrackingConfigurationArgsDict',
+    'GameSessionQueueDeliveryDestinationArgs',
+    'GameSessionQueueDeliveryDestinationArgsDict',
     'GameSessionQueueDestinationArgs',
     'GameSessionQueueDestinationArgsDict',
     'GameSessionQueueFilterConfigurationArgs',
     'GameSessionQueueFilterConfigurationArgsDict',
+    'GameSessionQueueLogConfigurationArgs',
+    'GameSessionQueueLogConfigurationArgsDict',
     'GameSessionQueuePlayerLatencyPolicyArgs',
     'GameSessionQueuePlayerLatencyPolicyArgsDict',
     'GameSessionQueuePriorityConfigurationArgs',
@@ -3098,6 +3102,59 @@ class GameServerGroupTargetTrackingConfigurationArgs:
         pulumi.set(self, "target_value", value)
 
 
+class GameSessionQueueDeliveryDestinationArgsDict(TypedDict):
+    """
+    The destination to deliver a game session queue's placement logs to. Omit DestinationArn for a CLOUDWATCH or S3 destination to have GameLift create one; FIREHOSE requires DestinationArn.
+    """
+    log_destination: pulumi.Input['GameSessionQueueDeliveryDestinationLogDestination']
+    """
+    The type of service that receives the game session queue's placement logs.
+    """
+    destination_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+    """
+
+@pulumi.input_type
+class GameSessionQueueDeliveryDestinationArgs:
+    def __init__(__self__, *,
+                 log_destination: pulumi.Input['GameSessionQueueDeliveryDestinationLogDestination'],
+                 destination_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The destination to deliver a game session queue's placement logs to. Omit DestinationArn for a CLOUDWATCH or S3 destination to have GameLift create one; FIREHOSE requires DestinationArn.
+
+        :param pulumi.Input['GameSessionQueueDeliveryDestinationLogDestination'] log_destination: The type of service that receives the game session queue's placement logs.
+        :param pulumi.Input[_builtins.str] destination_arn: The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+        """
+        pulumi.set(__self__, "log_destination", log_destination)
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> pulumi.Input['GameSessionQueueDeliveryDestinationLogDestination']:
+        """
+        The type of service that receives the game session queue's placement logs.
+        """
+        return pulumi.get(self, "log_destination")
+
+    @log_destination.setter
+    def log_destination(self, value: pulumi.Input['GameSessionQueueDeliveryDestinationLogDestination']):
+        pulumi.set(self, "log_destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the resource that receives the placement logs. The resource type must match LogDestination (a CloudWatch Logs log group, S3 bucket, or Firehose delivery stream). Required for FIREHOSE; optional for CLOUDWATCH and S3.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_arn", value)
+
+
 class GameSessionQueueDestinationArgsDict(TypedDict):
     """
     A fleet or alias designated in a game session queue.
@@ -3159,6 +3216,39 @@ class GameSessionQueueFilterConfigurationArgs:
     @allowed_locations.setter
     def allowed_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_locations", value)
+
+
+class GameSessionQueueLogConfigurationArgsDict(TypedDict):
+    """
+    A policy that determines where a game session queue's placement logs are delivered.
+    """
+    delivery_destinations: pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDeliveryDestinationArgsDict']]]
+    """
+    The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+    """
+
+@pulumi.input_type
+class GameSessionQueueLogConfigurationArgs:
+    def __init__(__self__, *,
+                 delivery_destinations: pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDeliveryDestinationArgs']]]):
+        """
+        A policy that determines where a game session queue's placement logs are delivered.
+
+        :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDeliveryDestinationArgs']]] delivery_destinations: The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+        """
+        pulumi.set(__self__, "delivery_destinations", delivery_destinations)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryDestinations")
+    def delivery_destinations(self) -> pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDeliveryDestinationArgs']]]:
+        """
+        The set of destinations that receive the game session queue's placement logs. A queue can deliver logs to between 1 and 3 destinations.
+        """
+        return pulumi.get(self, "delivery_destinations")
+
+    @delivery_destinations.setter
+    def delivery_destinations(self, value: pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDeliveryDestinationArgs']]]):
+        pulumi.set(self, "delivery_destinations", value)
 
 
 class GameSessionQueuePlayerLatencyPolicyArgsDict(TypedDict):

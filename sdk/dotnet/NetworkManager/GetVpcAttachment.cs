@@ -92,6 +92,14 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly ImmutableArray<string> LastModificationErrors;
         /// <summary>
+        /// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        /// </summary>
+        public readonly Pulumi.AwsNative.NetworkManager.VpcAttachmentNatGatewaySupport? NatGatewaySupport;
+        /// <summary>
+        /// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On VPC attachments this is always true and is not configurable. Not available in AWS GovCloud (US).
+        /// </summary>
+        public readonly bool? NatSystemRouteSupport;
+        /// <summary>
         /// The name of the network function group attachment.
         /// </summary>
         public readonly string? NetworkFunctionGroupName;
@@ -152,6 +160,10 @@ namespace Pulumi.AwsNative.NetworkManager
 
             ImmutableArray<string> lastModificationErrors,
 
+            Pulumi.AwsNative.NetworkManager.VpcAttachmentNatGatewaySupport? natGatewaySupport,
+
+            bool? natSystemRouteSupport,
+
             string? networkFunctionGroupName,
 
             Outputs.VpcAttachmentVpcOptions? options,
@@ -181,6 +193,8 @@ namespace Pulumi.AwsNative.NetworkManager
             CreatedAt = createdAt;
             EdgeLocation = edgeLocation;
             LastModificationErrors = lastModificationErrors;
+            NatGatewaySupport = natGatewaySupport;
+            NatSystemRouteSupport = natSystemRouteSupport;
             NetworkFunctionGroupName = networkFunctionGroupName;
             Options = options;
             OwnerAccountId = ownerAccountId;

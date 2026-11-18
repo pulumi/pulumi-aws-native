@@ -11,6 +11,7 @@ __all__ = [
     'AccessSourceDnsProtocol',
     'AccessSourceIpAddressType',
     'AccessTokenTokenStatus',
+    'CoreNetworkEndpointRegionScope',
     'DnsViewDnsSecValidationType',
     'DnsViewEdnsClientSubnetType',
     'DnsViewFirewallRulesFailOpenType',
@@ -24,6 +25,7 @@ __all__ = [
     'FirewallRuleFirewallBlockResponse',
     'GlobalResolverCrResourceStatus',
     'GlobalResolverIpAddressType',
+    'GlobalResolverPublicIpStatus',
     'HostedZoneAssociationStatus',
 ]
 
@@ -54,6 +56,12 @@ class AccessTokenTokenStatus(_builtins.str, Enum):
     CREATING = "CREATING"
     OPERATIONAL = "OPERATIONAL"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:route53globalresolver:CoreNetworkEndpointRegionScope")
+class CoreNetworkEndpointRegionScope(_builtins.str, Enum):
+    ALL = "ALL"
+    REGIONAL = "REGIONAL"
 
 
 @pulumi.type_token("aws-native:route53globalresolver:DnsViewDnsSecValidationType")
@@ -146,6 +154,13 @@ class GlobalResolverCrResourceStatus(_builtins.str, Enum):
 class GlobalResolverIpAddressType(_builtins.str, Enum):
     IPV4 = "IPV4"
     DUAL_STACK = "DUAL_STACK"
+
+
+@pulumi.type_token("aws-native:route53globalresolver:GlobalResolverPublicIpStatus")
+class GlobalResolverPublicIpStatus(_builtins.str, Enum):
+    ENABLED_RESERVED = "ENABLED_RESERVED"
+    DISABLED_RESERVED = "DISABLED_RESERVED"
+    DISABLED_RELEASED = "DISABLED_RELEASED"
 
 
 @pulumi.type_token("aws-native:route53globalresolver:HostedZoneAssociationStatus")

@@ -1622,7 +1622,8 @@ type ServerProtocolDetails struct {
 	// Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
 	//
 	// > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
-	SetStatOption *ServerSetStatOption `pulumi:"setStatOption"`
+	SetStatOption *ServerSetStatOption        `pulumi:"setStatOption"`
+	SftpPorts     []ServerSftpPortWithOptions `pulumi:"sftpPorts"`
 	// A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
 	//
 	// - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
@@ -1669,7 +1670,8 @@ type ServerProtocolDetailsArgs struct {
 	// Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
 	//
 	// > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
-	SetStatOption ServerSetStatOptionPtrInput `pulumi:"setStatOption"`
+	SetStatOption ServerSetStatOptionPtrInput         `pulumi:"setStatOption"`
+	SftpPorts     ServerSftpPortWithOptionsArrayInput `pulumi:"sftpPorts"`
 	// A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
 	//
 	// - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
@@ -1794,6 +1796,10 @@ func (o ServerProtocolDetailsOutput) SetStatOption() ServerSetStatOptionPtrOutpu
 	return o.ApplyT(func(v ServerProtocolDetails) *ServerSetStatOption { return v.SetStatOption }).(ServerSetStatOptionPtrOutput)
 }
 
+func (o ServerProtocolDetailsOutput) SftpPorts() ServerSftpPortWithOptionsArrayOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) []ServerSftpPortWithOptions { return v.SftpPorts }).(ServerSftpPortWithOptionsArrayOutput)
+}
+
 // A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
 //
 // - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
@@ -1884,6 +1890,15 @@ func (o ServerProtocolDetailsPtrOutput) SetStatOption() ServerSetStatOptionPtrOu
 		}
 		return v.SetStatOption
 	}).(ServerSetStatOptionPtrOutput)
+}
+
+func (o ServerProtocolDetailsPtrOutput) SftpPorts() ServerSftpPortWithOptionsArrayOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) []ServerSftpPortWithOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SftpPorts
+	}).(ServerSftpPortWithOptionsArrayOutput)
 }
 
 // A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
@@ -2192,6 +2207,106 @@ func (o ServerS3StorageOptionsPtrOutput) DirectoryListingOptimization() ServerDi
 		}
 		return v.DirectoryListingOptimization
 	}).(ServerDirectoryListingOptimizationPtrOutput)
+}
+
+type ServerSftpPortWithOptions struct {
+	CommunicationMode *ServerCommunicationMode `pulumi:"communicationMode"`
+	SftpPort          int                      `pulumi:"sftpPort"`
+}
+
+// ServerSftpPortWithOptionsInput is an input type that accepts ServerSftpPortWithOptionsArgs and ServerSftpPortWithOptionsOutput values.
+// You can construct a concrete instance of `ServerSftpPortWithOptionsInput` via:
+//
+//	ServerSftpPortWithOptionsArgs{...}
+type ServerSftpPortWithOptionsInput interface {
+	pulumi.Input
+
+	ToServerSftpPortWithOptionsOutput() ServerSftpPortWithOptionsOutput
+	ToServerSftpPortWithOptionsOutputWithContext(context.Context) ServerSftpPortWithOptionsOutput
+}
+
+type ServerSftpPortWithOptionsArgs struct {
+	CommunicationMode ServerCommunicationModePtrInput `pulumi:"communicationMode"`
+	SftpPort          pulumi.IntInput                 `pulumi:"sftpPort"`
+}
+
+func (ServerSftpPortWithOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerSftpPortWithOptions)(nil)).Elem()
+}
+
+func (i ServerSftpPortWithOptionsArgs) ToServerSftpPortWithOptionsOutput() ServerSftpPortWithOptionsOutput {
+	return i.ToServerSftpPortWithOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerSftpPortWithOptionsArgs) ToServerSftpPortWithOptionsOutputWithContext(ctx context.Context) ServerSftpPortWithOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerSftpPortWithOptionsOutput)
+}
+
+// ServerSftpPortWithOptionsArrayInput is an input type that accepts ServerSftpPortWithOptionsArray and ServerSftpPortWithOptionsArrayOutput values.
+// You can construct a concrete instance of `ServerSftpPortWithOptionsArrayInput` via:
+//
+//	ServerSftpPortWithOptionsArray{ ServerSftpPortWithOptionsArgs{...} }
+type ServerSftpPortWithOptionsArrayInput interface {
+	pulumi.Input
+
+	ToServerSftpPortWithOptionsArrayOutput() ServerSftpPortWithOptionsArrayOutput
+	ToServerSftpPortWithOptionsArrayOutputWithContext(context.Context) ServerSftpPortWithOptionsArrayOutput
+}
+
+type ServerSftpPortWithOptionsArray []ServerSftpPortWithOptionsInput
+
+func (ServerSftpPortWithOptionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerSftpPortWithOptions)(nil)).Elem()
+}
+
+func (i ServerSftpPortWithOptionsArray) ToServerSftpPortWithOptionsArrayOutput() ServerSftpPortWithOptionsArrayOutput {
+	return i.ToServerSftpPortWithOptionsArrayOutputWithContext(context.Background())
+}
+
+func (i ServerSftpPortWithOptionsArray) ToServerSftpPortWithOptionsArrayOutputWithContext(ctx context.Context) ServerSftpPortWithOptionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerSftpPortWithOptionsArrayOutput)
+}
+
+type ServerSftpPortWithOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerSftpPortWithOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerSftpPortWithOptions)(nil)).Elem()
+}
+
+func (o ServerSftpPortWithOptionsOutput) ToServerSftpPortWithOptionsOutput() ServerSftpPortWithOptionsOutput {
+	return o
+}
+
+func (o ServerSftpPortWithOptionsOutput) ToServerSftpPortWithOptionsOutputWithContext(ctx context.Context) ServerSftpPortWithOptionsOutput {
+	return o
+}
+
+func (o ServerSftpPortWithOptionsOutput) CommunicationMode() ServerCommunicationModePtrOutput {
+	return o.ApplyT(func(v ServerSftpPortWithOptions) *ServerCommunicationMode { return v.CommunicationMode }).(ServerCommunicationModePtrOutput)
+}
+
+func (o ServerSftpPortWithOptionsOutput) SftpPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerSftpPortWithOptions) int { return v.SftpPort }).(pulumi.IntOutput)
+}
+
+type ServerSftpPortWithOptionsArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerSftpPortWithOptionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerSftpPortWithOptions)(nil)).Elem()
+}
+
+func (o ServerSftpPortWithOptionsArrayOutput) ToServerSftpPortWithOptionsArrayOutput() ServerSftpPortWithOptionsArrayOutput {
+	return o
+}
+
+func (o ServerSftpPortWithOptionsArrayOutput) ToServerSftpPortWithOptionsArrayOutputWithContext(ctx context.Context) ServerSftpPortWithOptionsArrayOutput {
+	return o
+}
+
+func (o ServerSftpPortWithOptionsArrayOutput) Index(i pulumi.IntInput) ServerSftpPortWithOptionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerSftpPortWithOptions {
+		return vs[0].([]ServerSftpPortWithOptions)[vs[1].(int)]
+	}).(ServerSftpPortWithOptionsOutput)
 }
 
 type ServerTag struct {
@@ -5610,6 +5725,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProxyConfigPtrInput)(nil)).Elem(), ServerProxyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsPtrInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSftpPortWithOptionsInput)(nil)).Elem(), ServerSftpPortWithOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSftpPortWithOptionsArrayInput)(nil)).Elem(), ServerSftpPortWithOptionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailInput)(nil)).Elem(), ServerWorkflowDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailArrayInput)(nil)).Elem(), ServerWorkflowDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
@@ -5671,6 +5788,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerProxyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServerS3StorageOptionsOutput{})
 	pulumi.RegisterOutputType(ServerS3StorageOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ServerSftpPortWithOptionsOutput{})
+	pulumi.RegisterOutputType(ServerSftpPortWithOptionsArrayOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailArrayOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOutput{})

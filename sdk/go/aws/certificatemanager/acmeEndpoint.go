@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+// Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
 type AcmeEndpoint struct {
 	pulumi.CustomResourceState
 

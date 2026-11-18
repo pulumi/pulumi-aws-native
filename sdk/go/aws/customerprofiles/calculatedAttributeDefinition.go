@@ -30,7 +30,8 @@ type CalculatedAttributeDefinition struct {
 	// The display name of the calculated attribute.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The unique name of the domain.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName pulumi.StringOutput                          `pulumi:"domainName"`
+	Filter     CalculatedAttributeDefinitionFilterPtrOutput `pulumi:"filter"`
 	// The timestamp of when the calculated attribute definition was most recently edited.
 	LastUpdatedAt pulumi.StringOutput                          `pulumi:"lastUpdatedAt"`
 	Readiness     CalculatedAttributeDefinitionReadinessOutput `pulumi:"readiness"`
@@ -69,6 +70,7 @@ func NewCalculatedAttributeDefinition(ctx *pulumi.Context,
 		"conditions.range.timestampFormat",
 		"conditions.range.timestampSource",
 		"domainName",
+		"filter",
 		"statistic",
 		"useHistoricalData",
 	})
@@ -123,7 +125,8 @@ type calculatedAttributeDefinitionArgs struct {
 	// The display name of the calculated attribute.
 	DisplayName *string `pulumi:"displayName"`
 	// The unique name of the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName string                               `pulumi:"domainName"`
+	Filter     *CalculatedAttributeDefinitionFilter `pulumi:"filter"`
 	// The aggregation operation to perform for the calculated attribute.
 	Statistic CalculatedAttributeDefinitionStatistic `pulumi:"statistic"`
 	// An array of key-value pairs to apply to this resource.
@@ -146,6 +149,7 @@ type CalculatedAttributeDefinitionArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The unique name of the domain.
 	DomainName pulumi.StringInput
+	Filter     CalculatedAttributeDefinitionFilterPtrInput
 	// The aggregation operation to perform for the calculated attribute.
 	Statistic CalculatedAttributeDefinitionStatisticInput
 	// An array of key-value pairs to apply to this resource.
@@ -228,6 +232,10 @@ func (o CalculatedAttributeDefinitionOutput) DisplayName() pulumi.StringPtrOutpu
 // The unique name of the domain.
 func (o CalculatedAttributeDefinitionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o CalculatedAttributeDefinitionOutput) Filter() CalculatedAttributeDefinitionFilterPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinition) CalculatedAttributeDefinitionFilterPtrOutput { return v.Filter }).(CalculatedAttributeDefinitionFilterPtrOutput)
 }
 
 // The timestamp of when the calculated attribute definition was most recently edited.

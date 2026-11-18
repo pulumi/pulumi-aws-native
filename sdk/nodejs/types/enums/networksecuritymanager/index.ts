@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DeploymentStatus = {
+    Draft: "DRAFT",
+    Active: "ACTIVE",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The status of the deployment.
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
+
 export const PolicyFirewallType = {
     Waf: "WAF",
     ShieldAdvanced: "SHIELD_ADVANCED",

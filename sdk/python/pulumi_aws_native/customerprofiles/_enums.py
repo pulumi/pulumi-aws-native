@@ -7,6 +7,9 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CalculatedAttributeDefinitionFilterDimensionType',
+    'CalculatedAttributeDefinitionFilterGroupType',
+    'CalculatedAttributeDefinitionFilterInclude',
     'CalculatedAttributeDefinitionRangeUnit',
     'CalculatedAttributeDefinitionStatistic',
     'CalculatedAttributeDefinitionStatus',
@@ -54,6 +57,48 @@ __all__ = [
     'SegmentDefinitionSortAttributeType',
     'SegmentDefinitionStringDimensionType',
 ]
+
+
+@pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionFilterDimensionType")
+class CalculatedAttributeDefinitionFilterDimensionType(_builtins.str, Enum):
+    """
+    The action to filter with.
+    """
+    INCLUSIVE = "INCLUSIVE"
+    EXCLUSIVE = "EXCLUSIVE"
+    CONTAINS = "CONTAINS"
+    BEGINS_WITH = "BEGINS_WITH"
+    ENDS_WITH = "ENDS_WITH"
+    BEFORE = "BEFORE"
+    AFTER = "AFTER"
+    BETWEEN = "BETWEEN"
+    NOT_BETWEEN = "NOT_BETWEEN"
+    ON = "ON"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+    GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL"
+    LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+    EQUAL = "EQUAL"
+
+
+@pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionFilterGroupType")
+class CalculatedAttributeDefinitionFilterGroupType(_builtins.str, Enum):
+    """
+    The type of logical relationship between the dimensions of the Filter group.
+    """
+    ALL = "ALL"
+    ANY = "ANY"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionFilterInclude")
+class CalculatedAttributeDefinitionFilterInclude(_builtins.str, Enum):
+    """
+    Define whether to include or exclude objects for Calculated Attributed calculation that fit the filter groups criteria.
+    """
+    ALL = "ALL"
+    ANY = "ANY"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionRangeUnit")

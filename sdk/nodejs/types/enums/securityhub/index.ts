@@ -320,6 +320,7 @@ export const FindingAggregatorRegionLinkingMode = {
     AllRegions: "ALL_REGIONS",
     AllRegionsExceptSpecified: "ALL_REGIONS_EXCEPT_SPECIFIED",
     SpecifiedRegions: "SPECIFIED_REGIONS",
+    NoRegions: "NO_REGIONS",
 } as const;
 
 /**

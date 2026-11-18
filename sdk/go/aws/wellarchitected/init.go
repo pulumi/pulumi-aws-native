@@ -25,8 +25,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentContext{}
 	case "aws-native:wellarchitected:AgentGoal":
 		r = &AgentGoal{}
+	case "aws-native:wellarchitected:AgentOrganizationalProfile":
+		r = &AgentOrganizationalProfile{}
 	case "aws-native:wellarchitected:AgentProfile":
 		r = &AgentProfile{}
+	case "aws-native:wellarchitected:AgentProfilePolicy":
+		r = &AgentProfilePolicy{}
 	case "aws-native:wellarchitected:Lens":
 		r = &Lens{}
 	case "aws-native:wellarchitected:Profile":

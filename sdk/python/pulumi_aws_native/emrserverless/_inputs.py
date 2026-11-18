@@ -320,18 +320,26 @@ class ApplicationIdentityCenterConfigurationArgsDict(TypedDict):
     """
     The IAM IdentityCenter instance arn
     """
+    user_background_sessions_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+    """
 
 @pulumi.input_type
 class ApplicationIdentityCenterConfigurationArgs:
     def __init__(__self__, *,
-                 identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None):
+                 identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_background_sessions_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
 
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: The IAM IdentityCenter instance arn
+        :param pulumi.Input[_builtins.bool] user_background_sessions_enabled: Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
         """
         if identity_center_instance_arn is not None:
             pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+        if user_background_sessions_enabled is not None:
+            pulumi.set(__self__, "user_background_sessions_enabled", user_background_sessions_enabled)
 
     @_builtins.property
     @pulumi.getter(name="identityCenterInstanceArn")
@@ -344,6 +352,18 @@ class ApplicationIdentityCenterConfigurationArgs:
     @identity_center_instance_arn.setter
     def identity_center_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_center_instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userBackgroundSessionsEnabled")
+    def user_background_sessions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+        """
+        return pulumi.get(self, "user_background_sessions_enabled")
+
+    @user_background_sessions_enabled.setter
+    def user_background_sessions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "user_background_sessions_enabled", value)
 
 
 class ApplicationImageConfigurationInputArgsDict(TypedDict):

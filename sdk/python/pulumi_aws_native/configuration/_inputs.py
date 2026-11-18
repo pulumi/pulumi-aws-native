@@ -44,10 +44,16 @@ __all__ = [
     'ConfigurationRecorderRecordingStrategyArgsDict',
     'ConformancePackInputParameterArgs',
     'ConformancePackInputParameterArgsDict',
+    'ConformancePackScopeArgs',
+    'ConformancePackScopeArgsDict',
+    'ConformancePackSourceArgs',
+    'ConformancePackSourceArgsDict',
     'ConnectorAzureConnectorConfigurationArgs',
     'ConnectorAzureConnectorConfigurationArgsDict',
     'ConnectorConfigurationArgs',
     'ConnectorConfigurationArgsDict',
+    'ConnectorGcpConnectorConfigurationArgs',
+    'ConnectorGcpConnectorConfigurationArgsDict',
     'DeliveryChannelConfigSnapshotDeliveryPropertiesArgs',
     'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict',
     'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs',
@@ -1086,6 +1092,92 @@ class ConformancePackInputParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
+class ConformancePackScopeArgsDict(TypedDict):
+    """
+    The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+    """
+    tag_key: pulumi.Input[_builtins.str]
+    """
+    The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+    """
+    tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+    """
+
+@pulumi.input_type
+class ConformancePackScopeArgs:
+    def __init__(__self__, *,
+                 tag_key: pulumi.Input[_builtins.str],
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The global tag scope of the managed conformance pack. If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+
+        :param pulumi.Input[_builtins.str] tag_key: The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+        :param pulumi.Input[_builtins.str] tag_value: The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+        """
+        pulumi.set(__self__, "tag_key", tag_key)
+        if tag_value is not None:
+            pulumi.set(__self__, "tag_value", tag_value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tag key of the tag scope. Only resources with this tag key are in scope of the conformance pack.
+        """
+        return pulumi.get(self, "tag_key")
+
+    @tag_key.setter
+    def tag_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tag_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The tag value of the tag scope. If omitted, resources are in scope based on the presence of the tag key alone, regardless of its value.
+        """
+        return pulumi.get(self, "tag_value")
+
+    @tag_value.setter
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tag_value", value)
+
+
+class ConformancePackSourceArgsDict(TypedDict):
+    """
+    The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+    """
+    source_identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier specifying which managed conformance pack is being deployed.
+    """
+
+@pulumi.input_type
+class ConformancePackSourceArgs:
+    def __init__(__self__, *,
+                 source_identifier: pulumi.Input[_builtins.str]):
+        """
+        The source of a managed conformance pack. Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+
+        :param pulumi.Input[_builtins.str] source_identifier: The identifier specifying which managed conformance pack is being deployed.
+        """
+        pulumi.set(__self__, "source_identifier", source_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier specifying which managed conformance pack is being deployed.
+        """
+        return pulumi.get(self, "source_identifier")
+
+    @source_identifier.setter
+    def source_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_identifier", value)
+
+
 class ConnectorAzureConnectorConfigurationArgsDict(TypedDict):
     """
     Configuration for connecting to Microsoft Azure.
@@ -1140,24 +1232,32 @@ class ConnectorAzureConnectorConfigurationArgs:
 
 class ConnectorConfigurationArgsDict(TypedDict):
     """
-    The configuration for the connector. Specify the third-party cloud provider configuration.
+    The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
     """
     azure: NotRequired[pulumi.Input[Optional['ConnectorAzureConnectorConfigurationArgsDict']]]
     """
     The configuration for connecting to Microsoft Azure.
     """
+    gcp: NotRequired[pulumi.Input[Optional['ConnectorGcpConnectorConfigurationArgsDict']]]
+    """
+    The configuration for connecting to Google Cloud.
+    """
 
 @pulumi.input_type
 class ConnectorConfigurationArgs:
     def __init__(__self__, *,
-                 azure: pulumi.Input[Optional['ConnectorAzureConnectorConfigurationArgs']] = None):
+                 azure: pulumi.Input[Optional['ConnectorAzureConnectorConfigurationArgs']] = None,
+                 gcp: pulumi.Input[Optional['ConnectorGcpConnectorConfigurationArgs']] = None):
         """
-        The configuration for the connector. Specify the third-party cloud provider configuration.
+        The configuration for the connector. Specify exactly one third-party cloud provider configuration: Azure or Gcp.
 
         :param pulumi.Input['ConnectorAzureConnectorConfigurationArgs'] azure: The configuration for connecting to Microsoft Azure.
+        :param pulumi.Input['ConnectorGcpConnectorConfigurationArgs'] gcp: The configuration for connecting to Google Cloud.
         """
         if azure is not None:
             pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
 
     @_builtins.property
     @pulumi.getter
@@ -1170,6 +1270,90 @@ class ConnectorConfigurationArgs:
     @azure.setter
     def azure(self, value: pulumi.Input[Optional['ConnectorAzureConnectorConfigurationArgs']]):
         pulumi.set(self, "azure", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gcp(self) -> pulumi.Input[Optional['ConnectorGcpConnectorConfigurationArgs']]:
+        """
+        The configuration for connecting to Google Cloud.
+        """
+        return pulumi.get(self, "gcp")
+
+    @gcp.setter
+    def gcp(self, value: pulumi.Input[Optional['ConnectorGcpConnectorConfigurationArgs']]):
+        pulumi.set(self, "gcp", value)
+
+
+class ConnectorGcpConnectorConfigurationArgsDict(TypedDict):
+    """
+    Configuration for connecting to Google Cloud.
+    """
+    service_account_email: pulumi.Input[_builtins.str]
+    """
+    The email address of the Google Cloud service account that AWS Config uses.
+    """
+    workload_identity_pool_provider: pulumi.Input[_builtins.str]
+    """
+    The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+    """
+    gcp_organization_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+    """
+
+@pulumi.input_type
+class ConnectorGcpConnectorConfigurationArgs:
+    def __init__(__self__, *,
+                 service_account_email: pulumi.Input[_builtins.str],
+                 workload_identity_pool_provider: pulumi.Input[_builtins.str],
+                 gcp_organization_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration for connecting to Google Cloud.
+
+        :param pulumi.Input[_builtins.str] service_account_email: The email address of the Google Cloud service account that AWS Config uses.
+        :param pulumi.Input[_builtins.str] workload_identity_pool_provider: The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+        :param pulumi.Input[_builtins.str] gcp_organization_id: The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+        """
+        pulumi.set(__self__, "service_account_email", service_account_email)
+        pulumi.set(__self__, "workload_identity_pool_provider", workload_identity_pool_provider)
+        if gcp_organization_id is not None:
+            pulumi.set(__self__, "gcp_organization_id", gcp_organization_id)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> pulumi.Input[_builtins.str]:
+        """
+        The email address of the Google Cloud service account that AWS Config uses.
+        """
+        return pulumi.get(self, "service_account_email")
+
+    @service_account_email.setter
+    def service_account_email(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_account_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPoolProvider")
+    def workload_identity_pool_provider(self) -> pulumi.Input[_builtins.str]:
+        """
+        The full resource name of the workload identity pool provider that AWS Config uses to federate into Google Cloud.
+        """
+        return pulumi.get(self, "workload_identity_pool_provider")
+
+    @workload_identity_pool_provider.setter
+    def workload_identity_pool_provider(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workload_identity_pool_provider", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gcpOrganizationId")
+    def gcp_organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the Google Cloud organization that contains the connector's management project, which is the project of the service account in ServiceAccountEmail. Required if the management project belongs to an organization. A connector needs an organization ID to record an entire organization or more than one project. Omit it only if the management project doesn't belong to an organization. In that case, the connector can record only the management project.
+        """
+        return pulumi.get(self, "gcp_organization_id")
+
+    @gcp_organization_id.setter
+    def gcp_organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gcp_organization_id", value)
 
 
 class DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict(TypedDict):

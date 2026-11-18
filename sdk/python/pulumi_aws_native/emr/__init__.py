@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .cluster import *
+from .get_cluster import *
 from .get_instance_fleet_config import *
 from .get_instance_group_config import *
 from .get_step import *

@@ -7416,6 +7416,174 @@ func (in *gameServerGroupGameServerProtectionPolicyPtr) ToGameServerGroupGameSer
 	return pulumi.ToOutputWithContext(ctx, in).(GameServerGroupGameServerProtectionPolicyPtrOutput)
 }
 
+// The type of service that receives the game session queue's placement logs.
+type GameSessionQueueDeliveryDestinationLogDestination string
+
+const (
+	GameSessionQueueDeliveryDestinationLogDestinationCloudwatch = GameSessionQueueDeliveryDestinationLogDestination("CLOUDWATCH")
+	GameSessionQueueDeliveryDestinationLogDestinationS3         = GameSessionQueueDeliveryDestinationLogDestination("S3")
+	GameSessionQueueDeliveryDestinationLogDestinationFirehose   = GameSessionQueueDeliveryDestinationLogDestination("FIREHOSE")
+)
+
+func (GameSessionQueueDeliveryDestinationLogDestination) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueDeliveryDestinationLogDestination)(nil)).Elem()
+}
+
+func (e GameSessionQueueDeliveryDestinationLogDestination) ToGameSessionQueueDeliveryDestinationLogDestinationOutput() GameSessionQueueDeliveryDestinationLogDestinationOutput {
+	return pulumi.ToOutput(e).(GameSessionQueueDeliveryDestinationLogDestinationOutput)
+}
+
+func (e GameSessionQueueDeliveryDestinationLogDestination) ToGameSessionQueueDeliveryDestinationLogDestinationOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GameSessionQueueDeliveryDestinationLogDestinationOutput)
+}
+
+func (e GameSessionQueueDeliveryDestinationLogDestination) ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutput() GameSessionQueueDeliveryDestinationLogDestinationPtrOutput {
+	return e.ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (e GameSessionQueueDeliveryDestinationLogDestination) ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationLogDestinationPtrOutput {
+	return GameSessionQueueDeliveryDestinationLogDestination(e).ToGameSessionQueueDeliveryDestinationLogDestinationOutputWithContext(ctx).ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutputWithContext(ctx)
+}
+
+func (e GameSessionQueueDeliveryDestinationLogDestination) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GameSessionQueueDeliveryDestinationLogDestination) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GameSessionQueueDeliveryDestinationLogDestination) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GameSessionQueueDeliveryDestinationLogDestination) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GameSessionQueueDeliveryDestinationLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueDeliveryDestinationLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueDeliveryDestinationLogDestination)(nil)).Elem()
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationOutput) ToGameSessionQueueDeliveryDestinationLogDestinationOutput() GameSessionQueueDeliveryDestinationLogDestinationOutput {
+	return o
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationOutput) ToGameSessionQueueDeliveryDestinationLogDestinationOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationLogDestinationOutput {
+	return o
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationOutput) ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutput() GameSessionQueueDeliveryDestinationLogDestinationPtrOutput {
+	return o.ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationOutput) ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationLogDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameSessionQueueDeliveryDestinationLogDestination) *GameSessionQueueDeliveryDestinationLogDestination {
+		return &v
+	}).(GameSessionQueueDeliveryDestinationLogDestinationPtrOutput)
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GameSessionQueueDeliveryDestinationLogDestination) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GameSessionQueueDeliveryDestinationLogDestination) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GameSessionQueueDeliveryDestinationLogDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueDeliveryDestinationLogDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueueDeliveryDestinationLogDestination)(nil)).Elem()
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationPtrOutput) ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutput() GameSessionQueueDeliveryDestinationLogDestinationPtrOutput {
+	return o
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationPtrOutput) ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationLogDestinationPtrOutput {
+	return o
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationPtrOutput) Elem() GameSessionQueueDeliveryDestinationLogDestinationOutput {
+	return o.ApplyT(func(v *GameSessionQueueDeliveryDestinationLogDestination) GameSessionQueueDeliveryDestinationLogDestination {
+		if v != nil {
+			return *v
+		}
+		var ret GameSessionQueueDeliveryDestinationLogDestination
+		return ret
+	}).(GameSessionQueueDeliveryDestinationLogDestinationOutput)
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueueDeliveryDestinationLogDestinationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GameSessionQueueDeliveryDestinationLogDestination) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GameSessionQueueDeliveryDestinationLogDestinationInput is an input type that accepts values of the GameSessionQueueDeliveryDestinationLogDestination enum
+// A concrete instance of `GameSessionQueueDeliveryDestinationLogDestinationInput` can be one of the following:
+//
+//	GameSessionQueueDeliveryDestinationLogDestinationCloudwatch
+//	GameSessionQueueDeliveryDestinationLogDestinationS3
+//	GameSessionQueueDeliveryDestinationLogDestinationFirehose
+type GameSessionQueueDeliveryDestinationLogDestinationInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueDeliveryDestinationLogDestinationOutput() GameSessionQueueDeliveryDestinationLogDestinationOutput
+	ToGameSessionQueueDeliveryDestinationLogDestinationOutputWithContext(context.Context) GameSessionQueueDeliveryDestinationLogDestinationOutput
+}
+
+var gameSessionQueueDeliveryDestinationLogDestinationPtrType = reflect.TypeOf((**GameSessionQueueDeliveryDestinationLogDestination)(nil)).Elem()
+
+type GameSessionQueueDeliveryDestinationLogDestinationPtrInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutput() GameSessionQueueDeliveryDestinationLogDestinationPtrOutput
+	ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutputWithContext(context.Context) GameSessionQueueDeliveryDestinationLogDestinationPtrOutput
+}
+
+type gameSessionQueueDeliveryDestinationLogDestinationPtr string
+
+func GameSessionQueueDeliveryDestinationLogDestinationPtr(v string) GameSessionQueueDeliveryDestinationLogDestinationPtrInput {
+	return (*gameSessionQueueDeliveryDestinationLogDestinationPtr)(&v)
+}
+
+func (*gameSessionQueueDeliveryDestinationLogDestinationPtr) ElementType() reflect.Type {
+	return gameSessionQueueDeliveryDestinationLogDestinationPtrType
+}
+
+func (in *gameSessionQueueDeliveryDestinationLogDestinationPtr) ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutput() GameSessionQueueDeliveryDestinationLogDestinationPtrOutput {
+	return pulumi.ToOutput(in).(GameSessionQueueDeliveryDestinationLogDestinationPtrOutput)
+}
+
+func (in *gameSessionQueueDeliveryDestinationLogDestinationPtr) ToGameSessionQueueDeliveryDestinationLogDestinationPtrOutputWithContext(ctx context.Context) GameSessionQueueDeliveryDestinationLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GameSessionQueueDeliveryDestinationLogDestinationPtrOutput)
+}
+
 type GameSessionQueuePriorityOrderItem string
 
 const (
@@ -8049,6 +8217,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupDeleteOptionPtrInput)(nil)).Elem(), GameServerGroupDeleteOption("SAFE_DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupGameServerProtectionPolicyInput)(nil)).Elem(), GameServerGroupGameServerProtectionPolicy("NO_PROTECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupGameServerProtectionPolicyPtrInput)(nil)).Elem(), GameServerGroupGameServerProtectionPolicy("NO_PROTECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueDeliveryDestinationLogDestinationInput)(nil)).Elem(), GameSessionQueueDeliveryDestinationLogDestination("CLOUDWATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueDeliveryDestinationLogDestinationPtrInput)(nil)).Elem(), GameSessionQueueDeliveryDestinationLogDestination("CLOUDWATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityOrderItemInput)(nil)).Elem(), GameSessionQueuePriorityOrderItem("LATENCY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityOrderItemPtrInput)(nil)).Elem(), GameSessionQueuePriorityOrderItem("LATENCY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityOrderItemArrayInput)(nil)).Elem(), GameSessionQueuePriorityOrderItemArray{})
@@ -8146,6 +8316,8 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupDeleteOptionPtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupGameServerProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(GameServerGroupGameServerProtectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueDeliveryDestinationLogDestinationOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueDeliveryDestinationLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePriorityOrderItemOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePriorityOrderItemPtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePriorityOrderItemArrayOutput{})

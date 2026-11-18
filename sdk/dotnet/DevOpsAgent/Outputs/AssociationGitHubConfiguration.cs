@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.DevOpsAgent.AssociationGitHubConfigurationOwnerType OwnerType;
         /// <summary>
+        /// The ID of the release management association that this repository uses for automated testing
+        /// </summary>
+        public readonly string? ReleaseManagementAssociationId;
+        /// <summary>
         /// Associated Github repo ID
         /// </summary>
         public readonly string RepoId;
@@ -39,12 +43,15 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
 
             Pulumi.AwsNative.DevOpsAgent.AssociationGitHubConfigurationOwnerType ownerType,
 
+            string? releaseManagementAssociationId,
+
             string repoId,
 
             string repoName)
         {
             Owner = owner;
             OwnerType = ownerType;
+            ReleaseManagementAssociationId = releaseManagementAssociationId;
             RepoId = repoId;
             RepoName = repoName;
         }

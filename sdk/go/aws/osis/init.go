@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:osis:Pipeline":
 		r = &Pipeline{}
+	case "aws-native:osis:PipelineEndpoint":
+		r = &PipelineEndpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

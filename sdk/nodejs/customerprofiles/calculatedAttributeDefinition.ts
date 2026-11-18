@@ -75,6 +75,7 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
      * The unique name of the domain.
      */
     declare public readonly domainName: pulumi.Output<string>;
+    declare public readonly filter: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionFilter | undefined>;
     /**
      * The timestamp of when the calculated attribute definition was most recently edited.
      */
@@ -126,6 +127,7 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["filter"] = args?.filter;
             resourceInputs["statistic"] = args?.statistic;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["useHistoricalData"] = args?.useHistoricalData;
@@ -141,6 +143,7 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["filter"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["readiness"] = undefined /*out*/;
             resourceInputs["statistic"] = undefined /*out*/;
@@ -149,7 +152,7 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
             resourceInputs["useHistoricalData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["attributeDetails", "calculatedAttributeName", "conditions.range.timestampFormat", "conditions.range.timestampSource", "domainName", "statistic", "useHistoricalData"] };
+        const replaceOnChanges = { replaceOnChanges: ["attributeDetails", "calculatedAttributeName", "conditions.range.timestampFormat", "conditions.range.timestampSource", "domainName", "filter", "statistic", "useHistoricalData"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CalculatedAttributeDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -183,6 +186,7 @@ export interface CalculatedAttributeDefinitionArgs {
      * The unique name of the domain.
      */
     domainName: pulumi.Input<string>;
+    filter?: pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionFilterArgs | undefined>;
     /**
      * The aggregation operation to perform for the calculated attribute.
      */

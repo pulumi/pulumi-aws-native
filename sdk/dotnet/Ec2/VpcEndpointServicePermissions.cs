@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+        /// </summary>
+        [Output("transitGatewayAttachmentAllowedPrincipals")]
+        public Output<ImmutableArray<string>> TransitGatewayAttachmentAllowedPrincipals { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a VpcEndpointServicePermissions resource with the given unique name, arguments, and options.
@@ -93,6 +99,18 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("serviceId", required: true)]
         public Input<string> ServiceId { get; set; } = null!;
+
+        [Input("transitGatewayAttachmentAllowedPrincipals")]
+        private InputList<string>? _transitGatewayAttachmentAllowedPrincipals;
+
+        /// <summary>
+        /// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+        /// </summary>
+        public InputList<string> TransitGatewayAttachmentAllowedPrincipals
+        {
+            get => _transitGatewayAttachmentAllowedPrincipals ?? (_transitGatewayAttachmentAllowedPrincipals = new InputList<string>());
+            set => _transitGatewayAttachmentAllowedPrincipals = value;
+        }
 
         public VpcEndpointServicePermissionsArgs()
         {

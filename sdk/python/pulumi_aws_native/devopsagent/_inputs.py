@@ -28,12 +28,18 @@ __all__ = [
     'AgentSpacePreferencesArgsDict',
     'AssetFileArgs',
     'AssetFileArgsDict',
+    'AssociationAutomatedTestingCapabilityConfigurationArgs',
+    'AssociationAutomatedTestingCapabilityConfigurationArgsDict',
     'AssociationAwsConfigurationArgs',
     'AssociationAwsConfigurationArgsDict',
     'AssociationAwsResourceArgs',
     'AssociationAwsResourceArgsDict',
     'AssociationAzureConfigurationArgs',
     'AssociationAzureConfigurationArgsDict',
+    'AssociationCapabilitiesArgs',
+    'AssociationCapabilitiesArgsDict',
+    'AssociationCapabilityConfigurationArgs',
+    'AssociationCapabilityConfigurationArgsDict',
     'AssociationDynatraceConfigurationArgs',
     'AssociationDynatraceConfigurationArgsDict',
     'AssociationEventChannelConfigurationArgs',
@@ -56,8 +62,16 @@ __all__ = [
     'AssociationMcpServerSigV4ConfigurationArgsDict',
     'AssociationMcpServerSplunkConfigurationArgs',
     'AssociationMcpServerSplunkConfigurationArgsDict',
+    'AssociationNetworkAccessConfigurationArgs',
+    'AssociationNetworkAccessConfigurationArgsDict',
     'AssociationPagerDutyConfigurationArgs',
     'AssociationPagerDutyConfigurationArgsDict',
+    'AssociationPatternFilterArgs',
+    'AssociationPatternFilterArgsDict',
+    'AssociationPrivateNetworkAccessArgs',
+    'AssociationPrivateNetworkAccessArgsDict',
+    'AssociationReleaseManagementConfigurationArgs',
+    'AssociationReleaseManagementConfigurationArgsDict',
     'AssociationServiceConfigurationArgs',
     'AssociationServiceConfigurationArgsDict',
     'AssociationServiceNowConfigurationArgs',
@@ -72,6 +86,8 @@ __all__ = [
     'AssociationSlackTransmissionTargetArgsDict',
     'AssociationSourceAwsConfigurationArgs',
     'AssociationSourceAwsConfigurationArgsDict',
+    'AssociationTriggerFilterGroupArgs',
+    'AssociationTriggerFilterGroupArgsDict',
     'PrivateConnectionConnectionConfigurationArgs',
     'PrivateConnectionConnectionConfigurationArgsDict',
     'PrivateConnectionSelfManagedModeArgs',
@@ -581,6 +597,40 @@ class AssetFileArgs:
         pulumi.set(self, "metadata", value)
 
 
+class AssociationAutomatedTestingCapabilityConfigurationArgsDict(TypedDict):
+    """
+    Configuration of the code change risk analysis automated testing capability. This capability does not support trigger filter groups.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the capability is enabled for this association
+    """
+
+@pulumi.input_type
+class AssociationAutomatedTestingCapabilityConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Configuration of the code change risk analysis automated testing capability. This capability does not support trigger filter groups.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether the capability is enabled for this association
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the capability is enabled for this association
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
 class AssociationAwsConfigurationArgsDict(TypedDict):
     """
     AWS association for 'monitor' account
@@ -804,6 +854,114 @@ class AssociationAzureConfigurationArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+class AssociationCapabilitiesArgsDict(TypedDict):
+    """
+    Automated AWS DevOps Agent capabilities for the repository in this association. Code change risk analysis analyzes pull requests and merge requests for deployment risk, and automated testing extends that analysis by running tests against the change. Capabilities are supported for GitHub and GitLab associations. When this property is set, it fully defines both capabilities below: a capability omitted here is removed from the association. Removing this property from a template that previously set it disables both capabilities. Capabilities configured outside CloudFormation are left unchanged only while this property has never been set. On rollback, both capabilities are restored to the previous template's values, not to settings made outside CloudFormation. Other capabilities on the association are not affected. Updates read and rewrite the association's full capability set, so a capability change made outside CloudFormation while a stack update is in progress may be overwritten.
+    """
+    code_change_risk_analysis: NotRequired[pulumi.Input[Optional['AssociationCapabilityConfigurationArgsDict']]]
+    """
+    Configuration for code change risk analysis, in which AWS DevOps Agent automatically analyzes pull requests and merge requests for deployment risk.
+    """
+    code_change_risk_analysis_automated_testing: NotRequired[pulumi.Input[Optional['AssociationAutomatedTestingCapabilityConfigurationArgsDict']]]
+    """
+    Configuration for code change risk analysis automated testing, in which AWS DevOps Agent also runs tests against the change during the analysis.
+    """
+
+@pulumi.input_type
+class AssociationCapabilitiesArgs:
+    def __init__(__self__, *,
+                 code_change_risk_analysis: pulumi.Input[Optional['AssociationCapabilityConfigurationArgs']] = None,
+                 code_change_risk_analysis_automated_testing: pulumi.Input[Optional['AssociationAutomatedTestingCapabilityConfigurationArgs']] = None):
+        """
+        Automated AWS DevOps Agent capabilities for the repository in this association. Code change risk analysis analyzes pull requests and merge requests for deployment risk, and automated testing extends that analysis by running tests against the change. Capabilities are supported for GitHub and GitLab associations. When this property is set, it fully defines both capabilities below: a capability omitted here is removed from the association. Removing this property from a template that previously set it disables both capabilities. Capabilities configured outside CloudFormation are left unchanged only while this property has never been set. On rollback, both capabilities are restored to the previous template's values, not to settings made outside CloudFormation. Other capabilities on the association are not affected. Updates read and rewrite the association's full capability set, so a capability change made outside CloudFormation while a stack update is in progress may be overwritten.
+
+        :param pulumi.Input['AssociationCapabilityConfigurationArgs'] code_change_risk_analysis: Configuration for code change risk analysis, in which AWS DevOps Agent automatically analyzes pull requests and merge requests for deployment risk.
+        :param pulumi.Input['AssociationAutomatedTestingCapabilityConfigurationArgs'] code_change_risk_analysis_automated_testing: Configuration for code change risk analysis automated testing, in which AWS DevOps Agent also runs tests against the change during the analysis.
+        """
+        if code_change_risk_analysis is not None:
+            pulumi.set(__self__, "code_change_risk_analysis", code_change_risk_analysis)
+        if code_change_risk_analysis_automated_testing is not None:
+            pulumi.set(__self__, "code_change_risk_analysis_automated_testing", code_change_risk_analysis_automated_testing)
+
+    @_builtins.property
+    @pulumi.getter(name="codeChangeRiskAnalysis")
+    def code_change_risk_analysis(self) -> pulumi.Input[Optional['AssociationCapabilityConfigurationArgs']]:
+        """
+        Configuration for code change risk analysis, in which AWS DevOps Agent automatically analyzes pull requests and merge requests for deployment risk.
+        """
+        return pulumi.get(self, "code_change_risk_analysis")
+
+    @code_change_risk_analysis.setter
+    def code_change_risk_analysis(self, value: pulumi.Input[Optional['AssociationCapabilityConfigurationArgs']]):
+        pulumi.set(self, "code_change_risk_analysis", value)
+
+    @_builtins.property
+    @pulumi.getter(name="codeChangeRiskAnalysisAutomatedTesting")
+    def code_change_risk_analysis_automated_testing(self) -> pulumi.Input[Optional['AssociationAutomatedTestingCapabilityConfigurationArgs']]:
+        """
+        Configuration for code change risk analysis automated testing, in which AWS DevOps Agent also runs tests against the change during the analysis.
+        """
+        return pulumi.get(self, "code_change_risk_analysis_automated_testing")
+
+    @code_change_risk_analysis_automated_testing.setter
+    def code_change_risk_analysis_automated_testing(self, value: pulumi.Input[Optional['AssociationAutomatedTestingCapabilityConfigurationArgs']]):
+        pulumi.set(self, "code_change_risk_analysis_automated_testing", value)
+
+
+class AssociationCapabilityConfigurationArgsDict(TypedDict):
+    """
+    Configuration of a single capability
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the capability is enabled for this association
+    """
+    trigger_filter_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTriggerFilterGroupArgsDict']]]]]
+    """
+    Filter groups controlling when the capability triggers automatically. The capability triggers when any group matches. When omitted, all applicable events trigger the capability. Retained while the capability is disabled.
+    """
+
+@pulumi.input_type
+class AssociationCapabilityConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trigger_filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTriggerFilterGroupArgs']]]] = None):
+        """
+        Configuration of a single capability
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether the capability is enabled for this association
+        :param pulumi.Input[Sequence[pulumi.Input['AssociationTriggerFilterGroupArgs']]] trigger_filter_groups: Filter groups controlling when the capability triggers automatically. The capability triggers when any group matches. When omitted, all applicable events trigger the capability. Retained while the capability is disabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if trigger_filter_groups is not None:
+            pulumi.set(__self__, "trigger_filter_groups", trigger_filter_groups)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the capability is enabled for this association
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="triggerFilterGroups")
+    def trigger_filter_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTriggerFilterGroupArgs']]]]:
+        """
+        Filter groups controlling when the capability triggers automatically. The capability triggers when any group matches. When omitted, all applicable events trigger the capability. Retained while the capability is disabled.
+        """
+        return pulumi.get(self, "trigger_filter_groups")
+
+    @trigger_filter_groups.setter
+    def trigger_filter_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTriggerFilterGroupArgs']]]]):
+        pulumi.set(self, "trigger_filter_groups", value)
+
+
 class AssociationDynatraceConfigurationArgsDict(TypedDict):
     """
     Dynatrace monitoring configuration
@@ -931,6 +1089,10 @@ class AssociationGitHubConfigurationArgsDict(TypedDict):
     """
     Associated Github repo name
     """
+    release_management_association_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the release management association that this repository uses for automated testing
+    """
 
 @pulumi.input_type
 class AssociationGitHubConfigurationArgs:
@@ -938,7 +1100,8 @@ class AssociationGitHubConfigurationArgs:
                  owner: pulumi.Input[_builtins.str],
                  owner_type: pulumi.Input['AssociationGitHubConfigurationOwnerType'],
                  repo_id: pulumi.Input[_builtins.str],
-                 repo_name: pulumi.Input[_builtins.str]):
+                 repo_name: pulumi.Input[_builtins.str],
+                 release_management_association_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         GitHub repository integration configuration
 
@@ -946,11 +1109,14 @@ class AssociationGitHubConfigurationArgs:
         :param pulumi.Input['AssociationGitHubConfigurationOwnerType'] owner_type: Type of repository owner
         :param pulumi.Input[_builtins.str] repo_id: Associated Github repo ID
         :param pulumi.Input[_builtins.str] repo_name: Associated Github repo name
+        :param pulumi.Input[_builtins.str] release_management_association_id: The ID of the release management association that this repository uses for automated testing
         """
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "owner_type", owner_type)
         pulumi.set(__self__, "repo_id", repo_id)
         pulumi.set(__self__, "repo_name", repo_name)
+        if release_management_association_id is not None:
+            pulumi.set(__self__, "release_management_association_id", release_management_association_id)
 
     @_builtins.property
     @pulumi.getter
@@ -1000,6 +1166,18 @@ class AssociationGitHubConfigurationArgs:
     def repo_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "repo_name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="releaseManagementAssociationId")
+    def release_management_association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the release management association that this repository uses for automated testing
+        """
+        return pulumi.get(self, "release_management_association_id")
+
+    @release_management_association_id.setter
+    def release_management_association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "release_management_association_id", value)
+
 
 class AssociationGitLabConfigurationArgsDict(TypedDict):
     """
@@ -1021,6 +1199,10 @@ class AssociationGitLabConfigurationArgsDict(TypedDict):
     """
     GitLab instance identifier
     """
+    release_management_association_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the release management association that this project uses for automated testing
+    """
 
 @pulumi.input_type
 class AssociationGitLabConfigurationArgs:
@@ -1028,7 +1210,8 @@ class AssociationGitLabConfigurationArgs:
                  project_id: pulumi.Input[_builtins.str],
                  project_path: pulumi.Input[_builtins.str],
                  enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
-                 instance_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+                 instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_management_association_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         GitLab project integration configuration
 
@@ -1036,6 +1219,7 @@ class AssociationGitLabConfigurationArgs:
         :param pulumi.Input[_builtins.str] project_path: Full GitLab project path (e.g., namespace/project-name)
         :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
         :param pulumi.Input[_builtins.str] instance_identifier: GitLab instance identifier
+        :param pulumi.Input[_builtins.str] release_management_association_id: The ID of the release management association that this project uses for automated testing
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "project_path", project_path)
@@ -1043,6 +1227,8 @@ class AssociationGitLabConfigurationArgs:
             pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
         if instance_identifier is not None:
             pulumi.set(__self__, "instance_identifier", instance_identifier)
+        if release_management_association_id is not None:
+            pulumi.set(__self__, "release_management_association_id", release_management_association_id)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
@@ -1091,6 +1277,18 @@ class AssociationGitLabConfigurationArgs:
     @instance_identifier.setter
     def instance_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="releaseManagementAssociationId")
+    def release_management_association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the release management association that this project uses for automated testing
+        """
+        return pulumi.get(self, "release_management_association_id")
+
+    @release_management_association_id.setter
+    def release_management_association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "release_management_association_id", value)
 
 
 class AssociationKeyValuePairArgsDict(TypedDict):
@@ -1629,6 +1827,32 @@ class AssociationMcpServerSplunkConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
+class AssociationNetworkAccessConfigurationArgsDict(TypedDict):
+    """
+    Specifies how AWS DevOps Agent reaches your application using a release management environment. Exactly one access type must be specified.
+    """
+    private_access: NotRequired[pulumi.Input[Optional['AssociationPrivateNetworkAccessArgsDict']]]
+
+@pulumi.input_type
+class AssociationNetworkAccessConfigurationArgs:
+    def __init__(__self__, *,
+                 private_access: pulumi.Input[Optional['AssociationPrivateNetworkAccessArgs']] = None):
+        """
+        Specifies how AWS DevOps Agent reaches your application using a release management environment. Exactly one access type must be specified.
+        """
+        if private_access is not None:
+            pulumi.set(__self__, "private_access", private_access)
+
+    @_builtins.property
+    @pulumi.getter(name="privateAccess")
+    def private_access(self) -> pulumi.Input[Optional['AssociationPrivateNetworkAccessArgs']]:
+        return pulumi.get(self, "private_access")
+
+    @private_access.setter
+    def private_access(self, value: pulumi.Input[Optional['AssociationPrivateNetworkAccessArgs']]):
+        pulumi.set(self, "private_access", value)
+
+
 class AssociationPagerDutyConfigurationArgsDict(TypedDict):
     """
     PagerDuty integration configuration
@@ -1701,6 +1925,143 @@ class AssociationPagerDutyConfigurationArgs:
         pulumi.set(self, "enable_webhook_updates", value)
 
 
+class AssociationPatternFilterArgsDict(TypedDict):
+    """
+    A regex-based match condition. Passes when the value matches any pattern.
+    """
+    patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Anchored full-match regex patterns, for example 'main' or 'release/.*'
+    """
+
+@pulumi.input_type
+class AssociationPatternFilterArgs:
+    def __init__(__self__, *,
+                 patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        A regex-based match condition. Passes when the value matches any pattern.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] patterns: Anchored full-match regex patterns, for example 'main' or 'release/.*'
+        """
+        pulumi.set(__self__, "patterns", patterns)
+
+    @_builtins.property
+    @pulumi.getter
+    def patterns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Anchored full-match regex patterns, for example 'main' or 'release/.*'
+        """
+        return pulumi.get(self, "patterns")
+
+    @patterns.setter
+    def patterns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "patterns", value)
+
+
+class AssociationPrivateNetworkAccessArgsDict(TypedDict):
+    """
+    Private network access to your application inside a VPC, reached through a private connection
+    """
+    private_connection_name: pulumi.Input[_builtins.str]
+    """
+    Name of the private connection that supplies the VPC configuration for this release management environment
+    """
+    runtime_role_arn: pulumi.Input[_builtins.str]
+    """
+    Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC
+    """
+
+@pulumi.input_type
+class AssociationPrivateNetworkAccessArgs:
+    def __init__(__self__, *,
+                 private_connection_name: pulumi.Input[_builtins.str],
+                 runtime_role_arn: pulumi.Input[_builtins.str]):
+        """
+        Private network access to your application inside a VPC, reached through a private connection
+
+        :param pulumi.Input[_builtins.str] private_connection_name: Name of the private connection that supplies the VPC configuration for this release management environment
+        :param pulumi.Input[_builtins.str] runtime_role_arn: Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC
+        """
+        pulumi.set(__self__, "private_connection_name", private_connection_name)
+        pulumi.set(__self__, "runtime_role_arn", runtime_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="privateConnectionName")
+    def private_connection_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the private connection that supplies the VPC configuration for this release management environment
+        """
+        return pulumi.get(self, "private_connection_name")
+
+    @private_connection_name.setter
+    def private_connection_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_connection_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeRoleArn")
+    def runtime_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC
+        """
+        return pulumi.get(self, "runtime_role_arn")
+
+    @runtime_role_arn.setter
+    def runtime_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "runtime_role_arn", value)
+
+
+class AssociationReleaseManagementConfigurationArgsDict(TypedDict):
+    """
+    Configuration for a release management environment. A release management environment defines how AWS DevOps Agent reaches your application, and other associations reference it to run automatic verification testing against that application.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name for this release management environment
+    """
+    network_access: pulumi.Input['AssociationNetworkAccessConfigurationArgsDict']
+    """
+    Specifies how AWS DevOps Agent reaches your application using this release management environment
+    """
+
+@pulumi.input_type
+class AssociationReleaseManagementConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 network_access: pulumi.Input['AssociationNetworkAccessConfigurationArgs']):
+        """
+        Configuration for a release management environment. A release management environment defines how AWS DevOps Agent reaches your application, and other associations reference it to run automatic verification testing against that application.
+
+        :param pulumi.Input[_builtins.str] name: The name for this release management environment
+        :param pulumi.Input['AssociationNetworkAccessConfigurationArgs'] network_access: Specifies how AWS DevOps Agent reaches your application using this release management environment
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_access", network_access)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name for this release management environment
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkAccess")
+    def network_access(self) -> pulumi.Input['AssociationNetworkAccessConfigurationArgs']:
+        """
+        Specifies how AWS DevOps Agent reaches your application using this release management environment
+        """
+        return pulumi.get(self, "network_access")
+
+    @network_access.setter
+    def network_access(self, value: pulumi.Input['AssociationNetworkAccessConfigurationArgs']):
+        pulumi.set(self, "network_access", value)
+
+
 class AssociationServiceConfigurationArgsDict(TypedDict):
     """
     The configuration that directs how AgentSpace interacts with the given service
@@ -1718,6 +2079,7 @@ class AssociationServiceConfigurationArgsDict(TypedDict):
     mcp_server_sig_v4: NotRequired[pulumi.Input[Optional['AssociationMcpServerSigV4ConfigurationArgsDict']]]
     mcp_server_splunk: NotRequired[pulumi.Input[Optional['AssociationMcpServerSplunkConfigurationArgsDict']]]
     pager_duty: NotRequired[pulumi.Input[Optional['AssociationPagerDutyConfigurationArgsDict']]]
+    release_management: NotRequired[pulumi.Input[Optional['AssociationReleaseManagementConfigurationArgsDict']]]
     service_now: NotRequired[pulumi.Input[Optional['AssociationServiceNowConfigurationArgsDict']]]
     slack: NotRequired[pulumi.Input[Optional['AssociationSlackConfigurationArgsDict']]]
     source_aws: NotRequired[pulumi.Input[Optional['AssociationSourceAwsConfigurationArgsDict']]]
@@ -1738,6 +2100,7 @@ class AssociationServiceConfigurationArgs:
                  mcp_server_sig_v4: pulumi.Input[Optional['AssociationMcpServerSigV4ConfigurationArgs']] = None,
                  mcp_server_splunk: pulumi.Input[Optional['AssociationMcpServerSplunkConfigurationArgs']] = None,
                  pager_duty: pulumi.Input[Optional['AssociationPagerDutyConfigurationArgs']] = None,
+                 release_management: pulumi.Input[Optional['AssociationReleaseManagementConfigurationArgs']] = None,
                  service_now: pulumi.Input[Optional['AssociationServiceNowConfigurationArgs']] = None,
                  slack: pulumi.Input[Optional['AssociationSlackConfigurationArgs']] = None,
                  source_aws: pulumi.Input[Optional['AssociationSourceAwsConfigurationArgs']] = None):
@@ -1770,6 +2133,8 @@ class AssociationServiceConfigurationArgs:
             pulumi.set(__self__, "mcp_server_splunk", mcp_server_splunk)
         if pager_duty is not None:
             pulumi.set(__self__, "pager_duty", pager_duty)
+        if release_management is not None:
+            pulumi.set(__self__, "release_management", release_management)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if slack is not None:
@@ -1893,6 +2258,15 @@ class AssociationServiceConfigurationArgs:
     @pager_duty.setter
     def pager_duty(self, value: pulumi.Input[Optional['AssociationPagerDutyConfigurationArgs']]):
         pulumi.set(self, "pager_duty", value)
+
+    @_builtins.property
+    @pulumi.getter(name="releaseManagement")
+    def release_management(self) -> pulumi.Input[Optional['AssociationReleaseManagementConfigurationArgs']]:
+        return pulumi.get(self, "release_management")
+
+    @release_management.setter
+    def release_management(self, value: pulumi.Input[Optional['AssociationReleaseManagementConfigurationArgs']]):
+        pulumi.set(self, "release_management", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNow")
@@ -2307,6 +2681,60 @@ class AssociationSourceAwsConfigurationArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]]):
         pulumi.set(self, "tags", value)
+
+
+class AssociationTriggerFilterGroupArgsDict(TypedDict):
+    """
+    A group of trigger conditions. The group matches when all present conditions pass. At least one condition must be present.
+    """
+    events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTriggerFilterGroupEventsItem']]]]]
+    """
+    Passes when the webhook event is one of the listed events
+    """
+    target_branches: NotRequired[pulumi.Input[Optional['AssociationPatternFilterArgsDict']]]
+    """
+    Passes when the change request target branch matches
+    """
+
+@pulumi.input_type
+class AssociationTriggerFilterGroupArgs:
+    def __init__(__self__, *,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTriggerFilterGroupEventsItem']]]] = None,
+                 target_branches: pulumi.Input[Optional['AssociationPatternFilterArgs']] = None):
+        """
+        A group of trigger conditions. The group matches when all present conditions pass. At least one condition must be present.
+
+        :param pulumi.Input[Sequence[pulumi.Input['AssociationTriggerFilterGroupEventsItem']]] events: Passes when the webhook event is one of the listed events
+        :param pulumi.Input['AssociationPatternFilterArgs'] target_branches: Passes when the change request target branch matches
+        """
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if target_branches is not None:
+            pulumi.set(__self__, "target_branches", target_branches)
+
+    @_builtins.property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTriggerFilterGroupEventsItem']]]]:
+        """
+        Passes when the webhook event is one of the listed events
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTriggerFilterGroupEventsItem']]]]):
+        pulumi.set(self, "events", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetBranches")
+    def target_branches(self) -> pulumi.Input[Optional['AssociationPatternFilterArgs']]:
+        """
+        Passes when the change request target branch matches
+        """
+        return pulumi.get(self, "target_branches")
+
+    @target_branches.setter
+    def target_branches(self, value: pulumi.Input[Optional['AssociationPatternFilterArgs']]):
+        pulumi.set(self, "target_branches", value)
 
 
 class PrivateConnectionConnectionConfigurationArgsDict(TypedDict):

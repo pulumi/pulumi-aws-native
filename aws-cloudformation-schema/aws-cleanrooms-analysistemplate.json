@@ -327,7 +327,7 @@
     },
     "Format" : {
       "type" : "string",
-      "enum" : [ "SQL", "PYSPARK_1_0" ]
+      "enum" : [ "SQL", "PYSPARK_1_0", "PYSPARK_2_0" ]
     },
     "ErrorMessageConfiguration" : {
       "$ref" : "#/definitions/ErrorMessageConfiguration"

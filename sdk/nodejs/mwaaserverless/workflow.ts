@@ -53,6 +53,7 @@ export class Workflow extends pulumi.CustomResource {
     declare public readonly definitionS3Location: pulumi.Output<outputs.mwaaserverless.WorkflowS3Location>;
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.mwaaserverless.WorkflowEncryptionConfiguration | undefined>;
+    declare public readonly environment: pulumi.Output<outputs.mwaaserverless.WorkflowEnvironment | undefined>;
     declare public readonly loggingConfiguration: pulumi.Output<outputs.mwaaserverless.WorkflowLoggingConfiguration | undefined>;
     declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     declare public readonly name: pulumi.Output<string | undefined>;
@@ -86,6 +87,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["definitionS3Location"] = args?.definitionS3Location;
             resourceInputs["description"] = args?.description;
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["environment"] = args?.environment;
             resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
@@ -106,6 +108,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["definitionS3Location"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["environment"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -133,6 +136,7 @@ export interface WorkflowArgs {
     definitionS3Location: pulumi.Input<inputs.mwaaserverless.WorkflowS3LocationArgs>;
     description?: pulumi.Input<string | undefined>;
     encryptionConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowEncryptionConfigurationArgs | undefined>;
+    environment?: pulumi.Input<inputs.mwaaserverless.WorkflowEnvironmentArgs | undefined>;
     loggingConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowLoggingConfigurationArgs | undefined>;
     name?: pulumi.Input<string | undefined>;
     networkConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowNetworkConfigurationArgs | undefined>;

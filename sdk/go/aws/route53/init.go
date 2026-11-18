@@ -29,12 +29,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Dnssec{}
 	case "aws-native:route53:HealthCheck":
 		r = &HealthCheck{}
+	case "aws-native:route53:HealthCheckSource":
+		r = &HealthCheckSource{}
 	case "aws-native:route53:HostedZone":
 		r = &HostedZone{}
 	case "aws-native:route53:KeySigningKey":
 		r = &KeySigningKey{}
+	case "aws-native:route53:QueryLoggingConfig":
+		r = &QueryLoggingConfig{}
 	case "aws-native:route53:RecordSet":
 		r = &RecordSet{}
+	case "aws-native:route53:RecordSetProtection":
+		r = &RecordSetProtection{}
 	case "aws-native:route53:TrafficPolicy":
 		r = &TrafficPolicy{}
 	default:

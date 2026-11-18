@@ -10,7 +10,7 @@
   "typeName" : "AWS::AppConfig::ConfigurationProfile",
   "readOnlyProperties" : [ "/properties/ConfigurationProfileId", "/properties/KmsKeyArn" ],
   "description" : "An example resource schema demonstrating some basic constructs and validation rules.",
-  "createOnlyProperties" : [ "/properties/LocationUri", "/properties/Type", "/properties/ApplicationId" ],
+  "createOnlyProperties" : [ "/properties/LocationUri", "/properties/ApplicationId" ],
   "primaryIdentifier" : [ "/properties/ApplicationId", "/properties/ConfigurationProfileId" ],
   "required" : [ "LocationUri", "ApplicationId", "Name" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appconfig",

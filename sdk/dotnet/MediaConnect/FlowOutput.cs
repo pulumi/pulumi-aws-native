@@ -132,6 +132,9 @@ namespace Pulumi.AwsNative.MediaConnect
         [Output("routerIntegrationTransitEncryption")]
         public Output<Outputs.FlowOutputFlowTransitEncryption?> RouterIntegrationTransitEncryption { get; private set; } = null!;
 
+        [Output("rtmpPushSettings")]
+        public Output<Outputs.FlowOutputRtmpPushSettings?> RtmpPushSettings { get; private set; } = null!;
+
         /// <summary>
         /// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         /// </summary>
@@ -328,6 +331,9 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("routerIntegrationTransitEncryption")]
         public Input<Inputs.FlowOutputFlowTransitEncryptionArgs>? RouterIntegrationTransitEncryption { get; set; }
+
+        [Input("rtmpPushSettings")]
+        public Input<Inputs.FlowOutputRtmpPushSettingsArgs>? RtmpPushSettings { get; set; }
 
         /// <summary>
         /// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.

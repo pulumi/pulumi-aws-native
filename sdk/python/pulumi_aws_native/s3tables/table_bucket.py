@@ -25,6 +25,7 @@ __all__ = ['TableBucketArgs', 'TableBucket']
 class TableBucketArgs:
     def __init__(__self__, *,
                  encryption_configuration: pulumi.Input[Optional['TableBucketEncryptionConfigurationArgs']] = None,
+                 logging_configuration: pulumi.Input[Optional['TableBucketLoggingConfigurationArgs']] = None,
                  metrics_configuration: pulumi.Input[Optional['TableBucketMetricsConfigurationArgs']] = None,
                  replication_configuration: pulumi.Input[Optional['TableBucketReplicationConfigurationArgs']] = None,
                  storage_class_configuration: pulumi.Input[Optional['TableBucketStorageClassConfigurationArgs']] = None,
@@ -42,6 +43,8 @@ class TableBucketArgs:
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
         if metrics_configuration is not None:
             pulumi.set(__self__, "metrics_configuration", metrics_configuration)
         if replication_configuration is not None:
@@ -66,6 +69,15 @@ class TableBucketArgs:
     @encryption_configuration.setter
     def encryption_configuration(self, value: pulumi.Input[Optional['TableBucketEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> pulumi.Input[Optional['TableBucketLoggingConfigurationArgs']]:
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: pulumi.Input[Optional['TableBucketLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsConfiguration")
@@ -141,6 +153,7 @@ class TableBucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: pulumi.Input[Optional[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict', 'outputs.TableBucketEncryptionConfiguration']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['TableBucketLoggingConfigurationArgs', 'TableBucketLoggingConfigurationArgsDict', 'outputs.TableBucketLoggingConfiguration']]] = None,
                  metrics_configuration: pulumi.Input[Optional[Union['TableBucketMetricsConfigurationArgs', 'TableBucketMetricsConfigurationArgsDict', 'outputs.TableBucketMetricsConfiguration']]] = None,
                  replication_configuration: pulumi.Input[Optional[Union['TableBucketReplicationConfigurationArgs', 'TableBucketReplicationConfigurationArgsDict', 'outputs.TableBucketReplicationConfiguration']]] = None,
                  storage_class_configuration: pulumi.Input[Optional[Union['TableBucketStorageClassConfigurationArgs', 'TableBucketStorageClassConfigurationArgsDict', 'outputs.TableBucketStorageClassConfiguration']]] = None,
@@ -184,6 +197,7 @@ class TableBucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: pulumi.Input[Optional[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict', 'outputs.TableBucketEncryptionConfiguration']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['TableBucketLoggingConfigurationArgs', 'TableBucketLoggingConfigurationArgsDict', 'outputs.TableBucketLoggingConfiguration']]] = None,
                  metrics_configuration: pulumi.Input[Optional[Union['TableBucketMetricsConfigurationArgs', 'TableBucketMetricsConfigurationArgsDict', 'outputs.TableBucketMetricsConfiguration']]] = None,
                  replication_configuration: pulumi.Input[Optional[Union['TableBucketReplicationConfigurationArgs', 'TableBucketReplicationConfigurationArgsDict', 'outputs.TableBucketReplicationConfiguration']]] = None,
                  storage_class_configuration: pulumi.Input[Optional[Union['TableBucketStorageClassConfigurationArgs', 'TableBucketStorageClassConfigurationArgsDict', 'outputs.TableBucketStorageClassConfiguration']]] = None,
@@ -200,6 +214,7 @@ class TableBucket(pulumi.CustomResource):
             __props__ = TableBucketArgs.__new__(TableBucketArgs)
 
             __props__.__dict__["encryption_configuration"] = encryption_configuration
+            __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["metrics_configuration"] = metrics_configuration
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["storage_class_configuration"] = storage_class_configuration
@@ -232,6 +247,7 @@ class TableBucket(pulumi.CustomResource):
         __props__ = TableBucketArgs.__new__(TableBucketArgs)
 
         __props__.__dict__["encryption_configuration"] = None
+        __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["metrics_configuration"] = None
         __props__.__dict__["replication_configuration"] = None
         __props__.__dict__["storage_class_configuration"] = None
@@ -254,6 +270,11 @@ class TableBucket(pulumi.CustomResource):
         Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
         """
         return pulumi.get(self, "encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketLoggingConfiguration']]:
+        return pulumi.get(self, "logging_configuration")
 
     @_builtins.property
     @pulumi.getter(name="metricsConfiguration")

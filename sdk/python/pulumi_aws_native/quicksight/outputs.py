@@ -587,9 +587,13 @@ __all__ = [
     'AnalysisVisibleRangeOptions',
     'AnalysisVisual',
     'AnalysisVisualCustomAction',
+    'AnalysisVisualCustomActionDefaults',
     'AnalysisVisualCustomActionOperation',
+    'AnalysisVisualHighlightOperation',
     'AnalysisVisualInteractionOptions',
     'AnalysisVisualMenuOption',
+    'AnalysisVisualMessageConfiguration',
+    'AnalysisVisualMessages',
     'AnalysisVisualPalette',
     'AnalysisVisualSubtitleLabelOptions',
     'AnalysisVisualTitleLabelOptions',
@@ -1176,9 +1180,13 @@ __all__ = [
     'DashboardVisual',
     'DashboardVisualAxisSortOption',
     'DashboardVisualCustomAction',
+    'DashboardVisualCustomActionDefaults',
     'DashboardVisualCustomActionOperation',
+    'DashboardVisualHighlightOperation',
     'DashboardVisualInteractionOptions',
     'DashboardVisualMenuOption',
+    'DashboardVisualMessageConfiguration',
+    'DashboardVisualMessages',
     'DashboardVisualPalette',
     'DashboardVisualPublishOptions',
     'DashboardVisualSubtitleLabelOptions',
@@ -1914,9 +1922,13 @@ __all__ = [
     'TemplateVisibleRangeOptions',
     'TemplateVisual',
     'TemplateVisualCustomAction',
+    'TemplateVisualCustomActionDefaults',
     'TemplateVisualCustomActionOperation',
+    'TemplateVisualHighlightOperation',
     'TemplateVisualInteractionOptions',
     'TemplateVisualMenuOption',
+    'TemplateVisualMessageConfiguration',
+    'TemplateVisualMessages',
     'TemplateVisualPalette',
     'TemplateVisualSubtitleLabelOptions',
     'TemplateVisualTitleLabelOptions',
@@ -3425,7 +3437,11 @@ class AnalysisAssetOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "weekStart":
+        if key == "customActionDefaults":
+            suggest = "custom_action_defaults"
+        elif key == "visualMessages":
+            suggest = "visual_messages"
+        elif key == "weekStart":
             suggest = "week_start"
 
         if suggest:
@@ -3440,16 +3456,27 @@ class AnalysisAssetOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_action_defaults: Optional['outputs.AnalysisVisualCustomActionDefaults'] = None,
                  timezone: Optional[_builtins.str] = None,
+                 visual_messages: Optional['outputs.AnalysisVisualMessages'] = None,
                  week_start: Optional['AnalysisDayOfTheWeek'] = None):
         """
         :param _builtins.str timezone: Determines the timezone for the analysis.
         :param 'AnalysisDayOfTheWeek' week_start: Determines the week start day for an analysis.
         """
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if visual_messages is not None:
+            pulumi.set(__self__, "visual_messages", visual_messages)
         if week_start is not None:
             pulumi.set(__self__, "week_start", week_start)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> Optional['outputs.AnalysisVisualCustomActionDefaults']:
+        return pulumi.get(self, "custom_action_defaults")
 
     @_builtins.property
     @pulumi.getter
@@ -3458,6 +3485,11 @@ class AnalysisAssetOptions(dict):
         Determines the timezone for the analysis.
         """
         return pulumi.get(self, "timezone")
+
+    @_builtins.property
+    @pulumi.getter(name="visualMessages")
+    def visual_messages(self) -> Optional['outputs.AnalysisVisualMessages']:
+        return pulumi.get(self, "visual_messages")
 
     @_builtins.property
     @pulumi.getter(name="weekStart")
@@ -32081,6 +32113,8 @@ class AnalysisSheetDefinition(dict):
             suggest = "sheet_id"
         elif key == "contentType":
             suggest = "content_type"
+        elif key == "customActionDefaults":
+            suggest = "custom_action_defaults"
         elif key == "filterControls":
             suggest = "filter_controls"
         elif key == "parameterControls":
@@ -32104,6 +32138,7 @@ class AnalysisSheetDefinition(dict):
     def __init__(__self__, *,
                  sheet_id: _builtins.str,
                  content_type: Optional['AnalysisSheetContentType'] = None,
+                 custom_action_defaults: Optional['outputs.AnalysisVisualCustomActionDefaults'] = None,
                  description: Optional[_builtins.str] = None,
                  filter_controls: Optional[Sequence['outputs.AnalysisFilterControl']] = None,
                  images: Optional[Sequence['outputs.AnalysisSheetImage']] = None,
@@ -32140,6 +32175,8 @@ class AnalysisSheetDefinition(dict):
         pulumi.set(__self__, "sheet_id", sheet_id)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if filter_controls is not None:
@@ -32179,6 +32216,11 @@ class AnalysisSheetDefinition(dict):
         - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
         """
         return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> Optional['outputs.AnalysisVisualCustomActionDefaults']:
+        return pulumi.get(self, "custom_action_defaults")
 
     @_builtins.property
     @pulumi.getter
@@ -38312,6 +38354,36 @@ class AnalysisVisualCustomAction(dict):
 
 
 @pulumi.output_type
+class AnalysisVisualCustomActionDefaults(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "highlightOperation":
+            suggest = "highlight_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisVisualCustomActionDefaults. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisVisualCustomActionDefaults.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisVisualCustomActionDefaults.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 highlight_operation: Optional['outputs.AnalysisVisualHighlightOperation'] = None):
+        if highlight_operation is not None:
+            pulumi.set(__self__, "highlight_operation", highlight_operation)
+
+    @_builtins.property
+    @pulumi.getter(name="highlightOperation")
+    def highlight_operation(self) -> Optional['outputs.AnalysisVisualHighlightOperation']:
+        return pulumi.get(self, "highlight_operation")
+
+
+@pulumi.output_type
 class AnalysisVisualCustomActionOperation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -38387,6 +38459,18 @@ class AnalysisVisualCustomActionOperation(dict):
         The URL operation that opens a link to another webpage.
         """
         return pulumi.get(self, "url_operation")
+
+
+@pulumi.output_type
+class AnalysisVisualHighlightOperation(dict):
+    def __init__(__self__, *,
+                 trigger: 'AnalysisVisualHighlightTrigger'):
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> 'AnalysisVisualHighlightTrigger':
+        return pulumi.get(self, "trigger")
 
 
 @pulumi.output_type
@@ -38473,6 +38557,130 @@ class AnalysisVisualMenuOption(dict):
         The availaiblity status of a visual's menu options.
         """
         return pulumi.get(self, "availability_status")
+
+
+@pulumi.output_type
+class AnalysisVisualMessageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "descriptionVisibility":
+            suggest = "description_visibility"
+        elif key == "linkText":
+            suggest = "link_text"
+        elif key == "linkUrl":
+            suggest = "link_url"
+        elif key == "linkVisibility":
+            suggest = "link_visibility"
+        elif key == "titleVisibility":
+            suggest = "title_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisVisualMessageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisVisualMessageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisVisualMessageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 description_visibility: Optional['AnalysisVisibility'] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 link_text: Optional[_builtins.str] = None,
+                 link_url: Optional[_builtins.str] = None,
+                 link_visibility: Optional['AnalysisVisibility'] = None,
+                 title: Optional[_builtins.str] = None,
+                 title_visibility: Optional['AnalysisVisibility'] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if description_visibility is not None:
+            pulumi.set(__self__, "description_visibility", description_visibility)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if link_text is not None:
+            pulumi.set(__self__, "link_text", link_text)
+        if link_url is not None:
+            pulumi.set(__self__, "link_url", link_url)
+        if link_visibility is not None:
+            pulumi.set(__self__, "link_visibility", link_visibility)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_visibility is not None:
+            pulumi.set(__self__, "title_visibility", title_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="descriptionVisibility")
+    def description_visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "description_visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="linkText")
+    def link_text(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "link_text")
+
+    @_builtins.property
+    @pulumi.getter(name="linkUrl")
+    def link_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "link_url")
+
+    @_builtins.property
+    @pulumi.getter(name="linkVisibility")
+    def link_visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "link_visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="titleVisibility")
+    def title_visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "title_visibility")
+
+
+@pulumi.output_type
+class AnalysisVisualMessages(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noDataMessage":
+            suggest = "no_data_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisVisualMessages. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisVisualMessages.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisVisualMessages.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_data_message: Optional['outputs.AnalysisVisualMessageConfiguration'] = None):
+        if no_data_message is not None:
+            pulumi.set(__self__, "no_data_message", no_data_message)
+
+    @_builtins.property
+    @pulumi.getter(name="noDataMessage")
+    def no_data_message(self) -> Optional['outputs.AnalysisVisualMessageConfiguration']:
+        return pulumi.get(self, "no_data_message")
 
 
 @pulumi.output_type
@@ -44919,10 +45127,14 @@ class DashboardAssetOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "excludedDataSetArns":
+        if key == "customActionDefaults":
+            suggest = "custom_action_defaults"
+        elif key == "excludedDataSetArns":
             suggest = "excluded_data_set_arns"
         elif key == "qBusinessInsightsStatus":
             suggest = "q_business_insights_status"
+        elif key == "visualMessages":
+            suggest = "visual_messages"
         elif key == "weekStart":
             suggest = "week_start"
 
@@ -44938,9 +45150,11 @@ class DashboardAssetOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_action_defaults: Optional['outputs.DashboardVisualCustomActionDefaults'] = None,
                  excluded_data_set_arns: Optional[Sequence[_builtins.str]] = None,
                  q_business_insights_status: Optional['DashboardQBusinessInsightsStatus'] = None,
                  timezone: Optional[_builtins.str] = None,
+                 visual_messages: Optional['outputs.DashboardVisualMessages'] = None,
                  week_start: Optional['DashboardDayOfTheWeek'] = None):
         """
         :param Sequence[_builtins.str] excluded_data_set_arns: A list of dataset ARNS to exclude from Dashboard Q&A.
@@ -44948,14 +45162,23 @@ class DashboardAssetOptions(dict):
         :param _builtins.str timezone: Determines the timezone for the analysis.
         :param 'DashboardDayOfTheWeek' week_start: Determines the week start day for an analysis.
         """
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if excluded_data_set_arns is not None:
             pulumi.set(__self__, "excluded_data_set_arns", excluded_data_set_arns)
         if q_business_insights_status is not None:
             pulumi.set(__self__, "q_business_insights_status", q_business_insights_status)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if visual_messages is not None:
+            pulumi.set(__self__, "visual_messages", visual_messages)
         if week_start is not None:
             pulumi.set(__self__, "week_start", week_start)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> Optional['outputs.DashboardVisualCustomActionDefaults']:
+        return pulumi.get(self, "custom_action_defaults")
 
     @_builtins.property
     @pulumi.getter(name="excludedDataSetArns")
@@ -44980,6 +45203,11 @@ class DashboardAssetOptions(dict):
         Determines the timezone for the analysis.
         """
         return pulumi.get(self, "timezone")
+
+    @_builtins.property
+    @pulumi.getter(name="visualMessages")
+    def visual_messages(self) -> Optional['outputs.DashboardVisualMessages']:
+        return pulumi.get(self, "visual_messages")
 
     @_builtins.property
     @pulumi.getter(name="weekStart")
@@ -74099,6 +74327,8 @@ class DashboardSheetDefinition(dict):
             suggest = "sheet_id"
         elif key == "contentType":
             suggest = "content_type"
+        elif key == "customActionDefaults":
+            suggest = "custom_action_defaults"
         elif key == "filterControls":
             suggest = "filter_controls"
         elif key == "parameterControls":
@@ -74122,6 +74352,7 @@ class DashboardSheetDefinition(dict):
     def __init__(__self__, *,
                  sheet_id: _builtins.str,
                  content_type: Optional['DashboardSheetContentType'] = None,
+                 custom_action_defaults: Optional['outputs.DashboardVisualCustomActionDefaults'] = None,
                  description: Optional[_builtins.str] = None,
                  filter_controls: Optional[Sequence['outputs.DashboardFilterControl']] = None,
                  images: Optional[Sequence['outputs.DashboardSheetImage']] = None,
@@ -74158,6 +74389,8 @@ class DashboardSheetDefinition(dict):
         pulumi.set(__self__, "sheet_id", sheet_id)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if filter_controls is not None:
@@ -74197,6 +74430,11 @@ class DashboardSheetDefinition(dict):
         - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
         """
         return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> Optional['outputs.DashboardVisualCustomActionDefaults']:
+        return pulumi.get(self, "custom_action_defaults")
 
     @_builtins.property
     @pulumi.getter
@@ -80723,6 +80961,36 @@ class DashboardVisualCustomAction(dict):
 
 
 @pulumi.output_type
+class DashboardVisualCustomActionDefaults(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "highlightOperation":
+            suggest = "highlight_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardVisualCustomActionDefaults. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardVisualCustomActionDefaults.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardVisualCustomActionDefaults.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 highlight_operation: Optional['outputs.DashboardVisualHighlightOperation'] = None):
+        if highlight_operation is not None:
+            pulumi.set(__self__, "highlight_operation", highlight_operation)
+
+    @_builtins.property
+    @pulumi.getter(name="highlightOperation")
+    def highlight_operation(self) -> Optional['outputs.DashboardVisualHighlightOperation']:
+        return pulumi.get(self, "highlight_operation")
+
+
+@pulumi.output_type
 class DashboardVisualCustomActionOperation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -80798,6 +81066,18 @@ class DashboardVisualCustomActionOperation(dict):
         The URL operation that opens a link to another webpage.
         """
         return pulumi.get(self, "url_operation")
+
+
+@pulumi.output_type
+class DashboardVisualHighlightOperation(dict):
+    def __init__(__self__, *,
+                 trigger: 'DashboardVisualHighlightTrigger'):
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> 'DashboardVisualHighlightTrigger':
+        return pulumi.get(self, "trigger")
 
 
 @pulumi.output_type
@@ -80884,6 +81164,130 @@ class DashboardVisualMenuOption(dict):
         The availaiblity status of a visual's menu options.
         """
         return pulumi.get(self, "availability_status")
+
+
+@pulumi.output_type
+class DashboardVisualMessageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "descriptionVisibility":
+            suggest = "description_visibility"
+        elif key == "linkText":
+            suggest = "link_text"
+        elif key == "linkUrl":
+            suggest = "link_url"
+        elif key == "linkVisibility":
+            suggest = "link_visibility"
+        elif key == "titleVisibility":
+            suggest = "title_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardVisualMessageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardVisualMessageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardVisualMessageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 description_visibility: Optional['DashboardVisibility'] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 link_text: Optional[_builtins.str] = None,
+                 link_url: Optional[_builtins.str] = None,
+                 link_visibility: Optional['DashboardVisibility'] = None,
+                 title: Optional[_builtins.str] = None,
+                 title_visibility: Optional['DashboardVisibility'] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if description_visibility is not None:
+            pulumi.set(__self__, "description_visibility", description_visibility)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if link_text is not None:
+            pulumi.set(__self__, "link_text", link_text)
+        if link_url is not None:
+            pulumi.set(__self__, "link_url", link_url)
+        if link_visibility is not None:
+            pulumi.set(__self__, "link_visibility", link_visibility)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_visibility is not None:
+            pulumi.set(__self__, "title_visibility", title_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="descriptionVisibility")
+    def description_visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "description_visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="linkText")
+    def link_text(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "link_text")
+
+    @_builtins.property
+    @pulumi.getter(name="linkUrl")
+    def link_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "link_url")
+
+    @_builtins.property
+    @pulumi.getter(name="linkVisibility")
+    def link_visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "link_visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="titleVisibility")
+    def title_visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "title_visibility")
+
+
+@pulumi.output_type
+class DashboardVisualMessages(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noDataMessage":
+            suggest = "no_data_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardVisualMessages. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardVisualMessages.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardVisualMessages.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_data_message: Optional['outputs.DashboardVisualMessageConfiguration'] = None):
+        if no_data_message is not None:
+            pulumi.set(__self__, "no_data_message", no_data_message)
+
+    @_builtins.property
+    @pulumi.getter(name="noDataMessage")
+    def no_data_message(self) -> Optional['outputs.DashboardVisualMessageConfiguration']:
+        return pulumi.get(self, "no_data_message")
 
 
 @pulumi.output_type
@@ -91985,7 +92389,11 @@ class TemplateAssetOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "weekStart":
+        if key == "customActionDefaults":
+            suggest = "custom_action_defaults"
+        elif key == "visualMessages":
+            suggest = "visual_messages"
+        elif key == "weekStart":
             suggest = "week_start"
 
         if suggest:
@@ -92000,16 +92408,27 @@ class TemplateAssetOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_action_defaults: Optional['outputs.TemplateVisualCustomActionDefaults'] = None,
                  timezone: Optional[_builtins.str] = None,
+                 visual_messages: Optional['outputs.TemplateVisualMessages'] = None,
                  week_start: Optional['TemplateDayOfTheWeek'] = None):
         """
         :param _builtins.str timezone: Determines the timezone for the analysis.
         :param 'TemplateDayOfTheWeek' week_start: Determines the week start day for an analysis.
         """
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if visual_messages is not None:
+            pulumi.set(__self__, "visual_messages", visual_messages)
         if week_start is not None:
             pulumi.set(__self__, "week_start", week_start)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> Optional['outputs.TemplateVisualCustomActionDefaults']:
+        return pulumi.get(self, "custom_action_defaults")
 
     @_builtins.property
     @pulumi.getter
@@ -92018,6 +92437,11 @@ class TemplateAssetOptions(dict):
         Determines the timezone for the analysis.
         """
         return pulumi.get(self, "timezone")
+
+    @_builtins.property
+    @pulumi.getter(name="visualMessages")
+    def visual_messages(self) -> Optional['outputs.TemplateVisualMessages']:
+        return pulumi.get(self, "visual_messages")
 
     @_builtins.property
     @pulumi.getter(name="weekStart")
@@ -120055,6 +120479,8 @@ class TemplateSheetDefinition(dict):
             suggest = "sheet_id"
         elif key == "contentType":
             suggest = "content_type"
+        elif key == "customActionDefaults":
+            suggest = "custom_action_defaults"
         elif key == "filterControls":
             suggest = "filter_controls"
         elif key == "parameterControls":
@@ -120078,6 +120504,7 @@ class TemplateSheetDefinition(dict):
     def __init__(__self__, *,
                  sheet_id: _builtins.str,
                  content_type: Optional['TemplateSheetContentType'] = None,
+                 custom_action_defaults: Optional['outputs.TemplateVisualCustomActionDefaults'] = None,
                  description: Optional[_builtins.str] = None,
                  filter_controls: Optional[Sequence['outputs.TemplateFilterControl']] = None,
                  images: Optional[Sequence['outputs.TemplateSheetImage']] = None,
@@ -120114,6 +120541,8 @@ class TemplateSheetDefinition(dict):
         pulumi.set(__self__, "sheet_id", sheet_id)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if custom_action_defaults is not None:
+            pulumi.set(__self__, "custom_action_defaults", custom_action_defaults)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if filter_controls is not None:
@@ -120153,6 +120582,11 @@ class TemplateSheetDefinition(dict):
         - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
         """
         return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="customActionDefaults")
+    def custom_action_defaults(self) -> Optional['outputs.TemplateVisualCustomActionDefaults']:
+        return pulumi.get(self, "custom_action_defaults")
 
     @_builtins.property
     @pulumi.getter
@@ -126587,6 +127021,36 @@ class TemplateVisualCustomAction(dict):
 
 
 @pulumi.output_type
+class TemplateVisualCustomActionDefaults(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "highlightOperation":
+            suggest = "highlight_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateVisualCustomActionDefaults. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateVisualCustomActionDefaults.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateVisualCustomActionDefaults.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 highlight_operation: Optional['outputs.TemplateVisualHighlightOperation'] = None):
+        if highlight_operation is not None:
+            pulumi.set(__self__, "highlight_operation", highlight_operation)
+
+    @_builtins.property
+    @pulumi.getter(name="highlightOperation")
+    def highlight_operation(self) -> Optional['outputs.TemplateVisualHighlightOperation']:
+        return pulumi.get(self, "highlight_operation")
+
+
+@pulumi.output_type
 class TemplateVisualCustomActionOperation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -126662,6 +127126,18 @@ class TemplateVisualCustomActionOperation(dict):
         The URL operation that opens a link to another webpage.
         """
         return pulumi.get(self, "url_operation")
+
+
+@pulumi.output_type
+class TemplateVisualHighlightOperation(dict):
+    def __init__(__self__, *,
+                 trigger: 'TemplateVisualHighlightTrigger'):
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> 'TemplateVisualHighlightTrigger':
+        return pulumi.get(self, "trigger")
 
 
 @pulumi.output_type
@@ -126748,6 +127224,130 @@ class TemplateVisualMenuOption(dict):
         The availaiblity status of a visual's menu options.
         """
         return pulumi.get(self, "availability_status")
+
+
+@pulumi.output_type
+class TemplateVisualMessageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "descriptionVisibility":
+            suggest = "description_visibility"
+        elif key == "linkText":
+            suggest = "link_text"
+        elif key == "linkUrl":
+            suggest = "link_url"
+        elif key == "linkVisibility":
+            suggest = "link_visibility"
+        elif key == "titleVisibility":
+            suggest = "title_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateVisualMessageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateVisualMessageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateVisualMessageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 description_visibility: Optional['TemplateVisibility'] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 link_text: Optional[_builtins.str] = None,
+                 link_url: Optional[_builtins.str] = None,
+                 link_visibility: Optional['TemplateVisibility'] = None,
+                 title: Optional[_builtins.str] = None,
+                 title_visibility: Optional['TemplateVisibility'] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if description_visibility is not None:
+            pulumi.set(__self__, "description_visibility", description_visibility)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if link_text is not None:
+            pulumi.set(__self__, "link_text", link_text)
+        if link_url is not None:
+            pulumi.set(__self__, "link_url", link_url)
+        if link_visibility is not None:
+            pulumi.set(__self__, "link_visibility", link_visibility)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_visibility is not None:
+            pulumi.set(__self__, "title_visibility", title_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="descriptionVisibility")
+    def description_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "description_visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="linkText")
+    def link_text(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "link_text")
+
+    @_builtins.property
+    @pulumi.getter(name="linkUrl")
+    def link_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "link_url")
+
+    @_builtins.property
+    @pulumi.getter(name="linkVisibility")
+    def link_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "link_visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="titleVisibility")
+    def title_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "title_visibility")
+
+
+@pulumi.output_type
+class TemplateVisualMessages(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noDataMessage":
+            suggest = "no_data_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateVisualMessages. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateVisualMessages.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateVisualMessages.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_data_message: Optional['outputs.TemplateVisualMessageConfiguration'] = None):
+        if no_data_message is not None:
+            pulumi.set(__self__, "no_data_message", no_data_message)
+
+    @_builtins.property
+    @pulumi.getter(name="noDataMessage")
+    def no_data_message(self) -> Optional['outputs.TemplateVisualMessageConfiguration']:
+        return pulumi.get(self, "no_data_message")
 
 
 @pulumi.output_type

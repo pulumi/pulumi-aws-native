@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -25,6 +26,7 @@ class ClusterArgs:
     def __init__(__self__, *,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMetricGroupArgs']]]] = None,
                  multi_region_properties: pulumi.Input[Optional['MultiRegionPropertiesPropertiesArgs']] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -33,6 +35,7 @@ class ClusterArgs:
 
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The KMS key that encrypts data on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterMetricGroupArgs']]] metric_groups: The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
         :param pulumi.Input['MultiRegionPropertiesPropertiesArgs'] multi_region_properties: The Multi-region properties associated to this cluster.
         :param pulumi.Input[_builtins.str] policy_document: The IAM policy applied to the cluster resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A map of key and value pairs this cluster is tagged with.
@@ -41,6 +44,8 @@ class ClusterArgs:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if kms_encryption_key is not None:
             pulumi.set(__self__, "kms_encryption_key", kms_encryption_key)
+        if metric_groups is not None:
+            pulumi.set(__self__, "metric_groups", metric_groups)
         if multi_region_properties is not None:
             pulumi.set(__self__, "multi_region_properties", multi_region_properties)
         if policy_document is not None:
@@ -71,6 +76,18 @@ class ClusterArgs:
     @kms_encryption_key.setter
     def kms_encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_encryption_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricGroups")
+    def metric_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMetricGroupArgs']]]]:
+        """
+        The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+        """
+        return pulumi.get(self, "metric_groups")
+
+    @metric_groups.setter
+    def metric_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMetricGroupArgs']]]]):
+        pulumi.set(self, "metric_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")
@@ -117,6 +134,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterMetricGroupArgs', 'ClusterMetricGroupArgsDict', 'outputs.ClusterMetricGroup']]]]] = None,
                  multi_region_properties: pulumi.Input[Optional[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict', 'outputs.MultiRegionPropertiesProperties']]] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -128,6 +146,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The KMS key that encrypts data on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterMetricGroupArgs', 'ClusterMetricGroupArgsDict', 'outputs.ClusterMetricGroup']]]] metric_groups: The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
         :param pulumi.Input[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict', 'outputs.MultiRegionPropertiesProperties']] multi_region_properties: The Multi-region properties associated to this cluster.
         :param pulumi.Input[_builtins.str] policy_document: The IAM policy applied to the cluster resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A map of key and value pairs this cluster is tagged with.
@@ -158,6 +177,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterMetricGroupArgs', 'ClusterMetricGroupArgsDict', 'outputs.ClusterMetricGroup']]]]] = None,
                  multi_region_properties: pulumi.Input[Optional[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict', 'outputs.MultiRegionPropertiesProperties']]] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -172,6 +192,7 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["kms_encryption_key"] = kms_encryption_key
+            __props__.__dict__["metric_groups"] = metric_groups
             __props__.__dict__["multi_region_properties"] = multi_region_properties
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["tags"] = tags
@@ -212,6 +233,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["identifier"] = None
         __props__.__dict__["kms_encryption_key"] = None
+        __props__.__dict__["metric_groups"] = None
         __props__.__dict__["multi_region_properties"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["policy_version"] = None
@@ -275,6 +297,14 @@ class Cluster(pulumi.CustomResource):
         The KMS key that encrypts data on the cluster.
         """
         return pulumi.get(self, "kms_encryption_key")
+
+    @_builtins.property
+    @pulumi.getter(name="metricGroups")
+    def metric_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterMetricGroup']]]:
+        """
+        The Advanced monitoring metric groups to enable on the cluster. Omit to enable none.
+        """
+        return pulumi.get(self, "metric_groups")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")

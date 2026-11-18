@@ -22528,6 +22528,173 @@ func (in *analysisVisualCustomActionTriggerPtr) ToAnalysisVisualCustomActionTrig
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisVisualCustomActionTriggerPtrOutput)
 }
 
+type AnalysisVisualHighlightTrigger string
+
+const (
+	AnalysisVisualHighlightTriggerDataPointClick = AnalysisVisualHighlightTrigger("DATA_POINT_CLICK")
+	AnalysisVisualHighlightTriggerDataPointHover = AnalysisVisualHighlightTrigger("DATA_POINT_HOVER")
+	AnalysisVisualHighlightTriggerNone           = AnalysisVisualHighlightTrigger("NONE")
+)
+
+func (AnalysisVisualHighlightTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (e AnalysisVisualHighlightTrigger) ToAnalysisVisualHighlightTriggerOutput() AnalysisVisualHighlightTriggerOutput {
+	return pulumi.ToOutput(e).(AnalysisVisualHighlightTriggerOutput)
+}
+
+func (e AnalysisVisualHighlightTrigger) ToAnalysisVisualHighlightTriggerOutputWithContext(ctx context.Context) AnalysisVisualHighlightTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisVisualHighlightTriggerOutput)
+}
+
+func (e AnalysisVisualHighlightTrigger) ToAnalysisVisualHighlightTriggerPtrOutput() AnalysisVisualHighlightTriggerPtrOutput {
+	return e.ToAnalysisVisualHighlightTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisVisualHighlightTrigger) ToAnalysisVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) AnalysisVisualHighlightTriggerPtrOutput {
+	return AnalysisVisualHighlightTrigger(e).ToAnalysisVisualHighlightTriggerOutputWithContext(ctx).ToAnalysisVisualHighlightTriggerPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisVisualHighlightTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisVisualHighlightTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisVisualHighlightTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisVisualHighlightTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisVisualHighlightTriggerOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualHighlightTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (o AnalysisVisualHighlightTriggerOutput) ToAnalysisVisualHighlightTriggerOutput() AnalysisVisualHighlightTriggerOutput {
+	return o
+}
+
+func (o AnalysisVisualHighlightTriggerOutput) ToAnalysisVisualHighlightTriggerOutputWithContext(ctx context.Context) AnalysisVisualHighlightTriggerOutput {
+	return o
+}
+
+func (o AnalysisVisualHighlightTriggerOutput) ToAnalysisVisualHighlightTriggerPtrOutput() AnalysisVisualHighlightTriggerPtrOutput {
+	return o.ToAnalysisVisualHighlightTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisVisualHighlightTriggerOutput) ToAnalysisVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) AnalysisVisualHighlightTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisVisualHighlightTrigger) *AnalysisVisualHighlightTrigger {
+		return &v
+	}).(AnalysisVisualHighlightTriggerPtrOutput)
+}
+
+func (o AnalysisVisualHighlightTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisVisualHighlightTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisVisualHighlightTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisVisualHighlightTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisVisualHighlightTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisVisualHighlightTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisVisualHighlightTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisVisualHighlightTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (o AnalysisVisualHighlightTriggerPtrOutput) ToAnalysisVisualHighlightTriggerPtrOutput() AnalysisVisualHighlightTriggerPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualHighlightTriggerPtrOutput) ToAnalysisVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) AnalysisVisualHighlightTriggerPtrOutput {
+	return o
+}
+
+func (o AnalysisVisualHighlightTriggerPtrOutput) Elem() AnalysisVisualHighlightTriggerOutput {
+	return o.ApplyT(func(v *AnalysisVisualHighlightTrigger) AnalysisVisualHighlightTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisVisualHighlightTrigger
+		return ret
+	}).(AnalysisVisualHighlightTriggerOutput)
+}
+
+func (o AnalysisVisualHighlightTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisVisualHighlightTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisVisualHighlightTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisVisualHighlightTriggerInput is an input type that accepts values of the AnalysisVisualHighlightTrigger enum
+// A concrete instance of `AnalysisVisualHighlightTriggerInput` can be one of the following:
+//
+//	AnalysisVisualHighlightTriggerDataPointClick
+//	AnalysisVisualHighlightTriggerDataPointHover
+//	AnalysisVisualHighlightTriggerNone
+type AnalysisVisualHighlightTriggerInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualHighlightTriggerOutput() AnalysisVisualHighlightTriggerOutput
+	ToAnalysisVisualHighlightTriggerOutputWithContext(context.Context) AnalysisVisualHighlightTriggerOutput
+}
+
+var analysisVisualHighlightTriggerPtrType = reflect.TypeOf((**AnalysisVisualHighlightTrigger)(nil)).Elem()
+
+type AnalysisVisualHighlightTriggerPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisVisualHighlightTriggerPtrOutput() AnalysisVisualHighlightTriggerPtrOutput
+	ToAnalysisVisualHighlightTriggerPtrOutputWithContext(context.Context) AnalysisVisualHighlightTriggerPtrOutput
+}
+
+type analysisVisualHighlightTriggerPtr string
+
+func AnalysisVisualHighlightTriggerPtr(v string) AnalysisVisualHighlightTriggerPtrInput {
+	return (*analysisVisualHighlightTriggerPtr)(&v)
+}
+
+func (*analysisVisualHighlightTriggerPtr) ElementType() reflect.Type {
+	return analysisVisualHighlightTriggerPtrType
+}
+
+func (in *analysisVisualHighlightTriggerPtr) ToAnalysisVisualHighlightTriggerPtrOutput() AnalysisVisualHighlightTriggerPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisVisualHighlightTriggerPtrOutput)
+}
+
+func (in *analysisVisualHighlightTriggerPtr) ToAnalysisVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) AnalysisVisualHighlightTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisVisualHighlightTriggerPtrOutput)
+}
+
 type AnalysisWidgetStatus string
 
 const (
@@ -45722,6 +45889,173 @@ func (in *dashboardVisualCustomActionTriggerPtr) ToDashboardVisualCustomActionTr
 
 func (in *dashboardVisualCustomActionTriggerPtr) ToDashboardVisualCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardVisualCustomActionTriggerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardVisualCustomActionTriggerPtrOutput)
+}
+
+type DashboardVisualHighlightTrigger string
+
+const (
+	DashboardVisualHighlightTriggerDataPointClick = DashboardVisualHighlightTrigger("DATA_POINT_CLICK")
+	DashboardVisualHighlightTriggerDataPointHover = DashboardVisualHighlightTrigger("DATA_POINT_HOVER")
+	DashboardVisualHighlightTriggerNone           = DashboardVisualHighlightTrigger("NONE")
+)
+
+func (DashboardVisualHighlightTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (e DashboardVisualHighlightTrigger) ToDashboardVisualHighlightTriggerOutput() DashboardVisualHighlightTriggerOutput {
+	return pulumi.ToOutput(e).(DashboardVisualHighlightTriggerOutput)
+}
+
+func (e DashboardVisualHighlightTrigger) ToDashboardVisualHighlightTriggerOutputWithContext(ctx context.Context) DashboardVisualHighlightTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardVisualHighlightTriggerOutput)
+}
+
+func (e DashboardVisualHighlightTrigger) ToDashboardVisualHighlightTriggerPtrOutput() DashboardVisualHighlightTriggerPtrOutput {
+	return e.ToDashboardVisualHighlightTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardVisualHighlightTrigger) ToDashboardVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) DashboardVisualHighlightTriggerPtrOutput {
+	return DashboardVisualHighlightTrigger(e).ToDashboardVisualHighlightTriggerOutputWithContext(ctx).ToDashboardVisualHighlightTriggerPtrOutputWithContext(ctx)
+}
+
+func (e DashboardVisualHighlightTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardVisualHighlightTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardVisualHighlightTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardVisualHighlightTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardVisualHighlightTriggerOutput struct{ *pulumi.OutputState }
+
+func (DashboardVisualHighlightTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (o DashboardVisualHighlightTriggerOutput) ToDashboardVisualHighlightTriggerOutput() DashboardVisualHighlightTriggerOutput {
+	return o
+}
+
+func (o DashboardVisualHighlightTriggerOutput) ToDashboardVisualHighlightTriggerOutputWithContext(ctx context.Context) DashboardVisualHighlightTriggerOutput {
+	return o
+}
+
+func (o DashboardVisualHighlightTriggerOutput) ToDashboardVisualHighlightTriggerPtrOutput() DashboardVisualHighlightTriggerPtrOutput {
+	return o.ToDashboardVisualHighlightTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardVisualHighlightTriggerOutput) ToDashboardVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) DashboardVisualHighlightTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardVisualHighlightTrigger) *DashboardVisualHighlightTrigger {
+		return &v
+	}).(DashboardVisualHighlightTriggerPtrOutput)
+}
+
+func (o DashboardVisualHighlightTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardVisualHighlightTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardVisualHighlightTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardVisualHighlightTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardVisualHighlightTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardVisualHighlightTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardVisualHighlightTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardVisualHighlightTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (o DashboardVisualHighlightTriggerPtrOutput) ToDashboardVisualHighlightTriggerPtrOutput() DashboardVisualHighlightTriggerPtrOutput {
+	return o
+}
+
+func (o DashboardVisualHighlightTriggerPtrOutput) ToDashboardVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) DashboardVisualHighlightTriggerPtrOutput {
+	return o
+}
+
+func (o DashboardVisualHighlightTriggerPtrOutput) Elem() DashboardVisualHighlightTriggerOutput {
+	return o.ApplyT(func(v *DashboardVisualHighlightTrigger) DashboardVisualHighlightTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardVisualHighlightTrigger
+		return ret
+	}).(DashboardVisualHighlightTriggerOutput)
+}
+
+func (o DashboardVisualHighlightTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardVisualHighlightTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardVisualHighlightTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardVisualHighlightTriggerInput is an input type that accepts values of the DashboardVisualHighlightTrigger enum
+// A concrete instance of `DashboardVisualHighlightTriggerInput` can be one of the following:
+//
+//	DashboardVisualHighlightTriggerDataPointClick
+//	DashboardVisualHighlightTriggerDataPointHover
+//	DashboardVisualHighlightTriggerNone
+type DashboardVisualHighlightTriggerInput interface {
+	pulumi.Input
+
+	ToDashboardVisualHighlightTriggerOutput() DashboardVisualHighlightTriggerOutput
+	ToDashboardVisualHighlightTriggerOutputWithContext(context.Context) DashboardVisualHighlightTriggerOutput
+}
+
+var dashboardVisualHighlightTriggerPtrType = reflect.TypeOf((**DashboardVisualHighlightTrigger)(nil)).Elem()
+
+type DashboardVisualHighlightTriggerPtrInput interface {
+	pulumi.Input
+
+	ToDashboardVisualHighlightTriggerPtrOutput() DashboardVisualHighlightTriggerPtrOutput
+	ToDashboardVisualHighlightTriggerPtrOutputWithContext(context.Context) DashboardVisualHighlightTriggerPtrOutput
+}
+
+type dashboardVisualHighlightTriggerPtr string
+
+func DashboardVisualHighlightTriggerPtr(v string) DashboardVisualHighlightTriggerPtrInput {
+	return (*dashboardVisualHighlightTriggerPtr)(&v)
+}
+
+func (*dashboardVisualHighlightTriggerPtr) ElementType() reflect.Type {
+	return dashboardVisualHighlightTriggerPtrType
+}
+
+func (in *dashboardVisualHighlightTriggerPtr) ToDashboardVisualHighlightTriggerPtrOutput() DashboardVisualHighlightTriggerPtrOutput {
+	return pulumi.ToOutput(in).(DashboardVisualHighlightTriggerPtrOutput)
+}
+
+func (in *dashboardVisualHighlightTriggerPtr) ToDashboardVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) DashboardVisualHighlightTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardVisualHighlightTriggerPtrOutput)
 }
 
 type DashboardWidgetStatus string
@@ -75836,6 +76170,173 @@ func (in *templateVisualCustomActionTriggerPtr) ToTemplateVisualCustomActionTrig
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateVisualCustomActionTriggerPtrOutput)
 }
 
+type TemplateVisualHighlightTrigger string
+
+const (
+	TemplateVisualHighlightTriggerDataPointClick = TemplateVisualHighlightTrigger("DATA_POINT_CLICK")
+	TemplateVisualHighlightTriggerDataPointHover = TemplateVisualHighlightTrigger("DATA_POINT_HOVER")
+	TemplateVisualHighlightTriggerNone           = TemplateVisualHighlightTrigger("NONE")
+)
+
+func (TemplateVisualHighlightTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (e TemplateVisualHighlightTrigger) ToTemplateVisualHighlightTriggerOutput() TemplateVisualHighlightTriggerOutput {
+	return pulumi.ToOutput(e).(TemplateVisualHighlightTriggerOutput)
+}
+
+func (e TemplateVisualHighlightTrigger) ToTemplateVisualHighlightTriggerOutputWithContext(ctx context.Context) TemplateVisualHighlightTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateVisualHighlightTriggerOutput)
+}
+
+func (e TemplateVisualHighlightTrigger) ToTemplateVisualHighlightTriggerPtrOutput() TemplateVisualHighlightTriggerPtrOutput {
+	return e.ToTemplateVisualHighlightTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateVisualHighlightTrigger) ToTemplateVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) TemplateVisualHighlightTriggerPtrOutput {
+	return TemplateVisualHighlightTrigger(e).ToTemplateVisualHighlightTriggerOutputWithContext(ctx).ToTemplateVisualHighlightTriggerPtrOutputWithContext(ctx)
+}
+
+func (e TemplateVisualHighlightTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateVisualHighlightTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateVisualHighlightTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateVisualHighlightTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateVisualHighlightTriggerOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualHighlightTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (o TemplateVisualHighlightTriggerOutput) ToTemplateVisualHighlightTriggerOutput() TemplateVisualHighlightTriggerOutput {
+	return o
+}
+
+func (o TemplateVisualHighlightTriggerOutput) ToTemplateVisualHighlightTriggerOutputWithContext(ctx context.Context) TemplateVisualHighlightTriggerOutput {
+	return o
+}
+
+func (o TemplateVisualHighlightTriggerOutput) ToTemplateVisualHighlightTriggerPtrOutput() TemplateVisualHighlightTriggerPtrOutput {
+	return o.ToTemplateVisualHighlightTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualHighlightTriggerOutput) ToTemplateVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) TemplateVisualHighlightTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVisualHighlightTrigger) *TemplateVisualHighlightTrigger {
+		return &v
+	}).(TemplateVisualHighlightTriggerPtrOutput)
+}
+
+func (o TemplateVisualHighlightTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualHighlightTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateVisualHighlightTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateVisualHighlightTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualHighlightTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateVisualHighlightTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateVisualHighlightTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualHighlightTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualHighlightTrigger)(nil)).Elem()
+}
+
+func (o TemplateVisualHighlightTriggerPtrOutput) ToTemplateVisualHighlightTriggerPtrOutput() TemplateVisualHighlightTriggerPtrOutput {
+	return o
+}
+
+func (o TemplateVisualHighlightTriggerPtrOutput) ToTemplateVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) TemplateVisualHighlightTriggerPtrOutput {
+	return o
+}
+
+func (o TemplateVisualHighlightTriggerPtrOutput) Elem() TemplateVisualHighlightTriggerOutput {
+	return o.ApplyT(func(v *TemplateVisualHighlightTrigger) TemplateVisualHighlightTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateVisualHighlightTrigger
+		return ret
+	}).(TemplateVisualHighlightTriggerOutput)
+}
+
+func (o TemplateVisualHighlightTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualHighlightTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateVisualHighlightTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateVisualHighlightTriggerInput is an input type that accepts values of the TemplateVisualHighlightTrigger enum
+// A concrete instance of `TemplateVisualHighlightTriggerInput` can be one of the following:
+//
+//	TemplateVisualHighlightTriggerDataPointClick
+//	TemplateVisualHighlightTriggerDataPointHover
+//	TemplateVisualHighlightTriggerNone
+type TemplateVisualHighlightTriggerInput interface {
+	pulumi.Input
+
+	ToTemplateVisualHighlightTriggerOutput() TemplateVisualHighlightTriggerOutput
+	ToTemplateVisualHighlightTriggerOutputWithContext(context.Context) TemplateVisualHighlightTriggerOutput
+}
+
+var templateVisualHighlightTriggerPtrType = reflect.TypeOf((**TemplateVisualHighlightTrigger)(nil)).Elem()
+
+type TemplateVisualHighlightTriggerPtrInput interface {
+	pulumi.Input
+
+	ToTemplateVisualHighlightTriggerPtrOutput() TemplateVisualHighlightTriggerPtrOutput
+	ToTemplateVisualHighlightTriggerPtrOutputWithContext(context.Context) TemplateVisualHighlightTriggerPtrOutput
+}
+
+type templateVisualHighlightTriggerPtr string
+
+func TemplateVisualHighlightTriggerPtr(v string) TemplateVisualHighlightTriggerPtrInput {
+	return (*templateVisualHighlightTriggerPtr)(&v)
+}
+
+func (*templateVisualHighlightTriggerPtr) ElementType() reflect.Type {
+	return templateVisualHighlightTriggerPtrType
+}
+
+func (in *templateVisualHighlightTriggerPtr) ToTemplateVisualHighlightTriggerPtrOutput() TemplateVisualHighlightTriggerPtrOutput {
+	return pulumi.ToOutput(in).(TemplateVisualHighlightTriggerPtrOutput)
+}
+
+func (in *templateVisualHighlightTriggerPtr) ToTemplateVisualHighlightTriggerPtrOutputWithContext(ctx context.Context) TemplateVisualHighlightTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateVisualHighlightTriggerPtrOutput)
+}
+
 type TemplateWidgetStatus string
 
 const (
@@ -82045,6 +82546,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisibilityPtrInput)(nil)).Elem(), AnalysisVisibility("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualCustomActionTriggerInput)(nil)).Elem(), AnalysisVisualCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualCustomActionTriggerPtrInput)(nil)).Elem(), AnalysisVisualCustomActionTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualHighlightTriggerInput)(nil)).Elem(), AnalysisVisualHighlightTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualHighlightTriggerPtrInput)(nil)).Elem(), AnalysisVisualHighlightTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWidgetStatusInput)(nil)).Elem(), AnalysisWidgetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWidgetStatusPtrInput)(nil)).Elem(), AnalysisWidgetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWordCloudCloudLayoutInput)(nil)).Elem(), AnalysisWordCloudCloudLayout("FLUID"))
@@ -82321,6 +82824,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVisibilityPtrInput)(nil)).Elem(), DashboardVisibility("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVisualCustomActionTriggerInput)(nil)).Elem(), DashboardVisualCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVisualCustomActionTriggerPtrInput)(nil)).Elem(), DashboardVisualCustomActionTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVisualHighlightTriggerInput)(nil)).Elem(), DashboardVisualHighlightTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVisualHighlightTriggerPtrInput)(nil)).Elem(), DashboardVisualHighlightTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetStatusInput)(nil)).Elem(), DashboardWidgetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetStatusPtrInput)(nil)).Elem(), DashboardWidgetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWordCloudCloudLayoutInput)(nil)).Elem(), DashboardWordCloudCloudLayout("FLUID"))
@@ -82672,6 +83177,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisibilityPtrInput)(nil)).Elem(), TemplateVisibility("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionTriggerInput)(nil)).Elem(), TemplateVisualCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionTriggerPtrInput)(nil)).Elem(), TemplateVisualCustomActionTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualHighlightTriggerInput)(nil)).Elem(), TemplateVisualHighlightTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualHighlightTriggerPtrInput)(nil)).Elem(), TemplateVisualHighlightTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWidgetStatusInput)(nil)).Elem(), TemplateWidgetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWidgetStatusPtrInput)(nil)).Elem(), TemplateWidgetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudCloudLayoutInput)(nil)).Elem(), TemplateWordCloudCloudLayout("FLUID"))
@@ -83007,6 +83514,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisVisibilityPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualCustomActionTriggerOutput{})
 	pulumi.RegisterOutputType(AnalysisVisualCustomActionTriggerPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualHighlightTriggerOutput{})
+	pulumi.RegisterOutputType(AnalysisVisualHighlightTriggerPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWidgetStatusOutput{})
 	pulumi.RegisterOutputType(AnalysisWidgetStatusPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWordCloudCloudLayoutOutput{})
@@ -83287,6 +83796,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardVisibilityPtrOutput{})
 	pulumi.RegisterOutputType(DashboardVisualCustomActionTriggerOutput{})
 	pulumi.RegisterOutputType(DashboardVisualCustomActionTriggerPtrOutput{})
+	pulumi.RegisterOutputType(DashboardVisualHighlightTriggerOutput{})
+	pulumi.RegisterOutputType(DashboardVisualHighlightTriggerPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetStatusOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetStatusPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWordCloudCloudLayoutOutput{})
@@ -83650,6 +84161,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateVisibilityPtrOutput{})
 	pulumi.RegisterOutputType(TemplateVisualCustomActionTriggerOutput{})
 	pulumi.RegisterOutputType(TemplateVisualCustomActionTriggerPtrOutput{})
+	pulumi.RegisterOutputType(TemplateVisualHighlightTriggerOutput{})
+	pulumi.RegisterOutputType(TemplateVisualHighlightTriggerPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWidgetStatusOutput{})
 	pulumi.RegisterOutputType(TemplateWidgetStatusPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWordCloudCloudLayoutOutput{})

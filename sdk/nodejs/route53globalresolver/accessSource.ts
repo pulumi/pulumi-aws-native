@@ -49,13 +49,24 @@ export class AccessSource extends pulumi.CustomResource {
 
     declare public /*out*/ readonly accessSourceId: pulumi.Output<string>;
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly cidr: pulumi.Output<string>;
+    /**
+     * The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+     */
+    declare public readonly cidr: pulumi.Output<string | undefined>;
     declare public readonly clientToken: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+     */
+    declare public readonly coreNetworkEndpointId: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public readonly dnsViewId: pulumi.Output<string>;
     declare public readonly ipAddressType: pulumi.Output<enums.route53globalresolver.AccessSourceIpAddressType | undefined>;
     declare public readonly name: pulumi.Output<string | undefined>;
     declare public readonly protocol: pulumi.Output<enums.route53globalresolver.AccessSourceDnsProtocol>;
+    /**
+     * The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+     */
+    declare public readonly segment: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly status: pulumi.Output<enums.route53globalresolver.AccessSourceCrResourceStatus>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
@@ -71,9 +82,6 @@ export class AccessSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.cidr === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cidr'");
-            }
             if (args?.dnsViewId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsViewId'");
             }
@@ -82,10 +90,12 @@ export class AccessSource extends pulumi.CustomResource {
             }
             resourceInputs["cidr"] = args?.cidr;
             resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["coreNetworkEndpointId"] = args?.coreNetworkEndpointId;
             resourceInputs["dnsViewId"] = args?.dnsViewId;
             resourceInputs["ipAddressType"] = args?.ipAddressType;
             resourceInputs["name"] = args?.name;
             resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["segment"] = args?.segment;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["accessSourceId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -97,17 +107,19 @@ export class AccessSource extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cidr"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
+            resourceInputs["coreNetworkEndpointId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dnsViewId"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["segment"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clientToken", "dnsViewId"] };
+        const replaceOnChanges = { replaceOnChanges: ["clientToken", "coreNetworkEndpointId", "dnsViewId", "segment"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AccessSource.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,11 +129,22 @@ export class AccessSource extends pulumi.CustomResource {
  * The set of arguments for constructing a AccessSource resource.
  */
 export interface AccessSourceArgs {
-    cidr: pulumi.Input<string>;
+    /**
+     * The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+     */
+    cidr?: pulumi.Input<string | undefined>;
     clientToken?: pulumi.Input<string | undefined>;
+    /**
+     * The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+     */
+    coreNetworkEndpointId?: pulumi.Input<string | undefined>;
     dnsViewId: pulumi.Input<string>;
     ipAddressType?: pulumi.Input<enums.route53globalresolver.AccessSourceIpAddressType | undefined>;
     name?: pulumi.Input<string | undefined>;
     protocol: pulumi.Input<enums.route53globalresolver.AccessSourceDnsProtocol>;
+    /**
+     * The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+     */
+    segment?: pulumi.Input<string | undefined>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

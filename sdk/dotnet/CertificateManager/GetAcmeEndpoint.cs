@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CertificateManager
     public static class GetAcmeEndpoint
     {
         /// <summary>
-        /// Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+        /// Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
         /// </summary>
         public static Task<GetAcmeEndpointResult> InvokeAsync(GetAcmeEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAcmeEndpointResult>("aws-native:certificatemanager:getAcmeEndpoint", args ?? new GetAcmeEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+        /// Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
         /// </summary>
         public static Output<GetAcmeEndpointResult> Invoke(GetAcmeEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAcmeEndpointResult>("aws-native:certificatemanager:getAcmeEndpoint", args ?? new GetAcmeEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+        /// Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
         /// </summary>
         public static Output<GetAcmeEndpointResult> Invoke(GetAcmeEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAcmeEndpointResult>("aws-native:certificatemanager:getAcmeEndpoint", args ?? new GetAcmeEndpointInvokeArgs(), options.WithDefaults());

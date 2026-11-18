@@ -37,6 +37,7 @@ export interface GetRuleResult {
      * The name of the rule.
      */
     readonly name?: string;
+    readonly preEvaluationFilters?: outputs.connect.RulePreEvaluationFilters;
     /**
      * The publish status of the rule.
      *  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
@@ -46,6 +47,7 @@ export interface GetRuleResult {
      * The Amazon Resource Name (ARN) of the rule.
      */
     readonly ruleArn?: string;
+    readonly ruleCapabilityTiers?: enums.connect.RuleCapabilityTiersItem[];
     /**
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */

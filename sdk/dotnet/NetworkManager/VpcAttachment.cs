@@ -64,6 +64,24 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<ImmutableArray<string>> LastModificationErrors { get; private set; } = null!;
 
         /// <summary>
+        /// The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        /// </summary>
+        [Output("natGatewayRules")]
+        public Output<ImmutableArray<Outputs.VpcAttachmentNatRule>> NatGatewayRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        /// </summary>
+        [Output("natGatewaySupport")]
+        public Output<Pulumi.AwsNative.NetworkManager.VpcAttachmentNatGatewaySupport?> NatGatewaySupport { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On VPC attachments this is always true and is not configurable. Not available in AWS GovCloud (US).
+        /// </summary>
+        [Output("natSystemRouteSupport")]
+        public Output<bool> NatSystemRouteSupport { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the network function group attachment.
         /// </summary>
         [Output("networkFunctionGroupName")]
@@ -196,6 +214,24 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("coreNetworkId", required: true)]
         public Input<string> CoreNetworkId { get; set; } = null!;
+
+        [Input("natGatewayRules")]
+        private InputList<Inputs.VpcAttachmentNatRuleArgs>? _natGatewayRules;
+
+        /// <summary>
+        /// The complete set of NAT gateway rules on the attachment. Updating this property replaces the entire rule set, and rules left out of the new value are removed. To remove all rules, specify an empty list or remove this property. NAT gateway support can't be enabled without rules, so it is then disabled unless NatGatewaySupport is specified. Only the core network owner can configure NAT gateway rules. The rules aren't returned when the attachment is read, so drift detection doesn't check them. Not available in AWS GovCloud (US).
+        /// </summary>
+        public InputList<Inputs.VpcAttachmentNatRuleArgs> NatGatewayRules
+        {
+            get => _natGatewayRules ?? (_natGatewayRules = new InputList<Inputs.VpcAttachmentNatRuleArgs>());
+            set => _natGatewayRules = value;
+        }
+
+        /// <summary>
+        /// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+        /// </summary>
+        [Input("natGatewaySupport")]
+        public Input<Pulumi.AwsNative.NetworkManager.VpcAttachmentNatGatewaySupport>? NatGatewaySupport { get; set; }
 
         /// <summary>
         /// Vpc options of the attachment.

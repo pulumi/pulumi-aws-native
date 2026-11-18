@@ -2364,16 +2364,112 @@ func (in *evaluationFormItemEnablementSourceValueTypePtr) ToEvaluationFormItemEn
 type EvaluationFormLanguageConfigurationFormLanguage string
 
 const (
-	EvaluationFormLanguageConfigurationFormLanguageDeDe = EvaluationFormLanguageConfigurationFormLanguage("de-DE")
-	EvaluationFormLanguageConfigurationFormLanguageEnUs = EvaluationFormLanguageConfigurationFormLanguage("en-US")
-	EvaluationFormLanguageConfigurationFormLanguageEsEs = EvaluationFormLanguageConfigurationFormLanguage("es-ES")
-	EvaluationFormLanguageConfigurationFormLanguageFrFr = EvaluationFormLanguageConfigurationFormLanguage("fr-FR")
-	EvaluationFormLanguageConfigurationFormLanguageItIt = EvaluationFormLanguageConfigurationFormLanguage("it-IT")
-	EvaluationFormLanguageConfigurationFormLanguagePtBr = EvaluationFormLanguageConfigurationFormLanguage("pt-BR")
-	EvaluationFormLanguageConfigurationFormLanguageJaJp = EvaluationFormLanguageConfigurationFormLanguage("ja-JP")
-	EvaluationFormLanguageConfigurationFormLanguageKoKr = EvaluationFormLanguageConfigurationFormLanguage("ko-KR")
-	EvaluationFormLanguageConfigurationFormLanguageZhCn = EvaluationFormLanguageConfigurationFormLanguage("zh-CN")
-	EvaluationFormLanguageConfigurationFormLanguageMsMy = EvaluationFormLanguageConfigurationFormLanguage("ms-MY")
+	EvaluationFormLanguageConfigurationFormLanguageDeDe  = EvaluationFormLanguageConfigurationFormLanguage("de-DE")
+	EvaluationFormLanguageConfigurationFormLanguageEnUs  = EvaluationFormLanguageConfigurationFormLanguage("en-US")
+	EvaluationFormLanguageConfigurationFormLanguageEsEs  = EvaluationFormLanguageConfigurationFormLanguage("es-ES")
+	EvaluationFormLanguageConfigurationFormLanguageFrFr  = EvaluationFormLanguageConfigurationFormLanguage("fr-FR")
+	EvaluationFormLanguageConfigurationFormLanguageItIt  = EvaluationFormLanguageConfigurationFormLanguage("it-IT")
+	EvaluationFormLanguageConfigurationFormLanguagePtBr  = EvaluationFormLanguageConfigurationFormLanguage("pt-BR")
+	EvaluationFormLanguageConfigurationFormLanguageJaJp  = EvaluationFormLanguageConfigurationFormLanguage("ja-JP")
+	EvaluationFormLanguageConfigurationFormLanguageKoKr  = EvaluationFormLanguageConfigurationFormLanguage("ko-KR")
+	EvaluationFormLanguageConfigurationFormLanguageZhCn  = EvaluationFormLanguageConfigurationFormLanguage("zh-CN")
+	EvaluationFormLanguageConfigurationFormLanguageMsMy  = EvaluationFormLanguageConfigurationFormLanguage("ms-MY")
+	EvaluationFormLanguageConfigurationFormLanguageAfZa  = EvaluationFormLanguageConfigurationFormLanguage("af-ZA")
+	EvaluationFormLanguageConfigurationFormLanguageSqAl  = EvaluationFormLanguageConfigurationFormLanguage("sq-AL")
+	EvaluationFormLanguageConfigurationFormLanguageAmEt  = EvaluationFormLanguageConfigurationFormLanguage("am-ET")
+	EvaluationFormLanguageConfigurationFormLanguageArAe  = EvaluationFormLanguageConfigurationFormLanguage("ar-AE")
+	EvaluationFormLanguageConfigurationFormLanguageArSa  = EvaluationFormLanguageConfigurationFormLanguage("ar-SA")
+	EvaluationFormLanguageConfigurationFormLanguageHyAm  = EvaluationFormLanguageConfigurationFormLanguage("hy-AM")
+	EvaluationFormLanguageConfigurationFormLanguageEuEs  = EvaluationFormLanguageConfigurationFormLanguage("eu-ES")
+	EvaluationFormLanguageConfigurationFormLanguageBeBy  = EvaluationFormLanguageConfigurationFormLanguage("be-BY")
+	EvaluationFormLanguageConfigurationFormLanguageBsBa  = EvaluationFormLanguageConfigurationFormLanguage("bs-BA")
+	EvaluationFormLanguageConfigurationFormLanguageBgBg  = EvaluationFormLanguageConfigurationFormLanguage("bg-BG")
+	EvaluationFormLanguageConfigurationFormLanguageCaEs  = EvaluationFormLanguageConfigurationFormLanguage("ca-ES")
+	EvaluationFormLanguageConfigurationFormLanguageCkbIr = EvaluationFormLanguageConfigurationFormLanguage("ckb-IR")
+	EvaluationFormLanguageConfigurationFormLanguageCkbIq = EvaluationFormLanguageConfigurationFormLanguage("ckb-IQ")
+	EvaluationFormLanguageConfigurationFormLanguageZhTw  = EvaluationFormLanguageConfigurationFormLanguage("zh-TW")
+	EvaluationFormLanguageConfigurationFormLanguageHrHr  = EvaluationFormLanguageConfigurationFormLanguage("hr-HR")
+	EvaluationFormLanguageConfigurationFormLanguageCsCz  = EvaluationFormLanguageConfigurationFormLanguage("cs-CZ")
+	EvaluationFormLanguageConfigurationFormLanguageDaDk  = EvaluationFormLanguageConfigurationFormLanguage("da-DK")
+	EvaluationFormLanguageConfigurationFormLanguageNlBe  = EvaluationFormLanguageConfigurationFormLanguage("nl-BE")
+	EvaluationFormLanguageConfigurationFormLanguageNlNl  = EvaluationFormLanguageConfigurationFormLanguage("nl-NL")
+	EvaluationFormLanguageConfigurationFormLanguageEnAu  = EvaluationFormLanguageConfigurationFormLanguage("en-AU")
+	EvaluationFormLanguageConfigurationFormLanguageEnIn  = EvaluationFormLanguageConfigurationFormLanguage("en-IN")
+	EvaluationFormLanguageConfigurationFormLanguageEnIe  = EvaluationFormLanguageConfigurationFormLanguage("en-IE")
+	EvaluationFormLanguageConfigurationFormLanguageEnNz  = EvaluationFormLanguageConfigurationFormLanguage("en-NZ")
+	EvaluationFormLanguageConfigurationFormLanguageEnAb  = EvaluationFormLanguageConfigurationFormLanguage("en-AB")
+	EvaluationFormLanguageConfigurationFormLanguageEnSg  = EvaluationFormLanguageConfigurationFormLanguage("en-SG")
+	EvaluationFormLanguageConfigurationFormLanguageEnZa  = EvaluationFormLanguageConfigurationFormLanguage("en-ZA")
+	EvaluationFormLanguageConfigurationFormLanguageEnGb  = EvaluationFormLanguageConfigurationFormLanguage("en-GB")
+	EvaluationFormLanguageConfigurationFormLanguageEnWl  = EvaluationFormLanguageConfigurationFormLanguage("en-WL")
+	EvaluationFormLanguageConfigurationFormLanguageFaIr  = EvaluationFormLanguageConfigurationFormLanguage("fa-IR")
+	EvaluationFormLanguageConfigurationFormLanguageFaAf  = EvaluationFormLanguageConfigurationFormLanguage("fa-AF")
+	EvaluationFormLanguageConfigurationFormLanguageFiFi  = EvaluationFormLanguageConfigurationFormLanguage("fi-FI")
+	EvaluationFormLanguageConfigurationFormLanguageFrBe  = EvaluationFormLanguageConfigurationFormLanguage("fr-BE")
+	EvaluationFormLanguageConfigurationFormLanguageFrCa  = EvaluationFormLanguageConfigurationFormLanguage("fr-CA")
+	EvaluationFormLanguageConfigurationFormLanguageGaIe  = EvaluationFormLanguageConfigurationFormLanguage("ga-IE")
+	EvaluationFormLanguageConfigurationFormLanguageGlEs  = EvaluationFormLanguageConfigurationFormLanguage("gl-ES")
+	EvaluationFormLanguageConfigurationFormLanguageKaGe  = EvaluationFormLanguageConfigurationFormLanguage("ka-GE")
+	EvaluationFormLanguageConfigurationFormLanguageDeAt  = EvaluationFormLanguageConfigurationFormLanguage("de-AT")
+	EvaluationFormLanguageConfigurationFormLanguageDeCh  = EvaluationFormLanguageConfigurationFormLanguage("de-CH")
+	EvaluationFormLanguageConfigurationFormLanguageElGr  = EvaluationFormLanguageConfigurationFormLanguage("el-GR")
+	EvaluationFormLanguageConfigurationFormLanguageGuIn  = EvaluationFormLanguageConfigurationFormLanguage("gu-IN")
+	EvaluationFormLanguageConfigurationFormLanguageHtHt  = EvaluationFormLanguageConfigurationFormLanguage("ht-HT")
+	EvaluationFormLanguageConfigurationFormLanguageHeIl  = EvaluationFormLanguageConfigurationFormLanguage("he-IL")
+	EvaluationFormLanguageConfigurationFormLanguageHiIn  = EvaluationFormLanguageConfigurationFormLanguage("hi-IN")
+	EvaluationFormLanguageConfigurationFormLanguageHuHu  = EvaluationFormLanguageConfigurationFormLanguage("hu-HU")
+	EvaluationFormLanguageConfigurationFormLanguageIsIs  = EvaluationFormLanguageConfigurationFormLanguage("is-IS")
+	EvaluationFormLanguageConfigurationFormLanguageIdId  = EvaluationFormLanguageConfigurationFormLanguage("id-ID")
+	EvaluationFormLanguageConfigurationFormLanguageJvId  = EvaluationFormLanguageConfigurationFormLanguage("jv-ID")
+	EvaluationFormLanguageConfigurationFormLanguageKmKh  = EvaluationFormLanguageConfigurationFormLanguage("km-KH")
+	EvaluationFormLanguageConfigurationFormLanguageKnIn  = EvaluationFormLanguageConfigurationFormLanguage("kn-IN")
+	EvaluationFormLanguageConfigurationFormLanguageKkKz  = EvaluationFormLanguageConfigurationFormLanguage("kk-KZ")
+	EvaluationFormLanguageConfigurationFormLanguageLoLa  = EvaluationFormLanguageConfigurationFormLanguage("lo-LA")
+	EvaluationFormLanguageConfigurationFormLanguageLvLv  = EvaluationFormLanguageConfigurationFormLanguage("lv-LV")
+	EvaluationFormLanguageConfigurationFormLanguageLtLt  = EvaluationFormLanguageConfigurationFormLanguage("lt-LT")
+	EvaluationFormLanguageConfigurationFormLanguageMkMk  = EvaluationFormLanguageConfigurationFormLanguage("mk-MK")
+	EvaluationFormLanguageConfigurationFormLanguageMlIn  = EvaluationFormLanguageConfigurationFormLanguage("ml-IN")
+	EvaluationFormLanguageConfigurationFormLanguageMrIn  = EvaluationFormLanguageConfigurationFormLanguage("mr-IN")
+	EvaluationFormLanguageConfigurationFormLanguageNeNp  = EvaluationFormLanguageConfigurationFormLanguage("ne-NP")
+	EvaluationFormLanguageConfigurationFormLanguageNoNo  = EvaluationFormLanguageConfigurationFormLanguage("no-NO")
+	EvaluationFormLanguageConfigurationFormLanguageOrIn  = EvaluationFormLanguageConfigurationFormLanguage("or-IN")
+	EvaluationFormLanguageConfigurationFormLanguagePsAf  = EvaluationFormLanguageConfigurationFormLanguage("ps-AF")
+	EvaluationFormLanguageConfigurationFormLanguagePlPl  = EvaluationFormLanguageConfigurationFormLanguage("pl-PL")
+	EvaluationFormLanguageConfigurationFormLanguagePtPt  = EvaluationFormLanguageConfigurationFormLanguage("pt-PT")
+	EvaluationFormLanguageConfigurationFormLanguagePaIn  = EvaluationFormLanguageConfigurationFormLanguage("pa-IN")
+	EvaluationFormLanguageConfigurationFormLanguageRoRo  = EvaluationFormLanguageConfigurationFormLanguage("ro-RO")
+	EvaluationFormLanguageConfigurationFormLanguageRuRu  = EvaluationFormLanguageConfigurationFormLanguage("ru-RU")
+	EvaluationFormLanguageConfigurationFormLanguageSrRs  = EvaluationFormLanguageConfigurationFormLanguage("sr-RS")
+	EvaluationFormLanguageConfigurationFormLanguageSiLk  = EvaluationFormLanguageConfigurationFormLanguage("si-LK")
+	EvaluationFormLanguageConfigurationFormLanguageSkSk  = EvaluationFormLanguageConfigurationFormLanguage("sk-SK")
+	EvaluationFormLanguageConfigurationFormLanguageSlSi  = EvaluationFormLanguageConfigurationFormLanguage("sl-SI")
+	EvaluationFormLanguageConfigurationFormLanguageEsMx  = EvaluationFormLanguageConfigurationFormLanguage("es-MX")
+	EvaluationFormLanguageConfigurationFormLanguageEsUs  = EvaluationFormLanguageConfigurationFormLanguage("es-US")
+	EvaluationFormLanguageConfigurationFormLanguageSuId  = EvaluationFormLanguageConfigurationFormLanguage("su-ID")
+	EvaluationFormLanguageConfigurationFormLanguageSwBi  = EvaluationFormLanguageConfigurationFormLanguage("sw-BI")
+	EvaluationFormLanguageConfigurationFormLanguageSwKe  = EvaluationFormLanguageConfigurationFormLanguage("sw-KE")
+	EvaluationFormLanguageConfigurationFormLanguageSwRw  = EvaluationFormLanguageConfigurationFormLanguage("sw-RW")
+	EvaluationFormLanguageConfigurationFormLanguageSwTz  = EvaluationFormLanguageConfigurationFormLanguage("sw-TZ")
+	EvaluationFormLanguageConfigurationFormLanguageSwUg  = EvaluationFormLanguageConfigurationFormLanguage("sw-UG")
+	EvaluationFormLanguageConfigurationFormLanguageSvSe  = EvaluationFormLanguageConfigurationFormLanguage("sv-SE")
+	EvaluationFormLanguageConfigurationFormLanguageTlPh  = EvaluationFormLanguageConfigurationFormLanguage("tl-PH")
+	EvaluationFormLanguageConfigurationFormLanguageTaIn  = EvaluationFormLanguageConfigurationFormLanguage("ta-IN")
+	EvaluationFormLanguageConfigurationFormLanguageTeIn  = EvaluationFormLanguageConfigurationFormLanguage("te-IN")
+	EvaluationFormLanguageConfigurationFormLanguageThTh  = EvaluationFormLanguageConfigurationFormLanguage("th-TH")
+	EvaluationFormLanguageConfigurationFormLanguageTrTr  = EvaluationFormLanguageConfigurationFormLanguage("tr-TR")
+	EvaluationFormLanguageConfigurationFormLanguageUkUa  = EvaluationFormLanguageConfigurationFormLanguage("uk-UA")
+	EvaluationFormLanguageConfigurationFormLanguageUzUz  = EvaluationFormLanguageConfigurationFormLanguage("uz-UZ")
+	EvaluationFormLanguageConfigurationFormLanguageViVn  = EvaluationFormLanguageConfigurationFormLanguage("vi-VN")
+	EvaluationFormLanguageConfigurationFormLanguageZuZa  = EvaluationFormLanguageConfigurationFormLanguage("zu-ZA")
+	EvaluationFormLanguageConfigurationFormLanguageMyMm  = EvaluationFormLanguageConfigurationFormLanguage("my-MM")
+	EvaluationFormLanguageConfigurationFormLanguageSoSo  = EvaluationFormLanguageConfigurationFormLanguage("so-SO")
+	EvaluationFormLanguageConfigurationFormLanguageYueHk = EvaluationFormLanguageConfigurationFormLanguage("yue-HK")
+	EvaluationFormLanguageConfigurationFormLanguageEtEe  = EvaluationFormLanguageConfigurationFormLanguage("et-EE")
+	EvaluationFormLanguageConfigurationFormLanguageHmn   = EvaluationFormLanguageConfigurationFormLanguage("hmn")
+	EvaluationFormLanguageConfigurationFormLanguageLgUg  = EvaluationFormLanguageConfigurationFormLanguage("lg-UG")
+	EvaluationFormLanguageConfigurationFormLanguageCyGb  = EvaluationFormLanguageConfigurationFormLanguage("cy-GB")
+	EvaluationFormLanguageConfigurationFormLanguageXhZa  = EvaluationFormLanguageConfigurationFormLanguage("xh-ZA")
+	EvaluationFormLanguageConfigurationFormLanguageBnBd  = EvaluationFormLanguageConfigurationFormLanguage("bn-BD")
 )
 
 func (EvaluationFormLanguageConfigurationFormLanguage) ElementType() reflect.Type {
@@ -2508,6 +2604,102 @@ func (o EvaluationFormLanguageConfigurationFormLanguagePtrOutput) ToStringPtrOut
 //	EvaluationFormLanguageConfigurationFormLanguageKoKr
 //	EvaluationFormLanguageConfigurationFormLanguageZhCn
 //	EvaluationFormLanguageConfigurationFormLanguageMsMy
+//	EvaluationFormLanguageConfigurationFormLanguageAfZa
+//	EvaluationFormLanguageConfigurationFormLanguageSqAl
+//	EvaluationFormLanguageConfigurationFormLanguageAmEt
+//	EvaluationFormLanguageConfigurationFormLanguageArAe
+//	EvaluationFormLanguageConfigurationFormLanguageArSa
+//	EvaluationFormLanguageConfigurationFormLanguageHyAm
+//	EvaluationFormLanguageConfigurationFormLanguageEuEs
+//	EvaluationFormLanguageConfigurationFormLanguageBeBy
+//	EvaluationFormLanguageConfigurationFormLanguageBsBa
+//	EvaluationFormLanguageConfigurationFormLanguageBgBg
+//	EvaluationFormLanguageConfigurationFormLanguageCaEs
+//	EvaluationFormLanguageConfigurationFormLanguageCkbIr
+//	EvaluationFormLanguageConfigurationFormLanguageCkbIq
+//	EvaluationFormLanguageConfigurationFormLanguageZhTw
+//	EvaluationFormLanguageConfigurationFormLanguageHrHr
+//	EvaluationFormLanguageConfigurationFormLanguageCsCz
+//	EvaluationFormLanguageConfigurationFormLanguageDaDk
+//	EvaluationFormLanguageConfigurationFormLanguageNlBe
+//	EvaluationFormLanguageConfigurationFormLanguageNlNl
+//	EvaluationFormLanguageConfigurationFormLanguageEnAu
+//	EvaluationFormLanguageConfigurationFormLanguageEnIn
+//	EvaluationFormLanguageConfigurationFormLanguageEnIe
+//	EvaluationFormLanguageConfigurationFormLanguageEnNz
+//	EvaluationFormLanguageConfigurationFormLanguageEnAb
+//	EvaluationFormLanguageConfigurationFormLanguageEnSg
+//	EvaluationFormLanguageConfigurationFormLanguageEnZa
+//	EvaluationFormLanguageConfigurationFormLanguageEnGb
+//	EvaluationFormLanguageConfigurationFormLanguageEnWl
+//	EvaluationFormLanguageConfigurationFormLanguageFaIr
+//	EvaluationFormLanguageConfigurationFormLanguageFaAf
+//	EvaluationFormLanguageConfigurationFormLanguageFiFi
+//	EvaluationFormLanguageConfigurationFormLanguageFrBe
+//	EvaluationFormLanguageConfigurationFormLanguageFrCa
+//	EvaluationFormLanguageConfigurationFormLanguageGaIe
+//	EvaluationFormLanguageConfigurationFormLanguageGlEs
+//	EvaluationFormLanguageConfigurationFormLanguageKaGe
+//	EvaluationFormLanguageConfigurationFormLanguageDeAt
+//	EvaluationFormLanguageConfigurationFormLanguageDeCh
+//	EvaluationFormLanguageConfigurationFormLanguageElGr
+//	EvaluationFormLanguageConfigurationFormLanguageGuIn
+//	EvaluationFormLanguageConfigurationFormLanguageHtHt
+//	EvaluationFormLanguageConfigurationFormLanguageHeIl
+//	EvaluationFormLanguageConfigurationFormLanguageHiIn
+//	EvaluationFormLanguageConfigurationFormLanguageHuHu
+//	EvaluationFormLanguageConfigurationFormLanguageIsIs
+//	EvaluationFormLanguageConfigurationFormLanguageIdId
+//	EvaluationFormLanguageConfigurationFormLanguageJvId
+//	EvaluationFormLanguageConfigurationFormLanguageKmKh
+//	EvaluationFormLanguageConfigurationFormLanguageKnIn
+//	EvaluationFormLanguageConfigurationFormLanguageKkKz
+//	EvaluationFormLanguageConfigurationFormLanguageLoLa
+//	EvaluationFormLanguageConfigurationFormLanguageLvLv
+//	EvaluationFormLanguageConfigurationFormLanguageLtLt
+//	EvaluationFormLanguageConfigurationFormLanguageMkMk
+//	EvaluationFormLanguageConfigurationFormLanguageMlIn
+//	EvaluationFormLanguageConfigurationFormLanguageMrIn
+//	EvaluationFormLanguageConfigurationFormLanguageNeNp
+//	EvaluationFormLanguageConfigurationFormLanguageNoNo
+//	EvaluationFormLanguageConfigurationFormLanguageOrIn
+//	EvaluationFormLanguageConfigurationFormLanguagePsAf
+//	EvaluationFormLanguageConfigurationFormLanguagePlPl
+//	EvaluationFormLanguageConfigurationFormLanguagePtPt
+//	EvaluationFormLanguageConfigurationFormLanguagePaIn
+//	EvaluationFormLanguageConfigurationFormLanguageRoRo
+//	EvaluationFormLanguageConfigurationFormLanguageRuRu
+//	EvaluationFormLanguageConfigurationFormLanguageSrRs
+//	EvaluationFormLanguageConfigurationFormLanguageSiLk
+//	EvaluationFormLanguageConfigurationFormLanguageSkSk
+//	EvaluationFormLanguageConfigurationFormLanguageSlSi
+//	EvaluationFormLanguageConfigurationFormLanguageEsMx
+//	EvaluationFormLanguageConfigurationFormLanguageEsUs
+//	EvaluationFormLanguageConfigurationFormLanguageSuId
+//	EvaluationFormLanguageConfigurationFormLanguageSwBi
+//	EvaluationFormLanguageConfigurationFormLanguageSwKe
+//	EvaluationFormLanguageConfigurationFormLanguageSwRw
+//	EvaluationFormLanguageConfigurationFormLanguageSwTz
+//	EvaluationFormLanguageConfigurationFormLanguageSwUg
+//	EvaluationFormLanguageConfigurationFormLanguageSvSe
+//	EvaluationFormLanguageConfigurationFormLanguageTlPh
+//	EvaluationFormLanguageConfigurationFormLanguageTaIn
+//	EvaluationFormLanguageConfigurationFormLanguageTeIn
+//	EvaluationFormLanguageConfigurationFormLanguageThTh
+//	EvaluationFormLanguageConfigurationFormLanguageTrTr
+//	EvaluationFormLanguageConfigurationFormLanguageUkUa
+//	EvaluationFormLanguageConfigurationFormLanguageUzUz
+//	EvaluationFormLanguageConfigurationFormLanguageViVn
+//	EvaluationFormLanguageConfigurationFormLanguageZuZa
+//	EvaluationFormLanguageConfigurationFormLanguageMyMm
+//	EvaluationFormLanguageConfigurationFormLanguageSoSo
+//	EvaluationFormLanguageConfigurationFormLanguageYueHk
+//	EvaluationFormLanguageConfigurationFormLanguageEtEe
+//	EvaluationFormLanguageConfigurationFormLanguageHmn
+//	EvaluationFormLanguageConfigurationFormLanguageLgUg
+//	EvaluationFormLanguageConfigurationFormLanguageCyGb
+//	EvaluationFormLanguageConfigurationFormLanguageXhZa
+//	EvaluationFormLanguageConfigurationFormLanguageBnBd
 type EvaluationFormLanguageConfigurationFormLanguageInput interface {
 	pulumi.Input
 
@@ -9264,6 +9456,609 @@ func (in *ruleAssignSlaActionSlaAssignmentTypePtr) ToRuleAssignSlaActionSlaAssig
 	return pulumi.ToOutputWithContext(ctx, in).(RuleAssignSlaActionSlaAssignmentTypePtrOutput)
 }
 
+type RuleCapabilityTiersItem string
+
+const (
+	RuleCapabilityTiersItemGenerativeAi = RuleCapabilityTiersItem("GenerativeAI")
+)
+
+type RuleCapabilityTiersItemOutput struct{ *pulumi.OutputState }
+
+func (RuleCapabilityTiersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleCapabilityTiersItem)(nil)).Elem()
+}
+
+func (o RuleCapabilityTiersItemOutput) ToRuleCapabilityTiersItemOutput() RuleCapabilityTiersItemOutput {
+	return o
+}
+
+func (o RuleCapabilityTiersItemOutput) ToRuleCapabilityTiersItemOutputWithContext(ctx context.Context) RuleCapabilityTiersItemOutput {
+	return o
+}
+
+func (o RuleCapabilityTiersItemOutput) ToRuleCapabilityTiersItemPtrOutput() RuleCapabilityTiersItemPtrOutput {
+	return o.ToRuleCapabilityTiersItemPtrOutputWithContext(context.Background())
+}
+
+func (o RuleCapabilityTiersItemOutput) ToRuleCapabilityTiersItemPtrOutputWithContext(ctx context.Context) RuleCapabilityTiersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleCapabilityTiersItem) *RuleCapabilityTiersItem {
+		return &v
+	}).(RuleCapabilityTiersItemPtrOutput)
+}
+
+func (o RuleCapabilityTiersItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleCapabilityTiersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleCapabilityTiersItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleCapabilityTiersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleCapabilityTiersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleCapabilityTiersItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleCapabilityTiersItemPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleCapabilityTiersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleCapabilityTiersItem)(nil)).Elem()
+}
+
+func (o RuleCapabilityTiersItemPtrOutput) ToRuleCapabilityTiersItemPtrOutput() RuleCapabilityTiersItemPtrOutput {
+	return o
+}
+
+func (o RuleCapabilityTiersItemPtrOutput) ToRuleCapabilityTiersItemPtrOutputWithContext(ctx context.Context) RuleCapabilityTiersItemPtrOutput {
+	return o
+}
+
+func (o RuleCapabilityTiersItemPtrOutput) Elem() RuleCapabilityTiersItemOutput {
+	return o.ApplyT(func(v *RuleCapabilityTiersItem) RuleCapabilityTiersItem {
+		if v != nil {
+			return *v
+		}
+		var ret RuleCapabilityTiersItem
+		return ret
+	}).(RuleCapabilityTiersItemOutput)
+}
+
+func (o RuleCapabilityTiersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleCapabilityTiersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleCapabilityTiersItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleCapabilityTiersItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleCapabilityTiersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleCapabilityTiersItem)(nil)).Elem()
+}
+
+func (o RuleCapabilityTiersItemArrayOutput) ToRuleCapabilityTiersItemArrayOutput() RuleCapabilityTiersItemArrayOutput {
+	return o
+}
+
+func (o RuleCapabilityTiersItemArrayOutput) ToRuleCapabilityTiersItemArrayOutputWithContext(ctx context.Context) RuleCapabilityTiersItemArrayOutput {
+	return o
+}
+
+func (o RuleCapabilityTiersItemArrayOutput) Index(i pulumi.IntInput) RuleCapabilityTiersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleCapabilityTiersItem {
+		return vs[0].([]RuleCapabilityTiersItem)[vs[1].(int)]
+	}).(RuleCapabilityTiersItemOutput)
+}
+
+// The type of the filter.
+type RulePreEvaluationFilterFilterType string
+
+const (
+	RulePreEvaluationFilterFilterTypeTag = RulePreEvaluationFilterFilterType("TAG")
+)
+
+func (RulePreEvaluationFilterFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilterFilterType)(nil)).Elem()
+}
+
+func (e RulePreEvaluationFilterFilterType) ToRulePreEvaluationFilterFilterTypeOutput() RulePreEvaluationFilterFilterTypeOutput {
+	return pulumi.ToOutput(e).(RulePreEvaluationFilterFilterTypeOutput)
+}
+
+func (e RulePreEvaluationFilterFilterType) ToRulePreEvaluationFilterFilterTypeOutputWithContext(ctx context.Context) RulePreEvaluationFilterFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RulePreEvaluationFilterFilterTypeOutput)
+}
+
+func (e RulePreEvaluationFilterFilterType) ToRulePreEvaluationFilterFilterTypePtrOutput() RulePreEvaluationFilterFilterTypePtrOutput {
+	return e.ToRulePreEvaluationFilterFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e RulePreEvaluationFilterFilterType) ToRulePreEvaluationFilterFilterTypePtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterFilterTypePtrOutput {
+	return RulePreEvaluationFilterFilterType(e).ToRulePreEvaluationFilterFilterTypeOutputWithContext(ctx).ToRulePreEvaluationFilterFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e RulePreEvaluationFilterFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulePreEvaluationFilterFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulePreEvaluationFilterFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RulePreEvaluationFilterFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RulePreEvaluationFilterFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFilterFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilterFilterType)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFilterFilterTypeOutput) ToRulePreEvaluationFilterFilterTypeOutput() RulePreEvaluationFilterFilterTypeOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterFilterTypeOutput) ToRulePreEvaluationFilterFilterTypeOutputWithContext(ctx context.Context) RulePreEvaluationFilterFilterTypeOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterFilterTypeOutput) ToRulePreEvaluationFilterFilterTypePtrOutput() RulePreEvaluationFilterFilterTypePtrOutput {
+	return o.ToRulePreEvaluationFilterFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterFilterTypeOutput) ToRulePreEvaluationFilterFilterTypePtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulePreEvaluationFilterFilterType) *RulePreEvaluationFilterFilterType {
+		return &v
+	}).(RulePreEvaluationFilterFilterTypePtrOutput)
+}
+
+func (o RulePreEvaluationFilterFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulePreEvaluationFilterFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RulePreEvaluationFilterFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulePreEvaluationFilterFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RulePreEvaluationFilterFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFilterFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePreEvaluationFilterFilterType)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFilterFilterTypePtrOutput) ToRulePreEvaluationFilterFilterTypePtrOutput() RulePreEvaluationFilterFilterTypePtrOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterFilterTypePtrOutput) ToRulePreEvaluationFilterFilterTypePtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterFilterTypePtrOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterFilterTypePtrOutput) Elem() RulePreEvaluationFilterFilterTypeOutput {
+	return o.ApplyT(func(v *RulePreEvaluationFilterFilterType) RulePreEvaluationFilterFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret RulePreEvaluationFilterFilterType
+		return ret
+	}).(RulePreEvaluationFilterFilterTypeOutput)
+}
+
+func (o RulePreEvaluationFilterFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RulePreEvaluationFilterFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RulePreEvaluationFilterFilterTypeInput is an input type that accepts values of the RulePreEvaluationFilterFilterType enum
+// A concrete instance of `RulePreEvaluationFilterFilterTypeInput` can be one of the following:
+//
+//	RulePreEvaluationFilterFilterTypeTag
+type RulePreEvaluationFilterFilterTypeInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFilterFilterTypeOutput() RulePreEvaluationFilterFilterTypeOutput
+	ToRulePreEvaluationFilterFilterTypeOutputWithContext(context.Context) RulePreEvaluationFilterFilterTypeOutput
+}
+
+var rulePreEvaluationFilterFilterTypePtrType = reflect.TypeOf((**RulePreEvaluationFilterFilterType)(nil)).Elem()
+
+type RulePreEvaluationFilterFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFilterFilterTypePtrOutput() RulePreEvaluationFilterFilterTypePtrOutput
+	ToRulePreEvaluationFilterFilterTypePtrOutputWithContext(context.Context) RulePreEvaluationFilterFilterTypePtrOutput
+}
+
+type rulePreEvaluationFilterFilterTypePtr string
+
+func RulePreEvaluationFilterFilterTypePtr(v string) RulePreEvaluationFilterFilterTypePtrInput {
+	return (*rulePreEvaluationFilterFilterTypePtr)(&v)
+}
+
+func (*rulePreEvaluationFilterFilterTypePtr) ElementType() reflect.Type {
+	return rulePreEvaluationFilterFilterTypePtrType
+}
+
+func (in *rulePreEvaluationFilterFilterTypePtr) ToRulePreEvaluationFilterFilterTypePtrOutput() RulePreEvaluationFilterFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(RulePreEvaluationFilterFilterTypePtrOutput)
+}
+
+func (in *rulePreEvaluationFilterFilterTypePtr) ToRulePreEvaluationFilterFilterTypePtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RulePreEvaluationFilterFilterTypePtrOutput)
+}
+
+// The comparison operator for the filter.
+type RulePreEvaluationFilterOperator string
+
+const (
+	RulePreEvaluationFilterOperatorEquals = RulePreEvaluationFilterOperator("EQUALS")
+)
+
+func (RulePreEvaluationFilterOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilterOperator)(nil)).Elem()
+}
+
+func (e RulePreEvaluationFilterOperator) ToRulePreEvaluationFilterOperatorOutput() RulePreEvaluationFilterOperatorOutput {
+	return pulumi.ToOutput(e).(RulePreEvaluationFilterOperatorOutput)
+}
+
+func (e RulePreEvaluationFilterOperator) ToRulePreEvaluationFilterOperatorOutputWithContext(ctx context.Context) RulePreEvaluationFilterOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RulePreEvaluationFilterOperatorOutput)
+}
+
+func (e RulePreEvaluationFilterOperator) ToRulePreEvaluationFilterOperatorPtrOutput() RulePreEvaluationFilterOperatorPtrOutput {
+	return e.ToRulePreEvaluationFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e RulePreEvaluationFilterOperator) ToRulePreEvaluationFilterOperatorPtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterOperatorPtrOutput {
+	return RulePreEvaluationFilterOperator(e).ToRulePreEvaluationFilterOperatorOutputWithContext(ctx).ToRulePreEvaluationFilterOperatorPtrOutputWithContext(ctx)
+}
+
+func (e RulePreEvaluationFilterOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulePreEvaluationFilterOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulePreEvaluationFilterOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RulePreEvaluationFilterOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RulePreEvaluationFilterOperatorOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFilterOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilterOperator)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFilterOperatorOutput) ToRulePreEvaluationFilterOperatorOutput() RulePreEvaluationFilterOperatorOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterOperatorOutput) ToRulePreEvaluationFilterOperatorOutputWithContext(ctx context.Context) RulePreEvaluationFilterOperatorOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterOperatorOutput) ToRulePreEvaluationFilterOperatorPtrOutput() RulePreEvaluationFilterOperatorPtrOutput {
+	return o.ToRulePreEvaluationFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterOperatorOutput) ToRulePreEvaluationFilterOperatorPtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulePreEvaluationFilterOperator) *RulePreEvaluationFilterOperator {
+		return &v
+	}).(RulePreEvaluationFilterOperatorPtrOutput)
+}
+
+func (o RulePreEvaluationFilterOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulePreEvaluationFilterOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RulePreEvaluationFilterOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulePreEvaluationFilterOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RulePreEvaluationFilterOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFilterOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePreEvaluationFilterOperator)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFilterOperatorPtrOutput) ToRulePreEvaluationFilterOperatorPtrOutput() RulePreEvaluationFilterOperatorPtrOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterOperatorPtrOutput) ToRulePreEvaluationFilterOperatorPtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterOperatorPtrOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterOperatorPtrOutput) Elem() RulePreEvaluationFilterOperatorOutput {
+	return o.ApplyT(func(v *RulePreEvaluationFilterOperator) RulePreEvaluationFilterOperator {
+		if v != nil {
+			return *v
+		}
+		var ret RulePreEvaluationFilterOperator
+		return ret
+	}).(RulePreEvaluationFilterOperatorOutput)
+}
+
+func (o RulePreEvaluationFilterOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RulePreEvaluationFilterOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RulePreEvaluationFilterOperatorInput is an input type that accepts values of the RulePreEvaluationFilterOperator enum
+// A concrete instance of `RulePreEvaluationFilterOperatorInput` can be one of the following:
+//
+//	RulePreEvaluationFilterOperatorEquals
+type RulePreEvaluationFilterOperatorInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFilterOperatorOutput() RulePreEvaluationFilterOperatorOutput
+	ToRulePreEvaluationFilterOperatorOutputWithContext(context.Context) RulePreEvaluationFilterOperatorOutput
+}
+
+var rulePreEvaluationFilterOperatorPtrType = reflect.TypeOf((**RulePreEvaluationFilterOperator)(nil)).Elem()
+
+type RulePreEvaluationFilterOperatorPtrInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFilterOperatorPtrOutput() RulePreEvaluationFilterOperatorPtrOutput
+	ToRulePreEvaluationFilterOperatorPtrOutputWithContext(context.Context) RulePreEvaluationFilterOperatorPtrOutput
+}
+
+type rulePreEvaluationFilterOperatorPtr string
+
+func RulePreEvaluationFilterOperatorPtr(v string) RulePreEvaluationFilterOperatorPtrInput {
+	return (*rulePreEvaluationFilterOperatorPtr)(&v)
+}
+
+func (*rulePreEvaluationFilterOperatorPtr) ElementType() reflect.Type {
+	return rulePreEvaluationFilterOperatorPtrType
+}
+
+func (in *rulePreEvaluationFilterOperatorPtr) ToRulePreEvaluationFilterOperatorPtrOutput() RulePreEvaluationFilterOperatorPtrOutput {
+	return pulumi.ToOutput(in).(RulePreEvaluationFilterOperatorPtrOutput)
+}
+
+func (in *rulePreEvaluationFilterOperatorPtr) ToRulePreEvaluationFilterOperatorPtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RulePreEvaluationFilterOperatorPtrOutput)
+}
+
+// The type of resource the filter applies to.
+type RulePreEvaluationFilterResourceType string
+
+const (
+	RulePreEvaluationFilterResourceTypeContact           = RulePreEvaluationFilterResourceType("CONTACT")
+	RulePreEvaluationFilterResourceTypeContactEvaluation = RulePreEvaluationFilterResourceType("CONTACT_EVALUATION")
+)
+
+func (RulePreEvaluationFilterResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilterResourceType)(nil)).Elem()
+}
+
+func (e RulePreEvaluationFilterResourceType) ToRulePreEvaluationFilterResourceTypeOutput() RulePreEvaluationFilterResourceTypeOutput {
+	return pulumi.ToOutput(e).(RulePreEvaluationFilterResourceTypeOutput)
+}
+
+func (e RulePreEvaluationFilterResourceType) ToRulePreEvaluationFilterResourceTypeOutputWithContext(ctx context.Context) RulePreEvaluationFilterResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RulePreEvaluationFilterResourceTypeOutput)
+}
+
+func (e RulePreEvaluationFilterResourceType) ToRulePreEvaluationFilterResourceTypePtrOutput() RulePreEvaluationFilterResourceTypePtrOutput {
+	return e.ToRulePreEvaluationFilterResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e RulePreEvaluationFilterResourceType) ToRulePreEvaluationFilterResourceTypePtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterResourceTypePtrOutput {
+	return RulePreEvaluationFilterResourceType(e).ToRulePreEvaluationFilterResourceTypeOutputWithContext(ctx).ToRulePreEvaluationFilterResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e RulePreEvaluationFilterResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulePreEvaluationFilterResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulePreEvaluationFilterResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RulePreEvaluationFilterResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RulePreEvaluationFilterResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFilterResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePreEvaluationFilterResourceType)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFilterResourceTypeOutput) ToRulePreEvaluationFilterResourceTypeOutput() RulePreEvaluationFilterResourceTypeOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterResourceTypeOutput) ToRulePreEvaluationFilterResourceTypeOutputWithContext(ctx context.Context) RulePreEvaluationFilterResourceTypeOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterResourceTypeOutput) ToRulePreEvaluationFilterResourceTypePtrOutput() RulePreEvaluationFilterResourceTypePtrOutput {
+	return o.ToRulePreEvaluationFilterResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterResourceTypeOutput) ToRulePreEvaluationFilterResourceTypePtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulePreEvaluationFilterResourceType) *RulePreEvaluationFilterResourceType {
+		return &v
+	}).(RulePreEvaluationFilterResourceTypePtrOutput)
+}
+
+func (o RulePreEvaluationFilterResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulePreEvaluationFilterResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RulePreEvaluationFilterResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulePreEvaluationFilterResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RulePreEvaluationFilterResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RulePreEvaluationFilterResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePreEvaluationFilterResourceType)(nil)).Elem()
+}
+
+func (o RulePreEvaluationFilterResourceTypePtrOutput) ToRulePreEvaluationFilterResourceTypePtrOutput() RulePreEvaluationFilterResourceTypePtrOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterResourceTypePtrOutput) ToRulePreEvaluationFilterResourceTypePtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterResourceTypePtrOutput {
+	return o
+}
+
+func (o RulePreEvaluationFilterResourceTypePtrOutput) Elem() RulePreEvaluationFilterResourceTypeOutput {
+	return o.ApplyT(func(v *RulePreEvaluationFilterResourceType) RulePreEvaluationFilterResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret RulePreEvaluationFilterResourceType
+		return ret
+	}).(RulePreEvaluationFilterResourceTypeOutput)
+}
+
+func (o RulePreEvaluationFilterResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulePreEvaluationFilterResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RulePreEvaluationFilterResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RulePreEvaluationFilterResourceTypeInput is an input type that accepts values of the RulePreEvaluationFilterResourceType enum
+// A concrete instance of `RulePreEvaluationFilterResourceTypeInput` can be one of the following:
+//
+//	RulePreEvaluationFilterResourceTypeContact
+//	RulePreEvaluationFilterResourceTypeContactEvaluation
+type RulePreEvaluationFilterResourceTypeInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFilterResourceTypeOutput() RulePreEvaluationFilterResourceTypeOutput
+	ToRulePreEvaluationFilterResourceTypeOutputWithContext(context.Context) RulePreEvaluationFilterResourceTypeOutput
+}
+
+var rulePreEvaluationFilterResourceTypePtrType = reflect.TypeOf((**RulePreEvaluationFilterResourceType)(nil)).Elem()
+
+type RulePreEvaluationFilterResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToRulePreEvaluationFilterResourceTypePtrOutput() RulePreEvaluationFilterResourceTypePtrOutput
+	ToRulePreEvaluationFilterResourceTypePtrOutputWithContext(context.Context) RulePreEvaluationFilterResourceTypePtrOutput
+}
+
+type rulePreEvaluationFilterResourceTypePtr string
+
+func RulePreEvaluationFilterResourceTypePtr(v string) RulePreEvaluationFilterResourceTypePtrInput {
+	return (*rulePreEvaluationFilterResourceTypePtr)(&v)
+}
+
+func (*rulePreEvaluationFilterResourceTypePtr) ElementType() reflect.Type {
+	return rulePreEvaluationFilterResourceTypePtrType
+}
+
+func (in *rulePreEvaluationFilterResourceTypePtr) ToRulePreEvaluationFilterResourceTypePtrOutput() RulePreEvaluationFilterResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(RulePreEvaluationFilterResourceTypePtrOutput)
+}
+
+func (in *rulePreEvaluationFilterResourceTypePtr) ToRulePreEvaluationFilterResourceTypePtrOutputWithContext(ctx context.Context) RulePreEvaluationFilterResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RulePreEvaluationFilterResourceTypePtrOutput)
+}
+
 // The publish status of the rule.
 //
 //	*Allowed values*: ``DRAFT`` | ``PUBLISHED``
@@ -13188,6 +13983,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrInput)(nil)).Elem(), RuleAssignSlaActionCaseSlaConfigurationPropertiesType("CaseField"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionSlaAssignmentTypeInput)(nil)).Elem(), RuleAssignSlaActionSlaAssignmentType("CASES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionSlaAssignmentTypePtrInput)(nil)).Elem(), RuleAssignSlaActionSlaAssignmentType("CASES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFilterFilterTypeInput)(nil)).Elem(), RulePreEvaluationFilterFilterType("TAG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFilterFilterTypePtrInput)(nil)).Elem(), RulePreEvaluationFilterFilterType("TAG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFilterOperatorInput)(nil)).Elem(), RulePreEvaluationFilterOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFilterOperatorPtrInput)(nil)).Elem(), RulePreEvaluationFilterOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFilterResourceTypeInput)(nil)).Elem(), RulePreEvaluationFilterResourceType("CONTACT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePreEvaluationFilterResourceTypePtrInput)(nil)).Elem(), RulePreEvaluationFilterResourceType("CONTACT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusPtrInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceTypeInput)(nil)).Elem(), RuleReferenceType("URL"))
@@ -13344,6 +14145,15 @@ func init() {
 	pulumi.RegisterOutputType(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleAssignSlaActionSlaAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(RuleAssignSlaActionSlaAssignmentTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleCapabilityTiersItemOutput{})
+	pulumi.RegisterOutputType(RuleCapabilityTiersItemPtrOutput{})
+	pulumi.RegisterOutputType(RuleCapabilityTiersItemArrayOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFilterFilterTypeOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFilterFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFilterOperatorOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFilterOperatorPtrOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFilterResourceTypeOutput{})
+	pulumi.RegisterOutputType(RulePreEvaluationFilterResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuleReferenceTypeOutput{})

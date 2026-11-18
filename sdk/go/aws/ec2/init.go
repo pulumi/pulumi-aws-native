@@ -33,8 +33,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CarrierGateway{}
 	case "aws-native:ec2:ClientVpnAuthorizationRule":
 		r = &ClientVpnAuthorizationRule{}
+	case "aws-native:ec2:ClientVpnEndpoint":
+		r = &ClientVpnEndpoint{}
 	case "aws-native:ec2:ClientVpnRoute":
 		r = &ClientVpnRoute{}
+	case "aws-native:ec2:ClientVpnTargetNetworkAssociation":
+		r = &ClientVpnTargetNetworkAssociation{}
 	case "aws-native:ec2:CustomerGateway":
 		r = &CustomerGateway{}
 	case "aws-native:ec2:DhcpOptions":
@@ -49,6 +53,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EipAssociation{}
 	case "aws-native:ec2:EnclaveCertificateIamRoleAssociation":
 		r = &EnclaveCertificateIamRoleAssociation{}
+	case "aws-native:ec2:FcaPolicy":
+		r = &FcaPolicy{}
+	case "aws-native:ec2:FcaPolicyAssociation":
+		r = &FcaPolicyAssociation{}
 	case "aws-native:ec2:FlowLog":
 		r = &FlowLog{}
 	case "aws-native:ec2:FpgaImage":
@@ -201,6 +209,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayMulticastGroupMember{}
 	case "aws-native:ec2:TransitGatewayMulticastGroupSource":
 		r = &TransitGatewayMulticastGroupSource{}
+	case "aws-native:ec2:TransitGatewayNetworkFunctionAttachment":
+		r = &TransitGatewayNetworkFunctionAttachment{}
 	case "aws-native:ec2:TransitGatewayPeeringAttachment":
 		r = &TransitGatewayPeeringAttachment{}
 	case "aws-native:ec2:TransitGatewayPolicyTable":

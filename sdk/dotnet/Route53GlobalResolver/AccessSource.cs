@@ -21,11 +21,20 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+        /// </summary>
         [Output("cidr")]
-        public Output<string> Cidr { get; private set; } = null!;
+        public Output<string?> Cidr { get; private set; } = null!;
 
         [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+        /// </summary>
+        [Output("coreNetworkEndpointId")]
+        public Output<string?> CoreNetworkEndpointId { get; private set; } = null!;
 
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -41,6 +50,12 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
 
         [Output("protocol")]
         public Output<Pulumi.AwsNative.Route53GlobalResolver.AccessSourceDnsProtocol> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+        /// </summary>
+        [Output("segment")]
+        public Output<string?> Segment { get; private set; } = null!;
 
         [Output("status")]
         public Output<Pulumi.AwsNative.Route53GlobalResolver.AccessSourceCrResourceStatus> Status { get; private set; } = null!;
@@ -77,7 +92,9 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
                 ReplaceOnChanges =
                 {
                     "clientToken",
+                    "coreNetworkEndpointId",
                     "dnsViewId",
+                    "segment",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,11 +118,20 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
 
     public sealed class AccessSourceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cidr", required: true)]
-        public Input<string> Cidr { get; set; } = null!;
+        /// <summary>
+        /// The IP address range (CIDR) whose traffic this access source admits. Required unless the access source uses a core network endpoint.
+        /// </summary>
+        [Input("cidr")]
+        public Input<string>? Cidr { get; set; }
 
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
+
+        /// <summary>
+        /// The ID of the core network endpoint whose Cloud WAN segment traffic this access source admits. Use together with Segment instead of Cidr. The core network endpoint must be OPERATIONAL.
+        /// </summary>
+        [Input("coreNetworkEndpointId")]
+        public Input<string>? CoreNetworkEndpointId { get; set; }
 
         [Input("dnsViewId", required: true)]
         public Input<string> DnsViewId { get; set; } = null!;
@@ -118,6 +144,12 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
 
         [Input("protocol", required: true)]
         public Input<Pulumi.AwsNative.Route53GlobalResolver.AccessSourceDnsProtocol> Protocol { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Cloud WAN segment of the core network endpoint, or * for all of its segments. Requires CoreNetworkEndpointId.
+        /// </summary>
+        [Input("segment")]
+        public Input<string>? Segment { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

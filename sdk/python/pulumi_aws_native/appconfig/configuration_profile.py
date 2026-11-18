@@ -280,7 +280,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             __props__.__dict__["validators"] = validators
             __props__.__dict__["configuration_profile_id"] = None
             __props__.__dict__["kms_key_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationId", "locationUri", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationId", "locationUri"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationProfile, __self__).__init__(
             'aws-native:appconfig:ConfigurationProfile',

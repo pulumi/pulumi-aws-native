@@ -16,15 +16,19 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclMonetizationConfig
     {
+        public readonly ImmutableArray<Outputs.WebAclConnectedAccountConfig> ConnectedAccountConfigs;
         public readonly Outputs.WebAclCryptoConfig? CryptoConfig;
         public readonly Pulumi.AwsNative.WaFv2.WebAclCurrencyMode? CurrencyMode;
 
         [OutputConstructor]
         private WebAclMonetizationConfig(
+            ImmutableArray<Outputs.WebAclConnectedAccountConfig> connectedAccountConfigs,
+
             Outputs.WebAclCryptoConfig? cryptoConfig,
 
             Pulumi.AwsNative.WaFv2.WebAclCurrencyMode? currencyMode)
         {
+            ConnectedAccountConfigs = connectedAccountConfigs;
             CryptoConfig = cryptoConfig;
             CurrencyMode = currencyMode;
         }

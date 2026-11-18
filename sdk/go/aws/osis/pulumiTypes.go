@@ -293,6 +293,70 @@ func (o PipelineEncryptionAtRestOptionsPtrOutput) KmsKeyArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration settings for the VPC endpoint.
+type PipelineEndpointVpcOptions struct {
+	// A list of security group IDs that control network access to the pipeline endpoint.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs where the pipeline endpoint network interfaces are created.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// PipelineEndpointVpcOptionsInput is an input type that accepts PipelineEndpointVpcOptionsArgs and PipelineEndpointVpcOptionsOutput values.
+// You can construct a concrete instance of `PipelineEndpointVpcOptionsInput` via:
+//
+//	PipelineEndpointVpcOptionsArgs{...}
+type PipelineEndpointVpcOptionsInput interface {
+	pulumi.Input
+
+	ToPipelineEndpointVpcOptionsOutput() PipelineEndpointVpcOptionsOutput
+	ToPipelineEndpointVpcOptionsOutputWithContext(context.Context) PipelineEndpointVpcOptionsOutput
+}
+
+// Configuration settings for the VPC endpoint.
+type PipelineEndpointVpcOptionsArgs struct {
+	// A list of security group IDs that control network access to the pipeline endpoint.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs where the pipeline endpoint network interfaces are created.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (PipelineEndpointVpcOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEndpointVpcOptions)(nil)).Elem()
+}
+
+func (i PipelineEndpointVpcOptionsArgs) ToPipelineEndpointVpcOptionsOutput() PipelineEndpointVpcOptionsOutput {
+	return i.ToPipelineEndpointVpcOptionsOutputWithContext(context.Background())
+}
+
+func (i PipelineEndpointVpcOptionsArgs) ToPipelineEndpointVpcOptionsOutputWithContext(ctx context.Context) PipelineEndpointVpcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEndpointVpcOptionsOutput)
+}
+
+// Configuration settings for the VPC endpoint.
+type PipelineEndpointVpcOptionsOutput struct{ *pulumi.OutputState }
+
+func (PipelineEndpointVpcOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEndpointVpcOptions)(nil)).Elem()
+}
+
+func (o PipelineEndpointVpcOptionsOutput) ToPipelineEndpointVpcOptionsOutput() PipelineEndpointVpcOptionsOutput {
+	return o
+}
+
+func (o PipelineEndpointVpcOptionsOutput) ToPipelineEndpointVpcOptionsOutputWithContext(ctx context.Context) PipelineEndpointVpcOptionsOutput {
+	return o
+}
+
+// A list of security group IDs that control network access to the pipeline endpoint.
+func (o PipelineEndpointVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineEndpointVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs where the pipeline endpoint network interfaces are created.
+func (o PipelineEndpointVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineEndpointVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
 // Key-value pairs to configure log publishing.
 type PipelineLogPublishingOptions struct {
 	// The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
@@ -1154,6 +1218,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineBufferOptionsPtrInput)(nil)).Elem(), PipelineBufferOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionAtRestOptionsInput)(nil)).Elem(), PipelineEncryptionAtRestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionAtRestOptionsPtrInput)(nil)).Elem(), PipelineEncryptionAtRestOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEndpointVpcOptionsInput)(nil)).Elem(), PipelineEndpointVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsInput)(nil)).Elem(), PipelineLogPublishingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsPtrInput)(nil)).Elem(), PipelineLogPublishingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesInput)(nil)).Elem(), PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs{})
@@ -1168,6 +1233,7 @@ func init() {
 	pulumi.RegisterOutputType(PipelineBufferOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionAtRestOptionsOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionAtRestOptionsPtrOutput{})
+	pulumi.RegisterOutputType(PipelineEndpointVpcOptionsOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput{})

@@ -1737,6 +1737,7 @@ namespace Pulumi.AwsNative.IoT
         public static TopicRuleDestinationStatus Enabled { get; } = new TopicRuleDestinationStatus("ENABLED");
         public static TopicRuleDestinationStatus InProgress { get; } = new TopicRuleDestinationStatus("IN_PROGRESS");
         public static TopicRuleDestinationStatus Disabled { get; } = new TopicRuleDestinationStatus("DISABLED");
+        public static TopicRuleDestinationStatus Error { get; } = new TopicRuleDestinationStatus("ERROR");
 
         public static bool operator ==(TopicRuleDestinationStatus left, TopicRuleDestinationStatus right) => left.Equals(right);
         public static bool operator !=(TopicRuleDestinationStatus left, TopicRuleDestinationStatus right) => !left.Equals(right);

@@ -20,6 +20,14 @@ namespace Pulumi.AwsNative.Dms.Outputs
         public readonly string? CertificateArn;
         public readonly string DatabaseName;
         public readonly int Port;
+        /// <summary>
+        /// The ARN for the role the application uses to access its Amazon S3 bucket.
+        /// </summary>
+        public readonly string? S3AccessRoleArn;
+        /// <summary>
+        /// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+        /// </summary>
+        public readonly string? S3Path;
         public readonly string? SecretsManagerOracleAsmAccessRoleArn;
         public readonly string? SecretsManagerOracleAsmSecretId;
         public readonly string? SecretsManagerSecurityDbEncryptionAccessRoleArn;
@@ -37,6 +45,10 @@ namespace Pulumi.AwsNative.Dms.Outputs
 
             int port,
 
+            string? s3AccessRoleArn,
+
+            string? s3Path,
+
             string? secretsManagerOracleAsmAccessRoleArn,
 
             string? secretsManagerOracleAsmSecretId,
@@ -53,6 +65,8 @@ namespace Pulumi.AwsNative.Dms.Outputs
             CertificateArn = certificateArn;
             DatabaseName = databaseName;
             Port = port;
+            S3AccessRoleArn = s3AccessRoleArn;
+            S3Path = s3Path;
             SecretsManagerOracleAsmAccessRoleArn = secretsManagerOracleAsmAccessRoleArn;
             SecretsManagerOracleAsmSecretId = secretsManagerOracleAsmSecretId;
             SecretsManagerSecurityDbEncryptionAccessRoleArn = secretsManagerSecurityDbEncryptionAccessRoleArn;

@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// The time at which the catalog was created.
         /// </summary>
-        public readonly int? CreateTime;
+        public readonly string? CreateTime;
         /// <summary>
         /// A description of the catalog.
         /// </summary>
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// The time at which the catalog was last updated.
         /// </summary>
-        public readonly int? UpdateTime;
+        public readonly string? UpdateTime;
 
         [OutputConstructor]
         private GetCatalogResult(
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.Glue
 
             ImmutableArray<Outputs.CatalogPrincipalPermissions> createTableDefaultPermissions,
 
-            int? createTime,
+            string? createTime,
 
             string? description,
 
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.Glue
 
             Outputs.CatalogTargetRedshiftCatalog? targetRedshiftCatalog,
 
-            int? updateTime)
+            string? updateTime)
         {
             AllowFullTableExternalDataAccess = allowFullTableExternalDataAccess;
             CatalogId = catalogId;

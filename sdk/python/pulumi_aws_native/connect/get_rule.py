@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleResult:
-    def __init__(__self__, actions=None, function=None, name=None, publish_status=None, rule_arn=None, tags=None):
+    def __init__(__self__, actions=None, function=None, name=None, pre_evaluation_filters=None, publish_status=None, rule_arn=None, rule_capability_tiers=None, tags=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -36,12 +36,18 @@ class GetRuleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if pre_evaluation_filters and not isinstance(pre_evaluation_filters, dict):
+            raise TypeError("Expected argument 'pre_evaluation_filters' to be a dict")
+        pulumi.set(__self__, "pre_evaluation_filters", pre_evaluation_filters)
         if publish_status and not isinstance(publish_status, str):
             raise TypeError("Expected argument 'publish_status' to be a str")
         pulumi.set(__self__, "publish_status", publish_status)
         if rule_arn and not isinstance(rule_arn, str):
             raise TypeError("Expected argument 'rule_arn' to be a str")
         pulumi.set(__self__, "rule_arn", rule_arn)
+        if rule_capability_tiers and not isinstance(rule_capability_tiers, list):
+            raise TypeError("Expected argument 'rule_capability_tiers' to be a list")
+        pulumi.set(__self__, "rule_capability_tiers", rule_capability_tiers)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -71,6 +77,11 @@ class GetRuleResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="preEvaluationFilters")
+    def pre_evaluation_filters(self) -> Optional['outputs.RulePreEvaluationFilters']:
+        return pulumi.get(self, "pre_evaluation_filters")
+
+    @_builtins.property
     @pulumi.getter(name="publishStatus")
     def publish_status(self) -> Optional['RulePublishStatus']:
         """
@@ -86,6 +97,11 @@ class GetRuleResult:
         The Amazon Resource Name (ARN) of the rule.
         """
         return pulumi.get(self, "rule_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleCapabilityTiers")
+    def rule_capability_tiers(self) -> Optional[Sequence['RuleCapabilityTiersItem']]:
+        return pulumi.get(self, "rule_capability_tiers")
 
     @_builtins.property
     @pulumi.getter
@@ -105,8 +121,10 @@ class AwaitableGetRuleResult(GetRuleResult):
             actions=self.actions,
             function=self.function,
             name=self.name,
+            pre_evaluation_filters=self.pre_evaluation_filters,
             publish_status=self.publish_status,
             rule_arn=self.rule_arn,
+            rule_capability_tiers=self.rule_capability_tiers,
             tags=self.tags)
 
 
@@ -126,8 +144,10 @@ def get_rule(rule_arn: Optional[_builtins.str] = None,
         actions=pulumi.get(__ret__, 'actions'),
         function=pulumi.get(__ret__, 'function'),
         name=pulumi.get(__ret__, 'name'),
+        pre_evaluation_filters=pulumi.get(__ret__, 'pre_evaluation_filters'),
         publish_status=pulumi.get(__ret__, 'publish_status'),
         rule_arn=pulumi.get(__ret__, 'rule_arn'),
+        rule_capability_tiers=pulumi.get(__ret__, 'rule_capability_tiers'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_rule_output(rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
@@ -144,6 +164,8 @@ def get_rule_output(rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
         actions=pulumi.get(__response__, 'actions'),
         function=pulumi.get(__response__, 'function'),
         name=pulumi.get(__response__, 'name'),
+        pre_evaluation_filters=pulumi.get(__response__, 'pre_evaluation_filters'),
         publish_status=pulumi.get(__response__, 'publish_status'),
         rule_arn=pulumi.get(__response__, 'rule_arn'),
+        rule_capability_tiers=pulumi.get(__response__, 'rule_capability_tiers'),
         tags=pulumi.get(__response__, 'tags')))

@@ -38,7 +38,7 @@ export interface GetCustomVerificationEmailTemplateResult {
      */
     readonly successRedirectionUrl?: string;
     /**
-     * The tags (keys and values) associated with the tenant.
+     * The tags (keys and values) associated with the custom verification email template.
      */
     readonly tags?: outputs.Tag[];
     /**

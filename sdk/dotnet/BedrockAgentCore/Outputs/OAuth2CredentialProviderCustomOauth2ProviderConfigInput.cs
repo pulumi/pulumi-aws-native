@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class OAuth2CredentialProviderCustomOauth2ProviderConfigInput
     {
+        public readonly ImmutableArray<Outputs.OAuth2CredentialProviderCertificateConfiguration> CertificateConfigurations;
         /// <summary>
         /// The client authentication method to use when authenticating with the token endpoint
         /// </summary>
@@ -44,6 +45,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private OAuth2CredentialProviderCustomOauth2ProviderConfigInput(
+            ImmutableArray<Outputs.OAuth2CredentialProviderCertificateConfiguration> certificateConfigurations,
+
             Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod? clientAuthenticationMethod,
 
             string? clientId,
@@ -64,6 +67,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             Outputs.OAuth2CredentialProviderPrivateKeyJwtConfig? privateKeyJwtConfig)
         {
+            CertificateConfigurations = certificateConfigurations;
             ClientAuthenticationMethod = clientAuthenticationMethod;
             ClientId = clientId;
             ClientSecret = clientSecret;

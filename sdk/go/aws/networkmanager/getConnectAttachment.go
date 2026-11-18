@@ -41,6 +41,10 @@ type LookupConnectAttachmentResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Errors from the last modification of the attachment.
 	LastModificationErrors []string `pulumi:"lastModificationErrors"`
+	// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+	NatGatewaySupport *ConnectAttachmentNatGatewaySupport `pulumi:"natGatewaySupport"`
+	// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On Connect attachments this is always false and is not configurable. Not available in AWS GovCloud (US).
+	NatSystemRouteSupport *bool `pulumi:"natSystemRouteSupport"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// The ID of the attachment account owner.
@@ -117,6 +121,16 @@ func (o LookupConnectAttachmentResultOutput) CreatedAt() pulumi.StringPtrOutput 
 // Errors from the last modification of the attachment.
 func (o LookupConnectAttachmentResultOutput) LastModificationErrors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupConnectAttachmentResult) []string { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
+}
+
+// Whether NAT gateway support is enabled on the attachment. Required when NatGatewayRules lists rules. Set to DISABLE with NatGatewayRules to keep the rules on the attachment without translating traffic, and set it to ENABLE to activate them again. An attachment that is pending acceptance applies this setting once it is accepted. Only the core network owner can configure or read NAT gateway settings. Not available in AWS GovCloud (US).
+func (o LookupConnectAttachmentResultOutput) NatGatewaySupport() ConnectAttachmentNatGatewaySupportPtrOutput {
+	return o.ApplyT(func(v LookupConnectAttachmentResult) *ConnectAttachmentNatGatewaySupport { return v.NatGatewaySupport }).(ConnectAttachmentNatGatewaySupportPtrOutput)
+}
+
+// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules. On Connect attachments this is always false and is not configurable. Not available in AWS GovCloud (US).
+func (o LookupConnectAttachmentResultOutput) NatSystemRouteSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupConnectAttachmentResult) *bool { return v.NatSystemRouteSupport }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the network function group attachment.

@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
         public readonly string? Name;
         public readonly string? ObservabilityRegion;
         /// <summary>
+        /// Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED &lt;-&gt; DISABLED_RESERVED, DISABLED_RESERVED -&gt; DISABLED_RELEASED, DISABLED_RELEASED -&gt; ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Route53GlobalResolver.GlobalResolverPublicIpStatus? PublicIpStatus;
+        /// <summary>
         /// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
         /// </summary>
         public readonly ImmutableArray<string> Regions;
@@ -97,6 +101,8 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
 
             string? observabilityRegion,
 
+            Pulumi.AwsNative.Route53GlobalResolver.GlobalResolverPublicIpStatus? publicIpStatus,
+
             ImmutableArray<string> regions,
 
             Pulumi.AwsNative.Route53GlobalResolver.GlobalResolverCrResourceStatus? status,
@@ -115,6 +121,7 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
             IpAddressType = ipAddressType;
             Name = name;
             ObservabilityRegion = observabilityRegion;
+            PublicIpStatus = publicIpStatus;
             Regions = regions;
             Status = status;
             Tags = tags;

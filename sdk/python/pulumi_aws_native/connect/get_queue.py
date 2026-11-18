@@ -165,7 +165,7 @@ class GetQueueResult:
     @pulumi.getter(name="quickConnectArns")
     def quick_connect_arns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The quick connects available to agents who are working the queue.
+        The quick connects available to agents who are working the queue. To remove all quick connects from the queue, specify an empty list.
         """
         return pulumi.get(self, "quick_connect_arns")
 

@@ -10,6 +10,97 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of the conformance pack. CUSTOM for a conformance pack whose Config rules are managed by the customer; MANAGED for a managed conformance pack whose Config rules are managed by AWS.
+type ConformancePackType string
+
+const (
+	ConformancePackTypeCustom  = ConformancePackType("CUSTOM")
+	ConformancePackTypeManaged = ConformancePackType("MANAGED")
+)
+
+type ConformancePackTypeOutput struct{ *pulumi.OutputState }
+
+func (ConformancePackTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackType)(nil)).Elem()
+}
+
+func (o ConformancePackTypeOutput) ToConformancePackTypeOutput() ConformancePackTypeOutput {
+	return o
+}
+
+func (o ConformancePackTypeOutput) ToConformancePackTypeOutputWithContext(ctx context.Context) ConformancePackTypeOutput {
+	return o
+}
+
+func (o ConformancePackTypeOutput) ToConformancePackTypePtrOutput() ConformancePackTypePtrOutput {
+	return o.ToConformancePackTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConformancePackTypeOutput) ToConformancePackTypePtrOutputWithContext(ctx context.Context) ConformancePackTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConformancePackType) *ConformancePackType {
+		return &v
+	}).(ConformancePackTypePtrOutput)
+}
+
+func (o ConformancePackTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConformancePackTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConformancePackType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConformancePackTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConformancePackTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConformancePackType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConformancePackTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConformancePackTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConformancePackType)(nil)).Elem()
+}
+
+func (o ConformancePackTypePtrOutput) ToConformancePackTypePtrOutput() ConformancePackTypePtrOutput {
+	return o
+}
+
+func (o ConformancePackTypePtrOutput) ToConformancePackTypePtrOutputWithContext(ctx context.Context) ConformancePackTypePtrOutput {
+	return o
+}
+
+func (o ConformancePackTypePtrOutput) Elem() ConformancePackTypeOutput {
+	return o.ApplyT(func(v *ConformancePackType) ConformancePackType {
+		if v != nil {
+			return *v
+		}
+		var ret ConformancePackType
+		return ret
+	}).(ConformancePackTypeOutput)
+}
+
+func (o ConformancePackTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConformancePackTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConformancePackType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The frequency with which AWS Config delivers configuration snapshots.
 type DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency string
 
@@ -185,6 +276,8 @@ func (in *deliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtr) T
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency("One_Hour"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency("One_Hour"))
+	pulumi.RegisterOutputType(ConformancePackTypeOutput{})
+	pulumi.RegisterOutputType(ConformancePackTypePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput{})
 }

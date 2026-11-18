@@ -12,25 +12,19 @@ namespace Pulumi.AwsNative.CloudWatch
     public static class GetDomain
     {
         /// <summary>
-        /// The account-level boundary for CloudWatch Omni. A domain configures the
-        /// identity providers users sign in through and exposes the endpoint URLs used
-        /// to reach CloudWatch Omni. Spaces are created within a domain.
+        /// Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:cloudwatch:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The account-level boundary for CloudWatch Omni. A domain configures the
-        /// identity providers users sign in through and exposes the endpoint URLs used
-        /// to reach CloudWatch Omni. Spaces are created within a domain.
+        /// Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:cloudwatch:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The account-level boundary for CloudWatch Omni. A domain configures the
-        /// identity providers users sign in through and exposes the endpoint URLs used
-        /// to reach CloudWatch Omni. Spaces are created within a domain.
+        /// Resource Type definition for AWS::CloudWatch::Domain. A domain is the identity and access boundary for CloudWatch Omni. It configures the identity providers users sign in through and provides the sign-in URL for your team.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:cloudwatch:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
@@ -40,7 +34,7 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// The Amazon Resource Name (ARN) of the domain.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -54,7 +48,7 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// The Amazon Resource Name (ARN) of the domain.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -70,7 +64,7 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class GetDomainResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// The Amazon Resource Name (ARN) of the domain.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
@@ -93,6 +87,9 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The ARN of the Identity Center application. Absent for IAM-only domains.
         /// </summary>
         public readonly string? IdentityCenterApplicationArn;
+        /// <summary>
+        /// Identity provider configuration for the domain.
+        /// </summary>
         public readonly Outputs.DomainIdentityProviderConfiguration? IdentityProviderConfiguration;
         /// <summary>
         /// The identity providers configured for the domain.

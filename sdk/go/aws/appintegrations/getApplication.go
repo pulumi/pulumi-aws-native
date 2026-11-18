@@ -37,6 +37,8 @@ type LookupApplicationResult struct {
 	ApplicationSourceConfig *ApplicationSourceConfigProperties `pulumi:"applicationSourceConfig"`
 	// The type of application
 	ApplicationType *ApplicationType `pulumi:"applicationType"`
+	// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+	AuthConfig *ApplicationAuthConfig `pulumi:"authConfig"`
 	// The application description.
 	Description *string `pulumi:"description"`
 	// The id of the application.
@@ -47,6 +49,10 @@ type LookupApplicationResult struct {
 	InitializationTimeout *int `pulumi:"initializationTimeout"`
 	// Indicates if the application is a service
 	IsService *bool `pulumi:"isService"`
+	// The region in which the application was last modified.
+	LastModifiedRegion *string `pulumi:"lastModifiedRegion"`
+	// The time when the application was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
 	// The namespace of the application.
@@ -105,6 +111,11 @@ func (o LookupApplicationResultOutput) ApplicationType() ApplicationTypePtrOutpu
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationType { return v.ApplicationType }).(ApplicationTypePtrOutput)
 }
 
+// The authentication configuration. Required when ApplicationType is A2A_SERVER.
+func (o LookupApplicationResultOutput) AuthConfig() ApplicationAuthConfigPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationAuthConfig { return v.AuthConfig }).(ApplicationAuthConfigPtrOutput)
+}
+
 // The application description.
 func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -128,6 +139,16 @@ func (o LookupApplicationResultOutput) InitializationTimeout() pulumi.IntPtrOutp
 // Indicates if the application is a service
 func (o LookupApplicationResultOutput) IsService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *bool { return v.IsService }).(pulumi.BoolPtrOutput)
+}
+
+// The region in which the application was last modified.
+func (o LookupApplicationResultOutput) LastModifiedRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.LastModifiedRegion }).(pulumi.StringPtrOutput)
+}
+
+// The time when the application was last modified.
+func (o LookupApplicationResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
 // The name of the application.

@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.Connect
         /// The name of the rule.
         /// </summary>
         public readonly string? Name;
+        public readonly Outputs.RulePreEvaluationFilters? PreEvaluationFilters;
         /// <summary>
         /// The publish status of the rule.
         ///  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
@@ -84,6 +85,7 @@ namespace Pulumi.AwsNative.Connect
         /// The Amazon Resource Name (ARN) of the rule.
         /// </summary>
         public readonly string? RuleArn;
+        public readonly ImmutableArray<Pulumi.AwsNative.Connect.RuleCapabilityTiersItem> RuleCapabilityTiers;
         /// <summary>
         /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
@@ -97,17 +99,23 @@ namespace Pulumi.AwsNative.Connect
 
             string? name,
 
+            Outputs.RulePreEvaluationFilters? preEvaluationFilters,
+
             Pulumi.AwsNative.Connect.RulePublishStatus? publishStatus,
 
             string? ruleArn,
+
+            ImmutableArray<Pulumi.AwsNative.Connect.RuleCapabilityTiersItem> ruleCapabilityTiers,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Actions = actions;
             Function = function;
             Name = name;
+            PreEvaluationFilters = preEvaluationFilters;
             PublishStatus = publishStatus;
             RuleArn = ruleArn;
+            RuleCapabilityTiers = ruleCapabilityTiers;
             Tags = tags;
         }
     }

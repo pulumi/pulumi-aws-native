@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.MwaaServerless
         [Output("encryptionConfiguration")]
         public Output<Outputs.WorkflowEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
+        [Output("environment")]
+        public Output<Outputs.WorkflowEnvironment?> Environment { get; private set; } = null!;
+
         [Output("loggingConfiguration")]
         public Output<Outputs.WorkflowLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.MwaaServerless
 
         [Input("encryptionConfiguration")]
         public Input<Inputs.WorkflowEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        [Input("environment")]
+        public Input<Inputs.WorkflowEnvironmentArgs>? Environment { get; set; }
 
         [Input("loggingConfiguration")]
         public Input<Inputs.WorkflowLoggingConfigurationArgs>? LoggingConfiguration { get; set; }

@@ -102,6 +102,70 @@ namespace Pulumi.AwsNative.Route53
     }
 
     /// <summary>
+    /// &lt;p&gt;The current status of the health check source. The health check source status can have one of the following values:&lt;/p&gt;
+    ///          &lt;dl&gt;
+    ///             &lt;dt&gt;CREATE_PENDING, CREATE_IN_PROGRESS&lt;/dt&gt;
+    ///             &lt;dd&gt;
+    ///                &lt;p&gt;Route 53 is creating the source. Health checks that reference the source don't send requests yet.&lt;/p&gt;
+    ///             &lt;/dd&gt;
+    ///             &lt;dt&gt;CREATE_COMPLETED&lt;/dt&gt;
+    ///             &lt;dd&gt;
+    ///                &lt;p&gt;The source is ready to use.&lt;/p&gt;
+    ///             &lt;/dd&gt;
+    ///             &lt;dt&gt;CREATE_FAILED&lt;/dt&gt;
+    ///             &lt;dd&gt;
+    ///                &lt;p&gt;Route 53 couldn't create the source. &lt;code&gt;StatusReasonCode&lt;/code&gt; and &lt;code&gt;StatusReason&lt;/code&gt; explain why.&lt;/p&gt;
+    ///             &lt;/dd&gt;
+    ///             &lt;dt&gt;DELETE_PENDING, DELETE_IN_PROGRESS&lt;/dt&gt;
+    ///             &lt;dd&gt;
+    ///                &lt;p&gt;Route 53 is deleting the source.&lt;/p&gt;
+    ///             &lt;/dd&gt;
+    ///             &lt;dt&gt;DELETE_COMPLETED&lt;/dt&gt;
+    ///             &lt;dd&gt;
+    ///                &lt;p&gt;Route 53 has deleted the source.&lt;/p&gt;
+    ///             &lt;/dd&gt;
+    ///             &lt;dt&gt;DELETE_FAILED&lt;/dt&gt;
+    ///             &lt;dd&gt;
+    ///                &lt;p&gt;Route 53 couldn't delete the source. &lt;code&gt;StatusReasonCode&lt;/code&gt; and &lt;code&gt;StatusReason&lt;/code&gt; explain why.&lt;/p&gt;
+    ///             &lt;/dd&gt;
+    ///          &lt;/dl&gt;
+    ///          &lt;p&gt;If the status is &lt;code&gt;CREATE_FAILED&lt;/code&gt;, delete the source and create a new one. If the status is &lt;code&gt;DELETE_FAILED&lt;/code&gt;, retry the &lt;code&gt;DeleteHealthCheckSource&lt;/code&gt; request.&lt;/p&gt;
+    /// </summary>
+    [EnumType]
+    public readonly struct HealthCheckSourceStatus : IEquatable<HealthCheckSourceStatus>
+    {
+        private readonly string _value;
+
+        private HealthCheckSourceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HealthCheckSourceStatus CreatePending { get; } = new HealthCheckSourceStatus("CREATE_PENDING");
+        public static HealthCheckSourceStatus CreateInProgress { get; } = new HealthCheckSourceStatus("CREATE_IN_PROGRESS");
+        public static HealthCheckSourceStatus CreateCompleted { get; } = new HealthCheckSourceStatus("CREATE_COMPLETED");
+        public static HealthCheckSourceStatus CreateFailed { get; } = new HealthCheckSourceStatus("CREATE_FAILED");
+        public static HealthCheckSourceStatus DeletePending { get; } = new HealthCheckSourceStatus("DELETE_PENDING");
+        public static HealthCheckSourceStatus DeleteInProgress { get; } = new HealthCheckSourceStatus("DELETE_IN_PROGRESS");
+        public static HealthCheckSourceStatus DeleteCompleted { get; } = new HealthCheckSourceStatus("DELETE_COMPLETED");
+        public static HealthCheckSourceStatus DeleteFailed { get; } = new HealthCheckSourceStatus("DELETE_FAILED");
+
+        public static bool operator ==(HealthCheckSourceStatus left, HealthCheckSourceStatus right) => left.Equals(right);
+        public static bool operator !=(HealthCheckSourceStatus left, HealthCheckSourceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(HealthCheckSourceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HealthCheckSourceStatus other && Equals(other);
+        public bool Equals(HealthCheckSourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
     /// </summary>
     [EnumType]

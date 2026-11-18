@@ -1273,6 +1273,386 @@ func (in *distributionConfigurationTargetContainerRepositoryServicePtr) ToDistri
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
 }
 
+type ImagePipelineImageScanningConfigurationImageScanningTypesItem string
+
+const (
+	ImagePipelineImageScanningConfigurationImageScanningTypesItemTestInstanceCve = ImagePipelineImageScanningConfigurationImageScanningTypesItem("TEST_INSTANCE_CVE")
+	ImagePipelineImageScanningConfigurationImageScanningTypesItemOnDemandAmiCve  = ImagePipelineImageScanningConfigurationImageScanningTypesItem("ON_DEMAND_AMI_CVE")
+)
+
+func (ImagePipelineImageScanningConfigurationImageScanningTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (e ImagePipelineImageScanningConfigurationImageScanningTypesItem) ToImagePipelineImageScanningConfigurationImageScanningTypesItemOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput {
+	return pulumi.ToOutput(e).(ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput)
+}
+
+func (e ImagePipelineImageScanningConfigurationImageScanningTypesItem) ToImagePipelineImageScanningConfigurationImageScanningTypesItemOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput)
+}
+
+func (e ImagePipelineImageScanningConfigurationImageScanningTypesItem) ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return e.ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e ImagePipelineImageScanningConfigurationImageScanningTypesItem) ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return ImagePipelineImageScanningConfigurationImageScanningTypesItem(e).ToImagePipelineImageScanningConfigurationImageScanningTypesItemOutputWithContext(ctx).ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e ImagePipelineImageScanningConfigurationImageScanningTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImagePipelineImageScanningConfigurationImageScanningTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImagePipelineImageScanningConfigurationImageScanningTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImagePipelineImageScanningConfigurationImageScanningTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ToImagePipelineImageScanningConfigurationImageScanningTypesItemOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ToImagePipelineImageScanningConfigurationImageScanningTypesItemOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return o.ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineImageScanningConfigurationImageScanningTypesItem) *ImagePipelineImageScanningConfigurationImageScanningTypesItem {
+		return &v
+	}).(ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput)
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImagePipelineImageScanningConfigurationImageScanningTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImagePipelineImageScanningConfigurationImageScanningTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput) ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput) ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput) Elem() ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfigurationImageScanningTypesItem) ImagePipelineImageScanningConfigurationImageScanningTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineImageScanningConfigurationImageScanningTypesItem
+		return ret
+	}).(ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput)
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImagePipelineImageScanningConfigurationImageScanningTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImagePipelineImageScanningConfigurationImageScanningTypesItemInput is an input type that accepts values of the ImagePipelineImageScanningConfigurationImageScanningTypesItem enum
+// A concrete instance of `ImagePipelineImageScanningConfigurationImageScanningTypesItemInput` can be one of the following:
+//
+//	ImagePipelineImageScanningConfigurationImageScanningTypesItemTestInstanceCve
+//	ImagePipelineImageScanningConfigurationImageScanningTypesItemOnDemandAmiCve
+type ImagePipelineImageScanningConfigurationImageScanningTypesItemInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationImageScanningTypesItemOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput
+	ToImagePipelineImageScanningConfigurationImageScanningTypesItemOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput
+}
+
+var imagePipelineImageScanningConfigurationImageScanningTypesItemPtrType = reflect.TypeOf((**ImagePipelineImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+
+type ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput
+	ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput
+}
+
+type imagePipelineImageScanningConfigurationImageScanningTypesItemPtr string
+
+func ImagePipelineImageScanningConfigurationImageScanningTypesItemPtr(v string) ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrInput {
+	return (*imagePipelineImageScanningConfigurationImageScanningTypesItemPtr)(&v)
+}
+
+func (*imagePipelineImageScanningConfigurationImageScanningTypesItemPtr) ElementType() reflect.Type {
+	return imagePipelineImageScanningConfigurationImageScanningTypesItemPtrType
+}
+
+func (in *imagePipelineImageScanningConfigurationImageScanningTypesItemPtr) ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput)
+}
+
+func (in *imagePipelineImageScanningConfigurationImageScanningTypesItemPtr) ToImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput)
+}
+
+// ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayInput is an input type that accepts ImagePipelineImageScanningConfigurationImageScanningTypesItemArray and ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayInput` via:
+//
+//	ImagePipelineImageScanningConfigurationImageScanningTypesItemArray{ ImagePipelineImageScanningConfigurationImageScanningTypesItemArgs{...} }
+type ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput
+	ToImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput
+}
+
+type ImagePipelineImageScanningConfigurationImageScanningTypesItemArray []ImagePipelineImageScanningConfigurationImageScanningTypesItem
+
+func (ImagePipelineImageScanningConfigurationImageScanningTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImagePipelineImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (i ImagePipelineImageScanningConfigurationImageScanningTypesItemArray) ToImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return i.ToImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationImageScanningTypesItemArray) ToImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput)
+}
+
+type ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImagePipelineImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput) ToImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput() ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput) ToImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput) Index(i pulumi.IntInput) ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImagePipelineImageScanningConfigurationImageScanningTypesItem {
+		return vs[0].([]ImagePipelineImageScanningConfigurationImageScanningTypesItem)[vs[1].(int)]
+	}).(ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput)
+}
+
+// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+type ImagePipelineScanResultConditionMaximumSeverityLabel string
+
+const (
+	ImagePipelineScanResultConditionMaximumSeverityLabelInformational = ImagePipelineScanResultConditionMaximumSeverityLabel("INFORMATIONAL")
+	ImagePipelineScanResultConditionMaximumSeverityLabelLow           = ImagePipelineScanResultConditionMaximumSeverityLabel("LOW")
+	ImagePipelineScanResultConditionMaximumSeverityLabelMedium        = ImagePipelineScanResultConditionMaximumSeverityLabel("MEDIUM")
+	ImagePipelineScanResultConditionMaximumSeverityLabelHigh          = ImagePipelineScanResultConditionMaximumSeverityLabel("HIGH")
+)
+
+func (ImagePipelineScanResultConditionMaximumSeverityLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineScanResultConditionMaximumSeverityLabel)(nil)).Elem()
+}
+
+func (e ImagePipelineScanResultConditionMaximumSeverityLabel) ToImagePipelineScanResultConditionMaximumSeverityLabelOutput() ImagePipelineScanResultConditionMaximumSeverityLabelOutput {
+	return pulumi.ToOutput(e).(ImagePipelineScanResultConditionMaximumSeverityLabelOutput)
+}
+
+func (e ImagePipelineScanResultConditionMaximumSeverityLabel) ToImagePipelineScanResultConditionMaximumSeverityLabelOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionMaximumSeverityLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImagePipelineScanResultConditionMaximumSeverityLabelOutput)
+}
+
+func (e ImagePipelineScanResultConditionMaximumSeverityLabel) ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput() ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return e.ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutputWithContext(context.Background())
+}
+
+func (e ImagePipelineScanResultConditionMaximumSeverityLabel) ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return ImagePipelineScanResultConditionMaximumSeverityLabel(e).ToImagePipelineScanResultConditionMaximumSeverityLabelOutputWithContext(ctx).ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx)
+}
+
+func (e ImagePipelineScanResultConditionMaximumSeverityLabel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImagePipelineScanResultConditionMaximumSeverityLabel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImagePipelineScanResultConditionMaximumSeverityLabel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImagePipelineScanResultConditionMaximumSeverityLabel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImagePipelineScanResultConditionMaximumSeverityLabelOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineScanResultConditionMaximumSeverityLabel)(nil)).Elem()
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ToImagePipelineScanResultConditionMaximumSeverityLabelOutput() ImagePipelineScanResultConditionMaximumSeverityLabelOutput {
+	return o
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ToImagePipelineScanResultConditionMaximumSeverityLabelOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionMaximumSeverityLabelOutput {
+	return o
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput() ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o.ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineScanResultConditionMaximumSeverityLabel) *ImagePipelineScanResultConditionMaximumSeverityLabel {
+		return &v
+	}).(ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput)
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImagePipelineScanResultConditionMaximumSeverityLabel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImagePipelineScanResultConditionMaximumSeverityLabel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineScanResultConditionMaximumSeverityLabel)(nil)).Elem()
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput) ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput() ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput) ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput) Elem() ImagePipelineScanResultConditionMaximumSeverityLabelOutput {
+	return o.ApplyT(func(v *ImagePipelineScanResultConditionMaximumSeverityLabel) ImagePipelineScanResultConditionMaximumSeverityLabel {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineScanResultConditionMaximumSeverityLabel
+		return ret
+	}).(ImagePipelineScanResultConditionMaximumSeverityLabelOutput)
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImagePipelineScanResultConditionMaximumSeverityLabel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImagePipelineScanResultConditionMaximumSeverityLabelInput is an input type that accepts values of the ImagePipelineScanResultConditionMaximumSeverityLabel enum
+// A concrete instance of `ImagePipelineScanResultConditionMaximumSeverityLabelInput` can be one of the following:
+//
+//	ImagePipelineScanResultConditionMaximumSeverityLabelInformational
+//	ImagePipelineScanResultConditionMaximumSeverityLabelLow
+//	ImagePipelineScanResultConditionMaximumSeverityLabelMedium
+//	ImagePipelineScanResultConditionMaximumSeverityLabelHigh
+type ImagePipelineScanResultConditionMaximumSeverityLabelInput interface {
+	pulumi.Input
+
+	ToImagePipelineScanResultConditionMaximumSeverityLabelOutput() ImagePipelineScanResultConditionMaximumSeverityLabelOutput
+	ToImagePipelineScanResultConditionMaximumSeverityLabelOutputWithContext(context.Context) ImagePipelineScanResultConditionMaximumSeverityLabelOutput
+}
+
+var imagePipelineScanResultConditionMaximumSeverityLabelPtrType = reflect.TypeOf((**ImagePipelineScanResultConditionMaximumSeverityLabel)(nil)).Elem()
+
+type ImagePipelineScanResultConditionMaximumSeverityLabelPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput() ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput
+	ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutputWithContext(context.Context) ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput
+}
+
+type imagePipelineScanResultConditionMaximumSeverityLabelPtr string
+
+func ImagePipelineScanResultConditionMaximumSeverityLabelPtr(v string) ImagePipelineScanResultConditionMaximumSeverityLabelPtrInput {
+	return (*imagePipelineScanResultConditionMaximumSeverityLabelPtr)(&v)
+}
+
+func (*imagePipelineScanResultConditionMaximumSeverityLabelPtr) ElementType() reflect.Type {
+	return imagePipelineScanResultConditionMaximumSeverityLabelPtrType
+}
+
+func (in *imagePipelineScanResultConditionMaximumSeverityLabelPtr) ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput() ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return pulumi.ToOutput(in).(ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput)
+}
+
+func (in *imagePipelineScanResultConditionMaximumSeverityLabelPtr) ToImagePipelineScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx context.Context) ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput)
+}
+
 // The condition configures when the pipeline should trigger a new image build.
 type ImagePipelineSchedulePipelineExecutionStartCondition string
 
@@ -1949,6 +2329,386 @@ func (in *imageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToImageRe
 
 func (in *imageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutputWithContext(ctx context.Context) ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
+}
+
+// The maximum severity allowed for findings on the output AMI. A finding above this severity fails the image, unless FixAvailable excludes it.
+type ImageScanResultConditionMaximumSeverityLabel string
+
+const (
+	ImageScanResultConditionMaximumSeverityLabelInformational = ImageScanResultConditionMaximumSeverityLabel("INFORMATIONAL")
+	ImageScanResultConditionMaximumSeverityLabelLow           = ImageScanResultConditionMaximumSeverityLabel("LOW")
+	ImageScanResultConditionMaximumSeverityLabelMedium        = ImageScanResultConditionMaximumSeverityLabel("MEDIUM")
+	ImageScanResultConditionMaximumSeverityLabelHigh          = ImageScanResultConditionMaximumSeverityLabel("HIGH")
+)
+
+func (ImageScanResultConditionMaximumSeverityLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageScanResultConditionMaximumSeverityLabel)(nil)).Elem()
+}
+
+func (e ImageScanResultConditionMaximumSeverityLabel) ToImageScanResultConditionMaximumSeverityLabelOutput() ImageScanResultConditionMaximumSeverityLabelOutput {
+	return pulumi.ToOutput(e).(ImageScanResultConditionMaximumSeverityLabelOutput)
+}
+
+func (e ImageScanResultConditionMaximumSeverityLabel) ToImageScanResultConditionMaximumSeverityLabelOutputWithContext(ctx context.Context) ImageScanResultConditionMaximumSeverityLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImageScanResultConditionMaximumSeverityLabelOutput)
+}
+
+func (e ImageScanResultConditionMaximumSeverityLabel) ToImageScanResultConditionMaximumSeverityLabelPtrOutput() ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return e.ToImageScanResultConditionMaximumSeverityLabelPtrOutputWithContext(context.Background())
+}
+
+func (e ImageScanResultConditionMaximumSeverityLabel) ToImageScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx context.Context) ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return ImageScanResultConditionMaximumSeverityLabel(e).ToImageScanResultConditionMaximumSeverityLabelOutputWithContext(ctx).ToImageScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx)
+}
+
+func (e ImageScanResultConditionMaximumSeverityLabel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageScanResultConditionMaximumSeverityLabel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageScanResultConditionMaximumSeverityLabel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImageScanResultConditionMaximumSeverityLabel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImageScanResultConditionMaximumSeverityLabelOutput struct{ *pulumi.OutputState }
+
+func (ImageScanResultConditionMaximumSeverityLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageScanResultConditionMaximumSeverityLabel)(nil)).Elem()
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelOutput) ToImageScanResultConditionMaximumSeverityLabelOutput() ImageScanResultConditionMaximumSeverityLabelOutput {
+	return o
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelOutput) ToImageScanResultConditionMaximumSeverityLabelOutputWithContext(ctx context.Context) ImageScanResultConditionMaximumSeverityLabelOutput {
+	return o
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelOutput) ToImageScanResultConditionMaximumSeverityLabelPtrOutput() ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o.ToImageScanResultConditionMaximumSeverityLabelPtrOutputWithContext(context.Background())
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelOutput) ToImageScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx context.Context) ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageScanResultConditionMaximumSeverityLabel) *ImageScanResultConditionMaximumSeverityLabel {
+		return &v
+	}).(ImageScanResultConditionMaximumSeverityLabelPtrOutput)
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageScanResultConditionMaximumSeverityLabel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageScanResultConditionMaximumSeverityLabel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageScanResultConditionMaximumSeverityLabelPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageScanResultConditionMaximumSeverityLabelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageScanResultConditionMaximumSeverityLabel)(nil)).Elem()
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelPtrOutput) ToImageScanResultConditionMaximumSeverityLabelPtrOutput() ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelPtrOutput) ToImageScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx context.Context) ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return o
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelPtrOutput) Elem() ImageScanResultConditionMaximumSeverityLabelOutput {
+	return o.ApplyT(func(v *ImageScanResultConditionMaximumSeverityLabel) ImageScanResultConditionMaximumSeverityLabel {
+		if v != nil {
+			return *v
+		}
+		var ret ImageScanResultConditionMaximumSeverityLabel
+		return ret
+	}).(ImageScanResultConditionMaximumSeverityLabelOutput)
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageScanResultConditionMaximumSeverityLabelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageScanResultConditionMaximumSeverityLabel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImageScanResultConditionMaximumSeverityLabelInput is an input type that accepts values of the ImageScanResultConditionMaximumSeverityLabel enum
+// A concrete instance of `ImageScanResultConditionMaximumSeverityLabelInput` can be one of the following:
+//
+//	ImageScanResultConditionMaximumSeverityLabelInformational
+//	ImageScanResultConditionMaximumSeverityLabelLow
+//	ImageScanResultConditionMaximumSeverityLabelMedium
+//	ImageScanResultConditionMaximumSeverityLabelHigh
+type ImageScanResultConditionMaximumSeverityLabelInput interface {
+	pulumi.Input
+
+	ToImageScanResultConditionMaximumSeverityLabelOutput() ImageScanResultConditionMaximumSeverityLabelOutput
+	ToImageScanResultConditionMaximumSeverityLabelOutputWithContext(context.Context) ImageScanResultConditionMaximumSeverityLabelOutput
+}
+
+var imageScanResultConditionMaximumSeverityLabelPtrType = reflect.TypeOf((**ImageScanResultConditionMaximumSeverityLabel)(nil)).Elem()
+
+type ImageScanResultConditionMaximumSeverityLabelPtrInput interface {
+	pulumi.Input
+
+	ToImageScanResultConditionMaximumSeverityLabelPtrOutput() ImageScanResultConditionMaximumSeverityLabelPtrOutput
+	ToImageScanResultConditionMaximumSeverityLabelPtrOutputWithContext(context.Context) ImageScanResultConditionMaximumSeverityLabelPtrOutput
+}
+
+type imageScanResultConditionMaximumSeverityLabelPtr string
+
+func ImageScanResultConditionMaximumSeverityLabelPtr(v string) ImageScanResultConditionMaximumSeverityLabelPtrInput {
+	return (*imageScanResultConditionMaximumSeverityLabelPtr)(&v)
+}
+
+func (*imageScanResultConditionMaximumSeverityLabelPtr) ElementType() reflect.Type {
+	return imageScanResultConditionMaximumSeverityLabelPtrType
+}
+
+func (in *imageScanResultConditionMaximumSeverityLabelPtr) ToImageScanResultConditionMaximumSeverityLabelPtrOutput() ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return pulumi.ToOutput(in).(ImageScanResultConditionMaximumSeverityLabelPtrOutput)
+}
+
+func (in *imageScanResultConditionMaximumSeverityLabelPtr) ToImageScanResultConditionMaximumSeverityLabelPtrOutputWithContext(ctx context.Context) ImageScanResultConditionMaximumSeverityLabelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImageScanResultConditionMaximumSeverityLabelPtrOutput)
+}
+
+type ImageScanningConfigurationImageScanningTypesItem string
+
+const (
+	ImageScanningConfigurationImageScanningTypesItemTestInstanceCve = ImageScanningConfigurationImageScanningTypesItem("TEST_INSTANCE_CVE")
+	ImageScanningConfigurationImageScanningTypesItemOnDemandAmiCve  = ImageScanningConfigurationImageScanningTypesItem("ON_DEMAND_AMI_CVE")
+)
+
+func (ImageScanningConfigurationImageScanningTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (e ImageScanningConfigurationImageScanningTypesItem) ToImageScanningConfigurationImageScanningTypesItemOutput() ImageScanningConfigurationImageScanningTypesItemOutput {
+	return pulumi.ToOutput(e).(ImageScanningConfigurationImageScanningTypesItemOutput)
+}
+
+func (e ImageScanningConfigurationImageScanningTypesItem) ToImageScanningConfigurationImageScanningTypesItemOutputWithContext(ctx context.Context) ImageScanningConfigurationImageScanningTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImageScanningConfigurationImageScanningTypesItemOutput)
+}
+
+func (e ImageScanningConfigurationImageScanningTypesItem) ToImageScanningConfigurationImageScanningTypesItemPtrOutput() ImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return e.ToImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e ImageScanningConfigurationImageScanningTypesItem) ToImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return ImageScanningConfigurationImageScanningTypesItem(e).ToImageScanningConfigurationImageScanningTypesItemOutputWithContext(ctx).ToImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e ImageScanningConfigurationImageScanningTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageScanningConfigurationImageScanningTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageScanningConfigurationImageScanningTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImageScanningConfigurationImageScanningTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImageScanningConfigurationImageScanningTypesItemOutput struct{ *pulumi.OutputState }
+
+func (ImageScanningConfigurationImageScanningTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemOutput) ToImageScanningConfigurationImageScanningTypesItemOutput() ImageScanningConfigurationImageScanningTypesItemOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemOutput) ToImageScanningConfigurationImageScanningTypesItemOutputWithContext(ctx context.Context) ImageScanningConfigurationImageScanningTypesItemOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemOutput) ToImageScanningConfigurationImageScanningTypesItemPtrOutput() ImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return o.ToImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemOutput) ToImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageScanningConfigurationImageScanningTypesItem) *ImageScanningConfigurationImageScanningTypesItem {
+		return &v
+	}).(ImageScanningConfigurationImageScanningTypesItemPtrOutput)
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageScanningConfigurationImageScanningTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageScanningConfigurationImageScanningTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageScanningConfigurationImageScanningTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageScanningConfigurationImageScanningTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemPtrOutput) ToImageScanningConfigurationImageScanningTypesItemPtrOutput() ImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemPtrOutput) ToImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemPtrOutput) Elem() ImageScanningConfigurationImageScanningTypesItemOutput {
+	return o.ApplyT(func(v *ImageScanningConfigurationImageScanningTypesItem) ImageScanningConfigurationImageScanningTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret ImageScanningConfigurationImageScanningTypesItem
+		return ret
+	}).(ImageScanningConfigurationImageScanningTypesItemOutput)
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageScanningConfigurationImageScanningTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImageScanningConfigurationImageScanningTypesItemInput is an input type that accepts values of the ImageScanningConfigurationImageScanningTypesItem enum
+// A concrete instance of `ImageScanningConfigurationImageScanningTypesItemInput` can be one of the following:
+//
+//	ImageScanningConfigurationImageScanningTypesItemTestInstanceCve
+//	ImageScanningConfigurationImageScanningTypesItemOnDemandAmiCve
+type ImageScanningConfigurationImageScanningTypesItemInput interface {
+	pulumi.Input
+
+	ToImageScanningConfigurationImageScanningTypesItemOutput() ImageScanningConfigurationImageScanningTypesItemOutput
+	ToImageScanningConfigurationImageScanningTypesItemOutputWithContext(context.Context) ImageScanningConfigurationImageScanningTypesItemOutput
+}
+
+var imageScanningConfigurationImageScanningTypesItemPtrType = reflect.TypeOf((**ImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+
+type ImageScanningConfigurationImageScanningTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToImageScanningConfigurationImageScanningTypesItemPtrOutput() ImageScanningConfigurationImageScanningTypesItemPtrOutput
+	ToImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(context.Context) ImageScanningConfigurationImageScanningTypesItemPtrOutput
+}
+
+type imageScanningConfigurationImageScanningTypesItemPtr string
+
+func ImageScanningConfigurationImageScanningTypesItemPtr(v string) ImageScanningConfigurationImageScanningTypesItemPtrInput {
+	return (*imageScanningConfigurationImageScanningTypesItemPtr)(&v)
+}
+
+func (*imageScanningConfigurationImageScanningTypesItemPtr) ElementType() reflect.Type {
+	return imageScanningConfigurationImageScanningTypesItemPtrType
+}
+
+func (in *imageScanningConfigurationImageScanningTypesItemPtr) ToImageScanningConfigurationImageScanningTypesItemPtrOutput() ImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(ImageScanningConfigurationImageScanningTypesItemPtrOutput)
+}
+
+func (in *imageScanningConfigurationImageScanningTypesItemPtr) ToImageScanningConfigurationImageScanningTypesItemPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationImageScanningTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImageScanningConfigurationImageScanningTypesItemPtrOutput)
+}
+
+// ImageScanningConfigurationImageScanningTypesItemArrayInput is an input type that accepts ImageScanningConfigurationImageScanningTypesItemArray and ImageScanningConfigurationImageScanningTypesItemArrayOutput values.
+// You can construct a concrete instance of `ImageScanningConfigurationImageScanningTypesItemArrayInput` via:
+//
+//	ImageScanningConfigurationImageScanningTypesItemArray{ ImageScanningConfigurationImageScanningTypesItemArgs{...} }
+type ImageScanningConfigurationImageScanningTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToImageScanningConfigurationImageScanningTypesItemArrayOutput() ImageScanningConfigurationImageScanningTypesItemArrayOutput
+	ToImageScanningConfigurationImageScanningTypesItemArrayOutputWithContext(context.Context) ImageScanningConfigurationImageScanningTypesItemArrayOutput
+}
+
+type ImageScanningConfigurationImageScanningTypesItemArray []ImageScanningConfigurationImageScanningTypesItem
+
+func (ImageScanningConfigurationImageScanningTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (i ImageScanningConfigurationImageScanningTypesItemArray) ToImageScanningConfigurationImageScanningTypesItemArrayOutput() ImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return i.ToImageScanningConfigurationImageScanningTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i ImageScanningConfigurationImageScanningTypesItemArray) ToImageScanningConfigurationImageScanningTypesItemArrayOutputWithContext(ctx context.Context) ImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageScanningConfigurationImageScanningTypesItemArrayOutput)
+}
+
+type ImageScanningConfigurationImageScanningTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageScanningConfigurationImageScanningTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageScanningConfigurationImageScanningTypesItem)(nil)).Elem()
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemArrayOutput) ToImageScanningConfigurationImageScanningTypesItemArrayOutput() ImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemArrayOutput) ToImageScanningConfigurationImageScanningTypesItemArrayOutputWithContext(ctx context.Context) ImageScanningConfigurationImageScanningTypesItemArrayOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationImageScanningTypesItemArrayOutput) Index(i pulumi.IntInput) ImageScanningConfigurationImageScanningTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageScanningConfigurationImageScanningTypesItem {
+		return vs[0].([]ImageScanningConfigurationImageScanningTypesItem)[vs[1].(int)]
+	}).(ImageScanningConfigurationImageScanningTypesItemOutput)
 }
 
 // Define execution decision in case of workflow failure
@@ -3470,6 +4230,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationSsmParameterConfigurationDataTypePtrInput)(nil)).Elem(), DistributionConfigurationSsmParameterConfigurationDataType("text"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryServiceInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryService("ECR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryServicePtrInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryService("ECR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationImageScanningTypesItemInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationImageScanningTypesItem("TEST_INSTANCE_CVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationImageScanningTypesItem("TEST_INSTANCE_CVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationImageScanningTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScanResultConditionMaximumSeverityLabelInput)(nil)).Elem(), ImagePipelineScanResultConditionMaximumSeverityLabel("INFORMATIONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScanResultConditionMaximumSeverityLabelPtrInput)(nil)).Elem(), ImagePipelineScanResultConditionMaximumSeverityLabel("INFORMATIONAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineSchedulePipelineExecutionStartConditionInput)(nil)).Elem(), ImagePipelineSchedulePipelineExecutionStartCondition("EXPRESSION_MATCH_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineSchedulePipelineExecutionStartConditionPtrInput)(nil)).Elem(), ImagePipelineSchedulePipelineExecutionStartCondition("EXPRESSION_MATCH_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineStatusInput)(nil)).Elem(), ImagePipelineStatus("DISABLED"))
@@ -3478,6 +4243,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowConfigurationOnFailurePtrInput)(nil)).Elem(), ImagePipelineWorkflowConfigurationOnFailure("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput)(nil)).Elem(), ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrInput)(nil)).Elem(), ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanResultConditionMaximumSeverityLabelInput)(nil)).Elem(), ImageScanResultConditionMaximumSeverityLabel("INFORMATIONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanResultConditionMaximumSeverityLabelPtrInput)(nil)).Elem(), ImageScanResultConditionMaximumSeverityLabel("INFORMATIONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanningConfigurationImageScanningTypesItemInput)(nil)).Elem(), ImageScanningConfigurationImageScanningTypesItem("TEST_INSTANCE_CVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanningConfigurationImageScanningTypesItemPtrInput)(nil)).Elem(), ImageScanningConfigurationImageScanningTypesItem("TEST_INSTANCE_CVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanningConfigurationImageScanningTypesItemArrayInput)(nil)).Elem(), ImageScanningConfigurationImageScanningTypesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowConfigurationOnFailureInput)(nil)).Elem(), ImageWorkflowConfigurationOnFailure("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowConfigurationOnFailurePtrInput)(nil)).Elem(), ImageWorkflowConfigurationOnFailure("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("required"))
@@ -3512,6 +4282,11 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryServiceOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryServicePtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationImageScanningTypesItemOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationImageScanningTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationImageScanningTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(ImagePipelineScanResultConditionMaximumSeverityLabelOutput{})
+	pulumi.RegisterOutputType(ImagePipelineScanResultConditionMaximumSeverityLabelPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePipelineExecutionStartConditionOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineStatusOutput{})
@@ -3520,6 +4295,11 @@ func init() {
 	pulumi.RegisterOutputType(ImagePipelineWorkflowConfigurationOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(ImageScanResultConditionMaximumSeverityLabelOutput{})
+	pulumi.RegisterOutputType(ImageScanResultConditionMaximumSeverityLabelPtrOutput{})
+	pulumi.RegisterOutputType(ImageScanningConfigurationImageScanningTypesItemOutput{})
+	pulumi.RegisterOutputType(ImageScanningConfigurationImageScanningTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(ImageScanningConfigurationImageScanningTypesItemArrayOutput{})
 	pulumi.RegisterOutputType(ImageWorkflowConfigurationOnFailureOutput{})
 	pulumi.RegisterOutputType(ImageWorkflowConfigurationOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput{})

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Association{}
 	case "aws-native:ssm:CloudConnector":
 		r = &CloudConnector{}
+	case "aws-native:ssm:DefaultHostManagementConfiguration":
+		r = &DefaultHostManagementConfiguration{}
 	case "aws-native:ssm:Document":
 		r = &Document{}
 	case "aws-native:ssm:MaintenanceWindow":

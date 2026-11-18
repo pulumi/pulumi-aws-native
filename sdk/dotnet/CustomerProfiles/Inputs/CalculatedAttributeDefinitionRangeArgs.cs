@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         /// <summary>
         /// The unit of time.
         /// </summary>
-        [Input("unit", required: true)]
-        public Input<Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit> Unit { get; set; } = null!;
+        [Input("unit")]
+        public Input<Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit>? Unit { get; set; }
 
         /// <summary>
         /// The amount of time of the specified unit.

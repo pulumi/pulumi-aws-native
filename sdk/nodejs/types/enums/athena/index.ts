@@ -42,6 +42,15 @@ export const DataCatalogType = {
  */
 export type DataCatalogType = (typeof DataCatalogType)[keyof typeof DataCatalogType];
 
+export const SystemTablesTableName = {
+    All: "ALL",
+} as const;
+
+/**
+ * The reserved keyword identifying the account-level System Tables configuration. The only accepted value is ALL, which enables all system tables for the account. This is the resource's primary identifier.
+ */
+export type SystemTablesTableName = (typeof SystemTablesTableName)[keyof typeof SystemTablesTableName];
+
 export const WorkGroupEncryptionOption = {
     SseS3: "SSE_S3",
     SseKms: "SSE_KMS",

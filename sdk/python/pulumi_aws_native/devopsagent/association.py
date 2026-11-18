@@ -25,6 +25,7 @@ class AssociationArgs:
                  agent_space_id: pulumi.Input[_builtins.str],
                  configuration: pulumi.Input['AssociationServiceConfigurationArgs'],
                  service_id: pulumi.Input[_builtins.str],
+                 capabilities: pulumi.Input[Optional['AssociationCapabilitiesArgs']] = None,
                  linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Association resource.
@@ -32,11 +33,14 @@ class AssociationArgs:
         :param pulumi.Input[_builtins.str] agent_space_id: The unique identifier of the AgentSpace
         :param pulumi.Input['AssociationServiceConfigurationArgs'] configuration: The configuration that directs how AgentSpace interacts with the given service
         :param pulumi.Input[_builtins.str] service_id: The identifier for the associated service
+        :param pulumi.Input['AssociationCapabilitiesArgs'] capabilities: Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_association_ids: Set of linked association IDs for parent-child relationships
         """
         pulumi.set(__self__, "agent_space_id", agent_space_id)
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "service_id", service_id)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
         if linked_association_ids is not None:
             pulumi.set(__self__, "linked_association_ids", linked_association_ids)
 
@@ -77,6 +81,18 @@ class AssociationArgs:
         pulumi.set(self, "service_id", value)
 
     @_builtins.property
+    @pulumi.getter
+    def capabilities(self) -> pulumi.Input[Optional['AssociationCapabilitiesArgs']]:
+        """
+        Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: pulumi.Input[Optional['AssociationCapabilitiesArgs']]):
+        pulumi.set(self, "capabilities", value)
+
+    @_builtins.property
     @pulumi.getter(name="linkedAssociationIds")
     def linked_association_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -96,6 +112,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Union['AssociationCapabilitiesArgs', 'AssociationCapabilitiesArgsDict', 'outputs.AssociationCapabilities']]] = None,
                  configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']]] = None,
                  linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -106,6 +123,7 @@ class Association(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_space_id: The unique identifier of the AgentSpace
+        :param pulumi.Input[Union['AssociationCapabilitiesArgs', 'AssociationCapabilitiesArgsDict', 'outputs.AssociationCapabilities']] capabilities: Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
         :param pulumi.Input[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']] configuration: The configuration that directs how AgentSpace interacts with the given service
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_association_ids: Set of linked association IDs for parent-child relationships
         :param pulumi.Input[_builtins.str] service_id: The identifier for the associated service
@@ -135,6 +153,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Union['AssociationCapabilitiesArgs', 'AssociationCapabilitiesArgsDict', 'outputs.AssociationCapabilities']]] = None,
                  configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']]] = None,
                  linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -150,6 +169,7 @@ class Association(pulumi.CustomResource):
             if agent_space_id is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_space_id'")
             __props__.__dict__["agent_space_id"] = agent_space_id
+            __props__.__dict__["capabilities"] = capabilities
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
@@ -186,6 +206,7 @@ class Association(pulumi.CustomResource):
 
         __props__.__dict__["agent_space_id"] = None
         __props__.__dict__["association_id"] = None
+        __props__.__dict__["capabilities"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["linked_association_ids"] = None
@@ -214,6 +235,14 @@ class Association(pulumi.CustomResource):
         The unique identifier of the association
         """
         return pulumi.get(self, "association_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def capabilities(self) -> pulumi.Output[Optional['outputs.AssociationCapabilities']]:
+        """
+        Automated AWS DevOps Agent capabilities enabled for this association, such as code change risk analysis
+        """
+        return pulumi.get(self, "capabilities")
 
     @_builtins.property
     @pulumi.getter

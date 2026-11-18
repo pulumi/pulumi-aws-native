@@ -94,6 +94,12 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+        /// </summary>
+        [Output("recursiveLogging")]
+        public Output<bool?> RecursiveLogging { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
         /// </summary>
         [Output("s3BucketName")]
@@ -279,6 +285,12 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Specifies whether recursive logging is enabled for the trail. When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+        /// </summary>
+        [Input("recursiveLogging")]
+        public Input<bool>? RecursiveLogging { get; set; }
 
         /// <summary>
         /// Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.

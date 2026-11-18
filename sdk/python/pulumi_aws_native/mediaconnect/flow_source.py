@@ -35,6 +35,7 @@ class FlowSourceInitArgs:
                  min_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional['FlowSourceProtocol']] = None,
+                 rtmp_push_settings: pulumi.Input[Optional['FlowSourceRtmpPushSettingsArgs']] = None,
                  sender_control_port: pulumi.Input[Optional[_builtins.int]] = None,
                  sender_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  source_listener_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -86,6 +87,8 @@ class FlowSourceInitArgs:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if rtmp_push_settings is not None:
+            pulumi.set(__self__, "rtmp_push_settings", rtmp_push_settings)
         if sender_control_port is not None:
             pulumi.set(__self__, "sender_control_port", sender_control_port)
         if sender_ip_address is not None:
@@ -236,6 +239,15 @@ class FlowSourceInitArgs:
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
+    @pulumi.getter(name="rtmpPushSettings")
+    def rtmp_push_settings(self) -> pulumi.Input[Optional['FlowSourceRtmpPushSettingsArgs']]:
+        return pulumi.get(self, "rtmp_push_settings")
+
+    @rtmp_push_settings.setter
+    def rtmp_push_settings(self, value: pulumi.Input[Optional['FlowSourceRtmpPushSettingsArgs']]):
+        pulumi.set(self, "rtmp_push_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="senderControlPort")
     def sender_control_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -349,6 +361,7 @@ class FlowSource(pulumi.CustomResource):
                  min_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional['FlowSourceProtocol']] = None,
+                 rtmp_push_settings: pulumi.Input[Optional[Union['FlowSourceRtmpPushSettingsArgs', 'FlowSourceRtmpPushSettingsArgsDict', 'outputs.FlowSourceRtmpPushSettings']]] = None,
                  sender_control_port: pulumi.Input[Optional[_builtins.int]] = None,
                  sender_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  source_listener_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -418,6 +431,7 @@ class FlowSource(pulumi.CustomResource):
                  min_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional['FlowSourceProtocol']] = None,
+                 rtmp_push_settings: pulumi.Input[Optional[Union['FlowSourceRtmpPushSettingsArgs', 'FlowSourceRtmpPushSettingsArgsDict', 'outputs.FlowSourceRtmpPushSettings']]] = None,
                  sender_control_port: pulumi.Input[Optional[_builtins.int]] = None,
                  sender_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  source_listener_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -450,6 +464,7 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["min_latency"] = min_latency
             __props__.__dict__["name"] = name
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["rtmp_push_settings"] = rtmp_push_settings
             __props__.__dict__["sender_control_port"] = sender_control_port
             __props__.__dict__["sender_ip_address"] = sender_ip_address
             __props__.__dict__["source_listener_address"] = source_listener_address
@@ -459,6 +474,7 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["vpc_interface_name"] = vpc_interface_name
             __props__.__dict__["whitelist_cidr"] = whitelist_cidr
             __props__.__dict__["ingest_ip"] = None
+            __props__.__dict__["rtmp_push_details"] = None
             __props__.__dict__["source_arn"] = None
             __props__.__dict__["source_ingest_port"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["flowArn", "name", "protocol"])
@@ -497,6 +513,8 @@ class FlowSource(pulumi.CustomResource):
         __props__.__dict__["min_latency"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["protocol"] = None
+        __props__.__dict__["rtmp_push_details"] = None
+        __props__.__dict__["rtmp_push_settings"] = None
         __props__.__dict__["sender_control_port"] = None
         __props__.__dict__["sender_ip_address"] = None
         __props__.__dict__["source_arn"] = None
@@ -610,6 +628,16 @@ class FlowSource(pulumi.CustomResource):
         The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPushDetails")
+    def rtmp_push_details(self) -> pulumi.Output['outputs.FlowSourceRtmpPushDetails']:
+        return pulumi.get(self, "rtmp_push_details")
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPushSettings")
+    def rtmp_push_settings(self) -> pulumi.Output[Optional['outputs.FlowSourceRtmpPushSettings']]:
+        return pulumi.get(self, "rtmp_push_settings")
 
     @_builtins.property
     @pulumi.getter(name="senderControlPort")

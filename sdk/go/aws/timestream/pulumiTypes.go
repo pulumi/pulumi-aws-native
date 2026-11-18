@@ -21,6 +21,319 @@ type DatabaseTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// The cluster configuration of the resource at the time of backup.
+type InfluxDbBackupClusterConfiguration struct {
+	// Indicates if the compactor instance is a standalone instance or not.
+	DedicatedCompactor *bool `pulumi:"dedicatedCompactor"`
+	// The number of ingest and query instances in the cluster.
+	IngestQueryInstances *int `pulumi:"ingestQueryInstances"`
+	// The number of query-only instances in the cluster.
+	QueryOnlyInstances *int `pulumi:"queryOnlyInstances"`
+}
+
+// The cluster configuration of the resource at the time of backup.
+type InfluxDbBackupClusterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupClusterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupClusterConfiguration)(nil)).Elem()
+}
+
+func (o InfluxDbBackupClusterConfigurationOutput) ToInfluxDbBackupClusterConfigurationOutput() InfluxDbBackupClusterConfigurationOutput {
+	return o
+}
+
+func (o InfluxDbBackupClusterConfigurationOutput) ToInfluxDbBackupClusterConfigurationOutputWithContext(ctx context.Context) InfluxDbBackupClusterConfigurationOutput {
+	return o
+}
+
+// Indicates if the compactor instance is a standalone instance or not.
+func (o InfluxDbBackupClusterConfigurationOutput) DedicatedCompactor() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InfluxDbBackupClusterConfiguration) *bool { return v.DedicatedCompactor }).(pulumi.BoolPtrOutput)
+}
+
+// The number of ingest and query instances in the cluster.
+func (o InfluxDbBackupClusterConfigurationOutput) IngestQueryInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InfluxDbBackupClusterConfiguration) *int { return v.IngestQueryInstances }).(pulumi.IntPtrOutput)
+}
+
+// The number of query-only instances in the cluster.
+func (o InfluxDbBackupClusterConfigurationOutput) QueryOnlyInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InfluxDbBackupClusterConfiguration) *int { return v.QueryOnlyInstances }).(pulumi.IntPtrOutput)
+}
+
+type InfluxDbBackupClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupClusterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupClusterConfiguration)(nil)).Elem()
+}
+
+func (o InfluxDbBackupClusterConfigurationPtrOutput) ToInfluxDbBackupClusterConfigurationPtrOutput() InfluxDbBackupClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupClusterConfigurationPtrOutput) ToInfluxDbBackupClusterConfigurationPtrOutputWithContext(ctx context.Context) InfluxDbBackupClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupClusterConfigurationPtrOutput) Elem() InfluxDbBackupClusterConfigurationOutput {
+	return o.ApplyT(func(v *InfluxDbBackupClusterConfiguration) InfluxDbBackupClusterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupClusterConfiguration
+		return ret
+	}).(InfluxDbBackupClusterConfigurationOutput)
+}
+
+// Indicates if the compactor instance is a standalone instance or not.
+func (o InfluxDbBackupClusterConfigurationPtrOutput) DedicatedCompactor() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InfluxDbBackupClusterConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DedicatedCompactor
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of ingest and query instances in the cluster.
+func (o InfluxDbBackupClusterConfigurationPtrOutput) IngestQueryInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfluxDbBackupClusterConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IngestQueryInstances
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of query-only instances in the cluster.
+func (o InfluxDbBackupClusterConfigurationPtrOutput) QueryOnlyInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfluxDbBackupClusterConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QueryOnlyInstances
+	}).(pulumi.IntPtrOutput)
+}
+
+// The log delivery configuration of the resource at the time of backup.
+type InfluxDbBackupLogDeliveryConfiguration struct {
+	S3Configuration InfluxDbBackupS3Configuration `pulumi:"s3Configuration"`
+}
+
+// The log delivery configuration of the resource at the time of backup.
+type InfluxDbBackupLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupLogDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o InfluxDbBackupLogDeliveryConfigurationOutput) ToInfluxDbBackupLogDeliveryConfigurationOutput() InfluxDbBackupLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o InfluxDbBackupLogDeliveryConfigurationOutput) ToInfluxDbBackupLogDeliveryConfigurationOutputWithContext(ctx context.Context) InfluxDbBackupLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o InfluxDbBackupLogDeliveryConfigurationOutput) S3Configuration() InfluxDbBackupS3ConfigurationOutput {
+	return o.ApplyT(func(v InfluxDbBackupLogDeliveryConfiguration) InfluxDbBackupS3Configuration { return v.S3Configuration }).(InfluxDbBackupS3ConfigurationOutput)
+}
+
+type InfluxDbBackupLogDeliveryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupLogDeliveryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o InfluxDbBackupLogDeliveryConfigurationPtrOutput) ToInfluxDbBackupLogDeliveryConfigurationPtrOutput() InfluxDbBackupLogDeliveryConfigurationPtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupLogDeliveryConfigurationPtrOutput) ToInfluxDbBackupLogDeliveryConfigurationPtrOutputWithContext(ctx context.Context) InfluxDbBackupLogDeliveryConfigurationPtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupLogDeliveryConfigurationPtrOutput) Elem() InfluxDbBackupLogDeliveryConfigurationOutput {
+	return o.ApplyT(func(v *InfluxDbBackupLogDeliveryConfiguration) InfluxDbBackupLogDeliveryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupLogDeliveryConfiguration
+		return ret
+	}).(InfluxDbBackupLogDeliveryConfigurationOutput)
+}
+
+func (o InfluxDbBackupLogDeliveryConfigurationPtrOutput) S3Configuration() InfluxDbBackupS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *InfluxDbBackupLogDeliveryConfiguration) *InfluxDbBackupS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(InfluxDbBackupS3ConfigurationPtrOutput)
+}
+
+// The maintenance schedule of the resource at the time of backup.
+type InfluxDbBackupMaintenanceSchedule struct {
+	// The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM.
+	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
+	// The IANA timezone identifier for the maintenance window.
+	Timezone string `pulumi:"timezone"`
+}
+
+// The maintenance schedule of the resource at the time of backup.
+type InfluxDbBackupMaintenanceScheduleOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupMaintenanceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o InfluxDbBackupMaintenanceScheduleOutput) ToInfluxDbBackupMaintenanceScheduleOutput() InfluxDbBackupMaintenanceScheduleOutput {
+	return o
+}
+
+func (o InfluxDbBackupMaintenanceScheduleOutput) ToInfluxDbBackupMaintenanceScheduleOutputWithContext(ctx context.Context) InfluxDbBackupMaintenanceScheduleOutput {
+	return o
+}
+
+// The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM.
+func (o InfluxDbBackupMaintenanceScheduleOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v InfluxDbBackupMaintenanceSchedule) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// The IANA timezone identifier for the maintenance window.
+func (o InfluxDbBackupMaintenanceScheduleOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v InfluxDbBackupMaintenanceSchedule) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type InfluxDbBackupMaintenanceSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupMaintenanceSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o InfluxDbBackupMaintenanceSchedulePtrOutput) ToInfluxDbBackupMaintenanceSchedulePtrOutput() InfluxDbBackupMaintenanceSchedulePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupMaintenanceSchedulePtrOutput) ToInfluxDbBackupMaintenanceSchedulePtrOutputWithContext(ctx context.Context) InfluxDbBackupMaintenanceSchedulePtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupMaintenanceSchedulePtrOutput) Elem() InfluxDbBackupMaintenanceScheduleOutput {
+	return o.ApplyT(func(v *InfluxDbBackupMaintenanceSchedule) InfluxDbBackupMaintenanceSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupMaintenanceSchedule
+		return ret
+	}).(InfluxDbBackupMaintenanceScheduleOutput)
+}
+
+// The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM.
+func (o InfluxDbBackupMaintenanceSchedulePtrOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbBackupMaintenanceSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredMaintenanceWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IANA timezone identifier for the maintenance window.
+func (o InfluxDbBackupMaintenanceSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbBackupMaintenanceSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for S3 bucket log delivery.
+type InfluxDbBackupS3Configuration struct {
+	// The name of the S3 bucket to deliver logs to.
+	BucketName string `pulumi:"bucketName"`
+	// Indicates whether log delivery to the S3 bucket is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// Configuration for S3 bucket log delivery.
+type InfluxDbBackupS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbBackupS3Configuration)(nil)).Elem()
+}
+
+func (o InfluxDbBackupS3ConfigurationOutput) ToInfluxDbBackupS3ConfigurationOutput() InfluxDbBackupS3ConfigurationOutput {
+	return o
+}
+
+func (o InfluxDbBackupS3ConfigurationOutput) ToInfluxDbBackupS3ConfigurationOutputWithContext(ctx context.Context) InfluxDbBackupS3ConfigurationOutput {
+	return o
+}
+
+// The name of the S3 bucket to deliver logs to.
+func (o InfluxDbBackupS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v InfluxDbBackupS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// Indicates whether log delivery to the S3 bucket is enabled.
+func (o InfluxDbBackupS3ConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v InfluxDbBackupS3Configuration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type InfluxDbBackupS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbBackupS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbBackupS3Configuration)(nil)).Elem()
+}
+
+func (o InfluxDbBackupS3ConfigurationPtrOutput) ToInfluxDbBackupS3ConfigurationPtrOutput() InfluxDbBackupS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupS3ConfigurationPtrOutput) ToInfluxDbBackupS3ConfigurationPtrOutputWithContext(ctx context.Context) InfluxDbBackupS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o InfluxDbBackupS3ConfigurationPtrOutput) Elem() InfluxDbBackupS3ConfigurationOutput {
+	return o.ApplyT(func(v *InfluxDbBackupS3Configuration) InfluxDbBackupS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbBackupS3Configuration
+		return ret
+	}).(InfluxDbBackupS3ConfigurationOutput)
+}
+
+// The name of the S3 bucket to deliver logs to.
+func (o InfluxDbBackupS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfluxDbBackupS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether log delivery to the S3 bucket is enabled.
+func (o InfluxDbBackupS3ConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InfluxDbBackupS3Configuration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A key-value pair to associate with the resource.
+type InfluxDbBackupTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // The maintenance schedule for the InfluxDB cluster.
 type InfluxDbClusterMaintenanceSchedule struct {
 	// The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
@@ -178,6 +491,59 @@ func (o InfluxDbClusterMaintenanceSchedulePtrOutput) Timezone() pulumi.StringPtr
 		}
 		return &v.Timezone
 	}).(pulumi.StringPtrOutput)
+}
+
+// The number of DB cluster members reporting one instance mode.
+type InfluxDbClusterMemberModeCount struct {
+	// The number of DB cluster members reporting this instance mode.
+	Count int `pulumi:"count"`
+	// The instance mode reported by DB cluster members.
+	Mode InfluxDbClusterMemberModeCountMode `pulumi:"mode"`
+}
+
+// The number of DB cluster members reporting one instance mode.
+type InfluxDbClusterMemberModeCountOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterMemberModeCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterMemberModeCount)(nil)).Elem()
+}
+
+func (o InfluxDbClusterMemberModeCountOutput) ToInfluxDbClusterMemberModeCountOutput() InfluxDbClusterMemberModeCountOutput {
+	return o
+}
+
+func (o InfluxDbClusterMemberModeCountOutput) ToInfluxDbClusterMemberModeCountOutputWithContext(ctx context.Context) InfluxDbClusterMemberModeCountOutput {
+	return o
+}
+
+// The number of DB cluster members reporting this instance mode.
+func (o InfluxDbClusterMemberModeCountOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v InfluxDbClusterMemberModeCount) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The instance mode reported by DB cluster members.
+func (o InfluxDbClusterMemberModeCountOutput) Mode() InfluxDbClusterMemberModeCountModeOutput {
+	return o.ApplyT(func(v InfluxDbClusterMemberModeCount) InfluxDbClusterMemberModeCountMode { return v.Mode }).(InfluxDbClusterMemberModeCountModeOutput)
+}
+
+type InfluxDbClusterMemberModeCountArrayOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterMemberModeCountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InfluxDbClusterMemberModeCount)(nil)).Elem()
+}
+
+func (o InfluxDbClusterMemberModeCountArrayOutput) ToInfluxDbClusterMemberModeCountArrayOutput() InfluxDbClusterMemberModeCountArrayOutput {
+	return o
+}
+
+func (o InfluxDbClusterMemberModeCountArrayOutput) ToInfluxDbClusterMemberModeCountArrayOutputWithContext(ctx context.Context) InfluxDbClusterMemberModeCountArrayOutput {
+	return o
+}
+
+func (o InfluxDbClusterMemberModeCountArrayOutput) Index(i pulumi.IntInput) InfluxDbClusterMemberModeCountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InfluxDbClusterMemberModeCount {
+		return vs[0].([]InfluxDbClusterMemberModeCount)[vs[1].(int)]
+	}).(InfluxDbClusterMemberModeCountOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2821,8 +3187,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesPtrInput)(nil)).Elem(), SchemaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyInput)(nil)).Elem(), TablePartitionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyArrayInput)(nil)).Elem(), TablePartitionKeyArray{})
+	pulumi.RegisterOutputType(InfluxDbBackupClusterConfigurationOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupClusterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupLogDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupLogDeliveryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupMaintenanceScheduleOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupMaintenanceSchedulePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(InfluxDbBackupS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterMaintenanceScheduleOutput{})
 	pulumi.RegisterOutputType(InfluxDbClusterMaintenanceSchedulePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterMemberModeCountOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterMemberModeCountArrayOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceMaintenanceScheduleOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceMaintenanceSchedulePtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationPropertiesOutput{})

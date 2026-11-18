@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'TableBucketEncryptionConfigurationSseAlgorithm',
     'TableBucketMetricsConfigurationStatus',
+    'TableBucketPartitionedPrefixPartitionDateSource',
     'TableBucketStorageClassConfigurationStorageClass',
     'TableBucketUnreferencedFileRemovalStatus',
     'TableCompactionStatus',
@@ -38,6 +39,15 @@ class TableBucketMetricsConfigurationStatus(_builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("aws-native:s3tables:TableBucketPartitionedPrefixPartitionDateSource")
+class TableBucketPartitionedPrefixPartitionDateSource(_builtins.str, Enum):
+    """
+    The date to use for the log object key partitions. Valid values are EventTime, the time that the requests in the log were made, and DeliveryTime, the time that the log was delivered.
+    """
+    EVENT_TIME = "EventTime"
+    DELIVERY_TIME = "DeliveryTime"
 
 
 @pulumi.type_token("aws-native:s3tables:TableBucketStorageClassConfigurationStorageClass")

@@ -1840,6 +1840,38 @@ namespace Pulumi.AwsNative.Ecs
     }
 
     /// <summary>
+    /// The isolation mode for the task. SHARED uses standard shared placement. ISOLATED_SANDBOX runs the task in its own isolated sandbox on a shared instance with hypervisor-level isolation. CONFIDENTIAL_SANDBOX runs the task in an isolated sandbox and supports an attestation policy to verify the workload before it runs.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskDefinitionTrustedExecutionConfigurationIsolationMode : IEquatable<TaskDefinitionTrustedExecutionConfigurationIsolationMode>
+    {
+        private readonly string _value;
+
+        private TaskDefinitionTrustedExecutionConfigurationIsolationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskDefinitionTrustedExecutionConfigurationIsolationMode Shared { get; } = new TaskDefinitionTrustedExecutionConfigurationIsolationMode("SHARED");
+        public static TaskDefinitionTrustedExecutionConfigurationIsolationMode IsolatedSandbox { get; } = new TaskDefinitionTrustedExecutionConfigurationIsolationMode("ISOLATED_SANDBOX");
+        public static TaskDefinitionTrustedExecutionConfigurationIsolationMode ConfidentialSandbox { get; } = new TaskDefinitionTrustedExecutionConfigurationIsolationMode("CONFIDENTIAL_SANDBOX");
+
+        public static bool operator ==(TaskDefinitionTrustedExecutionConfigurationIsolationMode left, TaskDefinitionTrustedExecutionConfigurationIsolationMode right) => left.Equals(right);
+        public static bool operator !=(TaskDefinitionTrustedExecutionConfigurationIsolationMode left, TaskDefinitionTrustedExecutionConfigurationIsolationMode right) => !left.Equals(right);
+
+        public static explicit operator string(TaskDefinitionTrustedExecutionConfigurationIsolationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskDefinitionTrustedExecutionConfigurationIsolationMode other && Equals(other);
+        public bool Equals(TaskDefinitionTrustedExecutionConfigurationIsolationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
     /// </summary>
     [EnumType]

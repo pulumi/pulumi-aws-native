@@ -5704,6 +5704,863 @@ func (in *ec2FleetTypePtr) ToEc2FleetTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetTypePtrOutput)
 }
 
+// The mode of the association.
+type FcaPolicyAssociationAssociationMode string
+
+const (
+	FcaPolicyAssociationAssociationModeDirect = FcaPolicyAssociationAssociationMode("direct")
+	FcaPolicyAssociationAssociationModeScope  = FcaPolicyAssociationAssociationMode("scope")
+)
+
+type FcaPolicyAssociationAssociationModeOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyAssociationAssociationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyAssociationAssociationMode)(nil)).Elem()
+}
+
+func (o FcaPolicyAssociationAssociationModeOutput) ToFcaPolicyAssociationAssociationModeOutput() FcaPolicyAssociationAssociationModeOutput {
+	return o
+}
+
+func (o FcaPolicyAssociationAssociationModeOutput) ToFcaPolicyAssociationAssociationModeOutputWithContext(ctx context.Context) FcaPolicyAssociationAssociationModeOutput {
+	return o
+}
+
+func (o FcaPolicyAssociationAssociationModeOutput) ToFcaPolicyAssociationAssociationModePtrOutput() FcaPolicyAssociationAssociationModePtrOutput {
+	return o.ToFcaPolicyAssociationAssociationModePtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyAssociationAssociationModeOutput) ToFcaPolicyAssociationAssociationModePtrOutputWithContext(ctx context.Context) FcaPolicyAssociationAssociationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyAssociationAssociationMode) *FcaPolicyAssociationAssociationMode {
+		return &v
+	}).(FcaPolicyAssociationAssociationModePtrOutput)
+}
+
+func (o FcaPolicyAssociationAssociationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyAssociationAssociationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyAssociationAssociationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FcaPolicyAssociationAssociationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyAssociationAssociationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyAssociationAssociationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FcaPolicyAssociationAssociationModePtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyAssociationAssociationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyAssociationAssociationMode)(nil)).Elem()
+}
+
+func (o FcaPolicyAssociationAssociationModePtrOutput) ToFcaPolicyAssociationAssociationModePtrOutput() FcaPolicyAssociationAssociationModePtrOutput {
+	return o
+}
+
+func (o FcaPolicyAssociationAssociationModePtrOutput) ToFcaPolicyAssociationAssociationModePtrOutputWithContext(ctx context.Context) FcaPolicyAssociationAssociationModePtrOutput {
+	return o
+}
+
+func (o FcaPolicyAssociationAssociationModePtrOutput) Elem() FcaPolicyAssociationAssociationModeOutput {
+	return o.ApplyT(func(v *FcaPolicyAssociationAssociationMode) FcaPolicyAssociationAssociationMode {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyAssociationAssociationMode
+		return ret
+	}).(FcaPolicyAssociationAssociationModeOutput)
+}
+
+func (o FcaPolicyAssociationAssociationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyAssociationAssociationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FcaPolicyAssociationAssociationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Associate by scope instead of directly. When set, NetworkResourceId is the ID of the scope (an account ID, a VPC ID, or a subnet ID) and the association covers every eligible network resource in that scope; when omitted, NetworkResourceId is a direct network resource (for example a NAT gateway or instance) and must match the policy's NetworkResourceType.
+type FcaPolicyAssociationNetworkResourceScopeType string
+
+const (
+	FcaPolicyAssociationNetworkResourceScopeTypeAccount = FcaPolicyAssociationNetworkResourceScopeType("account")
+	FcaPolicyAssociationNetworkResourceScopeTypeVpc     = FcaPolicyAssociationNetworkResourceScopeType("vpc")
+	FcaPolicyAssociationNetworkResourceScopeTypeSubnet  = FcaPolicyAssociationNetworkResourceScopeType("subnet")
+)
+
+func (FcaPolicyAssociationNetworkResourceScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyAssociationNetworkResourceScopeType)(nil)).Elem()
+}
+
+func (e FcaPolicyAssociationNetworkResourceScopeType) ToFcaPolicyAssociationNetworkResourceScopeTypeOutput() FcaPolicyAssociationNetworkResourceScopeTypeOutput {
+	return pulumi.ToOutput(e).(FcaPolicyAssociationNetworkResourceScopeTypeOutput)
+}
+
+func (e FcaPolicyAssociationNetworkResourceScopeType) ToFcaPolicyAssociationNetworkResourceScopeTypeOutputWithContext(ctx context.Context) FcaPolicyAssociationNetworkResourceScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FcaPolicyAssociationNetworkResourceScopeTypeOutput)
+}
+
+func (e FcaPolicyAssociationNetworkResourceScopeType) ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutput() FcaPolicyAssociationNetworkResourceScopeTypePtrOutput {
+	return e.ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e FcaPolicyAssociationNetworkResourceScopeType) ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutputWithContext(ctx context.Context) FcaPolicyAssociationNetworkResourceScopeTypePtrOutput {
+	return FcaPolicyAssociationNetworkResourceScopeType(e).ToFcaPolicyAssociationNetworkResourceScopeTypeOutputWithContext(ctx).ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e FcaPolicyAssociationNetworkResourceScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FcaPolicyAssociationNetworkResourceScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FcaPolicyAssociationNetworkResourceScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FcaPolicyAssociationNetworkResourceScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FcaPolicyAssociationNetworkResourceScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyAssociationNetworkResourceScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyAssociationNetworkResourceScopeType)(nil)).Elem()
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypeOutput) ToFcaPolicyAssociationNetworkResourceScopeTypeOutput() FcaPolicyAssociationNetworkResourceScopeTypeOutput {
+	return o
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypeOutput) ToFcaPolicyAssociationNetworkResourceScopeTypeOutputWithContext(ctx context.Context) FcaPolicyAssociationNetworkResourceScopeTypeOutput {
+	return o
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypeOutput) ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutput() FcaPolicyAssociationNetworkResourceScopeTypePtrOutput {
+	return o.ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypeOutput) ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutputWithContext(ctx context.Context) FcaPolicyAssociationNetworkResourceScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyAssociationNetworkResourceScopeType) *FcaPolicyAssociationNetworkResourceScopeType {
+		return &v
+	}).(FcaPolicyAssociationNetworkResourceScopeTypePtrOutput)
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyAssociationNetworkResourceScopeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyAssociationNetworkResourceScopeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FcaPolicyAssociationNetworkResourceScopeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyAssociationNetworkResourceScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyAssociationNetworkResourceScopeType)(nil)).Elem()
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypePtrOutput) ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutput() FcaPolicyAssociationNetworkResourceScopeTypePtrOutput {
+	return o
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypePtrOutput) ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutputWithContext(ctx context.Context) FcaPolicyAssociationNetworkResourceScopeTypePtrOutput {
+	return o
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypePtrOutput) Elem() FcaPolicyAssociationNetworkResourceScopeTypeOutput {
+	return o.ApplyT(func(v *FcaPolicyAssociationNetworkResourceScopeType) FcaPolicyAssociationNetworkResourceScopeType {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyAssociationNetworkResourceScopeType
+		return ret
+	}).(FcaPolicyAssociationNetworkResourceScopeTypeOutput)
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyAssociationNetworkResourceScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FcaPolicyAssociationNetworkResourceScopeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FcaPolicyAssociationNetworkResourceScopeTypeInput is an input type that accepts values of the FcaPolicyAssociationNetworkResourceScopeType enum
+// A concrete instance of `FcaPolicyAssociationNetworkResourceScopeTypeInput` can be one of the following:
+//
+//	FcaPolicyAssociationNetworkResourceScopeTypeAccount
+//	FcaPolicyAssociationNetworkResourceScopeTypeVpc
+//	FcaPolicyAssociationNetworkResourceScopeTypeSubnet
+type FcaPolicyAssociationNetworkResourceScopeTypeInput interface {
+	pulumi.Input
+
+	ToFcaPolicyAssociationNetworkResourceScopeTypeOutput() FcaPolicyAssociationNetworkResourceScopeTypeOutput
+	ToFcaPolicyAssociationNetworkResourceScopeTypeOutputWithContext(context.Context) FcaPolicyAssociationNetworkResourceScopeTypeOutput
+}
+
+var fcaPolicyAssociationNetworkResourceScopeTypePtrType = reflect.TypeOf((**FcaPolicyAssociationNetworkResourceScopeType)(nil)).Elem()
+
+type FcaPolicyAssociationNetworkResourceScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutput() FcaPolicyAssociationNetworkResourceScopeTypePtrOutput
+	ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutputWithContext(context.Context) FcaPolicyAssociationNetworkResourceScopeTypePtrOutput
+}
+
+type fcaPolicyAssociationNetworkResourceScopeTypePtr string
+
+func FcaPolicyAssociationNetworkResourceScopeTypePtr(v string) FcaPolicyAssociationNetworkResourceScopeTypePtrInput {
+	return (*fcaPolicyAssociationNetworkResourceScopeTypePtr)(&v)
+}
+
+func (*fcaPolicyAssociationNetworkResourceScopeTypePtr) ElementType() reflect.Type {
+	return fcaPolicyAssociationNetworkResourceScopeTypePtrType
+}
+
+func (in *fcaPolicyAssociationNetworkResourceScopeTypePtr) ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutput() FcaPolicyAssociationNetworkResourceScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(FcaPolicyAssociationNetworkResourceScopeTypePtrOutput)
+}
+
+func (in *fcaPolicyAssociationNetworkResourceScopeTypePtr) ToFcaPolicyAssociationNetworkResourceScopeTypePtrOutputWithContext(ctx context.Context) FcaPolicyAssociationNetworkResourceScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FcaPolicyAssociationNetworkResourceScopeTypePtrOutput)
+}
+
+type FcaPolicyDimensionListItem string
+
+const (
+	FcaPolicyDimensionListItemDataTransfer   = FcaPolicyDimensionListItem("data-transfer")
+	FcaPolicyDimensionListItemDataProcessing = FcaPolicyDimensionListItem("data-processing")
+)
+
+func (FcaPolicyDimensionListItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyDimensionListItem)(nil)).Elem()
+}
+
+func (e FcaPolicyDimensionListItem) ToFcaPolicyDimensionListItemOutput() FcaPolicyDimensionListItemOutput {
+	return pulumi.ToOutput(e).(FcaPolicyDimensionListItemOutput)
+}
+
+func (e FcaPolicyDimensionListItem) ToFcaPolicyDimensionListItemOutputWithContext(ctx context.Context) FcaPolicyDimensionListItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FcaPolicyDimensionListItemOutput)
+}
+
+func (e FcaPolicyDimensionListItem) ToFcaPolicyDimensionListItemPtrOutput() FcaPolicyDimensionListItemPtrOutput {
+	return e.ToFcaPolicyDimensionListItemPtrOutputWithContext(context.Background())
+}
+
+func (e FcaPolicyDimensionListItem) ToFcaPolicyDimensionListItemPtrOutputWithContext(ctx context.Context) FcaPolicyDimensionListItemPtrOutput {
+	return FcaPolicyDimensionListItem(e).ToFcaPolicyDimensionListItemOutputWithContext(ctx).ToFcaPolicyDimensionListItemPtrOutputWithContext(ctx)
+}
+
+func (e FcaPolicyDimensionListItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FcaPolicyDimensionListItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FcaPolicyDimensionListItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FcaPolicyDimensionListItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FcaPolicyDimensionListItemOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyDimensionListItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyDimensionListItem)(nil)).Elem()
+}
+
+func (o FcaPolicyDimensionListItemOutput) ToFcaPolicyDimensionListItemOutput() FcaPolicyDimensionListItemOutput {
+	return o
+}
+
+func (o FcaPolicyDimensionListItemOutput) ToFcaPolicyDimensionListItemOutputWithContext(ctx context.Context) FcaPolicyDimensionListItemOutput {
+	return o
+}
+
+func (o FcaPolicyDimensionListItemOutput) ToFcaPolicyDimensionListItemPtrOutput() FcaPolicyDimensionListItemPtrOutput {
+	return o.ToFcaPolicyDimensionListItemPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyDimensionListItemOutput) ToFcaPolicyDimensionListItemPtrOutputWithContext(ctx context.Context) FcaPolicyDimensionListItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyDimensionListItem) *FcaPolicyDimensionListItem {
+		return &v
+	}).(FcaPolicyDimensionListItemPtrOutput)
+}
+
+func (o FcaPolicyDimensionListItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyDimensionListItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyDimensionListItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FcaPolicyDimensionListItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyDimensionListItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyDimensionListItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FcaPolicyDimensionListItemPtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyDimensionListItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyDimensionListItem)(nil)).Elem()
+}
+
+func (o FcaPolicyDimensionListItemPtrOutput) ToFcaPolicyDimensionListItemPtrOutput() FcaPolicyDimensionListItemPtrOutput {
+	return o
+}
+
+func (o FcaPolicyDimensionListItemPtrOutput) ToFcaPolicyDimensionListItemPtrOutputWithContext(ctx context.Context) FcaPolicyDimensionListItemPtrOutput {
+	return o
+}
+
+func (o FcaPolicyDimensionListItemPtrOutput) Elem() FcaPolicyDimensionListItemOutput {
+	return o.ApplyT(func(v *FcaPolicyDimensionListItem) FcaPolicyDimensionListItem {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyDimensionListItem
+		return ret
+	}).(FcaPolicyDimensionListItemOutput)
+}
+
+func (o FcaPolicyDimensionListItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyDimensionListItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FcaPolicyDimensionListItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FcaPolicyDimensionListItemInput is an input type that accepts values of the FcaPolicyDimensionListItem enum
+// A concrete instance of `FcaPolicyDimensionListItemInput` can be one of the following:
+//
+//	FcaPolicyDimensionListItemDataTransfer
+//	FcaPolicyDimensionListItemDataProcessing
+type FcaPolicyDimensionListItemInput interface {
+	pulumi.Input
+
+	ToFcaPolicyDimensionListItemOutput() FcaPolicyDimensionListItemOutput
+	ToFcaPolicyDimensionListItemOutputWithContext(context.Context) FcaPolicyDimensionListItemOutput
+}
+
+var fcaPolicyDimensionListItemPtrType = reflect.TypeOf((**FcaPolicyDimensionListItem)(nil)).Elem()
+
+type FcaPolicyDimensionListItemPtrInput interface {
+	pulumi.Input
+
+	ToFcaPolicyDimensionListItemPtrOutput() FcaPolicyDimensionListItemPtrOutput
+	ToFcaPolicyDimensionListItemPtrOutputWithContext(context.Context) FcaPolicyDimensionListItemPtrOutput
+}
+
+type fcaPolicyDimensionListItemPtr string
+
+func FcaPolicyDimensionListItemPtr(v string) FcaPolicyDimensionListItemPtrInput {
+	return (*fcaPolicyDimensionListItemPtr)(&v)
+}
+
+func (*fcaPolicyDimensionListItemPtr) ElementType() reflect.Type {
+	return fcaPolicyDimensionListItemPtrType
+}
+
+func (in *fcaPolicyDimensionListItemPtr) ToFcaPolicyDimensionListItemPtrOutput() FcaPolicyDimensionListItemPtrOutput {
+	return pulumi.ToOutput(in).(FcaPolicyDimensionListItemPtrOutput)
+}
+
+func (in *fcaPolicyDimensionListItemPtr) ToFcaPolicyDimensionListItemPtrOutputWithContext(ctx context.Context) FcaPolicyDimensionListItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FcaPolicyDimensionListItemPtrOutput)
+}
+
+// FcaPolicyDimensionListItemArrayInput is an input type that accepts FcaPolicyDimensionListItemArray and FcaPolicyDimensionListItemArrayOutput values.
+// You can construct a concrete instance of `FcaPolicyDimensionListItemArrayInput` via:
+//
+//	FcaPolicyDimensionListItemArray{ FcaPolicyDimensionListItemArgs{...} }
+type FcaPolicyDimensionListItemArrayInput interface {
+	pulumi.Input
+
+	ToFcaPolicyDimensionListItemArrayOutput() FcaPolicyDimensionListItemArrayOutput
+	ToFcaPolicyDimensionListItemArrayOutputWithContext(context.Context) FcaPolicyDimensionListItemArrayOutput
+}
+
+type FcaPolicyDimensionListItemArray []FcaPolicyDimensionListItem
+
+func (FcaPolicyDimensionListItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FcaPolicyDimensionListItem)(nil)).Elem()
+}
+
+func (i FcaPolicyDimensionListItemArray) ToFcaPolicyDimensionListItemArrayOutput() FcaPolicyDimensionListItemArrayOutput {
+	return i.ToFcaPolicyDimensionListItemArrayOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyDimensionListItemArray) ToFcaPolicyDimensionListItemArrayOutputWithContext(ctx context.Context) FcaPolicyDimensionListItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyDimensionListItemArrayOutput)
+}
+
+type FcaPolicyDimensionListItemArrayOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyDimensionListItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FcaPolicyDimensionListItem)(nil)).Elem()
+}
+
+func (o FcaPolicyDimensionListItemArrayOutput) ToFcaPolicyDimensionListItemArrayOutput() FcaPolicyDimensionListItemArrayOutput {
+	return o
+}
+
+func (o FcaPolicyDimensionListItemArrayOutput) ToFcaPolicyDimensionListItemArrayOutputWithContext(ctx context.Context) FcaPolicyDimensionListItemArrayOutput {
+	return o
+}
+
+func (o FcaPolicyDimensionListItemArrayOutput) Index(i pulumi.IntInput) FcaPolicyDimensionListItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FcaPolicyDimensionListItem {
+		return vs[0].([]FcaPolicyDimensionListItem)[vs[1].(int)]
+	}).(FcaPolicyDimensionListItemOutput)
+}
+
+// The type of network resource the FCA policy applies to.
+type FcaPolicyNetworkResourceType string
+
+const (
+	FcaPolicyNetworkResourceTypeNatgw = FcaPolicyNetworkResourceType("natgw")
+	FcaPolicyNetworkResourceTypePcx   = FcaPolicyNetworkResourceType("pcx")
+	FcaPolicyNetworkResourceTypeEc2   = FcaPolicyNetworkResourceType("ec2")
+)
+
+func (FcaPolicyNetworkResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyNetworkResourceType)(nil)).Elem()
+}
+
+func (e FcaPolicyNetworkResourceType) ToFcaPolicyNetworkResourceTypeOutput() FcaPolicyNetworkResourceTypeOutput {
+	return pulumi.ToOutput(e).(FcaPolicyNetworkResourceTypeOutput)
+}
+
+func (e FcaPolicyNetworkResourceType) ToFcaPolicyNetworkResourceTypeOutputWithContext(ctx context.Context) FcaPolicyNetworkResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FcaPolicyNetworkResourceTypeOutput)
+}
+
+func (e FcaPolicyNetworkResourceType) ToFcaPolicyNetworkResourceTypePtrOutput() FcaPolicyNetworkResourceTypePtrOutput {
+	return e.ToFcaPolicyNetworkResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e FcaPolicyNetworkResourceType) ToFcaPolicyNetworkResourceTypePtrOutputWithContext(ctx context.Context) FcaPolicyNetworkResourceTypePtrOutput {
+	return FcaPolicyNetworkResourceType(e).ToFcaPolicyNetworkResourceTypeOutputWithContext(ctx).ToFcaPolicyNetworkResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e FcaPolicyNetworkResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FcaPolicyNetworkResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FcaPolicyNetworkResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FcaPolicyNetworkResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FcaPolicyNetworkResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyNetworkResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyNetworkResourceType)(nil)).Elem()
+}
+
+func (o FcaPolicyNetworkResourceTypeOutput) ToFcaPolicyNetworkResourceTypeOutput() FcaPolicyNetworkResourceTypeOutput {
+	return o
+}
+
+func (o FcaPolicyNetworkResourceTypeOutput) ToFcaPolicyNetworkResourceTypeOutputWithContext(ctx context.Context) FcaPolicyNetworkResourceTypeOutput {
+	return o
+}
+
+func (o FcaPolicyNetworkResourceTypeOutput) ToFcaPolicyNetworkResourceTypePtrOutput() FcaPolicyNetworkResourceTypePtrOutput {
+	return o.ToFcaPolicyNetworkResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyNetworkResourceTypeOutput) ToFcaPolicyNetworkResourceTypePtrOutputWithContext(ctx context.Context) FcaPolicyNetworkResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyNetworkResourceType) *FcaPolicyNetworkResourceType {
+		return &v
+	}).(FcaPolicyNetworkResourceTypePtrOutput)
+}
+
+func (o FcaPolicyNetworkResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyNetworkResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyNetworkResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FcaPolicyNetworkResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyNetworkResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyNetworkResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FcaPolicyNetworkResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyNetworkResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyNetworkResourceType)(nil)).Elem()
+}
+
+func (o FcaPolicyNetworkResourceTypePtrOutput) ToFcaPolicyNetworkResourceTypePtrOutput() FcaPolicyNetworkResourceTypePtrOutput {
+	return o
+}
+
+func (o FcaPolicyNetworkResourceTypePtrOutput) ToFcaPolicyNetworkResourceTypePtrOutputWithContext(ctx context.Context) FcaPolicyNetworkResourceTypePtrOutput {
+	return o
+}
+
+func (o FcaPolicyNetworkResourceTypePtrOutput) Elem() FcaPolicyNetworkResourceTypeOutput {
+	return o.ApplyT(func(v *FcaPolicyNetworkResourceType) FcaPolicyNetworkResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyNetworkResourceType
+		return ret
+	}).(FcaPolicyNetworkResourceTypeOutput)
+}
+
+func (o FcaPolicyNetworkResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyNetworkResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FcaPolicyNetworkResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FcaPolicyNetworkResourceTypeInput is an input type that accepts values of the FcaPolicyNetworkResourceType enum
+// A concrete instance of `FcaPolicyNetworkResourceTypeInput` can be one of the following:
+//
+//	FcaPolicyNetworkResourceTypeNatgw
+//	FcaPolicyNetworkResourceTypePcx
+//	FcaPolicyNetworkResourceTypeEc2
+type FcaPolicyNetworkResourceTypeInput interface {
+	pulumi.Input
+
+	ToFcaPolicyNetworkResourceTypeOutput() FcaPolicyNetworkResourceTypeOutput
+	ToFcaPolicyNetworkResourceTypeOutputWithContext(context.Context) FcaPolicyNetworkResourceTypeOutput
+}
+
+var fcaPolicyNetworkResourceTypePtrType = reflect.TypeOf((**FcaPolicyNetworkResourceType)(nil)).Elem()
+
+type FcaPolicyNetworkResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToFcaPolicyNetworkResourceTypePtrOutput() FcaPolicyNetworkResourceTypePtrOutput
+	ToFcaPolicyNetworkResourceTypePtrOutputWithContext(context.Context) FcaPolicyNetworkResourceTypePtrOutput
+}
+
+type fcaPolicyNetworkResourceTypePtr string
+
+func FcaPolicyNetworkResourceTypePtr(v string) FcaPolicyNetworkResourceTypePtrInput {
+	return (*fcaPolicyNetworkResourceTypePtr)(&v)
+}
+
+func (*fcaPolicyNetworkResourceTypePtr) ElementType() reflect.Type {
+	return fcaPolicyNetworkResourceTypePtrType
+}
+
+func (in *fcaPolicyNetworkResourceTypePtr) ToFcaPolicyNetworkResourceTypePtrOutput() FcaPolicyNetworkResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(FcaPolicyNetworkResourceTypePtrOutput)
+}
+
+func (in *fcaPolicyNetworkResourceTypePtr) ToFcaPolicyNetworkResourceTypePtrOutputWithContext(ctx context.Context) FcaPolicyNetworkResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FcaPolicyNetworkResourceTypePtrOutput)
+}
+
+type FcaPolicyReportingGranularityListItem string
+
+const (
+	FcaPolicyReportingGranularityListItemEni       = FcaPolicyReportingGranularityListItem("eni")
+	FcaPolicyReportingGranularityListItemEc2       = FcaPolicyReportingGranularityListItem("ec2")
+	FcaPolicyReportingGranularityListItemSubnet    = FcaPolicyReportingGranularityListItem("subnet")
+	FcaPolicyReportingGranularityListItemVpc       = FcaPolicyReportingGranularityListItem("vpc")
+	FcaPolicyReportingGranularityListItemAccount   = FcaPolicyReportingGranularityListItem("account")
+	FcaPolicyReportingGranularityListItemPeeringId = FcaPolicyReportingGranularityListItem("peering-id")
+	FcaPolicyReportingGranularityListItemCidr      = FcaPolicyReportingGranularityListItem("cidr")
+)
+
+func (FcaPolicyReportingGranularityListItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyReportingGranularityListItem)(nil)).Elem()
+}
+
+func (e FcaPolicyReportingGranularityListItem) ToFcaPolicyReportingGranularityListItemOutput() FcaPolicyReportingGranularityListItemOutput {
+	return pulumi.ToOutput(e).(FcaPolicyReportingGranularityListItemOutput)
+}
+
+func (e FcaPolicyReportingGranularityListItem) ToFcaPolicyReportingGranularityListItemOutputWithContext(ctx context.Context) FcaPolicyReportingGranularityListItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FcaPolicyReportingGranularityListItemOutput)
+}
+
+func (e FcaPolicyReportingGranularityListItem) ToFcaPolicyReportingGranularityListItemPtrOutput() FcaPolicyReportingGranularityListItemPtrOutput {
+	return e.ToFcaPolicyReportingGranularityListItemPtrOutputWithContext(context.Background())
+}
+
+func (e FcaPolicyReportingGranularityListItem) ToFcaPolicyReportingGranularityListItemPtrOutputWithContext(ctx context.Context) FcaPolicyReportingGranularityListItemPtrOutput {
+	return FcaPolicyReportingGranularityListItem(e).ToFcaPolicyReportingGranularityListItemOutputWithContext(ctx).ToFcaPolicyReportingGranularityListItemPtrOutputWithContext(ctx)
+}
+
+func (e FcaPolicyReportingGranularityListItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FcaPolicyReportingGranularityListItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FcaPolicyReportingGranularityListItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FcaPolicyReportingGranularityListItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FcaPolicyReportingGranularityListItemOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyReportingGranularityListItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FcaPolicyReportingGranularityListItem)(nil)).Elem()
+}
+
+func (o FcaPolicyReportingGranularityListItemOutput) ToFcaPolicyReportingGranularityListItemOutput() FcaPolicyReportingGranularityListItemOutput {
+	return o
+}
+
+func (o FcaPolicyReportingGranularityListItemOutput) ToFcaPolicyReportingGranularityListItemOutputWithContext(ctx context.Context) FcaPolicyReportingGranularityListItemOutput {
+	return o
+}
+
+func (o FcaPolicyReportingGranularityListItemOutput) ToFcaPolicyReportingGranularityListItemPtrOutput() FcaPolicyReportingGranularityListItemPtrOutput {
+	return o.ToFcaPolicyReportingGranularityListItemPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyReportingGranularityListItemOutput) ToFcaPolicyReportingGranularityListItemPtrOutputWithContext(ctx context.Context) FcaPolicyReportingGranularityListItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FcaPolicyReportingGranularityListItem) *FcaPolicyReportingGranularityListItem {
+		return &v
+	}).(FcaPolicyReportingGranularityListItemPtrOutput)
+}
+
+func (o FcaPolicyReportingGranularityListItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyReportingGranularityListItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyReportingGranularityListItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FcaPolicyReportingGranularityListItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyReportingGranularityListItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FcaPolicyReportingGranularityListItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FcaPolicyReportingGranularityListItemPtrOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyReportingGranularityListItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FcaPolicyReportingGranularityListItem)(nil)).Elem()
+}
+
+func (o FcaPolicyReportingGranularityListItemPtrOutput) ToFcaPolicyReportingGranularityListItemPtrOutput() FcaPolicyReportingGranularityListItemPtrOutput {
+	return o
+}
+
+func (o FcaPolicyReportingGranularityListItemPtrOutput) ToFcaPolicyReportingGranularityListItemPtrOutputWithContext(ctx context.Context) FcaPolicyReportingGranularityListItemPtrOutput {
+	return o
+}
+
+func (o FcaPolicyReportingGranularityListItemPtrOutput) Elem() FcaPolicyReportingGranularityListItemOutput {
+	return o.ApplyT(func(v *FcaPolicyReportingGranularityListItem) FcaPolicyReportingGranularityListItem {
+		if v != nil {
+			return *v
+		}
+		var ret FcaPolicyReportingGranularityListItem
+		return ret
+	}).(FcaPolicyReportingGranularityListItemOutput)
+}
+
+func (o FcaPolicyReportingGranularityListItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FcaPolicyReportingGranularityListItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FcaPolicyReportingGranularityListItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FcaPolicyReportingGranularityListItemInput is an input type that accepts values of the FcaPolicyReportingGranularityListItem enum
+// A concrete instance of `FcaPolicyReportingGranularityListItemInput` can be one of the following:
+//
+//	FcaPolicyReportingGranularityListItemEni
+//	FcaPolicyReportingGranularityListItemEc2
+//	FcaPolicyReportingGranularityListItemSubnet
+//	FcaPolicyReportingGranularityListItemVpc
+//	FcaPolicyReportingGranularityListItemAccount
+//	FcaPolicyReportingGranularityListItemPeeringId
+//	FcaPolicyReportingGranularityListItemCidr
+type FcaPolicyReportingGranularityListItemInput interface {
+	pulumi.Input
+
+	ToFcaPolicyReportingGranularityListItemOutput() FcaPolicyReportingGranularityListItemOutput
+	ToFcaPolicyReportingGranularityListItemOutputWithContext(context.Context) FcaPolicyReportingGranularityListItemOutput
+}
+
+var fcaPolicyReportingGranularityListItemPtrType = reflect.TypeOf((**FcaPolicyReportingGranularityListItem)(nil)).Elem()
+
+type FcaPolicyReportingGranularityListItemPtrInput interface {
+	pulumi.Input
+
+	ToFcaPolicyReportingGranularityListItemPtrOutput() FcaPolicyReportingGranularityListItemPtrOutput
+	ToFcaPolicyReportingGranularityListItemPtrOutputWithContext(context.Context) FcaPolicyReportingGranularityListItemPtrOutput
+}
+
+type fcaPolicyReportingGranularityListItemPtr string
+
+func FcaPolicyReportingGranularityListItemPtr(v string) FcaPolicyReportingGranularityListItemPtrInput {
+	return (*fcaPolicyReportingGranularityListItemPtr)(&v)
+}
+
+func (*fcaPolicyReportingGranularityListItemPtr) ElementType() reflect.Type {
+	return fcaPolicyReportingGranularityListItemPtrType
+}
+
+func (in *fcaPolicyReportingGranularityListItemPtr) ToFcaPolicyReportingGranularityListItemPtrOutput() FcaPolicyReportingGranularityListItemPtrOutput {
+	return pulumi.ToOutput(in).(FcaPolicyReportingGranularityListItemPtrOutput)
+}
+
+func (in *fcaPolicyReportingGranularityListItemPtr) ToFcaPolicyReportingGranularityListItemPtrOutputWithContext(ctx context.Context) FcaPolicyReportingGranularityListItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FcaPolicyReportingGranularityListItemPtrOutput)
+}
+
+// FcaPolicyReportingGranularityListItemArrayInput is an input type that accepts FcaPolicyReportingGranularityListItemArray and FcaPolicyReportingGranularityListItemArrayOutput values.
+// You can construct a concrete instance of `FcaPolicyReportingGranularityListItemArrayInput` via:
+//
+//	FcaPolicyReportingGranularityListItemArray{ FcaPolicyReportingGranularityListItemArgs{...} }
+type FcaPolicyReportingGranularityListItemArrayInput interface {
+	pulumi.Input
+
+	ToFcaPolicyReportingGranularityListItemArrayOutput() FcaPolicyReportingGranularityListItemArrayOutput
+	ToFcaPolicyReportingGranularityListItemArrayOutputWithContext(context.Context) FcaPolicyReportingGranularityListItemArrayOutput
+}
+
+type FcaPolicyReportingGranularityListItemArray []FcaPolicyReportingGranularityListItem
+
+func (FcaPolicyReportingGranularityListItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FcaPolicyReportingGranularityListItem)(nil)).Elem()
+}
+
+func (i FcaPolicyReportingGranularityListItemArray) ToFcaPolicyReportingGranularityListItemArrayOutput() FcaPolicyReportingGranularityListItemArrayOutput {
+	return i.ToFcaPolicyReportingGranularityListItemArrayOutputWithContext(context.Background())
+}
+
+func (i FcaPolicyReportingGranularityListItemArray) ToFcaPolicyReportingGranularityListItemArrayOutputWithContext(ctx context.Context) FcaPolicyReportingGranularityListItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FcaPolicyReportingGranularityListItemArrayOutput)
+}
+
+type FcaPolicyReportingGranularityListItemArrayOutput struct{ *pulumi.OutputState }
+
+func (FcaPolicyReportingGranularityListItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FcaPolicyReportingGranularityListItem)(nil)).Elem()
+}
+
+func (o FcaPolicyReportingGranularityListItemArrayOutput) ToFcaPolicyReportingGranularityListItemArrayOutput() FcaPolicyReportingGranularityListItemArrayOutput {
+	return o
+}
+
+func (o FcaPolicyReportingGranularityListItemArrayOutput) ToFcaPolicyReportingGranularityListItemArrayOutputWithContext(ctx context.Context) FcaPolicyReportingGranularityListItemArrayOutput {
+	return o
+}
+
+func (o FcaPolicyReportingGranularityListItemArrayOutput) Index(i pulumi.IntInput) FcaPolicyReportingGranularityListItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FcaPolicyReportingGranularityListItem {
+		return vs[0].([]FcaPolicyReportingGranularityListItem)[vs[1].(int)]
+	}).(FcaPolicyReportingGranularityListItemOutput)
+}
+
 // The format for the flow log. The default is `plain-text` .
 type FlowLogDestinationOptionsPropertiesFileFormat string
 
@@ -6048,6 +6905,9 @@ const (
 	FlowLogResourceTypeTransitGateway           = FlowLogResourceType("TransitGateway")
 	FlowLogResourceTypeTransitGatewayAttachment = FlowLogResourceType("TransitGatewayAttachment")
 	FlowLogResourceTypeRegionalNatGateway       = FlowLogResourceType("RegionalNatGateway")
+	FlowLogResourceTypeCoreNetwork              = FlowLogResourceType("CoreNetwork")
+	FlowLogResourceTypeCoreNetworkEdge          = FlowLogResourceType("CoreNetworkEdge")
+	FlowLogResourceTypeCoreNetworkAttachment    = FlowLogResourceType("CoreNetworkAttachment")
 )
 
 func (FlowLogResourceType) ElementType() reflect.Type {
@@ -6178,6 +7038,9 @@ func (o FlowLogResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 //	FlowLogResourceTypeTransitGateway
 //	FlowLogResourceTypeTransitGatewayAttachment
 //	FlowLogResourceTypeRegionalNatGateway
+//	FlowLogResourceTypeCoreNetwork
+//	FlowLogResourceTypeCoreNetworkEdge
+//	FlowLogResourceTypeCoreNetworkAttachment
 type FlowLogResourceTypeInput interface {
 	pulumi.Input
 
@@ -17755,6 +18618,170 @@ func (in *transitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtr) T
 	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput)
 }
 
+// The MultipathResilience mode. Only valid when AllowMultipathResilience is true.
+type TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode string
+
+const (
+	TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeAlwaysOn = TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode("always-on")
+)
+
+func (TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode)(nil)).Elem()
+}
+
+func (e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput {
+	return pulumi.ToOutput(e).(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput)
+}
+
+func (e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput)
+}
+
+func (e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return e.ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode(e).ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutputWithContext(ctx).ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutputWithContext(ctx)
+}
+
+func (e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return o.ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) *TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode {
+		return &v
+	}).(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput)
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput) Elem() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode
+		return ret
+	}).(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput)
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeInput is an input type that accepts values of the TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode enum
+// A concrete instance of `TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeInput` can be one of the following:
+//
+//	TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeAlwaysOn
+type TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput
+	ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutputWithContext(context.Context) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput
+}
+
+var transitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrType = reflect.TypeOf((**TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode)(nil)).Elem()
+
+type TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput
+	ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutputWithContext(context.Context) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput
+}
+
+type transitGatewayPeeringAttachmentOptionsMultipathResilienceModePtr string
+
+func TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtr(v string) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrInput {
+	return (*transitGatewayPeeringAttachmentOptionsMultipathResilienceModePtr)(&v)
+}
+
+func (*transitGatewayPeeringAttachmentOptionsMultipathResilienceModePtr) ElementType() reflect.Type {
+	return transitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrType
+}
+
+func (in *transitGatewayPeeringAttachmentOptionsMultipathResilienceModePtr) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput() TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return pulumi.ToOutput(in).(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput)
+}
+
+func (in *transitGatewayPeeringAttachmentOptionsMultipathResilienceModePtr) ToTransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput)
+}
+
 // The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
 type VpcBlockPublicAccessExclusionInternetGatewayExclusionMode string
 
@@ -22065,6 +23092,262 @@ func (in *vpcEndpointTypePtr) ToVpcEndpointTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointTypePtrOutput)
 }
 
+// The multipath resilience status of the VPC peering connection: enabled when both the requester and accepter sides allow multipath resilience, pending when only one side allows it, and disabled when neither side allows it.
+type VpcPeeringConnectionMultipathResilienceStatus string
+
+const (
+	VpcPeeringConnectionMultipathResilienceStatusPending  = VpcPeeringConnectionMultipathResilienceStatus("pending")
+	VpcPeeringConnectionMultipathResilienceStatusEnabled  = VpcPeeringConnectionMultipathResilienceStatus("enabled")
+	VpcPeeringConnectionMultipathResilienceStatusDisabled = VpcPeeringConnectionMultipathResilienceStatus("disabled")
+)
+
+type VpcPeeringConnectionMultipathResilienceStatusOutput struct{ *pulumi.OutputState }
+
+func (VpcPeeringConnectionMultipathResilienceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionMultipathResilienceStatus)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusOutput) ToVpcPeeringConnectionMultipathResilienceStatusOutput() VpcPeeringConnectionMultipathResilienceStatusOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusOutput) ToVpcPeeringConnectionMultipathResilienceStatusOutputWithContext(ctx context.Context) VpcPeeringConnectionMultipathResilienceStatusOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusOutput) ToVpcPeeringConnectionMultipathResilienceStatusPtrOutput() VpcPeeringConnectionMultipathResilienceStatusPtrOutput {
+	return o.ToVpcPeeringConnectionMultipathResilienceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusOutput) ToVpcPeeringConnectionMultipathResilienceStatusPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionMultipathResilienceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionMultipathResilienceStatus) *VpcPeeringConnectionMultipathResilienceStatus {
+		return &v
+	}).(VpcPeeringConnectionMultipathResilienceStatusPtrOutput)
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcPeeringConnectionMultipathResilienceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcPeeringConnectionMultipathResilienceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcPeeringConnectionMultipathResilienceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcPeeringConnectionMultipathResilienceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcPeeringConnectionMultipathResilienceStatus)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusPtrOutput) ToVpcPeeringConnectionMultipathResilienceStatusPtrOutput() VpcPeeringConnectionMultipathResilienceStatusPtrOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusPtrOutput) ToVpcPeeringConnectionMultipathResilienceStatusPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionMultipathResilienceStatusPtrOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusPtrOutput) Elem() VpcPeeringConnectionMultipathResilienceStatusOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionMultipathResilienceStatus) VpcPeeringConnectionMultipathResilienceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret VpcPeeringConnectionMultipathResilienceStatus
+		return ret
+	}).(VpcPeeringConnectionMultipathResilienceStatusOutput)
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionMultipathResilienceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcPeeringConnectionMultipathResilienceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The mode of multipath resilience on the peering connection. Applies when AllowMultipathResilience is true.
+type VpcPeeringConnectionOptionsMultipathResilienceMode string
+
+const (
+	VpcPeeringConnectionOptionsMultipathResilienceModeAlwaysOn = VpcPeeringConnectionOptionsMultipathResilienceMode("always-on")
+)
+
+func (VpcPeeringConnectionOptionsMultipathResilienceMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionOptionsMultipathResilienceMode)(nil)).Elem()
+}
+
+func (e VpcPeeringConnectionOptionsMultipathResilienceMode) ToVpcPeeringConnectionOptionsMultipathResilienceModeOutput() VpcPeeringConnectionOptionsMultipathResilienceModeOutput {
+	return pulumi.ToOutput(e).(VpcPeeringConnectionOptionsMultipathResilienceModeOutput)
+}
+
+func (e VpcPeeringConnectionOptionsMultipathResilienceMode) ToVpcPeeringConnectionOptionsMultipathResilienceModeOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsMultipathResilienceModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcPeeringConnectionOptionsMultipathResilienceModeOutput)
+}
+
+func (e VpcPeeringConnectionOptionsMultipathResilienceMode) ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutput() VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return e.ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutputWithContext(context.Background())
+}
+
+func (e VpcPeeringConnectionOptionsMultipathResilienceMode) ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return VpcPeeringConnectionOptionsMultipathResilienceMode(e).ToVpcPeeringConnectionOptionsMultipathResilienceModeOutputWithContext(ctx).ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutputWithContext(ctx)
+}
+
+func (e VpcPeeringConnectionOptionsMultipathResilienceMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcPeeringConnectionOptionsMultipathResilienceMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcPeeringConnectionOptionsMultipathResilienceMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcPeeringConnectionOptionsMultipathResilienceMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcPeeringConnectionOptionsMultipathResilienceModeOutput struct{ *pulumi.OutputState }
+
+func (VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionOptionsMultipathResilienceMode)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ToVpcPeeringConnectionOptionsMultipathResilienceModeOutput() VpcPeeringConnectionOptionsMultipathResilienceModeOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ToVpcPeeringConnectionOptionsMultipathResilienceModeOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsMultipathResilienceModeOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutput() VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return o.ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionOptionsMultipathResilienceMode) *VpcPeeringConnectionOptionsMultipathResilienceMode {
+		return &v
+	}).(VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput)
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcPeeringConnectionOptionsMultipathResilienceMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcPeeringConnectionOptionsMultipathResilienceMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcPeeringConnectionOptionsMultipathResilienceMode)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput) ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutput() VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput) ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput) Elem() VpcPeeringConnectionOptionsMultipathResilienceModeOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionOptionsMultipathResilienceMode) VpcPeeringConnectionOptionsMultipathResilienceMode {
+		if v != nil {
+			return *v
+		}
+		var ret VpcPeeringConnectionOptionsMultipathResilienceMode
+		return ret
+	}).(VpcPeeringConnectionOptionsMultipathResilienceModeOutput)
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcPeeringConnectionOptionsMultipathResilienceMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcPeeringConnectionOptionsMultipathResilienceModeInput is an input type that accepts values of the VpcPeeringConnectionOptionsMultipathResilienceMode enum
+// A concrete instance of `VpcPeeringConnectionOptionsMultipathResilienceModeInput` can be one of the following:
+//
+//	VpcPeeringConnectionOptionsMultipathResilienceModeAlwaysOn
+type VpcPeeringConnectionOptionsMultipathResilienceModeInput interface {
+	pulumi.Input
+
+	ToVpcPeeringConnectionOptionsMultipathResilienceModeOutput() VpcPeeringConnectionOptionsMultipathResilienceModeOutput
+	ToVpcPeeringConnectionOptionsMultipathResilienceModeOutputWithContext(context.Context) VpcPeeringConnectionOptionsMultipathResilienceModeOutput
+}
+
+var vpcPeeringConnectionOptionsMultipathResilienceModePtrType = reflect.TypeOf((**VpcPeeringConnectionOptionsMultipathResilienceMode)(nil)).Elem()
+
+type VpcPeeringConnectionOptionsMultipathResilienceModePtrInput interface {
+	pulumi.Input
+
+	ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutput() VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput
+	ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutputWithContext(context.Context) VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput
+}
+
+type vpcPeeringConnectionOptionsMultipathResilienceModePtr string
+
+func VpcPeeringConnectionOptionsMultipathResilienceModePtr(v string) VpcPeeringConnectionOptionsMultipathResilienceModePtrInput {
+	return (*vpcPeeringConnectionOptionsMultipathResilienceModePtr)(&v)
+}
+
+func (*vpcPeeringConnectionOptionsMultipathResilienceModePtr) ElementType() reflect.Type {
+	return vpcPeeringConnectionOptionsMultipathResilienceModePtrType
+}
+
+func (in *vpcPeeringConnectionOptionsMultipathResilienceModePtr) ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutput() VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return pulumi.ToOutput(in).(VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput)
+}
+
+func (in *vpcPeeringConnectionOptionsMultipathResilienceModePtr) ToVpcPeeringConnectionOptionsMultipathResilienceModePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput)
+}
+
 // The desired output format for BGP logs to be sent to CloudWatch. Default format is “json“.
 //
 //	Valid values: ``json`` | ``text``
@@ -23990,6 +25273,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrInput)(nil)).Elem(), Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType("vcpu"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTypeInput)(nil)).Elem(), Ec2FleetType("maintain"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTypePtrInput)(nil)).Elem(), Ec2FleetType("maintain"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyAssociationNetworkResourceScopeTypeInput)(nil)).Elem(), FcaPolicyAssociationNetworkResourceScopeType("account"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyAssociationNetworkResourceScopeTypePtrInput)(nil)).Elem(), FcaPolicyAssociationNetworkResourceScopeType("account"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyDimensionListItemInput)(nil)).Elem(), FcaPolicyDimensionListItem("data-transfer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyDimensionListItemPtrInput)(nil)).Elem(), FcaPolicyDimensionListItem("data-transfer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyDimensionListItemArrayInput)(nil)).Elem(), FcaPolicyDimensionListItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyNetworkResourceTypeInput)(nil)).Elem(), FcaPolicyNetworkResourceType("natgw"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyNetworkResourceTypePtrInput)(nil)).Elem(), FcaPolicyNetworkResourceType("natgw"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyReportingGranularityListItemInput)(nil)).Elem(), FcaPolicyReportingGranularityListItem("eni"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyReportingGranularityListItemPtrInput)(nil)).Elem(), FcaPolicyReportingGranularityListItem("eni"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FcaPolicyReportingGranularityListItemArrayInput)(nil)).Elem(), FcaPolicyReportingGranularityListItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogDestinationOptionsPropertiesFileFormatInput)(nil)).Elem(), FlowLogDestinationOptionsPropertiesFileFormat("plain-text"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogDestinationOptionsPropertiesFileFormatPtrInput)(nil)).Elem(), FlowLogDestinationOptionsPropertiesFileFormat("plain-text"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogLogDestinationTypeInput)(nil)).Elem(), FlowLogLogDestinationType("cloud-watch-logs"))
@@ -24118,6 +25411,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpc"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("source-attachment-owner"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("source-attachment-owner"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeInput)(nil)).Elem(), TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode("always-on"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrInput)(nil)).Elem(), TransitGatewayPeeringAttachmentOptionsMultipathResilienceMode("always-on"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModeInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockModeInput)(nil)).Elem(), VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional"))
@@ -24169,6 +25464,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceIpAddressTypeArrayInput)(nil)).Elem(), VpcEndpointServiceIpAddressTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypeInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypePtrInput)(nil)).Elem(), VpcEndpointType("Interface"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionOptionsMultipathResilienceModeInput)(nil)).Elem(), VpcPeeringConnectionOptionsMultipathResilienceMode("always-on"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionOptionsMultipathResilienceModePtrInput)(nil)).Elem(), VpcPeeringConnectionOptionsMultipathResilienceMode("always-on"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat("json"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat("json"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json"))
@@ -24261,6 +25558,18 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetTypeOutput{})
 	pulumi.RegisterOutputType(Ec2FleetTypePtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyAssociationAssociationModeOutput{})
+	pulumi.RegisterOutputType(FcaPolicyAssociationAssociationModePtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyAssociationNetworkResourceScopeTypeOutput{})
+	pulumi.RegisterOutputType(FcaPolicyAssociationNetworkResourceScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyDimensionListItemOutput{})
+	pulumi.RegisterOutputType(FcaPolicyDimensionListItemPtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyDimensionListItemArrayOutput{})
+	pulumi.RegisterOutputType(FcaPolicyNetworkResourceTypeOutput{})
+	pulumi.RegisterOutputType(FcaPolicyNetworkResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyReportingGranularityListItemOutput{})
+	pulumi.RegisterOutputType(FcaPolicyReportingGranularityListItemPtrOutput{})
+	pulumi.RegisterOutputType(FcaPolicyReportingGranularityListItemArrayOutput{})
 	pulumi.RegisterOutputType(FlowLogDestinationOptionsPropertiesFileFormatOutput{})
 	pulumi.RegisterOutputType(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput{})
 	pulumi.RegisterOutputType(FlowLogLogDestinationTypeOutput{})
@@ -24421,6 +25730,8 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModeOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsMultipathResilienceModePtrOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput{})
@@ -24474,6 +25785,10 @@ func init() {
 	pulumi.RegisterOutputType(VpcEndpointServiceIpAddressTypeArrayOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionMultipathResilienceStatusOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionMultipathResilienceStatusPtrOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionOptionsMultipathResilienceModeOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionOptionsMultipathResilienceModePtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput{})

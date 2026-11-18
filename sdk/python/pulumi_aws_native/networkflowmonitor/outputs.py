@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'MonitorLocalResource',
     'MonitorRemoteResource',
+    'PerformanceMonitorTarget',
     'ScopeTargetId',
     'ScopeTargetIdentifier',
     'ScopeTargetResource',
@@ -88,6 +89,40 @@ class MonitorRemoteResource(dict):
     def type(self) -> 'MonitorRemoteResourceType':
         """
         The type of the remote resource.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PerformanceMonitorTarget(dict):
+    """
+    A target that is monitored by a performance monitor.
+    """
+    def __init__(__self__, *,
+                 identifier: _builtins.str,
+                 type: 'PerformanceMonitorTargetType'):
+        """
+        A target that is monitored by a performance monitor.
+
+        :param _builtins.str identifier: The identifier of the target.
+        :param 'PerformanceMonitorTargetType' type: The type of the target.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> _builtins.str:
+        """
+        The identifier of the target.
+        """
+        return pulumi.get(self, "identifier")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'PerformanceMonitorTargetType':
+        """
+        The type of the target.
         """
         return pulumi.get(self, "type")
 

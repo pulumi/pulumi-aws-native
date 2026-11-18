@@ -78,6 +78,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
         [Input("storageInfo")]
         public Input<Inputs.ClusterStorageInfoArgs>? StorageInfo { get; set; }
 
+        [Input("topicReassignment")]
+        public Input<Pulumi.AwsNative.Msk.ClusterBrokerNodeGroupInfoTopicReassignment>? TopicReassignment { get; set; }
+
         public ClusterBrokerNodeGroupInfoArgs()
         {
         }

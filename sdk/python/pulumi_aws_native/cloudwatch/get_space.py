@@ -70,7 +70,7 @@ class GetSpaceResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[_builtins.str]:
         """
-        The time the space was created.
+        The timestamp when the space was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -78,7 +78,7 @@ class GetSpaceResult:
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.SpaceEncryptionConfiguration']:
         """
-        The encryption configuration for the space.
+        How the space's data at rest is encrypted. Always populated.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -86,7 +86,7 @@ class GetSpaceResult:
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the space.
+        A name that identifies the space.
         """
         return pulumi.get(self, "name")
 
@@ -94,7 +94,7 @@ class GetSpaceResult:
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[_builtins.str]:
         """
-        The AWS account that owns the space.
+        AWS account ID that owns this space.
         """
         return pulumi.get(self, "owner_account_id")
 
@@ -102,7 +102,7 @@ class GetSpaceResult:
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
         """
-        The AWS Region the space resides in.
+        The region where this space was created.
         """
         return pulumi.get(self, "region")
 
@@ -110,7 +110,7 @@ class GetSpaceResult:
     @pulumi.getter(name="spaceId")
     def space_id(self) -> Optional[_builtins.str]:
         """
-        The unique identifier of the space.
+        The unique ID of the space.
         """
         return pulumi.get(self, "space_id")
 
@@ -134,7 +134,7 @@ class GetSpaceResult:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[_builtins.str]:
         """
-        The time the space was last updated.
+        The timestamp when the space was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -160,7 +160,7 @@ class AwaitableGetSpaceResult(GetSpaceResult):
 def get_space(arn: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpaceResult:
     """
-    Resource type definition for AWS::CloudWatch::Space
+    Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the space.
     """
@@ -183,7 +183,7 @@ def get_space(arn: Optional[_builtins.str] = None,
 def get_space_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpaceResult]:
     """
-    Resource type definition for AWS::CloudWatch::Space
+    Resource Type definition for AWS::CloudWatch::Space. A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the space.
     """

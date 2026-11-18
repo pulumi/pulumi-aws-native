@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,9 @@ type LookupCollectionResult struct {
 	// The identifier of the collection
 	Id *string `pulumi:"id"`
 	// Key Management Service key used to encrypt the collection.
-	KmsKeyArn     *string                  `pulumi:"kmsKeyArn"`
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
+	Tags          []aws.Tag                `pulumi:"tags"`
 	VectorOptions *CollectionVectorOptions `pulumi:"vectorOptions"`
 }
 
@@ -109,6 +112,11 @@ func (o LookupCollectionResultOutput) Id() pulumi.StringPtrOutput {
 // Key Management Service key used to encrypt the collection.
 func (o LookupCollectionResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// List of tags to associate with the collection. Tag changes are applied in place without replacing the collection. Reading, adding, changing or removing tags requires the aoss:ListTagsForResource, aoss:TagResource and aoss:UntagResource permissions.
+func (o LookupCollectionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCollectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupCollectionResultOutput) VectorOptions() CollectionVectorOptionsPtrOutput {

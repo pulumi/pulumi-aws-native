@@ -30,6 +30,8 @@ type LookupVpcEndpointServicePermissionsArgs struct {
 type LookupVpcEndpointServicePermissionsResult struct {
 	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
+	// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+	TransitGatewayAttachmentAllowedPrincipals []string `pulumi:"transitGatewayAttachmentAllowedPrincipals"`
 }
 
 func LookupVpcEndpointServicePermissionsOutput(ctx *pulumi.Context, args LookupVpcEndpointServicePermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointServicePermissionsResultOutput {
@@ -63,6 +65,13 @@ func (o LookupVpcEndpointServicePermissionsResultOutput) ToLookupVpcEndpointServ
 // The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 func (o LookupVpcEndpointServicePermissionsResultOutput) AllowedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServicePermissionsResult) []string { return v.AllowedPrincipals }).(pulumi.StringArrayOutput)
+}
+
+// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+func (o LookupVpcEndpointServicePermissionsResultOutput) TransitGatewayAttachmentAllowedPrincipals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServicePermissionsResult) []string {
+		return v.TransitGatewayAttachmentAllowedPrincipals
+	}).(pulumi.StringArrayOutput)
 }
 
 func init() {

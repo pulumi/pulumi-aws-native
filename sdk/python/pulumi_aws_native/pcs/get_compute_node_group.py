@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetComputeNodeGroupResult:
-    def __init__(__self__, ami_id=None, arn=None, custom_launch_template=None, error_info=None, iam_instance_profile_arn=None, id=None, node_lifecycle_actions=None, purchase_option=None, scaling_configuration=None, slurm_configuration=None, spot_options=None, status=None, subnet_ids=None, tags=None):
+    def __init__(__self__, ami_id=None, arn=None, custom_launch_template=None, error_info=None, iam_instance_profile_arn=None, id=None, launch_template_mode=None, node_lifecycle_actions=None, purchase_option=None, scaling_configuration=None, security_group_ids=None, slurm_configuration=None, spot_options=None, ssh_key_name=None, status=None, subnet_ids=None, tags=None):
         if ami_id and not isinstance(ami_id, str):
             raise TypeError("Expected argument 'ami_id' to be a str")
         pulumi.set(__self__, "ami_id", ami_id)
@@ -44,6 +44,9 @@ class GetComputeNodeGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if launch_template_mode and not isinstance(launch_template_mode, str):
+            raise TypeError("Expected argument 'launch_template_mode' to be a str")
+        pulumi.set(__self__, "launch_template_mode", launch_template_mode)
         if node_lifecycle_actions and not isinstance(node_lifecycle_actions, dict):
             raise TypeError("Expected argument 'node_lifecycle_actions' to be a dict")
         pulumi.set(__self__, "node_lifecycle_actions", node_lifecycle_actions)
@@ -53,12 +56,18 @@ class GetComputeNodeGroupResult:
         if scaling_configuration and not isinstance(scaling_configuration, dict):
             raise TypeError("Expected argument 'scaling_configuration' to be a dict")
         pulumi.set(__self__, "scaling_configuration", scaling_configuration)
+        if security_group_ids and not isinstance(security_group_ids, list):
+            raise TypeError("Expected argument 'security_group_ids' to be a list")
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
         if slurm_configuration and not isinstance(slurm_configuration, dict):
             raise TypeError("Expected argument 'slurm_configuration' to be a dict")
         pulumi.set(__self__, "slurm_configuration", slurm_configuration)
         if spot_options and not isinstance(spot_options, dict):
             raise TypeError("Expected argument 'spot_options' to be a dict")
         pulumi.set(__self__, "spot_options", spot_options)
+        if ssh_key_name and not isinstance(ssh_key_name, str):
+            raise TypeError("Expected argument 'ssh_key_name' to be a str")
+        pulumi.set(__self__, "ssh_key_name", ssh_key_name)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -118,6 +127,14 @@ class GetComputeNodeGroupResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="launchTemplateMode")
+    def launch_template_mode(self) -> Optional['ComputeNodeGroupLaunchTemplateMode']:
+        """
+        How AWS PCS gets the launch template for the compute node group. CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+        """
+        return pulumi.get(self, "launch_template_mode")
+
+    @_builtins.property
     @pulumi.getter(name="nodeLifecycleActions")
     def node_lifecycle_actions(self) -> Optional['outputs.ComputeNodeGroupNodeLifecycleActions']:
         return pulumi.get(self, "node_lifecycle_actions")
@@ -139,6 +156,14 @@ class GetComputeNodeGroupResult:
         return pulumi.get(self, "scaling_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The IDs of the EC2 security groups configured directly on the compute node group. These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
     @pulumi.getter(name="slurmConfiguration")
     def slurm_configuration(self) -> Optional['outputs.SlurmConfigurationProperties']:
         """
@@ -153,6 +178,14 @@ class GetComputeNodeGroupResult:
         Additional configuration when you specify SPOT as the purchase option.
         """
         return pulumi.get(self, "spot_options")
+
+    @_builtins.property
+    @pulumi.getter(name="sshKeyName")
+    def ssh_key_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the EC2 key pair configured directly on the compute node group. The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+        """
+        return pulumi.get(self, "ssh_key_name")
 
     @_builtins.property
     @pulumi.getter
@@ -191,11 +224,14 @@ class AwaitableGetComputeNodeGroupResult(GetComputeNodeGroupResult):
             error_info=self.error_info,
             iam_instance_profile_arn=self.iam_instance_profile_arn,
             id=self.id,
+            launch_template_mode=self.launch_template_mode,
             node_lifecycle_actions=self.node_lifecycle_actions,
             purchase_option=self.purchase_option,
             scaling_configuration=self.scaling_configuration,
+            security_group_ids=self.security_group_ids,
             slurm_configuration=self.slurm_configuration,
             spot_options=self.spot_options,
+            ssh_key_name=self.ssh_key_name,
             status=self.status,
             subnet_ids=self.subnet_ids,
             tags=self.tags)
@@ -220,11 +256,14 @@ def get_compute_node_group(arn: Optional[_builtins.str] = None,
         error_info=pulumi.get(__ret__, 'error_info'),
         iam_instance_profile_arn=pulumi.get(__ret__, 'iam_instance_profile_arn'),
         id=pulumi.get(__ret__, 'id'),
+        launch_template_mode=pulumi.get(__ret__, 'launch_template_mode'),
         node_lifecycle_actions=pulumi.get(__ret__, 'node_lifecycle_actions'),
         purchase_option=pulumi.get(__ret__, 'purchase_option'),
         scaling_configuration=pulumi.get(__ret__, 'scaling_configuration'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         slurm_configuration=pulumi.get(__ret__, 'slurm_configuration'),
         spot_options=pulumi.get(__ret__, 'spot_options'),
+        ssh_key_name=pulumi.get(__ret__, 'ssh_key_name'),
         status=pulumi.get(__ret__, 'status'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -246,11 +285,14 @@ def get_compute_node_group_output(arn: pulumi.Input[Optional[_builtins.str]] = N
         error_info=pulumi.get(__response__, 'error_info'),
         iam_instance_profile_arn=pulumi.get(__response__, 'iam_instance_profile_arn'),
         id=pulumi.get(__response__, 'id'),
+        launch_template_mode=pulumi.get(__response__, 'launch_template_mode'),
         node_lifecycle_actions=pulumi.get(__response__, 'node_lifecycle_actions'),
         purchase_option=pulumi.get(__response__, 'purchase_option'),
         scaling_configuration=pulumi.get(__response__, 'scaling_configuration'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         slurm_configuration=pulumi.get(__response__, 'slurm_configuration'),
         spot_options=pulumi.get(__response__, 'spot_options'),
+        ssh_key_name=pulumi.get(__response__, 'ssh_key_name'),
         status=pulumi.get(__response__, 'status'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags')))

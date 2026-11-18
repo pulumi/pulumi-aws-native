@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.EmrServerless.Inputs
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
 
+        /// <summary>
+        /// Enables user background sessions for this application so sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.
+        /// </summary>
+        [Input("userBackgroundSessionsEnabled")]
+        public Input<bool>? UserBackgroundSessionsEnabled { get; set; }
+
         public ApplicationIdentityCenterConfigurationArgs()
         {
         }

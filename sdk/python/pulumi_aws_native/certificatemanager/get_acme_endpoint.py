@@ -96,7 +96,7 @@ class AwaitableGetAcmeEndpointResult(GetAcmeEndpointResult):
 def get_acme_endpoint(acme_endpoint_arn: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAcmeEndpointResult:
     """
-    Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+    Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
 
     :param _builtins.str acme_endpoint_arn: The Amazon Resource Name (ARN) of the ACME endpoint.
     """
@@ -114,7 +114,7 @@ def get_acme_endpoint(acme_endpoint_arn: Optional[_builtins.str] = None,
 def get_acme_endpoint_output(acme_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcmeEndpointResult]:
     """
-    Resource Type definition for AWS::CertificateManager::AcmeEndpoint
+    Resource Type definition for AWS::CertificateManager::AcmeEndpoint, an ACME protocol endpoint for issuing certificates through AWS Certificate Manager
 
     :param _builtins.str acme_endpoint_arn: The Amazon Resource Name (ARN) of the ACME endpoint.
     """

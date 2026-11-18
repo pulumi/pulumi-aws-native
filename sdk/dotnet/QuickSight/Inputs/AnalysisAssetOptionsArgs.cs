@@ -12,11 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisAssetOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customActionDefaults")]
+        public Input<Inputs.AnalysisVisualCustomActionDefaultsArgs>? CustomActionDefaults { get; set; }
+
         /// <summary>
         /// Determines the timezone for the analysis.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
+
+        [Input("visualMessages")]
+        public Input<Inputs.AnalysisVisualMessagesArgs>? VisualMessages { get; set; }
 
         /// <summary>
         /// Determines the week start day for an analysis.

@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectAttachmentNatRule',
     'ConnectAttachmentOptions',
     'ConnectAttachmentProposedNetworkFunctionGroupChange',
     'ConnectAttachmentProposedSegmentChange',
@@ -30,22 +31,91 @@ __all__ = [
     'CoreNetworkSegment',
     'DeviceAwsLocation',
     'DeviceLocation',
+    'DirectConnectGatewayAttachmentNatRule',
     'DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange',
     'DirectConnectGatewayAttachmentProposedSegmentChange',
     'DirectConnectGatewayAttachmentTag',
     'LinkBandwidth',
     'SiteLocation',
+    'SiteToSiteVpnAttachmentNatRule',
     'SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange',
     'SiteToSiteVpnAttachmentProposedSegmentChange',
     'SiteToSiteVpnAttachmentTag',
     'TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange',
     'TransitGatewayRouteTableAttachmentProposedSegmentChange',
     'TransitGatewayRouteTableAttachmentTag',
+    'VpcAttachmentNatRule',
     'VpcAttachmentProposedNetworkFunctionGroupChange',
     'VpcAttachmentProposedSegmentChange',
     'VpcAttachmentTag',
     'VpcAttachmentVpcOptions',
 ]
+
+@pulumi.output_type
+class ConnectAttachmentNatRule(dict):
+    """
+    A NAT gateway rule on the attachment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchSourceCidr":
+            suggest = "match_source_cidr"
+        elif key == "natCidr":
+            suggest = "nat_cidr"
+        elif key == "ruleNumber":
+            suggest = "rule_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectAttachmentNatRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectAttachmentNatRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectAttachmentNatRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_source_cidr: _builtins.str,
+                 nat_cidr: _builtins.str,
+                 rule_number: _builtins.int):
+        """
+        A NAT gateway rule on the attachment.
+
+        :param _builtins.str match_source_cidr: The IPv4 CIDR that source traffic is matched against for translation.
+        :param _builtins.str nat_cidr: The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+        :param _builtins.int rule_number: The rule number that uniquely identifies the NAT rule on the attachment.
+        """
+        pulumi.set(__self__, "match_source_cidr", match_source_cidr)
+        pulumi.set(__self__, "nat_cidr", nat_cidr)
+        pulumi.set(__self__, "rule_number", rule_number)
+
+    @_builtins.property
+    @pulumi.getter(name="matchSourceCidr")
+    def match_source_cidr(self) -> _builtins.str:
+        """
+        The IPv4 CIDR that source traffic is matched against for translation.
+        """
+        return pulumi.get(self, "match_source_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="natCidr")
+    def nat_cidr(self) -> _builtins.str:
+        """
+        The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+        """
+        return pulumi.get(self, "nat_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> _builtins.int:
+        """
+        The rule number that uniquely identifies the NAT rule on the attachment.
+        """
+        return pulumi.get(self, "rule_number")
+
 
 @pulumi.output_type
 class ConnectAttachmentOptions(dict):
@@ -785,6 +855,72 @@ class DeviceLocation(dict):
 
 
 @pulumi.output_type
+class DirectConnectGatewayAttachmentNatRule(dict):
+    """
+    A NAT gateway rule on the attachment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchSourceCidr":
+            suggest = "match_source_cidr"
+        elif key == "natCidr":
+            suggest = "nat_cidr"
+        elif key == "ruleNumber":
+            suggest = "rule_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectConnectGatewayAttachmentNatRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectConnectGatewayAttachmentNatRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectConnectGatewayAttachmentNatRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_source_cidr: _builtins.str,
+                 nat_cidr: _builtins.str,
+                 rule_number: _builtins.int):
+        """
+        A NAT gateway rule on the attachment.
+
+        :param _builtins.str match_source_cidr: The IPv4 CIDR that source traffic is matched against for translation.
+        :param _builtins.str nat_cidr: The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+        :param _builtins.int rule_number: The rule number that uniquely identifies the NAT rule on the attachment.
+        """
+        pulumi.set(__self__, "match_source_cidr", match_source_cidr)
+        pulumi.set(__self__, "nat_cidr", nat_cidr)
+        pulumi.set(__self__, "rule_number", rule_number)
+
+    @_builtins.property
+    @pulumi.getter(name="matchSourceCidr")
+    def match_source_cidr(self) -> _builtins.str:
+        """
+        The IPv4 CIDR that source traffic is matched against for translation.
+        """
+        return pulumi.get(self, "match_source_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="natCidr")
+    def nat_cidr(self) -> _builtins.str:
+        """
+        The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+        """
+        return pulumi.get(self, "nat_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> _builtins.int:
+        """
+        The rule number that uniquely identifies the NAT rule on the attachment.
+        """
+        return pulumi.get(self, "rule_number")
+
+
+@pulumi.output_type
 class DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange(dict):
     """
     The attachment to move from one network function group to another.
@@ -1053,6 +1189,72 @@ class SiteLocation(dict):
         The longitude.
         """
         return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
+class SiteToSiteVpnAttachmentNatRule(dict):
+    """
+    A NAT gateway rule on the attachment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchSourceCidr":
+            suggest = "match_source_cidr"
+        elif key == "natCidr":
+            suggest = "nat_cidr"
+        elif key == "ruleNumber":
+            suggest = "rule_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SiteToSiteVpnAttachmentNatRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SiteToSiteVpnAttachmentNatRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SiteToSiteVpnAttachmentNatRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_source_cidr: _builtins.str,
+                 nat_cidr: _builtins.str,
+                 rule_number: _builtins.int):
+        """
+        A NAT gateway rule on the attachment.
+
+        :param _builtins.str match_source_cidr: The IPv4 CIDR that source traffic is matched against for translation.
+        :param _builtins.str nat_cidr: The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+        :param _builtins.int rule_number: The rule number that uniquely identifies the NAT rule on the attachment.
+        """
+        pulumi.set(__self__, "match_source_cidr", match_source_cidr)
+        pulumi.set(__self__, "nat_cidr", nat_cidr)
+        pulumi.set(__self__, "rule_number", rule_number)
+
+    @_builtins.property
+    @pulumi.getter(name="matchSourceCidr")
+    def match_source_cidr(self) -> _builtins.str:
+        """
+        The IPv4 CIDR that source traffic is matched against for translation.
+        """
+        return pulumi.get(self, "match_source_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="natCidr")
+    def nat_cidr(self) -> _builtins.str:
+        """
+        The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+        """
+        return pulumi.get(self, "nat_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> _builtins.int:
+        """
+        The rule number that uniquely identifies the NAT rule on the attachment.
+        """
+        return pulumi.get(self, "rule_number")
 
 
 @pulumi.output_type
@@ -1389,6 +1591,72 @@ class TransitGatewayRouteTableAttachmentTag(dict):
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpcAttachmentNatRule(dict):
+    """
+    A NAT gateway rule on the attachment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchSourceCidr":
+            suggest = "match_source_cidr"
+        elif key == "natCidr":
+            suggest = "nat_cidr"
+        elif key == "ruleNumber":
+            suggest = "rule_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcAttachmentNatRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcAttachmentNatRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcAttachmentNatRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_source_cidr: _builtins.str,
+                 nat_cidr: _builtins.str,
+                 rule_number: _builtins.int):
+        """
+        A NAT gateway rule on the attachment.
+
+        :param _builtins.str match_source_cidr: The IPv4 CIDR that source traffic is matched against for translation.
+        :param _builtins.str nat_cidr: The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+        :param _builtins.int rule_number: The rule number that uniquely identifies the NAT rule on the attachment.
+        """
+        pulumi.set(__self__, "match_source_cidr", match_source_cidr)
+        pulumi.set(__self__, "nat_cidr", nat_cidr)
+        pulumi.set(__self__, "rule_number", rule_number)
+
+    @_builtins.property
+    @pulumi.getter(name="matchSourceCidr")
+    def match_source_cidr(self) -> _builtins.str:
+        """
+        The IPv4 CIDR that source traffic is matched against for translation.
+        """
+        return pulumi.get(self, "match_source_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="natCidr")
+    def nat_cidr(self) -> _builtins.str:
+        """
+        The IPv4 CIDR that matched source traffic is translated into. Must have the same prefix length as MatchSourceCidr.
+        """
+        return pulumi.get(self, "nat_cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> _builtins.int:
+        """
+        The rule number that uniquely identifies the NAT rule on the attachment.
+        """
+        return pulumi.get(self, "rule_number")
 
 
 @pulumi.output_type

@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MigrationProject{}
 	case "aws-native:dms:ReplicationConfig":
 		r = &ReplicationConfig{}
+	case "aws-native:dms:ReplicationInstance":
+		r = &ReplicationInstance{}
 	case "aws-native:dms:ReplicationSubnetGroup":
 		r = &ReplicationSubnetGroup{}
 	case "aws-native:dms:ReplicationTask":

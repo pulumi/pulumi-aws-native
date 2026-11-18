@@ -41,6 +41,37 @@ export const MonitorStatus = {
  */
 export type MonitorStatus = (typeof MonitorStatus)[keyof typeof MonitorStatus];
 
+export const PerformanceMonitorMonitorStatus = {
+    Pending: "PENDING",
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+    Error: "ERROR",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * The status of the performance monitor.
+ */
+export type PerformanceMonitorMonitorStatus = (typeof PerformanceMonitorMonitorStatus)[keyof typeof PerformanceMonitorMonitorStatus];
+
+export const PerformanceMonitorMonitorType = {
+    Vpc: "VPC",
+} as const;
+
+/**
+ * The type of the performance monitor.
+ */
+export type PerformanceMonitorMonitorType = (typeof PerformanceMonitorMonitorType)[keyof typeof PerformanceMonitorMonitorType];
+
+export const PerformanceMonitorTargetType = {
+    Awsec2vpc: "AWS::EC2::VPC",
+} as const;
+
+/**
+ * The type of the target.
+ */
+export type PerformanceMonitorTargetType = (typeof PerformanceMonitorTargetType)[keyof typeof PerformanceMonitorTargetType];
+
 export const ScopeStatus = {
     Succeeded: "SUCCEEDED",
     InProgress: "IN_PROGRESS",

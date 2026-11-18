@@ -34,6 +34,9 @@ __all__ = [
     'RuleGroupCaptchaConfig',
     'RuleGroupChallengeAction',
     'RuleGroupChallengeConfig',
+    'RuleGroupConnectedAccountChainConfig',
+    'RuleGroupConnectedAccountConfig',
+    'RuleGroupConnectedAccountPrice',
     'RuleGroupCookieMatchPattern',
     'RuleGroupCookies',
     'RuleGroupCountAction',
@@ -109,8 +112,12 @@ __all__ = [
     'WebAclCaptchaConfig',
     'WebAclChallengeAction',
     'WebAclChallengeConfig',
+    'WebAclChallengeJavascriptSdkInjectionConfig',
     'WebAclClientSideAction',
     'WebAclClientSideActionConfig',
+    'WebAclConnectedAccountChainConfig',
+    'WebAclConnectedAccountConfig',
+    'WebAclConnectedAccountPrice',
     'WebAclCookieMatchPattern',
     'WebAclCookies',
     'WebAclCountAction',
@@ -1056,6 +1063,100 @@ class RuleGroupChallengeConfig(dict):
         Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
         """
         return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
+class RuleGroupConnectedAccountChainConfig(dict):
+    """
+    Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+    """
+    def __init__(__self__, *,
+                 chain: 'RuleGroupConnectedAccountChain',
+                 prices: Sequence['outputs.RuleGroupConnectedAccountPrice']):
+        """
+        Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> 'RuleGroupConnectedAccountChain':
+        return pulumi.get(self, "chain")
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> Sequence['outputs.RuleGroupConnectedAccountPrice']:
+        return pulumi.get(self, "prices")
+
+
+@pulumi.output_type
+class RuleGroupConnectedAccountConfig(dict):
+    """
+    Configuration for a single connected account and the chains it accepts payment on.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectedAccountArn":
+            suggest = "connected_account_arn"
+        elif key == "paymentNetworks":
+            suggest = "payment_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupConnectedAccountConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupConnectedAccountConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupConnectedAccountConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connected_account_arn: _builtins.str,
+                 payment_networks: Sequence['outputs.RuleGroupConnectedAccountChainConfig']):
+        """
+        Configuration for a single connected account and the chains it accepts payment on.
+        """
+        pulumi.set(__self__, "connected_account_arn", connected_account_arn)
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedAccountArn")
+    def connected_account_arn(self) -> _builtins.str:
+        return pulumi.get(self, "connected_account_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> Sequence['outputs.RuleGroupConnectedAccountChainConfig']:
+        return pulumi.get(self, "payment_networks")
+
+
+@pulumi.output_type
+class RuleGroupConnectedAccountPrice(dict):
+    """
+    A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+    """
+    def __init__(__self__, *,
+                 amount: _builtins.str,
+                 currency: 'RuleGroupCryptoCurrency'):
+        """
+        A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> _builtins.str:
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> 'RuleGroupCryptoCurrency':
+        return pulumi.get(self, "currency")
 
 
 @pulumi.output_type
@@ -2712,7 +2813,9 @@ class RuleGroupMonetizationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cryptoConfig":
+        if key == "connectedAccountConfigs":
+            suggest = "connected_account_configs"
+        elif key == "cryptoConfig":
             suggest = "crypto_config"
         elif key == "currencyMode":
             suggest = "currency_mode"
@@ -2729,15 +2832,23 @@ class RuleGroupMonetizationConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 connected_account_configs: Optional[Sequence['outputs.RuleGroupConnectedAccountConfig']] = None,
                  crypto_config: Optional['outputs.RuleGroupCryptoConfig'] = None,
                  currency_mode: Optional['RuleGroupCurrencyMode'] = None):
         """
         Configures monetization for the web ACL or rule group.
         """
+        if connected_account_configs is not None:
+            pulumi.set(__self__, "connected_account_configs", connected_account_configs)
         if crypto_config is not None:
             pulumi.set(__self__, "crypto_config", crypto_config)
         if currency_mode is not None:
             pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedAccountConfigs")
+    def connected_account_configs(self) -> Optional[Sequence['outputs.RuleGroupConnectedAccountConfig']]:
+        return pulumi.get(self, "connected_account_configs")
 
     @_builtins.property
     @pulumi.getter(name="cryptoConfig")
@@ -5013,7 +5124,9 @@ class WebAclAssociationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "requestBody":
+        if key == "challengeJavascriptSdkInjection":
+            suggest = "challenge_javascript_sdk_injection"
+        elif key == "requestBody":
             suggest = "request_body"
 
         if suggest:
@@ -5028,6 +5141,7 @@ class WebAclAssociationConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 challenge_javascript_sdk_injection: Optional[Mapping[str, 'outputs.WebAclChallengeJavascriptSdkInjectionConfig']] = None,
                  request_body: Optional[Mapping[str, 'outputs.WebAclRequestBodyAssociatedResourceTypeConfig']] = None):
         """
         AssociationConfig for body inspection
@@ -5040,8 +5154,15 @@ class WebAclAssociationConfig(dict):
                
                For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         """
+        if challenge_javascript_sdk_injection is not None:
+            pulumi.set(__self__, "challenge_javascript_sdk_injection", challenge_javascript_sdk_injection)
         if request_body is not None:
             pulumi.set(__self__, "request_body", request_body)
+
+    @_builtins.property
+    @pulumi.getter(name="challengeJavascriptSdkInjection")
+    def challenge_javascript_sdk_injection(self) -> Optional[Mapping[str, 'outputs.WebAclChallengeJavascriptSdkInjectionConfig']]:
+        return pulumi.get(self, "challenge_javascript_sdk_injection")
 
     @_builtins.property
     @pulumi.getter(name="requestBody")
@@ -5851,6 +5972,18 @@ class WebAclChallengeConfig(dict):
 
 
 @pulumi.output_type
+class WebAclChallengeJavascriptSdkInjectionConfig(dict):
+    """
+    Configures the challenge JavaScript SDK injection for the associated resource.
+    """
+    def __init__(__self__):
+        """
+        Configures the challenge JavaScript SDK injection for the associated resource.
+        """
+        pass
+
+
+@pulumi.output_type
 class WebAclClientSideAction(dict):
     """
     Client side action config for AntiDDOS AMR.
@@ -6009,6 +6142,100 @@ class WebAclClientSideActionConfig(dict):
         You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
         """
         return pulumi.get(self, "challenge")
+
+
+@pulumi.output_type
+class WebAclConnectedAccountChainConfig(dict):
+    """
+    Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+    """
+    def __init__(__self__, *,
+                 chain: 'WebAclConnectedAccountChain',
+                 prices: Sequence['outputs.WebAclConnectedAccountPrice']):
+        """
+        Per-chain price configuration for a connected account. The deposit address is provisioned by the payments provider and is not specified here.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> 'WebAclConnectedAccountChain':
+        return pulumi.get(self, "chain")
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> Sequence['outputs.WebAclConnectedAccountPrice']:
+        return pulumi.get(self, "prices")
+
+
+@pulumi.output_type
+class WebAclConnectedAccountConfig(dict):
+    """
+    Configuration for a single connected account and the chains it accepts payment on.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectedAccountArn":
+            suggest = "connected_account_arn"
+        elif key == "paymentNetworks":
+            suggest = "payment_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclConnectedAccountConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclConnectedAccountConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclConnectedAccountConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connected_account_arn: _builtins.str,
+                 payment_networks: Sequence['outputs.WebAclConnectedAccountChainConfig']):
+        """
+        Configuration for a single connected account and the chains it accepts payment on.
+        """
+        pulumi.set(__self__, "connected_account_arn", connected_account_arn)
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedAccountArn")
+    def connected_account_arn(self) -> _builtins.str:
+        return pulumi.get(self, "connected_account_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> Sequence['outputs.WebAclConnectedAccountChainConfig']:
+        return pulumi.get(self, "payment_networks")
+
+
+@pulumi.output_type
+class WebAclConnectedAccountPrice(dict):
+    """
+    A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+    """
+    def __init__(__self__, *,
+                 amount: _builtins.str,
+                 currency: 'WebAclCryptoCurrency'):
+        """
+        A connected-account price configuration. The payment provider rejects amounts below $0.01 and does not support sub-cent amounts.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> _builtins.str:
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> 'WebAclCryptoCurrency':
+        return pulumi.get(self, "currency")
 
 
 @pulumi.output_type
@@ -8151,7 +8378,9 @@ class WebAclMonetizationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cryptoConfig":
+        if key == "connectedAccountConfigs":
+            suggest = "connected_account_configs"
+        elif key == "cryptoConfig":
             suggest = "crypto_config"
         elif key == "currencyMode":
             suggest = "currency_mode"
@@ -8168,15 +8397,23 @@ class WebAclMonetizationConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 connected_account_configs: Optional[Sequence['outputs.WebAclConnectedAccountConfig']] = None,
                  crypto_config: Optional['outputs.WebAclCryptoConfig'] = None,
                  currency_mode: Optional['WebAclCurrencyMode'] = None):
         """
         Configures monetization for the web ACL or rule group.
         """
+        if connected_account_configs is not None:
+            pulumi.set(__self__, "connected_account_configs", connected_account_configs)
         if crypto_config is not None:
             pulumi.set(__self__, "crypto_config", crypto_config)
         if currency_mode is not None:
             pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedAccountConfigs")
+    def connected_account_configs(self) -> Optional[Sequence['outputs.WebAclConnectedAccountConfig']]:
+        return pulumi.get(self, "connected_account_configs")
 
     @_builtins.property
     @pulumi.getter(name="cryptoConfig")

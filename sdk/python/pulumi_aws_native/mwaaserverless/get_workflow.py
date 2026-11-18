@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkflowResult:
-    def __init__(__self__, code=None, code_snapshotted_at=None, created_at=None, definition_s3_location=None, description=None, logging_configuration=None, modified_at=None, network_configuration=None, role_arn=None, schedule_configuration=None, tags=None, trigger_mode=None, workflow_arn=None, workflow_status=None, workflow_version=None):
+    def __init__(__self__, code=None, code_snapshotted_at=None, created_at=None, definition_s3_location=None, description=None, environment=None, logging_configuration=None, modified_at=None, network_configuration=None, role_arn=None, schedule_configuration=None, tags=None, trigger_mode=None, workflow_arn=None, workflow_status=None, workflow_version=None):
         if code and not isinstance(code, dict):
             raise TypeError("Expected argument 'code' to be a dict")
         pulumi.set(__self__, "code", code)
@@ -41,6 +41,9 @@ class GetWorkflowResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if environment and not isinstance(environment, dict):
+            raise TypeError("Expected argument 'environment' to be a dict")
+        pulumi.set(__self__, "environment", environment)
         if logging_configuration and not isinstance(logging_configuration, dict):
             raise TypeError("Expected argument 'logging_configuration' to be a dict")
         pulumi.set(__self__, "logging_configuration", logging_configuration)
@@ -96,6 +99,11 @@ class GetWorkflowResult:
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional['outputs.WorkflowEnvironment']:
+        return pulumi.get(self, "environment")
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
@@ -159,6 +167,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             created_at=self.created_at,
             definition_s3_location=self.definition_s3_location,
             description=self.description,
+            environment=self.environment,
             logging_configuration=self.logging_configuration,
             modified_at=self.modified_at,
             network_configuration=self.network_configuration,
@@ -187,6 +196,7 @@ def get_workflow(workflow_arn: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         definition_s3_location=pulumi.get(__ret__, 'definition_s3_location'),
         description=pulumi.get(__ret__, 'description'),
+        environment=pulumi.get(__ret__, 'environment'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         network_configuration=pulumi.get(__ret__, 'network_configuration'),
@@ -212,6 +222,7 @@ def get_workflow_output(workflow_arn: pulumi.Input[Optional[_builtins.str]] = No
         created_at=pulumi.get(__response__, 'created_at'),
         definition_s3_location=pulumi.get(__response__, 'definition_s3_location'),
         description=pulumi.get(__response__, 'description'),
+        environment=pulumi.get(__response__, 'environment'),
         logging_configuration=pulumi.get(__response__, 'logging_configuration'),
         modified_at=pulumi.get(__response__, 'modified_at'),
         network_configuration=pulumi.get(__response__, 'network_configuration'),

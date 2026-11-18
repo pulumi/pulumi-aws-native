@@ -13,6 +13,5682 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ClusterApplication struct {
+	// This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
+	AdditionalInfo map[string]string `pulumi:"additionalInfo"`
+	// Arguments for Amazon EMR to pass to the application
+	Args []string `pulumi:"args"`
+	// The name of the application.
+	Name *string `pulumi:"name"`
+	// The version of the application.
+	Version *string `pulumi:"version"`
+}
+
+// ClusterApplicationInput is an input type that accepts ClusterApplicationArgs and ClusterApplicationOutput values.
+// You can construct a concrete instance of `ClusterApplicationInput` via:
+//
+//	ClusterApplicationArgs{...}
+type ClusterApplicationInput interface {
+	pulumi.Input
+
+	ToClusterApplicationOutput() ClusterApplicationOutput
+	ToClusterApplicationOutputWithContext(context.Context) ClusterApplicationOutput
+}
+
+type ClusterApplicationArgs struct {
+	// This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
+	AdditionalInfo pulumi.StringMapInput `pulumi:"additionalInfo"`
+	// Arguments for Amazon EMR to pass to the application
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// The name of the application.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The version of the application.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ClusterApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterApplication)(nil)).Elem()
+}
+
+func (i ClusterApplicationArgs) ToClusterApplicationOutput() ClusterApplicationOutput {
+	return i.ToClusterApplicationOutputWithContext(context.Background())
+}
+
+func (i ClusterApplicationArgs) ToClusterApplicationOutputWithContext(ctx context.Context) ClusterApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterApplicationOutput)
+}
+
+// ClusterApplicationArrayInput is an input type that accepts ClusterApplicationArray and ClusterApplicationArrayOutput values.
+// You can construct a concrete instance of `ClusterApplicationArrayInput` via:
+//
+//	ClusterApplicationArray{ ClusterApplicationArgs{...} }
+type ClusterApplicationArrayInput interface {
+	pulumi.Input
+
+	ToClusterApplicationArrayOutput() ClusterApplicationArrayOutput
+	ToClusterApplicationArrayOutputWithContext(context.Context) ClusterApplicationArrayOutput
+}
+
+type ClusterApplicationArray []ClusterApplicationInput
+
+func (ClusterApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterApplication)(nil)).Elem()
+}
+
+func (i ClusterApplicationArray) ToClusterApplicationArrayOutput() ClusterApplicationArrayOutput {
+	return i.ToClusterApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterApplicationArray) ToClusterApplicationArrayOutputWithContext(ctx context.Context) ClusterApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterApplicationArrayOutput)
+}
+
+type ClusterApplicationOutput struct{ *pulumi.OutputState }
+
+func (ClusterApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterApplication)(nil)).Elem()
+}
+
+func (o ClusterApplicationOutput) ToClusterApplicationOutput() ClusterApplicationOutput {
+	return o
+}
+
+func (o ClusterApplicationOutput) ToClusterApplicationOutputWithContext(ctx context.Context) ClusterApplicationOutput {
+	return o
+}
+
+// This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
+func (o ClusterApplicationOutput) AdditionalInfo() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterApplication) map[string]string { return v.AdditionalInfo }).(pulumi.StringMapOutput)
+}
+
+// Arguments for Amazon EMR to pass to the application
+func (o ClusterApplicationOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterApplication) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// The name of the application.
+func (o ClusterApplicationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterApplication) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The version of the application.
+func (o ClusterApplicationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterApplication) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ClusterApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterApplication)(nil)).Elem()
+}
+
+func (o ClusterApplicationArrayOutput) ToClusterApplicationArrayOutput() ClusterApplicationArrayOutput {
+	return o
+}
+
+func (o ClusterApplicationArrayOutput) ToClusterApplicationArrayOutputWithContext(ctx context.Context) ClusterApplicationArrayOutput {
+	return o
+}
+
+func (o ClusterApplicationArrayOutput) Index(i pulumi.IntInput) ClusterApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterApplication {
+		return vs[0].([]ClusterApplication)[vs[1].(int)]
+	}).(ClusterApplicationOutput)
+}
+
+type ClusterAutoScalingPolicy struct {
+	// The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+	Constraints ClusterScalingConstraints `pulumi:"constraints"`
+	// The scale-in and scale-out rules that comprise the automatic scaling policy.
+	Rules []ClusterScalingRule `pulumi:"rules"`
+}
+
+// ClusterAutoScalingPolicyInput is an input type that accepts ClusterAutoScalingPolicyArgs and ClusterAutoScalingPolicyOutput values.
+// You can construct a concrete instance of `ClusterAutoScalingPolicyInput` via:
+//
+//	ClusterAutoScalingPolicyArgs{...}
+type ClusterAutoScalingPolicyInput interface {
+	pulumi.Input
+
+	ToClusterAutoScalingPolicyOutput() ClusterAutoScalingPolicyOutput
+	ToClusterAutoScalingPolicyOutputWithContext(context.Context) ClusterAutoScalingPolicyOutput
+}
+
+type ClusterAutoScalingPolicyArgs struct {
+	// The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+	Constraints ClusterScalingConstraintsInput `pulumi:"constraints"`
+	// The scale-in and scale-out rules that comprise the automatic scaling policy.
+	Rules ClusterScalingRuleArrayInput `pulumi:"rules"`
+}
+
+func (ClusterAutoScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoScalingPolicy)(nil)).Elem()
+}
+
+func (i ClusterAutoScalingPolicyArgs) ToClusterAutoScalingPolicyOutput() ClusterAutoScalingPolicyOutput {
+	return i.ToClusterAutoScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoScalingPolicyArgs) ToClusterAutoScalingPolicyOutputWithContext(ctx context.Context) ClusterAutoScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoScalingPolicyOutput)
+}
+
+func (i ClusterAutoScalingPolicyArgs) ToClusterAutoScalingPolicyPtrOutput() ClusterAutoScalingPolicyPtrOutput {
+	return i.ToClusterAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoScalingPolicyArgs) ToClusterAutoScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoScalingPolicyOutput).ToClusterAutoScalingPolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterAutoScalingPolicyPtrInput is an input type that accepts ClusterAutoScalingPolicyArgs, ClusterAutoScalingPolicyPtr and ClusterAutoScalingPolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterAutoScalingPolicyPtrInput` via:
+//
+//	        ClusterAutoScalingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAutoScalingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterAutoScalingPolicyPtrOutput() ClusterAutoScalingPolicyPtrOutput
+	ToClusterAutoScalingPolicyPtrOutputWithContext(context.Context) ClusterAutoScalingPolicyPtrOutput
+}
+
+type clusterAutoScalingPolicyPtrType ClusterAutoScalingPolicyArgs
+
+func ClusterAutoScalingPolicyPtr(v *ClusterAutoScalingPolicyArgs) ClusterAutoScalingPolicyPtrInput {
+	return (*clusterAutoScalingPolicyPtrType)(v)
+}
+
+func (*clusterAutoScalingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoScalingPolicy)(nil)).Elem()
+}
+
+func (i *clusterAutoScalingPolicyPtrType) ToClusterAutoScalingPolicyPtrOutput() ClusterAutoScalingPolicyPtrOutput {
+	return i.ToClusterAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAutoScalingPolicyPtrType) ToClusterAutoScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoScalingPolicyPtrOutput)
+}
+
+type ClusterAutoScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoScalingPolicy)(nil)).Elem()
+}
+
+func (o ClusterAutoScalingPolicyOutput) ToClusterAutoScalingPolicyOutput() ClusterAutoScalingPolicyOutput {
+	return o
+}
+
+func (o ClusterAutoScalingPolicyOutput) ToClusterAutoScalingPolicyOutputWithContext(ctx context.Context) ClusterAutoScalingPolicyOutput {
+	return o
+}
+
+func (o ClusterAutoScalingPolicyOutput) ToClusterAutoScalingPolicyPtrOutput() ClusterAutoScalingPolicyPtrOutput {
+	return o.ToClusterAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoScalingPolicyOutput) ToClusterAutoScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoScalingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAutoScalingPolicy) *ClusterAutoScalingPolicy {
+		return &v
+	}).(ClusterAutoScalingPolicyPtrOutput)
+}
+
+// The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+func (o ClusterAutoScalingPolicyOutput) Constraints() ClusterScalingConstraintsOutput {
+	return o.ApplyT(func(v ClusterAutoScalingPolicy) ClusterScalingConstraints { return v.Constraints }).(ClusterScalingConstraintsOutput)
+}
+
+// The scale-in and scale-out rules that comprise the automatic scaling policy.
+func (o ClusterAutoScalingPolicyOutput) Rules() ClusterScalingRuleArrayOutput {
+	return o.ApplyT(func(v ClusterAutoScalingPolicy) []ClusterScalingRule { return v.Rules }).(ClusterScalingRuleArrayOutput)
+}
+
+type ClusterAutoScalingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoScalingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoScalingPolicy)(nil)).Elem()
+}
+
+func (o ClusterAutoScalingPolicyPtrOutput) ToClusterAutoScalingPolicyPtrOutput() ClusterAutoScalingPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoScalingPolicyPtrOutput) ToClusterAutoScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoScalingPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoScalingPolicyPtrOutput) Elem() ClusterAutoScalingPolicyOutput {
+	return o.ApplyT(func(v *ClusterAutoScalingPolicy) ClusterAutoScalingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAutoScalingPolicy
+		return ret
+	}).(ClusterAutoScalingPolicyOutput)
+}
+
+// The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+func (o ClusterAutoScalingPolicyPtrOutput) Constraints() ClusterScalingConstraintsPtrOutput {
+	return o.ApplyT(func(v *ClusterAutoScalingPolicy) *ClusterScalingConstraints {
+		if v == nil {
+			return nil
+		}
+		return &v.Constraints
+	}).(ClusterScalingConstraintsPtrOutput)
+}
+
+// The scale-in and scale-out rules that comprise the automatic scaling policy.
+func (o ClusterAutoScalingPolicyPtrOutput) Rules() ClusterScalingRuleArrayOutput {
+	return o.ApplyT(func(v *ClusterAutoScalingPolicy) []ClusterScalingRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(ClusterScalingRuleArrayOutput)
+}
+
+type ClusterAutoTerminationPolicy struct {
+	// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days)
+	IdleTimeout *int `pulumi:"idleTimeout"`
+}
+
+// ClusterAutoTerminationPolicyInput is an input type that accepts ClusterAutoTerminationPolicyArgs and ClusterAutoTerminationPolicyOutput values.
+// You can construct a concrete instance of `ClusterAutoTerminationPolicyInput` via:
+//
+//	ClusterAutoTerminationPolicyArgs{...}
+type ClusterAutoTerminationPolicyInput interface {
+	pulumi.Input
+
+	ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput
+	ToClusterAutoTerminationPolicyOutputWithContext(context.Context) ClusterAutoTerminationPolicyOutput
+}
+
+type ClusterAutoTerminationPolicyArgs struct {
+	// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days)
+	IdleTimeout pulumi.IntPtrInput `pulumi:"idleTimeout"`
+}
+
+func (ClusterAutoTerminationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput {
+	return i.ToClusterAutoTerminationPolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyOutput)
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return i.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyOutput).ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterAutoTerminationPolicyPtrInput is an input type that accepts ClusterAutoTerminationPolicyArgs, ClusterAutoTerminationPolicyPtr and ClusterAutoTerminationPolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterAutoTerminationPolicyPtrInput` via:
+//
+//	        ClusterAutoTerminationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAutoTerminationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput
+	ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Context) ClusterAutoTerminationPolicyPtrOutput
+}
+
+type clusterAutoTerminationPolicyPtrType ClusterAutoTerminationPolicyArgs
+
+func ClusterAutoTerminationPolicyPtr(v *ClusterAutoTerminationPolicyArgs) ClusterAutoTerminationPolicyPtrInput {
+	return (*clusterAutoTerminationPolicyPtrType)(v)
+}
+
+func (*clusterAutoTerminationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (i *clusterAutoTerminationPolicyPtrType) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return i.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAutoTerminationPolicyPtrType) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyPtrOutput)
+}
+
+type ClusterAutoTerminationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoTerminationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return o.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAutoTerminationPolicy) *ClusterAutoTerminationPolicy {
+		return &v
+	}).(ClusterAutoTerminationPolicyPtrOutput)
+}
+
+// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days)
+func (o ClusterAutoTerminationPolicyOutput) IdleTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAutoTerminationPolicy) *int { return v.IdleTimeout }).(pulumi.IntPtrOutput)
+}
+
+type ClusterAutoTerminationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoTerminationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) Elem() ClusterAutoTerminationPolicyOutput {
+	return o.ApplyT(func(v *ClusterAutoTerminationPolicy) ClusterAutoTerminationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAutoTerminationPolicy
+		return ret
+	}).(ClusterAutoTerminationPolicyOutput)
+}
+
+// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days)
+func (o ClusterAutoTerminationPolicyPtrOutput) IdleTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAutoTerminationPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterBootstrapActionConfig struct {
+	// The name of the bootstrap action.
+	Name string `pulumi:"name"`
+	// The script run by the bootstrap action.
+	ScriptBootstrapAction ClusterScriptBootstrapActionConfig `pulumi:"scriptBootstrapAction"`
+}
+
+// ClusterBootstrapActionConfigInput is an input type that accepts ClusterBootstrapActionConfigArgs and ClusterBootstrapActionConfigOutput values.
+// You can construct a concrete instance of `ClusterBootstrapActionConfigInput` via:
+//
+//	ClusterBootstrapActionConfigArgs{...}
+type ClusterBootstrapActionConfigInput interface {
+	pulumi.Input
+
+	ToClusterBootstrapActionConfigOutput() ClusterBootstrapActionConfigOutput
+	ToClusterBootstrapActionConfigOutputWithContext(context.Context) ClusterBootstrapActionConfigOutput
+}
+
+type ClusterBootstrapActionConfigArgs struct {
+	// The name of the bootstrap action.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The script run by the bootstrap action.
+	ScriptBootstrapAction ClusterScriptBootstrapActionConfigInput `pulumi:"scriptBootstrapAction"`
+}
+
+func (ClusterBootstrapActionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBootstrapActionConfig)(nil)).Elem()
+}
+
+func (i ClusterBootstrapActionConfigArgs) ToClusterBootstrapActionConfigOutput() ClusterBootstrapActionConfigOutput {
+	return i.ToClusterBootstrapActionConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterBootstrapActionConfigArgs) ToClusterBootstrapActionConfigOutputWithContext(ctx context.Context) ClusterBootstrapActionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBootstrapActionConfigOutput)
+}
+
+// ClusterBootstrapActionConfigArrayInput is an input type that accepts ClusterBootstrapActionConfigArray and ClusterBootstrapActionConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterBootstrapActionConfigArrayInput` via:
+//
+//	ClusterBootstrapActionConfigArray{ ClusterBootstrapActionConfigArgs{...} }
+type ClusterBootstrapActionConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterBootstrapActionConfigArrayOutput() ClusterBootstrapActionConfigArrayOutput
+	ToClusterBootstrapActionConfigArrayOutputWithContext(context.Context) ClusterBootstrapActionConfigArrayOutput
+}
+
+type ClusterBootstrapActionConfigArray []ClusterBootstrapActionConfigInput
+
+func (ClusterBootstrapActionConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterBootstrapActionConfig)(nil)).Elem()
+}
+
+func (i ClusterBootstrapActionConfigArray) ToClusterBootstrapActionConfigArrayOutput() ClusterBootstrapActionConfigArrayOutput {
+	return i.ToClusterBootstrapActionConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterBootstrapActionConfigArray) ToClusterBootstrapActionConfigArrayOutputWithContext(ctx context.Context) ClusterBootstrapActionConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBootstrapActionConfigArrayOutput)
+}
+
+type ClusterBootstrapActionConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterBootstrapActionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBootstrapActionConfig)(nil)).Elem()
+}
+
+func (o ClusterBootstrapActionConfigOutput) ToClusterBootstrapActionConfigOutput() ClusterBootstrapActionConfigOutput {
+	return o
+}
+
+func (o ClusterBootstrapActionConfigOutput) ToClusterBootstrapActionConfigOutputWithContext(ctx context.Context) ClusterBootstrapActionConfigOutput {
+	return o
+}
+
+// The name of the bootstrap action.
+func (o ClusterBootstrapActionConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterBootstrapActionConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The script run by the bootstrap action.
+func (o ClusterBootstrapActionConfigOutput) ScriptBootstrapAction() ClusterScriptBootstrapActionConfigOutput {
+	return o.ApplyT(func(v ClusterBootstrapActionConfig) ClusterScriptBootstrapActionConfig {
+		return v.ScriptBootstrapAction
+	}).(ClusterScriptBootstrapActionConfigOutput)
+}
+
+type ClusterBootstrapActionConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterBootstrapActionConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterBootstrapActionConfig)(nil)).Elem()
+}
+
+func (o ClusterBootstrapActionConfigArrayOutput) ToClusterBootstrapActionConfigArrayOutput() ClusterBootstrapActionConfigArrayOutput {
+	return o
+}
+
+func (o ClusterBootstrapActionConfigArrayOutput) ToClusterBootstrapActionConfigArrayOutputWithContext(ctx context.Context) ClusterBootstrapActionConfigArrayOutput {
+	return o
+}
+
+func (o ClusterBootstrapActionConfigArrayOutput) Index(i pulumi.IntInput) ClusterBootstrapActionConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterBootstrapActionConfig {
+		return vs[0].([]ClusterBootstrapActionConfig)[vs[1].(int)]
+	}).(ClusterBootstrapActionConfigOutput)
+}
+
+type ClusterCloudWatchAlarmDefinition struct {
+	// Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+	ComparisonOperator ClusterCloudWatchAlarmDefinitionComparisonOperator `pulumi:"comparisonOperator"`
+	// A CloudWatch metric dimension.
+	Dimensions []ClusterMetricDimension `pulumi:"dimensions"`
+	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is 1.
+	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	// The name of the CloudWatch metric that is watched to determine an alarm condition.
+	MetricName string `pulumi:"metricName"`
+	// The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce.
+	Namespace *string `pulumi:"namespace"`
+	// The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify 300.
+	Period int `pulumi:"period"`
+	// The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+	Statistic *ClusterCloudWatchAlarmDefinitionStatistic `pulumi:"statistic"`
+	// The value against which the specified statistic is compared.
+	Threshold float64 `pulumi:"threshold"`
+	// The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+	Unit *ClusterCloudWatchAlarmDefinitionUnit `pulumi:"unit"`
+}
+
+// ClusterCloudWatchAlarmDefinitionInput is an input type that accepts ClusterCloudWatchAlarmDefinitionArgs and ClusterCloudWatchAlarmDefinitionOutput values.
+// You can construct a concrete instance of `ClusterCloudWatchAlarmDefinitionInput` via:
+//
+//	ClusterCloudWatchAlarmDefinitionArgs{...}
+type ClusterCloudWatchAlarmDefinitionInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchAlarmDefinitionOutput() ClusterCloudWatchAlarmDefinitionOutput
+	ToClusterCloudWatchAlarmDefinitionOutputWithContext(context.Context) ClusterCloudWatchAlarmDefinitionOutput
+}
+
+type ClusterCloudWatchAlarmDefinitionArgs struct {
+	// Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+	ComparisonOperator ClusterCloudWatchAlarmDefinitionComparisonOperatorInput `pulumi:"comparisonOperator"`
+	// A CloudWatch metric dimension.
+	Dimensions ClusterMetricDimensionArrayInput `pulumi:"dimensions"`
+	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is 1.
+	EvaluationPeriods pulumi.IntPtrInput `pulumi:"evaluationPeriods"`
+	// The name of the CloudWatch metric that is watched to determine an alarm condition.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify 300.
+	Period pulumi.IntInput `pulumi:"period"`
+	// The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+	Statistic ClusterCloudWatchAlarmDefinitionStatisticPtrInput `pulumi:"statistic"`
+	// The value against which the specified statistic is compared.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+	Unit ClusterCloudWatchAlarmDefinitionUnitPtrInput `pulumi:"unit"`
+}
+
+func (ClusterCloudWatchAlarmDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchAlarmDefinition)(nil)).Elem()
+}
+
+func (i ClusterCloudWatchAlarmDefinitionArgs) ToClusterCloudWatchAlarmDefinitionOutput() ClusterCloudWatchAlarmDefinitionOutput {
+	return i.ToClusterCloudWatchAlarmDefinitionOutputWithContext(context.Background())
+}
+
+func (i ClusterCloudWatchAlarmDefinitionArgs) ToClusterCloudWatchAlarmDefinitionOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudWatchAlarmDefinitionOutput)
+}
+
+type ClusterCloudWatchAlarmDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchAlarmDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchAlarmDefinition)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchAlarmDefinitionOutput) ToClusterCloudWatchAlarmDefinitionOutput() ClusterCloudWatchAlarmDefinitionOutput {
+	return o
+}
+
+func (o ClusterCloudWatchAlarmDefinitionOutput) ToClusterCloudWatchAlarmDefinitionOutputWithContext(ctx context.Context) ClusterCloudWatchAlarmDefinitionOutput {
+	return o
+}
+
+// Determines how the metric specified by MetricName is compared to the value specified by Threshold.
+func (o ClusterCloudWatchAlarmDefinitionOutput) ComparisonOperator() ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) ClusterCloudWatchAlarmDefinitionComparisonOperator {
+		return v.ComparisonOperator
+	}).(ClusterCloudWatchAlarmDefinitionComparisonOperatorOutput)
+}
+
+// A CloudWatch metric dimension.
+func (o ClusterCloudWatchAlarmDefinitionOutput) Dimensions() ClusterMetricDimensionArrayOutput {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) []ClusterMetricDimension { return v.Dimensions }).(ClusterMetricDimensionArrayOutput)
+}
+
+// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is 1.
+func (o ClusterCloudWatchAlarmDefinitionOutput) EvaluationPeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) *int { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
+}
+
+// The name of the CloudWatch metric that is watched to determine an alarm condition.
+func (o ClusterCloudWatchAlarmDefinitionOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce.
+func (o ClusterCloudWatchAlarmDefinitionOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify 300.
+func (o ClusterCloudWatchAlarmDefinitionOutput) Period() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) int { return v.Period }).(pulumi.IntOutput)
+}
+
+// The statistic to apply to the metric associated with the alarm. The default is AVERAGE.
+func (o ClusterCloudWatchAlarmDefinitionOutput) Statistic() ClusterCloudWatchAlarmDefinitionStatisticPtrOutput {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) *ClusterCloudWatchAlarmDefinitionStatistic {
+		return v.Statistic
+	}).(ClusterCloudWatchAlarmDefinitionStatisticPtrOutput)
+}
+
+// The value against which the specified statistic is compared.
+func (o ClusterCloudWatchAlarmDefinitionOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// The unit of measure associated with the CloudWatch metric being watched. The value specified for Unit must correspond to the units specified in the CloudWatch metric.
+func (o ClusterCloudWatchAlarmDefinitionOutput) Unit() ClusterCloudWatchAlarmDefinitionUnitPtrOutput {
+	return o.ApplyT(func(v ClusterCloudWatchAlarmDefinition) *ClusterCloudWatchAlarmDefinitionUnit { return v.Unit }).(ClusterCloudWatchAlarmDefinitionUnitPtrOutput)
+}
+
+// Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.
+type ClusterCloudWatchLogConfiguration struct {
+	// Specifies if CloudWatch logging is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The ARN of the encryption key used to encrypt the logs.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
+	// The name of the CloudWatch log group where logs are published.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The prefix of the log stream name.
+	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
+	// A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.
+	LogTypes map[string][]string `pulumi:"logTypes"`
+}
+
+// ClusterCloudWatchLogConfigurationInput is an input type that accepts ClusterCloudWatchLogConfigurationArgs and ClusterCloudWatchLogConfigurationOutput values.
+// You can construct a concrete instance of `ClusterCloudWatchLogConfigurationInput` via:
+//
+//	ClusterCloudWatchLogConfigurationArgs{...}
+type ClusterCloudWatchLogConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchLogConfigurationOutput() ClusterCloudWatchLogConfigurationOutput
+	ToClusterCloudWatchLogConfigurationOutputWithContext(context.Context) ClusterCloudWatchLogConfigurationOutput
+}
+
+// Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.
+type ClusterCloudWatchLogConfigurationArgs struct {
+	// Specifies if CloudWatch logging is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ARN of the encryption key used to encrypt the logs.
+	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
+	// The name of the CloudWatch log group where logs are published.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The prefix of the log stream name.
+	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
+	// A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.
+	LogTypes pulumi.StringArrayMapInput `pulumi:"logTypes"`
+}
+
+func (ClusterCloudWatchLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchLogConfiguration)(nil)).Elem()
+}
+
+func (i ClusterCloudWatchLogConfigurationArgs) ToClusterCloudWatchLogConfigurationOutput() ClusterCloudWatchLogConfigurationOutput {
+	return i.ToClusterCloudWatchLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterCloudWatchLogConfigurationArgs) ToClusterCloudWatchLogConfigurationOutputWithContext(ctx context.Context) ClusterCloudWatchLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudWatchLogConfigurationOutput)
+}
+
+func (i ClusterCloudWatchLogConfigurationArgs) ToClusterCloudWatchLogConfigurationPtrOutput() ClusterCloudWatchLogConfigurationPtrOutput {
+	return i.ToClusterCloudWatchLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterCloudWatchLogConfigurationArgs) ToClusterCloudWatchLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterCloudWatchLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudWatchLogConfigurationOutput).ToClusterCloudWatchLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterCloudWatchLogConfigurationPtrInput is an input type that accepts ClusterCloudWatchLogConfigurationArgs, ClusterCloudWatchLogConfigurationPtr and ClusterCloudWatchLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterCloudWatchLogConfigurationPtrInput` via:
+//
+//	        ClusterCloudWatchLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterCloudWatchLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterCloudWatchLogConfigurationPtrOutput() ClusterCloudWatchLogConfigurationPtrOutput
+	ToClusterCloudWatchLogConfigurationPtrOutputWithContext(context.Context) ClusterCloudWatchLogConfigurationPtrOutput
+}
+
+type clusterCloudWatchLogConfigurationPtrType ClusterCloudWatchLogConfigurationArgs
+
+func ClusterCloudWatchLogConfigurationPtr(v *ClusterCloudWatchLogConfigurationArgs) ClusterCloudWatchLogConfigurationPtrInput {
+	return (*clusterCloudWatchLogConfigurationPtrType)(v)
+}
+
+func (*clusterCloudWatchLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCloudWatchLogConfiguration)(nil)).Elem()
+}
+
+func (i *clusterCloudWatchLogConfigurationPtrType) ToClusterCloudWatchLogConfigurationPtrOutput() ClusterCloudWatchLogConfigurationPtrOutput {
+	return i.ToClusterCloudWatchLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterCloudWatchLogConfigurationPtrType) ToClusterCloudWatchLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterCloudWatchLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCloudWatchLogConfigurationPtrOutput)
+}
+
+// Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.
+type ClusterCloudWatchLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCloudWatchLogConfiguration)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchLogConfigurationOutput) ToClusterCloudWatchLogConfigurationOutput() ClusterCloudWatchLogConfigurationOutput {
+	return o
+}
+
+func (o ClusterCloudWatchLogConfigurationOutput) ToClusterCloudWatchLogConfigurationOutputWithContext(ctx context.Context) ClusterCloudWatchLogConfigurationOutput {
+	return o
+}
+
+func (o ClusterCloudWatchLogConfigurationOutput) ToClusterCloudWatchLogConfigurationPtrOutput() ClusterCloudWatchLogConfigurationPtrOutput {
+	return o.ToClusterCloudWatchLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCloudWatchLogConfigurationOutput) ToClusterCloudWatchLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterCloudWatchLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCloudWatchLogConfiguration) *ClusterCloudWatchLogConfiguration {
+		return &v
+	}).(ClusterCloudWatchLogConfigurationPtrOutput)
+}
+
+// Specifies if CloudWatch logging is enabled.
+func (o ClusterCloudWatchLogConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterCloudWatchLogConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ARN of the encryption key used to encrypt the logs.
+func (o ClusterCloudWatchLogConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCloudWatchLogConfiguration) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the CloudWatch log group where logs are published.
+func (o ClusterCloudWatchLogConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCloudWatchLogConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The prefix of the log stream name.
+func (o ClusterCloudWatchLogConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCloudWatchLogConfiguration) *string { return v.LogStreamNamePrefix }).(pulumi.StringPtrOutput)
+}
+
+// A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.
+func (o ClusterCloudWatchLogConfigurationOutput) LogTypes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v ClusterCloudWatchLogConfiguration) map[string][]string { return v.LogTypes }).(pulumi.StringArrayMapOutput)
+}
+
+type ClusterCloudWatchLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCloudWatchLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCloudWatchLogConfiguration)(nil)).Elem()
+}
+
+func (o ClusterCloudWatchLogConfigurationPtrOutput) ToClusterCloudWatchLogConfigurationPtrOutput() ClusterCloudWatchLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterCloudWatchLogConfigurationPtrOutput) ToClusterCloudWatchLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterCloudWatchLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterCloudWatchLogConfigurationPtrOutput) Elem() ClusterCloudWatchLogConfigurationOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchLogConfiguration) ClusterCloudWatchLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCloudWatchLogConfiguration
+		return ret
+	}).(ClusterCloudWatchLogConfigurationOutput)
+}
+
+// Specifies if CloudWatch logging is enabled.
+func (o ClusterCloudWatchLogConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchLogConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the encryption key used to encrypt the logs.
+func (o ClusterCloudWatchLogConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the CloudWatch log group where logs are published.
+func (o ClusterCloudWatchLogConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix of the log stream name.
+func (o ClusterCloudWatchLogConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.
+func (o ClusterCloudWatchLogConfigurationPtrOutput) LogTypes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *ClusterCloudWatchLogConfiguration) map[string][]string {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypes
+	}).(pulumi.StringArrayMapOutput)
+}
+
+type ClusterComputeLimits struct {
+	//  The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MaximumCapacityUnits int `pulumi:"maximumCapacityUnits"`
+	// The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+	MaximumCoreCapacityUnits *int `pulumi:"maximumCoreCapacityUnits"`
+	//  The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+	MaximumOnDemandCapacityUnits *int `pulumi:"maximumOnDemandCapacityUnits"`
+	// The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MinimumCapacityUnits int `pulumi:"minimumCapacityUnits"`
+	// The unit type used for specifying a managed scaling policy.
+	UnitType ClusterComputeLimitsUnitType `pulumi:"unitType"`
+}
+
+// ClusterComputeLimitsInput is an input type that accepts ClusterComputeLimitsArgs and ClusterComputeLimitsOutput values.
+// You can construct a concrete instance of `ClusterComputeLimitsInput` via:
+//
+//	ClusterComputeLimitsArgs{...}
+type ClusterComputeLimitsInput interface {
+	pulumi.Input
+
+	ToClusterComputeLimitsOutput() ClusterComputeLimitsOutput
+	ToClusterComputeLimitsOutputWithContext(context.Context) ClusterComputeLimitsOutput
+}
+
+type ClusterComputeLimitsArgs struct {
+	//  The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MaximumCapacityUnits pulumi.IntInput `pulumi:"maximumCapacityUnits"`
+	// The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+	MaximumCoreCapacityUnits pulumi.IntPtrInput `pulumi:"maximumCoreCapacityUnits"`
+	//  The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+	MaximumOnDemandCapacityUnits pulumi.IntPtrInput `pulumi:"maximumOnDemandCapacityUnits"`
+	// The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MinimumCapacityUnits pulumi.IntInput `pulumi:"minimumCapacityUnits"`
+	// The unit type used for specifying a managed scaling policy.
+	UnitType ClusterComputeLimitsUnitTypeInput `pulumi:"unitType"`
+}
+
+func (ClusterComputeLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterComputeLimits)(nil)).Elem()
+}
+
+func (i ClusterComputeLimitsArgs) ToClusterComputeLimitsOutput() ClusterComputeLimitsOutput {
+	return i.ToClusterComputeLimitsOutputWithContext(context.Background())
+}
+
+func (i ClusterComputeLimitsArgs) ToClusterComputeLimitsOutputWithContext(ctx context.Context) ClusterComputeLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeLimitsOutput)
+}
+
+func (i ClusterComputeLimitsArgs) ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput {
+	return i.ToClusterComputeLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterComputeLimitsArgs) ToClusterComputeLimitsPtrOutputWithContext(ctx context.Context) ClusterComputeLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeLimitsOutput).ToClusterComputeLimitsPtrOutputWithContext(ctx)
+}
+
+// ClusterComputeLimitsPtrInput is an input type that accepts ClusterComputeLimitsArgs, ClusterComputeLimitsPtr and ClusterComputeLimitsPtrOutput values.
+// You can construct a concrete instance of `ClusterComputeLimitsPtrInput` via:
+//
+//	        ClusterComputeLimitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterComputeLimitsPtrInput interface {
+	pulumi.Input
+
+	ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput
+	ToClusterComputeLimitsPtrOutputWithContext(context.Context) ClusterComputeLimitsPtrOutput
+}
+
+type clusterComputeLimitsPtrType ClusterComputeLimitsArgs
+
+func ClusterComputeLimitsPtr(v *ClusterComputeLimitsArgs) ClusterComputeLimitsPtrInput {
+	return (*clusterComputeLimitsPtrType)(v)
+}
+
+func (*clusterComputeLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterComputeLimits)(nil)).Elem()
+}
+
+func (i *clusterComputeLimitsPtrType) ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput {
+	return i.ToClusterComputeLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterComputeLimitsPtrType) ToClusterComputeLimitsPtrOutputWithContext(ctx context.Context) ClusterComputeLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeLimitsPtrOutput)
+}
+
+type ClusterComputeLimitsOutput struct{ *pulumi.OutputState }
+
+func (ClusterComputeLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterComputeLimits)(nil)).Elem()
+}
+
+func (o ClusterComputeLimitsOutput) ToClusterComputeLimitsOutput() ClusterComputeLimitsOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsOutput) ToClusterComputeLimitsOutputWithContext(ctx context.Context) ClusterComputeLimitsOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsOutput) ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput {
+	return o.ToClusterComputeLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterComputeLimitsOutput) ToClusterComputeLimitsPtrOutputWithContext(ctx context.Context) ClusterComputeLimitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterComputeLimits) *ClusterComputeLimits {
+		return &v
+	}).(ClusterComputeLimitsPtrOutput)
+}
+
+// The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+func (o ClusterComputeLimitsOutput) MaximumCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) int { return v.MaximumCapacityUnits }).(pulumi.IntOutput)
+}
+
+// The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+func (o ClusterComputeLimitsOutput) MaximumCoreCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) *int { return v.MaximumCoreCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+func (o ClusterComputeLimitsOutput) MaximumOnDemandCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) *int { return v.MaximumOnDemandCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+func (o ClusterComputeLimitsOutput) MinimumCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) int { return v.MinimumCapacityUnits }).(pulumi.IntOutput)
+}
+
+// The unit type used for specifying a managed scaling policy.
+func (o ClusterComputeLimitsOutput) UnitType() ClusterComputeLimitsUnitTypeOutput {
+	return o.ApplyT(func(v ClusterComputeLimits) ClusterComputeLimitsUnitType { return v.UnitType }).(ClusterComputeLimitsUnitTypeOutput)
+}
+
+type ClusterComputeLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterComputeLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterComputeLimits)(nil)).Elem()
+}
+
+func (o ClusterComputeLimitsPtrOutput) ToClusterComputeLimitsPtrOutput() ClusterComputeLimitsPtrOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsPtrOutput) ToClusterComputeLimitsPtrOutputWithContext(ctx context.Context) ClusterComputeLimitsPtrOutput {
+	return o
+}
+
+func (o ClusterComputeLimitsPtrOutput) Elem() ClusterComputeLimitsOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) ClusterComputeLimits {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterComputeLimits
+		return ret
+	}).(ClusterComputeLimitsOutput)
+}
+
+// The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+func (o ClusterComputeLimitsPtrOutput) MaximumCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+func (o ClusterComputeLimitsPtrOutput) MaximumCoreCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumCoreCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+func (o ClusterComputeLimitsPtrOutput) MaximumOnDemandCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumOnDemandCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+func (o ClusterComputeLimitsPtrOutput) MinimumCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit type used for specifying a managed scaling policy.
+func (o ClusterComputeLimitsPtrOutput) UnitType() ClusterComputeLimitsUnitTypePtrOutput {
+	return o.ApplyT(func(v *ClusterComputeLimits) *ClusterComputeLimitsUnitType {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitType
+	}).(ClusterComputeLimitsUnitTypePtrOutput)
+}
+
+type ClusterEbsBlockDeviceConfig struct {
+	// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+	VolumeSpecification ClusterVolumeSpecification `pulumi:"volumeSpecification"`
+	// Number of EBS volumes with a specific volume configuration that are associated with every instance in the instance group. Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume,replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification.Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+
+// ClusterEbsBlockDeviceConfigInput is an input type that accepts ClusterEbsBlockDeviceConfigArgs and ClusterEbsBlockDeviceConfigOutput values.
+// You can construct a concrete instance of `ClusterEbsBlockDeviceConfigInput` via:
+//
+//	ClusterEbsBlockDeviceConfigArgs{...}
+type ClusterEbsBlockDeviceConfigInput interface {
+	pulumi.Input
+
+	ToClusterEbsBlockDeviceConfigOutput() ClusterEbsBlockDeviceConfigOutput
+	ToClusterEbsBlockDeviceConfigOutputWithContext(context.Context) ClusterEbsBlockDeviceConfigOutput
+}
+
+type ClusterEbsBlockDeviceConfigArgs struct {
+	// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+	VolumeSpecification ClusterVolumeSpecificationInput `pulumi:"volumeSpecification"`
+	// Number of EBS volumes with a specific volume configuration that are associated with every instance in the instance group. Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume,replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification.Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
+}
+
+func (ClusterEbsBlockDeviceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (i ClusterEbsBlockDeviceConfigArgs) ToClusterEbsBlockDeviceConfigOutput() ClusterEbsBlockDeviceConfigOutput {
+	return i.ToClusterEbsBlockDeviceConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterEbsBlockDeviceConfigArgs) ToClusterEbsBlockDeviceConfigOutputWithContext(ctx context.Context) ClusterEbsBlockDeviceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEbsBlockDeviceConfigOutput)
+}
+
+// ClusterEbsBlockDeviceConfigArrayInput is an input type that accepts ClusterEbsBlockDeviceConfigArray and ClusterEbsBlockDeviceConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterEbsBlockDeviceConfigArrayInput` via:
+//
+//	ClusterEbsBlockDeviceConfigArray{ ClusterEbsBlockDeviceConfigArgs{...} }
+type ClusterEbsBlockDeviceConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterEbsBlockDeviceConfigArrayOutput() ClusterEbsBlockDeviceConfigArrayOutput
+	ToClusterEbsBlockDeviceConfigArrayOutputWithContext(context.Context) ClusterEbsBlockDeviceConfigArrayOutput
+}
+
+type ClusterEbsBlockDeviceConfigArray []ClusterEbsBlockDeviceConfigInput
+
+func (ClusterEbsBlockDeviceConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (i ClusterEbsBlockDeviceConfigArray) ToClusterEbsBlockDeviceConfigArrayOutput() ClusterEbsBlockDeviceConfigArrayOutput {
+	return i.ToClusterEbsBlockDeviceConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterEbsBlockDeviceConfigArray) ToClusterEbsBlockDeviceConfigArrayOutputWithContext(ctx context.Context) ClusterEbsBlockDeviceConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEbsBlockDeviceConfigArrayOutput)
+}
+
+type ClusterEbsBlockDeviceConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterEbsBlockDeviceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (o ClusterEbsBlockDeviceConfigOutput) ToClusterEbsBlockDeviceConfigOutput() ClusterEbsBlockDeviceConfigOutput {
+	return o
+}
+
+func (o ClusterEbsBlockDeviceConfigOutput) ToClusterEbsBlockDeviceConfigOutputWithContext(ctx context.Context) ClusterEbsBlockDeviceConfigOutput {
+	return o
+}
+
+// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+func (o ClusterEbsBlockDeviceConfigOutput) VolumeSpecification() ClusterVolumeSpecificationOutput {
+	return o.ApplyT(func(v ClusterEbsBlockDeviceConfig) ClusterVolumeSpecification { return v.VolumeSpecification }).(ClusterVolumeSpecificationOutput)
+}
+
+// Number of EBS volumes with a specific volume configuration that are associated with every instance in the instance group. Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume,replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification.Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+func (o ClusterEbsBlockDeviceConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterEbsBlockDeviceConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
+}
+
+type ClusterEbsBlockDeviceConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterEbsBlockDeviceConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (o ClusterEbsBlockDeviceConfigArrayOutput) ToClusterEbsBlockDeviceConfigArrayOutput() ClusterEbsBlockDeviceConfigArrayOutput {
+	return o
+}
+
+func (o ClusterEbsBlockDeviceConfigArrayOutput) ToClusterEbsBlockDeviceConfigArrayOutputWithContext(ctx context.Context) ClusterEbsBlockDeviceConfigArrayOutput {
+	return o
+}
+
+func (o ClusterEbsBlockDeviceConfigArrayOutput) Index(i pulumi.IntInput) ClusterEbsBlockDeviceConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterEbsBlockDeviceConfig {
+		return vs[0].([]ClusterEbsBlockDeviceConfig)[vs[1].(int)]
+	}).(ClusterEbsBlockDeviceConfigOutput)
+}
+
+type ClusterEbsConfiguration struct {
+	// An array of Amazon EBS volume specifications attached to a cluster instance.
+	EbsBlockDeviceConfigs []ClusterEbsBlockDeviceConfig `pulumi:"ebsBlockDeviceConfigs"`
+	// Indicates whether an Amazon EBS volume is EBS-optimized.
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+}
+
+// ClusterEbsConfigurationInput is an input type that accepts ClusterEbsConfigurationArgs and ClusterEbsConfigurationOutput values.
+// You can construct a concrete instance of `ClusterEbsConfigurationInput` via:
+//
+//	ClusterEbsConfigurationArgs{...}
+type ClusterEbsConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterEbsConfigurationOutput() ClusterEbsConfigurationOutput
+	ToClusterEbsConfigurationOutputWithContext(context.Context) ClusterEbsConfigurationOutput
+}
+
+type ClusterEbsConfigurationArgs struct {
+	// An array of Amazon EBS volume specifications attached to a cluster instance.
+	EbsBlockDeviceConfigs ClusterEbsBlockDeviceConfigArrayInput `pulumi:"ebsBlockDeviceConfigs"`
+	// Indicates whether an Amazon EBS volume is EBS-optimized.
+	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
+}
+
+func (ClusterEbsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEbsConfiguration)(nil)).Elem()
+}
+
+func (i ClusterEbsConfigurationArgs) ToClusterEbsConfigurationOutput() ClusterEbsConfigurationOutput {
+	return i.ToClusterEbsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterEbsConfigurationArgs) ToClusterEbsConfigurationOutputWithContext(ctx context.Context) ClusterEbsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEbsConfigurationOutput)
+}
+
+func (i ClusterEbsConfigurationArgs) ToClusterEbsConfigurationPtrOutput() ClusterEbsConfigurationPtrOutput {
+	return i.ToClusterEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEbsConfigurationArgs) ToClusterEbsConfigurationPtrOutputWithContext(ctx context.Context) ClusterEbsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEbsConfigurationOutput).ToClusterEbsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterEbsConfigurationPtrInput is an input type that accepts ClusterEbsConfigurationArgs, ClusterEbsConfigurationPtr and ClusterEbsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterEbsConfigurationPtrInput` via:
+//
+//	        ClusterEbsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterEbsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterEbsConfigurationPtrOutput() ClusterEbsConfigurationPtrOutput
+	ToClusterEbsConfigurationPtrOutputWithContext(context.Context) ClusterEbsConfigurationPtrOutput
+}
+
+type clusterEbsConfigurationPtrType ClusterEbsConfigurationArgs
+
+func ClusterEbsConfigurationPtr(v *ClusterEbsConfigurationArgs) ClusterEbsConfigurationPtrInput {
+	return (*clusterEbsConfigurationPtrType)(v)
+}
+
+func (*clusterEbsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEbsConfiguration)(nil)).Elem()
+}
+
+func (i *clusterEbsConfigurationPtrType) ToClusterEbsConfigurationPtrOutput() ClusterEbsConfigurationPtrOutput {
+	return i.ToClusterEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEbsConfigurationPtrType) ToClusterEbsConfigurationPtrOutputWithContext(ctx context.Context) ClusterEbsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEbsConfigurationPtrOutput)
+}
+
+type ClusterEbsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterEbsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEbsConfiguration)(nil)).Elem()
+}
+
+func (o ClusterEbsConfigurationOutput) ToClusterEbsConfigurationOutput() ClusterEbsConfigurationOutput {
+	return o
+}
+
+func (o ClusterEbsConfigurationOutput) ToClusterEbsConfigurationOutputWithContext(ctx context.Context) ClusterEbsConfigurationOutput {
+	return o
+}
+
+func (o ClusterEbsConfigurationOutput) ToClusterEbsConfigurationPtrOutput() ClusterEbsConfigurationPtrOutput {
+	return o.ToClusterEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEbsConfigurationOutput) ToClusterEbsConfigurationPtrOutputWithContext(ctx context.Context) ClusterEbsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEbsConfiguration) *ClusterEbsConfiguration {
+		return &v
+	}).(ClusterEbsConfigurationPtrOutput)
+}
+
+// An array of Amazon EBS volume specifications attached to a cluster instance.
+func (o ClusterEbsConfigurationOutput) EbsBlockDeviceConfigs() ClusterEbsBlockDeviceConfigArrayOutput {
+	return o.ApplyT(func(v ClusterEbsConfiguration) []ClusterEbsBlockDeviceConfig { return v.EbsBlockDeviceConfigs }).(ClusterEbsBlockDeviceConfigArrayOutput)
+}
+
+// Indicates whether an Amazon EBS volume is EBS-optimized.
+func (o ClusterEbsConfigurationOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterEbsConfiguration) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterEbsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterEbsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEbsConfiguration)(nil)).Elem()
+}
+
+func (o ClusterEbsConfigurationPtrOutput) ToClusterEbsConfigurationPtrOutput() ClusterEbsConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterEbsConfigurationPtrOutput) ToClusterEbsConfigurationPtrOutputWithContext(ctx context.Context) ClusterEbsConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterEbsConfigurationPtrOutput) Elem() ClusterEbsConfigurationOutput {
+	return o.ApplyT(func(v *ClusterEbsConfiguration) ClusterEbsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEbsConfiguration
+		return ret
+	}).(ClusterEbsConfigurationOutput)
+}
+
+// An array of Amazon EBS volume specifications attached to a cluster instance.
+func (o ClusterEbsConfigurationPtrOutput) EbsBlockDeviceConfigs() ClusterEbsBlockDeviceConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterEbsConfiguration) []ClusterEbsBlockDeviceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.EbsBlockDeviceConfigs
+	}).(ClusterEbsBlockDeviceConfigArrayOutput)
+}
+
+// Indicates whether an Amazon EBS volume is EBS-optimized.
+func (o ClusterEbsConfigurationPtrOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterEbsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EbsOptimized
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClusterEmrConfiguration struct {
+	// The classification within a configuration.
+	Classification          *string                   `pulumi:"classification"`
+	ConfigurationProperties map[string]string         `pulumi:"configurationProperties"`
+	Configurations          []ClusterEmrConfiguration `pulumi:"configurations"`
+}
+
+// ClusterEmrConfigurationInput is an input type that accepts ClusterEmrConfigurationArgs and ClusterEmrConfigurationOutput values.
+// You can construct a concrete instance of `ClusterEmrConfigurationInput` via:
+//
+//	ClusterEmrConfigurationArgs{...}
+type ClusterEmrConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterEmrConfigurationOutput() ClusterEmrConfigurationOutput
+	ToClusterEmrConfigurationOutputWithContext(context.Context) ClusterEmrConfigurationOutput
+}
+
+type ClusterEmrConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification          pulumi.StringPtrInput             `pulumi:"classification"`
+	ConfigurationProperties pulumi.StringMapInput             `pulumi:"configurationProperties"`
+	Configurations          ClusterEmrConfigurationArrayInput `pulumi:"configurations"`
+}
+
+func (ClusterEmrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEmrConfiguration)(nil)).Elem()
+}
+
+func (i ClusterEmrConfigurationArgs) ToClusterEmrConfigurationOutput() ClusterEmrConfigurationOutput {
+	return i.ToClusterEmrConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterEmrConfigurationArgs) ToClusterEmrConfigurationOutputWithContext(ctx context.Context) ClusterEmrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEmrConfigurationOutput)
+}
+
+// ClusterEmrConfigurationArrayInput is an input type that accepts ClusterEmrConfigurationArray and ClusterEmrConfigurationArrayOutput values.
+// You can construct a concrete instance of `ClusterEmrConfigurationArrayInput` via:
+//
+//	ClusterEmrConfigurationArray{ ClusterEmrConfigurationArgs{...} }
+type ClusterEmrConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToClusterEmrConfigurationArrayOutput() ClusterEmrConfigurationArrayOutput
+	ToClusterEmrConfigurationArrayOutputWithContext(context.Context) ClusterEmrConfigurationArrayOutput
+}
+
+type ClusterEmrConfigurationArray []ClusterEmrConfigurationInput
+
+func (ClusterEmrConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEmrConfiguration)(nil)).Elem()
+}
+
+func (i ClusterEmrConfigurationArray) ToClusterEmrConfigurationArrayOutput() ClusterEmrConfigurationArrayOutput {
+	return i.ToClusterEmrConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterEmrConfigurationArray) ToClusterEmrConfigurationArrayOutputWithContext(ctx context.Context) ClusterEmrConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEmrConfigurationArrayOutput)
+}
+
+type ClusterEmrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterEmrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEmrConfiguration)(nil)).Elem()
+}
+
+func (o ClusterEmrConfigurationOutput) ToClusterEmrConfigurationOutput() ClusterEmrConfigurationOutput {
+	return o
+}
+
+func (o ClusterEmrConfigurationOutput) ToClusterEmrConfigurationOutputWithContext(ctx context.Context) ClusterEmrConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o ClusterEmrConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEmrConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterEmrConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterEmrConfiguration) map[string]string { return v.ConfigurationProperties }).(pulumi.StringMapOutput)
+}
+
+func (o ClusterEmrConfigurationOutput) Configurations() ClusterEmrConfigurationArrayOutput {
+	return o.ApplyT(func(v ClusterEmrConfiguration) []ClusterEmrConfiguration { return v.Configurations }).(ClusterEmrConfigurationArrayOutput)
+}
+
+type ClusterEmrConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterEmrConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEmrConfiguration)(nil)).Elem()
+}
+
+func (o ClusterEmrConfigurationArrayOutput) ToClusterEmrConfigurationArrayOutput() ClusterEmrConfigurationArrayOutput {
+	return o
+}
+
+func (o ClusterEmrConfigurationArrayOutput) ToClusterEmrConfigurationArrayOutputWithContext(ctx context.Context) ClusterEmrConfigurationArrayOutput {
+	return o
+}
+
+func (o ClusterEmrConfigurationArrayOutput) Index(i pulumi.IntInput) ClusterEmrConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterEmrConfiguration {
+		return vs[0].([]ClusterEmrConfiguration)[vs[1].(int)]
+	}).(ClusterEmrConfigurationOutput)
+}
+
+type ClusterHadoopJarStepConfig struct {
+	// A list of command line arguments passed to the JAR file's main function when executed.
+	Args []string `pulumi:"args"`
+	// A path to a JAR file run during the step.
+	Jar string `pulumi:"jar"`
+	// The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+	MainClass *string `pulumi:"mainClass"`
+	// A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+	StepProperties []ClusterKeyValue `pulumi:"stepProperties"`
+}
+
+// ClusterHadoopJarStepConfigInput is an input type that accepts ClusterHadoopJarStepConfigArgs and ClusterHadoopJarStepConfigOutput values.
+// You can construct a concrete instance of `ClusterHadoopJarStepConfigInput` via:
+//
+//	ClusterHadoopJarStepConfigArgs{...}
+type ClusterHadoopJarStepConfigInput interface {
+	pulumi.Input
+
+	ToClusterHadoopJarStepConfigOutput() ClusterHadoopJarStepConfigOutput
+	ToClusterHadoopJarStepConfigOutputWithContext(context.Context) ClusterHadoopJarStepConfigOutput
+}
+
+type ClusterHadoopJarStepConfigArgs struct {
+	// A list of command line arguments passed to the JAR file's main function when executed.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// A path to a JAR file run during the step.
+	Jar pulumi.StringInput `pulumi:"jar"`
+	// The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+	MainClass pulumi.StringPtrInput `pulumi:"mainClass"`
+	// A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+	StepProperties ClusterKeyValueArrayInput `pulumi:"stepProperties"`
+}
+
+func (ClusterHadoopJarStepConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterHadoopJarStepConfig)(nil)).Elem()
+}
+
+func (i ClusterHadoopJarStepConfigArgs) ToClusterHadoopJarStepConfigOutput() ClusterHadoopJarStepConfigOutput {
+	return i.ToClusterHadoopJarStepConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterHadoopJarStepConfigArgs) ToClusterHadoopJarStepConfigOutputWithContext(ctx context.Context) ClusterHadoopJarStepConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterHadoopJarStepConfigOutput)
+}
+
+type ClusterHadoopJarStepConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterHadoopJarStepConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterHadoopJarStepConfig)(nil)).Elem()
+}
+
+func (o ClusterHadoopJarStepConfigOutput) ToClusterHadoopJarStepConfigOutput() ClusterHadoopJarStepConfigOutput {
+	return o
+}
+
+func (o ClusterHadoopJarStepConfigOutput) ToClusterHadoopJarStepConfigOutputWithContext(ctx context.Context) ClusterHadoopJarStepConfigOutput {
+	return o
+}
+
+// A list of command line arguments passed to the JAR file's main function when executed.
+func (o ClusterHadoopJarStepConfigOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterHadoopJarStepConfig) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// A path to a JAR file run during the step.
+func (o ClusterHadoopJarStepConfigOutput) Jar() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterHadoopJarStepConfig) string { return v.Jar }).(pulumi.StringOutput)
+}
+
+// The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+func (o ClusterHadoopJarStepConfigOutput) MainClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterHadoopJarStepConfig) *string { return v.MainClass }).(pulumi.StringPtrOutput)
+}
+
+// A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+func (o ClusterHadoopJarStepConfigOutput) StepProperties() ClusterKeyValueArrayOutput {
+	return o.ApplyT(func(v ClusterHadoopJarStepConfig) []ClusterKeyValue { return v.StepProperties }).(ClusterKeyValueArrayOutput)
+}
+
+type ClusterInstanceFleetConfig struct {
+	// The instance type configurations that define the Amazon EC2 instances in the instance fleet.
+	InstanceTypeConfigs []ClusterInstanceTypeConfig `pulumi:"instanceTypeConfigs"`
+	// The launch specification for the instance fleet.
+	LaunchSpecifications *ClusterInstanceFleetProvisioningSpecifications `pulumi:"launchSpecifications"`
+	// The friendly name of the instance fleet.
+	Name *string `pulumi:"name"`
+	// The resize specification for the instance fleet.
+	ResizeSpecifications *ClusterInstanceFleetResizingSpecifications `pulumi:"resizeSpecifications"`
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision
+	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
+	// The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision.
+	TargetSpotCapacity *int `pulumi:"targetSpotCapacity"`
+}
+
+// ClusterInstanceFleetConfigInput is an input type that accepts ClusterInstanceFleetConfigArgs and ClusterInstanceFleetConfigOutput values.
+// You can construct a concrete instance of `ClusterInstanceFleetConfigInput` via:
+//
+//	ClusterInstanceFleetConfigArgs{...}
+type ClusterInstanceFleetConfigInput interface {
+	pulumi.Input
+
+	ToClusterInstanceFleetConfigOutput() ClusterInstanceFleetConfigOutput
+	ToClusterInstanceFleetConfigOutputWithContext(context.Context) ClusterInstanceFleetConfigOutput
+}
+
+type ClusterInstanceFleetConfigArgs struct {
+	// The instance type configurations that define the Amazon EC2 instances in the instance fleet.
+	InstanceTypeConfigs ClusterInstanceTypeConfigArrayInput `pulumi:"instanceTypeConfigs"`
+	// The launch specification for the instance fleet.
+	LaunchSpecifications ClusterInstanceFleetProvisioningSpecificationsPtrInput `pulumi:"launchSpecifications"`
+	// The friendly name of the instance fleet.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The resize specification for the instance fleet.
+	ResizeSpecifications ClusterInstanceFleetResizingSpecificationsPtrInput `pulumi:"resizeSpecifications"`
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision
+	TargetOnDemandCapacity pulumi.IntPtrInput `pulumi:"targetOnDemandCapacity"`
+	// The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision.
+	TargetSpotCapacity pulumi.IntPtrInput `pulumi:"targetSpotCapacity"`
+}
+
+func (ClusterInstanceFleetConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceFleetConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceFleetConfigArgs) ToClusterInstanceFleetConfigOutput() ClusterInstanceFleetConfigOutput {
+	return i.ToClusterInstanceFleetConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceFleetConfigArgs) ToClusterInstanceFleetConfigOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetConfigOutput)
+}
+
+func (i ClusterInstanceFleetConfigArgs) ToClusterInstanceFleetConfigPtrOutput() ClusterInstanceFleetConfigPtrOutput {
+	return i.ToClusterInstanceFleetConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceFleetConfigArgs) ToClusterInstanceFleetConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetConfigOutput).ToClusterInstanceFleetConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterInstanceFleetConfigPtrInput is an input type that accepts ClusterInstanceFleetConfigArgs, ClusterInstanceFleetConfigPtr and ClusterInstanceFleetConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterInstanceFleetConfigPtrInput` via:
+//
+//	        ClusterInstanceFleetConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterInstanceFleetConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterInstanceFleetConfigPtrOutput() ClusterInstanceFleetConfigPtrOutput
+	ToClusterInstanceFleetConfigPtrOutputWithContext(context.Context) ClusterInstanceFleetConfigPtrOutput
+}
+
+type clusterInstanceFleetConfigPtrType ClusterInstanceFleetConfigArgs
+
+func ClusterInstanceFleetConfigPtr(v *ClusterInstanceFleetConfigArgs) ClusterInstanceFleetConfigPtrInput {
+	return (*clusterInstanceFleetConfigPtrType)(v)
+}
+
+func (*clusterInstanceFleetConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceFleetConfig)(nil)).Elem()
+}
+
+func (i *clusterInstanceFleetConfigPtrType) ToClusterInstanceFleetConfigPtrOutput() ClusterInstanceFleetConfigPtrOutput {
+	return i.ToClusterInstanceFleetConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterInstanceFleetConfigPtrType) ToClusterInstanceFleetConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetConfigPtrOutput)
+}
+
+// ClusterInstanceFleetConfigArrayInput is an input type that accepts ClusterInstanceFleetConfigArray and ClusterInstanceFleetConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceFleetConfigArrayInput` via:
+//
+//	ClusterInstanceFleetConfigArray{ ClusterInstanceFleetConfigArgs{...} }
+type ClusterInstanceFleetConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceFleetConfigArrayOutput() ClusterInstanceFleetConfigArrayOutput
+	ToClusterInstanceFleetConfigArrayOutputWithContext(context.Context) ClusterInstanceFleetConfigArrayOutput
+}
+
+type ClusterInstanceFleetConfigArray []ClusterInstanceFleetConfigInput
+
+func (ClusterInstanceFleetConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceFleetConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceFleetConfigArray) ToClusterInstanceFleetConfigArrayOutput() ClusterInstanceFleetConfigArrayOutput {
+	return i.ToClusterInstanceFleetConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceFleetConfigArray) ToClusterInstanceFleetConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetConfigArrayOutput)
+}
+
+type ClusterInstanceFleetConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceFleetConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceFleetConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceFleetConfigOutput) ToClusterInstanceFleetConfigOutput() ClusterInstanceFleetConfigOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetConfigOutput) ToClusterInstanceFleetConfigOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetConfigOutput) ToClusterInstanceFleetConfigPtrOutput() ClusterInstanceFleetConfigPtrOutput {
+	return o.ToClusterInstanceFleetConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceFleetConfigOutput) ToClusterInstanceFleetConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstanceFleetConfig) *ClusterInstanceFleetConfig {
+		return &v
+	}).(ClusterInstanceFleetConfigPtrOutput)
+}
+
+// The instance type configurations that define the Amazon EC2 instances in the instance fleet.
+func (o ClusterInstanceFleetConfigOutput) InstanceTypeConfigs() ClusterInstanceTypeConfigArrayOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetConfig) []ClusterInstanceTypeConfig { return v.InstanceTypeConfigs }).(ClusterInstanceTypeConfigArrayOutput)
+}
+
+// The launch specification for the instance fleet.
+func (o ClusterInstanceFleetConfigOutput) LaunchSpecifications() ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetConfig) *ClusterInstanceFleetProvisioningSpecifications {
+		return v.LaunchSpecifications
+	}).(ClusterInstanceFleetProvisioningSpecificationsPtrOutput)
+}
+
+// The friendly name of the instance fleet.
+func (o ClusterInstanceFleetConfigOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetConfig) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The resize specification for the instance fleet.
+func (o ClusterInstanceFleetConfigOutput) ResizeSpecifications() ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetConfig) *ClusterInstanceFleetResizingSpecifications {
+		return v.ResizeSpecifications
+	}).(ClusterInstanceFleetResizingSpecificationsPtrOutput)
+}
+
+// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision
+func (o ClusterInstanceFleetConfigOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetConfig) *int { return v.TargetOnDemandCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision.
+func (o ClusterInstanceFleetConfigOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetConfig) *int { return v.TargetSpotCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ClusterInstanceFleetConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceFleetConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceFleetConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceFleetConfigPtrOutput) ToClusterInstanceFleetConfigPtrOutput() ClusterInstanceFleetConfigPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetConfigPtrOutput) ToClusterInstanceFleetConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetConfigPtrOutput) Elem() ClusterInstanceFleetConfigOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetConfig) ClusterInstanceFleetConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstanceFleetConfig
+		return ret
+	}).(ClusterInstanceFleetConfigOutput)
+}
+
+// The instance type configurations that define the Amazon EC2 instances in the instance fleet.
+func (o ClusterInstanceFleetConfigPtrOutput) InstanceTypeConfigs() ClusterInstanceTypeConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetConfig) []ClusterInstanceTypeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceTypeConfigs
+	}).(ClusterInstanceTypeConfigArrayOutput)
+}
+
+// The launch specification for the instance fleet.
+func (o ClusterInstanceFleetConfigPtrOutput) LaunchSpecifications() ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetConfig) *ClusterInstanceFleetProvisioningSpecifications {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchSpecifications
+	}).(ClusterInstanceFleetProvisioningSpecificationsPtrOutput)
+}
+
+// The friendly name of the instance fleet.
+func (o ClusterInstanceFleetConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resize specification for the instance fleet.
+func (o ClusterInstanceFleetConfigPtrOutput) ResizeSpecifications() ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetConfig) *ClusterInstanceFleetResizingSpecifications {
+		if v == nil {
+			return nil
+		}
+		return v.ResizeSpecifications
+	}).(ClusterInstanceFleetResizingSpecificationsPtrOutput)
+}
+
+// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand Instances to provision
+func (o ClusterInstanceFleetConfigPtrOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetOnDemandCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of Spot units for the instance fleet, which determines how many Spot Instances to provision.
+func (o ClusterInstanceFleetConfigPtrOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetSpotCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterInstanceFleetConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceFleetConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceFleetConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceFleetConfigArrayOutput) ToClusterInstanceFleetConfigArrayOutput() ClusterInstanceFleetConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetConfigArrayOutput) ToClusterInstanceFleetConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceFleetConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetConfigArrayOutput) Index(i pulumi.IntInput) ClusterInstanceFleetConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceFleetConfig {
+		return vs[0].([]ClusterInstanceFleetConfig)[vs[1].(int)]
+	}).(ClusterInstanceFleetConfigOutput)
+}
+
+type ClusterInstanceFleetProvisioningSpecifications struct {
+	// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy and capacity reservation options.
+	//
+	// > The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+	OnDemandSpecification *ClusterOnDemandProvisioningSpecification `pulumi:"onDemandSpecification"`
+	// The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined duration, and provisioning timeout behavior.
+	SpotSpecification *ClusterSpotProvisioningSpecification `pulumi:"spotSpecification"`
+}
+
+// ClusterInstanceFleetProvisioningSpecificationsInput is an input type that accepts ClusterInstanceFleetProvisioningSpecificationsArgs and ClusterInstanceFleetProvisioningSpecificationsOutput values.
+// You can construct a concrete instance of `ClusterInstanceFleetProvisioningSpecificationsInput` via:
+//
+//	ClusterInstanceFleetProvisioningSpecificationsArgs{...}
+type ClusterInstanceFleetProvisioningSpecificationsInput interface {
+	pulumi.Input
+
+	ToClusterInstanceFleetProvisioningSpecificationsOutput() ClusterInstanceFleetProvisioningSpecificationsOutput
+	ToClusterInstanceFleetProvisioningSpecificationsOutputWithContext(context.Context) ClusterInstanceFleetProvisioningSpecificationsOutput
+}
+
+type ClusterInstanceFleetProvisioningSpecificationsArgs struct {
+	// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy and capacity reservation options.
+	//
+	// > The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+	OnDemandSpecification ClusterOnDemandProvisioningSpecificationPtrInput `pulumi:"onDemandSpecification"`
+	// The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined duration, and provisioning timeout behavior.
+	SpotSpecification ClusterSpotProvisioningSpecificationPtrInput `pulumi:"spotSpecification"`
+}
+
+func (ClusterInstanceFleetProvisioningSpecificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceFleetProvisioningSpecifications)(nil)).Elem()
+}
+
+func (i ClusterInstanceFleetProvisioningSpecificationsArgs) ToClusterInstanceFleetProvisioningSpecificationsOutput() ClusterInstanceFleetProvisioningSpecificationsOutput {
+	return i.ToClusterInstanceFleetProvisioningSpecificationsOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceFleetProvisioningSpecificationsArgs) ToClusterInstanceFleetProvisioningSpecificationsOutputWithContext(ctx context.Context) ClusterInstanceFleetProvisioningSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetProvisioningSpecificationsOutput)
+}
+
+func (i ClusterInstanceFleetProvisioningSpecificationsArgs) ToClusterInstanceFleetProvisioningSpecificationsPtrOutput() ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return i.ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceFleetProvisioningSpecificationsArgs) ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetProvisioningSpecificationsOutput).ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx)
+}
+
+// ClusterInstanceFleetProvisioningSpecificationsPtrInput is an input type that accepts ClusterInstanceFleetProvisioningSpecificationsArgs, ClusterInstanceFleetProvisioningSpecificationsPtr and ClusterInstanceFleetProvisioningSpecificationsPtrOutput values.
+// You can construct a concrete instance of `ClusterInstanceFleetProvisioningSpecificationsPtrInput` via:
+//
+//	        ClusterInstanceFleetProvisioningSpecificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterInstanceFleetProvisioningSpecificationsPtrInput interface {
+	pulumi.Input
+
+	ToClusterInstanceFleetProvisioningSpecificationsPtrOutput() ClusterInstanceFleetProvisioningSpecificationsPtrOutput
+	ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(context.Context) ClusterInstanceFleetProvisioningSpecificationsPtrOutput
+}
+
+type clusterInstanceFleetProvisioningSpecificationsPtrType ClusterInstanceFleetProvisioningSpecificationsArgs
+
+func ClusterInstanceFleetProvisioningSpecificationsPtr(v *ClusterInstanceFleetProvisioningSpecificationsArgs) ClusterInstanceFleetProvisioningSpecificationsPtrInput {
+	return (*clusterInstanceFleetProvisioningSpecificationsPtrType)(v)
+}
+
+func (*clusterInstanceFleetProvisioningSpecificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceFleetProvisioningSpecifications)(nil)).Elem()
+}
+
+func (i *clusterInstanceFleetProvisioningSpecificationsPtrType) ToClusterInstanceFleetProvisioningSpecificationsPtrOutput() ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return i.ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterInstanceFleetProvisioningSpecificationsPtrType) ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetProvisioningSpecificationsPtrOutput)
+}
+
+type ClusterInstanceFleetProvisioningSpecificationsOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceFleetProvisioningSpecificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceFleetProvisioningSpecifications)(nil)).Elem()
+}
+
+func (o ClusterInstanceFleetProvisioningSpecificationsOutput) ToClusterInstanceFleetProvisioningSpecificationsOutput() ClusterInstanceFleetProvisioningSpecificationsOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetProvisioningSpecificationsOutput) ToClusterInstanceFleetProvisioningSpecificationsOutputWithContext(ctx context.Context) ClusterInstanceFleetProvisioningSpecificationsOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetProvisioningSpecificationsOutput) ToClusterInstanceFleetProvisioningSpecificationsPtrOutput() ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o.ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceFleetProvisioningSpecificationsOutput) ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstanceFleetProvisioningSpecifications) *ClusterInstanceFleetProvisioningSpecifications {
+		return &v
+	}).(ClusterInstanceFleetProvisioningSpecificationsPtrOutput)
+}
+
+// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy and capacity reservation options.
+//
+// > The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+func (o ClusterInstanceFleetProvisioningSpecificationsOutput) OnDemandSpecification() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetProvisioningSpecifications) *ClusterOnDemandProvisioningSpecification {
+		return v.OnDemandSpecification
+	}).(ClusterOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined duration, and provisioning timeout behavior.
+func (o ClusterInstanceFleetProvisioningSpecificationsOutput) SpotSpecification() ClusterSpotProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetProvisioningSpecifications) *ClusterSpotProvisioningSpecification {
+		return v.SpotSpecification
+	}).(ClusterSpotProvisioningSpecificationPtrOutput)
+}
+
+type ClusterInstanceFleetProvisioningSpecificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceFleetProvisioningSpecificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceFleetProvisioningSpecifications)(nil)).Elem()
+}
+
+func (o ClusterInstanceFleetProvisioningSpecificationsPtrOutput) ToClusterInstanceFleetProvisioningSpecificationsPtrOutput() ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetProvisioningSpecificationsPtrOutput) ToClusterInstanceFleetProvisioningSpecificationsPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetProvisioningSpecificationsPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetProvisioningSpecificationsPtrOutput) Elem() ClusterInstanceFleetProvisioningSpecificationsOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetProvisioningSpecifications) ClusterInstanceFleetProvisioningSpecifications {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstanceFleetProvisioningSpecifications
+		return ret
+	}).(ClusterInstanceFleetProvisioningSpecificationsOutput)
+}
+
+// The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy and capacity reservation options.
+//
+// > The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances allocation strategy is available in Amazon EMR releases 5.12.1 and later.
+func (o ClusterInstanceFleetProvisioningSpecificationsPtrOutput) OnDemandSpecification() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetProvisioningSpecifications) *ClusterOnDemandProvisioningSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandSpecification
+	}).(ClusterOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// The launch specification for Spot instances in the fleet, which determines the allocation strategy, defined duration, and provisioning timeout behavior.
+func (o ClusterInstanceFleetProvisioningSpecificationsPtrOutput) SpotSpecification() ClusterSpotProvisioningSpecificationPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetProvisioningSpecifications) *ClusterSpotProvisioningSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.SpotSpecification
+	}).(ClusterSpotProvisioningSpecificationPtrOutput)
+}
+
+type ClusterInstanceFleetResizingSpecifications struct {
+	// The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+	OnDemandResizeSpecification *ClusterOnDemandResizingSpecification `pulumi:"onDemandResizeSpecification"`
+	// The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+	SpotResizeSpecification *ClusterSpotResizingSpecification `pulumi:"spotResizeSpecification"`
+}
+
+// ClusterInstanceFleetResizingSpecificationsInput is an input type that accepts ClusterInstanceFleetResizingSpecificationsArgs and ClusterInstanceFleetResizingSpecificationsOutput values.
+// You can construct a concrete instance of `ClusterInstanceFleetResizingSpecificationsInput` via:
+//
+//	ClusterInstanceFleetResizingSpecificationsArgs{...}
+type ClusterInstanceFleetResizingSpecificationsInput interface {
+	pulumi.Input
+
+	ToClusterInstanceFleetResizingSpecificationsOutput() ClusterInstanceFleetResizingSpecificationsOutput
+	ToClusterInstanceFleetResizingSpecificationsOutputWithContext(context.Context) ClusterInstanceFleetResizingSpecificationsOutput
+}
+
+type ClusterInstanceFleetResizingSpecificationsArgs struct {
+	// The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+	OnDemandResizeSpecification ClusterOnDemandResizingSpecificationPtrInput `pulumi:"onDemandResizeSpecification"`
+	// The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+	SpotResizeSpecification ClusterSpotResizingSpecificationPtrInput `pulumi:"spotResizeSpecification"`
+}
+
+func (ClusterInstanceFleetResizingSpecificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceFleetResizingSpecifications)(nil)).Elem()
+}
+
+func (i ClusterInstanceFleetResizingSpecificationsArgs) ToClusterInstanceFleetResizingSpecificationsOutput() ClusterInstanceFleetResizingSpecificationsOutput {
+	return i.ToClusterInstanceFleetResizingSpecificationsOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceFleetResizingSpecificationsArgs) ToClusterInstanceFleetResizingSpecificationsOutputWithContext(ctx context.Context) ClusterInstanceFleetResizingSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetResizingSpecificationsOutput)
+}
+
+func (i ClusterInstanceFleetResizingSpecificationsArgs) ToClusterInstanceFleetResizingSpecificationsPtrOutput() ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return i.ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceFleetResizingSpecificationsArgs) ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetResizingSpecificationsOutput).ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx)
+}
+
+// ClusterInstanceFleetResizingSpecificationsPtrInput is an input type that accepts ClusterInstanceFleetResizingSpecificationsArgs, ClusterInstanceFleetResizingSpecificationsPtr and ClusterInstanceFleetResizingSpecificationsPtrOutput values.
+// You can construct a concrete instance of `ClusterInstanceFleetResizingSpecificationsPtrInput` via:
+//
+//	        ClusterInstanceFleetResizingSpecificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterInstanceFleetResizingSpecificationsPtrInput interface {
+	pulumi.Input
+
+	ToClusterInstanceFleetResizingSpecificationsPtrOutput() ClusterInstanceFleetResizingSpecificationsPtrOutput
+	ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(context.Context) ClusterInstanceFleetResizingSpecificationsPtrOutput
+}
+
+type clusterInstanceFleetResizingSpecificationsPtrType ClusterInstanceFleetResizingSpecificationsArgs
+
+func ClusterInstanceFleetResizingSpecificationsPtr(v *ClusterInstanceFleetResizingSpecificationsArgs) ClusterInstanceFleetResizingSpecificationsPtrInput {
+	return (*clusterInstanceFleetResizingSpecificationsPtrType)(v)
+}
+
+func (*clusterInstanceFleetResizingSpecificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceFleetResizingSpecifications)(nil)).Elem()
+}
+
+func (i *clusterInstanceFleetResizingSpecificationsPtrType) ToClusterInstanceFleetResizingSpecificationsPtrOutput() ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return i.ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterInstanceFleetResizingSpecificationsPtrType) ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceFleetResizingSpecificationsPtrOutput)
+}
+
+type ClusterInstanceFleetResizingSpecificationsOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceFleetResizingSpecificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceFleetResizingSpecifications)(nil)).Elem()
+}
+
+func (o ClusterInstanceFleetResizingSpecificationsOutput) ToClusterInstanceFleetResizingSpecificationsOutput() ClusterInstanceFleetResizingSpecificationsOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetResizingSpecificationsOutput) ToClusterInstanceFleetResizingSpecificationsOutputWithContext(ctx context.Context) ClusterInstanceFleetResizingSpecificationsOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetResizingSpecificationsOutput) ToClusterInstanceFleetResizingSpecificationsPtrOutput() ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return o.ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceFleetResizingSpecificationsOutput) ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstanceFleetResizingSpecifications) *ClusterInstanceFleetResizingSpecifications {
+		return &v
+	}).(ClusterInstanceFleetResizingSpecificationsPtrOutput)
+}
+
+// The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+func (o ClusterInstanceFleetResizingSpecificationsOutput) OnDemandResizeSpecification() ClusterOnDemandResizingSpecificationPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetResizingSpecifications) *ClusterOnDemandResizingSpecification {
+		return v.OnDemandResizeSpecification
+	}).(ClusterOnDemandResizingSpecificationPtrOutput)
+}
+
+// The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+func (o ClusterInstanceFleetResizingSpecificationsOutput) SpotResizeSpecification() ClusterSpotResizingSpecificationPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceFleetResizingSpecifications) *ClusterSpotResizingSpecification {
+		return v.SpotResizeSpecification
+	}).(ClusterSpotResizingSpecificationPtrOutput)
+}
+
+type ClusterInstanceFleetResizingSpecificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceFleetResizingSpecificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceFleetResizingSpecifications)(nil)).Elem()
+}
+
+func (o ClusterInstanceFleetResizingSpecificationsPtrOutput) ToClusterInstanceFleetResizingSpecificationsPtrOutput() ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetResizingSpecificationsPtrOutput) ToClusterInstanceFleetResizingSpecificationsPtrOutputWithContext(ctx context.Context) ClusterInstanceFleetResizingSpecificationsPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceFleetResizingSpecificationsPtrOutput) Elem() ClusterInstanceFleetResizingSpecificationsOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetResizingSpecifications) ClusterInstanceFleetResizingSpecifications {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstanceFleetResizingSpecifications
+		return ret
+	}).(ClusterInstanceFleetResizingSpecificationsOutput)
+}
+
+// The resize specification for On-Demand Instances in the instance fleet, which contains the allocation strategy, capacity reservation options, and the resize timeout period.
+func (o ClusterInstanceFleetResizingSpecificationsPtrOutput) OnDemandResizeSpecification() ClusterOnDemandResizingSpecificationPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetResizingSpecifications) *ClusterOnDemandResizingSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandResizeSpecification
+	}).(ClusterOnDemandResizingSpecificationPtrOutput)
+}
+
+// The resize specification for Spot Instances in the instance fleet, which contains the allocation strategy and the resize timeout period.
+func (o ClusterInstanceFleetResizingSpecificationsPtrOutput) SpotResizeSpecification() ClusterSpotResizingSpecificationPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceFleetResizingSpecifications) *ClusterSpotResizingSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.SpotResizeSpecification
+	}).(ClusterSpotResizingSpecificationPtrOutput)
+}
+
+type ClusterInstanceGroupConfig struct {
+	// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.
+	AutoScalingPolicy *ClusterAutoScalingPolicy `pulumi:"autoScalingPolicy"`
+	// If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.
+	BidPrice *string `pulumi:"bidPrice"`
+	// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+	Configurations []ClusterEmrConfiguration `pulumi:"configurations"`
+	// The custom AMI ID to use for the provisioned instance group.
+	CustomAmiId *string `pulumi:"customAmiId"`
+	// EBS configurations that will be attached to each EC2 instance in the instance group.
+	EbsConfiguration *ClusterEbsConfiguration `pulumi:"ebsConfiguration"`
+	// Target number of instances for the instance group.
+	InstanceCount int `pulumi:"instanceCount"`
+	// The EC2 instance type for all instances in the instance group.
+	InstanceType string `pulumi:"instanceType"`
+	// Market type of the EC2 instances used to create a cluster node.
+	Market *ClusterInstanceGroupConfigMarket `pulumi:"market"`
+	// Friendly name given to the instance group.
+	Name *string `pulumi:"name"`
+}
+
+// ClusterInstanceGroupConfigInput is an input type that accepts ClusterInstanceGroupConfigArgs and ClusterInstanceGroupConfigOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupConfigInput` via:
+//
+//	ClusterInstanceGroupConfigArgs{...}
+type ClusterInstanceGroupConfigInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupConfigOutput() ClusterInstanceGroupConfigOutput
+	ToClusterInstanceGroupConfigOutputWithContext(context.Context) ClusterInstanceGroupConfigOutput
+}
+
+type ClusterInstanceGroupConfigArgs struct {
+	// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.
+	AutoScalingPolicy ClusterAutoScalingPolicyPtrInput `pulumi:"autoScalingPolicy"`
+	// If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+	Configurations ClusterEmrConfigurationArrayInput `pulumi:"configurations"`
+	// The custom AMI ID to use for the provisioned instance group.
+	CustomAmiId pulumi.StringPtrInput `pulumi:"customAmiId"`
+	// EBS configurations that will be attached to each EC2 instance in the instance group.
+	EbsConfiguration ClusterEbsConfigurationPtrInput `pulumi:"ebsConfiguration"`
+	// Target number of instances for the instance group.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// The EC2 instance type for all instances in the instance group.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Market type of the EC2 instances used to create a cluster node.
+	Market ClusterInstanceGroupConfigMarketPtrInput `pulumi:"market"`
+	// Friendly name given to the instance group.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ClusterInstanceGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceGroupConfigArgs) ToClusterInstanceGroupConfigOutput() ClusterInstanceGroupConfigOutput {
+	return i.ToClusterInstanceGroupConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceGroupConfigArgs) ToClusterInstanceGroupConfigOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupConfigOutput)
+}
+
+func (i ClusterInstanceGroupConfigArgs) ToClusterInstanceGroupConfigPtrOutput() ClusterInstanceGroupConfigPtrOutput {
+	return i.ToClusterInstanceGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceGroupConfigArgs) ToClusterInstanceGroupConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupConfigOutput).ToClusterInstanceGroupConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterInstanceGroupConfigPtrInput is an input type that accepts ClusterInstanceGroupConfigArgs, ClusterInstanceGroupConfigPtr and ClusterInstanceGroupConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupConfigPtrInput` via:
+//
+//	        ClusterInstanceGroupConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterInstanceGroupConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupConfigPtrOutput() ClusterInstanceGroupConfigPtrOutput
+	ToClusterInstanceGroupConfigPtrOutputWithContext(context.Context) ClusterInstanceGroupConfigPtrOutput
+}
+
+type clusterInstanceGroupConfigPtrType ClusterInstanceGroupConfigArgs
+
+func ClusterInstanceGroupConfigPtr(v *ClusterInstanceGroupConfigArgs) ClusterInstanceGroupConfigPtrInput {
+	return (*clusterInstanceGroupConfigPtrType)(v)
+}
+
+func (*clusterInstanceGroupConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceGroupConfig)(nil)).Elem()
+}
+
+func (i *clusterInstanceGroupConfigPtrType) ToClusterInstanceGroupConfigPtrOutput() ClusterInstanceGroupConfigPtrOutput {
+	return i.ToClusterInstanceGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterInstanceGroupConfigPtrType) ToClusterInstanceGroupConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupConfigPtrOutput)
+}
+
+// ClusterInstanceGroupConfigArrayInput is an input type that accepts ClusterInstanceGroupConfigArray and ClusterInstanceGroupConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupConfigArrayInput` via:
+//
+//	ClusterInstanceGroupConfigArray{ ClusterInstanceGroupConfigArgs{...} }
+type ClusterInstanceGroupConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupConfigArrayOutput() ClusterInstanceGroupConfigArrayOutput
+	ToClusterInstanceGroupConfigArrayOutputWithContext(context.Context) ClusterInstanceGroupConfigArrayOutput
+}
+
+type ClusterInstanceGroupConfigArray []ClusterInstanceGroupConfigInput
+
+func (ClusterInstanceGroupConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceGroupConfigArray) ToClusterInstanceGroupConfigArrayOutput() ClusterInstanceGroupConfigArrayOutput {
+	return i.ToClusterInstanceGroupConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceGroupConfigArray) ToClusterInstanceGroupConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupConfigArrayOutput)
+}
+
+type ClusterInstanceGroupConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceGroupConfigOutput) ToClusterInstanceGroupConfigOutput() ClusterInstanceGroupConfigOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigOutput) ToClusterInstanceGroupConfigOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigOutput) ToClusterInstanceGroupConfigPtrOutput() ClusterInstanceGroupConfigPtrOutput {
+	return o.ToClusterInstanceGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceGroupConfigOutput) ToClusterInstanceGroupConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstanceGroupConfig) *ClusterInstanceGroupConfig {
+		return &v
+	}).(ClusterInstanceGroupConfigPtrOutput)
+}
+
+// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.
+func (o ClusterInstanceGroupConfigOutput) AutoScalingPolicy() ClusterAutoScalingPolicyPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) *ClusterAutoScalingPolicy { return v.AutoScalingPolicy }).(ClusterAutoScalingPolicyPtrOutput)
+}
+
+// If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.
+func (o ClusterInstanceGroupConfigOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
+}
+
+// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+func (o ClusterInstanceGroupConfigOutput) Configurations() ClusterEmrConfigurationArrayOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) []ClusterEmrConfiguration { return v.Configurations }).(ClusterEmrConfigurationArrayOutput)
+}
+
+// The custom AMI ID to use for the provisioned instance group.
+func (o ClusterInstanceGroupConfigOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) *string { return v.CustomAmiId }).(pulumi.StringPtrOutput)
+}
+
+// EBS configurations that will be attached to each EC2 instance in the instance group.
+func (o ClusterInstanceGroupConfigOutput) EbsConfiguration() ClusterEbsConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) *ClusterEbsConfiguration { return v.EbsConfiguration }).(ClusterEbsConfigurationPtrOutput)
+}
+
+// Target number of instances for the instance group.
+func (o ClusterInstanceGroupConfigOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
+}
+
+// The EC2 instance type for all instances in the instance group.
+func (o ClusterInstanceGroupConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// Market type of the EC2 instances used to create a cluster node.
+func (o ClusterInstanceGroupConfigOutput) Market() ClusterInstanceGroupConfigMarketPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) *ClusterInstanceGroupConfigMarket { return v.Market }).(ClusterInstanceGroupConfigMarketPtrOutput)
+}
+
+// Friendly name given to the instance group.
+func (o ClusterInstanceGroupConfigOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ClusterInstanceGroupConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceGroupConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceGroupConfigPtrOutput) ToClusterInstanceGroupConfigPtrOutput() ClusterInstanceGroupConfigPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigPtrOutput) ToClusterInstanceGroupConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigPtrOutput) Elem() ClusterInstanceGroupConfigOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) ClusterInstanceGroupConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstanceGroupConfig
+		return ret
+	}).(ClusterInstanceGroupConfigOutput)
+}
+
+// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.
+func (o ClusterInstanceGroupConfigPtrOutput) AutoScalingPolicy() ClusterAutoScalingPolicyPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *ClusterAutoScalingPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingPolicy
+	}).(ClusterAutoScalingPolicyPtrOutput)
+}
+
+// If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify OnDemandPrice to set the amount equal to the On-Demand price, or specify an amount in USD.
+func (o ClusterInstanceGroupConfigPtrOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BidPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+func (o ClusterInstanceGroupConfigPtrOutput) Configurations() ClusterEmrConfigurationArrayOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) []ClusterEmrConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configurations
+	}).(ClusterEmrConfigurationArrayOutput)
+}
+
+// The custom AMI ID to use for the provisioned instance group.
+func (o ClusterInstanceGroupConfigPtrOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAmiId
+	}).(pulumi.StringPtrOutput)
+}
+
+// EBS configurations that will be attached to each EC2 instance in the instance group.
+func (o ClusterInstanceGroupConfigPtrOutput) EbsConfiguration() ClusterEbsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *ClusterEbsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EbsConfiguration
+	}).(ClusterEbsConfigurationPtrOutput)
+}
+
+// Target number of instances for the instance group.
+func (o ClusterInstanceGroupConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The EC2 instance type for all instances in the instance group.
+func (o ClusterInstanceGroupConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Market type of the EC2 instances used to create a cluster node.
+func (o ClusterInstanceGroupConfigPtrOutput) Market() ClusterInstanceGroupConfigMarketPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *ClusterInstanceGroupConfigMarket {
+		if v == nil {
+			return nil
+		}
+		return v.Market
+	}).(ClusterInstanceGroupConfigMarketPtrOutput)
+}
+
+// Friendly name given to the instance group.
+func (o ClusterInstanceGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterInstanceGroupConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceGroupConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceGroupConfigArrayOutput) ToClusterInstanceGroupConfigArrayOutput() ClusterInstanceGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigArrayOutput) ToClusterInstanceGroupConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupConfigArrayOutput) Index(i pulumi.IntInput) ClusterInstanceGroupConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceGroupConfig {
+		return vs[0].([]ClusterInstanceGroupConfig)[vs[1].(int)]
+	}).(ClusterInstanceGroupConfigOutput)
+}
+
+type ClusterInstanceTypeConfig struct {
+	// The bid price for each EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+	BidPrice *string `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+	Configurations []ClusterEmrConfiguration `pulumi:"configurations"`
+	// The custom AMI ID to use for the instance type.
+	CustomAmiId *string `pulumi:"customAmiId"`
+	// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+	EbsConfiguration *ClusterEbsConfiguration `pulumi:"ebsConfiguration"`
+	// An EC2 instance type, such as m3.xlarge.
+	InstanceType string `pulumi:"instanceType"`
+	// The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type. Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+	Priority *float64 `pulumi:"priority"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+	WeightedCapacity *int `pulumi:"weightedCapacity"`
+}
+
+// ClusterInstanceTypeConfigInput is an input type that accepts ClusterInstanceTypeConfigArgs and ClusterInstanceTypeConfigOutput values.
+// You can construct a concrete instance of `ClusterInstanceTypeConfigInput` via:
+//
+//	ClusterInstanceTypeConfigArgs{...}
+type ClusterInstanceTypeConfigInput interface {
+	pulumi.Input
+
+	ToClusterInstanceTypeConfigOutput() ClusterInstanceTypeConfigOutput
+	ToClusterInstanceTypeConfigOutputWithContext(context.Context) ClusterInstanceTypeConfigOutput
+}
+
+type ClusterInstanceTypeConfigArgs struct {
+	// The bid price for each EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+	Configurations ClusterEmrConfigurationArrayInput `pulumi:"configurations"`
+	// The custom AMI ID to use for the instance type.
+	CustomAmiId pulumi.StringPtrInput `pulumi:"customAmiId"`
+	// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+	EbsConfiguration ClusterEbsConfigurationPtrInput `pulumi:"ebsConfiguration"`
+	// An EC2 instance type, such as m3.xlarge.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type. Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+	WeightedCapacity pulumi.IntPtrInput `pulumi:"weightedCapacity"`
+}
+
+func (ClusterInstanceTypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceTypeConfigArgs) ToClusterInstanceTypeConfigOutput() ClusterInstanceTypeConfigOutput {
+	return i.ToClusterInstanceTypeConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceTypeConfigArgs) ToClusterInstanceTypeConfigOutputWithContext(ctx context.Context) ClusterInstanceTypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceTypeConfigOutput)
+}
+
+// ClusterInstanceTypeConfigArrayInput is an input type that accepts ClusterInstanceTypeConfigArray and ClusterInstanceTypeConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceTypeConfigArrayInput` via:
+//
+//	ClusterInstanceTypeConfigArray{ ClusterInstanceTypeConfigArgs{...} }
+type ClusterInstanceTypeConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceTypeConfigArrayOutput() ClusterInstanceTypeConfigArrayOutput
+	ToClusterInstanceTypeConfigArrayOutputWithContext(context.Context) ClusterInstanceTypeConfigArrayOutput
+}
+
+type ClusterInstanceTypeConfigArray []ClusterInstanceTypeConfigInput
+
+func (ClusterInstanceTypeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceTypeConfigArray) ToClusterInstanceTypeConfigArrayOutput() ClusterInstanceTypeConfigArrayOutput {
+	return i.ToClusterInstanceTypeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceTypeConfigArray) ToClusterInstanceTypeConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceTypeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceTypeConfigArrayOutput)
+}
+
+type ClusterInstanceTypeConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceTypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceTypeConfigOutput) ToClusterInstanceTypeConfigOutput() ClusterInstanceTypeConfigOutput {
+	return o
+}
+
+func (o ClusterInstanceTypeConfigOutput) ToClusterInstanceTypeConfigOutputWithContext(ctx context.Context) ClusterInstanceTypeConfigOutput {
+	return o
+}
+
+// The bid price for each EC2 Spot Instance type as defined by InstanceType. Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+func (o ClusterInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
+}
+
+// The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by InstanceType. Expressed as a number (for example, 20 specifies 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
+func (o ClusterInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) *float64 { return v.BidPriceAsPercentageOfOnDemandPrice }).(pulumi.Float64PtrOutput)
+}
+
+// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+func (o ClusterInstanceTypeConfigOutput) Configurations() ClusterEmrConfigurationArrayOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) []ClusterEmrConfiguration { return v.Configurations }).(ClusterEmrConfigurationArrayOutput)
+}
+
+// The custom AMI ID to use for the instance type.
+func (o ClusterInstanceTypeConfigOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) *string { return v.CustomAmiId }).(pulumi.StringPtrOutput)
+}
+
+// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance as defined by InstanceType.
+func (o ClusterInstanceTypeConfigOutput) EbsConfiguration() ClusterEbsConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) *ClusterEbsConfiguration { return v.EbsConfiguration }).(ClusterEbsConfigurationPtrOutput)
+}
+
+// An EC2 instance type, such as m3.xlarge.
+func (o ClusterInstanceTypeConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type. Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+func (o ClusterInstanceTypeConfigOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
+}
+
+// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in InstanceFleetConfig. This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+func (o ClusterInstanceTypeConfigOutput) WeightedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) *int { return v.WeightedCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ClusterInstanceTypeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceTypeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceTypeConfigArrayOutput) ToClusterInstanceTypeConfigArrayOutput() ClusterInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceTypeConfigArrayOutput) ToClusterInstanceTypeConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterInstanceTypeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceTypeConfig {
+		return vs[0].([]ClusterInstanceTypeConfig)[vs[1].(int)]
+	}).(ClusterInstanceTypeConfigOutput)
+}
+
+type ClusterJobFlowInstancesConfig struct {
+	// A list of additional Amazon EC2 security group IDs for the master node.
+	AdditionalMasterSecurityGroups []string `pulumi:"additionalMasterSecurityGroups"`
+	// A list of additional Amazon EC2 security group IDs for the core and task nodes.
+	AdditionalSlaveSecurityGroups []string `pulumi:"additionalSlaveSecurityGroups"`
+	// Describes the EC2 instances and instance configurations for the core instance fleet when using clusters with the instance fleet configuration.
+	CoreInstanceFleet *ClusterInstanceFleetConfig `pulumi:"coreInstanceFleet"`
+	// Configuration for the instance groups in a cluster.
+	CoreInstanceGroup *ClusterInstanceGroupConfig `pulumi:"coreInstanceGroup"`
+	// The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called 'hadoop'.
+	Ec2KeyName *string `pulumi:"ec2KeyName"`
+	// Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+	Ec2SubnetId *string `pulumi:"ec2SubnetId"`
+	// Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+	Ec2SubnetIds []string `pulumi:"ec2SubnetIds"`
+	// The identifier of the Amazon EC2 security group for the master node. If you specify EmrManagedMasterSecurityGroup, you must also specify EmrManagedSlaveSecurityGroup.
+	EmrManagedMasterSecurityGroup *string `pulumi:"emrManagedMasterSecurityGroup"`
+	// The identifier of the Amazon EC2 security group for the core and task nodes. If you specify EmrManagedSlaveSecurityGroup, you must also specify EmrManagedMasterSecurityGroup.
+	EmrManagedSlaveSecurityGroup *string `pulumi:"emrManagedSlaveSecurityGroup"`
+	// Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+	HadoopVersion *string `pulumi:"hadoopVersion"`
+	// Specifies whether the cluster should remain available after completing all steps. Defaults to true. For more information about configuring cluster termination, see Control Cluster Termination in the EMR Management Guide.
+	KeepJobFlowAliveWhenNoSteps *bool `pulumi:"keepJobFlowAliveWhenNoSteps"`
+	// Describes the EC2 instances and instance configurations for the master instance fleet when using clusters with the instance fleet configuration.
+	MasterInstanceFleet *ClusterInstanceFleetConfig `pulumi:"masterInstanceFleet"`
+	// Configuration for the instance groups in a cluster.
+	MasterInstanceGroup *ClusterInstanceGroupConfig `pulumi:"masterInstanceGroup"`
+	// The Availability Zone in which the cluster runs.
+	Placement *ClusterPlacementType `pulumi:"placement"`
+	// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+	ServiceAccessSecurityGroup *string `pulumi:"serviceAccessSecurityGroup"`
+	// Describes the EC2 instances and instance configurations for the task instance fleets when using clusters with the instance fleet configuration. These task instance fleets are added to the cluster as part of the cluster launch. Each task instance fleet must have a unique name specified so that CloudFormation can differentiate between the task instance fleets.
+	//
+	// > You can currently specify only one task instance fleet for a cluster. After creating the cluster, you can only modify the mutable properties of `InstanceFleetConfig` , which are `TargetOnDemandCapacity` and `TargetSpotCapacity` . Modifying any other property results in cluster replacement. > To allow a maximum of 30 Amazon EC2 instance types per fleet, include `TaskInstanceFleets` when you create your cluster. If you create your cluster without `TaskInstanceFleets` , Amazon EMR uses its default allocation strategy, which allows for a maximum of five Amazon EC2 instance types.
+	TaskInstanceFleets []ClusterInstanceFleetConfig `pulumi:"taskInstanceFleets"`
+	// Configuration for the instance groups in a cluster.
+	TaskInstanceGroups []ClusterInstanceGroupConfig `pulumi:"taskInstanceGroups"`
+	// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+	TerminationProtected *bool `pulumi:"terminationProtected"`
+	// Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+	UnhealthyNodeReplacement *bool `pulumi:"unhealthyNodeReplacement"`
+}
+
+// ClusterJobFlowInstancesConfigInput is an input type that accepts ClusterJobFlowInstancesConfigArgs and ClusterJobFlowInstancesConfigOutput values.
+// You can construct a concrete instance of `ClusterJobFlowInstancesConfigInput` via:
+//
+//	ClusterJobFlowInstancesConfigArgs{...}
+type ClusterJobFlowInstancesConfigInput interface {
+	pulumi.Input
+
+	ToClusterJobFlowInstancesConfigOutput() ClusterJobFlowInstancesConfigOutput
+	ToClusterJobFlowInstancesConfigOutputWithContext(context.Context) ClusterJobFlowInstancesConfigOutput
+}
+
+type ClusterJobFlowInstancesConfigArgs struct {
+	// A list of additional Amazon EC2 security group IDs for the master node.
+	AdditionalMasterSecurityGroups pulumi.StringArrayInput `pulumi:"additionalMasterSecurityGroups"`
+	// A list of additional Amazon EC2 security group IDs for the core and task nodes.
+	AdditionalSlaveSecurityGroups pulumi.StringArrayInput `pulumi:"additionalSlaveSecurityGroups"`
+	// Describes the EC2 instances and instance configurations for the core instance fleet when using clusters with the instance fleet configuration.
+	CoreInstanceFleet ClusterInstanceFleetConfigPtrInput `pulumi:"coreInstanceFleet"`
+	// Configuration for the instance groups in a cluster.
+	CoreInstanceGroup ClusterInstanceGroupConfigPtrInput `pulumi:"coreInstanceGroup"`
+	// The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called 'hadoop'.
+	Ec2KeyName pulumi.StringPtrInput `pulumi:"ec2KeyName"`
+	// Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+	Ec2SubnetId pulumi.StringPtrInput `pulumi:"ec2SubnetId"`
+	// Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+	Ec2SubnetIds pulumi.StringArrayInput `pulumi:"ec2SubnetIds"`
+	// The identifier of the Amazon EC2 security group for the master node. If you specify EmrManagedMasterSecurityGroup, you must also specify EmrManagedSlaveSecurityGroup.
+	EmrManagedMasterSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedMasterSecurityGroup"`
+	// The identifier of the Amazon EC2 security group for the core and task nodes. If you specify EmrManagedSlaveSecurityGroup, you must also specify EmrManagedMasterSecurityGroup.
+	EmrManagedSlaveSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedSlaveSecurityGroup"`
+	// Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+	HadoopVersion pulumi.StringPtrInput `pulumi:"hadoopVersion"`
+	// Specifies whether the cluster should remain available after completing all steps. Defaults to true. For more information about configuring cluster termination, see Control Cluster Termination in the EMR Management Guide.
+	KeepJobFlowAliveWhenNoSteps pulumi.BoolPtrInput `pulumi:"keepJobFlowAliveWhenNoSteps"`
+	// Describes the EC2 instances and instance configurations for the master instance fleet when using clusters with the instance fleet configuration.
+	MasterInstanceFleet ClusterInstanceFleetConfigPtrInput `pulumi:"masterInstanceFleet"`
+	// Configuration for the instance groups in a cluster.
+	MasterInstanceGroup ClusterInstanceGroupConfigPtrInput `pulumi:"masterInstanceGroup"`
+	// The Availability Zone in which the cluster runs.
+	Placement ClusterPlacementTypePtrInput `pulumi:"placement"`
+	// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+	ServiceAccessSecurityGroup pulumi.StringPtrInput `pulumi:"serviceAccessSecurityGroup"`
+	// Describes the EC2 instances and instance configurations for the task instance fleets when using clusters with the instance fleet configuration. These task instance fleets are added to the cluster as part of the cluster launch. Each task instance fleet must have a unique name specified so that CloudFormation can differentiate between the task instance fleets.
+	//
+	// > You can currently specify only one task instance fleet for a cluster. After creating the cluster, you can only modify the mutable properties of `InstanceFleetConfig` , which are `TargetOnDemandCapacity` and `TargetSpotCapacity` . Modifying any other property results in cluster replacement. > To allow a maximum of 30 Amazon EC2 instance types per fleet, include `TaskInstanceFleets` when you create your cluster. If you create your cluster without `TaskInstanceFleets` , Amazon EMR uses its default allocation strategy, which allows for a maximum of five Amazon EC2 instance types.
+	TaskInstanceFleets ClusterInstanceFleetConfigArrayInput `pulumi:"taskInstanceFleets"`
+	// Configuration for the instance groups in a cluster.
+	TaskInstanceGroups ClusterInstanceGroupConfigArrayInput `pulumi:"taskInstanceGroups"`
+	// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+	TerminationProtected pulumi.BoolPtrInput `pulumi:"terminationProtected"`
+	// Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+	UnhealthyNodeReplacement pulumi.BoolPtrInput `pulumi:"unhealthyNodeReplacement"`
+}
+
+func (ClusterJobFlowInstancesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterJobFlowInstancesConfig)(nil)).Elem()
+}
+
+func (i ClusterJobFlowInstancesConfigArgs) ToClusterJobFlowInstancesConfigOutput() ClusterJobFlowInstancesConfigOutput {
+	return i.ToClusterJobFlowInstancesConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterJobFlowInstancesConfigArgs) ToClusterJobFlowInstancesConfigOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobFlowInstancesConfigOutput)
+}
+
+type ClusterJobFlowInstancesConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterJobFlowInstancesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterJobFlowInstancesConfig)(nil)).Elem()
+}
+
+func (o ClusterJobFlowInstancesConfigOutput) ToClusterJobFlowInstancesConfigOutput() ClusterJobFlowInstancesConfigOutput {
+	return o
+}
+
+func (o ClusterJobFlowInstancesConfigOutput) ToClusterJobFlowInstancesConfigOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigOutput {
+	return o
+}
+
+// A list of additional Amazon EC2 security group IDs for the master node.
+func (o ClusterJobFlowInstancesConfigOutput) AdditionalMasterSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) []string { return v.AdditionalMasterSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// A list of additional Amazon EC2 security group IDs for the core and task nodes.
+func (o ClusterJobFlowInstancesConfigOutput) AdditionalSlaveSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) []string { return v.AdditionalSlaveSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// Describes the EC2 instances and instance configurations for the core instance fleet when using clusters with the instance fleet configuration.
+func (o ClusterJobFlowInstancesConfigOutput) CoreInstanceFleet() ClusterInstanceFleetConfigPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *ClusterInstanceFleetConfig { return v.CoreInstanceFleet }).(ClusterInstanceFleetConfigPtrOutput)
+}
+
+// Configuration for the instance groups in a cluster.
+func (o ClusterJobFlowInstancesConfigOutput) CoreInstanceGroup() ClusterInstanceGroupConfigPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *ClusterInstanceGroupConfig { return v.CoreInstanceGroup }).(ClusterInstanceGroupConfigPtrOutput)
+}
+
+// The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called 'hadoop'.
+func (o ClusterJobFlowInstancesConfigOutput) Ec2KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *string { return v.Ec2KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+func (o ClusterJobFlowInstancesConfigOutput) Ec2SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *string { return v.Ec2SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+func (o ClusterJobFlowInstancesConfigOutput) Ec2SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) []string { return v.Ec2SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The identifier of the Amazon EC2 security group for the master node. If you specify EmrManagedMasterSecurityGroup, you must also specify EmrManagedSlaveSecurityGroup.
+func (o ClusterJobFlowInstancesConfigOutput) EmrManagedMasterSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *string { return v.EmrManagedMasterSecurityGroup }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Amazon EC2 security group for the core and task nodes. If you specify EmrManagedSlaveSecurityGroup, you must also specify EmrManagedMasterSecurityGroup.
+func (o ClusterJobFlowInstancesConfigOutput) EmrManagedSlaveSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *string { return v.EmrManagedSlaveSecurityGroup }).(pulumi.StringPtrOutput)
+}
+
+// Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+func (o ClusterJobFlowInstancesConfigOutput) HadoopVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *string { return v.HadoopVersion }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the cluster should remain available after completing all steps. Defaults to true. For more information about configuring cluster termination, see Control Cluster Termination in the EMR Management Guide.
+func (o ClusterJobFlowInstancesConfigOutput) KeepJobFlowAliveWhenNoSteps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *bool { return v.KeepJobFlowAliveWhenNoSteps }).(pulumi.BoolPtrOutput)
+}
+
+// Describes the EC2 instances and instance configurations for the master instance fleet when using clusters with the instance fleet configuration.
+func (o ClusterJobFlowInstancesConfigOutput) MasterInstanceFleet() ClusterInstanceFleetConfigPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *ClusterInstanceFleetConfig { return v.MasterInstanceFleet }).(ClusterInstanceFleetConfigPtrOutput)
+}
+
+// Configuration for the instance groups in a cluster.
+func (o ClusterJobFlowInstancesConfigOutput) MasterInstanceGroup() ClusterInstanceGroupConfigPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *ClusterInstanceGroupConfig { return v.MasterInstanceGroup }).(ClusterInstanceGroupConfigPtrOutput)
+}
+
+// The Availability Zone in which the cluster runs.
+func (o ClusterJobFlowInstancesConfigOutput) Placement() ClusterPlacementTypePtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *ClusterPlacementType { return v.Placement }).(ClusterPlacementTypePtrOutput)
+}
+
+// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+func (o ClusterJobFlowInstancesConfigOutput) ServiceAccessSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *string { return v.ServiceAccessSecurityGroup }).(pulumi.StringPtrOutput)
+}
+
+// Describes the EC2 instances and instance configurations for the task instance fleets when using clusters with the instance fleet configuration. These task instance fleets are added to the cluster as part of the cluster launch. Each task instance fleet must have a unique name specified so that CloudFormation can differentiate between the task instance fleets.
+//
+// > You can currently specify only one task instance fleet for a cluster. After creating the cluster, you can only modify the mutable properties of `InstanceFleetConfig` , which are `TargetOnDemandCapacity` and `TargetSpotCapacity` . Modifying any other property results in cluster replacement. > To allow a maximum of 30 Amazon EC2 instance types per fleet, include `TaskInstanceFleets` when you create your cluster. If you create your cluster without `TaskInstanceFleets` , Amazon EMR uses its default allocation strategy, which allows for a maximum of five Amazon EC2 instance types.
+func (o ClusterJobFlowInstancesConfigOutput) TaskInstanceFleets() ClusterInstanceFleetConfigArrayOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) []ClusterInstanceFleetConfig { return v.TaskInstanceFleets }).(ClusterInstanceFleetConfigArrayOutput)
+}
+
+// Configuration for the instance groups in a cluster.
+func (o ClusterJobFlowInstancesConfigOutput) TaskInstanceGroups() ClusterInstanceGroupConfigArrayOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) []ClusterInstanceGroupConfig { return v.TaskInstanceGroups }).(ClusterInstanceGroupConfigArrayOutput)
+}
+
+// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+func (o ClusterJobFlowInstancesConfigOutput) TerminationProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *bool { return v.TerminationProtected }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+func (o ClusterJobFlowInstancesConfigOutput) UnhealthyNodeReplacement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *bool { return v.UnhealthyNodeReplacement }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterJobFlowInstancesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterJobFlowInstancesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterJobFlowInstancesConfig)(nil)).Elem()
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) ToClusterJobFlowInstancesConfigPtrOutput() ClusterJobFlowInstancesConfigPtrOutput {
+	return o
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) ToClusterJobFlowInstancesConfigPtrOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigPtrOutput {
+	return o
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) Elem() ClusterJobFlowInstancesConfigOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) ClusterJobFlowInstancesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterJobFlowInstancesConfig
+		return ret
+	}).(ClusterJobFlowInstancesConfigOutput)
+}
+
+// A list of additional Amazon EC2 security group IDs for the master node.
+func (o ClusterJobFlowInstancesConfigPtrOutput) AdditionalMasterSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalMasterSecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of additional Amazon EC2 security group IDs for the core and task nodes.
+func (o ClusterJobFlowInstancesConfigPtrOutput) AdditionalSlaveSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalSlaveSecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Describes the EC2 instances and instance configurations for the core instance fleet when using clusters with the instance fleet configuration.
+func (o ClusterJobFlowInstancesConfigPtrOutput) CoreInstanceFleet() ClusterInstanceFleetConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceFleetConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CoreInstanceFleet
+	}).(ClusterInstanceFleetConfigPtrOutput)
+}
+
+// Configuration for the instance groups in a cluster.
+func (o ClusterJobFlowInstancesConfigPtrOutput) CoreInstanceGroup() ClusterInstanceGroupConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CoreInstanceGroup
+	}).(ClusterInstanceGroupConfigPtrOutput)
+}
+
+// The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called 'hadoop'.
+func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identifier of the Amazon EC2 security group for the master node. If you specify EmrManagedMasterSecurityGroup, you must also specify EmrManagedSlaveSecurityGroup.
+func (o ClusterJobFlowInstancesConfigPtrOutput) EmrManagedMasterSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmrManagedMasterSecurityGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Amazon EC2 security group for the core and task nodes. If you specify EmrManagedSlaveSecurityGroup, you must also specify EmrManagedMasterSecurityGroup.
+func (o ClusterJobFlowInstancesConfigPtrOutput) EmrManagedSlaveSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmrManagedSlaveSecurityGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+func (o ClusterJobFlowInstancesConfigPtrOutput) HadoopVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HadoopVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the cluster should remain available after completing all steps. Defaults to true. For more information about configuring cluster termination, see Control Cluster Termination in the EMR Management Guide.
+func (o ClusterJobFlowInstancesConfigPtrOutput) KeepJobFlowAliveWhenNoSteps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeepJobFlowAliveWhenNoSteps
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Describes the EC2 instances and instance configurations for the master instance fleet when using clusters with the instance fleet configuration.
+func (o ClusterJobFlowInstancesConfigPtrOutput) MasterInstanceFleet() ClusterInstanceFleetConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceFleetConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MasterInstanceFleet
+	}).(ClusterInstanceFleetConfigPtrOutput)
+}
+
+// Configuration for the instance groups in a cluster.
+func (o ClusterJobFlowInstancesConfigPtrOutput) MasterInstanceGroup() ClusterInstanceGroupConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MasterInstanceGroup
+	}).(ClusterInstanceGroupConfigPtrOutput)
+}
+
+// The Availability Zone in which the cluster runs.
+func (o ClusterJobFlowInstancesConfigPtrOutput) Placement() ClusterPlacementTypePtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterPlacementType {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
+	}).(ClusterPlacementTypePtrOutput)
+}
+
+// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+func (o ClusterJobFlowInstancesConfigPtrOutput) ServiceAccessSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccessSecurityGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the EC2 instances and instance configurations for the task instance fleets when using clusters with the instance fleet configuration. These task instance fleets are added to the cluster as part of the cluster launch. Each task instance fleet must have a unique name specified so that CloudFormation can differentiate between the task instance fleets.
+//
+// > You can currently specify only one task instance fleet for a cluster. After creating the cluster, you can only modify the mutable properties of `InstanceFleetConfig` , which are `TargetOnDemandCapacity` and `TargetSpotCapacity` . Modifying any other property results in cluster replacement. > To allow a maximum of 30 Amazon EC2 instance types per fleet, include `TaskInstanceFleets` when you create your cluster. If you create your cluster without `TaskInstanceFleets` , Amazon EMR uses its default allocation strategy, which allows for a maximum of five Amazon EC2 instance types.
+func (o ClusterJobFlowInstancesConfigPtrOutput) TaskInstanceFleets() ClusterInstanceFleetConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []ClusterInstanceFleetConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TaskInstanceFleets
+	}).(ClusterInstanceFleetConfigArrayOutput)
+}
+
+// Configuration for the instance groups in a cluster.
+func (o ClusterJobFlowInstancesConfigPtrOutput) TaskInstanceGroups() ClusterInstanceGroupConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []ClusterInstanceGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TaskInstanceGroups
+	}).(ClusterInstanceGroupConfigArrayOutput)
+}
+
+// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+func (o ClusterJobFlowInstancesConfigPtrOutput) TerminationProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationProtected
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
+func (o ClusterJobFlowInstancesConfigPtrOutput) UnhealthyNodeReplacement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyNodeReplacement
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClusterKerberosAttributes struct {
+	// The Active Directory password for ADDomainJoinUser.
+	AdDomainJoinPassword *string `pulumi:"adDomainJoinPassword"`
+	// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+	AdDomainJoinUser *string `pulumi:"adDomainJoinUser"`
+	// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+	CrossRealmTrustPrincipalPassword *string `pulumi:"crossRealmTrustPrincipalPassword"`
+	// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+	KdcAdminPassword string `pulumi:"kdcAdminPassword"`
+	// The name of the Kerberos realm to which all nodes in a cluster belong. For example, EC2.INTERNAL.
+	Realm string `pulumi:"realm"`
+}
+
+// ClusterKerberosAttributesInput is an input type that accepts ClusterKerberosAttributesArgs and ClusterKerberosAttributesOutput values.
+// You can construct a concrete instance of `ClusterKerberosAttributesInput` via:
+//
+//	ClusterKerberosAttributesArgs{...}
+type ClusterKerberosAttributesInput interface {
+	pulumi.Input
+
+	ToClusterKerberosAttributesOutput() ClusterKerberosAttributesOutput
+	ToClusterKerberosAttributesOutputWithContext(context.Context) ClusterKerberosAttributesOutput
+}
+
+type ClusterKerberosAttributesArgs struct {
+	// The Active Directory password for ADDomainJoinUser.
+	AdDomainJoinPassword pulumi.StringPtrInput `pulumi:"adDomainJoinPassword"`
+	// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+	AdDomainJoinUser pulumi.StringPtrInput `pulumi:"adDomainJoinUser"`
+	// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+	CrossRealmTrustPrincipalPassword pulumi.StringPtrInput `pulumi:"crossRealmTrustPrincipalPassword"`
+	// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+	KdcAdminPassword pulumi.StringInput `pulumi:"kdcAdminPassword"`
+	// The name of the Kerberos realm to which all nodes in a cluster belong. For example, EC2.INTERNAL.
+	Realm pulumi.StringInput `pulumi:"realm"`
+}
+
+func (ClusterKerberosAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKerberosAttributes)(nil)).Elem()
+}
+
+func (i ClusterKerberosAttributesArgs) ToClusterKerberosAttributesOutput() ClusterKerberosAttributesOutput {
+	return i.ToClusterKerberosAttributesOutputWithContext(context.Background())
+}
+
+func (i ClusterKerberosAttributesArgs) ToClusterKerberosAttributesOutputWithContext(ctx context.Context) ClusterKerberosAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKerberosAttributesOutput)
+}
+
+func (i ClusterKerberosAttributesArgs) ToClusterKerberosAttributesPtrOutput() ClusterKerberosAttributesPtrOutput {
+	return i.ToClusterKerberosAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKerberosAttributesArgs) ToClusterKerberosAttributesPtrOutputWithContext(ctx context.Context) ClusterKerberosAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKerberosAttributesOutput).ToClusterKerberosAttributesPtrOutputWithContext(ctx)
+}
+
+// ClusterKerberosAttributesPtrInput is an input type that accepts ClusterKerberosAttributesArgs, ClusterKerberosAttributesPtr and ClusterKerberosAttributesPtrOutput values.
+// You can construct a concrete instance of `ClusterKerberosAttributesPtrInput` via:
+//
+//	        ClusterKerberosAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKerberosAttributesPtrInput interface {
+	pulumi.Input
+
+	ToClusterKerberosAttributesPtrOutput() ClusterKerberosAttributesPtrOutput
+	ToClusterKerberosAttributesPtrOutputWithContext(context.Context) ClusterKerberosAttributesPtrOutput
+}
+
+type clusterKerberosAttributesPtrType ClusterKerberosAttributesArgs
+
+func ClusterKerberosAttributesPtr(v *ClusterKerberosAttributesArgs) ClusterKerberosAttributesPtrInput {
+	return (*clusterKerberosAttributesPtrType)(v)
+}
+
+func (*clusterKerberosAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKerberosAttributes)(nil)).Elem()
+}
+
+func (i *clusterKerberosAttributesPtrType) ToClusterKerberosAttributesPtrOutput() ClusterKerberosAttributesPtrOutput {
+	return i.ToClusterKerberosAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKerberosAttributesPtrType) ToClusterKerberosAttributesPtrOutputWithContext(ctx context.Context) ClusterKerberosAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKerberosAttributesPtrOutput)
+}
+
+type ClusterKerberosAttributesOutput struct{ *pulumi.OutputState }
+
+func (ClusterKerberosAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKerberosAttributes)(nil)).Elem()
+}
+
+func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesOutput() ClusterKerberosAttributesOutput {
+	return o
+}
+
+func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesOutputWithContext(ctx context.Context) ClusterKerberosAttributesOutput {
+	return o
+}
+
+func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesPtrOutput() ClusterKerberosAttributesPtrOutput {
+	return o.ToClusterKerberosAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesPtrOutputWithContext(ctx context.Context) ClusterKerberosAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKerberosAttributes) *ClusterKerberosAttributes {
+		return &v
+	}).(ClusterKerberosAttributesPtrOutput)
+}
+
+// The Active Directory password for ADDomainJoinUser.
+func (o ClusterKerberosAttributesOutput) AdDomainJoinPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.AdDomainJoinPassword }).(pulumi.StringPtrOutput)
+}
+
+// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+func (o ClusterKerberosAttributesOutput) AdDomainJoinUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.AdDomainJoinUser }).(pulumi.StringPtrOutput)
+}
+
+// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+func (o ClusterKerberosAttributesOutput) CrossRealmTrustPrincipalPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.CrossRealmTrustPrincipalPassword }).(pulumi.StringPtrOutput)
+}
+
+// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+func (o ClusterKerberosAttributesOutput) KdcAdminPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterKerberosAttributes) string { return v.KdcAdminPassword }).(pulumi.StringOutput)
+}
+
+// The name of the Kerberos realm to which all nodes in a cluster belong. For example, EC2.INTERNAL.
+func (o ClusterKerberosAttributesOutput) Realm() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterKerberosAttributes) string { return v.Realm }).(pulumi.StringOutput)
+}
+
+type ClusterKerberosAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKerberosAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKerberosAttributes)(nil)).Elem()
+}
+
+func (o ClusterKerberosAttributesPtrOutput) ToClusterKerberosAttributesPtrOutput() ClusterKerberosAttributesPtrOutput {
+	return o
+}
+
+func (o ClusterKerberosAttributesPtrOutput) ToClusterKerberosAttributesPtrOutputWithContext(ctx context.Context) ClusterKerberosAttributesPtrOutput {
+	return o
+}
+
+func (o ClusterKerberosAttributesPtrOutput) Elem() ClusterKerberosAttributesOutput {
+	return o.ApplyT(func(v *ClusterKerberosAttributes) ClusterKerberosAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKerberosAttributes
+		return ret
+	}).(ClusterKerberosAttributesOutput)
+}
+
+// The Active Directory password for ADDomainJoinUser.
+func (o ClusterKerberosAttributesPtrOutput) AdDomainJoinPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdDomainJoinPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+func (o ClusterKerberosAttributesPtrOutput) AdDomainJoinUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdDomainJoinUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+func (o ClusterKerberosAttributesPtrOutput) CrossRealmTrustPrincipalPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossRealmTrustPrincipalPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+func (o ClusterKerberosAttributesPtrOutput) KdcAdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KdcAdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Kerberos realm to which all nodes in a cluster belong. For example, EC2.INTERNAL.
+func (o ClusterKerberosAttributesPtrOutput) Realm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Realm
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterKeyValue struct {
+	// The unique identifier of a key-value pair.
+	Key *string `pulumi:"key"`
+	// The value part of the identified key.
+	Value *string `pulumi:"value"`
+}
+
+// ClusterKeyValueInput is an input type that accepts ClusterKeyValueArgs and ClusterKeyValueOutput values.
+// You can construct a concrete instance of `ClusterKeyValueInput` via:
+//
+//	ClusterKeyValueArgs{...}
+type ClusterKeyValueInput interface {
+	pulumi.Input
+
+	ToClusterKeyValueOutput() ClusterKeyValueOutput
+	ToClusterKeyValueOutputWithContext(context.Context) ClusterKeyValueOutput
+}
+
+type ClusterKeyValueArgs struct {
+	// The unique identifier of a key-value pair.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value part of the identified key.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ClusterKeyValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKeyValue)(nil)).Elem()
+}
+
+func (i ClusterKeyValueArgs) ToClusterKeyValueOutput() ClusterKeyValueOutput {
+	return i.ToClusterKeyValueOutputWithContext(context.Background())
+}
+
+func (i ClusterKeyValueArgs) ToClusterKeyValueOutputWithContext(ctx context.Context) ClusterKeyValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKeyValueOutput)
+}
+
+// ClusterKeyValueArrayInput is an input type that accepts ClusterKeyValueArray and ClusterKeyValueArrayOutput values.
+// You can construct a concrete instance of `ClusterKeyValueArrayInput` via:
+//
+//	ClusterKeyValueArray{ ClusterKeyValueArgs{...} }
+type ClusterKeyValueArrayInput interface {
+	pulumi.Input
+
+	ToClusterKeyValueArrayOutput() ClusterKeyValueArrayOutput
+	ToClusterKeyValueArrayOutputWithContext(context.Context) ClusterKeyValueArrayOutput
+}
+
+type ClusterKeyValueArray []ClusterKeyValueInput
+
+func (ClusterKeyValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKeyValue)(nil)).Elem()
+}
+
+func (i ClusterKeyValueArray) ToClusterKeyValueArrayOutput() ClusterKeyValueArrayOutput {
+	return i.ToClusterKeyValueArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterKeyValueArray) ToClusterKeyValueArrayOutputWithContext(ctx context.Context) ClusterKeyValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKeyValueArrayOutput)
+}
+
+type ClusterKeyValueOutput struct{ *pulumi.OutputState }
+
+func (ClusterKeyValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKeyValue)(nil)).Elem()
+}
+
+func (o ClusterKeyValueOutput) ToClusterKeyValueOutput() ClusterKeyValueOutput {
+	return o
+}
+
+func (o ClusterKeyValueOutput) ToClusterKeyValueOutputWithContext(ctx context.Context) ClusterKeyValueOutput {
+	return o
+}
+
+// The unique identifier of a key-value pair.
+func (o ClusterKeyValueOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKeyValue) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The value part of the identified key.
+func (o ClusterKeyValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKeyValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ClusterKeyValueArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterKeyValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKeyValue)(nil)).Elem()
+}
+
+func (o ClusterKeyValueArrayOutput) ToClusterKeyValueArrayOutput() ClusterKeyValueArrayOutput {
+	return o
+}
+
+func (o ClusterKeyValueArrayOutput) ToClusterKeyValueArrayOutputWithContext(ctx context.Context) ClusterKeyValueArrayOutput {
+	return o
+}
+
+func (o ClusterKeyValueArrayOutput) Index(i pulumi.IntInput) ClusterKeyValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterKeyValue {
+		return vs[0].([]ClusterKeyValue)[vs[1].(int)]
+	}).(ClusterKeyValueOutput)
+}
+
+type ClusterManagedScalingPolicy struct {
+	// The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	ComputeLimits *ClusterComputeLimits `pulumi:"computeLimits"`
+	// Determines whether a custom scaling utilization performance index can be set. Possible values include *ADVANCED* or *DEFAULT* .
+	ScalingStrategy *string `pulumi:"scalingStrategy"`
+	// An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
+	UtilizationPerformanceIndex *int `pulumi:"utilizationPerformanceIndex"`
+}
+
+// ClusterManagedScalingPolicyInput is an input type that accepts ClusterManagedScalingPolicyArgs and ClusterManagedScalingPolicyOutput values.
+// You can construct a concrete instance of `ClusterManagedScalingPolicyInput` via:
+//
+//	ClusterManagedScalingPolicyArgs{...}
+type ClusterManagedScalingPolicyInput interface {
+	pulumi.Input
+
+	ToClusterManagedScalingPolicyOutput() ClusterManagedScalingPolicyOutput
+	ToClusterManagedScalingPolicyOutputWithContext(context.Context) ClusterManagedScalingPolicyOutput
+}
+
+type ClusterManagedScalingPolicyArgs struct {
+	// The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	ComputeLimits ClusterComputeLimitsPtrInput `pulumi:"computeLimits"`
+	// Determines whether a custom scaling utilization performance index can be set. Possible values include *ADVANCED* or *DEFAULT* .
+	ScalingStrategy pulumi.StringPtrInput `pulumi:"scalingStrategy"`
+	// An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
+	UtilizationPerformanceIndex pulumi.IntPtrInput `pulumi:"utilizationPerformanceIndex"`
+}
+
+func (ClusterManagedScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterManagedScalingPolicy)(nil)).Elem()
+}
+
+func (i ClusterManagedScalingPolicyArgs) ToClusterManagedScalingPolicyOutput() ClusterManagedScalingPolicyOutput {
+	return i.ToClusterManagedScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterManagedScalingPolicyArgs) ToClusterManagedScalingPolicyOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedScalingPolicyOutput)
+}
+
+func (i ClusterManagedScalingPolicyArgs) ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput {
+	return i.ToClusterManagedScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterManagedScalingPolicyArgs) ToClusterManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedScalingPolicyOutput).ToClusterManagedScalingPolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterManagedScalingPolicyPtrInput is an input type that accepts ClusterManagedScalingPolicyArgs, ClusterManagedScalingPolicyPtr and ClusterManagedScalingPolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterManagedScalingPolicyPtrInput` via:
+//
+//	        ClusterManagedScalingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterManagedScalingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput
+	ToClusterManagedScalingPolicyPtrOutputWithContext(context.Context) ClusterManagedScalingPolicyPtrOutput
+}
+
+type clusterManagedScalingPolicyPtrType ClusterManagedScalingPolicyArgs
+
+func ClusterManagedScalingPolicyPtr(v *ClusterManagedScalingPolicyArgs) ClusterManagedScalingPolicyPtrInput {
+	return (*clusterManagedScalingPolicyPtrType)(v)
+}
+
+func (*clusterManagedScalingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterManagedScalingPolicy)(nil)).Elem()
+}
+
+func (i *clusterManagedScalingPolicyPtrType) ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput {
+	return i.ToClusterManagedScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterManagedScalingPolicyPtrType) ToClusterManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedScalingPolicyPtrOutput)
+}
+
+type ClusterManagedScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterManagedScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterManagedScalingPolicy)(nil)).Elem()
+}
+
+func (o ClusterManagedScalingPolicyOutput) ToClusterManagedScalingPolicyOutput() ClusterManagedScalingPolicyOutput {
+	return o
+}
+
+func (o ClusterManagedScalingPolicyOutput) ToClusterManagedScalingPolicyOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyOutput {
+	return o
+}
+
+func (o ClusterManagedScalingPolicyOutput) ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput {
+	return o.ToClusterManagedScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterManagedScalingPolicyOutput) ToClusterManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterManagedScalingPolicy) *ClusterManagedScalingPolicy {
+		return &v
+	}).(ClusterManagedScalingPolicyPtrOutput)
+}
+
+// The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+func (o ClusterManagedScalingPolicyOutput) ComputeLimits() ClusterComputeLimitsPtrOutput {
+	return o.ApplyT(func(v ClusterManagedScalingPolicy) *ClusterComputeLimits { return v.ComputeLimits }).(ClusterComputeLimitsPtrOutput)
+}
+
+// Determines whether a custom scaling utilization performance index can be set. Possible values include *ADVANCED* or *DEFAULT* .
+func (o ClusterManagedScalingPolicyOutput) ScalingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterManagedScalingPolicy) *string { return v.ScalingStrategy }).(pulumi.StringPtrOutput)
+}
+
+// An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
+func (o ClusterManagedScalingPolicyOutput) UtilizationPerformanceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterManagedScalingPolicy) *int { return v.UtilizationPerformanceIndex }).(pulumi.IntPtrOutput)
+}
+
+type ClusterManagedScalingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterManagedScalingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterManagedScalingPolicy)(nil)).Elem()
+}
+
+func (o ClusterManagedScalingPolicyPtrOutput) ToClusterManagedScalingPolicyPtrOutput() ClusterManagedScalingPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterManagedScalingPolicyPtrOutput) ToClusterManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ClusterManagedScalingPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterManagedScalingPolicyPtrOutput) Elem() ClusterManagedScalingPolicyOutput {
+	return o.ApplyT(func(v *ClusterManagedScalingPolicy) ClusterManagedScalingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterManagedScalingPolicy
+		return ret
+	}).(ClusterManagedScalingPolicyOutput)
+}
+
+// The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+func (o ClusterManagedScalingPolicyPtrOutput) ComputeLimits() ClusterComputeLimitsPtrOutput {
+	return o.ApplyT(func(v *ClusterManagedScalingPolicy) *ClusterComputeLimits {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeLimits
+	}).(ClusterComputeLimitsPtrOutput)
+}
+
+// Determines whether a custom scaling utilization performance index can be set. Possible values include *ADVANCED* or *DEFAULT* .
+func (o ClusterManagedScalingPolicyPtrOutput) ScalingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterManagedScalingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScalingStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// An integer value that represents an advanced scaling strategy. Setting a higher value optimizes for performance. Setting a lower value optimizes for resource conservation. Setting the value to 50 balances performance and resource conservation. Possible values are 1, 25, 50, 75, and 100.
+func (o ClusterManagedScalingPolicyPtrOutput) UtilizationPerformanceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterManagedScalingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UtilizationPerformanceIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterMetricDimension struct {
+	// The dimension name.
+	Key string `pulumi:"key"`
+	// The dimension value.
+	Value string `pulumi:"value"`
+}
+
+// ClusterMetricDimensionInput is an input type that accepts ClusterMetricDimensionArgs and ClusterMetricDimensionOutput values.
+// You can construct a concrete instance of `ClusterMetricDimensionInput` via:
+//
+//	ClusterMetricDimensionArgs{...}
+type ClusterMetricDimensionInput interface {
+	pulumi.Input
+
+	ToClusterMetricDimensionOutput() ClusterMetricDimensionOutput
+	ToClusterMetricDimensionOutputWithContext(context.Context) ClusterMetricDimensionOutput
+}
+
+type ClusterMetricDimensionArgs struct {
+	// The dimension name.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The dimension value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClusterMetricDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMetricDimension)(nil)).Elem()
+}
+
+func (i ClusterMetricDimensionArgs) ToClusterMetricDimensionOutput() ClusterMetricDimensionOutput {
+	return i.ToClusterMetricDimensionOutputWithContext(context.Background())
+}
+
+func (i ClusterMetricDimensionArgs) ToClusterMetricDimensionOutputWithContext(ctx context.Context) ClusterMetricDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMetricDimensionOutput)
+}
+
+// ClusterMetricDimensionArrayInput is an input type that accepts ClusterMetricDimensionArray and ClusterMetricDimensionArrayOutput values.
+// You can construct a concrete instance of `ClusterMetricDimensionArrayInput` via:
+//
+//	ClusterMetricDimensionArray{ ClusterMetricDimensionArgs{...} }
+type ClusterMetricDimensionArrayInput interface {
+	pulumi.Input
+
+	ToClusterMetricDimensionArrayOutput() ClusterMetricDimensionArrayOutput
+	ToClusterMetricDimensionArrayOutputWithContext(context.Context) ClusterMetricDimensionArrayOutput
+}
+
+type ClusterMetricDimensionArray []ClusterMetricDimensionInput
+
+func (ClusterMetricDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMetricDimension)(nil)).Elem()
+}
+
+func (i ClusterMetricDimensionArray) ToClusterMetricDimensionArrayOutput() ClusterMetricDimensionArrayOutput {
+	return i.ToClusterMetricDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMetricDimensionArray) ToClusterMetricDimensionArrayOutputWithContext(ctx context.Context) ClusterMetricDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMetricDimensionArrayOutput)
+}
+
+type ClusterMetricDimensionOutput struct{ *pulumi.OutputState }
+
+func (ClusterMetricDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMetricDimension)(nil)).Elem()
+}
+
+func (o ClusterMetricDimensionOutput) ToClusterMetricDimensionOutput() ClusterMetricDimensionOutput {
+	return o
+}
+
+func (o ClusterMetricDimensionOutput) ToClusterMetricDimensionOutputWithContext(ctx context.Context) ClusterMetricDimensionOutput {
+	return o
+}
+
+// The dimension name.
+func (o ClusterMetricDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMetricDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The dimension value.
+func (o ClusterMetricDimensionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMetricDimension) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClusterMetricDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMetricDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMetricDimension)(nil)).Elem()
+}
+
+func (o ClusterMetricDimensionArrayOutput) ToClusterMetricDimensionArrayOutput() ClusterMetricDimensionArrayOutput {
+	return o
+}
+
+func (o ClusterMetricDimensionArrayOutput) ToClusterMetricDimensionArrayOutputWithContext(ctx context.Context) ClusterMetricDimensionArrayOutput {
+	return o
+}
+
+func (o ClusterMetricDimensionArrayOutput) Index(i pulumi.IntInput) ClusterMetricDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMetricDimension {
+		return vs[0].([]ClusterMetricDimension)[vs[1].(int)]
+	}).(ClusterMetricDimensionOutput)
+}
+
+// Contains CloudWatch log configuration metadata and settings.
+type ClusterMonitoringConfiguration struct {
+	CloudWatchLogConfiguration *ClusterCloudWatchLogConfiguration `pulumi:"cloudWatchLogConfiguration"`
+}
+
+// ClusterMonitoringConfigurationInput is an input type that accepts ClusterMonitoringConfigurationArgs and ClusterMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ClusterMonitoringConfigurationInput` via:
+//
+//	ClusterMonitoringConfigurationArgs{...}
+type ClusterMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterMonitoringConfigurationOutput() ClusterMonitoringConfigurationOutput
+	ToClusterMonitoringConfigurationOutputWithContext(context.Context) ClusterMonitoringConfigurationOutput
+}
+
+// Contains CloudWatch log configuration metadata and settings.
+type ClusterMonitoringConfigurationArgs struct {
+	CloudWatchLogConfiguration ClusterCloudWatchLogConfigurationPtrInput `pulumi:"cloudWatchLogConfiguration"`
+}
+
+func (ClusterMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ClusterMonitoringConfigurationArgs) ToClusterMonitoringConfigurationOutput() ClusterMonitoringConfigurationOutput {
+	return i.ToClusterMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterMonitoringConfigurationArgs) ToClusterMonitoringConfigurationOutputWithContext(ctx context.Context) ClusterMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMonitoringConfigurationOutput)
+}
+
+func (i ClusterMonitoringConfigurationArgs) ToClusterMonitoringConfigurationPtrOutput() ClusterMonitoringConfigurationPtrOutput {
+	return i.ToClusterMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterMonitoringConfigurationArgs) ToClusterMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ClusterMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMonitoringConfigurationOutput).ToClusterMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterMonitoringConfigurationPtrInput is an input type that accepts ClusterMonitoringConfigurationArgs, ClusterMonitoringConfigurationPtr and ClusterMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterMonitoringConfigurationPtrInput` via:
+//
+//	        ClusterMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterMonitoringConfigurationPtrOutput() ClusterMonitoringConfigurationPtrOutput
+	ToClusterMonitoringConfigurationPtrOutputWithContext(context.Context) ClusterMonitoringConfigurationPtrOutput
+}
+
+type clusterMonitoringConfigurationPtrType ClusterMonitoringConfigurationArgs
+
+func ClusterMonitoringConfigurationPtr(v *ClusterMonitoringConfigurationArgs) ClusterMonitoringConfigurationPtrInput {
+	return (*clusterMonitoringConfigurationPtrType)(v)
+}
+
+func (*clusterMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *clusterMonitoringConfigurationPtrType) ToClusterMonitoringConfigurationPtrOutput() ClusterMonitoringConfigurationPtrOutput {
+	return i.ToClusterMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterMonitoringConfigurationPtrType) ToClusterMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ClusterMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMonitoringConfigurationPtrOutput)
+}
+
+// Contains CloudWatch log configuration metadata and settings.
+type ClusterMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ClusterMonitoringConfigurationOutput) ToClusterMonitoringConfigurationOutput() ClusterMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ClusterMonitoringConfigurationOutput) ToClusterMonitoringConfigurationOutputWithContext(ctx context.Context) ClusterMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ClusterMonitoringConfigurationOutput) ToClusterMonitoringConfigurationPtrOutput() ClusterMonitoringConfigurationPtrOutput {
+	return o.ToClusterMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterMonitoringConfigurationOutput) ToClusterMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ClusterMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMonitoringConfiguration) *ClusterMonitoringConfiguration {
+		return &v
+	}).(ClusterMonitoringConfigurationPtrOutput)
+}
+
+func (o ClusterMonitoringConfigurationOutput) CloudWatchLogConfiguration() ClusterCloudWatchLogConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterMonitoringConfiguration) *ClusterCloudWatchLogConfiguration {
+		return v.CloudWatchLogConfiguration
+	}).(ClusterCloudWatchLogConfigurationPtrOutput)
+}
+
+type ClusterMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ClusterMonitoringConfigurationPtrOutput) ToClusterMonitoringConfigurationPtrOutput() ClusterMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterMonitoringConfigurationPtrOutput) ToClusterMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ClusterMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterMonitoringConfigurationPtrOutput) Elem() ClusterMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ClusterMonitoringConfiguration) ClusterMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterMonitoringConfiguration
+		return ret
+	}).(ClusterMonitoringConfigurationOutput)
+}
+
+func (o ClusterMonitoringConfigurationPtrOutput) CloudWatchLogConfiguration() ClusterCloudWatchLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterMonitoringConfiguration) *ClusterCloudWatchLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogConfiguration
+	}).(ClusterCloudWatchLogConfigurationPtrOutput)
+}
+
+type ClusterOnDemandCapacityReservationOptions struct {
+	// Supported values: none, open
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
+	// Supported values: use-capacity-reservations-first
+	UsageStrategy *string `pulumi:"usageStrategy"`
+}
+
+// ClusterOnDemandCapacityReservationOptionsInput is an input type that accepts ClusterOnDemandCapacityReservationOptionsArgs and ClusterOnDemandCapacityReservationOptionsOutput values.
+// You can construct a concrete instance of `ClusterOnDemandCapacityReservationOptionsInput` via:
+//
+//	ClusterOnDemandCapacityReservationOptionsArgs{...}
+type ClusterOnDemandCapacityReservationOptionsInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandCapacityReservationOptionsOutput() ClusterOnDemandCapacityReservationOptionsOutput
+	ToClusterOnDemandCapacityReservationOptionsOutputWithContext(context.Context) ClusterOnDemandCapacityReservationOptionsOutput
+}
+
+type ClusterOnDemandCapacityReservationOptionsArgs struct {
+	// Supported values: none, open
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
+	// Supported values: use-capacity-reservations-first
+	UsageStrategy pulumi.StringPtrInput `pulumi:"usageStrategy"`
+}
+
+func (ClusterOnDemandCapacityReservationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandCapacityReservationOptions)(nil)).Elem()
+}
+
+func (i ClusterOnDemandCapacityReservationOptionsArgs) ToClusterOnDemandCapacityReservationOptionsOutput() ClusterOnDemandCapacityReservationOptionsOutput {
+	return i.ToClusterOnDemandCapacityReservationOptionsOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandCapacityReservationOptionsArgs) ToClusterOnDemandCapacityReservationOptionsOutputWithContext(ctx context.Context) ClusterOnDemandCapacityReservationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandCapacityReservationOptionsOutput)
+}
+
+func (i ClusterOnDemandCapacityReservationOptionsArgs) ToClusterOnDemandCapacityReservationOptionsPtrOutput() ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return i.ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandCapacityReservationOptionsArgs) ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandCapacityReservationOptionsOutput).ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx)
+}
+
+// ClusterOnDemandCapacityReservationOptionsPtrInput is an input type that accepts ClusterOnDemandCapacityReservationOptionsArgs, ClusterOnDemandCapacityReservationOptionsPtr and ClusterOnDemandCapacityReservationOptionsPtrOutput values.
+// You can construct a concrete instance of `ClusterOnDemandCapacityReservationOptionsPtrInput` via:
+//
+//	        ClusterOnDemandCapacityReservationOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOnDemandCapacityReservationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandCapacityReservationOptionsPtrOutput() ClusterOnDemandCapacityReservationOptionsPtrOutput
+	ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(context.Context) ClusterOnDemandCapacityReservationOptionsPtrOutput
+}
+
+type clusterOnDemandCapacityReservationOptionsPtrType ClusterOnDemandCapacityReservationOptionsArgs
+
+func ClusterOnDemandCapacityReservationOptionsPtr(v *ClusterOnDemandCapacityReservationOptionsArgs) ClusterOnDemandCapacityReservationOptionsPtrInput {
+	return (*clusterOnDemandCapacityReservationOptionsPtrType)(v)
+}
+
+func (*clusterOnDemandCapacityReservationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandCapacityReservationOptions)(nil)).Elem()
+}
+
+func (i *clusterOnDemandCapacityReservationOptionsPtrType) ToClusterOnDemandCapacityReservationOptionsPtrOutput() ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return i.ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOnDemandCapacityReservationOptionsPtrType) ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+type ClusterOnDemandCapacityReservationOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandCapacityReservationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandCapacityReservationOptions)(nil)).Elem()
+}
+
+func (o ClusterOnDemandCapacityReservationOptionsOutput) ToClusterOnDemandCapacityReservationOptionsOutput() ClusterOnDemandCapacityReservationOptionsOutput {
+	return o
+}
+
+func (o ClusterOnDemandCapacityReservationOptionsOutput) ToClusterOnDemandCapacityReservationOptionsOutputWithContext(ctx context.Context) ClusterOnDemandCapacityReservationOptionsOutput {
+	return o
+}
+
+func (o ClusterOnDemandCapacityReservationOptionsOutput) ToClusterOnDemandCapacityReservationOptionsPtrOutput() ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOnDemandCapacityReservationOptionsOutput) ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOnDemandCapacityReservationOptions) *ClusterOnDemandCapacityReservationOptions {
+		return &v
+	}).(ClusterOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+// Supported values: none, open
+func (o ClusterOnDemandCapacityReservationOptionsOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOnDemandCapacityReservationOptions) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o ClusterOnDemandCapacityReservationOptionsOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOnDemandCapacityReservationOptions) *string {
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Supported values: use-capacity-reservations-first
+func (o ClusterOnDemandCapacityReservationOptionsOutput) UsageStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOnDemandCapacityReservationOptions) *string { return v.UsageStrategy }).(pulumi.StringPtrOutput)
+}
+
+type ClusterOnDemandCapacityReservationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandCapacityReservationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandCapacityReservationOptions)(nil)).Elem()
+}
+
+func (o ClusterOnDemandCapacityReservationOptionsPtrOutput) ToClusterOnDemandCapacityReservationOptionsPtrOutput() ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandCapacityReservationOptionsPtrOutput) ToClusterOnDemandCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandCapacityReservationOptionsPtrOutput) Elem() ClusterOnDemandCapacityReservationOptionsOutput {
+	return o.ApplyT(func(v *ClusterOnDemandCapacityReservationOptions) ClusterOnDemandCapacityReservationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOnDemandCapacityReservationOptions
+		return ret
+	}).(ClusterOnDemandCapacityReservationOptionsOutput)
+}
+
+// Supported values: none, open
+func (o ClusterOnDemandCapacityReservationOptionsPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandCapacityReservationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o ClusterOnDemandCapacityReservationOptionsPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandCapacityReservationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Supported values: use-capacity-reservations-first
+func (o ClusterOnDemandCapacityReservationOptionsPtrOutput) UsageStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandCapacityReservationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterOnDemandProvisioningSpecification struct {
+	// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+	CapacityReservationOptions *ClusterOnDemandCapacityReservationOptions `pulumi:"capacityReservationOptions"`
+}
+
+// ClusterOnDemandProvisioningSpecificationInput is an input type that accepts ClusterOnDemandProvisioningSpecificationArgs and ClusterOnDemandProvisioningSpecificationOutput values.
+// You can construct a concrete instance of `ClusterOnDemandProvisioningSpecificationInput` via:
+//
+//	ClusterOnDemandProvisioningSpecificationArgs{...}
+type ClusterOnDemandProvisioningSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandProvisioningSpecificationOutput() ClusterOnDemandProvisioningSpecificationOutput
+	ToClusterOnDemandProvisioningSpecificationOutputWithContext(context.Context) ClusterOnDemandProvisioningSpecificationOutput
+}
+
+type ClusterOnDemandProvisioningSpecificationArgs struct {
+	// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+	CapacityReservationOptions ClusterOnDemandCapacityReservationOptionsPtrInput `pulumi:"capacityReservationOptions"`
+}
+
+func (ClusterOnDemandProvisioningSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (i ClusterOnDemandProvisioningSpecificationArgs) ToClusterOnDemandProvisioningSpecificationOutput() ClusterOnDemandProvisioningSpecificationOutput {
+	return i.ToClusterOnDemandProvisioningSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandProvisioningSpecificationArgs) ToClusterOnDemandProvisioningSpecificationOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandProvisioningSpecificationOutput)
+}
+
+func (i ClusterOnDemandProvisioningSpecificationArgs) ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return i.ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandProvisioningSpecificationArgs) ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandProvisioningSpecificationOutput).ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx)
+}
+
+// ClusterOnDemandProvisioningSpecificationPtrInput is an input type that accepts ClusterOnDemandProvisioningSpecificationArgs, ClusterOnDemandProvisioningSpecificationPtr and ClusterOnDemandProvisioningSpecificationPtrOutput values.
+// You can construct a concrete instance of `ClusterOnDemandProvisioningSpecificationPtrInput` via:
+//
+//	        ClusterOnDemandProvisioningSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOnDemandProvisioningSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput
+	ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput
+}
+
+type clusterOnDemandProvisioningSpecificationPtrType ClusterOnDemandProvisioningSpecificationArgs
+
+func ClusterOnDemandProvisioningSpecificationPtr(v *ClusterOnDemandProvisioningSpecificationArgs) ClusterOnDemandProvisioningSpecificationPtrInput {
+	return (*clusterOnDemandProvisioningSpecificationPtrType)(v)
+}
+
+func (*clusterOnDemandProvisioningSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (i *clusterOnDemandProvisioningSpecificationPtrType) ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return i.ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOnDemandProvisioningSpecificationPtrType) ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandProvisioningSpecificationPtrOutput)
+}
+
+type ClusterOnDemandProvisioningSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandProvisioningSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (o ClusterOnDemandProvisioningSpecificationOutput) ToClusterOnDemandProvisioningSpecificationOutput() ClusterOnDemandProvisioningSpecificationOutput {
+	return o
+}
+
+func (o ClusterOnDemandProvisioningSpecificationOutput) ToClusterOnDemandProvisioningSpecificationOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationOutput {
+	return o
+}
+
+func (o ClusterOnDemandProvisioningSpecificationOutput) ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o.ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOnDemandProvisioningSpecificationOutput) ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOnDemandProvisioningSpecification) *ClusterOnDemandProvisioningSpecification {
+		return &v
+	}).(ClusterOnDemandProvisioningSpecificationPtrOutput)
+}
+
+// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+func (o ClusterOnDemandProvisioningSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterOnDemandProvisioningSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
+}
+
+// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+func (o ClusterOnDemandProvisioningSpecificationOutput) CapacityReservationOptions() ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v ClusterOnDemandProvisioningSpecification) *ClusterOnDemandCapacityReservationOptions {
+		return v.CapacityReservationOptions
+	}).(ClusterOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+type ClusterOnDemandProvisioningSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandProvisioningSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandProvisioningSpecification)(nil)).Elem()
+}
+
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) ToClusterOnDemandProvisioningSpecificationPtrOutput() ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) ToClusterOnDemandProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) Elem() ClusterOnDemandProvisioningSpecificationOutput {
+	return o.ApplyT(func(v *ClusterOnDemandProvisioningSpecification) ClusterOnDemandProvisioningSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOnDemandProvisioningSpecification
+		return ret
+	}).(ClusterOnDemandProvisioningSpecificationOutput)
+}
+
+// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
+func (o ClusterOnDemandProvisioningSpecificationPtrOutput) CapacityReservationOptions() ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandProvisioningSpecification) *ClusterOnDemandCapacityReservationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationOptions
+	}).(ClusterOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+type ClusterOnDemandResizingSpecification struct {
+	// Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is `lowest-price` .
+	AllocationStrategy         *string                                    `pulumi:"allocationStrategy"`
+	CapacityReservationOptions *ClusterOnDemandCapacityReservationOptions `pulumi:"capacityReservationOptions"`
+	// On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+	TimeoutDurationMinutes *int `pulumi:"timeoutDurationMinutes"`
+}
+
+// ClusterOnDemandResizingSpecificationInput is an input type that accepts ClusterOnDemandResizingSpecificationArgs and ClusterOnDemandResizingSpecificationOutput values.
+// You can construct a concrete instance of `ClusterOnDemandResizingSpecificationInput` via:
+//
+//	ClusterOnDemandResizingSpecificationArgs{...}
+type ClusterOnDemandResizingSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandResizingSpecificationOutput() ClusterOnDemandResizingSpecificationOutput
+	ToClusterOnDemandResizingSpecificationOutputWithContext(context.Context) ClusterOnDemandResizingSpecificationOutput
+}
+
+type ClusterOnDemandResizingSpecificationArgs struct {
+	// Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is `lowest-price` .
+	AllocationStrategy         pulumi.StringPtrInput                             `pulumi:"allocationStrategy"`
+	CapacityReservationOptions ClusterOnDemandCapacityReservationOptionsPtrInput `pulumi:"capacityReservationOptions"`
+	// On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+	TimeoutDurationMinutes pulumi.IntPtrInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (ClusterOnDemandResizingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandResizingSpecification)(nil)).Elem()
+}
+
+func (i ClusterOnDemandResizingSpecificationArgs) ToClusterOnDemandResizingSpecificationOutput() ClusterOnDemandResizingSpecificationOutput {
+	return i.ToClusterOnDemandResizingSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandResizingSpecificationArgs) ToClusterOnDemandResizingSpecificationOutputWithContext(ctx context.Context) ClusterOnDemandResizingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandResizingSpecificationOutput)
+}
+
+func (i ClusterOnDemandResizingSpecificationArgs) ToClusterOnDemandResizingSpecificationPtrOutput() ClusterOnDemandResizingSpecificationPtrOutput {
+	return i.ToClusterOnDemandResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandResizingSpecificationArgs) ToClusterOnDemandResizingSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandResizingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandResizingSpecificationOutput).ToClusterOnDemandResizingSpecificationPtrOutputWithContext(ctx)
+}
+
+// ClusterOnDemandResizingSpecificationPtrInput is an input type that accepts ClusterOnDemandResizingSpecificationArgs, ClusterOnDemandResizingSpecificationPtr and ClusterOnDemandResizingSpecificationPtrOutput values.
+// You can construct a concrete instance of `ClusterOnDemandResizingSpecificationPtrInput` via:
+//
+//	        ClusterOnDemandResizingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOnDemandResizingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandResizingSpecificationPtrOutput() ClusterOnDemandResizingSpecificationPtrOutput
+	ToClusterOnDemandResizingSpecificationPtrOutputWithContext(context.Context) ClusterOnDemandResizingSpecificationPtrOutput
+}
+
+type clusterOnDemandResizingSpecificationPtrType ClusterOnDemandResizingSpecificationArgs
+
+func ClusterOnDemandResizingSpecificationPtr(v *ClusterOnDemandResizingSpecificationArgs) ClusterOnDemandResizingSpecificationPtrInput {
+	return (*clusterOnDemandResizingSpecificationPtrType)(v)
+}
+
+func (*clusterOnDemandResizingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandResizingSpecification)(nil)).Elem()
+}
+
+func (i *clusterOnDemandResizingSpecificationPtrType) ToClusterOnDemandResizingSpecificationPtrOutput() ClusterOnDemandResizingSpecificationPtrOutput {
+	return i.ToClusterOnDemandResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOnDemandResizingSpecificationPtrType) ToClusterOnDemandResizingSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandResizingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandResizingSpecificationPtrOutput)
+}
+
+type ClusterOnDemandResizingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandResizingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandResizingSpecification)(nil)).Elem()
+}
+
+func (o ClusterOnDemandResizingSpecificationOutput) ToClusterOnDemandResizingSpecificationOutput() ClusterOnDemandResizingSpecificationOutput {
+	return o
+}
+
+func (o ClusterOnDemandResizingSpecificationOutput) ToClusterOnDemandResizingSpecificationOutputWithContext(ctx context.Context) ClusterOnDemandResizingSpecificationOutput {
+	return o
+}
+
+func (o ClusterOnDemandResizingSpecificationOutput) ToClusterOnDemandResizingSpecificationPtrOutput() ClusterOnDemandResizingSpecificationPtrOutput {
+	return o.ToClusterOnDemandResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOnDemandResizingSpecificationOutput) ToClusterOnDemandResizingSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandResizingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOnDemandResizingSpecification) *ClusterOnDemandResizingSpecification {
+		return &v
+	}).(ClusterOnDemandResizingSpecificationPtrOutput)
+}
+
+// Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is `lowest-price` .
+func (o ClusterOnDemandResizingSpecificationOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOnDemandResizingSpecification) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOnDemandResizingSpecificationOutput) CapacityReservationOptions() ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v ClusterOnDemandResizingSpecification) *ClusterOnDemandCapacityReservationOptions {
+		return v.CapacityReservationOptions
+	}).(ClusterOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+// On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+func (o ClusterOnDemandResizingSpecificationOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterOnDemandResizingSpecification) *int { return v.TimeoutDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ClusterOnDemandResizingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandResizingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandResizingSpecification)(nil)).Elem()
+}
+
+func (o ClusterOnDemandResizingSpecificationPtrOutput) ToClusterOnDemandResizingSpecificationPtrOutput() ClusterOnDemandResizingSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandResizingSpecificationPtrOutput) ToClusterOnDemandResizingSpecificationPtrOutputWithContext(ctx context.Context) ClusterOnDemandResizingSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandResizingSpecificationPtrOutput) Elem() ClusterOnDemandResizingSpecificationOutput {
+	return o.ApplyT(func(v *ClusterOnDemandResizingSpecification) ClusterOnDemandResizingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOnDemandResizingSpecification
+		return ret
+	}).(ClusterOnDemandResizingSpecificationOutput)
+}
+
+// Specifies the allocation strategy to use to launch On-Demand instances during a resize. The default is `lowest-price` .
+func (o ClusterOnDemandResizingSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandResizingSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOnDemandResizingSpecificationPtrOutput) CapacityReservationOptions() ClusterOnDemandCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandResizingSpecification) *ClusterOnDemandCapacityReservationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationOptions
+	}).(ClusterOnDemandCapacityReservationOptionsPtrOutput)
+}
+
+// On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+func (o ClusterOnDemandResizingSpecificationPtrOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterOnDemandResizingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterPlacementGroupConfig struct {
+	// Role of the instance in the cluster.
+	InstanceRole ClusterPlacementGroupConfigInstanceRole `pulumi:"instanceRole"`
+	// Amazon EC2 Placement Group strategy associated with instance role.
+	PlacementStrategy *ClusterPlacementGroupConfigPlacementStrategy `pulumi:"placementStrategy"`
+}
+
+// ClusterPlacementGroupConfigInput is an input type that accepts ClusterPlacementGroupConfigArgs and ClusterPlacementGroupConfigOutput values.
+// You can construct a concrete instance of `ClusterPlacementGroupConfigInput` via:
+//
+//	ClusterPlacementGroupConfigArgs{...}
+type ClusterPlacementGroupConfigInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput
+	ToClusterPlacementGroupConfigOutputWithContext(context.Context) ClusterPlacementGroupConfigOutput
+}
+
+type ClusterPlacementGroupConfigArgs struct {
+	// Role of the instance in the cluster.
+	InstanceRole ClusterPlacementGroupConfigInstanceRoleInput `pulumi:"instanceRole"`
+	// Amazon EC2 Placement Group strategy associated with instance role.
+	PlacementStrategy ClusterPlacementGroupConfigPlacementStrategyPtrInput `pulumi:"placementStrategy"`
+}
+
+func (ClusterPlacementGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterPlacementGroupConfigArgs) ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput {
+	return i.ToClusterPlacementGroupConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterPlacementGroupConfigArgs) ToClusterPlacementGroupConfigOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementGroupConfigOutput)
+}
+
+// ClusterPlacementGroupConfigArrayInput is an input type that accepts ClusterPlacementGroupConfigArray and ClusterPlacementGroupConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterPlacementGroupConfigArrayInput` via:
+//
+//	ClusterPlacementGroupConfigArray{ ClusterPlacementGroupConfigArgs{...} }
+type ClusterPlacementGroupConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput
+	ToClusterPlacementGroupConfigArrayOutputWithContext(context.Context) ClusterPlacementGroupConfigArrayOutput
+}
+
+type ClusterPlacementGroupConfigArray []ClusterPlacementGroupConfigInput
+
+func (ClusterPlacementGroupConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterPlacementGroupConfigArray) ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput {
+	return i.ToClusterPlacementGroupConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterPlacementGroupConfigArray) ToClusterPlacementGroupConfigArrayOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementGroupConfigArrayOutput)
+}
+
+type ClusterPlacementGroupConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigOutput) ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigOutput) ToClusterPlacementGroupConfigOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigOutput {
+	return o
+}
+
+// Role of the instance in the cluster.
+func (o ClusterPlacementGroupConfigOutput) InstanceRole() ClusterPlacementGroupConfigInstanceRoleOutput {
+	return o.ApplyT(func(v ClusterPlacementGroupConfig) ClusterPlacementGroupConfigInstanceRole { return v.InstanceRole }).(ClusterPlacementGroupConfigInstanceRoleOutput)
+}
+
+// Amazon EC2 Placement Group strategy associated with instance role.
+func (o ClusterPlacementGroupConfigOutput) PlacementStrategy() ClusterPlacementGroupConfigPlacementStrategyPtrOutput {
+	return o.ApplyT(func(v ClusterPlacementGroupConfig) *ClusterPlacementGroupConfigPlacementStrategy {
+		return v.PlacementStrategy
+	}).(ClusterPlacementGroupConfigPlacementStrategyPtrOutput)
+}
+
+type ClusterPlacementGroupConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) ToClusterPlacementGroupConfigArrayOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) Index(i pulumi.IntInput) ClusterPlacementGroupConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterPlacementGroupConfig {
+		return vs[0].([]ClusterPlacementGroupConfig)[vs[1].(int)]
+	}).(ClusterPlacementGroupConfigOutput)
+}
+
+type ClusterPlacementType struct {
+	// The Amazon EC2 Availability Zone for the cluster. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+}
+
+// ClusterPlacementTypeInput is an input type that accepts ClusterPlacementTypeArgs and ClusterPlacementTypeOutput values.
+// You can construct a concrete instance of `ClusterPlacementTypeInput` via:
+//
+//	ClusterPlacementTypeArgs{...}
+type ClusterPlacementTypeInput interface {
+	pulumi.Input
+
+	ToClusterPlacementTypeOutput() ClusterPlacementTypeOutput
+	ToClusterPlacementTypeOutputWithContext(context.Context) ClusterPlacementTypeOutput
+}
+
+type ClusterPlacementTypeArgs struct {
+	// The Amazon EC2 Availability Zone for the cluster. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+}
+
+func (ClusterPlacementTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementType)(nil)).Elem()
+}
+
+func (i ClusterPlacementTypeArgs) ToClusterPlacementTypeOutput() ClusterPlacementTypeOutput {
+	return i.ToClusterPlacementTypeOutputWithContext(context.Background())
+}
+
+func (i ClusterPlacementTypeArgs) ToClusterPlacementTypeOutputWithContext(ctx context.Context) ClusterPlacementTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementTypeOutput)
+}
+
+func (i ClusterPlacementTypeArgs) ToClusterPlacementTypePtrOutput() ClusterPlacementTypePtrOutput {
+	return i.ToClusterPlacementTypePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterPlacementTypeArgs) ToClusterPlacementTypePtrOutputWithContext(ctx context.Context) ClusterPlacementTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementTypeOutput).ToClusterPlacementTypePtrOutputWithContext(ctx)
+}
+
+// ClusterPlacementTypePtrInput is an input type that accepts ClusterPlacementTypeArgs, ClusterPlacementTypePtr and ClusterPlacementTypePtrOutput values.
+// You can construct a concrete instance of `ClusterPlacementTypePtrInput` via:
+//
+//	        ClusterPlacementTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterPlacementTypePtrInput interface {
+	pulumi.Input
+
+	ToClusterPlacementTypePtrOutput() ClusterPlacementTypePtrOutput
+	ToClusterPlacementTypePtrOutputWithContext(context.Context) ClusterPlacementTypePtrOutput
+}
+
+type clusterPlacementTypePtrType ClusterPlacementTypeArgs
+
+func ClusterPlacementTypePtr(v *ClusterPlacementTypeArgs) ClusterPlacementTypePtrInput {
+	return (*clusterPlacementTypePtrType)(v)
+}
+
+func (*clusterPlacementTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPlacementType)(nil)).Elem()
+}
+
+func (i *clusterPlacementTypePtrType) ToClusterPlacementTypePtrOutput() ClusterPlacementTypePtrOutput {
+	return i.ToClusterPlacementTypePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterPlacementTypePtrType) ToClusterPlacementTypePtrOutputWithContext(ctx context.Context) ClusterPlacementTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementTypePtrOutput)
+}
+
+type ClusterPlacementTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementType)(nil)).Elem()
+}
+
+func (o ClusterPlacementTypeOutput) ToClusterPlacementTypeOutput() ClusterPlacementTypeOutput {
+	return o
+}
+
+func (o ClusterPlacementTypeOutput) ToClusterPlacementTypeOutputWithContext(ctx context.Context) ClusterPlacementTypeOutput {
+	return o
+}
+
+func (o ClusterPlacementTypeOutput) ToClusterPlacementTypePtrOutput() ClusterPlacementTypePtrOutput {
+	return o.ToClusterPlacementTypePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPlacementTypeOutput) ToClusterPlacementTypePtrOutputWithContext(ctx context.Context) ClusterPlacementTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPlacementType) *ClusterPlacementType {
+		return &v
+	}).(ClusterPlacementTypePtrOutput)
+}
+
+// The Amazon EC2 Availability Zone for the cluster. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.
+func (o ClusterPlacementTypeOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPlacementType) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+type ClusterPlacementTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPlacementType)(nil)).Elem()
+}
+
+func (o ClusterPlacementTypePtrOutput) ToClusterPlacementTypePtrOutput() ClusterPlacementTypePtrOutput {
+	return o
+}
+
+func (o ClusterPlacementTypePtrOutput) ToClusterPlacementTypePtrOutputWithContext(ctx context.Context) ClusterPlacementTypePtrOutput {
+	return o
+}
+
+func (o ClusterPlacementTypePtrOutput) Elem() ClusterPlacementTypeOutput {
+	return o.ApplyT(func(v *ClusterPlacementType) ClusterPlacementType {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPlacementType
+		return ret
+	}).(ClusterPlacementTypeOutput)
+}
+
+// The Amazon EC2 Availability Zone for the cluster. AvailabilityZone is used for uniform instance groups, while AvailabilityZones (plural) is used for instance fleets.
+func (o ClusterPlacementTypePtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPlacementType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterScalingAction struct {
+	// Not available for instance groups. Instance groups use the market type specified for the group.
+	Market *ClusterScalingActionMarket `pulumi:"market"`
+	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+	SimpleScalingPolicyConfiguration ClusterSimpleScalingPolicyConfiguration `pulumi:"simpleScalingPolicyConfiguration"`
+}
+
+// ClusterScalingActionInput is an input type that accepts ClusterScalingActionArgs and ClusterScalingActionOutput values.
+// You can construct a concrete instance of `ClusterScalingActionInput` via:
+//
+//	ClusterScalingActionArgs{...}
+type ClusterScalingActionInput interface {
+	pulumi.Input
+
+	ToClusterScalingActionOutput() ClusterScalingActionOutput
+	ToClusterScalingActionOutputWithContext(context.Context) ClusterScalingActionOutput
+}
+
+type ClusterScalingActionArgs struct {
+	// Not available for instance groups. Instance groups use the market type specified for the group.
+	Market ClusterScalingActionMarketPtrInput `pulumi:"market"`
+	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+	SimpleScalingPolicyConfiguration ClusterSimpleScalingPolicyConfigurationInput `pulumi:"simpleScalingPolicyConfiguration"`
+}
+
+func (ClusterScalingActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingAction)(nil)).Elem()
+}
+
+func (i ClusterScalingActionArgs) ToClusterScalingActionOutput() ClusterScalingActionOutput {
+	return i.ToClusterScalingActionOutputWithContext(context.Background())
+}
+
+func (i ClusterScalingActionArgs) ToClusterScalingActionOutputWithContext(ctx context.Context) ClusterScalingActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingActionOutput)
+}
+
+type ClusterScalingActionOutput struct{ *pulumi.OutputState }
+
+func (ClusterScalingActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingAction)(nil)).Elem()
+}
+
+func (o ClusterScalingActionOutput) ToClusterScalingActionOutput() ClusterScalingActionOutput {
+	return o
+}
+
+func (o ClusterScalingActionOutput) ToClusterScalingActionOutputWithContext(ctx context.Context) ClusterScalingActionOutput {
+	return o
+}
+
+// Not available for instance groups. Instance groups use the market type specified for the group.
+func (o ClusterScalingActionOutput) Market() ClusterScalingActionMarketPtrOutput {
+	return o.ApplyT(func(v ClusterScalingAction) *ClusterScalingActionMarket { return v.Market }).(ClusterScalingActionMarketPtrOutput)
+}
+
+// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+func (o ClusterScalingActionOutput) SimpleScalingPolicyConfiguration() ClusterSimpleScalingPolicyConfigurationOutput {
+	return o.ApplyT(func(v ClusterScalingAction) ClusterSimpleScalingPolicyConfiguration {
+		return v.SimpleScalingPolicyConfiguration
+	}).(ClusterSimpleScalingPolicyConfigurationOutput)
+}
+
+type ClusterScalingConstraints struct {
+	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+	MinCapacity int `pulumi:"minCapacity"`
+}
+
+// ClusterScalingConstraintsInput is an input type that accepts ClusterScalingConstraintsArgs and ClusterScalingConstraintsOutput values.
+// You can construct a concrete instance of `ClusterScalingConstraintsInput` via:
+//
+//	ClusterScalingConstraintsArgs{...}
+type ClusterScalingConstraintsInput interface {
+	pulumi.Input
+
+	ToClusterScalingConstraintsOutput() ClusterScalingConstraintsOutput
+	ToClusterScalingConstraintsOutputWithContext(context.Context) ClusterScalingConstraintsOutput
+}
+
+type ClusterScalingConstraintsArgs struct {
+	// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+}
+
+func (ClusterScalingConstraintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingConstraints)(nil)).Elem()
+}
+
+func (i ClusterScalingConstraintsArgs) ToClusterScalingConstraintsOutput() ClusterScalingConstraintsOutput {
+	return i.ToClusterScalingConstraintsOutputWithContext(context.Background())
+}
+
+func (i ClusterScalingConstraintsArgs) ToClusterScalingConstraintsOutputWithContext(ctx context.Context) ClusterScalingConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingConstraintsOutput)
+}
+
+func (i ClusterScalingConstraintsArgs) ToClusterScalingConstraintsPtrOutput() ClusterScalingConstraintsPtrOutput {
+	return i.ToClusterScalingConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterScalingConstraintsArgs) ToClusterScalingConstraintsPtrOutputWithContext(ctx context.Context) ClusterScalingConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingConstraintsOutput).ToClusterScalingConstraintsPtrOutputWithContext(ctx)
+}
+
+// ClusterScalingConstraintsPtrInput is an input type that accepts ClusterScalingConstraintsArgs, ClusterScalingConstraintsPtr and ClusterScalingConstraintsPtrOutput values.
+// You can construct a concrete instance of `ClusterScalingConstraintsPtrInput` via:
+//
+//	        ClusterScalingConstraintsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterScalingConstraintsPtrInput interface {
+	pulumi.Input
+
+	ToClusterScalingConstraintsPtrOutput() ClusterScalingConstraintsPtrOutput
+	ToClusterScalingConstraintsPtrOutputWithContext(context.Context) ClusterScalingConstraintsPtrOutput
+}
+
+type clusterScalingConstraintsPtrType ClusterScalingConstraintsArgs
+
+func ClusterScalingConstraintsPtr(v *ClusterScalingConstraintsArgs) ClusterScalingConstraintsPtrInput {
+	return (*clusterScalingConstraintsPtrType)(v)
+}
+
+func (*clusterScalingConstraintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScalingConstraints)(nil)).Elem()
+}
+
+func (i *clusterScalingConstraintsPtrType) ToClusterScalingConstraintsPtrOutput() ClusterScalingConstraintsPtrOutput {
+	return i.ToClusterScalingConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterScalingConstraintsPtrType) ToClusterScalingConstraintsPtrOutputWithContext(ctx context.Context) ClusterScalingConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingConstraintsPtrOutput)
+}
+
+type ClusterScalingConstraintsOutput struct{ *pulumi.OutputState }
+
+func (ClusterScalingConstraintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingConstraints)(nil)).Elem()
+}
+
+func (o ClusterScalingConstraintsOutput) ToClusterScalingConstraintsOutput() ClusterScalingConstraintsOutput {
+	return o
+}
+
+func (o ClusterScalingConstraintsOutput) ToClusterScalingConstraintsOutputWithContext(ctx context.Context) ClusterScalingConstraintsOutput {
+	return o
+}
+
+func (o ClusterScalingConstraintsOutput) ToClusterScalingConstraintsPtrOutput() ClusterScalingConstraintsPtrOutput {
+	return o.ToClusterScalingConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScalingConstraintsOutput) ToClusterScalingConstraintsPtrOutputWithContext(ctx context.Context) ClusterScalingConstraintsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterScalingConstraints) *ClusterScalingConstraints {
+		return &v
+	}).(ClusterScalingConstraintsPtrOutput)
+}
+
+// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+func (o ClusterScalingConstraintsOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterScalingConstraints) int { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+func (o ClusterScalingConstraintsOutput) MinCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterScalingConstraints) int { return v.MinCapacity }).(pulumi.IntOutput)
+}
+
+type ClusterScalingConstraintsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterScalingConstraintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScalingConstraints)(nil)).Elem()
+}
+
+func (o ClusterScalingConstraintsPtrOutput) ToClusterScalingConstraintsPtrOutput() ClusterScalingConstraintsPtrOutput {
+	return o
+}
+
+func (o ClusterScalingConstraintsPtrOutput) ToClusterScalingConstraintsPtrOutputWithContext(ctx context.Context) ClusterScalingConstraintsPtrOutput {
+	return o
+}
+
+func (o ClusterScalingConstraintsPtrOutput) Elem() ClusterScalingConstraintsOutput {
+	return o.ApplyT(func(v *ClusterScalingConstraints) ClusterScalingConstraints {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterScalingConstraints
+		return ret
+	}).(ClusterScalingConstraintsOutput)
+}
+
+// The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+func (o ClusterScalingConstraintsPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterScalingConstraints) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+func (o ClusterScalingConstraintsPtrOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterScalingConstraints) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterScalingRule struct {
+	// The conditions that trigger an automatic scaling activity.
+	Action ClusterScalingAction `pulumi:"action"`
+	// A friendly, more verbose description of the automatic scaling rule.
+	Description *string `pulumi:"description"`
+	// The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+	Name string `pulumi:"name"`
+	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+	Trigger ClusterScalingTrigger `pulumi:"trigger"`
+}
+
+// ClusterScalingRuleInput is an input type that accepts ClusterScalingRuleArgs and ClusterScalingRuleOutput values.
+// You can construct a concrete instance of `ClusterScalingRuleInput` via:
+//
+//	ClusterScalingRuleArgs{...}
+type ClusterScalingRuleInput interface {
+	pulumi.Input
+
+	ToClusterScalingRuleOutput() ClusterScalingRuleOutput
+	ToClusterScalingRuleOutputWithContext(context.Context) ClusterScalingRuleOutput
+}
+
+type ClusterScalingRuleArgs struct {
+	// The conditions that trigger an automatic scaling activity.
+	Action ClusterScalingActionInput `pulumi:"action"`
+	// A friendly, more verbose description of the automatic scaling rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+	Trigger ClusterScalingTriggerInput `pulumi:"trigger"`
+}
+
+func (ClusterScalingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingRule)(nil)).Elem()
+}
+
+func (i ClusterScalingRuleArgs) ToClusterScalingRuleOutput() ClusterScalingRuleOutput {
+	return i.ToClusterScalingRuleOutputWithContext(context.Background())
+}
+
+func (i ClusterScalingRuleArgs) ToClusterScalingRuleOutputWithContext(ctx context.Context) ClusterScalingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingRuleOutput)
+}
+
+// ClusterScalingRuleArrayInput is an input type that accepts ClusterScalingRuleArray and ClusterScalingRuleArrayOutput values.
+// You can construct a concrete instance of `ClusterScalingRuleArrayInput` via:
+//
+//	ClusterScalingRuleArray{ ClusterScalingRuleArgs{...} }
+type ClusterScalingRuleArrayInput interface {
+	pulumi.Input
+
+	ToClusterScalingRuleArrayOutput() ClusterScalingRuleArrayOutput
+	ToClusterScalingRuleArrayOutputWithContext(context.Context) ClusterScalingRuleArrayOutput
+}
+
+type ClusterScalingRuleArray []ClusterScalingRuleInput
+
+func (ClusterScalingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterScalingRule)(nil)).Elem()
+}
+
+func (i ClusterScalingRuleArray) ToClusterScalingRuleArrayOutput() ClusterScalingRuleArrayOutput {
+	return i.ToClusterScalingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterScalingRuleArray) ToClusterScalingRuleArrayOutputWithContext(ctx context.Context) ClusterScalingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingRuleArrayOutput)
+}
+
+type ClusterScalingRuleOutput struct{ *pulumi.OutputState }
+
+func (ClusterScalingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingRule)(nil)).Elem()
+}
+
+func (o ClusterScalingRuleOutput) ToClusterScalingRuleOutput() ClusterScalingRuleOutput {
+	return o
+}
+
+func (o ClusterScalingRuleOutput) ToClusterScalingRuleOutputWithContext(ctx context.Context) ClusterScalingRuleOutput {
+	return o
+}
+
+// The conditions that trigger an automatic scaling activity.
+func (o ClusterScalingRuleOutput) Action() ClusterScalingActionOutput {
+	return o.ApplyT(func(v ClusterScalingRule) ClusterScalingAction { return v.Action }).(ClusterScalingActionOutput)
+}
+
+// A friendly, more verbose description of the automatic scaling rule.
+func (o ClusterScalingRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterScalingRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+func (o ClusterScalingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterScalingRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+func (o ClusterScalingRuleOutput) Trigger() ClusterScalingTriggerOutput {
+	return o.ApplyT(func(v ClusterScalingRule) ClusterScalingTrigger { return v.Trigger }).(ClusterScalingTriggerOutput)
+}
+
+type ClusterScalingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterScalingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterScalingRule)(nil)).Elem()
+}
+
+func (o ClusterScalingRuleArrayOutput) ToClusterScalingRuleArrayOutput() ClusterScalingRuleArrayOutput {
+	return o
+}
+
+func (o ClusterScalingRuleArrayOutput) ToClusterScalingRuleArrayOutputWithContext(ctx context.Context) ClusterScalingRuleArrayOutput {
+	return o
+}
+
+func (o ClusterScalingRuleArrayOutput) Index(i pulumi.IntInput) ClusterScalingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterScalingRule {
+		return vs[0].([]ClusterScalingRule)[vs[1].(int)]
+	}).(ClusterScalingRuleOutput)
+}
+
+type ClusterScalingTrigger struct {
+	// The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+	CloudWatchAlarmDefinition ClusterCloudWatchAlarmDefinition `pulumi:"cloudWatchAlarmDefinition"`
+}
+
+// ClusterScalingTriggerInput is an input type that accepts ClusterScalingTriggerArgs and ClusterScalingTriggerOutput values.
+// You can construct a concrete instance of `ClusterScalingTriggerInput` via:
+//
+//	ClusterScalingTriggerArgs{...}
+type ClusterScalingTriggerInput interface {
+	pulumi.Input
+
+	ToClusterScalingTriggerOutput() ClusterScalingTriggerOutput
+	ToClusterScalingTriggerOutputWithContext(context.Context) ClusterScalingTriggerOutput
+}
+
+type ClusterScalingTriggerArgs struct {
+	// The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+	CloudWatchAlarmDefinition ClusterCloudWatchAlarmDefinitionInput `pulumi:"cloudWatchAlarmDefinition"`
+}
+
+func (ClusterScalingTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingTrigger)(nil)).Elem()
+}
+
+func (i ClusterScalingTriggerArgs) ToClusterScalingTriggerOutput() ClusterScalingTriggerOutput {
+	return i.ToClusterScalingTriggerOutputWithContext(context.Background())
+}
+
+func (i ClusterScalingTriggerArgs) ToClusterScalingTriggerOutputWithContext(ctx context.Context) ClusterScalingTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingTriggerOutput)
+}
+
+type ClusterScalingTriggerOutput struct{ *pulumi.OutputState }
+
+func (ClusterScalingTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScalingTrigger)(nil)).Elem()
+}
+
+func (o ClusterScalingTriggerOutput) ToClusterScalingTriggerOutput() ClusterScalingTriggerOutput {
+	return o
+}
+
+func (o ClusterScalingTriggerOutput) ToClusterScalingTriggerOutputWithContext(ctx context.Context) ClusterScalingTriggerOutput {
+	return o
+}
+
+// The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+func (o ClusterScalingTriggerOutput) CloudWatchAlarmDefinition() ClusterCloudWatchAlarmDefinitionOutput {
+	return o.ApplyT(func(v ClusterScalingTrigger) ClusterCloudWatchAlarmDefinition { return v.CloudWatchAlarmDefinition }).(ClusterCloudWatchAlarmDefinitionOutput)
+}
+
+type ClusterScriptBootstrapActionConfig struct {
+	// A list of command line arguments to pass to the bootstrap action script.
+	Args []string `pulumi:"args"`
+	// Location in Amazon S3 of the script to run during a bootstrap action.
+	Path string `pulumi:"path"`
+}
+
+// ClusterScriptBootstrapActionConfigInput is an input type that accepts ClusterScriptBootstrapActionConfigArgs and ClusterScriptBootstrapActionConfigOutput values.
+// You can construct a concrete instance of `ClusterScriptBootstrapActionConfigInput` via:
+//
+//	ClusterScriptBootstrapActionConfigArgs{...}
+type ClusterScriptBootstrapActionConfigInput interface {
+	pulumi.Input
+
+	ToClusterScriptBootstrapActionConfigOutput() ClusterScriptBootstrapActionConfigOutput
+	ToClusterScriptBootstrapActionConfigOutputWithContext(context.Context) ClusterScriptBootstrapActionConfigOutput
+}
+
+type ClusterScriptBootstrapActionConfigArgs struct {
+	// A list of command line arguments to pass to the bootstrap action script.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// Location in Amazon S3 of the script to run during a bootstrap action.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (ClusterScriptBootstrapActionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScriptBootstrapActionConfig)(nil)).Elem()
+}
+
+func (i ClusterScriptBootstrapActionConfigArgs) ToClusterScriptBootstrapActionConfigOutput() ClusterScriptBootstrapActionConfigOutput {
+	return i.ToClusterScriptBootstrapActionConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterScriptBootstrapActionConfigArgs) ToClusterScriptBootstrapActionConfigOutputWithContext(ctx context.Context) ClusterScriptBootstrapActionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScriptBootstrapActionConfigOutput)
+}
+
+type ClusterScriptBootstrapActionConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterScriptBootstrapActionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScriptBootstrapActionConfig)(nil)).Elem()
+}
+
+func (o ClusterScriptBootstrapActionConfigOutput) ToClusterScriptBootstrapActionConfigOutput() ClusterScriptBootstrapActionConfigOutput {
+	return o
+}
+
+func (o ClusterScriptBootstrapActionConfigOutput) ToClusterScriptBootstrapActionConfigOutputWithContext(ctx context.Context) ClusterScriptBootstrapActionConfigOutput {
+	return o
+}
+
+// A list of command line arguments to pass to the bootstrap action script.
+func (o ClusterScriptBootstrapActionConfigOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterScriptBootstrapActionConfig) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// Location in Amazon S3 of the script to run during a bootstrap action.
+func (o ClusterScriptBootstrapActionConfigOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterScriptBootstrapActionConfig) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type ClusterSimpleScalingPolicyConfiguration struct {
+	// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+	AdjustmentType *ClusterSimpleScalingPolicyConfigurationAdjustmentType `pulumi:"adjustmentType"`
+	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+	CoolDown *int `pulumi:"coolDown"`
+	// The amount by which to scale in or scale out, based on the specified AdjustmentType. A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be a positive integer. If AdjustmentType is set to PERCENT_CHANGE_IN_CAPACITY, the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+	ScalingAdjustment int `pulumi:"scalingAdjustment"`
+}
+
+// ClusterSimpleScalingPolicyConfigurationInput is an input type that accepts ClusterSimpleScalingPolicyConfigurationArgs and ClusterSimpleScalingPolicyConfigurationOutput values.
+// You can construct a concrete instance of `ClusterSimpleScalingPolicyConfigurationInput` via:
+//
+//	ClusterSimpleScalingPolicyConfigurationArgs{...}
+type ClusterSimpleScalingPolicyConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterSimpleScalingPolicyConfigurationOutput() ClusterSimpleScalingPolicyConfigurationOutput
+	ToClusterSimpleScalingPolicyConfigurationOutputWithContext(context.Context) ClusterSimpleScalingPolicyConfigurationOutput
+}
+
+type ClusterSimpleScalingPolicyConfigurationArgs struct {
+	// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+	AdjustmentType ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrInput `pulumi:"adjustmentType"`
+	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+	CoolDown pulumi.IntPtrInput `pulumi:"coolDown"`
+	// The amount by which to scale in or scale out, based on the specified AdjustmentType. A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be a positive integer. If AdjustmentType is set to PERCENT_CHANGE_IN_CAPACITY, the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+	ScalingAdjustment pulumi.IntInput `pulumi:"scalingAdjustment"`
+}
+
+func (ClusterSimpleScalingPolicyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSimpleScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (i ClusterSimpleScalingPolicyConfigurationArgs) ToClusterSimpleScalingPolicyConfigurationOutput() ClusterSimpleScalingPolicyConfigurationOutput {
+	return i.ToClusterSimpleScalingPolicyConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterSimpleScalingPolicyConfigurationArgs) ToClusterSimpleScalingPolicyConfigurationOutputWithContext(ctx context.Context) ClusterSimpleScalingPolicyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSimpleScalingPolicyConfigurationOutput)
+}
+
+type ClusterSimpleScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterSimpleScalingPolicyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSimpleScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationOutput) ToClusterSimpleScalingPolicyConfigurationOutput() ClusterSimpleScalingPolicyConfigurationOutput {
+	return o
+}
+
+func (o ClusterSimpleScalingPolicyConfigurationOutput) ToClusterSimpleScalingPolicyConfigurationOutputWithContext(ctx context.Context) ClusterSimpleScalingPolicyConfigurationOutput {
+	return o
+}
+
+// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered. CHANGE_IN_CAPACITY is the default. CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or decrements by ScalingAdjustment, which should be expressed as an integer. PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements by the percentage specified by ScalingAdjustment, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. EXACT_CAPACITY indicates the scaling activity results in an instance group with the number of EC2 instances specified by ScalingAdjustment, which should be expressed as a positive integer.
+func (o ClusterSimpleScalingPolicyConfigurationOutput) AdjustmentType() ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput {
+	return o.ApplyT(func(v ClusterSimpleScalingPolicyConfiguration) *ClusterSimpleScalingPolicyConfigurationAdjustmentType {
+		return v.AdjustmentType
+	}).(ClusterSimpleScalingPolicyConfigurationAdjustmentTypePtrOutput)
+}
+
+// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+func (o ClusterSimpleScalingPolicyConfigurationOutput) CoolDown() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterSimpleScalingPolicyConfiguration) *int { return v.CoolDown }).(pulumi.IntPtrOutput)
+}
+
+// The amount by which to scale in or scale out, based on the specified AdjustmentType. A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If AdjustmentType is set to EXACT_CAPACITY, the number should only be a positive integer. If AdjustmentType is set to PERCENT_CHANGE_IN_CAPACITY, the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+func (o ClusterSimpleScalingPolicyConfigurationOutput) ScalingAdjustment() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterSimpleScalingPolicyConfiguration) int { return v.ScalingAdjustment }).(pulumi.IntOutput)
+}
+
+type ClusterSpotProvisioningSpecification struct {
+	// Specifies the strategy to use in launching Spot Instance fleets. Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction ClusterSpotProvisioningSpecificationTimeoutAction `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes int `pulumi:"timeoutDurationMinutes"`
+}
+
+// ClusterSpotProvisioningSpecificationInput is an input type that accepts ClusterSpotProvisioningSpecificationArgs and ClusterSpotProvisioningSpecificationOutput values.
+// You can construct a concrete instance of `ClusterSpotProvisioningSpecificationInput` via:
+//
+//	ClusterSpotProvisioningSpecificationArgs{...}
+type ClusterSpotProvisioningSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterSpotProvisioningSpecificationOutput() ClusterSpotProvisioningSpecificationOutput
+	ToClusterSpotProvisioningSpecificationOutputWithContext(context.Context) ClusterSpotProvisioningSpecificationOutput
+}
+
+type ClusterSpotProvisioningSpecificationArgs struct {
+	// Specifies the strategy to use in launching Spot Instance fleets. Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction ClusterSpotProvisioningSpecificationTimeoutActionInput `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes pulumi.IntInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (ClusterSpotProvisioningSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSpotProvisioningSpecification)(nil)).Elem()
+}
+
+func (i ClusterSpotProvisioningSpecificationArgs) ToClusterSpotProvisioningSpecificationOutput() ClusterSpotProvisioningSpecificationOutput {
+	return i.ToClusterSpotProvisioningSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterSpotProvisioningSpecificationArgs) ToClusterSpotProvisioningSpecificationOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotProvisioningSpecificationOutput)
+}
+
+func (i ClusterSpotProvisioningSpecificationArgs) ToClusterSpotProvisioningSpecificationPtrOutput() ClusterSpotProvisioningSpecificationPtrOutput {
+	return i.ToClusterSpotProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSpotProvisioningSpecificationArgs) ToClusterSpotProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotProvisioningSpecificationOutput).ToClusterSpotProvisioningSpecificationPtrOutputWithContext(ctx)
+}
+
+// ClusterSpotProvisioningSpecificationPtrInput is an input type that accepts ClusterSpotProvisioningSpecificationArgs, ClusterSpotProvisioningSpecificationPtr and ClusterSpotProvisioningSpecificationPtrOutput values.
+// You can construct a concrete instance of `ClusterSpotProvisioningSpecificationPtrInput` via:
+//
+//	        ClusterSpotProvisioningSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterSpotProvisioningSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToClusterSpotProvisioningSpecificationPtrOutput() ClusterSpotProvisioningSpecificationPtrOutput
+	ToClusterSpotProvisioningSpecificationPtrOutputWithContext(context.Context) ClusterSpotProvisioningSpecificationPtrOutput
+}
+
+type clusterSpotProvisioningSpecificationPtrType ClusterSpotProvisioningSpecificationArgs
+
+func ClusterSpotProvisioningSpecificationPtr(v *ClusterSpotProvisioningSpecificationArgs) ClusterSpotProvisioningSpecificationPtrInput {
+	return (*clusterSpotProvisioningSpecificationPtrType)(v)
+}
+
+func (*clusterSpotProvisioningSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSpotProvisioningSpecification)(nil)).Elem()
+}
+
+func (i *clusterSpotProvisioningSpecificationPtrType) ToClusterSpotProvisioningSpecificationPtrOutput() ClusterSpotProvisioningSpecificationPtrOutput {
+	return i.ToClusterSpotProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSpotProvisioningSpecificationPtrType) ToClusterSpotProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotProvisioningSpecificationPtrOutput)
+}
+
+type ClusterSpotProvisioningSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterSpotProvisioningSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSpotProvisioningSpecification)(nil)).Elem()
+}
+
+func (o ClusterSpotProvisioningSpecificationOutput) ToClusterSpotProvisioningSpecificationOutput() ClusterSpotProvisioningSpecificationOutput {
+	return o
+}
+
+func (o ClusterSpotProvisioningSpecificationOutput) ToClusterSpotProvisioningSpecificationOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationOutput {
+	return o
+}
+
+func (o ClusterSpotProvisioningSpecificationOutput) ToClusterSpotProvisioningSpecificationPtrOutput() ClusterSpotProvisioningSpecificationPtrOutput {
+	return o.ToClusterSpotProvisioningSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSpotProvisioningSpecificationOutput) ToClusterSpotProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSpotProvisioningSpecification) *ClusterSpotProvisioningSpecification {
+		return &v
+	}).(ClusterSpotProvisioningSpecificationPtrOutput)
+}
+
+// Specifies the strategy to use in launching Spot Instance fleets. Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+func (o ClusterSpotProvisioningSpecificationOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSpotProvisioningSpecification) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+// The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+func (o ClusterSpotProvisioningSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterSpotProvisioningSpecification) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+func (o ClusterSpotProvisioningSpecificationOutput) TimeoutAction() ClusterSpotProvisioningSpecificationTimeoutActionOutput {
+	return o.ApplyT(func(v ClusterSpotProvisioningSpecification) ClusterSpotProvisioningSpecificationTimeoutAction {
+		return v.TimeoutAction
+	}).(ClusterSpotProvisioningSpecificationTimeoutActionOutput)
+}
+
+// The spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+func (o ClusterSpotProvisioningSpecificationOutput) TimeoutDurationMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterSpotProvisioningSpecification) int { return v.TimeoutDurationMinutes }).(pulumi.IntOutput)
+}
+
+type ClusterSpotProvisioningSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSpotProvisioningSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSpotProvisioningSpecification)(nil)).Elem()
+}
+
+func (o ClusterSpotProvisioningSpecificationPtrOutput) ToClusterSpotProvisioningSpecificationPtrOutput() ClusterSpotProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterSpotProvisioningSpecificationPtrOutput) ToClusterSpotProvisioningSpecificationPtrOutputWithContext(ctx context.Context) ClusterSpotProvisioningSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterSpotProvisioningSpecificationPtrOutput) Elem() ClusterSpotProvisioningSpecificationOutput {
+	return o.ApplyT(func(v *ClusterSpotProvisioningSpecification) ClusterSpotProvisioningSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSpotProvisioningSpecification
+		return ret
+	}).(ClusterSpotProvisioningSpecificationOutput)
+}
+
+// Specifies the strategy to use in launching Spot Instance fleets. Currently, the only option is capacity-optimized (the default), which launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+func (o ClusterSpotProvisioningSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSpotProvisioningSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The defined duration for Spot Instances (also known as Spot blocks) in minutes. When specified, the Spot Instance does not terminate before the defined duration expires, and defined duration pricing for Spot Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot Instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+func (o ClusterSpotProvisioningSpecificationPtrOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterSpotProvisioningSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot Instances could not be provisioned within the Spot provisioning timeout. Valid values are TERMINATE_CLUSTER and SWITCH_TO_ON_DEMAND. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+func (o ClusterSpotProvisioningSpecificationPtrOutput) TimeoutAction() ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput {
+	return o.ApplyT(func(v *ClusterSpotProvisioningSpecification) *ClusterSpotProvisioningSpecificationTimeoutAction {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutAction
+	}).(ClusterSpotProvisioningSpecificationTimeoutActionPtrOutput)
+}
+
+// The spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+func (o ClusterSpotProvisioningSpecificationPtrOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterSpotProvisioningSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterSpotResizingSpecification struct {
+	// Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher, the default is `price-capacity-optimized` . If you run Amazon EMR releases 6.8.0 or lower, the default is `capacity-optimized` .
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+	TimeoutDurationMinutes *int `pulumi:"timeoutDurationMinutes"`
+}
+
+// ClusterSpotResizingSpecificationInput is an input type that accepts ClusterSpotResizingSpecificationArgs and ClusterSpotResizingSpecificationOutput values.
+// You can construct a concrete instance of `ClusterSpotResizingSpecificationInput` via:
+//
+//	ClusterSpotResizingSpecificationArgs{...}
+type ClusterSpotResizingSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterSpotResizingSpecificationOutput() ClusterSpotResizingSpecificationOutput
+	ToClusterSpotResizingSpecificationOutputWithContext(context.Context) ClusterSpotResizingSpecificationOutput
+}
+
+type ClusterSpotResizingSpecificationArgs struct {
+	// Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher, the default is `price-capacity-optimized` . If you run Amazon EMR releases 6.8.0 or lower, the default is `capacity-optimized` .
+	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+	TimeoutDurationMinutes pulumi.IntPtrInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (ClusterSpotResizingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSpotResizingSpecification)(nil)).Elem()
+}
+
+func (i ClusterSpotResizingSpecificationArgs) ToClusterSpotResizingSpecificationOutput() ClusterSpotResizingSpecificationOutput {
+	return i.ToClusterSpotResizingSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterSpotResizingSpecificationArgs) ToClusterSpotResizingSpecificationOutputWithContext(ctx context.Context) ClusterSpotResizingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotResizingSpecificationOutput)
+}
+
+func (i ClusterSpotResizingSpecificationArgs) ToClusterSpotResizingSpecificationPtrOutput() ClusterSpotResizingSpecificationPtrOutput {
+	return i.ToClusterSpotResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSpotResizingSpecificationArgs) ToClusterSpotResizingSpecificationPtrOutputWithContext(ctx context.Context) ClusterSpotResizingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotResizingSpecificationOutput).ToClusterSpotResizingSpecificationPtrOutputWithContext(ctx)
+}
+
+// ClusterSpotResizingSpecificationPtrInput is an input type that accepts ClusterSpotResizingSpecificationArgs, ClusterSpotResizingSpecificationPtr and ClusterSpotResizingSpecificationPtrOutput values.
+// You can construct a concrete instance of `ClusterSpotResizingSpecificationPtrInput` via:
+//
+//	        ClusterSpotResizingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterSpotResizingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToClusterSpotResizingSpecificationPtrOutput() ClusterSpotResizingSpecificationPtrOutput
+	ToClusterSpotResizingSpecificationPtrOutputWithContext(context.Context) ClusterSpotResizingSpecificationPtrOutput
+}
+
+type clusterSpotResizingSpecificationPtrType ClusterSpotResizingSpecificationArgs
+
+func ClusterSpotResizingSpecificationPtr(v *ClusterSpotResizingSpecificationArgs) ClusterSpotResizingSpecificationPtrInput {
+	return (*clusterSpotResizingSpecificationPtrType)(v)
+}
+
+func (*clusterSpotResizingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSpotResizingSpecification)(nil)).Elem()
+}
+
+func (i *clusterSpotResizingSpecificationPtrType) ToClusterSpotResizingSpecificationPtrOutput() ClusterSpotResizingSpecificationPtrOutput {
+	return i.ToClusterSpotResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSpotResizingSpecificationPtrType) ToClusterSpotResizingSpecificationPtrOutputWithContext(ctx context.Context) ClusterSpotResizingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotResizingSpecificationPtrOutput)
+}
+
+type ClusterSpotResizingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterSpotResizingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSpotResizingSpecification)(nil)).Elem()
+}
+
+func (o ClusterSpotResizingSpecificationOutput) ToClusterSpotResizingSpecificationOutput() ClusterSpotResizingSpecificationOutput {
+	return o
+}
+
+func (o ClusterSpotResizingSpecificationOutput) ToClusterSpotResizingSpecificationOutputWithContext(ctx context.Context) ClusterSpotResizingSpecificationOutput {
+	return o
+}
+
+func (o ClusterSpotResizingSpecificationOutput) ToClusterSpotResizingSpecificationPtrOutput() ClusterSpotResizingSpecificationPtrOutput {
+	return o.ToClusterSpotResizingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSpotResizingSpecificationOutput) ToClusterSpotResizingSpecificationPtrOutputWithContext(ctx context.Context) ClusterSpotResizingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSpotResizingSpecification) *ClusterSpotResizingSpecification {
+		return &v
+	}).(ClusterSpotResizingSpecificationPtrOutput)
+}
+
+// Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher, the default is `price-capacity-optimized` . If you run Amazon EMR releases 6.8.0 or lower, the default is `capacity-optimized` .
+func (o ClusterSpotResizingSpecificationOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSpotResizingSpecification) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+// Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+func (o ClusterSpotResizingSpecificationOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterSpotResizingSpecification) *int { return v.TimeoutDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ClusterSpotResizingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSpotResizingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSpotResizingSpecification)(nil)).Elem()
+}
+
+func (o ClusterSpotResizingSpecificationPtrOutput) ToClusterSpotResizingSpecificationPtrOutput() ClusterSpotResizingSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterSpotResizingSpecificationPtrOutput) ToClusterSpotResizingSpecificationPtrOutputWithContext(ctx context.Context) ClusterSpotResizingSpecificationPtrOutput {
+	return o
+}
+
+func (o ClusterSpotResizingSpecificationPtrOutput) Elem() ClusterSpotResizingSpecificationOutput {
+	return o.ApplyT(func(v *ClusterSpotResizingSpecification) ClusterSpotResizingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSpotResizingSpecification
+		return ret
+	}).(ClusterSpotResizingSpecificationOutput)
+}
+
+// Specifies the allocation strategy to use to launch Spot instances during a resize. If you run Amazon EMR releases 6.9.0 or higher, the default is `price-capacity-optimized` . If you run Amazon EMR releases 6.8.0 or lower, the default is `capacity-optimized` .
+func (o ClusterSpotResizingSpecificationPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSpotResizingSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.
+func (o ClusterSpotResizingSpecificationPtrOutput) TimeoutDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterSpotResizingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterStepConfig struct {
+	// The action to take when the step fails. Use one of the following values:
+	//
+	//     TERMINATE_CLUSTER - Shuts down the cluster.
+	//
+	//     CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+	//
+	//     CONTINUE - Continues to the next step in the queue.
+	//
+	//     TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+	//  If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+	//
+	// If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+	ActionOnFailure *ClusterStepConfigActionOnFailure `pulumi:"actionOnFailure"`
+	// The JAR file used for the step.
+	HadoopJarStep ClusterHadoopJarStepConfig `pulumi:"hadoopJarStep"`
+	// The name of the step.
+	Name string `pulumi:"name"`
+}
+
+// ClusterStepConfigInput is an input type that accepts ClusterStepConfigArgs and ClusterStepConfigOutput values.
+// You can construct a concrete instance of `ClusterStepConfigInput` via:
+//
+//	ClusterStepConfigArgs{...}
+type ClusterStepConfigInput interface {
+	pulumi.Input
+
+	ToClusterStepConfigOutput() ClusterStepConfigOutput
+	ToClusterStepConfigOutputWithContext(context.Context) ClusterStepConfigOutput
+}
+
+type ClusterStepConfigArgs struct {
+	// The action to take when the step fails. Use one of the following values:
+	//
+	//     TERMINATE_CLUSTER - Shuts down the cluster.
+	//
+	//     CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+	//
+	//     CONTINUE - Continues to the next step in the queue.
+	//
+	//     TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+	//  If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+	//
+	// If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+	ActionOnFailure ClusterStepConfigActionOnFailurePtrInput `pulumi:"actionOnFailure"`
+	// The JAR file used for the step.
+	HadoopJarStep ClusterHadoopJarStepConfigInput `pulumi:"hadoopJarStep"`
+	// The name of the step.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterStepConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStepConfig)(nil)).Elem()
+}
+
+func (i ClusterStepConfigArgs) ToClusterStepConfigOutput() ClusterStepConfigOutput {
+	return i.ToClusterStepConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterStepConfigArgs) ToClusterStepConfigOutputWithContext(ctx context.Context) ClusterStepConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterStepConfigOutput)
+}
+
+// ClusterStepConfigArrayInput is an input type that accepts ClusterStepConfigArray and ClusterStepConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterStepConfigArrayInput` via:
+//
+//	ClusterStepConfigArray{ ClusterStepConfigArgs{...} }
+type ClusterStepConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterStepConfigArrayOutput() ClusterStepConfigArrayOutput
+	ToClusterStepConfigArrayOutputWithContext(context.Context) ClusterStepConfigArrayOutput
+}
+
+type ClusterStepConfigArray []ClusterStepConfigInput
+
+func (ClusterStepConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterStepConfig)(nil)).Elem()
+}
+
+func (i ClusterStepConfigArray) ToClusterStepConfigArrayOutput() ClusterStepConfigArrayOutput {
+	return i.ToClusterStepConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterStepConfigArray) ToClusterStepConfigArrayOutputWithContext(ctx context.Context) ClusterStepConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterStepConfigArrayOutput)
+}
+
+type ClusterStepConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterStepConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStepConfig)(nil)).Elem()
+}
+
+func (o ClusterStepConfigOutput) ToClusterStepConfigOutput() ClusterStepConfigOutput {
+	return o
+}
+
+func (o ClusterStepConfigOutput) ToClusterStepConfigOutputWithContext(ctx context.Context) ClusterStepConfigOutput {
+	return o
+}
+
+// The action to take when the step fails. Use one of the following values:
+//
+//	   TERMINATE_CLUSTER - Shuts down the cluster.
+//
+//	   CANCEL_AND_WAIT - Cancels any pending steps and returns the cluster to the WAITING state.
+//
+//	   CONTINUE - Continues to the next step in the queue.
+//
+//	   TERMINATE_JOB_FLOW - Shuts down the cluster. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+//	If a cluster's StepConcurrencyLevel is greater than 1, do not use AddJobFlowSteps to submit a step with this parameter set to CANCEL_AND_WAIT or TERMINATE_CLUSTER. The step is not submitted and the action fails with a message that the ActionOnFailure setting is not valid.
+//
+// If you change a cluster's StepConcurrencyLevel to be greater than 1 while a step is running, the ActionOnFailure parameter may not behave as you expect. In this case, for a step that fails with this parameter set to CANCEL_AND_WAIT, pending steps and the running step are not canceled; for a step that fails with this parameter set to TERMINATE_CLUSTER, the cluster does not terminate.
+func (o ClusterStepConfigOutput) ActionOnFailure() ClusterStepConfigActionOnFailurePtrOutput {
+	return o.ApplyT(func(v ClusterStepConfig) *ClusterStepConfigActionOnFailure { return v.ActionOnFailure }).(ClusterStepConfigActionOnFailurePtrOutput)
+}
+
+// The JAR file used for the step.
+func (o ClusterStepConfigOutput) HadoopJarStep() ClusterHadoopJarStepConfigOutput {
+	return o.ApplyT(func(v ClusterStepConfig) ClusterHadoopJarStepConfig { return v.HadoopJarStep }).(ClusterHadoopJarStepConfigOutput)
+}
+
+// The name of the step.
+func (o ClusterStepConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterStepConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ClusterStepConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterStepConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterStepConfig)(nil)).Elem()
+}
+
+func (o ClusterStepConfigArrayOutput) ToClusterStepConfigArrayOutput() ClusterStepConfigArrayOutput {
+	return o
+}
+
+func (o ClusterStepConfigArrayOutput) ToClusterStepConfigArrayOutputWithContext(ctx context.Context) ClusterStepConfigArrayOutput {
+	return o
+}
+
+func (o ClusterStepConfigArrayOutput) Index(i pulumi.IntInput) ClusterStepConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterStepConfig {
+		return vs[0].([]ClusterStepConfig)[vs[1].(int)]
+	}).(ClusterStepConfigOutput)
+}
+
+type ClusterTag struct {
+	// A user-defined key, which is the minimum required information for a valid tag. For more information.
+	Key string `pulumi:"key"`
+	// A user-defined value, which is optional in a tag. For more information
+	Value string `pulumi:"value"`
+}
+
+type ClusterVolumeSpecification struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	SizeInGb int `pulumi:"sizeInGb"`
+	// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+	Throughput *int `pulumi:"throughput"`
+	// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+	VolumeType string `pulumi:"volumeType"`
+}
+
+// ClusterVolumeSpecificationInput is an input type that accepts ClusterVolumeSpecificationArgs and ClusterVolumeSpecificationOutput values.
+// You can construct a concrete instance of `ClusterVolumeSpecificationInput` via:
+//
+//	ClusterVolumeSpecificationArgs{...}
+type ClusterVolumeSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterVolumeSpecificationOutput() ClusterVolumeSpecificationOutput
+	ToClusterVolumeSpecificationOutputWithContext(context.Context) ClusterVolumeSpecificationOutput
+}
+
+type ClusterVolumeSpecificationArgs struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
+	// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (ClusterVolumeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVolumeSpecification)(nil)).Elem()
+}
+
+func (i ClusterVolumeSpecificationArgs) ToClusterVolumeSpecificationOutput() ClusterVolumeSpecificationOutput {
+	return i.ToClusterVolumeSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterVolumeSpecificationArgs) ToClusterVolumeSpecificationOutputWithContext(ctx context.Context) ClusterVolumeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVolumeSpecificationOutput)
+}
+
+type ClusterVolumeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterVolumeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVolumeSpecification)(nil)).Elem()
+}
+
+func (o ClusterVolumeSpecificationOutput) ToClusterVolumeSpecificationOutput() ClusterVolumeSpecificationOutput {
+	return o
+}
+
+func (o ClusterVolumeSpecificationOutput) ToClusterVolumeSpecificationOutputWithContext(ctx context.Context) ClusterVolumeSpecificationOutput {
+	return o
+}
+
+// The number of I/O operations per second (IOPS) that the volume supports.
+func (o ClusterVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterVolumeSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+func (o ClusterVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+func (o ClusterVolumeSpecificationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterVolumeSpecification) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+func (o ClusterVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterVolumeSpecification) string { return v.VolumeType }).(pulumi.StringOutput)
+}
+
 // Configuration specifies optional configurations for customizing open-source big data applications and environment parameters.
 type InstanceFleetConfigApplicationConfiguration struct {
 	// The classification within a configuration.
@@ -3361,6 +9037,74 @@ type WalWorkspaceTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterApplicationInput)(nil)).Elem(), ClusterApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterApplicationArrayInput)(nil)).Elem(), ClusterApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingPolicyInput)(nil)).Elem(), ClusterAutoScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingPolicyPtrInput)(nil)).Elem(), ClusterAutoScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoTerminationPolicyInput)(nil)).Elem(), ClusterAutoTerminationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoTerminationPolicyPtrInput)(nil)).Elem(), ClusterAutoTerminationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBootstrapActionConfigInput)(nil)).Elem(), ClusterBootstrapActionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBootstrapActionConfigArrayInput)(nil)).Elem(), ClusterBootstrapActionConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchAlarmDefinitionInput)(nil)).Elem(), ClusterCloudWatchAlarmDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchLogConfigurationInput)(nil)).Elem(), ClusterCloudWatchLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchLogConfigurationPtrInput)(nil)).Elem(), ClusterCloudWatchLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeLimitsInput)(nil)).Elem(), ClusterComputeLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeLimitsPtrInput)(nil)).Elem(), ClusterComputeLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEbsBlockDeviceConfigInput)(nil)).Elem(), ClusterEbsBlockDeviceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEbsBlockDeviceConfigArrayInput)(nil)).Elem(), ClusterEbsBlockDeviceConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEbsConfigurationInput)(nil)).Elem(), ClusterEbsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEbsConfigurationPtrInput)(nil)).Elem(), ClusterEbsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEmrConfigurationInput)(nil)).Elem(), ClusterEmrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEmrConfigurationArrayInput)(nil)).Elem(), ClusterEmrConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterHadoopJarStepConfigInput)(nil)).Elem(), ClusterHadoopJarStepConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetConfigInput)(nil)).Elem(), ClusterInstanceFleetConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetConfigPtrInput)(nil)).Elem(), ClusterInstanceFleetConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetConfigArrayInput)(nil)).Elem(), ClusterInstanceFleetConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetProvisioningSpecificationsInput)(nil)).Elem(), ClusterInstanceFleetProvisioningSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetProvisioningSpecificationsPtrInput)(nil)).Elem(), ClusterInstanceFleetProvisioningSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetResizingSpecificationsInput)(nil)).Elem(), ClusterInstanceFleetResizingSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceFleetResizingSpecificationsPtrInput)(nil)).Elem(), ClusterInstanceFleetResizingSpecificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupConfigInput)(nil)).Elem(), ClusterInstanceGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupConfigPtrInput)(nil)).Elem(), ClusterInstanceGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupConfigArrayInput)(nil)).Elem(), ClusterInstanceGroupConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceTypeConfigInput)(nil)).Elem(), ClusterInstanceTypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceTypeConfigArrayInput)(nil)).Elem(), ClusterInstanceTypeConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterJobFlowInstancesConfigInput)(nil)).Elem(), ClusterJobFlowInstancesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKerberosAttributesInput)(nil)).Elem(), ClusterKerberosAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKerberosAttributesPtrInput)(nil)).Elem(), ClusterKerberosAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKeyValueInput)(nil)).Elem(), ClusterKeyValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKeyValueArrayInput)(nil)).Elem(), ClusterKeyValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterManagedScalingPolicyInput)(nil)).Elem(), ClusterManagedScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterManagedScalingPolicyPtrInput)(nil)).Elem(), ClusterManagedScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMetricDimensionInput)(nil)).Elem(), ClusterMetricDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMetricDimensionArrayInput)(nil)).Elem(), ClusterMetricDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMonitoringConfigurationInput)(nil)).Elem(), ClusterMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMonitoringConfigurationPtrInput)(nil)).Elem(), ClusterMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandCapacityReservationOptionsInput)(nil)).Elem(), ClusterOnDemandCapacityReservationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandCapacityReservationOptionsPtrInput)(nil)).Elem(), ClusterOnDemandCapacityReservationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandProvisioningSpecificationInput)(nil)).Elem(), ClusterOnDemandProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandProvisioningSpecificationPtrInput)(nil)).Elem(), ClusterOnDemandProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandResizingSpecificationInput)(nil)).Elem(), ClusterOnDemandResizingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandResizingSpecificationPtrInput)(nil)).Elem(), ClusterOnDemandResizingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigInput)(nil)).Elem(), ClusterPlacementGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigArrayInput)(nil)).Elem(), ClusterPlacementGroupConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementTypeInput)(nil)).Elem(), ClusterPlacementTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementTypePtrInput)(nil)).Elem(), ClusterPlacementTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingActionInput)(nil)).Elem(), ClusterScalingActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConstraintsInput)(nil)).Elem(), ClusterScalingConstraintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConstraintsPtrInput)(nil)).Elem(), ClusterScalingConstraintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingRuleInput)(nil)).Elem(), ClusterScalingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingRuleArrayInput)(nil)).Elem(), ClusterScalingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingTriggerInput)(nil)).Elem(), ClusterScalingTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScriptBootstrapActionConfigInput)(nil)).Elem(), ClusterScriptBootstrapActionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSimpleScalingPolicyConfigurationInput)(nil)).Elem(), ClusterSimpleScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotProvisioningSpecificationInput)(nil)).Elem(), ClusterSpotProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotProvisioningSpecificationPtrInput)(nil)).Elem(), ClusterSpotProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotResizingSpecificationInput)(nil)).Elem(), ClusterSpotResizingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotResizingSpecificationPtrInput)(nil)).Elem(), ClusterSpotResizingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepConfigInput)(nil)).Elem(), ClusterStepConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepConfigArrayInput)(nil)).Elem(), ClusterStepConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVolumeSpecificationInput)(nil)).Elem(), ClusterVolumeSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigApplicationConfigurationInput)(nil)).Elem(), InstanceFleetConfigApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigApplicationConfigurationArrayInput)(nil)).Elem(), InstanceFleetConfigApplicationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigEbsBlockDeviceConfigInput)(nil)).Elem(), InstanceFleetConfigEbsBlockDeviceConfigArgs{})
@@ -3406,6 +9150,75 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StepHadoopJarStepConfigInput)(nil)).Elem(), StepHadoopJarStepConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueInput)(nil)).Elem(), StepKeyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueArrayInput)(nil)).Elem(), StepKeyValueArray{})
+	pulumi.RegisterOutputType(ClusterApplicationOutput{})
+	pulumi.RegisterOutputType(ClusterApplicationArrayOutput{})
+	pulumi.RegisterOutputType(ClusterAutoScalingPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterAutoScalingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBootstrapActionConfigOutput{})
+	pulumi.RegisterOutputType(ClusterBootstrapActionConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterCloudWatchAlarmDefinitionOutput{})
+	pulumi.RegisterOutputType(ClusterCloudWatchLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterCloudWatchLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterComputeLimitsOutput{})
+	pulumi.RegisterOutputType(ClusterComputeLimitsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterEbsBlockDeviceConfigOutput{})
+	pulumi.RegisterOutputType(ClusterEbsBlockDeviceConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterEbsConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterEbsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterEmrConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterEmrConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ClusterHadoopJarStepConfigOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceFleetConfigOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceFleetConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceFleetConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceFleetProvisioningSpecificationsOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceFleetProvisioningSpecificationsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceFleetResizingSpecificationsOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceFleetResizingSpecificationsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceGroupConfigOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceGroupConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceTypeConfigOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceTypeConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterJobFlowInstancesConfigOutput{})
+	pulumi.RegisterOutputType(ClusterJobFlowInstancesConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKerberosAttributesOutput{})
+	pulumi.RegisterOutputType(ClusterKerberosAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKeyValueOutput{})
+	pulumi.RegisterOutputType(ClusterKeyValueArrayOutput{})
+	pulumi.RegisterOutputType(ClusterManagedScalingPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterManagedScalingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterMetricDimensionOutput{})
+	pulumi.RegisterOutputType(ClusterMetricDimensionArrayOutput{})
+	pulumi.RegisterOutputType(ClusterMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandCapacityReservationOptionsOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandCapacityReservationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandProvisioningSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandProvisioningSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandResizingSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandResizingSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementTypeOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterScalingActionOutput{})
+	pulumi.RegisterOutputType(ClusterScalingConstraintsOutput{})
+	pulumi.RegisterOutputType(ClusterScalingConstraintsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterScalingRuleOutput{})
+	pulumi.RegisterOutputType(ClusterScalingRuleArrayOutput{})
+	pulumi.RegisterOutputType(ClusterScalingTriggerOutput{})
+	pulumi.RegisterOutputType(ClusterScriptBootstrapActionConfigOutput{})
+	pulumi.RegisterOutputType(ClusterSimpleScalingPolicyConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterSpotProvisioningSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterSpotProvisioningSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSpotResizingSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterSpotResizingSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterStepConfigOutput{})
+	pulumi.RegisterOutputType(ClusterStepConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterVolumeSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigApplicationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigEbsBlockDeviceConfigOutput{})

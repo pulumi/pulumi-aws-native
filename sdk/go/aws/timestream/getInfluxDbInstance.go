@@ -35,6 +35,8 @@ type LookupInfluxDbInstanceResult struct {
 	Arn *string `pulumi:"arn"`
 	// The Availability Zone (AZ) where the InfluxDB instance is created.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The service generated unique identifier of the InfluxDB cluster containing this instance.
+	DbClusterId *string `pulumi:"dbClusterId"`
 	// The compute instance of the InfluxDB instance.
 	DbInstanceType *InfluxDbInstanceDbInstanceType `pulumi:"dbInstanceType"`
 	// The name of an existing InfluxDB parameter group.
@@ -106,6 +108,11 @@ func (o LookupInfluxDbInstanceResultOutput) Arn() pulumi.StringPtrOutput {
 // The Availability Zone (AZ) where the InfluxDB instance is created.
 func (o LookupInfluxDbInstanceResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The service generated unique identifier of the InfluxDB cluster containing this instance.
+func (o LookupInfluxDbInstanceResultOutput) DbClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *string { return v.DbClusterId }).(pulumi.StringPtrOutput)
 }
 
 // The compute instance of the InfluxDB instance.

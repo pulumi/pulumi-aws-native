@@ -44,6 +44,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// &gt; If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
         /// </summary>
         public readonly Pulumi.AwsNative.Transfer.ServerSetStatOption? SetStatOption;
+        public readonly ImmutableArray<Outputs.ServerSftpPortWithOptions> SftpPorts;
         /// <summary>
         /// A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
         /// 
@@ -65,12 +66,15 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
             Pulumi.AwsNative.Transfer.ServerSetStatOption? setStatOption,
 
+            ImmutableArray<Outputs.ServerSftpPortWithOptions> sftpPorts,
+
             Pulumi.AwsNative.Transfer.ServerTlsSessionResumptionMode? tlsSessionResumptionMode)
         {
             As2Transports = as2Transports;
             PassiveIp = passiveIp;
             ProxyConfig = proxyConfig;
             SetStatOption = setStatOption;
+            SftpPorts = sftpPorts;
             TlsSessionResumptionMode = tlsSessionResumptionMode;
         }
     }

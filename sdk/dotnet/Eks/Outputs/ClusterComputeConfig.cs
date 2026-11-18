@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.Eks.Outputs
 {
 
     /// <summary>
-    /// Todo: add description
+    /// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
     /// </summary>
     [OutputType]
     public sealed class ClusterComputeConfig
     {
         /// <summary>
-        /// Todo: add description
+        /// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Todo: add description
+        /// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid values are general-purpose and system.
         /// </summary>
         public readonly ImmutableArray<string> NodePools;
         /// <summary>
-        /// Todo: add description
+        /// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled.
         /// </summary>
         public readonly string? NodeRoleArn;
 

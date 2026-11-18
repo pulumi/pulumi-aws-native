@@ -19,6 +19,13 @@ __all__ = [
     'ApplicationRestoreConfigurationApplicationRestoreType',
     'ApplicationSnapshotConfigurationSnapshotMode',
     'ApplicationZeppelinMonitoringConfigurationLogLevel',
+    'SnapshotEncryptionConfigurationDescriptionKeyType',
+    'SnapshotFormat',
+    'SnapshotImportSourceConfigurationSourceType',
+    'SnapshotInitiator',
+    'SnapshotInitiatorOperation',
+    'SnapshotRuntimeEnvironment',
+    'SnapshotStatus',
 ]
 
 
@@ -135,3 +142,81 @@ class ApplicationZeppelinMonitoringConfigurationLogLevel(_builtins.str, Enum):
     INFO = "INFO"
     WARN = "WARN"
     ERROR = "ERROR"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:SnapshotEncryptionConfigurationDescriptionKeyType")
+class SnapshotEncryptionConfigurationDescriptionKeyType(_builtins.str, Enum):
+    """
+    The type of KMS key: AWS_OWNED_KEY or CUSTOMER_MANAGED_KEY.
+    """
+    AWS_OWNED_KEY = "AWS_OWNED_KEY"
+    CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:SnapshotFormat")
+class SnapshotFormat(_builtins.str, Enum):
+    """
+    The format of the snapshot (CANONICAL). Sent to ImportSnapshot with ImportSourceConfiguration; with ApplicationName it may only be CANONICAL, the format CreateSnapshot produces. Returned by DescribeSnapshot. Immutable after create.
+    """
+    CANONICAL = "CANONICAL"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:SnapshotImportSourceConfigurationSourceType")
+class SnapshotImportSourceConfigurationSourceType(_builtins.str, Enum):
+    """
+    The type of storage the snapshot is imported from.
+    """
+    S3 = "S3"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:SnapshotInitiator")
+class SnapshotInitiator(_builtins.str, Enum):
+    """
+    Indicates whether the snapshot was initiated by the customer or by the service. Populated by DescribeSnapshot.
+    """
+    USER = "USER"
+    SYSTEM = "SYSTEM"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:SnapshotInitiatorOperation")
+class SnapshotInitiatorOperation(_builtins.str, Enum):
+    """
+    The operation that initiated the snapshot. Populated by DescribeSnapshot.
+    """
+    CREATE_SNAPSHOT = "CreateSnapshot"
+    IMPORT_SNAPSHOT = "ImportSnapshot"
+    SYSTEM_CREATE_SNAPSHOT = "SystemCreateSnapshot"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:SnapshotRuntimeEnvironment")
+class SnapshotRuntimeEnvironment(_builtins.str, Enum):
+    """
+    The runtime environment of the source application when the snapshot was taken with ApplicationName (CreateSnapshot), for example FLINK-1_20. Populated by DescribeSnapshot. Not returned for snapshots created with ImportSourceConfiguration (ImportSnapshot), which carry no runtime version.
+    """
+    SQL10 = "SQL-1_0"
+    FLINK16 = "FLINK-1_6"
+    FLINK18 = "FLINK-1_8"
+    ZEPPELIN_FLINK10 = "ZEPPELIN-FLINK-1_0"
+    FLINK111 = "FLINK-1_11"
+    FLINK113 = "FLINK-1_13"
+    ZEPPELIN_FLINK20 = "ZEPPELIN-FLINK-2_0"
+    FLINK115 = "FLINK-1_15"
+    ZEPPELIN_FLINK30 = "ZEPPELIN-FLINK-3_0"
+    FLINK118 = "FLINK-1_18"
+    FLINK119 = "FLINK-1_19"
+    FLINK120 = "FLINK-1_20"
+    FLINK21 = "FLINK-2_1"
+    FLINK22 = "FLINK-2_2"
+    FLINK23 = "FLINK-2_3"
+    FLINK24 = "FLINK-2_4"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:SnapshotStatus")
+class SnapshotStatus(_builtins.str, Enum):
+    """
+    The lifecycle status of the snapshot as reported by the service (CREATING, READY, DELETING, FAILED). Populated by DescribeSnapshot.
+    """
+    CREATING = "CREATING"
+    READY = "READY"
+    DELETING = "DELETING"
+    FAILED = "FAILED"

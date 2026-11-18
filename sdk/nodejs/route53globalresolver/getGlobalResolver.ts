@@ -33,6 +33,10 @@ export interface GetGlobalResolverResult {
     readonly name?: string;
     readonly observabilityRegion?: string;
     /**
+     * Whether the Global Resolver's public IP addresses are enabled and reserved. Change it one step at a time: ENABLED_RESERVED <-> DISABLED_RESERVED, DISABLED_RESERVED -> DISABLED_RELEASED, DISABLED_RELEASED -> ENABLED_RESERVED (new public IP addresses). DISABLED_RELEASED gives the public IP addresses back and cannot be undone. DISABLED_RESERVED is not allowed at create.
+     */
+    readonly publicIpStatus?: enums.route53globalresolver.GlobalResolverPublicIpStatus;
+    /**
      * The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
      */
     readonly regions?: string[];
