@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Iam
     ///                     ["effect"] = "Allow",
     ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = new object?[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "cloudformation.amazonaws.com",
     ///                             "gamelift.amazonaws.com",
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Iam
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["effect"] = "Allow",
-    ///                             ["action"] = new object?[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:GetObjectVersion",
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Iam
     ///                     ["effect"] = "Allow",
     ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = new object?[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "cloudformation.amazonaws.com",
     ///                             "gamelift.amazonaws.com",
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.Iam
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["effect"] = "Allow",
-    ///                             ["action"] = new object?[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:GetObjectVersion",
@@ -241,9 +241,9 @@ namespace Pulumi.AwsNative.Iam
     ///         },
     ///         ExecutionProperty = new AwsNative.Glue.Inputs.JobExecutionPropertyArgs
     ///         {
-    ///             MaxConcurrentRuns = 2,
+    ///             MaxConcurrentRuns = 2.0,
     ///         },
-    ///         MaxRetries = 0,
+    ///         MaxRetries = 0.0,
     ///         Name = "cf-job1",
     ///         Role = myJobRole.Id,
     ///     });
@@ -321,9 +321,9 @@ namespace Pulumi.AwsNative.Iam
     ///         },
     ///         ExecutionProperty = new AwsNative.Glue.Inputs.JobExecutionPropertyArgs
     ///         {
-    ///             MaxConcurrentRuns = 2,
+    ///             MaxConcurrentRuns = 2.0,
     ///         },
-    ///         MaxRetries = 0,
+    ///         MaxRetries = 0.0,
     ///         Name = "cf-job1",
     ///         Role = myJobRole.Id,
     ///     });
@@ -402,7 +402,7 @@ namespace Pulumi.AwsNative.Iam
     ///         {
     ///             ["--job-bookmark-option"] = "job-bookmark-enable",
     ///         },
-    ///         MaxRetries = 0,
+    ///         MaxRetries = 0.0,
     ///     });
     /// 
     ///     var myJobTrigger = new AwsNative.Glue.Trigger("myJobTrigger", new()
@@ -509,7 +509,7 @@ namespace Pulumi.AwsNative.Iam
     ///         {
     ///             ["--job-bookmark-option"] = "job-bookmark-enable",
     ///         },
-    ///         MaxRetries = 0,
+    ///         MaxRetries = 0.0,
     ///     });
     /// 
     ///     var myJobTrigger = new AwsNative.Glue.Trigger("myJobTrigger", new()
@@ -627,7 +627,7 @@ namespace Pulumi.AwsNative.Iam
     ///             {
     ///                 "org1",
     ///             },
-    ///             LoginValidityDuration = 60,
+    ///             LoginValidityDuration = 60.0,
     ///         },
     ///     });
     /// 
@@ -723,7 +723,7 @@ namespace Pulumi.AwsNative.Iam
     ///             {
     ///                 "org1",
     ///             },
-    ///             LoginValidityDuration = 60,
+    ///             LoginValidityDuration = 60.0,
     ///         },
     ///     });
     /// 

@@ -183,7 +183,7 @@ namespace Pulumi.AwsNative.S3
     ///                             {
     ///                                 "s3:GetObject",
     ///                             },
-    ///                             ["resource"] = new object?[]
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
@@ -207,14 +207,14 @@ namespace Pulumi.AwsNative.S3
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["action"] = new object?[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:PutObject",
     ///                                 "s3:PutObjectAcl",
     ///                                 "s3:ListBucket",
     ///                             },
-    ///                             ["resource"] = new object?[]
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
@@ -241,7 +241,7 @@ namespace Pulumi.AwsNative.S3
     ///                     ["effect"] = "Allow",
     ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = new object?[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
     ///                             "ssm.amazonaws.com",
@@ -370,7 +370,7 @@ namespace Pulumi.AwsNative.S3
     ///                             {
     ///                                 "s3:GetObject",
     ///                             },
-    ///                             ["resource"] = new object?[]
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
@@ -394,14 +394,14 @@ namespace Pulumi.AwsNative.S3
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["action"] = new object?[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:PutObject",
     ///                                 "s3:PutObjectAcl",
     ///                                 "s3:ListBucket",
     ///                             },
-    ///                             ["resource"] = new object?[]
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
@@ -429,7 +429,7 @@ namespace Pulumi.AwsNative.S3
     ///                     ["effect"] = "Allow",
     ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = new object?[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
     ///                             "ssm.amazonaws.com",
@@ -655,7 +655,7 @@ namespace Pulumi.AwsNative.S3
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["action"] = new object?[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "ssm:StartAssociationsOnce",
     ///                                 "ssm:CreateAssociation",
@@ -685,7 +685,7 @@ namespace Pulumi.AwsNative.S3
     ///                     ["effect"] = "Allow",
     ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = new object?[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
     ///                             "ssm.amazonaws.com",
@@ -714,7 +714,7 @@ namespace Pulumi.AwsNative.S3
     ///                             {
     ///                                 "s3:GetObject",
     ///                             },
-    ///                             ["resource"] = new object?[]
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
@@ -738,14 +738,14 @@ namespace Pulumi.AwsNative.S3
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["action"] = new object?[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:PutObject",
     ///                                 "s3:PutObjectAcl",
     ///                                 "s3:ListBucket",
     ///                             },
-    ///                             ["resource"] = new object?[]
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
@@ -773,7 +773,7 @@ namespace Pulumi.AwsNative.S3
     ///                     ["effect"] = "Allow",
     ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = new object?[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
     ///                             "ssm.amazonaws.com",

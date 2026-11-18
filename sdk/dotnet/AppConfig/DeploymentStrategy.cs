@@ -26,9 +26,9 @@ namespace Pulumi.AwsNative.AppConfig
     ///     {
     ///         Name = "MyTestDeploymentStrategy",
     ///         Description = "A sample test deployment strategy.",
-    ///         DeploymentDurationInMinutes = 3,
-    ///         FinalBakeTimeInMinutes = 4,
-    ///         GrowthFactor = 10,
+    ///         DeploymentDurationInMinutes = 3.0,
+    ///         FinalBakeTimeInMinutes = 4.0,
+    ///         GrowthFactor = 10.0,
     ///         GrowthType = AwsNative.AppConfig.DeploymentStrategyGrowthType.Linear,
     ///         ReplicateTo = AwsNative.AppConfig.DeploymentStrategyReplicateTo.None,
     ///         Tags = new[]

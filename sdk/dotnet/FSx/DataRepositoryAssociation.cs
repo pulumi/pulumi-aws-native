@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.FSx
     ///         FileSystemPath = fileSystemPath,
     ///         DataRepositoryPath = "s3://example-bucket",
     ///         BatchImportMetaDataOnCreate = true,
-    ///         ImportedFileChunkSize = importedFileChunkSize,
+    ///         ImportedFileChunkSize = int.Parse(importedFileChunkSize, System.Globalization.CultureInfo.InvariantCulture),
     ///         S3 = new AwsNative.FSx.Inputs.DataRepositoryAssociationS3Args
     ///         {
     ///             AutoImportPolicy = new AwsNative.FSx.Inputs.DataRepositoryAssociationAutoImportPolicyArgs
