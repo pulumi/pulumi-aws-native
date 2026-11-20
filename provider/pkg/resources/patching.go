@@ -22,7 +22,7 @@ func CalcPatch(
 	spec metadata.CloudAPIResource,
 	types map[string]metadata.CloudAPIType,
 ) ([]jsonpatch.JsonPatchOperation, error) {
-	return calcPatchFromBaseline(oldInputs, oldInputs, newInputs, spec, types, "", nil)
+	return calcPatchFromBaseline(oldInputs, oldInputs, newInputs, nil, spec, types, "", nil)
 }
 
 // CalcPatchWithActualOutputs builds a CloudControl patch from live output state
@@ -42,13 +42,15 @@ func CalcPatchWithActualOutputs(
 		classifier = NewPathClassifier(&spec, types)
 	}
 	baseline := classifier.ActualInputBaselineFromOutputs(oldInputs, actualOutputs, newInputs)
-	return calcPatchFromBaseline(oldInputs, baseline, newInputs, spec, types, resourceToken, transformCache)
+	return calcPatchFromBaseline(
+		oldInputs, baseline, newInputs, actualOutputs, spec, types, resourceToken, transformCache)
 }
 
 func calcPatchFromBaseline(
 	oldInputs resource.PropertyMap,
 	baseline resource.PropertyMap,
 	newInputs resource.PropertyMap,
+	actualOutputs resource.PropertyMap,
 	spec metadata.CloudAPIResource,
 	types map[string]metadata.CloudAPIType,
 	resourceToken string,
@@ -110,7 +112,49 @@ func calcPatchFromBaseline(
 		}
 	}
 
+	keepNestedReadOnlyValues(diff, actualOutputs, spec.ReadOnly)
+
 	return naming.DiffToPatch(&spec, types, diff)
+}
+
+// CloudControl rejects a replaced top-level value that omits read-only values nested under it.
+func keepNestedReadOnlyValues(diff *resource.ObjectDiff, actualOutputs resource.PropertyMap, readOnly []string) {
+	if len(actualOutputs) == 0 {
+		return
+	}
+	for key, update := range diff.Updates {
+		update.New = withNestedReadOnlyValues(key, update.New, actualOutputs, readOnly)
+		diff.Updates[key] = update
+	}
+	for key, value := range diff.Adds {
+		diff.Adds[key] = withNestedReadOnlyValues(key, value, actualOutputs, readOnly)
+	}
+}
+
+func withNestedReadOnlyValues(
+	key resource.PropertyKey,
+	value resource.PropertyValue,
+	actualOutputs resource.PropertyMap,
+	readOnly []string,
+) resource.PropertyValue {
+	replacement := resource.PropertyMap{key: clonePropertyValue(value)}
+	for _, path := range readOnly {
+		if !strings.HasPrefix(path, string(key)+"/") || strings.Contains(path, "*") || hasPath(replacement, path) {
+			continue
+		}
+		actual, ok := GetPath(actualOutputs, path)
+		if !ok || actual.IsNull() {
+			continue
+		}
+		separator := strings.LastIndex(path, "/")
+		parent, ok := GetPath(replacement, path[:separator])
+		parent = unwrapSecretValue(parent)
+		if !ok || !parent.IsObject() {
+			continue
+		}
+		parent.ObjectValue()[resource.PropertyKey(path[separator+1:])] = clonePropertyValue(actual)
+	}
+	return replacement[key]
 }
 
 func CalculateUntypedPatch(
