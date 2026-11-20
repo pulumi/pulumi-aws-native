@@ -42,6 +42,7 @@ func CalcPatchWithActualOutputs(
 		classifier = NewPathClassifier(&spec, types)
 	}
 	baseline := classifier.ActualInputBaselineFromOutputs(oldInputs, actualOutputs, newInputs)
+	newInputs = classifier.restoreNestedReadOnly(actualOutputs, baseline, newInputs)
 	return calcPatchFromBaseline(oldInputs, baseline, newInputs, spec, types, resourceToken, transformCache)
 }
 
