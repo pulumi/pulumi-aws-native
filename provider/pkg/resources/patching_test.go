@@ -521,3 +521,75 @@ func Prealloc[T any](capacity int) []T {
 	}
 	return make([]T, 0, capacity)
 }
+
+func TestCalcPatchWithActualOutputsNestedReadOnly(t *testing.T) {
+	str := schema.TypeSpec{Type: "string"}
+	ref := func(name string) schema.TypeSpec { return schema.TypeSpec{Ref: "#/types/" + name} }
+	tagsSpec := schema.TypeSpec{Type: "array", Items: &schema.TypeSpec{Type: "string"}}
+	spec := metadata.CloudAPIResource{
+		CfType: "AWS::Test::Space",
+		Inputs: map[string]schema.PropertySpec{
+			"operatorApp": {TypeSpec: ref("test:OperatorApp")},
+			"tags":        {TypeSpec: tagsSpec},
+		},
+		Outputs: map[string]schema.PropertySpec{
+			"operatorApp": {TypeSpec: ref("test:OperatorApp")},
+			"tags":        {TypeSpec: tagsSpec},
+		},
+		ReadOnly: []string{"operatorApp/iam/createdAt"},
+	}
+	types := map[string]metadata.CloudAPIType{
+		"test:OperatorApp": {Type: "object", Properties: map[string]schema.PropertySpec{
+			"iam": {TypeSpec: ref("test:Iam")},
+		}},
+		"test:Iam": {Type: "object", Properties: map[string]schema.PropertySpec{
+			"roleArn":   {TypeSpec: str},
+			"createdAt": {TypeSpec: str},
+		}},
+	}
+	operatorApp := func(roleArn string, createdAt string) resource.PropertyValue {
+		iam := resource.PropertyMap{"roleArn": resource.NewStringProperty(roleArn)}
+		if createdAt != "" {
+			iam["createdAt"] = resource.NewStringProperty(createdAt)
+		}
+		return resource.NewObjectProperty(resource.PropertyMap{"iam": resource.NewObjectProperty(iam)})
+	}
+	tags := resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("a")})
+	oldInputs := resource.PropertyMap{"operatorApp": operatorApp("r1", "")}
+	actual := resource.PropertyMap{"operatorApp": operatorApp("r1", "2026-01-01")}
+
+	t.Run("tags-only change leaves operatorApp out", func(t *testing.T) {
+		patch, err := CalcPatchWithActualOutputs(oldInputs, actual,
+			resource.PropertyMap{"operatorApp": operatorApp("r1", ""), "tags": tags},
+			spec, types, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{Operation: "add", Path: "/Tags", Value: []interface{}{"a"}},
+		}, patch)
+	})
+
+	t.Run("replacing operatorApp keeps the live read-only field", func(t *testing.T) {
+		patch, err := CalcPatchWithActualOutputs(oldInputs, actual,
+			resource.PropertyMap{"operatorApp": operatorApp("r2", ""), "tags": tags},
+			spec, types, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/OperatorApp", Value: map[string]interface{}{
+				"Iam": map[string]interface{}{"RoleArn": "r2", "CreatedAt": "2026-01-01"},
+			}},
+			{Operation: "add", Path: "/Tags", Value: []interface{}{"a"}},
+		}, patch)
+	})
+
+	t.Run("a read-only value set by the program is not overwritten", func(t *testing.T) {
+		patch, err := CalcPatchWithActualOutputs(oldInputs, actual,
+			resource.PropertyMap{"operatorApp": operatorApp("r2", "2026-02-02")},
+			spec, types, nil, "", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/OperatorApp", Value: map[string]interface{}{
+				"Iam": map[string]interface{}{"RoleArn": "r2", "CreatedAt": "2026-02-02"},
+			}},
+		}, patch)
+	})
+}
