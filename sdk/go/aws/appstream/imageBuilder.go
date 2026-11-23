@@ -19,6 +19,8 @@ type ImageBuilder struct {
 
 	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints ImageBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
+	// The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+	AgentAccessConfig ImageBuilderAgentAccessConfigPtrOutput `pulumi:"agentAccessConfig"`
 	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion pulumi.StringPtrOutput `pulumi:"appstreamAgentVersion"`
 	// The description to display.
@@ -115,7 +117,20 @@ func NewImageBuilder(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accessEndpoints[*]",
+		"appstreamAgentVersion",
+		"disableImdsv1",
+		"domainJoinInfo",
+		"enableDefaultInternetAccess",
+		"iamRoleArn",
+		"imageArn",
+		"imageName",
+		"instanceType",
 		"name",
+		"rootVolumeConfig",
+		"softwaresToInstall[*]",
+		"softwaresToUninstall[*]",
+		"vpcConfig",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -159,6 +174,8 @@ func ImageBuilderExists(ctx *pulumi.Context,
 type imageBuilderArgs struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
+	// The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+	AgentAccessConfig *ImageBuilderAgentAccessConfig `pulumi:"agentAccessConfig"`
 	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
 	// The description to display.
@@ -246,6 +263,8 @@ type imageBuilderArgs struct {
 type ImageBuilderArgs struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints ImageBuilderAccessEndpointArrayInput
+	// The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+	AgentAccessConfig ImageBuilderAgentAccessConfigPtrInput
 	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion pulumi.StringPtrInput
 	// The description to display.
@@ -369,6 +388,11 @@ func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context)
 // The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 func (o ImageBuilderOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOutput {
 	return o.ApplyT(func(v *ImageBuilder) ImageBuilderAccessEndpointArrayOutput { return v.AccessEndpoints }).(ImageBuilderAccessEndpointArrayOutput)
+}
+
+// The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+func (o ImageBuilderOutput) AgentAccessConfig() ImageBuilderAgentAccessConfigPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) ImageBuilderAgentAccessConfigPtrOutput { return v.AgentAccessConfig }).(ImageBuilderAgentAccessConfigPtrOutput)
 }
 
 // The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].

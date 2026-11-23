@@ -33,6 +33,10 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// </summary>
         public readonly bool? EnableSni;
         /// <summary>
+        /// Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Route53.HealthCheckConfigPropertiesEndpointType? EndpointType;
+        /// <summary>
         /// The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
         /// 
         /// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -68,6 +72,10 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
         /// </summary>
         public readonly string? FullyQualifiedDomainName;
+        /// <summary>
+        /// The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+        /// </summary>
+        public readonly string? HealthCheckSourceId;
         /// <summary>
         /// The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
         /// 
@@ -192,9 +200,13 @@ namespace Pulumi.AwsNative.Route53.Outputs
 
             bool? enableSni,
 
+            Pulumi.AwsNative.Route53.HealthCheckConfigPropertiesEndpointType? endpointType,
+
             int? failureThreshold,
 
             string? fullyQualifiedDomainName,
+
+            string? healthCheckSourceId,
 
             int? healthThreshold,
 
@@ -223,8 +235,10 @@ namespace Pulumi.AwsNative.Route53.Outputs
             AlarmIdentifier = alarmIdentifier;
             ChildHealthChecks = childHealthChecks;
             EnableSni = enableSni;
+            EndpointType = endpointType;
             FailureThreshold = failureThreshold;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            HealthCheckSourceId = healthCheckSourceId;
             HealthThreshold = healthThreshold;
             InsufficientDataHealthStatus = insufficientDataHealthStatus;
             Inverted = inverted;

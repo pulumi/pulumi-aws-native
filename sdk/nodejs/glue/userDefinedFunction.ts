@@ -52,6 +52,10 @@ export class UserDefinedFunction extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+     */
+    declare public readonly artifactLocation: pulumi.Output<string | undefined>;
+    /**
      * The Java class that contains the function code.
      */
     declare public readonly className: pulumi.Output<string | undefined>;
@@ -67,6 +71,10 @@ export class UserDefinedFunction extends pulumi.CustomResource {
      * The type of the function.
      */
     declare public readonly functionType: pulumi.Output<enums.glue.UserDefinedFunctionFunctionType | undefined>;
+    /**
+     * How access to the function is governed. The mode cannot be changed after creation.
+     */
+    declare public readonly governanceMode: pulumi.Output<enums.glue.UserDefinedFunctionGovernanceMode | undefined>;
     /**
      * The owner of the function.
      */
@@ -94,26 +102,30 @@ export class UserDefinedFunction extends pulumi.CustomResource {
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
+            resourceInputs["artifactLocation"] = args?.artifactLocation;
             resourceInputs["className"] = args?.className;
             resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["functionName"] = args?.functionName;
             resourceInputs["functionType"] = args?.functionType;
+            resourceInputs["governanceMode"] = args?.governanceMode;
             resourceInputs["ownerName"] = args?.ownerName;
             resourceInputs["ownerType"] = args?.ownerType;
             resourceInputs["resourceUris"] = args?.resourceUris;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["artifactLocation"] = undefined /*out*/;
             resourceInputs["className"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["functionType"] = undefined /*out*/;
+            resourceInputs["governanceMode"] = undefined /*out*/;
             resourceInputs["ownerName"] = undefined /*out*/;
             resourceInputs["ownerType"] = undefined /*out*/;
             resourceInputs["resourceUris"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["databaseName", "functionName", "functionType"] };
+        const replaceOnChanges = { replaceOnChanges: ["databaseName", "functionName", "functionType", "governanceMode"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserDefinedFunction.__pulumiType, name, resourceInputs, opts);
     }
@@ -123,6 +135,10 @@ export class UserDefinedFunction extends pulumi.CustomResource {
  * The set of arguments for constructing a UserDefinedFunction resource.
  */
 export interface UserDefinedFunctionArgs {
+    /**
+     * The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+     */
+    artifactLocation?: pulumi.Input<string | undefined>;
     /**
      * The Java class that contains the function code.
      */
@@ -139,6 +155,10 @@ export interface UserDefinedFunctionArgs {
      * The type of the function.
      */
     functionType?: pulumi.Input<enums.glue.UserDefinedFunctionFunctionType | undefined>;
+    /**
+     * How access to the function is governed. The mode cannot be changed after creation.
+     */
+    governanceMode?: pulumi.Input<enums.glue.UserDefinedFunctionGovernanceMode | undefined>;
     /**
      * The owner of the function.
      */

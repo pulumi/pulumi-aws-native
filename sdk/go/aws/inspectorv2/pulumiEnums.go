@@ -398,11 +398,13 @@ func (o CisScanConfigurationDayArrayOutput) Index(i pulumi.IntInput) CisScanConf
 type CodeSecurityIntegrationIntegrationStatus string
 
 const (
-	CodeSecurityIntegrationIntegrationStatusPending    = CodeSecurityIntegrationIntegrationStatus("PENDING")
-	CodeSecurityIntegrationIntegrationStatusInProgress = CodeSecurityIntegrationIntegrationStatus("IN_PROGRESS")
-	CodeSecurityIntegrationIntegrationStatusActive     = CodeSecurityIntegrationIntegrationStatus("ACTIVE")
-	CodeSecurityIntegrationIntegrationStatusInactive   = CodeSecurityIntegrationIntegrationStatus("INACTIVE")
-	CodeSecurityIntegrationIntegrationStatusDisabling  = CodeSecurityIntegrationIntegrationStatus("DISABLING")
+	CodeSecurityIntegrationIntegrationStatusPending          = CodeSecurityIntegrationIntegrationStatus("PENDING")
+	CodeSecurityIntegrationIntegrationStatusInProgress       = CodeSecurityIntegrationIntegrationStatus("IN_PROGRESS")
+	CodeSecurityIntegrationIntegrationStatusActive           = CodeSecurityIntegrationIntegrationStatus("ACTIVE")
+	CodeSecurityIntegrationIntegrationStatusInactive         = CodeSecurityIntegrationIntegrationStatus("INACTIVE")
+	CodeSecurityIntegrationIntegrationStatusDisabling        = CodeSecurityIntegrationIntegrationStatus("DISABLING")
+	CodeSecurityIntegrationIntegrationStatusDeleteInProgress = CodeSecurityIntegrationIntegrationStatus("DELETE_IN_PROGRESS")
+	CodeSecurityIntegrationIntegrationStatusDeleteFailed     = CodeSecurityIntegrationIntegrationStatus("DELETE_FAILED")
 )
 
 type CodeSecurityIntegrationIntegrationStatusOutput struct{ *pulumi.OutputState }
@@ -1574,6 +1576,7 @@ type ConnectorCloudProvider string
 
 const (
 	ConnectorCloudProviderAzure = ConnectorCloudProvider("AZURE")
+	ConnectorCloudProviderGcp   = ConnectorCloudProvider("GCP")
 )
 
 func (ConnectorCloudProvider) ElementType() reflect.Type {
@@ -1699,6 +1702,7 @@ func (o ConnectorCloudProviderPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // A concrete instance of `ConnectorCloudProviderInput` can be one of the following:
 //
 //	ConnectorCloudProviderAzure
+//	ConnectorCloudProviderGcp
 type ConnectorCloudProviderInput interface {
 	pulumi.Input
 
@@ -2001,6 +2005,8 @@ type ConnectorScopeType string
 const (
 	ConnectorScopeTypeTenant       = ConnectorScopeType("TENANT")
 	ConnectorScopeTypeSubscription = ConnectorScopeType("SUBSCRIPTION")
+	ConnectorScopeTypeOrganization = ConnectorScopeType("ORGANIZATION")
+	ConnectorScopeTypeProject      = ConnectorScopeType("PROJECT")
 )
 
 func (ConnectorScopeType) ElementType() reflect.Type {
@@ -2127,6 +2133,8 @@ func (o ConnectorScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //
 //	ConnectorScopeTypeTenant
 //	ConnectorScopeTypeSubscription
+//	ConnectorScopeTypeOrganization
+//	ConnectorScopeTypeProject
 type ConnectorScopeTypeInput interface {
 	pulumi.Input
 

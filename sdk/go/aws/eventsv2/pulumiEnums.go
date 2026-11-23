@@ -106,6 +106,340 @@ func (o EventBusStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+type EventSourceLogConfigurationIncludePayload string
+
+const (
+	EventSourceLogConfigurationIncludePayloadFull        = EventSourceLogConfigurationIncludePayload("FULL")
+	EventSourceLogConfigurationIncludePayloadOnErrorOnly = EventSourceLogConfigurationIncludePayload("ON_ERROR_ONLY")
+)
+
+func (EventSourceLogConfigurationIncludePayload) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceLogConfigurationIncludePayload)(nil)).Elem()
+}
+
+func (e EventSourceLogConfigurationIncludePayload) ToEventSourceLogConfigurationIncludePayloadOutput() EventSourceLogConfigurationIncludePayloadOutput {
+	return pulumi.ToOutput(e).(EventSourceLogConfigurationIncludePayloadOutput)
+}
+
+func (e EventSourceLogConfigurationIncludePayload) ToEventSourceLogConfigurationIncludePayloadOutputWithContext(ctx context.Context) EventSourceLogConfigurationIncludePayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceLogConfigurationIncludePayloadOutput)
+}
+
+func (e EventSourceLogConfigurationIncludePayload) ToEventSourceLogConfigurationIncludePayloadPtrOutput() EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return e.ToEventSourceLogConfigurationIncludePayloadPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceLogConfigurationIncludePayload) ToEventSourceLogConfigurationIncludePayloadPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return EventSourceLogConfigurationIncludePayload(e).ToEventSourceLogConfigurationIncludePayloadOutputWithContext(ctx).ToEventSourceLogConfigurationIncludePayloadPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceLogConfigurationIncludePayload) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceLogConfigurationIncludePayload) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceLogConfigurationIncludePayload) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceLogConfigurationIncludePayload) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceLogConfigurationIncludePayloadOutput struct{ *pulumi.OutputState }
+
+func (EventSourceLogConfigurationIncludePayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceLogConfigurationIncludePayload)(nil)).Elem()
+}
+
+func (o EventSourceLogConfigurationIncludePayloadOutput) ToEventSourceLogConfigurationIncludePayloadOutput() EventSourceLogConfigurationIncludePayloadOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationIncludePayloadOutput) ToEventSourceLogConfigurationIncludePayloadOutputWithContext(ctx context.Context) EventSourceLogConfigurationIncludePayloadOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationIncludePayloadOutput) ToEventSourceLogConfigurationIncludePayloadPtrOutput() EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return o.ToEventSourceLogConfigurationIncludePayloadPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationIncludePayloadOutput) ToEventSourceLogConfigurationIncludePayloadPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceLogConfigurationIncludePayload) *EventSourceLogConfigurationIncludePayload {
+		return &v
+	}).(EventSourceLogConfigurationIncludePayloadPtrOutput)
+}
+
+func (o EventSourceLogConfigurationIncludePayloadOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationIncludePayloadOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceLogConfigurationIncludePayload) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceLogConfigurationIncludePayloadOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationIncludePayloadOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceLogConfigurationIncludePayload) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceLogConfigurationIncludePayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceLogConfigurationIncludePayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceLogConfigurationIncludePayload)(nil)).Elem()
+}
+
+func (o EventSourceLogConfigurationIncludePayloadPtrOutput) ToEventSourceLogConfigurationIncludePayloadPtrOutput() EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationIncludePayloadPtrOutput) ToEventSourceLogConfigurationIncludePayloadPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationIncludePayloadPtrOutput) Elem() EventSourceLogConfigurationIncludePayloadOutput {
+	return o.ApplyT(func(v *EventSourceLogConfigurationIncludePayload) EventSourceLogConfigurationIncludePayload {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceLogConfigurationIncludePayload
+		return ret
+	}).(EventSourceLogConfigurationIncludePayloadOutput)
+}
+
+func (o EventSourceLogConfigurationIncludePayloadPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationIncludePayloadPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceLogConfigurationIncludePayload) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceLogConfigurationIncludePayloadInput is an input type that accepts values of the EventSourceLogConfigurationIncludePayload enum
+// A concrete instance of `EventSourceLogConfigurationIncludePayloadInput` can be one of the following:
+//
+//	EventSourceLogConfigurationIncludePayloadFull
+//	EventSourceLogConfigurationIncludePayloadOnErrorOnly
+type EventSourceLogConfigurationIncludePayloadInput interface {
+	pulumi.Input
+
+	ToEventSourceLogConfigurationIncludePayloadOutput() EventSourceLogConfigurationIncludePayloadOutput
+	ToEventSourceLogConfigurationIncludePayloadOutputWithContext(context.Context) EventSourceLogConfigurationIncludePayloadOutput
+}
+
+var eventSourceLogConfigurationIncludePayloadPtrType = reflect.TypeOf((**EventSourceLogConfigurationIncludePayload)(nil)).Elem()
+
+type EventSourceLogConfigurationIncludePayloadPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceLogConfigurationIncludePayloadPtrOutput() EventSourceLogConfigurationIncludePayloadPtrOutput
+	ToEventSourceLogConfigurationIncludePayloadPtrOutputWithContext(context.Context) EventSourceLogConfigurationIncludePayloadPtrOutput
+}
+
+type eventSourceLogConfigurationIncludePayloadPtr string
+
+func EventSourceLogConfigurationIncludePayloadPtr(v string) EventSourceLogConfigurationIncludePayloadPtrInput {
+	return (*eventSourceLogConfigurationIncludePayloadPtr)(&v)
+}
+
+func (*eventSourceLogConfigurationIncludePayloadPtr) ElementType() reflect.Type {
+	return eventSourceLogConfigurationIncludePayloadPtrType
+}
+
+func (in *eventSourceLogConfigurationIncludePayloadPtr) ToEventSourceLogConfigurationIncludePayloadPtrOutput() EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceLogConfigurationIncludePayloadPtrOutput)
+}
+
+func (in *eventSourceLogConfigurationIncludePayloadPtr) ToEventSourceLogConfigurationIncludePayloadPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceLogConfigurationIncludePayloadPtrOutput)
+}
+
+// The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+type EventSourceLogConfigurationLevel string
+
+const (
+	EventSourceLogConfigurationLevelOff   = EventSourceLogConfigurationLevel("OFF")
+	EventSourceLogConfigurationLevelError = EventSourceLogConfigurationLevel("ERROR")
+	EventSourceLogConfigurationLevelInfo  = EventSourceLogConfigurationLevel("INFO")
+)
+
+func (EventSourceLogConfigurationLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceLogConfigurationLevel)(nil)).Elem()
+}
+
+func (e EventSourceLogConfigurationLevel) ToEventSourceLogConfigurationLevelOutput() EventSourceLogConfigurationLevelOutput {
+	return pulumi.ToOutput(e).(EventSourceLogConfigurationLevelOutput)
+}
+
+func (e EventSourceLogConfigurationLevel) ToEventSourceLogConfigurationLevelOutputWithContext(ctx context.Context) EventSourceLogConfigurationLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceLogConfigurationLevelOutput)
+}
+
+func (e EventSourceLogConfigurationLevel) ToEventSourceLogConfigurationLevelPtrOutput() EventSourceLogConfigurationLevelPtrOutput {
+	return e.ToEventSourceLogConfigurationLevelPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceLogConfigurationLevel) ToEventSourceLogConfigurationLevelPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationLevelPtrOutput {
+	return EventSourceLogConfigurationLevel(e).ToEventSourceLogConfigurationLevelOutputWithContext(ctx).ToEventSourceLogConfigurationLevelPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceLogConfigurationLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceLogConfigurationLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceLogConfigurationLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceLogConfigurationLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceLogConfigurationLevelOutput struct{ *pulumi.OutputState }
+
+func (EventSourceLogConfigurationLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceLogConfigurationLevel)(nil)).Elem()
+}
+
+func (o EventSourceLogConfigurationLevelOutput) ToEventSourceLogConfigurationLevelOutput() EventSourceLogConfigurationLevelOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationLevelOutput) ToEventSourceLogConfigurationLevelOutputWithContext(ctx context.Context) EventSourceLogConfigurationLevelOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationLevelOutput) ToEventSourceLogConfigurationLevelPtrOutput() EventSourceLogConfigurationLevelPtrOutput {
+	return o.ToEventSourceLogConfigurationLevelPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationLevelOutput) ToEventSourceLogConfigurationLevelPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceLogConfigurationLevel) *EventSourceLogConfigurationLevel {
+		return &v
+	}).(EventSourceLogConfigurationLevelPtrOutput)
+}
+
+func (o EventSourceLogConfigurationLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceLogConfigurationLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceLogConfigurationLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceLogConfigurationLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceLogConfigurationLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceLogConfigurationLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceLogConfigurationLevel)(nil)).Elem()
+}
+
+func (o EventSourceLogConfigurationLevelPtrOutput) ToEventSourceLogConfigurationLevelPtrOutput() EventSourceLogConfigurationLevelPtrOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationLevelPtrOutput) ToEventSourceLogConfigurationLevelPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationLevelPtrOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationLevelPtrOutput) Elem() EventSourceLogConfigurationLevelOutput {
+	return o.ApplyT(func(v *EventSourceLogConfigurationLevel) EventSourceLogConfigurationLevel {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceLogConfigurationLevel
+		return ret
+	}).(EventSourceLogConfigurationLevelOutput)
+}
+
+func (o EventSourceLogConfigurationLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceLogConfigurationLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceLogConfigurationLevelInput is an input type that accepts values of the EventSourceLogConfigurationLevel enum
+// A concrete instance of `EventSourceLogConfigurationLevelInput` can be one of the following:
+//
+//	EventSourceLogConfigurationLevelOff
+//	EventSourceLogConfigurationLevelError
+//	EventSourceLogConfigurationLevelInfo
+type EventSourceLogConfigurationLevelInput interface {
+	pulumi.Input
+
+	ToEventSourceLogConfigurationLevelOutput() EventSourceLogConfigurationLevelOutput
+	ToEventSourceLogConfigurationLevelOutputWithContext(context.Context) EventSourceLogConfigurationLevelOutput
+}
+
+var eventSourceLogConfigurationLevelPtrType = reflect.TypeOf((**EventSourceLogConfigurationLevel)(nil)).Elem()
+
+type EventSourceLogConfigurationLevelPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceLogConfigurationLevelPtrOutput() EventSourceLogConfigurationLevelPtrOutput
+	ToEventSourceLogConfigurationLevelPtrOutputWithContext(context.Context) EventSourceLogConfigurationLevelPtrOutput
+}
+
+type eventSourceLogConfigurationLevelPtr string
+
+func EventSourceLogConfigurationLevelPtr(v string) EventSourceLogConfigurationLevelPtrInput {
+	return (*eventSourceLogConfigurationLevelPtr)(&v)
+}
+
+func (*eventSourceLogConfigurationLevelPtr) ElementType() reflect.Type {
+	return eventSourceLogConfigurationLevelPtrType
+}
+
+func (in *eventSourceLogConfigurationLevelPtr) ToEventSourceLogConfigurationLevelPtrOutput() EventSourceLogConfigurationLevelPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceLogConfigurationLevelPtrOutput)
+}
+
+func (in *eventSourceLogConfigurationLevelPtr) ToEventSourceLogConfigurationLevelPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceLogConfigurationLevelPtrOutput)
+}
+
 // The lifecycle state of the event source: CREATING, ACTIVE, UPDATING, CREATE_FAILED, UPDATE_FAILED, DELETING, or DELETE_FAILED. Revocation by the event bus owner is reported by the Revoked property, not by the state.
 type EventSourceStateEnum string
 
@@ -200,6 +534,852 @@ func (o EventSourceStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// How EventBridge detects duplicate events.
+//
+// Valid values:
+// - CONTENT_BASED - Detects duplicates by a hash of the event content.
+type EventSourceWebhookDeduplicationConfigurationDeduplicationType string
+
+const (
+	EventSourceWebhookDeduplicationConfigurationDeduplicationTypeContentBased = EventSourceWebhookDeduplicationConfigurationDeduplicationType("CONTENT_BASED")
+)
+
+func (EventSourceWebhookDeduplicationConfigurationDeduplicationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookDeduplicationConfigurationDeduplicationType)(nil)).Elem()
+}
+
+func (e EventSourceWebhookDeduplicationConfigurationDeduplicationType) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput() EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput {
+	return pulumi.ToOutput(e).(EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput)
+}
+
+func (e EventSourceWebhookDeduplicationConfigurationDeduplicationType) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput)
+}
+
+func (e EventSourceWebhookDeduplicationConfigurationDeduplicationType) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput() EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return e.ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookDeduplicationConfigurationDeduplicationType) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return EventSourceWebhookDeduplicationConfigurationDeduplicationType(e).ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutputWithContext(ctx).ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutputWithContext(ctx)
+}
+
+func (e EventSourceWebhookDeduplicationConfigurationDeduplicationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookDeduplicationConfigurationDeduplicationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookDeduplicationConfigurationDeduplicationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookDeduplicationConfigurationDeduplicationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookDeduplicationConfigurationDeduplicationType)(nil)).Elem()
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput() EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput {
+	return o
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput {
+	return o
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput() EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return o.ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookDeduplicationConfigurationDeduplicationType) *EventSourceWebhookDeduplicationConfigurationDeduplicationType {
+		return &v
+	}).(EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput)
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookDeduplicationConfigurationDeduplicationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookDeduplicationConfigurationDeduplicationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookDeduplicationConfigurationDeduplicationType)(nil)).Elem()
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput() EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput) Elem() EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput {
+	return o.ApplyT(func(v *EventSourceWebhookDeduplicationConfigurationDeduplicationType) EventSourceWebhookDeduplicationConfigurationDeduplicationType {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookDeduplicationConfigurationDeduplicationType
+		return ret
+	}).(EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput)
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceWebhookDeduplicationConfigurationDeduplicationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceWebhookDeduplicationConfigurationDeduplicationTypeInput is an input type that accepts values of the EventSourceWebhookDeduplicationConfigurationDeduplicationType enum
+// A concrete instance of `EventSourceWebhookDeduplicationConfigurationDeduplicationTypeInput` can be one of the following:
+//
+//	EventSourceWebhookDeduplicationConfigurationDeduplicationTypeContentBased
+type EventSourceWebhookDeduplicationConfigurationDeduplicationTypeInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput() EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput
+	ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutputWithContext(context.Context) EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput
+}
+
+var eventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrType = reflect.TypeOf((**EventSourceWebhookDeduplicationConfigurationDeduplicationType)(nil)).Elem()
+
+type EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput() EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput
+	ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutputWithContext(context.Context) EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput
+}
+
+type eventSourceWebhookDeduplicationConfigurationDeduplicationTypePtr string
+
+func EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtr(v string) EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrInput {
+	return (*eventSourceWebhookDeduplicationConfigurationDeduplicationTypePtr)(&v)
+}
+
+func (*eventSourceWebhookDeduplicationConfigurationDeduplicationTypePtr) ElementType() reflect.Type {
+	return eventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrType
+}
+
+func (in *eventSourceWebhookDeduplicationConfigurationDeduplicationTypePtr) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput() EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return pulumi.ToOutput(in).(EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput)
+}
+
+func (in *eventSourceWebhookDeduplicationConfigurationDeduplicationTypePtr) ToEventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput)
+}
+
+// The hash algorithm the provider uses to compute the signature.
+//
+// Valid values:
+// - SHA256 - SHA-256.
+// - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+type EventSourceWebhookHmacAuthConfigurationAlgorithm string
+
+const (
+	EventSourceWebhookHmacAuthConfigurationAlgorithmSha256 = EventSourceWebhookHmacAuthConfigurationAlgorithm("SHA256")
+	EventSourceWebhookHmacAuthConfigurationAlgorithmSha1   = EventSourceWebhookHmacAuthConfigurationAlgorithm("SHA1")
+)
+
+func (EventSourceWebhookHmacAuthConfigurationAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationAlgorithm)(nil)).Elem()
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationAlgorithm) ToEventSourceWebhookHmacAuthConfigurationAlgorithmOutput() EventSourceWebhookHmacAuthConfigurationAlgorithmOutput {
+	return pulumi.ToOutput(e).(EventSourceWebhookHmacAuthConfigurationAlgorithmOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationAlgorithm) ToEventSourceWebhookHmacAuthConfigurationAlgorithmOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceWebhookHmacAuthConfigurationAlgorithmOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationAlgorithm) ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput() EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return e.ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationAlgorithm) ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return EventSourceWebhookHmacAuthConfigurationAlgorithm(e).ToEventSourceWebhookHmacAuthConfigurationAlgorithmOutputWithContext(ctx).ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceWebhookHmacAuthConfigurationAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationAlgorithm)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ToEventSourceWebhookHmacAuthConfigurationAlgorithmOutput() EventSourceWebhookHmacAuthConfigurationAlgorithmOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ToEventSourceWebhookHmacAuthConfigurationAlgorithmOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationAlgorithmOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput() EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return o.ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookHmacAuthConfigurationAlgorithm) *EventSourceWebhookHmacAuthConfigurationAlgorithm {
+		return &v
+	}).(EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookHmacAuthConfigurationAlgorithm) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookHmacAuthConfigurationAlgorithm) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookHmacAuthConfigurationAlgorithm)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput) ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput() EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput) ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput) Elem() EventSourceWebhookHmacAuthConfigurationAlgorithmOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfigurationAlgorithm) EventSourceWebhookHmacAuthConfigurationAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookHmacAuthConfigurationAlgorithm
+		return ret
+	}).(EventSourceWebhookHmacAuthConfigurationAlgorithmOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceWebhookHmacAuthConfigurationAlgorithm) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceWebhookHmacAuthConfigurationAlgorithmInput is an input type that accepts values of the EventSourceWebhookHmacAuthConfigurationAlgorithm enum
+// A concrete instance of `EventSourceWebhookHmacAuthConfigurationAlgorithmInput` can be one of the following:
+//
+//	EventSourceWebhookHmacAuthConfigurationAlgorithmSha256
+//	EventSourceWebhookHmacAuthConfigurationAlgorithmSha1
+type EventSourceWebhookHmacAuthConfigurationAlgorithmInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationAlgorithmOutput() EventSourceWebhookHmacAuthConfigurationAlgorithmOutput
+	ToEventSourceWebhookHmacAuthConfigurationAlgorithmOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationAlgorithmOutput
+}
+
+var eventSourceWebhookHmacAuthConfigurationAlgorithmPtrType = reflect.TypeOf((**EventSourceWebhookHmacAuthConfigurationAlgorithm)(nil)).Elem()
+
+type EventSourceWebhookHmacAuthConfigurationAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput() EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput
+	ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput
+}
+
+type eventSourceWebhookHmacAuthConfigurationAlgorithmPtr string
+
+func EventSourceWebhookHmacAuthConfigurationAlgorithmPtr(v string) EventSourceWebhookHmacAuthConfigurationAlgorithmPtrInput {
+	return (*eventSourceWebhookHmacAuthConfigurationAlgorithmPtr)(&v)
+}
+
+func (*eventSourceWebhookHmacAuthConfigurationAlgorithmPtr) ElementType() reflect.Type {
+	return eventSourceWebhookHmacAuthConfigurationAlgorithmPtrType
+}
+
+func (in *eventSourceWebhookHmacAuthConfigurationAlgorithmPtr) ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput() EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput)
+}
+
+func (in *eventSourceWebhookHmacAuthConfigurationAlgorithmPtr) ToEventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput)
+}
+
+// How the provider encodes the signature in the header.
+//
+// Valid values:
+// - HEX - Hexadecimal.
+// - BASE64 - Base64.
+type EventSourceWebhookHmacAuthConfigurationEncoding string
+
+const (
+	EventSourceWebhookHmacAuthConfigurationEncodingHex    = EventSourceWebhookHmacAuthConfigurationEncoding("HEX")
+	EventSourceWebhookHmacAuthConfigurationEncodingBase64 = EventSourceWebhookHmacAuthConfigurationEncoding("BASE64")
+)
+
+func (EventSourceWebhookHmacAuthConfigurationEncoding) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationEncoding)(nil)).Elem()
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationEncoding) ToEventSourceWebhookHmacAuthConfigurationEncodingOutput() EventSourceWebhookHmacAuthConfigurationEncodingOutput {
+	return pulumi.ToOutput(e).(EventSourceWebhookHmacAuthConfigurationEncodingOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationEncoding) ToEventSourceWebhookHmacAuthConfigurationEncodingOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationEncodingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceWebhookHmacAuthConfigurationEncodingOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationEncoding) ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return e.ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationEncoding) ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return EventSourceWebhookHmacAuthConfigurationEncoding(e).ToEventSourceWebhookHmacAuthConfigurationEncodingOutputWithContext(ctx).ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationEncoding) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationEncoding) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationEncoding) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationEncoding) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceWebhookHmacAuthConfigurationEncodingOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationEncodingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationEncoding)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingOutput) ToEventSourceWebhookHmacAuthConfigurationEncodingOutput() EventSourceWebhookHmacAuthConfigurationEncodingOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingOutput) ToEventSourceWebhookHmacAuthConfigurationEncodingOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationEncodingOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingOutput) ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return o.ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingOutput) ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookHmacAuthConfigurationEncoding) *EventSourceWebhookHmacAuthConfigurationEncoding {
+		return &v
+	}).(EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookHmacAuthConfigurationEncoding) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookHmacAuthConfigurationEncoding) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookHmacAuthConfigurationEncoding)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput) ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput) ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput) Elem() EventSourceWebhookHmacAuthConfigurationEncodingOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfigurationEncoding) EventSourceWebhookHmacAuthConfigurationEncoding {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookHmacAuthConfigurationEncoding
+		return ret
+	}).(EventSourceWebhookHmacAuthConfigurationEncodingOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceWebhookHmacAuthConfigurationEncoding) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceWebhookHmacAuthConfigurationEncodingInput is an input type that accepts values of the EventSourceWebhookHmacAuthConfigurationEncoding enum
+// A concrete instance of `EventSourceWebhookHmacAuthConfigurationEncodingInput` can be one of the following:
+//
+//	EventSourceWebhookHmacAuthConfigurationEncodingHex
+//	EventSourceWebhookHmacAuthConfigurationEncodingBase64
+type EventSourceWebhookHmacAuthConfigurationEncodingInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationEncodingOutput() EventSourceWebhookHmacAuthConfigurationEncodingOutput
+	ToEventSourceWebhookHmacAuthConfigurationEncodingOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationEncodingOutput
+}
+
+var eventSourceWebhookHmacAuthConfigurationEncodingPtrType = reflect.TypeOf((**EventSourceWebhookHmacAuthConfigurationEncoding)(nil)).Elem()
+
+type EventSourceWebhookHmacAuthConfigurationEncodingPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput
+	ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput
+}
+
+type eventSourceWebhookHmacAuthConfigurationEncodingPtr string
+
+func EventSourceWebhookHmacAuthConfigurationEncodingPtr(v string) EventSourceWebhookHmacAuthConfigurationEncodingPtrInput {
+	return (*eventSourceWebhookHmacAuthConfigurationEncodingPtr)(&v)
+}
+
+func (*eventSourceWebhookHmacAuthConfigurationEncodingPtr) ElementType() reflect.Type {
+	return eventSourceWebhookHmacAuthConfigurationEncodingPtrType
+}
+
+func (in *eventSourceWebhookHmacAuthConfigurationEncodingPtr) ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput)
+}
+
+func (in *eventSourceWebhookHmacAuthConfigurationEncodingPtr) ToEventSourceWebhookHmacAuthConfigurationEncodingPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput)
+}
+
+// How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+type EventSourceWebhookHmacAuthConfigurationSecretEncoding string
+
+const (
+	EventSourceWebhookHmacAuthConfigurationSecretEncodingRaw    = EventSourceWebhookHmacAuthConfigurationSecretEncoding("RAW")
+	EventSourceWebhookHmacAuthConfigurationSecretEncodingBase64 = EventSourceWebhookHmacAuthConfigurationSecretEncoding("BASE64")
+)
+
+func (EventSourceWebhookHmacAuthConfigurationSecretEncoding) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationSecretEncoding)(nil)).Elem()
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSecretEncoding) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingOutput() EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput {
+	return pulumi.ToOutput(e).(EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSecretEncoding) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSecretEncoding) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return e.ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSecretEncoding) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return EventSourceWebhookHmacAuthConfigurationSecretEncoding(e).ToEventSourceWebhookHmacAuthConfigurationSecretEncodingOutputWithContext(ctx).ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSecretEncoding) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSecretEncoding) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSecretEncoding) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSecretEncoding) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationSecretEncoding)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingOutput() EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return o.ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookHmacAuthConfigurationSecretEncoding) *EventSourceWebhookHmacAuthConfigurationSecretEncoding {
+		return &v
+	}).(EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookHmacAuthConfigurationSecretEncoding) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookHmacAuthConfigurationSecretEncoding) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookHmacAuthConfigurationSecretEncoding)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput) Elem() EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfigurationSecretEncoding) EventSourceWebhookHmacAuthConfigurationSecretEncoding {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookHmacAuthConfigurationSecretEncoding
+		return ret
+	}).(EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceWebhookHmacAuthConfigurationSecretEncoding) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceWebhookHmacAuthConfigurationSecretEncodingInput is an input type that accepts values of the EventSourceWebhookHmacAuthConfigurationSecretEncoding enum
+// A concrete instance of `EventSourceWebhookHmacAuthConfigurationSecretEncodingInput` can be one of the following:
+//
+//	EventSourceWebhookHmacAuthConfigurationSecretEncodingRaw
+//	EventSourceWebhookHmacAuthConfigurationSecretEncodingBase64
+type EventSourceWebhookHmacAuthConfigurationSecretEncodingInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationSecretEncodingOutput() EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput
+	ToEventSourceWebhookHmacAuthConfigurationSecretEncodingOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput
+}
+
+var eventSourceWebhookHmacAuthConfigurationSecretEncodingPtrType = reflect.TypeOf((**EventSourceWebhookHmacAuthConfigurationSecretEncoding)(nil)).Elem()
+
+type EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput
+	ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput
+}
+
+type eventSourceWebhookHmacAuthConfigurationSecretEncodingPtr string
+
+func EventSourceWebhookHmacAuthConfigurationSecretEncodingPtr(v string) EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrInput {
+	return (*eventSourceWebhookHmacAuthConfigurationSecretEncodingPtr)(&v)
+}
+
+func (*eventSourceWebhookHmacAuthConfigurationSecretEncodingPtr) ElementType() reflect.Type {
+	return eventSourceWebhookHmacAuthConfigurationSecretEncodingPtrType
+}
+
+func (in *eventSourceWebhookHmacAuthConfigurationSecretEncodingPtr) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput() EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput)
+}
+
+func (in *eventSourceWebhookHmacAuthConfigurationSecretEncodingPtr) ToEventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput)
+}
+
+// How the provider assembles the message it signs from the request.
+//
+// Valid values:
+// - BODY - The request body alone.
+// - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+// - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+type EventSourceWebhookHmacAuthConfigurationSignedMessageComposition string
+
+const (
+	EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionBody                         = EventSourceWebhookHmacAuthConfigurationSignedMessageComposition("BODY")
+	EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionTimestampDotBody             = EventSourceWebhookHmacAuthConfigurationSignedMessageComposition("TIMESTAMP_DOT_BODY")
+	EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionMessageIdDotTimestampDotBody = EventSourceWebhookHmacAuthConfigurationSignedMessageComposition("MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY")
+)
+
+func (EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationSignedMessageComposition)(nil)).Elem()
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput {
+	return pulumi.ToOutput(e).(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return e.ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return EventSourceWebhookHmacAuthConfigurationSignedMessageComposition(e).ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutputWithContext(ctx).ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationSignedMessageComposition)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return o.ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) *EventSourceWebhookHmacAuthConfigurationSignedMessageComposition {
+		return &v
+	}).(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookHmacAuthConfigurationSignedMessageComposition)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput) Elem() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) EventSourceWebhookHmacAuthConfigurationSignedMessageComposition {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookHmacAuthConfigurationSignedMessageComposition
+		return ret
+	}).(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput)
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceWebhookHmacAuthConfigurationSignedMessageComposition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionInput is an input type that accepts values of the EventSourceWebhookHmacAuthConfigurationSignedMessageComposition enum
+// A concrete instance of `EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionInput` can be one of the following:
+//
+//	EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionBody
+//	EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionTimestampDotBody
+//	EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionMessageIdDotTimestampDotBody
+type EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput
+	ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput
+}
+
+var eventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrType = reflect.TypeOf((**EventSourceWebhookHmacAuthConfigurationSignedMessageComposition)(nil)).Elem()
+
+type EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput
+	ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput
+}
+
+type eventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtr string
+
+func EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtr(v string) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrInput {
+	return (*eventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtr)(&v)
+}
+
+func (*eventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtr) ElementType() reflect.Type {
+	return eventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrType
+}
+
+func (in *eventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtr) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput)
+}
+
+func (in *eventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtr) ToEventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput)
 }
 
 // How duplicate events are detected: CONTENT_BASED deduplicates by a hash of the event content. To deduplicate by a caller-supplied token instead, omit DeduplicationConfiguration and set SystemMetadata.DeduplicationId.
@@ -696,6 +1876,510 @@ func (in *subscriberFilterScopePtr) ToSubscriberFilterScopePtrOutput() Subscribe
 
 func (in *subscriberFilterScopePtr) ToSubscriberFilterScopePtrOutputWithContext(ctx context.Context) SubscriberFilterScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SubscriberFilterScopePtrOutput)
+}
+
+// Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+type SubscriberInvokeConfigurationMskParametersPropertiesAcks string
+
+const (
+	SubscriberInvokeConfigurationMskParametersPropertiesAcksAll    = SubscriberInvokeConfigurationMskParametersPropertiesAcks("ALL")
+	SubscriberInvokeConfigurationMskParametersPropertiesAcksLeader = SubscriberInvokeConfigurationMskParametersPropertiesAcks("LEADER")
+)
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesAcks) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesAcks)(nil)).Elem()
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesAcks) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksOutput() SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput {
+	return pulumi.ToOutput(e).(SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesAcks) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesAcks) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return e.ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesAcks) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return SubscriberInvokeConfigurationMskParametersPropertiesAcks(e).ToSubscriberInvokeConfigurationMskParametersPropertiesAcksOutputWithContext(ctx).ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutputWithContext(ctx)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesAcks) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesAcks) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesAcks) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesAcks) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput struct{ *pulumi.OutputState }
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesAcks)(nil)).Elem()
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksOutput() SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return o.ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationMskParametersPropertiesAcks) *SubscriberInvokeConfigurationMskParametersPropertiesAcks {
+		return &v
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriberInvokeConfigurationMskParametersPropertiesAcks) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriberInvokeConfigurationMskParametersPropertiesAcks) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationMskParametersPropertiesAcks)(nil)).Elem()
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput) Elem() SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersPropertiesAcks) SubscriberInvokeConfigurationMskParametersPropertiesAcks {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberInvokeConfigurationMskParametersPropertiesAcks
+		return ret
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SubscriberInvokeConfigurationMskParametersPropertiesAcks) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SubscriberInvokeConfigurationMskParametersPropertiesAcksInput is an input type that accepts values of the SubscriberInvokeConfigurationMskParametersPropertiesAcks enum
+// A concrete instance of `SubscriberInvokeConfigurationMskParametersPropertiesAcksInput` can be one of the following:
+//
+//	SubscriberInvokeConfigurationMskParametersPropertiesAcksAll
+//	SubscriberInvokeConfigurationMskParametersPropertiesAcksLeader
+type SubscriberInvokeConfigurationMskParametersPropertiesAcksInput interface {
+	pulumi.Input
+
+	ToSubscriberInvokeConfigurationMskParametersPropertiesAcksOutput() SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput
+	ToSubscriberInvokeConfigurationMskParametersPropertiesAcksOutputWithContext(context.Context) SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput
+}
+
+var subscriberInvokeConfigurationMskParametersPropertiesAcksPtrType = reflect.TypeOf((**SubscriberInvokeConfigurationMskParametersPropertiesAcks)(nil)).Elem()
+
+type SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrInput interface {
+	pulumi.Input
+
+	ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput
+	ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput
+}
+
+type subscriberInvokeConfigurationMskParametersPropertiesAcksPtr string
+
+func SubscriberInvokeConfigurationMskParametersPropertiesAcksPtr(v string) SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrInput {
+	return (*subscriberInvokeConfigurationMskParametersPropertiesAcksPtr)(&v)
+}
+
+func (*subscriberInvokeConfigurationMskParametersPropertiesAcksPtr) ElementType() reflect.Type {
+	return subscriberInvokeConfigurationMskParametersPropertiesAcksPtrType
+}
+
+func (in *subscriberInvokeConfigurationMskParametersPropertiesAcksPtr) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return pulumi.ToOutput(in).(SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput)
+}
+
+func (in *subscriberInvokeConfigurationMskParametersPropertiesAcksPtr) ToSubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput)
+}
+
+// Producer compression codec applied to the record batch. Defaults to NONE.
+type SubscriberInvokeConfigurationMskParametersPropertiesCompression string
+
+const (
+	SubscriberInvokeConfigurationMskParametersPropertiesCompressionNone   = SubscriberInvokeConfigurationMskParametersPropertiesCompression("NONE")
+	SubscriberInvokeConfigurationMskParametersPropertiesCompressionGzip   = SubscriberInvokeConfigurationMskParametersPropertiesCompression("GZIP")
+	SubscriberInvokeConfigurationMskParametersPropertiesCompressionSnappy = SubscriberInvokeConfigurationMskParametersPropertiesCompression("SNAPPY")
+	SubscriberInvokeConfigurationMskParametersPropertiesCompressionLz4    = SubscriberInvokeConfigurationMskParametersPropertiesCompression("LZ4")
+	SubscriberInvokeConfigurationMskParametersPropertiesCompressionZstd   = SubscriberInvokeConfigurationMskParametersPropertiesCompression("ZSTD")
+)
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesCompression) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesCompression)(nil)).Elem()
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesCompression) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput() SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput {
+	return pulumi.ToOutput(e).(SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesCompression) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesCompression) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return e.ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesCompression) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return SubscriberInvokeConfigurationMskParametersPropertiesCompression(e).ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionOutputWithContext(ctx).ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutputWithContext(ctx)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesCompression) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesCompression) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesCompression) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesCompression) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput struct{ *pulumi.OutputState }
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesCompression)(nil)).Elem()
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput() SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return o.ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationMskParametersPropertiesCompression) *SubscriberInvokeConfigurationMskParametersPropertiesCompression {
+		return &v
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriberInvokeConfigurationMskParametersPropertiesCompression) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriberInvokeConfigurationMskParametersPropertiesCompression) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationMskParametersPropertiesCompression)(nil)).Elem()
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput) Elem() SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersPropertiesCompression) SubscriberInvokeConfigurationMskParametersPropertiesCompression {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberInvokeConfigurationMskParametersPropertiesCompression
+		return ret
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SubscriberInvokeConfigurationMskParametersPropertiesCompression) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SubscriberInvokeConfigurationMskParametersPropertiesCompressionInput is an input type that accepts values of the SubscriberInvokeConfigurationMskParametersPropertiesCompression enum
+// A concrete instance of `SubscriberInvokeConfigurationMskParametersPropertiesCompressionInput` can be one of the following:
+//
+//	SubscriberInvokeConfigurationMskParametersPropertiesCompressionNone
+//	SubscriberInvokeConfigurationMskParametersPropertiesCompressionGzip
+//	SubscriberInvokeConfigurationMskParametersPropertiesCompressionSnappy
+//	SubscriberInvokeConfigurationMskParametersPropertiesCompressionLz4
+//	SubscriberInvokeConfigurationMskParametersPropertiesCompressionZstd
+type SubscriberInvokeConfigurationMskParametersPropertiesCompressionInput interface {
+	pulumi.Input
+
+	ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput() SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput
+	ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionOutputWithContext(context.Context) SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput
+}
+
+var subscriberInvokeConfigurationMskParametersPropertiesCompressionPtrType = reflect.TypeOf((**SubscriberInvokeConfigurationMskParametersPropertiesCompression)(nil)).Elem()
+
+type SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrInput interface {
+	pulumi.Input
+
+	ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput
+	ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput
+}
+
+type subscriberInvokeConfigurationMskParametersPropertiesCompressionPtr string
+
+func SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtr(v string) SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrInput {
+	return (*subscriberInvokeConfigurationMskParametersPropertiesCompressionPtr)(&v)
+}
+
+func (*subscriberInvokeConfigurationMskParametersPropertiesCompressionPtr) ElementType() reflect.Type {
+	return subscriberInvokeConfigurationMskParametersPropertiesCompressionPtrType
+}
+
+func (in *subscriberInvokeConfigurationMskParametersPropertiesCompressionPtr) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return pulumi.ToOutput(in).(SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput)
+}
+
+func (in *subscriberInvokeConfigurationMskParametersPropertiesCompressionPtr) ToSubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput)
+}
+
+// Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+type SubscriberInvokeConfigurationMskParametersPropertiesConnectivity string
+
+const (
+	SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPublic  = SubscriberInvokeConfigurationMskParametersPropertiesConnectivity("PUBLIC")
+	SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPrivate = SubscriberInvokeConfigurationMskParametersPropertiesConnectivity("PRIVATE")
+)
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesConnectivity)(nil)).Elem()
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput {
+	return pulumi.ToOutput(e).(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return e.ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return SubscriberInvokeConfigurationMskParametersPropertiesConnectivity(e).ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutputWithContext(ctx).ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutputWithContext(ctx)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput struct{ *pulumi.OutputState }
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesConnectivity)(nil)).Elem()
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return o.ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) *SubscriberInvokeConfigurationMskParametersPropertiesConnectivity {
+		return &v
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationMskParametersPropertiesConnectivity)(nil)).Elem()
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput) Elem() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) SubscriberInvokeConfigurationMskParametersPropertiesConnectivity {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberInvokeConfigurationMskParametersPropertiesConnectivity
+		return ret
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput)
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SubscriberInvokeConfigurationMskParametersPropertiesConnectivity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SubscriberInvokeConfigurationMskParametersPropertiesConnectivityInput is an input type that accepts values of the SubscriberInvokeConfigurationMskParametersPropertiesConnectivity enum
+// A concrete instance of `SubscriberInvokeConfigurationMskParametersPropertiesConnectivityInput` can be one of the following:
+//
+//	SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPublic
+//	SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPrivate
+type SubscriberInvokeConfigurationMskParametersPropertiesConnectivityInput interface {
+	pulumi.Input
+
+	ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput
+	ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutputWithContext(context.Context) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput
+}
+
+var subscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrType = reflect.TypeOf((**SubscriberInvokeConfigurationMskParametersPropertiesConnectivity)(nil)).Elem()
+
+type SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrInput interface {
+	pulumi.Input
+
+	ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput
+	ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput
+}
+
+type subscriberInvokeConfigurationMskParametersPropertiesConnectivityPtr string
+
+func SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtr(v string) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrInput {
+	return (*subscriberInvokeConfigurationMskParametersPropertiesConnectivityPtr)(&v)
+}
+
+func (*subscriberInvokeConfigurationMskParametersPropertiesConnectivityPtr) ElementType() reflect.Type {
+	return subscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrType
+}
+
+func (in *subscriberInvokeConfigurationMskParametersPropertiesConnectivityPtr) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return pulumi.ToOutput(in).(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput)
+}
+
+func (in *subscriberInvokeConfigurationMskParametersPropertiesConnectivityPtr) ToSubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput)
 }
 
 // Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
@@ -2195,12 +3879,32 @@ func (in *subscriberTypePtr) ToSubscriberTypePtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceLogConfigurationIncludePayloadInput)(nil)).Elem(), EventSourceLogConfigurationIncludePayload("FULL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceLogConfigurationIncludePayloadPtrInput)(nil)).Elem(), EventSourceLogConfigurationIncludePayload("FULL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceLogConfigurationLevelInput)(nil)).Elem(), EventSourceLogConfigurationLevel("OFF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceLogConfigurationLevelPtrInput)(nil)).Elem(), EventSourceLogConfigurationLevel("OFF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookDeduplicationConfigurationDeduplicationTypeInput)(nil)).Elem(), EventSourceWebhookDeduplicationConfigurationDeduplicationType("CONTENT_BASED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrInput)(nil)).Elem(), EventSourceWebhookDeduplicationConfigurationDeduplicationType("CONTENT_BASED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationAlgorithmInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationAlgorithm("SHA256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationAlgorithmPtrInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationAlgorithm("SHA256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationEncodingInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationEncoding("HEX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationEncodingPtrInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationEncoding("HEX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationSecretEncodingInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationSecretEncoding("RAW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationSecretEncoding("RAW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationSignedMessageComposition("BODY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationSignedMessageComposition("BODY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberDeduplicationConfigurationDeduplicationTypeInput)(nil)).Elem(), SubscriberDeduplicationConfigurationDeduplicationType("CONTENT_BASED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberDeduplicationConfigurationDeduplicationTypePtrInput)(nil)).Elem(), SubscriberDeduplicationConfigurationDeduplicationType("CONTENT_BASED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberFilterConfigurationLanguageInput)(nil)).Elem(), SubscriberFilterConfigurationLanguage("EVENT_BRIDGE_PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberFilterConfigurationLanguagePtrInput)(nil)).Elem(), SubscriberFilterConfigurationLanguage("EVENT_BRIDGE_PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberFilterScopeInput)(nil)).Elem(), SubscriberFilterScope("DATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberFilterScopePtrInput)(nil)).Elem(), SubscriberFilterScope("DATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesAcksInput)(nil)).Elem(), SubscriberInvokeConfigurationMskParametersPropertiesAcks("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationMskParametersPropertiesAcks("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesCompressionInput)(nil)).Elem(), SubscriberInvokeConfigurationMskParametersPropertiesCompression("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationMskParametersPropertiesCompression("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesConnectivityInput)(nil)).Elem(), SubscriberInvokeConfigurationMskParametersPropertiesConnectivity("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationMskParametersPropertiesConnectivity("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberLogConfigurationIncludePayloadInput)(nil)).Elem(), SubscriberLogConfigurationIncludePayload("FULL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberLogConfigurationIncludePayloadPtrInput)(nil)).Elem(), SubscriberLogConfigurationIncludePayload("FULL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberLogConfigurationLevelInput)(nil)).Elem(), SubscriberLogConfigurationLevel("OFF"))
@@ -2221,14 +3925,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberTypePtrInput)(nil)).Elem(), SubscriberType("FIFO"))
 	pulumi.RegisterOutputType(EventBusStateEnumOutput{})
 	pulumi.RegisterOutputType(EventBusStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceLogConfigurationIncludePayloadOutput{})
+	pulumi.RegisterOutputType(EventSourceLogConfigurationIncludePayloadPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceLogConfigurationLevelOutput{})
+	pulumi.RegisterOutputType(EventSourceLogConfigurationLevelPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceStateEnumOutput{})
 	pulumi.RegisterOutputType(EventSourceStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationAlgorithmOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationEncodingOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationSecretEncodingOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberDeduplicationConfigurationDeduplicationTypeOutput{})
 	pulumi.RegisterOutputType(SubscriberDeduplicationConfigurationDeduplicationTypePtrOutput{})
 	pulumi.RegisterOutputType(SubscriberFilterConfigurationLanguageOutput{})
 	pulumi.RegisterOutputType(SubscriberFilterConfigurationLanguagePtrOutput{})
 	pulumi.RegisterOutputType(SubscriberFilterScopeOutput{})
 	pulumi.RegisterOutputType(SubscriberFilterScopePtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationMskParametersPropertiesAcksOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationMskParametersPropertiesCompressionOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberLogConfigurationIncludePayloadOutput{})
 	pulumi.RegisterOutputType(SubscriberLogConfigurationIncludePayloadPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberLogConfigurationLevelOutput{})

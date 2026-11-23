@@ -58,6 +58,8 @@ __all__ = [
     'UserPoolCustomEmailSenderArgsDict',
     'UserPoolCustomSmsSenderArgs',
     'UserPoolCustomSmsSenderArgsDict',
+    'UserPoolDcrConfigurationArgs',
+    'UserPoolDcrConfigurationArgsDict',
     'UserPoolDeviceConfigurationArgs',
     'UserPoolDeviceConfigurationArgsDict',
     'UserPoolDomainCustomDomainConfigTypeArgs',
@@ -1236,6 +1238,78 @@ class UserPoolCustomSmsSenderArgs:
     @lambda_version.setter
     def lambda_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_version", value)
+
+
+class UserPoolDcrConfigurationArgsDict(TypedDict):
+    allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    authenticated_grant_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    enable_status: NotRequired[pulumi.Input[Optional['UserPoolDcrConfigurationEnableStatus']]]
+    open_dcr_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    open_dcr_grant_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class UserPoolDcrConfigurationArgs:
+    def __init__(__self__, *,
+                 allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authenticated_grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_status: pulumi.Input[Optional['UserPoolDcrConfigurationEnableStatus']] = None,
+                 open_dcr_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 open_dcr_grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if authenticated_grant_types is not None:
+            pulumi.set(__self__, "authenticated_grant_types", authenticated_grant_types)
+        if enable_status is not None:
+            pulumi.set(__self__, "enable_status", enable_status)
+        if open_dcr_enabled is not None:
+            pulumi.set(__self__, "open_dcr_enabled", open_dcr_enabled)
+        if open_dcr_grant_types is not None:
+            pulumi.set(__self__, "open_dcr_grant_types", open_dcr_grant_types)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @allowed_scopes.setter
+    def allowed_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticatedGrantTypes")
+    def authenticated_grant_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "authenticated_grant_types")
+
+    @authenticated_grant_types.setter
+    def authenticated_grant_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "authenticated_grant_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableStatus")
+    def enable_status(self) -> pulumi.Input[Optional['UserPoolDcrConfigurationEnableStatus']]:
+        return pulumi.get(self, "enable_status")
+
+    @enable_status.setter
+    def enable_status(self, value: pulumi.Input[Optional['UserPoolDcrConfigurationEnableStatus']]):
+        pulumi.set(self, "enable_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="openDcrEnabled")
+    def open_dcr_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "open_dcr_enabled")
+
+    @open_dcr_enabled.setter
+    def open_dcr_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "open_dcr_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="openDcrGrantTypes")
+    def open_dcr_grant_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "open_dcr_grant_types")
+
+    @open_dcr_grant_types.setter
+    def open_dcr_grant_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "open_dcr_grant_types", value)
 
 
 class UserPoolDeviceConfigurationArgsDict(TypedDict):

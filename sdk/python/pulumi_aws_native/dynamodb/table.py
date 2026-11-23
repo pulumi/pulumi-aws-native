@@ -65,7 +65,7 @@ class TableArgs:
                 If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
                 Updates are not supported. The following are exceptions:
                  +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
-                 +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
+                 +  You can create or delete one index without interruption. This index can be a global secondary index or a vector index, but not one of each. If you change more than one index in the same update, the update fails.
         :param pulumi.Input['TableImportSourceSpecificationArgs'] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the" table.
                  If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         :param pulumi.Input['TableKinesisStreamSpecificationArgs'] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
@@ -87,6 +87,9 @@ class TableArgs:
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         :param pulumi.Input['TableTimeToLiveSpecificationArgs'] time_to_live_specification: Specifies the Time to Live (TTL) settings for the table.
                  For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input['TableVectorIndexArgs']]] vector_indexes: The vector indexes to create on the table. Each vector index enables similarity search on a vector attribute.
+                 Vector indexes are supported only on tables that use on-demand capacity mode. To use vector indexes, you must set ``BillingMode`` to ``PAY_PER_REQUEST``.
+                In a single stack operation, you can create or delete one index. This index can be a global secondary index or a vector index, but not one of each. To change more indexes, use a separate stack operation for each.
         :param pulumi.Input['TableWarmThroughputArgs'] warm_throughput: Represents the warm throughput (in read units per second and write units per second) for creating a table.
         """
         pulumi.set(__self__, "key_schema", key_schema)
@@ -207,7 +210,7 @@ class TableArgs:
          If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
          Updates are not supported. The following are exceptions:
           +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
-          +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
+          +  You can create or delete one index without interruption. This index can be a global secondary index or a vector index, but not one of each. If you change more than one index in the same update, the update fails.
         """
         return pulumi.get(self, "global_secondary_indexes")
 
@@ -382,6 +385,11 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter(name="vectorIndexes")
     def vector_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableVectorIndexArgs']]]]:
+        """
+        The vector indexes to create on the table. Each vector index enables similarity search on a vector attribute.
+          Vector indexes are supported only on tables that use on-demand capacity mode. To use vector indexes, you must set ``BillingMode`` to ``PAY_PER_REQUEST``.
+         In a single stack operation, you can create or delete one index. This index can be a global secondary index or a vector index, but not one of each. To change more indexes, use a separate stack operation for each.
+        """
         return pulumi.get(self, "vector_indexes")
 
     @vector_indexes.setter
@@ -681,7 +689,7 @@ class Table(pulumi.CustomResource):
                 If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
                 Updates are not supported. The following are exceptions:
                  +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
-                 +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
+                 +  You can create or delete one index without interruption. This index can be a global secondary index or a vector index, but not one of each. If you change more than one index in the same update, the update fails.
         :param pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict', 'outputs.TableImportSourceSpecification']] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the" table.
                  If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         :param pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict', 'outputs.TableKeySchema']]], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
@@ -704,6 +712,9 @@ class Table(pulumi.CustomResource):
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         :param pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict', 'outputs.TableTimeToLiveSpecification']] time_to_live_specification: Specifies the Time to Live (TTL) settings for the table.
                  For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableVectorIndexArgs', 'TableVectorIndexArgsDict', 'outputs.TableVectorIndex']]]] vector_indexes: The vector indexes to create on the table. Each vector index enables similarity search on a vector attribute.
+                 Vector indexes are supported only on tables that use on-demand capacity mode. To use vector indexes, you must set ``BillingMode`` to ``PAY_PER_REQUEST``.
+                In a single stack operation, you can create or delete one index. This index can be a global secondary index or a vector index, but not one of each. To change more indexes, use a separate stack operation for each.
         :param pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict', 'outputs.TableWarmThroughput']] warm_throughput: Represents the warm throughput (in read units per second and write units per second) for creating a table.
         """
         ...
@@ -1127,7 +1138,7 @@ class Table(pulumi.CustomResource):
          If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
          Updates are not supported. The following are exceptions:
           +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
-          +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
+          +  You can create or delete one index without interruption. This index can be a global secondary index or a vector index, but not one of each. If you change more than one index in the same update, the update fails.
         """
         return pulumi.get(self, "global_secondary_indexes")
 
@@ -1264,6 +1275,11 @@ class Table(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vectorIndexes")
     def vector_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.TableVectorIndex']]]:
+        """
+        The vector indexes to create on the table. Each vector index enables similarity search on a vector attribute.
+          Vector indexes are supported only on tables that use on-demand capacity mode. To use vector indexes, you must set ``BillingMode`` to ``PAY_PER_REQUEST``.
+         In a single stack operation, you can create or delete one index. This index can be a global secondary index or a vector index, but not one of each. To change more indexes, use a separate stack operation for each.
+        """
         return pulumi.get(self, "vector_indexes")
 
     @_builtins.property

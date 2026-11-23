@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Route53.Inputs
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        [Input("hostedZoneTier")]
+        public Input<Pulumi.AwsNative.Route53.HostedZoneConfigHostedZoneTier>? HostedZoneTier { get; set; }
+
         public HostedZoneConfigArgs()
         {
         }

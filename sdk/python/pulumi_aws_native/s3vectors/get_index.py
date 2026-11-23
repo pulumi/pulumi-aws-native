@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetIndexResult',
@@ -24,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetIndexResult:
-    def __init__(__self__, creation_time=None, index_arn=None, tags=None):
+    def __init__(__self__, creation_time=None, index_arn=None, metadata_configuration=None, tags=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if index_arn and not isinstance(index_arn, str):
             raise TypeError("Expected argument 'index_arn' to be a str")
         pulumi.set(__self__, "index_arn", index_arn)
+        if metadata_configuration and not isinstance(metadata_configuration, dict):
+            raise TypeError("Expected argument 'metadata_configuration' to be a dict")
+        pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -56,6 +61,14 @@ class GetIndexResult:
         return pulumi.get(self, "index_arn")
 
     @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional['outputs.IndexMetadataConfiguration']:
+        """
+        The metadata configuration for the vector index.
+        """
+        return pulumi.get(self, "metadata_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -72,6 +85,7 @@ class AwaitableGetIndexResult(GetIndexResult):
         return GetIndexResult(
             creation_time=self.creation_time,
             index_arn=self.index_arn,
+            metadata_configuration=self.metadata_configuration,
             tags=self.tags)
 
 
@@ -92,6 +106,7 @@ def get_index(index_arn: Optional[_builtins.str] = None,
     return AwaitableGetIndexResult(
         creation_time=pulumi.get(__ret__, 'creation_time'),
         index_arn=pulumi.get(__ret__, 'index_arn'),
+        metadata_configuration=pulumi.get(__ret__, 'metadata_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_index_output(index_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
@@ -109,4 +124,5 @@ def get_index_output(index_arn: pulumi.Input[Optional[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetIndexResult(
         creation_time=pulumi.get(__response__, 'creation_time'),
         index_arn=pulumi.get(__response__, 'index_arn'),
+        metadata_configuration=pulumi.get(__response__, 'metadata_configuration'),
         tags=pulumi.get(__response__, 'tags')))

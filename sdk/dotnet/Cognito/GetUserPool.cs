@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.Cognito
         /// The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         /// </summary>
         public readonly ImmutableArray<string> AutoVerifiedAttributes;
+        public readonly Outputs.UserPoolDcrConfiguration? DcrConfiguration;
         /// <summary>
         /// When active, `DeletionProtection` prevents accidental deletion of your user
         /// pool. Before you can delete a user pool that you have protected against deletion, you
@@ -225,6 +226,8 @@ namespace Pulumi.AwsNative.Cognito
 
             ImmutableArray<string> autoVerifiedAttributes,
 
+            Outputs.UserPoolDcrConfiguration? dcrConfiguration,
+
             string? deletionProtection,
 
             Outputs.UserPoolDeviceConfiguration? deviceConfiguration,
@@ -290,6 +293,7 @@ namespace Pulumi.AwsNative.Cognito
             AliasAttributes = aliasAttributes;
             Arn = arn;
             AutoVerifiedAttributes = autoVerifiedAttributes;
+            DcrConfiguration = dcrConfiguration;
             DeletionProtection = deletionProtection;
             DeviceConfiguration = deviceConfiguration;
             EmailAuthenticationMessage = emailAuthenticationMessage;

@@ -157,7 +157,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "license-manager:CreateLicenseManagerReportGenerator", "license-manager:GetLicenseConfiguration", "license-manager:GetServiceSettings", "license-manager:TagResource" ]
+      "permissions" : [ "license-manager:CreateLicenseManagerReportGenerator", "license-manager:GetLicenseConfiguration", "license-manager:GetServiceSettings", "license-manager:TagResource", "license-manager:UpdateServiceSettings", "s3:CreateBucket" ]
     },
     "read" : {
       "permissions" : [ "license-manager:GetLicenseManagerReportGenerator" ]

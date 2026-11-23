@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .cimd_policy import *
+from .get_cimd_policy import *
 from .get_identity_pool import *
 from .get_identity_pool_principal_tag import *
 from .get_identity_pool_role_attachment import *

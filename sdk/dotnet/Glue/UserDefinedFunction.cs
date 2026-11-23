@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+        /// </summary>
+        [Output("artifactLocation")]
+        public Output<string?> ArtifactLocation { get; private set; } = null!;
+
+        /// <summary>
         /// The Java class that contains the function code.
         /// </summary>
         [Output("className")]
@@ -44,6 +50,12 @@ namespace Pulumi.AwsNative.Glue
         /// </summary>
         [Output("functionType")]
         public Output<Pulumi.AwsNative.Glue.UserDefinedFunctionFunctionType?> FunctionType { get; private set; } = null!;
+
+        /// <summary>
+        /// How access to the function is governed. The mode cannot be changed after creation.
+        /// </summary>
+        [Output("governanceMode")]
+        public Output<Pulumi.AwsNative.Glue.UserDefinedFunctionGovernanceMode?> GovernanceMode { get; private set; } = null!;
 
         /// <summary>
         /// The owner of the function.
@@ -91,6 +103,7 @@ namespace Pulumi.AwsNative.Glue
                     "databaseName",
                     "functionName",
                     "functionType",
+                    "governanceMode",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,6 +128,12 @@ namespace Pulumi.AwsNative.Glue
     public sealed class UserDefinedFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+        /// </summary>
+        [Input("artifactLocation")]
+        public Input<string>? ArtifactLocation { get; set; }
+
+        /// <summary>
         /// The Java class that contains the function code.
         /// </summary>
         [Input("className")]
@@ -137,6 +156,12 @@ namespace Pulumi.AwsNative.Glue
         /// </summary>
         [Input("functionType")]
         public Input<Pulumi.AwsNative.Glue.UserDefinedFunctionFunctionType>? FunctionType { get; set; }
+
+        /// <summary>
+        /// How access to the function is governed. The mode cannot be changed after creation.
+        /// </summary>
+        [Input("governanceMode")]
+        public Input<Pulumi.AwsNative.Glue.UserDefinedFunctionGovernanceMode>? GovernanceMode { get; set; }
 
         /// <summary>
         /// The owner of the function.

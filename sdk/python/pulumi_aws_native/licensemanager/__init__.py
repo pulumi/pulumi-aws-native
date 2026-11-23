@@ -12,10 +12,12 @@ from .get_license import *
 from .get_license_asset_group import *
 from .get_license_asset_rule_set import *
 from .get_license_configuration import *
+from .get_report_generator import *
 from .grant import *
 from .license import *
 from .license_asset_group import *
 from .license_asset_rule_set import *
 from .license_configuration import *
+from .report_generator import *
 from ._inputs import *
 from . import outputs

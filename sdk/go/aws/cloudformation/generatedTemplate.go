@@ -24,6 +24,8 @@ type GeneratedTemplate struct {
 	// The time the generated template was last updated.
 	LastUpdatedTime pulumi.StringOutput                     `pulumi:"lastUpdatedTime"`
 	Progress        GeneratedTemplateTemplateProgressOutput `pulumi:"progress"`
+	// The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+	StackId pulumi.StringPtrOutput `pulumi:"stackId"`
 	// The status of the template generation.
 	Status                GeneratedTemplateStatusOutput                   `pulumi:"status"`
 	TemplateConfiguration GeneratedTemplateTemplateConfigurationPtrOutput `pulumi:"templateConfiguration"`
@@ -38,6 +40,10 @@ func NewGeneratedTemplate(ctx *pulumi.Context,
 		args = &GeneratedTemplateArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"stackId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeneratedTemplate
 	err := ctx.RegisterResource("aws-native:cloudformation:GeneratedTemplate", name, args, &resource, opts...)
@@ -78,7 +84,9 @@ func GeneratedTemplateExists(ctx *pulumi.Context,
 
 type generatedTemplateArgs struct {
 	// The name assigned to the generated template.
-	GeneratedTemplateName *string                                 `pulumi:"generatedTemplateName"`
+	GeneratedTemplateName *string `pulumi:"generatedTemplateName"`
+	// The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+	StackId               *string                                 `pulumi:"stackId"`
 	TemplateConfiguration *GeneratedTemplateTemplateConfiguration `pulumi:"templateConfiguration"`
 }
 
@@ -86,6 +94,8 @@ type generatedTemplateArgs struct {
 type GeneratedTemplateArgs struct {
 	// The name assigned to the generated template.
 	GeneratedTemplateName pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+	StackId               pulumi.StringPtrInput
 	TemplateConfiguration GeneratedTemplateTemplateConfigurationPtrInput
 }
 
@@ -148,6 +158,11 @@ func (o GeneratedTemplateOutput) LastUpdatedTime() pulumi.StringOutput {
 
 func (o GeneratedTemplateOutput) Progress() GeneratedTemplateTemplateProgressOutput {
 	return o.ApplyT(func(v *GeneratedTemplate) GeneratedTemplateTemplateProgressOutput { return v.Progress }).(GeneratedTemplateTemplateProgressOutput)
+}
+
+// The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+func (o GeneratedTemplateOutput) StackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GeneratedTemplate) pulumi.StringPtrOutput { return v.StackId }).(pulumi.StringPtrOutput)
 }
 
 // The status of the template generation.

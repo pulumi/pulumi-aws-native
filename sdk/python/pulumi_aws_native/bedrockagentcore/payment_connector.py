@@ -192,6 +192,7 @@ class PaymentConnector(pulumi.CustomResource):
             __props__.__dict__["payment_manager_id"] = payment_manager_id
             __props__.__dict__["provision_mode"] = provision_mode
             __props__.__dict__["authorization_url"] = None
+            __props__.__dict__["aws_billing_iam_role_arn"] = None
             __props__.__dict__["connector_created_at"] = None
             __props__.__dict__["connector_last_updated_at"] = None
             __props__.__dict__["connector_status"] = None
@@ -222,6 +223,7 @@ class PaymentConnector(pulumi.CustomResource):
         __props__ = PaymentConnectorArgs.__new__(PaymentConnectorArgs)
 
         __props__.__dict__["authorization_url"] = None
+        __props__.__dict__["aws_billing_iam_role_arn"] = None
         __props__.__dict__["connector_created_at"] = None
         __props__.__dict__["connector_last_updated_at"] = None
         __props__.__dict__["connector_name"] = None
@@ -248,6 +250,14 @@ class PaymentConnector(pulumi.CustomResource):
         The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
         """
         return pulumi.get(self, "authorization_url")
+
+    @_builtins.property
+    @pulumi.getter(name="awsBillingIamRoleArn")
+    def aws_billing_iam_role_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.
+        """
+        return pulumi.get(self, "aws_billing_iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="connectorCreatedAt")

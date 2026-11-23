@@ -26,6 +26,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("interceptor", required: true)]
         public Input<Inputs.InterceptorConfigurationPropertiesArgs> Interceptor { get; set; } = null!;
 
+        [Input("responseInterceptionMode")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayResponseInterceptionMode>? ResponseInterceptionMode { get; set; }
+
+        [Input("responseStreamingConfiguration")]
+        public Input<Inputs.GatewayResponseStreamingConfigurationArgs>? ResponseStreamingConfiguration { get; set; }
+
         public GatewayInterceptorConfigurationArgs()
         {
         }

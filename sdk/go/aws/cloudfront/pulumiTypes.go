@@ -1179,6 +1179,139 @@ type ConnectionGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ConnectionGroupViewerFallback struct {
+	DistributionId string `pulumi:"distributionId"`
+}
+
+// ConnectionGroupViewerFallbackInput is an input type that accepts ConnectionGroupViewerFallbackArgs and ConnectionGroupViewerFallbackOutput values.
+// You can construct a concrete instance of `ConnectionGroupViewerFallbackInput` via:
+//
+//	ConnectionGroupViewerFallbackArgs{...}
+type ConnectionGroupViewerFallbackInput interface {
+	pulumi.Input
+
+	ToConnectionGroupViewerFallbackOutput() ConnectionGroupViewerFallbackOutput
+	ToConnectionGroupViewerFallbackOutputWithContext(context.Context) ConnectionGroupViewerFallbackOutput
+}
+
+type ConnectionGroupViewerFallbackArgs struct {
+	DistributionId pulumi.StringInput `pulumi:"distributionId"`
+}
+
+func (ConnectionGroupViewerFallbackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGroupViewerFallback)(nil)).Elem()
+}
+
+func (i ConnectionGroupViewerFallbackArgs) ToConnectionGroupViewerFallbackOutput() ConnectionGroupViewerFallbackOutput {
+	return i.ToConnectionGroupViewerFallbackOutputWithContext(context.Background())
+}
+
+func (i ConnectionGroupViewerFallbackArgs) ToConnectionGroupViewerFallbackOutputWithContext(ctx context.Context) ConnectionGroupViewerFallbackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGroupViewerFallbackOutput)
+}
+
+func (i ConnectionGroupViewerFallbackArgs) ToConnectionGroupViewerFallbackPtrOutput() ConnectionGroupViewerFallbackPtrOutput {
+	return i.ToConnectionGroupViewerFallbackPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionGroupViewerFallbackArgs) ToConnectionGroupViewerFallbackPtrOutputWithContext(ctx context.Context) ConnectionGroupViewerFallbackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGroupViewerFallbackOutput).ToConnectionGroupViewerFallbackPtrOutputWithContext(ctx)
+}
+
+// ConnectionGroupViewerFallbackPtrInput is an input type that accepts ConnectionGroupViewerFallbackArgs, ConnectionGroupViewerFallbackPtr and ConnectionGroupViewerFallbackPtrOutput values.
+// You can construct a concrete instance of `ConnectionGroupViewerFallbackPtrInput` via:
+//
+//	        ConnectionGroupViewerFallbackArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionGroupViewerFallbackPtrInput interface {
+	pulumi.Input
+
+	ToConnectionGroupViewerFallbackPtrOutput() ConnectionGroupViewerFallbackPtrOutput
+	ToConnectionGroupViewerFallbackPtrOutputWithContext(context.Context) ConnectionGroupViewerFallbackPtrOutput
+}
+
+type connectionGroupViewerFallbackPtrType ConnectionGroupViewerFallbackArgs
+
+func ConnectionGroupViewerFallbackPtr(v *ConnectionGroupViewerFallbackArgs) ConnectionGroupViewerFallbackPtrInput {
+	return (*connectionGroupViewerFallbackPtrType)(v)
+}
+
+func (*connectionGroupViewerFallbackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGroupViewerFallback)(nil)).Elem()
+}
+
+func (i *connectionGroupViewerFallbackPtrType) ToConnectionGroupViewerFallbackPtrOutput() ConnectionGroupViewerFallbackPtrOutput {
+	return i.ToConnectionGroupViewerFallbackPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionGroupViewerFallbackPtrType) ToConnectionGroupViewerFallbackPtrOutputWithContext(ctx context.Context) ConnectionGroupViewerFallbackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGroupViewerFallbackPtrOutput)
+}
+
+type ConnectionGroupViewerFallbackOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGroupViewerFallbackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionGroupViewerFallback)(nil)).Elem()
+}
+
+func (o ConnectionGroupViewerFallbackOutput) ToConnectionGroupViewerFallbackOutput() ConnectionGroupViewerFallbackOutput {
+	return o
+}
+
+func (o ConnectionGroupViewerFallbackOutput) ToConnectionGroupViewerFallbackOutputWithContext(ctx context.Context) ConnectionGroupViewerFallbackOutput {
+	return o
+}
+
+func (o ConnectionGroupViewerFallbackOutput) ToConnectionGroupViewerFallbackPtrOutput() ConnectionGroupViewerFallbackPtrOutput {
+	return o.ToConnectionGroupViewerFallbackPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionGroupViewerFallbackOutput) ToConnectionGroupViewerFallbackPtrOutputWithContext(ctx context.Context) ConnectionGroupViewerFallbackPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGroupViewerFallback) *ConnectionGroupViewerFallback {
+		return &v
+	}).(ConnectionGroupViewerFallbackPtrOutput)
+}
+
+func (o ConnectionGroupViewerFallbackOutput) DistributionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionGroupViewerFallback) string { return v.DistributionId }).(pulumi.StringOutput)
+}
+
+type ConnectionGroupViewerFallbackPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionGroupViewerFallbackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionGroupViewerFallback)(nil)).Elem()
+}
+
+func (o ConnectionGroupViewerFallbackPtrOutput) ToConnectionGroupViewerFallbackPtrOutput() ConnectionGroupViewerFallbackPtrOutput {
+	return o
+}
+
+func (o ConnectionGroupViewerFallbackPtrOutput) ToConnectionGroupViewerFallbackPtrOutputWithContext(ctx context.Context) ConnectionGroupViewerFallbackPtrOutput {
+	return o
+}
+
+func (o ConnectionGroupViewerFallbackPtrOutput) Elem() ConnectionGroupViewerFallbackOutput {
+	return o.ApplyT(func(v *ConnectionGroupViewerFallback) ConnectionGroupViewerFallback {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGroupViewerFallback
+		return ret
+	}).(ConnectionGroupViewerFallbackOutput)
+}
+
+func (o ConnectionGroupViewerFallbackPtrOutput) DistributionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGroupViewerFallback) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DistributionId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Contains the configuration for a continuous deployment policy.
 type ContinuousDeploymentPolicyConfig struct {
 	// A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is ``true``, this policy is enabled and in effect. When this value is ``false``, this policy is not enabled and has no effect.
@@ -4361,7 +4494,8 @@ type DistributionCustomOriginConfig struct {
 	// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
 	HttpsPort *int `pulumi:"httpsPort"`
 	// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
-	IpAddressType *DistributionCustomOriginConfigIpAddressType `pulumi:"ipAddressType"`
+	IpAddressType     *DistributionCustomOriginConfigIpAddressType     `pulumi:"ipAddressType"`
+	OriginHttpVersion *DistributionCustomOriginConfigOriginHttpVersion `pulumi:"originHttpVersion"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
@@ -4398,7 +4532,8 @@ type DistributionCustomOriginConfigArgs struct {
 	// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
 	// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
-	IpAddressType DistributionCustomOriginConfigIpAddressTypePtrInput `pulumi:"ipAddressType"`
+	IpAddressType     DistributionCustomOriginConfigIpAddressTypePtrInput     `pulumi:"ipAddressType"`
+	OriginHttpVersion DistributionCustomOriginConfigOriginHttpVersionPtrInput `pulumi:"originHttpVersion"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
@@ -4512,6 +4647,12 @@ func (o DistributionCustomOriginConfigOutput) IpAddressType() DistributionCustom
 	}).(DistributionCustomOriginConfigIpAddressTypePtrOutput)
 }
 
+func (o DistributionCustomOriginConfigOutput) OriginHttpVersion() DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return o.ApplyT(func(v DistributionCustomOriginConfig) *DistributionCustomOriginConfigOriginHttpVersion {
+		return v.OriginHttpVersion
+	}).(DistributionCustomOriginConfigOriginHttpVersionPtrOutput)
+}
+
 // Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
 //	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -4598,6 +4739,15 @@ func (o DistributionCustomOriginConfigPtrOutput) IpAddressType() DistributionCus
 		}
 		return v.IpAddressType
 	}).(DistributionCustomOriginConfigIpAddressTypePtrOutput)
+}
+
+func (o DistributionCustomOriginConfigPtrOutput) OriginHttpVersion() DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return o.ApplyT(func(v *DistributionCustomOriginConfig) *DistributionCustomOriginConfigOriginHttpVersion {
+		if v == nil {
+			return nil
+		}
+		return v.OriginHttpVersion
+	}).(DistributionCustomOriginConfigOriginHttpVersionPtrOutput)
 }
 
 // Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
@@ -9003,12 +9153,121 @@ func (o DistributionTenantCustomizationsPtrOutput) WebAcl() DistributionTenantWe
 	}).(DistributionTenantWebAclCustomizationPtrOutput)
 }
 
+type DistributionTenantDomainMapping struct {
+	// The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`.
+	Domain string `pulumi:"domain"`
+	// Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+	ServeOn DistributionTenantDomainMappingServeOn `pulumi:"serveOn"`
+}
+
+// DistributionTenantDomainMappingInput is an input type that accepts DistributionTenantDomainMappingArgs and DistributionTenantDomainMappingOutput values.
+// You can construct a concrete instance of `DistributionTenantDomainMappingInput` via:
+//
+//	DistributionTenantDomainMappingArgs{...}
+type DistributionTenantDomainMappingInput interface {
+	pulumi.Input
+
+	ToDistributionTenantDomainMappingOutput() DistributionTenantDomainMappingOutput
+	ToDistributionTenantDomainMappingOutputWithContext(context.Context) DistributionTenantDomainMappingOutput
+}
+
+type DistributionTenantDomainMappingArgs struct {
+	// The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+	ServeOn DistributionTenantDomainMappingServeOnInput `pulumi:"serveOn"`
+}
+
+func (DistributionTenantDomainMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantDomainMapping)(nil)).Elem()
+}
+
+func (i DistributionTenantDomainMappingArgs) ToDistributionTenantDomainMappingOutput() DistributionTenantDomainMappingOutput {
+	return i.ToDistributionTenantDomainMappingOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantDomainMappingArgs) ToDistributionTenantDomainMappingOutputWithContext(ctx context.Context) DistributionTenantDomainMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantDomainMappingOutput)
+}
+
+// DistributionTenantDomainMappingArrayInput is an input type that accepts DistributionTenantDomainMappingArray and DistributionTenantDomainMappingArrayOutput values.
+// You can construct a concrete instance of `DistributionTenantDomainMappingArrayInput` via:
+//
+//	DistributionTenantDomainMappingArray{ DistributionTenantDomainMappingArgs{...} }
+type DistributionTenantDomainMappingArrayInput interface {
+	pulumi.Input
+
+	ToDistributionTenantDomainMappingArrayOutput() DistributionTenantDomainMappingArrayOutput
+	ToDistributionTenantDomainMappingArrayOutputWithContext(context.Context) DistributionTenantDomainMappingArrayOutput
+}
+
+type DistributionTenantDomainMappingArray []DistributionTenantDomainMappingInput
+
+func (DistributionTenantDomainMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTenantDomainMapping)(nil)).Elem()
+}
+
+func (i DistributionTenantDomainMappingArray) ToDistributionTenantDomainMappingArrayOutput() DistributionTenantDomainMappingArrayOutput {
+	return i.ToDistributionTenantDomainMappingArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionTenantDomainMappingArray) ToDistributionTenantDomainMappingArrayOutputWithContext(ctx context.Context) DistributionTenantDomainMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTenantDomainMappingArrayOutput)
+}
+
+type DistributionTenantDomainMappingOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantDomainMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantDomainMapping)(nil)).Elem()
+}
+
+func (o DistributionTenantDomainMappingOutput) ToDistributionTenantDomainMappingOutput() DistributionTenantDomainMappingOutput {
+	return o
+}
+
+func (o DistributionTenantDomainMappingOutput) ToDistributionTenantDomainMappingOutputWithContext(ctx context.Context) DistributionTenantDomainMappingOutput {
+	return o
+}
+
+// The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`.
+func (o DistributionTenantDomainMappingOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionTenantDomainMapping) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+func (o DistributionTenantDomainMappingOutput) ServeOn() DistributionTenantDomainMappingServeOnOutput {
+	return o.ApplyT(func(v DistributionTenantDomainMapping) DistributionTenantDomainMappingServeOn { return v.ServeOn }).(DistributionTenantDomainMappingServeOnOutput)
+}
+
+type DistributionTenantDomainMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantDomainMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTenantDomainMapping)(nil)).Elem()
+}
+
+func (o DistributionTenantDomainMappingArrayOutput) ToDistributionTenantDomainMappingArrayOutput() DistributionTenantDomainMappingArrayOutput {
+	return o
+}
+
+func (o DistributionTenantDomainMappingArrayOutput) ToDistributionTenantDomainMappingArrayOutputWithContext(ctx context.Context) DistributionTenantDomainMappingArrayOutput {
+	return o
+}
+
+func (o DistributionTenantDomainMappingArrayOutput) Index(i pulumi.IntInput) DistributionTenantDomainMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTenantDomainMapping {
+		return vs[0].([]DistributionTenantDomainMapping)[vs[1].(int)]
+	}).(DistributionTenantDomainMappingOutput)
+}
+
 // The details about the domain result.
 type DistributionTenantDomainResult struct {
 	// The specified domain.
-	Domain *string `pulumi:"domain"`
+	Domain  *string `pulumi:"domain"`
+	ServeOn *string `pulumi:"serveOn"`
 	// Whether the domain is active or inactive.
-	Status *DistributionTenantDomainResultStatus `pulumi:"status"`
+	Status           *DistributionTenantDomainResultStatus `pulumi:"status"`
+	StatusReason     *string                               `pulumi:"statusReason"`
+	StatusReasonCode *string                               `pulumi:"statusReasonCode"`
 }
 
 // The details about the domain result.
@@ -9031,9 +9290,21 @@ func (o DistributionTenantDomainResultOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionTenantDomainResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+func (o DistributionTenantDomainResultOutput) ServeOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantDomainResult) *string { return v.ServeOn }).(pulumi.StringPtrOutput)
+}
+
 // Whether the domain is active or inactive.
 func (o DistributionTenantDomainResultOutput) Status() DistributionTenantDomainResultStatusPtrOutput {
 	return o.ApplyT(func(v DistributionTenantDomainResult) *DistributionTenantDomainResultStatus { return v.Status }).(DistributionTenantDomainResultStatusPtrOutput)
+}
+
+func (o DistributionTenantDomainResultOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantDomainResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionTenantDomainResultOutput) StatusReasonCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTenantDomainResult) *string { return v.StatusReasonCode }).(pulumi.StringPtrOutput)
 }
 
 type DistributionTenantDomainResultArrayOutput struct{ *pulumi.OutputState }
@@ -10396,6 +10667,7 @@ func (o DistributionViewerMtlsConfigPtrOutput) TrustStoreConfig() DistributionTr
 
 // An Amazon CloudFront VPC origin configuration.
 type DistributionVpcOriginConfig struct {
+	OriginHttpVersion *DistributionVpcOriginConfigOriginHttpVersion `pulumi:"originHttpVersion"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
@@ -10421,6 +10693,7 @@ type DistributionVpcOriginConfigInput interface {
 
 // An Amazon CloudFront VPC origin configuration.
 type DistributionVpcOriginConfigArgs struct {
+	OriginHttpVersion DistributionVpcOriginConfigOriginHttpVersionPtrInput `pulumi:"originHttpVersion"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
@@ -10511,6 +10784,12 @@ func (o DistributionVpcOriginConfigOutput) ToDistributionVpcOriginConfigPtrOutpu
 	}).(DistributionVpcOriginConfigPtrOutput)
 }
 
+func (o DistributionVpcOriginConfigOutput) OriginHttpVersion() DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return o.ApplyT(func(v DistributionVpcOriginConfig) *DistributionVpcOriginConfigOriginHttpVersion {
+		return v.OriginHttpVersion
+	}).(DistributionVpcOriginConfigOriginHttpVersionPtrOutput)
+}
+
 // Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
 //	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -10559,6 +10838,15 @@ func (o DistributionVpcOriginConfigPtrOutput) Elem() DistributionVpcOriginConfig
 	}).(DistributionVpcOriginConfigOutput)
 }
 
+func (o DistributionVpcOriginConfigPtrOutput) OriginHttpVersion() DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return o.ApplyT(func(v *DistributionVpcOriginConfig) *DistributionVpcOriginConfigOriginHttpVersion {
+		if v == nil {
+			return nil
+		}
+		return v.OriginHttpVersion
+	}).(DistributionVpcOriginConfigOriginHttpVersionPtrOutput)
+}
+
 // Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
 //	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -10601,6 +10889,725 @@ func (o DistributionVpcOriginConfigPtrOutput) VpcOriginId() pulumi.StringPtrOutp
 		}
 		return &v.VpcOriginId
 	}).(pulumi.StringPtrOutput)
+}
+
+// A content type paired with the field-level encryption profile that encrypts it.
+type FieldLevelEncryptionConfigContentTypeProfile struct {
+	// The content type CloudFront encrypts. The service accepts only application/x-www-form-urlencoded.
+	ContentType string `pulumi:"contentType"`
+	// The encryption format CloudFront uses for this content type.
+	Format FieldLevelEncryptionConfigContentTypeProfileFormat `pulumi:"format"`
+	// The identifier of the field-level encryption profile CloudFront uses for this content type. Required, so that it cannot be omitted: the service accepts a content-type profile with the member absent on create and refuses one on update, and an update sends the whole profile list, so a configuration created that way could never be updated again. Supply an empty string to configure a content type and forward it WITHOUT field-level encryption. That mode is available through this resource and round-trips: create, update and read all accept and return the empty string, and it is the service's own encoding for the state -- asked for a content-type list with no items, CloudFront returns one item whose ProfileId is empty. Note that this is not the same as omitting the content type from the configuration, because ForwardWhenContentTypeIsUnknown governs only content types absent from it.
+	ProfileId string `pulumi:"profileId"`
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileArgs and FieldLevelEncryptionConfigContentTypeProfileOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileInput` via:
+//
+//	FieldLevelEncryptionConfigContentTypeProfileArgs{...}
+type FieldLevelEncryptionConfigContentTypeProfileInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileOutput() FieldLevelEncryptionConfigContentTypeProfileOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileOutput
+}
+
+// A content type paired with the field-level encryption profile that encrypts it.
+type FieldLevelEncryptionConfigContentTypeProfileArgs struct {
+	// The content type CloudFront encrypts. The service accepts only application/x-www-form-urlencoded.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// The encryption format CloudFront uses for this content type.
+	Format FieldLevelEncryptionConfigContentTypeProfileFormatInput `pulumi:"format"`
+	// The identifier of the field-level encryption profile CloudFront uses for this content type. Required, so that it cannot be omitted: the service accepts a content-type profile with the member absent on create and refuses one on update, and an update sends the whole profile list, so a configuration created that way could never be updated again. Supply an empty string to configure a content type and forward it WITHOUT field-level encryption. That mode is available through this resource and round-trips: create, update and read all accept and return the empty string, and it is the service's own encoding for the state -- asked for a content-type list with no items, CloudFront returns one item whose ProfileId is empty. Note that this is not the same as omitting the content type from the configuration, because ForwardWhenContentTypeIsUnknown governs only content types absent from it.
+	ProfileId pulumi.StringInput `pulumi:"profileId"`
+}
+
+func (FieldLevelEncryptionConfigContentTypeProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfile)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileArgs) ToFieldLevelEncryptionConfigContentTypeProfileOutput() FieldLevelEncryptionConfigContentTypeProfileOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileArgs) ToFieldLevelEncryptionConfigContentTypeProfileOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileOutput)
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileArrayInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileArray and FieldLevelEncryptionConfigContentTypeProfileArrayOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileArrayInput` via:
+//
+//	FieldLevelEncryptionConfigContentTypeProfileArray{ FieldLevelEncryptionConfigContentTypeProfileArgs{...} }
+type FieldLevelEncryptionConfigContentTypeProfileArrayInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileArrayOutput() FieldLevelEncryptionConfigContentTypeProfileArrayOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileArrayOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileArrayOutput
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileArray []FieldLevelEncryptionConfigContentTypeProfileInput
+
+func (FieldLevelEncryptionConfigContentTypeProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionConfigContentTypeProfile)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileArray) ToFieldLevelEncryptionConfigContentTypeProfileArrayOutput() FieldLevelEncryptionConfigContentTypeProfileArrayOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileArrayOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileArray) ToFieldLevelEncryptionConfigContentTypeProfileArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileArrayOutput)
+}
+
+// A content type paired with the field-level encryption profile that encrypts it.
+type FieldLevelEncryptionConfigContentTypeProfileOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfile)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileOutput) ToFieldLevelEncryptionConfigContentTypeProfileOutput() FieldLevelEncryptionConfigContentTypeProfileOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileOutput) ToFieldLevelEncryptionConfigContentTypeProfileOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileOutput {
+	return o
+}
+
+// The content type CloudFront encrypts. The service accepts only application/x-www-form-urlencoded.
+func (o FieldLevelEncryptionConfigContentTypeProfileOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfile) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// The encryption format CloudFront uses for this content type.
+func (o FieldLevelEncryptionConfigContentTypeProfileOutput) Format() FieldLevelEncryptionConfigContentTypeProfileFormatOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfile) FieldLevelEncryptionConfigContentTypeProfileFormat {
+		return v.Format
+	}).(FieldLevelEncryptionConfigContentTypeProfileFormatOutput)
+}
+
+// The identifier of the field-level encryption profile CloudFront uses for this content type. Required, so that it cannot be omitted: the service accepts a content-type profile with the member absent on create and refuses one on update, and an update sends the whole profile list, so a configuration created that way could never be updated again. Supply an empty string to configure a content type and forward it WITHOUT field-level encryption. That mode is available through this resource and round-trips: create, update and read all accept and return the empty string, and it is the service's own encoding for the state -- asked for a content-type list with no items, CloudFront returns one item whose ProfileId is empty. Note that this is not the same as omitting the content type from the configuration, because ForwardWhenContentTypeIsUnknown governs only content types absent from it.
+func (o FieldLevelEncryptionConfigContentTypeProfileOutput) ProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfile) string { return v.ProfileId }).(pulumi.StringOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionConfigContentTypeProfile)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileArrayOutput) ToFieldLevelEncryptionConfigContentTypeProfileArrayOutput() FieldLevelEncryptionConfigContentTypeProfileArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileArrayOutput) ToFieldLevelEncryptionConfigContentTypeProfileArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionConfigContentTypeProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldLevelEncryptionConfigContentTypeProfile {
+		return vs[0].([]FieldLevelEncryptionConfigContentTypeProfile)[vs[1].(int)]
+	}).(FieldLevelEncryptionConfigContentTypeProfileOutput)
+}
+
+// How CloudFront handles content types, including the profile paired with each one.
+type FieldLevelEncryptionConfigContentTypeProfileConfig struct {
+	// The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+	ContentTypeProfiles []FieldLevelEncryptionConfigContentTypeProfile `pulumi:"contentTypeProfiles"`
+	// Whether CloudFront forwards a request when the content type names a profile that does not exist.
+	ForwardWhenContentTypeIsUnknown bool `pulumi:"forwardWhenContentTypeIsUnknown"`
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileConfigInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigArgs and FieldLevelEncryptionConfigContentTypeProfileConfigOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigInput` via:
+//
+//	FieldLevelEncryptionConfigContentTypeProfileConfigArgs{...}
+type FieldLevelEncryptionConfigContentTypeProfileConfigInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigOutput() FieldLevelEncryptionConfigContentTypeProfileConfigOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigOutput
+}
+
+// How CloudFront handles content types, including the profile paired with each one.
+type FieldLevelEncryptionConfigContentTypeProfileConfigArgs struct {
+	// The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+	ContentTypeProfiles FieldLevelEncryptionConfigContentTypeProfileArrayInput `pulumi:"contentTypeProfiles"`
+	// Whether CloudFront forwards a request when the content type names a profile that does not exist.
+	ForwardWhenContentTypeIsUnknown pulumi.BoolInput `pulumi:"forwardWhenContentTypeIsUnknown"`
+}
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigOutput() FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput)
+}
+
+// How CloudFront handles content types, including the profile paired with each one.
+type FieldLevelEncryptionConfigContentTypeProfileConfigOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigOutput() FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return o
+}
+
+// The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ContentTypeProfiles() FieldLevelEncryptionConfigContentTypeProfileArrayOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfig) []FieldLevelEncryptionConfigContentTypeProfile {
+		return v.ContentTypeProfiles
+	}).(FieldLevelEncryptionConfigContentTypeProfileArrayOutput)
+}
+
+// Whether CloudFront forwards a request when the content type names a profile that does not exist.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ForwardWhenContentTypeIsUnknown() pulumi.BoolOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfig) bool {
+		return v.ForwardWhenContentTypeIsUnknown
+	}).(pulumi.BoolOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) Elem() FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) FieldLevelEncryptionConfigContentTypeProfileConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionConfigContentTypeProfileConfig
+		return ret
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput)
+}
+
+// The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ContentTypeProfiles() FieldLevelEncryptionConfigContentTypeProfileArrayOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) []FieldLevelEncryptionConfigContentTypeProfile {
+		if v == nil {
+			return nil
+		}
+		return v.ContentTypeProfiles
+	}).(FieldLevelEncryptionConfigContentTypeProfileArrayOutput)
+}
+
+// Whether CloudFront forwards a request when the content type names a profile that does not exist.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ForwardWhenContentTypeIsUnknown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ForwardWhenContentTypeIsUnknown
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A query argument paired with the field-level encryption profile that encrypts it.
+type FieldLevelEncryptionConfigQueryArgProfile struct {
+	// The identifier of the field-level encryption profile CloudFront uses for this query argument.
+	ProfileId string `pulumi:"profileId"`
+	// The query argument that CloudFront encrypts with the paired profile.
+	QueryArg string `pulumi:"queryArg"`
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileArgs and FieldLevelEncryptionConfigQueryArgProfileOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileInput` via:
+//
+//	FieldLevelEncryptionConfigQueryArgProfileArgs{...}
+type FieldLevelEncryptionConfigQueryArgProfileInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileOutput() FieldLevelEncryptionConfigQueryArgProfileOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileOutput
+}
+
+// A query argument paired with the field-level encryption profile that encrypts it.
+type FieldLevelEncryptionConfigQueryArgProfileArgs struct {
+	// The identifier of the field-level encryption profile CloudFront uses for this query argument.
+	ProfileId pulumi.StringInput `pulumi:"profileId"`
+	// The query argument that CloudFront encrypts with the paired profile.
+	QueryArg pulumi.StringInput `pulumi:"queryArg"`
+}
+
+func (FieldLevelEncryptionConfigQueryArgProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfile)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileArgs) ToFieldLevelEncryptionConfigQueryArgProfileOutput() FieldLevelEncryptionConfigQueryArgProfileOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileArgs) ToFieldLevelEncryptionConfigQueryArgProfileOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileOutput)
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileArrayInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileArray and FieldLevelEncryptionConfigQueryArgProfileArrayOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileArrayInput` via:
+//
+//	FieldLevelEncryptionConfigQueryArgProfileArray{ FieldLevelEncryptionConfigQueryArgProfileArgs{...} }
+type FieldLevelEncryptionConfigQueryArgProfileArrayInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileArrayOutput() FieldLevelEncryptionConfigQueryArgProfileArrayOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileArrayOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileArrayOutput
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileArray []FieldLevelEncryptionConfigQueryArgProfileInput
+
+func (FieldLevelEncryptionConfigQueryArgProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionConfigQueryArgProfile)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileArray) ToFieldLevelEncryptionConfigQueryArgProfileArrayOutput() FieldLevelEncryptionConfigQueryArgProfileArrayOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileArrayOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileArray) ToFieldLevelEncryptionConfigQueryArgProfileArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileArrayOutput)
+}
+
+// A query argument paired with the field-level encryption profile that encrypts it.
+type FieldLevelEncryptionConfigQueryArgProfileOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfile)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileOutput) ToFieldLevelEncryptionConfigQueryArgProfileOutput() FieldLevelEncryptionConfigQueryArgProfileOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileOutput) ToFieldLevelEncryptionConfigQueryArgProfileOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileOutput {
+	return o
+}
+
+// The identifier of the field-level encryption profile CloudFront uses for this query argument.
+func (o FieldLevelEncryptionConfigQueryArgProfileOutput) ProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfile) string { return v.ProfileId }).(pulumi.StringOutput)
+}
+
+// The query argument that CloudFront encrypts with the paired profile.
+func (o FieldLevelEncryptionConfigQueryArgProfileOutput) QueryArg() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfile) string { return v.QueryArg }).(pulumi.StringOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionConfigQueryArgProfile)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileArrayOutput) ToFieldLevelEncryptionConfigQueryArgProfileArrayOutput() FieldLevelEncryptionConfigQueryArgProfileArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileArrayOutput) ToFieldLevelEncryptionConfigQueryArgProfileArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionConfigQueryArgProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldLevelEncryptionConfigQueryArgProfile {
+		return vs[0].([]FieldLevelEncryptionConfigQueryArgProfile)[vs[1].(int)]
+	}).(FieldLevelEncryptionConfigQueryArgProfileOutput)
+}
+
+// How CloudFront handles query arguments, including the profile paired with each one.
+type FieldLevelEncryptionConfigQueryArgProfileConfig struct {
+	// Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+	ForwardWhenQueryArgProfileIsUnknown bool `pulumi:"forwardWhenQueryArgProfileIsUnknown"`
+	// The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+	QueryArgProfiles []FieldLevelEncryptionConfigQueryArgProfile `pulumi:"queryArgProfiles"`
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileConfigInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileConfigArgs and FieldLevelEncryptionConfigQueryArgProfileConfigOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileConfigInput` via:
+//
+//	FieldLevelEncryptionConfigQueryArgProfileConfigArgs{...}
+type FieldLevelEncryptionConfigQueryArgProfileConfigInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigOutput() FieldLevelEncryptionConfigQueryArgProfileConfigOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigOutput
+}
+
+// How CloudFront handles query arguments, including the profile paired with each one.
+type FieldLevelEncryptionConfigQueryArgProfileConfigArgs struct {
+	// Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+	ForwardWhenQueryArgProfileIsUnknown pulumi.BoolInput `pulumi:"forwardWhenQueryArgProfileIsUnknown"`
+	// The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+	QueryArgProfiles FieldLevelEncryptionConfigQueryArgProfileArrayInput `pulumi:"queryArgProfiles"`
+}
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigOutput() FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigOutput)
+}
+
+// How CloudFront handles query arguments, including the profile paired with each one.
+type FieldLevelEncryptionConfigQueryArgProfileConfigOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigOutput() FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return o
+}
+
+// Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ForwardWhenQueryArgProfileIsUnknown() pulumi.BoolOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfig) bool {
+		return v.ForwardWhenQueryArgProfileIsUnknown
+	}).(pulumi.BoolOutput)
+}
+
+// The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) QueryArgProfiles() FieldLevelEncryptionConfigQueryArgProfileArrayOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfig) []FieldLevelEncryptionConfigQueryArgProfile {
+		return v.QueryArgProfiles
+	}).(FieldLevelEncryptionConfigQueryArgProfileArrayOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) Elem() FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) FieldLevelEncryptionConfigQueryArgProfileConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionConfigQueryArgProfileConfig
+		return ret
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigOutput)
+}
+
+// Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ForwardWhenQueryArgProfileIsUnknown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ForwardWhenQueryArgProfileIsUnknown
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) QueryArgProfiles() FieldLevelEncryptionConfigQueryArgProfileArrayOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) []FieldLevelEncryptionConfigQueryArgProfile {
+		if v == nil {
+			return nil
+		}
+		return v.QueryArgProfiles
+	}).(FieldLevelEncryptionConfigQueryArgProfileArrayOutput)
+}
+
+// The configuration of a field-level encryption profile.
+type FieldLevelEncryptionProfileConfig struct {
+	// A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+	CallerReference string `pulumi:"callerReference"`
+	// An optional comment describing the field-level encryption profile.
+	Comment *string `pulumi:"comment"`
+	// The encryption entities of the field-level encryption profile. At least one entity is required.
+	EncryptionEntities []FieldLevelEncryptionProfileEncryptionEntity `pulumi:"encryptionEntities"`
+	// The name of the field-level encryption profile. Names are unique within an AWS account.
+	Name string `pulumi:"name"`
+}
+
+// FieldLevelEncryptionProfileConfigInput is an input type that accepts FieldLevelEncryptionProfileConfigArgs and FieldLevelEncryptionProfileConfigOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionProfileConfigInput` via:
+//
+//	FieldLevelEncryptionProfileConfigArgs{...}
+type FieldLevelEncryptionProfileConfigInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionProfileConfigOutput() FieldLevelEncryptionProfileConfigOutput
+	ToFieldLevelEncryptionProfileConfigOutputWithContext(context.Context) FieldLevelEncryptionProfileConfigOutput
+}
+
+// The configuration of a field-level encryption profile.
+type FieldLevelEncryptionProfileConfigArgs struct {
+	// A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+	CallerReference pulumi.StringInput `pulumi:"callerReference"`
+	// An optional comment describing the field-level encryption profile.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The encryption entities of the field-level encryption profile. At least one entity is required.
+	EncryptionEntities FieldLevelEncryptionProfileEncryptionEntityArrayInput `pulumi:"encryptionEntities"`
+	// The name of the field-level encryption profile. Names are unique within an AWS account.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FieldLevelEncryptionProfileConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileConfig)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionProfileConfigArgs) ToFieldLevelEncryptionProfileConfigOutput() FieldLevelEncryptionProfileConfigOutput {
+	return i.ToFieldLevelEncryptionProfileConfigOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionProfileConfigArgs) ToFieldLevelEncryptionProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileConfigOutput)
+}
+
+// The configuration of a field-level encryption profile.
+type FieldLevelEncryptionProfileConfigOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileConfigOutput) ToFieldLevelEncryptionProfileConfigOutput() FieldLevelEncryptionProfileConfigOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileConfigOutput) ToFieldLevelEncryptionProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileConfigOutput {
+	return o
+}
+
+// A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+func (o FieldLevelEncryptionProfileConfigOutput) CallerReference() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileConfig) string { return v.CallerReference }).(pulumi.StringOutput)
+}
+
+// An optional comment describing the field-level encryption profile.
+func (o FieldLevelEncryptionProfileConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The encryption entities of the field-level encryption profile. At least one entity is required.
+func (o FieldLevelEncryptionProfileConfigOutput) EncryptionEntities() FieldLevelEncryptionProfileEncryptionEntityArrayOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileConfig) []FieldLevelEncryptionProfileEncryptionEntity {
+		return v.EncryptionEntities
+	}).(FieldLevelEncryptionProfileEncryptionEntityArrayOutput)
+}
+
+// The name of the field-level encryption profile. Names are unique within an AWS account.
+func (o FieldLevelEncryptionProfileConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FieldLevelEncryptionProfileConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileConfigPtrOutput) ToFieldLevelEncryptionProfileConfigPtrOutput() FieldLevelEncryptionProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileConfigPtrOutput) ToFieldLevelEncryptionProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileConfigPtrOutput) Elem() FieldLevelEncryptionProfileConfigOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfileConfig) FieldLevelEncryptionProfileConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionProfileConfig
+		return ret
+	}).(FieldLevelEncryptionProfileConfigOutput)
+}
+
+// A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+func (o FieldLevelEncryptionProfileConfigPtrOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfileConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CallerReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// An optional comment describing the field-level encryption profile.
+func (o FieldLevelEncryptionProfileConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfileConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption entities of the field-level encryption profile. At least one entity is required.
+func (o FieldLevelEncryptionProfileConfigPtrOutput) EncryptionEntities() FieldLevelEncryptionProfileEncryptionEntityArrayOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfileConfig) []FieldLevelEncryptionProfileEncryptionEntity {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionEntities
+	}).(FieldLevelEncryptionProfileEncryptionEntityArrayOutput)
+}
+
+// The name of the field-level encryption profile. Names are unique within an AWS account.
+func (o FieldLevelEncryptionProfileConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfileConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A public key, its provider identity, and the field patterns CloudFront encrypts with that key.
+type FieldLevelEncryptionProfileEncryptionEntity struct {
+	// The request-body field names to encrypt. A pattern is either a full field name or leading characters followed by a wildcard (*). Patterns are case-sensitive and must not overlap.
+	FieldPatterns []string `pulumi:"fieldPatterns"`
+	// The provider associated with the public key. The same value must be supplied with the private key for an application to decrypt the data.
+	ProviderId string `pulumi:"providerId"`
+	// The identifier of the CloudFront public key used to encrypt the fields that match the patterns.
+	PublicKeyId string `pulumi:"publicKeyId"`
+}
+
+// FieldLevelEncryptionProfileEncryptionEntityInput is an input type that accepts FieldLevelEncryptionProfileEncryptionEntityArgs and FieldLevelEncryptionProfileEncryptionEntityOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionProfileEncryptionEntityInput` via:
+//
+//	FieldLevelEncryptionProfileEncryptionEntityArgs{...}
+type FieldLevelEncryptionProfileEncryptionEntityInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionProfileEncryptionEntityOutput() FieldLevelEncryptionProfileEncryptionEntityOutput
+	ToFieldLevelEncryptionProfileEncryptionEntityOutputWithContext(context.Context) FieldLevelEncryptionProfileEncryptionEntityOutput
+}
+
+// A public key, its provider identity, and the field patterns CloudFront encrypts with that key.
+type FieldLevelEncryptionProfileEncryptionEntityArgs struct {
+	// The request-body field names to encrypt. A pattern is either a full field name or leading characters followed by a wildcard (*). Patterns are case-sensitive and must not overlap.
+	FieldPatterns pulumi.StringArrayInput `pulumi:"fieldPatterns"`
+	// The provider associated with the public key. The same value must be supplied with the private key for an application to decrypt the data.
+	ProviderId pulumi.StringInput `pulumi:"providerId"`
+	// The identifier of the CloudFront public key used to encrypt the fields that match the patterns.
+	PublicKeyId pulumi.StringInput `pulumi:"publicKeyId"`
+}
+
+func (FieldLevelEncryptionProfileEncryptionEntityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntity)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntityArgs) ToFieldLevelEncryptionProfileEncryptionEntityOutput() FieldLevelEncryptionProfileEncryptionEntityOutput {
+	return i.ToFieldLevelEncryptionProfileEncryptionEntityOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntityArgs) ToFieldLevelEncryptionProfileEncryptionEntityOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntityOutput)
+}
+
+// FieldLevelEncryptionProfileEncryptionEntityArrayInput is an input type that accepts FieldLevelEncryptionProfileEncryptionEntityArray and FieldLevelEncryptionProfileEncryptionEntityArrayOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionProfileEncryptionEntityArrayInput` via:
+//
+//	FieldLevelEncryptionProfileEncryptionEntityArray{ FieldLevelEncryptionProfileEncryptionEntityArgs{...} }
+type FieldLevelEncryptionProfileEncryptionEntityArrayInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionProfileEncryptionEntityArrayOutput() FieldLevelEncryptionProfileEncryptionEntityArrayOutput
+	ToFieldLevelEncryptionProfileEncryptionEntityArrayOutputWithContext(context.Context) FieldLevelEncryptionProfileEncryptionEntityArrayOutput
+}
+
+type FieldLevelEncryptionProfileEncryptionEntityArray []FieldLevelEncryptionProfileEncryptionEntityInput
+
+func (FieldLevelEncryptionProfileEncryptionEntityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionProfileEncryptionEntity)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntityArray) ToFieldLevelEncryptionProfileEncryptionEntityArrayOutput() FieldLevelEncryptionProfileEncryptionEntityArrayOutput {
+	return i.ToFieldLevelEncryptionProfileEncryptionEntityArrayOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntityArray) ToFieldLevelEncryptionProfileEncryptionEntityArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntityArrayOutput)
+}
+
+// A public key, its provider identity, and the field patterns CloudFront encrypts with that key.
+type FieldLevelEncryptionProfileEncryptionEntityOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileEncryptionEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntity)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntityOutput) ToFieldLevelEncryptionProfileEncryptionEntityOutput() FieldLevelEncryptionProfileEncryptionEntityOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntityOutput) ToFieldLevelEncryptionProfileEncryptionEntityOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntityOutput {
+	return o
+}
+
+// The request-body field names to encrypt. A pattern is either a full field name or leading characters followed by a wildcard (*). Patterns are case-sensitive and must not overlap.
+func (o FieldLevelEncryptionProfileEncryptionEntityOutput) FieldPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntity) []string { return v.FieldPatterns }).(pulumi.StringArrayOutput)
+}
+
+// The provider associated with the public key. The same value must be supplied with the private key for an application to decrypt the data.
+func (o FieldLevelEncryptionProfileEncryptionEntityOutput) ProviderId() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntity) string { return v.ProviderId }).(pulumi.StringOutput)
+}
+
+// The identifier of the CloudFront public key used to encrypt the fields that match the patterns.
+func (o FieldLevelEncryptionProfileEncryptionEntityOutput) PublicKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntity) string { return v.PublicKeyId }).(pulumi.StringOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntityArrayOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileEncryptionEntityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionProfileEncryptionEntity)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntityArrayOutput) ToFieldLevelEncryptionProfileEncryptionEntityArrayOutput() FieldLevelEncryptionProfileEncryptionEntityArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntityArrayOutput) ToFieldLevelEncryptionProfileEncryptionEntityArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntityArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntityArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionProfileEncryptionEntityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldLevelEncryptionProfileEncryptionEntity {
+		return vs[0].([]FieldLevelEncryptionProfileEncryptionEntity)[vs[1].(int)]
+	}).(FieldLevelEncryptionProfileEncryptionEntityOutput)
 }
 
 // Contains configuration information about a CloudFront function.
@@ -16372,6 +17379,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConfigInput)(nil)).Elem(), ConnectionFunctionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionKeyValueStoreAssociationInput)(nil)).Elem(), ConnectionFunctionKeyValueStoreAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionKeyValueStoreAssociationArrayInput)(nil)).Elem(), ConnectionFunctionKeyValueStoreAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGroupViewerFallbackInput)(nil)).Elem(), ConnectionGroupViewerFallbackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionGroupViewerFallbackPtrInput)(nil)).Elem(), ConnectionGroupViewerFallbackArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs{})
@@ -16447,6 +17456,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCertificatePtrInput)(nil)).Elem(), DistributionTenantCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsInput)(nil)).Elem(), DistributionTenantCustomizationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantCustomizationsPtrInput)(nil)).Elem(), DistributionTenantCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantDomainMappingInput)(nil)).Elem(), DistributionTenantDomainMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantDomainMappingArrayInput)(nil)).Elem(), DistributionTenantDomainMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationInput)(nil)).Elem(), DistributionTenantGeoRestrictionCustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationPtrInput)(nil)).Elem(), DistributionTenantGeoRestrictionCustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestArgs{})
@@ -16463,6 +17474,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsConfigPtrInput)(nil)).Elem(), DistributionViewerMtlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionVpcOriginConfigInput)(nil)).Elem(), DistributionVpcOriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionVpcOriginConfigPtrInput)(nil)).Elem(), DistributionVpcOriginConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileArrayInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileArrayInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileConfigInput)(nil)).Elem(), FieldLevelEncryptionProfileConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntityInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntityArrayInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigInput)(nil)).Elem(), FunctionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionKeyValueStoreAssociationInput)(nil)).Elem(), FunctionKeyValueStoreAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionKeyValueStoreAssociationArrayInput)(nil)).Elem(), FunctionKeyValueStoreAssociationArray{})
@@ -16539,6 +17559,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionFunctionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionFunctionKeyValueStoreAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionFunctionKeyValueStoreAssociationArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionGroupViewerFallbackOutput{})
+	pulumi.RegisterOutputType(ConnectionGroupViewerFallbackPtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesOutput{})
@@ -16617,6 +17639,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTenantCertificatePtrOutput{})
 	pulumi.RegisterOutputType(DistributionTenantCustomizationsOutput{})
 	pulumi.RegisterOutputType(DistributionTenantCustomizationsPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantDomainMappingOutput{})
+	pulumi.RegisterOutputType(DistributionTenantDomainMappingArrayOutput{})
 	pulumi.RegisterOutputType(DistributionTenantDomainResultOutput{})
 	pulumi.RegisterOutputType(DistributionTenantDomainResultArrayOutput{})
 	pulumi.RegisterOutputType(DistributionTenantGeoRestrictionCustomizationOutput{})
@@ -16635,6 +17659,18 @@ func init() {
 	pulumi.RegisterOutputType(DistributionViewerMtlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionVpcOriginConfigOutput{})
 	pulumi.RegisterOutputType(DistributionVpcOriginConfigPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileArrayOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileArrayOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileConfigOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileConfigPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntityOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntityArrayOutput{})
 	pulumi.RegisterOutputType(FunctionConfigOutput{})
 	pulumi.RegisterOutputType(FunctionConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionKeyValueStoreAssociationOutput{})

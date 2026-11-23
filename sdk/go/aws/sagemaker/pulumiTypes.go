@@ -20979,6 +20979,165 @@ func (o EndpointConfigCoreDumpConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+type EndpointConfigCrossRegionTrafficConfig struct {
+	// The percentage of the endpoint's capacity (MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances) that requests from other Regions can use. Valid values are 1 to 100.
+	MaxCrossRegionPercentPerEndpoint int `pulumi:"maxCrossRegionPercentPerEndpoint"`
+	// The number of invocations per second that one InService instance can serve, used to size the limit on requests from other Regions. One value applies to every production variant, whatever its instance type. Valid values are 1 to 10000.
+	MaxInvocationsPerSecondPerInstance int `pulumi:"maxInvocationsPerSecondPerInstance"`
+}
+
+// EndpointConfigCrossRegionTrafficConfigInput is an input type that accepts EndpointConfigCrossRegionTrafficConfigArgs and EndpointConfigCrossRegionTrafficConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigCrossRegionTrafficConfigInput` via:
+//
+//	EndpointConfigCrossRegionTrafficConfigArgs{...}
+type EndpointConfigCrossRegionTrafficConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCrossRegionTrafficConfigOutput() EndpointConfigCrossRegionTrafficConfigOutput
+	ToEndpointConfigCrossRegionTrafficConfigOutputWithContext(context.Context) EndpointConfigCrossRegionTrafficConfigOutput
+}
+
+// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+type EndpointConfigCrossRegionTrafficConfigArgs struct {
+	// The percentage of the endpoint's capacity (MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances) that requests from other Regions can use. Valid values are 1 to 100.
+	MaxCrossRegionPercentPerEndpoint pulumi.IntInput `pulumi:"maxCrossRegionPercentPerEndpoint"`
+	// The number of invocations per second that one InService instance can serve, used to size the limit on requests from other Regions. One value applies to every production variant, whatever its instance type. Valid values are 1 to 10000.
+	MaxInvocationsPerSecondPerInstance pulumi.IntInput `pulumi:"maxInvocationsPerSecondPerInstance"`
+}
+
+func (EndpointConfigCrossRegionTrafficConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCrossRegionTrafficConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigCrossRegionTrafficConfigArgs) ToEndpointConfigCrossRegionTrafficConfigOutput() EndpointConfigCrossRegionTrafficConfigOutput {
+	return i.ToEndpointConfigCrossRegionTrafficConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCrossRegionTrafficConfigArgs) ToEndpointConfigCrossRegionTrafficConfigOutputWithContext(ctx context.Context) EndpointConfigCrossRegionTrafficConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCrossRegionTrafficConfigOutput)
+}
+
+func (i EndpointConfigCrossRegionTrafficConfigArgs) ToEndpointConfigCrossRegionTrafficConfigPtrOutput() EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return i.ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCrossRegionTrafficConfigArgs) ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCrossRegionTrafficConfigOutput).ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigCrossRegionTrafficConfigPtrInput is an input type that accepts EndpointConfigCrossRegionTrafficConfigArgs, EndpointConfigCrossRegionTrafficConfigPtr and EndpointConfigCrossRegionTrafficConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigCrossRegionTrafficConfigPtrInput` via:
+//
+//	        EndpointConfigCrossRegionTrafficConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigCrossRegionTrafficConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCrossRegionTrafficConfigPtrOutput() EndpointConfigCrossRegionTrafficConfigPtrOutput
+	ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(context.Context) EndpointConfigCrossRegionTrafficConfigPtrOutput
+}
+
+type endpointConfigCrossRegionTrafficConfigPtrType EndpointConfigCrossRegionTrafficConfigArgs
+
+func EndpointConfigCrossRegionTrafficConfigPtr(v *EndpointConfigCrossRegionTrafficConfigArgs) EndpointConfigCrossRegionTrafficConfigPtrInput {
+	return (*endpointConfigCrossRegionTrafficConfigPtrType)(v)
+}
+
+func (*endpointConfigCrossRegionTrafficConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigCrossRegionTrafficConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigCrossRegionTrafficConfigPtrType) ToEndpointConfigCrossRegionTrafficConfigPtrOutput() EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return i.ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigCrossRegionTrafficConfigPtrType) ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCrossRegionTrafficConfigPtrOutput)
+}
+
+// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+type EndpointConfigCrossRegionTrafficConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCrossRegionTrafficConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCrossRegionTrafficConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigCrossRegionTrafficConfigOutput) ToEndpointConfigCrossRegionTrafficConfigOutput() EndpointConfigCrossRegionTrafficConfigOutput {
+	return o
+}
+
+func (o EndpointConfigCrossRegionTrafficConfigOutput) ToEndpointConfigCrossRegionTrafficConfigOutputWithContext(ctx context.Context) EndpointConfigCrossRegionTrafficConfigOutput {
+	return o
+}
+
+func (o EndpointConfigCrossRegionTrafficConfigOutput) ToEndpointConfigCrossRegionTrafficConfigPtrOutput() EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return o.ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigCrossRegionTrafficConfigOutput) ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigCrossRegionTrafficConfig) *EndpointConfigCrossRegionTrafficConfig {
+		return &v
+	}).(EndpointConfigCrossRegionTrafficConfigPtrOutput)
+}
+
+// The percentage of the endpoint's capacity (MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances) that requests from other Regions can use. Valid values are 1 to 100.
+func (o EndpointConfigCrossRegionTrafficConfigOutput) MaxCrossRegionPercentPerEndpoint() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigCrossRegionTrafficConfig) int { return v.MaxCrossRegionPercentPerEndpoint }).(pulumi.IntOutput)
+}
+
+// The number of invocations per second that one InService instance can serve, used to size the limit on requests from other Regions. One value applies to every production variant, whatever its instance type. Valid values are 1 to 10000.
+func (o EndpointConfigCrossRegionTrafficConfigOutput) MaxInvocationsPerSecondPerInstance() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigCrossRegionTrafficConfig) int { return v.MaxInvocationsPerSecondPerInstance }).(pulumi.IntOutput)
+}
+
+type EndpointConfigCrossRegionTrafficConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCrossRegionTrafficConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigCrossRegionTrafficConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigCrossRegionTrafficConfigPtrOutput) ToEndpointConfigCrossRegionTrafficConfigPtrOutput() EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigCrossRegionTrafficConfigPtrOutput) ToEndpointConfigCrossRegionTrafficConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigCrossRegionTrafficConfigPtrOutput) Elem() EndpointConfigCrossRegionTrafficConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigCrossRegionTrafficConfig) EndpointConfigCrossRegionTrafficConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigCrossRegionTrafficConfig
+		return ret
+	}).(EndpointConfigCrossRegionTrafficConfigOutput)
+}
+
+// The percentage of the endpoint's capacity (MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances) that requests from other Regions can use. Valid values are 1 to 100.
+func (o EndpointConfigCrossRegionTrafficConfigPtrOutput) MaxCrossRegionPercentPerEndpoint() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigCrossRegionTrafficConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCrossRegionPercentPerEndpoint
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of invocations per second that one InService instance can serve, used to size the limit on requests from other Regions. One value applies to every production variant, whatever its instance type. Valid values are 1 to 10000.
+func (o EndpointConfigCrossRegionTrafficConfigPtrOutput) MaxInvocationsPerSecondPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigCrossRegionTrafficConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxInvocationsPerSecondPerInstance
+	}).(pulumi.IntPtrOutput)
+}
+
 // Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
 type EndpointConfigDataCaptureConfig struct {
 	// A list of the JSON and CSV content type that the endpoint captures.
@@ -29468,6 +29627,891 @@ type InferenceExperimentTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// How the Inference Router submits a request to a destination.
+type InferenceRouterAsyncInferenceClientConfig struct {
+	// How long, in seconds, a request can wait for a destination to pick it up before it expires. The default is 900.
+	MaxTimeInBacklogSeconds *int `pulumi:"maxTimeInBacklogSeconds"`
+}
+
+// InferenceRouterAsyncInferenceClientConfigInput is an input type that accepts InferenceRouterAsyncInferenceClientConfigArgs and InferenceRouterAsyncInferenceClientConfigOutput values.
+// You can construct a concrete instance of `InferenceRouterAsyncInferenceClientConfigInput` via:
+//
+//	InferenceRouterAsyncInferenceClientConfigArgs{...}
+type InferenceRouterAsyncInferenceClientConfigInput interface {
+	pulumi.Input
+
+	ToInferenceRouterAsyncInferenceClientConfigOutput() InferenceRouterAsyncInferenceClientConfigOutput
+	ToInferenceRouterAsyncInferenceClientConfigOutputWithContext(context.Context) InferenceRouterAsyncInferenceClientConfigOutput
+}
+
+// How the Inference Router submits a request to a destination.
+type InferenceRouterAsyncInferenceClientConfigArgs struct {
+	// How long, in seconds, a request can wait for a destination to pick it up before it expires. The default is 900.
+	MaxTimeInBacklogSeconds pulumi.IntPtrInput `pulumi:"maxTimeInBacklogSeconds"`
+}
+
+func (InferenceRouterAsyncInferenceClientConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterAsyncInferenceClientConfig)(nil)).Elem()
+}
+
+func (i InferenceRouterAsyncInferenceClientConfigArgs) ToInferenceRouterAsyncInferenceClientConfigOutput() InferenceRouterAsyncInferenceClientConfigOutput {
+	return i.ToInferenceRouterAsyncInferenceClientConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterAsyncInferenceClientConfigArgs) ToInferenceRouterAsyncInferenceClientConfigOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceClientConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceClientConfigOutput)
+}
+
+func (i InferenceRouterAsyncInferenceClientConfigArgs) ToInferenceRouterAsyncInferenceClientConfigPtrOutput() InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return i.ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterAsyncInferenceClientConfigArgs) ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceClientConfigOutput).ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceRouterAsyncInferenceClientConfigPtrInput is an input type that accepts InferenceRouterAsyncInferenceClientConfigArgs, InferenceRouterAsyncInferenceClientConfigPtr and InferenceRouterAsyncInferenceClientConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceRouterAsyncInferenceClientConfigPtrInput` via:
+//
+//	        InferenceRouterAsyncInferenceClientConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceRouterAsyncInferenceClientConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceRouterAsyncInferenceClientConfigPtrOutput() InferenceRouterAsyncInferenceClientConfigPtrOutput
+	ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(context.Context) InferenceRouterAsyncInferenceClientConfigPtrOutput
+}
+
+type inferenceRouterAsyncInferenceClientConfigPtrType InferenceRouterAsyncInferenceClientConfigArgs
+
+func InferenceRouterAsyncInferenceClientConfigPtr(v *InferenceRouterAsyncInferenceClientConfigArgs) InferenceRouterAsyncInferenceClientConfigPtrInput {
+	return (*inferenceRouterAsyncInferenceClientConfigPtrType)(v)
+}
+
+func (*inferenceRouterAsyncInferenceClientConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterAsyncInferenceClientConfig)(nil)).Elem()
+}
+
+func (i *inferenceRouterAsyncInferenceClientConfigPtrType) ToInferenceRouterAsyncInferenceClientConfigPtrOutput() InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return i.ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceRouterAsyncInferenceClientConfigPtrType) ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceClientConfigPtrOutput)
+}
+
+// How the Inference Router submits a request to a destination.
+type InferenceRouterAsyncInferenceClientConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterAsyncInferenceClientConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterAsyncInferenceClientConfig)(nil)).Elem()
+}
+
+func (o InferenceRouterAsyncInferenceClientConfigOutput) ToInferenceRouterAsyncInferenceClientConfigOutput() InferenceRouterAsyncInferenceClientConfigOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceClientConfigOutput) ToInferenceRouterAsyncInferenceClientConfigOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceClientConfigOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceClientConfigOutput) ToInferenceRouterAsyncInferenceClientConfigPtrOutput() InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return o.ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterAsyncInferenceClientConfigOutput) ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceRouterAsyncInferenceClientConfig) *InferenceRouterAsyncInferenceClientConfig {
+		return &v
+	}).(InferenceRouterAsyncInferenceClientConfigPtrOutput)
+}
+
+// How long, in seconds, a request can wait for a destination to pick it up before it expires. The default is 900.
+func (o InferenceRouterAsyncInferenceClientConfigOutput) MaxTimeInBacklogSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceClientConfig) *int { return v.MaxTimeInBacklogSeconds }).(pulumi.IntPtrOutput)
+}
+
+type InferenceRouterAsyncInferenceClientConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterAsyncInferenceClientConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterAsyncInferenceClientConfig)(nil)).Elem()
+}
+
+func (o InferenceRouterAsyncInferenceClientConfigPtrOutput) ToInferenceRouterAsyncInferenceClientConfigPtrOutput() InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceClientConfigPtrOutput) ToInferenceRouterAsyncInferenceClientConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceClientConfigPtrOutput) Elem() InferenceRouterAsyncInferenceClientConfigOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceClientConfig) InferenceRouterAsyncInferenceClientConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceRouterAsyncInferenceClientConfig
+		return ret
+	}).(InferenceRouterAsyncInferenceClientConfigOutput)
+}
+
+// How long, in seconds, a request can wait for a destination to pick it up before it expires. The default is 900.
+func (o InferenceRouterAsyncInferenceClientConfigPtrOutput) MaxTimeInBacklogSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceClientConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTimeInBacklogSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Set this when the routing target's destinations are asynchronous inference endpoints. A routing target without it serves real-time requests.
+type InferenceRouterAsyncInferenceConfig struct {
+	ClientConfig *InferenceRouterAsyncInferenceClientConfig `pulumi:"clientConfig"`
+	OutputConfig InferenceRouterAsyncInferenceOutputConfig  `pulumi:"outputConfig"`
+}
+
+// InferenceRouterAsyncInferenceConfigInput is an input type that accepts InferenceRouterAsyncInferenceConfigArgs and InferenceRouterAsyncInferenceConfigOutput values.
+// You can construct a concrete instance of `InferenceRouterAsyncInferenceConfigInput` via:
+//
+//	InferenceRouterAsyncInferenceConfigArgs{...}
+type InferenceRouterAsyncInferenceConfigInput interface {
+	pulumi.Input
+
+	ToInferenceRouterAsyncInferenceConfigOutput() InferenceRouterAsyncInferenceConfigOutput
+	ToInferenceRouterAsyncInferenceConfigOutputWithContext(context.Context) InferenceRouterAsyncInferenceConfigOutput
+}
+
+// Set this when the routing target's destinations are asynchronous inference endpoints. A routing target without it serves real-time requests.
+type InferenceRouterAsyncInferenceConfigArgs struct {
+	ClientConfig InferenceRouterAsyncInferenceClientConfigPtrInput `pulumi:"clientConfig"`
+	OutputConfig InferenceRouterAsyncInferenceOutputConfigInput    `pulumi:"outputConfig"`
+}
+
+func (InferenceRouterAsyncInferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (i InferenceRouterAsyncInferenceConfigArgs) ToInferenceRouterAsyncInferenceConfigOutput() InferenceRouterAsyncInferenceConfigOutput {
+	return i.ToInferenceRouterAsyncInferenceConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterAsyncInferenceConfigArgs) ToInferenceRouterAsyncInferenceConfigOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceConfigOutput)
+}
+
+func (i InferenceRouterAsyncInferenceConfigArgs) ToInferenceRouterAsyncInferenceConfigPtrOutput() InferenceRouterAsyncInferenceConfigPtrOutput {
+	return i.ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterAsyncInferenceConfigArgs) ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceConfigOutput).ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceRouterAsyncInferenceConfigPtrInput is an input type that accepts InferenceRouterAsyncInferenceConfigArgs, InferenceRouterAsyncInferenceConfigPtr and InferenceRouterAsyncInferenceConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceRouterAsyncInferenceConfigPtrInput` via:
+//
+//	        InferenceRouterAsyncInferenceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceRouterAsyncInferenceConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceRouterAsyncInferenceConfigPtrOutput() InferenceRouterAsyncInferenceConfigPtrOutput
+	ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(context.Context) InferenceRouterAsyncInferenceConfigPtrOutput
+}
+
+type inferenceRouterAsyncInferenceConfigPtrType InferenceRouterAsyncInferenceConfigArgs
+
+func InferenceRouterAsyncInferenceConfigPtr(v *InferenceRouterAsyncInferenceConfigArgs) InferenceRouterAsyncInferenceConfigPtrInput {
+	return (*inferenceRouterAsyncInferenceConfigPtrType)(v)
+}
+
+func (*inferenceRouterAsyncInferenceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (i *inferenceRouterAsyncInferenceConfigPtrType) ToInferenceRouterAsyncInferenceConfigPtrOutput() InferenceRouterAsyncInferenceConfigPtrOutput {
+	return i.ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceRouterAsyncInferenceConfigPtrType) ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceConfigPtrOutput)
+}
+
+// Set this when the routing target's destinations are asynchronous inference endpoints. A routing target without it serves real-time requests.
+type InferenceRouterAsyncInferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterAsyncInferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (o InferenceRouterAsyncInferenceConfigOutput) ToInferenceRouterAsyncInferenceConfigOutput() InferenceRouterAsyncInferenceConfigOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceConfigOutput) ToInferenceRouterAsyncInferenceConfigOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceConfigOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceConfigOutput) ToInferenceRouterAsyncInferenceConfigPtrOutput() InferenceRouterAsyncInferenceConfigPtrOutput {
+	return o.ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterAsyncInferenceConfigOutput) ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceRouterAsyncInferenceConfig) *InferenceRouterAsyncInferenceConfig {
+		return &v
+	}).(InferenceRouterAsyncInferenceConfigPtrOutput)
+}
+
+func (o InferenceRouterAsyncInferenceConfigOutput) ClientConfig() InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceConfig) *InferenceRouterAsyncInferenceClientConfig {
+		return v.ClientConfig
+	}).(InferenceRouterAsyncInferenceClientConfigPtrOutput)
+}
+
+func (o InferenceRouterAsyncInferenceConfigOutput) OutputConfig() InferenceRouterAsyncInferenceOutputConfigOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceConfig) InferenceRouterAsyncInferenceOutputConfig {
+		return v.OutputConfig
+	}).(InferenceRouterAsyncInferenceOutputConfigOutput)
+}
+
+type InferenceRouterAsyncInferenceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterAsyncInferenceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (o InferenceRouterAsyncInferenceConfigPtrOutput) ToInferenceRouterAsyncInferenceConfigPtrOutput() InferenceRouterAsyncInferenceConfigPtrOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceConfigPtrOutput) ToInferenceRouterAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceConfigPtrOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceConfigPtrOutput) Elem() InferenceRouterAsyncInferenceConfigOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceConfig) InferenceRouterAsyncInferenceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceRouterAsyncInferenceConfig
+		return ret
+	}).(InferenceRouterAsyncInferenceConfigOutput)
+}
+
+func (o InferenceRouterAsyncInferenceConfigPtrOutput) ClientConfig() InferenceRouterAsyncInferenceClientConfigPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceConfig) *InferenceRouterAsyncInferenceClientConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ClientConfig
+	}).(InferenceRouterAsyncInferenceClientConfigPtrOutput)
+}
+
+func (o InferenceRouterAsyncInferenceConfigPtrOutput) OutputConfig() InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceConfig) *InferenceRouterAsyncInferenceOutputConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputConfig
+	}).(InferenceRouterAsyncInferenceOutputConfigPtrOutput)
+}
+
+// The SNS topics the Inference Router publishes a completion to. The notification carries the location of the result, not the result.
+type InferenceRouterAsyncInferenceNotificationConfig struct {
+	// The ARN of a standard (not FIFO) SNS topic to notify when a request fails. It can be in any Region.
+	ErrorTopic *string `pulumi:"errorTopic"`
+	// The ARN of a standard (not FIFO) SNS topic to notify when a request succeeds. It can be in any Region.
+	SuccessTopic *string `pulumi:"successTopic"`
+}
+
+// InferenceRouterAsyncInferenceNotificationConfigInput is an input type that accepts InferenceRouterAsyncInferenceNotificationConfigArgs and InferenceRouterAsyncInferenceNotificationConfigOutput values.
+// You can construct a concrete instance of `InferenceRouterAsyncInferenceNotificationConfigInput` via:
+//
+//	InferenceRouterAsyncInferenceNotificationConfigArgs{...}
+type InferenceRouterAsyncInferenceNotificationConfigInput interface {
+	pulumi.Input
+
+	ToInferenceRouterAsyncInferenceNotificationConfigOutput() InferenceRouterAsyncInferenceNotificationConfigOutput
+	ToInferenceRouterAsyncInferenceNotificationConfigOutputWithContext(context.Context) InferenceRouterAsyncInferenceNotificationConfigOutput
+}
+
+// The SNS topics the Inference Router publishes a completion to. The notification carries the location of the result, not the result.
+type InferenceRouterAsyncInferenceNotificationConfigArgs struct {
+	// The ARN of a standard (not FIFO) SNS topic to notify when a request fails. It can be in any Region.
+	ErrorTopic pulumi.StringPtrInput `pulumi:"errorTopic"`
+	// The ARN of a standard (not FIFO) SNS topic to notify when a request succeeds. It can be in any Region.
+	SuccessTopic pulumi.StringPtrInput `pulumi:"successTopic"`
+}
+
+func (InferenceRouterAsyncInferenceNotificationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterAsyncInferenceNotificationConfig)(nil)).Elem()
+}
+
+func (i InferenceRouterAsyncInferenceNotificationConfigArgs) ToInferenceRouterAsyncInferenceNotificationConfigOutput() InferenceRouterAsyncInferenceNotificationConfigOutput {
+	return i.ToInferenceRouterAsyncInferenceNotificationConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterAsyncInferenceNotificationConfigArgs) ToInferenceRouterAsyncInferenceNotificationConfigOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceNotificationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceNotificationConfigOutput)
+}
+
+func (i InferenceRouterAsyncInferenceNotificationConfigArgs) ToInferenceRouterAsyncInferenceNotificationConfigPtrOutput() InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return i.ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterAsyncInferenceNotificationConfigArgs) ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceNotificationConfigOutput).ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceRouterAsyncInferenceNotificationConfigPtrInput is an input type that accepts InferenceRouterAsyncInferenceNotificationConfigArgs, InferenceRouterAsyncInferenceNotificationConfigPtr and InferenceRouterAsyncInferenceNotificationConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceRouterAsyncInferenceNotificationConfigPtrInput` via:
+//
+//	        InferenceRouterAsyncInferenceNotificationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceRouterAsyncInferenceNotificationConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceRouterAsyncInferenceNotificationConfigPtrOutput() InferenceRouterAsyncInferenceNotificationConfigPtrOutput
+	ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(context.Context) InferenceRouterAsyncInferenceNotificationConfigPtrOutput
+}
+
+type inferenceRouterAsyncInferenceNotificationConfigPtrType InferenceRouterAsyncInferenceNotificationConfigArgs
+
+func InferenceRouterAsyncInferenceNotificationConfigPtr(v *InferenceRouterAsyncInferenceNotificationConfigArgs) InferenceRouterAsyncInferenceNotificationConfigPtrInput {
+	return (*inferenceRouterAsyncInferenceNotificationConfigPtrType)(v)
+}
+
+func (*inferenceRouterAsyncInferenceNotificationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterAsyncInferenceNotificationConfig)(nil)).Elem()
+}
+
+func (i *inferenceRouterAsyncInferenceNotificationConfigPtrType) ToInferenceRouterAsyncInferenceNotificationConfigPtrOutput() InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return i.ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceRouterAsyncInferenceNotificationConfigPtrType) ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceNotificationConfigPtrOutput)
+}
+
+// The SNS topics the Inference Router publishes a completion to. The notification carries the location of the result, not the result.
+type InferenceRouterAsyncInferenceNotificationConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterAsyncInferenceNotificationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterAsyncInferenceNotificationConfig)(nil)).Elem()
+}
+
+func (o InferenceRouterAsyncInferenceNotificationConfigOutput) ToInferenceRouterAsyncInferenceNotificationConfigOutput() InferenceRouterAsyncInferenceNotificationConfigOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceNotificationConfigOutput) ToInferenceRouterAsyncInferenceNotificationConfigOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceNotificationConfigOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceNotificationConfigOutput) ToInferenceRouterAsyncInferenceNotificationConfigPtrOutput() InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return o.ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterAsyncInferenceNotificationConfigOutput) ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceRouterAsyncInferenceNotificationConfig) *InferenceRouterAsyncInferenceNotificationConfig {
+		return &v
+	}).(InferenceRouterAsyncInferenceNotificationConfigPtrOutput)
+}
+
+// The ARN of a standard (not FIFO) SNS topic to notify when a request fails. It can be in any Region.
+func (o InferenceRouterAsyncInferenceNotificationConfigOutput) ErrorTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceNotificationConfig) *string { return v.ErrorTopic }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of a standard (not FIFO) SNS topic to notify when a request succeeds. It can be in any Region.
+func (o InferenceRouterAsyncInferenceNotificationConfigOutput) SuccessTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceNotificationConfig) *string { return v.SuccessTopic }).(pulumi.StringPtrOutput)
+}
+
+type InferenceRouterAsyncInferenceNotificationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterAsyncInferenceNotificationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterAsyncInferenceNotificationConfig)(nil)).Elem()
+}
+
+func (o InferenceRouterAsyncInferenceNotificationConfigPtrOutput) ToInferenceRouterAsyncInferenceNotificationConfigPtrOutput() InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceNotificationConfigPtrOutput) ToInferenceRouterAsyncInferenceNotificationConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceNotificationConfigPtrOutput) Elem() InferenceRouterAsyncInferenceNotificationConfigOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceNotificationConfig) InferenceRouterAsyncInferenceNotificationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceRouterAsyncInferenceNotificationConfig
+		return ret
+	}).(InferenceRouterAsyncInferenceNotificationConfigOutput)
+}
+
+// The ARN of a standard (not FIFO) SNS topic to notify when a request fails. It can be in any Region.
+func (o InferenceRouterAsyncInferenceNotificationConfigPtrOutput) ErrorTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of a standard (not FIFO) SNS topic to notify when a request succeeds. It can be in any Region.
+func (o InferenceRouterAsyncInferenceNotificationConfigPtrOutput) SuccessTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+// Where the results of asynchronous requests are written. Every destination of the routing target writes to these paths.
+type InferenceRouterAsyncInferenceOutputConfig struct {
+	// The AWS KMS key that encrypts the results. If any destination is in a different account or Region from the Inference Router, use a key ARN or an alias ARN.
+	KmsKeyId           *string                                          `pulumi:"kmsKeyId"`
+	NotificationConfig *InferenceRouterAsyncInferenceNotificationConfig `pulumi:"notificationConfig"`
+	// The Amazon S3 location for failed requests. It can be in any Region and account.
+	S3FailurePath string `pulumi:"s3FailurePath"`
+	// The Amazon S3 location for successful results. It can be in any Region and account.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// InferenceRouterAsyncInferenceOutputConfigInput is an input type that accepts InferenceRouterAsyncInferenceOutputConfigArgs and InferenceRouterAsyncInferenceOutputConfigOutput values.
+// You can construct a concrete instance of `InferenceRouterAsyncInferenceOutputConfigInput` via:
+//
+//	InferenceRouterAsyncInferenceOutputConfigArgs{...}
+type InferenceRouterAsyncInferenceOutputConfigInput interface {
+	pulumi.Input
+
+	ToInferenceRouterAsyncInferenceOutputConfigOutput() InferenceRouterAsyncInferenceOutputConfigOutput
+	ToInferenceRouterAsyncInferenceOutputConfigOutputWithContext(context.Context) InferenceRouterAsyncInferenceOutputConfigOutput
+}
+
+// Where the results of asynchronous requests are written. Every destination of the routing target writes to these paths.
+type InferenceRouterAsyncInferenceOutputConfigArgs struct {
+	// The AWS KMS key that encrypts the results. If any destination is in a different account or Region from the Inference Router, use a key ARN or an alias ARN.
+	KmsKeyId           pulumi.StringPtrInput                                   `pulumi:"kmsKeyId"`
+	NotificationConfig InferenceRouterAsyncInferenceNotificationConfigPtrInput `pulumi:"notificationConfig"`
+	// The Amazon S3 location for failed requests. It can be in any Region and account.
+	S3FailurePath pulumi.StringInput `pulumi:"s3FailurePath"`
+	// The Amazon S3 location for successful results. It can be in any Region and account.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (InferenceRouterAsyncInferenceOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterAsyncInferenceOutputConfig)(nil)).Elem()
+}
+
+func (i InferenceRouterAsyncInferenceOutputConfigArgs) ToInferenceRouterAsyncInferenceOutputConfigOutput() InferenceRouterAsyncInferenceOutputConfigOutput {
+	return i.ToInferenceRouterAsyncInferenceOutputConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterAsyncInferenceOutputConfigArgs) ToInferenceRouterAsyncInferenceOutputConfigOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceOutputConfigOutput)
+}
+
+func (i InferenceRouterAsyncInferenceOutputConfigArgs) ToInferenceRouterAsyncInferenceOutputConfigPtrOutput() InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return i.ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterAsyncInferenceOutputConfigArgs) ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceOutputConfigOutput).ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceRouterAsyncInferenceOutputConfigPtrInput is an input type that accepts InferenceRouterAsyncInferenceOutputConfigArgs, InferenceRouterAsyncInferenceOutputConfigPtr and InferenceRouterAsyncInferenceOutputConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceRouterAsyncInferenceOutputConfigPtrInput` via:
+//
+//	        InferenceRouterAsyncInferenceOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceRouterAsyncInferenceOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceRouterAsyncInferenceOutputConfigPtrOutput() InferenceRouterAsyncInferenceOutputConfigPtrOutput
+	ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(context.Context) InferenceRouterAsyncInferenceOutputConfigPtrOutput
+}
+
+type inferenceRouterAsyncInferenceOutputConfigPtrType InferenceRouterAsyncInferenceOutputConfigArgs
+
+func InferenceRouterAsyncInferenceOutputConfigPtr(v *InferenceRouterAsyncInferenceOutputConfigArgs) InferenceRouterAsyncInferenceOutputConfigPtrInput {
+	return (*inferenceRouterAsyncInferenceOutputConfigPtrType)(v)
+}
+
+func (*inferenceRouterAsyncInferenceOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterAsyncInferenceOutputConfig)(nil)).Elem()
+}
+
+func (i *inferenceRouterAsyncInferenceOutputConfigPtrType) ToInferenceRouterAsyncInferenceOutputConfigPtrOutput() InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return i.ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceRouterAsyncInferenceOutputConfigPtrType) ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterAsyncInferenceOutputConfigPtrOutput)
+}
+
+// Where the results of asynchronous requests are written. Every destination of the routing target writes to these paths.
+type InferenceRouterAsyncInferenceOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterAsyncInferenceOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterAsyncInferenceOutputConfig)(nil)).Elem()
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigOutput) ToInferenceRouterAsyncInferenceOutputConfigOutput() InferenceRouterAsyncInferenceOutputConfigOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigOutput) ToInferenceRouterAsyncInferenceOutputConfigOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceOutputConfigOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigOutput) ToInferenceRouterAsyncInferenceOutputConfigPtrOutput() InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return o.ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigOutput) ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceRouterAsyncInferenceOutputConfig) *InferenceRouterAsyncInferenceOutputConfig {
+		return &v
+	}).(InferenceRouterAsyncInferenceOutputConfigPtrOutput)
+}
+
+// The AWS KMS key that encrypts the results. If any destination is in a different account or Region from the Inference Router, use a key ARN or an alias ARN.
+func (o InferenceRouterAsyncInferenceOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigOutput) NotificationConfig() InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceOutputConfig) *InferenceRouterAsyncInferenceNotificationConfig {
+		return v.NotificationConfig
+	}).(InferenceRouterAsyncInferenceNotificationConfigPtrOutput)
+}
+
+// The Amazon S3 location for failed requests. It can be in any Region and account.
+func (o InferenceRouterAsyncInferenceOutputConfigOutput) S3FailurePath() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceOutputConfig) string { return v.S3FailurePath }).(pulumi.StringOutput)
+}
+
+// The Amazon S3 location for successful results. It can be in any Region and account.
+func (o InferenceRouterAsyncInferenceOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceRouterAsyncInferenceOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+type InferenceRouterAsyncInferenceOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterAsyncInferenceOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterAsyncInferenceOutputConfig)(nil)).Elem()
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigPtrOutput) ToInferenceRouterAsyncInferenceOutputConfigPtrOutput() InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigPtrOutput) ToInferenceRouterAsyncInferenceOutputConfigPtrOutputWithContext(ctx context.Context) InferenceRouterAsyncInferenceOutputConfigPtrOutput {
+	return o
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigPtrOutput) Elem() InferenceRouterAsyncInferenceOutputConfigOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceOutputConfig) InferenceRouterAsyncInferenceOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceRouterAsyncInferenceOutputConfig
+		return ret
+	}).(InferenceRouterAsyncInferenceOutputConfigOutput)
+}
+
+// The AWS KMS key that encrypts the results. If any destination is in a different account or Region from the Inference Router, use a key ARN or an alias ARN.
+func (o InferenceRouterAsyncInferenceOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InferenceRouterAsyncInferenceOutputConfigPtrOutput) NotificationConfig() InferenceRouterAsyncInferenceNotificationConfigPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceOutputConfig) *InferenceRouterAsyncInferenceNotificationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationConfig
+	}).(InferenceRouterAsyncInferenceNotificationConfigPtrOutput)
+}
+
+// The Amazon S3 location for failed requests. It can be in any Region and account.
+func (o InferenceRouterAsyncInferenceOutputConfigPtrOutput) S3FailurePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3FailurePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 location for successful results. It can be in any Region and account.
+func (o InferenceRouterAsyncInferenceOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceRouterAsyncInferenceOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// One placement of a routing target's model. ResourceArn is the destination's identity: changing it is a removal plus an addition.
+type InferenceRouterDestination struct {
+	// The ARN of a SageMaker endpoint or inference component that serves the routing target. It can be in any Region and account within the Inference Router's partition.
+	ResourceArn string `pulumi:"resourceArn"`
+}
+
+// InferenceRouterDestinationInput is an input type that accepts InferenceRouterDestinationArgs and InferenceRouterDestinationOutput values.
+// You can construct a concrete instance of `InferenceRouterDestinationInput` via:
+//
+//	InferenceRouterDestinationArgs{...}
+type InferenceRouterDestinationInput interface {
+	pulumi.Input
+
+	ToInferenceRouterDestinationOutput() InferenceRouterDestinationOutput
+	ToInferenceRouterDestinationOutputWithContext(context.Context) InferenceRouterDestinationOutput
+}
+
+// One placement of a routing target's model. ResourceArn is the destination's identity: changing it is a removal plus an addition.
+type InferenceRouterDestinationArgs struct {
+	// The ARN of a SageMaker endpoint or inference component that serves the routing target. It can be in any Region and account within the Inference Router's partition.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+}
+
+func (InferenceRouterDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterDestination)(nil)).Elem()
+}
+
+func (i InferenceRouterDestinationArgs) ToInferenceRouterDestinationOutput() InferenceRouterDestinationOutput {
+	return i.ToInferenceRouterDestinationOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterDestinationArgs) ToInferenceRouterDestinationOutputWithContext(ctx context.Context) InferenceRouterDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterDestinationOutput)
+}
+
+// InferenceRouterDestinationArrayInput is an input type that accepts InferenceRouterDestinationArray and InferenceRouterDestinationArrayOutput values.
+// You can construct a concrete instance of `InferenceRouterDestinationArrayInput` via:
+//
+//	InferenceRouterDestinationArray{ InferenceRouterDestinationArgs{...} }
+type InferenceRouterDestinationArrayInput interface {
+	pulumi.Input
+
+	ToInferenceRouterDestinationArrayOutput() InferenceRouterDestinationArrayOutput
+	ToInferenceRouterDestinationArrayOutputWithContext(context.Context) InferenceRouterDestinationArrayOutput
+}
+
+type InferenceRouterDestinationArray []InferenceRouterDestinationInput
+
+func (InferenceRouterDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceRouterDestination)(nil)).Elem()
+}
+
+func (i InferenceRouterDestinationArray) ToInferenceRouterDestinationArrayOutput() InferenceRouterDestinationArrayOutput {
+	return i.ToInferenceRouterDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterDestinationArray) ToInferenceRouterDestinationArrayOutputWithContext(ctx context.Context) InferenceRouterDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterDestinationArrayOutput)
+}
+
+// One placement of a routing target's model. ResourceArn is the destination's identity: changing it is a removal plus an addition.
+type InferenceRouterDestinationOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterDestination)(nil)).Elem()
+}
+
+func (o InferenceRouterDestinationOutput) ToInferenceRouterDestinationOutput() InferenceRouterDestinationOutput {
+	return o
+}
+
+func (o InferenceRouterDestinationOutput) ToInferenceRouterDestinationOutputWithContext(ctx context.Context) InferenceRouterDestinationOutput {
+	return o
+}
+
+// The ARN of a SageMaker endpoint or inference component that serves the routing target. It can be in any Region and account within the Inference Router's partition.
+func (o InferenceRouterDestinationOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceRouterDestination) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+type InferenceRouterDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceRouterDestination)(nil)).Elem()
+}
+
+func (o InferenceRouterDestinationArrayOutput) ToInferenceRouterDestinationArrayOutput() InferenceRouterDestinationArrayOutput {
+	return o
+}
+
+func (o InferenceRouterDestinationArrayOutput) ToInferenceRouterDestinationArrayOutputWithContext(ctx context.Context) InferenceRouterDestinationArrayOutput {
+	return o
+}
+
+func (o InferenceRouterDestinationArrayOutput) Index(i pulumi.IntInput) InferenceRouterDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceRouterDestination {
+		return vs[0].([]InferenceRouterDestination)[vs[1].(int)]
+	}).(InferenceRouterDestinationOutput)
+}
+
+// A named logical model within the Inference Router. Callers pass Name on the inference request to select which model serves it.
+type InferenceRouterRoutingTarget struct {
+	AsyncInferenceConfig *InferenceRouterAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`
+	// The endpoints and inference components that serve this routing target.
+	Destinations []InferenceRouterDestination `pulumi:"destinations"`
+	// The logical model name a caller passes at invoke time. Unique within an Inference Router.
+	Name string `pulumi:"name"`
+	// How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+	RoutingPreference *InferenceRouterRoutingTargetRoutingPreference `pulumi:"routingPreference"`
+}
+
+// InferenceRouterRoutingTargetInput is an input type that accepts InferenceRouterRoutingTargetArgs and InferenceRouterRoutingTargetOutput values.
+// You can construct a concrete instance of `InferenceRouterRoutingTargetInput` via:
+//
+//	InferenceRouterRoutingTargetArgs{...}
+type InferenceRouterRoutingTargetInput interface {
+	pulumi.Input
+
+	ToInferenceRouterRoutingTargetOutput() InferenceRouterRoutingTargetOutput
+	ToInferenceRouterRoutingTargetOutputWithContext(context.Context) InferenceRouterRoutingTargetOutput
+}
+
+// A named logical model within the Inference Router. Callers pass Name on the inference request to select which model serves it.
+type InferenceRouterRoutingTargetArgs struct {
+	AsyncInferenceConfig InferenceRouterAsyncInferenceConfigPtrInput `pulumi:"asyncInferenceConfig"`
+	// The endpoints and inference components that serve this routing target.
+	Destinations InferenceRouterDestinationArrayInput `pulumi:"destinations"`
+	// The logical model name a caller passes at invoke time. Unique within an Inference Router.
+	Name pulumi.StringInput `pulumi:"name"`
+	// How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+	RoutingPreference InferenceRouterRoutingTargetRoutingPreferencePtrInput `pulumi:"routingPreference"`
+}
+
+func (InferenceRouterRoutingTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterRoutingTarget)(nil)).Elem()
+}
+
+func (i InferenceRouterRoutingTargetArgs) ToInferenceRouterRoutingTargetOutput() InferenceRouterRoutingTargetOutput {
+	return i.ToInferenceRouterRoutingTargetOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterRoutingTargetArgs) ToInferenceRouterRoutingTargetOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterRoutingTargetOutput)
+}
+
+// InferenceRouterRoutingTargetArrayInput is an input type that accepts InferenceRouterRoutingTargetArray and InferenceRouterRoutingTargetArrayOutput values.
+// You can construct a concrete instance of `InferenceRouterRoutingTargetArrayInput` via:
+//
+//	InferenceRouterRoutingTargetArray{ InferenceRouterRoutingTargetArgs{...} }
+type InferenceRouterRoutingTargetArrayInput interface {
+	pulumi.Input
+
+	ToInferenceRouterRoutingTargetArrayOutput() InferenceRouterRoutingTargetArrayOutput
+	ToInferenceRouterRoutingTargetArrayOutputWithContext(context.Context) InferenceRouterRoutingTargetArrayOutput
+}
+
+type InferenceRouterRoutingTargetArray []InferenceRouterRoutingTargetInput
+
+func (InferenceRouterRoutingTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceRouterRoutingTarget)(nil)).Elem()
+}
+
+func (i InferenceRouterRoutingTargetArray) ToInferenceRouterRoutingTargetArrayOutput() InferenceRouterRoutingTargetArrayOutput {
+	return i.ToInferenceRouterRoutingTargetArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceRouterRoutingTargetArray) ToInferenceRouterRoutingTargetArrayOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceRouterRoutingTargetArrayOutput)
+}
+
+// A named logical model within the Inference Router. Callers pass Name on the inference request to select which model serves it.
+type InferenceRouterRoutingTargetOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterRoutingTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterRoutingTarget)(nil)).Elem()
+}
+
+func (o InferenceRouterRoutingTargetOutput) ToInferenceRouterRoutingTargetOutput() InferenceRouterRoutingTargetOutput {
+	return o
+}
+
+func (o InferenceRouterRoutingTargetOutput) ToInferenceRouterRoutingTargetOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetOutput {
+	return o
+}
+
+func (o InferenceRouterRoutingTargetOutput) AsyncInferenceConfig() InferenceRouterAsyncInferenceConfigPtrOutput {
+	return o.ApplyT(func(v InferenceRouterRoutingTarget) *InferenceRouterAsyncInferenceConfig {
+		return v.AsyncInferenceConfig
+	}).(InferenceRouterAsyncInferenceConfigPtrOutput)
+}
+
+// The endpoints and inference components that serve this routing target.
+func (o InferenceRouterRoutingTargetOutput) Destinations() InferenceRouterDestinationArrayOutput {
+	return o.ApplyT(func(v InferenceRouterRoutingTarget) []InferenceRouterDestination { return v.Destinations }).(InferenceRouterDestinationArrayOutput)
+}
+
+// The logical model name a caller passes at invoke time. Unique within an Inference Router.
+func (o InferenceRouterRoutingTargetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceRouterRoutingTarget) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+func (o InferenceRouterRoutingTargetOutput) RoutingPreference() InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return o.ApplyT(func(v InferenceRouterRoutingTarget) *InferenceRouterRoutingTargetRoutingPreference {
+		return v.RoutingPreference
+	}).(InferenceRouterRoutingTargetRoutingPreferencePtrOutput)
+}
+
+type InferenceRouterRoutingTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterRoutingTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceRouterRoutingTarget)(nil)).Elem()
+}
+
+func (o InferenceRouterRoutingTargetArrayOutput) ToInferenceRouterRoutingTargetArrayOutput() InferenceRouterRoutingTargetArrayOutput {
+	return o
+}
+
+func (o InferenceRouterRoutingTargetArrayOutput) ToInferenceRouterRoutingTargetArrayOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetArrayOutput {
+	return o
+}
+
+func (o InferenceRouterRoutingTargetArrayOutput) Index(i pulumi.IntInput) InferenceRouterRoutingTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceRouterRoutingTarget {
+		return vs[0].([]InferenceRouterRoutingTarget)[vs[1].(int)]
+	}).(InferenceRouterRoutingTargetOutput)
+}
+
+// A key-value pair to associate with the Inference Router.
+type InferenceRouterTag struct {
+	// The tag key. Tag keys must be unique per resource.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -65627,6 +66671,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyTextConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyTextConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCoreDumpConfigInput)(nil)).Elem(), EndpointConfigCoreDumpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCoreDumpConfigPtrInput)(nil)).Elem(), EndpointConfigCoreDumpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCrossRegionTrafficConfigInput)(nil)).Elem(), EndpointConfigCrossRegionTrafficConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCrossRegionTrafficConfigPtrInput)(nil)).Elem(), EndpointConfigCrossRegionTrafficConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigDataCaptureConfigInput)(nil)).Elem(), EndpointConfigDataCaptureConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigDataCaptureConfigPtrInput)(nil)).Elem(), EndpointConfigDataCaptureConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigExplainerConfigInput)(nil)).Elem(), EndpointConfigExplainerConfigArgs{})
@@ -65727,6 +66773,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModeConfigPtrInput)(nil)).Elem(), InferenceExperimentShadowModeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModelVariantConfigInput)(nil)).Elem(), InferenceExperimentShadowModelVariantConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModelVariantConfigArrayInput)(nil)).Elem(), InferenceExperimentShadowModelVariantConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterAsyncInferenceClientConfigInput)(nil)).Elem(), InferenceRouterAsyncInferenceClientConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterAsyncInferenceClientConfigPtrInput)(nil)).Elem(), InferenceRouterAsyncInferenceClientConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterAsyncInferenceConfigInput)(nil)).Elem(), InferenceRouterAsyncInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterAsyncInferenceConfigPtrInput)(nil)).Elem(), InferenceRouterAsyncInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterAsyncInferenceNotificationConfigInput)(nil)).Elem(), InferenceRouterAsyncInferenceNotificationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterAsyncInferenceNotificationConfigPtrInput)(nil)).Elem(), InferenceRouterAsyncInferenceNotificationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterAsyncInferenceOutputConfigInput)(nil)).Elem(), InferenceRouterAsyncInferenceOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterAsyncInferenceOutputConfigPtrInput)(nil)).Elem(), InferenceRouterAsyncInferenceOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterDestinationInput)(nil)).Elem(), InferenceRouterDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterDestinationArrayInput)(nil)).Elem(), InferenceRouterDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterRoutingTargetInput)(nil)).Elem(), InferenceRouterRoutingTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterRoutingTargetArrayInput)(nil)).Elem(), InferenceRouterRoutingTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelAccessConfigInput)(nil)).Elem(), ModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelAccessConfigPtrInput)(nil)).Elem(), ModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
@@ -66416,6 +67474,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointConfigClarifyTextConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigCoreDumpConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigCoreDumpConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCrossRegionTrafficConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCrossRegionTrafficConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigDataCaptureConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigDataCaptureConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigExplainerConfigOutput{})
@@ -66520,6 +67580,18 @@ func init() {
 	pulumi.RegisterOutputType(InferenceExperimentShadowModeConfigPtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentShadowModelVariantConfigOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentShadowModelVariantConfigArrayOutput{})
+	pulumi.RegisterOutputType(InferenceRouterAsyncInferenceClientConfigOutput{})
+	pulumi.RegisterOutputType(InferenceRouterAsyncInferenceClientConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceRouterAsyncInferenceConfigOutput{})
+	pulumi.RegisterOutputType(InferenceRouterAsyncInferenceConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceRouterAsyncInferenceNotificationConfigOutput{})
+	pulumi.RegisterOutputType(InferenceRouterAsyncInferenceNotificationConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceRouterAsyncInferenceOutputConfigOutput{})
+	pulumi.RegisterOutputType(InferenceRouterAsyncInferenceOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceRouterDestinationOutput{})
+	pulumi.RegisterOutputType(InferenceRouterDestinationArrayOutput{})
+	pulumi.RegisterOutputType(InferenceRouterRoutingTargetOutput{})
+	pulumi.RegisterOutputType(InferenceRouterRoutingTargetArrayOutput{})
 	pulumi.RegisterOutputType(ModelAccessConfigOutput{})
 	pulumi.RegisterOutputType(ModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputOutput{})

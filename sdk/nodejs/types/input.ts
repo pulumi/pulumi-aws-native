@@ -915,6 +915,16 @@ export namespace acmpca {
 
 export namespace agentregistry {
     /**
+     * The identifier value. Exactly one member is set.
+     */
+    export interface PublisherIdentifierArgs {
+        /**
+         * The fully qualified domain name (RFC 1035/1123) with at least two labels, in lowercase. The service stores domain names in lowercase, so specify the value in lowercase to avoid drift.
+         */
+        domain: pulumi.Input<string>;
+    }
+
+    /**
      * Configuration for the registry's record approval workflow.
      */
     export interface RegistryApprovalConfigurationArgs {
@@ -1037,6 +1047,14 @@ export namespace agentregistry {
      */
     export interface RegistryRecordAgentSkillsAdditionalDataArgs {
         skillMd?: pulumi.Input<inputs.agentregistry.RegistryRecordAgentSkillsMdDescriptorArgs | undefined>;
+        /**
+         * The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+         */
+        skillPackage?: pulumi.Input<inputs.agentregistry.RegistryRecordAgentSkillsPackageDescriptorArgs | undefined>;
+        /**
+         * The provider-specific settings of the record's skill source.
+         */
+        sourceConfiguration?: pulumi.Input<inputs.agentregistry.RegistryRecordAgentSkillsSourceConfigurationArgs | undefined>;
     }
 
     /**
@@ -1061,6 +1079,26 @@ export namespace agentregistry {
          */
         dataSchemaVersion?: pulumi.Input<string | undefined>;
         source?: pulumi.Input<inputs.agentregistry.RegistryRecordSkillMdSourceArgs | undefined>;
+    }
+
+    /**
+     * The skill package descriptor. It names the source that the registry synchronizes a skill package (a ZIP archive that follows the Agent Skills specification) from. The registry validates the package, stores it, and sets SkillMd Data from the package's SKILL.md.
+     */
+    export interface RegistryRecordAgentSkillsPackageDescriptorArgs {
+        /**
+         * The source of the skill package, as an s3:// URL of a ZIP object.
+         */
+        source?: pulumi.Input<inputs.agentregistry.RegistryRecordSkillMdSourceArgs | undefined>;
+    }
+
+    /**
+     * The provider-specific settings of a skill source. Specify the member that matches the source's provider, such as S3 for an Amazon S3 source.
+     */
+    export interface RegistryRecordAgentSkillsSourceConfigurationArgs {
+        /**
+         * The settings of an Amazon S3 source.
+         */
+        s3: pulumi.Input<inputs.agentregistry.RegistryRecordS3SourceConfigurationArgs>;
     }
 
     /**
@@ -1195,20 +1233,58 @@ export namespace agentregistry {
     }
 
     /**
-     * Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+     * The settings of a skill source that the registry reads from Amazon S3.
+     */
+    export interface RegistryRecordS3SourceConfigurationArgs {
+        /**
+         * The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+         */
+        bucketOwnerAccountId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The source that the registry synchronizes agent skills content from: a SKILL.md document in SkillMd.Source, or a skill package in SkillPackage.Source.
      */
     export interface RegistryRecordSkillMdSourceArgs {
         fromUrl?: pulumi.Input<inputs.agentregistry.RegistryRecordSkillMdSourceFromUrlArgs | undefined>;
     }
 
     /**
-     * URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+     * URL-based source of agent skills content. With an s3:// URL, the registry reads the Amazon S3 object when the record is created, and again whenever the URL, the credential provider or the bucket owner changes. Each read replaces the SKILL.md Data and sets the record's Name and Description from the name and description in the SKILL.md frontmatter, so set Name and Description to the same values and don't set SkillMd Data. An https:// URL is a reference URL that the registry doesn't synchronize from: where Amazon S3 skill synchronization is available, the registry accepts an https:// URL only on a record that already stores it, with the content provided inline in SkillMd Data.
      */
     export interface RegistryRecordSkillMdSourceFromUrlArgs {
         /**
-         * URL source for the SkillMd document.
+         * The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
+         */
+        credentialProviderConfigurations?: pulumi.Input<pulumi.Input<inputs.agentregistry.RegistryRecordSkillSourceCredentialProviderConfigurationArgs>[] | undefined>;
+        /**
+         * The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
          */
         url: pulumi.Input<string>;
+    }
+
+    /**
+     * A credential provider configuration that the registry uses to read an agent skills source. An Amazon S3 source takes an IAM role.
+     */
+    export interface RegistryRecordSkillSourceCredentialProviderConfigurationArgs {
+        /**
+         * The credential provider details.
+         */
+        credentialProvider: pulumi.Input<inputs.agentregistry.RegistryRecordSkillSourceCredentialProviderUnionArgs>;
+        /**
+         * The type of the credential provider.
+         */
+        credentialProviderType: pulumi.Input<enums.agentregistry.RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType>;
+    }
+
+    /**
+     * The credential provider details of an agent skills source. Specify IamCredentialProvider.
+     */
+    export interface RegistryRecordSkillSourceCredentialProviderUnionArgs {
+        /**
+         * The IAM role that the registry assumes to read the source. For an Amazon S3 source, omit Service or set it to s3, and omit Region or set it to the registry's Region.
+         */
+        iamCredentialProvider?: pulumi.Input<inputs.agentregistry.RegistryRecordIamCredentialProviderArgs | undefined>;
     }
 
     /**
@@ -2258,6 +2334,51 @@ export namespace apigateway {
         stageName?: pulumi.Input<string | undefined>;
     }
 
+    export interface AuthorizerJwtAdditionalClaimArgs {
+        /**
+         * The claim name. Can't be iss, aud, exp, nbf, iat, scope or scp.
+         */
+        claimName: pulumi.Input<string>;
+        /**
+         * The value the claim must have. Leave it out to check only that the claim is present.
+         */
+        expectedValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The claim's format. SINGLE_STRING is the only format.
+         */
+        format: pulumi.Input<string>;
+        /**
+         * Whether the token must carry the claim. Defaults to false.
+         */
+        required?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface AuthorizerJwtConfigurationArgs {
+        /**
+         * The signing algorithms the authorizer accepts: RS256, RS384, RS512, ES256, ES384 or ES512.
+         */
+        defaultAlgorithms: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The token issuers the authorizer accepts.
+         */
+        issuers: pulumi.Input<pulumi.Input<inputs.apigateway.AuthorizerJwtIssuerArgs>[]>;
+    }
+
+    export interface AuthorizerJwtIssuerArgs {
+        /**
+         * Other claims the token must carry.
+         */
+        additionalClaims?: pulumi.Input<pulumi.Input<inputs.apigateway.AuthorizerJwtAdditionalClaimArgs>[] | undefined>;
+        /**
+         * The values that the token's aud claim must contain at least one of.
+         */
+        audiences: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The HTTPS URL that the token's iss claim must match.
+         */
+        issuer: pulumi.Input<string>;
+    }
+
     /**
      * The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
      *  ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
@@ -2311,7 +2432,7 @@ export namespace apigateway {
     }
 
     /**
-     * The ``MethodSetting`` property type configures settings for all methods in a stage.
+     * The ``MethodSetting`` property type configures settings for all methods in a stage. If you modify this property type, you must create a new deployment for your API.
      *  The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
      */
     export interface DeploymentMethodSettingArgs {
@@ -6923,6 +7044,50 @@ export namespace appstream {
         vpceId: pulumi.Input<string>;
     }
 
+    /**
+     * The configuration for agent access on an image builder. Agent access enables AI agents to interact with the image builder desktop.
+     */
+    export interface ImageBuilderAgentAccessConfigArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+         */
+        s3BucketArn?: pulumi.Input<string | undefined>;
+        /**
+         * The image format for agent screen captures.
+         */
+        screenImageFormat: pulumi.Input<string>;
+        /**
+         * The screen resolution for the agent streaming environment.
+         */
+        screenResolution: pulumi.Input<string>;
+        /**
+         * Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+         */
+        screenshotsUploadEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+         */
+        settings: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAgentAccessSettingArgs>[]>;
+        /**
+         * The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+         */
+        userControlMode?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+     */
+    export interface ImageBuilderAgentAccessSettingArgs {
+        /**
+         * The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools.
+         */
+        agentAction: pulumi.Input<string>;
+        /**
+         * Whether the agent action is enabled or disabled.
+         */
+        permission: pulumi.Input<string>;
+    }
+
     export interface ImageBuilderDomainJoinInfoArgs {
         /**
          * The fully qualified name of the directory (for example, corp.example.com).
@@ -6968,7 +7133,15 @@ export namespace appstream {
      */
     export interface StackAgentAccessConfigArgs {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+         * The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+         */
+        kmsKeyArn?: pulumi.Input<string | undefined>;
+        /**
+         * Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+         */
+        replaySessionEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
          */
         s3BucketArn?: pulumi.Input<string | undefined>;
         /**
@@ -17033,6 +17206,16 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * The CPU options for the instances.
+     */
+    export interface CapacityProviderCpuOptionsArgs {
+        /**
+         * Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+         */
+        nestedVirtualization?: pulumi.Input<enums.bedrockagentcore.CapacityProviderCpuOptionsNestedVirtualization | undefined>;
+    }
+
+    /**
      * Configuration for an EBS-backed persistent volume.
      */
     export interface CapacityProviderEbsVolumeConfigurationArgs {
@@ -17170,6 +17353,7 @@ export namespace bedrockagentcore {
      */
     export interface CapacityProviderLaunchParametersArgs {
         capacityReservationSpecification?: pulumi.Input<inputs.bedrockagentcore.CapacityProviderCapacityReservationSpecificationArgs | undefined>;
+        cpuOptions?: pulumi.Input<inputs.bedrockagentcore.CapacityProviderCpuOptionsArgs | undefined>;
         /**
          * The block device mapping for ephemeral (instance store) volumes.
          */
@@ -17369,7 +17553,7 @@ export namespace bedrockagentcore {
      */
     export interface DatasetInlineExamplesSourceArgs {
         /**
-         * Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+         * Examples to add. Each example is a free-form JSON document validated against the scenario rules.
          */
         examples: pulumi.Input<any[]>;
     }
@@ -17597,6 +17781,14 @@ export namespace bedrockagentcore {
         claimMatchValue: pulumi.Input<inputs.bedrockagentcore.GatewayClaimMatchValueType0PropertiesArgs | inputs.bedrockagentcore.GatewayClaimMatchValueType1PropertiesArgs>;
     }
 
+    export interface GatewayCertificateConfiguration0PropertiesArgs {
+        s3: pulumi.Input<inputs.bedrockagentcore.GatewayS3CertificateConfigurationArgs>;
+    }
+
+    export interface GatewayCertificateConfiguration1PropertiesArgs {
+        secretsManager: pulumi.Input<inputs.bedrockagentcore.GatewaySecretsManagerCertificateConfigurationArgs>;
+    }
+
     export interface GatewayClaimMatchValueType0PropertiesArgs {
         matchValueString: pulumi.Input<string>;
     }
@@ -17616,15 +17808,23 @@ export namespace bedrockagentcore {
         allowedAudience?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         allowedClients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         allowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        certificateConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayCertificateConfiguration0PropertiesArgs | inputs.bedrockagentcore.GatewayCertificateConfiguration1PropertiesArgs>[] | undefined>;
         customClaims?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayCustomClaimValidationTypeArgs>[] | undefined>;
         discoveryUrl: pulumi.Input<string>;
         privateEndpoint?: pulumi.Input<inputs.bedrockagentcore.GatewayPrivateEndpoint0PropertiesArgs | inputs.bedrockagentcore.GatewayPrivateEndpoint1PropertiesArgs | undefined>;
+    }
+
+    export interface GatewayDomainOverrideArgs {
+        alternateDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        defaultDomain: pulumi.Input<string>;
     }
 
     export interface GatewayInterceptorConfigurationArgs {
         inputConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayInterceptorInputConfigurationArgs | undefined>;
         interceptionPoints: pulumi.Input<pulumi.Input<enums.bedrockagentcore.GatewayInterceptionPoint>[]>;
         interceptor: pulumi.Input<inputs.bedrockagentcore.InterceptorConfigurationPropertiesArgs>;
+        responseInterceptionMode?: pulumi.Input<enums.bedrockagentcore.GatewayResponseInterceptionMode | undefined>;
+        responseStreamingConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayResponseStreamingConfigurationArgs | undefined>;
     }
 
     export interface GatewayInterceptorInputConfigurationArgs {
@@ -17704,6 +17904,10 @@ export namespace bedrockagentcore {
     export interface GatewayRateLimitRateConfigArgs {
         period: pulumi.Input<enums.bedrockagentcore.GatewayRateLimitPeriod>;
         rate: pulumi.Input<number>;
+    }
+
+    export interface GatewayResponseStreamingConfigurationArgs {
+        maxEventsPerInvocation?: pulumi.Input<number | undefined>;
     }
 
     export interface GatewayRuleAction0PropertiesArgs {
@@ -17831,6 +18035,15 @@ export namespace bedrockagentcore {
 
     export interface GatewayRuleWeightedRouteArgs {
         trafficSplit: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayRuleTargetTrafficSplitEntryArgs>[]>;
+    }
+
+    export interface GatewayS3CertificateConfigurationArgs {
+        bucketOwnerAccountId?: pulumi.Input<string | undefined>;
+        uri: pulumi.Input<string>;
+    }
+
+    export interface GatewaySecretsManagerCertificateConfigurationArgs {
+        secretArn: pulumi.Input<string>;
     }
 
     export interface GatewaySelfManagedLatticeResourcePropertiesArgs {
@@ -19555,6 +19768,28 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * Amazon Pay configuration with merchant identifiers and a delegated authorization token
+     */
+    export interface PaymentCredentialProviderAmazonPayConfigurationInputArgs {
+        amazonPayRegion: pulumi.Input<enums.bedrockagentcore.PaymentCredentialProviderAmazonPayRegionType>;
+        /**
+         * The delegated authorization token, supplied inline. Mutually exclusive with AuthorizationTokenConfig.
+         */
+        authorizationToken?: pulumi.Input<string | undefined>;
+        authorizationTokenConfig?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderSecretReferenceArgs | undefined>;
+        authorizationTokenSource?: pulumi.Input<enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType | undefined>;
+        environment: pulumi.Input<enums.bedrockagentcore.PaymentCredentialProviderAmazonPayEnvironmentType>;
+        /**
+         * The Amazon Pay merchant (seller) ID
+         */
+        merchantId: pulumi.Input<string>;
+        /**
+         * The Amazon Pay store (client) ID
+         */
+        storeId: pulumi.Input<string>;
+    }
+
+    /**
      * Coinbase CDP configuration with API credentials
      */
     export interface PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs {
@@ -19577,10 +19812,30 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * PayPal configuration with REST app credentials
+     */
+    export interface PaymentCredentialProviderPayPalConfigurationInputArgs {
+        /**
+         * The PayPal REST app client ID
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The PayPal REST app client secret, supplied inline. Mutually exclusive with ClientSecretConfig.
+         */
+        clientSecret?: pulumi.Input<string | undefined>;
+        clientSecretConfig?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderSecretReferenceArgs | undefined>;
+        clientSecretSource?: pulumi.Input<enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType | undefined>;
+        environment: pulumi.Input<enums.bedrockagentcore.PaymentCredentialProviderPayPalEnvironmentType>;
+    }
+
+    /**
      * Provider configuration input containing secrets for creation/update
      */
     export interface PaymentCredentialProviderPaymentProviderConfigurationInputArgs {
+        amazonPayConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderAmazonPayConfigurationInputArgs | undefined>;
         coinbaseCdpConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs | undefined>;
+        payPalConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderPayPalConfigurationInputArgs | undefined>;
+        stripeConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderStripeConfigurationInputArgs | undefined>;
         stripePrivyConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderStripePrivyConfigurationInputArgs | undefined>;
     }
 
@@ -19596,6 +19851,22 @@ export namespace bedrockagentcore {
          * The ID or ARN of the secret in AWS Secrets Manager
          */
         secretId: pulumi.Input<string>;
+    }
+
+    /**
+     * Stripe configuration with a restricted key, supplied inline (MANAGED) or as a Secrets Manager reference (EXTERNAL)
+     */
+    export interface PaymentCredentialProviderStripeConfigurationInputArgs {
+        /**
+         * The Stripe publishable key (pk_live_* or pk_test_*). Its mode must match the restricted key's.
+         */
+        publishableKey?: pulumi.Input<string | undefined>;
+        /**
+         * The Stripe restricted key (rk_live_* or rk_test_*), supplied inline. Mutually exclusive with RestrictedKeyConfig.
+         */
+        restrictedKey?: pulumi.Input<string | undefined>;
+        restrictedKeyConfig?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderSecretReferenceArgs | undefined>;
+        restrictedKeySource?: pulumi.Input<enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType | undefined>;
     }
 
     /**
@@ -19718,6 +19989,13 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * Hooks that run while the platform builds a runtime version, before any session exists
+     */
+    export interface RuntimeBuildLifecycleHooksArgs {
+        warmup?: pulumi.Input<inputs.bedrockagentcore.RuntimeLifecycleHookArgs | undefined>;
+    }
+
+    /**
      * Configuration for a capacity provider
      */
     export interface RuntimeCapacityProviderConfigurationArgs {
@@ -19814,6 +20092,13 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * Lifecycle hooks that the platform runs at fixed points in the runtime's lifecycle
+     */
+    export interface RuntimeHooksConfigurationArgs {
+        build?: pulumi.Input<inputs.bedrockagentcore.RuntimeBuildLifecycleHooksArgs | undefined>;
+    }
+
+    /**
      * An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
      */
     export interface RuntimeHostingEnvironmentArgs {
@@ -19821,6 +20106,17 @@ export namespace bedrockagentcore {
          * The ARN of the bedrock-agentcore hosting environment
          */
         arn: pulumi.Input<string>;
+    }
+
+    /**
+     * Sends an HTTP POST to the agent's container. Any 2xx response ends the hook; anything else fails it. The path and port must not be a route the platform already calls on the container, such as the protocol's invocation path or the default health check.
+     */
+    export interface RuntimeHttpPostLifecycleHookActionArgs {
+        path: pulumi.Input<string>;
+        /**
+         * Port in the agent's container the platform sends the POST to. Defaults to the runtime's server port.
+         */
+        port?: pulumi.Input<number | undefined>;
     }
 
     /**
@@ -19835,6 +20131,20 @@ export namespace bedrockagentcore {
          * Maximum lifetime in seconds for runtime sessions
          */
         maxLifetime?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * A lifecycle hook and the action it runs
+     */
+    export interface RuntimeLifecycleHookArgs {
+        action: pulumi.Input<inputs.bedrockagentcore.RuntimeLifecycleHookActionArgs>;
+    }
+
+    /**
+     * The action a lifecycle hook runs. HttpPost is the only action.
+     */
+    export interface RuntimeLifecycleHookActionArgs {
+        httpPost: pulumi.Input<inputs.bedrockagentcore.RuntimeHttpPostLifecycleHookActionArgs>;
     }
 
     /**
@@ -19899,6 +20209,16 @@ export namespace bedrockagentcore {
      */
     export interface RuntimeRequestHeaderConfigurationArgs {
         requestHeaderAllowlist?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Resource configuration for an agent runtime
+     */
+    export interface RuntimeResourceConfigurationArgs {
+        /**
+         * The minimum amount of memory in MiB to allocate to the agent runtime
+         */
+        minimumMemoryInMiB: pulumi.Input<number>;
     }
 
     /**
@@ -22685,6 +23005,10 @@ export namespace cloudfront {
         keyValueStoreArn: pulumi.Input<string>;
     }
 
+    export interface ConnectionGroupViewerFallbackArgs {
+        distributionId: pulumi.Input<string>;
+    }
+
     /**
      * Contains the configuration for a continuous deployment policy.
      */
@@ -23181,6 +23505,7 @@ export namespace cloudfront {
          * Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
          */
         ipAddressType?: pulumi.Input<enums.cloudfront.DistributionCustomOriginConfigIpAddressType | undefined>;
+        originHttpVersion?: pulumi.Input<enums.cloudfront.DistributionCustomOriginConfigOriginHttpVersion | undefined>;
         /**
          * Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
          *  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -23792,6 +24117,17 @@ export namespace cloudfront {
         webAcl?: pulumi.Input<inputs.cloudfront.DistributionTenantWebAclCustomizationArgs | undefined>;
     }
 
+    export interface DistributionTenantDomainMappingArgs {
+        /**
+         * The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`.
+         */
+        domain: pulumi.Input<string>;
+        /**
+         * Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+         */
+        serveOn: pulumi.Input<enums.cloudfront.DistributionTenantDomainMappingServeOn>;
+    }
+
     /**
      * The customizations that you specified for the distribution tenant for geographic restrictions.
      */
@@ -23954,6 +24290,7 @@ export namespace cloudfront {
      * An Amazon CloudFront VPC origin configuration.
      */
     export interface DistributionVpcOriginConfigArgs {
+        originHttpVersion?: pulumi.Input<enums.cloudfront.DistributionVpcOriginConfigOriginHttpVersion | undefined>;
         /**
          * Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
          *  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -23972,6 +24309,106 @@ export namespace cloudfront {
          * The VPC origin ID.
          */
         vpcOriginId: pulumi.Input<string>;
+    }
+
+    /**
+     * A content type paired with the field-level encryption profile that encrypts it.
+     */
+    export interface FieldLevelEncryptionConfigContentTypeProfileArgs {
+        /**
+         * The content type CloudFront encrypts. The service accepts only application/x-www-form-urlencoded.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * The encryption format CloudFront uses for this content type.
+         */
+        format: pulumi.Input<enums.cloudfront.FieldLevelEncryptionConfigContentTypeProfileFormat>;
+        /**
+         * The identifier of the field-level encryption profile CloudFront uses for this content type. Required, so that it cannot be omitted: the service accepts a content-type profile with the member absent on create and refuses one on update, and an update sends the whole profile list, so a configuration created that way could never be updated again. Supply an empty string to configure a content type and forward it WITHOUT field-level encryption. That mode is available through this resource and round-trips: create, update and read all accept and return the empty string, and it is the service's own encoding for the state -- asked for a content-type list with no items, CloudFront returns one item whose ProfileId is empty. Note that this is not the same as omitting the content type from the configuration, because ForwardWhenContentTypeIsUnknown governs only content types absent from it.
+         */
+        profileId: pulumi.Input<string>;
+    }
+
+    /**
+     * How CloudFront handles content types, including the profile paired with each one.
+     */
+    export interface FieldLevelEncryptionConfigContentTypeProfileConfigArgs {
+        /**
+         * The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+         */
+        contentTypeProfiles: pulumi.Input<pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileArgs>[]>;
+        /**
+         * Whether CloudFront forwards a request when the content type names a profile that does not exist.
+         */
+        forwardWhenContentTypeIsUnknown: pulumi.Input<boolean>;
+    }
+
+    /**
+     * A query argument paired with the field-level encryption profile that encrypts it.
+     */
+    export interface FieldLevelEncryptionConfigQueryArgProfileArgs {
+        /**
+         * The identifier of the field-level encryption profile CloudFront uses for this query argument.
+         */
+        profileId: pulumi.Input<string>;
+        /**
+         * The query argument that CloudFront encrypts with the paired profile.
+         */
+        queryArg: pulumi.Input<string>;
+    }
+
+    /**
+     * How CloudFront handles query arguments, including the profile paired with each one.
+     */
+    export interface FieldLevelEncryptionConfigQueryArgProfileConfigArgs {
+        /**
+         * Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+         */
+        forwardWhenQueryArgProfileIsUnknown: pulumi.Input<boolean>;
+        /**
+         * The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+         */
+        queryArgProfiles: pulumi.Input<pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileArgs>[]>;
+    }
+
+    /**
+     * The configuration of a field-level encryption profile.
+     */
+    export interface FieldLevelEncryptionProfileConfigArgs {
+        /**
+         * A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+         */
+        callerReference: pulumi.Input<string>;
+        /**
+         * An optional comment describing the field-level encryption profile.
+         */
+        comment?: pulumi.Input<string | undefined>;
+        /**
+         * The encryption entities of the field-level encryption profile. At least one entity is required.
+         */
+        encryptionEntities: pulumi.Input<pulumi.Input<inputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntityArgs>[]>;
+        /**
+         * The name of the field-level encryption profile. Names are unique within an AWS account.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * A public key, its provider identity, and the field patterns CloudFront encrypts with that key.
+     */
+    export interface FieldLevelEncryptionProfileEncryptionEntityArgs {
+        /**
+         * The request-body field names to encrypt. A pattern is either a full field name or leading characters followed by a wildcard (*). Patterns are case-sensitive and must not overlap.
+         */
+        fieldPatterns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The provider associated with the public key. The same value must be supplied with the private key for an application to decrypt the data.
+         */
+        providerId: pulumi.Input<string>;
+        /**
+         * The identifier of the CloudFront public key used to encrypt the fields that match the patterns.
+         */
+        publicKeyId: pulumi.Input<string>;
     }
 
     /**
@@ -27787,6 +28224,14 @@ export namespace cognito {
         lambdaVersion?: pulumi.Input<string | undefined>;
     }
 
+    export interface UserPoolDcrConfigurationArgs {
+        allowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        authenticatedGrantTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        enableStatus?: pulumi.Input<enums.cognito.UserPoolDcrConfigurationEnableStatus | undefined>;
+        openDcrEnabled?: pulumi.Input<boolean | undefined>;
+        openDcrGrantTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface UserPoolDeviceConfigurationArgs {
         /**
          * When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
@@ -28737,6 +29182,18 @@ export namespace computeoptimizer {
          * List of account IDs where the organization rule applies
          */
         accountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+         */
+        excludedAccountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+         */
+        excludedOrganizationalUnitIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+         */
+        organizationalUnitIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * When the rule should be applied relative to account rules
          */
@@ -40012,8 +40469,19 @@ export namespace dynamodb {
         s3KeyPrefix?: pulumi.Input<string | undefined>;
     }
 
+    /**
+     * An element in the search schema of a vector index.
+     */
     export interface TableSearchSchemaElementArgs {
+        /**
+         * The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.
+         */
         attributeName: pulumi.Input<string>;
+        /**
+         * The role of the attribute in the search schema. Valid values:
+         *   +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+         *   +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+         */
         searchSchemaElementType: pulumi.Input<enums.dynamodb.TableSearchSchemaElementSearchSchemaElementType>;
     }
 
@@ -40093,16 +40561,44 @@ export namespace dynamodb {
         enabled: pulumi.Input<boolean>;
     }
 
+    /**
+     * The definition of a vector attribute for a vector index.
+     */
     export interface TableVectorAttributeArgs {
+        /**
+         * The name of the vector attribute.
+         */
         attributeName: pulumi.Input<string>;
     }
 
+    /**
+     * Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
+     */
     export interface TableVectorIndexArgs {
+        /**
+         * The number of dimensions in each vector.
+         */
         dimensions: pulumi.Input<number>;
+        /**
+         * The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+         */
         distanceFunction: pulumi.Input<enums.dynamodb.TableVectorIndexDistanceFunction>;
+        /**
+         * The name of the vector index.
+         */
         indexName: pulumi.Input<string>;
+        /**
+         * Specifies attributes that are copied (projected) from the table into the vector index.
+         */
         projection: pulumi.Input<inputs.dynamodb.TableProjectionArgs>;
+        /**
+         * The search schema that defines partition key and inline filter attributes for the vector index.
+         *  Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+         */
         searchSchema?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableSearchSchemaElementArgs>[] | undefined>;
+        /**
+         * The vector attribute configuration for the index.
+         */
         vectorAttribute: pulumi.Input<inputs.dynamodb.TableVectorAttributeArgs>;
     }
 
@@ -45111,6 +45607,7 @@ export namespace ec2 {
          * Options for logging VPN tunnel activity.
          */
         logOptions?: pulumi.Input<inputs.ec2.VpnConnectionVpnTunnelLogOptionsSpecificationArgs | undefined>;
+        phase1AdditionalKeyExchanges?: pulumi.Input<any[] | undefined>;
         /**
          * One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
          *  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
@@ -45132,6 +45629,7 @@ export namespace ec2 {
          *  Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
          */
         phase1dhGroupNumbers?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionPhase1dhGroupNumbersRequestListValueArgs>[] | undefined>;
+        phase2AdditionalKeyExchanges?: pulumi.Input<any[] | undefined>;
         /**
          * One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
          *  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
@@ -54431,7 +54929,7 @@ export namespace eventsv2 {
     }
 
     /**
-     * Event source configuration. Exactly one of the two variants must be set.
+     * Event source configuration. Exactly one of the three variants must be set.
      */
     export interface EventSourceConfigurationArgs {
         /**
@@ -54442,6 +54940,34 @@ export namespace eventsv2 {
          * Configuration for forwarding a partner event source's events.
          */
         partnerEventsConfiguration?: pulumi.Input<inputs.eventsv2.EventSourcePartnerEventsConfigurationArgs | undefined>;
+        /**
+         * Configuration for receiving events that an external provider sends to a webhook URL.
+         */
+        webhookEventsConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceWebhookEventsConfigurationArgs | undefined>;
+    }
+
+    /**
+     * Values Amazon EventBridge generated for the event source that depend on its type. Only the member for the event source's type is set.
+     */
+    export interface EventSourceDetailsArgs {
+        /**
+         * Values generated for a webhook event source.
+         */
+        webhookDetails?: pulumi.Input<inputs.eventsv2.EventSourceWebhookDetailsArgs | undefined>;
+    }
+
+    /**
+     * Log settings for the webhook requests an event source receives.
+     */
+    export interface EventSourceLogConfigurationArgs {
+        /**
+         * Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+         */
+        includePayload?: pulumi.Input<enums.eventsv2.EventSourceLogConfigurationIncludePayload | undefined>;
+        /**
+         * The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+         */
+        level?: pulumi.Input<enums.eventsv2.EventSourceLogConfigurationLevel | undefined>;
     }
 
     /**
@@ -54474,6 +55000,176 @@ export namespace eventsv2 {
          * A filter pattern, as a JSON string, that defines which events from the specified partner event source are forwarded to the event bus. If you do not specify a pattern, all events from the partner event source are forwarded.
          */
         pattern?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * How the provider authenticates its webhook requests. Exactly one of the three variants must be set.
+     */
+    export interface EventSourceWebhookAuthConfigurationArgs {
+        /**
+         * The provider sends HTTP Basic authentication credentials.
+         */
+        basicHttpAuthConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceWebhookBasicHttpAuthConfigurationArgs | undefined>;
+        /**
+         * The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+         */
+        hmacAuthConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceWebhookHmacAuthConfigurationArgs | undefined>;
+        /**
+         * The provider sends the secret as the value of an HTTP header.
+         */
+        staticTokenAuthConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceWebhookStaticTokenAuthConfigurationArgs | undefined>;
+    }
+
+    /**
+     * The provider sends HTTP Basic authentication credentials: an Authorization header with the value "Basic " followed by the Base64 encoding of username:password. Specify both Username and Password, or omit both and Amazon EventBridge generates the pair. Specifying only one fails the request. EventBridge stores both only in AWS Secrets Manager and never returns them.
+     */
+    export interface EventSourceWebhookBasicHttpAuthConfigurationArgs {
+        /**
+         * The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+         */
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+         */
+        username?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Deduplication settings for a webhook event source's events.
+     */
+    export interface EventSourceWebhookDeduplicationConfigurationArgs {
+        /**
+         * How EventBridge detects duplicate events.
+         *
+         * Valid values:
+         * - CONTENT_BASED - Detects duplicates by a hash of the event content.
+         */
+        deduplicationType: pulumi.Input<enums.eventsv2.EventSourceWebhookDeduplicationConfigurationDeduplicationType>;
+    }
+
+    /**
+     * Values Amazon EventBridge generated for a webhook event source.
+     */
+    export interface EventSourceWebhookDetailsArgs {
+        /**
+         * The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+         */
+        secretArn?: pulumi.Input<string | undefined>;
+        /**
+         * The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+         */
+        webhookUrl?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Receive events from an external provider, such as a SaaS application, that sends them as HTTPS POST requests to a webhook URL. The provider authenticates with an HTTP scheme instead of AWS credentials.
+     */
+    export interface EventSourceWebhookEventsConfigurationArgs {
+        /**
+         * How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+         */
+        authConfiguration: pulumi.Input<inputs.eventsv2.EventSourceWebhookAuthConfigurationArgs>;
+        /**
+         * Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+         */
+        deduplicationConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceWebhookDeduplicationConfigurationArgs | undefined>;
+        /**
+         * The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+         */
+        kmsKeyIdentifier?: pulumi.Input<string | undefined>;
+        /**
+         * The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+         */
+        logConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceLogConfigurationArgs | undefined>;
+        /**
+         * The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+         */
+        metadataHttpHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The provider signs each request with a hash-based message authentication code (HMAC) of the secret. Amazon EventBridge accepts the request if any signature in SignatureHttpHeader matches.
+     */
+    export interface EventSourceWebhookHmacAuthConfigurationArgs {
+        /**
+         * The hash algorithm the provider uses to compute the signature.
+         *
+         * Valid values:
+         * - SHA256 - SHA-256.
+         * - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+         */
+        algorithm: pulumi.Input<enums.eventsv2.EventSourceWebhookHmacAuthConfigurationAlgorithm>;
+        /**
+         * The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+         */
+        delimiter?: pulumi.Input<string | undefined>;
+        /**
+         * How the provider encodes the signature in the header.
+         *
+         * Valid values:
+         * - HEX - Hexadecimal.
+         * - BASE64 - Base64.
+         */
+        encoding: pulumi.Input<enums.eventsv2.EventSourceWebhookHmacAuthConfigurationEncoding>;
+        /**
+         * The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+         */
+        messageIdHttpHeader?: pulumi.Input<string | undefined>;
+        /**
+         * How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+         */
+        secretEncoding?: pulumi.Input<enums.eventsv2.EventSourceWebhookHmacAuthConfigurationSecretEncoding | undefined>;
+        /**
+         * The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+         */
+        secretValue?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+         */
+        signatureHttpHeader: pulumi.Input<string>;
+        /**
+         * The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+         */
+        signaturePrefix?: pulumi.Input<string | undefined>;
+        /**
+         * How the provider assembles the message it signs from the request.
+         *
+         * Valid values:
+         * - BODY - The request body alone.
+         * - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+         * - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+         */
+        signedMessageComposition: pulumi.Input<enums.eventsv2.EventSourceWebhookHmacAuthConfigurationSignedMessageComposition>;
+        /**
+         * The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+         */
+        timestampHttpHeader?: pulumi.Input<string | undefined>;
+        /**
+         * The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+         */
+        timestampPrefix?: pulumi.Input<string | undefined>;
+        /**
+         * The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+         */
+        timestampToleranceInSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * The provider sends the secret as the value of an HTTP header.
+     */
+    export interface EventSourceWebhookStaticTokenAuthConfigurationArgs {
+        /**
+         * The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+         */
+        secretValue?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+         */
+        tokenHttpHeader: pulumi.Input<string>;
     }
 
     /**
@@ -54562,6 +55258,10 @@ export namespace eventsv2 {
          * Parameters for invoking an AWS Lambda function target.
          */
         lambdaParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationLambdaParametersPropertiesArgs | undefined>;
+        /**
+         * Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+         */
+        mskParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationMskParametersPropertiesArgs | undefined>;
         /**
          * The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
          */
@@ -54666,6 +55366,40 @@ export namespace eventsv2 {
          * The tenant identifier for multi-tenant Lambda functions. Accepts a literal value or a JSONata expression.
          */
         tenantId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+     */
+    export interface SubscriberInvokeConfigurationMskParametersPropertiesArgs {
+        /**
+         * Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+         */
+        acks?: pulumi.Input<enums.eventsv2.SubscriberInvokeConfigurationMskParametersPropertiesAcks | undefined>;
+        /**
+         * Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+         */
+        clientId?: pulumi.Input<string | undefined>;
+        /**
+         * Producer compression codec applied to the record batch. Defaults to NONE.
+         */
+        compression?: pulumi.Input<enums.eventsv2.SubscriberInvokeConfigurationMskParametersPropertiesCompression | undefined>;
+        /**
+         * Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+         */
+        connectivity: pulumi.Input<enums.eventsv2.SubscriberInvokeConfigurationMskParametersPropertiesConnectivity>;
+        /**
+         * Kafka record headers attached to each produced record.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.eventsv2.SubscriberMskHeaderArgs>[] | undefined>;
+        /**
+         * Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+         */
+        partitionKey?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+         */
+        topicName: pulumi.Input<string>;
     }
 
     /**
@@ -54796,6 +55530,14 @@ export namespace eventsv2 {
          * The attribute value for the String and Number data types (and String.Array for Amazon SNS targets).
          */
         stringValue?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A single Kafka record header. Key and Value each accept a literal or a JSONata expression.
+     */
+    export interface SubscriberMskHeaderArgs {
+        key: pulumi.Input<string>;
+        value?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -56431,6 +57173,85 @@ export namespace fsx {
     }
 
     /**
+     * A rule that retains snapshots with a SnapMirror label on the destination.
+     */
+    export interface SnapmirrorPolicyRetentionRuleArgs {
+        /**
+         * The number of snapshots with this label to retain on the destination.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The name of an ONTAP job schedule that creates snapshots with this label on the destination.
+         */
+        creationSchedule?: pulumi.Input<string | undefined>;
+        /**
+         * The SnapMirror label of the snapshots this rule retains.
+         */
+        label: pulumi.Input<string>;
+    }
+
+    /**
+     * The destination of the SnapMirror relationship.
+     */
+    export interface SnapmirrorRelationshipDestinationArgs {
+        /**
+         * The destination volume, as <svm-name>:<volume-name>.
+         */
+        path?: pulumi.Input<string | undefined>;
+        /**
+         * The ID of the destination volume. It must be a data-protection (DP) volume.
+         */
+        volumeId: pulumi.Input<string>;
+    }
+
+    /**
+     * The source of the SnapMirror relationship.
+     */
+    export interface SnapmirrorRelationshipSourceArgs {
+        /**
+         * The source volume, as <svm-name>:<volume-name>. For a source on the destination SVM, use that SVM's name. For a source on a peered SVM, use the peer SVM name or its local alias, as seen from the destination SVM.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    /**
+     * How long to retain snapshots created by a schedule.
+     */
+    export interface SnapshotPolicyRetentionPeriodArgs {
+        /**
+         * The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+         */
+        type: pulumi.Input<enums.fsx.SnapshotPolicyRetentionPeriodType>;
+        /**
+         * The length of the retention period, in the unit given by Type.
+         */
+        value?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * A schedule within a snapshot policy.
+     */
+    export interface SnapshotPolicyScheduleArgs {
+        /**
+         * The maximum number of snapshots to retain for this schedule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The name of the ONTAP job schedule that triggers snapshot creation, for example hourly, daily, or weekly.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The prefix applied to the names of snapshots created by this schedule.
+         */
+        prefix?: pulumi.Input<string | undefined>;
+        retentionPeriod?: pulumi.Input<inputs.fsx.SnapshotPolicyRetentionPeriodArgs | undefined>;
+        /**
+         * The SnapMirror label applied to snapshots created by this schedule. SnapMirror policies use this label to select snapshots to replicate.
+         */
+        snapmirrorLabel?: pulumi.Input<string | undefined>;
+    }
+
+    /**
      * Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
      */
     export interface StorageVirtualMachineActiveDirectoryConfigurationArgs {
@@ -56508,6 +57329,20 @@ export namespace fsx {
         options: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Creates the volume as an ONTAP FlexClone of an existing volume in the same SVM. After the volume is created, changing or removing CloneConfiguration isn't supported: the update fails and the clone is unchanged.
+     */
+    export interface VolumeCloneConfigurationArgs {
+        /**
+         * The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+         */
+        parentVolumeId: pulumi.Input<string>;
+        /**
+         * The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+         */
+        snapshotId?: pulumi.Input<string | undefined>;
+    }
+
     export interface VolumeNfsExportsArgs {
         /**
          * The configuration object for mounting a Network File System (NFS) file system.
@@ -56520,6 +57355,10 @@ export namespace fsx {
          * Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
          */
         aggregateConfiguration?: pulumi.Input<inputs.fsx.VolumeAggregateConfigurationArgs | undefined>;
+        /**
+         * Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
+         */
+        cloneConfiguration?: pulumi.Input<inputs.fsx.VolumeCloneConfigurationArgs | undefined>;
         /**
          * A boolean flag indicating whether tags for the volume should be copied to backups.
          */
@@ -60078,6 +60917,10 @@ export namespace glue {
      */
     export interface UserDefinedFunctionResourceUriArgs {
         /**
+         * The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+         */
+        lastModified?: pulumi.Input<string | undefined>;
+        /**
          * The type of the resource.
          */
         resourceType?: pulumi.Input<enums.glue.UserDefinedFunctionResourceUriResourceType | undefined>;
@@ -62702,17 +63545,46 @@ export namespace inspectorv2 {
         vmScanning?: pulumi.Input<inputs.inspectorv2.ConnectorScopeConfigurationArgs | undefined>;
     }
 
-    export interface ConnectorProviderConfigurationArgs {
-        azure: pulumi.Input<inputs.inspectorv2.ConnectorAzureProviderConfigurationArgs>;
+    export interface ConnectorGcpProviderConfigurationArgs {
+        /**
+         * Whether to automatically install the VM scanner. Defaults to true.
+         */
+        autoInstallVmScanner?: pulumi.Input<boolean | undefined>;
+        /**
+         * The ARN of the AWS Config connector used for GCP resource discovery.
+         */
+        awsConfigConnectorArn: pulumi.Input<string>;
+        /**
+         * List of GCP regions to scan (e.g. us-central1).
+         */
+        gcpRegions: pulumi.Input<pulumi.Input<string>[]>;
+        scopeConfiguration: pulumi.Input<inputs.inspectorv2.ConnectorGcpScopeConfigurationMapArgs>;
     }
 
     /**
-     * Defines the scope of Azure resources to monitor for a specific resource type.
+     * Defines which GCP resource types to scan and at what scope level. GCP supports multiple capabilities per connector.
+     */
+    export interface ConnectorGcpScopeConfigurationMapArgs {
+        containerImageScanning?: pulumi.Input<inputs.inspectorv2.ConnectorScopeConfigurationArgs | undefined>;
+        serverlessScanning?: pulumi.Input<inputs.inspectorv2.ConnectorScopeConfigurationArgs | undefined>;
+        vmScanning?: pulumi.Input<inputs.inspectorv2.ConnectorScopeConfigurationArgs | undefined>;
+    }
+
+    /**
+     * Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
+     */
+    export interface ConnectorProviderConfigurationArgs {
+        azure?: pulumi.Input<inputs.inspectorv2.ConnectorAzureProviderConfigurationArgs | undefined>;
+        gcp?: pulumi.Input<inputs.inspectorv2.ConnectorGcpProviderConfigurationArgs | undefined>;
+    }
+
+    /**
+     * Defines the scope of cloud resources to monitor for a specific resource type.
      */
     export interface ConnectorScopeConfigurationArgs {
         scopeType: pulumi.Input<enums.inspectorv2.ConnectorScopeType>;
         /**
-         * List of subscription IDs. Empty for TENANT scope.
+         * List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
          */
         scopeValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         state?: pulumi.Input<enums.inspectorv2.ConnectorScopeState | undefined>;
@@ -71898,6 +72770,24 @@ export namespace lakeformation {
         filterExpression?: pulumi.Input<string | undefined>;
     }
 
+    export interface DataLakeSettingsDataLakePrincipalArgs {
+        /**
+         * An identifier for the Lake Formation principal.
+         */
+        dataLakePrincipalIdentifier: pulumi.Input<string>;
+    }
+
+    export interface DataLakeSettingsPrincipalPermissionsArgs {
+        /**
+         * The permissions that are granted to the principal.
+         */
+        permissions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The principal who is granted permissions.
+         */
+        principal: pulumi.Input<inputs.lakeformation.DataLakeSettingsDataLakePrincipalArgs>;
+    }
+
     /**
      * A structure for the catalog object.
      *   This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
@@ -72270,7 +73160,7 @@ export namespace lambda {
      */
     export interface BuildConfigPropertiesRuntimeConfigPropertiesArgs {
         /**
-         * The runtime identifier.
+         * The runtime identifier. Either a short runtime name (for example, nodejs24.x) or a Lambda runtime ARN.
          */
         runtime: pulumi.Input<string>;
     }
@@ -72605,6 +73495,10 @@ export namespace lambda {
     export interface EventSourceMappingSchemaRegistryAccessConfigArgs {
         /**
          * The type of authentication Lambda uses to access your schema registry.
+         *   +  ``BASIC_AUTH`` – The Secrets Manager ARN of your secret key used for basic authentication with your Confluent schema registry.
+         *   +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication with your Confluent schema registry.
+         *   +  ``SERVER_ROOT_CA_CERTIFICATE`` – The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption with your Confluent schema registry.
+         *   +  ``OAUTHBEARER_AUTH`` – The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses to acquire an access token for your Confluent schema registry. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
          */
         type?: pulumi.Input<enums.lambda.EventSourceMappingSchemaRegistryAccessConfigType | undefined>;
         /**
@@ -72689,6 +73583,13 @@ export namespace lambda {
          *   +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
          *   +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
          *   +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+         *   +  ``OAUTHBEARER_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses for SASL/OAUTHBEARER authentication with your Apache Kafka brokers. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
+         *   +  ``OAUTHBEARER_SCOPE`` – (Self-managed Apache Kafka) The OAuth 2.0 scope that Lambda requests when it acquires an access token. The ``URI`` field holds the scope value, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+         *   +  ``OAUTHBEARER_AUDIENCE`` – (Self-managed Apache Kafka) The OAuth 2.0 audience that Lambda requests when it acquires an access token. The ``URI`` field holds the audience value, not a secret ARN. This type requires either ``OAUTHBEARER_AUTH`` or ``IAM_OAUTHBEARER_AUTH``.
+         *   +  ``OAUTHBEARER_LOGICAL_CLUSTER`` – (Self-managed Apache Kafka) The logical cluster identifier that Lambda sends to a Confluent Cloud broker. The ``URI`` field holds the identifier, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+         *   +  ``OAUTHBEARER_IDENTITY_POOL`` – (Self-managed Apache Kafka) The identity pool identifier that Lambda sends to a Confluent Cloud broker. The ``URI`` field holds the identifier, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+         *   +  ``IAM_AUTH`` – (Self-managed Apache Kafka) Authenticate with IAMlong (IAM). Your function's execution role signs each connection, so there is no secret to provide. Omit the ``URI`` field for this type.
+         *   +  ``IAM_OAUTHBEARER_AUTH`` – (Self-managed Apache Kafka) Authenticate with an AWS web identity token over SASL/OAUTHBEARER. Lambda requests the token for your function's execution role, so there is no secret to provide. Omit the ``URI`` field for this type. This type requires ``OAUTHBEARER_AUDIENCE`` and does not support the other ``OAUTHBEARER`` types.
          */
         type?: pulumi.Input<enums.lambda.EventSourceMappingSourceAccessConfigurationType | undefined>;
         /**
@@ -74993,6 +75894,43 @@ export namespace licensemanager {
          */
         end: pulumi.Input<string>;
     }
+
+    /**
+     * Details of the license configurations and asset groups that this generator reports on.
+     */
+    export interface ReportGeneratorReportContextArgs {
+        /**
+         * Amazon Resource Names (ARNs) of the license asset groups to include in the report.
+         */
+        licenseAssetGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Amazon Resource Names (ARNs) of the license configurations that this generator reports on.
+         */
+        licenseConfigurationArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * End date for the report data collection period.
+         */
+        reportEndDate?: pulumi.Input<string | undefined>;
+        /**
+         * Start date for the report data collection period.
+         */
+        reportStartDate?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Details about how frequently reports are generated.
+     */
+    export interface ReportGeneratorReportFrequencyArgs {
+        /**
+         * Time period between each report. The period can be daily, weekly, or monthly.
+         */
+        period?: pulumi.Input<enums.licensemanager.ReportGeneratorReportFrequencyPeriod | undefined>;
+        /**
+         * Number of times within the frequency period that a report is generated. The only supported value is 1.
+         */
+        value?: pulumi.Input<number | undefined>;
+    }
+
 }
 
 export namespace licensemanagerlinuxsubscriptions {
@@ -84401,6 +85339,7 @@ export namespace networksecuritymanager {
      * Configuration settings for policy behavior.
      */
     export interface PolicyConfigurationArgs {
+        igwFirewallConfig?: pulumi.Input<inputs.networksecuritymanager.PolicyIgwFirewallConfigArgs | undefined>;
         /**
          * Controls automatic remediation of non-compliant resources.
          */
@@ -84410,6 +85349,34 @@ export namespace networksecuritymanager {
          */
         resourcesCleanUp?: pulumi.Input<boolean | undefined>;
         wafConfig?: pulumi.Input<inputs.networksecuritymanager.PolicyWafConfigArgs | undefined>;
+    }
+
+    /**
+     * Internet gateway firewall policy settings. Populated only for IGW_FIREWALL firewall type policies.
+     */
+    export interface PolicyIgwFirewallConfigArgs {
+        /**
+         * The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+         */
+        defaultSubnetConnectivity?: pulumi.Input<enums.networksecuritymanager.PolicyIgwFirewallConfigDefaultSubnetConnectivity | undefined>;
+        /**
+         * An ordered list of subnet connectivity overrides. When a subnet matches more than one override, the first match applies. At most one override per connectivity type.
+         */
+        subnetConnectivityOverrides?: pulumi.Input<pulumi.Input<inputs.networksecuritymanager.PolicySubnetConnectivityOverrideArgs>[] | undefined>;
+    }
+
+    /**
+     * Applies a connectivity treatment other than the policy default to the subnets that the referenced scope selects.
+     */
+    export interface PolicySubnetConnectivityOverrideArgs {
+        /**
+         * The connectivity treatment applied to the subnets that the referenced scope selects.
+         */
+        connectivityType: pulumi.Input<enums.networksecuritymanager.PolicySubnetConnectivityOverrideConnectivityType>;
+        /**
+         * The ARN of the IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE scope whose selected subnets receive ConnectivityType.
+         */
+        scopes: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -85786,6 +86753,30 @@ export namespace opensearch {
     export interface DataSourceTypeArgs {
         s3GlueDataCatalog?: pulumi.Input<inputs.opensearch.DataSourceS3GlueDataCatalogArgs | undefined>;
     }
+}
+
+export namespace opensearchmemory {
+    export interface SpaceEncryptionConfigurationArgs {
+        kmsKeyArn?: pulumi.Input<string | undefined>;
+    }
+
+    export interface SpaceMemoryStrategyArgs {
+        configuration?: pulumi.Input<inputs.opensearchmemory.SpaceMemoryStrategyConfigurationArgs | undefined>;
+        description?: pulumi.Input<string | undefined>;
+        name: pulumi.Input<string>;
+        type: pulumi.Input<enums.opensearchmemory.SpaceMemoryStrategyType>;
+    }
+
+    export interface SpaceMemoryStrategyConfigurationArgs {
+        consolidationEnabled?: pulumi.Input<boolean | undefined>;
+        extractEveryNMessages?: pulumi.Input<number | undefined>;
+        extractEveryNTokens?: pulumi.Input<number | undefined>;
+        extractionPrompt?: pulumi.Input<string | undefined>;
+        extractionSeedRecentN?: pulumi.Input<number | undefined>;
+        extractionSeedTopK?: pulumi.Input<number | undefined>;
+        idleTimeoutSeconds?: pulumi.Input<number | undefined>;
+    }
+
 }
 
 export namespace opensearchserverless {
@@ -123056,6 +124047,10 @@ export namespace route53 {
          */
         enableSni?: pulumi.Input<boolean | undefined>;
         /**
+         * Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+         */
+        endpointType?: pulumi.Input<enums.route53.HealthCheckConfigPropertiesEndpointType | undefined>;
+        /**
          * The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
          *
          * `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -123091,6 +124086,10 @@ export namespace route53 {
          * In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
          */
         fullyQualifiedDomainName?: pulumi.Input<string | undefined>;
+        /**
+         * The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+         */
+        healthCheckSourceId?: pulumi.Input<string | undefined>;
         /**
          * The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
          *
@@ -123240,6 +124239,28 @@ export namespace route53 {
         subnetId: pulumi.Input<string>;
     }
 
+    export interface HostedZoneChangeGuardrailArgs {
+        /**
+         * The name of the Change Guardrail.
+         */
+        name: pulumi.Input<enums.route53.HostedZoneChangeGuardrailName>;
+        /**
+         * The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+         */
+        status: pulumi.Input<enums.route53.HostedZoneChangeGuardrailStatus>;
+    }
+
+    export interface HostedZoneChangeHistoryArgs {
+        /**
+         * The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+         */
+        retentionStartsAt?: pulumi.Input<string | undefined>;
+        /**
+         * Whether change history is enabled for the hosted zone.
+         */
+        status?: pulumi.Input<enums.route53.HostedZoneChangeHistoryStatus | undefined>;
+    }
+
     /**
      * A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
      */
@@ -123248,13 +124269,17 @@ export namespace route53 {
          * Any comments that you want to include about the hosted zone.
          */
         comment?: pulumi.Input<string | undefined>;
+        hostedZoneTier?: pulumi.Input<enums.route53.HostedZoneConfigHostedZoneTier | undefined>;
     }
 
     /**
      * Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
      */
     export interface HostedZoneFeaturesArgs {
+        changeGuardrails?: pulumi.Input<pulumi.Input<inputs.route53.HostedZoneChangeGuardrailArgs>[] | undefined>;
+        changeHistory?: pulumi.Input<inputs.route53.HostedZoneChangeHistoryArgs | undefined>;
         enableAcceleratedRecovery?: pulumi.Input<boolean | undefined>;
+        enablePublicDnsFallback?: pulumi.Input<boolean | undefined>;
     }
 
     /**
@@ -123297,6 +124322,17 @@ export namespace route53 {
          * The value used depends on where you want to route traffic.
          */
         hostedZoneId: pulumi.Input<string>;
+    }
+
+    export interface RecordSetAzAffinityArgs {
+        /**
+         * The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+         */
+        locationId: pulumi.Input<string>;
+        /**
+         * The type of the source location that the record set's answers apply to.
+         */
+        locationType: pulumi.Input<enums.route53.RecordSetAzAffinityLocationType>;
     }
 
     export interface RecordSetCidrRoutingConfigArgs {
@@ -126757,6 +127793,12 @@ export namespace s3vectors {
          * Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
          */
         nonFilterableMetadataKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        textSearchConfigurations?: pulumi.Input<pulumi.Input<inputs.s3vectors.IndexTextSearchConfigurationArgs>[] | undefined>;
+    }
+
+    export interface IndexTextSearchConfigurationArgs {
+        language?: pulumi.Input<enums.s3vectors.IndexTextSearchConfigurationLanguage | undefined>;
+        metadataKey: pulumi.Input<string>;
     }
 
     /**
@@ -128837,6 +129879,20 @@ export namespace sagemaker {
     }
 
     /**
+     * Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+     */
+    export interface EndpointConfigCrossRegionTrafficConfigArgs {
+        /**
+         * The percentage of the endpoint's capacity (MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances) that requests from other Regions can use. Valid values are 1 to 100.
+         */
+        maxCrossRegionPercentPerEndpoint: pulumi.Input<number>;
+        /**
+         * The number of invocations per second that one InService instance can serve, used to size the limit on requests from other Regions. One value applies to every production variant, whatever its instance type. Valid values are 1 to 10000.
+         */
+        maxInvocationsPerSecondPerInstance: pulumi.Input<number>;
+    }
+
+    /**
      * Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
      */
     export interface EndpointConfigDataCaptureConfigArgs {
@@ -129649,6 +130705,86 @@ export namespace sagemaker {
          * The name of the shadow variant.
          */
         shadowModelVariantName: pulumi.Input<string>;
+    }
+
+    /**
+     * How the Inference Router submits a request to a destination.
+     */
+    export interface InferenceRouterAsyncInferenceClientConfigArgs {
+        /**
+         * How long, in seconds, a request can wait for a destination to pick it up before it expires. The default is 900.
+         */
+        maxTimeInBacklogSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Set this when the routing target's destinations are asynchronous inference endpoints. A routing target without it serves real-time requests.
+     */
+    export interface InferenceRouterAsyncInferenceConfigArgs {
+        clientConfig?: pulumi.Input<inputs.sagemaker.InferenceRouterAsyncInferenceClientConfigArgs | undefined>;
+        outputConfig: pulumi.Input<inputs.sagemaker.InferenceRouterAsyncInferenceOutputConfigArgs>;
+    }
+
+    /**
+     * The SNS topics the Inference Router publishes a completion to. The notification carries the location of the result, not the result.
+     */
+    export interface InferenceRouterAsyncInferenceNotificationConfigArgs {
+        /**
+         * The ARN of a standard (not FIFO) SNS topic to notify when a request fails. It can be in any Region.
+         */
+        errorTopic?: pulumi.Input<string | undefined>;
+        /**
+         * The ARN of a standard (not FIFO) SNS topic to notify when a request succeeds. It can be in any Region.
+         */
+        successTopic?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Where the results of asynchronous requests are written. Every destination of the routing target writes to these paths.
+     */
+    export interface InferenceRouterAsyncInferenceOutputConfigArgs {
+        /**
+         * The AWS KMS key that encrypts the results. If any destination is in a different account or Region from the Inference Router, use a key ARN or an alias ARN.
+         */
+        kmsKeyId?: pulumi.Input<string | undefined>;
+        notificationConfig?: pulumi.Input<inputs.sagemaker.InferenceRouterAsyncInferenceNotificationConfigArgs | undefined>;
+        /**
+         * The Amazon S3 location for failed requests. It can be in any Region and account.
+         */
+        s3FailurePath: pulumi.Input<string>;
+        /**
+         * The Amazon S3 location for successful results. It can be in any Region and account.
+         */
+        s3OutputPath: pulumi.Input<string>;
+    }
+
+    /**
+     * One placement of a routing target's model. ResourceArn is the destination's identity: changing it is a removal plus an addition.
+     */
+    export interface InferenceRouterDestinationArgs {
+        /**
+         * The ARN of a SageMaker endpoint or inference component that serves the routing target. It can be in any Region and account within the Inference Router's partition.
+         */
+        resourceArn: pulumi.Input<string>;
+    }
+
+    /**
+     * A named logical model within the Inference Router. Callers pass Name on the inference request to select which model serves it.
+     */
+    export interface InferenceRouterRoutingTargetArgs {
+        asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.InferenceRouterAsyncInferenceConfigArgs | undefined>;
+        /**
+         * The endpoints and inference components that serve this routing target.
+         */
+        destinations: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceRouterDestinationArgs>[]>;
+        /**
+         * The logical model name a caller passes at invoke time. Unique within an Inference Router.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+         */
+        routingPreference?: pulumi.Input<enums.sagemaker.InferenceRouterRoutingTargetRoutingPreference | undefined>;
     }
 
     /**
@@ -135641,8 +136777,35 @@ export namespace securityhub {
         scopeValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
+    export interface ConnectorGcpProviderConfigurationArgs {
+        /**
+         * The ARN of the AWS Config connector used for the GCP integration
+         */
+        awsConfigConnectorArn: pulumi.Input<string>;
+        /**
+         * The list of GCP regions to include in the connector scope
+         */
+        gcpRegions: pulumi.Input<pulumi.Input<string>[]>;
+        scopeConfiguration: pulumi.Input<inputs.securityhub.ConnectorGcpScopeConfigurationArgs>;
+    }
+
+    export interface ConnectorGcpScopeConfigurationArgs {
+        /**
+         * The scope type for the GCP connector
+         */
+        scopeType: pulumi.Input<enums.securityhub.ConnectorGcpScopeConfigurationScopeType>;
+        /**
+         * The list of scope values for the GCP connector
+         */
+        scopeValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * The CSPM provider configuration for the connector
+     */
     export interface ConnectorProviderArgs {
-        azure: pulumi.Input<inputs.securityhub.ConnectorAzureProviderConfigurationArgs>;
+        azure?: pulumi.Input<inputs.securityhub.ConnectorAzureProviderConfigurationArgs | undefined>;
+        gcp?: pulumi.Input<inputs.securityhub.ConnectorGcpProviderConfigurationArgs | undefined>;
     }
 
     /**
@@ -135675,6 +136838,35 @@ export namespace securityhub {
     }
 
     /**
+     * The configuration settings required to establish an integration between AWS Security Hub and GCP
+     */
+    export interface ConnectorV2GcpProviderConfigurationArgs {
+        /**
+         * The ARN of the AWS Config connector used for the GCP integration
+         */
+        awsConfigConnectorArn: pulumi.Input<string>;
+        /**
+         * The list of GCP regions to include in the connector scope
+         */
+        gcpRegions: pulumi.Input<pulumi.Input<string>[]>;
+        scopeConfiguration: pulumi.Input<inputs.securityhub.ConnectorV2GcpScopeConfigurationArgs>;
+    }
+
+    /**
+     * The scope configuration for a GCP connector
+     */
+    export interface ConnectorV2GcpScopeConfigurationArgs {
+        /**
+         * The scope type for the GCP connector
+         */
+        scopeType: pulumi.Input<enums.securityhub.ConnectorV2GcpScopeConfigurationScopeType>;
+        /**
+         * The list of scope values for the GCP connector
+         */
+        scopeValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
      * The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
      */
     export interface ConnectorV2JiraCloudProviderConfigurationArgs {
@@ -135689,6 +136881,7 @@ export namespace securityhub {
      */
     export interface ConnectorV2ProviderArgs {
         azure?: pulumi.Input<inputs.securityhub.ConnectorV2AzureProviderConfigurationArgs | undefined>;
+        gcp?: pulumi.Input<inputs.securityhub.ConnectorV2GcpProviderConfigurationArgs | undefined>;
         jiraCloud?: pulumi.Input<inputs.securityhub.ConnectorV2JiraCloudProviderConfigurationArgs | undefined>;
         serviceNow?: pulumi.Input<inputs.securityhub.ConnectorV2ServiceNowProviderConfigurationArgs | undefined>;
     }
@@ -135708,7 +136901,7 @@ export namespace securityhub {
     }
 
     /**
-     * Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+     * Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is. A rollback enables it again when the restored template declares it ENABLED, unless an organization policy or the account's current Security Hub configuration prevents it, and leaves it as-is when no template declared it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
      */
     export interface HubV2NetworkScanningArgs {
         /**
@@ -142913,6 +144106,13 @@ export namespace wafv2 {
          * For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
          */
         customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclCustomRequestHandlingArgs | undefined>;
+    }
+
+    /**
+     * Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+     */
+    export interface WebAclAnalyticsConfigArgs {
+        mode: pulumi.Input<enums.wafv2.WebAclAnalyticsMode>;
     }
 
     export interface WebAclAndStatementArgs {

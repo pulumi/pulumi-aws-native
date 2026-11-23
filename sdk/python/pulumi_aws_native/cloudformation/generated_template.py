@@ -23,14 +23,18 @@ __all__ = ['GeneratedTemplateArgs', 'GeneratedTemplate']
 class GeneratedTemplateArgs:
     def __init__(__self__, *,
                  generated_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_id: pulumi.Input[Optional[_builtins.str]] = None,
                  template_configuration: pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationArgs']] = None):
         """
         The set of arguments for constructing a GeneratedTemplate resource.
 
         :param pulumi.Input[_builtins.str] generated_template_name: The name assigned to the generated template.
+        :param pulumi.Input[_builtins.str] stack_id: The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
         """
         if generated_template_name is not None:
             pulumi.set(__self__, "generated_template_name", generated_template_name)
+        if stack_id is not None:
+            pulumi.set(__self__, "stack_id", stack_id)
         if template_configuration is not None:
             pulumi.set(__self__, "template_configuration", template_configuration)
 
@@ -45,6 +49,18 @@ class GeneratedTemplateArgs:
     @generated_template_name.setter
     def generated_template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generated_template_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+        """
+        return pulumi.get(self, "stack_id")
+
+    @stack_id.setter
+    def stack_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stack_id", value)
 
     @_builtins.property
     @pulumi.getter(name="templateConfiguration")
@@ -63,6 +79,7 @@ class GeneratedTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  generated_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_id: pulumi.Input[Optional[_builtins.str]] = None,
                  template_configuration: pulumi.Input[Optional[Union['GeneratedTemplateTemplateConfigurationArgs', 'GeneratedTemplateTemplateConfigurationArgsDict', 'outputs.GeneratedTemplateTemplateConfiguration']]] = None,
                  __props__=None):
         """
@@ -71,6 +88,7 @@ class GeneratedTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] generated_template_name: The name assigned to the generated template.
+        :param pulumi.Input[_builtins.str] stack_id: The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
         """
         ...
     @overload
@@ -97,6 +115,7 @@ class GeneratedTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  generated_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_id: pulumi.Input[Optional[_builtins.str]] = None,
                  template_configuration: pulumi.Input[Optional[Union['GeneratedTemplateTemplateConfigurationArgs', 'GeneratedTemplateTemplateConfigurationArgsDict', 'outputs.GeneratedTemplateTemplateConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -108,6 +127,7 @@ class GeneratedTemplate(pulumi.CustomResource):
             __props__ = GeneratedTemplateArgs.__new__(GeneratedTemplateArgs)
 
             __props__.__dict__["generated_template_name"] = generated_template_name
+            __props__.__dict__["stack_id"] = stack_id
             __props__.__dict__["template_configuration"] = template_configuration
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["generated_template_id"] = None
@@ -115,6 +135,8 @@ class GeneratedTemplate(pulumi.CustomResource):
             __props__.__dict__["progress"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["total_warnings"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["stackId"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GeneratedTemplate, __self__).__init__(
             'aws-native:cloudformation:GeneratedTemplate',
             resource_name,
@@ -142,6 +164,7 @@ class GeneratedTemplate(pulumi.CustomResource):
         __props__.__dict__["generated_template_name"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["progress"] = None
+        __props__.__dict__["stack_id"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["template_configuration"] = None
         __props__.__dict__["total_warnings"] = None
@@ -189,6 +212,14 @@ class GeneratedTemplate(pulumi.CustomResource):
     @pulumi.getter
     def progress(self) -> pulumi.Output['outputs.GeneratedTemplateTemplateProgress']:
         return pulumi.get(self, "progress")
+
+    @_builtins.property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+        """
+        return pulumi.get(self, "stack_id")
 
     @_builtins.property
     @pulumi.getter

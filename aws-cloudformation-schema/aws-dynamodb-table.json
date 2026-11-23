@@ -41,14 +41,16 @@
   "additionalProperties" : false,
   "definitions" : {
     "SearchSchemaElement" : {
-      "description" : "",
+      "description" : "An element in the search schema of a vector index.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "AttributeName" : {
+          "description" : "The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.",
           "type" : "string"
         },
         "SearchSchemaElementType" : {
+          "description" : "The role of the attribute in the search schema. Valid values:\n  +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.\n  +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.",
           "type" : "string",
           "enum" : [ "HASH", "INLINE_FILTER" ]
         }
@@ -80,11 +82,12 @@
       "required" : [ "IndexName", "Projection", "KeySchema" ]
     },
     "VectorAttribute" : {
-      "description" : "",
+      "description" : "The definition of a vector attribute for a vector index.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "AttributeName" : {
+          "description" : "The name of the vector attribute.",
           "type" : "string"
         }
       },
@@ -213,27 +216,32 @@
       "required" : [ "IndexName", "Projection", "KeySchema" ]
     },
     "VectorIndex" : {
-      "description" : "",
+      "description" : "Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "IndexName" : {
+          "description" : "The name of the vector index.",
           "type" : "string"
         },
         "VectorAttribute" : {
+          "description" : "The vector attribute configuration for the index.",
           "$ref" : "#/definitions/VectorAttribute"
         },
         "Projection" : {
+          "description" : "Specifies attributes that are copied (projected) from the table into the vector index.",
           "$ref" : "#/definitions/Projection"
         },
         "Dimensions" : {
           "maximum" : 4096,
+          "description" : "The number of dimensions in each vector.",
           "type" : "integer",
           "minimum" : 1
         },
         "SearchSchema" : {
           "minItems" : 1,
           "uniqueItems" : true,
+          "description" : "The search schema that defines partition key and inline filter attributes for the vector index.\n Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.",
           "insertionOrder" : false,
           "type" : "array",
           "items" : {
@@ -241,6 +249,7 @@
           }
         },
         "DistanceFunction" : {
+          "description" : "The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.",
           "type" : "string",
           "enum" : [ "COSINE", "DOT_PRODUCT", "EUCLIDEAN" ]
         }
@@ -570,7 +579,7 @@
     "VectorIndexes" : {
       "minItems" : 1,
       "uniqueItems" : true,
-      "description" : "",
+      "description" : "The vector indexes to create on the table. Each vector index enables similarity search on a vector attribute.\n  Vector indexes are supported only on tables that use on-demand capacity mode. To use vector indexes, you must set ``BillingMode`` to ``PAY_PER_REQUEST``.\n In a single stack operation, you can create or delete one index. This index can be a global secondary index or a vector index, but not one of each. To change more indexes, use a separate stack operation for each.",
       "insertionOrder" : false,
       "type" : "array",
       "items" : {
@@ -591,7 +600,7 @@
     },
     "GlobalSecondaryIndexes" : {
       "uniqueItems" : false,
-      "description" : "Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.\n  If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.\n If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index. \n Updates are not supported. The following are exceptions:\n  +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.\n  +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.",
+      "description" : "Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.\n  If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.\n If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index. \n Updates are not supported. The following are exceptions:\n  +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.\n  +  You can create or delete one index without interruption. This index can be a global secondary index or a vector index, but not one of each. If you change more than one index in the same update, the update fails.",
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/GlobalSecondaryIndex"

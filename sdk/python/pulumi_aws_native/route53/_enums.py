@@ -7,13 +7,29 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'HealthCheckConfigPropertiesEndpointType',
     'HealthCheckConfigPropertiesInsufficientDataHealthStatus',
     'HealthCheckConfigPropertiesType',
     'HealthCheckSourceStatus',
+    'HostedZoneChangeGuardrailName',
+    'HostedZoneChangeGuardrailStatus',
+    'HostedZoneChangeHistoryStatus',
+    'HostedZoneConfigHostedZoneTier',
     'KeySigningKeyStatus',
+    'RecordSetAzAffinityLocationType',
     'RecordSetFailover',
+    'TrafficPolicyInstanceTrafficPolicyType',
     'TrafficPolicyType',
 ]
+
+
+@pulumi.type_token("aws-native:route53:HealthCheckConfigPropertiesEndpointType")
+class HealthCheckConfigPropertiesEndpointType(_builtins.str, Enum):
+    """
+    Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+    """
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
 
 
 @pulumi.type_token("aws-native:route53:HealthCheckConfigPropertiesInsufficientDataHealthStatus")
@@ -108,6 +124,41 @@ class HealthCheckSourceStatus(_builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:route53:HostedZoneChangeGuardrailName")
+class HostedZoneChangeGuardrailName(_builtins.str, Enum):
+    """
+    The name of the Change Guardrail.
+    """
+    NS_OCCLUSION_CHECK = "NS_OCCLUSION_CHECK"
+    ALIAS_TARGET_CHECK = "ALIAS_TARGET_CHECK"
+    ACTIVE_RECORD_CHECK = "ACTIVE_RECORD_CHECK"
+    ACTIVE_DELEGATION_CHECK = "ACTIVE_DELEGATION_CHECK"
+
+
+@pulumi.type_token("aws-native:route53:HostedZoneChangeGuardrailStatus")
+class HostedZoneChangeGuardrailStatus(_builtins.str, Enum):
+    """
+    The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:route53:HostedZoneChangeHistoryStatus")
+class HostedZoneChangeHistoryStatus(_builtins.str, Enum):
+    """
+    Whether change history is enabled for the hosted zone.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:route53:HostedZoneConfigHostedZoneTier")
+class HostedZoneConfigHostedZoneTier(_builtins.str, Enum):
+    STANDARD = "STANDARD"
+    ADVANCED = "ADVANCED"
+
+
 @pulumi.type_token("aws-native:route53:KeySigningKeyStatus")
 class KeySigningKeyStatus(_builtins.str, Enum):
     """
@@ -117,10 +168,46 @@ class KeySigningKeyStatus(_builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:route53:RecordSetAzAffinityLocationType")
+class RecordSetAzAffinityLocationType(_builtins.str, Enum):
+    """
+    The type of the source location that the record set's answers apply to.
+    """
+    AVAILABILITY_ZONE = "AvailabilityZone"
+    AVAILABILITY_ZONE_GROUP = "AvailabilityZoneGroup"
+    REGION = "Region"
+    PARTITION = "Partition"
+    GLOBAL_ = "Global"
+
+
 @pulumi.type_token("aws-native:route53:RecordSetFailover")
 class RecordSetFailover(_builtins.str, Enum):
     PRIMARY = "PRIMARY"
     SECONDARY = "SECONDARY"
+
+
+@pulumi.type_token("aws-native:route53:TrafficPolicyInstanceTrafficPolicyType")
+class TrafficPolicyInstanceTrafficPolicyType(_builtins.str, Enum):
+    """
+    The DNS type that Amazon Route 53 assigned to all of the resource record sets that it created for this traffic policy instance. Route 53 derives it from the referenced traffic policy.
+    """
+    SOA = "SOA"
+    A = "A"
+    TXT = "TXT"
+    NS = "NS"
+    CNAME = "CNAME"
+    MX = "MX"
+    NAPTR = "NAPTR"
+    PTR = "PTR"
+    SRV = "SRV"
+    SPF = "SPF"
+    AAAA = "AAAA"
+    CAA = "CAA"
+    DS = "DS"
+    TLSA = "TLSA"
+    SSHFP = "SSHFP"
+    SVCB = "SVCB"
+    HTTPS = "HTTPS"
 
 
 @pulumi.type_token("aws-native:route53:TrafficPolicyType")

@@ -10,28 +10,51 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Inputs
 {
 
+    /// <summary>
+    /// Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
+    /// </summary>
     public sealed class TableVectorIndexArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of dimensions in each vector.
+        /// </summary>
         [Input("dimensions", required: true)]
         public Input<int> Dimensions { get; set; } = null!;
 
+        /// <summary>
+        /// The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+        /// </summary>
         [Input("distanceFunction", required: true)]
         public Input<Pulumi.AwsNative.DynamoDb.TableVectorIndexDistanceFunction> DistanceFunction { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the vector index.
+        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies attributes that are copied (projected) from the table into the vector index.
+        /// </summary>
         [Input("projection", required: true)]
         public Input<Inputs.TableProjectionArgs> Projection { get; set; } = null!;
 
         [Input("searchSchema")]
         private InputList<Inputs.TableSearchSchemaElementArgs>? _searchSchema;
+
+        /// <summary>
+        /// The search schema that defines partition key and inline filter attributes for the vector index.
+        ///  Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+        /// </summary>
         public InputList<Inputs.TableSearchSchemaElementArgs> SearchSchema
         {
             get => _searchSchema ?? (_searchSchema = new InputList<Inputs.TableSearchSchemaElementArgs>());
             set => _searchSchema = value;
         }
 
+        /// <summary>
+        /// The vector attribute configuration for the index.
+        /// </summary>
         [Input("vectorAttribute", required: true)]
         public Input<Inputs.TableVectorAttributeArgs> VectorAttribute { get; set; } = null!;
 

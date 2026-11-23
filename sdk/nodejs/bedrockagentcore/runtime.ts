@@ -96,6 +96,10 @@ export class Runtime extends pulumi.CustomResource {
      */
     declare public readonly filesystemConfigurations: pulumi.Output<outputs.bedrockagentcore.RuntimeFilesystemConfiguration[] | undefined>;
     /**
+     * Lifecycle hooks for the agent runtime
+     */
+    declare public readonly hooksConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeHooksConfiguration | undefined>;
+    /**
      * When resource was last updated
      */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
@@ -119,6 +123,10 @@ export class Runtime extends pulumi.CustomResource {
      * Configuration for HTTP request headers
      */
     declare public readonly requestHeaderConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeRequestHeaderConfiguration | undefined>;
+    /**
+     * Resource configurations for the agent runtime
+     */
+    declare public readonly resourceConfigurations: pulumi.Output<outputs.bedrockagentcore.RuntimeResourceConfiguration[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role
      */
@@ -163,11 +171,13 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["environmentVariables"] = args?.environmentVariables;
             resourceInputs["filesystemConfigurations"] = args?.filesystemConfigurations;
+            resourceInputs["hooksConfiguration"] = args?.hooksConfiguration;
             resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
             resourceInputs["platformVersion"] = args?.platformVersion;
             resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
             resourceInputs["requestHeaderConfiguration"] = args?.requestHeaderConfiguration;
+            resourceInputs["resourceConfigurations"] = args?.resourceConfigurations;
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["agentRuntimeArn"] = undefined /*out*/;
@@ -191,12 +201,14 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["filesystemConfigurations"] = undefined /*out*/;
+            resourceInputs["hooksConfiguration"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;
             resourceInputs["platformVersion"] = undefined /*out*/;
             resourceInputs["protocolConfiguration"] = undefined /*out*/;
             resourceInputs["requestHeaderConfiguration"] = undefined /*out*/;
+            resourceInputs["resourceConfigurations"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -242,6 +254,10 @@ export interface RuntimeArgs {
      */
     filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.RuntimeFilesystemConfigurationArgs>[] | undefined>;
     /**
+     * Lifecycle hooks for the agent runtime
+     */
+    hooksConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeHooksConfigurationArgs | undefined>;
+    /**
      * Lifecycle configuration for managing runtime sessions
      */
     lifecycleConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeLifecycleConfigurationArgs | undefined>;
@@ -261,6 +277,10 @@ export interface RuntimeArgs {
      * Configuration for HTTP request headers
      */
     requestHeaderConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeRequestHeaderConfigurationArgs | undefined>;
+    /**
+     * Resource configurations for the agent runtime
+     */
+    resourceConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.RuntimeResourceConfigurationArgs>[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role
      */

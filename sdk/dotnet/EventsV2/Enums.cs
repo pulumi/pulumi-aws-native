@@ -44,6 +44,69 @@ namespace Pulumi.AwsNative.EventsV2
     }
 
     /// <summary>
+    /// Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceLogConfigurationIncludePayload : IEquatable<EventSourceLogConfigurationIncludePayload>
+    {
+        private readonly string _value;
+
+        private EventSourceLogConfigurationIncludePayload(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceLogConfigurationIncludePayload Full { get; } = new EventSourceLogConfigurationIncludePayload("FULL");
+        public static EventSourceLogConfigurationIncludePayload OnErrorOnly { get; } = new EventSourceLogConfigurationIncludePayload("ON_ERROR_ONLY");
+
+        public static bool operator ==(EventSourceLogConfigurationIncludePayload left, EventSourceLogConfigurationIncludePayload right) => left.Equals(right);
+        public static bool operator !=(EventSourceLogConfigurationIncludePayload left, EventSourceLogConfigurationIncludePayload right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceLogConfigurationIncludePayload value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceLogConfigurationIncludePayload other && Equals(other);
+        public bool Equals(EventSourceLogConfigurationIncludePayload other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceLogConfigurationLevel : IEquatable<EventSourceLogConfigurationLevel>
+    {
+        private readonly string _value;
+
+        private EventSourceLogConfigurationLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceLogConfigurationLevel Off { get; } = new EventSourceLogConfigurationLevel("OFF");
+        public static EventSourceLogConfigurationLevel Error { get; } = new EventSourceLogConfigurationLevel("ERROR");
+        public static EventSourceLogConfigurationLevel Info { get; } = new EventSourceLogConfigurationLevel("INFO");
+
+        public static bool operator ==(EventSourceLogConfigurationLevel left, EventSourceLogConfigurationLevel right) => left.Equals(right);
+        public static bool operator !=(EventSourceLogConfigurationLevel left, EventSourceLogConfigurationLevel right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceLogConfigurationLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceLogConfigurationLevel other && Equals(other);
+        public bool Equals(EventSourceLogConfigurationLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The lifecycle state of the event source: CREATING, ACTIVE, UPDATING, CREATE_FAILED, UPDATE_FAILED, DELETING, or DELETE_FAILED. Revocation by the event bus owner is reported by the Revoked property, not by the state.
     /// </summary>
     [EnumType]
@@ -72,6 +135,177 @@ namespace Pulumi.AwsNative.EventsV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EventSourceState other && Equals(other);
         public bool Equals(EventSourceState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How EventBridge detects duplicate events.
+    /// 
+    /// Valid values:
+    /// - CONTENT_BASED - Detects duplicates by a hash of the event content.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceWebhookDeduplicationConfigurationDeduplicationType : IEquatable<EventSourceWebhookDeduplicationConfigurationDeduplicationType>
+    {
+        private readonly string _value;
+
+        private EventSourceWebhookDeduplicationConfigurationDeduplicationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceWebhookDeduplicationConfigurationDeduplicationType ContentBased { get; } = new EventSourceWebhookDeduplicationConfigurationDeduplicationType("CONTENT_BASED");
+
+        public static bool operator ==(EventSourceWebhookDeduplicationConfigurationDeduplicationType left, EventSourceWebhookDeduplicationConfigurationDeduplicationType right) => left.Equals(right);
+        public static bool operator !=(EventSourceWebhookDeduplicationConfigurationDeduplicationType left, EventSourceWebhookDeduplicationConfigurationDeduplicationType right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceWebhookDeduplicationConfigurationDeduplicationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceWebhookDeduplicationConfigurationDeduplicationType other && Equals(other);
+        public bool Equals(EventSourceWebhookDeduplicationConfigurationDeduplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The hash algorithm the provider uses to compute the signature.
+    /// 
+    /// Valid values:
+    /// - SHA256 - SHA-256.
+    /// - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceWebhookHmacAuthConfigurationAlgorithm : IEquatable<EventSourceWebhookHmacAuthConfigurationAlgorithm>
+    {
+        private readonly string _value;
+
+        private EventSourceWebhookHmacAuthConfigurationAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceWebhookHmacAuthConfigurationAlgorithm Sha256 { get; } = new EventSourceWebhookHmacAuthConfigurationAlgorithm("SHA256");
+        public static EventSourceWebhookHmacAuthConfigurationAlgorithm Sha1 { get; } = new EventSourceWebhookHmacAuthConfigurationAlgorithm("SHA1");
+
+        public static bool operator ==(EventSourceWebhookHmacAuthConfigurationAlgorithm left, EventSourceWebhookHmacAuthConfigurationAlgorithm right) => left.Equals(right);
+        public static bool operator !=(EventSourceWebhookHmacAuthConfigurationAlgorithm left, EventSourceWebhookHmacAuthConfigurationAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceWebhookHmacAuthConfigurationAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceWebhookHmacAuthConfigurationAlgorithm other && Equals(other);
+        public bool Equals(EventSourceWebhookHmacAuthConfigurationAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How the provider encodes the signature in the header.
+    /// 
+    /// Valid values:
+    /// - HEX - Hexadecimal.
+    /// - BASE64 - Base64.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceWebhookHmacAuthConfigurationEncoding : IEquatable<EventSourceWebhookHmacAuthConfigurationEncoding>
+    {
+        private readonly string _value;
+
+        private EventSourceWebhookHmacAuthConfigurationEncoding(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceWebhookHmacAuthConfigurationEncoding Hex { get; } = new EventSourceWebhookHmacAuthConfigurationEncoding("HEX");
+        public static EventSourceWebhookHmacAuthConfigurationEncoding Base64 { get; } = new EventSourceWebhookHmacAuthConfigurationEncoding("BASE64");
+
+        public static bool operator ==(EventSourceWebhookHmacAuthConfigurationEncoding left, EventSourceWebhookHmacAuthConfigurationEncoding right) => left.Equals(right);
+        public static bool operator !=(EventSourceWebhookHmacAuthConfigurationEncoding left, EventSourceWebhookHmacAuthConfigurationEncoding right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceWebhookHmacAuthConfigurationEncoding value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceWebhookHmacAuthConfigurationEncoding other && Equals(other);
+        public bool Equals(EventSourceWebhookHmacAuthConfigurationEncoding other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceWebhookHmacAuthConfigurationSecretEncoding : IEquatable<EventSourceWebhookHmacAuthConfigurationSecretEncoding>
+    {
+        private readonly string _value;
+
+        private EventSourceWebhookHmacAuthConfigurationSecretEncoding(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceWebhookHmacAuthConfigurationSecretEncoding Raw { get; } = new EventSourceWebhookHmacAuthConfigurationSecretEncoding("RAW");
+        public static EventSourceWebhookHmacAuthConfigurationSecretEncoding Base64 { get; } = new EventSourceWebhookHmacAuthConfigurationSecretEncoding("BASE64");
+
+        public static bool operator ==(EventSourceWebhookHmacAuthConfigurationSecretEncoding left, EventSourceWebhookHmacAuthConfigurationSecretEncoding right) => left.Equals(right);
+        public static bool operator !=(EventSourceWebhookHmacAuthConfigurationSecretEncoding left, EventSourceWebhookHmacAuthConfigurationSecretEncoding right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceWebhookHmacAuthConfigurationSecretEncoding value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceWebhookHmacAuthConfigurationSecretEncoding other && Equals(other);
+        public bool Equals(EventSourceWebhookHmacAuthConfigurationSecretEncoding other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How the provider assembles the message it signs from the request.
+    /// 
+    /// Valid values:
+    /// - BODY - The request body alone.
+    /// - TIMESTAMP_DOT_BODY - &lt;timestamp&gt;.&lt;body&gt;. Requires TimestampHttpHeader.
+    /// - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - &lt;messageId&gt;.&lt;timestamp&gt;.&lt;body&gt;, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceWebhookHmacAuthConfigurationSignedMessageComposition : IEquatable<EventSourceWebhookHmacAuthConfigurationSignedMessageComposition>
+    {
+        private readonly string _value;
+
+        private EventSourceWebhookHmacAuthConfigurationSignedMessageComposition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceWebhookHmacAuthConfigurationSignedMessageComposition Body { get; } = new EventSourceWebhookHmacAuthConfigurationSignedMessageComposition("BODY");
+        public static EventSourceWebhookHmacAuthConfigurationSignedMessageComposition TimestampDotBody { get; } = new EventSourceWebhookHmacAuthConfigurationSignedMessageComposition("TIMESTAMP_DOT_BODY");
+        public static EventSourceWebhookHmacAuthConfigurationSignedMessageComposition MessageIdDotTimestampDotBody { get; } = new EventSourceWebhookHmacAuthConfigurationSignedMessageComposition("MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY");
+
+        public static bool operator ==(EventSourceWebhookHmacAuthConfigurationSignedMessageComposition left, EventSourceWebhookHmacAuthConfigurationSignedMessageComposition right) => left.Equals(right);
+        public static bool operator !=(EventSourceWebhookHmacAuthConfigurationSignedMessageComposition left, EventSourceWebhookHmacAuthConfigurationSignedMessageComposition right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceWebhookHmacAuthConfigurationSignedMessageComposition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceWebhookHmacAuthConfigurationSignedMessageComposition other && Equals(other);
+        public bool Equals(EventSourceWebhookHmacAuthConfigurationSignedMessageComposition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -164,6 +398,102 @@ namespace Pulumi.AwsNative.EventsV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SubscriberFilterScope other && Equals(other);
         public bool Equals(SubscriberFilterScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+    /// </summary>
+    [EnumType]
+    public readonly struct SubscriberInvokeConfigurationMskParametersPropertiesAcks : IEquatable<SubscriberInvokeConfigurationMskParametersPropertiesAcks>
+    {
+        private readonly string _value;
+
+        private SubscriberInvokeConfigurationMskParametersPropertiesAcks(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubscriberInvokeConfigurationMskParametersPropertiesAcks All { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesAcks("ALL");
+        public static SubscriberInvokeConfigurationMskParametersPropertiesAcks Leader { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesAcks("LEADER");
+
+        public static bool operator ==(SubscriberInvokeConfigurationMskParametersPropertiesAcks left, SubscriberInvokeConfigurationMskParametersPropertiesAcks right) => left.Equals(right);
+        public static bool operator !=(SubscriberInvokeConfigurationMskParametersPropertiesAcks left, SubscriberInvokeConfigurationMskParametersPropertiesAcks right) => !left.Equals(right);
+
+        public static explicit operator string(SubscriberInvokeConfigurationMskParametersPropertiesAcks value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubscriberInvokeConfigurationMskParametersPropertiesAcks other && Equals(other);
+        public bool Equals(SubscriberInvokeConfigurationMskParametersPropertiesAcks other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Producer compression codec applied to the record batch. Defaults to NONE.
+    /// </summary>
+    [EnumType]
+    public readonly struct SubscriberInvokeConfigurationMskParametersPropertiesCompression : IEquatable<SubscriberInvokeConfigurationMskParametersPropertiesCompression>
+    {
+        private readonly string _value;
+
+        private SubscriberInvokeConfigurationMskParametersPropertiesCompression(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubscriberInvokeConfigurationMskParametersPropertiesCompression None { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesCompression("NONE");
+        public static SubscriberInvokeConfigurationMskParametersPropertiesCompression Gzip { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesCompression("GZIP");
+        public static SubscriberInvokeConfigurationMskParametersPropertiesCompression Snappy { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesCompression("SNAPPY");
+        public static SubscriberInvokeConfigurationMskParametersPropertiesCompression Lz4 { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesCompression("LZ4");
+        public static SubscriberInvokeConfigurationMskParametersPropertiesCompression Zstd { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesCompression("ZSTD");
+
+        public static bool operator ==(SubscriberInvokeConfigurationMskParametersPropertiesCompression left, SubscriberInvokeConfigurationMskParametersPropertiesCompression right) => left.Equals(right);
+        public static bool operator !=(SubscriberInvokeConfigurationMskParametersPropertiesCompression left, SubscriberInvokeConfigurationMskParametersPropertiesCompression right) => !left.Equals(right);
+
+        public static explicit operator string(SubscriberInvokeConfigurationMskParametersPropertiesCompression value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubscriberInvokeConfigurationMskParametersPropertiesCompression other && Equals(other);
+        public bool Equals(SubscriberInvokeConfigurationMskParametersPropertiesCompression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct SubscriberInvokeConfigurationMskParametersPropertiesConnectivity : IEquatable<SubscriberInvokeConfigurationMskParametersPropertiesConnectivity>
+    {
+        private readonly string _value;
+
+        private SubscriberInvokeConfigurationMskParametersPropertiesConnectivity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubscriberInvokeConfigurationMskParametersPropertiesConnectivity Public { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesConnectivity("PUBLIC");
+        public static SubscriberInvokeConfigurationMskParametersPropertiesConnectivity Private { get; } = new SubscriberInvokeConfigurationMskParametersPropertiesConnectivity("PRIVATE");
+
+        public static bool operator ==(SubscriberInvokeConfigurationMskParametersPropertiesConnectivity left, SubscriberInvokeConfigurationMskParametersPropertiesConnectivity right) => left.Equals(right);
+        public static bool operator !=(SubscriberInvokeConfigurationMskParametersPropertiesConnectivity left, SubscriberInvokeConfigurationMskParametersPropertiesConnectivity right) => !left.Equals(right);
+
+        public static explicit operator string(SubscriberInvokeConfigurationMskParametersPropertiesConnectivity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubscriberInvokeConfigurationMskParametersPropertiesConnectivity other && Equals(other);
+        public bool Equals(SubscriberInvokeConfigurationMskParametersPropertiesConnectivity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -159,7 +159,7 @@ type RegistryPolicy struct {
 	// The name of the registry.
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
 	// The revision ID of the policy.
-	RevisionId pulumi.StringPtrOutput `pulumi:"revisionId"`
+	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 }
 
 // NewRegistryPolicy registers a new resource with the given unique name, arguments, and options.
@@ -220,8 +220,6 @@ type registryPolicyArgs struct {
 	Policy interface{} `pulumi:"policy"`
 	// The name of the registry.
 	RegistryName string `pulumi:"registryName"`
-	// The revision ID of the policy.
-	RevisionId *string `pulumi:"revisionId"`
 }
 
 // The set of arguments for constructing a RegistryPolicy resource.
@@ -232,8 +230,6 @@ type RegistryPolicyArgs struct {
 	Policy pulumi.Input
 	// The name of the registry.
 	RegistryName pulumi.StringInput
-	// The revision ID of the policy.
-	RevisionId pulumi.StringPtrInput
 }
 
 func (RegistryPolicyArgs) ElementType() reflect.Type {
@@ -291,8 +287,8 @@ func (o RegistryPolicyOutput) RegistryName() pulumi.StringOutput {
 }
 
 // The revision ID of the policy.
-func (o RegistryPolicyOutput) RevisionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringPtrOutput { return v.RevisionId }).(pulumi.StringPtrOutput)
+func (o RegistryPolicyOutput) RevisionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
 
 func init() {

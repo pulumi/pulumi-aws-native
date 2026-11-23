@@ -180,9 +180,401 @@ func (in *licenseConfigurationLicenseCountingTypePtr) ToLicenseConfigurationLice
 	return pulumi.ToOutputWithContext(ctx, in).(LicenseConfigurationLicenseCountingTypePtrOutput)
 }
 
+// Time period between each report. The period can be daily, weekly, or monthly.
+type ReportGeneratorReportFrequencyPeriod string
+
+const (
+	ReportGeneratorReportFrequencyPeriodDay     = ReportGeneratorReportFrequencyPeriod("DAY")
+	ReportGeneratorReportFrequencyPeriodWeek    = ReportGeneratorReportFrequencyPeriod("WEEK")
+	ReportGeneratorReportFrequencyPeriodMonth   = ReportGeneratorReportFrequencyPeriod("MONTH")
+	ReportGeneratorReportFrequencyPeriodOneTime = ReportGeneratorReportFrequencyPeriod("ONE_TIME")
+)
+
+func (ReportGeneratorReportFrequencyPeriod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorReportFrequencyPeriod)(nil)).Elem()
+}
+
+func (e ReportGeneratorReportFrequencyPeriod) ToReportGeneratorReportFrequencyPeriodOutput() ReportGeneratorReportFrequencyPeriodOutput {
+	return pulumi.ToOutput(e).(ReportGeneratorReportFrequencyPeriodOutput)
+}
+
+func (e ReportGeneratorReportFrequencyPeriod) ToReportGeneratorReportFrequencyPeriodOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReportGeneratorReportFrequencyPeriodOutput)
+}
+
+func (e ReportGeneratorReportFrequencyPeriod) ToReportGeneratorReportFrequencyPeriodPtrOutput() ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return e.ToReportGeneratorReportFrequencyPeriodPtrOutputWithContext(context.Background())
+}
+
+func (e ReportGeneratorReportFrequencyPeriod) ToReportGeneratorReportFrequencyPeriodPtrOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return ReportGeneratorReportFrequencyPeriod(e).ToReportGeneratorReportFrequencyPeriodOutputWithContext(ctx).ToReportGeneratorReportFrequencyPeriodPtrOutputWithContext(ctx)
+}
+
+func (e ReportGeneratorReportFrequencyPeriod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGeneratorReportFrequencyPeriod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGeneratorReportFrequencyPeriod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReportGeneratorReportFrequencyPeriod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReportGeneratorReportFrequencyPeriodOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportFrequencyPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorReportFrequencyPeriod)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportFrequencyPeriodOutput) ToReportGeneratorReportFrequencyPeriodOutput() ReportGeneratorReportFrequencyPeriodOutput {
+	return o
+}
+
+func (o ReportGeneratorReportFrequencyPeriodOutput) ToReportGeneratorReportFrequencyPeriodOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyPeriodOutput {
+	return o
+}
+
+func (o ReportGeneratorReportFrequencyPeriodOutput) ToReportGeneratorReportFrequencyPeriodPtrOutput() ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return o.ToReportGeneratorReportFrequencyPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGeneratorReportFrequencyPeriodOutput) ToReportGeneratorReportFrequencyPeriodPtrOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGeneratorReportFrequencyPeriod) *ReportGeneratorReportFrequencyPeriod {
+		return &v
+	}).(ReportGeneratorReportFrequencyPeriodPtrOutput)
+}
+
+func (o ReportGeneratorReportFrequencyPeriodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReportGeneratorReportFrequencyPeriodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGeneratorReportFrequencyPeriod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReportGeneratorReportFrequencyPeriodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGeneratorReportFrequencyPeriodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGeneratorReportFrequencyPeriod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReportGeneratorReportFrequencyPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportFrequencyPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGeneratorReportFrequencyPeriod)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportFrequencyPeriodPtrOutput) ToReportGeneratorReportFrequencyPeriodPtrOutput() ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorReportFrequencyPeriodPtrOutput) ToReportGeneratorReportFrequencyPeriodPtrOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorReportFrequencyPeriodPtrOutput) Elem() ReportGeneratorReportFrequencyPeriodOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportFrequencyPeriod) ReportGeneratorReportFrequencyPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGeneratorReportFrequencyPeriod
+		return ret
+	}).(ReportGeneratorReportFrequencyPeriodOutput)
+}
+
+func (o ReportGeneratorReportFrequencyPeriodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGeneratorReportFrequencyPeriodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReportGeneratorReportFrequencyPeriod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReportGeneratorReportFrequencyPeriodInput is an input type that accepts values of the ReportGeneratorReportFrequencyPeriod enum
+// A concrete instance of `ReportGeneratorReportFrequencyPeriodInput` can be one of the following:
+//
+//	ReportGeneratorReportFrequencyPeriodDay
+//	ReportGeneratorReportFrequencyPeriodWeek
+//	ReportGeneratorReportFrequencyPeriodMonth
+//	ReportGeneratorReportFrequencyPeriodOneTime
+type ReportGeneratorReportFrequencyPeriodInput interface {
+	pulumi.Input
+
+	ToReportGeneratorReportFrequencyPeriodOutput() ReportGeneratorReportFrequencyPeriodOutput
+	ToReportGeneratorReportFrequencyPeriodOutputWithContext(context.Context) ReportGeneratorReportFrequencyPeriodOutput
+}
+
+var reportGeneratorReportFrequencyPeriodPtrType = reflect.TypeOf((**ReportGeneratorReportFrequencyPeriod)(nil)).Elem()
+
+type ReportGeneratorReportFrequencyPeriodPtrInput interface {
+	pulumi.Input
+
+	ToReportGeneratorReportFrequencyPeriodPtrOutput() ReportGeneratorReportFrequencyPeriodPtrOutput
+	ToReportGeneratorReportFrequencyPeriodPtrOutputWithContext(context.Context) ReportGeneratorReportFrequencyPeriodPtrOutput
+}
+
+type reportGeneratorReportFrequencyPeriodPtr string
+
+func ReportGeneratorReportFrequencyPeriodPtr(v string) ReportGeneratorReportFrequencyPeriodPtrInput {
+	return (*reportGeneratorReportFrequencyPeriodPtr)(&v)
+}
+
+func (*reportGeneratorReportFrequencyPeriodPtr) ElementType() reflect.Type {
+	return reportGeneratorReportFrequencyPeriodPtrType
+}
+
+func (in *reportGeneratorReportFrequencyPeriodPtr) ToReportGeneratorReportFrequencyPeriodPtrOutput() ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return pulumi.ToOutput(in).(ReportGeneratorReportFrequencyPeriodPtrOutput)
+}
+
+func (in *reportGeneratorReportFrequencyPeriodPtr) ToReportGeneratorReportFrequencyPeriodPtrOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReportGeneratorReportFrequencyPeriodPtrOutput)
+}
+
+type ReportGeneratorReportTypeItem string
+
+const (
+	ReportGeneratorReportTypeItemLicenseConfigurationSummaryReport = ReportGeneratorReportTypeItem("LicenseConfigurationSummaryReport")
+	ReportGeneratorReportTypeItemLicenseConfigurationUsageReport   = ReportGeneratorReportTypeItem("LicenseConfigurationUsageReport")
+	ReportGeneratorReportTypeItemLicenseAssetGroupUsageReport      = ReportGeneratorReportTypeItem("LicenseAssetGroupUsageReport")
+)
+
+func (ReportGeneratorReportTypeItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorReportTypeItem)(nil)).Elem()
+}
+
+func (e ReportGeneratorReportTypeItem) ToReportGeneratorReportTypeItemOutput() ReportGeneratorReportTypeItemOutput {
+	return pulumi.ToOutput(e).(ReportGeneratorReportTypeItemOutput)
+}
+
+func (e ReportGeneratorReportTypeItem) ToReportGeneratorReportTypeItemOutputWithContext(ctx context.Context) ReportGeneratorReportTypeItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReportGeneratorReportTypeItemOutput)
+}
+
+func (e ReportGeneratorReportTypeItem) ToReportGeneratorReportTypeItemPtrOutput() ReportGeneratorReportTypeItemPtrOutput {
+	return e.ToReportGeneratorReportTypeItemPtrOutputWithContext(context.Background())
+}
+
+func (e ReportGeneratorReportTypeItem) ToReportGeneratorReportTypeItemPtrOutputWithContext(ctx context.Context) ReportGeneratorReportTypeItemPtrOutput {
+	return ReportGeneratorReportTypeItem(e).ToReportGeneratorReportTypeItemOutputWithContext(ctx).ToReportGeneratorReportTypeItemPtrOutputWithContext(ctx)
+}
+
+func (e ReportGeneratorReportTypeItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGeneratorReportTypeItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGeneratorReportTypeItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReportGeneratorReportTypeItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReportGeneratorReportTypeItemOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportTypeItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorReportTypeItem)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportTypeItemOutput) ToReportGeneratorReportTypeItemOutput() ReportGeneratorReportTypeItemOutput {
+	return o
+}
+
+func (o ReportGeneratorReportTypeItemOutput) ToReportGeneratorReportTypeItemOutputWithContext(ctx context.Context) ReportGeneratorReportTypeItemOutput {
+	return o
+}
+
+func (o ReportGeneratorReportTypeItemOutput) ToReportGeneratorReportTypeItemPtrOutput() ReportGeneratorReportTypeItemPtrOutput {
+	return o.ToReportGeneratorReportTypeItemPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGeneratorReportTypeItemOutput) ToReportGeneratorReportTypeItemPtrOutputWithContext(ctx context.Context) ReportGeneratorReportTypeItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGeneratorReportTypeItem) *ReportGeneratorReportTypeItem {
+		return &v
+	}).(ReportGeneratorReportTypeItemPtrOutput)
+}
+
+func (o ReportGeneratorReportTypeItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReportGeneratorReportTypeItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGeneratorReportTypeItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReportGeneratorReportTypeItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGeneratorReportTypeItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGeneratorReportTypeItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReportGeneratorReportTypeItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportTypeItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGeneratorReportTypeItem)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportTypeItemPtrOutput) ToReportGeneratorReportTypeItemPtrOutput() ReportGeneratorReportTypeItemPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorReportTypeItemPtrOutput) ToReportGeneratorReportTypeItemPtrOutputWithContext(ctx context.Context) ReportGeneratorReportTypeItemPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorReportTypeItemPtrOutput) Elem() ReportGeneratorReportTypeItemOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportTypeItem) ReportGeneratorReportTypeItem {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGeneratorReportTypeItem
+		return ret
+	}).(ReportGeneratorReportTypeItemOutput)
+}
+
+func (o ReportGeneratorReportTypeItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGeneratorReportTypeItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReportGeneratorReportTypeItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReportGeneratorReportTypeItemInput is an input type that accepts values of the ReportGeneratorReportTypeItem enum
+// A concrete instance of `ReportGeneratorReportTypeItemInput` can be one of the following:
+//
+//	ReportGeneratorReportTypeItemLicenseConfigurationSummaryReport
+//	ReportGeneratorReportTypeItemLicenseConfigurationUsageReport
+//	ReportGeneratorReportTypeItemLicenseAssetGroupUsageReport
+type ReportGeneratorReportTypeItemInput interface {
+	pulumi.Input
+
+	ToReportGeneratorReportTypeItemOutput() ReportGeneratorReportTypeItemOutput
+	ToReportGeneratorReportTypeItemOutputWithContext(context.Context) ReportGeneratorReportTypeItemOutput
+}
+
+var reportGeneratorReportTypeItemPtrType = reflect.TypeOf((**ReportGeneratorReportTypeItem)(nil)).Elem()
+
+type ReportGeneratorReportTypeItemPtrInput interface {
+	pulumi.Input
+
+	ToReportGeneratorReportTypeItemPtrOutput() ReportGeneratorReportTypeItemPtrOutput
+	ToReportGeneratorReportTypeItemPtrOutputWithContext(context.Context) ReportGeneratorReportTypeItemPtrOutput
+}
+
+type reportGeneratorReportTypeItemPtr string
+
+func ReportGeneratorReportTypeItemPtr(v string) ReportGeneratorReportTypeItemPtrInput {
+	return (*reportGeneratorReportTypeItemPtr)(&v)
+}
+
+func (*reportGeneratorReportTypeItemPtr) ElementType() reflect.Type {
+	return reportGeneratorReportTypeItemPtrType
+}
+
+func (in *reportGeneratorReportTypeItemPtr) ToReportGeneratorReportTypeItemPtrOutput() ReportGeneratorReportTypeItemPtrOutput {
+	return pulumi.ToOutput(in).(ReportGeneratorReportTypeItemPtrOutput)
+}
+
+func (in *reportGeneratorReportTypeItemPtr) ToReportGeneratorReportTypeItemPtrOutputWithContext(ctx context.Context) ReportGeneratorReportTypeItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReportGeneratorReportTypeItemPtrOutput)
+}
+
+// ReportGeneratorReportTypeItemArrayInput is an input type that accepts ReportGeneratorReportTypeItemArray and ReportGeneratorReportTypeItemArrayOutput values.
+// You can construct a concrete instance of `ReportGeneratorReportTypeItemArrayInput` via:
+//
+//	ReportGeneratorReportTypeItemArray{ ReportGeneratorReportTypeItemArgs{...} }
+type ReportGeneratorReportTypeItemArrayInput interface {
+	pulumi.Input
+
+	ToReportGeneratorReportTypeItemArrayOutput() ReportGeneratorReportTypeItemArrayOutput
+	ToReportGeneratorReportTypeItemArrayOutputWithContext(context.Context) ReportGeneratorReportTypeItemArrayOutput
+}
+
+type ReportGeneratorReportTypeItemArray []ReportGeneratorReportTypeItem
+
+func (ReportGeneratorReportTypeItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportGeneratorReportTypeItem)(nil)).Elem()
+}
+
+func (i ReportGeneratorReportTypeItemArray) ToReportGeneratorReportTypeItemArrayOutput() ReportGeneratorReportTypeItemArrayOutput {
+	return i.ToReportGeneratorReportTypeItemArrayOutputWithContext(context.Background())
+}
+
+func (i ReportGeneratorReportTypeItemArray) ToReportGeneratorReportTypeItemArrayOutputWithContext(ctx context.Context) ReportGeneratorReportTypeItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGeneratorReportTypeItemArrayOutput)
+}
+
+type ReportGeneratorReportTypeItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportTypeItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportGeneratorReportTypeItem)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportTypeItemArrayOutput) ToReportGeneratorReportTypeItemArrayOutput() ReportGeneratorReportTypeItemArrayOutput {
+	return o
+}
+
+func (o ReportGeneratorReportTypeItemArrayOutput) ToReportGeneratorReportTypeItemArrayOutputWithContext(ctx context.Context) ReportGeneratorReportTypeItemArrayOutput {
+	return o
+}
+
+func (o ReportGeneratorReportTypeItemArrayOutput) Index(i pulumi.IntInput) ReportGeneratorReportTypeItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportGeneratorReportTypeItem {
+		return vs[0].([]ReportGeneratorReportTypeItem)[vs[1].(int)]
+	}).(ReportGeneratorReportTypeItemOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationLicenseCountingTypeInput)(nil)).Elem(), LicenseConfigurationLicenseCountingType("vCPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationLicenseCountingTypePtrInput)(nil)).Elem(), LicenseConfigurationLicenseCountingType("vCPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGeneratorReportFrequencyPeriodInput)(nil)).Elem(), ReportGeneratorReportFrequencyPeriod("DAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGeneratorReportFrequencyPeriodPtrInput)(nil)).Elem(), ReportGeneratorReportFrequencyPeriod("DAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGeneratorReportTypeItemInput)(nil)).Elem(), ReportGeneratorReportTypeItem("LicenseConfigurationSummaryReport"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGeneratorReportTypeItemPtrInput)(nil)).Elem(), ReportGeneratorReportTypeItem("LicenseConfigurationSummaryReport"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGeneratorReportTypeItemArrayInput)(nil)).Elem(), ReportGeneratorReportTypeItemArray{})
 	pulumi.RegisterOutputType(LicenseConfigurationLicenseCountingTypeOutput{})
 	pulumi.RegisterOutputType(LicenseConfigurationLicenseCountingTypePtrOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportFrequencyPeriodOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportFrequencyPeriodPtrOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportTypeItemOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportTypeItemPtrOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportTypeItemArrayOutput{})
 }

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetPublisherArgs, GetPublisherResult, GetPublisherOutputArgs } from "./getPublisher";
+export const getPublisher: typeof import("./getPublisher").getPublisher = null as any;
+export const getPublisherOutput: typeof import("./getPublisher").getPublisherOutput = null as any;
+utilities.lazyLoad(exports, ["getPublisher","getPublisherOutput"], () => require("./getPublisher"));
+
 export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
 export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
@@ -14,6 +19,11 @@ export { GetRegistryRecordArgs, GetRegistryRecordResult, GetRegistryRecordOutput
 export const getRegistryRecord: typeof import("./getRegistryRecord").getRegistryRecord = null as any;
 export const getRegistryRecordOutput: typeof import("./getRegistryRecord").getRegistryRecordOutput = null as any;
 utilities.lazyLoad(exports, ["getRegistryRecord","getRegistryRecordOutput"], () => require("./getRegistryRecord"));
+
+export { PublisherArgs } from "./publisher";
+export type Publisher = import("./publisher").Publisher;
+export const Publisher: typeof import("./publisher").Publisher = null as any;
+utilities.lazyLoad(exports, ["Publisher"], () => require("./publisher"));
 
 export { RegistryArgs } from "./registry";
 export type Registry = import("./registry").Registry;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:agentregistry:Publisher":
+                return new Publisher(name, <any>undefined, { urn })
             case "aws-native:agentregistry:Registry":
                 return new Registry(name, <any>undefined, { urn })
             case "aws-native:agentregistry:RegistryRecord":

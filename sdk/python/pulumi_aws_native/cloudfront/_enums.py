@@ -14,13 +14,18 @@ __all__ = [
     'ContinuousDeploymentPolicyTrafficConfigType',
     'DistributionConnectionMode',
     'DistributionCustomOriginConfigIpAddressType',
+    'DistributionCustomOriginConfigOriginHttpVersion',
     'DistributionOriginGroupSelectionCriteria',
+    'DistributionTenantDomainMappingServeOn',
     'DistributionTenantDomainResultStatus',
     'DistributionTenantGeoRestrictionCustomizationRestrictionType',
     'DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference',
     'DistributionTenantManagedCertificateRequestValidationTokenHost',
+    'DistributionTenantOnDomainTakeover',
     'DistributionTenantWebAclCustomizationAction',
     'DistributionViewerMtlsMode',
+    'DistributionVpcOriginConfigOriginHttpVersion',
+    'FieldLevelEncryptionConfigContentTypeProfileFormat',
     'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus',
     'TrustStoreStatus',
     'VpcOriginEndpointConfigIpAddressType',
@@ -90,10 +95,24 @@ class DistributionCustomOriginConfigIpAddressType(_builtins.str, Enum):
     DUALSTACK = "dualstack"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionCustomOriginConfigOriginHttpVersion")
+class DistributionCustomOriginConfigOriginHttpVersion(_builtins.str, Enum):
+    HTTP11 = "http1.1"
+    HTTP2 = "http2"
+
+
 @pulumi.type_token("aws-native:cloudfront:DistributionOriginGroupSelectionCriteria")
 class DistributionOriginGroupSelectionCriteria(_builtins.str, Enum):
     DEFAULT = "default"
     MEDIA_QUALITY_BASED = "media-quality-based"
+
+
+@pulumi.type_token("aws-native:cloudfront:DistributionTenantDomainMappingServeOn")
+class DistributionTenantDomainMappingServeOn(_builtins.str, Enum):
+    """
+    Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+    """
+    ANYCAST_IP_LIST_ONLY = "anycast-ip-list-only"
 
 
 @pulumi.type_token("aws-native:cloudfront:DistributionTenantDomainResultStatus")
@@ -138,6 +157,12 @@ class DistributionTenantManagedCertificateRequestValidationTokenHost(_builtins.s
     SELF_HOSTED = "self-hosted"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionTenantOnDomainTakeover")
+class DistributionTenantOnDomainTakeover(_builtins.str, Enum):
+    ALLOW = "allow"
+    REJECT = "reject"
+
+
 @pulumi.type_token("aws-native:cloudfront:DistributionTenantWebAclCustomizationAction")
 class DistributionTenantWebAclCustomizationAction(_builtins.str, Enum):
     """
@@ -152,6 +177,20 @@ class DistributionViewerMtlsMode(_builtins.str, Enum):
     REQUIRED = "required"
     OPTIONAL = "optional"
     PASSTHROUGH = "passthrough"
+
+
+@pulumi.type_token("aws-native:cloudfront:DistributionVpcOriginConfigOriginHttpVersion")
+class DistributionVpcOriginConfigOriginHttpVersion(_builtins.str, Enum):
+    HTTP11 = "http1.1"
+    HTTP2 = "http2"
+
+
+@pulumi.type_token("aws-native:cloudfront:FieldLevelEncryptionConfigContentTypeProfileFormat")
+class FieldLevelEncryptionConfigContentTypeProfileFormat(_builtins.str, Enum):
+    """
+    The encryption format CloudFront uses for this content type.
+    """
+    URL_ENCODED = "URLEncoded"
 
 
 @pulumi.type_token("aws-native:cloudfront:MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus")

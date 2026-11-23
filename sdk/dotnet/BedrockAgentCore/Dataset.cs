@@ -58,10 +58,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Versioned schema type governing the structure of examples. Immutable after creation.
+        /// Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
         /// </summary>
         [Output("schemaType")]
-        public Output<Pulumi.AwsNative.BedrockAgentCore.DatasetSchemaType> SchemaType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.BedrockAgentCore.DatasetSchemaType?> SchemaType { get; private set; } = null!;
 
         [Output("source")]
         public Output<Outputs.DatasetDataSourceType?> Source { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Dataset(string name, DatasetArgs args, CustomResourceOptions? options = null)
+        public Dataset(string name, DatasetArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:bedrockagentcore:Dataset", name, args ?? new DatasetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -111,7 +111,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 {
                     "datasetName",
                     "kmsKeyArn",
-                    "schemaType",
                     "source",
                 },
             };
@@ -155,10 +154,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Versioned schema type governing the structure of examples. Immutable after creation.
+        /// Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
         /// </summary>
-        [Input("schemaType", required: true)]
-        public Input<Pulumi.AwsNative.BedrockAgentCore.DatasetSchemaType> SchemaType { get; set; } = null!;
+        [Input("schemaType")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.DatasetSchemaType>? SchemaType { get; set; }
 
         [Input("source")]
         public Input<Inputs.DatasetDataSourceTypeArgs>? Source { get; set; }

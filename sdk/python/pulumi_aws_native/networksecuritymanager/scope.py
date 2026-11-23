@@ -25,6 +25,7 @@ class ScopeArgs:
                  scope_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_description: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 specialized_scope_type: pulumi.Input[Optional['ScopeSpecializedScopeType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Scope resource.
@@ -32,6 +33,7 @@ class ScopeArgs:
         :param pulumi.Input[_builtins.str] scope_configuration: The scope configuration as a JSON string.
         :param pulumi.Input[_builtins.str] scope_description: A description of the scope.
         :param pulumi.Input[_builtins.str] scope_name: The name of the scope.
+        :param pulumi.Input['ScopeSpecializedScopeType'] specialized_scope_type: Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the scope.
         """
         if scope_configuration is not None:
@@ -40,6 +42,8 @@ class ScopeArgs:
             pulumi.set(__self__, "scope_description", scope_description)
         if scope_name is not None:
             pulumi.set(__self__, "scope_name", scope_name)
+        if specialized_scope_type is not None:
+            pulumi.set(__self__, "specialized_scope_type", specialized_scope_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -80,6 +84,18 @@ class ScopeArgs:
         pulumi.set(self, "scope_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="specializedScopeType")
+    def specialized_scope_type(self) -> pulumi.Input[Optional['ScopeSpecializedScopeType']]:
+        """
+        Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "specialized_scope_type")
+
+    @specialized_scope_type.setter
+    def specialized_scope_type(self, value: pulumi.Input[Optional['ScopeSpecializedScopeType']]):
+        pulumi.set(self, "specialized_scope_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -101,6 +117,7 @@ class Scope(pulumi.CustomResource):
                  scope_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_description: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 specialized_scope_type: pulumi.Input[Optional['ScopeSpecializedScopeType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
@@ -111,6 +128,7 @@ class Scope(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] scope_configuration: The scope configuration as a JSON string.
         :param pulumi.Input[_builtins.str] scope_description: A description of the scope.
         :param pulumi.Input[_builtins.str] scope_name: The name of the scope.
+        :param pulumi.Input['ScopeSpecializedScopeType'] specialized_scope_type: Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the scope.
         """
         ...
@@ -140,6 +158,7 @@ class Scope(pulumi.CustomResource):
                  scope_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_description: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 specialized_scope_type: pulumi.Input[Optional['ScopeSpecializedScopeType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -153,13 +172,14 @@ class Scope(pulumi.CustomResource):
             __props__.__dict__["scope_configuration"] = scope_configuration
             __props__.__dict__["scope_description"] = scope_description
             __props__.__dict__["scope_name"] = scope_name
+            __props__.__dict__["specialized_scope_type"] = specialized_scope_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["scope_arn"] = None
             __props__.__dict__["scope_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
             __props__.__dict__["version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scopeName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scopeName", "specializedScopeType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Scope, __self__).__init__(
             'aws-native:networksecuritymanager:Scope',
@@ -188,6 +208,7 @@ class Scope(pulumi.CustomResource):
         __props__.__dict__["scope_description"] = None
         __props__.__dict__["scope_id"] = None
         __props__.__dict__["scope_name"] = None
+        __props__.__dict__["specialized_scope_type"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
@@ -239,6 +260,14 @@ class Scope(pulumi.CustomResource):
         The name of the scope.
         """
         return pulumi.get(self, "scope_name")
+
+    @_builtins.property
+    @pulumi.getter(name="specializedScopeType")
+    def specialized_scope_type(self) -> pulumi.Output[Optional['ScopeSpecializedScopeType']]:
+        """
+        Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "specialized_scope_type")
 
     @_builtins.property
     @pulumi.getter

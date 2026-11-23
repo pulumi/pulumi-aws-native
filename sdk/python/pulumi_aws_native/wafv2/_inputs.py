@@ -174,6 +174,8 @@ __all__ = [
     'RuleGroupXssMatchStatementArgsDict',
     'WebAclAllowActionArgs',
     'WebAclAllowActionArgsDict',
+    'WebAclAnalyticsConfigArgs',
+    'WebAclAnalyticsConfigArgsDict',
     'WebAclAndStatementArgs',
     'WebAclAndStatementArgsDict',
     'WebAclApplicationAttributeArgs',
@@ -6061,6 +6063,31 @@ class WebAclAllowActionArgs:
     @custom_request_handling.setter
     def custom_request_handling(self, value: pulumi.Input[Optional['WebAclCustomRequestHandlingArgs']]):
         pulumi.set(self, "custom_request_handling", value)
+
+
+class WebAclAnalyticsConfigArgsDict(TypedDict):
+    """
+    Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+    """
+    mode: pulumi.Input['WebAclAnalyticsMode']
+
+@pulumi.input_type
+class WebAclAnalyticsConfigArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['WebAclAnalyticsMode']):
+        """
+        Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['WebAclAnalyticsMode']:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['WebAclAnalyticsMode']):
+        pulumi.set(self, "mode", value)
 
 
 class WebAclAndStatementArgsDict(TypedDict):

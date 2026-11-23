@@ -17,6 +17,7 @@ import (
 type WebAcl struct {
 	pulumi.CustomResourceState
 
+	AnalyticsConfig WebAclAnalyticsConfigPtrOutput `pulumi:"analyticsConfig"`
 	// Collection of application attributes.
 	ApplicationConfig WebAclApplicationConfigPtrOutput `pulumi:"applicationConfig"`
 	// The Amazon Resource Name (ARN) of the web ACL.
@@ -140,6 +141,7 @@ func WebAclExists(ctx *pulumi.Context,
 }
 
 type webAclArgs struct {
+	AnalyticsConfig *WebAclAnalyticsConfig `pulumi:"analyticsConfig"`
 	// Collection of application attributes.
 	ApplicationConfig *WebAclApplicationConfig `pulumi:"applicationConfig"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources.
@@ -191,6 +193,7 @@ type webAclArgs struct {
 
 // The set of arguments for constructing a WebAcl resource.
 type WebAclArgs struct {
+	AnalyticsConfig WebAclAnalyticsConfigPtrInput
 	// Collection of application attributes.
 	ApplicationConfig WebAclApplicationConfigPtrInput
 	// Specifies custom configurations for the associations between the web ACL and protected resources.
@@ -275,6 +278,10 @@ func (o WebAclOutput) ToWebAclOutput() WebAclOutput {
 
 func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 	return o
+}
+
+func (o WebAclOutput) AnalyticsConfig() WebAclAnalyticsConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclAnalyticsConfigPtrOutput { return v.AnalyticsConfig }).(WebAclAnalyticsConfigPtrOutput)
 }
 
 // Collection of application attributes.

@@ -153,6 +153,7 @@ __all__ = [
     'EndpointConfigClarifyShapConfig',
     'EndpointConfigClarifyTextConfig',
     'EndpointConfigCoreDumpConfig',
+    'EndpointConfigCrossRegionTrafficConfig',
     'EndpointConfigDataCaptureConfig',
     'EndpointConfigExplainerConfig',
     'EndpointConfigInstancePool',
@@ -206,6 +207,12 @@ __all__ = [
     'InferenceExperimentSchedule',
     'InferenceExperimentShadowModeConfig',
     'InferenceExperimentShadowModelVariantConfig',
+    'InferenceRouterAsyncInferenceClientConfig',
+    'InferenceRouterAsyncInferenceConfig',
+    'InferenceRouterAsyncInferenceNotificationConfig',
+    'InferenceRouterAsyncInferenceOutputConfig',
+    'InferenceRouterDestination',
+    'InferenceRouterRoutingTarget',
     'ModelAccessConfig',
     'ModelBiasJobDefinitionBatchTransformInput',
     'ModelBiasJobDefinitionClusterConfig',
@@ -8678,6 +8685,59 @@ class EndpointConfigCoreDumpConfig(dict):
 
 
 @pulumi.output_type
+class EndpointConfigCrossRegionTrafficConfig(dict):
+    """
+    Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCrossRegionPercentPerEndpoint":
+            suggest = "max_cross_region_percent_per_endpoint"
+        elif key == "maxInvocationsPerSecondPerInstance":
+            suggest = "max_invocations_per_second_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigCrossRegionTrafficConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigCrossRegionTrafficConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigCrossRegionTrafficConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_cross_region_percent_per_endpoint: _builtins.int,
+                 max_invocations_per_second_per_instance: _builtins.int):
+        """
+        Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+
+        :param _builtins.int max_cross_region_percent_per_endpoint: The percentage of the endpoint's capacity (MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances) that requests from other Regions can use. Valid values are 1 to 100.
+        :param _builtins.int max_invocations_per_second_per_instance: The number of invocations per second that one InService instance can serve, used to size the limit on requests from other Regions. One value applies to every production variant, whatever its instance type. Valid values are 1 to 10000.
+        """
+        pulumi.set(__self__, "max_cross_region_percent_per_endpoint", max_cross_region_percent_per_endpoint)
+        pulumi.set(__self__, "max_invocations_per_second_per_instance", max_invocations_per_second_per_instance)
+
+    @_builtins.property
+    @pulumi.getter(name="maxCrossRegionPercentPerEndpoint")
+    def max_cross_region_percent_per_endpoint(self) -> _builtins.int:
+        """
+        The percentage of the endpoint's capacity (MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances) that requests from other Regions can use. Valid values are 1 to 100.
+        """
+        return pulumi.get(self, "max_cross_region_percent_per_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="maxInvocationsPerSecondPerInstance")
+    def max_invocations_per_second_per_instance(self) -> _builtins.int:
+        """
+        The number of invocations per second that one InService instance can serve, used to size the limit on requests from other Regions. One value applies to every production variant, whatever its instance type. Valid values are 1 to 10000.
+        """
+        return pulumi.get(self, "max_invocations_per_second_per_instance")
+
+
+@pulumi.output_type
 class EndpointConfigDataCaptureConfig(dict):
     """
     Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
@@ -12035,6 +12095,337 @@ class InferenceExperimentShadowModelVariantConfig(dict):
         The name of the shadow variant.
         """
         return pulumi.get(self, "shadow_model_variant_name")
+
+
+@pulumi.output_type
+class InferenceRouterAsyncInferenceClientConfig(dict):
+    """
+    How the Inference Router submits a request to a destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTimeInBacklogSeconds":
+            suggest = "max_time_in_backlog_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceRouterAsyncInferenceClientConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceRouterAsyncInferenceClientConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceRouterAsyncInferenceClientConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_time_in_backlog_seconds: Optional[_builtins.int] = None):
+        """
+        How the Inference Router submits a request to a destination.
+
+        :param _builtins.int max_time_in_backlog_seconds: How long, in seconds, a request can wait for a destination to pick it up before it expires. The default is 900.
+        """
+        if max_time_in_backlog_seconds is not None:
+            pulumi.set(__self__, "max_time_in_backlog_seconds", max_time_in_backlog_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTimeInBacklogSeconds")
+    def max_time_in_backlog_seconds(self) -> Optional[_builtins.int]:
+        """
+        How long, in seconds, a request can wait for a destination to pick it up before it expires. The default is 900.
+        """
+        return pulumi.get(self, "max_time_in_backlog_seconds")
+
+
+@pulumi.output_type
+class InferenceRouterAsyncInferenceConfig(dict):
+    """
+    Set this when the routing target's destinations are asynchronous inference endpoints. A routing target without it serves real-time requests.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputConfig":
+            suggest = "output_config"
+        elif key == "clientConfig":
+            suggest = "client_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceRouterAsyncInferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceRouterAsyncInferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceRouterAsyncInferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_config: 'outputs.InferenceRouterAsyncInferenceOutputConfig',
+                 client_config: Optional['outputs.InferenceRouterAsyncInferenceClientConfig'] = None):
+        """
+        Set this when the routing target's destinations are asynchronous inference endpoints. A routing target without it serves real-time requests.
+        """
+        pulumi.set(__self__, "output_config", output_config)
+        if client_config is not None:
+            pulumi.set(__self__, "client_config", client_config)
+
+    @_builtins.property
+    @pulumi.getter(name="outputConfig")
+    def output_config(self) -> 'outputs.InferenceRouterAsyncInferenceOutputConfig':
+        return pulumi.get(self, "output_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientConfig")
+    def client_config(self) -> Optional['outputs.InferenceRouterAsyncInferenceClientConfig']:
+        return pulumi.get(self, "client_config")
+
+
+@pulumi.output_type
+class InferenceRouterAsyncInferenceNotificationConfig(dict):
+    """
+    The SNS topics the Inference Router publishes a completion to. The notification carries the location of the result, not the result.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorTopic":
+            suggest = "error_topic"
+        elif key == "successTopic":
+            suggest = "success_topic"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceRouterAsyncInferenceNotificationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceRouterAsyncInferenceNotificationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceRouterAsyncInferenceNotificationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_topic: Optional[_builtins.str] = None,
+                 success_topic: Optional[_builtins.str] = None):
+        """
+        The SNS topics the Inference Router publishes a completion to. The notification carries the location of the result, not the result.
+
+        :param _builtins.str error_topic: The ARN of a standard (not FIFO) SNS topic to notify when a request fails. It can be in any Region.
+        :param _builtins.str success_topic: The ARN of a standard (not FIFO) SNS topic to notify when a request succeeds. It can be in any Region.
+        """
+        if error_topic is not None:
+            pulumi.set(__self__, "error_topic", error_topic)
+        if success_topic is not None:
+            pulumi.set(__self__, "success_topic", success_topic)
+
+    @_builtins.property
+    @pulumi.getter(name="errorTopic")
+    def error_topic(self) -> Optional[_builtins.str]:
+        """
+        The ARN of a standard (not FIFO) SNS topic to notify when a request fails. It can be in any Region.
+        """
+        return pulumi.get(self, "error_topic")
+
+    @_builtins.property
+    @pulumi.getter(name="successTopic")
+    def success_topic(self) -> Optional[_builtins.str]:
+        """
+        The ARN of a standard (not FIFO) SNS topic to notify when a request succeeds. It can be in any Region.
+        """
+        return pulumi.get(self, "success_topic")
+
+
+@pulumi.output_type
+class InferenceRouterAsyncInferenceOutputConfig(dict):
+    """
+    Where the results of asynchronous requests are written. Every destination of the routing target writes to these paths.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3FailurePath":
+            suggest = "s3_failure_path"
+        elif key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "notificationConfig":
+            suggest = "notification_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceRouterAsyncInferenceOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceRouterAsyncInferenceOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceRouterAsyncInferenceOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_failure_path: _builtins.str,
+                 s3_output_path: _builtins.str,
+                 kms_key_id: Optional[_builtins.str] = None,
+                 notification_config: Optional['outputs.InferenceRouterAsyncInferenceNotificationConfig'] = None):
+        """
+        Where the results of asynchronous requests are written. Every destination of the routing target writes to these paths.
+
+        :param _builtins.str s3_failure_path: The Amazon S3 location for failed requests. It can be in any Region and account.
+        :param _builtins.str s3_output_path: The Amazon S3 location for successful results. It can be in any Region and account.
+        :param _builtins.str kms_key_id: The AWS KMS key that encrypts the results. If any destination is in a different account or Region from the Inference Router, use a key ARN or an alias ARN.
+        """
+        pulumi.set(__self__, "s3_failure_path", s3_failure_path)
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if notification_config is not None:
+            pulumi.set(__self__, "notification_config", notification_config)
+
+    @_builtins.property
+    @pulumi.getter(name="s3FailurePath")
+    def s3_failure_path(self) -> _builtins.str:
+        """
+        The Amazon S3 location for failed requests. It can be in any Region and account.
+        """
+        return pulumi.get(self, "s3_failure_path")
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        The Amazon S3 location for successful results. It can be in any Region and account.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The AWS KMS key that encrypts the results. If any destination is in a different account or Region from the Inference Router, use a key ARN or an alias ARN.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationConfig")
+    def notification_config(self) -> Optional['outputs.InferenceRouterAsyncInferenceNotificationConfig']:
+        return pulumi.get(self, "notification_config")
+
+
+@pulumi.output_type
+class InferenceRouterDestination(dict):
+    """
+    One placement of a routing target's model. ResourceArn is the destination's identity: changing it is a removal plus an addition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceRouterDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceRouterDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceRouterDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_arn: _builtins.str):
+        """
+        One placement of a routing target's model. ResourceArn is the destination's identity: changing it is a removal plus an addition.
+
+        :param _builtins.str resource_arn: The ARN of a SageMaker endpoint or inference component that serves the routing target. It can be in any Region and account within the Inference Router's partition.
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> _builtins.str:
+        """
+        The ARN of a SageMaker endpoint or inference component that serves the routing target. It can be in any Region and account within the Inference Router's partition.
+        """
+        return pulumi.get(self, "resource_arn")
+
+
+@pulumi.output_type
+class InferenceRouterRoutingTarget(dict):
+    """
+    A named logical model within the Inference Router. Callers pass Name on the inference request to select which model serves it.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "asyncInferenceConfig":
+            suggest = "async_inference_config"
+        elif key == "routingPreference":
+            suggest = "routing_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceRouterRoutingTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceRouterRoutingTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceRouterRoutingTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destinations: Sequence['outputs.InferenceRouterDestination'],
+                 name: _builtins.str,
+                 async_inference_config: Optional['outputs.InferenceRouterAsyncInferenceConfig'] = None,
+                 routing_preference: Optional['InferenceRouterRoutingTargetRoutingPreference'] = None):
+        """
+        A named logical model within the Inference Router. Callers pass Name on the inference request to select which model serves it.
+
+        :param Sequence['InferenceRouterDestination'] destinations: The endpoints and inference components that serve this routing target.
+        :param _builtins.str name: The logical model name a caller passes at invoke time. Unique within an Inference Router.
+        :param 'InferenceRouterRoutingTargetRoutingPreference' routing_preference: How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "name", name)
+        if async_inference_config is not None:
+            pulumi.set(__self__, "async_inference_config", async_inference_config)
+        if routing_preference is not None:
+            pulumi.set(__self__, "routing_preference", routing_preference)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.InferenceRouterDestination']:
+        """
+        The endpoints and inference components that serve this routing target.
+        """
+        return pulumi.get(self, "destinations")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The logical model name a caller passes at invoke time. Unique within an Inference Router.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="asyncInferenceConfig")
+    def async_inference_config(self) -> Optional['outputs.InferenceRouterAsyncInferenceConfig']:
+        return pulumi.get(self, "async_inference_config")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPreference")
+    def routing_preference(self) -> Optional['InferenceRouterRoutingTargetRoutingPreference']:
+        """
+        How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+        """
+        return pulumi.get(self, "routing_preference")
 
 
 @pulumi.output_type

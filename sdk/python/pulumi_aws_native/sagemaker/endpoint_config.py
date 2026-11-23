@@ -25,6 +25,7 @@ class EndpointConfigArgs:
     def __init__(__self__, *,
                  production_variants: pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]],
                  async_inference_config: pulumi.Input[Optional['EndpointConfigAsyncInferenceConfigArgs']] = None,
+                 cross_region_traffic_config: pulumi.Input[Optional['EndpointConfigCrossRegionTrafficConfigArgs']] = None,
                  data_capture_config: pulumi.Input[Optional['EndpointConfigDataCaptureConfigArgs']] = None,
                  enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoint_config_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,6 +41,7 @@ class EndpointConfigArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]] production_variants: A list of ProductionVariant objects, one for each model that you want to host at this endpoint.
         :param pulumi.Input['EndpointConfigAsyncInferenceConfigArgs'] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
+        :param pulumi.Input['EndpointConfigCrossRegionTrafficConfigArgs'] cross_region_traffic_config: Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
         :param pulumi.Input['EndpointConfigDataCaptureConfigArgs'] data_capture_config: Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Sets whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.
         :param pulumi.Input[_builtins.str] endpoint_config_name: The name of the endpoint configuration.
@@ -54,6 +56,8 @@ class EndpointConfigArgs:
         pulumi.set(__self__, "production_variants", production_variants)
         if async_inference_config is not None:
             pulumi.set(__self__, "async_inference_config", async_inference_config)
+        if cross_region_traffic_config is not None:
+            pulumi.set(__self__, "cross_region_traffic_config", cross_region_traffic_config)
         if data_capture_config is not None:
             pulumi.set(__self__, "data_capture_config", data_capture_config)
         if enable_network_isolation is not None:
@@ -98,6 +102,18 @@ class EndpointConfigArgs:
     @async_inference_config.setter
     def async_inference_config(self, value: pulumi.Input[Optional['EndpointConfigAsyncInferenceConfigArgs']]):
         pulumi.set(self, "async_inference_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionTrafficConfig")
+    def cross_region_traffic_config(self) -> pulumi.Input[Optional['EndpointConfigCrossRegionTrafficConfigArgs']]:
+        """
+        Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+        """
+        return pulumi.get(self, "cross_region_traffic_config")
+
+    @cross_region_traffic_config.setter
+    def cross_region_traffic_config(self, value: pulumi.Input[Optional['EndpointConfigCrossRegionTrafficConfigArgs']]):
+        pulumi.set(self, "cross_region_traffic_config", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCaptureConfig")
@@ -227,6 +243,7 @@ class EndpointConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  async_inference_config: pulumi.Input[Optional[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigAsyncInferenceConfig']]] = None,
+                 cross_region_traffic_config: pulumi.Input[Optional[Union['EndpointConfigCrossRegionTrafficConfigArgs', 'EndpointConfigCrossRegionTrafficConfigArgsDict', 'outputs.EndpointConfigCrossRegionTrafficConfig']]] = None,
                  data_capture_config: pulumi.Input[Optional[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict', 'outputs.EndpointConfigDataCaptureConfig']]] = None,
                  enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoint_config_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -245,6 +262,7 @@ class EndpointConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigAsyncInferenceConfig']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
+        :param pulumi.Input[Union['EndpointConfigCrossRegionTrafficConfigArgs', 'EndpointConfigCrossRegionTrafficConfigArgsDict', 'outputs.EndpointConfigCrossRegionTrafficConfig']] cross_region_traffic_config: Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
         :param pulumi.Input[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict', 'outputs.EndpointConfigDataCaptureConfig']] data_capture_config: Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Sets whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.
         :param pulumi.Input[_builtins.str] endpoint_config_name: The name of the endpoint configuration.
@@ -282,6 +300,7 @@ class EndpointConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  async_inference_config: pulumi.Input[Optional[Union['EndpointConfigAsyncInferenceConfigArgs', 'EndpointConfigAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigAsyncInferenceConfig']]] = None,
+                 cross_region_traffic_config: pulumi.Input[Optional[Union['EndpointConfigCrossRegionTrafficConfigArgs', 'EndpointConfigCrossRegionTrafficConfigArgsDict', 'outputs.EndpointConfigCrossRegionTrafficConfig']]] = None,
                  data_capture_config: pulumi.Input[Optional[Union['EndpointConfigDataCaptureConfigArgs', 'EndpointConfigDataCaptureConfigArgsDict', 'outputs.EndpointConfigDataCaptureConfig']]] = None,
                  enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoint_config_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -303,6 +322,7 @@ class EndpointConfig(pulumi.CustomResource):
             __props__ = EndpointConfigArgs.__new__(EndpointConfigArgs)
 
             __props__.__dict__["async_inference_config"] = async_inference_config
+            __props__.__dict__["cross_region_traffic_config"] = cross_region_traffic_config
             __props__.__dict__["data_capture_config"] = data_capture_config
             __props__.__dict__["enable_network_isolation"] = enable_network_isolation
             __props__.__dict__["endpoint_config_name"] = endpoint_config_name
@@ -317,7 +337,7 @@ class EndpointConfig(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["endpoint_config_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["asyncInferenceConfig", "dataCaptureConfig", "enableNetworkIsolation", "endpointConfigName", "executionRoleArn", "explainerConfig", "kmsKeyId", "metricsConfig", "productionVariants[*]", "shadowProductionVariants[*]", "vpcConfig"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["asyncInferenceConfig", "crossRegionTrafficConfig", "dataCaptureConfig", "enableNetworkIsolation", "endpointConfigName", "executionRoleArn", "explainerConfig", "kmsKeyId", "metricsConfig", "productionVariants[*]", "shadowProductionVariants[*]", "vpcConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EndpointConfig, __self__).__init__(
             'aws-native:sagemaker:EndpointConfig',
@@ -342,6 +362,7 @@ class EndpointConfig(pulumi.CustomResource):
         __props__ = EndpointConfigArgs.__new__(EndpointConfigArgs)
 
         __props__.__dict__["async_inference_config"] = None
+        __props__.__dict__["cross_region_traffic_config"] = None
         __props__.__dict__["data_capture_config"] = None
         __props__.__dict__["enable_network_isolation"] = None
         __props__.__dict__["endpoint_config_arn"] = None
@@ -369,6 +390,14 @@ class EndpointConfig(pulumi.CustomResource):
         Specifies configuration for how an endpoint performs asynchronous inference.
         """
         return pulumi.get(self, "async_inference_config")
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionTrafficConfig")
+    def cross_region_traffic_config(self) -> pulumi.Output[Optional['outputs.EndpointConfigCrossRegionTrafficConfig']]:
+        """
+        Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+        """
+        return pulumi.get(self, "cross_region_traffic_config")
 
     @_builtins.property
     @pulumi.getter(name="dataCaptureConfig")

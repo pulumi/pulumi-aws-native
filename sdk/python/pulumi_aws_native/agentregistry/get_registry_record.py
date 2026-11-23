@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetRegistryRecordResult:
-    def __init__(__self__, created_at=None, created_by=None, custom_metadata=None, description=None, descriptors=None, display_name=None, name=None, record_arn=None, record_id=None, record_version=None, registry_arn=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, artifact=None, created_at=None, created_by=None, custom_metadata=None, description=None, descriptors=None, display_name=None, name=None, record_arn=None, record_id=None, record_version=None, registry_arn=None, status=None, synchronized_source=None, tags=None, updated_at=None):
+        if artifact and not isinstance(artifact, dict):
+            raise TypeError("Expected argument 'artifact' to be a dict")
+        pulumi.set(__self__, "artifact", artifact)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -63,12 +66,23 @@ class GetRegistryRecordResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if synchronized_source and not isinstance(synchronized_source, dict):
+            raise TypeError("Expected argument 'synchronized_source' to be a dict")
+        pulumi.set(__self__, "synchronized_source", synchronized_source)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def artifact(self) -> Optional['outputs.RegistryRecordArtifact']:
+        """
+        The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+        """
+        return pulumi.get(self, "artifact")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -163,6 +177,14 @@ class GetRegistryRecordResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="synchronizedSource")
+    def synchronized_source(self) -> Optional['outputs.RegistryRecordSynchronizedSource']:
+        """
+        The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+        """
+        return pulumi.get(self, "synchronized_source")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -185,6 +207,7 @@ class AwaitableGetRegistryRecordResult(GetRegistryRecordResult):
         if False:
             yield self
         return GetRegistryRecordResult(
+            artifact=self.artifact,
             created_at=self.created_at,
             created_by=self.created_by,
             custom_metadata=self.custom_metadata,
@@ -197,6 +220,7 @@ class AwaitableGetRegistryRecordResult(GetRegistryRecordResult):
             record_version=self.record_version,
             registry_arn=self.registry_arn,
             status=self.status,
+            synchronized_source=self.synchronized_source,
             tags=self.tags,
             updated_at=self.updated_at)
 
@@ -214,6 +238,7 @@ def get_registry_record(record_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:agentregistry:getRegistryRecord', __args__, opts=opts, typ=GetRegistryRecordResult).value
 
     return AwaitableGetRegistryRecordResult(
+        artifact=pulumi.get(__ret__, 'artifact'),
         created_at=pulumi.get(__ret__, 'created_at'),
         created_by=pulumi.get(__ret__, 'created_by'),
         custom_metadata=pulumi.get(__ret__, 'custom_metadata'),
@@ -226,6 +251,7 @@ def get_registry_record(record_arn: Optional[_builtins.str] = None,
         record_version=pulumi.get(__ret__, 'record_version'),
         registry_arn=pulumi.get(__ret__, 'registry_arn'),
         status=pulumi.get(__ret__, 'status'),
+        synchronized_source=pulumi.get(__ret__, 'synchronized_source'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_registry_record_output(record_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -240,6 +266,7 @@ def get_registry_record_output(record_arn: pulumi.Input[Optional[_builtins.str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:agentregistry:getRegistryRecord', __args__, opts=opts, typ=GetRegistryRecordResult)
     return __ret__.apply(lambda __response__: GetRegistryRecordResult(
+        artifact=pulumi.get(__response__, 'artifact'),
         created_at=pulumi.get(__response__, 'created_at'),
         created_by=pulumi.get(__response__, 'created_by'),
         custom_metadata=pulumi.get(__response__, 'custom_metadata'),
@@ -252,5 +279,6 @@ def get_registry_record_output(record_arn: pulumi.Input[Optional[_builtins.str]]
         record_version=pulumi.get(__response__, 'record_version'),
         registry_arn=pulumi.get(__response__, 'registry_arn'),
         status=pulumi.get(__response__, 'status'),
+        synchronized_source=pulumi.get(__response__, 'synchronized_source'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at')))

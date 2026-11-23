@@ -15,8 +15,22 @@ namespace Pulumi.AwsNative.Route53.Inputs
     /// </summary>
     public sealed class HostedZoneFeaturesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("changeGuardrails")]
+        private InputList<Inputs.HostedZoneChangeGuardrailArgs>? _changeGuardrails;
+        public InputList<Inputs.HostedZoneChangeGuardrailArgs> ChangeGuardrails
+        {
+            get => _changeGuardrails ?? (_changeGuardrails = new InputList<Inputs.HostedZoneChangeGuardrailArgs>());
+            set => _changeGuardrails = value;
+        }
+
+        [Input("changeHistory")]
+        public Input<Inputs.HostedZoneChangeHistoryArgs>? ChangeHistory { get; set; }
+
         [Input("enableAcceleratedRecovery")]
         public Input<bool>? EnableAcceleratedRecovery { get; set; }
+
+        [Input("enablePublicDnsFallback")]
+        public Input<bool>? EnablePublicDnsFallback { get; set; }
 
         public HostedZoneFeaturesArgs()
         {

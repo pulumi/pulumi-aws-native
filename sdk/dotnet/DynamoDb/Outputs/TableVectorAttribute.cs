@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Outputs
 {
 
+    /// <summary>
+    /// The definition of a vector attribute for a vector index.
+    /// </summary>
     [OutputType]
     public sealed class TableVectorAttribute
     {
+        /// <summary>
+        /// The name of the vector attribute.
+        /// </summary>
         public readonly string AttributeName;
 
         [OutputConstructor]

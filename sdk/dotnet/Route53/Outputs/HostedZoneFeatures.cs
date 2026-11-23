@@ -16,12 +16,25 @@ namespace Pulumi.AwsNative.Route53.Outputs
     [OutputType]
     public sealed class HostedZoneFeatures
     {
+        public readonly ImmutableArray<Outputs.HostedZoneChangeGuardrail> ChangeGuardrails;
+        public readonly Outputs.HostedZoneChangeHistory? ChangeHistory;
         public readonly bool? EnableAcceleratedRecovery;
+        public readonly bool? EnablePublicDnsFallback;
 
         [OutputConstructor]
-        private HostedZoneFeatures(bool? enableAcceleratedRecovery)
+        private HostedZoneFeatures(
+            ImmutableArray<Outputs.HostedZoneChangeGuardrail> changeGuardrails,
+
+            Outputs.HostedZoneChangeHistory? changeHistory,
+
+            bool? enableAcceleratedRecovery,
+
+            bool? enablePublicDnsFallback)
         {
+            ChangeGuardrails = changeGuardrails;
+            ChangeHistory = changeHistory;
             EnableAcceleratedRecovery = enableAcceleratedRecovery;
+            EnablePublicDnsFallback = enablePublicDnsFallback;
         }
     }
 }

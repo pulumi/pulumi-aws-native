@@ -10,6 +10,7 @@ __all__ = [
     'IndexDataType',
     'IndexDistanceMetric',
     'IndexEncryptionConfigurationSseType',
+    'IndexTextSearchConfigurationLanguage',
     'VectorBucketEncryptionConfigurationSseType',
 ]
 
@@ -38,6 +39,20 @@ class IndexEncryptionConfigurationSseType(_builtins.str, Enum):
     """
     AES256 = "AES256"
     AWSKMS = "aws:kms"
+
+
+@pulumi.type_token("aws-native:s3vectors:IndexTextSearchConfigurationLanguage")
+class IndexTextSearchConfigurationLanguage(_builtins.str, Enum):
+    EN = "en"
+    FR = "fr"
+    ES = "es"
+    PT = "pt"
+    IT = "it"
+    DE = "de"
+    NL = "nl"
+    ZH = "zh"
+    JA = "ja"
+    KO = "ko"
 
 
 @pulumi.type_token("aws-native:s3vectors:VectorBucketEncryptionConfigurationSseType")

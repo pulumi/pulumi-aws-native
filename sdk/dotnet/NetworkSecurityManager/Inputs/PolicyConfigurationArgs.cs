@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.NetworkSecurityManager.Inputs
     /// </summary>
     public sealed class PolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("igwFirewallConfig")]
+        public Input<Inputs.PolicyIgwFirewallConfigArgs>? IgwFirewallConfig { get; set; }
+
         /// <summary>
         /// Controls automatic remediation of non-compliant resources.
         /// </summary>

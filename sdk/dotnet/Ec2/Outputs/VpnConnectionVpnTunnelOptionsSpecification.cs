@@ -41,6 +41,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// Options for logging VPN tunnel activity.
         /// </summary>
         public readonly Outputs.VpnConnectionVpnTunnelLogOptionsSpecification? LogOptions;
+        public readonly ImmutableArray<object> Phase1AdditionalKeyExchanges;
         /// <summary>
         /// One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
         ///  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
@@ -62,6 +63,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///  Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnConnectionPhase1dhGroupNumbersRequestListValue> Phase1dhGroupNumbers;
+        public readonly ImmutableArray<object> Phase2AdditionalKeyExchanges;
         /// <summary>
         /// One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
         ///  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
@@ -142,6 +144,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             Outputs.VpnConnectionVpnTunnelLogOptionsSpecification? logOptions,
 
+            ImmutableArray<object> phase1AdditionalKeyExchanges,
+
             ImmutableArray<Outputs.VpnConnectionPhase1EncryptionAlgorithmsRequestListValue> phase1EncryptionAlgorithms,
 
             ImmutableArray<Outputs.VpnConnectionPhase1IntegrityAlgorithmsRequestListValue> phase1IntegrityAlgorithms,
@@ -149,6 +153,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             int? phase1LifetimeSeconds,
 
             ImmutableArray<Outputs.VpnConnectionPhase1dhGroupNumbersRequestListValue> phase1dhGroupNumbers,
+
+            ImmutableArray<object> phase2AdditionalKeyExchanges,
 
             ImmutableArray<Outputs.VpnConnectionPhase2EncryptionAlgorithmsRequestListValue> phase2EncryptionAlgorithms,
 
@@ -177,10 +183,12 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             EnableTunnelLifecycleControl = enableTunnelLifecycleControl;
             IkeVersions = ikeVersions;
             LogOptions = logOptions;
+            Phase1AdditionalKeyExchanges = phase1AdditionalKeyExchanges;
             Phase1EncryptionAlgorithms = phase1EncryptionAlgorithms;
             Phase1IntegrityAlgorithms = phase1IntegrityAlgorithms;
             Phase1LifetimeSeconds = phase1LifetimeSeconds;
             Phase1dhGroupNumbers = phase1dhGroupNumbers;
+            Phase2AdditionalKeyExchanges = phase2AdditionalKeyExchanges;
             Phase2EncryptionAlgorithms = phase2EncryptionAlgorithms;
             Phase2IntegrityAlgorithms = phase2IntegrityAlgorithms;
             Phase2LifetimeSeconds = phase2LifetimeSeconds;

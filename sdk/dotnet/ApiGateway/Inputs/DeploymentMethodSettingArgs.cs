@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
     /// <summary>
-    /// The ``MethodSetting`` property type configures settings for all methods in a stage.
+    /// The ``MethodSetting`` property type configures settings for all methods in a stage. If you modify this property type, you must create a new deployment for your API.
     ///  The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
     /// </summary>
     public sealed class DeploymentMethodSettingArgs : global::Pulumi.ResourceArgs

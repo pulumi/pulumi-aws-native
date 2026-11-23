@@ -460,6 +460,12 @@ func (o AutomationRuleIntegerCriteriaConditionArrayOutput) Index(i pulumi.IntInp
 type AutomationRuleOrganizationConfiguration struct {
 	// List of account IDs where the organization rule applies
 	AccountIds []string `pulumi:"accountIds"`
+	// List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+	ExcludedAccountIds []string `pulumi:"excludedAccountIds"`
+	// List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+	ExcludedOrganizationalUnitIds []string `pulumi:"excludedOrganizationalUnitIds"`
+	// List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+	OrganizationalUnitIds []string `pulumi:"organizationalUnitIds"`
 	// When the rule should be applied relative to account rules
 	RuleApplyOrder *AutomationRuleOrganizationConfigurationRuleApplyOrder `pulumi:"ruleApplyOrder"`
 }
@@ -478,6 +484,12 @@ type AutomationRuleOrganizationConfigurationInput interface {
 type AutomationRuleOrganizationConfigurationArgs struct {
 	// List of account IDs where the organization rule applies
 	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
+	// List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+	ExcludedAccountIds pulumi.StringArrayInput `pulumi:"excludedAccountIds"`
+	// List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+	ExcludedOrganizationalUnitIds pulumi.StringArrayInput `pulumi:"excludedOrganizationalUnitIds"`
+	// List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+	OrganizationalUnitIds pulumi.StringArrayInput `pulumi:"organizationalUnitIds"`
 	// When the rule should be applied relative to account rules
 	RuleApplyOrder AutomationRuleOrganizationConfigurationRuleApplyOrderPtrInput `pulumi:"ruleApplyOrder"`
 }
@@ -564,6 +576,21 @@ func (o AutomationRuleOrganizationConfigurationOutput) AccountIds() pulumi.Strin
 	return o.ApplyT(func(v AutomationRuleOrganizationConfiguration) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
+// List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+func (o AutomationRuleOrganizationConfigurationOutput) ExcludedAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutomationRuleOrganizationConfiguration) []string { return v.ExcludedAccountIds }).(pulumi.StringArrayOutput)
+}
+
+// List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+func (o AutomationRuleOrganizationConfigurationOutput) ExcludedOrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutomationRuleOrganizationConfiguration) []string { return v.ExcludedOrganizationalUnitIds }).(pulumi.StringArrayOutput)
+}
+
+// List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+func (o AutomationRuleOrganizationConfigurationOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutomationRuleOrganizationConfiguration) []string { return v.OrganizationalUnitIds }).(pulumi.StringArrayOutput)
+}
+
 // When the rule should be applied relative to account rules
 func (o AutomationRuleOrganizationConfigurationOutput) RuleApplyOrder() AutomationRuleOrganizationConfigurationRuleApplyOrderPtrOutput {
 	return o.ApplyT(func(v AutomationRuleOrganizationConfiguration) *AutomationRuleOrganizationConfigurationRuleApplyOrder {
@@ -602,6 +629,36 @@ func (o AutomationRuleOrganizationConfigurationPtrOutput) AccountIds() pulumi.St
 			return nil
 		}
 		return v.AccountIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+func (o AutomationRuleOrganizationConfigurationPtrOutput) ExcludedAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleOrganizationConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedAccountIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+func (o AutomationRuleOrganizationConfigurationPtrOutput) ExcludedOrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleOrganizationConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedOrganizationalUnitIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+func (o AutomationRuleOrganizationConfigurationPtrOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleOrganizationConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitIds
 	}).(pulumi.StringArrayOutput)
 }
 

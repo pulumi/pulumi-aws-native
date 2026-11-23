@@ -20,11 +20,16 @@ namespace Pulumi.AwsNative.S3Vectors.Outputs
         /// Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
         /// </summary>
         public readonly ImmutableArray<string> NonFilterableMetadataKeys;
+        public readonly ImmutableArray<Outputs.IndexTextSearchConfiguration> TextSearchConfigurations;
 
         [OutputConstructor]
-        private IndexMetadataConfiguration(ImmutableArray<string> nonFilterableMetadataKeys)
+        private IndexMetadataConfiguration(
+            ImmutableArray<string> nonFilterableMetadataKeys,
+
+            ImmutableArray<Outputs.IndexTextSearchConfiguration> textSearchConfigurations)
         {
             NonFilterableMetadataKeys = nonFilterableMetadataKeys;
+            TextSearchConfigurations = textSearchConfigurations;
         }
     }
 }

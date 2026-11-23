@@ -69,6 +69,16 @@ export const CapacityProviderCapacityReservationSpecificationCapacityReservation
  */
 export type CapacityProviderCapacityReservationSpecificationCapacityReservationPreference = (typeof CapacityProviderCapacityReservationSpecificationCapacityReservationPreference)[keyof typeof CapacityProviderCapacityReservationSpecificationCapacityReservationPreference];
 
+export const CapacityProviderCpuOptionsNestedVirtualization = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+ */
+export type CapacityProviderCpuOptionsNestedVirtualization = (typeof CapacityProviderCpuOptionsNestedVirtualization)[keyof typeof CapacityProviderCpuOptionsNestedVirtualization];
+
 export const CapacityProviderEbsVolumeConfigurationVolumeType = {
     Standard: "standard",
     Io1: "io1",
@@ -198,7 +208,7 @@ export const DatasetSchemaType = {
 } as const;
 
 /**
- * Versioned schema type governing the structure of examples. Immutable after creation.
+ * Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
  */
 export type DatasetSchemaType = (typeof DatasetSchemaType)[keyof typeof DatasetSchemaType];
 
@@ -339,6 +349,13 @@ export const GatewayRateLimitStatus = {
  * Status of a gateway limit
  */
 export type GatewayRateLimitStatus = (typeof GatewayRateLimitStatus)[keyof typeof GatewayRateLimitStatus];
+
+export const GatewayResponseInterceptionMode = {
+    Buffered: "BUFFERED",
+    Stream: "STREAM",
+} as const;
+
+export type GatewayResponseInterceptionMode = (typeof GatewayResponseInterceptionMode)[keyof typeof GatewayResponseInterceptionMode];
 
 export const GatewayRuleFallbackError = {
     ConnectionError: "CONNECTION_ERROR",
@@ -1037,9 +1054,41 @@ export type PaymentConnectorStatus = (typeof PaymentConnectorStatus)[keyof typeo
 export const PaymentConnectorType = {
     CoinbaseCdp: "CoinbaseCDP",
     StripePrivy: "StripePrivy",
+    AwsBilling: "AwsBilling",
 } as const;
 
 export type PaymentConnectorType = (typeof PaymentConnectorType)[keyof typeof PaymentConnectorType];
+
+export const PaymentCredentialProviderAmazonPayEnvironmentType = {
+    Live: "LIVE",
+    Sandbox: "SANDBOX",
+} as const;
+
+/**
+ * The Amazon Pay API environment
+ */
+export type PaymentCredentialProviderAmazonPayEnvironmentType = (typeof PaymentCredentialProviderAmazonPayEnvironmentType)[keyof typeof PaymentCredentialProviderAmazonPayEnvironmentType];
+
+export const PaymentCredentialProviderAmazonPayRegionType = {
+    Na: "NA",
+    Eu: "EU",
+    Jp: "JP",
+} as const;
+
+/**
+ * The Amazon Pay region the merchant's authorization token belongs to. AgentCore uses it to pick the Amazon Pay API host.
+ */
+export type PaymentCredentialProviderAmazonPayRegionType = (typeof PaymentCredentialProviderAmazonPayRegionType)[keyof typeof PaymentCredentialProviderAmazonPayRegionType];
+
+export const PaymentCredentialProviderPayPalEnvironmentType = {
+    Live: "LIVE",
+    Sandbox: "SANDBOX",
+} as const;
+
+/**
+ * The PayPal API environment
+ */
+export type PaymentCredentialProviderPayPalEnvironmentType = (typeof PaymentCredentialProviderPayPalEnvironmentType)[keyof typeof PaymentCredentialProviderPayPalEnvironmentType];
 
 export const PaymentCredentialProviderSecretSourceType = {
     Managed: "MANAGED",
@@ -1054,6 +1103,9 @@ export type PaymentCredentialProviderSecretSourceType = (typeof PaymentCredentia
 export const PaymentCredentialProviderVendorType = {
     CoinbaseCdp: "CoinbaseCDP",
     StripePrivy: "StripePrivy",
+    Stripe: "Stripe",
+    PayPal: "PayPal",
+    AmazonPay: "AmazonPay",
 } as const;
 
 /**

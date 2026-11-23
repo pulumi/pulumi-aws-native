@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? AuthorizationUrl;
         /// <summary>
+        /// The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.
+        /// </summary>
+        public readonly string? AwsBillingIamRoleArn;
+        /// <summary>
         /// The timestamp when the connector was created
         /// </summary>
         public readonly string? ConnectorCreatedAt;
@@ -97,6 +101,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         private GetPaymentConnectorResult(
             string? authorizationUrl,
 
+            string? awsBillingIamRoleArn,
+
             string? connectorCreatedAt,
 
             string? connectorLastUpdatedAt,
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             string? paymentConnectorId)
         {
             AuthorizationUrl = authorizationUrl;
+            AwsBillingIamRoleArn = awsBillingIamRoleArn;
             ConnectorCreatedAt = connectorCreatedAt;
             ConnectorLastUpdatedAt = connectorLastUpdatedAt;
             ConnectorStatus = connectorStatus;

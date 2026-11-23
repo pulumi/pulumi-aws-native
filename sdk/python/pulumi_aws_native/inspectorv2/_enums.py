@@ -51,6 +51,8 @@ class CodeSecurityIntegrationIntegrationStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
     DISABLING = "DISABLING"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
 
 
 @pulumi.type_token("aws-native:inspectorv2:CodeSecurityIntegrationIntegrationType")
@@ -93,6 +95,7 @@ class CodeSecurityScanConfigurationRuleSetCategory(_builtins.str, Enum):
 @pulumi.type_token("aws-native:inspectorv2:ConnectorCloudProvider")
 class ConnectorCloudProvider(_builtins.str, Enum):
     AZURE = "AZURE"
+    GCP = "GCP"
 
 
 @pulumi.type_token("aws-native:inspectorv2:ConnectorHealthStatus")
@@ -117,6 +120,8 @@ class ConnectorScopeState(_builtins.str, Enum):
 class ConnectorScopeType(_builtins.str, Enum):
     TENANT = "TENANT"
     SUBSCRIPTION = "SUBSCRIPTION"
+    ORGANIZATION = "ORGANIZATION"
+    PROJECT = "PROJECT"
 
 
 @pulumi.type_token("aws-native:inspectorv2:ConnectorState")

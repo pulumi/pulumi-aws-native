@@ -132,6 +132,401 @@ type ApiKeyTag struct {
 	Value string `pulumi:"value"`
 }
 
+type AuthorizerJwtAdditionalClaim struct {
+	// The claim name. Can't be iss, aud, exp, nbf, iat, scope or scp.
+	ClaimName string `pulumi:"claimName"`
+	// The value the claim must have. Leave it out to check only that the claim is present.
+	ExpectedValues []string `pulumi:"expectedValues"`
+	// The claim's format. SINGLE_STRING is the only format.
+	Format string `pulumi:"format"`
+	// Whether the token must carry the claim. Defaults to false.
+	Required *bool `pulumi:"required"`
+}
+
+// AuthorizerJwtAdditionalClaimInput is an input type that accepts AuthorizerJwtAdditionalClaimArgs and AuthorizerJwtAdditionalClaimOutput values.
+// You can construct a concrete instance of `AuthorizerJwtAdditionalClaimInput` via:
+//
+//	AuthorizerJwtAdditionalClaimArgs{...}
+type AuthorizerJwtAdditionalClaimInput interface {
+	pulumi.Input
+
+	ToAuthorizerJwtAdditionalClaimOutput() AuthorizerJwtAdditionalClaimOutput
+	ToAuthorizerJwtAdditionalClaimOutputWithContext(context.Context) AuthorizerJwtAdditionalClaimOutput
+}
+
+type AuthorizerJwtAdditionalClaimArgs struct {
+	// The claim name. Can't be iss, aud, exp, nbf, iat, scope or scp.
+	ClaimName pulumi.StringInput `pulumi:"claimName"`
+	// The value the claim must have. Leave it out to check only that the claim is present.
+	ExpectedValues pulumi.StringArrayInput `pulumi:"expectedValues"`
+	// The claim's format. SINGLE_STRING is the only format.
+	Format pulumi.StringInput `pulumi:"format"`
+	// Whether the token must carry the claim. Defaults to false.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+}
+
+func (AuthorizerJwtAdditionalClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerJwtAdditionalClaim)(nil)).Elem()
+}
+
+func (i AuthorizerJwtAdditionalClaimArgs) ToAuthorizerJwtAdditionalClaimOutput() AuthorizerJwtAdditionalClaimOutput {
+	return i.ToAuthorizerJwtAdditionalClaimOutputWithContext(context.Background())
+}
+
+func (i AuthorizerJwtAdditionalClaimArgs) ToAuthorizerJwtAdditionalClaimOutputWithContext(ctx context.Context) AuthorizerJwtAdditionalClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtAdditionalClaimOutput)
+}
+
+// AuthorizerJwtAdditionalClaimArrayInput is an input type that accepts AuthorizerJwtAdditionalClaimArray and AuthorizerJwtAdditionalClaimArrayOutput values.
+// You can construct a concrete instance of `AuthorizerJwtAdditionalClaimArrayInput` via:
+//
+//	AuthorizerJwtAdditionalClaimArray{ AuthorizerJwtAdditionalClaimArgs{...} }
+type AuthorizerJwtAdditionalClaimArrayInput interface {
+	pulumi.Input
+
+	ToAuthorizerJwtAdditionalClaimArrayOutput() AuthorizerJwtAdditionalClaimArrayOutput
+	ToAuthorizerJwtAdditionalClaimArrayOutputWithContext(context.Context) AuthorizerJwtAdditionalClaimArrayOutput
+}
+
+type AuthorizerJwtAdditionalClaimArray []AuthorizerJwtAdditionalClaimInput
+
+func (AuthorizerJwtAdditionalClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizerJwtAdditionalClaim)(nil)).Elem()
+}
+
+func (i AuthorizerJwtAdditionalClaimArray) ToAuthorizerJwtAdditionalClaimArrayOutput() AuthorizerJwtAdditionalClaimArrayOutput {
+	return i.ToAuthorizerJwtAdditionalClaimArrayOutputWithContext(context.Background())
+}
+
+func (i AuthorizerJwtAdditionalClaimArray) ToAuthorizerJwtAdditionalClaimArrayOutputWithContext(ctx context.Context) AuthorizerJwtAdditionalClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtAdditionalClaimArrayOutput)
+}
+
+type AuthorizerJwtAdditionalClaimOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerJwtAdditionalClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerJwtAdditionalClaim)(nil)).Elem()
+}
+
+func (o AuthorizerJwtAdditionalClaimOutput) ToAuthorizerJwtAdditionalClaimOutput() AuthorizerJwtAdditionalClaimOutput {
+	return o
+}
+
+func (o AuthorizerJwtAdditionalClaimOutput) ToAuthorizerJwtAdditionalClaimOutputWithContext(ctx context.Context) AuthorizerJwtAdditionalClaimOutput {
+	return o
+}
+
+// The claim name. Can't be iss, aud, exp, nbf, iat, scope or scp.
+func (o AuthorizerJwtAdditionalClaimOutput) ClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizerJwtAdditionalClaim) string { return v.ClaimName }).(pulumi.StringOutput)
+}
+
+// The value the claim must have. Leave it out to check only that the claim is present.
+func (o AuthorizerJwtAdditionalClaimOutput) ExpectedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthorizerJwtAdditionalClaim) []string { return v.ExpectedValues }).(pulumi.StringArrayOutput)
+}
+
+// The claim's format. SINGLE_STRING is the only format.
+func (o AuthorizerJwtAdditionalClaimOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizerJwtAdditionalClaim) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// Whether the token must carry the claim. Defaults to false.
+func (o AuthorizerJwtAdditionalClaimOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AuthorizerJwtAdditionalClaim) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+type AuthorizerJwtAdditionalClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerJwtAdditionalClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizerJwtAdditionalClaim)(nil)).Elem()
+}
+
+func (o AuthorizerJwtAdditionalClaimArrayOutput) ToAuthorizerJwtAdditionalClaimArrayOutput() AuthorizerJwtAdditionalClaimArrayOutput {
+	return o
+}
+
+func (o AuthorizerJwtAdditionalClaimArrayOutput) ToAuthorizerJwtAdditionalClaimArrayOutputWithContext(ctx context.Context) AuthorizerJwtAdditionalClaimArrayOutput {
+	return o
+}
+
+func (o AuthorizerJwtAdditionalClaimArrayOutput) Index(i pulumi.IntInput) AuthorizerJwtAdditionalClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizerJwtAdditionalClaim {
+		return vs[0].([]AuthorizerJwtAdditionalClaim)[vs[1].(int)]
+	}).(AuthorizerJwtAdditionalClaimOutput)
+}
+
+type AuthorizerJwtConfiguration struct {
+	// The signing algorithms the authorizer accepts: RS256, RS384, RS512, ES256, ES384 or ES512.
+	DefaultAlgorithms []string `pulumi:"defaultAlgorithms"`
+	// The token issuers the authorizer accepts.
+	Issuers []AuthorizerJwtIssuer `pulumi:"issuers"`
+}
+
+// AuthorizerJwtConfigurationInput is an input type that accepts AuthorizerJwtConfigurationArgs and AuthorizerJwtConfigurationOutput values.
+// You can construct a concrete instance of `AuthorizerJwtConfigurationInput` via:
+//
+//	AuthorizerJwtConfigurationArgs{...}
+type AuthorizerJwtConfigurationInput interface {
+	pulumi.Input
+
+	ToAuthorizerJwtConfigurationOutput() AuthorizerJwtConfigurationOutput
+	ToAuthorizerJwtConfigurationOutputWithContext(context.Context) AuthorizerJwtConfigurationOutput
+}
+
+type AuthorizerJwtConfigurationArgs struct {
+	// The signing algorithms the authorizer accepts: RS256, RS384, RS512, ES256, ES384 or ES512.
+	DefaultAlgorithms pulumi.StringArrayInput `pulumi:"defaultAlgorithms"`
+	// The token issuers the authorizer accepts.
+	Issuers AuthorizerJwtIssuerArrayInput `pulumi:"issuers"`
+}
+
+func (AuthorizerJwtConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerJwtConfiguration)(nil)).Elem()
+}
+
+func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationOutput() AuthorizerJwtConfigurationOutput {
+	return i.ToAuthorizerJwtConfigurationOutputWithContext(context.Background())
+}
+
+func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationOutput)
+}
+
+func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
+	return i.ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationOutput).ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx)
+}
+
+// AuthorizerJwtConfigurationPtrInput is an input type that accepts AuthorizerJwtConfigurationArgs, AuthorizerJwtConfigurationPtr and AuthorizerJwtConfigurationPtrOutput values.
+// You can construct a concrete instance of `AuthorizerJwtConfigurationPtrInput` via:
+//
+//	        AuthorizerJwtConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthorizerJwtConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput
+	ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Context) AuthorizerJwtConfigurationPtrOutput
+}
+
+type authorizerJwtConfigurationPtrType AuthorizerJwtConfigurationArgs
+
+func AuthorizerJwtConfigurationPtr(v *AuthorizerJwtConfigurationArgs) AuthorizerJwtConfigurationPtrInput {
+	return (*authorizerJwtConfigurationPtrType)(v)
+}
+
+func (*authorizerJwtConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerJwtConfiguration)(nil)).Elem()
+}
+
+func (i *authorizerJwtConfigurationPtrType) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
+	return i.ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *authorizerJwtConfigurationPtrType) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationPtrOutput)
+}
+
+type AuthorizerJwtConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerJwtConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerJwtConfiguration)(nil)).Elem()
+}
+
+func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationOutput() AuthorizerJwtConfigurationOutput {
+	return o
+}
+
+func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationOutput {
+	return o
+}
+
+func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
+	return o.ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizerJwtConfiguration) *AuthorizerJwtConfiguration {
+		return &v
+	}).(AuthorizerJwtConfigurationPtrOutput)
+}
+
+// The signing algorithms the authorizer accepts: RS256, RS384, RS512, ES256, ES384 or ES512.
+func (o AuthorizerJwtConfigurationOutput) DefaultAlgorithms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthorizerJwtConfiguration) []string { return v.DefaultAlgorithms }).(pulumi.StringArrayOutput)
+}
+
+// The token issuers the authorizer accepts.
+func (o AuthorizerJwtConfigurationOutput) Issuers() AuthorizerJwtIssuerArrayOutput {
+	return o.ApplyT(func(v AuthorizerJwtConfiguration) []AuthorizerJwtIssuer { return v.Issuers }).(AuthorizerJwtIssuerArrayOutput)
+}
+
+type AuthorizerJwtConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerJwtConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizerJwtConfiguration)(nil)).Elem()
+}
+
+func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
+	return o
+}
+
+func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
+	return o
+}
+
+func (o AuthorizerJwtConfigurationPtrOutput) Elem() AuthorizerJwtConfigurationOutput {
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) AuthorizerJwtConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AuthorizerJwtConfiguration
+		return ret
+	}).(AuthorizerJwtConfigurationOutput)
+}
+
+// The signing algorithms the authorizer accepts: RS256, RS384, RS512, ES256, ES384 or ES512.
+func (o AuthorizerJwtConfigurationPtrOutput) DefaultAlgorithms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAlgorithms
+	}).(pulumi.StringArrayOutput)
+}
+
+// The token issuers the authorizer accepts.
+func (o AuthorizerJwtConfigurationPtrOutput) Issuers() AuthorizerJwtIssuerArrayOutput {
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) []AuthorizerJwtIssuer {
+		if v == nil {
+			return nil
+		}
+		return v.Issuers
+	}).(AuthorizerJwtIssuerArrayOutput)
+}
+
+type AuthorizerJwtIssuer struct {
+	// Other claims the token must carry.
+	AdditionalClaims []AuthorizerJwtAdditionalClaim `pulumi:"additionalClaims"`
+	// The values that the token's aud claim must contain at least one of.
+	Audiences []string `pulumi:"audiences"`
+	// The HTTPS URL that the token's iss claim must match.
+	Issuer string `pulumi:"issuer"`
+}
+
+// AuthorizerJwtIssuerInput is an input type that accepts AuthorizerJwtIssuerArgs and AuthorizerJwtIssuerOutput values.
+// You can construct a concrete instance of `AuthorizerJwtIssuerInput` via:
+//
+//	AuthorizerJwtIssuerArgs{...}
+type AuthorizerJwtIssuerInput interface {
+	pulumi.Input
+
+	ToAuthorizerJwtIssuerOutput() AuthorizerJwtIssuerOutput
+	ToAuthorizerJwtIssuerOutputWithContext(context.Context) AuthorizerJwtIssuerOutput
+}
+
+type AuthorizerJwtIssuerArgs struct {
+	// Other claims the token must carry.
+	AdditionalClaims AuthorizerJwtAdditionalClaimArrayInput `pulumi:"additionalClaims"`
+	// The values that the token's aud claim must contain at least one of.
+	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
+	// The HTTPS URL that the token's iss claim must match.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+}
+
+func (AuthorizerJwtIssuerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerJwtIssuer)(nil)).Elem()
+}
+
+func (i AuthorizerJwtIssuerArgs) ToAuthorizerJwtIssuerOutput() AuthorizerJwtIssuerOutput {
+	return i.ToAuthorizerJwtIssuerOutputWithContext(context.Background())
+}
+
+func (i AuthorizerJwtIssuerArgs) ToAuthorizerJwtIssuerOutputWithContext(ctx context.Context) AuthorizerJwtIssuerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtIssuerOutput)
+}
+
+// AuthorizerJwtIssuerArrayInput is an input type that accepts AuthorizerJwtIssuerArray and AuthorizerJwtIssuerArrayOutput values.
+// You can construct a concrete instance of `AuthorizerJwtIssuerArrayInput` via:
+//
+//	AuthorizerJwtIssuerArray{ AuthorizerJwtIssuerArgs{...} }
+type AuthorizerJwtIssuerArrayInput interface {
+	pulumi.Input
+
+	ToAuthorizerJwtIssuerArrayOutput() AuthorizerJwtIssuerArrayOutput
+	ToAuthorizerJwtIssuerArrayOutputWithContext(context.Context) AuthorizerJwtIssuerArrayOutput
+}
+
+type AuthorizerJwtIssuerArray []AuthorizerJwtIssuerInput
+
+func (AuthorizerJwtIssuerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizerJwtIssuer)(nil)).Elem()
+}
+
+func (i AuthorizerJwtIssuerArray) ToAuthorizerJwtIssuerArrayOutput() AuthorizerJwtIssuerArrayOutput {
+	return i.ToAuthorizerJwtIssuerArrayOutputWithContext(context.Background())
+}
+
+func (i AuthorizerJwtIssuerArray) ToAuthorizerJwtIssuerArrayOutputWithContext(ctx context.Context) AuthorizerJwtIssuerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtIssuerArrayOutput)
+}
+
+type AuthorizerJwtIssuerOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerJwtIssuerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerJwtIssuer)(nil)).Elem()
+}
+
+func (o AuthorizerJwtIssuerOutput) ToAuthorizerJwtIssuerOutput() AuthorizerJwtIssuerOutput {
+	return o
+}
+
+func (o AuthorizerJwtIssuerOutput) ToAuthorizerJwtIssuerOutputWithContext(ctx context.Context) AuthorizerJwtIssuerOutput {
+	return o
+}
+
+// Other claims the token must carry.
+func (o AuthorizerJwtIssuerOutput) AdditionalClaims() AuthorizerJwtAdditionalClaimArrayOutput {
+	return o.ApplyT(func(v AuthorizerJwtIssuer) []AuthorizerJwtAdditionalClaim { return v.AdditionalClaims }).(AuthorizerJwtAdditionalClaimArrayOutput)
+}
+
+// The values that the token's aud claim must contain at least one of.
+func (o AuthorizerJwtIssuerOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthorizerJwtIssuer) []string { return v.Audiences }).(pulumi.StringArrayOutput)
+}
+
+// The HTTPS URL that the token's iss claim must match.
+func (o AuthorizerJwtIssuerOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizerJwtIssuer) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+type AuthorizerJwtIssuerArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerJwtIssuerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizerJwtIssuer)(nil)).Elem()
+}
+
+func (o AuthorizerJwtIssuerArrayOutput) ToAuthorizerJwtIssuerArrayOutput() AuthorizerJwtIssuerArrayOutput {
+	return o
+}
+
+func (o AuthorizerJwtIssuerArrayOutput) ToAuthorizerJwtIssuerArrayOutputWithContext(ctx context.Context) AuthorizerJwtIssuerArrayOutput {
+	return o
+}
+
+func (o AuthorizerJwtIssuerArrayOutput) Index(i pulumi.IntInput) AuthorizerJwtIssuerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizerJwtIssuer {
+		return vs[0].([]AuthorizerJwtIssuer)[vs[1].(int)]
+	}).(AuthorizerJwtIssuerOutput)
+}
+
 // An array of key-value pairs to apply to this resource.
 //
 //	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -669,7 +1064,7 @@ func (o DeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The “MethodSetting“ property type configures settings for all methods in a stage.
+// The “MethodSetting“ property type configures settings for all methods in a stage. If you modify this property type, you must create a new deployment for your API.
 //
 //	The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
 type DeploymentMethodSetting struct {
@@ -706,7 +1101,7 @@ type DeploymentMethodSettingInput interface {
 	ToDeploymentMethodSettingOutputWithContext(context.Context) DeploymentMethodSettingOutput
 }
 
-// The “MethodSetting“ property type configures settings for all methods in a stage.
+// The “MethodSetting“ property type configures settings for all methods in a stage. If you modify this property type, you must create a new deployment for your API.
 //
 //	The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
 type DeploymentMethodSettingArgs struct {
@@ -769,7 +1164,7 @@ func (i DeploymentMethodSettingArray) ToDeploymentMethodSettingArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentMethodSettingArrayOutput)
 }
 
-// The “MethodSetting“ property type configures settings for all methods in a stage.
+// The “MethodSetting“ property type configures settings for all methods in a stage. If you modify this property type, you must create a new deployment for your API.
 //
 //	The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
 type DeploymentMethodSettingOutput struct{ *pulumi.OutputState }
@@ -4234,6 +4629,12 @@ type VpcLinkTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyStageKeyInput)(nil)).Elem(), ApiKeyStageKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyStageKeyArrayInput)(nil)).Elem(), ApiKeyStageKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtAdditionalClaimInput)(nil)).Elem(), AuthorizerJwtAdditionalClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtAdditionalClaimArrayInput)(nil)).Elem(), AuthorizerJwtAdditionalClaimArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtConfigurationInput)(nil)).Elem(), AuthorizerJwtConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtConfigurationPtrInput)(nil)).Elem(), AuthorizerJwtConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtIssuerInput)(nil)).Elem(), AuthorizerJwtIssuerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtIssuerArrayInput)(nil)).Elem(), AuthorizerJwtIssuerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAccessLogSettingInput)(nil)).Elem(), DeploymentAccessLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAccessLogSettingPtrInput)(nil)).Elem(), DeploymentAccessLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingInput)(nil)).Elem(), DeploymentCanarySettingArgs{})
@@ -4278,6 +4679,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsMapInput)(nil)).Elem(), UsagePlanThrottleSettingsMap{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyOutput{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyArrayOutput{})
+	pulumi.RegisterOutputType(AuthorizerJwtAdditionalClaimOutput{})
+	pulumi.RegisterOutputType(AuthorizerJwtAdditionalClaimArrayOutput{})
+	pulumi.RegisterOutputType(AuthorizerJwtConfigurationOutput{})
+	pulumi.RegisterOutputType(AuthorizerJwtConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AuthorizerJwtIssuerOutput{})
+	pulumi.RegisterOutputType(AuthorizerJwtIssuerArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentAccessLogSettingOutput{})
 	pulumi.RegisterOutputType(DeploymentAccessLogSettingPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentCanarySettingOutput{})

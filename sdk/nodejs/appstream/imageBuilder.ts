@@ -52,6 +52,10 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     declare public readonly accessEndpoints: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
     /**
+     * The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+     */
+    declare public readonly agentAccessConfig: pulumi.Output<outputs.appstream.ImageBuilderAgentAccessConfig | undefined>;
+    /**
      * The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
      */
     declare public readonly appstreamAgentVersion: pulumi.Output<string | undefined>;
@@ -176,6 +180,7 @@ export class ImageBuilder extends pulumi.CustomResource {
                 throw new Error("Missing required property 'instanceType'");
             }
             resourceInputs["accessEndpoints"] = args?.accessEndpoints;
+            resourceInputs["agentAccessConfig"] = args?.agentAccessConfig;
             resourceInputs["appstreamAgentVersion"] = args?.appstreamAgentVersion;
             resourceInputs["description"] = args?.description;
             resourceInputs["disableImdsv1"] = args?.disableImdsv1;
@@ -195,6 +200,7 @@ export class ImageBuilder extends pulumi.CustomResource {
             resourceInputs["streamingUrl"] = undefined /*out*/;
         } else {
             resourceInputs["accessEndpoints"] = undefined /*out*/;
+            resourceInputs["agentAccessConfig"] = undefined /*out*/;
             resourceInputs["appstreamAgentVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disableImdsv1"] = undefined /*out*/;
@@ -214,7 +220,7 @@ export class ImageBuilder extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["accessEndpoints[*]", "appstreamAgentVersion", "disableImdsv1", "domainJoinInfo", "enableDefaultInternetAccess", "iamRoleArn", "imageArn", "imageName", "instanceType", "name", "rootVolumeConfig", "softwaresToInstall[*]", "softwaresToUninstall[*]", "vpcConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ImageBuilder.__pulumiType, name, resourceInputs, opts);
     }
@@ -228,6 +234,10 @@ export interface ImageBuilderArgs {
      * The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
      */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpointArgs>[] | undefined>;
+    /**
+     * The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+     */
+    agentAccessConfig?: pulumi.Input<inputs.appstream.ImageBuilderAgentAccessConfigArgs | undefined>;
     /**
      * The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
      */

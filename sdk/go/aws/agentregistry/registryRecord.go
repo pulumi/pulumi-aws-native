@@ -17,6 +17,8 @@ import (
 type RegistryRecord struct {
 	pulumi.CustomResourceState
 
+	// The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+	Artifact RegistryRecordArtifactOutput `pulumi:"artifact"`
 	// The timestamp when the registry record was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The identifier of the AWS account that created the registry record.
@@ -44,6 +46,8 @@ type RegistryRecord struct {
 	// The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
 	RegistryId pulumi.StringPtrOutput     `pulumi:"registryId"`
 	Status     RegistryRecordStatusOutput `pulumi:"status"`
+	// The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+	SynchronizedSource RegistryRecordSynchronizedSourceOutput `pulumi:"synchronizedSource"`
 	// Tags to assign to the registry record.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The timestamp when the registry record was last updated.
@@ -186,6 +190,11 @@ func (o RegistryRecordOutput) ToRegistryRecordOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+func (o RegistryRecordOutput) Artifact() RegistryRecordArtifactOutput {
+	return o.ApplyT(func(v *RegistryRecord) RegistryRecordArtifactOutput { return v.Artifact }).(RegistryRecordArtifactOutput)
+}
+
 // The timestamp when the registry record was created.
 func (o RegistryRecordOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryRecord) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
@@ -253,6 +262,11 @@ func (o RegistryRecordOutput) RegistryId() pulumi.StringPtrOutput {
 
 func (o RegistryRecordOutput) Status() RegistryRecordStatusOutput {
 	return o.ApplyT(func(v *RegistryRecord) RegistryRecordStatusOutput { return v.Status }).(RegistryRecordStatusOutput)
+}
+
+// The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+func (o RegistryRecordOutput) SynchronizedSource() RegistryRecordSynchronizedSourceOutput {
+	return o.ApplyT(func(v *RegistryRecord) RegistryRecordSynchronizedSourceOutput { return v.SynchronizedSource }).(RegistryRecordSynchronizedSourceOutput)
 }
 
 // Tags to assign to the registry record.

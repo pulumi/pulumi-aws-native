@@ -28,6 +28,29 @@ export const BackupType = {
  */
 export type BackupType = (typeof BackupType)[keyof typeof BackupType];
 
+export const ClusterPeerAllowedSvmMode = {
+    All: "ALL",
+    None: "NONE",
+    Specified: "SPECIFIED",
+} as const;
+
+/**
+ * Which local SVMs the peer cluster may peer with automatically: ALL, NONE, or SPECIFIED (the SVMs in AllowedSvmIds).
+ */
+export type ClusterPeerAllowedSvmMode = (typeof ClusterPeerAllowedSvmMode)[keyof typeof ClusterPeerAllowedSvmMode];
+
+export const ClusterPeerLifecycle = {
+    Creating: "CREATING",
+    Created: "CREATED",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The lifecycle status of the cluster peer relationship.
+ */
+export type ClusterPeerLifecycle = (typeof ClusterPeerLifecycle)[keyof typeof ClusterPeerLifecycle];
+
 export const DataRepositoryAssociationEventType = {
     New: "NEW",
     Changed: "CHANGED",
@@ -115,3 +138,133 @@ export const S3AccessPointAttachmentType = {
  * The type of Amazon FSx volume that the S3 access point is attached to.
  */
 export type S3AccessPointAttachmentType = (typeof S3AccessPointAttachmentType)[keyof typeof S3AccessPointAttachmentType];
+
+export const SnapmirrorPolicyLifecycle = {
+    Creating: "CREATING",
+    Created: "CREATED",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The lifecycle status of the SnapMirror policy.
+ */
+export type SnapmirrorPolicyLifecycle = (typeof SnapmirrorPolicyLifecycle)[keyof typeof SnapmirrorPolicyLifecycle];
+
+export const SnapmirrorPolicyScope = {
+    Filesystem: "FILESYSTEM",
+    Svm: "SVM",
+} as const;
+
+/**
+ * Whether the policy is scoped to a file system (FILESYSTEM) or to an SVM (SVM).
+ */
+export type SnapmirrorPolicyScope = (typeof SnapmirrorPolicyScope)[keyof typeof SnapmirrorPolicyScope];
+
+export const SnapmirrorPolicySnapshotCopyMode = {
+    CopyAllSourceSnapshots: "COPY_ALL_SOURCE_SNAPSHOTS",
+    CopyLatestSourceSnapshot: "COPY_LATEST_SOURCE_SNAPSHOT",
+    NoCreateSnapshotOnSource: "NO_CREATE_SNAPSHOT_ON_SOURCE",
+} as const;
+
+/**
+ * Which snapshots SnapMirror copies. COPY_ALL_SOURCE_SNAPSHOTS and COPY_LATEST_SOURCE_SNAPSHOT create mirror policies and do not allow RetentionRules. NO_CREATE_SNAPSHOT_ON_SOURCE creates a vault policy and requires RetentionRules. Omit for a mirror-vault policy.
+ */
+export type SnapmirrorPolicySnapshotCopyMode = (typeof SnapmirrorPolicySnapshotCopyMode)[keyof typeof SnapmirrorPolicySnapshotCopyMode];
+
+export const SnapmirrorRelationshipLifecycle = {
+    Creating: "CREATING",
+    Created: "CREATED",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The lifecycle status of the SnapMirror relationship.
+ */
+export type SnapmirrorRelationshipLifecycle = (typeof SnapmirrorRelationshipLifecycle)[keyof typeof SnapmirrorRelationshipLifecycle];
+
+export const SnapmirrorRelationshipState = {
+    Uninitialized: "UNINITIALIZED",
+    Transferring: "TRANSFERRING",
+    Snapmirrored: "SNAPMIRRORED",
+    Paused: "PAUSED",
+    BrokenOff: "BROKEN_OFF",
+} as const;
+
+/**
+ * The state of the relationship in ONTAP.
+ */
+export type SnapmirrorRelationshipState = (typeof SnapmirrorRelationshipState)[keyof typeof SnapmirrorRelationshipState];
+
+export const SnapshotPolicyLifecycle = {
+    Creating: "CREATING",
+    Created: "CREATED",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The lifecycle status of the snapshot policy.
+ */
+export type SnapshotPolicyLifecycle = (typeof SnapshotPolicyLifecycle)[keyof typeof SnapshotPolicyLifecycle];
+
+export const SnapshotPolicyRetentionPeriodType = {
+    Seconds: "SECONDS",
+    Minutes: "MINUTES",
+    Hours: "HOURS",
+    Days: "DAYS",
+    Months: "MONTHS",
+    Years: "YEARS",
+    Infinite: "INFINITE",
+} as const;
+
+/**
+ * The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+ */
+export type SnapshotPolicyRetentionPeriodType = (typeof SnapshotPolicyRetentionPeriodType)[keyof typeof SnapshotPolicyRetentionPeriodType];
+
+export const SnapshotPolicyScope = {
+    Filesystem: "FILESYSTEM",
+    Svm: "SVM",
+} as const;
+
+/**
+ * Whether the snapshot policy is scoped to a file system or to an SVM.
+ */
+export type SnapshotPolicyScope = (typeof SnapshotPolicyScope)[keyof typeof SnapshotPolicyScope];
+
+export const StorageVirtualMachinePeerApplicationsItem = {
+    Snapmirror: "SNAPMIRROR",
+    FileCopy: "FILE_COPY",
+    LunCopy: "LUN_COPY",
+    Flexcache: "FLEXCACHE",
+} as const;
+
+export type StorageVirtualMachinePeerApplicationsItem = (typeof StorageVirtualMachinePeerApplicationsItem)[keyof typeof StorageVirtualMachinePeerApplicationsItem];
+
+export const StorageVirtualMachinePeerLifecycle = {
+    Creating: "CREATING",
+    Created: "CREATED",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The lifecycle status of the SVM peer relationship.
+ */
+export type StorageVirtualMachinePeerLifecycle = (typeof StorageVirtualMachinePeerLifecycle)[keyof typeof StorageVirtualMachinePeerLifecycle];
+
+export const StorageVirtualMachinePeerState = {
+    Peered: "PEERED",
+    Rejected: "REJECTED",
+    Suspended: "SUSPENDED",
+    Initiated: "INITIATED",
+    Pending: "PENDING",
+    Initializing: "INITIALIZING",
+} as const;
+
+/**
+ * The state of the peer relationship in ONTAP.
+ */
+export type StorageVirtualMachinePeerState = (typeof StorageVirtualMachinePeerState)[keyof typeof StorageVirtualMachinePeerState];

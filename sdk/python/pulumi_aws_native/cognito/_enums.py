@@ -13,6 +13,7 @@ __all__ = [
     'TermsEnforcementType',
     'TermsSourceType',
     'UserPoolClientRefreshTokenRotationFeature',
+    'UserPoolDcrConfigurationEnableStatus',
     'UserPoolEncryptionKeyType',
     'UserPoolIssuerConfigurationType',
     'UserPoolSessionConfigurationAttachmentUserSessionTracking',
@@ -73,6 +74,12 @@ class UserPoolClientRefreshTokenRotationFeature(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:cognito:UserPoolDcrConfigurationEnableStatus")
+class UserPoolDcrConfigurationEnableStatus(_builtins.str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 @pulumi.type_token("aws-native:cognito:UserPoolEncryptionKeyType")

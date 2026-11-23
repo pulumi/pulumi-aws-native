@@ -27,6 +27,8 @@ export const CodeSecurityIntegrationIntegrationStatus = {
     Active: "ACTIVE",
     Inactive: "INACTIVE",
     Disabling: "DISABLING",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteFailed: "DELETE_FAILED",
 } as const;
 
 export type CodeSecurityIntegrationIntegrationStatus = (typeof CodeSecurityIntegrationIntegrationStatus)[keyof typeof CodeSecurityIntegrationIntegrationStatus];
@@ -76,6 +78,7 @@ export type CodeSecurityScanConfigurationRuleSetCategory = (typeof CodeSecurityS
 
 export const ConnectorCloudProvider = {
     Azure: "AZURE",
+    Gcp: "GCP",
 } as const;
 
 export type ConnectorCloudProvider = (typeof ConnectorCloudProvider)[keyof typeof ConnectorCloudProvider];
@@ -103,6 +106,8 @@ export type ConnectorScopeState = (typeof ConnectorScopeState)[keyof typeof Conn
 export const ConnectorScopeType = {
     Tenant: "TENANT",
     Subscription: "SUBSCRIPTION",
+    Organization: "ORGANIZATION",
+    Project: "PROJECT",
 } as const;
 
 export type ConnectorScopeType = (typeof ConnectorScopeType)[keyof typeof ConnectorScopeType];

@@ -39,6 +39,8 @@ type LookupIndexResult struct {
 	//
 	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
 	IndexArn *string `pulumi:"indexArn"`
+	// The metadata configuration for the vector index.
+	MetadataConfiguration *IndexMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// User tags (key-value pairs) to associate with the index.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -85,6 +87,11 @@ func (o LookupIndexResultOutput) CreationTime() pulumi.StringPtrOutput {
 // Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
 func (o LookupIndexResultOutput) IndexArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.IndexArn }).(pulumi.StringPtrOutput)
+}
+
+// The metadata configuration for the vector index.
+func (o LookupIndexResultOutput) MetadataConfiguration() IndexMetadataConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupIndexResult) *IndexMetadataConfiguration { return v.MetadataConfiguration }).(IndexMetadataConfigurationPtrOutput)
 }
 
 // User tags (key-value pairs) to associate with the index.

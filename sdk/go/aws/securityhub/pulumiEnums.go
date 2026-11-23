@@ -3785,6 +3785,172 @@ func (in *connectorAzureScopeConfigurationScopeTypePtr) ToConnectorAzureScopeCon
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAzureScopeConfigurationScopeTypePtrOutput)
 }
 
+// The scope type for the GCP connector
+type ConnectorGcpScopeConfigurationScopeType string
+
+const (
+	ConnectorGcpScopeConfigurationScopeTypeProject      = ConnectorGcpScopeConfigurationScopeType("PROJECT")
+	ConnectorGcpScopeConfigurationScopeTypeOrganization = ConnectorGcpScopeConfigurationScopeType("ORGANIZATION")
+)
+
+func (ConnectorGcpScopeConfigurationScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorGcpScopeConfigurationScopeType)(nil)).Elem()
+}
+
+func (e ConnectorGcpScopeConfigurationScopeType) ToConnectorGcpScopeConfigurationScopeTypeOutput() ConnectorGcpScopeConfigurationScopeTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorGcpScopeConfigurationScopeTypeOutput)
+}
+
+func (e ConnectorGcpScopeConfigurationScopeType) ToConnectorGcpScopeConfigurationScopeTypeOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorGcpScopeConfigurationScopeTypeOutput)
+}
+
+func (e ConnectorGcpScopeConfigurationScopeType) ToConnectorGcpScopeConfigurationScopeTypePtrOutput() ConnectorGcpScopeConfigurationScopeTypePtrOutput {
+	return e.ToConnectorGcpScopeConfigurationScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorGcpScopeConfigurationScopeType) ToConnectorGcpScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationScopeTypePtrOutput {
+	return ConnectorGcpScopeConfigurationScopeType(e).ToConnectorGcpScopeConfigurationScopeTypeOutputWithContext(ctx).ToConnectorGcpScopeConfigurationScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorGcpScopeConfigurationScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorGcpScopeConfigurationScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorGcpScopeConfigurationScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorGcpScopeConfigurationScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorGcpScopeConfigurationScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorGcpScopeConfigurationScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorGcpScopeConfigurationScopeType)(nil)).Elem()
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypeOutput) ToConnectorGcpScopeConfigurationScopeTypeOutput() ConnectorGcpScopeConfigurationScopeTypeOutput {
+	return o
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypeOutput) ToConnectorGcpScopeConfigurationScopeTypeOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationScopeTypeOutput {
+	return o
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypeOutput) ToConnectorGcpScopeConfigurationScopeTypePtrOutput() ConnectorGcpScopeConfigurationScopeTypePtrOutput {
+	return o.ToConnectorGcpScopeConfigurationScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypeOutput) ToConnectorGcpScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorGcpScopeConfigurationScopeType) *ConnectorGcpScopeConfigurationScopeType {
+		return &v
+	}).(ConnectorGcpScopeConfigurationScopeTypePtrOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorGcpScopeConfigurationScopeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorGcpScopeConfigurationScopeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorGcpScopeConfigurationScopeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorGcpScopeConfigurationScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorGcpScopeConfigurationScopeType)(nil)).Elem()
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypePtrOutput) ToConnectorGcpScopeConfigurationScopeTypePtrOutput() ConnectorGcpScopeConfigurationScopeTypePtrOutput {
+	return o
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypePtrOutput) ToConnectorGcpScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationScopeTypePtrOutput {
+	return o
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypePtrOutput) Elem() ConnectorGcpScopeConfigurationScopeTypeOutput {
+	return o.ApplyT(func(v *ConnectorGcpScopeConfigurationScopeType) ConnectorGcpScopeConfigurationScopeType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorGcpScopeConfigurationScopeType
+		return ret
+	}).(ConnectorGcpScopeConfigurationScopeTypeOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorGcpScopeConfigurationScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorGcpScopeConfigurationScopeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorGcpScopeConfigurationScopeTypeInput is an input type that accepts values of the ConnectorGcpScopeConfigurationScopeType enum
+// A concrete instance of `ConnectorGcpScopeConfigurationScopeTypeInput` can be one of the following:
+//
+//	ConnectorGcpScopeConfigurationScopeTypeProject
+//	ConnectorGcpScopeConfigurationScopeTypeOrganization
+type ConnectorGcpScopeConfigurationScopeTypeInput interface {
+	pulumi.Input
+
+	ToConnectorGcpScopeConfigurationScopeTypeOutput() ConnectorGcpScopeConfigurationScopeTypeOutput
+	ToConnectorGcpScopeConfigurationScopeTypeOutputWithContext(context.Context) ConnectorGcpScopeConfigurationScopeTypeOutput
+}
+
+var connectorGcpScopeConfigurationScopeTypePtrType = reflect.TypeOf((**ConnectorGcpScopeConfigurationScopeType)(nil)).Elem()
+
+type ConnectorGcpScopeConfigurationScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorGcpScopeConfigurationScopeTypePtrOutput() ConnectorGcpScopeConfigurationScopeTypePtrOutput
+	ToConnectorGcpScopeConfigurationScopeTypePtrOutputWithContext(context.Context) ConnectorGcpScopeConfigurationScopeTypePtrOutput
+}
+
+type connectorGcpScopeConfigurationScopeTypePtr string
+
+func ConnectorGcpScopeConfigurationScopeTypePtr(v string) ConnectorGcpScopeConfigurationScopeTypePtrInput {
+	return (*connectorGcpScopeConfigurationScopeTypePtr)(&v)
+}
+
+func (*connectorGcpScopeConfigurationScopeTypePtr) ElementType() reflect.Type {
+	return connectorGcpScopeConfigurationScopeTypePtrType
+}
+
+func (in *connectorGcpScopeConfigurationScopeTypePtr) ToConnectorGcpScopeConfigurationScopeTypePtrOutput() ConnectorGcpScopeConfigurationScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorGcpScopeConfigurationScopeTypePtrOutput)
+}
+
+func (in *connectorGcpScopeConfigurationScopeTypePtr) ToConnectorGcpScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorGcpScopeConfigurationScopeTypePtrOutput)
+}
+
 // The scope type for the Azure connector
 type ConnectorV2AzureScopeConfigurationScopeType string
 
@@ -3949,6 +4115,172 @@ func (in *connectorV2AzureScopeConfigurationScopeTypePtr) ToConnectorV2AzureScop
 
 func (in *connectorV2AzureScopeConfigurationScopeTypePtr) ToConnectorV2AzureScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorV2AzureScopeConfigurationScopeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorV2AzureScopeConfigurationScopeTypePtrOutput)
+}
+
+// The scope type for the GCP connector
+type ConnectorV2GcpScopeConfigurationScopeType string
+
+const (
+	ConnectorV2GcpScopeConfigurationScopeTypeProject      = ConnectorV2GcpScopeConfigurationScopeType("PROJECT")
+	ConnectorV2GcpScopeConfigurationScopeTypeOrganization = ConnectorV2GcpScopeConfigurationScopeType("ORGANIZATION")
+)
+
+func (ConnectorV2GcpScopeConfigurationScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2GcpScopeConfigurationScopeType)(nil)).Elem()
+}
+
+func (e ConnectorV2GcpScopeConfigurationScopeType) ToConnectorV2GcpScopeConfigurationScopeTypeOutput() ConnectorV2GcpScopeConfigurationScopeTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorV2GcpScopeConfigurationScopeTypeOutput)
+}
+
+func (e ConnectorV2GcpScopeConfigurationScopeType) ToConnectorV2GcpScopeConfigurationScopeTypeOutputWithContext(ctx context.Context) ConnectorV2GcpScopeConfigurationScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorV2GcpScopeConfigurationScopeTypeOutput)
+}
+
+func (e ConnectorV2GcpScopeConfigurationScopeType) ToConnectorV2GcpScopeConfigurationScopeTypePtrOutput() ConnectorV2GcpScopeConfigurationScopeTypePtrOutput {
+	return e.ToConnectorV2GcpScopeConfigurationScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorV2GcpScopeConfigurationScopeType) ToConnectorV2GcpScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorV2GcpScopeConfigurationScopeTypePtrOutput {
+	return ConnectorV2GcpScopeConfigurationScopeType(e).ToConnectorV2GcpScopeConfigurationScopeTypeOutputWithContext(ctx).ToConnectorV2GcpScopeConfigurationScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorV2GcpScopeConfigurationScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorV2GcpScopeConfigurationScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorV2GcpScopeConfigurationScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorV2GcpScopeConfigurationScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorV2GcpScopeConfigurationScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2GcpScopeConfigurationScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2GcpScopeConfigurationScopeType)(nil)).Elem()
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypeOutput) ToConnectorV2GcpScopeConfigurationScopeTypeOutput() ConnectorV2GcpScopeConfigurationScopeTypeOutput {
+	return o
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypeOutput) ToConnectorV2GcpScopeConfigurationScopeTypeOutputWithContext(ctx context.Context) ConnectorV2GcpScopeConfigurationScopeTypeOutput {
+	return o
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypeOutput) ToConnectorV2GcpScopeConfigurationScopeTypePtrOutput() ConnectorV2GcpScopeConfigurationScopeTypePtrOutput {
+	return o.ToConnectorV2GcpScopeConfigurationScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypeOutput) ToConnectorV2GcpScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorV2GcpScopeConfigurationScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2GcpScopeConfigurationScopeType) *ConnectorV2GcpScopeConfigurationScopeType {
+		return &v
+	}).(ConnectorV2GcpScopeConfigurationScopeTypePtrOutput)
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorV2GcpScopeConfigurationScopeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorV2GcpScopeConfigurationScopeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorV2GcpScopeConfigurationScopeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2GcpScopeConfigurationScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2GcpScopeConfigurationScopeType)(nil)).Elem()
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypePtrOutput) ToConnectorV2GcpScopeConfigurationScopeTypePtrOutput() ConnectorV2GcpScopeConfigurationScopeTypePtrOutput {
+	return o
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypePtrOutput) ToConnectorV2GcpScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorV2GcpScopeConfigurationScopeTypePtrOutput {
+	return o
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypePtrOutput) Elem() ConnectorV2GcpScopeConfigurationScopeTypeOutput {
+	return o.ApplyT(func(v *ConnectorV2GcpScopeConfigurationScopeType) ConnectorV2GcpScopeConfigurationScopeType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2GcpScopeConfigurationScopeType
+		return ret
+	}).(ConnectorV2GcpScopeConfigurationScopeTypeOutput)
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2GcpScopeConfigurationScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorV2GcpScopeConfigurationScopeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorV2GcpScopeConfigurationScopeTypeInput is an input type that accepts values of the ConnectorV2GcpScopeConfigurationScopeType enum
+// A concrete instance of `ConnectorV2GcpScopeConfigurationScopeTypeInput` can be one of the following:
+//
+//	ConnectorV2GcpScopeConfigurationScopeTypeProject
+//	ConnectorV2GcpScopeConfigurationScopeTypeOrganization
+type ConnectorV2GcpScopeConfigurationScopeTypeInput interface {
+	pulumi.Input
+
+	ToConnectorV2GcpScopeConfigurationScopeTypeOutput() ConnectorV2GcpScopeConfigurationScopeTypeOutput
+	ToConnectorV2GcpScopeConfigurationScopeTypeOutputWithContext(context.Context) ConnectorV2GcpScopeConfigurationScopeTypeOutput
+}
+
+var connectorV2GcpScopeConfigurationScopeTypePtrType = reflect.TypeOf((**ConnectorV2GcpScopeConfigurationScopeType)(nil)).Elem()
+
+type ConnectorV2GcpScopeConfigurationScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorV2GcpScopeConfigurationScopeTypePtrOutput() ConnectorV2GcpScopeConfigurationScopeTypePtrOutput
+	ToConnectorV2GcpScopeConfigurationScopeTypePtrOutputWithContext(context.Context) ConnectorV2GcpScopeConfigurationScopeTypePtrOutput
+}
+
+type connectorV2GcpScopeConfigurationScopeTypePtr string
+
+func ConnectorV2GcpScopeConfigurationScopeTypePtr(v string) ConnectorV2GcpScopeConfigurationScopeTypePtrInput {
+	return (*connectorV2GcpScopeConfigurationScopeTypePtr)(&v)
+}
+
+func (*connectorV2GcpScopeConfigurationScopeTypePtr) ElementType() reflect.Type {
+	return connectorV2GcpScopeConfigurationScopeTypePtrType
+}
+
+func (in *connectorV2GcpScopeConfigurationScopeTypePtr) ToConnectorV2GcpScopeConfigurationScopeTypePtrOutput() ConnectorV2GcpScopeConfigurationScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorV2GcpScopeConfigurationScopeTypePtrOutput)
+}
+
+func (in *connectorV2GcpScopeConfigurationScopeTypePtr) ToConnectorV2GcpScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorV2GcpScopeConfigurationScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorV2GcpScopeConfigurationScopeTypePtrOutput)
 }
 
 // Whether the delegated Security Hub CSPM administrator is set for the organization.
@@ -5875,8 +6207,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyParameterConfigurationValueTypePtrInput)(nil)).Elem(), ConfigurationPolicyParameterConfigurationValueType("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationScopeTypeInput)(nil)).Elem(), ConnectorAzureScopeConfigurationScopeType("TENANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationScopeTypePtrInput)(nil)).Elem(), ConnectorAzureScopeConfigurationScopeType("TENANT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorGcpScopeConfigurationScopeTypeInput)(nil)).Elem(), ConnectorGcpScopeConfigurationScopeType("PROJECT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorGcpScopeConfigurationScopeTypePtrInput)(nil)).Elem(), ConnectorGcpScopeConfigurationScopeType("PROJECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2AzureScopeConfigurationScopeTypeInput)(nil)).Elem(), ConnectorV2AzureScopeConfigurationScopeType("TENANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2AzureScopeConfigurationScopeTypePtrInput)(nil)).Elem(), ConnectorV2AzureScopeConfigurationScopeType("TENANT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2GcpScopeConfigurationScopeTypeInput)(nil)).Elem(), ConnectorV2GcpScopeConfigurationScopeType("PROJECT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2GcpScopeConfigurationScopeTypePtrInput)(nil)).Elem(), ConnectorV2GcpScopeConfigurationScopeType("PROJECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorRegionLinkingModeInput)(nil)).Elem(), FindingAggregatorRegionLinkingMode("ALL_REGIONS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorRegionLinkingModePtrInput)(nil)).Elem(), FindingAggregatorRegionLinkingMode("ALL_REGIONS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HubV2NetworkScanningStatusInput)(nil)).Elem(), HubV2NetworkScanningStatus("ENABLED"))
@@ -5939,8 +6275,12 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationPolicyParameterConfigurationValueTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationScopeTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorGcpScopeConfigurationScopeTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorGcpScopeConfigurationScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorV2AzureScopeConfigurationScopeTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorV2AzureScopeConfigurationScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2GcpScopeConfigurationScopeTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorV2GcpScopeConfigurationScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(DelegatedAdminStatusOutput{})
 	pulumi.RegisterOutputType(DelegatedAdminStatusPtrOutput{})
 	pulumi.RegisterOutputType(FindingAggregatorRegionLinkingModeOutput{})

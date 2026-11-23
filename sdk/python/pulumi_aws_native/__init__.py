@@ -413,6 +413,8 @@ if typing.TYPE_CHECKING:
     omics = __omics
     import pulumi_aws_native.opensearch as __opensearch
     opensearch = __opensearch
+    import pulumi_aws_native.opensearchmemory as __opensearchmemory
+    opensearchmemory = __opensearchmemory
     import pulumi_aws_native.opensearchserverless as __opensearchserverless
     opensearchserverless = __opensearchserverless
     import pulumi_aws_native.opensearchservice as __opensearchservice
@@ -801,6 +803,7 @@ else:
     odb = _utilities.lazy_import('pulumi_aws_native.odb')
     omics = _utilities.lazy_import('pulumi_aws_native.omics')
     opensearch = _utilities.lazy_import('pulumi_aws_native.opensearch')
+    opensearchmemory = _utilities.lazy_import('pulumi_aws_native.opensearchmemory')
     opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
@@ -935,6 +938,7 @@ _utilities.register(
   "mod": "agentregistry",
   "fqn": "pulumi_aws_native.agentregistry",
   "classes": {
+   "aws-native:agentregistry:Publisher": "Publisher",
    "aws-native:agentregistry:Registry": "Registry",
    "aws-native:agentregistry:RegistryRecord": "RegistryRecord"
   }
@@ -1531,6 +1535,8 @@ _utilities.register(
    "aws-native:cloudfront:ContinuousDeploymentPolicy": "ContinuousDeploymentPolicy",
    "aws-native:cloudfront:Distribution": "Distribution",
    "aws-native:cloudfront:DistributionTenant": "DistributionTenant",
+   "aws-native:cloudfront:FieldLevelEncryptionConfig": "FieldLevelEncryptionConfig",
+   "aws-native:cloudfront:FieldLevelEncryptionProfile": "FieldLevelEncryptionProfile",
    "aws-native:cloudfront:Function": "Function",
    "aws-native:cloudfront:KeyGroup": "KeyGroup",
    "aws-native:cloudfront:KeyValueStore": "KeyValueStore",
@@ -1688,6 +1694,7 @@ _utilities.register(
   "mod": "cognito",
   "fqn": "pulumi_aws_native.cognito",
   "classes": {
+   "aws-native:cognito:CimdPolicy": "CimdPolicy",
    "aws-native:cognito:IdentityPool": "IdentityPool",
    "aws-native:cognito:IdentityPoolPrincipalTag": "IdentityPoolPrincipalTag",
    "aws-native:cognito:IdentityPoolRoleAttachment": "IdentityPoolRoleAttachment",
@@ -2509,11 +2516,16 @@ _utilities.register(
   "fqn": "pulumi_aws_native.fsx",
   "classes": {
    "aws-native:fsx:Backup": "Backup",
+   "aws-native:fsx:ClusterPeer": "ClusterPeer",
    "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation",
    "aws-native:fsx:FileCache": "FileCache",
    "aws-native:fsx:S3AccessPointAttachment": "S3AccessPointAttachment",
+   "aws-native:fsx:SnapmirrorPolicy": "SnapmirrorPolicy",
+   "aws-native:fsx:SnapmirrorRelationship": "SnapmirrorRelationship",
    "aws-native:fsx:Snapshot": "Snapshot",
+   "aws-native:fsx:SnapshotPolicy": "SnapshotPolicy",
    "aws-native:fsx:StorageVirtualMachine": "StorageVirtualMachine",
+   "aws-native:fsx:StorageVirtualMachinePeer": "StorageVirtualMachinePeer",
    "aws-native:fsx:Volume": "Volume"
   }
  },
@@ -3000,6 +3012,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.lakeformation",
   "classes": {
    "aws-native:lakeformation:DataCellsFilter": "DataCellsFilter",
+   "aws-native:lakeformation:DataLakeSettings": "DataLakeSettings",
    "aws-native:lakeformation:PrincipalPermissions": "PrincipalPermissions",
    "aws-native:lakeformation:Resource": "Resource",
    "aws-native:lakeformation:Tag": "Tag",
@@ -3061,7 +3074,8 @@ _utilities.register(
    "aws-native:licensemanager:License": "License",
    "aws-native:licensemanager:LicenseAssetGroup": "LicenseAssetGroup",
    "aws-native:licensemanager:LicenseAssetRuleSet": "LicenseAssetRuleSet",
-   "aws-native:licensemanager:LicenseConfiguration": "LicenseConfiguration"
+   "aws-native:licensemanager:LicenseConfiguration": "LicenseConfiguration",
+   "aws-native:licensemanager:ReportGenerator": "ReportGenerator"
   }
  },
  {
@@ -3489,6 +3503,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "opensearchmemory",
+  "fqn": "pulumi_aws_native.opensearchmemory",
+  "classes": {
+   "aws-native:opensearchmemory:Space": "Space"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "opensearchserverless",
   "fqn": "pulumi_aws_native.opensearchserverless",
   "classes": {
@@ -3509,7 +3531,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.opensearchservice",
   "classes": {
    "aws-native:opensearchservice:Application": "Application",
-   "aws-native:opensearchservice:Domain": "Domain"
+   "aws-native:opensearchservice:Domain": "Domain",
+   "aws-native:opensearchservice:ReplicationPeer": "ReplicationPeer"
   }
  },
  {
@@ -3892,7 +3915,8 @@ _utilities.register(
    "aws-native:route53:QueryLoggingConfig": "QueryLoggingConfig",
    "aws-native:route53:RecordSet": "RecordSet",
    "aws-native:route53:RecordSetProtection": "RecordSetProtection",
-   "aws-native:route53:TrafficPolicy": "TrafficPolicy"
+   "aws-native:route53:TrafficPolicy": "TrafficPolicy",
+   "aws-native:route53:TrafficPolicyInstance": "TrafficPolicyInstance"
   }
  },
  {
@@ -4084,6 +4108,7 @@ _utilities.register(
    "aws-native:sagemaker:Domain": "Domain",
    "aws-native:sagemaker:Endpoint": "Endpoint",
    "aws-native:sagemaker:EndpointConfig": "EndpointConfig",
+   "aws-native:sagemaker:EndpointPolicy": "EndpointPolicy",
    "aws-native:sagemaker:Experiment": "Experiment",
    "aws-native:sagemaker:ExperimentTrialComponent": "ExperimentTrialComponent",
    "aws-native:sagemaker:Extension": "Extension",
@@ -4094,6 +4119,7 @@ _utilities.register(
    "aws-native:sagemaker:ImageVersion": "ImageVersion",
    "aws-native:sagemaker:InferenceComponent": "InferenceComponent",
    "aws-native:sagemaker:InferenceExperiment": "InferenceExperiment",
+   "aws-native:sagemaker:InferenceRouter": "InferenceRouter",
    "aws-native:sagemaker:MlflowApp": "MlflowApp",
    "aws-native:sagemaker:MlflowTrackingServer": "MlflowTrackingServer",
    "aws-native:sagemaker:Model": "Model",

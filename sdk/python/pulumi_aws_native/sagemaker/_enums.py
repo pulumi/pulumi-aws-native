@@ -79,6 +79,8 @@ __all__ = [
     'InferenceExperimentModelInfrastructureConfigInfrastructureType',
     'InferenceExperimentStatus',
     'InferenceExperimentType',
+    'InferenceRouterRoutingTargetRoutingPreference',
+    'InferenceRouterStatus',
     'MlflowAppModelRegistrationMode',
     'MlflowAppStatus',
     'MlflowTrackingServerTrackingServerSize',
@@ -1239,6 +1241,27 @@ class InferenceExperimentType(_builtins.str, Enum):
     The type of the inference experiment that you want to run.
     """
     SHADOW_MODE = "ShadowMode"
+
+
+@pulumi.type_token("aws-native:sagemaker:InferenceRouterRoutingTargetRoutingPreference")
+class InferenceRouterRoutingTargetRoutingPreference(_builtins.str, Enum):
+    """
+    How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+    """
+    LOCAL_REGION_FIRST = "LocalRegionFirst"
+    INSTANCE_POOL_ORDER = "InstancePoolOrder"
+
+
+@pulumi.type_token("aws-native:sagemaker:InferenceRouterStatus")
+class InferenceRouterStatus(_builtins.str, Enum):
+    """
+    Where the Inference Router's most recent configuration write has got to. Writes commit synchronously; propagation to the data plane is asynchronous.
+    """
+    IN_SERVICE = "InService"
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    FAILED = "Failed"
+    DELETING = "Deleting"
 
 
 @pulumi.type_token("aws-native:sagemaker:MlflowAppModelRegistrationMode")

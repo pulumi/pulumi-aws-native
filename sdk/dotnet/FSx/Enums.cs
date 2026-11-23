@@ -75,6 +75,71 @@ namespace Pulumi.AwsNative.FSx
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Which local SVMs the peer cluster may peer with automatically: ALL, NONE, or SPECIFIED (the SVMs in AllowedSvmIds).
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterPeerAllowedSvmMode : IEquatable<ClusterPeerAllowedSvmMode>
+    {
+        private readonly string _value;
+
+        private ClusterPeerAllowedSvmMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterPeerAllowedSvmMode All { get; } = new ClusterPeerAllowedSvmMode("ALL");
+        public static ClusterPeerAllowedSvmMode None { get; } = new ClusterPeerAllowedSvmMode("NONE");
+        public static ClusterPeerAllowedSvmMode Specified { get; } = new ClusterPeerAllowedSvmMode("SPECIFIED");
+
+        public static bool operator ==(ClusterPeerAllowedSvmMode left, ClusterPeerAllowedSvmMode right) => left.Equals(right);
+        public static bool operator !=(ClusterPeerAllowedSvmMode left, ClusterPeerAllowedSvmMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterPeerAllowedSvmMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterPeerAllowedSvmMode other && Equals(other);
+        public bool Equals(ClusterPeerAllowedSvmMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle status of the cluster peer relationship.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterPeerLifecycle : IEquatable<ClusterPeerLifecycle>
+    {
+        private readonly string _value;
+
+        private ClusterPeerLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterPeerLifecycle Creating { get; } = new ClusterPeerLifecycle("CREATING");
+        public static ClusterPeerLifecycle Created { get; } = new ClusterPeerLifecycle("CREATED");
+        public static ClusterPeerLifecycle Deleting { get; } = new ClusterPeerLifecycle("DELETING");
+        public static ClusterPeerLifecycle Failed { get; } = new ClusterPeerLifecycle("FAILED");
+
+        public static bool operator ==(ClusterPeerLifecycle left, ClusterPeerLifecycle right) => left.Equals(right);
+        public static bool operator !=(ClusterPeerLifecycle left, ClusterPeerLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterPeerLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterPeerLifecycle other && Equals(other);
+        public bool Equals(ClusterPeerLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DataRepositoryAssociationEventType : IEquatable<DataRepositoryAssociationEventType>
     {
@@ -345,6 +410,367 @@ namespace Pulumi.AwsNative.FSx
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is S3AccessPointAttachmentType other && Equals(other);
         public bool Equals(S3AccessPointAttachmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle status of the SnapMirror policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapmirrorPolicyLifecycle : IEquatable<SnapmirrorPolicyLifecycle>
+    {
+        private readonly string _value;
+
+        private SnapmirrorPolicyLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapmirrorPolicyLifecycle Creating { get; } = new SnapmirrorPolicyLifecycle("CREATING");
+        public static SnapmirrorPolicyLifecycle Created { get; } = new SnapmirrorPolicyLifecycle("CREATED");
+        public static SnapmirrorPolicyLifecycle Deleting { get; } = new SnapmirrorPolicyLifecycle("DELETING");
+        public static SnapmirrorPolicyLifecycle Failed { get; } = new SnapmirrorPolicyLifecycle("FAILED");
+
+        public static bool operator ==(SnapmirrorPolicyLifecycle left, SnapmirrorPolicyLifecycle right) => left.Equals(right);
+        public static bool operator !=(SnapmirrorPolicyLifecycle left, SnapmirrorPolicyLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(SnapmirrorPolicyLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapmirrorPolicyLifecycle other && Equals(other);
+        public bool Equals(SnapmirrorPolicyLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the policy is scoped to a file system (FILESYSTEM) or to an SVM (SVM).
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapmirrorPolicyScope : IEquatable<SnapmirrorPolicyScope>
+    {
+        private readonly string _value;
+
+        private SnapmirrorPolicyScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapmirrorPolicyScope Filesystem { get; } = new SnapmirrorPolicyScope("FILESYSTEM");
+        public static SnapmirrorPolicyScope Svm { get; } = new SnapmirrorPolicyScope("SVM");
+
+        public static bool operator ==(SnapmirrorPolicyScope left, SnapmirrorPolicyScope right) => left.Equals(right);
+        public static bool operator !=(SnapmirrorPolicyScope left, SnapmirrorPolicyScope right) => !left.Equals(right);
+
+        public static explicit operator string(SnapmirrorPolicyScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapmirrorPolicyScope other && Equals(other);
+        public bool Equals(SnapmirrorPolicyScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Which snapshots SnapMirror copies. COPY_ALL_SOURCE_SNAPSHOTS and COPY_LATEST_SOURCE_SNAPSHOT create mirror policies and do not allow RetentionRules. NO_CREATE_SNAPSHOT_ON_SOURCE creates a vault policy and requires RetentionRules. Omit for a mirror-vault policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapmirrorPolicySnapshotCopyMode : IEquatable<SnapmirrorPolicySnapshotCopyMode>
+    {
+        private readonly string _value;
+
+        private SnapmirrorPolicySnapshotCopyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapmirrorPolicySnapshotCopyMode CopyAllSourceSnapshots { get; } = new SnapmirrorPolicySnapshotCopyMode("COPY_ALL_SOURCE_SNAPSHOTS");
+        public static SnapmirrorPolicySnapshotCopyMode CopyLatestSourceSnapshot { get; } = new SnapmirrorPolicySnapshotCopyMode("COPY_LATEST_SOURCE_SNAPSHOT");
+        public static SnapmirrorPolicySnapshotCopyMode NoCreateSnapshotOnSource { get; } = new SnapmirrorPolicySnapshotCopyMode("NO_CREATE_SNAPSHOT_ON_SOURCE");
+
+        public static bool operator ==(SnapmirrorPolicySnapshotCopyMode left, SnapmirrorPolicySnapshotCopyMode right) => left.Equals(right);
+        public static bool operator !=(SnapmirrorPolicySnapshotCopyMode left, SnapmirrorPolicySnapshotCopyMode right) => !left.Equals(right);
+
+        public static explicit operator string(SnapmirrorPolicySnapshotCopyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapmirrorPolicySnapshotCopyMode other && Equals(other);
+        public bool Equals(SnapmirrorPolicySnapshotCopyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle status of the SnapMirror relationship.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapmirrorRelationshipLifecycle : IEquatable<SnapmirrorRelationshipLifecycle>
+    {
+        private readonly string _value;
+
+        private SnapmirrorRelationshipLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapmirrorRelationshipLifecycle Creating { get; } = new SnapmirrorRelationshipLifecycle("CREATING");
+        public static SnapmirrorRelationshipLifecycle Created { get; } = new SnapmirrorRelationshipLifecycle("CREATED");
+        public static SnapmirrorRelationshipLifecycle Deleting { get; } = new SnapmirrorRelationshipLifecycle("DELETING");
+        public static SnapmirrorRelationshipLifecycle Failed { get; } = new SnapmirrorRelationshipLifecycle("FAILED");
+
+        public static bool operator ==(SnapmirrorRelationshipLifecycle left, SnapmirrorRelationshipLifecycle right) => left.Equals(right);
+        public static bool operator !=(SnapmirrorRelationshipLifecycle left, SnapmirrorRelationshipLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(SnapmirrorRelationshipLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapmirrorRelationshipLifecycle other && Equals(other);
+        public bool Equals(SnapmirrorRelationshipLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the relationship in ONTAP.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapmirrorRelationshipState : IEquatable<SnapmirrorRelationshipState>
+    {
+        private readonly string _value;
+
+        private SnapmirrorRelationshipState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapmirrorRelationshipState Uninitialized { get; } = new SnapmirrorRelationshipState("UNINITIALIZED");
+        public static SnapmirrorRelationshipState Transferring { get; } = new SnapmirrorRelationshipState("TRANSFERRING");
+        public static SnapmirrorRelationshipState Snapmirrored { get; } = new SnapmirrorRelationshipState("SNAPMIRRORED");
+        public static SnapmirrorRelationshipState Paused { get; } = new SnapmirrorRelationshipState("PAUSED");
+        public static SnapmirrorRelationshipState BrokenOff { get; } = new SnapmirrorRelationshipState("BROKEN_OFF");
+
+        public static bool operator ==(SnapmirrorRelationshipState left, SnapmirrorRelationshipState right) => left.Equals(right);
+        public static bool operator !=(SnapmirrorRelationshipState left, SnapmirrorRelationshipState right) => !left.Equals(right);
+
+        public static explicit operator string(SnapmirrorRelationshipState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapmirrorRelationshipState other && Equals(other);
+        public bool Equals(SnapmirrorRelationshipState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle status of the snapshot policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotPolicyLifecycle : IEquatable<SnapshotPolicyLifecycle>
+    {
+        private readonly string _value;
+
+        private SnapshotPolicyLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotPolicyLifecycle Creating { get; } = new SnapshotPolicyLifecycle("CREATING");
+        public static SnapshotPolicyLifecycle Created { get; } = new SnapshotPolicyLifecycle("CREATED");
+        public static SnapshotPolicyLifecycle Deleting { get; } = new SnapshotPolicyLifecycle("DELETING");
+        public static SnapshotPolicyLifecycle Failed { get; } = new SnapshotPolicyLifecycle("FAILED");
+
+        public static bool operator ==(SnapshotPolicyLifecycle left, SnapshotPolicyLifecycle right) => left.Equals(right);
+        public static bool operator !=(SnapshotPolicyLifecycle left, SnapshotPolicyLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotPolicyLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotPolicyLifecycle other && Equals(other);
+        public bool Equals(SnapshotPolicyLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotPolicyRetentionPeriodType : IEquatable<SnapshotPolicyRetentionPeriodType>
+    {
+        private readonly string _value;
+
+        private SnapshotPolicyRetentionPeriodType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotPolicyRetentionPeriodType Seconds { get; } = new SnapshotPolicyRetentionPeriodType("SECONDS");
+        public static SnapshotPolicyRetentionPeriodType Minutes { get; } = new SnapshotPolicyRetentionPeriodType("MINUTES");
+        public static SnapshotPolicyRetentionPeriodType Hours { get; } = new SnapshotPolicyRetentionPeriodType("HOURS");
+        public static SnapshotPolicyRetentionPeriodType Days { get; } = new SnapshotPolicyRetentionPeriodType("DAYS");
+        public static SnapshotPolicyRetentionPeriodType Months { get; } = new SnapshotPolicyRetentionPeriodType("MONTHS");
+        public static SnapshotPolicyRetentionPeriodType Years { get; } = new SnapshotPolicyRetentionPeriodType("YEARS");
+        public static SnapshotPolicyRetentionPeriodType Infinite { get; } = new SnapshotPolicyRetentionPeriodType("INFINITE");
+
+        public static bool operator ==(SnapshotPolicyRetentionPeriodType left, SnapshotPolicyRetentionPeriodType right) => left.Equals(right);
+        public static bool operator !=(SnapshotPolicyRetentionPeriodType left, SnapshotPolicyRetentionPeriodType right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotPolicyRetentionPeriodType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotPolicyRetentionPeriodType other && Equals(other);
+        public bool Equals(SnapshotPolicyRetentionPeriodType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the snapshot policy is scoped to a file system or to an SVM.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotPolicyScope : IEquatable<SnapshotPolicyScope>
+    {
+        private readonly string _value;
+
+        private SnapshotPolicyScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotPolicyScope Filesystem { get; } = new SnapshotPolicyScope("FILESYSTEM");
+        public static SnapshotPolicyScope Svm { get; } = new SnapshotPolicyScope("SVM");
+
+        public static bool operator ==(SnapshotPolicyScope left, SnapshotPolicyScope right) => left.Equals(right);
+        public static bool operator !=(SnapshotPolicyScope left, SnapshotPolicyScope right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotPolicyScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotPolicyScope other && Equals(other);
+        public bool Equals(SnapshotPolicyScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct StorageVirtualMachinePeerApplicationsItem : IEquatable<StorageVirtualMachinePeerApplicationsItem>
+    {
+        private readonly string _value;
+
+        private StorageVirtualMachinePeerApplicationsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageVirtualMachinePeerApplicationsItem Snapmirror { get; } = new StorageVirtualMachinePeerApplicationsItem("SNAPMIRROR");
+        public static StorageVirtualMachinePeerApplicationsItem FileCopy { get; } = new StorageVirtualMachinePeerApplicationsItem("FILE_COPY");
+        public static StorageVirtualMachinePeerApplicationsItem LunCopy { get; } = new StorageVirtualMachinePeerApplicationsItem("LUN_COPY");
+        public static StorageVirtualMachinePeerApplicationsItem Flexcache { get; } = new StorageVirtualMachinePeerApplicationsItem("FLEXCACHE");
+
+        public static bool operator ==(StorageVirtualMachinePeerApplicationsItem left, StorageVirtualMachinePeerApplicationsItem right) => left.Equals(right);
+        public static bool operator !=(StorageVirtualMachinePeerApplicationsItem left, StorageVirtualMachinePeerApplicationsItem right) => !left.Equals(right);
+
+        public static explicit operator string(StorageVirtualMachinePeerApplicationsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageVirtualMachinePeerApplicationsItem other && Equals(other);
+        public bool Equals(StorageVirtualMachinePeerApplicationsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle status of the SVM peer relationship.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageVirtualMachinePeerLifecycle : IEquatable<StorageVirtualMachinePeerLifecycle>
+    {
+        private readonly string _value;
+
+        private StorageVirtualMachinePeerLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageVirtualMachinePeerLifecycle Creating { get; } = new StorageVirtualMachinePeerLifecycle("CREATING");
+        public static StorageVirtualMachinePeerLifecycle Created { get; } = new StorageVirtualMachinePeerLifecycle("CREATED");
+        public static StorageVirtualMachinePeerLifecycle Deleting { get; } = new StorageVirtualMachinePeerLifecycle("DELETING");
+        public static StorageVirtualMachinePeerLifecycle Failed { get; } = new StorageVirtualMachinePeerLifecycle("FAILED");
+
+        public static bool operator ==(StorageVirtualMachinePeerLifecycle left, StorageVirtualMachinePeerLifecycle right) => left.Equals(right);
+        public static bool operator !=(StorageVirtualMachinePeerLifecycle left, StorageVirtualMachinePeerLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(StorageVirtualMachinePeerLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageVirtualMachinePeerLifecycle other && Equals(other);
+        public bool Equals(StorageVirtualMachinePeerLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the peer relationship in ONTAP.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageVirtualMachinePeerState : IEquatable<StorageVirtualMachinePeerState>
+    {
+        private readonly string _value;
+
+        private StorageVirtualMachinePeerState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageVirtualMachinePeerState Peered { get; } = new StorageVirtualMachinePeerState("PEERED");
+        public static StorageVirtualMachinePeerState Rejected { get; } = new StorageVirtualMachinePeerState("REJECTED");
+        public static StorageVirtualMachinePeerState Suspended { get; } = new StorageVirtualMachinePeerState("SUSPENDED");
+        public static StorageVirtualMachinePeerState Initiated { get; } = new StorageVirtualMachinePeerState("INITIATED");
+        public static StorageVirtualMachinePeerState Pending { get; } = new StorageVirtualMachinePeerState("PENDING");
+        public static StorageVirtualMachinePeerState Initializing { get; } = new StorageVirtualMachinePeerState("INITIALIZING");
+
+        public static bool operator ==(StorageVirtualMachinePeerState left, StorageVirtualMachinePeerState right) => left.Equals(right);
+        public static bool operator !=(StorageVirtualMachinePeerState left, StorageVirtualMachinePeerState right) => !left.Equals(right);
+
+        public static explicit operator string(StorageVirtualMachinePeerState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageVirtualMachinePeerState other && Equals(other);
+        public bool Equals(StorageVirtualMachinePeerState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

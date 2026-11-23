@@ -23,9 +23,11 @@ __all__ = ['UserDefinedFunctionArgs', 'UserDefinedFunction']
 class UserDefinedFunctionArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
+                 artifact_location: pulumi.Input[Optional[_builtins.str]] = None,
                  class_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_type: pulumi.Input[Optional['UserDefinedFunctionFunctionType']] = None,
+                 governance_mode: pulumi.Input[Optional['UserDefinedFunctionGovernanceMode']] = None,
                  owner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_type: pulumi.Input[Optional['UserDefinedFunctionOwnerType']] = None,
                  resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
@@ -33,20 +35,26 @@ class UserDefinedFunctionArgs:
         The set of arguments for constructing a UserDefinedFunction resource.
 
         :param pulumi.Input[_builtins.str] database_name: The name of the catalog database in which the function is located.
+        :param pulumi.Input[_builtins.str] artifact_location: The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
         :param pulumi.Input[_builtins.str] class_name: The Java class that contains the function code.
         :param pulumi.Input[_builtins.str] function_name: The name of the function.
         :param pulumi.Input['UserDefinedFunctionFunctionType'] function_type: The type of the function.
+        :param pulumi.Input['UserDefinedFunctionGovernanceMode'] governance_mode: How access to the function is governed. The mode cannot be changed after creation.
         :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
         :param pulumi.Input['UserDefinedFunctionOwnerType'] owner_type: The owner type.
         :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The resource URIs for the function.
         """
         pulumi.set(__self__, "database_name", database_name)
+        if artifact_location is not None:
+            pulumi.set(__self__, "artifact_location", artifact_location)
         if class_name is not None:
             pulumi.set(__self__, "class_name", class_name)
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
         if function_type is not None:
             pulumi.set(__self__, "function_type", function_type)
+        if governance_mode is not None:
+            pulumi.set(__self__, "governance_mode", governance_mode)
         if owner_name is not None:
             pulumi.set(__self__, "owner_name", owner_name)
         if owner_type is not None:
@@ -65,6 +73,18 @@ class UserDefinedFunctionArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactLocation")
+    def artifact_location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+        """
+        return pulumi.get(self, "artifact_location")
+
+    @artifact_location.setter
+    def artifact_location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "artifact_location", value)
 
     @_builtins.property
     @pulumi.getter(name="className")
@@ -101,6 +121,18 @@ class UserDefinedFunctionArgs:
     @function_type.setter
     def function_type(self, value: pulumi.Input[Optional['UserDefinedFunctionFunctionType']]):
         pulumi.set(self, "function_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="governanceMode")
+    def governance_mode(self) -> pulumi.Input[Optional['UserDefinedFunctionGovernanceMode']]:
+        """
+        How access to the function is governed. The mode cannot be changed after creation.
+        """
+        return pulumi.get(self, "governance_mode")
+
+    @governance_mode.setter
+    def governance_mode(self, value: pulumi.Input[Optional['UserDefinedFunctionGovernanceMode']]):
+        pulumi.set(self, "governance_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerName")
@@ -145,10 +177,12 @@ class UserDefinedFunction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 artifact_location: pulumi.Input[Optional[_builtins.str]] = None,
                  class_name: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_type: pulumi.Input[Optional['UserDefinedFunctionFunctionType']] = None,
+                 governance_mode: pulumi.Input[Optional['UserDefinedFunctionGovernanceMode']] = None,
                  owner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_type: pulumi.Input[Optional['UserDefinedFunctionOwnerType']] = None,
                  resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]]] = None,
@@ -158,10 +192,12 @@ class UserDefinedFunction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] artifact_location: The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
         :param pulumi.Input[_builtins.str] class_name: The Java class that contains the function code.
         :param pulumi.Input[_builtins.str] database_name: The name of the catalog database in which the function is located.
         :param pulumi.Input[_builtins.str] function_name: The name of the function.
         :param pulumi.Input['UserDefinedFunctionFunctionType'] function_type: The type of the function.
+        :param pulumi.Input['UserDefinedFunctionGovernanceMode'] governance_mode: How access to the function is governed. The mode cannot be changed after creation.
         :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
         :param pulumi.Input['UserDefinedFunctionOwnerType'] owner_type: The owner type.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]] resource_uris: The resource URIs for the function.
@@ -190,10 +226,12 @@ class UserDefinedFunction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 artifact_location: pulumi.Input[Optional[_builtins.str]] = None,
                  class_name: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_type: pulumi.Input[Optional['UserDefinedFunctionFunctionType']] = None,
+                 governance_mode: pulumi.Input[Optional['UserDefinedFunctionGovernanceMode']] = None,
                  owner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_type: pulumi.Input[Optional['UserDefinedFunctionOwnerType']] = None,
                  resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]]] = None,
@@ -206,17 +244,19 @@ class UserDefinedFunction(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserDefinedFunctionArgs.__new__(UserDefinedFunctionArgs)
 
+            __props__.__dict__["artifact_location"] = artifact_location
             __props__.__dict__["class_name"] = class_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["function_type"] = function_type
+            __props__.__dict__["governance_mode"] = governance_mode
             __props__.__dict__["owner_name"] = owner_name
             __props__.__dict__["owner_type"] = owner_type
             __props__.__dict__["resource_uris"] = resource_uris
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["databaseName", "functionName", "functionType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["databaseName", "functionName", "functionType", "governanceMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserDefinedFunction, __self__).__init__(
             'aws-native:glue:UserDefinedFunction',
@@ -241,10 +281,12 @@ class UserDefinedFunction(pulumi.CustomResource):
         __props__ = UserDefinedFunctionArgs.__new__(UserDefinedFunctionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["artifact_location"] = None
         __props__.__dict__["class_name"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["function_type"] = None
+        __props__.__dict__["governance_mode"] = None
         __props__.__dict__["owner_name"] = None
         __props__.__dict__["owner_type"] = None
         __props__.__dict__["resource_uris"] = None
@@ -263,6 +305,14 @@ class UserDefinedFunction(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the user-defined function.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="artifactLocation")
+    def artifact_location(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+        """
+        return pulumi.get(self, "artifact_location")
 
     @_builtins.property
     @pulumi.getter(name="className")
@@ -295,6 +345,14 @@ class UserDefinedFunction(pulumi.CustomResource):
         The type of the function.
         """
         return pulumi.get(self, "function_type")
+
+    @_builtins.property
+    @pulumi.getter(name="governanceMode")
+    def governance_mode(self) -> pulumi.Output[Optional['UserDefinedFunctionGovernanceMode']]:
+        """
+        How access to the function is governed. The mode cannot be changed after creation.
+        """
+        return pulumi.get(self, "governance_mode")
 
     @_builtins.property
     @pulumi.getter(name="ownerName")

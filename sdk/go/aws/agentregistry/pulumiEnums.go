@@ -10,6 +10,100 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The verification status of the Publisher.
+type PublisherVerificationStatus string
+
+const (
+	PublisherVerificationStatusActionRequired = PublisherVerificationStatus("ACTION_REQUIRED")
+	PublisherVerificationStatusActive         = PublisherVerificationStatus("ACTIVE")
+	PublisherVerificationStatusFailed         = PublisherVerificationStatus("FAILED")
+	PublisherVerificationStatusSuspended      = PublisherVerificationStatus("SUSPENDED")
+	PublisherVerificationStatusDeleting       = PublisherVerificationStatus("DELETING")
+)
+
+type PublisherVerificationStatusOutput struct{ *pulumi.OutputState }
+
+func (PublisherVerificationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherVerificationStatus)(nil)).Elem()
+}
+
+func (o PublisherVerificationStatusOutput) ToPublisherVerificationStatusOutput() PublisherVerificationStatusOutput {
+	return o
+}
+
+func (o PublisherVerificationStatusOutput) ToPublisherVerificationStatusOutputWithContext(ctx context.Context) PublisherVerificationStatusOutput {
+	return o
+}
+
+func (o PublisherVerificationStatusOutput) ToPublisherVerificationStatusPtrOutput() PublisherVerificationStatusPtrOutput {
+	return o.ToPublisherVerificationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PublisherVerificationStatusOutput) ToPublisherVerificationStatusPtrOutputWithContext(ctx context.Context) PublisherVerificationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherVerificationStatus) *PublisherVerificationStatus {
+		return &v
+	}).(PublisherVerificationStatusPtrOutput)
+}
+
+func (o PublisherVerificationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PublisherVerificationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublisherVerificationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PublisherVerificationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PublisherVerificationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublisherVerificationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PublisherVerificationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PublisherVerificationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublisherVerificationStatus)(nil)).Elem()
+}
+
+func (o PublisherVerificationStatusPtrOutput) ToPublisherVerificationStatusPtrOutput() PublisherVerificationStatusPtrOutput {
+	return o
+}
+
+func (o PublisherVerificationStatusPtrOutput) ToPublisherVerificationStatusPtrOutputWithContext(ctx context.Context) PublisherVerificationStatusPtrOutput {
+	return o
+}
+
+func (o PublisherVerificationStatusPtrOutput) Elem() PublisherVerificationStatusOutput {
+	return o.ApplyT(func(v *PublisherVerificationStatus) PublisherVerificationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherVerificationStatus
+		return ret
+	}).(PublisherVerificationStatusOutput)
+}
+
+func (o PublisherVerificationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PublisherVerificationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PublisherVerificationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of authorizer that controls how consumers access the registry's search and MCP invoke operations.
 type RegistryAuthorizerType string
 
@@ -1472,19 +1566,185 @@ func (in *registryRecordRecordTypePtr) ToRegistryRecordRecordTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(RegistryRecordRecordTypePtrOutput)
 }
 
-// The lifecycle status of the registry record.
+// The type of the credential provider.
+type RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType string
+
+const (
+	RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeIam = RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType("IAM")
+)
+
+func (RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType)(nil)).Elem()
+}
+
+func (e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput {
+	return pulumi.ToOutput(e).(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput)
+}
+
+func (e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput)
+}
+
+func (e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput {
+	return e.ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutputWithContext(context.Background())
+}
+
+func (e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput {
+	return RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType(e).ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutputWithContext(ctx).ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutputWithContext(ctx)
+}
+
+func (e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType)(nil)).Elem()
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput {
+	return o
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput {
+	return o
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput {
+	return o.ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) *RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType {
+		return &v
+	}).(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput)
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType)(nil)).Elem()
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput {
+	return o
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput {
+	return o
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput) Elem() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput {
+	return o.ApplyT(func(v *RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType
+		return ret
+	}).(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput)
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeInput is an input type that accepts values of the RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType enum
+// A concrete instance of `RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeInput` can be one of the following:
+//
+//	RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeIam
+type RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput
+	ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutputWithContext(context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput
+}
+
+var registryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrType = reflect.TypeOf((**RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType)(nil)).Elem()
+
+type RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput
+	ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutputWithContext(context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput
+}
+
+type registryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtr string
+
+func RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtr(v string) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrInput {
+	return (*registryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtr)(&v)
+}
+
+func (*registryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtr) ElementType() reflect.Type {
+	return registryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrType
+}
+
+func (in *registryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtr) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput {
+	return pulumi.ToOutput(in).(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput)
+}
+
+func (in *registryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtr) ToRegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput)
+}
+
+// The lifecycle status of the registry record. CREATE_PENDING_AUTH and UPDATE_PENDING_AUTH mean that the record waits for a user to authorize access to a GitHub source. CloudFormation doesn't support GitHub sources, so a create or update that reaches one of these states fails.
 type RegistryRecordStatus string
 
 const (
-	RegistryRecordStatusDraft           = RegistryRecordStatus("DRAFT")
-	RegistryRecordStatusPendingApproval = RegistryRecordStatus("PENDING_APPROVAL")
-	RegistryRecordStatusApproved        = RegistryRecordStatus("APPROVED")
-	RegistryRecordStatusRejected        = RegistryRecordStatus("REJECTED")
-	RegistryRecordStatusDeprecated      = RegistryRecordStatus("DEPRECATED")
-	RegistryRecordStatusCreating        = RegistryRecordStatus("CREATING")
-	RegistryRecordStatusUpdating        = RegistryRecordStatus("UPDATING")
-	RegistryRecordStatusCreateFailed    = RegistryRecordStatus("CREATE_FAILED")
-	RegistryRecordStatusUpdateFailed    = RegistryRecordStatus("UPDATE_FAILED")
+	RegistryRecordStatusDraft             = RegistryRecordStatus("DRAFT")
+	RegistryRecordStatusPendingApproval   = RegistryRecordStatus("PENDING_APPROVAL")
+	RegistryRecordStatusApproved          = RegistryRecordStatus("APPROVED")
+	RegistryRecordStatusRejected          = RegistryRecordStatus("REJECTED")
+	RegistryRecordStatusDeprecated        = RegistryRecordStatus("DEPRECATED")
+	RegistryRecordStatusCreating          = RegistryRecordStatus("CREATING")
+	RegistryRecordStatusUpdating          = RegistryRecordStatus("UPDATING")
+	RegistryRecordStatusCreateFailed      = RegistryRecordStatus("CREATE_FAILED")
+	RegistryRecordStatusUpdateFailed      = RegistryRecordStatus("UPDATE_FAILED")
+	RegistryRecordStatusCreatePendingAuth = RegistryRecordStatus("CREATE_PENDING_AUTH")
+	RegistryRecordStatusUpdatePendingAuth = RegistryRecordStatus("UPDATE_PENDING_AUTH")
 )
 
 type RegistryRecordStatusOutput struct{ *pulumi.OutputState }
@@ -1856,8 +2116,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordOAuthCredentialProviderGrantTypePtrInput)(nil)).Elem(), RegistryRecordOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordRecordTypeInput)(nil)).Elem(), RegistryRecordRecordType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordRecordTypePtrInput)(nil)).Elem(), RegistryRecordRecordType("MCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeInput)(nil)).Elem(), RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrInput)(nil)).Elem(), RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType("IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordTypeSchemaOverrideRecordTypeInput)(nil)).Elem(), RegistryRecordTypeSchemaOverrideRecordType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordTypeSchemaOverrideRecordTypePtrInput)(nil)).Elem(), RegistryRecordTypeSchemaOverrideRecordType("MCP"))
+	pulumi.RegisterOutputType(PublisherVerificationStatusOutput{})
+	pulumi.RegisterOutputType(PublisherVerificationStatusPtrOutput{})
 	pulumi.RegisterOutputType(RegistryAuthorizerTypeOutput{})
 	pulumi.RegisterOutputType(RegistryAuthorizerTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput{})
@@ -1877,6 +2141,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryRecordOAuthCredentialProviderGrantTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordRecordTypeOutput{})
 	pulumi.RegisterOutputType(RegistryRecordRecordTypePtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordStatusOutput{})
 	pulumi.RegisterOutputType(RegistryRecordStatusPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordTypeSchemaOverrideRecordTypeOutput{})

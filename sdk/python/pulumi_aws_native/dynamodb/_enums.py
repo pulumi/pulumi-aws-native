@@ -122,12 +122,20 @@ class TableKinesisStreamSpecificationApproximateCreationDateTimePrecision(_built
 
 @pulumi.type_token("aws-native:dynamodb:TableSearchSchemaElementSearchSchemaElementType")
 class TableSearchSchemaElementSearchSchemaElementType(_builtins.str, Enum):
+    """
+    The role of the attribute in the search schema. Valid values:
+      +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+      +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+    """
     HASH = "HASH"
     INLINE_FILTER = "INLINE_FILTER"
 
 
 @pulumi.type_token("aws-native:dynamodb:TableVectorIndexDistanceFunction")
 class TableVectorIndexDistanceFunction(_builtins.str, Enum):
+    """
+    The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+    """
     COSINE = "COSINE"
     DOT_PRODUCT = "DOT_PRODUCT"
     EUCLIDEAN = "EUCLIDEAN"

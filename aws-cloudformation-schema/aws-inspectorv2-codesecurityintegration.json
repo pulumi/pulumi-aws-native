@@ -19,7 +19,7 @@
     },
     "IntegrationStatus" : {
       "type" : "string",
-      "enum" : [ "PENDING", "IN_PROGRESS", "ACTIVE", "INACTIVE", "DISABLING" ]
+      "enum" : [ "PENDING", "IN_PROGRESS", "ACTIVE", "INACTIVE", "DISABLING", "DELETE_IN_PROGRESS", "DELETE_FAILED" ]
     },
     "CreateGitLabSelfManagedIntegrationDetail" : {
       "type" : "object",
@@ -168,7 +168,8 @@
       "permissions" : [ "inspector2:UpdateCodeSecurityIntegration", "inspector2:GetCodeSecurityIntegration", "inspector2:ListTagsForResource", "inspector2:TagResource", "inspector2:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "inspector2:DeleteCodeSecurityIntegration", "inspector2:GetCodeSecurityIntegration" ]
+      "permissions" : [ "inspector2:DeleteCodeSecurityIntegration", "inspector2:GetCodeSecurityIntegration" ],
+      "timeoutInMinutes" : 15
     },
     "list" : {
       "permissions" : [ "inspector2:ListCodeSecurityIntegrations" ]

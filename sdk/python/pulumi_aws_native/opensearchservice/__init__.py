@@ -11,5 +11,7 @@ from .application import *
 from .domain import *
 from .get_application import *
 from .get_domain import *
+from .get_replication_peer import *
+from .replication_peer import *
 from ._inputs import *
 from . import outputs

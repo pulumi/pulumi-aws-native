@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.S3Vectors
         /// </summary>
         public readonly string? IndexArn;
         /// <summary>
+        /// The metadata configuration for the vector index.
+        /// </summary>
+        public readonly Outputs.IndexMetadataConfiguration? MetadataConfiguration;
+        /// <summary>
         /// User tags (key-value pairs) to associate with the index.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -90,10 +94,13 @@ namespace Pulumi.AwsNative.S3Vectors
 
             string? indexArn,
 
+            Outputs.IndexMetadataConfiguration? metadataConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreationTime = creationTime;
             IndexArn = indexArn;
+            MetadataConfiguration = metadataConfiguration;
             Tags = tags;
         }
     }

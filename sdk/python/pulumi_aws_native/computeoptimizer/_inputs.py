@@ -214,6 +214,18 @@ class AutomationRuleOrganizationConfigurationArgsDict(TypedDict):
     """
     List of account IDs where the organization rule applies
     """
+    excluded_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+    """
+    excluded_organizational_unit_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+    """
+    organizational_unit_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+    """
     rule_apply_order: NotRequired[pulumi.Input[Optional['AutomationRuleOrganizationConfigurationRuleApplyOrder']]]
     """
     When the rule should be applied relative to account rules
@@ -223,13 +235,25 @@ class AutomationRuleOrganizationConfigurationArgsDict(TypedDict):
 class AutomationRuleOrganizationConfigurationArgs:
     def __init__(__self__, *,
                  account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 excluded_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 excluded_organizational_unit_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 organizational_unit_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rule_apply_order: pulumi.Input[Optional['AutomationRuleOrganizationConfigurationRuleApplyOrder']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: List of account IDs where the organization rule applies
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_account_ids: List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_organizational_unit_ids: List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_ids: List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
         :param pulumi.Input['AutomationRuleOrganizationConfigurationRuleApplyOrder'] rule_apply_order: When the rule should be applied relative to account rules
         """
         if account_ids is not None:
             pulumi.set(__self__, "account_ids", account_ids)
+        if excluded_account_ids is not None:
+            pulumi.set(__self__, "excluded_account_ids", excluded_account_ids)
+        if excluded_organizational_unit_ids is not None:
+            pulumi.set(__self__, "excluded_organizational_unit_ids", excluded_organizational_unit_ids)
+        if organizational_unit_ids is not None:
+            pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
         if rule_apply_order is not None:
             pulumi.set(__self__, "rule_apply_order", rule_apply_order)
 
@@ -244,6 +268,42 @@ class AutomationRuleOrganizationConfigurationArgs:
     @account_ids.setter
     def account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedAccountIds")
+    def excluded_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+        """
+        return pulumi.get(self, "excluded_account_ids")
+
+    @excluded_account_ids.setter
+    def excluded_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "excluded_account_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedOrganizationalUnitIds")
+    def excluded_organizational_unit_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+        """
+        return pulumi.get(self, "excluded_organizational_unit_ids")
+
+    @excluded_organizational_unit_ids.setter
+    def excluded_organizational_unit_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "excluded_organizational_unit_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnitIds")
+    def organizational_unit_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+        """
+        return pulumi.get(self, "organizational_unit_ids")
+
+    @organizational_unit_ids.setter
+    def organizational_unit_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "organizational_unit_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleApplyOrder")

@@ -16,6 +16,7 @@ AWS::AccessAnalyzer::Analyzer
 AWS::AccessAnalyzer::ArchiveRule
 AWS::AccountAccess::Application
 AWS::AccountAccess::Entitlement
+AWS::AgentRegistry::Publisher
 AWS::AgentRegistry::Registry
 AWS::AgentRegistry::RegistryRecord
 AWS::AmazonMQ::Broker
@@ -272,6 +273,8 @@ AWS::CloudFront::ConnectionGroup
 AWS::CloudFront::ContinuousDeploymentPolicy
 AWS::CloudFront::Distribution
 AWS::CloudFront::DistributionTenant
+AWS::CloudFront::FieldLevelEncryptionConfig
+AWS::CloudFront::FieldLevelEncryptionProfile
 AWS::CloudFront::Function
 AWS::CloudFront::KeyGroup
 AWS::CloudFront::KeyValueStore
@@ -331,6 +334,7 @@ AWS::CodeStarConnections::Connection
 AWS::CodeStarConnections::RepositoryLink
 AWS::CodeStarConnections::SyncConfiguration
 AWS::CodeStarNotifications::NotificationRule
+AWS::Cognito::CIMDPolicy
 AWS::Cognito::IdentityPool
 AWS::Cognito::IdentityPoolPrincipalTag
 AWS::Cognito::IdentityPoolRoleAttachment
@@ -764,11 +768,16 @@ AWS::FMS::Policy
 AWS::FMS::ProtocolsList
 AWS::FMS::ResourceSet
 AWS::FSx::Backup
+AWS::FSx::ClusterPeer
 AWS::FSx::DataRepositoryAssociation
 AWS::FSx::FileCache
 AWS::FSx::S3AccessPointAttachment
+AWS::FSx::SnapmirrorPolicy
+AWS::FSx::SnapmirrorRelationship
 AWS::FSx::Snapshot
+AWS::FSx::SnapshotPolicy
 AWS::FSx::StorageVirtualMachine
+AWS::FSx::StorageVirtualMachinePeer
 AWS::FSx::Volume
 AWS::FinSpace::Environment
 AWS::Forecast::Dataset
@@ -986,6 +995,7 @@ AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
 AWS::KinesisVideo::Stream
 AWS::LakeFormation::DataCellsFilter
+AWS::LakeFormation::DataLakeSettings
 AWS::LakeFormation::PrincipalPermissions
 AWS::LakeFormation::Resource
 AWS::LakeFormation::Tag
@@ -1020,6 +1030,7 @@ AWS::LicenseManager::License
 AWS::LicenseManager::LicenseAssetGroup
 AWS::LicenseManager::LicenseAssetRuleSet
 AWS::LicenseManager::LicenseConfiguration
+AWS::LicenseManager::ReportGenerator
 AWS::LicenseManagerLinuxSubscriptions::SubscriptionProvider
 AWS::LicenseManagerUserSubscriptions::LicenseServerEndpoint
 AWS::Lightsail::Alarm
@@ -1223,6 +1234,7 @@ AWS::Omics::VariantStore
 AWS::Omics::Workflow
 AWS::Omics::WorkflowVersion
 AWS::OpenSearch::DataSource
+AWS::OpenSearchMemory::Space
 AWS::OpenSearchServerless::AccessPolicy
 AWS::OpenSearchServerless::Collection
 AWS::OpenSearchServerless::CollectionGroup
@@ -1234,6 +1246,7 @@ AWS::OpenSearchServerless::SecurityPolicy
 AWS::OpenSearchServerless::VpcEndpoint
 AWS::OpenSearchService::Application
 AWS::OpenSearchService::Domain
+AWS::OpenSearchService::ReplicationPeer
 AWS::OpsWorksCM::Server
 AWS::Organizations::Account
 AWS::Organizations::Organization
@@ -1391,6 +1404,7 @@ AWS::Route53::QueryLoggingConfig
 AWS::Route53::RecordSet
 AWS::Route53::RecordSetProtection
 AWS::Route53::TrafficPolicy
+AWS::Route53::TrafficPolicyInstance
 AWS::Route53GlobalResolver::AccessSource
 AWS::Route53GlobalResolver::AccessToken
 AWS::Route53GlobalResolver::CoreNetworkEndpoint
@@ -1539,6 +1553,7 @@ AWS::SageMaker::DeviceFleet
 AWS::SageMaker::Domain
 AWS::SageMaker::Endpoint
 AWS::SageMaker::EndpointConfig
+AWS::SageMaker::EndpointPolicy
 AWS::SageMaker::Experiment
 AWS::SageMaker::ExperimentTrialComponent
 AWS::SageMaker::Extension
@@ -1549,6 +1564,7 @@ AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion
 AWS::SageMaker::InferenceComponent
 AWS::SageMaker::InferenceExperiment
+AWS::SageMaker::InferenceRouter
 AWS::SageMaker::MlflowApp
 AWS::SageMaker::MlflowTrackingServer
 AWS::SageMaker::Model

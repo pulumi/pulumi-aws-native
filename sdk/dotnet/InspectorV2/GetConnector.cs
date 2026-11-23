@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.InspectorV2
     public static class GetConnector
     {
         /// <summary>
-        /// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+        /// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws-native:inspectorv2:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+        /// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:inspectorv2:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+        /// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:inspectorv2:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

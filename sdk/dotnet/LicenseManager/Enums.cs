@@ -39,4 +39,66 @@ namespace Pulumi.AwsNative.LicenseManager
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Time period between each report. The period can be daily, weekly, or monthly.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReportGeneratorReportFrequencyPeriod : IEquatable<ReportGeneratorReportFrequencyPeriod>
+    {
+        private readonly string _value;
+
+        private ReportGeneratorReportFrequencyPeriod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReportGeneratorReportFrequencyPeriod Day { get; } = new ReportGeneratorReportFrequencyPeriod("DAY");
+        public static ReportGeneratorReportFrequencyPeriod Week { get; } = new ReportGeneratorReportFrequencyPeriod("WEEK");
+        public static ReportGeneratorReportFrequencyPeriod Month { get; } = new ReportGeneratorReportFrequencyPeriod("MONTH");
+        public static ReportGeneratorReportFrequencyPeriod OneTime { get; } = new ReportGeneratorReportFrequencyPeriod("ONE_TIME");
+
+        public static bool operator ==(ReportGeneratorReportFrequencyPeriod left, ReportGeneratorReportFrequencyPeriod right) => left.Equals(right);
+        public static bool operator !=(ReportGeneratorReportFrequencyPeriod left, ReportGeneratorReportFrequencyPeriod right) => !left.Equals(right);
+
+        public static explicit operator string(ReportGeneratorReportFrequencyPeriod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReportGeneratorReportFrequencyPeriod other && Equals(other);
+        public bool Equals(ReportGeneratorReportFrequencyPeriod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ReportGeneratorReportTypeItem : IEquatable<ReportGeneratorReportTypeItem>
+    {
+        private readonly string _value;
+
+        private ReportGeneratorReportTypeItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReportGeneratorReportTypeItem LicenseConfigurationSummaryReport { get; } = new ReportGeneratorReportTypeItem("LicenseConfigurationSummaryReport");
+        public static ReportGeneratorReportTypeItem LicenseConfigurationUsageReport { get; } = new ReportGeneratorReportTypeItem("LicenseConfigurationUsageReport");
+        public static ReportGeneratorReportTypeItem LicenseAssetGroupUsageReport { get; } = new ReportGeneratorReportTypeItem("LicenseAssetGroupUsageReport");
+
+        public static bool operator ==(ReportGeneratorReportTypeItem left, ReportGeneratorReportTypeItem right) => left.Equals(right);
+        public static bool operator !=(ReportGeneratorReportTypeItem left, ReportGeneratorReportTypeItem right) => !left.Equals(right);
+
+        public static explicit operator string(ReportGeneratorReportTypeItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReportGeneratorReportTypeItem other && Equals(other);
+        public bool Equals(ReportGeneratorReportTypeItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

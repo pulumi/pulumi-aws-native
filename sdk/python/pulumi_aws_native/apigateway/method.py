@@ -44,7 +44,7 @@ class MethodArgs:
         :param pulumi.Input[_builtins.bool] api_key_required: A boolean flag specifying whether a valid ApiKey is required to invoke this method.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_scopes: A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         :param pulumi.Input[_builtins.str] authorization_type: The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
-                 If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
+                 If you specify the ``AuthorizerId`` property, specify ``CUSTOM``, ``COGNITO_USER_POOLS``, or ``JWT`` for this property.
         :param pulumi.Input[_builtins.str] authorizer_id: The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         :param pulumi.Input['MethodIntegrationArgs'] integration: Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         :param pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]] method_responses: Gets a method response associated with a given HTTP status code.
@@ -142,7 +142,7 @@ class MethodArgs:
     def authorization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
-          If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
+          If you specify the ``AuthorizerId`` property, specify ``CUSTOM``, ``COGNITO_USER_POOLS``, or ``JWT`` for this property.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -263,7 +263,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] api_key_required: A boolean flag specifying whether a valid ApiKey is required to invoke this method.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_scopes: A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         :param pulumi.Input[_builtins.str] authorization_type: The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
-                 If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
+                 If you specify the ``AuthorizerId`` property, specify ``CUSTOM``, ``COGNITO_USER_POOLS``, or ``JWT`` for this property.
         :param pulumi.Input[_builtins.str] authorizer_id: The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         :param pulumi.Input[_builtins.str] http_method: The method's HTTP verb.
         :param pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict', 'outputs.MethodIntegration']] integration: Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
@@ -406,7 +406,7 @@ class Method(pulumi.CustomResource):
     def authorization_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
-          If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
+          If you specify the ``AuthorizerId`` property, specify ``CUSTOM``, ``COGNITO_USER_POOLS``, or ``JWT`` for this property.
         """
         return pulumi.get(self, "authorization_type")
 

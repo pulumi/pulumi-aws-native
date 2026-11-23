@@ -203,12 +203,16 @@ type Certificate struct {
 	CertificateExport CertificateExportPtrOutput `pulumi:"certificateExport"`
 	// You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED.
 	CertificateTransparencyLoggingPreference CertificateTransparencyLoggingPreferencePtrOutput `pulumi:"certificateTransparencyLoggingPreference"`
+	// The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+	CertificateUsage CertificateUsagePtrOutput `pulumi:"certificateUsage"`
 	// The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Domain information that domain name registrars use to verify your identity.
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
 	// Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
 	KeyAlgorithm pulumi.StringPtrOutput `pulumi:"keyAlgorithm"`
+	// The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+	RootHierarchyType CertificateRootHierarchyTypePtrOutput `pulumi:"rootHierarchyType"`
 	// Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
 	// Key-value pairs that can identify the certificate.
@@ -230,9 +234,11 @@ func NewCertificate(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"certificateAuthorityArn",
 		"certificateExport",
+		"certificateUsage",
 		"domainName",
 		"domainValidationOptions[*]",
 		"keyAlgorithm",
+		"rootHierarchyType",
 		"subjectAlternativeNames[*]",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -281,12 +287,16 @@ type certificateArgs struct {
 	CertificateExport *CertificateExport `pulumi:"certificateExport"`
 	// You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED.
 	CertificateTransparencyLoggingPreference *CertificateTransparencyLoggingPreference `pulumi:"certificateTransparencyLoggingPreference"`
+	// The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+	CertificateUsage *CertificateUsage `pulumi:"certificateUsage"`
 	// The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
 	DomainName string `pulumi:"domainName"`
 	// Domain information that domain name registrars use to verify your identity.
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
 	// Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
 	KeyAlgorithm *string `pulumi:"keyAlgorithm"`
+	// The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+	RootHierarchyType *CertificateRootHierarchyType `pulumi:"rootHierarchyType"`
 	// Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// Key-value pairs that can identify the certificate.
@@ -303,12 +313,16 @@ type CertificateArgs struct {
 	CertificateExport CertificateExportPtrInput
 	// You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED.
 	CertificateTransparencyLoggingPreference CertificateTransparencyLoggingPreferencePtrInput
+	// The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+	CertificateUsage CertificateUsagePtrInput
 	// The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
 	DomainName pulumi.StringInput
 	// Domain information that domain name registrars use to verify your identity.
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
 	// Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
 	KeyAlgorithm pulumi.StringPtrInput
+	// The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+	RootHierarchyType CertificateRootHierarchyTypePtrInput
 	// Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// Key-value pairs that can identify the certificate.
@@ -376,6 +390,11 @@ func (o CertificateOutput) CertificateTransparencyLoggingPreference() Certificat
 	}).(CertificateTransparencyLoggingPreferencePtrOutput)
 }
 
+// The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+func (o CertificateOutput) CertificateUsage() CertificateUsagePtrOutput {
+	return o.ApplyT(func(v *Certificate) CertificateUsagePtrOutput { return v.CertificateUsage }).(CertificateUsagePtrOutput)
+}
+
 // The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
 func (o CertificateOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
@@ -389,6 +408,11 @@ func (o CertificateOutput) DomainValidationOptions() CertificateDomainValidation
 // Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
 func (o CertificateOutput) KeyAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+func (o CertificateOutput) RootHierarchyType() CertificateRootHierarchyTypePtrOutput {
+	return o.ApplyT(func(v *Certificate) CertificateRootHierarchyTypePtrOutput { return v.RootHierarchyType }).(CertificateRootHierarchyTypePtrOutput)
 }
 
 // Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.

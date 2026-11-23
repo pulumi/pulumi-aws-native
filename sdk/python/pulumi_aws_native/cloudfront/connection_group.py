@@ -13,8 +13,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['ConnectionGroupArgs', 'ConnectionGroup']
 
@@ -25,7 +27,8 @@ class ConnectionGroupArgs:
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 viewer_fallback: pulumi.Input[Optional['ConnectionGroupViewerFallbackArgs']] = None):
         """
         The set of arguments for constructing a ConnectionGroup resource.
 
@@ -45,6 +48,8 @@ class ConnectionGroupArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if viewer_fallback is not None:
+            pulumi.set(__self__, "viewer_fallback", viewer_fallback)
 
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
@@ -106,6 +111,15 @@ class ConnectionGroupArgs:
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="viewerFallback")
+    def viewer_fallback(self) -> pulumi.Input[Optional['ConnectionGroupViewerFallbackArgs']]:
+        return pulumi.get(self, "viewer_fallback")
+
+    @viewer_fallback.setter
+    def viewer_fallback(self, value: pulumi.Input[Optional['ConnectionGroupViewerFallbackArgs']]):
+        pulumi.set(self, "viewer_fallback", value)
+
 
 @pulumi.type_token("aws-native:cloudfront:ConnectionGroup")
 class ConnectionGroup(pulumi.CustomResource):
@@ -118,6 +132,7 @@ class ConnectionGroup(pulumi.CustomResource):
                  ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 viewer_fallback: pulumi.Input[Optional[Union['ConnectionGroupViewerFallbackArgs', 'ConnectionGroupViewerFallbackArgsDict', 'outputs.ConnectionGroupViewerFallback']]] = None,
                  __props__=None):
         """
         The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
@@ -159,6 +174,7 @@ class ConnectionGroup(pulumi.CustomResource):
                  ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 viewer_fallback: pulumi.Input[Optional[Union['ConnectionGroupViewerFallbackArgs', 'ConnectionGroupViewerFallbackArgsDict', 'outputs.ConnectionGroupViewerFallback']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -173,6 +189,7 @@ class ConnectionGroup(pulumi.CustomResource):
             __props__.__dict__["ipv6_enabled"] = ipv6_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["viewer_fallback"] = viewer_fallback
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_time"] = None
@@ -218,6 +235,7 @@ class ConnectionGroup(pulumi.CustomResource):
         __props__.__dict__["routing_endpoint"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["viewer_fallback"] = None
         return ConnectionGroup(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -329,4 +347,9 @@ class ConnectionGroup(pulumi.CustomResource):
         A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="viewerFallback")
+    def viewer_fallback(self) -> pulumi.Output[Optional['outputs.ConnectionGroupViewerFallback']]:
+        return pulumi.get(self, "viewer_fallback")
 

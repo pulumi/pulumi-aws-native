@@ -90,6 +90,11 @@ export type EndpointConfig = import("./endpointConfig").EndpointConfig;
 export const EndpointConfig: typeof import("./endpointConfig").EndpointConfig = null as any;
 utilities.lazyLoad(exports, ["EndpointConfig"], () => require("./endpointConfig"));
 
+export { EndpointPolicyArgs } from "./endpointPolicy";
+export type EndpointPolicy = import("./endpointPolicy").EndpointPolicy;
+export const EndpointPolicy: typeof import("./endpointPolicy").EndpointPolicy = null as any;
+utilities.lazyLoad(exports, ["EndpointPolicy"], () => require("./endpointPolicy"));
+
 export { ExperimentArgs } from "./experiment";
 export type Experiment = import("./experiment").Experiment;
 export const Experiment: typeof import("./experiment").Experiment = null as any;
@@ -190,6 +195,11 @@ export const getEndpointConfig: typeof import("./getEndpointConfig").getEndpoint
 export const getEndpointConfigOutput: typeof import("./getEndpointConfig").getEndpointConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpointConfig","getEndpointConfigOutput"], () => require("./getEndpointConfig"));
 
+export { GetEndpointPolicyArgs, GetEndpointPolicyResult, GetEndpointPolicyOutputArgs } from "./getEndpointPolicy";
+export const getEndpointPolicy: typeof import("./getEndpointPolicy").getEndpointPolicy = null as any;
+export const getEndpointPolicyOutput: typeof import("./getEndpointPolicy").getEndpointPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpointPolicy","getEndpointPolicyOutput"], () => require("./getEndpointPolicy"));
+
 export { GetExperimentArgs, GetExperimentResult, GetExperimentOutputArgs } from "./getExperiment";
 export const getExperiment: typeof import("./getExperiment").getExperiment = null as any;
 export const getExperimentOutput: typeof import("./getExperiment").getExperimentOutput = null as any;
@@ -239,6 +249,11 @@ export { GetInferenceExperimentArgs, GetInferenceExperimentResult, GetInferenceE
 export const getInferenceExperiment: typeof import("./getInferenceExperiment").getInferenceExperiment = null as any;
 export const getInferenceExperimentOutput: typeof import("./getInferenceExperiment").getInferenceExperimentOutput = null as any;
 utilities.lazyLoad(exports, ["getInferenceExperiment","getInferenceExperimentOutput"], () => require("./getInferenceExperiment"));
+
+export { GetInferenceRouterArgs, GetInferenceRouterResult, GetInferenceRouterOutputArgs } from "./getInferenceRouter";
+export const getInferenceRouter: typeof import("./getInferenceRouter").getInferenceRouter = null as any;
+export const getInferenceRouterOutput: typeof import("./getInferenceRouter").getInferenceRouterOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceRouter","getInferenceRouterOutput"], () => require("./getInferenceRouter"));
 
 export { GetMlflowAppArgs, GetMlflowAppResult, GetMlflowAppOutputArgs } from "./getMlflowApp";
 export const getMlflowApp: typeof import("./getMlflowApp").getMlflowApp = null as any;
@@ -379,6 +394,11 @@ export { InferenceExperimentArgs } from "./inferenceExperiment";
 export type InferenceExperiment = import("./inferenceExperiment").InferenceExperiment;
 export const InferenceExperiment: typeof import("./inferenceExperiment").InferenceExperiment = null as any;
 utilities.lazyLoad(exports, ["InferenceExperiment"], () => require("./inferenceExperiment"));
+
+export { InferenceRouterArgs } from "./inferenceRouter";
+export type InferenceRouter = import("./inferenceRouter").InferenceRouter;
+export const InferenceRouter: typeof import("./inferenceRouter").InferenceRouter = null as any;
+utilities.lazyLoad(exports, ["InferenceRouter"], () => require("./inferenceRouter"));
 
 export { MlflowAppArgs } from "./mlflowApp";
 export type MlflowApp = import("./mlflowApp").MlflowApp;
@@ -532,6 +552,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws-native:sagemaker:EndpointConfig":
                 return new EndpointConfig(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:EndpointPolicy":
+                return new EndpointPolicy(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Experiment":
                 return new Experiment(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ExperimentTrialComponent":
@@ -552,6 +574,8 @@ const _module = {
                 return new InferenceComponent(name, <any>undefined, { urn })
             case "aws-native:sagemaker:InferenceExperiment":
                 return new InferenceExperiment(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:InferenceRouter":
+                return new InferenceRouter(name, <any>undefined, { urn })
             case "aws-native:sagemaker:MlflowApp":
                 return new MlflowApp(name, <any>undefined, { urn })
             case "aws-native:sagemaker:MlflowTrackingServer":

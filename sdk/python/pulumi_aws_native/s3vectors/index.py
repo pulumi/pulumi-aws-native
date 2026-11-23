@@ -288,7 +288,7 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["vector_bucket_name"] = vector_bucket_name
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["index_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataType", "dimension", "distanceMetric", "encryptionConfiguration", "indexName", "metadataConfiguration", "vectorBucketArn", "vectorBucketName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataType", "dimension", "distanceMetric", "encryptionConfiguration", "indexName", "metadataConfiguration.nonFilterableMetadataKeys[*]", "vectorBucketArn", "vectorBucketName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Index, __self__).__init__(
             'aws-native:s3vectors:Index',

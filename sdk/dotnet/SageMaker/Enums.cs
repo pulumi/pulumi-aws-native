@@ -2661,6 +2661,71 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+    /// </summary>
+    [EnumType]
+    public readonly struct InferenceRouterRoutingTargetRoutingPreference : IEquatable<InferenceRouterRoutingTargetRoutingPreference>
+    {
+        private readonly string _value;
+
+        private InferenceRouterRoutingTargetRoutingPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceRouterRoutingTargetRoutingPreference LocalRegionFirst { get; } = new InferenceRouterRoutingTargetRoutingPreference("LocalRegionFirst");
+        public static InferenceRouterRoutingTargetRoutingPreference InstancePoolOrder { get; } = new InferenceRouterRoutingTargetRoutingPreference("InstancePoolOrder");
+
+        public static bool operator ==(InferenceRouterRoutingTargetRoutingPreference left, InferenceRouterRoutingTargetRoutingPreference right) => left.Equals(right);
+        public static bool operator !=(InferenceRouterRoutingTargetRoutingPreference left, InferenceRouterRoutingTargetRoutingPreference right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceRouterRoutingTargetRoutingPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceRouterRoutingTargetRoutingPreference other && Equals(other);
+        public bool Equals(InferenceRouterRoutingTargetRoutingPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Where the Inference Router's most recent configuration write has got to. Writes commit synchronously; propagation to the data plane is asynchronous.
+    /// </summary>
+    [EnumType]
+    public readonly struct InferenceRouterStatus : IEquatable<InferenceRouterStatus>
+    {
+        private readonly string _value;
+
+        private InferenceRouterStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceRouterStatus InService { get; } = new InferenceRouterStatus("InService");
+        public static InferenceRouterStatus Creating { get; } = new InferenceRouterStatus("Creating");
+        public static InferenceRouterStatus Updating { get; } = new InferenceRouterStatus("Updating");
+        public static InferenceRouterStatus Failed { get; } = new InferenceRouterStatus("Failed");
+        public static InferenceRouterStatus Deleting { get; } = new InferenceRouterStatus("Deleting");
+
+        public static bool operator ==(InferenceRouterStatus left, InferenceRouterStatus right) => left.Equals(right);
+        public static bool operator !=(InferenceRouterStatus left, InferenceRouterStatus right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceRouterStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceRouterStatus other && Equals(other);
+        public bool Equals(InferenceRouterStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
     /// </summary>
     [EnumType]

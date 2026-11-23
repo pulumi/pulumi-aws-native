@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "aws-native:opensearchservice:Domain":
 		r = &Domain{}
+	case "aws-native:opensearchservice:ReplicationPeer":
+		r = &ReplicationPeer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

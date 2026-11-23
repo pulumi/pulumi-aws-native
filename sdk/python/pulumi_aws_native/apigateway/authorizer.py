@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AuthorizerArgs', 'Authorizer']
 
@@ -27,6 +29,7 @@ class AuthorizerArgs:
                  authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_source: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_validation_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwt_configuration: pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
@@ -57,6 +60,8 @@ class AuthorizerArgs:
             pulumi.set(__self__, "identity_source", identity_source)
         if identity_validation_expression is not None:
             pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+        if jwt_configuration is not None:
+            pulumi.set(__self__, "jwt_configuration", jwt_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if provider_arns is not None:
@@ -159,6 +164,15 @@ class AuthorizerArgs:
         pulumi.set(self, "identity_validation_expression", value)
 
     @_builtins.property
+    @pulumi.getter(name="jwtConfiguration")
+    def jwt_configuration(self) -> pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']]:
+        return pulumi.get(self, "jwt_configuration")
+
+    @jwt_configuration.setter
+    def jwt_configuration(self, value: pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']]):
+        pulumi.set(self, "jwt_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -195,6 +209,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_source: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_validation_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict', 'outputs.AuthorizerJwtConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -246,6 +261,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_source: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_validation_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict', 'outputs.AuthorizerJwtConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -265,6 +281,7 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["authorizer_uri"] = authorizer_uri
             __props__.__dict__["identity_source"] = identity_source
             __props__.__dict__["identity_validation_expression"] = identity_validation_expression
+            __props__.__dict__["jwt_configuration"] = jwt_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["provider_arns"] = provider_arns
             if rest_api_id is None and not opts.urn:
@@ -305,6 +322,7 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["authorizer_uri"] = None
         __props__.__dict__["identity_source"] = None
         __props__.__dict__["identity_validation_expression"] = None
+        __props__.__dict__["jwt_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provider_arns"] = None
         __props__.__dict__["rest_api_id"] = None
@@ -372,6 +390,11 @@ class Authorizer(pulumi.CustomResource):
         A validation expression for the incoming identity token. For `TOKEN` authorizers, this value is a regular expression. For `COGNITO_USER_POOLS` authorizers, API Gateway will match the `aud` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the `REQUEST` authorizer.
         """
         return pulumi.get(self, "identity_validation_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtConfiguration")
+    def jwt_configuration(self) -> pulumi.Output[Optional['outputs.AuthorizerJwtConfiguration']]:
+        return pulumi.get(self, "jwt_configuration")
 
     @_builtins.property
     @pulumi.getter

@@ -3075,6 +3075,199 @@ func (o UserPoolCustomSmsSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserPoolDcrConfiguration struct {
+	AllowedScopes           []string                              `pulumi:"allowedScopes"`
+	AuthenticatedGrantTypes []string                              `pulumi:"authenticatedGrantTypes"`
+	EnableStatus            *UserPoolDcrConfigurationEnableStatus `pulumi:"enableStatus"`
+	OpenDcrEnabled          *bool                                 `pulumi:"openDcrEnabled"`
+	OpenDcrGrantTypes       []string                              `pulumi:"openDcrGrantTypes"`
+}
+
+// UserPoolDcrConfigurationInput is an input type that accepts UserPoolDcrConfigurationArgs and UserPoolDcrConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolDcrConfigurationInput` via:
+//
+//	UserPoolDcrConfigurationArgs{...}
+type UserPoolDcrConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolDcrConfigurationOutput() UserPoolDcrConfigurationOutput
+	ToUserPoolDcrConfigurationOutputWithContext(context.Context) UserPoolDcrConfigurationOutput
+}
+
+type UserPoolDcrConfigurationArgs struct {
+	AllowedScopes           pulumi.StringArrayInput                      `pulumi:"allowedScopes"`
+	AuthenticatedGrantTypes pulumi.StringArrayInput                      `pulumi:"authenticatedGrantTypes"`
+	EnableStatus            UserPoolDcrConfigurationEnableStatusPtrInput `pulumi:"enableStatus"`
+	OpenDcrEnabled          pulumi.BoolPtrInput                          `pulumi:"openDcrEnabled"`
+	OpenDcrGrantTypes       pulumi.StringArrayInput                      `pulumi:"openDcrGrantTypes"`
+}
+
+func (UserPoolDcrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDcrConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolDcrConfigurationArgs) ToUserPoolDcrConfigurationOutput() UserPoolDcrConfigurationOutput {
+	return i.ToUserPoolDcrConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolDcrConfigurationArgs) ToUserPoolDcrConfigurationOutputWithContext(ctx context.Context) UserPoolDcrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDcrConfigurationOutput)
+}
+
+func (i UserPoolDcrConfigurationArgs) ToUserPoolDcrConfigurationPtrOutput() UserPoolDcrConfigurationPtrOutput {
+	return i.ToUserPoolDcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolDcrConfigurationArgs) ToUserPoolDcrConfigurationPtrOutputWithContext(ctx context.Context) UserPoolDcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDcrConfigurationOutput).ToUserPoolDcrConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolDcrConfigurationPtrInput is an input type that accepts UserPoolDcrConfigurationArgs, UserPoolDcrConfigurationPtr and UserPoolDcrConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolDcrConfigurationPtrInput` via:
+//
+//	        UserPoolDcrConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolDcrConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolDcrConfigurationPtrOutput() UserPoolDcrConfigurationPtrOutput
+	ToUserPoolDcrConfigurationPtrOutputWithContext(context.Context) UserPoolDcrConfigurationPtrOutput
+}
+
+type userPoolDcrConfigurationPtrType UserPoolDcrConfigurationArgs
+
+func UserPoolDcrConfigurationPtr(v *UserPoolDcrConfigurationArgs) UserPoolDcrConfigurationPtrInput {
+	return (*userPoolDcrConfigurationPtrType)(v)
+}
+
+func (*userPoolDcrConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDcrConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolDcrConfigurationPtrType) ToUserPoolDcrConfigurationPtrOutput() UserPoolDcrConfigurationPtrOutput {
+	return i.ToUserPoolDcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolDcrConfigurationPtrType) ToUserPoolDcrConfigurationPtrOutputWithContext(ctx context.Context) UserPoolDcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDcrConfigurationPtrOutput)
+}
+
+type UserPoolDcrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDcrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDcrConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolDcrConfigurationOutput) ToUserPoolDcrConfigurationOutput() UserPoolDcrConfigurationOutput {
+	return o
+}
+
+func (o UserPoolDcrConfigurationOutput) ToUserPoolDcrConfigurationOutputWithContext(ctx context.Context) UserPoolDcrConfigurationOutput {
+	return o
+}
+
+func (o UserPoolDcrConfigurationOutput) ToUserPoolDcrConfigurationPtrOutput() UserPoolDcrConfigurationPtrOutput {
+	return o.ToUserPoolDcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolDcrConfigurationOutput) ToUserPoolDcrConfigurationPtrOutputWithContext(ctx context.Context) UserPoolDcrConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolDcrConfiguration) *UserPoolDcrConfiguration {
+		return &v
+	}).(UserPoolDcrConfigurationPtrOutput)
+}
+
+func (o UserPoolDcrConfigurationOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserPoolDcrConfiguration) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolDcrConfigurationOutput) AuthenticatedGrantTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserPoolDcrConfiguration) []string { return v.AuthenticatedGrantTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolDcrConfigurationOutput) EnableStatus() UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return o.ApplyT(func(v UserPoolDcrConfiguration) *UserPoolDcrConfigurationEnableStatus { return v.EnableStatus }).(UserPoolDcrConfigurationEnableStatusPtrOutput)
+}
+
+func (o UserPoolDcrConfigurationOutput) OpenDcrEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserPoolDcrConfiguration) *bool { return v.OpenDcrEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPoolDcrConfigurationOutput) OpenDcrGrantTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserPoolDcrConfiguration) []string { return v.OpenDcrGrantTypes }).(pulumi.StringArrayOutput)
+}
+
+type UserPoolDcrConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDcrConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDcrConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolDcrConfigurationPtrOutput) ToUserPoolDcrConfigurationPtrOutput() UserPoolDcrConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolDcrConfigurationPtrOutput) ToUserPoolDcrConfigurationPtrOutputWithContext(ctx context.Context) UserPoolDcrConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolDcrConfigurationPtrOutput) Elem() UserPoolDcrConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolDcrConfiguration) UserPoolDcrConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolDcrConfiguration
+		return ret
+	}).(UserPoolDcrConfigurationOutput)
+}
+
+func (o UserPoolDcrConfigurationPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolDcrConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolDcrConfigurationPtrOutput) AuthenticatedGrantTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolDcrConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticatedGrantTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolDcrConfigurationPtrOutput) EnableStatus() UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return o.ApplyT(func(v *UserPoolDcrConfiguration) *UserPoolDcrConfigurationEnableStatus {
+		if v == nil {
+			return nil
+		}
+		return v.EnableStatus
+	}).(UserPoolDcrConfigurationEnableStatusPtrOutput)
+}
+
+func (o UserPoolDcrConfigurationPtrOutput) OpenDcrEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolDcrConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OpenDcrEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPoolDcrConfigurationPtrOutput) OpenDcrGrantTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolDcrConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OpenDcrGrantTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 type UserPoolDeviceConfiguration struct {
 	// When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
 	//
@@ -10545,6 +10738,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomEmailSenderPtrInput)(nil)).Elem(), UserPoolCustomEmailSenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomSmsSenderInput)(nil)).Elem(), UserPoolCustomSmsSenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomSmsSenderPtrInput)(nil)).Elem(), UserPoolCustomSmsSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDcrConfigurationInput)(nil)).Elem(), UserPoolDcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDcrConfigurationPtrInput)(nil)).Elem(), UserPoolDcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDeviceConfigurationInput)(nil)).Elem(), UserPoolDeviceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDeviceConfigurationPtrInput)(nil)).Elem(), UserPoolDeviceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainCustomDomainConfigTypeInput)(nil)).Elem(), UserPoolDomainCustomDomainConfigTypeArgs{})
@@ -10670,6 +10865,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolCustomEmailSenderPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolCustomSmsSenderOutput{})
 	pulumi.RegisterOutputType(UserPoolCustomSmsSenderPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolDcrConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolDcrConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainCustomDomainConfigTypeOutput{})

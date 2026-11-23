@@ -25,6 +25,7 @@ class ImageBuilderArgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[_builtins.str],
                  access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
+                 agent_access_config: pulumi.Input[Optional['ImageBuilderAgentAccessConfigArgs']] = None,
                  appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_imdsv1: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -96,6 +97,7 @@ class ImageBuilderArgs:
                - stream.graphics.g6f.4xlarge
                - stream.graphics.gr6f.4xlarge
         :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+        :param pulumi.Input['ImageBuilderAgentAccessConfigArgs'] agent_access_config: The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
         :param pulumi.Input[_builtins.str] appstream_agent_version: The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         :param pulumi.Input[_builtins.str] description: The description to display.
         :param pulumi.Input[_builtins.str] display_name: The image builder name to display.
@@ -113,6 +115,8 @@ class ImageBuilderArgs:
         pulumi.set(__self__, "instance_type", instance_type)
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
+        if agent_access_config is not None:
+            pulumi.set(__self__, "agent_access_config", agent_access_config)
         if appstream_agent_version is not None:
             pulumi.set(__self__, "appstream_agent_version", appstream_agent_version)
         if description is not None:
@@ -218,6 +222,18 @@ class ImageBuilderArgs:
     @access_endpoints.setter
     def access_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
         pulumi.set(self, "access_endpoints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentAccessConfig")
+    def agent_access_config(self) -> pulumi.Input[Optional['ImageBuilderAgentAccessConfigArgs']]:
+        """
+        The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+        """
+        return pulumi.get(self, "agent_access_config")
+
+    @agent_access_config.setter
+    def agent_access_config(self, value: pulumi.Input[Optional['ImageBuilderAgentAccessConfigArgs']]):
+        pulumi.set(self, "agent_access_config", value)
 
     @_builtins.property
     @pulumi.getter(name="appstreamAgentVersion")
@@ -397,6 +413,7 @@ class ImageBuilder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict', 'outputs.ImageBuilderAccessEndpoint']]]]] = None,
+                 agent_access_config: pulumi.Input[Optional[Union['ImageBuilderAgentAccessConfigArgs', 'ImageBuilderAgentAccessConfigArgsDict', 'outputs.ImageBuilderAgentAccessConfig']]] = None,
                  appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_imdsv1: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -420,6 +437,7 @@ class ImageBuilder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict', 'outputs.ImageBuilderAccessEndpoint']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+        :param pulumi.Input[Union['ImageBuilderAgentAccessConfigArgs', 'ImageBuilderAgentAccessConfigArgsDict', 'outputs.ImageBuilderAgentAccessConfig']] agent_access_config: The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
         :param pulumi.Input[_builtins.str] appstream_agent_version: The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         :param pulumi.Input[_builtins.str] description: The description to display.
         :param pulumi.Input[_builtins.str] display_name: The image builder name to display.
@@ -511,6 +529,7 @@ class ImageBuilder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict', 'outputs.ImageBuilderAccessEndpoint']]]]] = None,
+                 agent_access_config: pulumi.Input[Optional[Union['ImageBuilderAgentAccessConfigArgs', 'ImageBuilderAgentAccessConfigArgsDict', 'outputs.ImageBuilderAgentAccessConfig']]] = None,
                  appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_imdsv1: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -537,6 +556,7 @@ class ImageBuilder(pulumi.CustomResource):
             __props__ = ImageBuilderArgs.__new__(ImageBuilderArgs)
 
             __props__.__dict__["access_endpoints"] = access_endpoints
+            __props__.__dict__["agent_access_config"] = agent_access_config
             __props__.__dict__["appstream_agent_version"] = appstream_agent_version
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_imdsv1"] = disable_imdsv1
@@ -556,7 +576,7 @@ class ImageBuilder(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["streaming_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessEndpoints[*]", "appstreamAgentVersion", "disableImdsv1", "domainJoinInfo", "enableDefaultInternetAccess", "iamRoleArn", "imageArn", "imageName", "instanceType", "name", "rootVolumeConfig", "softwaresToInstall[*]", "softwaresToUninstall[*]", "vpcConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImageBuilder, __self__).__init__(
             'aws-native:appstream:ImageBuilder',
@@ -581,6 +601,7 @@ class ImageBuilder(pulumi.CustomResource):
         __props__ = ImageBuilderArgs.__new__(ImageBuilderArgs)
 
         __props__.__dict__["access_endpoints"] = None
+        __props__.__dict__["agent_access_config"] = None
         __props__.__dict__["appstream_agent_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["disable_imdsv1"] = None
@@ -613,6 +634,14 @@ class ImageBuilder(pulumi.CustomResource):
         The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
         """
         return pulumi.get(self, "access_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="agentAccessConfig")
+    def agent_access_config(self) -> pulumi.Output[Optional['outputs.ImageBuilderAgentAccessConfig']]:
+        """
+        The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+        """
+        return pulumi.get(self, "agent_access_config")
 
     @_builtins.property
     @pulumi.getter(name="appstreamAgentVersion")

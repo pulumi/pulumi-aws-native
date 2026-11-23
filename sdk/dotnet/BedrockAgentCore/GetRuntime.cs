@@ -108,6 +108,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly ImmutableArray<Outputs.RuntimeFilesystemConfiguration> FilesystemConfigurations;
         /// <summary>
+        /// Lifecycle hooks for the agent runtime
+        /// </summary>
+        public readonly Outputs.RuntimeHooksConfiguration? HooksConfiguration;
+        /// <summary>
         /// When resource was last updated
         /// </summary>
         public readonly string? LastUpdatedAt;
@@ -131,6 +135,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// Configuration for HTTP request headers
         /// </summary>
         public readonly Outputs.RuntimeRequestHeaderConfiguration? RequestHeaderConfiguration;
+        /// <summary>
+        /// Resource configurations for the agent runtime
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuntimeResourceConfiguration> ResourceConfigurations;
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role
         /// </summary>
@@ -172,6 +180,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             ImmutableArray<Outputs.RuntimeFilesystemConfiguration> filesystemConfigurations,
 
+            Outputs.RuntimeHooksConfiguration? hooksConfiguration,
+
             string? lastUpdatedAt,
 
             Outputs.RuntimeLifecycleConfiguration? lifecycleConfiguration,
@@ -183,6 +193,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             Pulumi.AwsNative.BedrockAgentCore.RuntimeProtocolConfiguration? protocolConfiguration,
 
             Outputs.RuntimeRequestHeaderConfiguration? requestHeaderConfiguration,
+
+            ImmutableArray<Outputs.RuntimeResourceConfiguration> resourceConfigurations,
 
             string? roleArn,
 
@@ -203,12 +215,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             EnvironmentVariables = environmentVariables;
             FailureReason = failureReason;
             FilesystemConfigurations = filesystemConfigurations;
+            HooksConfiguration = hooksConfiguration;
             LastUpdatedAt = lastUpdatedAt;
             LifecycleConfiguration = lifecycleConfiguration;
             NetworkConfiguration = networkConfiguration;
             PlatformVersion = platformVersion;
             ProtocolConfiguration = protocolConfiguration;
             RequestHeaderConfiguration = requestHeaderConfiguration;
+            ResourceConfigurations = resourceConfigurations;
             RoleArn = roleArn;
             Status = status;
             Tags = tags;

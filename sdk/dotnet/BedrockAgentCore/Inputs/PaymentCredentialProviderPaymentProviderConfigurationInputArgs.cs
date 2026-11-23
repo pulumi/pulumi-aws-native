@@ -15,8 +15,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class PaymentCredentialProviderPaymentProviderConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
+        [Input("amazonPayConfiguration")]
+        public Input<Inputs.PaymentCredentialProviderAmazonPayConfigurationInputArgs>? AmazonPayConfiguration { get; set; }
+
         [Input("coinbaseCdpConfiguration")]
         public Input<Inputs.PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs>? CoinbaseCdpConfiguration { get; set; }
+
+        [Input("payPalConfiguration")]
+        public Input<Inputs.PaymentCredentialProviderPayPalConfigurationInputArgs>? PayPalConfiguration { get; set; }
+
+        [Input("stripeConfiguration")]
+        public Input<Inputs.PaymentCredentialProviderStripeConfigurationInputArgs>? StripeConfiguration { get; set; }
 
         [Input("stripePrivyConfiguration")]
         public Input<Inputs.PaymentCredentialProviderStripePrivyConfigurationInputArgs>? StripePrivyConfiguration { get; set; }

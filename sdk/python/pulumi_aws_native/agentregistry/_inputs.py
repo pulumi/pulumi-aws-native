@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'PublisherIdentifierArgs',
+    'PublisherIdentifierArgsDict',
     'RegistryApprovalConfigurationArgs',
     'RegistryApprovalConfigurationArgsDict',
     'RegistryAuthorizerConfigurationArgs',
@@ -44,6 +46,10 @@ __all__ = [
     'RegistryRecordAgentSkillsDefinitionDescriptorArgsDict',
     'RegistryRecordAgentSkillsMdDescriptorArgs',
     'RegistryRecordAgentSkillsMdDescriptorArgsDict',
+    'RegistryRecordAgentSkillsPackageDescriptorArgs',
+    'RegistryRecordAgentSkillsPackageDescriptorArgsDict',
+    'RegistryRecordAgentSkillsSourceConfigurationArgs',
+    'RegistryRecordAgentSkillsSourceConfigurationArgsDict',
     'RegistryRecordCredentialProviderConfigurationArgs',
     'RegistryRecordCredentialProviderConfigurationArgsDict',
     'RegistryRecordCredentialProviderUnionArgs',
@@ -68,10 +74,16 @@ __all__ = [
     'RegistryRecordMcpToolsDescriptorArgsDict',
     'RegistryRecordOAuthCredentialProviderArgs',
     'RegistryRecordOAuthCredentialProviderArgsDict',
+    'RegistryRecordS3SourceConfigurationArgs',
+    'RegistryRecordS3SourceConfigurationArgsDict',
     'RegistryRecordSkillMdSourceArgs',
     'RegistryRecordSkillMdSourceArgsDict',
     'RegistryRecordSkillMdSourceFromUrlArgs',
     'RegistryRecordSkillMdSourceFromUrlArgsDict',
+    'RegistryRecordSkillSourceCredentialProviderConfigurationArgs',
+    'RegistryRecordSkillSourceCredentialProviderConfigurationArgsDict',
+    'RegistryRecordSkillSourceCredentialProviderUnionArgs',
+    'RegistryRecordSkillSourceCredentialProviderUnionArgsDict',
     'RegistryRecordSourceOnlyDescriptorSourceArgs',
     'RegistryRecordSourceOnlyDescriptorSourceArgsDict',
     'RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs',
@@ -79,6 +91,39 @@ __all__ = [
     'RegistryRecordTypeSchemaOverrideArgs',
     'RegistryRecordTypeSchemaOverrideArgsDict',
 ]
+
+class PublisherIdentifierArgsDict(TypedDict):
+    """
+    The identifier value. Exactly one member is set.
+    """
+    domain: pulumi.Input[_builtins.str]
+    """
+    The fully qualified domain name (RFC 1035/1123) with at least two labels, in lowercase. The service stores domain names in lowercase, so specify the value in lowercase to avoid drift.
+    """
+
+@pulumi.input_type
+class PublisherIdentifierArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[_builtins.str]):
+        """
+        The identifier value. Exactly one member is set.
+
+        :param pulumi.Input[_builtins.str] domain: The fully qualified domain name (RFC 1035/1123) with at least two labels, in lowercase. The service stores domain names in lowercase, so specify the value in lowercase to avoid drift.
+        """
+        pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[_builtins.str]:
+        """
+        The fully qualified domain name (RFC 1035/1123) with at least two labels, in lowercase. The service stores domain names in lowercase, so specify the value in lowercase to avoid drift.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain", value)
+
 
 class RegistryApprovalConfigurationArgsDict(TypedDict):
     """
@@ -581,16 +626,33 @@ class RegistryRecordAgentSkillsAdditionalDataArgsDict(TypedDict):
     Additional data associated with an agent skills definition descriptor.
     """
     skill_md: NotRequired[pulumi.Input[Optional['RegistryRecordAgentSkillsMdDescriptorArgsDict']]]
+    skill_package: NotRequired[pulumi.Input[Optional['RegistryRecordAgentSkillsPackageDescriptorArgsDict']]]
+    """
+    The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+    """
+    source_configuration: NotRequired[pulumi.Input[Optional['RegistryRecordAgentSkillsSourceConfigurationArgsDict']]]
+    """
+    The provider-specific settings of the record's skill source.
+    """
 
 @pulumi.input_type
 class RegistryRecordAgentSkillsAdditionalDataArgs:
     def __init__(__self__, *,
-                 skill_md: pulumi.Input[Optional['RegistryRecordAgentSkillsMdDescriptorArgs']] = None):
+                 skill_md: pulumi.Input[Optional['RegistryRecordAgentSkillsMdDescriptorArgs']] = None,
+                 skill_package: pulumi.Input[Optional['RegistryRecordAgentSkillsPackageDescriptorArgs']] = None,
+                 source_configuration: pulumi.Input[Optional['RegistryRecordAgentSkillsSourceConfigurationArgs']] = None):
         """
         Additional data associated with an agent skills definition descriptor.
+
+        :param pulumi.Input['RegistryRecordAgentSkillsPackageDescriptorArgs'] skill_package: The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+        :param pulumi.Input['RegistryRecordAgentSkillsSourceConfigurationArgs'] source_configuration: The provider-specific settings of the record's skill source.
         """
         if skill_md is not None:
             pulumi.set(__self__, "skill_md", skill_md)
+        if skill_package is not None:
+            pulumi.set(__self__, "skill_package", skill_package)
+        if source_configuration is not None:
+            pulumi.set(__self__, "source_configuration", source_configuration)
 
     @_builtins.property
     @pulumi.getter(name="skillMd")
@@ -600,6 +662,30 @@ class RegistryRecordAgentSkillsAdditionalDataArgs:
     @skill_md.setter
     def skill_md(self, value: pulumi.Input[Optional['RegistryRecordAgentSkillsMdDescriptorArgs']]):
         pulumi.set(self, "skill_md", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skillPackage")
+    def skill_package(self) -> pulumi.Input[Optional['RegistryRecordAgentSkillsPackageDescriptorArgs']]:
+        """
+        The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+        """
+        return pulumi.get(self, "skill_package")
+
+    @skill_package.setter
+    def skill_package(self, value: pulumi.Input[Optional['RegistryRecordAgentSkillsPackageDescriptorArgs']]):
+        pulumi.set(self, "skill_package", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> pulumi.Input[Optional['RegistryRecordAgentSkillsSourceConfigurationArgs']]:
+        """
+        The provider-specific settings of the record's skill source.
+        """
+        return pulumi.get(self, "source_configuration")
+
+    @source_configuration.setter
+    def source_configuration(self, value: pulumi.Input[Optional['RegistryRecordAgentSkillsSourceConfigurationArgs']]):
+        pulumi.set(self, "source_configuration", value)
 
 
 class RegistryRecordAgentSkillsDefinitionDescriptorArgsDict(TypedDict):
@@ -720,6 +806,73 @@ class RegistryRecordAgentSkillsMdDescriptorArgs:
     @source.setter
     def source(self, value: pulumi.Input[Optional['RegistryRecordSkillMdSourceArgs']]):
         pulumi.set(self, "source", value)
+
+
+class RegistryRecordAgentSkillsPackageDescriptorArgsDict(TypedDict):
+    """
+    The skill package descriptor. It names the source that the registry synchronizes a skill package (a ZIP archive that follows the Agent Skills specification) from. The registry validates the package, stores it, and sets SkillMd Data from the package's SKILL.md.
+    """
+    source: NotRequired[pulumi.Input[Optional['RegistryRecordSkillMdSourceArgsDict']]]
+    """
+    The source of the skill package, as an s3:// URL of a ZIP object.
+    """
+
+@pulumi.input_type
+class RegistryRecordAgentSkillsPackageDescriptorArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[Optional['RegistryRecordSkillMdSourceArgs']] = None):
+        """
+        The skill package descriptor. It names the source that the registry synchronizes a skill package (a ZIP archive that follows the Agent Skills specification) from. The registry validates the package, stores it, and sets SkillMd Data from the package's SKILL.md.
+
+        :param pulumi.Input['RegistryRecordSkillMdSourceArgs'] source: The source of the skill package, as an s3:// URL of a ZIP object.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional['RegistryRecordSkillMdSourceArgs']]:
+        """
+        The source of the skill package, as an s3:// URL of a ZIP object.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional['RegistryRecordSkillMdSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
+class RegistryRecordAgentSkillsSourceConfigurationArgsDict(TypedDict):
+    """
+    The provider-specific settings of a skill source. Specify the member that matches the source's provider, such as S3 for an Amazon S3 source.
+    """
+    s3: pulumi.Input['RegistryRecordS3SourceConfigurationArgsDict']
+    """
+    The settings of an Amazon S3 source.
+    """
+
+@pulumi.input_type
+class RegistryRecordAgentSkillsSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: pulumi.Input['RegistryRecordS3SourceConfigurationArgs']):
+        """
+        The provider-specific settings of a skill source. Specify the member that matches the source's provider, such as S3 for an Amazon S3 source.
+
+        :param pulumi.Input['RegistryRecordS3SourceConfigurationArgs'] s3: The settings of an Amazon S3 source.
+        """
+        pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input['RegistryRecordS3SourceConfigurationArgs']:
+        """
+        The settings of an Amazon S3 source.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input['RegistryRecordS3SourceConfigurationArgs']):
+        pulumi.set(self, "s3", value)
 
 
 class RegistryRecordCredentialProviderConfigurationArgsDict(TypedDict):
@@ -1326,9 +1479,43 @@ class RegistryRecordOAuthCredentialProviderArgs:
         pulumi.set(self, "scopes", value)
 
 
+class RegistryRecordS3SourceConfigurationArgsDict(TypedDict):
+    """
+    The settings of a skill source that the registry reads from Amazon S3.
+    """
+    bucket_owner_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+    """
+
+@pulumi.input_type
+class RegistryRecordS3SourceConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The settings of a skill source that the registry reads from Amazon S3.
+
+        :param pulumi.Input[_builtins.str] bucket_owner_account_id: The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+        """
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
+
+
 class RegistryRecordSkillMdSourceArgsDict(TypedDict):
     """
-    Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+    The source that the registry synchronizes agent skills content from: a SKILL.md document in SkillMd.Source, or a skill package in SkillPackage.Source.
     """
     from_url: NotRequired[pulumi.Input[Optional['RegistryRecordSkillMdSourceFromUrlArgsDict']]]
 
@@ -1337,7 +1524,7 @@ class RegistryRecordSkillMdSourceArgs:
     def __init__(__self__, *,
                  from_url: pulumi.Input[Optional['RegistryRecordSkillMdSourceFromUrlArgs']] = None):
         """
-        Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+        The source that the registry synchronizes agent skills content from: a SKILL.md document in SkillMd.Source, or a skill package in SkillPackage.Source.
         """
         if from_url is not None:
             pulumi.set(__self__, "from_url", from_url)
@@ -1354,35 +1541,141 @@ class RegistryRecordSkillMdSourceArgs:
 
 class RegistryRecordSkillMdSourceFromUrlArgsDict(TypedDict):
     """
-    URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+    URL-based source of agent skills content. With an s3:// URL, the registry reads the Amazon S3 object when the record is created, and again whenever the URL, the credential provider or the bucket owner changes. Each read replaces the SKILL.md Data and sets the record's Name and Description from the name and description in the SKILL.md frontmatter, so set Name and Description to the same values and don't set SkillMd Data. An https:// URL is a reference URL that the registry doesn't synchronize from: where Amazon S3 skill synchronization is available, the registry accepts an https:// URL only on a record that already stores it, with the content provided inline in SkillMd Data.
     """
     url: pulumi.Input[_builtins.str]
     """
-    URL source for the SkillMd document.
+    The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
+    """
+    credential_provider_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationArgsDict']]]]]
+    """
+    The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
     """
 
 @pulumi.input_type
 class RegistryRecordSkillMdSourceFromUrlArgs:
     def __init__(__self__, *,
-                 url: pulumi.Input[_builtins.str]):
+                 url: pulumi.Input[_builtins.str],
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationArgs']]]] = None):
         """
-        URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+        URL-based source of agent skills content. With an s3:// URL, the registry reads the Amazon S3 object when the record is created, and again whenever the URL, the credential provider or the bucket owner changes. Each read replaces the SKILL.md Data and sets the record's Name and Description from the name and description in the SKILL.md frontmatter, so set Name and Description to the same values and don't set SkillMd Data. An https:// URL is a reference URL that the registry doesn't synchronize from: where Amazon S3 skill synchronization is available, the registry accepts an https:// URL only on a record that already stores it, with the content provided inline in SkillMd Data.
 
-        :param pulumi.Input[_builtins.str] url: URL source for the SkillMd document.
+        :param pulumi.Input[_builtins.str] url: The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationArgs']]] credential_provider_configurations: The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
         """
         pulumi.set(__self__, "url", url)
+        if credential_provider_configurations is not None:
+            pulumi.set(__self__, "credential_provider_configurations", credential_provider_configurations)
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> pulumi.Input[_builtins.str]:
         """
-        URL source for the SkillMd document.
+        The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
         """
         return pulumi.get(self, "url")
 
     @url.setter
     def url(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProviderConfigurations")
+    def credential_provider_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationArgs']]]]:
+        """
+        The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
+        """
+        return pulumi.get(self, "credential_provider_configurations")
+
+    @credential_provider_configurations.setter
+    def credential_provider_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationArgs']]]]):
+        pulumi.set(self, "credential_provider_configurations", value)
+
+
+class RegistryRecordSkillSourceCredentialProviderConfigurationArgsDict(TypedDict):
+    """
+    A credential provider configuration that the registry uses to read an agent skills source. An Amazon S3 source takes an IAM role.
+    """
+    credential_provider: pulumi.Input['RegistryRecordSkillSourceCredentialProviderUnionArgsDict']
+    """
+    The credential provider details.
+    """
+    credential_provider_type: pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType']
+    """
+    The type of the credential provider.
+    """
+
+@pulumi.input_type
+class RegistryRecordSkillSourceCredentialProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 credential_provider: pulumi.Input['RegistryRecordSkillSourceCredentialProviderUnionArgs'],
+                 credential_provider_type: pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType']):
+        """
+        A credential provider configuration that the registry uses to read an agent skills source. An Amazon S3 source takes an IAM role.
+
+        :param pulumi.Input['RegistryRecordSkillSourceCredentialProviderUnionArgs'] credential_provider: The credential provider details.
+        :param pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType'] credential_provider_type: The type of the credential provider.
+        """
+        pulumi.set(__self__, "credential_provider", credential_provider)
+        pulumi.set(__self__, "credential_provider_type", credential_provider_type)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProvider")
+    def credential_provider(self) -> pulumi.Input['RegistryRecordSkillSourceCredentialProviderUnionArgs']:
+        """
+        The credential provider details.
+        """
+        return pulumi.get(self, "credential_provider")
+
+    @credential_provider.setter
+    def credential_provider(self, value: pulumi.Input['RegistryRecordSkillSourceCredentialProviderUnionArgs']):
+        pulumi.set(self, "credential_provider", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProviderType")
+    def credential_provider_type(self) -> pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType']:
+        """
+        The type of the credential provider.
+        """
+        return pulumi.get(self, "credential_provider_type")
+
+    @credential_provider_type.setter
+    def credential_provider_type(self, value: pulumi.Input['RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType']):
+        pulumi.set(self, "credential_provider_type", value)
+
+
+class RegistryRecordSkillSourceCredentialProviderUnionArgsDict(TypedDict):
+    """
+    The credential provider details of an agent skills source. Specify IamCredentialProvider.
+    """
+    iam_credential_provider: NotRequired[pulumi.Input[Optional['RegistryRecordIamCredentialProviderArgsDict']]]
+    """
+    The IAM role that the registry assumes to read the source. For an Amazon S3 source, omit Service or set it to s3, and omit Region or set it to the registry's Region.
+    """
+
+@pulumi.input_type
+class RegistryRecordSkillSourceCredentialProviderUnionArgs:
+    def __init__(__self__, *,
+                 iam_credential_provider: pulumi.Input[Optional['RegistryRecordIamCredentialProviderArgs']] = None):
+        """
+        The credential provider details of an agent skills source. Specify IamCredentialProvider.
+
+        :param pulumi.Input['RegistryRecordIamCredentialProviderArgs'] iam_credential_provider: The IAM role that the registry assumes to read the source. For an Amazon S3 source, omit Service or set it to s3, and omit Region or set it to the registry's Region.
+        """
+        if iam_credential_provider is not None:
+            pulumi.set(__self__, "iam_credential_provider", iam_credential_provider)
+
+    @_builtins.property
+    @pulumi.getter(name="iamCredentialProvider")
+    def iam_credential_provider(self) -> pulumi.Input[Optional['RegistryRecordIamCredentialProviderArgs']]:
+        """
+        The IAM role that the registry assumes to read the source. For an Amazon S3 source, omit Service or set it to s3, and omit Region or set it to the registry's Region.
+        """
+        return pulumi.get(self, "iam_credential_provider")
+
+    @iam_credential_provider.setter
+    def iam_credential_provider(self, value: pulumi.Input[Optional['RegistryRecordIamCredentialProviderArgs']]):
+        pulumi.set(self, "iam_credential_provider", value)
 
 
 class RegistryRecordSourceOnlyDescriptorSourceArgsDict(TypedDict):

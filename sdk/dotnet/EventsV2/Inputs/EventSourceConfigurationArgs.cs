@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.EventsV2.Inputs
 {
 
     /// <summary>
-    /// Event source configuration. Exactly one of the two variants must be set.
+    /// Event source configuration. Exactly one of the three variants must be set.
     /// </summary>
     public sealed class EventSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -26,6 +26,12 @@ namespace Pulumi.AwsNative.EventsV2.Inputs
         /// </summary>
         [Input("partnerEventsConfiguration")]
         public Input<Inputs.EventSourcePartnerEventsConfigurationArgs>? PartnerEventsConfiguration { get; set; }
+
+        /// <summary>
+        /// Configuration for receiving events that an external provider sends to a webhook URL.
+        /// </summary>
+        [Input("webhookEventsConfiguration")]
+        public Input<Inputs.EventSourceWebhookEventsConfigurationArgs>? WebhookEventsConfiguration { get; set; }
 
         public EventSourceConfigurationArgs()
         {

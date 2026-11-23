@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigIpAddressType? IpAddressType;
+        public readonly Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigOriginHttpVersion? OriginHttpVersion;
         /// <summary>
         /// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
         ///  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -63,6 +64,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigIpAddressType? ipAddressType,
 
+            Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigOriginHttpVersion? originHttpVersion,
+
             int? originKeepaliveTimeout,
 
             Outputs.DistributionOriginMtlsConfig? originMtlsConfig,
@@ -76,6 +79,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             HttpPort = httpPort;
             HttpsPort = httpsPort;
             IpAddressType = ipAddressType;
+            OriginHttpVersion = originHttpVersion;
             OriginKeepaliveTimeout = originKeepaliveTimeout;
             OriginMtlsConfig = originMtlsConfig;
             OriginProtocolPolicy = originProtocolPolicy;

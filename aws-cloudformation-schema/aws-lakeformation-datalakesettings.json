@@ -1,102 +1,140 @@
 {
   "typeName" : "AWS::LakeFormation::DataLakeSettings",
   "description" : "Resource Type definition for AWS::LakeFormation::DataLakeSettings",
-  "additionalProperties" : false,
-  "properties" : {
-    "AllowExternalDataFiltering" : {
-      "type" : "boolean"
-    },
-    "ExternalDataFilteringAllowList" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/DataLakePrincipal"
-      }
-    },
-    "CreateTableDefaultPermissions" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/PrincipalPermissions"
-      }
-    },
-    "MutationType" : {
-      "type" : "string"
-    },
-    "Parameters" : {
-      "type" : "object"
-    },
-    "ReadOnlyAdmins" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/DataLakePrincipal"
-      }
-    },
-    "AllowFullTableExternalDataAccess" : {
-      "type" : "boolean"
-    },
-    "Admins" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/DataLakePrincipal"
-      }
-    },
-    "CreateDatabaseDefaultPermissions" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/PrincipalPermissions"
-      }
-    },
-    "Id" : {
-      "type" : "string"
-    },
-    "AuthorizedSessionTagValueList" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "TrustedResourceOwners" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
-    }
-  },
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "definitions" : {
     "DataLakePrincipal" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
         "DataLakePrincipalIdentifier" : {
+          "description" : "An identifier for the Lake Formation principal.",
           "type" : "string"
         }
       },
-      "required" : [ "DataLakePrincipalIdentifier" ]
+      "required" : [ "DataLakePrincipalIdentifier" ],
+      "additionalProperties" : false
     },
     "PrincipalPermissions" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
+        "Principal" : {
+          "description" : "The principal who is granted permissions.",
+          "$ref" : "#/definitions/DataLakePrincipal"
+        },
         "Permissions" : {
+          "description" : "The permissions that are granted to the principal.",
           "type" : "array",
-          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
-        },
-        "Principal" : {
-          "$ref" : "#/definitions/DataLakePrincipal"
         }
       },
-      "required" : [ "Permissions", "Principal" ]
+      "required" : [ "Principal", "Permissions" ],
+      "additionalProperties" : false
     }
   },
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "properties" : {
+    "CatalogId" : {
+      "description" : "The identifier for the Data Catalog. By default, the account ID.",
+      "type" : "string"
+    },
+    "UniqueId" : {
+      "description" : "A unique ID to identify the settings managed by this stack. This will always equal `main` for a stack which can manage the boolean properties (i.e. all stacks with MutationType REPLACE and any stack with MutationType APPEND which sets boolean properties).",
+      "type" : "string"
+    },
+    "Admins" : {
+      "description" : "A list of Lake Formation principals designated as data lake administrators.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/DataLakePrincipal"
+      }
+    },
+    "ReadOnlyAdmins" : {
+      "description" : "A list of Lake Formation principals designated as read-only administrators.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/DataLakePrincipal"
+      }
+    },
+    "AllowExternalDataFiltering" : {
+      "description" : "Whether to allow Amazon EMR clusters or other third-party query engines to access data managed by Lake Formation.",
+      "type" : "boolean"
+    },
+    "AllowFullTableExternalDataAccess" : {
+      "description" : "Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full table access.",
+      "type" : "boolean"
+    },
+    "AuthorizedSessionTagValueList" : {
+      "description" : "Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      },
+      "uniqueItems" : false
+    },
+    "CreateDatabaseDefaultPermissions" : {
+      "description" : "Specifies whether access control on newly created database is managed by Lake Formation permissions or exclusively by IAM permissions.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/PrincipalPermissions"
+      }
+    },
+    "CreateTableDefaultPermissions" : {
+      "description" : "Specifies whether access control on newly created table is managed by Lake Formation permissions or exclusively by IAM permissions.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/PrincipalPermissions"
+      }
+    },
+    "ExternalDataFilteringAllowList" : {
+      "description" : "A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/DataLakePrincipal"
+      }
+    },
+    "MutationType" : {
+      "description" : "Enum which can be set to REPLACE or APPEND. If set to REPLACE, the resource will override existing settings on UPDATE. CREATE will fail with RESOURCE EXISTS if settings are not in their default state. DELETE will reset the settings to their default state. If set to APPEND, array/object properties it sets will be merged with the existing settings. If boolean properties are set with MutationType APPEND, the UniqueId will be set to `main` and no other stack will be able to manage boolean properties.",
+      "type" : "string"
+    },
+    "Parameters" : {
+      "description" : "A key-value map that provides an additional configuration on your data lake.",
+      "type" : "object",
+      "patternProperties" : {
+        ".+" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "TrustedResourceOwners" : {
+      "description" : "A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      },
+      "uniqueItems" : false
+    }
+  },
+  "additionalProperties" : false,
+  "readOnlyProperties" : [ "/properties/CatalogId", "/properties/UniqueId" ],
+  "writeOnlyProperties" : [ "/properties/MutationType" ],
+  "primaryIdentifier" : [ "/properties/CatalogId", "/properties/UniqueId" ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "lakeformation:PutDataLakeSettings", "lakeformation:GetDataLakeSettings" ]
+    },
+    "read" : {
+      "permissions" : [ "lakeformation:GetDataLakeSettings" ]
+    },
+    "update" : {
+      "permissions" : [ "lakeformation:PutDataLakeSettings", "lakeformation:GetDataLakeSettings" ]
+    },
+    "delete" : {
+      "permissions" : [ "lakeformation:PutDataLakeSettings", "lakeformation:GetDataLakeSettings" ]
+    }
+  }
 }

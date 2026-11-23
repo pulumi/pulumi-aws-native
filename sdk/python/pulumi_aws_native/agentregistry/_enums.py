@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'PublisherVerificationStatus',
     'RegistryAuthorizerType',
     'RegistryAuthorizingClaimMatchValueTypeClaimMatchOperator',
     'RegistryAutoApprovalRule',
@@ -16,10 +17,23 @@ __all__ = [
     'RegistryRecordCredentialProviderConfigurationCredentialProviderType',
     'RegistryRecordOAuthCredentialProviderGrantType',
     'RegistryRecordRecordType',
+    'RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType',
     'RegistryRecordStatus',
     'RegistryRecordTypeSchemaOverrideRecordType',
     'RegistryStatus',
 ]
+
+
+@pulumi.type_token("aws-native:agentregistry:PublisherVerificationStatus")
+class PublisherVerificationStatus(_builtins.str, Enum):
+    """
+    The verification status of the Publisher.
+    """
+    ACTION_REQUIRED = "ACTION_REQUIRED"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+    SUSPENDED = "SUSPENDED"
+    DELETING = "DELETING"
 
 
 @pulumi.type_token("aws-native:agentregistry:RegistryAuthorizerType")
@@ -92,10 +106,18 @@ class RegistryRecordRecordType(_builtins.str, Enum):
     GATEWAY = "GATEWAY"
 
 
+@pulumi.type_token("aws-native:agentregistry:RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType")
+class RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType(_builtins.str, Enum):
+    """
+    The type of the credential provider.
+    """
+    IAM = "IAM"
+
+
 @pulumi.type_token("aws-native:agentregistry:RegistryRecordStatus")
 class RegistryRecordStatus(_builtins.str, Enum):
     """
-    The lifecycle status of the registry record.
+    The lifecycle status of the registry record. CREATE_PENDING_AUTH and UPDATE_PENDING_AUTH mean that the record waits for a user to authorize access to a GitHub source. CloudFormation doesn't support GitHub sources, so a create or update that reaches one of these states fails.
     """
     DRAFT = "DRAFT"
     PENDING_APPROVAL = "PENDING_APPROVAL"
@@ -106,6 +128,8 @@ class RegistryRecordStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     CREATE_FAILED = "CREATE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
+    CREATE_PENDING_AUTH = "CREATE_PENDING_AUTH"
+    UPDATE_PENDING_AUTH = "UPDATE_PENDING_AUTH"
 
 
 @pulumi.type_token("aws-native:agentregistry:RegistryRecordTypeSchemaOverrideRecordType")

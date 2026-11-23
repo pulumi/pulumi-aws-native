@@ -506,6 +506,187 @@ func (in *indexEncryptionConfigurationSseTypePtr) ToIndexEncryptionConfiguration
 	return pulumi.ToOutputWithContext(ctx, in).(IndexEncryptionConfigurationSseTypePtrOutput)
 }
 
+type IndexTextSearchConfigurationLanguage string
+
+const (
+	IndexTextSearchConfigurationLanguageEn = IndexTextSearchConfigurationLanguage("en")
+	IndexTextSearchConfigurationLanguageFr = IndexTextSearchConfigurationLanguage("fr")
+	IndexTextSearchConfigurationLanguageEs = IndexTextSearchConfigurationLanguage("es")
+	IndexTextSearchConfigurationLanguagePt = IndexTextSearchConfigurationLanguage("pt")
+	IndexTextSearchConfigurationLanguageIt = IndexTextSearchConfigurationLanguage("it")
+	IndexTextSearchConfigurationLanguageDe = IndexTextSearchConfigurationLanguage("de")
+	IndexTextSearchConfigurationLanguageNl = IndexTextSearchConfigurationLanguage("nl")
+	IndexTextSearchConfigurationLanguageZh = IndexTextSearchConfigurationLanguage("zh")
+	IndexTextSearchConfigurationLanguageJa = IndexTextSearchConfigurationLanguage("ja")
+	IndexTextSearchConfigurationLanguageKo = IndexTextSearchConfigurationLanguage("ko")
+)
+
+func (IndexTextSearchConfigurationLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexTextSearchConfigurationLanguage)(nil)).Elem()
+}
+
+func (e IndexTextSearchConfigurationLanguage) ToIndexTextSearchConfigurationLanguageOutput() IndexTextSearchConfigurationLanguageOutput {
+	return pulumi.ToOutput(e).(IndexTextSearchConfigurationLanguageOutput)
+}
+
+func (e IndexTextSearchConfigurationLanguage) ToIndexTextSearchConfigurationLanguageOutputWithContext(ctx context.Context) IndexTextSearchConfigurationLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IndexTextSearchConfigurationLanguageOutput)
+}
+
+func (e IndexTextSearchConfigurationLanguage) ToIndexTextSearchConfigurationLanguagePtrOutput() IndexTextSearchConfigurationLanguagePtrOutput {
+	return e.ToIndexTextSearchConfigurationLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e IndexTextSearchConfigurationLanguage) ToIndexTextSearchConfigurationLanguagePtrOutputWithContext(ctx context.Context) IndexTextSearchConfigurationLanguagePtrOutput {
+	return IndexTextSearchConfigurationLanguage(e).ToIndexTextSearchConfigurationLanguageOutputWithContext(ctx).ToIndexTextSearchConfigurationLanguagePtrOutputWithContext(ctx)
+}
+
+func (e IndexTextSearchConfigurationLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IndexTextSearchConfigurationLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IndexTextSearchConfigurationLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IndexTextSearchConfigurationLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IndexTextSearchConfigurationLanguageOutput struct{ *pulumi.OutputState }
+
+func (IndexTextSearchConfigurationLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexTextSearchConfigurationLanguage)(nil)).Elem()
+}
+
+func (o IndexTextSearchConfigurationLanguageOutput) ToIndexTextSearchConfigurationLanguageOutput() IndexTextSearchConfigurationLanguageOutput {
+	return o
+}
+
+func (o IndexTextSearchConfigurationLanguageOutput) ToIndexTextSearchConfigurationLanguageOutputWithContext(ctx context.Context) IndexTextSearchConfigurationLanguageOutput {
+	return o
+}
+
+func (o IndexTextSearchConfigurationLanguageOutput) ToIndexTextSearchConfigurationLanguagePtrOutput() IndexTextSearchConfigurationLanguagePtrOutput {
+	return o.ToIndexTextSearchConfigurationLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o IndexTextSearchConfigurationLanguageOutput) ToIndexTextSearchConfigurationLanguagePtrOutputWithContext(ctx context.Context) IndexTextSearchConfigurationLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexTextSearchConfigurationLanguage) *IndexTextSearchConfigurationLanguage {
+		return &v
+	}).(IndexTextSearchConfigurationLanguagePtrOutput)
+}
+
+func (o IndexTextSearchConfigurationLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IndexTextSearchConfigurationLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IndexTextSearchConfigurationLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IndexTextSearchConfigurationLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IndexTextSearchConfigurationLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IndexTextSearchConfigurationLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IndexTextSearchConfigurationLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (IndexTextSearchConfigurationLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexTextSearchConfigurationLanguage)(nil)).Elem()
+}
+
+func (o IndexTextSearchConfigurationLanguagePtrOutput) ToIndexTextSearchConfigurationLanguagePtrOutput() IndexTextSearchConfigurationLanguagePtrOutput {
+	return o
+}
+
+func (o IndexTextSearchConfigurationLanguagePtrOutput) ToIndexTextSearchConfigurationLanguagePtrOutputWithContext(ctx context.Context) IndexTextSearchConfigurationLanguagePtrOutput {
+	return o
+}
+
+func (o IndexTextSearchConfigurationLanguagePtrOutput) Elem() IndexTextSearchConfigurationLanguageOutput {
+	return o.ApplyT(func(v *IndexTextSearchConfigurationLanguage) IndexTextSearchConfigurationLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret IndexTextSearchConfigurationLanguage
+		return ret
+	}).(IndexTextSearchConfigurationLanguageOutput)
+}
+
+func (o IndexTextSearchConfigurationLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IndexTextSearchConfigurationLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IndexTextSearchConfigurationLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IndexTextSearchConfigurationLanguageInput is an input type that accepts values of the IndexTextSearchConfigurationLanguage enum
+// A concrete instance of `IndexTextSearchConfigurationLanguageInput` can be one of the following:
+//
+//	IndexTextSearchConfigurationLanguageEn
+//	IndexTextSearchConfigurationLanguageFr
+//	IndexTextSearchConfigurationLanguageEs
+//	IndexTextSearchConfigurationLanguagePt
+//	IndexTextSearchConfigurationLanguageIt
+//	IndexTextSearchConfigurationLanguageDe
+//	IndexTextSearchConfigurationLanguageNl
+//	IndexTextSearchConfigurationLanguageZh
+//	IndexTextSearchConfigurationLanguageJa
+//	IndexTextSearchConfigurationLanguageKo
+type IndexTextSearchConfigurationLanguageInput interface {
+	pulumi.Input
+
+	ToIndexTextSearchConfigurationLanguageOutput() IndexTextSearchConfigurationLanguageOutput
+	ToIndexTextSearchConfigurationLanguageOutputWithContext(context.Context) IndexTextSearchConfigurationLanguageOutput
+}
+
+var indexTextSearchConfigurationLanguagePtrType = reflect.TypeOf((**IndexTextSearchConfigurationLanguage)(nil)).Elem()
+
+type IndexTextSearchConfigurationLanguagePtrInput interface {
+	pulumi.Input
+
+	ToIndexTextSearchConfigurationLanguagePtrOutput() IndexTextSearchConfigurationLanguagePtrOutput
+	ToIndexTextSearchConfigurationLanguagePtrOutputWithContext(context.Context) IndexTextSearchConfigurationLanguagePtrOutput
+}
+
+type indexTextSearchConfigurationLanguagePtr string
+
+func IndexTextSearchConfigurationLanguagePtr(v string) IndexTextSearchConfigurationLanguagePtrInput {
+	return (*indexTextSearchConfigurationLanguagePtr)(&v)
+}
+
+func (*indexTextSearchConfigurationLanguagePtr) ElementType() reflect.Type {
+	return indexTextSearchConfigurationLanguagePtrType
+}
+
+func (in *indexTextSearchConfigurationLanguagePtr) ToIndexTextSearchConfigurationLanguagePtrOutput() IndexTextSearchConfigurationLanguagePtrOutput {
+	return pulumi.ToOutput(in).(IndexTextSearchConfigurationLanguagePtrOutput)
+}
+
+func (in *indexTextSearchConfigurationLanguagePtr) ToIndexTextSearchConfigurationLanguagePtrOutputWithContext(ctx context.Context) IndexTextSearchConfigurationLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IndexTextSearchConfigurationLanguagePtrOutput)
+}
+
 // The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
 type VectorBucketEncryptionConfigurationSseType string
 
@@ -679,6 +860,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDistanceMetricPtrInput)(nil)).Elem(), IndexDistanceMetric("cosine"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexEncryptionConfigurationSseTypeInput)(nil)).Elem(), IndexEncryptionConfigurationSseType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexEncryptionConfigurationSseTypePtrInput)(nil)).Elem(), IndexEncryptionConfigurationSseType("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexTextSearchConfigurationLanguageInput)(nil)).Elem(), IndexTextSearchConfigurationLanguage("en"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexTextSearchConfigurationLanguagePtrInput)(nil)).Elem(), IndexTextSearchConfigurationLanguage("en"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketEncryptionConfigurationSseTypeInput)(nil)).Elem(), VectorBucketEncryptionConfigurationSseType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketEncryptionConfigurationSseTypePtrInput)(nil)).Elem(), VectorBucketEncryptionConfigurationSseType("AES256"))
 	pulumi.RegisterOutputType(IndexDataTypeOutput{})
@@ -687,6 +870,8 @@ func init() {
 	pulumi.RegisterOutputType(IndexDistanceMetricPtrOutput{})
 	pulumi.RegisterOutputType(IndexEncryptionConfigurationSseTypeOutput{})
 	pulumi.RegisterOutputType(IndexEncryptionConfigurationSseTypePtrOutput{})
+	pulumi.RegisterOutputType(IndexTextSearchConfigurationLanguageOutput{})
+	pulumi.RegisterOutputType(IndexTextSearchConfigurationLanguagePtrOutput{})
 	pulumi.RegisterOutputType(VectorBucketEncryptionConfigurationSseTypeOutput{})
 	pulumi.RegisterOutputType(VectorBucketEncryptionConfigurationSseTypePtrOutput{})
 }

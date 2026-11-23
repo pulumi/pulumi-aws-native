@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2
 {
     /// <summary>
-    /// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+    /// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
     /// </summary>
     [AwsNativeResourceType("aws-native:inspectorv2:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
@@ -109,6 +109,7 @@ namespace Pulumi.AwsNative.InspectorV2
                     "name",
                     "provider",
                     "providerConfiguration.azure.awsConfigConnectorArn",
+                    "providerConfiguration.gcp.awsConfigConnectorArn",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

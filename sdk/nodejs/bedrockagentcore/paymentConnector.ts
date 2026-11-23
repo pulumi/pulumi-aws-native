@@ -52,6 +52,10 @@ export class PaymentConnector extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly authorizationUrl: pulumi.Output<string>;
     /**
+     * The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.
+     */
+    declare public /*out*/ readonly awsBillingIamRoleArn: pulumi.Output<string>;
+    /**
      * The timestamp when the connector was created
      */
     declare public /*out*/ readonly connectorCreatedAt: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class PaymentConnector extends pulumi.CustomResource {
             resourceInputs["paymentManagerId"] = args?.paymentManagerId;
             resourceInputs["provisionMode"] = args?.provisionMode;
             resourceInputs["authorizationUrl"] = undefined /*out*/;
+            resourceInputs["awsBillingIamRoleArn"] = undefined /*out*/;
             resourceInputs["connectorCreatedAt"] = undefined /*out*/;
             resourceInputs["connectorLastUpdatedAt"] = undefined /*out*/;
             resourceInputs["connectorStatus"] = undefined /*out*/;
@@ -121,6 +126,7 @@ export class PaymentConnector extends pulumi.CustomResource {
             resourceInputs["paymentConnectorId"] = undefined /*out*/;
         } else {
             resourceInputs["authorizationUrl"] = undefined /*out*/;
+            resourceInputs["awsBillingIamRoleArn"] = undefined /*out*/;
             resourceInputs["connectorCreatedAt"] = undefined /*out*/;
             resourceInputs["connectorLastUpdatedAt"] = undefined /*out*/;
             resourceInputs["connectorName"] = undefined /*out*/;

@@ -44749,7 +44749,8 @@ type VpnConnectionVpnTunnelOptionsSpecification struct {
 	//  Valid values: ``ikev1`` | ``ikev2``
 	IkeVersions []VpnConnectionIkeVersionsRequestListValue `pulumi:"ikeVersions"`
 	// Options for logging VPN tunnel activity.
-	LogOptions *VpnConnectionVpnTunnelLogOptionsSpecification `pulumi:"logOptions"`
+	LogOptions                   *VpnConnectionVpnTunnelLogOptionsSpecification `pulumi:"logOptions"`
+	Phase1AdditionalKeyExchanges []interface{}                                  `pulumi:"phase1AdditionalKeyExchanges"`
 	// One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
 	//  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
 	Phase1EncryptionAlgorithms []VpnConnectionPhase1EncryptionAlgorithmsRequestListValue `pulumi:"phase1EncryptionAlgorithms"`
@@ -44762,7 +44763,8 @@ type VpnConnectionVpnTunnelOptionsSpecification struct {
 	Phase1LifetimeSeconds *int `pulumi:"phase1LifetimeSeconds"`
 	// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
 	//  Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
-	Phase1dhGroupNumbers []VpnConnectionPhase1dhGroupNumbersRequestListValue `pulumi:"phase1dhGroupNumbers"`
+	Phase1dhGroupNumbers         []VpnConnectionPhase1dhGroupNumbersRequestListValue `pulumi:"phase1dhGroupNumbers"`
+	Phase2AdditionalKeyExchanges []interface{}                                       `pulumi:"phase2AdditionalKeyExchanges"`
 	// One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
 	//  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
 	Phase2EncryptionAlgorithms []VpnConnectionPhase2EncryptionAlgorithmsRequestListValue `pulumi:"phase2EncryptionAlgorithms"`
@@ -44837,7 +44839,8 @@ type VpnConnectionVpnTunnelOptionsSpecificationArgs struct {
 	//  Valid values: ``ikev1`` | ``ikev2``
 	IkeVersions VpnConnectionIkeVersionsRequestListValueArrayInput `pulumi:"ikeVersions"`
 	// Options for logging VPN tunnel activity.
-	LogOptions VpnConnectionVpnTunnelLogOptionsSpecificationPtrInput `pulumi:"logOptions"`
+	LogOptions                   VpnConnectionVpnTunnelLogOptionsSpecificationPtrInput `pulumi:"logOptions"`
+	Phase1AdditionalKeyExchanges pulumi.ArrayInput                                     `pulumi:"phase1AdditionalKeyExchanges"`
 	// One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
 	//  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
 	Phase1EncryptionAlgorithms VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArrayInput `pulumi:"phase1EncryptionAlgorithms"`
@@ -44850,7 +44853,8 @@ type VpnConnectionVpnTunnelOptionsSpecificationArgs struct {
 	Phase1LifetimeSeconds pulumi.IntPtrInput `pulumi:"phase1LifetimeSeconds"`
 	// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
 	//  Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
-	Phase1dhGroupNumbers VpnConnectionPhase1dhGroupNumbersRequestListValueArrayInput `pulumi:"phase1dhGroupNumbers"`
+	Phase1dhGroupNumbers         VpnConnectionPhase1dhGroupNumbersRequestListValueArrayInput `pulumi:"phase1dhGroupNumbers"`
+	Phase2AdditionalKeyExchanges pulumi.ArrayInput                                           `pulumi:"phase2AdditionalKeyExchanges"`
 	// One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
 	//  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
 	Phase2EncryptionAlgorithms VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArrayInput `pulumi:"phase2EncryptionAlgorithms"`
@@ -44989,6 +44993,12 @@ func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) LogOptions() VpnConnec
 	}).(VpnConnectionVpnTunnelLogOptionsSpecificationPtrOutput)
 }
 
+func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase1AdditionalKeyExchanges() pulumi.ArrayOutput {
+	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []interface{} {
+		return v.Phase1AdditionalKeyExchanges
+	}).(pulumi.ArrayOutput)
+}
+
 // One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
 //
 //	Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
@@ -45022,6 +45032,12 @@ func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase1dhGroupNumbers()
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []VpnConnectionPhase1dhGroupNumbersRequestListValue {
 		return v.Phase1dhGroupNumbers
 	}).(VpnConnectionPhase1dhGroupNumbersRequestListValueArrayOutput)
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase2AdditionalKeyExchanges() pulumi.ArrayOutput {
+	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []interface{} {
+		return v.Phase2AdditionalKeyExchanges
+	}).(pulumi.ArrayOutput)
 }
 
 // One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.

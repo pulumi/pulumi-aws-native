@@ -30,11 +30,13 @@ class RuntimeArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]]] = None,
+                 hooks_configuration: pulumi.Input[Optional['RuntimeHooksConfigurationArgs']] = None,
                  lifecycle_configuration: pulumi.Input[Optional['RuntimeLifecycleConfigurationArgs']] = None,
                  network_configuration: pulumi.Input[Optional['RuntimeNetworkConfigurationArgs']] = None,
                  platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
                  request_header_configuration: pulumi.Input[Optional['RuntimeRequestHeaderConfigurationArgs']] = None,
+                 resource_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeResourceConfigurationArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Runtime resource.
@@ -47,11 +49,13 @@ class RuntimeArgs:
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
         :param pulumi.Input[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]] filesystem_configurations: Filesystem configurations for the agent runtime
+        :param pulumi.Input['RuntimeHooksConfigurationArgs'] hooks_configuration: Lifecycle hooks for the agent runtime
         :param pulumi.Input['RuntimeLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
         :param pulumi.Input['RuntimeNetworkConfigurationArgs'] network_configuration: Network access configuration for the Agent
         :param pulumi.Input[_builtins.str] platform_version: The version of the runtime platform
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
         :param pulumi.Input['RuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers
+        :param pulumi.Input[Sequence[pulumi.Input['RuntimeResourceConfigurationArgs']]] resource_configurations: Resource configurations for the agent runtime
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the agent.
         """
         pulumi.set(__self__, "agent_runtime_artifact", agent_runtime_artifact)
@@ -67,6 +71,8 @@ class RuntimeArgs:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if filesystem_configurations is not None:
             pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
+        if hooks_configuration is not None:
+            pulumi.set(__self__, "hooks_configuration", hooks_configuration)
         if lifecycle_configuration is not None:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
         if network_configuration is not None:
@@ -77,6 +83,8 @@ class RuntimeArgs:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
         if request_header_configuration is not None:
             pulumi.set(__self__, "request_header_configuration", request_header_configuration)
+        if resource_configurations is not None:
+            pulumi.set(__self__, "resource_configurations", resource_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -177,6 +185,18 @@ class RuntimeArgs:
         pulumi.set(self, "filesystem_configurations", value)
 
     @_builtins.property
+    @pulumi.getter(name="hooksConfiguration")
+    def hooks_configuration(self) -> pulumi.Input[Optional['RuntimeHooksConfigurationArgs']]:
+        """
+        Lifecycle hooks for the agent runtime
+        """
+        return pulumi.get(self, "hooks_configuration")
+
+    @hooks_configuration.setter
+    def hooks_configuration(self, value: pulumi.Input[Optional['RuntimeHooksConfigurationArgs']]):
+        pulumi.set(self, "hooks_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> pulumi.Input[Optional['RuntimeLifecycleConfigurationArgs']]:
         """
@@ -237,6 +257,18 @@ class RuntimeArgs:
         pulumi.set(self, "request_header_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceConfigurations")
+    def resource_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeResourceConfigurationArgs']]]]:
+        """
+        Resource configurations for the agent runtime
+        """
+        return pulumi.get(self, "resource_configurations")
+
+    @resource_configurations.setter
+    def resource_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeResourceConfigurationArgs']]]]):
+        pulumi.set(self, "resource_configurations", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -262,11 +294,13 @@ class Runtime(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict', 'outputs.RuntimeFilesystemConfiguration']]]]] = None,
+                 hooks_configuration: pulumi.Input[Optional[Union['RuntimeHooksConfigurationArgs', 'RuntimeHooksConfigurationArgsDict', 'outputs.RuntimeHooksConfiguration']]] = None,
                  lifecycle_configuration: pulumi.Input[Optional[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict', 'outputs.RuntimeLifecycleConfiguration']]] = None,
                  network_configuration: pulumi.Input[Optional[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict', 'outputs.RuntimeNetworkConfiguration']]] = None,
                  platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
                  request_header_configuration: pulumi.Input[Optional[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict', 'outputs.RuntimeRequestHeaderConfiguration']]] = None,
+                 resource_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeResourceConfigurationArgs', 'RuntimeResourceConfigurationArgsDict', 'outputs.RuntimeResourceConfiguration']]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -282,11 +316,13 @@ class Runtime(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict', 'outputs.RuntimeFilesystemConfiguration']]]] filesystem_configurations: Filesystem configurations for the agent runtime
+        :param pulumi.Input[Union['RuntimeHooksConfigurationArgs', 'RuntimeHooksConfigurationArgsDict', 'outputs.RuntimeHooksConfiguration']] hooks_configuration: Lifecycle hooks for the agent runtime
         :param pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict', 'outputs.RuntimeLifecycleConfiguration']] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
         :param pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict', 'outputs.RuntimeNetworkConfiguration']] network_configuration: Network access configuration for the Agent
         :param pulumi.Input[_builtins.str] platform_version: The version of the runtime platform
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
         :param pulumi.Input[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict', 'outputs.RuntimeRequestHeaderConfiguration']] request_header_configuration: Configuration for HTTP request headers
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuntimeResourceConfigurationArgs', 'RuntimeResourceConfigurationArgsDict', 'outputs.RuntimeResourceConfiguration']]]] resource_configurations: Resource configurations for the agent runtime
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of an IAM role
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the agent.
         """
@@ -321,11 +357,13 @@ class Runtime(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict', 'outputs.RuntimeFilesystemConfiguration']]]]] = None,
+                 hooks_configuration: pulumi.Input[Optional[Union['RuntimeHooksConfigurationArgs', 'RuntimeHooksConfigurationArgsDict', 'outputs.RuntimeHooksConfiguration']]] = None,
                  lifecycle_configuration: pulumi.Input[Optional[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict', 'outputs.RuntimeLifecycleConfiguration']]] = None,
                  network_configuration: pulumi.Input[Optional[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict', 'outputs.RuntimeNetworkConfiguration']]] = None,
                  platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
                  request_header_configuration: pulumi.Input[Optional[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict', 'outputs.RuntimeRequestHeaderConfiguration']]] = None,
+                 resource_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeResourceConfigurationArgs', 'RuntimeResourceConfigurationArgsDict', 'outputs.RuntimeResourceConfiguration']]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -348,11 +386,13 @@ class Runtime(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["filesystem_configurations"] = filesystem_configurations
+            __props__.__dict__["hooks_configuration"] = hooks_configuration
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["platform_version"] = platform_version
             __props__.__dict__["protocol_configuration"] = protocol_configuration
             __props__.__dict__["request_header_configuration"] = request_header_configuration
+            __props__.__dict__["resource_configurations"] = resource_configurations
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -401,12 +441,14 @@ class Runtime(pulumi.CustomResource):
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["failure_reason"] = None
         __props__.__dict__["filesystem_configurations"] = None
+        __props__.__dict__["hooks_configuration"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["network_configuration"] = None
         __props__.__dict__["platform_version"] = None
         __props__.__dict__["protocol_configuration"] = None
         __props__.__dict__["request_header_configuration"] = None
+        __props__.__dict__["resource_configurations"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -516,6 +558,14 @@ class Runtime(pulumi.CustomResource):
         return pulumi.get(self, "filesystem_configurations")
 
     @_builtins.property
+    @pulumi.getter(name="hooksConfiguration")
+    def hooks_configuration(self) -> pulumi.Output[Optional['outputs.RuntimeHooksConfiguration']]:
+        """
+        Lifecycle hooks for the agent runtime
+        """
+        return pulumi.get(self, "hooks_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[_builtins.str]:
         """
@@ -562,6 +612,14 @@ class Runtime(pulumi.CustomResource):
         Configuration for HTTP request headers
         """
         return pulumi.get(self, "request_header_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurations")
+    def resource_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.RuntimeResourceConfiguration']]]:
+        """
+        Resource configurations for the agent runtime
+        """
+        return pulumi.get(self, "resource_configurations")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")

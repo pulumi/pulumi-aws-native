@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("distributionId")]
         public Output<string> DistributionId { get; private set; } = null!;
 
+        [Output("domainMappings")]
+        public Output<ImmutableArray<Outputs.DistributionTenantDomainMapping>> DomainMappings { get; private set; } = null!;
+
         [Output("domainResults")]
         public Output<ImmutableArray<Outputs.DistributionTenantDomainResult>> DomainResults { get; private set; } = null!;
 
@@ -89,6 +92,9 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("onDomainTakeover")]
+        public Output<Pulumi.AwsNative.CloudFront.DistributionTenantOnDomainTakeover?> OnDomainTakeover { get; private set; } = null!;
 
         /// <summary>
         /// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
@@ -175,6 +181,14 @@ namespace Pulumi.AwsNative.CloudFront
         [Input("distributionId", required: true)]
         public Input<string> DistributionId { get; set; } = null!;
 
+        [Input("domainMappings")]
+        private InputList<Inputs.DistributionTenantDomainMappingArgs>? _domainMappings;
+        public InputList<Inputs.DistributionTenantDomainMappingArgs> DomainMappings
+        {
+            get => _domainMappings ?? (_domainMappings = new InputList<Inputs.DistributionTenantDomainMappingArgs>());
+            set => _domainMappings = value;
+        }
+
         [Input("domains", required: true)]
         private InputList<string>? _domains;
 
@@ -204,6 +218,9 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("onDomainTakeover")]
+        public Input<Pulumi.AwsNative.CloudFront.DistributionTenantOnDomainTakeover>? OnDomainTakeover { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.DistributionTenantParameterArgs>? _parameters;

@@ -8,7 +8,7 @@
       "properties" : {
         "Examples" : {
           "type" : "array",
-          "description" : "Examples to add. Each example is a free-form JSON document validated against the declared schemaType.",
+          "description" : "Examples to add. Each example is a free-form JSON document validated against the scenario rules.",
           "items" : {
             "type" : "object"
           },
@@ -86,7 +86,7 @@
     },
     "SchemaType" : {
       "type" : "string",
-      "description" : "Versioned schema type governing the structure of examples. Immutable after creation.",
+      "description" : "Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.",
       "enum" : [ "AGENTCORE_EVALUATION_PREDEFINED_V1", "AGENTCORE_EVALUATION_SIMULATED_V1", "GENERIC_EVALUATION_PREDEFINED_V1", "THIRD_PARTY_EVALUATION_V1" ]
     },
     "Source" : {
@@ -128,10 +128,11 @@
       "insertionOrder" : false
     }
   },
-  "required" : [ "DatasetName", "SchemaType" ],
+  "required" : [ "DatasetName" ],
   "readOnlyProperties" : [ "/properties/DatasetArn", "/properties/DatasetId", "/properties/Status", "/properties/ExampleCount", "/properties/CreatedAt", "/properties/UpdatedAt" ],
-  "createOnlyProperties" : [ "/properties/DatasetName", "/properties/SchemaType", "/properties/KmsKeyArn", "/properties/Source" ],
-  "writeOnlyProperties" : [ "/properties/Source" ],
+  "createOnlyProperties" : [ "/properties/DatasetName", "/properties/KmsKeyArn", "/properties/Source" ],
+  "writeOnlyProperties" : [ "/properties/SchemaType", "/properties/Source" ],
+  "deprecatedProperties" : [ "/properties/SchemaType" ],
   "primaryIdentifier" : [ "/properties/DatasetArn" ],
   "additionalIdentifiers" : [ [ "/properties/DatasetId" ] ],
   "tagging" : {

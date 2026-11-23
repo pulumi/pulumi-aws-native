@@ -3027,20 +3027,42 @@ class TableS3BucketSourceArgs:
 
 
 class TableSearchSchemaElementArgsDict(TypedDict):
+    """
+    An element in the search schema of a vector index.
+    """
     attribute_name: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.
+    """
     search_schema_element_type: pulumi.Input['TableSearchSchemaElementSearchSchemaElementType']
+    """
+    The role of the attribute in the search schema. Valid values:
+      +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+      +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+    """
 
 @pulumi.input_type
 class TableSearchSchemaElementArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[_builtins.str],
                  search_schema_element_type: pulumi.Input['TableSearchSchemaElementSearchSchemaElementType']):
+        """
+        An element in the search schema of a vector index.
+
+        :param pulumi.Input[_builtins.str] attribute_name: The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.
+        :param pulumi.Input['TableSearchSchemaElementSearchSchemaElementType'] search_schema_element_type: The role of the attribute in the search schema. Valid values:
+                 +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+                 +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+        """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "search_schema_element_type", search_schema_element_type)
 
     @_builtins.property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -3050,6 +3072,11 @@ class TableSearchSchemaElementArgs:
     @_builtins.property
     @pulumi.getter(name="searchSchemaElementType")
     def search_schema_element_type(self) -> pulumi.Input['TableSearchSchemaElementSearchSchemaElementType']:
+        """
+        The role of the attribute in the search schema. Valid values:
+          +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+          +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+        """
         return pulumi.get(self, "search_schema_element_type")
 
     @search_schema_element_type.setter
@@ -3343,17 +3370,31 @@ class TableTimeToLiveSpecificationArgs:
 
 
 class TableVectorAttributeArgsDict(TypedDict):
+    """
+    The definition of a vector attribute for a vector index.
+    """
     attribute_name: pulumi.Input[_builtins.str]
+    """
+    The name of the vector attribute.
+    """
 
 @pulumi.input_type
 class TableVectorAttributeArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[_builtins.str]):
+        """
+        The definition of a vector attribute for a vector index.
+
+        :param pulumi.Input[_builtins.str] attribute_name: The name of the vector attribute.
+        """
         pulumi.set(__self__, "attribute_name", attribute_name)
 
     @_builtins.property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the vector attribute.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -3362,12 +3403,34 @@ class TableVectorAttributeArgs:
 
 
 class TableVectorIndexArgsDict(TypedDict):
+    """
+    Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
+    """
     dimensions: pulumi.Input[_builtins.int]
+    """
+    The number of dimensions in each vector.
+    """
     distance_function: pulumi.Input['TableVectorIndexDistanceFunction']
+    """
+    The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+    """
     index_name: pulumi.Input[_builtins.str]
+    """
+    The name of the vector index.
+    """
     projection: pulumi.Input['TableProjectionArgsDict']
+    """
+    Specifies attributes that are copied (projected) from the table into the vector index.
+    """
     vector_attribute: pulumi.Input['TableVectorAttributeArgsDict']
+    """
+    The vector attribute configuration for the index.
+    """
     search_schema: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSearchSchemaElementArgsDict']]]]]
+    """
+    The search schema that defines partition key and inline filter attributes for the vector index.
+     Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+    """
 
 @pulumi.input_type
 class TableVectorIndexArgs:
@@ -3378,6 +3441,17 @@ class TableVectorIndexArgs:
                  projection: pulumi.Input['TableProjectionArgs'],
                  vector_attribute: pulumi.Input['TableVectorAttributeArgs'],
                  search_schema: pulumi.Input[Optional[Sequence[pulumi.Input['TableSearchSchemaElementArgs']]]] = None):
+        """
+        Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
+
+        :param pulumi.Input[_builtins.int] dimensions: The number of dimensions in each vector.
+        :param pulumi.Input['TableVectorIndexDistanceFunction'] distance_function: The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+        :param pulumi.Input[_builtins.str] index_name: The name of the vector index.
+        :param pulumi.Input['TableProjectionArgs'] projection: Specifies attributes that are copied (projected) from the table into the vector index.
+        :param pulumi.Input['TableVectorAttributeArgs'] vector_attribute: The vector attribute configuration for the index.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSearchSchemaElementArgs']]] search_schema: The search schema that defines partition key and inline filter attributes for the vector index.
+                Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+        """
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "distance_function", distance_function)
         pulumi.set(__self__, "index_name", index_name)
@@ -3389,6 +3463,9 @@ class TableVectorIndexArgs:
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of dimensions in each vector.
+        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -3398,6 +3475,9 @@ class TableVectorIndexArgs:
     @_builtins.property
     @pulumi.getter(name="distanceFunction")
     def distance_function(self) -> pulumi.Input['TableVectorIndexDistanceFunction']:
+        """
+        The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+        """
         return pulumi.get(self, "distance_function")
 
     @distance_function.setter
@@ -3407,6 +3487,9 @@ class TableVectorIndexArgs:
     @_builtins.property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the vector index.
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -3416,6 +3499,9 @@ class TableVectorIndexArgs:
     @_builtins.property
     @pulumi.getter
     def projection(self) -> pulumi.Input['TableProjectionArgs']:
+        """
+        Specifies attributes that are copied (projected) from the table into the vector index.
+        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -3425,6 +3511,9 @@ class TableVectorIndexArgs:
     @_builtins.property
     @pulumi.getter(name="vectorAttribute")
     def vector_attribute(self) -> pulumi.Input['TableVectorAttributeArgs']:
+        """
+        The vector attribute configuration for the index.
+        """
         return pulumi.get(self, "vector_attribute")
 
     @vector_attribute.setter
@@ -3434,6 +3523,10 @@ class TableVectorIndexArgs:
     @_builtins.property
     @pulumi.getter(name="searchSchema")
     def search_schema(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableSearchSchemaElementArgs']]]]:
+        """
+        The search schema that defines partition key and inline filter attributes for the vector index.
+         Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+        """
         return pulumi.get(self, "search_schema")
 
     @search_schema.setter

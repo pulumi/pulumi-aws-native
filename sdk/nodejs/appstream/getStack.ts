@@ -62,6 +62,10 @@ export interface GetStackResult {
      */
     readonly redirectUrl?: string;
     /**
+     * Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+     */
+    readonly storageConnectorAuthentication?: string;
+    /**
      * The storage connectors to enable.
      */
     readonly storageConnectors?: outputs.appstream.StackStorageConnector[];

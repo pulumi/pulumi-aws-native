@@ -39,6 +39,37 @@ namespace Pulumi.AwsNative.CertificateManager
     }
 
     /// <summary>
+    /// The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateRootHierarchyType : IEquatable<CertificateRootHierarchyType>
+    {
+        private readonly string _value;
+
+        private CertificateRootHierarchyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CertificateRootHierarchyType N2AmazonManaged { get; } = new CertificateRootHierarchyType("N2_AMAZON_MANAGED");
+        public static CertificateRootHierarchyType N2Sfg2AmazonManaged { get; } = new CertificateRootHierarchyType("N2_SFG2_AMAZON_MANAGED");
+
+        public static bool operator ==(CertificateRootHierarchyType left, CertificateRootHierarchyType right) => left.Equals(right);
+        public static bool operator !=(CertificateRootHierarchyType left, CertificateRootHierarchyType right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateRootHierarchyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateRootHierarchyType other && Equals(other);
+        public bool Equals(CertificateRootHierarchyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED.
     /// </summary>
     [EnumType]
@@ -62,6 +93,37 @@ namespace Pulumi.AwsNative.CertificateManager
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CertificateTransparencyLoggingPreference other && Equals(other);
         public bool Equals(CertificateTransparencyLoggingPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateUsage : IEquatable<CertificateUsage>
+    {
+        private readonly string _value;
+
+        private CertificateUsage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CertificateUsage ClientAndServerAuth { get; } = new CertificateUsage("CLIENT_AND_SERVER_AUTH");
+        public static CertificateUsage ClientAuthOnly { get; } = new CertificateUsage("CLIENT_AUTH_ONLY");
+
+        public static bool operator ==(CertificateUsage left, CertificateUsage right) => left.Equals(right);
+        public static bool operator !=(CertificateUsage left, CertificateUsage right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateUsage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateUsage other && Equals(other);
+        public bool Equals(CertificateUsage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

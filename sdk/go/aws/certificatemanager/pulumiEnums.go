@@ -176,6 +176,172 @@ func (in *certificateExportPtr) ToCertificateExportPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateExportPtrOutput)
 }
 
+// The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+type CertificateRootHierarchyType string
+
+const (
+	CertificateRootHierarchyTypeN2AmazonManaged     = CertificateRootHierarchyType("N2_AMAZON_MANAGED")
+	CertificateRootHierarchyTypeN2Sfg2AmazonManaged = CertificateRootHierarchyType("N2_SFG2_AMAZON_MANAGED")
+)
+
+func (CertificateRootHierarchyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateRootHierarchyType)(nil)).Elem()
+}
+
+func (e CertificateRootHierarchyType) ToCertificateRootHierarchyTypeOutput() CertificateRootHierarchyTypeOutput {
+	return pulumi.ToOutput(e).(CertificateRootHierarchyTypeOutput)
+}
+
+func (e CertificateRootHierarchyType) ToCertificateRootHierarchyTypeOutputWithContext(ctx context.Context) CertificateRootHierarchyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CertificateRootHierarchyTypeOutput)
+}
+
+func (e CertificateRootHierarchyType) ToCertificateRootHierarchyTypePtrOutput() CertificateRootHierarchyTypePtrOutput {
+	return e.ToCertificateRootHierarchyTypePtrOutputWithContext(context.Background())
+}
+
+func (e CertificateRootHierarchyType) ToCertificateRootHierarchyTypePtrOutputWithContext(ctx context.Context) CertificateRootHierarchyTypePtrOutput {
+	return CertificateRootHierarchyType(e).ToCertificateRootHierarchyTypeOutputWithContext(ctx).ToCertificateRootHierarchyTypePtrOutputWithContext(ctx)
+}
+
+func (e CertificateRootHierarchyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CertificateRootHierarchyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CertificateRootHierarchyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CertificateRootHierarchyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CertificateRootHierarchyTypeOutput struct{ *pulumi.OutputState }
+
+func (CertificateRootHierarchyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateRootHierarchyType)(nil)).Elem()
+}
+
+func (o CertificateRootHierarchyTypeOutput) ToCertificateRootHierarchyTypeOutput() CertificateRootHierarchyTypeOutput {
+	return o
+}
+
+func (o CertificateRootHierarchyTypeOutput) ToCertificateRootHierarchyTypeOutputWithContext(ctx context.Context) CertificateRootHierarchyTypeOutput {
+	return o
+}
+
+func (o CertificateRootHierarchyTypeOutput) ToCertificateRootHierarchyTypePtrOutput() CertificateRootHierarchyTypePtrOutput {
+	return o.ToCertificateRootHierarchyTypePtrOutputWithContext(context.Background())
+}
+
+func (o CertificateRootHierarchyTypeOutput) ToCertificateRootHierarchyTypePtrOutputWithContext(ctx context.Context) CertificateRootHierarchyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateRootHierarchyType) *CertificateRootHierarchyType {
+		return &v
+	}).(CertificateRootHierarchyTypePtrOutput)
+}
+
+func (o CertificateRootHierarchyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CertificateRootHierarchyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateRootHierarchyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CertificateRootHierarchyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateRootHierarchyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateRootHierarchyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CertificateRootHierarchyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateRootHierarchyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateRootHierarchyType)(nil)).Elem()
+}
+
+func (o CertificateRootHierarchyTypePtrOutput) ToCertificateRootHierarchyTypePtrOutput() CertificateRootHierarchyTypePtrOutput {
+	return o
+}
+
+func (o CertificateRootHierarchyTypePtrOutput) ToCertificateRootHierarchyTypePtrOutputWithContext(ctx context.Context) CertificateRootHierarchyTypePtrOutput {
+	return o
+}
+
+func (o CertificateRootHierarchyTypePtrOutput) Elem() CertificateRootHierarchyTypeOutput {
+	return o.ApplyT(func(v *CertificateRootHierarchyType) CertificateRootHierarchyType {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateRootHierarchyType
+		return ret
+	}).(CertificateRootHierarchyTypeOutput)
+}
+
+func (o CertificateRootHierarchyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateRootHierarchyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateRootHierarchyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CertificateRootHierarchyTypeInput is an input type that accepts values of the CertificateRootHierarchyType enum
+// A concrete instance of `CertificateRootHierarchyTypeInput` can be one of the following:
+//
+//	CertificateRootHierarchyTypeN2AmazonManaged
+//	CertificateRootHierarchyTypeN2Sfg2AmazonManaged
+type CertificateRootHierarchyTypeInput interface {
+	pulumi.Input
+
+	ToCertificateRootHierarchyTypeOutput() CertificateRootHierarchyTypeOutput
+	ToCertificateRootHierarchyTypeOutputWithContext(context.Context) CertificateRootHierarchyTypeOutput
+}
+
+var certificateRootHierarchyTypePtrType = reflect.TypeOf((**CertificateRootHierarchyType)(nil)).Elem()
+
+type CertificateRootHierarchyTypePtrInput interface {
+	pulumi.Input
+
+	ToCertificateRootHierarchyTypePtrOutput() CertificateRootHierarchyTypePtrOutput
+	ToCertificateRootHierarchyTypePtrOutputWithContext(context.Context) CertificateRootHierarchyTypePtrOutput
+}
+
+type certificateRootHierarchyTypePtr string
+
+func CertificateRootHierarchyTypePtr(v string) CertificateRootHierarchyTypePtrInput {
+	return (*certificateRootHierarchyTypePtr)(&v)
+}
+
+func (*certificateRootHierarchyTypePtr) ElementType() reflect.Type {
+	return certificateRootHierarchyTypePtrType
+}
+
+func (in *certificateRootHierarchyTypePtr) ToCertificateRootHierarchyTypePtrOutput() CertificateRootHierarchyTypePtrOutput {
+	return pulumi.ToOutput(in).(CertificateRootHierarchyTypePtrOutput)
+}
+
+func (in *certificateRootHierarchyTypePtr) ToCertificateRootHierarchyTypePtrOutputWithContext(ctx context.Context) CertificateRootHierarchyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CertificateRootHierarchyTypePtrOutput)
+}
+
 // You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED.
 type CertificateTransparencyLoggingPreference string
 
@@ -342,13 +508,187 @@ func (in *certificateTransparencyLoggingPreferencePtr) ToCertificateTransparency
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateTransparencyLoggingPreferencePtrOutput)
 }
 
+// The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+type CertificateUsage string
+
+const (
+	CertificateUsageClientAndServerAuth = CertificateUsage("CLIENT_AND_SERVER_AUTH")
+	CertificateUsageClientAuthOnly      = CertificateUsage("CLIENT_AUTH_ONLY")
+)
+
+func (CertificateUsage) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateUsage)(nil)).Elem()
+}
+
+func (e CertificateUsage) ToCertificateUsageOutput() CertificateUsageOutput {
+	return pulumi.ToOutput(e).(CertificateUsageOutput)
+}
+
+func (e CertificateUsage) ToCertificateUsageOutputWithContext(ctx context.Context) CertificateUsageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CertificateUsageOutput)
+}
+
+func (e CertificateUsage) ToCertificateUsagePtrOutput() CertificateUsagePtrOutput {
+	return e.ToCertificateUsagePtrOutputWithContext(context.Background())
+}
+
+func (e CertificateUsage) ToCertificateUsagePtrOutputWithContext(ctx context.Context) CertificateUsagePtrOutput {
+	return CertificateUsage(e).ToCertificateUsageOutputWithContext(ctx).ToCertificateUsagePtrOutputWithContext(ctx)
+}
+
+func (e CertificateUsage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CertificateUsage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CertificateUsage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CertificateUsage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CertificateUsageOutput struct{ *pulumi.OutputState }
+
+func (CertificateUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateUsage)(nil)).Elem()
+}
+
+func (o CertificateUsageOutput) ToCertificateUsageOutput() CertificateUsageOutput {
+	return o
+}
+
+func (o CertificateUsageOutput) ToCertificateUsageOutputWithContext(ctx context.Context) CertificateUsageOutput {
+	return o
+}
+
+func (o CertificateUsageOutput) ToCertificateUsagePtrOutput() CertificateUsagePtrOutput {
+	return o.ToCertificateUsagePtrOutputWithContext(context.Background())
+}
+
+func (o CertificateUsageOutput) ToCertificateUsagePtrOutputWithContext(ctx context.Context) CertificateUsagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateUsage) *CertificateUsage {
+		return &v
+	}).(CertificateUsagePtrOutput)
+}
+
+func (o CertificateUsageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CertificateUsageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateUsage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CertificateUsageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateUsageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateUsage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CertificateUsagePtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateUsagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateUsage)(nil)).Elem()
+}
+
+func (o CertificateUsagePtrOutput) ToCertificateUsagePtrOutput() CertificateUsagePtrOutput {
+	return o
+}
+
+func (o CertificateUsagePtrOutput) ToCertificateUsagePtrOutputWithContext(ctx context.Context) CertificateUsagePtrOutput {
+	return o
+}
+
+func (o CertificateUsagePtrOutput) Elem() CertificateUsageOutput {
+	return o.ApplyT(func(v *CertificateUsage) CertificateUsage {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateUsage
+		return ret
+	}).(CertificateUsageOutput)
+}
+
+func (o CertificateUsagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateUsage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CertificateUsageInput is an input type that accepts values of the CertificateUsage enum
+// A concrete instance of `CertificateUsageInput` can be one of the following:
+//
+//	CertificateUsageClientAndServerAuth
+//	CertificateUsageClientAuthOnly
+type CertificateUsageInput interface {
+	pulumi.Input
+
+	ToCertificateUsageOutput() CertificateUsageOutput
+	ToCertificateUsageOutputWithContext(context.Context) CertificateUsageOutput
+}
+
+var certificateUsagePtrType = reflect.TypeOf((**CertificateUsage)(nil)).Elem()
+
+type CertificateUsagePtrInput interface {
+	pulumi.Input
+
+	ToCertificateUsagePtrOutput() CertificateUsagePtrOutput
+	ToCertificateUsagePtrOutputWithContext(context.Context) CertificateUsagePtrOutput
+}
+
+type certificateUsagePtr string
+
+func CertificateUsagePtr(v string) CertificateUsagePtrInput {
+	return (*certificateUsagePtr)(&v)
+}
+
+func (*certificateUsagePtr) ElementType() reflect.Type {
+	return certificateUsagePtrType
+}
+
+func (in *certificateUsagePtr) ToCertificateUsagePtrOutput() CertificateUsagePtrOutput {
+	return pulumi.ToOutput(in).(CertificateUsagePtrOutput)
+}
+
+func (in *certificateUsagePtr) ToCertificateUsagePtrOutputWithContext(ctx context.Context) CertificateUsagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CertificateUsagePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateExportInput)(nil)).Elem(), CertificateExport("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateExportPtrInput)(nil)).Elem(), CertificateExport("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateRootHierarchyTypeInput)(nil)).Elem(), CertificateRootHierarchyType("N2_AMAZON_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateRootHierarchyTypePtrInput)(nil)).Elem(), CertificateRootHierarchyType("N2_AMAZON_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTransparencyLoggingPreferenceInput)(nil)).Elem(), CertificateTransparencyLoggingPreference("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTransparencyLoggingPreferencePtrInput)(nil)).Elem(), CertificateTransparencyLoggingPreference("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateUsageInput)(nil)).Elem(), CertificateUsage("CLIENT_AND_SERVER_AUTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateUsagePtrInput)(nil)).Elem(), CertificateUsage("CLIENT_AND_SERVER_AUTH"))
 	pulumi.RegisterOutputType(CertificateExportOutput{})
 	pulumi.RegisterOutputType(CertificateExportPtrOutput{})
+	pulumi.RegisterOutputType(CertificateRootHierarchyTypeOutput{})
+	pulumi.RegisterOutputType(CertificateRootHierarchyTypePtrOutput{})
 	pulumi.RegisterOutputType(CertificateTransparencyLoggingPreferenceOutput{})
 	pulumi.RegisterOutputType(CertificateTransparencyLoggingPreferencePtrOutput{})
+	pulumi.RegisterOutputType(CertificateUsageOutput{})
+	pulumi.RegisterOutputType(CertificateUsagePtrOutput{})
 }

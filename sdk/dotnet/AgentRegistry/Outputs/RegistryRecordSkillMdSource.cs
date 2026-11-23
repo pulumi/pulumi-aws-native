@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.AgentRegistry.Outputs
 {
 
     /// <summary>
-    /// Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+    /// The source that the registry synchronizes agent skills content from: a SKILL.md document in SkillMd.Source, or a skill package in SkillPackage.Source.
     /// </summary>
     [OutputType]
     public sealed class RegistryRecordSkillMdSource

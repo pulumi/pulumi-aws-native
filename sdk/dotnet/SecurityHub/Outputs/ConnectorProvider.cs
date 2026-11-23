@@ -10,15 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
+    /// <summary>
+    /// The CSPM provider configuration for the connector
+    /// </summary>
     [OutputType]
     public sealed class ConnectorProvider
     {
-        public readonly Outputs.ConnectorAzureProviderConfiguration Azure;
+        public readonly Outputs.ConnectorAzureProviderConfiguration? Azure;
+        public readonly Outputs.ConnectorGcpProviderConfiguration? Gcp;
 
         [OutputConstructor]
-        private ConnectorProvider(Outputs.ConnectorAzureProviderConfiguration azure)
+        private ConnectorProvider(
+            Outputs.ConnectorAzureProviderConfiguration? azure,
+
+            Outputs.ConnectorGcpProviderConfiguration? gcp)
         {
             Azure = azure;
+            Gcp = gcp;
         }
     }
 }

@@ -54,6 +54,22 @@
       "minLength" : 3,
       "maxLength" : 63
     },
+    "TextSearchConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "MetadataKey" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 63
+        },
+        "Language" : {
+          "type" : "string",
+          "enum" : [ "en", "fr", "es", "pt", "it", "de", "nl", "zh", "ja", "ko" ]
+        }
+      },
+      "required" : [ "MetadataKey" ],
+      "additionalProperties" : false
+    },
     "MetadataConfiguration" : {
       "description" : "The metadata configuration for the vector index.",
       "type" : "object",
@@ -65,6 +81,16 @@
             "type" : "string",
             "minLength" : 1,
             "maxLength" : 63
+          },
+          "minItems" : 1,
+          "maxItems" : 10,
+          "insertionOrder" : false,
+          "uniqueItems" : true
+        },
+        "TextSearchConfigurations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TextSearchConfiguration"
           },
           "minItems" : 1,
           "maxItems" : 10,
@@ -148,7 +174,7 @@
   "additionalProperties" : false,
   "required" : [ "DataType", "Dimension", "DistanceMetric" ],
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/IndexArn" ],
-  "createOnlyProperties" : [ "/properties/DataType", "/properties/Dimension", "/properties/DistanceMetric", "/properties/EncryptionConfiguration", "/properties/IndexName", "/properties/MetadataConfiguration", "/properties/VectorBucketArn", "/properties/VectorBucketName" ],
+  "createOnlyProperties" : [ "/properties/DataType", "/properties/Dimension", "/properties/DistanceMetric", "/properties/EncryptionConfiguration", "/properties/IndexName", "/properties/MetadataConfiguration/NonFilterableMetadataKeys", "/properties/VectorBucketArn", "/properties/VectorBucketName" ],
   "primaryIdentifier" : [ "/properties/IndexArn" ],
   "additionalIdentifiers" : [ [ "/properties/IndexName", "/properties/VectorBucketName" ] ],
   "tagging" : {
@@ -161,13 +187,15 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3vectors:GetIndex", "s3vectors:CreateIndex", "s3vectors:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "s3vectors:GetIndex", "s3vectors:CreateIndex", "s3vectors:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ],
+      "timeoutInMinutes" : 2160
     },
     "read" : {
       "permissions" : [ "s3vectors:GetIndex", "s3vectors:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "s3vectors:GetIndex", "s3vectors:TagResource", "s3vectors:UntagResource", "s3vectors:ListTagsForResource" ]
+      "permissions" : [ "s3vectors:GetIndex", "s3vectors:UpdateMetadataConfiguration", "s3vectors:TagResource", "s3vectors:UntagResource", "s3vectors:ListTagsForResource" ],
+      "timeoutInMinutes" : 2160
     },
     "delete" : {
       "permissions" : [ "s3vectors:GetIndex", "s3vectors:DeleteIndex" ]

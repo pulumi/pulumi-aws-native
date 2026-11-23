@@ -28,9 +28,11 @@ class DistributionTenantArgs:
                  domains: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customizations: pulumi.Input[Optional['DistributionTenantCustomizationsArgs']] = None,
+                 domain_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainMappingArgs']]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_certificate_request: pulumi.Input[Optional['DistributionTenantManagedCertificateRequestArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_domain_takeover: pulumi.Input[Optional['DistributionTenantOnDomainTakeover']] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -52,12 +54,16 @@ class DistributionTenantArgs:
             pulumi.set(__self__, "connection_group_id", connection_group_id)
         if customizations is not None:
             pulumi.set(__self__, "customizations", customizations)
+        if domain_mappings is not None:
+            pulumi.set(__self__, "domain_mappings", domain_mappings)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if managed_certificate_request is not None:
             pulumi.set(__self__, "managed_certificate_request", managed_certificate_request)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if on_domain_takeover is not None:
+            pulumi.set(__self__, "on_domain_takeover", on_domain_takeover)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if tags is not None:
@@ -112,6 +118,15 @@ class DistributionTenantArgs:
         pulumi.set(self, "customizations", value)
 
     @_builtins.property
+    @pulumi.getter(name="domainMappings")
+    def domain_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainMappingArgs']]]]:
+        return pulumi.get(self, "domain_mappings")
+
+    @domain_mappings.setter
+    def domain_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainMappingArgs']]]]):
+        pulumi.set(self, "domain_mappings", value)
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -148,6 +163,15 @@ class DistributionTenantArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="onDomainTakeover")
+    def on_domain_takeover(self) -> pulumi.Input[Optional['DistributionTenantOnDomainTakeover']]:
+        return pulumi.get(self, "on_domain_takeover")
+
+    @on_domain_takeover.setter
+    def on_domain_takeover(self, value: pulumi.Input[Optional['DistributionTenantOnDomainTakeover']]):
+        pulumi.set(self, "on_domain_takeover", value)
+
+    @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]:
         """
@@ -181,10 +205,12 @@ class DistributionTenant(pulumi.CustomResource):
                  connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict', 'outputs.DistributionTenantCustomizations']]] = None,
                  distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainMappingArgs', 'DistributionTenantDomainMappingArgsDict', 'outputs.DistributionTenantDomainMapping']]]]] = None,
                  domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict', 'outputs.DistributionTenantManagedCertificateRequest']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_domain_takeover: pulumi.Input[Optional['DistributionTenantOnDomainTakeover']] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict', 'outputs.DistributionTenantParameter']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
@@ -230,10 +256,12 @@ class DistributionTenant(pulumi.CustomResource):
                  connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict', 'outputs.DistributionTenantCustomizations']]] = None,
                  distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainMappingArgs', 'DistributionTenantDomainMappingArgsDict', 'outputs.DistributionTenantDomainMapping']]]]] = None,
                  domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict', 'outputs.DistributionTenantManagedCertificateRequest']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_domain_takeover: pulumi.Input[Optional['DistributionTenantOnDomainTakeover']] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict', 'outputs.DistributionTenantParameter']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
@@ -250,12 +278,14 @@ class DistributionTenant(pulumi.CustomResource):
             if distribution_id is None and not opts.urn:
                 raise TypeError("Missing required property 'distribution_id'")
             __props__.__dict__["distribution_id"] = distribution_id
+            __props__.__dict__["domain_mappings"] = domain_mappings
             if domains is None and not opts.urn:
                 raise TypeError("Missing required property 'domains'")
             __props__.__dict__["domains"] = domains
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["managed_certificate_request"] = managed_certificate_request
             __props__.__dict__["name"] = name
+            __props__.__dict__["on_domain_takeover"] = on_domain_takeover
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -295,6 +325,7 @@ class DistributionTenant(pulumi.CustomResource):
         __props__.__dict__["created_time"] = None
         __props__.__dict__["customizations"] = None
         __props__.__dict__["distribution_id"] = None
+        __props__.__dict__["domain_mappings"] = None
         __props__.__dict__["domain_results"] = None
         __props__.__dict__["domains"] = None
         __props__.__dict__["e_tag"] = None
@@ -302,6 +333,7 @@ class DistributionTenant(pulumi.CustomResource):
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["managed_certificate_request"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["on_domain_takeover"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -362,6 +394,11 @@ class DistributionTenant(pulumi.CustomResource):
         return pulumi.get(self, "distribution_id")
 
     @_builtins.property
+    @pulumi.getter(name="domainMappings")
+    def domain_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionTenantDomainMapping']]]:
+        return pulumi.get(self, "domain_mappings")
+
+    @_builtins.property
     @pulumi.getter(name="domainResults")
     def domain_results(self) -> pulumi.Output[Sequence['outputs.DistributionTenantDomainResult']]:
         return pulumi.get(self, "domain_results")
@@ -413,6 +450,11 @@ class DistributionTenant(pulumi.CustomResource):
         The name of the distribution tenant.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="onDomainTakeover")
+    def on_domain_takeover(self) -> pulumi.Output[Optional['DistributionTenantOnDomainTakeover']]:
+        return pulumi.get(self, "on_domain_takeover")
 
     @_builtins.property
     @pulumi.getter

@@ -19,6 +19,8 @@ from ._enums import *
 __all__ = [
     'DataCellsFilterColumnWildcard',
     'DataCellsFilterRowFilter',
+    'DataLakeSettingsDataLakePrincipal',
+    'DataLakeSettingsPrincipalPermissions',
     'PrincipalPermissionsCatalogResource',
     'PrincipalPermissionsColumnWildcard',
     'PrincipalPermissionsDataCellsFilterResource',
@@ -135,6 +137,70 @@ class DataCellsFilterRowFilter(dict):
         A PartiQL predicate.
         """
         return pulumi.get(self, "filter_expression")
+
+
+@pulumi.output_type
+class DataLakeSettingsDataLakePrincipal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLakePrincipalIdentifier":
+            suggest = "data_lake_principal_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataLakeSettingsDataLakePrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataLakeSettingsDataLakePrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataLakeSettingsDataLakePrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: _builtins.str):
+        """
+        :param _builtins.str data_lake_principal_identifier: An identifier for the Lake Formation principal.
+        """
+        pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> _builtins.str:
+        """
+        An identifier for the Lake Formation principal.
+        """
+        return pulumi.get(self, "data_lake_principal_identifier")
+
+
+@pulumi.output_type
+class DataLakeSettingsPrincipalPermissions(dict):
+    def __init__(__self__, *,
+                 permissions: Sequence[_builtins.str],
+                 principal: 'outputs.DataLakeSettingsDataLakePrincipal'):
+        """
+        :param Sequence[_builtins.str] permissions: The permissions that are granted to the principal.
+        :param 'DataLakeSettingsDataLakePrincipal' principal: The principal who is granted permissions.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> Sequence[_builtins.str]:
+        """
+        The permissions that are granted to the principal.
+        """
+        return pulumi.get(self, "permissions")
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> 'outputs.DataLakeSettingsDataLakePrincipal':
+        """
+        The principal who is granted permissions.
+        """
+        return pulumi.get(self, "principal")
 
 
 @pulumi.output_type

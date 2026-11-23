@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     public sealed class ConnectorV2Provider
     {
         public readonly Outputs.ConnectorV2AzureProviderConfiguration? Azure;
+        public readonly Outputs.ConnectorV2GcpProviderConfiguration? Gcp;
         public readonly Outputs.ConnectorV2JiraCloudProviderConfiguration? JiraCloud;
         public readonly Outputs.ConnectorV2ServiceNowProviderConfiguration? ServiceNow;
 
@@ -24,11 +25,14 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         private ConnectorV2Provider(
             Outputs.ConnectorV2AzureProviderConfiguration? azure,
 
+            Outputs.ConnectorV2GcpProviderConfiguration? gcp,
+
             Outputs.ConnectorV2JiraCloudProviderConfiguration? jiraCloud,
 
             Outputs.ConnectorV2ServiceNowProviderConfiguration? serviceNow)
         {
             Azure = azure;
+            Gcp = gcp;
             JiraCloud = jiraCloud;
             ServiceNow = serviceNow;
         }

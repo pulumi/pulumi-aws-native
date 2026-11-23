@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.S3Vectors
                     "distanceMetric",
                     "encryptionConfiguration",
                     "indexName",
-                    "metadataConfiguration",
+                    "metadataConfiguration.nonFilterableMetadataKeys[*]",
                     "vectorBucketArn",
                     "vectorBucketName",
                 },

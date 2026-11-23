@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("autoVerifiedAttributes")]
         public Output<ImmutableArray<string>> AutoVerifiedAttributes { get; private set; } = null!;
 
+        [Output("dcrConfiguration")]
+        public Output<Outputs.UserPoolDcrConfiguration?> DcrConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// When active, `DeletionProtection` prevents accidental deletion of your user
         /// pool. Before you can delete a user pool that you have protected against deletion, you
@@ -326,6 +329,9 @@ namespace Pulumi.AwsNative.Cognito
             get => _autoVerifiedAttributes ?? (_autoVerifiedAttributes = new InputList<string>());
             set => _autoVerifiedAttributes = value;
         }
+
+        [Input("dcrConfiguration")]
+        public Input<Inputs.UserPoolDcrConfigurationArgs>? DcrConfiguration { get; set; }
 
         /// <summary>
         /// When active, `DeletionProtection` prevents accidental deletion of your user

@@ -26,6 +26,7 @@ class UserPoolArgs:
                  admin_create_user_config: pulumi.Input[Optional['UserPoolAdminCreateUserConfigArgs']] = None,
                  alias_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  auto_verified_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dcr_configuration: pulumi.Input[Optional['UserPoolDcrConfigurationArgs']] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
                  device_configuration: pulumi.Input[Optional['UserPoolDeviceConfigurationArgs']] = None,
                  email_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
@@ -123,6 +124,8 @@ class UserPoolArgs:
             pulumi.set(__self__, "alias_attributes", alias_attributes)
         if auto_verified_attributes is not None:
             pulumi.set(__self__, "auto_verified_attributes", auto_verified_attributes)
+        if dcr_configuration is not None:
+            pulumi.set(__self__, "dcr_configuration", dcr_configuration)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if device_configuration is not None:
@@ -227,6 +230,15 @@ class UserPoolArgs:
     @auto_verified_attributes.setter
     def auto_verified_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auto_verified_attributes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dcrConfiguration")
+    def dcr_configuration(self) -> pulumi.Input[Optional['UserPoolDcrConfigurationArgs']]:
+        return pulumi.get(self, "dcr_configuration")
+
+    @dcr_configuration.setter
+    def dcr_configuration(self, value: pulumi.Input[Optional['UserPoolDcrConfigurationArgs']]):
+        pulumi.set(self, "dcr_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
@@ -590,6 +602,7 @@ class UserPool(pulumi.CustomResource):
                  admin_create_user_config: pulumi.Input[Optional[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict', 'outputs.UserPoolAdminCreateUserConfig']]] = None,
                  alias_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  auto_verified_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dcr_configuration: pulumi.Input[Optional[Union['UserPoolDcrConfigurationArgs', 'UserPoolDcrConfigurationArgsDict', 'outputs.UserPoolDcrConfiguration']]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
                  device_configuration: pulumi.Input[Optional[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict', 'outputs.UserPoolDeviceConfiguration']]] = None,
                  email_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
@@ -710,6 +723,7 @@ class UserPool(pulumi.CustomResource):
                  admin_create_user_config: pulumi.Input[Optional[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict', 'outputs.UserPoolAdminCreateUserConfig']]] = None,
                  alias_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  auto_verified_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dcr_configuration: pulumi.Input[Optional[Union['UserPoolDcrConfigurationArgs', 'UserPoolDcrConfigurationArgsDict', 'outputs.UserPoolDcrConfiguration']]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
                  device_configuration: pulumi.Input[Optional[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict', 'outputs.UserPoolDeviceConfiguration']]] = None,
                  email_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
@@ -751,6 +765,7 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["admin_create_user_config"] = admin_create_user_config
             __props__.__dict__["alias_attributes"] = alias_attributes
             __props__.__dict__["auto_verified_attributes"] = auto_verified_attributes
+            __props__.__dict__["dcr_configuration"] = dcr_configuration
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["device_configuration"] = device_configuration
             __props__.__dict__["email_authentication_message"] = email_authentication_message
@@ -810,6 +825,7 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["alias_attributes"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_verified_attributes"] = None
+        __props__.__dict__["dcr_configuration"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["device_configuration"] = None
         __props__.__dict__["email_authentication_message"] = None
@@ -888,6 +904,11 @@ class UserPool(pulumi.CustomResource):
         The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         """
         return pulumi.get(self, "auto_verified_attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="dcrConfiguration")
+    def dcr_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolDcrConfiguration']]:
+        return pulumi.get(self, "dcr_configuration")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")

@@ -108,6 +108,7 @@ type PolicyFirewallType string
 const (
 	PolicyFirewallTypeWaf            = PolicyFirewallType("WAF")
 	PolicyFirewallTypeShieldAdvanced = PolicyFirewallType("SHIELD_ADVANCED")
+	PolicyFirewallTypeIgwFirewall    = PolicyFirewallType("IGW_FIREWALL")
 )
 
 func (PolicyFirewallType) ElementType() reflect.Type {
@@ -234,6 +235,7 @@ func (o PolicyFirewallTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //
 //	PolicyFirewallTypeWaf
 //	PolicyFirewallTypeShieldAdvanced
+//	PolicyFirewallTypeIgwFirewall
 type PolicyFirewallTypeInput interface {
 	pulumi.Input
 
@@ -266,6 +268,174 @@ func (in *policyFirewallTypePtr) ToPolicyFirewallTypePtrOutput() PolicyFirewallT
 
 func (in *policyFirewallTypePtr) ToPolicyFirewallTypePtrOutputWithContext(ctx context.Context) PolicyFirewallTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyFirewallTypePtrOutput)
+}
+
+// The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+type PolicyIgwFirewallConfigDefaultSubnetConnectivity string
+
+const (
+	PolicyIgwFirewallConfigDefaultSubnetConnectivityFlexible      = PolicyIgwFirewallConfigDefaultSubnetConnectivity("flexible")
+	PolicyIgwFirewallConfigDefaultSubnetConnectivityBidirectional = PolicyIgwFirewallConfigDefaultSubnetConnectivity("bidirectional")
+	PolicyIgwFirewallConfigDefaultSubnetConnectivityOutboundOnly  = PolicyIgwFirewallConfigDefaultSubnetConnectivity("outbound-only")
+)
+
+func (PolicyIgwFirewallConfigDefaultSubnetConnectivity) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyIgwFirewallConfigDefaultSubnetConnectivity)(nil)).Elem()
+}
+
+func (e PolicyIgwFirewallConfigDefaultSubnetConnectivity) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityOutput() PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput {
+	return pulumi.ToOutput(e).(PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput)
+}
+
+func (e PolicyIgwFirewallConfigDefaultSubnetConnectivity) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput)
+}
+
+func (e PolicyIgwFirewallConfigDefaultSubnetConnectivity) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput() PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return e.ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyIgwFirewallConfigDefaultSubnetConnectivity) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return PolicyIgwFirewallConfigDefaultSubnetConnectivity(e).ToPolicyIgwFirewallConfigDefaultSubnetConnectivityOutputWithContext(ctx).ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutputWithContext(ctx)
+}
+
+func (e PolicyIgwFirewallConfigDefaultSubnetConnectivity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyIgwFirewallConfigDefaultSubnetConnectivity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyIgwFirewallConfigDefaultSubnetConnectivity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyIgwFirewallConfigDefaultSubnetConnectivity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput struct{ *pulumi.OutputState }
+
+func (PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyIgwFirewallConfigDefaultSubnetConnectivity)(nil)).Elem()
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityOutput() PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput {
+	return o
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput {
+	return o
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput() PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return o.ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyIgwFirewallConfigDefaultSubnetConnectivity) *PolicyIgwFirewallConfigDefaultSubnetConnectivity {
+		return &v
+	}).(PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput)
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyIgwFirewallConfigDefaultSubnetConnectivity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyIgwFirewallConfigDefaultSubnetConnectivity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyIgwFirewallConfigDefaultSubnetConnectivity)(nil)).Elem()
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput() PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return o
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return o
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput) Elem() PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput {
+	return o.ApplyT(func(v *PolicyIgwFirewallConfigDefaultSubnetConnectivity) PolicyIgwFirewallConfigDefaultSubnetConnectivity {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyIgwFirewallConfigDefaultSubnetConnectivity
+		return ret
+	}).(PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput)
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyIgwFirewallConfigDefaultSubnetConnectivity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyIgwFirewallConfigDefaultSubnetConnectivityInput is an input type that accepts values of the PolicyIgwFirewallConfigDefaultSubnetConnectivity enum
+// A concrete instance of `PolicyIgwFirewallConfigDefaultSubnetConnectivityInput` can be one of the following:
+//
+//	PolicyIgwFirewallConfigDefaultSubnetConnectivityFlexible
+//	PolicyIgwFirewallConfigDefaultSubnetConnectivityBidirectional
+//	PolicyIgwFirewallConfigDefaultSubnetConnectivityOutboundOnly
+type PolicyIgwFirewallConfigDefaultSubnetConnectivityInput interface {
+	pulumi.Input
+
+	ToPolicyIgwFirewallConfigDefaultSubnetConnectivityOutput() PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput
+	ToPolicyIgwFirewallConfigDefaultSubnetConnectivityOutputWithContext(context.Context) PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput
+}
+
+var policyIgwFirewallConfigDefaultSubnetConnectivityPtrType = reflect.TypeOf((**PolicyIgwFirewallConfigDefaultSubnetConnectivity)(nil)).Elem()
+
+type PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrInput interface {
+	pulumi.Input
+
+	ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput() PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput
+	ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutputWithContext(context.Context) PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput
+}
+
+type policyIgwFirewallConfigDefaultSubnetConnectivityPtr string
+
+func PolicyIgwFirewallConfigDefaultSubnetConnectivityPtr(v string) PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrInput {
+	return (*policyIgwFirewallConfigDefaultSubnetConnectivityPtr)(&v)
+}
+
+func (*policyIgwFirewallConfigDefaultSubnetConnectivityPtr) ElementType() reflect.Type {
+	return policyIgwFirewallConfigDefaultSubnetConnectivityPtrType
+}
+
+func (in *policyIgwFirewallConfigDefaultSubnetConnectivityPtr) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput() PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return pulumi.ToOutput(in).(PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput)
+}
+
+func (in *policyIgwFirewallConfigDefaultSubnetConnectivityPtr) ToPolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput)
 }
 
 // The status of the policy.
@@ -358,6 +528,176 @@ func (o PolicyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// The connectivity treatment applied to the subnets that the referenced scope selects.
+type PolicySubnetConnectivityOverrideConnectivityType string
+
+const (
+	PolicySubnetConnectivityOverrideConnectivityTypeFlexible      = PolicySubnetConnectivityOverrideConnectivityType("flexible")
+	PolicySubnetConnectivityOverrideConnectivityTypeBidirectional = PolicySubnetConnectivityOverrideConnectivityType("bidirectional")
+	PolicySubnetConnectivityOverrideConnectivityTypeOutboundOnly  = PolicySubnetConnectivityOverrideConnectivityType("outbound-only")
+	PolicySubnetConnectivityOverrideConnectivityTypeExclude       = PolicySubnetConnectivityOverrideConnectivityType("exclude")
+)
+
+func (PolicySubnetConnectivityOverrideConnectivityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySubnetConnectivityOverrideConnectivityType)(nil)).Elem()
+}
+
+func (e PolicySubnetConnectivityOverrideConnectivityType) ToPolicySubnetConnectivityOverrideConnectivityTypeOutput() PolicySubnetConnectivityOverrideConnectivityTypeOutput {
+	return pulumi.ToOutput(e).(PolicySubnetConnectivityOverrideConnectivityTypeOutput)
+}
+
+func (e PolicySubnetConnectivityOverrideConnectivityType) ToPolicySubnetConnectivityOverrideConnectivityTypeOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideConnectivityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicySubnetConnectivityOverrideConnectivityTypeOutput)
+}
+
+func (e PolicySubnetConnectivityOverrideConnectivityType) ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutput() PolicySubnetConnectivityOverrideConnectivityTypePtrOutput {
+	return e.ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutputWithContext(context.Background())
+}
+
+func (e PolicySubnetConnectivityOverrideConnectivityType) ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideConnectivityTypePtrOutput {
+	return PolicySubnetConnectivityOverrideConnectivityType(e).ToPolicySubnetConnectivityOverrideConnectivityTypeOutputWithContext(ctx).ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutputWithContext(ctx)
+}
+
+func (e PolicySubnetConnectivityOverrideConnectivityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicySubnetConnectivityOverrideConnectivityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicySubnetConnectivityOverrideConnectivityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicySubnetConnectivityOverrideConnectivityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicySubnetConnectivityOverrideConnectivityTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicySubnetConnectivityOverrideConnectivityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySubnetConnectivityOverrideConnectivityType)(nil)).Elem()
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypeOutput) ToPolicySubnetConnectivityOverrideConnectivityTypeOutput() PolicySubnetConnectivityOverrideConnectivityTypeOutput {
+	return o
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypeOutput) ToPolicySubnetConnectivityOverrideConnectivityTypeOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideConnectivityTypeOutput {
+	return o
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypeOutput) ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutput() PolicySubnetConnectivityOverrideConnectivityTypePtrOutput {
+	return o.ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypeOutput) ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideConnectivityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySubnetConnectivityOverrideConnectivityType) *PolicySubnetConnectivityOverrideConnectivityType {
+		return &v
+	}).(PolicySubnetConnectivityOverrideConnectivityTypePtrOutput)
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicySubnetConnectivityOverrideConnectivityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicySubnetConnectivityOverrideConnectivityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicySubnetConnectivityOverrideConnectivityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySubnetConnectivityOverrideConnectivityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySubnetConnectivityOverrideConnectivityType)(nil)).Elem()
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypePtrOutput) ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutput() PolicySubnetConnectivityOverrideConnectivityTypePtrOutput {
+	return o
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypePtrOutput) ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideConnectivityTypePtrOutput {
+	return o
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypePtrOutput) Elem() PolicySubnetConnectivityOverrideConnectivityTypeOutput {
+	return o.ApplyT(func(v *PolicySubnetConnectivityOverrideConnectivityType) PolicySubnetConnectivityOverrideConnectivityType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySubnetConnectivityOverrideConnectivityType
+		return ret
+	}).(PolicySubnetConnectivityOverrideConnectivityTypeOutput)
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySubnetConnectivityOverrideConnectivityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicySubnetConnectivityOverrideConnectivityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicySubnetConnectivityOverrideConnectivityTypeInput is an input type that accepts values of the PolicySubnetConnectivityOverrideConnectivityType enum
+// A concrete instance of `PolicySubnetConnectivityOverrideConnectivityTypeInput` can be one of the following:
+//
+//	PolicySubnetConnectivityOverrideConnectivityTypeFlexible
+//	PolicySubnetConnectivityOverrideConnectivityTypeBidirectional
+//	PolicySubnetConnectivityOverrideConnectivityTypeOutboundOnly
+//	PolicySubnetConnectivityOverrideConnectivityTypeExclude
+type PolicySubnetConnectivityOverrideConnectivityTypeInput interface {
+	pulumi.Input
+
+	ToPolicySubnetConnectivityOverrideConnectivityTypeOutput() PolicySubnetConnectivityOverrideConnectivityTypeOutput
+	ToPolicySubnetConnectivityOverrideConnectivityTypeOutputWithContext(context.Context) PolicySubnetConnectivityOverrideConnectivityTypeOutput
+}
+
+var policySubnetConnectivityOverrideConnectivityTypePtrType = reflect.TypeOf((**PolicySubnetConnectivityOverrideConnectivityType)(nil)).Elem()
+
+type PolicySubnetConnectivityOverrideConnectivityTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutput() PolicySubnetConnectivityOverrideConnectivityTypePtrOutput
+	ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutputWithContext(context.Context) PolicySubnetConnectivityOverrideConnectivityTypePtrOutput
+}
+
+type policySubnetConnectivityOverrideConnectivityTypePtr string
+
+func PolicySubnetConnectivityOverrideConnectivityTypePtr(v string) PolicySubnetConnectivityOverrideConnectivityTypePtrInput {
+	return (*policySubnetConnectivityOverrideConnectivityTypePtr)(&v)
+}
+
+func (*policySubnetConnectivityOverrideConnectivityTypePtr) ElementType() reflect.Type {
+	return policySubnetConnectivityOverrideConnectivityTypePtrType
+}
+
+func (in *policySubnetConnectivityOverrideConnectivityTypePtr) ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutput() PolicySubnetConnectivityOverrideConnectivityTypePtrOutput {
+	return pulumi.ToOutput(in).(PolicySubnetConnectivityOverrideConnectivityTypePtrOutput)
+}
+
+func (in *policySubnetConnectivityOverrideConnectivityTypePtr) ToPolicySubnetConnectivityOverrideConnectivityTypePtrOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideConnectivityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicySubnetConnectivityOverrideConnectivityTypePtrOutput)
 }
 
 // Conflict-resolution strategy applied to AWS WAF policies.
@@ -696,7 +1036,8 @@ func (in *policyWafConfigExistingCustomerWebAclResolutionPtr) ToPolicyWafConfigE
 type RuleFirewallType string
 
 const (
-	RuleFirewallTypeWaf = RuleFirewallType("WAF")
+	RuleFirewallTypeWaf         = RuleFirewallType("WAF")
+	RuleFirewallTypeIgwFirewall = RuleFirewallType("IGW_FIREWALL")
 )
 
 func (RuleFirewallType) ElementType() reflect.Type {
@@ -822,6 +1163,7 @@ func (o RuleFirewallTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // A concrete instance of `RuleFirewallTypeInput` can be one of the following:
 //
 //	RuleFirewallTypeWaf
+//	RuleFirewallTypeIgwFirewall
 type RuleFirewallTypeInput interface {
 	pulumi.Input
 
@@ -1112,6 +1454,170 @@ func (in *ruleTypePtr) ToRuleTypePtrOutput() RuleTypePtrOutput {
 
 func (in *ruleTypePtr) ToRuleTypePtrOutputWithContext(ctx context.Context) RuleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleTypePtrOutput)
+}
+
+// Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+type ScopeSpecializedScopeType string
+
+const (
+	ScopeSpecializedScopeTypeIgwFirewallSubnetConnectivityOverride = ScopeSpecializedScopeType("IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE")
+)
+
+func (ScopeSpecializedScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeSpecializedScopeType)(nil)).Elem()
+}
+
+func (e ScopeSpecializedScopeType) ToScopeSpecializedScopeTypeOutput() ScopeSpecializedScopeTypeOutput {
+	return pulumi.ToOutput(e).(ScopeSpecializedScopeTypeOutput)
+}
+
+func (e ScopeSpecializedScopeType) ToScopeSpecializedScopeTypeOutputWithContext(ctx context.Context) ScopeSpecializedScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ScopeSpecializedScopeTypeOutput)
+}
+
+func (e ScopeSpecializedScopeType) ToScopeSpecializedScopeTypePtrOutput() ScopeSpecializedScopeTypePtrOutput {
+	return e.ToScopeSpecializedScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ScopeSpecializedScopeType) ToScopeSpecializedScopeTypePtrOutputWithContext(ctx context.Context) ScopeSpecializedScopeTypePtrOutput {
+	return ScopeSpecializedScopeType(e).ToScopeSpecializedScopeTypeOutputWithContext(ctx).ToScopeSpecializedScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e ScopeSpecializedScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScopeSpecializedScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScopeSpecializedScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ScopeSpecializedScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ScopeSpecializedScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (ScopeSpecializedScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeSpecializedScopeType)(nil)).Elem()
+}
+
+func (o ScopeSpecializedScopeTypeOutput) ToScopeSpecializedScopeTypeOutput() ScopeSpecializedScopeTypeOutput {
+	return o
+}
+
+func (o ScopeSpecializedScopeTypeOutput) ToScopeSpecializedScopeTypeOutputWithContext(ctx context.Context) ScopeSpecializedScopeTypeOutput {
+	return o
+}
+
+func (o ScopeSpecializedScopeTypeOutput) ToScopeSpecializedScopeTypePtrOutput() ScopeSpecializedScopeTypePtrOutput {
+	return o.ToScopeSpecializedScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeSpecializedScopeTypeOutput) ToScopeSpecializedScopeTypePtrOutputWithContext(ctx context.Context) ScopeSpecializedScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeSpecializedScopeType) *ScopeSpecializedScopeType {
+		return &v
+	}).(ScopeSpecializedScopeTypePtrOutput)
+}
+
+func (o ScopeSpecializedScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ScopeSpecializedScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeSpecializedScopeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ScopeSpecializedScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeSpecializedScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeSpecializedScopeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScopeSpecializedScopeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeSpecializedScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeSpecializedScopeType)(nil)).Elem()
+}
+
+func (o ScopeSpecializedScopeTypePtrOutput) ToScopeSpecializedScopeTypePtrOutput() ScopeSpecializedScopeTypePtrOutput {
+	return o
+}
+
+func (o ScopeSpecializedScopeTypePtrOutput) ToScopeSpecializedScopeTypePtrOutputWithContext(ctx context.Context) ScopeSpecializedScopeTypePtrOutput {
+	return o
+}
+
+func (o ScopeSpecializedScopeTypePtrOutput) Elem() ScopeSpecializedScopeTypeOutput {
+	return o.ApplyT(func(v *ScopeSpecializedScopeType) ScopeSpecializedScopeType {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeSpecializedScopeType
+		return ret
+	}).(ScopeSpecializedScopeTypeOutput)
+}
+
+func (o ScopeSpecializedScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeSpecializedScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScopeSpecializedScopeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ScopeSpecializedScopeTypeInput is an input type that accepts values of the ScopeSpecializedScopeType enum
+// A concrete instance of `ScopeSpecializedScopeTypeInput` can be one of the following:
+//
+//	ScopeSpecializedScopeTypeIgwFirewallSubnetConnectivityOverride
+type ScopeSpecializedScopeTypeInput interface {
+	pulumi.Input
+
+	ToScopeSpecializedScopeTypeOutput() ScopeSpecializedScopeTypeOutput
+	ToScopeSpecializedScopeTypeOutputWithContext(context.Context) ScopeSpecializedScopeTypeOutput
+}
+
+var scopeSpecializedScopeTypePtrType = reflect.TypeOf((**ScopeSpecializedScopeType)(nil)).Elem()
+
+type ScopeSpecializedScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToScopeSpecializedScopeTypePtrOutput() ScopeSpecializedScopeTypePtrOutput
+	ToScopeSpecializedScopeTypePtrOutputWithContext(context.Context) ScopeSpecializedScopeTypePtrOutput
+}
+
+type scopeSpecializedScopeTypePtr string
+
+func ScopeSpecializedScopeTypePtr(v string) ScopeSpecializedScopeTypePtrInput {
+	return (*scopeSpecializedScopeTypePtr)(&v)
+}
+
+func (*scopeSpecializedScopeTypePtr) ElementType() reflect.Type {
+	return scopeSpecializedScopeTypePtrType
+}
+
+func (in *scopeSpecializedScopeTypePtr) ToScopeSpecializedScopeTypePtrOutput() ScopeSpecializedScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(ScopeSpecializedScopeTypePtrOutput)
+}
+
+func (in *scopeSpecializedScopeTypePtr) ToScopeSpecializedScopeTypePtrOutputWithContext(ctx context.Context) ScopeSpecializedScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ScopeSpecializedScopeTypePtrOutput)
 }
 
 // The status of the scope.
@@ -1471,6 +1977,10 @@ func (o TemplateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFirewallTypeInput)(nil)).Elem(), PolicyFirewallType("WAF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFirewallTypePtrInput)(nil)).Elem(), PolicyFirewallType("WAF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIgwFirewallConfigDefaultSubnetConnectivityInput)(nil)).Elem(), PolicyIgwFirewallConfigDefaultSubnetConnectivity("flexible"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrInput)(nil)).Elem(), PolicyIgwFirewallConfigDefaultSubnetConnectivity("flexible"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySubnetConnectivityOverrideConnectivityTypeInput)(nil)).Elem(), PolicySubnetConnectivityOverrideConnectivityType("flexible"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySubnetConnectivityOverrideConnectivityTypePtrInput)(nil)).Elem(), PolicySubnetConnectivityOverrideConnectivityType("flexible"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyWafConfigConflictResolutionInput)(nil)).Elem(), PolicyWafConfigConflictResolution("MERGE_WHERE_APPLICABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyWafConfigConflictResolutionPtrInput)(nil)).Elem(), PolicyWafConfigConflictResolution("MERGE_WHERE_APPLICABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyWafConfigExistingCustomerWebAclResolutionInput)(nil)).Elem(), PolicyWafConfigExistingCustomerWebAclResolution("RETROFIT"))
@@ -1479,14 +1989,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFirewallTypePtrInput)(nil)).Elem(), RuleFirewallType("WAF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTypeInput)(nil)).Elem(), RuleType("CONFIGURATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTypePtrInput)(nil)).Elem(), RuleType("CONFIGURATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeSpecializedScopeTypeInput)(nil)).Elem(), ScopeSpecializedScopeType("IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeSpecializedScopeTypePtrInput)(nil)).Elem(), ScopeSpecializedScopeType("IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFirewallTypeInput)(nil)).Elem(), TemplateFirewallType("WAF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFirewallTypePtrInput)(nil)).Elem(), TemplateFirewallType("WAF"))
 	pulumi.RegisterOutputType(DeploymentStatusOutput{})
 	pulumi.RegisterOutputType(DeploymentStatusPtrOutput{})
 	pulumi.RegisterOutputType(PolicyFirewallTypeOutput{})
 	pulumi.RegisterOutputType(PolicyFirewallTypePtrOutput{})
+	pulumi.RegisterOutputType(PolicyIgwFirewallConfigDefaultSubnetConnectivityOutput{})
+	pulumi.RegisterOutputType(PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStatusOutput{})
 	pulumi.RegisterOutputType(PolicyStatusPtrOutput{})
+	pulumi.RegisterOutputType(PolicySubnetConnectivityOverrideConnectivityTypeOutput{})
+	pulumi.RegisterOutputType(PolicySubnetConnectivityOverrideConnectivityTypePtrOutput{})
 	pulumi.RegisterOutputType(PolicyWafConfigConflictResolutionOutput{})
 	pulumi.RegisterOutputType(PolicyWafConfigConflictResolutionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyWafConfigExistingCustomerWebAclResolutionOutput{})
@@ -1497,6 +2013,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuleTypeOutput{})
 	pulumi.RegisterOutputType(RuleTypePtrOutput{})
+	pulumi.RegisterOutputType(ScopeSpecializedScopeTypeOutput{})
+	pulumi.RegisterOutputType(ScopeSpecializedScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(ScopeStatusOutput{})
 	pulumi.RegisterOutputType(ScopeStatusPtrOutput{})
 	pulumi.RegisterOutputType(TemplateFirewallTypeOutput{})

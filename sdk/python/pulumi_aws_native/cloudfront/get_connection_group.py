@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectionGroupResult:
-    def __init__(__self__, anycast_ip_list_id=None, arn=None, created_time=None, e_tag=None, enabled=None, id=None, ipv6_enabled=None, is_default=None, last_modified_time=None, routing_endpoint=None, status=None, tags=None):
+    def __init__(__self__, anycast_ip_list_id=None, arn=None, created_time=None, e_tag=None, enabled=None, id=None, ipv6_enabled=None, is_default=None, last_modified_time=None, routing_endpoint=None, status=None, tags=None, viewer_fallback=None):
         if anycast_ip_list_id and not isinstance(anycast_ip_list_id, str):
             raise TypeError("Expected argument 'anycast_ip_list_id' to be a str")
         pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
@@ -61,6 +62,9 @@ class GetConnectionGroupResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if viewer_fallback and not isinstance(viewer_fallback, dict):
+            raise TypeError("Expected argument 'viewer_fallback' to be a dict")
+        pulumi.set(__self__, "viewer_fallback", viewer_fallback)
 
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
@@ -158,6 +162,11 @@ class GetConnectionGroupResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter(name="viewerFallback")
+    def viewer_fallback(self) -> Optional['outputs.ConnectionGroupViewerFallback']:
+        return pulumi.get(self, "viewer_fallback")
+
 
 class AwaitableGetConnectionGroupResult(GetConnectionGroupResult):
     # pylint: disable=using-constant-test
@@ -176,7 +185,8 @@ class AwaitableGetConnectionGroupResult(GetConnectionGroupResult):
             last_modified_time=self.last_modified_time,
             routing_endpoint=self.routing_endpoint,
             status=self.status,
-            tags=self.tags)
+            tags=self.tags,
+            viewer_fallback=self.viewer_fallback)
 
 
 def get_connection_group(id: Optional[_builtins.str] = None,
@@ -203,7 +213,8 @@ def get_connection_group(id: Optional[_builtins.str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         routing_endpoint=pulumi.get(__ret__, 'routing_endpoint'),
         status=pulumi.get(__ret__, 'status'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        viewer_fallback=pulumi.get(__ret__, 'viewer_fallback'))
 def get_connection_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGroupResult]:
     """
@@ -227,4 +238,5 @@ def get_connection_group_output(id: pulumi.Input[Optional[_builtins.str]] = None
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         routing_endpoint=pulumi.get(__response__, 'routing_endpoint'),
         status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        viewer_fallback=pulumi.get(__response__, 'viewer_fallback')))

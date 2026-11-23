@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+ * Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
  */
 export class Connector extends pulumi.CustomResource {
     /**
@@ -134,7 +134,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "provider", "providerConfiguration.azure.awsConfigConnectorArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "provider", "providerConfiguration.azure.awsConfigConnectorArn", "providerConfiguration.gcp.awsConfigConnectorArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }

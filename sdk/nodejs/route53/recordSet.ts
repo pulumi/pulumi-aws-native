@@ -52,6 +52,10 @@ export class RecordSet extends pulumi.CustomResource {
      */
     declare public readonly aliasTarget: pulumi.Output<outputs.route53.RecordSetAliasTarget | undefined>;
     /**
+     * AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+     */
+    declare public readonly azAffinity: pulumi.Output<outputs.route53.RecordSetAzAffinity | undefined>;
+    /**
      * The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
      */
     declare public readonly cidrRoutingConfig: pulumi.Output<outputs.route53.RecordSetCidrRoutingConfig | undefined>;
@@ -127,6 +131,7 @@ export class RecordSet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["aliasTarget"] = args?.aliasTarget;
+            resourceInputs["azAffinity"] = args?.azAffinity;
             resourceInputs["cidrRoutingConfig"] = args?.cidrRoutingConfig;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["failover"] = args?.failover;
@@ -144,6 +149,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["weight"] = args?.weight;
         } else {
             resourceInputs["aliasTarget"] = undefined /*out*/;
+            resourceInputs["azAffinity"] = undefined /*out*/;
             resourceInputs["cidrRoutingConfig"] = undefined /*out*/;
             resourceInputs["comment"] = undefined /*out*/;
             resourceInputs["failover"] = undefined /*out*/;
@@ -175,6 +181,10 @@ export interface RecordSetArgs {
      * Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
      */
     aliasTarget?: pulumi.Input<inputs.route53.RecordSetAliasTargetArgs | undefined>;
+    /**
+     * AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+     */
+    azAffinity?: pulumi.Input<inputs.route53.RecordSetAzAffinityArgs | undefined>;
     /**
      * The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
      */

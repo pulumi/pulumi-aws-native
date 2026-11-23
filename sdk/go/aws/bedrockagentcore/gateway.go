@@ -22,7 +22,8 @@ type Gateway struct {
 	// The date and time at which the gateway was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description for the gateway.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description    pulumi.StringPtrOutput         `pulumi:"description"`
+	DomainOverride GatewayDomainOverridePtrOutput `pulumi:"domainOverride"`
 	// The exception level for the gateway.
 	ExceptionLevel GatewayExceptionLevelPtrOutput `pulumi:"exceptionLevel"`
 	// The ARN for the gateway.
@@ -111,7 +112,8 @@ type gatewayArgs struct {
 	// The authorizer type for the gateway.
 	AuthorizerType GatewayAuthorizerType `pulumi:"authorizerType"`
 	// The description for the gateway.
-	Description *string `pulumi:"description"`
+	Description    *string                `pulumi:"description"`
+	DomainOverride *GatewayDomainOverride `pulumi:"domainOverride"`
 	// The exception level for the gateway.
 	ExceptionLevel            *GatewayExceptionLevel            `pulumi:"exceptionLevel"`
 	InterceptorConfigurations []GatewayInterceptorConfiguration `pulumi:"interceptorConfigurations"`
@@ -138,7 +140,8 @@ type GatewayArgs struct {
 	// The authorizer type for the gateway.
 	AuthorizerType GatewayAuthorizerTypeInput
 	// The description for the gateway.
-	Description pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	DomainOverride GatewayDomainOverridePtrInput
 	// The exception level for the gateway.
 	ExceptionLevel            GatewayExceptionLevelPtrInput
 	InterceptorConfigurations GatewayInterceptorConfigurationArrayInput
@@ -213,6 +216,10 @@ func (o GatewayOutput) CreatedAt() pulumi.StringOutput {
 // The description for the gateway.
 func (o GatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayOutput) DomainOverride() GatewayDomainOverridePtrOutput {
+	return o.ApplyT(func(v *Gateway) GatewayDomainOverridePtrOutput { return v.DomainOverride }).(GatewayDomainOverridePtrOutput)
 }
 
 // The exception level for the gateway.

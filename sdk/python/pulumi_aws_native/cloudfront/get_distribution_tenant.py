@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDistributionTenantResult:
-    def __init__(__self__, arn=None, connection_group_id=None, created_time=None, customizations=None, distribution_id=None, domain_results=None, domains=None, e_tag=None, enabled=None, id=None, last_modified_time=None, parameters=None, status=None, tags=None):
+    def __init__(__self__, arn=None, connection_group_id=None, created_time=None, customizations=None, distribution_id=None, domain_mappings=None, domain_results=None, domains=None, e_tag=None, enabled=None, id=None, last_modified_time=None, parameters=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetDistributionTenantResult:
         if distribution_id and not isinstance(distribution_id, str):
             raise TypeError("Expected argument 'distribution_id' to be a str")
         pulumi.set(__self__, "distribution_id", distribution_id)
+        if domain_mappings and not isinstance(domain_mappings, list):
+            raise TypeError("Expected argument 'domain_mappings' to be a list")
+        pulumi.set(__self__, "domain_mappings", domain_mappings)
         if domain_results and not isinstance(domain_results, list):
             raise TypeError("Expected argument 'domain_results' to be a list")
         pulumi.set(__self__, "domain_results", domain_results)
@@ -109,6 +112,11 @@ class GetDistributionTenantResult:
         The ID of the multi-tenant distribution.
         """
         return pulumi.get(self, "distribution_id")
+
+    @_builtins.property
+    @pulumi.getter(name="domainMappings")
+    def domain_mappings(self) -> Optional[Sequence['outputs.DistributionTenantDomainMapping']]:
+        return pulumi.get(self, "domain_mappings")
 
     @_builtins.property
     @pulumi.getter(name="domainResults")
@@ -191,6 +199,7 @@ class AwaitableGetDistributionTenantResult(GetDistributionTenantResult):
             created_time=self.created_time,
             customizations=self.customizations,
             distribution_id=self.distribution_id,
+            domain_mappings=self.domain_mappings,
             domain_results=self.domain_results,
             domains=self.domains,
             e_tag=self.e_tag,
@@ -220,6 +229,7 @@ def get_distribution_tenant(id: Optional[_builtins.str] = None,
         created_time=pulumi.get(__ret__, 'created_time'),
         customizations=pulumi.get(__ret__, 'customizations'),
         distribution_id=pulumi.get(__ret__, 'distribution_id'),
+        domain_mappings=pulumi.get(__ret__, 'domain_mappings'),
         domain_results=pulumi.get(__ret__, 'domain_results'),
         domains=pulumi.get(__ret__, 'domains'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
@@ -246,6 +256,7 @@ def get_distribution_tenant_output(id: pulumi.Input[Optional[_builtins.str]] = N
         created_time=pulumi.get(__response__, 'created_time'),
         customizations=pulumi.get(__response__, 'customizations'),
         distribution_id=pulumi.get(__response__, 'distribution_id'),
+        domain_mappings=pulumi.get(__response__, 'domain_mappings'),
         domain_results=pulumi.get(__response__, 'domain_results'),
         domains=pulumi.get(__response__, 'domains'),
         e_tag=pulumi.get(__response__, 'e_tag'),

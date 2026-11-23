@@ -47,6 +47,7 @@ func NewConnector(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
 		"provider.azure.awsConfigConnectorArn",
+		"provider.gcp.awsConfigConnectorArn",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

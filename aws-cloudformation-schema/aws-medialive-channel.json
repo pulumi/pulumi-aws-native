@@ -393,15 +393,6 @@
         }
       }
     },
-    "CmafIngestFrameCaptureOutputSettings" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "NameModifier" : {
-          "type" : "string"
-        }
-      }
-    },
     "KeyProviderSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -1692,6 +1683,15 @@
         }
       }
     },
+    "CmafIngestOutputSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "NameModifier" : {
+          "type" : "string"
+        }
+      }
+    },
     "NetworkInputSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2239,6 +2239,15 @@
         }
       }
     },
+    "FrameCaptureOutputSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "NameModifier" : {
+          "type" : "string"
+        }
+      }
+    },
     "ThumbnailConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2721,7 +2730,7 @@
           "$ref" : "#/definitions/MsSmoothOutputSettings"
         },
         "FrameCaptureOutputSettings" : {
-          "$ref" : "#/definitions/CmafIngestFrameCaptureOutputSettings"
+          "$ref" : "#/definitions/FrameCaptureOutputSettings"
         },
         "HlsOutputSettings" : {
           "$ref" : "#/definitions/HlsOutputSettings"
@@ -2739,7 +2748,7 @@
           "$ref" : "#/definitions/MediaConnectRouterOutputSettings"
         },
         "CmafIngestOutputSettings" : {
-          "$ref" : "#/definitions/CmafIngestFrameCaptureOutputSettings"
+          "$ref" : "#/definitions/CmafIngestOutputSettings"
         },
         "SrtOutputSettings" : {
           "$ref" : "#/definitions/SrtOutputSettings"
@@ -3007,6 +3016,9 @@
           }
         },
         "KlvBehavior" : {
+          "type" : "string"
+        },
+        "CaptionLanguageSetting" : {
           "type" : "string"
         },
         "Id3Behavior" : {

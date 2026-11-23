@@ -95,6 +95,7 @@ namespace Pulumi.AwsNative.WaFv2
     [OutputType]
     public sealed class GetWebAclResult
     {
+        public readonly Outputs.WebAclAnalyticsConfig? AnalyticsConfig;
         /// <summary>
         /// Collection of application attributes.
         /// </summary>
@@ -185,6 +186,8 @@ namespace Pulumi.AwsNative.WaFv2
 
         [OutputConstructor]
         private GetWebAclResult(
+            Outputs.WebAclAnalyticsConfig? analyticsConfig,
+
             Outputs.WebAclApplicationConfig? applicationConfig,
 
             string? arn,
@@ -221,6 +224,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             Outputs.WebAclVisibilityConfig? visibilityConfig)
         {
+            AnalyticsConfig = analyticsConfig;
             ApplicationConfig = applicationConfig;
             Arn = arn;
             AssociationConfig = associationConfig;

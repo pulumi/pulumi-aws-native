@@ -60,6 +60,7 @@ export class Gateway extends pulumi.CustomResource {
      * The description for the gateway.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly domainOverride: pulumi.Output<outputs.bedrockagentcore.GatewayDomainOverride | undefined>;
     /**
      * The exception level for the gateway.
      */
@@ -131,6 +132,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["authorizerConfiguration"] = args?.authorizerConfiguration;
             resourceInputs["authorizerType"] = args?.authorizerType;
             resourceInputs["description"] = args?.description;
+            resourceInputs["domainOverride"] = args?.domainOverride;
             resourceInputs["exceptionLevel"] = args?.exceptionLevel;
             resourceInputs["interceptorConfigurations"] = args?.interceptorConfigurations;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
@@ -155,6 +157,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["authorizerType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["domainOverride"] = undefined /*out*/;
             resourceInputs["exceptionLevel"] = undefined /*out*/;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["gatewayIdentifier"] = undefined /*out*/;
@@ -192,6 +195,7 @@ export interface GatewayArgs {
      * The description for the gateway.
      */
     description?: pulumi.Input<string | undefined>;
+    domainOverride?: pulumi.Input<inputs.bedrockagentcore.GatewayDomainOverrideArgs | undefined>;
     /**
      * The exception level for the gateway.
      */

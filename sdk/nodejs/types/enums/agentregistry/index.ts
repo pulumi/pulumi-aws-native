@@ -2,6 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const PublisherVerificationStatus = {
+    ActionRequired: "ACTION_REQUIRED",
+    Active: "ACTIVE",
+    Failed: "FAILED",
+    Suspended: "SUSPENDED",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * The verification status of the Publisher.
+ */
+export type PublisherVerificationStatus = (typeof PublisherVerificationStatus)[keyof typeof PublisherVerificationStatus];
+
 export const RegistryAuthorizerType = {
     CustomJwt: "CUSTOM_JWT",
     AwsIam: "AWS_IAM",
@@ -81,6 +94,15 @@ export const RegistryRecordRecordType = {
  */
 export type RegistryRecordRecordType = (typeof RegistryRecordRecordType)[keyof typeof RegistryRecordRecordType];
 
+export const RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType = {
+    Iam: "IAM",
+} as const;
+
+/**
+ * The type of the credential provider.
+ */
+export type RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType = (typeof RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType)[keyof typeof RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType];
+
 export const RegistryRecordStatus = {
     Draft: "DRAFT",
     PendingApproval: "PENDING_APPROVAL",
@@ -91,10 +113,12 @@ export const RegistryRecordStatus = {
     Updating: "UPDATING",
     CreateFailed: "CREATE_FAILED",
     UpdateFailed: "UPDATE_FAILED",
+    CreatePendingAuth: "CREATE_PENDING_AUTH",
+    UpdatePendingAuth: "UPDATE_PENDING_AUTH",
 } as const;
 
 /**
- * The lifecycle status of the registry record.
+ * The lifecycle status of the registry record. CREATE_PENDING_AUTH and UPDATE_PENDING_AUTH mean that the record waits for a user to authorize access to a GitHub source. CloudFormation doesn't support GitHub sources, so a create or update that reaches one of these states fails.
  */
 export type RegistryRecordStatus = (typeof RegistryRecordStatus)[keyof typeof RegistryRecordStatus];
 

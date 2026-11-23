@@ -77,8 +77,6 @@ export class StackFleetAssociation extends pulumi.CustomResource {
             resourceInputs["stackName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["fleetName", "stackName"] };
-        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StackFleetAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -72,6 +75,7 @@ export class Authorizer extends pulumi.CustomResource {
      * A validation expression for the incoming identity token. For `TOKEN` authorizers, this value is a regular expression. For `COGNITO_USER_POOLS` authorizers, API Gateway will match the `aud` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the `REQUEST` authorizer.
      */
     declare public readonly identityValidationExpression: pulumi.Output<string | undefined>;
+    declare public readonly jwtConfiguration: pulumi.Output<outputs.apigateway.AuthorizerJwtConfiguration | undefined>;
     /**
      * The name of the authorizer.
      */
@@ -112,6 +116,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["authorizerUri"] = args?.authorizerUri;
             resourceInputs["identitySource"] = args?.identitySource;
             resourceInputs["identityValidationExpression"] = args?.identityValidationExpression;
+            resourceInputs["jwtConfiguration"] = args?.jwtConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["providerArns"] = args?.providerArns;
             resourceInputs["restApiId"] = args?.restApiId;
@@ -125,6 +130,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["authorizerUri"] = undefined /*out*/;
             resourceInputs["identitySource"] = undefined /*out*/;
             resourceInputs["identityValidationExpression"] = undefined /*out*/;
+            resourceInputs["jwtConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["providerArns"] = undefined /*out*/;
             resourceInputs["restApiId"] = undefined /*out*/;
@@ -165,6 +171,7 @@ export interface AuthorizerArgs {
      * A validation expression for the incoming identity token. For `TOKEN` authorizers, this value is a regular expression. For `COGNITO_USER_POOLS` authorizers, API Gateway will match the `aud` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the `REQUEST` authorizer.
      */
     identityValidationExpression?: pulumi.Input<string | undefined>;
+    jwtConfiguration?: pulumi.Input<inputs.apigateway.AuthorizerJwtConfigurationArgs | undefined>;
     /**
      * The name of the authorizer.
      */

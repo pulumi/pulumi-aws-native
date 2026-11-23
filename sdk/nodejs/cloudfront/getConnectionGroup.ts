@@ -73,6 +73,7 @@ export interface GetConnectionGroupResult {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     readonly tags?: outputs.Tag[];
+    readonly viewerFallback?: outputs.cloudfront.ConnectionGroupViewerFallback;
 }
 /**
  * The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.

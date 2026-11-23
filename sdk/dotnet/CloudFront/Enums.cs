@@ -225,6 +225,34 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
     [EnumType]
+    public readonly struct DistributionCustomOriginConfigOriginHttpVersion : IEquatable<DistributionCustomOriginConfigOriginHttpVersion>
+    {
+        private readonly string _value;
+
+        private DistributionCustomOriginConfigOriginHttpVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionCustomOriginConfigOriginHttpVersion Http11 { get; } = new DistributionCustomOriginConfigOriginHttpVersion("http1.1");
+        public static DistributionCustomOriginConfigOriginHttpVersion Http2 { get; } = new DistributionCustomOriginConfigOriginHttpVersion("http2");
+
+        public static bool operator ==(DistributionCustomOriginConfigOriginHttpVersion left, DistributionCustomOriginConfigOriginHttpVersion right) => left.Equals(right);
+        public static bool operator !=(DistributionCustomOriginConfigOriginHttpVersion left, DistributionCustomOriginConfigOriginHttpVersion right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionCustomOriginConfigOriginHttpVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionCustomOriginConfigOriginHttpVersion other && Equals(other);
+        public bool Equals(DistributionCustomOriginConfigOriginHttpVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DistributionOriginGroupSelectionCriteria : IEquatable<DistributionOriginGroupSelectionCriteria>
     {
         private readonly string _value;
@@ -245,6 +273,36 @@ namespace Pulumi.AwsNative.CloudFront
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DistributionOriginGroupSelectionCriteria other && Equals(other);
         public bool Equals(DistributionOriginGroupSelectionCriteria other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+    /// </summary>
+    [EnumType]
+    public readonly struct DistributionTenantDomainMappingServeOn : IEquatable<DistributionTenantDomainMappingServeOn>
+    {
+        private readonly string _value;
+
+        private DistributionTenantDomainMappingServeOn(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionTenantDomainMappingServeOn AnycastIpListOnly { get; } = new DistributionTenantDomainMappingServeOn("anycast-ip-list-only");
+
+        public static bool operator ==(DistributionTenantDomainMappingServeOn left, DistributionTenantDomainMappingServeOn right) => left.Equals(right);
+        public static bool operator !=(DistributionTenantDomainMappingServeOn left, DistributionTenantDomainMappingServeOn right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionTenantDomainMappingServeOn value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionTenantDomainMappingServeOn other && Equals(other);
+        public bool Equals(DistributionTenantDomainMappingServeOn other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -382,6 +440,34 @@ namespace Pulumi.AwsNative.CloudFront
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DistributionTenantOnDomainTakeover : IEquatable<DistributionTenantOnDomainTakeover>
+    {
+        private readonly string _value;
+
+        private DistributionTenantOnDomainTakeover(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionTenantOnDomainTakeover Allow { get; } = new DistributionTenantOnDomainTakeover("allow");
+        public static DistributionTenantOnDomainTakeover Reject { get; } = new DistributionTenantOnDomainTakeover("reject");
+
+        public static bool operator ==(DistributionTenantOnDomainTakeover left, DistributionTenantOnDomainTakeover right) => left.Equals(right);
+        public static bool operator !=(DistributionTenantOnDomainTakeover left, DistributionTenantOnDomainTakeover right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionTenantOnDomainTakeover value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionTenantOnDomainTakeover other && Equals(other);
+        public bool Equals(DistributionTenantOnDomainTakeover other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The action for the WAF web ACL customization. You can specify ``override`` to specify a separate WAF web ACL for the distribution tenant. If you specify ``disable``, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.
     /// </summary>
@@ -435,6 +521,64 @@ namespace Pulumi.AwsNative.CloudFront
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DistributionViewerMtlsMode other && Equals(other);
         public bool Equals(DistributionViewerMtlsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DistributionVpcOriginConfigOriginHttpVersion : IEquatable<DistributionVpcOriginConfigOriginHttpVersion>
+    {
+        private readonly string _value;
+
+        private DistributionVpcOriginConfigOriginHttpVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionVpcOriginConfigOriginHttpVersion Http11 { get; } = new DistributionVpcOriginConfigOriginHttpVersion("http1.1");
+        public static DistributionVpcOriginConfigOriginHttpVersion Http2 { get; } = new DistributionVpcOriginConfigOriginHttpVersion("http2");
+
+        public static bool operator ==(DistributionVpcOriginConfigOriginHttpVersion left, DistributionVpcOriginConfigOriginHttpVersion right) => left.Equals(right);
+        public static bool operator !=(DistributionVpcOriginConfigOriginHttpVersion left, DistributionVpcOriginConfigOriginHttpVersion right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionVpcOriginConfigOriginHttpVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionVpcOriginConfigOriginHttpVersion other && Equals(other);
+        public bool Equals(DistributionVpcOriginConfigOriginHttpVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The encryption format CloudFront uses for this content type.
+    /// </summary>
+    [EnumType]
+    public readonly struct FieldLevelEncryptionConfigContentTypeProfileFormat : IEquatable<FieldLevelEncryptionConfigContentTypeProfileFormat>
+    {
+        private readonly string _value;
+
+        private FieldLevelEncryptionConfigContentTypeProfileFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FieldLevelEncryptionConfigContentTypeProfileFormat UrlEncoded { get; } = new FieldLevelEncryptionConfigContentTypeProfileFormat("URLEncoded");
+
+        public static bool operator ==(FieldLevelEncryptionConfigContentTypeProfileFormat left, FieldLevelEncryptionConfigContentTypeProfileFormat right) => left.Equals(right);
+        public static bool operator !=(FieldLevelEncryptionConfigContentTypeProfileFormat left, FieldLevelEncryptionConfigContentTypeProfileFormat right) => !left.Equals(right);
+
+        public static explicit operator string(FieldLevelEncryptionConfigContentTypeProfileFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FieldLevelEncryptionConfigContentTypeProfileFormat other && Equals(other);
+        public bool Equals(FieldLevelEncryptionConfigContentTypeProfileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

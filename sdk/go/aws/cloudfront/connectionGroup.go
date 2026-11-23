@@ -41,7 +41,8 @@ type ConnectionGroup struct {
 	// The status of the connection group.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags           aws.TagArrayOutput                     `pulumi:"tags"`
+	ViewerFallback ConnectionGroupViewerFallbackPtrOutput `pulumi:"viewerFallback"`
 }
 
 // NewConnectionGroup registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +104,8 @@ type connectionGroupArgs struct {
 	// The name of the connection group.
 	Name *string `pulumi:"name"`
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags           []aws.Tag                      `pulumi:"tags"`
+	ViewerFallback *ConnectionGroupViewerFallback `pulumi:"viewerFallback"`
 }
 
 // The set of arguments for constructing a ConnectionGroup resource.
@@ -117,7 +119,8 @@ type ConnectionGroupArgs struct {
 	// The name of the connection group.
 	Name pulumi.StringPtrInput
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags aws.TagArrayInput
+	Tags           aws.TagArrayInput
+	ViewerFallback ConnectionGroupViewerFallbackPtrInput
 }
 
 func (ConnectionGroupArgs) ElementType() reflect.Type {
@@ -220,6 +223,10 @@ func (o ConnectionGroupOutput) Status() pulumi.StringOutput {
 // A complex type that contains zero or more “Tag“ elements.
 func (o ConnectionGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ConnectionGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o ConnectionGroupOutput) ViewerFallback() ConnectionGroupViewerFallbackPtrOutput {
+	return o.ApplyT(func(v *ConnectionGroup) ConnectionGroupViewerFallbackPtrOutput { return v.ViewerFallback }).(ConnectionGroupViewerFallbackPtrOutput)
 }
 
 func init() {

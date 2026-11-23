@@ -96,6 +96,7 @@ __all__ = [
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
     'WebAclAllowAction',
+    'WebAclAnalyticsConfig',
     'WebAclAndStatement',
     'WebAclApplicationAttribute',
     'WebAclApplicationConfig',
@@ -4998,6 +4999,24 @@ class WebAclAllowAction(dict):
         For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
         """
         return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
+class WebAclAnalyticsConfig(dict):
+    """
+    Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+    """
+    def __init__(__self__, *,
+                 mode: 'WebAclAnalyticsMode'):
+        """
+        Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> 'WebAclAnalyticsMode':
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

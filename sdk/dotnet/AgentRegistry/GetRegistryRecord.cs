@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.AgentRegistry
     public sealed class GetRegistryRecordResult
     {
         /// <summary>
+        /// The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+        /// </summary>
+        public readonly Outputs.RegistryRecordArtifact? Artifact;
+        /// <summary>
         /// The timestamp when the registry record was created.
         /// </summary>
         public readonly string? CreatedAt;
@@ -108,6 +112,10 @@ namespace Pulumi.AwsNative.AgentRegistry
         public readonly string? RegistryArn;
         public readonly Pulumi.AwsNative.AgentRegistry.RegistryRecordStatus? Status;
         /// <summary>
+        /// The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+        /// </summary>
+        public readonly Outputs.RegistryRecordSynchronizedSource? SynchronizedSource;
+        /// <summary>
         /// Tags to assign to the registry record.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -118,6 +126,8 @@ namespace Pulumi.AwsNative.AgentRegistry
 
         [OutputConstructor]
         private GetRegistryRecordResult(
+            Outputs.RegistryRecordArtifact? artifact,
+
             string? createdAt,
 
             string? createdBy,
@@ -142,10 +152,13 @@ namespace Pulumi.AwsNative.AgentRegistry
 
             Pulumi.AwsNative.AgentRegistry.RegistryRecordStatus? status,
 
+            Outputs.RegistryRecordSynchronizedSource? synchronizedSource,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt)
         {
+            Artifact = artifact;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CustomMetadata = customMetadata;
@@ -158,6 +171,7 @@ namespace Pulumi.AwsNative.AgentRegistry
             RecordVersion = recordVersion;
             RegistryArn = registryArn;
             Status = status;
+            SynchronizedSource = synchronizedSource;
             Tags = tags;
             UpdatedAt = updatedAt;
         }

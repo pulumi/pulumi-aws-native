@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RecordSetProtection{}
 	case "aws-native:route53:TrafficPolicy":
 		r = &TrafficPolicy{}
+	case "aws-native:route53:TrafficPolicyInstance":
+		r = &TrafficPolicyInstance{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

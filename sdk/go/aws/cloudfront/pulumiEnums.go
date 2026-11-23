@@ -1024,6 +1024,171 @@ func (in *distributionCustomOriginConfigIpAddressTypePtr) ToDistributionCustomOr
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionCustomOriginConfigIpAddressTypePtrOutput)
 }
 
+type DistributionCustomOriginConfigOriginHttpVersion string
+
+const (
+	DistributionCustomOriginConfigOriginHttpVersionHttp11 = DistributionCustomOriginConfigOriginHttpVersion("http1.1")
+	DistributionCustomOriginConfigOriginHttpVersionHttp2  = DistributionCustomOriginConfigOriginHttpVersion("http2")
+)
+
+func (DistributionCustomOriginConfigOriginHttpVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCustomOriginConfigOriginHttpVersion)(nil)).Elem()
+}
+
+func (e DistributionCustomOriginConfigOriginHttpVersion) ToDistributionCustomOriginConfigOriginHttpVersionOutput() DistributionCustomOriginConfigOriginHttpVersionOutput {
+	return pulumi.ToOutput(e).(DistributionCustomOriginConfigOriginHttpVersionOutput)
+}
+
+func (e DistributionCustomOriginConfigOriginHttpVersion) ToDistributionCustomOriginConfigOriginHttpVersionOutputWithContext(ctx context.Context) DistributionCustomOriginConfigOriginHttpVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionCustomOriginConfigOriginHttpVersionOutput)
+}
+
+func (e DistributionCustomOriginConfigOriginHttpVersion) ToDistributionCustomOriginConfigOriginHttpVersionPtrOutput() DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return e.ToDistributionCustomOriginConfigOriginHttpVersionPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionCustomOriginConfigOriginHttpVersion) ToDistributionCustomOriginConfigOriginHttpVersionPtrOutputWithContext(ctx context.Context) DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return DistributionCustomOriginConfigOriginHttpVersion(e).ToDistributionCustomOriginConfigOriginHttpVersionOutputWithContext(ctx).ToDistributionCustomOriginConfigOriginHttpVersionPtrOutputWithContext(ctx)
+}
+
+func (e DistributionCustomOriginConfigOriginHttpVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionCustomOriginConfigOriginHttpVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionCustomOriginConfigOriginHttpVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionCustomOriginConfigOriginHttpVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionCustomOriginConfigOriginHttpVersionOutput struct{ *pulumi.OutputState }
+
+func (DistributionCustomOriginConfigOriginHttpVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCustomOriginConfigOriginHttpVersion)(nil)).Elem()
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionOutput) ToDistributionCustomOriginConfigOriginHttpVersionOutput() DistributionCustomOriginConfigOriginHttpVersionOutput {
+	return o
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionOutput) ToDistributionCustomOriginConfigOriginHttpVersionOutputWithContext(ctx context.Context) DistributionCustomOriginConfigOriginHttpVersionOutput {
+	return o
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionOutput) ToDistributionCustomOriginConfigOriginHttpVersionPtrOutput() DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return o.ToDistributionCustomOriginConfigOriginHttpVersionPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionOutput) ToDistributionCustomOriginConfigOriginHttpVersionPtrOutputWithContext(ctx context.Context) DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCustomOriginConfigOriginHttpVersion) *DistributionCustomOriginConfigOriginHttpVersion {
+		return &v
+	}).(DistributionCustomOriginConfigOriginHttpVersionPtrOutput)
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionCustomOriginConfigOriginHttpVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionCustomOriginConfigOriginHttpVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionCustomOriginConfigOriginHttpVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCustomOriginConfigOriginHttpVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCustomOriginConfigOriginHttpVersion)(nil)).Elem()
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionPtrOutput) ToDistributionCustomOriginConfigOriginHttpVersionPtrOutput() DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return o
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionPtrOutput) ToDistributionCustomOriginConfigOriginHttpVersionPtrOutputWithContext(ctx context.Context) DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return o
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionPtrOutput) Elem() DistributionCustomOriginConfigOriginHttpVersionOutput {
+	return o.ApplyT(func(v *DistributionCustomOriginConfigOriginHttpVersion) DistributionCustomOriginConfigOriginHttpVersion {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCustomOriginConfigOriginHttpVersion
+		return ret
+	}).(DistributionCustomOriginConfigOriginHttpVersionOutput)
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCustomOriginConfigOriginHttpVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionCustomOriginConfigOriginHttpVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionCustomOriginConfigOriginHttpVersionInput is an input type that accepts values of the DistributionCustomOriginConfigOriginHttpVersion enum
+// A concrete instance of `DistributionCustomOriginConfigOriginHttpVersionInput` can be one of the following:
+//
+//	DistributionCustomOriginConfigOriginHttpVersionHttp11
+//	DistributionCustomOriginConfigOriginHttpVersionHttp2
+type DistributionCustomOriginConfigOriginHttpVersionInput interface {
+	pulumi.Input
+
+	ToDistributionCustomOriginConfigOriginHttpVersionOutput() DistributionCustomOriginConfigOriginHttpVersionOutput
+	ToDistributionCustomOriginConfigOriginHttpVersionOutputWithContext(context.Context) DistributionCustomOriginConfigOriginHttpVersionOutput
+}
+
+var distributionCustomOriginConfigOriginHttpVersionPtrType = reflect.TypeOf((**DistributionCustomOriginConfigOriginHttpVersion)(nil)).Elem()
+
+type DistributionCustomOriginConfigOriginHttpVersionPtrInput interface {
+	pulumi.Input
+
+	ToDistributionCustomOriginConfigOriginHttpVersionPtrOutput() DistributionCustomOriginConfigOriginHttpVersionPtrOutput
+	ToDistributionCustomOriginConfigOriginHttpVersionPtrOutputWithContext(context.Context) DistributionCustomOriginConfigOriginHttpVersionPtrOutput
+}
+
+type distributionCustomOriginConfigOriginHttpVersionPtr string
+
+func DistributionCustomOriginConfigOriginHttpVersionPtr(v string) DistributionCustomOriginConfigOriginHttpVersionPtrInput {
+	return (*distributionCustomOriginConfigOriginHttpVersionPtr)(&v)
+}
+
+func (*distributionCustomOriginConfigOriginHttpVersionPtr) ElementType() reflect.Type {
+	return distributionCustomOriginConfigOriginHttpVersionPtrType
+}
+
+func (in *distributionCustomOriginConfigOriginHttpVersionPtr) ToDistributionCustomOriginConfigOriginHttpVersionPtrOutput() DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return pulumi.ToOutput(in).(DistributionCustomOriginConfigOriginHttpVersionPtrOutput)
+}
+
+func (in *distributionCustomOriginConfigOriginHttpVersionPtr) ToDistributionCustomOriginConfigOriginHttpVersionPtrOutputWithContext(ctx context.Context) DistributionCustomOriginConfigOriginHttpVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionCustomOriginConfigOriginHttpVersionPtrOutput)
+}
+
 type DistributionOriginGroupSelectionCriteria string
 
 const (
@@ -1187,6 +1352,170 @@ func (in *distributionOriginGroupSelectionCriteriaPtr) ToDistributionOriginGroup
 
 func (in *distributionOriginGroupSelectionCriteriaPtr) ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) DistributionOriginGroupSelectionCriteriaPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionOriginGroupSelectionCriteriaPtrOutput)
+}
+
+// Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+type DistributionTenantDomainMappingServeOn string
+
+const (
+	DistributionTenantDomainMappingServeOnAnycastIpListOnly = DistributionTenantDomainMappingServeOn("anycast-ip-list-only")
+)
+
+func (DistributionTenantDomainMappingServeOn) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantDomainMappingServeOn)(nil)).Elem()
+}
+
+func (e DistributionTenantDomainMappingServeOn) ToDistributionTenantDomainMappingServeOnOutput() DistributionTenantDomainMappingServeOnOutput {
+	return pulumi.ToOutput(e).(DistributionTenantDomainMappingServeOnOutput)
+}
+
+func (e DistributionTenantDomainMappingServeOn) ToDistributionTenantDomainMappingServeOnOutputWithContext(ctx context.Context) DistributionTenantDomainMappingServeOnOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionTenantDomainMappingServeOnOutput)
+}
+
+func (e DistributionTenantDomainMappingServeOn) ToDistributionTenantDomainMappingServeOnPtrOutput() DistributionTenantDomainMappingServeOnPtrOutput {
+	return e.ToDistributionTenantDomainMappingServeOnPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantDomainMappingServeOn) ToDistributionTenantDomainMappingServeOnPtrOutputWithContext(ctx context.Context) DistributionTenantDomainMappingServeOnPtrOutput {
+	return DistributionTenantDomainMappingServeOn(e).ToDistributionTenantDomainMappingServeOnOutputWithContext(ctx).ToDistributionTenantDomainMappingServeOnPtrOutputWithContext(ctx)
+}
+
+func (e DistributionTenantDomainMappingServeOn) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantDomainMappingServeOn) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantDomainMappingServeOn) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantDomainMappingServeOn) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionTenantDomainMappingServeOnOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantDomainMappingServeOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantDomainMappingServeOn)(nil)).Elem()
+}
+
+func (o DistributionTenantDomainMappingServeOnOutput) ToDistributionTenantDomainMappingServeOnOutput() DistributionTenantDomainMappingServeOnOutput {
+	return o
+}
+
+func (o DistributionTenantDomainMappingServeOnOutput) ToDistributionTenantDomainMappingServeOnOutputWithContext(ctx context.Context) DistributionTenantDomainMappingServeOnOutput {
+	return o
+}
+
+func (o DistributionTenantDomainMappingServeOnOutput) ToDistributionTenantDomainMappingServeOnPtrOutput() DistributionTenantDomainMappingServeOnPtrOutput {
+	return o.ToDistributionTenantDomainMappingServeOnPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantDomainMappingServeOnOutput) ToDistributionTenantDomainMappingServeOnPtrOutputWithContext(ctx context.Context) DistributionTenantDomainMappingServeOnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantDomainMappingServeOn) *DistributionTenantDomainMappingServeOn {
+		return &v
+	}).(DistributionTenantDomainMappingServeOnPtrOutput)
+}
+
+func (o DistributionTenantDomainMappingServeOnOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantDomainMappingServeOnOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantDomainMappingServeOn) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionTenantDomainMappingServeOnOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantDomainMappingServeOnOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantDomainMappingServeOn) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantDomainMappingServeOnPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantDomainMappingServeOnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantDomainMappingServeOn)(nil)).Elem()
+}
+
+func (o DistributionTenantDomainMappingServeOnPtrOutput) ToDistributionTenantDomainMappingServeOnPtrOutput() DistributionTenantDomainMappingServeOnPtrOutput {
+	return o
+}
+
+func (o DistributionTenantDomainMappingServeOnPtrOutput) ToDistributionTenantDomainMappingServeOnPtrOutputWithContext(ctx context.Context) DistributionTenantDomainMappingServeOnPtrOutput {
+	return o
+}
+
+func (o DistributionTenantDomainMappingServeOnPtrOutput) Elem() DistributionTenantDomainMappingServeOnOutput {
+	return o.ApplyT(func(v *DistributionTenantDomainMappingServeOn) DistributionTenantDomainMappingServeOn {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantDomainMappingServeOn
+		return ret
+	}).(DistributionTenantDomainMappingServeOnOutput)
+}
+
+func (o DistributionTenantDomainMappingServeOnPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantDomainMappingServeOnPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionTenantDomainMappingServeOn) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionTenantDomainMappingServeOnInput is an input type that accepts values of the DistributionTenantDomainMappingServeOn enum
+// A concrete instance of `DistributionTenantDomainMappingServeOnInput` can be one of the following:
+//
+//	DistributionTenantDomainMappingServeOnAnycastIpListOnly
+type DistributionTenantDomainMappingServeOnInput interface {
+	pulumi.Input
+
+	ToDistributionTenantDomainMappingServeOnOutput() DistributionTenantDomainMappingServeOnOutput
+	ToDistributionTenantDomainMappingServeOnOutputWithContext(context.Context) DistributionTenantDomainMappingServeOnOutput
+}
+
+var distributionTenantDomainMappingServeOnPtrType = reflect.TypeOf((**DistributionTenantDomainMappingServeOn)(nil)).Elem()
+
+type DistributionTenantDomainMappingServeOnPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantDomainMappingServeOnPtrOutput() DistributionTenantDomainMappingServeOnPtrOutput
+	ToDistributionTenantDomainMappingServeOnPtrOutputWithContext(context.Context) DistributionTenantDomainMappingServeOnPtrOutput
+}
+
+type distributionTenantDomainMappingServeOnPtr string
+
+func DistributionTenantDomainMappingServeOnPtr(v string) DistributionTenantDomainMappingServeOnPtrInput {
+	return (*distributionTenantDomainMappingServeOnPtr)(&v)
+}
+
+func (*distributionTenantDomainMappingServeOnPtr) ElementType() reflect.Type {
+	return distributionTenantDomainMappingServeOnPtrType
+}
+
+func (in *distributionTenantDomainMappingServeOnPtr) ToDistributionTenantDomainMappingServeOnPtrOutput() DistributionTenantDomainMappingServeOnPtrOutput {
+	return pulumi.ToOutput(in).(DistributionTenantDomainMappingServeOnPtrOutput)
+}
+
+func (in *distributionTenantDomainMappingServeOnPtr) ToDistributionTenantDomainMappingServeOnPtrOutputWithContext(ctx context.Context) DistributionTenantDomainMappingServeOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionTenantDomainMappingServeOnPtrOutput)
 }
 
 // Whether the domain is active or inactive.
@@ -1785,6 +2114,171 @@ func (in *distributionTenantManagedCertificateRequestValidationTokenHostPtr) ToD
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput)
 }
 
+type DistributionTenantOnDomainTakeover string
+
+const (
+	DistributionTenantOnDomainTakeoverAllow  = DistributionTenantOnDomainTakeover("allow")
+	DistributionTenantOnDomainTakeoverReject = DistributionTenantOnDomainTakeover("reject")
+)
+
+func (DistributionTenantOnDomainTakeover) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantOnDomainTakeover)(nil)).Elem()
+}
+
+func (e DistributionTenantOnDomainTakeover) ToDistributionTenantOnDomainTakeoverOutput() DistributionTenantOnDomainTakeoverOutput {
+	return pulumi.ToOutput(e).(DistributionTenantOnDomainTakeoverOutput)
+}
+
+func (e DistributionTenantOnDomainTakeover) ToDistributionTenantOnDomainTakeoverOutputWithContext(ctx context.Context) DistributionTenantOnDomainTakeoverOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionTenantOnDomainTakeoverOutput)
+}
+
+func (e DistributionTenantOnDomainTakeover) ToDistributionTenantOnDomainTakeoverPtrOutput() DistributionTenantOnDomainTakeoverPtrOutput {
+	return e.ToDistributionTenantOnDomainTakeoverPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantOnDomainTakeover) ToDistributionTenantOnDomainTakeoverPtrOutputWithContext(ctx context.Context) DistributionTenantOnDomainTakeoverPtrOutput {
+	return DistributionTenantOnDomainTakeover(e).ToDistributionTenantOnDomainTakeoverOutputWithContext(ctx).ToDistributionTenantOnDomainTakeoverPtrOutputWithContext(ctx)
+}
+
+func (e DistributionTenantOnDomainTakeover) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantOnDomainTakeover) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantOnDomainTakeover) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantOnDomainTakeover) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionTenantOnDomainTakeoverOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantOnDomainTakeoverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantOnDomainTakeover)(nil)).Elem()
+}
+
+func (o DistributionTenantOnDomainTakeoverOutput) ToDistributionTenantOnDomainTakeoverOutput() DistributionTenantOnDomainTakeoverOutput {
+	return o
+}
+
+func (o DistributionTenantOnDomainTakeoverOutput) ToDistributionTenantOnDomainTakeoverOutputWithContext(ctx context.Context) DistributionTenantOnDomainTakeoverOutput {
+	return o
+}
+
+func (o DistributionTenantOnDomainTakeoverOutput) ToDistributionTenantOnDomainTakeoverPtrOutput() DistributionTenantOnDomainTakeoverPtrOutput {
+	return o.ToDistributionTenantOnDomainTakeoverPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantOnDomainTakeoverOutput) ToDistributionTenantOnDomainTakeoverPtrOutputWithContext(ctx context.Context) DistributionTenantOnDomainTakeoverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantOnDomainTakeover) *DistributionTenantOnDomainTakeover {
+		return &v
+	}).(DistributionTenantOnDomainTakeoverPtrOutput)
+}
+
+func (o DistributionTenantOnDomainTakeoverOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantOnDomainTakeoverOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantOnDomainTakeover) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionTenantOnDomainTakeoverOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantOnDomainTakeoverOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantOnDomainTakeover) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantOnDomainTakeoverPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantOnDomainTakeoverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantOnDomainTakeover)(nil)).Elem()
+}
+
+func (o DistributionTenantOnDomainTakeoverPtrOutput) ToDistributionTenantOnDomainTakeoverPtrOutput() DistributionTenantOnDomainTakeoverPtrOutput {
+	return o
+}
+
+func (o DistributionTenantOnDomainTakeoverPtrOutput) ToDistributionTenantOnDomainTakeoverPtrOutputWithContext(ctx context.Context) DistributionTenantOnDomainTakeoverPtrOutput {
+	return o
+}
+
+func (o DistributionTenantOnDomainTakeoverPtrOutput) Elem() DistributionTenantOnDomainTakeoverOutput {
+	return o.ApplyT(func(v *DistributionTenantOnDomainTakeover) DistributionTenantOnDomainTakeover {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantOnDomainTakeover
+		return ret
+	}).(DistributionTenantOnDomainTakeoverOutput)
+}
+
+func (o DistributionTenantOnDomainTakeoverPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantOnDomainTakeoverPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionTenantOnDomainTakeover) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionTenantOnDomainTakeoverInput is an input type that accepts values of the DistributionTenantOnDomainTakeover enum
+// A concrete instance of `DistributionTenantOnDomainTakeoverInput` can be one of the following:
+//
+//	DistributionTenantOnDomainTakeoverAllow
+//	DistributionTenantOnDomainTakeoverReject
+type DistributionTenantOnDomainTakeoverInput interface {
+	pulumi.Input
+
+	ToDistributionTenantOnDomainTakeoverOutput() DistributionTenantOnDomainTakeoverOutput
+	ToDistributionTenantOnDomainTakeoverOutputWithContext(context.Context) DistributionTenantOnDomainTakeoverOutput
+}
+
+var distributionTenantOnDomainTakeoverPtrType = reflect.TypeOf((**DistributionTenantOnDomainTakeover)(nil)).Elem()
+
+type DistributionTenantOnDomainTakeoverPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantOnDomainTakeoverPtrOutput() DistributionTenantOnDomainTakeoverPtrOutput
+	ToDistributionTenantOnDomainTakeoverPtrOutputWithContext(context.Context) DistributionTenantOnDomainTakeoverPtrOutput
+}
+
+type distributionTenantOnDomainTakeoverPtr string
+
+func DistributionTenantOnDomainTakeoverPtr(v string) DistributionTenantOnDomainTakeoverPtrInput {
+	return (*distributionTenantOnDomainTakeoverPtr)(&v)
+}
+
+func (*distributionTenantOnDomainTakeoverPtr) ElementType() reflect.Type {
+	return distributionTenantOnDomainTakeoverPtrType
+}
+
+func (in *distributionTenantOnDomainTakeoverPtr) ToDistributionTenantOnDomainTakeoverPtrOutput() DistributionTenantOnDomainTakeoverPtrOutput {
+	return pulumi.ToOutput(in).(DistributionTenantOnDomainTakeoverPtrOutput)
+}
+
+func (in *distributionTenantOnDomainTakeoverPtr) ToDistributionTenantOnDomainTakeoverPtrOutputWithContext(ctx context.Context) DistributionTenantOnDomainTakeoverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionTenantOnDomainTakeoverPtrOutput)
+}
+
 // The action for the WAF web ACL customization. You can specify “override“ to specify a separate WAF web ACL for the distribution tenant. If you specify “disable“, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.
 type DistributionTenantWebAclCustomizationAction string
 
@@ -2116,6 +2610,335 @@ func (in *distributionViewerMtlsModePtr) ToDistributionViewerMtlsModePtrOutput()
 
 func (in *distributionViewerMtlsModePtr) ToDistributionViewerMtlsModePtrOutputWithContext(ctx context.Context) DistributionViewerMtlsModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionViewerMtlsModePtrOutput)
+}
+
+type DistributionVpcOriginConfigOriginHttpVersion string
+
+const (
+	DistributionVpcOriginConfigOriginHttpVersionHttp11 = DistributionVpcOriginConfigOriginHttpVersion("http1.1")
+	DistributionVpcOriginConfigOriginHttpVersionHttp2  = DistributionVpcOriginConfigOriginHttpVersion("http2")
+)
+
+func (DistributionVpcOriginConfigOriginHttpVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionVpcOriginConfigOriginHttpVersion)(nil)).Elem()
+}
+
+func (e DistributionVpcOriginConfigOriginHttpVersion) ToDistributionVpcOriginConfigOriginHttpVersionOutput() DistributionVpcOriginConfigOriginHttpVersionOutput {
+	return pulumi.ToOutput(e).(DistributionVpcOriginConfigOriginHttpVersionOutput)
+}
+
+func (e DistributionVpcOriginConfigOriginHttpVersion) ToDistributionVpcOriginConfigOriginHttpVersionOutputWithContext(ctx context.Context) DistributionVpcOriginConfigOriginHttpVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionVpcOriginConfigOriginHttpVersionOutput)
+}
+
+func (e DistributionVpcOriginConfigOriginHttpVersion) ToDistributionVpcOriginConfigOriginHttpVersionPtrOutput() DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return e.ToDistributionVpcOriginConfigOriginHttpVersionPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionVpcOriginConfigOriginHttpVersion) ToDistributionVpcOriginConfigOriginHttpVersionPtrOutputWithContext(ctx context.Context) DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return DistributionVpcOriginConfigOriginHttpVersion(e).ToDistributionVpcOriginConfigOriginHttpVersionOutputWithContext(ctx).ToDistributionVpcOriginConfigOriginHttpVersionPtrOutputWithContext(ctx)
+}
+
+func (e DistributionVpcOriginConfigOriginHttpVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionVpcOriginConfigOriginHttpVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionVpcOriginConfigOriginHttpVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionVpcOriginConfigOriginHttpVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionVpcOriginConfigOriginHttpVersionOutput struct{ *pulumi.OutputState }
+
+func (DistributionVpcOriginConfigOriginHttpVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionVpcOriginConfigOriginHttpVersion)(nil)).Elem()
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionOutput) ToDistributionVpcOriginConfigOriginHttpVersionOutput() DistributionVpcOriginConfigOriginHttpVersionOutput {
+	return o
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionOutput) ToDistributionVpcOriginConfigOriginHttpVersionOutputWithContext(ctx context.Context) DistributionVpcOriginConfigOriginHttpVersionOutput {
+	return o
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionOutput) ToDistributionVpcOriginConfigOriginHttpVersionPtrOutput() DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return o.ToDistributionVpcOriginConfigOriginHttpVersionPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionOutput) ToDistributionVpcOriginConfigOriginHttpVersionPtrOutputWithContext(ctx context.Context) DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionVpcOriginConfigOriginHttpVersion) *DistributionVpcOriginConfigOriginHttpVersion {
+		return &v
+	}).(DistributionVpcOriginConfigOriginHttpVersionPtrOutput)
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionVpcOriginConfigOriginHttpVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionVpcOriginConfigOriginHttpVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionVpcOriginConfigOriginHttpVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionVpcOriginConfigOriginHttpVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionVpcOriginConfigOriginHttpVersion)(nil)).Elem()
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionPtrOutput) ToDistributionVpcOriginConfigOriginHttpVersionPtrOutput() DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return o
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionPtrOutput) ToDistributionVpcOriginConfigOriginHttpVersionPtrOutputWithContext(ctx context.Context) DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return o
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionPtrOutput) Elem() DistributionVpcOriginConfigOriginHttpVersionOutput {
+	return o.ApplyT(func(v *DistributionVpcOriginConfigOriginHttpVersion) DistributionVpcOriginConfigOriginHttpVersion {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionVpcOriginConfigOriginHttpVersion
+		return ret
+	}).(DistributionVpcOriginConfigOriginHttpVersionOutput)
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionVpcOriginConfigOriginHttpVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionVpcOriginConfigOriginHttpVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionVpcOriginConfigOriginHttpVersionInput is an input type that accepts values of the DistributionVpcOriginConfigOriginHttpVersion enum
+// A concrete instance of `DistributionVpcOriginConfigOriginHttpVersionInput` can be one of the following:
+//
+//	DistributionVpcOriginConfigOriginHttpVersionHttp11
+//	DistributionVpcOriginConfigOriginHttpVersionHttp2
+type DistributionVpcOriginConfigOriginHttpVersionInput interface {
+	pulumi.Input
+
+	ToDistributionVpcOriginConfigOriginHttpVersionOutput() DistributionVpcOriginConfigOriginHttpVersionOutput
+	ToDistributionVpcOriginConfigOriginHttpVersionOutputWithContext(context.Context) DistributionVpcOriginConfigOriginHttpVersionOutput
+}
+
+var distributionVpcOriginConfigOriginHttpVersionPtrType = reflect.TypeOf((**DistributionVpcOriginConfigOriginHttpVersion)(nil)).Elem()
+
+type DistributionVpcOriginConfigOriginHttpVersionPtrInput interface {
+	pulumi.Input
+
+	ToDistributionVpcOriginConfigOriginHttpVersionPtrOutput() DistributionVpcOriginConfigOriginHttpVersionPtrOutput
+	ToDistributionVpcOriginConfigOriginHttpVersionPtrOutputWithContext(context.Context) DistributionVpcOriginConfigOriginHttpVersionPtrOutput
+}
+
+type distributionVpcOriginConfigOriginHttpVersionPtr string
+
+func DistributionVpcOriginConfigOriginHttpVersionPtr(v string) DistributionVpcOriginConfigOriginHttpVersionPtrInput {
+	return (*distributionVpcOriginConfigOriginHttpVersionPtr)(&v)
+}
+
+func (*distributionVpcOriginConfigOriginHttpVersionPtr) ElementType() reflect.Type {
+	return distributionVpcOriginConfigOriginHttpVersionPtrType
+}
+
+func (in *distributionVpcOriginConfigOriginHttpVersionPtr) ToDistributionVpcOriginConfigOriginHttpVersionPtrOutput() DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return pulumi.ToOutput(in).(DistributionVpcOriginConfigOriginHttpVersionPtrOutput)
+}
+
+func (in *distributionVpcOriginConfigOriginHttpVersionPtr) ToDistributionVpcOriginConfigOriginHttpVersionPtrOutputWithContext(ctx context.Context) DistributionVpcOriginConfigOriginHttpVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionVpcOriginConfigOriginHttpVersionPtrOutput)
+}
+
+// The encryption format CloudFront uses for this content type.
+type FieldLevelEncryptionConfigContentTypeProfileFormat string
+
+const (
+	FieldLevelEncryptionConfigContentTypeProfileFormatUrlEncoded = FieldLevelEncryptionConfigContentTypeProfileFormat("URLEncoded")
+)
+
+func (FieldLevelEncryptionConfigContentTypeProfileFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileFormat)(nil)).Elem()
+}
+
+func (e FieldLevelEncryptionConfigContentTypeProfileFormat) ToFieldLevelEncryptionConfigContentTypeProfileFormatOutput() FieldLevelEncryptionConfigContentTypeProfileFormatOutput {
+	return pulumi.ToOutput(e).(FieldLevelEncryptionConfigContentTypeProfileFormatOutput)
+}
+
+func (e FieldLevelEncryptionConfigContentTypeProfileFormat) ToFieldLevelEncryptionConfigContentTypeProfileFormatOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FieldLevelEncryptionConfigContentTypeProfileFormatOutput)
+}
+
+func (e FieldLevelEncryptionConfigContentTypeProfileFormat) ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput() FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput {
+	return e.ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutputWithContext(context.Background())
+}
+
+func (e FieldLevelEncryptionConfigContentTypeProfileFormat) ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput {
+	return FieldLevelEncryptionConfigContentTypeProfileFormat(e).ToFieldLevelEncryptionConfigContentTypeProfileFormatOutputWithContext(ctx).ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutputWithContext(ctx)
+}
+
+func (e FieldLevelEncryptionConfigContentTypeProfileFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FieldLevelEncryptionConfigContentTypeProfileFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FieldLevelEncryptionConfigContentTypeProfileFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FieldLevelEncryptionConfigContentTypeProfileFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileFormatOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileFormat)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ToFieldLevelEncryptionConfigContentTypeProfileFormatOutput() FieldLevelEncryptionConfigContentTypeProfileFormatOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ToFieldLevelEncryptionConfigContentTypeProfileFormatOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileFormatOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput() FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput {
+	return o.ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionConfigContentTypeProfileFormat) *FieldLevelEncryptionConfigContentTypeProfileFormat {
+		return &v
+	}).(FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput)
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FieldLevelEncryptionConfigContentTypeProfileFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FieldLevelEncryptionConfigContentTypeProfileFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileFormat)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput() FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput) Elem() FieldLevelEncryptionConfigContentTypeProfileFormatOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileFormat) FieldLevelEncryptionConfigContentTypeProfileFormat {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionConfigContentTypeProfileFormat
+		return ret
+	}).(FieldLevelEncryptionConfigContentTypeProfileFormatOutput)
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FieldLevelEncryptionConfigContentTypeProfileFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileFormatInput is an input type that accepts values of the FieldLevelEncryptionConfigContentTypeProfileFormat enum
+// A concrete instance of `FieldLevelEncryptionConfigContentTypeProfileFormatInput` can be one of the following:
+//
+//	FieldLevelEncryptionConfigContentTypeProfileFormatUrlEncoded
+type FieldLevelEncryptionConfigContentTypeProfileFormatInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileFormatOutput() FieldLevelEncryptionConfigContentTypeProfileFormatOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileFormatOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileFormatOutput
+}
+
+var fieldLevelEncryptionConfigContentTypeProfileFormatPtrType = reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileFormat)(nil)).Elem()
+
+type FieldLevelEncryptionConfigContentTypeProfileFormatPtrInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput() FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput
+}
+
+type fieldLevelEncryptionConfigContentTypeProfileFormatPtr string
+
+func FieldLevelEncryptionConfigContentTypeProfileFormatPtr(v string) FieldLevelEncryptionConfigContentTypeProfileFormatPtrInput {
+	return (*fieldLevelEncryptionConfigContentTypeProfileFormatPtr)(&v)
+}
+
+func (*fieldLevelEncryptionConfigContentTypeProfileFormatPtr) ElementType() reflect.Type {
+	return fieldLevelEncryptionConfigContentTypeProfileFormatPtrType
+}
+
+func (in *fieldLevelEncryptionConfigContentTypeProfileFormatPtr) ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput() FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput {
+	return pulumi.ToOutput(in).(FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput)
+}
+
+func (in *fieldLevelEncryptionConfigContentTypeProfileFormatPtr) ToFieldLevelEncryptionConfigContentTypeProfileFormatPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput)
 }
 
 // A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
@@ -2552,18 +3375,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionModePtrInput)(nil)).Elem(), DistributionConnectionMode("direct"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomOriginConfigIpAddressTypeInput)(nil)).Elem(), DistributionCustomOriginConfigIpAddressType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomOriginConfigIpAddressTypePtrInput)(nil)).Elem(), DistributionCustomOriginConfigIpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomOriginConfigOriginHttpVersionInput)(nil)).Elem(), DistributionCustomOriginConfigOriginHttpVersion("http1.1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomOriginConfigOriginHttpVersionPtrInput)(nil)).Elem(), DistributionCustomOriginConfigOriginHttpVersion("http1.1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupSelectionCriteriaInput)(nil)).Elem(), DistributionOriginGroupSelectionCriteria("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupSelectionCriteriaPtrInput)(nil)).Elem(), DistributionOriginGroupSelectionCriteria("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantDomainMappingServeOnInput)(nil)).Elem(), DistributionTenantDomainMappingServeOn("anycast-ip-list-only"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantDomainMappingServeOnPtrInput)(nil)).Elem(), DistributionTenantDomainMappingServeOn("anycast-ip-list-only"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationRestrictionTypeInput)(nil)).Elem(), DistributionTenantGeoRestrictionCustomizationRestrictionType("blacklist"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrInput)(nil)).Elem(), DistributionTenantGeoRestrictionCustomizationRestrictionType("blacklist"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestValidationTokenHostInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestValidationTokenHost("cloudfront"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestValidationTokenHostPtrInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestValidationTokenHost("cloudfront"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantOnDomainTakeoverInput)(nil)).Elem(), DistributionTenantOnDomainTakeover("allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantOnDomainTakeoverPtrInput)(nil)).Elem(), DistributionTenantOnDomainTakeover("allow"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantWebAclCustomizationActionInput)(nil)).Elem(), DistributionTenantWebAclCustomizationAction("override"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantWebAclCustomizationActionPtrInput)(nil)).Elem(), DistributionTenantWebAclCustomizationAction("override"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsModeInput)(nil)).Elem(), DistributionViewerMtlsMode("required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsModePtrInput)(nil)).Elem(), DistributionViewerMtlsMode("required"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionVpcOriginConfigOriginHttpVersionInput)(nil)).Elem(), DistributionVpcOriginConfigOriginHttpVersion("http1.1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionVpcOriginConfigOriginHttpVersionPtrInput)(nil)).Elem(), DistributionVpcOriginConfigOriginHttpVersion("http1.1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileFormatInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileFormat("URLEncoded"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileFormatPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileFormat("URLEncoded"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcOriginEndpointConfigIpAddressTypeInput)(nil)).Elem(), VpcOriginEndpointConfigIpAddressType("ipv4"))
@@ -2582,8 +3415,12 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConnectionModePtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomOriginConfigIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(DistributionCustomOriginConfigIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(DistributionCustomOriginConfigOriginHttpVersionOutput{})
+	pulumi.RegisterOutputType(DistributionCustomOriginConfigOriginHttpVersionPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupSelectionCriteriaOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupSelectionCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantDomainMappingServeOnOutput{})
+	pulumi.RegisterOutputType(DistributionTenantDomainMappingServeOnPtrOutput{})
 	pulumi.RegisterOutputType(DistributionTenantDomainResultStatusOutput{})
 	pulumi.RegisterOutputType(DistributionTenantDomainResultStatusPtrOutput{})
 	pulumi.RegisterOutputType(DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput{})
@@ -2592,10 +3429,16 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput{})
 	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestValidationTokenHostOutput{})
 	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantOnDomainTakeoverOutput{})
+	pulumi.RegisterOutputType(DistributionTenantOnDomainTakeoverPtrOutput{})
 	pulumi.RegisterOutputType(DistributionTenantWebAclCustomizationActionOutput{})
 	pulumi.RegisterOutputType(DistributionTenantWebAclCustomizationActionPtrOutput{})
 	pulumi.RegisterOutputType(DistributionViewerMtlsModeOutput{})
 	pulumi.RegisterOutputType(DistributionViewerMtlsModePtrOutput{})
+	pulumi.RegisterOutputType(DistributionVpcOriginConfigOriginHttpVersionOutput{})
+	pulumi.RegisterOutputType(DistributionVpcOriginConfigOriginHttpVersionPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileFormatOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileFormatPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput{})
 	pulumi.RegisterOutputType(TrustStoreStatusOutput{})

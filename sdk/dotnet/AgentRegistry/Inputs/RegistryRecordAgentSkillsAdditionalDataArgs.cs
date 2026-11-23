@@ -18,6 +18,18 @@ namespace Pulumi.AwsNative.AgentRegistry.Inputs
         [Input("skillMd")]
         public Input<Inputs.RegistryRecordAgentSkillsMdDescriptorArgs>? SkillMd { get; set; }
 
+        /// <summary>
+        /// The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+        /// </summary>
+        [Input("skillPackage")]
+        public Input<Inputs.RegistryRecordAgentSkillsPackageDescriptorArgs>? SkillPackage { get; set; }
+
+        /// <summary>
+        /// The provider-specific settings of the record's skill source.
+        /// </summary>
+        [Input("sourceConfiguration")]
+        public Input<Inputs.RegistryRecordAgentSkillsSourceConfigurationArgs>? SourceConfiguration { get; set; }
+
         public RegistryRecordAgentSkillsAdditionalDataArgs()
         {
         }

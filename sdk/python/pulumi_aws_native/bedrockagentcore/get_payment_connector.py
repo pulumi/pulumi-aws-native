@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetPaymentConnectorResult:
-    def __init__(__self__, authorization_url=None, connector_created_at=None, connector_last_updated_at=None, connector_status=None, credential_provider_configurations=None, description=None, payment_connector_arn=None, payment_connector_id=None):
+    def __init__(__self__, authorization_url=None, aws_billing_iam_role_arn=None, connector_created_at=None, connector_last_updated_at=None, connector_status=None, credential_provider_configurations=None, description=None, payment_connector_arn=None, payment_connector_id=None):
         if authorization_url and not isinstance(authorization_url, str):
             raise TypeError("Expected argument 'authorization_url' to be a str")
         pulumi.set(__self__, "authorization_url", authorization_url)
+        if aws_billing_iam_role_arn and not isinstance(aws_billing_iam_role_arn, str):
+            raise TypeError("Expected argument 'aws_billing_iam_role_arn' to be a str")
+        pulumi.set(__self__, "aws_billing_iam_role_arn", aws_billing_iam_role_arn)
         if connector_created_at and not isinstance(connector_created_at, str):
             raise TypeError("Expected argument 'connector_created_at' to be a str")
         pulumi.set(__self__, "connector_created_at", connector_created_at)
@@ -58,6 +61,14 @@ class GetPaymentConnectorResult:
         The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
         """
         return pulumi.get(self, "authorization_url")
+
+    @_builtins.property
+    @pulumi.getter(name="awsBillingIamRoleArn")
+    def aws_billing_iam_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.
+        """
+        return pulumi.get(self, "aws_billing_iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="connectorCreatedAt")
@@ -120,6 +131,7 @@ class AwaitableGetPaymentConnectorResult(GetPaymentConnectorResult):
             yield self
         return GetPaymentConnectorResult(
             authorization_url=self.authorization_url,
+            aws_billing_iam_role_arn=self.aws_billing_iam_role_arn,
             connector_created_at=self.connector_created_at,
             connector_last_updated_at=self.connector_last_updated_at,
             connector_status=self.connector_status,
@@ -143,6 +155,7 @@ def get_payment_connector(payment_connector_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetPaymentConnectorResult(
         authorization_url=pulumi.get(__ret__, 'authorization_url'),
+        aws_billing_iam_role_arn=pulumi.get(__ret__, 'aws_billing_iam_role_arn'),
         connector_created_at=pulumi.get(__ret__, 'connector_created_at'),
         connector_last_updated_at=pulumi.get(__ret__, 'connector_last_updated_at'),
         connector_status=pulumi.get(__ret__, 'connector_status'),
@@ -163,6 +176,7 @@ def get_payment_connector_output(payment_connector_arn: pulumi.Input[Optional[_b
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrockagentcore:getPaymentConnector', __args__, opts=opts, typ=GetPaymentConnectorResult)
     return __ret__.apply(lambda __response__: GetPaymentConnectorResult(
         authorization_url=pulumi.get(__response__, 'authorization_url'),
+        aws_billing_iam_role_arn=pulumi.get(__response__, 'aws_billing_iam_role_arn'),
         connector_created_at=pulumi.get(__response__, 'connector_created_at'),
         connector_last_updated_at=pulumi.get(__response__, 'connector_last_updated_at'),
         connector_status=pulumi.get(__response__, 'connector_status'),

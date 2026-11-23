@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppStream
         public Output<ImmutableArray<Outputs.ImageBuilderAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+        /// </summary>
+        [Output("agentAccessConfig")]
+        public Output<Outputs.ImageBuilderAgentAccessConfig?> AgentAccessConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         /// </summary>
         [Output("appstreamAgentVersion")]
@@ -189,7 +195,20 @@ namespace Pulumi.AwsNative.AppStream
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "accessEndpoints[*]",
+                    "appstreamAgentVersion",
+                    "disableImdsv1",
+                    "domainJoinInfo",
+                    "enableDefaultInternetAccess",
+                    "iamRoleArn",
+                    "imageArn",
+                    "imageName",
+                    "instanceType",
                     "name",
+                    "rootVolumeConfig",
+                    "softwaresToInstall[*]",
+                    "softwaresToUninstall[*]",
+                    "vpcConfig",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -224,6 +243,12 @@ namespace Pulumi.AwsNative.AppStream
             get => _accessEndpoints ?? (_accessEndpoints = new InputList<Inputs.ImageBuilderAccessEndpointArgs>());
             set => _accessEndpoints = value;
         }
+
+        /// <summary>
+        /// The configuration for agent access on the image builder. If specified, agent access is enabled for the image builder.
+        /// </summary>
+        [Input("agentAccessConfig")]
+        public Input<Inputs.ImageBuilderAgentAccessConfigArgs>? AgentAccessConfig { get; set; }
 
         /// <summary>
         /// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].

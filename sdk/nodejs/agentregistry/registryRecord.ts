@@ -48,6 +48,10 @@ export class RegistryRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+     */
+    declare public /*out*/ readonly artifact: pulumi.Output<outputs.agentregistry.RegistryRecordArtifact>;
+    /**
      * The timestamp when the registry record was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
@@ -97,6 +101,10 @@ export class RegistryRecord extends pulumi.CustomResource {
     declare public readonly registryId: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly status: pulumi.Output<enums.agentregistry.RegistryRecordStatus>;
     /**
+     * The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+     */
+    declare public /*out*/ readonly synchronizedSource: pulumi.Output<outputs.agentregistry.RegistryRecordSynchronizedSource>;
+    /**
      * Tags to assign to the registry record.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -131,14 +139,17 @@ export class RegistryRecord extends pulumi.CustomResource {
             resourceInputs["recordVersion"] = args?.recordVersion;
             resourceInputs["registryId"] = args?.registryId;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["artifact"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["recordArn"] = undefined /*out*/;
             resourceInputs["recordId"] = undefined /*out*/;
             resourceInputs["registryArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["synchronizedSource"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["artifact"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["customMetadata"] = undefined /*out*/;
@@ -153,6 +164,7 @@ export class RegistryRecord extends pulumi.CustomResource {
             resourceInputs["registryArn"] = undefined /*out*/;
             resourceInputs["registryId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["synchronizedSource"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }

@@ -864,6 +864,172 @@ func (in *capacityProviderCapacityReservationSpecificationCapacityReservationPre
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput)
 }
 
+// Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+type CapacityProviderCpuOptionsNestedVirtualization string
+
+const (
+	CapacityProviderCpuOptionsNestedVirtualizationEnabled  = CapacityProviderCpuOptionsNestedVirtualization("ENABLED")
+	CapacityProviderCpuOptionsNestedVirtualizationDisabled = CapacityProviderCpuOptionsNestedVirtualization("DISABLED")
+)
+
+func (CapacityProviderCpuOptionsNestedVirtualization) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCpuOptionsNestedVirtualization)(nil)).Elem()
+}
+
+func (e CapacityProviderCpuOptionsNestedVirtualization) ToCapacityProviderCpuOptionsNestedVirtualizationOutput() CapacityProviderCpuOptionsNestedVirtualizationOutput {
+	return pulumi.ToOutput(e).(CapacityProviderCpuOptionsNestedVirtualizationOutput)
+}
+
+func (e CapacityProviderCpuOptionsNestedVirtualization) ToCapacityProviderCpuOptionsNestedVirtualizationOutputWithContext(ctx context.Context) CapacityProviderCpuOptionsNestedVirtualizationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderCpuOptionsNestedVirtualizationOutput)
+}
+
+func (e CapacityProviderCpuOptionsNestedVirtualization) ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutput() CapacityProviderCpuOptionsNestedVirtualizationPtrOutput {
+	return e.ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderCpuOptionsNestedVirtualization) ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx context.Context) CapacityProviderCpuOptionsNestedVirtualizationPtrOutput {
+	return CapacityProviderCpuOptionsNestedVirtualization(e).ToCapacityProviderCpuOptionsNestedVirtualizationOutputWithContext(ctx).ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderCpuOptionsNestedVirtualization) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderCpuOptionsNestedVirtualization) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderCpuOptionsNestedVirtualization) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderCpuOptionsNestedVirtualization) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderCpuOptionsNestedVirtualizationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCpuOptionsNestedVirtualizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCpuOptionsNestedVirtualization)(nil)).Elem()
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationOutput) ToCapacityProviderCpuOptionsNestedVirtualizationOutput() CapacityProviderCpuOptionsNestedVirtualizationOutput {
+	return o
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationOutput) ToCapacityProviderCpuOptionsNestedVirtualizationOutputWithContext(ctx context.Context) CapacityProviderCpuOptionsNestedVirtualizationOutput {
+	return o
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationOutput) ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutput() CapacityProviderCpuOptionsNestedVirtualizationPtrOutput {
+	return o.ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationOutput) ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx context.Context) CapacityProviderCpuOptionsNestedVirtualizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderCpuOptionsNestedVirtualization) *CapacityProviderCpuOptionsNestedVirtualization {
+		return &v
+	}).(CapacityProviderCpuOptionsNestedVirtualizationPtrOutput)
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderCpuOptionsNestedVirtualization) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderCpuOptionsNestedVirtualization) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderCpuOptionsNestedVirtualizationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCpuOptionsNestedVirtualizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCpuOptionsNestedVirtualization)(nil)).Elem()
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationPtrOutput) ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutput() CapacityProviderCpuOptionsNestedVirtualizationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationPtrOutput) ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx context.Context) CapacityProviderCpuOptionsNestedVirtualizationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationPtrOutput) Elem() CapacityProviderCpuOptionsNestedVirtualizationOutput {
+	return o.ApplyT(func(v *CapacityProviderCpuOptionsNestedVirtualization) CapacityProviderCpuOptionsNestedVirtualization {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderCpuOptionsNestedVirtualization
+		return ret
+	}).(CapacityProviderCpuOptionsNestedVirtualizationOutput)
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCpuOptionsNestedVirtualizationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderCpuOptionsNestedVirtualization) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderCpuOptionsNestedVirtualizationInput is an input type that accepts values of the CapacityProviderCpuOptionsNestedVirtualization enum
+// A concrete instance of `CapacityProviderCpuOptionsNestedVirtualizationInput` can be one of the following:
+//
+//	CapacityProviderCpuOptionsNestedVirtualizationEnabled
+//	CapacityProviderCpuOptionsNestedVirtualizationDisabled
+type CapacityProviderCpuOptionsNestedVirtualizationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCpuOptionsNestedVirtualizationOutput() CapacityProviderCpuOptionsNestedVirtualizationOutput
+	ToCapacityProviderCpuOptionsNestedVirtualizationOutputWithContext(context.Context) CapacityProviderCpuOptionsNestedVirtualizationOutput
+}
+
+var capacityProviderCpuOptionsNestedVirtualizationPtrType = reflect.TypeOf((**CapacityProviderCpuOptionsNestedVirtualization)(nil)).Elem()
+
+type CapacityProviderCpuOptionsNestedVirtualizationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutput() CapacityProviderCpuOptionsNestedVirtualizationPtrOutput
+	ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutputWithContext(context.Context) CapacityProviderCpuOptionsNestedVirtualizationPtrOutput
+}
+
+type capacityProviderCpuOptionsNestedVirtualizationPtr string
+
+func CapacityProviderCpuOptionsNestedVirtualizationPtr(v string) CapacityProviderCpuOptionsNestedVirtualizationPtrInput {
+	return (*capacityProviderCpuOptionsNestedVirtualizationPtr)(&v)
+}
+
+func (*capacityProviderCpuOptionsNestedVirtualizationPtr) ElementType() reflect.Type {
+	return capacityProviderCpuOptionsNestedVirtualizationPtrType
+}
+
+func (in *capacityProviderCpuOptionsNestedVirtualizationPtr) ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutput() CapacityProviderCpuOptionsNestedVirtualizationPtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderCpuOptionsNestedVirtualizationPtrOutput)
+}
+
+func (in *capacityProviderCpuOptionsNestedVirtualizationPtr) ToCapacityProviderCpuOptionsNestedVirtualizationPtrOutputWithContext(ctx context.Context) CapacityProviderCpuOptionsNestedVirtualizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderCpuOptionsNestedVirtualizationPtrOutput)
+}
+
 // The EBS volume type. Defaults to gp3 if not specified.
 type CapacityProviderEbsVolumeConfigurationVolumeType string
 
@@ -2339,7 +2505,7 @@ func (o ConsentPortalStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// Versioned schema type governing the structure of examples. Immutable after creation.
+// Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
 type DatasetSchemaType string
 
 const (
@@ -4677,6 +4843,171 @@ func (o GatewayRateLimitStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayResponseInterceptionMode string
+
+const (
+	GatewayResponseInterceptionModeBuffered = GatewayResponseInterceptionMode("BUFFERED")
+	GatewayResponseInterceptionModeStream   = GatewayResponseInterceptionMode("STREAM")
+)
+
+func (GatewayResponseInterceptionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayResponseInterceptionMode)(nil)).Elem()
+}
+
+func (e GatewayResponseInterceptionMode) ToGatewayResponseInterceptionModeOutput() GatewayResponseInterceptionModeOutput {
+	return pulumi.ToOutput(e).(GatewayResponseInterceptionModeOutput)
+}
+
+func (e GatewayResponseInterceptionMode) ToGatewayResponseInterceptionModeOutputWithContext(ctx context.Context) GatewayResponseInterceptionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayResponseInterceptionModeOutput)
+}
+
+func (e GatewayResponseInterceptionMode) ToGatewayResponseInterceptionModePtrOutput() GatewayResponseInterceptionModePtrOutput {
+	return e.ToGatewayResponseInterceptionModePtrOutputWithContext(context.Background())
+}
+
+func (e GatewayResponseInterceptionMode) ToGatewayResponseInterceptionModePtrOutputWithContext(ctx context.Context) GatewayResponseInterceptionModePtrOutput {
+	return GatewayResponseInterceptionMode(e).ToGatewayResponseInterceptionModeOutputWithContext(ctx).ToGatewayResponseInterceptionModePtrOutputWithContext(ctx)
+}
+
+func (e GatewayResponseInterceptionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayResponseInterceptionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayResponseInterceptionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayResponseInterceptionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayResponseInterceptionModeOutput struct{ *pulumi.OutputState }
+
+func (GatewayResponseInterceptionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayResponseInterceptionMode)(nil)).Elem()
+}
+
+func (o GatewayResponseInterceptionModeOutput) ToGatewayResponseInterceptionModeOutput() GatewayResponseInterceptionModeOutput {
+	return o
+}
+
+func (o GatewayResponseInterceptionModeOutput) ToGatewayResponseInterceptionModeOutputWithContext(ctx context.Context) GatewayResponseInterceptionModeOutput {
+	return o
+}
+
+func (o GatewayResponseInterceptionModeOutput) ToGatewayResponseInterceptionModePtrOutput() GatewayResponseInterceptionModePtrOutput {
+	return o.ToGatewayResponseInterceptionModePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayResponseInterceptionModeOutput) ToGatewayResponseInterceptionModePtrOutputWithContext(ctx context.Context) GatewayResponseInterceptionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayResponseInterceptionMode) *GatewayResponseInterceptionMode {
+		return &v
+	}).(GatewayResponseInterceptionModePtrOutput)
+}
+
+func (o GatewayResponseInterceptionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayResponseInterceptionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayResponseInterceptionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayResponseInterceptionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayResponseInterceptionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayResponseInterceptionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayResponseInterceptionModePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayResponseInterceptionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayResponseInterceptionMode)(nil)).Elem()
+}
+
+func (o GatewayResponseInterceptionModePtrOutput) ToGatewayResponseInterceptionModePtrOutput() GatewayResponseInterceptionModePtrOutput {
+	return o
+}
+
+func (o GatewayResponseInterceptionModePtrOutput) ToGatewayResponseInterceptionModePtrOutputWithContext(ctx context.Context) GatewayResponseInterceptionModePtrOutput {
+	return o
+}
+
+func (o GatewayResponseInterceptionModePtrOutput) Elem() GatewayResponseInterceptionModeOutput {
+	return o.ApplyT(func(v *GatewayResponseInterceptionMode) GatewayResponseInterceptionMode {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayResponseInterceptionMode
+		return ret
+	}).(GatewayResponseInterceptionModeOutput)
+}
+
+func (o GatewayResponseInterceptionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayResponseInterceptionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayResponseInterceptionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayResponseInterceptionModeInput is an input type that accepts values of the GatewayResponseInterceptionMode enum
+// A concrete instance of `GatewayResponseInterceptionModeInput` can be one of the following:
+//
+//	GatewayResponseInterceptionModeBuffered
+//	GatewayResponseInterceptionModeStream
+type GatewayResponseInterceptionModeInput interface {
+	pulumi.Input
+
+	ToGatewayResponseInterceptionModeOutput() GatewayResponseInterceptionModeOutput
+	ToGatewayResponseInterceptionModeOutputWithContext(context.Context) GatewayResponseInterceptionModeOutput
+}
+
+var gatewayResponseInterceptionModePtrType = reflect.TypeOf((**GatewayResponseInterceptionMode)(nil)).Elem()
+
+type GatewayResponseInterceptionModePtrInput interface {
+	pulumi.Input
+
+	ToGatewayResponseInterceptionModePtrOutput() GatewayResponseInterceptionModePtrOutput
+	ToGatewayResponseInterceptionModePtrOutputWithContext(context.Context) GatewayResponseInterceptionModePtrOutput
+}
+
+type gatewayResponseInterceptionModePtr string
+
+func GatewayResponseInterceptionModePtr(v string) GatewayResponseInterceptionModePtrInput {
+	return (*gatewayResponseInterceptionModePtr)(&v)
+}
+
+func (*gatewayResponseInterceptionModePtr) ElementType() reflect.Type {
+	return gatewayResponseInterceptionModePtrType
+}
+
+func (in *gatewayResponseInterceptionModePtr) ToGatewayResponseInterceptionModePtrOutput() GatewayResponseInterceptionModePtrOutput {
+	return pulumi.ToOutput(in).(GatewayResponseInterceptionModePtrOutput)
+}
+
+func (in *gatewayResponseInterceptionModePtr) ToGatewayResponseInterceptionModePtrOutputWithContext(ctx context.Context) GatewayResponseInterceptionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayResponseInterceptionModePtrOutput)
 }
 
 type GatewayRuleFallbackError string
@@ -15426,6 +15757,7 @@ type PaymentConnectorType string
 const (
 	PaymentConnectorTypeCoinbaseCdp = PaymentConnectorType("CoinbaseCDP")
 	PaymentConnectorTypeStripePrivy = PaymentConnectorType("StripePrivy")
+	PaymentConnectorTypeAwsBilling  = PaymentConnectorType("AwsBilling")
 )
 
 func (PaymentConnectorType) ElementType() reflect.Type {
@@ -15552,6 +15884,7 @@ func (o PaymentConnectorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //
 //	PaymentConnectorTypeCoinbaseCdp
 //	PaymentConnectorTypeStripePrivy
+//	PaymentConnectorTypeAwsBilling
 type PaymentConnectorTypeInput interface {
 	pulumi.Input
 
@@ -15584,6 +15917,506 @@ func (in *paymentConnectorTypePtr) ToPaymentConnectorTypePtrOutput() PaymentConn
 
 func (in *paymentConnectorTypePtr) ToPaymentConnectorTypePtrOutputWithContext(ctx context.Context) PaymentConnectorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PaymentConnectorTypePtrOutput)
+}
+
+// The Amazon Pay API environment
+type PaymentCredentialProviderAmazonPayEnvironmentType string
+
+const (
+	PaymentCredentialProviderAmazonPayEnvironmentTypeLive    = PaymentCredentialProviderAmazonPayEnvironmentType("LIVE")
+	PaymentCredentialProviderAmazonPayEnvironmentTypeSandbox = PaymentCredentialProviderAmazonPayEnvironmentType("SANDBOX")
+)
+
+func (PaymentCredentialProviderAmazonPayEnvironmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderAmazonPayEnvironmentType)(nil)).Elem()
+}
+
+func (e PaymentCredentialProviderAmazonPayEnvironmentType) ToPaymentCredentialProviderAmazonPayEnvironmentTypeOutput() PaymentCredentialProviderAmazonPayEnvironmentTypeOutput {
+	return pulumi.ToOutput(e).(PaymentCredentialProviderAmazonPayEnvironmentTypeOutput)
+}
+
+func (e PaymentCredentialProviderAmazonPayEnvironmentType) ToPaymentCredentialProviderAmazonPayEnvironmentTypeOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayEnvironmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PaymentCredentialProviderAmazonPayEnvironmentTypeOutput)
+}
+
+func (e PaymentCredentialProviderAmazonPayEnvironmentType) ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput() PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput {
+	return e.ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutputWithContext(context.Background())
+}
+
+func (e PaymentCredentialProviderAmazonPayEnvironmentType) ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput {
+	return PaymentCredentialProviderAmazonPayEnvironmentType(e).ToPaymentCredentialProviderAmazonPayEnvironmentTypeOutputWithContext(ctx).ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutputWithContext(ctx)
+}
+
+func (e PaymentCredentialProviderAmazonPayEnvironmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentCredentialProviderAmazonPayEnvironmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentCredentialProviderAmazonPayEnvironmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PaymentCredentialProviderAmazonPayEnvironmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PaymentCredentialProviderAmazonPayEnvironmentTypeOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderAmazonPayEnvironmentType)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ToPaymentCredentialProviderAmazonPayEnvironmentTypeOutput() PaymentCredentialProviderAmazonPayEnvironmentTypeOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ToPaymentCredentialProviderAmazonPayEnvironmentTypeOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayEnvironmentTypeOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput() PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput {
+	return o.ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentCredentialProviderAmazonPayEnvironmentType) *PaymentCredentialProviderAmazonPayEnvironmentType {
+		return &v
+	}).(PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput)
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentCredentialProviderAmazonPayEnvironmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentCredentialProviderAmazonPayEnvironmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentCredentialProviderAmazonPayEnvironmentType)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput) ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput() PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput) ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput) Elem() PaymentCredentialProviderAmazonPayEnvironmentTypeOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderAmazonPayEnvironmentType) PaymentCredentialProviderAmazonPayEnvironmentType {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentCredentialProviderAmazonPayEnvironmentType
+		return ret
+	}).(PaymentCredentialProviderAmazonPayEnvironmentTypeOutput)
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PaymentCredentialProviderAmazonPayEnvironmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PaymentCredentialProviderAmazonPayEnvironmentTypeInput is an input type that accepts values of the PaymentCredentialProviderAmazonPayEnvironmentType enum
+// A concrete instance of `PaymentCredentialProviderAmazonPayEnvironmentTypeInput` can be one of the following:
+//
+//	PaymentCredentialProviderAmazonPayEnvironmentTypeLive
+//	PaymentCredentialProviderAmazonPayEnvironmentTypeSandbox
+type PaymentCredentialProviderAmazonPayEnvironmentTypeInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderAmazonPayEnvironmentTypeOutput() PaymentCredentialProviderAmazonPayEnvironmentTypeOutput
+	ToPaymentCredentialProviderAmazonPayEnvironmentTypeOutputWithContext(context.Context) PaymentCredentialProviderAmazonPayEnvironmentTypeOutput
+}
+
+var paymentCredentialProviderAmazonPayEnvironmentTypePtrType = reflect.TypeOf((**PaymentCredentialProviderAmazonPayEnvironmentType)(nil)).Elem()
+
+type PaymentCredentialProviderAmazonPayEnvironmentTypePtrInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput() PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput
+	ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutputWithContext(context.Context) PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput
+}
+
+type paymentCredentialProviderAmazonPayEnvironmentTypePtr string
+
+func PaymentCredentialProviderAmazonPayEnvironmentTypePtr(v string) PaymentCredentialProviderAmazonPayEnvironmentTypePtrInput {
+	return (*paymentCredentialProviderAmazonPayEnvironmentTypePtr)(&v)
+}
+
+func (*paymentCredentialProviderAmazonPayEnvironmentTypePtr) ElementType() reflect.Type {
+	return paymentCredentialProviderAmazonPayEnvironmentTypePtrType
+}
+
+func (in *paymentCredentialProviderAmazonPayEnvironmentTypePtr) ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput() PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput {
+	return pulumi.ToOutput(in).(PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput)
+}
+
+func (in *paymentCredentialProviderAmazonPayEnvironmentTypePtr) ToPaymentCredentialProviderAmazonPayEnvironmentTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput)
+}
+
+// The Amazon Pay region the merchant's authorization token belongs to. AgentCore uses it to pick the Amazon Pay API host.
+type PaymentCredentialProviderAmazonPayRegionType string
+
+const (
+	PaymentCredentialProviderAmazonPayRegionTypeNa = PaymentCredentialProviderAmazonPayRegionType("NA")
+	PaymentCredentialProviderAmazonPayRegionTypeEu = PaymentCredentialProviderAmazonPayRegionType("EU")
+	PaymentCredentialProviderAmazonPayRegionTypeJp = PaymentCredentialProviderAmazonPayRegionType("JP")
+)
+
+func (PaymentCredentialProviderAmazonPayRegionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderAmazonPayRegionType)(nil)).Elem()
+}
+
+func (e PaymentCredentialProviderAmazonPayRegionType) ToPaymentCredentialProviderAmazonPayRegionTypeOutput() PaymentCredentialProviderAmazonPayRegionTypeOutput {
+	return pulumi.ToOutput(e).(PaymentCredentialProviderAmazonPayRegionTypeOutput)
+}
+
+func (e PaymentCredentialProviderAmazonPayRegionType) ToPaymentCredentialProviderAmazonPayRegionTypeOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayRegionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PaymentCredentialProviderAmazonPayRegionTypeOutput)
+}
+
+func (e PaymentCredentialProviderAmazonPayRegionType) ToPaymentCredentialProviderAmazonPayRegionTypePtrOutput() PaymentCredentialProviderAmazonPayRegionTypePtrOutput {
+	return e.ToPaymentCredentialProviderAmazonPayRegionTypePtrOutputWithContext(context.Background())
+}
+
+func (e PaymentCredentialProviderAmazonPayRegionType) ToPaymentCredentialProviderAmazonPayRegionTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayRegionTypePtrOutput {
+	return PaymentCredentialProviderAmazonPayRegionType(e).ToPaymentCredentialProviderAmazonPayRegionTypeOutputWithContext(ctx).ToPaymentCredentialProviderAmazonPayRegionTypePtrOutputWithContext(ctx)
+}
+
+func (e PaymentCredentialProviderAmazonPayRegionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentCredentialProviderAmazonPayRegionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentCredentialProviderAmazonPayRegionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PaymentCredentialProviderAmazonPayRegionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PaymentCredentialProviderAmazonPayRegionTypeOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderAmazonPayRegionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderAmazonPayRegionType)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypeOutput) ToPaymentCredentialProviderAmazonPayRegionTypeOutput() PaymentCredentialProviderAmazonPayRegionTypeOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypeOutput) ToPaymentCredentialProviderAmazonPayRegionTypeOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayRegionTypeOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypeOutput) ToPaymentCredentialProviderAmazonPayRegionTypePtrOutput() PaymentCredentialProviderAmazonPayRegionTypePtrOutput {
+	return o.ToPaymentCredentialProviderAmazonPayRegionTypePtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypeOutput) ToPaymentCredentialProviderAmazonPayRegionTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayRegionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentCredentialProviderAmazonPayRegionType) *PaymentCredentialProviderAmazonPayRegionType {
+		return &v
+	}).(PaymentCredentialProviderAmazonPayRegionTypePtrOutput)
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentCredentialProviderAmazonPayRegionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentCredentialProviderAmazonPayRegionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PaymentCredentialProviderAmazonPayRegionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderAmazonPayRegionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentCredentialProviderAmazonPayRegionType)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypePtrOutput) ToPaymentCredentialProviderAmazonPayRegionTypePtrOutput() PaymentCredentialProviderAmazonPayRegionTypePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypePtrOutput) ToPaymentCredentialProviderAmazonPayRegionTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayRegionTypePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypePtrOutput) Elem() PaymentCredentialProviderAmazonPayRegionTypeOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderAmazonPayRegionType) PaymentCredentialProviderAmazonPayRegionType {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentCredentialProviderAmazonPayRegionType
+		return ret
+	}).(PaymentCredentialProviderAmazonPayRegionTypeOutput)
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderAmazonPayRegionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PaymentCredentialProviderAmazonPayRegionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PaymentCredentialProviderAmazonPayRegionTypeInput is an input type that accepts values of the PaymentCredentialProviderAmazonPayRegionType enum
+// A concrete instance of `PaymentCredentialProviderAmazonPayRegionTypeInput` can be one of the following:
+//
+//	PaymentCredentialProviderAmazonPayRegionTypeNa
+//	PaymentCredentialProviderAmazonPayRegionTypeEu
+//	PaymentCredentialProviderAmazonPayRegionTypeJp
+type PaymentCredentialProviderAmazonPayRegionTypeInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderAmazonPayRegionTypeOutput() PaymentCredentialProviderAmazonPayRegionTypeOutput
+	ToPaymentCredentialProviderAmazonPayRegionTypeOutputWithContext(context.Context) PaymentCredentialProviderAmazonPayRegionTypeOutput
+}
+
+var paymentCredentialProviderAmazonPayRegionTypePtrType = reflect.TypeOf((**PaymentCredentialProviderAmazonPayRegionType)(nil)).Elem()
+
+type PaymentCredentialProviderAmazonPayRegionTypePtrInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderAmazonPayRegionTypePtrOutput() PaymentCredentialProviderAmazonPayRegionTypePtrOutput
+	ToPaymentCredentialProviderAmazonPayRegionTypePtrOutputWithContext(context.Context) PaymentCredentialProviderAmazonPayRegionTypePtrOutput
+}
+
+type paymentCredentialProviderAmazonPayRegionTypePtr string
+
+func PaymentCredentialProviderAmazonPayRegionTypePtr(v string) PaymentCredentialProviderAmazonPayRegionTypePtrInput {
+	return (*paymentCredentialProviderAmazonPayRegionTypePtr)(&v)
+}
+
+func (*paymentCredentialProviderAmazonPayRegionTypePtr) ElementType() reflect.Type {
+	return paymentCredentialProviderAmazonPayRegionTypePtrType
+}
+
+func (in *paymentCredentialProviderAmazonPayRegionTypePtr) ToPaymentCredentialProviderAmazonPayRegionTypePtrOutput() PaymentCredentialProviderAmazonPayRegionTypePtrOutput {
+	return pulumi.ToOutput(in).(PaymentCredentialProviderAmazonPayRegionTypePtrOutput)
+}
+
+func (in *paymentCredentialProviderAmazonPayRegionTypePtr) ToPaymentCredentialProviderAmazonPayRegionTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderAmazonPayRegionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PaymentCredentialProviderAmazonPayRegionTypePtrOutput)
+}
+
+// The PayPal API environment
+type PaymentCredentialProviderPayPalEnvironmentType string
+
+const (
+	PaymentCredentialProviderPayPalEnvironmentTypeLive    = PaymentCredentialProviderPayPalEnvironmentType("LIVE")
+	PaymentCredentialProviderPayPalEnvironmentTypeSandbox = PaymentCredentialProviderPayPalEnvironmentType("SANDBOX")
+)
+
+func (PaymentCredentialProviderPayPalEnvironmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderPayPalEnvironmentType)(nil)).Elem()
+}
+
+func (e PaymentCredentialProviderPayPalEnvironmentType) ToPaymentCredentialProviderPayPalEnvironmentTypeOutput() PaymentCredentialProviderPayPalEnvironmentTypeOutput {
+	return pulumi.ToOutput(e).(PaymentCredentialProviderPayPalEnvironmentTypeOutput)
+}
+
+func (e PaymentCredentialProviderPayPalEnvironmentType) ToPaymentCredentialProviderPayPalEnvironmentTypeOutputWithContext(ctx context.Context) PaymentCredentialProviderPayPalEnvironmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PaymentCredentialProviderPayPalEnvironmentTypeOutput)
+}
+
+func (e PaymentCredentialProviderPayPalEnvironmentType) ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutput() PaymentCredentialProviderPayPalEnvironmentTypePtrOutput {
+	return e.ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutputWithContext(context.Background())
+}
+
+func (e PaymentCredentialProviderPayPalEnvironmentType) ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderPayPalEnvironmentTypePtrOutput {
+	return PaymentCredentialProviderPayPalEnvironmentType(e).ToPaymentCredentialProviderPayPalEnvironmentTypeOutputWithContext(ctx).ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutputWithContext(ctx)
+}
+
+func (e PaymentCredentialProviderPayPalEnvironmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentCredentialProviderPayPalEnvironmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentCredentialProviderPayPalEnvironmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PaymentCredentialProviderPayPalEnvironmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PaymentCredentialProviderPayPalEnvironmentTypeOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderPayPalEnvironmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderPayPalEnvironmentType)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypeOutput) ToPaymentCredentialProviderPayPalEnvironmentTypeOutput() PaymentCredentialProviderPayPalEnvironmentTypeOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypeOutput) ToPaymentCredentialProviderPayPalEnvironmentTypeOutputWithContext(ctx context.Context) PaymentCredentialProviderPayPalEnvironmentTypeOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypeOutput) ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutput() PaymentCredentialProviderPayPalEnvironmentTypePtrOutput {
+	return o.ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypeOutput) ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderPayPalEnvironmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentCredentialProviderPayPalEnvironmentType) *PaymentCredentialProviderPayPalEnvironmentType {
+		return &v
+	}).(PaymentCredentialProviderPayPalEnvironmentTypePtrOutput)
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentCredentialProviderPayPalEnvironmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentCredentialProviderPayPalEnvironmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PaymentCredentialProviderPayPalEnvironmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderPayPalEnvironmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentCredentialProviderPayPalEnvironmentType)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypePtrOutput) ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutput() PaymentCredentialProviderPayPalEnvironmentTypePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypePtrOutput) ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderPayPalEnvironmentTypePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypePtrOutput) Elem() PaymentCredentialProviderPayPalEnvironmentTypeOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderPayPalEnvironmentType) PaymentCredentialProviderPayPalEnvironmentType {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentCredentialProviderPayPalEnvironmentType
+		return ret
+	}).(PaymentCredentialProviderPayPalEnvironmentTypeOutput)
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderPayPalEnvironmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PaymentCredentialProviderPayPalEnvironmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PaymentCredentialProviderPayPalEnvironmentTypeInput is an input type that accepts values of the PaymentCredentialProviderPayPalEnvironmentType enum
+// A concrete instance of `PaymentCredentialProviderPayPalEnvironmentTypeInput` can be one of the following:
+//
+//	PaymentCredentialProviderPayPalEnvironmentTypeLive
+//	PaymentCredentialProviderPayPalEnvironmentTypeSandbox
+type PaymentCredentialProviderPayPalEnvironmentTypeInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderPayPalEnvironmentTypeOutput() PaymentCredentialProviderPayPalEnvironmentTypeOutput
+	ToPaymentCredentialProviderPayPalEnvironmentTypeOutputWithContext(context.Context) PaymentCredentialProviderPayPalEnvironmentTypeOutput
+}
+
+var paymentCredentialProviderPayPalEnvironmentTypePtrType = reflect.TypeOf((**PaymentCredentialProviderPayPalEnvironmentType)(nil)).Elem()
+
+type PaymentCredentialProviderPayPalEnvironmentTypePtrInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutput() PaymentCredentialProviderPayPalEnvironmentTypePtrOutput
+	ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutputWithContext(context.Context) PaymentCredentialProviderPayPalEnvironmentTypePtrOutput
+}
+
+type paymentCredentialProviderPayPalEnvironmentTypePtr string
+
+func PaymentCredentialProviderPayPalEnvironmentTypePtr(v string) PaymentCredentialProviderPayPalEnvironmentTypePtrInput {
+	return (*paymentCredentialProviderPayPalEnvironmentTypePtr)(&v)
+}
+
+func (*paymentCredentialProviderPayPalEnvironmentTypePtr) ElementType() reflect.Type {
+	return paymentCredentialProviderPayPalEnvironmentTypePtrType
+}
+
+func (in *paymentCredentialProviderPayPalEnvironmentTypePtr) ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutput() PaymentCredentialProviderPayPalEnvironmentTypePtrOutput {
+	return pulumi.ToOutput(in).(PaymentCredentialProviderPayPalEnvironmentTypePtrOutput)
+}
+
+func (in *paymentCredentialProviderPayPalEnvironmentTypePtr) ToPaymentCredentialProviderPayPalEnvironmentTypePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderPayPalEnvironmentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PaymentCredentialProviderPayPalEnvironmentTypePtrOutput)
 }
 
 // The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
@@ -15758,6 +16591,9 @@ type PaymentCredentialProviderVendorType string
 const (
 	PaymentCredentialProviderVendorTypeCoinbaseCdp = PaymentCredentialProviderVendorType("CoinbaseCDP")
 	PaymentCredentialProviderVendorTypeStripePrivy = PaymentCredentialProviderVendorType("StripePrivy")
+	PaymentCredentialProviderVendorTypeStripe      = PaymentCredentialProviderVendorType("Stripe")
+	PaymentCredentialProviderVendorTypePayPal      = PaymentCredentialProviderVendorType("PayPal")
+	PaymentCredentialProviderVendorTypeAmazonPay   = PaymentCredentialProviderVendorType("AmazonPay")
 )
 
 func (PaymentCredentialProviderVendorType) ElementType() reflect.Type {
@@ -15884,6 +16720,9 @@ func (o PaymentCredentialProviderVendorTypePtrOutput) ToStringPtrOutputWithConte
 //
 //	PaymentCredentialProviderVendorTypeCoinbaseCdp
 //	PaymentCredentialProviderVendorTypeStripePrivy
+//	PaymentCredentialProviderVendorTypeStripe
+//	PaymentCredentialProviderVendorTypePayPal
+//	PaymentCredentialProviderVendorTypeAmazonPay
 type PaymentCredentialProviderVendorTypeInput interface {
 	pulumi.Input
 
@@ -18242,6 +19081,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkModePtrInput)(nil)).Elem(), BrowserCustomBrowserNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceInput)(nil)).Elem(), CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("capacity-reservations-only"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrInput)(nil)).Elem(), CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("capacity-reservations-only"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCpuOptionsNestedVirtualizationInput)(nil)).Elem(), CapacityProviderCpuOptionsNestedVirtualization("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCpuOptionsNestedVirtualizationPtrInput)(nil)).Elem(), CapacityProviderCpuOptionsNestedVirtualization("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEbsVolumeConfigurationVolumeTypeInput)(nil)).Elem(), CapacityProviderEbsVolumeConfigurationVolumeType("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEbsVolumeConfigurationVolumeTypePtrInput)(nil)).Elem(), CapacityProviderEbsVolumeConfigurationVolumeType("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeInput)(nil)).Elem(), CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("standard"))
@@ -18279,6 +19120,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineModePtrInput)(nil)).Elem(), GatewayPolicyEngineMode("LOG_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitPeriodInput)(nil)).Elem(), GatewayRateLimitPeriod("second"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitPeriodPtrInput)(nil)).Elem(), GatewayRateLimitPeriod("second"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayResponseInterceptionModeInput)(nil)).Elem(), GatewayResponseInterceptionMode("BUFFERED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayResponseInterceptionModePtrInput)(nil)).Elem(), GatewayResponseInterceptionMode("BUFFERED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackErrorInput)(nil)).Elem(), GatewayRuleFallbackError("CONNECTION_ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackErrorPtrInput)(nil)).Elem(), GatewayRuleFallbackError("CONNECTION_ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleFallbackErrorArrayInput)(nil)).Elem(), GatewayRuleFallbackErrorArray{})
@@ -18397,6 +19240,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorProvisionModePtrInput)(nil)).Elem(), PaymentConnectorProvisionMode("MANUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorTypeInput)(nil)).Elem(), PaymentConnectorType("CoinbaseCDP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorTypePtrInput)(nil)).Elem(), PaymentConnectorType("CoinbaseCDP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderAmazonPayEnvironmentTypeInput)(nil)).Elem(), PaymentCredentialProviderAmazonPayEnvironmentType("LIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderAmazonPayEnvironmentTypePtrInput)(nil)).Elem(), PaymentCredentialProviderAmazonPayEnvironmentType("LIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderAmazonPayRegionTypeInput)(nil)).Elem(), PaymentCredentialProviderAmazonPayRegionType("NA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderAmazonPayRegionTypePtrInput)(nil)).Elem(), PaymentCredentialProviderAmazonPayRegionType("NA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderPayPalEnvironmentTypeInput)(nil)).Elem(), PaymentCredentialProviderPayPalEnvironmentType("LIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderPayPalEnvironmentTypePtrInput)(nil)).Elem(), PaymentCredentialProviderPayPalEnvironmentType("LIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderSecretSourceTypeInput)(nil)).Elem(), PaymentCredentialProviderSecretSourceType("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderSecretSourceTypePtrInput)(nil)).Elem(), PaymentCredentialProviderSecretSourceType("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderVendorTypeInput)(nil)).Elem(), PaymentCredentialProviderVendorType("CoinbaseCDP"))
@@ -18435,6 +19284,8 @@ func init() {
 	pulumi.RegisterOutputType(BrowserProfileStatusPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput{})
 	pulumi.RegisterOutputType(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCpuOptionsNestedVirtualizationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCpuOptionsNestedVirtualizationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderEbsVolumeConfigurationVolumeTypeOutput{})
 	pulumi.RegisterOutputType(CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput{})
@@ -18488,6 +19339,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRateLimitPeriodPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRateLimitStatusOutput{})
 	pulumi.RegisterOutputType(GatewayRateLimitStatusPtrOutput{})
+	pulumi.RegisterOutputType(GatewayResponseInterceptionModeOutput{})
+	pulumi.RegisterOutputType(GatewayResponseInterceptionModePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRuleFallbackErrorOutput{})
 	pulumi.RegisterOutputType(GatewayRuleFallbackErrorPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRuleFallbackErrorArrayOutput{})
@@ -18630,6 +19483,12 @@ func init() {
 	pulumi.RegisterOutputType(PaymentConnectorStatusPtrOutput{})
 	pulumi.RegisterOutputType(PaymentConnectorTypeOutput{})
 	pulumi.RegisterOutputType(PaymentConnectorTypePtrOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderAmazonPayEnvironmentTypeOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderAmazonPayEnvironmentTypePtrOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderAmazonPayRegionTypeOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderAmazonPayRegionTypePtrOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderPayPalEnvironmentTypeOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderPayPalEnvironmentTypePtrOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderSecretSourceTypeOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderSecretSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderVendorTypeOutput{})

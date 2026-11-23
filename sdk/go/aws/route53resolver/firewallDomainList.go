@@ -26,7 +26,7 @@ type FirewallDomainList struct {
 	CreatorRequestId pulumi.StringOutput `pulumi:"creatorRequestId"`
 	// Count
 	DomainCount pulumi.IntOutput `pulumi:"domainCount"`
-	// S3 URL to import domains from. Each update that includes DomainFileUrl imports the file again, which replaces the list's domains with the file's domains; once the import completes, inline Domains are sent as an ADD. If the file lists one of the inline Domains (ignoring letter case, surrounding spaces and a trailing dot) when it is imported, the service rejects the ADD and the create or update fails after the import has replaced the list's domains. A stack update that removes DomainFileUrl and keeps exactly the same inline Domains (in any order) can leave the file's domains in the list, and it can fail if the list's Status is COMPLETE_IMPORT_FAILED. To remove the file's domains, or to clear that Status, change at least one string in Domains in an update without DomainFileUrl (a change of letter case counts), delete the list, or use the API. In CloudFormation express mode, an update that changes neither Domains nor DomainFileUrl can complete before the import finishes, and the stack then does not report how the import ends. The inline Domains are not added: when the list's Status changes to COMPLETE, the list holds only the file's domains; if the import fails, the Status changes to COMPLETE_IMPORT_FAILED and the list keeps the domains it had before the update.
+	// S3 URL to import domains from.
 	DomainFileUrl pulumi.StringPtrOutput `pulumi:"domainFileUrl"`
 	// A list of the domain lists that you have defined.
 	Domains pulumi.StringArrayOutput `pulumi:"domains"`
@@ -94,7 +94,7 @@ func FirewallDomainListExists(ctx *pulumi.Context,
 }
 
 type firewallDomainListArgs struct {
-	// S3 URL to import domains from. Each update that includes DomainFileUrl imports the file again, which replaces the list's domains with the file's domains; once the import completes, inline Domains are sent as an ADD. If the file lists one of the inline Domains (ignoring letter case, surrounding spaces and a trailing dot) when it is imported, the service rejects the ADD and the create or update fails after the import has replaced the list's domains. A stack update that removes DomainFileUrl and keeps exactly the same inline Domains (in any order) can leave the file's domains in the list, and it can fail if the list's Status is COMPLETE_IMPORT_FAILED. To remove the file's domains, or to clear that Status, change at least one string in Domains in an update without DomainFileUrl (a change of letter case counts), delete the list, or use the API. In CloudFormation express mode, an update that changes neither Domains nor DomainFileUrl can complete before the import finishes, and the stack then does not report how the import ends. The inline Domains are not added: when the list's Status changes to COMPLETE, the list holds only the file's domains; if the import fails, the Status changes to COMPLETE_IMPORT_FAILED and the list keeps the domains it had before the update.
+	// S3 URL to import domains from.
 	DomainFileUrl *string `pulumi:"domainFileUrl"`
 	// A list of the domain lists that you have defined.
 	Domains []string `pulumi:"domains"`
@@ -106,7 +106,7 @@ type firewallDomainListArgs struct {
 
 // The set of arguments for constructing a FirewallDomainList resource.
 type FirewallDomainListArgs struct {
-	// S3 URL to import domains from. Each update that includes DomainFileUrl imports the file again, which replaces the list's domains with the file's domains; once the import completes, inline Domains are sent as an ADD. If the file lists one of the inline Domains (ignoring letter case, surrounding spaces and a trailing dot) when it is imported, the service rejects the ADD and the create or update fails after the import has replaced the list's domains. A stack update that removes DomainFileUrl and keeps exactly the same inline Domains (in any order) can leave the file's domains in the list, and it can fail if the list's Status is COMPLETE_IMPORT_FAILED. To remove the file's domains, or to clear that Status, change at least one string in Domains in an update without DomainFileUrl (a change of letter case counts), delete the list, or use the API. In CloudFormation express mode, an update that changes neither Domains nor DomainFileUrl can complete before the import finishes, and the stack then does not report how the import ends. The inline Domains are not added: when the list's Status changes to COMPLETE, the list holds only the file's domains; if the import fails, the Status changes to COMPLETE_IMPORT_FAILED and the list keeps the domains it had before the update.
+	// S3 URL to import domains from.
 	DomainFileUrl pulumi.StringPtrInput
 	// A list of the domain lists that you have defined.
 	Domains pulumi.StringArrayInput
@@ -178,7 +178,7 @@ func (o FirewallDomainListOutput) DomainCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallDomainList) pulumi.IntOutput { return v.DomainCount }).(pulumi.IntOutput)
 }
 
-// S3 URL to import domains from. Each update that includes DomainFileUrl imports the file again, which replaces the list's domains with the file's domains; once the import completes, inline Domains are sent as an ADD. If the file lists one of the inline Domains (ignoring letter case, surrounding spaces and a trailing dot) when it is imported, the service rejects the ADD and the create or update fails after the import has replaced the list's domains. A stack update that removes DomainFileUrl and keeps exactly the same inline Domains (in any order) can leave the file's domains in the list, and it can fail if the list's Status is COMPLETE_IMPORT_FAILED. To remove the file's domains, or to clear that Status, change at least one string in Domains in an update without DomainFileUrl (a change of letter case counts), delete the list, or use the API. In CloudFormation express mode, an update that changes neither Domains nor DomainFileUrl can complete before the import finishes, and the stack then does not report how the import ends. The inline Domains are not added: when the list's Status changes to COMPLETE, the list holds only the file's domains; if the import fails, the Status changes to COMPLETE_IMPORT_FAILED and the list keeps the domains it had before the update.
+// S3 URL to import domains from.
 func (o FirewallDomainListOutput) DomainFileUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringPtrOutput { return v.DomainFileUrl }).(pulumi.StringPtrOutput)
 }

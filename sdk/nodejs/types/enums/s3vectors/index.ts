@@ -31,6 +31,21 @@ export const IndexEncryptionConfigurationSseType = {
  */
 export type IndexEncryptionConfigurationSseType = (typeof IndexEncryptionConfigurationSseType)[keyof typeof IndexEncryptionConfigurationSseType];
 
+export const IndexTextSearchConfigurationLanguage = {
+    En: "en",
+    Fr: "fr",
+    Es: "es",
+    Pt: "pt",
+    It: "it",
+    De: "de",
+    Nl: "nl",
+    Zh: "zh",
+    Ja: "ja",
+    Ko: "ko",
+} as const;
+
+export type IndexTextSearchConfigurationLanguage = (typeof IndexTextSearchConfigurationLanguage)[keyof typeof IndexTextSearchConfigurationLanguage];
+
 export const VectorBucketEncryptionConfigurationSseType = {
     Aes256: "AES256",
     Awskms: "aws:kms",

@@ -70,6 +70,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The description for the gateway.
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.GatewayDomainOverride? DomainOverride;
         /// <summary>
         /// The exception level for the gateway.
         /// </summary>
@@ -131,6 +132,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? description,
 
+            Outputs.GatewayDomainOverride? domainOverride,
+
             Pulumi.AwsNative.BedrockAgentCore.GatewayExceptionLevel? exceptionLevel,
 
             string? gatewayArn,
@@ -171,6 +174,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             AuthorizerType = authorizerType;
             CreatedAt = createdAt;
             Description = description;
+            DomainOverride = domainOverride;
             ExceptionLevel = exceptionLevel;
             GatewayArn = gatewayArn;
             GatewayIdentifier = gatewayIdentifier;

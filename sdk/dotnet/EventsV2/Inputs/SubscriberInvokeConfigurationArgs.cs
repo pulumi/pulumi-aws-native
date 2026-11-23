@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.EventsV2.Inputs
         public Input<Inputs.SubscriberInvokeConfigurationLambdaParametersPropertiesArgs>? LambdaParameters { get; set; }
 
         /// <summary>
+        /// Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+        /// </summary>
+        [Input("mskParameters")]
+        public Input<Inputs.SubscriberInvokeConfigurationMskParametersPropertiesArgs>? MskParameters { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
         /// </summary>
         [Input("roleArn", required: true)]

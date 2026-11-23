@@ -13,6 +13,69 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The identifier value. Exactly one member is set.
+type PublisherIdentifier struct {
+	// The fully qualified domain name (RFC 1035/1123) with at least two labels, in lowercase. The service stores domain names in lowercase, so specify the value in lowercase to avoid drift.
+	Domain string `pulumi:"domain"`
+}
+
+// PublisherIdentifierInput is an input type that accepts PublisherIdentifierArgs and PublisherIdentifierOutput values.
+// You can construct a concrete instance of `PublisherIdentifierInput` via:
+//
+//	PublisherIdentifierArgs{...}
+type PublisherIdentifierInput interface {
+	pulumi.Input
+
+	ToPublisherIdentifierOutput() PublisherIdentifierOutput
+	ToPublisherIdentifierOutputWithContext(context.Context) PublisherIdentifierOutput
+}
+
+// The identifier value. Exactly one member is set.
+type PublisherIdentifierArgs struct {
+	// The fully qualified domain name (RFC 1035/1123) with at least two labels, in lowercase. The service stores domain names in lowercase, so specify the value in lowercase to avoid drift.
+	Domain pulumi.StringInput `pulumi:"domain"`
+}
+
+func (PublisherIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherIdentifier)(nil)).Elem()
+}
+
+func (i PublisherIdentifierArgs) ToPublisherIdentifierOutput() PublisherIdentifierOutput {
+	return i.ToPublisherIdentifierOutputWithContext(context.Background())
+}
+
+func (i PublisherIdentifierArgs) ToPublisherIdentifierOutputWithContext(ctx context.Context) PublisherIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherIdentifierOutput)
+}
+
+// The identifier value. Exactly one member is set.
+type PublisherIdentifierOutput struct{ *pulumi.OutputState }
+
+func (PublisherIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherIdentifier)(nil)).Elem()
+}
+
+func (o PublisherIdentifierOutput) ToPublisherIdentifierOutput() PublisherIdentifierOutput {
+	return o
+}
+
+func (o PublisherIdentifierOutput) ToPublisherIdentifierOutputWithContext(ctx context.Context) PublisherIdentifierOutput {
+	return o
+}
+
+// The fully qualified domain name (RFC 1035/1123) with at least two labels, in lowercase. The service stores domain names in lowercase, so specify the value in lowercase to avoid drift.
+func (o PublisherIdentifierOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v PublisherIdentifier) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// A tag to assign to the Publisher.
+type PublisherTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 // Configuration for the registry's record approval workflow.
 type RegistryApprovalConfiguration struct {
 	// The rules that determine which registry records are automatically approved on submission. When omitted or empty, submitted records require manual review.
@@ -1488,6 +1551,10 @@ func (o RegistryRecordAgUiDescriptorPtrOutput) Source() RegistryRecordSourceOnly
 // Additional data associated with an agent skills definition descriptor.
 type RegistryRecordAgentSkillsAdditionalData struct {
 	SkillMd *RegistryRecordAgentSkillsMdDescriptor `pulumi:"skillMd"`
+	// The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+	SkillPackage *RegistryRecordAgentSkillsPackageDescriptor `pulumi:"skillPackage"`
+	// The provider-specific settings of the record's skill source.
+	SourceConfiguration *RegistryRecordAgentSkillsSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // RegistryRecordAgentSkillsAdditionalDataInput is an input type that accepts RegistryRecordAgentSkillsAdditionalDataArgs and RegistryRecordAgentSkillsAdditionalDataOutput values.
@@ -1504,6 +1571,10 @@ type RegistryRecordAgentSkillsAdditionalDataInput interface {
 // Additional data associated with an agent skills definition descriptor.
 type RegistryRecordAgentSkillsAdditionalDataArgs struct {
 	SkillMd RegistryRecordAgentSkillsMdDescriptorPtrInput `pulumi:"skillMd"`
+	// The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+	SkillPackage RegistryRecordAgentSkillsPackageDescriptorPtrInput `pulumi:"skillPackage"`
+	// The provider-specific settings of the record's skill source.
+	SourceConfiguration RegistryRecordAgentSkillsSourceConfigurationPtrInput `pulumi:"sourceConfiguration"`
 }
 
 func (RegistryRecordAgentSkillsAdditionalDataArgs) ElementType() reflect.Type {
@@ -1590,6 +1661,20 @@ func (o RegistryRecordAgentSkillsAdditionalDataOutput) SkillMd() RegistryRecordA
 	}).(RegistryRecordAgentSkillsMdDescriptorPtrOutput)
 }
 
+// The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+func (o RegistryRecordAgentSkillsAdditionalDataOutput) SkillPackage() RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return o.ApplyT(func(v RegistryRecordAgentSkillsAdditionalData) *RegistryRecordAgentSkillsPackageDescriptor {
+		return v.SkillPackage
+	}).(RegistryRecordAgentSkillsPackageDescriptorPtrOutput)
+}
+
+// The provider-specific settings of the record's skill source.
+func (o RegistryRecordAgentSkillsAdditionalDataOutput) SourceConfiguration() RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v RegistryRecordAgentSkillsAdditionalData) *RegistryRecordAgentSkillsSourceConfiguration {
+		return v.SourceConfiguration
+	}).(RegistryRecordAgentSkillsSourceConfigurationPtrOutput)
+}
+
 type RegistryRecordAgentSkillsAdditionalDataPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryRecordAgentSkillsAdditionalDataPtrOutput) ElementType() reflect.Type {
@@ -1621,6 +1706,26 @@ func (o RegistryRecordAgentSkillsAdditionalDataPtrOutput) SkillMd() RegistryReco
 		}
 		return v.SkillMd
 	}).(RegistryRecordAgentSkillsMdDescriptorPtrOutput)
+}
+
+// The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+func (o RegistryRecordAgentSkillsAdditionalDataPtrOutput) SkillPackage() RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordAgentSkillsAdditionalData) *RegistryRecordAgentSkillsPackageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.SkillPackage
+	}).(RegistryRecordAgentSkillsPackageDescriptorPtrOutput)
+}
+
+// The provider-specific settings of the record's skill source.
+func (o RegistryRecordAgentSkillsAdditionalDataPtrOutput) SourceConfiguration() RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordAgentSkillsAdditionalData) *RegistryRecordAgentSkillsSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceConfiguration
+	}).(RegistryRecordAgentSkillsSourceConfigurationPtrOutput)
 }
 
 // The agent skills definition descriptor, populated when the record type is SKILL.
@@ -1963,6 +2068,346 @@ func (o RegistryRecordAgentSkillsMdDescriptorPtrOutput) Source() RegistryRecordS
 		}
 		return v.Source
 	}).(RegistryRecordSkillMdSourcePtrOutput)
+}
+
+// The skill package descriptor. It names the source that the registry synchronizes a skill package (a ZIP archive that follows the Agent Skills specification) from. The registry validates the package, stores it, and sets SkillMd Data from the package's SKILL.md.
+type RegistryRecordAgentSkillsPackageDescriptor struct {
+	// The source of the skill package, as an s3:// URL of a ZIP object.
+	Source *RegistryRecordSkillMdSource `pulumi:"source"`
+}
+
+// RegistryRecordAgentSkillsPackageDescriptorInput is an input type that accepts RegistryRecordAgentSkillsPackageDescriptorArgs and RegistryRecordAgentSkillsPackageDescriptorOutput values.
+// You can construct a concrete instance of `RegistryRecordAgentSkillsPackageDescriptorInput` via:
+//
+//	RegistryRecordAgentSkillsPackageDescriptorArgs{...}
+type RegistryRecordAgentSkillsPackageDescriptorInput interface {
+	pulumi.Input
+
+	ToRegistryRecordAgentSkillsPackageDescriptorOutput() RegistryRecordAgentSkillsPackageDescriptorOutput
+	ToRegistryRecordAgentSkillsPackageDescriptorOutputWithContext(context.Context) RegistryRecordAgentSkillsPackageDescriptorOutput
+}
+
+// The skill package descriptor. It names the source that the registry synchronizes a skill package (a ZIP archive that follows the Agent Skills specification) from. The registry validates the package, stores it, and sets SkillMd Data from the package's SKILL.md.
+type RegistryRecordAgentSkillsPackageDescriptorArgs struct {
+	// The source of the skill package, as an s3:// URL of a ZIP object.
+	Source RegistryRecordSkillMdSourcePtrInput `pulumi:"source"`
+}
+
+func (RegistryRecordAgentSkillsPackageDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordAgentSkillsPackageDescriptor)(nil)).Elem()
+}
+
+func (i RegistryRecordAgentSkillsPackageDescriptorArgs) ToRegistryRecordAgentSkillsPackageDescriptorOutput() RegistryRecordAgentSkillsPackageDescriptorOutput {
+	return i.ToRegistryRecordAgentSkillsPackageDescriptorOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordAgentSkillsPackageDescriptorArgs) ToRegistryRecordAgentSkillsPackageDescriptorOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsPackageDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgentSkillsPackageDescriptorOutput)
+}
+
+func (i RegistryRecordAgentSkillsPackageDescriptorArgs) ToRegistryRecordAgentSkillsPackageDescriptorPtrOutput() RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return i.ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordAgentSkillsPackageDescriptorArgs) ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgentSkillsPackageDescriptorOutput).ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(ctx)
+}
+
+// RegistryRecordAgentSkillsPackageDescriptorPtrInput is an input type that accepts RegistryRecordAgentSkillsPackageDescriptorArgs, RegistryRecordAgentSkillsPackageDescriptorPtr and RegistryRecordAgentSkillsPackageDescriptorPtrOutput values.
+// You can construct a concrete instance of `RegistryRecordAgentSkillsPackageDescriptorPtrInput` via:
+//
+//	        RegistryRecordAgentSkillsPackageDescriptorArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryRecordAgentSkillsPackageDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordAgentSkillsPackageDescriptorPtrOutput() RegistryRecordAgentSkillsPackageDescriptorPtrOutput
+	ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(context.Context) RegistryRecordAgentSkillsPackageDescriptorPtrOutput
+}
+
+type registryRecordAgentSkillsPackageDescriptorPtrType RegistryRecordAgentSkillsPackageDescriptorArgs
+
+func RegistryRecordAgentSkillsPackageDescriptorPtr(v *RegistryRecordAgentSkillsPackageDescriptorArgs) RegistryRecordAgentSkillsPackageDescriptorPtrInput {
+	return (*registryRecordAgentSkillsPackageDescriptorPtrType)(v)
+}
+
+func (*registryRecordAgentSkillsPackageDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordAgentSkillsPackageDescriptor)(nil)).Elem()
+}
+
+func (i *registryRecordAgentSkillsPackageDescriptorPtrType) ToRegistryRecordAgentSkillsPackageDescriptorPtrOutput() RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return i.ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *registryRecordAgentSkillsPackageDescriptorPtrType) ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgentSkillsPackageDescriptorPtrOutput)
+}
+
+// The skill package descriptor. It names the source that the registry synchronizes a skill package (a ZIP archive that follows the Agent Skills specification) from. The registry validates the package, stores it, and sets SkillMd Data from the package's SKILL.md.
+type RegistryRecordAgentSkillsPackageDescriptorOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordAgentSkillsPackageDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordAgentSkillsPackageDescriptor)(nil)).Elem()
+}
+
+func (o RegistryRecordAgentSkillsPackageDescriptorOutput) ToRegistryRecordAgentSkillsPackageDescriptorOutput() RegistryRecordAgentSkillsPackageDescriptorOutput {
+	return o
+}
+
+func (o RegistryRecordAgentSkillsPackageDescriptorOutput) ToRegistryRecordAgentSkillsPackageDescriptorOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsPackageDescriptorOutput {
+	return o
+}
+
+func (o RegistryRecordAgentSkillsPackageDescriptorOutput) ToRegistryRecordAgentSkillsPackageDescriptorPtrOutput() RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return o.ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordAgentSkillsPackageDescriptorOutput) ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordAgentSkillsPackageDescriptor) *RegistryRecordAgentSkillsPackageDescriptor {
+		return &v
+	}).(RegistryRecordAgentSkillsPackageDescriptorPtrOutput)
+}
+
+// The source of the skill package, as an s3:// URL of a ZIP object.
+func (o RegistryRecordAgentSkillsPackageDescriptorOutput) Source() RegistryRecordSkillMdSourcePtrOutput {
+	return o.ApplyT(func(v RegistryRecordAgentSkillsPackageDescriptor) *RegistryRecordSkillMdSource { return v.Source }).(RegistryRecordSkillMdSourcePtrOutput)
+}
+
+type RegistryRecordAgentSkillsPackageDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordAgentSkillsPackageDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordAgentSkillsPackageDescriptor)(nil)).Elem()
+}
+
+func (o RegistryRecordAgentSkillsPackageDescriptorPtrOutput) ToRegistryRecordAgentSkillsPackageDescriptorPtrOutput() RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return o
+}
+
+func (o RegistryRecordAgentSkillsPackageDescriptorPtrOutput) ToRegistryRecordAgentSkillsPackageDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsPackageDescriptorPtrOutput {
+	return o
+}
+
+func (o RegistryRecordAgentSkillsPackageDescriptorPtrOutput) Elem() RegistryRecordAgentSkillsPackageDescriptorOutput {
+	return o.ApplyT(func(v *RegistryRecordAgentSkillsPackageDescriptor) RegistryRecordAgentSkillsPackageDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordAgentSkillsPackageDescriptor
+		return ret
+	}).(RegistryRecordAgentSkillsPackageDescriptorOutput)
+}
+
+// The source of the skill package, as an s3:// URL of a ZIP object.
+func (o RegistryRecordAgentSkillsPackageDescriptorPtrOutput) Source() RegistryRecordSkillMdSourcePtrOutput {
+	return o.ApplyT(func(v *RegistryRecordAgentSkillsPackageDescriptor) *RegistryRecordSkillMdSource {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(RegistryRecordSkillMdSourcePtrOutput)
+}
+
+// The provider-specific settings of a skill source. Specify the member that matches the source's provider, such as S3 for an Amazon S3 source.
+type RegistryRecordAgentSkillsSourceConfiguration struct {
+	// The settings of an Amazon S3 source.
+	S3 RegistryRecordS3SourceConfiguration `pulumi:"s3"`
+}
+
+// RegistryRecordAgentSkillsSourceConfigurationInput is an input type that accepts RegistryRecordAgentSkillsSourceConfigurationArgs and RegistryRecordAgentSkillsSourceConfigurationOutput values.
+// You can construct a concrete instance of `RegistryRecordAgentSkillsSourceConfigurationInput` via:
+//
+//	RegistryRecordAgentSkillsSourceConfigurationArgs{...}
+type RegistryRecordAgentSkillsSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToRegistryRecordAgentSkillsSourceConfigurationOutput() RegistryRecordAgentSkillsSourceConfigurationOutput
+	ToRegistryRecordAgentSkillsSourceConfigurationOutputWithContext(context.Context) RegistryRecordAgentSkillsSourceConfigurationOutput
+}
+
+// The provider-specific settings of a skill source. Specify the member that matches the source's provider, such as S3 for an Amazon S3 source.
+type RegistryRecordAgentSkillsSourceConfigurationArgs struct {
+	// The settings of an Amazon S3 source.
+	S3 RegistryRecordS3SourceConfigurationInput `pulumi:"s3"`
+}
+
+func (RegistryRecordAgentSkillsSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordAgentSkillsSourceConfiguration)(nil)).Elem()
+}
+
+func (i RegistryRecordAgentSkillsSourceConfigurationArgs) ToRegistryRecordAgentSkillsSourceConfigurationOutput() RegistryRecordAgentSkillsSourceConfigurationOutput {
+	return i.ToRegistryRecordAgentSkillsSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordAgentSkillsSourceConfigurationArgs) ToRegistryRecordAgentSkillsSourceConfigurationOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgentSkillsSourceConfigurationOutput)
+}
+
+func (i RegistryRecordAgentSkillsSourceConfigurationArgs) ToRegistryRecordAgentSkillsSourceConfigurationPtrOutput() RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return i.ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordAgentSkillsSourceConfigurationArgs) ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgentSkillsSourceConfigurationOutput).ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// RegistryRecordAgentSkillsSourceConfigurationPtrInput is an input type that accepts RegistryRecordAgentSkillsSourceConfigurationArgs, RegistryRecordAgentSkillsSourceConfigurationPtr and RegistryRecordAgentSkillsSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `RegistryRecordAgentSkillsSourceConfigurationPtrInput` via:
+//
+//	        RegistryRecordAgentSkillsSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryRecordAgentSkillsSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordAgentSkillsSourceConfigurationPtrOutput() RegistryRecordAgentSkillsSourceConfigurationPtrOutput
+	ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(context.Context) RegistryRecordAgentSkillsSourceConfigurationPtrOutput
+}
+
+type registryRecordAgentSkillsSourceConfigurationPtrType RegistryRecordAgentSkillsSourceConfigurationArgs
+
+func RegistryRecordAgentSkillsSourceConfigurationPtr(v *RegistryRecordAgentSkillsSourceConfigurationArgs) RegistryRecordAgentSkillsSourceConfigurationPtrInput {
+	return (*registryRecordAgentSkillsSourceConfigurationPtrType)(v)
+}
+
+func (*registryRecordAgentSkillsSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordAgentSkillsSourceConfiguration)(nil)).Elem()
+}
+
+func (i *registryRecordAgentSkillsSourceConfigurationPtrType) ToRegistryRecordAgentSkillsSourceConfigurationPtrOutput() RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return i.ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *registryRecordAgentSkillsSourceConfigurationPtrType) ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgentSkillsSourceConfigurationPtrOutput)
+}
+
+// The provider-specific settings of a skill source. Specify the member that matches the source's provider, such as S3 for an Amazon S3 source.
+type RegistryRecordAgentSkillsSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordAgentSkillsSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordAgentSkillsSourceConfiguration)(nil)).Elem()
+}
+
+func (o RegistryRecordAgentSkillsSourceConfigurationOutput) ToRegistryRecordAgentSkillsSourceConfigurationOutput() RegistryRecordAgentSkillsSourceConfigurationOutput {
+	return o
+}
+
+func (o RegistryRecordAgentSkillsSourceConfigurationOutput) ToRegistryRecordAgentSkillsSourceConfigurationOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsSourceConfigurationOutput {
+	return o
+}
+
+func (o RegistryRecordAgentSkillsSourceConfigurationOutput) ToRegistryRecordAgentSkillsSourceConfigurationPtrOutput() RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return o.ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordAgentSkillsSourceConfigurationOutput) ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordAgentSkillsSourceConfiguration) *RegistryRecordAgentSkillsSourceConfiguration {
+		return &v
+	}).(RegistryRecordAgentSkillsSourceConfigurationPtrOutput)
+}
+
+// The settings of an Amazon S3 source.
+func (o RegistryRecordAgentSkillsSourceConfigurationOutput) S3() RegistryRecordS3SourceConfigurationOutput {
+	return o.ApplyT(func(v RegistryRecordAgentSkillsSourceConfiguration) RegistryRecordS3SourceConfiguration { return v.S3 }).(RegistryRecordS3SourceConfigurationOutput)
+}
+
+type RegistryRecordAgentSkillsSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordAgentSkillsSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordAgentSkillsSourceConfiguration)(nil)).Elem()
+}
+
+func (o RegistryRecordAgentSkillsSourceConfigurationPtrOutput) ToRegistryRecordAgentSkillsSourceConfigurationPtrOutput() RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryRecordAgentSkillsSourceConfigurationPtrOutput) ToRegistryRecordAgentSkillsSourceConfigurationPtrOutputWithContext(ctx context.Context) RegistryRecordAgentSkillsSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryRecordAgentSkillsSourceConfigurationPtrOutput) Elem() RegistryRecordAgentSkillsSourceConfigurationOutput {
+	return o.ApplyT(func(v *RegistryRecordAgentSkillsSourceConfiguration) RegistryRecordAgentSkillsSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordAgentSkillsSourceConfiguration
+		return ret
+	}).(RegistryRecordAgentSkillsSourceConfigurationOutput)
+}
+
+// The settings of an Amazon S3 source.
+func (o RegistryRecordAgentSkillsSourceConfigurationPtrOutput) S3() RegistryRecordS3SourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordAgentSkillsSourceConfiguration) *RegistryRecordS3SourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3
+	}).(RegistryRecordS3SourceConfigurationPtrOutput)
+}
+
+// The skill package that the registry stores for the record.
+type RegistryRecordArtifact struct {
+	// The SHA-256 checksum of the skill package, as 64 lowercase hexadecimal characters.
+	Sha256 *string `pulumi:"sha256"`
+}
+
+// The skill package that the registry stores for the record.
+type RegistryRecordArtifactOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordArtifact)(nil)).Elem()
+}
+
+func (o RegistryRecordArtifactOutput) ToRegistryRecordArtifactOutput() RegistryRecordArtifactOutput {
+	return o
+}
+
+func (o RegistryRecordArtifactOutput) ToRegistryRecordArtifactOutputWithContext(ctx context.Context) RegistryRecordArtifactOutput {
+	return o
+}
+
+// The SHA-256 checksum of the skill package, as 64 lowercase hexadecimal characters.
+func (o RegistryRecordArtifactOutput) Sha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryRecordArtifact) *string { return v.Sha256 }).(pulumi.StringPtrOutput)
+}
+
+type RegistryRecordArtifactPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordArtifactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordArtifact)(nil)).Elem()
+}
+
+func (o RegistryRecordArtifactPtrOutput) ToRegistryRecordArtifactPtrOutput() RegistryRecordArtifactPtrOutput {
+	return o
+}
+
+func (o RegistryRecordArtifactPtrOutput) ToRegistryRecordArtifactPtrOutputWithContext(ctx context.Context) RegistryRecordArtifactPtrOutput {
+	return o
+}
+
+func (o RegistryRecordArtifactPtrOutput) Elem() RegistryRecordArtifactOutput {
+	return o.ApplyT(func(v *RegistryRecordArtifact) RegistryRecordArtifact {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordArtifact
+		return ret
+	}).(RegistryRecordArtifactOutput)
+}
+
+// The SHA-256 checksum of the skill package, as 64 lowercase hexadecimal characters.
+func (o RegistryRecordArtifactPtrOutput) Sha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordArtifact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sha256
+	}).(pulumi.StringPtrOutput)
 }
 
 // A credential provider configuration used for authenticated descriptor retrieval.
@@ -3716,7 +4161,241 @@ func (o RegistryRecordOAuthCredentialProviderPtrOutput) Scopes() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+// The settings of a skill source that the registry reads from Amazon S3.
+type RegistryRecordS3SourceConfiguration struct {
+	// The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
+}
+
+// RegistryRecordS3SourceConfigurationInput is an input type that accepts RegistryRecordS3SourceConfigurationArgs and RegistryRecordS3SourceConfigurationOutput values.
+// You can construct a concrete instance of `RegistryRecordS3SourceConfigurationInput` via:
+//
+//	RegistryRecordS3SourceConfigurationArgs{...}
+type RegistryRecordS3SourceConfigurationInput interface {
+	pulumi.Input
+
+	ToRegistryRecordS3SourceConfigurationOutput() RegistryRecordS3SourceConfigurationOutput
+	ToRegistryRecordS3SourceConfigurationOutputWithContext(context.Context) RegistryRecordS3SourceConfigurationOutput
+}
+
+// The settings of a skill source that the registry reads from Amazon S3.
+type RegistryRecordS3SourceConfigurationArgs struct {
+	// The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+	BucketOwnerAccountId pulumi.StringPtrInput `pulumi:"bucketOwnerAccountId"`
+}
+
+func (RegistryRecordS3SourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordS3SourceConfiguration)(nil)).Elem()
+}
+
+func (i RegistryRecordS3SourceConfigurationArgs) ToRegistryRecordS3SourceConfigurationOutput() RegistryRecordS3SourceConfigurationOutput {
+	return i.ToRegistryRecordS3SourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordS3SourceConfigurationArgs) ToRegistryRecordS3SourceConfigurationOutputWithContext(ctx context.Context) RegistryRecordS3SourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordS3SourceConfigurationOutput)
+}
+
+func (i RegistryRecordS3SourceConfigurationArgs) ToRegistryRecordS3SourceConfigurationPtrOutput() RegistryRecordS3SourceConfigurationPtrOutput {
+	return i.ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordS3SourceConfigurationArgs) ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(ctx context.Context) RegistryRecordS3SourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordS3SourceConfigurationOutput).ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// RegistryRecordS3SourceConfigurationPtrInput is an input type that accepts RegistryRecordS3SourceConfigurationArgs, RegistryRecordS3SourceConfigurationPtr and RegistryRecordS3SourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `RegistryRecordS3SourceConfigurationPtrInput` via:
+//
+//	        RegistryRecordS3SourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryRecordS3SourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordS3SourceConfigurationPtrOutput() RegistryRecordS3SourceConfigurationPtrOutput
+	ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(context.Context) RegistryRecordS3SourceConfigurationPtrOutput
+}
+
+type registryRecordS3SourceConfigurationPtrType RegistryRecordS3SourceConfigurationArgs
+
+func RegistryRecordS3SourceConfigurationPtr(v *RegistryRecordS3SourceConfigurationArgs) RegistryRecordS3SourceConfigurationPtrInput {
+	return (*registryRecordS3SourceConfigurationPtrType)(v)
+}
+
+func (*registryRecordS3SourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordS3SourceConfiguration)(nil)).Elem()
+}
+
+func (i *registryRecordS3SourceConfigurationPtrType) ToRegistryRecordS3SourceConfigurationPtrOutput() RegistryRecordS3SourceConfigurationPtrOutput {
+	return i.ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *registryRecordS3SourceConfigurationPtrType) ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(ctx context.Context) RegistryRecordS3SourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordS3SourceConfigurationPtrOutput)
+}
+
+// The settings of a skill source that the registry reads from Amazon S3.
+type RegistryRecordS3SourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordS3SourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordS3SourceConfiguration)(nil)).Elem()
+}
+
+func (o RegistryRecordS3SourceConfigurationOutput) ToRegistryRecordS3SourceConfigurationOutput() RegistryRecordS3SourceConfigurationOutput {
+	return o
+}
+
+func (o RegistryRecordS3SourceConfigurationOutput) ToRegistryRecordS3SourceConfigurationOutputWithContext(ctx context.Context) RegistryRecordS3SourceConfigurationOutput {
+	return o
+}
+
+func (o RegistryRecordS3SourceConfigurationOutput) ToRegistryRecordS3SourceConfigurationPtrOutput() RegistryRecordS3SourceConfigurationPtrOutput {
+	return o.ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordS3SourceConfigurationOutput) ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(ctx context.Context) RegistryRecordS3SourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordS3SourceConfiguration) *RegistryRecordS3SourceConfiguration {
+		return &v
+	}).(RegistryRecordS3SourceConfigurationPtrOutput)
+}
+
+// The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+func (o RegistryRecordS3SourceConfigurationOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryRecordS3SourceConfiguration) *string { return v.BucketOwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
+type RegistryRecordS3SourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordS3SourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordS3SourceConfiguration)(nil)).Elem()
+}
+
+func (o RegistryRecordS3SourceConfigurationPtrOutput) ToRegistryRecordS3SourceConfigurationPtrOutput() RegistryRecordS3SourceConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryRecordS3SourceConfigurationPtrOutput) ToRegistryRecordS3SourceConfigurationPtrOutputWithContext(ctx context.Context) RegistryRecordS3SourceConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryRecordS3SourceConfigurationPtrOutput) Elem() RegistryRecordS3SourceConfigurationOutput {
+	return o.ApplyT(func(v *RegistryRecordS3SourceConfiguration) RegistryRecordS3SourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordS3SourceConfiguration
+		return ret
+	}).(RegistryRecordS3SourceConfigurationOutput)
+}
+
+// The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+func (o RegistryRecordS3SourceConfigurationPtrOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordS3SourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwnerAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Amazon S3 source that the registry synchronized the skill content from, and the object version that it read. At most one of VersionId and ETag is set.
+type RegistryRecordS3SynchronizedSource struct {
+	// The entity tag (ETag) of the object that the registry read, without quotes, when the object has no version ID. Not recorded for a SKILL.md source on a registry that is encrypted with a customer managed key.
+	ETag *string `pulumi:"eTag"`
+	// The timestamp when the registry read the source.
+	SynchronizedAt string `pulumi:"synchronizedAt"`
+	// The version ID of the object that the registry read. Absent when the bucket isn't versioned.
+	VersionId *string `pulumi:"versionId"`
+}
+
+// An Amazon S3 source that the registry synchronized the skill content from, and the object version that it read. At most one of VersionId and ETag is set.
+type RegistryRecordS3SynchronizedSourceOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordS3SynchronizedSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordS3SynchronizedSource)(nil)).Elem()
+}
+
+func (o RegistryRecordS3SynchronizedSourceOutput) ToRegistryRecordS3SynchronizedSourceOutput() RegistryRecordS3SynchronizedSourceOutput {
+	return o
+}
+
+func (o RegistryRecordS3SynchronizedSourceOutput) ToRegistryRecordS3SynchronizedSourceOutputWithContext(ctx context.Context) RegistryRecordS3SynchronizedSourceOutput {
+	return o
+}
+
+// The entity tag (ETag) of the object that the registry read, without quotes, when the object has no version ID. Not recorded for a SKILL.md source on a registry that is encrypted with a customer managed key.
+func (o RegistryRecordS3SynchronizedSourceOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryRecordS3SynchronizedSource) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the registry read the source.
+func (o RegistryRecordS3SynchronizedSourceOutput) SynchronizedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryRecordS3SynchronizedSource) string { return v.SynchronizedAt }).(pulumi.StringOutput)
+}
+
+// The version ID of the object that the registry read. Absent when the bucket isn't versioned.
+func (o RegistryRecordS3SynchronizedSourceOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryRecordS3SynchronizedSource) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+type RegistryRecordS3SynchronizedSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordS3SynchronizedSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordS3SynchronizedSource)(nil)).Elem()
+}
+
+func (o RegistryRecordS3SynchronizedSourcePtrOutput) ToRegistryRecordS3SynchronizedSourcePtrOutput() RegistryRecordS3SynchronizedSourcePtrOutput {
+	return o
+}
+
+func (o RegistryRecordS3SynchronizedSourcePtrOutput) ToRegistryRecordS3SynchronizedSourcePtrOutputWithContext(ctx context.Context) RegistryRecordS3SynchronizedSourcePtrOutput {
+	return o
+}
+
+func (o RegistryRecordS3SynchronizedSourcePtrOutput) Elem() RegistryRecordS3SynchronizedSourceOutput {
+	return o.ApplyT(func(v *RegistryRecordS3SynchronizedSource) RegistryRecordS3SynchronizedSource {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordS3SynchronizedSource
+		return ret
+	}).(RegistryRecordS3SynchronizedSourceOutput)
+}
+
+// The entity tag (ETag) of the object that the registry read, without quotes, when the object has no version ID. Not recorded for a SKILL.md source on a registry that is encrypted with a customer managed key.
+func (o RegistryRecordS3SynchronizedSourcePtrOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordS3SynchronizedSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ETag
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the registry read the source.
+func (o RegistryRecordS3SynchronizedSourcePtrOutput) SynchronizedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordS3SynchronizedSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SynchronizedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version ID of the object that the registry read. Absent when the bucket isn't versioned.
+func (o RegistryRecordS3SynchronizedSourcePtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordS3SynchronizedSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source that the registry synchronizes agent skills content from: a SKILL.md document in SkillMd.Source, or a skill package in SkillPackage.Source.
 type RegistryRecordSkillMdSource struct {
 	FromUrl *RegistryRecordSkillMdSourceFromUrl `pulumi:"fromUrl"`
 }
@@ -3732,7 +4411,7 @@ type RegistryRecordSkillMdSourceInput interface {
 	ToRegistryRecordSkillMdSourceOutputWithContext(context.Context) RegistryRecordSkillMdSourceOutput
 }
 
-// Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+// The source that the registry synchronizes agent skills content from: a SKILL.md document in SkillMd.Source, or a skill package in SkillPackage.Source.
 type RegistryRecordSkillMdSourceArgs struct {
 	FromUrl RegistryRecordSkillMdSourceFromUrlPtrInput `pulumi:"fromUrl"`
 }
@@ -3790,7 +4469,7 @@ func (i *registryRecordSkillMdSourcePtrType) ToRegistryRecordSkillMdSourcePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSkillMdSourcePtrOutput)
 }
 
-// Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+// The source that the registry synchronizes agent skills content from: a SKILL.md document in SkillMd.Source, or a skill package in SkillPackage.Source.
 type RegistryRecordSkillMdSourceOutput struct{ *pulumi.OutputState }
 
 func (RegistryRecordSkillMdSourceOutput) ElementType() reflect.Type {
@@ -3852,9 +4531,11 @@ func (o RegistryRecordSkillMdSourcePtrOutput) FromUrl() RegistryRecordSkillMdSou
 	}).(RegistryRecordSkillMdSourceFromUrlPtrOutput)
 }
 
-// URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+// URL-based source of agent skills content. With an s3:// URL, the registry reads the Amazon S3 object when the record is created, and again whenever the URL, the credential provider or the bucket owner changes. Each read replaces the SKILL.md Data and sets the record's Name and Description from the name and description in the SKILL.md frontmatter, so set Name and Description to the same values and don't set SkillMd Data. An https:// URL is a reference URL that the registry doesn't synchronize from: where Amazon S3 skill synchronization is available, the registry accepts an https:// URL only on a record that already stores it, with the content provided inline in SkillMd Data.
 type RegistryRecordSkillMdSourceFromUrl struct {
-	// URL source for the SkillMd document.
+	// The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
+	CredentialProviderConfigurations []RegistryRecordSkillSourceCredentialProviderConfiguration `pulumi:"credentialProviderConfigurations"`
+	// The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
 	Url string `pulumi:"url"`
 }
 
@@ -3869,9 +4550,11 @@ type RegistryRecordSkillMdSourceFromUrlInput interface {
 	ToRegistryRecordSkillMdSourceFromUrlOutputWithContext(context.Context) RegistryRecordSkillMdSourceFromUrlOutput
 }
 
-// URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+// URL-based source of agent skills content. With an s3:// URL, the registry reads the Amazon S3 object when the record is created, and again whenever the URL, the credential provider or the bucket owner changes. Each read replaces the SKILL.md Data and sets the record's Name and Description from the name and description in the SKILL.md frontmatter, so set Name and Description to the same values and don't set SkillMd Data. An https:// URL is a reference URL that the registry doesn't synchronize from: where Amazon S3 skill synchronization is available, the registry accepts an https:// URL only on a record that already stores it, with the content provided inline in SkillMd Data.
 type RegistryRecordSkillMdSourceFromUrlArgs struct {
-	// URL source for the SkillMd document.
+	// The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
+	CredentialProviderConfigurations RegistryRecordSkillSourceCredentialProviderConfigurationArrayInput `pulumi:"credentialProviderConfigurations"`
+	// The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -3928,7 +4611,7 @@ func (i *registryRecordSkillMdSourceFromUrlPtrType) ToRegistryRecordSkillMdSourc
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSkillMdSourceFromUrlPtrOutput)
 }
 
-// URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+// URL-based source of agent skills content. With an s3:// URL, the registry reads the Amazon S3 object when the record is created, and again whenever the URL, the credential provider or the bucket owner changes. Each read replaces the SKILL.md Data and sets the record's Name and Description from the name and description in the SKILL.md frontmatter, so set Name and Description to the same values and don't set SkillMd Data. An https:// URL is a reference URL that the registry doesn't synchronize from: where Amazon S3 skill synchronization is available, the registry accepts an https:// URL only on a record that already stores it, with the content provided inline in SkillMd Data.
 type RegistryRecordSkillMdSourceFromUrlOutput struct{ *pulumi.OutputState }
 
 func (RegistryRecordSkillMdSourceFromUrlOutput) ElementType() reflect.Type {
@@ -3953,7 +4636,14 @@ func (o RegistryRecordSkillMdSourceFromUrlOutput) ToRegistryRecordSkillMdSourceF
 	}).(RegistryRecordSkillMdSourceFromUrlPtrOutput)
 }
 
-// URL source for the SkillMd document.
+// The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
+func (o RegistryRecordSkillMdSourceFromUrlOutput) CredentialProviderConfigurations() RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput {
+	return o.ApplyT(func(v RegistryRecordSkillMdSourceFromUrl) []RegistryRecordSkillSourceCredentialProviderConfiguration {
+		return v.CredentialProviderConfigurations
+	}).(RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput)
+}
+
+// The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
 func (o RegistryRecordSkillMdSourceFromUrlOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryRecordSkillMdSourceFromUrl) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3982,7 +4672,17 @@ func (o RegistryRecordSkillMdSourceFromUrlPtrOutput) Elem() RegistryRecordSkillM
 	}).(RegistryRecordSkillMdSourceFromUrlOutput)
 }
 
-// URL source for the SkillMd document.
+// The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
+func (o RegistryRecordSkillMdSourceFromUrlPtrOutput) CredentialProviderConfigurations() RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput {
+	return o.ApplyT(func(v *RegistryRecordSkillMdSourceFromUrl) []RegistryRecordSkillSourceCredentialProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialProviderConfigurations
+	}).(RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput)
+}
+
+// The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
 func (o RegistryRecordSkillMdSourceFromUrlPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryRecordSkillMdSourceFromUrl) *string {
 		if v == nil {
@@ -3990,6 +4690,176 @@ func (o RegistryRecordSkillMdSourceFromUrlPtrOutput) Url() pulumi.StringPtrOutpu
 		}
 		return &v.Url
 	}).(pulumi.StringPtrOutput)
+}
+
+// A credential provider configuration that the registry uses to read an agent skills source. An Amazon S3 source takes an IAM role.
+type RegistryRecordSkillSourceCredentialProviderConfiguration struct {
+	// The credential provider details.
+	CredentialProvider RegistryRecordSkillSourceCredentialProviderUnion `pulumi:"credentialProvider"`
+	// The type of the credential provider.
+	CredentialProviderType RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType `pulumi:"credentialProviderType"`
+}
+
+// RegistryRecordSkillSourceCredentialProviderConfigurationInput is an input type that accepts RegistryRecordSkillSourceCredentialProviderConfigurationArgs and RegistryRecordSkillSourceCredentialProviderConfigurationOutput values.
+// You can construct a concrete instance of `RegistryRecordSkillSourceCredentialProviderConfigurationInput` via:
+//
+//	RegistryRecordSkillSourceCredentialProviderConfigurationArgs{...}
+type RegistryRecordSkillSourceCredentialProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSkillSourceCredentialProviderConfigurationOutput() RegistryRecordSkillSourceCredentialProviderConfigurationOutput
+	ToRegistryRecordSkillSourceCredentialProviderConfigurationOutputWithContext(context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationOutput
+}
+
+// A credential provider configuration that the registry uses to read an agent skills source. An Amazon S3 source takes an IAM role.
+type RegistryRecordSkillSourceCredentialProviderConfigurationArgs struct {
+	// The credential provider details.
+	CredentialProvider RegistryRecordSkillSourceCredentialProviderUnionInput `pulumi:"credentialProvider"`
+	// The type of the credential provider.
+	CredentialProviderType RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeInput `pulumi:"credentialProviderType"`
+}
+
+func (RegistryRecordSkillSourceCredentialProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (i RegistryRecordSkillSourceCredentialProviderConfigurationArgs) ToRegistryRecordSkillSourceCredentialProviderConfigurationOutput() RegistryRecordSkillSourceCredentialProviderConfigurationOutput {
+	return i.ToRegistryRecordSkillSourceCredentialProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordSkillSourceCredentialProviderConfigurationArgs) ToRegistryRecordSkillSourceCredentialProviderConfigurationOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSkillSourceCredentialProviderConfigurationOutput)
+}
+
+// RegistryRecordSkillSourceCredentialProviderConfigurationArrayInput is an input type that accepts RegistryRecordSkillSourceCredentialProviderConfigurationArray and RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput values.
+// You can construct a concrete instance of `RegistryRecordSkillSourceCredentialProviderConfigurationArrayInput` via:
+//
+//	RegistryRecordSkillSourceCredentialProviderConfigurationArray{ RegistryRecordSkillSourceCredentialProviderConfigurationArgs{...} }
+type RegistryRecordSkillSourceCredentialProviderConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput() RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput
+	ToRegistryRecordSkillSourceCredentialProviderConfigurationArrayOutputWithContext(context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput
+}
+
+type RegistryRecordSkillSourceCredentialProviderConfigurationArray []RegistryRecordSkillSourceCredentialProviderConfigurationInput
+
+func (RegistryRecordSkillSourceCredentialProviderConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryRecordSkillSourceCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (i RegistryRecordSkillSourceCredentialProviderConfigurationArray) ToRegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput() RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput {
+	return i.ToRegistryRecordSkillSourceCredentialProviderConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordSkillSourceCredentialProviderConfigurationArray) ToRegistryRecordSkillSourceCredentialProviderConfigurationArrayOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput)
+}
+
+// A credential provider configuration that the registry uses to read an agent skills source. An Amazon S3 source takes an IAM role.
+type RegistryRecordSkillSourceCredentialProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSkillSourceCredentialProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationOutput() RegistryRecordSkillSourceCredentialProviderConfigurationOutput {
+	return o
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationOutput {
+	return o
+}
+
+// The credential provider details.
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationOutput) CredentialProvider() RegistryRecordSkillSourceCredentialProviderUnionOutput {
+	return o.ApplyT(func(v RegistryRecordSkillSourceCredentialProviderConfiguration) RegistryRecordSkillSourceCredentialProviderUnion {
+		return v.CredentialProvider
+	}).(RegistryRecordSkillSourceCredentialProviderUnionOutput)
+}
+
+// The type of the credential provider.
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationOutput) CredentialProviderType() RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput {
+	return o.ApplyT(func(v RegistryRecordSkillSourceCredentialProviderConfiguration) RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType {
+		return v.CredentialProviderType
+	}).(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderTypeOutput)
+}
+
+type RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryRecordSkillSourceCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput() RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput {
+	return o
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput) ToRegistryRecordSkillSourceCredentialProviderConfigurationArrayOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput {
+	return o
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput) Index(i pulumi.IntInput) RegistryRecordSkillSourceCredentialProviderConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryRecordSkillSourceCredentialProviderConfiguration {
+		return vs[0].([]RegistryRecordSkillSourceCredentialProviderConfiguration)[vs[1].(int)]
+	}).(RegistryRecordSkillSourceCredentialProviderConfigurationOutput)
+}
+
+// The credential provider details of an agent skills source. Specify IamCredentialProvider.
+type RegistryRecordSkillSourceCredentialProviderUnion struct {
+	// The IAM role that the registry assumes to read the source. For an Amazon S3 source, omit Service or set it to s3, and omit Region or set it to the registry's Region.
+	IamCredentialProvider *RegistryRecordIamCredentialProvider `pulumi:"iamCredentialProvider"`
+}
+
+// RegistryRecordSkillSourceCredentialProviderUnionInput is an input type that accepts RegistryRecordSkillSourceCredentialProviderUnionArgs and RegistryRecordSkillSourceCredentialProviderUnionOutput values.
+// You can construct a concrete instance of `RegistryRecordSkillSourceCredentialProviderUnionInput` via:
+//
+//	RegistryRecordSkillSourceCredentialProviderUnionArgs{...}
+type RegistryRecordSkillSourceCredentialProviderUnionInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSkillSourceCredentialProviderUnionOutput() RegistryRecordSkillSourceCredentialProviderUnionOutput
+	ToRegistryRecordSkillSourceCredentialProviderUnionOutputWithContext(context.Context) RegistryRecordSkillSourceCredentialProviderUnionOutput
+}
+
+// The credential provider details of an agent skills source. Specify IamCredentialProvider.
+type RegistryRecordSkillSourceCredentialProviderUnionArgs struct {
+	// The IAM role that the registry assumes to read the source. For an Amazon S3 source, omit Service or set it to s3, and omit Region or set it to the registry's Region.
+	IamCredentialProvider RegistryRecordIamCredentialProviderPtrInput `pulumi:"iamCredentialProvider"`
+}
+
+func (RegistryRecordSkillSourceCredentialProviderUnionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderUnion)(nil)).Elem()
+}
+
+func (i RegistryRecordSkillSourceCredentialProviderUnionArgs) ToRegistryRecordSkillSourceCredentialProviderUnionOutput() RegistryRecordSkillSourceCredentialProviderUnionOutput {
+	return i.ToRegistryRecordSkillSourceCredentialProviderUnionOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordSkillSourceCredentialProviderUnionArgs) ToRegistryRecordSkillSourceCredentialProviderUnionOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderUnionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSkillSourceCredentialProviderUnionOutput)
+}
+
+// The credential provider details of an agent skills source. Specify IamCredentialProvider.
+type RegistryRecordSkillSourceCredentialProviderUnionOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSkillSourceCredentialProviderUnionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderUnion)(nil)).Elem()
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderUnionOutput) ToRegistryRecordSkillSourceCredentialProviderUnionOutput() RegistryRecordSkillSourceCredentialProviderUnionOutput {
+	return o
+}
+
+func (o RegistryRecordSkillSourceCredentialProviderUnionOutput) ToRegistryRecordSkillSourceCredentialProviderUnionOutputWithContext(ctx context.Context) RegistryRecordSkillSourceCredentialProviderUnionOutput {
+	return o
+}
+
+// The IAM role that the registry assumes to read the source. For an Amazon S3 source, omit Service or set it to s3, and omit Region or set it to the registry's Region.
+func (o RegistryRecordSkillSourceCredentialProviderUnionOutput) IamCredentialProvider() RegistryRecordIamCredentialProviderPtrOutput {
+	return o.ApplyT(func(v RegistryRecordSkillSourceCredentialProviderUnion) *RegistryRecordIamCredentialProvider {
+		return v.IamCredentialProvider
+	}).(RegistryRecordIamCredentialProviderPtrOutput)
 }
 
 // Source configuration for a source-only descriptor. Unlike mcpServer/a2aAgentCard sources, source-only descriptors do not support credential providers.
@@ -4270,6 +5140,66 @@ func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput) Url() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source that the registry last synchronized the record's skill content from.
+type RegistryRecordSynchronizedSource struct {
+	// The Amazon S3 source that the registry read.
+	S3 RegistryRecordS3SynchronizedSource `pulumi:"s3"`
+}
+
+// The source that the registry last synchronized the record's skill content from.
+type RegistryRecordSynchronizedSourceOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSynchronizedSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSynchronizedSource)(nil)).Elem()
+}
+
+func (o RegistryRecordSynchronizedSourceOutput) ToRegistryRecordSynchronizedSourceOutput() RegistryRecordSynchronizedSourceOutput {
+	return o
+}
+
+func (o RegistryRecordSynchronizedSourceOutput) ToRegistryRecordSynchronizedSourceOutputWithContext(ctx context.Context) RegistryRecordSynchronizedSourceOutput {
+	return o
+}
+
+// The Amazon S3 source that the registry read.
+func (o RegistryRecordSynchronizedSourceOutput) S3() RegistryRecordS3SynchronizedSourceOutput {
+	return o.ApplyT(func(v RegistryRecordSynchronizedSource) RegistryRecordS3SynchronizedSource { return v.S3 }).(RegistryRecordS3SynchronizedSourceOutput)
+}
+
+type RegistryRecordSynchronizedSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSynchronizedSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordSynchronizedSource)(nil)).Elem()
+}
+
+func (o RegistryRecordSynchronizedSourcePtrOutput) ToRegistryRecordSynchronizedSourcePtrOutput() RegistryRecordSynchronizedSourcePtrOutput {
+	return o
+}
+
+func (o RegistryRecordSynchronizedSourcePtrOutput) ToRegistryRecordSynchronizedSourcePtrOutputWithContext(ctx context.Context) RegistryRecordSynchronizedSourcePtrOutput {
+	return o
+}
+
+func (o RegistryRecordSynchronizedSourcePtrOutput) Elem() RegistryRecordSynchronizedSourceOutput {
+	return o.ApplyT(func(v *RegistryRecordSynchronizedSource) RegistryRecordSynchronizedSource {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordSynchronizedSource
+		return ret
+	}).(RegistryRecordSynchronizedSourceOutput)
+}
+
+// The Amazon S3 source that the registry read.
+func (o RegistryRecordSynchronizedSourcePtrOutput) S3() RegistryRecordS3SynchronizedSourcePtrOutput {
+	return o.ApplyT(func(v *RegistryRecordSynchronizedSource) *RegistryRecordS3SynchronizedSource {
+		if v == nil {
+			return nil
+		}
+		return &v.S3
+	}).(RegistryRecordS3SynchronizedSourcePtrOutput)
+}
+
 // A tag to assign to the registry record.
 type RegistryRecordTag struct {
 	// The key of the tag.
@@ -4398,6 +5328,7 @@ type RegistryTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublisherIdentifierInput)(nil)).Elem(), PublisherIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryApprovalConfigurationInput)(nil)).Elem(), RegistryApprovalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryApprovalConfigurationPtrInput)(nil)).Elem(), RegistryApprovalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryAuthorizerConfigurationInput)(nil)).Elem(), RegistryAuthorizerConfigurationArgs{})
@@ -4424,6 +5355,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsDefinitionDescriptorPtrInput)(nil)).Elem(), RegistryRecordAgentSkillsDefinitionDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsMdDescriptorInput)(nil)).Elem(), RegistryRecordAgentSkillsMdDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsMdDescriptorPtrInput)(nil)).Elem(), RegistryRecordAgentSkillsMdDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsPackageDescriptorInput)(nil)).Elem(), RegistryRecordAgentSkillsPackageDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsPackageDescriptorPtrInput)(nil)).Elem(), RegistryRecordAgentSkillsPackageDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsSourceConfigurationInput)(nil)).Elem(), RegistryRecordAgentSkillsSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsSourceConfigurationPtrInput)(nil)).Elem(), RegistryRecordAgentSkillsSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordCredentialProviderConfigurationInput)(nil)).Elem(), RegistryRecordCredentialProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordCredentialProviderConfigurationArrayInput)(nil)).Elem(), RegistryRecordCredentialProviderConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordCredentialProviderUnionInput)(nil)).Elem(), RegistryRecordCredentialProviderUnionArgs{})
@@ -4446,16 +5381,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordMcpToolsDescriptorPtrInput)(nil)).Elem(), RegistryRecordMcpToolsDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordOAuthCredentialProviderInput)(nil)).Elem(), RegistryRecordOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordOAuthCredentialProviderPtrInput)(nil)).Elem(), RegistryRecordOAuthCredentialProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordS3SourceConfigurationInput)(nil)).Elem(), RegistryRecordS3SourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordS3SourceConfigurationPtrInput)(nil)).Elem(), RegistryRecordS3SourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillMdSourceInput)(nil)).Elem(), RegistryRecordSkillMdSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillMdSourcePtrInput)(nil)).Elem(), RegistryRecordSkillMdSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillMdSourceFromUrlInput)(nil)).Elem(), RegistryRecordSkillMdSourceFromUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillMdSourceFromUrlPtrInput)(nil)).Elem(), RegistryRecordSkillMdSourceFromUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderConfigurationInput)(nil)).Elem(), RegistryRecordSkillSourceCredentialProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderConfigurationArrayInput)(nil)).Elem(), RegistryRecordSkillSourceCredentialProviderConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillSourceCredentialProviderUnionInput)(nil)).Elem(), RegistryRecordSkillSourceCredentialProviderUnionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourcePtrInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceFromUrlInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordTypeSchemaOverrideInput)(nil)).Elem(), RegistryRecordTypeSchemaOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordTypeSchemaOverrideArrayInput)(nil)).Elem(), RegistryRecordTypeSchemaOverrideArray{})
+	pulumi.RegisterOutputType(PublisherIdentifierOutput{})
 	pulumi.RegisterOutputType(RegistryApprovalConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryApprovalConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryAuthorizerConfigurationOutput{})
@@ -4482,6 +5423,12 @@ func init() {
 	pulumi.RegisterOutputType(RegistryRecordAgentSkillsDefinitionDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordAgentSkillsMdDescriptorOutput{})
 	pulumi.RegisterOutputType(RegistryRecordAgentSkillsMdDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordAgentSkillsPackageDescriptorOutput{})
+	pulumi.RegisterOutputType(RegistryRecordAgentSkillsPackageDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordAgentSkillsSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(RegistryRecordAgentSkillsSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordArtifactOutput{})
+	pulumi.RegisterOutputType(RegistryRecordArtifactPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordCredentialProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryRecordCredentialProviderConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RegistryRecordCredentialProviderUnionOutput{})
@@ -4505,14 +5452,23 @@ func init() {
 	pulumi.RegisterOutputType(RegistryRecordMcpToolsDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordOAuthCredentialProviderOutput{})
 	pulumi.RegisterOutputType(RegistryRecordOAuthCredentialProviderPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordS3SourceConfigurationOutput{})
+	pulumi.RegisterOutputType(RegistryRecordS3SourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordS3SynchronizedSourceOutput{})
+	pulumi.RegisterOutputType(RegistryRecordS3SynchronizedSourcePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSkillMdSourceOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSkillMdSourcePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSkillMdSourceFromUrlOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSkillMdSourceFromUrlPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSkillSourceCredentialProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSkillSourceCredentialProviderConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSkillSourceCredentialProviderUnionOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourceOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourcePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSynchronizedSourceOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSynchronizedSourcePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordTypeSchemaOverrideOutput{})
 	pulumi.RegisterOutputType(RegistryRecordTypeSchemaOverrideArrayOutput{})
 }

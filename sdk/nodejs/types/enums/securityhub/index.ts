@@ -296,6 +296,16 @@ export const ConnectorAzureScopeConfigurationScopeType = {
  */
 export type ConnectorAzureScopeConfigurationScopeType = (typeof ConnectorAzureScopeConfigurationScopeType)[keyof typeof ConnectorAzureScopeConfigurationScopeType];
 
+export const ConnectorGcpScopeConfigurationScopeType = {
+    Project: "PROJECT",
+    Organization: "ORGANIZATION",
+} as const;
+
+/**
+ * The scope type for the GCP connector
+ */
+export type ConnectorGcpScopeConfigurationScopeType = (typeof ConnectorGcpScopeConfigurationScopeType)[keyof typeof ConnectorGcpScopeConfigurationScopeType];
+
 export const ConnectorV2AzureScopeConfigurationScopeType = {
     Tenant: "TENANT",
     Subscription: "SUBSCRIPTION",
@@ -305,6 +315,16 @@ export const ConnectorV2AzureScopeConfigurationScopeType = {
  * The scope type for the Azure connector
  */
 export type ConnectorV2AzureScopeConfigurationScopeType = (typeof ConnectorV2AzureScopeConfigurationScopeType)[keyof typeof ConnectorV2AzureScopeConfigurationScopeType];
+
+export const ConnectorV2GcpScopeConfigurationScopeType = {
+    Project: "PROJECT",
+    Organization: "ORGANIZATION",
+} as const;
+
+/**
+ * The scope type for the GCP connector
+ */
+export type ConnectorV2GcpScopeConfigurationScopeType = (typeof ConnectorV2GcpScopeConfigurationScopeType)[keyof typeof ConnectorV2GcpScopeConfigurationScopeType];
 
 export const DelegatedAdminStatus = {
     Enabled: "ENABLED",

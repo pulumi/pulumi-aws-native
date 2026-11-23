@@ -9457,7 +9457,9 @@ class UserDefinedFunctionResourceUri(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceType":
+        if key == "lastModified":
+            suggest = "last_modified"
+        elif key == "resourceType":
             suggest = "resource_type"
 
         if suggest:
@@ -9472,18 +9474,30 @@ class UserDefinedFunctionResourceUri(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 last_modified: Optional[_builtins.str] = None,
                  resource_type: Optional['UserDefinedFunctionResourceUriResourceType'] = None,
                  uri: Optional[_builtins.str] = None):
         """
         The URIs for function resources.
 
+        :param _builtins.str last_modified: The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
         :param 'UserDefinedFunctionResourceUriResourceType' resource_type: The type of the resource.
         :param _builtins.str uri: The URI for accessing the resource.
         """
+        if last_modified is not None:
+            pulumi.set(__self__, "last_modified", last_modified)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> Optional[_builtins.str]:
+        """
+        The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+        """
+        return pulumi.get(self, "last_modified")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")

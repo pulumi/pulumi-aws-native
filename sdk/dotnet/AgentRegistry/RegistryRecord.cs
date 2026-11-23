@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.AgentRegistry
     public partial class RegistryRecord : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+        /// </summary>
+        [Output("artifact")]
+        public Output<Outputs.RegistryRecordArtifact> Artifact { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp when the registry record was created.
         /// </summary>
         [Output("createdAt")]
@@ -91,6 +97,12 @@ namespace Pulumi.AwsNative.AgentRegistry
 
         [Output("status")]
         public Output<Pulumi.AwsNative.AgentRegistry.RegistryRecordStatus> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+        /// </summary>
+        [Output("synchronizedSource")]
+        public Output<Outputs.RegistryRecordSynchronizedSource> SynchronizedSource { get; private set; } = null!;
 
         /// <summary>
         /// Tags to assign to the registry record.

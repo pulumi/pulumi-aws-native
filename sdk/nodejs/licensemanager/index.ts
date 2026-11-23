@@ -30,6 +30,11 @@ export const getLicenseConfiguration: typeof import("./getLicenseConfiguration")
 export const getLicenseConfigurationOutput: typeof import("./getLicenseConfiguration").getLicenseConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getLicenseConfiguration","getLicenseConfigurationOutput"], () => require("./getLicenseConfiguration"));
 
+export { GetReportGeneratorArgs, GetReportGeneratorResult, GetReportGeneratorOutputArgs } from "./getReportGenerator";
+export const getReportGenerator: typeof import("./getReportGenerator").getReportGenerator = null as any;
+export const getReportGeneratorOutput: typeof import("./getReportGenerator").getReportGeneratorOutput = null as any;
+utilities.lazyLoad(exports, ["getReportGenerator","getReportGeneratorOutput"], () => require("./getReportGenerator"));
+
 export { GrantArgs } from "./grant";
 export type Grant = import("./grant").Grant;
 export const Grant: typeof import("./grant").Grant = null as any;
@@ -55,6 +60,11 @@ export type LicenseConfiguration = import("./licenseConfiguration").LicenseConfi
 export const LicenseConfiguration: typeof import("./licenseConfiguration").LicenseConfiguration = null as any;
 utilities.lazyLoad(exports, ["LicenseConfiguration"], () => require("./licenseConfiguration"));
 
+export { ReportGeneratorArgs } from "./reportGenerator";
+export type ReportGenerator = import("./reportGenerator").ReportGenerator;
+export const ReportGenerator: typeof import("./reportGenerator").ReportGenerator = null as any;
+utilities.lazyLoad(exports, ["ReportGenerator"], () => require("./reportGenerator"));
+
 
 // Export enums:
 export * from "../types/enums/licensemanager";
@@ -73,6 +83,8 @@ const _module = {
                 return new LicenseAssetRuleSet(name, <any>undefined, { urn })
             case "aws-native:licensemanager:LicenseConfiguration":
                 return new LicenseConfiguration(name, <any>undefined, { urn })
+            case "aws-native:licensemanager:ReportGenerator":
+                return new ReportGenerator(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

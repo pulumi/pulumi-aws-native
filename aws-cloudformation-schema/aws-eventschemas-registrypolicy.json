@@ -17,7 +17,7 @@
     }
   },
   "required" : [ "RegistryName", "Policy" ],
-  "readOnlyProperties" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/RevisionId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {

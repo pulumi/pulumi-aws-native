@@ -254,12 +254,14 @@ class RegistryRecord(pulumi.CustomResource):
             __props__.__dict__["record_version"] = record_version
             __props__.__dict__["registry_id"] = registry_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["artifact"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["record_arn"] = None
             __props__.__dict__["record_id"] = None
             __props__.__dict__["registry_arn"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["synchronized_source"] = None
             __props__.__dict__["updated_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["recordType", "registryId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -285,6 +287,7 @@ class RegistryRecord(pulumi.CustomResource):
 
         __props__ = RegistryRecordArgs.__new__(RegistryRecordArgs)
 
+        __props__.__dict__["artifact"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["custom_metadata"] = None
@@ -299,6 +302,7 @@ class RegistryRecord(pulumi.CustomResource):
         __props__.__dict__["registry_arn"] = None
         __props__.__dict__["registry_id"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["synchronized_source"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return RegistryRecord(resource_name, opts=opts, __props__=__props__)
@@ -308,6 +312,14 @@ class RegistryRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         return pulumi.runtime.exists_resource(None, 'aws-native:agentregistry:RegistryRecord', id, __props__, opts or pulumi.ResourceOptions())
+
+    @_builtins.property
+    @pulumi.getter
+    def artifact(self) -> pulumi.Output['outputs.RegistryRecordArtifact']:
+        """
+        The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+        """
+        return pulumi.get(self, "artifact")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -413,6 +425,14 @@ class RegistryRecord(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output['RegistryRecordStatus']:
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="synchronizedSource")
+    def synchronized_source(self) -> pulumi.Output['outputs.RegistryRecordSynchronizedSource']:
+        """
+        The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+        """
+        return pulumi.get(self, "synchronized_source")
 
     @_builtins.property
     @pulumi.getter

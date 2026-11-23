@@ -99,6 +99,42 @@ namespace Pulumi.AwsNative.S3Vectors
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct IndexTextSearchConfigurationLanguage : IEquatable<IndexTextSearchConfigurationLanguage>
+    {
+        private readonly string _value;
+
+        private IndexTextSearchConfigurationLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexTextSearchConfigurationLanguage En { get; } = new IndexTextSearchConfigurationLanguage("en");
+        public static IndexTextSearchConfigurationLanguage Fr { get; } = new IndexTextSearchConfigurationLanguage("fr");
+        public static IndexTextSearchConfigurationLanguage Es { get; } = new IndexTextSearchConfigurationLanguage("es");
+        public static IndexTextSearchConfigurationLanguage Pt { get; } = new IndexTextSearchConfigurationLanguage("pt");
+        public static IndexTextSearchConfigurationLanguage It { get; } = new IndexTextSearchConfigurationLanguage("it");
+        public static IndexTextSearchConfigurationLanguage De { get; } = new IndexTextSearchConfigurationLanguage("de");
+        public static IndexTextSearchConfigurationLanguage Nl { get; } = new IndexTextSearchConfigurationLanguage("nl");
+        public static IndexTextSearchConfigurationLanguage Zh { get; } = new IndexTextSearchConfigurationLanguage("zh");
+        public static IndexTextSearchConfigurationLanguage Ja { get; } = new IndexTextSearchConfigurationLanguage("ja");
+        public static IndexTextSearchConfigurationLanguage Ko { get; } = new IndexTextSearchConfigurationLanguage("ko");
+
+        public static bool operator ==(IndexTextSearchConfigurationLanguage left, IndexTextSearchConfigurationLanguage right) => left.Equals(right);
+        public static bool operator !=(IndexTextSearchConfigurationLanguage left, IndexTextSearchConfigurationLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(IndexTextSearchConfigurationLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexTextSearchConfigurationLanguage other && Equals(other);
+        public bool Equals(IndexTextSearchConfigurationLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
     /// </summary>

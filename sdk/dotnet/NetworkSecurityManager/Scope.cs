@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.NetworkSecurityManager
         public Output<string> ScopeName { get; private set; } = null!;
 
         /// <summary>
+        /// Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+        /// </summary>
+        [Output("specializedScopeType")]
+        public Output<Pulumi.AwsNative.NetworkSecurityManager.ScopeSpecializedScopeType?> SpecializedScopeType { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the scope.
         /// </summary>
         [Output("status")]
@@ -95,6 +101,7 @@ namespace Pulumi.AwsNative.NetworkSecurityManager
                 ReplaceOnChanges =
                 {
                     "scopeName",
+                    "specializedScopeType",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,6 +142,12 @@ namespace Pulumi.AwsNative.NetworkSecurityManager
         /// </summary>
         [Input("scopeName")]
         public Input<string>? ScopeName { get; set; }
+
+        /// <summary>
+        /// Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+        /// </summary>
+        [Input("specializedScopeType")]
+        public Input<Pulumi.AwsNative.NetworkSecurityManager.ScopeSpecializedScopeType>? SpecializedScopeType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

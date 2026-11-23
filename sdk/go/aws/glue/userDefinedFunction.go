@@ -18,6 +18,8 @@ type UserDefinedFunction struct {
 
 	// The Amazon Resource Name (ARN) of the user-defined function.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+	ArtifactLocation pulumi.StringPtrOutput `pulumi:"artifactLocation"`
 	// The Java class that contains the function code.
 	ClassName pulumi.StringPtrOutput `pulumi:"className"`
 	// The name of the catalog database in which the function is located.
@@ -26,6 +28,8 @@ type UserDefinedFunction struct {
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// The type of the function.
 	FunctionType UserDefinedFunctionFunctionTypePtrOutput `pulumi:"functionType"`
+	// How access to the function is governed. The mode cannot be changed after creation.
+	GovernanceMode UserDefinedFunctionGovernanceModePtrOutput `pulumi:"governanceMode"`
 	// The owner of the function.
 	OwnerName pulumi.StringPtrOutput `pulumi:"ownerName"`
 	// The owner type.
@@ -48,6 +52,7 @@ func NewUserDefinedFunction(ctx *pulumi.Context,
 		"databaseName",
 		"functionName",
 		"functionType",
+		"governanceMode",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -89,6 +94,8 @@ func UserDefinedFunctionExists(ctx *pulumi.Context,
 }
 
 type userDefinedFunctionArgs struct {
+	// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+	ArtifactLocation *string `pulumi:"artifactLocation"`
 	// The Java class that contains the function code.
 	ClassName *string `pulumi:"className"`
 	// The name of the catalog database in which the function is located.
@@ -97,6 +104,8 @@ type userDefinedFunctionArgs struct {
 	FunctionName *string `pulumi:"functionName"`
 	// The type of the function.
 	FunctionType *UserDefinedFunctionFunctionType `pulumi:"functionType"`
+	// How access to the function is governed. The mode cannot be changed after creation.
+	GovernanceMode *UserDefinedFunctionGovernanceMode `pulumi:"governanceMode"`
 	// The owner of the function.
 	OwnerName *string `pulumi:"ownerName"`
 	// The owner type.
@@ -107,6 +116,8 @@ type userDefinedFunctionArgs struct {
 
 // The set of arguments for constructing a UserDefinedFunction resource.
 type UserDefinedFunctionArgs struct {
+	// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+	ArtifactLocation pulumi.StringPtrInput
 	// The Java class that contains the function code.
 	ClassName pulumi.StringPtrInput
 	// The name of the catalog database in which the function is located.
@@ -115,6 +126,8 @@ type UserDefinedFunctionArgs struct {
 	FunctionName pulumi.StringPtrInput
 	// The type of the function.
 	FunctionType UserDefinedFunctionFunctionTypePtrInput
+	// How access to the function is governed. The mode cannot be changed after creation.
+	GovernanceMode UserDefinedFunctionGovernanceModePtrInput
 	// The owner of the function.
 	OwnerName pulumi.StringPtrInput
 	// The owner type.
@@ -165,6 +178,11 @@ func (o UserDefinedFunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+func (o UserDefinedFunctionOutput) ArtifactLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringPtrOutput { return v.ArtifactLocation }).(pulumi.StringPtrOutput)
+}
+
 // The Java class that contains the function code.
 func (o UserDefinedFunctionOutput) ClassName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringPtrOutput { return v.ClassName }).(pulumi.StringPtrOutput)
@@ -183,6 +201,11 @@ func (o UserDefinedFunctionOutput) FunctionName() pulumi.StringOutput {
 // The type of the function.
 func (o UserDefinedFunctionOutput) FunctionType() UserDefinedFunctionFunctionTypePtrOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) UserDefinedFunctionFunctionTypePtrOutput { return v.FunctionType }).(UserDefinedFunctionFunctionTypePtrOutput)
+}
+
+// How access to the function is governed. The mode cannot be changed after creation.
+func (o UserDefinedFunctionOutput) GovernanceMode() UserDefinedFunctionGovernanceModePtrOutput {
+	return o.ApplyT(func(v *UserDefinedFunction) UserDefinedFunctionGovernanceModePtrOutput { return v.GovernanceMode }).(UserDefinedFunctionGovernanceModePtrOutput)
 }
 
 // The owner of the function.

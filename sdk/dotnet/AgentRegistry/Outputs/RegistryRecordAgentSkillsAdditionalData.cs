@@ -17,11 +17,26 @@ namespace Pulumi.AwsNative.AgentRegistry.Outputs
     public sealed class RegistryRecordAgentSkillsAdditionalData
     {
         public readonly Outputs.RegistryRecordAgentSkillsMdDescriptor? SkillMd;
+        /// <summary>
+        /// The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+        /// </summary>
+        public readonly Outputs.RegistryRecordAgentSkillsPackageDescriptor? SkillPackage;
+        /// <summary>
+        /// The provider-specific settings of the record's skill source.
+        /// </summary>
+        public readonly Outputs.RegistryRecordAgentSkillsSourceConfiguration? SourceConfiguration;
 
         [OutputConstructor]
-        private RegistryRecordAgentSkillsAdditionalData(Outputs.RegistryRecordAgentSkillsMdDescriptor? skillMd)
+        private RegistryRecordAgentSkillsAdditionalData(
+            Outputs.RegistryRecordAgentSkillsMdDescriptor? skillMd,
+
+            Outputs.RegistryRecordAgentSkillsPackageDescriptor? skillPackage,
+
+            Outputs.RegistryRecordAgentSkillsSourceConfiguration? sourceConfiguration)
         {
             SkillMd = skillMd;
+            SkillPackage = skillPackage;
+            SourceConfiguration = sourceConfiguration;
         }
     }
 }

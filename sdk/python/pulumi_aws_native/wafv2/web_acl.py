@@ -27,6 +27,7 @@ class WebAclArgs:
                  default_action: pulumi.Input['WebAclDefaultActionArgs'],
                  scope: pulumi.Input['WebAclScope'],
                  visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
+                 analytics_config: pulumi.Input[Optional['WebAclAnalyticsConfigArgs']] = None,
                  application_config: pulumi.Input[Optional['WebAclApplicationConfigArgs']] = None,
                  association_config: pulumi.Input[Optional['WebAclAssociationConfigArgs']] = None,
                  captcha_config: pulumi.Input[Optional['WebAclCaptchaConfigArgs']] = None,
@@ -78,6 +79,8 @@ class WebAclArgs:
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if analytics_config is not None:
+            pulumi.set(__self__, "analytics_config", analytics_config)
         if application_config is not None:
             pulumi.set(__self__, "application_config", application_config)
         if association_config is not None:
@@ -144,6 +147,15 @@ class WebAclArgs:
     @visibility_config.setter
     def visibility_config(self, value: pulumi.Input['WebAclVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="analyticsConfig")
+    def analytics_config(self) -> pulumi.Input[Optional['WebAclAnalyticsConfigArgs']]:
+        return pulumi.get(self, "analytics_config")
+
+    @analytics_config.setter
+    def analytics_config(self, value: pulumi.Input[Optional['WebAclAnalyticsConfigArgs']]):
+        pulumi.set(self, "analytics_config", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationConfig")
@@ -317,6 +329,7 @@ class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytics_config: pulumi.Input[Optional[Union['WebAclAnalyticsConfigArgs', 'WebAclAnalyticsConfigArgsDict', 'outputs.WebAclAnalyticsConfig']]] = None,
                  application_config: pulumi.Input[Optional[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict', 'outputs.WebAclApplicationConfig']]] = None,
                  association_config: pulumi.Input[Optional[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict', 'outputs.WebAclAssociationConfig']]] = None,
                  captcha_config: pulumi.Input[Optional[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict', 'outputs.WebAclCaptchaConfig']]] = None,
@@ -395,6 +408,7 @@ class WebAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytics_config: pulumi.Input[Optional[Union['WebAclAnalyticsConfigArgs', 'WebAclAnalyticsConfigArgsDict', 'outputs.WebAclAnalyticsConfig']]] = None,
                  application_config: pulumi.Input[Optional[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict', 'outputs.WebAclApplicationConfig']]] = None,
                  association_config: pulumi.Input[Optional[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict', 'outputs.WebAclAssociationConfig']]] = None,
                  captcha_config: pulumi.Input[Optional[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict', 'outputs.WebAclCaptchaConfig']]] = None,
@@ -420,6 +434,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
+            __props__.__dict__["analytics_config"] = analytics_config
             __props__.__dict__["application_config"] = application_config
             __props__.__dict__["association_config"] = association_config
             __props__.__dict__["captcha_config"] = captcha_config
@@ -470,6 +485,7 @@ class WebAcl(pulumi.CustomResource):
 
         __props__ = WebAclArgs.__new__(WebAclArgs)
 
+        __props__.__dict__["analytics_config"] = None
         __props__.__dict__["application_config"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["association_config"] = None
@@ -497,6 +513,11 @@ class WebAcl(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         return pulumi.runtime.exists_resource(None, 'aws-native:wafv2:WebAcl', id, __props__, opts or pulumi.ResourceOptions())
+
+    @_builtins.property
+    @pulumi.getter(name="analyticsConfig")
+    def analytics_config(self) -> pulumi.Output[Optional['outputs.WebAclAnalyticsConfig']]:
+        return pulumi.get(self, "analytics_config")
 
     @_builtins.property
     @pulumi.getter(name="applicationConfig")

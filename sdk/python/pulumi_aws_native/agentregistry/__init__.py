@@ -7,8 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_publisher import *
 from .get_registry import *
 from .get_registry_record import *
+from .publisher import *
 from .registry import *
 from .registry_record import *
 from ._inputs import *

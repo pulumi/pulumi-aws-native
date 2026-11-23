@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class CapacityProviderLaunchParameters
     {
         public readonly Outputs.CapacityProviderCapacityReservationSpecification? CapacityReservationSpecification;
+        public readonly Outputs.CapacityProviderCpuOptions? CpuOptions;
         /// <summary>
         /// The block device mapping for ephemeral (instance store) volumes.
         /// </summary>
@@ -51,6 +52,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         private CapacityProviderLaunchParameters(
             Outputs.CapacityProviderCapacityReservationSpecification? capacityReservationSpecification,
 
+            Outputs.CapacityProviderCpuOptions? cpuOptions,
+
             ImmutableArray<Outputs.CapacityProviderEphemeralBlockDeviceMapping> ephemeralVolumes,
 
             string? instanceProfileArn,
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             string? sshKeyName)
         {
             CapacityReservationSpecification = capacityReservationSpecification;
+            CpuOptions = cpuOptions;
             EphemeralVolumes = ephemeralVolumes;
             InstanceProfileArn = instanceProfileArn;
             InstanceRequirements = instanceRequirements;

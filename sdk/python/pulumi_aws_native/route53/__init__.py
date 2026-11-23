@@ -19,6 +19,7 @@ from .get_key_signing_key import *
 from .get_query_logging_config import *
 from .get_record_set import *
 from .get_traffic_policy import *
+from .get_traffic_policy_instance import *
 from .health_check import *
 from .health_check_source import *
 from .hosted_zone import *
@@ -27,5 +28,6 @@ from .query_logging_config import *
 from .record_set import *
 from .record_set_protection import *
 from .traffic_policy import *
+from .traffic_policy_instance import *
 from ._inputs import *
 from . import outputs

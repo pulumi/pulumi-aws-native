@@ -15,7 +15,7 @@
     },
     "PaymentConnectorType" : {
       "type" : "string",
-      "enum" : [ "CoinbaseCDP", "StripePrivy" ]
+      "enum" : [ "CoinbaseCDP", "StripePrivy", "AwsBilling" ]
     },
     "PaymentConnectorProvisionMode" : {
       "type" : "string",
@@ -108,11 +108,18 @@
       "description" : "The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.",
       "pattern" : "^https://[^\\p{C}]*$",
       "maxLength" : 4096
+    },
+    "AwsBillingIamRoleArn" : {
+      "type" : "string",
+      "description" : "The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.",
+      "minLength" : 1,
+      "maxLength" : 2048,
+      "pattern" : "^arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/.+$"
     }
   },
   "additionalProperties" : false,
   "required" : [ "PaymentManagerId", "ConnectorName", "ConnectorType" ],
-  "readOnlyProperties" : [ "/properties/PaymentConnectorId", "/properties/PaymentConnectorArn", "/properties/ConnectorStatus", "/properties/ConnectorCreatedAt", "/properties/ConnectorLastUpdatedAt", "/properties/AuthorizationUrl" ],
+  "readOnlyProperties" : [ "/properties/PaymentConnectorId", "/properties/PaymentConnectorArn", "/properties/ConnectorStatus", "/properties/ConnectorCreatedAt", "/properties/ConnectorLastUpdatedAt", "/properties/AuthorizationUrl", "/properties/AwsBillingIamRoleArn" ],
   "createOnlyProperties" : [ "/properties/PaymentManagerId", "/properties/ConnectorName", "/properties/ProvisionMode", "/properties/ConnectorType" ],
   "primaryIdentifier" : [ "/properties/PaymentConnectorArn" ],
   "additionalIdentifiers" : [ [ "/properties/PaymentManagerId", "/properties/PaymentConnectorId" ] ],
@@ -121,7 +128,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock-agentcore:CreatePaymentConnector", "bedrock-agentcore:GetPaymentConnector", "bedrock-agentcore:GetPaymentCredentialProvider" ]
+      "permissions" : [ "bedrock-agentcore:CreatePaymentConnector", "bedrock-agentcore:GetPaymentConnector", "bedrock-agentcore:GetPaymentCredentialProvider", "iam:GetRole" ]
     },
     "read" : {
       "permissions" : [ "bedrock-agentcore:GetPaymentConnector" ]

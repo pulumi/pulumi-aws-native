@@ -24,6 +24,7 @@ from .device_fleet import *
 from .domain import *
 from .endpoint import *
 from .endpoint_config import *
+from .endpoint_policy import *
 from .experiment import *
 from .experiment_trial_component import *
 from .extension import *
@@ -44,6 +45,7 @@ from .get_device_fleet import *
 from .get_domain import *
 from .get_endpoint import *
 from .get_endpoint_config import *
+from .get_endpoint_policy import *
 from .get_experiment import *
 from .get_experiment_trial_component import *
 from .get_extension import *
@@ -54,6 +56,7 @@ from .get_image import *
 from .get_image_version import *
 from .get_inference_component import *
 from .get_inference_experiment import *
+from .get_inference_router import *
 from .get_mlflow_app import *
 from .get_mlflow_tracking_server import *
 from .get_model import *
@@ -82,6 +85,7 @@ from .image import *
 from .image_version import *
 from .inference_component import *
 from .inference_experiment import *
+from .inference_router import *
 from .mlflow_app import *
 from .mlflow_tracking_server import *
 from .model import *

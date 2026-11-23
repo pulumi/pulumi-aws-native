@@ -13,7 +13,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "FleetName", "StackName" ],
-  "createOnlyProperties" : [ "/properties/FleetName", "/properties/StackName" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/FleetName", "/properties/StackName" ],
   "primaryIdentifier" : [ "/properties/FleetName", "/properties/StackName" ],
   "tagging" : {
     "taggable" : false

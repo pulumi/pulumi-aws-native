@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         [Input("azure")]
         public Input<Inputs.ConnectorV2AzureProviderConfigurationArgs>? Azure { get; set; }
 
+        [Input("gcp")]
+        public Input<Inputs.ConnectorV2GcpProviderConfigurationArgs>? Gcp { get; set; }
+
         [Input("jiraCloud")]
         public Input<Inputs.ConnectorV2JiraCloudProviderConfigurationArgs>? JiraCloud { get; set; }
 

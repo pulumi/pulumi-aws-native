@@ -372,6 +372,16 @@ export const UserDefinedFunctionFunctionType = {
  */
 export type UserDefinedFunctionFunctionType = (typeof UserDefinedFunctionFunctionType)[keyof typeof UserDefinedFunctionFunctionType];
 
+export const UserDefinedFunctionGovernanceMode = {
+    IamOnly: "IAM_ONLY",
+    LakeFormation: "LAKE_FORMATION",
+} as const;
+
+/**
+ * How access to the function is governed. The mode cannot be changed after creation.
+ */
+export type UserDefinedFunctionGovernanceMode = (typeof UserDefinedFunctionGovernanceMode)[keyof typeof UserDefinedFunctionGovernanceMode];
+
 export const UserDefinedFunctionOwnerType = {
     User: "USER",
     Role: "ROLE",

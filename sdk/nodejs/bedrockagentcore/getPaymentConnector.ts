@@ -30,6 +30,10 @@ export interface GetPaymentConnectorResult {
      */
     readonly authorizationUrl?: string;
     /**
+     * The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.
+     */
+    readonly awsBillingIamRoleArn?: string;
+    /**
      * The timestamp when the connector was created
      */
     readonly connectorCreatedAt?: string;

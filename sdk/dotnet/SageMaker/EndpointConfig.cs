@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.EndpointConfigAsyncInferenceConfig?> AsyncInferenceConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+        /// </summary>
+        [Output("crossRegionTrafficConfig")]
+        public Output<Outputs.EndpointConfigCrossRegionTrafficConfig?> CrossRegionTrafficConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
         /// </summary>
         [Output("dataCaptureConfig")]
@@ -119,6 +125,7 @@ namespace Pulumi.AwsNative.SageMaker
                 ReplaceOnChanges =
                 {
                     "asyncInferenceConfig",
+                    "crossRegionTrafficConfig",
                     "dataCaptureConfig",
                     "enableNetworkIsolation",
                     "endpointConfigName",
@@ -157,6 +164,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("asyncInferenceConfig")]
         public Input<Inputs.EndpointConfigAsyncInferenceConfigArgs>? AsyncInferenceConfig { get; set; }
+
+        /// <summary>
+        /// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+        /// </summary>
+        [Input("crossRegionTrafficConfig")]
+        public Input<Inputs.EndpointConfigCrossRegionTrafficConfigArgs>? CrossRegionTrafficConfig { get; set; }
 
         /// <summary>
         /// Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.

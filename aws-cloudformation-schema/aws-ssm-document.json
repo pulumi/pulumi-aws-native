@@ -121,7 +121,7 @@
     },
     "Content" : {
       "description" : "The content for the Systems Manager document in JSON, YAML or String format.",
-      "type" : [ "object", "string" ]
+      "type" : [ "string", "object" ]
     },
     "TargetType" : {
       "pattern" : "^\\/[\\w\\.\\-\\:\\/]*$",

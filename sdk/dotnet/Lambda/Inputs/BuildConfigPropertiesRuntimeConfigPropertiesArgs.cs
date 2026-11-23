@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     public sealed class BuildConfigPropertiesRuntimeConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The runtime identifier.
+        /// The runtime identifier. Either a short runtime name (for example, nodejs24.x) or a Lambda runtime ARN.
         /// </summary>
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;

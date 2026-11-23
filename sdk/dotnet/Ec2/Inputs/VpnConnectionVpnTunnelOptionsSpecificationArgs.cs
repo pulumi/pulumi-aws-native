@@ -56,6 +56,14 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("logOptions")]
         public Input<Inputs.VpnConnectionVpnTunnelLogOptionsSpecificationArgs>? LogOptions { get; set; }
 
+        [Input("phase1AdditionalKeyExchanges")]
+        private InputList<object>? _phase1AdditionalKeyExchanges;
+        public InputList<object> Phase1AdditionalKeyExchanges
+        {
+            get => _phase1AdditionalKeyExchanges ?? (_phase1AdditionalKeyExchanges = new InputList<object>());
+            set => _phase1AdditionalKeyExchanges = value;
+        }
+
         [Input("phase1EncryptionAlgorithms")]
         private InputList<Inputs.VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs>? _phase1EncryptionAlgorithms;
 
@@ -101,6 +109,14 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         {
             get => _phase1dhGroupNumbers ?? (_phase1dhGroupNumbers = new InputList<Inputs.VpnConnectionPhase1dhGroupNumbersRequestListValueArgs>());
             set => _phase1dhGroupNumbers = value;
+        }
+
+        [Input("phase2AdditionalKeyExchanges")]
+        private InputList<object>? _phase2AdditionalKeyExchanges;
+        public InputList<object> Phase2AdditionalKeyExchanges
+        {
+            get => _phase2AdditionalKeyExchanges ?? (_phase2AdditionalKeyExchanges = new InputList<object>());
+            set => _phase2AdditionalKeyExchanges = value;
         }
 
         [Input("phase2EncryptionAlgorithms")]

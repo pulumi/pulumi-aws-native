@@ -39,6 +39,7 @@ export interface GetWebAclArgs {
 }
 
 export interface GetWebAclResult {
+    readonly analyticsConfig?: outputs.wafv2.WebAclAnalyticsConfig;
     /**
      * Collection of application attributes.
      */

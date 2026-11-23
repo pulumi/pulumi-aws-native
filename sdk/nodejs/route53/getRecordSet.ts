@@ -45,6 +45,10 @@ export interface GetRecordSetResult {
      */
     readonly aliasTarget?: outputs.route53.RecordSetAliasTarget;
     /**
+     * AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+     */
+    readonly azAffinity?: outputs.route53.RecordSetAzAffinity;
+    /**
      * The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
      */
     readonly cidrRoutingConfig?: outputs.route53.RecordSetCidrRoutingConfig;

@@ -35,11 +35,6 @@ func NewStackFleetAssociation(ctx *pulumi.Context,
 	if args.StackName == nil {
 		return nil, errors.New("invalid value for required argument 'StackName'")
 	}
-	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"fleetName",
-		"stackName",
-	})
-	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StackFleetAssociation
 	err := ctx.RegisterResource("aws-native:appstream:StackFleetAssociation", name, args, &resource, opts...)

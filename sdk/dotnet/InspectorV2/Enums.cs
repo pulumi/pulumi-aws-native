@@ -83,6 +83,8 @@ namespace Pulumi.AwsNative.InspectorV2
         public static CodeSecurityIntegrationIntegrationStatus Active { get; } = new CodeSecurityIntegrationIntegrationStatus("ACTIVE");
         public static CodeSecurityIntegrationIntegrationStatus Inactive { get; } = new CodeSecurityIntegrationIntegrationStatus("INACTIVE");
         public static CodeSecurityIntegrationIntegrationStatus Disabling { get; } = new CodeSecurityIntegrationIntegrationStatus("DISABLING");
+        public static CodeSecurityIntegrationIntegrationStatus DeleteInProgress { get; } = new CodeSecurityIntegrationIntegrationStatus("DELETE_IN_PROGRESS");
+        public static CodeSecurityIntegrationIntegrationStatus DeleteFailed { get; } = new CodeSecurityIntegrationIntegrationStatus("DELETE_FAILED");
 
         public static bool operator ==(CodeSecurityIntegrationIntegrationStatus left, CodeSecurityIntegrationIntegrationStatus right) => left.Equals(right);
         public static bool operator !=(CodeSecurityIntegrationIntegrationStatus left, CodeSecurityIntegrationIntegrationStatus right) => !left.Equals(right);
@@ -279,6 +281,7 @@ namespace Pulumi.AwsNative.InspectorV2
         }
 
         public static ConnectorCloudProvider Azure { get; } = new ConnectorCloudProvider("AZURE");
+        public static ConnectorCloudProvider Gcp { get; } = new ConnectorCloudProvider("GCP");
 
         public static bool operator ==(ConnectorCloudProvider left, ConnectorCloudProvider right) => left.Equals(right);
         public static bool operator !=(ConnectorCloudProvider left, ConnectorCloudProvider right) => !left.Equals(right);
@@ -369,6 +372,8 @@ namespace Pulumi.AwsNative.InspectorV2
 
         public static ConnectorScopeType Tenant { get; } = new ConnectorScopeType("TENANT");
         public static ConnectorScopeType Subscription { get; } = new ConnectorScopeType("SUBSCRIPTION");
+        public static ConnectorScopeType Organization { get; } = new ConnectorScopeType("ORGANIZATION");
+        public static ConnectorScopeType Project { get; } = new ConnectorScopeType("PROJECT");
 
         public static bool operator ==(ConnectorScopeType left, ConnectorScopeType right) => left.Equals(right);
         public static bool operator !=(ConnectorScopeType left, ConnectorScopeType right) => !left.Equals(right);

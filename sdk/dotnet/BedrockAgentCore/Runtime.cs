@@ -88,6 +88,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<ImmutableArray<Outputs.RuntimeFilesystemConfiguration>> FilesystemConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// Lifecycle hooks for the agent runtime
+        /// </summary>
+        [Output("hooksConfiguration")]
+        public Output<Outputs.RuntimeHooksConfiguration?> HooksConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// When resource was last updated
         /// </summary>
         [Output("lastUpdatedAt")]
@@ -122,6 +128,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Output("requestHeaderConfiguration")]
         public Output<Outputs.RuntimeRequestHeaderConfiguration?> RequestHeaderConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource configurations for the agent runtime
+        /// </summary>
+        [Output("resourceConfigurations")]
+        public Output<ImmutableArray<Outputs.RuntimeResourceConfiguration>> ResourceConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role
@@ -251,6 +263,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         }
 
         /// <summary>
+        /// Lifecycle hooks for the agent runtime
+        /// </summary>
+        [Input("hooksConfiguration")]
+        public Input<Inputs.RuntimeHooksConfigurationArgs>? HooksConfiguration { get; set; }
+
+        /// <summary>
         /// Lifecycle configuration for managing runtime sessions
         /// </summary>
         [Input("lifecycleConfiguration")]
@@ -279,6 +297,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("requestHeaderConfiguration")]
         public Input<Inputs.RuntimeRequestHeaderConfigurationArgs>? RequestHeaderConfiguration { get; set; }
+
+        [Input("resourceConfigurations")]
+        private InputList<Inputs.RuntimeResourceConfigurationArgs>? _resourceConfigurations;
+
+        /// <summary>
+        /// Resource configurations for the agent runtime
+        /// </summary>
+        public InputList<Inputs.RuntimeResourceConfigurationArgs> ResourceConfigurations
+        {
+            get => _resourceConfigurations ?? (_resourceConfigurations = new InputList<Inputs.RuntimeResourceConfigurationArgs>());
+            set => _resourceConfigurations = value;
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role

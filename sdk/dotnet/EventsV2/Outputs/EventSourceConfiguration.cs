@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.EventsV2.Outputs
 {
 
     /// <summary>
-    /// Event source configuration. Exactly one of the two variants must be set.
+    /// Event source configuration. Exactly one of the three variants must be set.
     /// </summary>
     [OutputType]
     public sealed class EventSourceConfiguration
@@ -24,15 +24,22 @@ namespace Pulumi.AwsNative.EventsV2.Outputs
         /// Configuration for forwarding a partner event source's events.
         /// </summary>
         public readonly Outputs.EventSourcePartnerEventsConfiguration? PartnerEventsConfiguration;
+        /// <summary>
+        /// Configuration for receiving events that an external provider sends to a webhook URL.
+        /// </summary>
+        public readonly Outputs.EventSourceWebhookEventsConfiguration? WebhookEventsConfiguration;
 
         [OutputConstructor]
         private EventSourceConfiguration(
             Outputs.EventSourceAwsServiceEventsConfiguration? awsServiceEventsConfiguration,
 
-            Outputs.EventSourcePartnerEventsConfiguration? partnerEventsConfiguration)
+            Outputs.EventSourcePartnerEventsConfiguration? partnerEventsConfiguration,
+
+            Outputs.EventSourceWebhookEventsConfiguration? webhookEventsConfiguration)
         {
             AwsServiceEventsConfiguration = awsServiceEventsConfiguration;
             PartnerEventsConfiguration = partnerEventsConfiguration;
+            WebhookEventsConfiguration = webhookEventsConfiguration;
         }
     }
 }

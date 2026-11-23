@@ -8,6 +8,8 @@ from enum import Enum
 
 __all__ = [
     'LicenseConfigurationLicenseCountingType',
+    'ReportGeneratorReportFrequencyPeriod',
+    'ReportGeneratorReportTypeItem',
 ]
 
 
@@ -20,3 +22,21 @@ class LicenseConfigurationLicenseCountingType(_builtins.str, Enum):
     INSTANCE = "Instance"
     CORE = "Core"
     SOCKET = "Socket"
+
+
+@pulumi.type_token("aws-native:licensemanager:ReportGeneratorReportFrequencyPeriod")
+class ReportGeneratorReportFrequencyPeriod(_builtins.str, Enum):
+    """
+    Time period between each report. The period can be daily, weekly, or monthly.
+    """
+    DAY = "DAY"
+    WEEK = "WEEK"
+    MONTH = "MONTH"
+    ONE_TIME = "ONE_TIME"
+
+
+@pulumi.type_token("aws-native:licensemanager:ReportGeneratorReportTypeItem")
+class ReportGeneratorReportTypeItem(_builtins.str, Enum):
+    LICENSE_CONFIGURATION_SUMMARY_REPORT = "LicenseConfigurationSummaryReport"
+    LICENSE_CONFIGURATION_USAGE_REPORT = "LicenseConfigurationUsageReport"
+    LICENSE_ASSET_GROUP_USAGE_REPORT = "LicenseAssetGroupUsageReport"

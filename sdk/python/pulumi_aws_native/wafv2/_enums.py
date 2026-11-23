@@ -39,6 +39,7 @@ __all__ = [
     'RuleGroupSizeConstraintStatementComparisonOperator',
     'RuleGroupTextTransformationType',
     'RuleGroupUriFragmentFallbackBehavior',
+    'WebAclAnalyticsMode',
     'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
     'WebAclBlockchainChain',
     'WebAclBodyParsingFallbackBehavior',
@@ -482,6 +483,15 @@ class RuleGroupUriFragmentFallbackBehavior(_builtins.str, Enum):
     """
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
+
+
+@pulumi.type_token("aws-native:wafv2:WebAclAnalyticsMode")
+class WebAclAnalyticsMode(_builtins.str, Enum):
+    """
+    CROSS_REGION allows cross-Region storage; DISABLED prevents it.
+    """
+    CROSS_REGION = "CROSS_REGION"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:wafv2:WebAclAwsManagedRulesBotControlRuleSetInspectionLevel")

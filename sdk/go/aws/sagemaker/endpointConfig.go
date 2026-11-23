@@ -19,6 +19,8 @@ type EndpointConfig struct {
 
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	AsyncInferenceConfig EndpointConfigAsyncInferenceConfigPtrOutput `pulumi:"asyncInferenceConfig"`
+	// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+	CrossRegionTrafficConfig EndpointConfigCrossRegionTrafficConfigPtrOutput `pulumi:"crossRegionTrafficConfig"`
 	// Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
 	DataCaptureConfig EndpointConfigDataCaptureConfigPtrOutput `pulumi:"dataCaptureConfig"`
 	// Sets whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.
@@ -57,6 +59,7 @@ func NewEndpointConfig(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"asyncInferenceConfig",
+		"crossRegionTrafficConfig",
 		"dataCaptureConfig",
 		"enableNetworkIsolation",
 		"endpointConfigName",
@@ -110,6 +113,8 @@ func EndpointConfigExists(ctx *pulumi.Context,
 type endpointConfigArgs struct {
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	AsyncInferenceConfig *EndpointConfigAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`
+	// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+	CrossRegionTrafficConfig *EndpointConfigCrossRegionTrafficConfig `pulumi:"crossRegionTrafficConfig"`
 	// Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
 	DataCaptureConfig *EndpointConfigDataCaptureConfig `pulumi:"dataCaptureConfig"`
 	// Sets whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.
@@ -138,6 +143,8 @@ type endpointConfigArgs struct {
 type EndpointConfigArgs struct {
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	AsyncInferenceConfig EndpointConfigAsyncInferenceConfigPtrInput
+	// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+	CrossRegionTrafficConfig EndpointConfigCrossRegionTrafficConfigPtrInput
 	// Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
 	DataCaptureConfig EndpointConfigDataCaptureConfigPtrInput
 	// Sets whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.
@@ -202,6 +209,13 @@ func (o EndpointConfigOutput) ToEndpointConfigOutputWithContext(ctx context.Cont
 // Specifies configuration for how an endpoint performs asynchronous inference.
 func (o EndpointConfigOutput) AsyncInferenceConfig() EndpointConfigAsyncInferenceConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfig) EndpointConfigAsyncInferenceConfigPtrOutput { return v.AsyncInferenceConfig }).(EndpointConfigAsyncInferenceConfigPtrOutput)
+}
+
+// Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+func (o EndpointConfigOutput) CrossRegionTrafficConfig() EndpointConfigCrossRegionTrafficConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) EndpointConfigCrossRegionTrafficConfigPtrOutput {
+		return v.CrossRegionTrafficConfig
+	}).(EndpointConfigCrossRegionTrafficConfigPtrOutput)
 }
 
 // Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.

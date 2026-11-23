@@ -29,6 +29,8 @@ type LookupRegistryRecordArgs struct {
 }
 
 type LookupRegistryRecordResult struct {
+	// The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+	Artifact *RegistryRecordArtifact `pulumi:"artifact"`
 	// The timestamp when the registry record was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identifier of the AWS account that created the registry record.
@@ -53,6 +55,8 @@ type LookupRegistryRecordResult struct {
 	// The Amazon Resource Name (ARN) of the registry containing the record.
 	RegistryArn *string               `pulumi:"registryArn"`
 	Status      *RegistryRecordStatus `pulumi:"status"`
+	// The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+	SynchronizedSource *RegistryRecordSynchronizedSource `pulumi:"synchronizedSource"`
 	// Tags to assign to the registry record.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The timestamp when the registry record was last updated.
@@ -85,6 +89,11 @@ func (o LookupRegistryRecordResultOutput) ToLookupRegistryRecordResultOutput() L
 
 func (o LookupRegistryRecordResultOutput) ToLookupRegistryRecordResultOutputWithContext(ctx context.Context) LookupRegistryRecordResultOutput {
 	return o
+}
+
+// The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+func (o LookupRegistryRecordResultOutput) Artifact() RegistryRecordArtifactPtrOutput {
+	return o.ApplyT(func(v LookupRegistryRecordResult) *RegistryRecordArtifact { return v.Artifact }).(RegistryRecordArtifactPtrOutput)
 }
 
 // The timestamp when the registry record was created.
@@ -145,6 +154,11 @@ func (o LookupRegistryRecordResultOutput) RegistryArn() pulumi.StringPtrOutput {
 
 func (o LookupRegistryRecordResultOutput) Status() RegistryRecordStatusPtrOutput {
 	return o.ApplyT(func(v LookupRegistryRecordResult) *RegistryRecordStatus { return v.Status }).(RegistryRecordStatusPtrOutput)
+}
+
+// The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+func (o LookupRegistryRecordResultOutput) SynchronizedSource() RegistryRecordSynchronizedSourcePtrOutput {
+	return o.ApplyT(func(v LookupRegistryRecordResult) *RegistryRecordSynchronizedSource { return v.SynchronizedSource }).(RegistryRecordSynchronizedSourcePtrOutput)
 }
 
 // Tags to assign to the registry record.

@@ -43,7 +43,8 @@ type LookupAuthorizerResult struct {
 	// The identity source for which authorization is requested. For a `TOKEN` or `COGNITO_USER_POOLS` authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is `Auth` , the header mapping expression is `method.request.header.Auth` . For the `REQUEST` authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an `Auth` header, a `Name` query string parameter are defined as identity sources, this value is `method.request.header.Auth, method.request.querystring.Name` . These parameters will be used to derive the authorization caching key and to perform runtime validation of the `REQUEST` authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.
 	IdentitySource *string `pulumi:"identitySource"`
 	// A validation expression for the incoming identity token. For `TOKEN` authorizers, this value is a regular expression. For `COGNITO_USER_POOLS` authorizers, API Gateway will match the `aud` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the `REQUEST` authorizer.
-	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
+	IdentityValidationExpression *string                     `pulumi:"identityValidationExpression"`
+	JwtConfiguration             *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
 	// A list of the Amazon Cognito user pool ARNs for the `COGNITO_USER_POOLS` authorizer. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}` . For a `TOKEN` or `REQUEST` authorizer, this is not defined.
@@ -115,6 +116,10 @@ func (o LookupAuthorizerResultOutput) IdentitySource() pulumi.StringPtrOutput {
 // A validation expression for the incoming identity token. For `TOKEN` authorizers, this value is a regular expression. For `COGNITO_USER_POOLS` authorizers, API Gateway will match the `aud` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the `REQUEST` authorizer.
 func (o LookupAuthorizerResultOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAuthorizerResultOutput) JwtConfiguration() AuthorizerJwtConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *AuthorizerJwtConfiguration { return v.JwtConfiguration }).(AuthorizerJwtConfigurationPtrOutput)
 }
 
 // The name of the authorizer.

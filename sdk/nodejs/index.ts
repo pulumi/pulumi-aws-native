@@ -260,6 +260,7 @@ import * as observabilityadmin from "./observabilityadmin";
 import * as odb from "./odb";
 import * as omics from "./omics";
 import * as opensearch from "./opensearch";
+import * as opensearchmemory from "./opensearchmemory";
 import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
 import * as opsworkscm from "./opsworkscm";
@@ -554,6 +555,7 @@ export {
     odb,
     omics,
     opensearch,
+    opensearchmemory,
     opensearchserverless,
     opensearchservice,
     opsworkscm,

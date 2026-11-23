@@ -290,6 +290,8 @@ type HealthCheckConfigProperties struct {
 	//
 	// The SSL/TLS certificate on your endpoint includes a domain name in the `Common Name` field and possibly several more in the `Subject Alternative Names` field. One of the domain names in the certificate should match the value that you specify for `FullyQualifiedDomainName` . If the endpoint responds to the `client_hello` message with a certificate that does not include the domain name that you specified in `FullyQualifiedDomainName` , a health checker will retry the handshake. In the second attempt, the health checker will omit `FullyQualifiedDomainName` from the `client_hello` message.
 	EnableSni *bool `pulumi:"enableSni"`
+	// Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+	EndpointType *HealthCheckConfigPropertiesEndpointType `pulumi:"endpointType"`
 	// The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 	//
 	// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -322,6 +324,8 @@ type HealthCheckConfigProperties struct {
 	//
 	// In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	// The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+	HealthCheckSourceId *string `pulumi:"healthCheckSourceId"`
 	// The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
 	//
 	// Note the following:
@@ -438,6 +442,8 @@ type HealthCheckConfigPropertiesArgs struct {
 	//
 	// The SSL/TLS certificate on your endpoint includes a domain name in the `Common Name` field and possibly several more in the `Subject Alternative Names` field. One of the domain names in the certificate should match the value that you specify for `FullyQualifiedDomainName` . If the endpoint responds to the `client_hello` message with a certificate that does not include the domain name that you specified in `FullyQualifiedDomainName` , a health checker will retry the handshake. In the second attempt, the health checker will omit `FullyQualifiedDomainName` from the `client_hello` message.
 	EnableSni pulumi.BoolPtrInput `pulumi:"enableSni"`
+	// Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+	EndpointType HealthCheckConfigPropertiesEndpointTypePtrInput `pulumi:"endpointType"`
 	// The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 	//
 	// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -470,6 +476,8 @@ type HealthCheckConfigPropertiesArgs struct {
 	//
 	// In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
 	FullyQualifiedDomainName pulumi.StringPtrInput `pulumi:"fullyQualifiedDomainName"`
+	// The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+	HealthCheckSourceId pulumi.StringPtrInput `pulumi:"healthCheckSourceId"`
 	// The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
 	//
 	// Note the following:
@@ -609,6 +617,11 @@ func (o HealthCheckConfigPropertiesOutput) EnableSni() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HealthCheckConfigProperties) *bool { return v.EnableSni }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+func (o HealthCheckConfigPropertiesOutput) EndpointType() HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *HealthCheckConfigPropertiesEndpointType { return v.EndpointType }).(HealthCheckConfigPropertiesEndpointTypePtrOutput)
+}
+
 // The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 //
 // `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -645,6 +658,11 @@ func (o HealthCheckConfigPropertiesOutput) FailureThreshold() pulumi.IntPtrOutpu
 // In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
 func (o HealthCheckConfigPropertiesOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.FullyQualifiedDomainName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+func (o HealthCheckConfigPropertiesOutput) HealthCheckSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.HealthCheckSourceId }).(pulumi.StringPtrOutput)
 }
 
 // The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
@@ -834,6 +852,16 @@ func (o HealthCheckConfigPropertiesPtrOutput) EnableSni() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+func (o HealthCheckConfigPropertiesPtrOutput) EndpointType() HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckConfigPropertiesEndpointType {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointType
+	}).(HealthCheckConfigPropertiesEndpointTypePtrOutput)
+}
+
 // The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 //
 // `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -879,6 +907,16 @@ func (o HealthCheckConfigPropertiesPtrOutput) FullyQualifiedDomainName() pulumi.
 			return nil
 		}
 		return v.FullyQualifiedDomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+func (o HealthCheckConfigPropertiesPtrOutput) HealthCheckSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckSourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1269,10 +1307,273 @@ type HealthCheckTag struct {
 	Value string `pulumi:"value"`
 }
 
+type HostedZoneChangeGuardrail struct {
+	// The name of the Change Guardrail.
+	Name HostedZoneChangeGuardrailName `pulumi:"name"`
+	// The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+	Status HostedZoneChangeGuardrailStatus `pulumi:"status"`
+}
+
+// HostedZoneChangeGuardrailInput is an input type that accepts HostedZoneChangeGuardrailArgs and HostedZoneChangeGuardrailOutput values.
+// You can construct a concrete instance of `HostedZoneChangeGuardrailInput` via:
+//
+//	HostedZoneChangeGuardrailArgs{...}
+type HostedZoneChangeGuardrailInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeGuardrailOutput() HostedZoneChangeGuardrailOutput
+	ToHostedZoneChangeGuardrailOutputWithContext(context.Context) HostedZoneChangeGuardrailOutput
+}
+
+type HostedZoneChangeGuardrailArgs struct {
+	// The name of the Change Guardrail.
+	Name HostedZoneChangeGuardrailNameInput `pulumi:"name"`
+	// The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+	Status HostedZoneChangeGuardrailStatusInput `pulumi:"status"`
+}
+
+func (HostedZoneChangeGuardrailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeGuardrail)(nil)).Elem()
+}
+
+func (i HostedZoneChangeGuardrailArgs) ToHostedZoneChangeGuardrailOutput() HostedZoneChangeGuardrailOutput {
+	return i.ToHostedZoneChangeGuardrailOutputWithContext(context.Background())
+}
+
+func (i HostedZoneChangeGuardrailArgs) ToHostedZoneChangeGuardrailOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneChangeGuardrailOutput)
+}
+
+// HostedZoneChangeGuardrailArrayInput is an input type that accepts HostedZoneChangeGuardrailArray and HostedZoneChangeGuardrailArrayOutput values.
+// You can construct a concrete instance of `HostedZoneChangeGuardrailArrayInput` via:
+//
+//	HostedZoneChangeGuardrailArray{ HostedZoneChangeGuardrailArgs{...} }
+type HostedZoneChangeGuardrailArrayInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeGuardrailArrayOutput() HostedZoneChangeGuardrailArrayOutput
+	ToHostedZoneChangeGuardrailArrayOutputWithContext(context.Context) HostedZoneChangeGuardrailArrayOutput
+}
+
+type HostedZoneChangeGuardrailArray []HostedZoneChangeGuardrailInput
+
+func (HostedZoneChangeGuardrailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedZoneChangeGuardrail)(nil)).Elem()
+}
+
+func (i HostedZoneChangeGuardrailArray) ToHostedZoneChangeGuardrailArrayOutput() HostedZoneChangeGuardrailArrayOutput {
+	return i.ToHostedZoneChangeGuardrailArrayOutputWithContext(context.Background())
+}
+
+func (i HostedZoneChangeGuardrailArray) ToHostedZoneChangeGuardrailArrayOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneChangeGuardrailArrayOutput)
+}
+
+type HostedZoneChangeGuardrailOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeGuardrailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeGuardrail)(nil)).Elem()
+}
+
+func (o HostedZoneChangeGuardrailOutput) ToHostedZoneChangeGuardrailOutput() HostedZoneChangeGuardrailOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailOutput) ToHostedZoneChangeGuardrailOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailOutput {
+	return o
+}
+
+// The name of the Change Guardrail.
+func (o HostedZoneChangeGuardrailOutput) Name() HostedZoneChangeGuardrailNameOutput {
+	return o.ApplyT(func(v HostedZoneChangeGuardrail) HostedZoneChangeGuardrailName { return v.Name }).(HostedZoneChangeGuardrailNameOutput)
+}
+
+// The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+func (o HostedZoneChangeGuardrailOutput) Status() HostedZoneChangeGuardrailStatusOutput {
+	return o.ApplyT(func(v HostedZoneChangeGuardrail) HostedZoneChangeGuardrailStatus { return v.Status }).(HostedZoneChangeGuardrailStatusOutput)
+}
+
+type HostedZoneChangeGuardrailArrayOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeGuardrailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedZoneChangeGuardrail)(nil)).Elem()
+}
+
+func (o HostedZoneChangeGuardrailArrayOutput) ToHostedZoneChangeGuardrailArrayOutput() HostedZoneChangeGuardrailArrayOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailArrayOutput) ToHostedZoneChangeGuardrailArrayOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailArrayOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailArrayOutput) Index(i pulumi.IntInput) HostedZoneChangeGuardrailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedZoneChangeGuardrail {
+		return vs[0].([]HostedZoneChangeGuardrail)[vs[1].(int)]
+	}).(HostedZoneChangeGuardrailOutput)
+}
+
+type HostedZoneChangeHistory struct {
+	// The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+	RetentionStartsAt *string `pulumi:"retentionStartsAt"`
+	// Whether change history is enabled for the hosted zone.
+	Status *HostedZoneChangeHistoryStatus `pulumi:"status"`
+}
+
+// HostedZoneChangeHistoryInput is an input type that accepts HostedZoneChangeHistoryArgs and HostedZoneChangeHistoryOutput values.
+// You can construct a concrete instance of `HostedZoneChangeHistoryInput` via:
+//
+//	HostedZoneChangeHistoryArgs{...}
+type HostedZoneChangeHistoryInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeHistoryOutput() HostedZoneChangeHistoryOutput
+	ToHostedZoneChangeHistoryOutputWithContext(context.Context) HostedZoneChangeHistoryOutput
+}
+
+type HostedZoneChangeHistoryArgs struct {
+	// The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+	RetentionStartsAt pulumi.StringPtrInput `pulumi:"retentionStartsAt"`
+	// Whether change history is enabled for the hosted zone.
+	Status HostedZoneChangeHistoryStatusPtrInput `pulumi:"status"`
+}
+
+func (HostedZoneChangeHistoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeHistory)(nil)).Elem()
+}
+
+func (i HostedZoneChangeHistoryArgs) ToHostedZoneChangeHistoryOutput() HostedZoneChangeHistoryOutput {
+	return i.ToHostedZoneChangeHistoryOutputWithContext(context.Background())
+}
+
+func (i HostedZoneChangeHistoryArgs) ToHostedZoneChangeHistoryOutputWithContext(ctx context.Context) HostedZoneChangeHistoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneChangeHistoryOutput)
+}
+
+func (i HostedZoneChangeHistoryArgs) ToHostedZoneChangeHistoryPtrOutput() HostedZoneChangeHistoryPtrOutput {
+	return i.ToHostedZoneChangeHistoryPtrOutputWithContext(context.Background())
+}
+
+func (i HostedZoneChangeHistoryArgs) ToHostedZoneChangeHistoryPtrOutputWithContext(ctx context.Context) HostedZoneChangeHistoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneChangeHistoryOutput).ToHostedZoneChangeHistoryPtrOutputWithContext(ctx)
+}
+
+// HostedZoneChangeHistoryPtrInput is an input type that accepts HostedZoneChangeHistoryArgs, HostedZoneChangeHistoryPtr and HostedZoneChangeHistoryPtrOutput values.
+// You can construct a concrete instance of `HostedZoneChangeHistoryPtrInput` via:
+//
+//	        HostedZoneChangeHistoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type HostedZoneChangeHistoryPtrInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeHistoryPtrOutput() HostedZoneChangeHistoryPtrOutput
+	ToHostedZoneChangeHistoryPtrOutputWithContext(context.Context) HostedZoneChangeHistoryPtrOutput
+}
+
+type hostedZoneChangeHistoryPtrType HostedZoneChangeHistoryArgs
+
+func HostedZoneChangeHistoryPtr(v *HostedZoneChangeHistoryArgs) HostedZoneChangeHistoryPtrInput {
+	return (*hostedZoneChangeHistoryPtrType)(v)
+}
+
+func (*hostedZoneChangeHistoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneChangeHistory)(nil)).Elem()
+}
+
+func (i *hostedZoneChangeHistoryPtrType) ToHostedZoneChangeHistoryPtrOutput() HostedZoneChangeHistoryPtrOutput {
+	return i.ToHostedZoneChangeHistoryPtrOutputWithContext(context.Background())
+}
+
+func (i *hostedZoneChangeHistoryPtrType) ToHostedZoneChangeHistoryPtrOutputWithContext(ctx context.Context) HostedZoneChangeHistoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneChangeHistoryPtrOutput)
+}
+
+type HostedZoneChangeHistoryOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeHistoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeHistory)(nil)).Elem()
+}
+
+func (o HostedZoneChangeHistoryOutput) ToHostedZoneChangeHistoryOutput() HostedZoneChangeHistoryOutput {
+	return o
+}
+
+func (o HostedZoneChangeHistoryOutput) ToHostedZoneChangeHistoryOutputWithContext(ctx context.Context) HostedZoneChangeHistoryOutput {
+	return o
+}
+
+func (o HostedZoneChangeHistoryOutput) ToHostedZoneChangeHistoryPtrOutput() HostedZoneChangeHistoryPtrOutput {
+	return o.ToHostedZoneChangeHistoryPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeHistoryOutput) ToHostedZoneChangeHistoryPtrOutputWithContext(ctx context.Context) HostedZoneChangeHistoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedZoneChangeHistory) *HostedZoneChangeHistory {
+		return &v
+	}).(HostedZoneChangeHistoryPtrOutput)
+}
+
+// The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+func (o HostedZoneChangeHistoryOutput) RetentionStartsAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostedZoneChangeHistory) *string { return v.RetentionStartsAt }).(pulumi.StringPtrOutput)
+}
+
+// Whether change history is enabled for the hosted zone.
+func (o HostedZoneChangeHistoryOutput) Status() HostedZoneChangeHistoryStatusPtrOutput {
+	return o.ApplyT(func(v HostedZoneChangeHistory) *HostedZoneChangeHistoryStatus { return v.Status }).(HostedZoneChangeHistoryStatusPtrOutput)
+}
+
+type HostedZoneChangeHistoryPtrOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeHistoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneChangeHistory)(nil)).Elem()
+}
+
+func (o HostedZoneChangeHistoryPtrOutput) ToHostedZoneChangeHistoryPtrOutput() HostedZoneChangeHistoryPtrOutput {
+	return o
+}
+
+func (o HostedZoneChangeHistoryPtrOutput) ToHostedZoneChangeHistoryPtrOutputWithContext(ctx context.Context) HostedZoneChangeHistoryPtrOutput {
+	return o
+}
+
+func (o HostedZoneChangeHistoryPtrOutput) Elem() HostedZoneChangeHistoryOutput {
+	return o.ApplyT(func(v *HostedZoneChangeHistory) HostedZoneChangeHistory {
+		if v != nil {
+			return *v
+		}
+		var ret HostedZoneChangeHistory
+		return ret
+	}).(HostedZoneChangeHistoryOutput)
+}
+
+// The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+func (o HostedZoneChangeHistoryPtrOutput) RetentionStartsAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedZoneChangeHistory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionStartsAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether change history is enabled for the hosted zone.
+func (o HostedZoneChangeHistoryPtrOutput) Status() HostedZoneChangeHistoryStatusPtrOutput {
+	return o.ApplyT(func(v *HostedZoneChangeHistory) *HostedZoneChangeHistoryStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(HostedZoneChangeHistoryStatusPtrOutput)
+}
+
 // A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the “HostedZoneConfig“ and “Comment“ elements.
 type HostedZoneConfig struct {
 	// Any comments that you want to include about the hosted zone.
-	Comment *string `pulumi:"comment"`
+	Comment        *string                         `pulumi:"comment"`
+	HostedZoneTier *HostedZoneConfigHostedZoneTier `pulumi:"hostedZoneTier"`
 }
 
 // HostedZoneConfigInput is an input type that accepts HostedZoneConfigArgs and HostedZoneConfigOutput values.
@@ -1289,7 +1590,8 @@ type HostedZoneConfigInput interface {
 // A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the “HostedZoneConfig“ and “Comment“ elements.
 type HostedZoneConfigArgs struct {
 	// Any comments that you want to include about the hosted zone.
-	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	Comment        pulumi.StringPtrInput                  `pulumi:"comment"`
+	HostedZoneTier HostedZoneConfigHostedZoneTierPtrInput `pulumi:"hostedZoneTier"`
 }
 
 func (HostedZoneConfigArgs) ElementType() reflect.Type {
@@ -1375,6 +1677,10 @@ func (o HostedZoneConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostedZoneConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+func (o HostedZoneConfigOutput) HostedZoneTier() HostedZoneConfigHostedZoneTierPtrOutput {
+	return o.ApplyT(func(v HostedZoneConfig) *HostedZoneConfigHostedZoneTier { return v.HostedZoneTier }).(HostedZoneConfigHostedZoneTierPtrOutput)
+}
+
 type HostedZoneConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneConfigPtrOutput) ElementType() reflect.Type {
@@ -1409,9 +1715,21 @@ func (o HostedZoneConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o HostedZoneConfigPtrOutput) HostedZoneTier() HostedZoneConfigHostedZoneTierPtrOutput {
+	return o.ApplyT(func(v *HostedZoneConfig) *HostedZoneConfigHostedZoneTier {
+		if v == nil {
+			return nil
+		}
+		return v.HostedZoneTier
+	}).(HostedZoneConfigHostedZoneTierPtrOutput)
+}
+
 // Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
 type HostedZoneFeatures struct {
-	EnableAcceleratedRecovery *bool `pulumi:"enableAcceleratedRecovery"`
+	ChangeGuardrails          []HostedZoneChangeGuardrail `pulumi:"changeGuardrails"`
+	ChangeHistory             *HostedZoneChangeHistory    `pulumi:"changeHistory"`
+	EnableAcceleratedRecovery *bool                       `pulumi:"enableAcceleratedRecovery"`
+	EnablePublicDnsFallback   *bool                       `pulumi:"enablePublicDnsFallback"`
 }
 
 // HostedZoneFeaturesInput is an input type that accepts HostedZoneFeaturesArgs and HostedZoneFeaturesOutput values.
@@ -1427,7 +1745,10 @@ type HostedZoneFeaturesInput interface {
 
 // Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
 type HostedZoneFeaturesArgs struct {
-	EnableAcceleratedRecovery pulumi.BoolPtrInput `pulumi:"enableAcceleratedRecovery"`
+	ChangeGuardrails          HostedZoneChangeGuardrailArrayInput `pulumi:"changeGuardrails"`
+	ChangeHistory             HostedZoneChangeHistoryPtrInput     `pulumi:"changeHistory"`
+	EnableAcceleratedRecovery pulumi.BoolPtrInput                 `pulumi:"enableAcceleratedRecovery"`
+	EnablePublicDnsFallback   pulumi.BoolPtrInput                 `pulumi:"enablePublicDnsFallback"`
 }
 
 func (HostedZoneFeaturesArgs) ElementType() reflect.Type {
@@ -1508,8 +1829,20 @@ func (o HostedZoneFeaturesOutput) ToHostedZoneFeaturesPtrOutputWithContext(ctx c
 	}).(HostedZoneFeaturesPtrOutput)
 }
 
+func (o HostedZoneFeaturesOutput) ChangeGuardrails() HostedZoneChangeGuardrailArrayOutput {
+	return o.ApplyT(func(v HostedZoneFeatures) []HostedZoneChangeGuardrail { return v.ChangeGuardrails }).(HostedZoneChangeGuardrailArrayOutput)
+}
+
+func (o HostedZoneFeaturesOutput) ChangeHistory() HostedZoneChangeHistoryPtrOutput {
+	return o.ApplyT(func(v HostedZoneFeatures) *HostedZoneChangeHistory { return v.ChangeHistory }).(HostedZoneChangeHistoryPtrOutput)
+}
+
 func (o HostedZoneFeaturesOutput) EnableAcceleratedRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostedZoneFeatures) *bool { return v.EnableAcceleratedRecovery }).(pulumi.BoolPtrOutput)
+}
+
+func (o HostedZoneFeaturesOutput) EnablePublicDnsFallback() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HostedZoneFeatures) *bool { return v.EnablePublicDnsFallback }).(pulumi.BoolPtrOutput)
 }
 
 type HostedZoneFeaturesPtrOutput struct{ *pulumi.OutputState }
@@ -1536,12 +1869,39 @@ func (o HostedZoneFeaturesPtrOutput) Elem() HostedZoneFeaturesOutput {
 	}).(HostedZoneFeaturesOutput)
 }
 
+func (o HostedZoneFeaturesPtrOutput) ChangeGuardrails() HostedZoneChangeGuardrailArrayOutput {
+	return o.ApplyT(func(v *HostedZoneFeatures) []HostedZoneChangeGuardrail {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeGuardrails
+	}).(HostedZoneChangeGuardrailArrayOutput)
+}
+
+func (o HostedZoneFeaturesPtrOutput) ChangeHistory() HostedZoneChangeHistoryPtrOutput {
+	return o.ApplyT(func(v *HostedZoneFeatures) *HostedZoneChangeHistory {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeHistory
+	}).(HostedZoneChangeHistoryPtrOutput)
+}
+
 func (o HostedZoneFeaturesPtrOutput) EnableAcceleratedRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HostedZoneFeatures) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.EnableAcceleratedRecovery
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HostedZoneFeaturesPtrOutput) EnablePublicDnsFallback() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostedZoneFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePublicDnsFallback
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1997,6 +2357,162 @@ func (o RecordSetAliasTargetPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RecordSetAzAffinity struct {
+	// The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+	LocationId string `pulumi:"locationId"`
+	// The type of the source location that the record set's answers apply to.
+	LocationType RecordSetAzAffinityLocationType `pulumi:"locationType"`
+}
+
+// RecordSetAzAffinityInput is an input type that accepts RecordSetAzAffinityArgs and RecordSetAzAffinityOutput values.
+// You can construct a concrete instance of `RecordSetAzAffinityInput` via:
+//
+//	RecordSetAzAffinityArgs{...}
+type RecordSetAzAffinityInput interface {
+	pulumi.Input
+
+	ToRecordSetAzAffinityOutput() RecordSetAzAffinityOutput
+	ToRecordSetAzAffinityOutputWithContext(context.Context) RecordSetAzAffinityOutput
+}
+
+type RecordSetAzAffinityArgs struct {
+	// The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+	LocationId pulumi.StringInput `pulumi:"locationId"`
+	// The type of the source location that the record set's answers apply to.
+	LocationType RecordSetAzAffinityLocationTypeInput `pulumi:"locationType"`
+}
+
+func (RecordSetAzAffinityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetAzAffinity)(nil)).Elem()
+}
+
+func (i RecordSetAzAffinityArgs) ToRecordSetAzAffinityOutput() RecordSetAzAffinityOutput {
+	return i.ToRecordSetAzAffinityOutputWithContext(context.Background())
+}
+
+func (i RecordSetAzAffinityArgs) ToRecordSetAzAffinityOutputWithContext(ctx context.Context) RecordSetAzAffinityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetAzAffinityOutput)
+}
+
+func (i RecordSetAzAffinityArgs) ToRecordSetAzAffinityPtrOutput() RecordSetAzAffinityPtrOutput {
+	return i.ToRecordSetAzAffinityPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetAzAffinityArgs) ToRecordSetAzAffinityPtrOutputWithContext(ctx context.Context) RecordSetAzAffinityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetAzAffinityOutput).ToRecordSetAzAffinityPtrOutputWithContext(ctx)
+}
+
+// RecordSetAzAffinityPtrInput is an input type that accepts RecordSetAzAffinityArgs, RecordSetAzAffinityPtr and RecordSetAzAffinityPtrOutput values.
+// You can construct a concrete instance of `RecordSetAzAffinityPtrInput` via:
+//
+//	        RecordSetAzAffinityArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetAzAffinityPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetAzAffinityPtrOutput() RecordSetAzAffinityPtrOutput
+	ToRecordSetAzAffinityPtrOutputWithContext(context.Context) RecordSetAzAffinityPtrOutput
+}
+
+type recordSetAzAffinityPtrType RecordSetAzAffinityArgs
+
+func RecordSetAzAffinityPtr(v *RecordSetAzAffinityArgs) RecordSetAzAffinityPtrInput {
+	return (*recordSetAzAffinityPtrType)(v)
+}
+
+func (*recordSetAzAffinityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetAzAffinity)(nil)).Elem()
+}
+
+func (i *recordSetAzAffinityPtrType) ToRecordSetAzAffinityPtrOutput() RecordSetAzAffinityPtrOutput {
+	return i.ToRecordSetAzAffinityPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetAzAffinityPtrType) ToRecordSetAzAffinityPtrOutputWithContext(ctx context.Context) RecordSetAzAffinityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetAzAffinityPtrOutput)
+}
+
+type RecordSetAzAffinityOutput struct{ *pulumi.OutputState }
+
+func (RecordSetAzAffinityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetAzAffinity)(nil)).Elem()
+}
+
+func (o RecordSetAzAffinityOutput) ToRecordSetAzAffinityOutput() RecordSetAzAffinityOutput {
+	return o
+}
+
+func (o RecordSetAzAffinityOutput) ToRecordSetAzAffinityOutputWithContext(ctx context.Context) RecordSetAzAffinityOutput {
+	return o
+}
+
+func (o RecordSetAzAffinityOutput) ToRecordSetAzAffinityPtrOutput() RecordSetAzAffinityPtrOutput {
+	return o.ToRecordSetAzAffinityPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetAzAffinityOutput) ToRecordSetAzAffinityPtrOutputWithContext(ctx context.Context) RecordSetAzAffinityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetAzAffinity) *RecordSetAzAffinity {
+		return &v
+	}).(RecordSetAzAffinityPtrOutput)
+}
+
+// The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+func (o RecordSetAzAffinityOutput) LocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetAzAffinity) string { return v.LocationId }).(pulumi.StringOutput)
+}
+
+// The type of the source location that the record set's answers apply to.
+func (o RecordSetAzAffinityOutput) LocationType() RecordSetAzAffinityLocationTypeOutput {
+	return o.ApplyT(func(v RecordSetAzAffinity) RecordSetAzAffinityLocationType { return v.LocationType }).(RecordSetAzAffinityLocationTypeOutput)
+}
+
+type RecordSetAzAffinityPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetAzAffinityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetAzAffinity)(nil)).Elem()
+}
+
+func (o RecordSetAzAffinityPtrOutput) ToRecordSetAzAffinityPtrOutput() RecordSetAzAffinityPtrOutput {
+	return o
+}
+
+func (o RecordSetAzAffinityPtrOutput) ToRecordSetAzAffinityPtrOutputWithContext(ctx context.Context) RecordSetAzAffinityPtrOutput {
+	return o
+}
+
+func (o RecordSetAzAffinityPtrOutput) Elem() RecordSetAzAffinityOutput {
+	return o.ApplyT(func(v *RecordSetAzAffinity) RecordSetAzAffinity {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetAzAffinity
+		return ret
+	}).(RecordSetAzAffinityOutput)
+}
+
+// The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+func (o RecordSetAzAffinityPtrOutput) LocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetAzAffinity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the source location that the record set's answers apply to.
+func (o RecordSetAzAffinityPtrOutput) LocationType() RecordSetAzAffinityLocationTypePtrOutput {
+	return o.ApplyT(func(v *RecordSetAzAffinity) *RecordSetAzAffinityLocationType {
+		if v == nil {
+			return nil
+		}
+		return &v.LocationType
+	}).(RecordSetAzAffinityLocationTypePtrOutput)
+}
+
 type RecordSetCidrRoutingConfig struct {
 	// The CIDR collection ID.
 	CollectionId string `pulumi:"collectionId"`
@@ -2337,6 +2853,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckSourceConfigInput)(nil)).Elem(), HealthCheckSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckSourceSubnetConfigurationInput)(nil)).Elem(), HealthCheckSourceSubnetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckSourceSubnetConfigurationArrayInput)(nil)).Elem(), HealthCheckSourceSubnetConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeGuardrailInput)(nil)).Elem(), HostedZoneChangeGuardrailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeGuardrailArrayInput)(nil)).Elem(), HostedZoneChangeGuardrailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeHistoryInput)(nil)).Elem(), HostedZoneChangeHistoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeHistoryPtrInput)(nil)).Elem(), HostedZoneChangeHistoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigInput)(nil)).Elem(), HostedZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigPtrInput)(nil)).Elem(), HostedZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneFeaturesInput)(nil)).Elem(), HostedZoneFeaturesArgs{})
@@ -2347,6 +2867,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVpcArrayInput)(nil)).Elem(), HostedZoneVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetPtrInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAzAffinityInput)(nil)).Elem(), RecordSetAzAffinityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAzAffinityPtrInput)(nil)).Elem(), RecordSetAzAffinityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigPtrInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoLocationInput)(nil)).Elem(), RecordSetGeoLocationArgs{})
@@ -2360,6 +2882,10 @@ func init() {
 	pulumi.RegisterOutputType(HealthCheckSourceConfigOutput{})
 	pulumi.RegisterOutputType(HealthCheckSourceSubnetConfigurationOutput{})
 	pulumi.RegisterOutputType(HealthCheckSourceSubnetConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeGuardrailOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeGuardrailArrayOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeHistoryOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeHistoryPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneFeaturesOutput{})
@@ -2370,6 +2896,8 @@ func init() {
 	pulumi.RegisterOutputType(HostedZoneVpcArrayOutput{})
 	pulumi.RegisterOutputType(RecordSetAliasTargetOutput{})
 	pulumi.RegisterOutputType(RecordSetAliasTargetPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetAzAffinityOutput{})
+	pulumi.RegisterOutputType(RecordSetAzAffinityPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigOutput{})
 	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGeoLocationOutput{})

@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CimdPolicyArgs } from "./cimdPolicy";
+export type CimdPolicy = import("./cimdPolicy").CimdPolicy;
+export const CimdPolicy: typeof import("./cimdPolicy").CimdPolicy = null as any;
+utilities.lazyLoad(exports, ["CimdPolicy"], () => require("./cimdPolicy"));
+
+export { GetCimdPolicyArgs, GetCimdPolicyResult, GetCimdPolicyOutputArgs } from "./getCimdPolicy";
+export const getCimdPolicy: typeof import("./getCimdPolicy").getCimdPolicy = null as any;
+export const getCimdPolicyOutput: typeof import("./getCimdPolicy").getCimdPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getCimdPolicy","getCimdPolicyOutput"], () => require("./getCimdPolicy"));
+
 export { GetIdentityPoolArgs, GetIdentityPoolResult, GetIdentityPoolOutputArgs } from "./getIdentityPool";
 export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool = null as any;
 export const getIdentityPoolOutput: typeof import("./getIdentityPool").getIdentityPoolOutput = null as any;
@@ -198,6 +208,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cognito:CimdPolicy":
+                return new CimdPolicy(name, <any>undefined, { urn })
             case "aws-native:cognito:IdentityPool":
                 return new IdentityPool(name, <any>undefined, { urn })
             case "aws-native:cognito:IdentityPoolPrincipalTag":

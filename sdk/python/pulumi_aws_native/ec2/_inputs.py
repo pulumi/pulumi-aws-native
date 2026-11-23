@@ -21539,6 +21539,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgsDict(TypedDict):
     """
     Options for logging VPN tunnel activity.
     """
+    phase1_additional_key_exchanges: NotRequired[pulumi.Input[Optional[Sequence[Any]]]]
     phase1_encryption_algorithms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgsDict']]]]]
     """
     One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
@@ -21560,6 +21561,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgsDict(TypedDict):
     One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
      Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
     """
+    phase2_additional_key_exchanges: NotRequired[pulumi.Input[Optional[Sequence[Any]]]]
     phase2_encryption_algorithms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgsDict']]]]]
     """
     One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
@@ -21636,10 +21638,12 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
                  enable_tunnel_lifecycle_control: pulumi.Input[Optional[_builtins.bool]] = None,
                  ike_versions: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionIkeVersionsRequestListValueArgs']]]] = None,
                  log_options: pulumi.Input[Optional['VpnConnectionVpnTunnelLogOptionsSpecificationArgs']] = None,
+                 phase1_additional_key_exchanges: pulumi.Input[Optional[Sequence[Any]]] = None,
                  phase1_encryption_algorithms: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs']]]] = None,
                  phase1_integrity_algorithms: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs']]]] = None,
                  phase1_lifetime_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  phase1dh_group_numbers: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase1dhGroupNumbersRequestListValueArgs']]]] = None,
+                 phase2_additional_key_exchanges: pulumi.Input[Optional[Sequence[Any]]] = None,
                  phase2_encryption_algorithms: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs']]]] = None,
                  phase2_integrity_algorithms: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs']]]] = None,
                  phase2_lifetime_seconds: pulumi.Input[Optional[_builtins.int]] = None,
@@ -21718,6 +21722,8 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
             pulumi.set(__self__, "ike_versions", ike_versions)
         if log_options is not None:
             pulumi.set(__self__, "log_options", log_options)
+        if phase1_additional_key_exchanges is not None:
+            pulumi.set(__self__, "phase1_additional_key_exchanges", phase1_additional_key_exchanges)
         if phase1_encryption_algorithms is not None:
             pulumi.set(__self__, "phase1_encryption_algorithms", phase1_encryption_algorithms)
         if phase1_integrity_algorithms is not None:
@@ -21726,6 +21732,8 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
             pulumi.set(__self__, "phase1_lifetime_seconds", phase1_lifetime_seconds)
         if phase1dh_group_numbers is not None:
             pulumi.set(__self__, "phase1dh_group_numbers", phase1dh_group_numbers)
+        if phase2_additional_key_exchanges is not None:
+            pulumi.set(__self__, "phase2_additional_key_exchanges", phase2_additional_key_exchanges)
         if phase2_encryption_algorithms is not None:
             pulumi.set(__self__, "phase2_encryption_algorithms", phase2_encryption_algorithms)
         if phase2_integrity_algorithms is not None:
@@ -21815,6 +21823,15 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
         pulumi.set(self, "log_options", value)
 
     @_builtins.property
+    @pulumi.getter(name="phase1AdditionalKeyExchanges")
+    def phase1_additional_key_exchanges(self) -> pulumi.Input[Optional[Sequence[Any]]]:
+        return pulumi.get(self, "phase1_additional_key_exchanges")
+
+    @phase1_additional_key_exchanges.setter
+    def phase1_additional_key_exchanges(self, value: pulumi.Input[Optional[Sequence[Any]]]):
+        pulumi.set(self, "phase1_additional_key_exchanges", value)
+
+    @_builtins.property
     @pulumi.getter(name="phase1EncryptionAlgorithms")
     def phase1_encryption_algorithms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs']]]]:
         """
@@ -21866,6 +21883,15 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     @phase1dh_group_numbers.setter
     def phase1dh_group_numbers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionPhase1dhGroupNumbersRequestListValueArgs']]]]):
         pulumi.set(self, "phase1dh_group_numbers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phase2AdditionalKeyExchanges")
+    def phase2_additional_key_exchanges(self) -> pulumi.Input[Optional[Sequence[Any]]]:
+        return pulumi.get(self, "phase2_additional_key_exchanges")
+
+    @phase2_additional_key_exchanges.setter
+    def phase2_additional_key_exchanges(self, value: pulumi.Input[Optional[Sequence[Any]]]):
+        pulumi.set(self, "phase2_additional_key_exchanges", value)
 
     @_builtins.property
     @pulumi.getter(name="phase2EncryptionAlgorithms")

@@ -10,6 +10,16 @@ export type DataCellsFilter = import("./dataCellsFilter").DataCellsFilter;
 export const DataCellsFilter: typeof import("./dataCellsFilter").DataCellsFilter = null as any;
 utilities.lazyLoad(exports, ["DataCellsFilter"], () => require("./dataCellsFilter"));
 
+export { DataLakeSettingsArgs } from "./dataLakeSettings";
+export type DataLakeSettings = import("./dataLakeSettings").DataLakeSettings;
+export const DataLakeSettings: typeof import("./dataLakeSettings").DataLakeSettings = null as any;
+utilities.lazyLoad(exports, ["DataLakeSettings"], () => require("./dataLakeSettings"));
+
+export { GetDataLakeSettingsArgs, GetDataLakeSettingsResult, GetDataLakeSettingsOutputArgs } from "./getDataLakeSettings";
+export const getDataLakeSettings: typeof import("./getDataLakeSettings").getDataLakeSettings = null as any;
+export const getDataLakeSettingsOutput: typeof import("./getDataLakeSettings").getDataLakeSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getDataLakeSettings","getDataLakeSettingsOutput"], () => require("./getDataLakeSettings"));
+
 export { GetPrincipalPermissionsArgs, GetPrincipalPermissionsResult, GetPrincipalPermissionsOutputArgs } from "./getPrincipalPermissions";
 export const getPrincipalPermissions: typeof import("./getPrincipalPermissions").getPrincipalPermissions = null as any;
 export const getPrincipalPermissionsOutput: typeof import("./getPrincipalPermissions").getPrincipalPermissionsOutput = null as any;
@@ -60,6 +70,8 @@ const _module = {
         switch (type) {
             case "aws-native:lakeformation:DataCellsFilter":
                 return new DataCellsFilter(name, <any>undefined, { urn })
+            case "aws-native:lakeformation:DataLakeSettings":
+                return new DataLakeSettings(name, <any>undefined, { urn })
             case "aws-native:lakeformation:PrincipalPermissions":
                 return new PrincipalPermissions(name, <any>undefined, { urn })
             case "aws-native:lakeformation:Resource":

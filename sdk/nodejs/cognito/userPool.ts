@@ -67,6 +67,7 @@ export class UserPool extends pulumi.CustomResource {
      * The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
      */
     declare public readonly autoVerifiedAttributes: pulumi.Output<string[] | undefined>;
+    declare public readonly dcrConfiguration: pulumi.Output<outputs.cognito.UserPoolDcrConfiguration | undefined>;
     /**
      * When active, `DeletionProtection` prevents accidental deletion of your user
      * pool. Before you can delete a user pool that you have protected against deletion, you
@@ -222,6 +223,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["adminCreateUserConfig"] = args?.adminCreateUserConfig;
             resourceInputs["aliasAttributes"] = args?.aliasAttributes;
             resourceInputs["autoVerifiedAttributes"] = args?.autoVerifiedAttributes;
+            resourceInputs["dcrConfiguration"] = args?.dcrConfiguration;
             resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["deviceConfiguration"] = args?.deviceConfiguration;
             resourceInputs["emailAuthenticationMessage"] = args?.emailAuthenticationMessage;
@@ -260,6 +262,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["aliasAttributes"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoVerifiedAttributes"] = undefined /*out*/;
+            resourceInputs["dcrConfiguration"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["deviceConfiguration"] = undefined /*out*/;
             resourceInputs["emailAuthenticationMessage"] = undefined /*out*/;
@@ -317,6 +320,7 @@ export interface UserPoolArgs {
      * The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
      */
     autoVerifiedAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    dcrConfiguration?: pulumi.Input<inputs.cognito.UserPoolDcrConfigurationArgs | undefined>;
     /**
      * When active, `DeletionProtection` prevents accidental deletion of your user
      * pool. Before you can delete a user pool that you have protected against deletion, you

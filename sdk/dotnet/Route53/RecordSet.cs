@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53
         public Output<Outputs.RecordSetAliasTarget?> AliasTarget { get; private set; } = null!;
 
         /// <summary>
+        /// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+        /// </summary>
+        [Output("azAffinity")]
+        public Output<Outputs.RecordSetAzAffinity?> AzAffinity { get; private set; } = null!;
+
+        /// <summary>
         /// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
         /// </summary>
         [Output("cidrRoutingConfig")]
@@ -166,6 +172,12 @@ namespace Pulumi.AwsNative.Route53
         /// </summary>
         [Input("aliasTarget")]
         public Input<Inputs.RecordSetAliasTargetArgs>? AliasTarget { get; set; }
+
+        /// <summary>
+        /// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+        /// </summary>
+        [Input("azAffinity")]
+        public Input<Inputs.RecordSetAzAffinityArgs>? AzAffinity { get; set; }
 
         /// <summary>
         /// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.

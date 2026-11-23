@@ -312,7 +312,7 @@ export class Table extends pulumi.CustomResource {
      *  If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
      *  Updates are not supported. The following are exceptions:
      *   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
-     *   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
+     *   +  You can create or delete one index without interruption. This index can be a global secondary index or a vector index, but not one of each. If you change more than one index in the same update, the update fails.
      */
     declare public readonly globalSecondaryIndexes: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
     /**
@@ -385,6 +385,11 @@ export class Table extends pulumi.CustomResource {
      *   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
     declare public readonly timeToLiveSpecification: pulumi.Output<outputs.dynamodb.TableTimeToLiveSpecification | undefined>;
+    /**
+     * The vector indexes to create on the table. Each vector index enables similarity search on a vector attribute.
+     *   Vector indexes are supported only on tables that use on-demand capacity mode. To use vector indexes, you must set ``BillingMode`` to ``PAY_PER_REQUEST``.
+     *  In a single stack operation, you can create or delete one index. This index can be a global secondary index or a vector index, but not one of each. To change more indexes, use a separate stack operation for each.
+     */
     declare public readonly vectorIndexes: pulumi.Output<outputs.dynamodb.TableVectorIndex[] | undefined>;
     /**
      * Represents the warm throughput (in read units per second and write units per second) for creating a table.
@@ -493,7 +498,7 @@ export interface TableArgs {
      *  If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index.
      *  Updates are not supported. The following are exceptions:
      *   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
-     *   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
+     *   +  You can create or delete one index without interruption. This index can be a global secondary index or a vector index, but not one of each. If you change more than one index in the same update, the update fails.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndexArgs>[] | undefined>;
     /**
@@ -560,6 +565,11 @@ export interface TableArgs {
      *   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.TableTimeToLiveSpecificationArgs | undefined>;
+    /**
+     * The vector indexes to create on the table. Each vector index enables similarity search on a vector attribute.
+     *   Vector indexes are supported only on tables that use on-demand capacity mode. To use vector indexes, you must set ``BillingMode`` to ``PAY_PER_REQUEST``.
+     *  In a single stack operation, you can create or delete one index. This index can be a global secondary index or a vector index, but not one of each. To change more indexes, use a separate stack operation for each.
+     */
     vectorIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableVectorIndexArgs>[] | undefined>;
     /**
      * Represents the warm throughput (in read units per second and write units per second) for creating a table.

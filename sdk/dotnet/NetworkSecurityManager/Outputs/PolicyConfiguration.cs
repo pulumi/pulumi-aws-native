@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.NetworkSecurityManager.Outputs
     [OutputType]
     public sealed class PolicyConfiguration
     {
+        public readonly Outputs.PolicyIgwFirewallConfig? IgwFirewallConfig;
         /// <summary>
         /// Controls automatic remediation of non-compliant resources.
         /// </summary>
@@ -28,12 +29,15 @@ namespace Pulumi.AwsNative.NetworkSecurityManager.Outputs
 
         [OutputConstructor]
         private PolicyConfiguration(
+            Outputs.PolicyIgwFirewallConfig? igwFirewallConfig,
+
             bool? remediationEnabled,
 
             bool? resourcesCleanUp,
 
             Outputs.PolicyWafConfig? wafConfig)
         {
+            IgwFirewallConfig = igwFirewallConfig;
             RemediationEnabled = remediationEnabled;
             ResourcesCleanUp = resourcesCleanUp;
             WafConfig = wafConfig;

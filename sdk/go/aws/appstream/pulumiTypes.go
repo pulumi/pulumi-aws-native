@@ -2189,6 +2189,350 @@ func (o ImageBuilderAccessEndpointArrayOutput) Index(i pulumi.IntInput) ImageBui
 	}).(ImageBuilderAccessEndpointOutput)
 }
 
+// The configuration for agent access on an image builder. Agent access enables AI agents to interact with the image builder desktop.
+type ImageBuilderAgentAccessConfig struct {
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+	S3BucketArn *string `pulumi:"s3BucketArn"`
+	// The image format for agent screen captures.
+	ScreenImageFormat string `pulumi:"screenImageFormat"`
+	// The screen resolution for the agent streaming environment.
+	ScreenResolution string `pulumi:"screenResolution"`
+	// Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+	ScreenshotsUploadEnabled *bool `pulumi:"screenshotsUploadEnabled"`
+	// The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+	Settings []ImageBuilderAgentAccessSetting `pulumi:"settings"`
+	// The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+	UserControlMode *string `pulumi:"userControlMode"`
+}
+
+// ImageBuilderAgentAccessConfigInput is an input type that accepts ImageBuilderAgentAccessConfigArgs and ImageBuilderAgentAccessConfigOutput values.
+// You can construct a concrete instance of `ImageBuilderAgentAccessConfigInput` via:
+//
+//	ImageBuilderAgentAccessConfigArgs{...}
+type ImageBuilderAgentAccessConfigInput interface {
+	pulumi.Input
+
+	ToImageBuilderAgentAccessConfigOutput() ImageBuilderAgentAccessConfigOutput
+	ToImageBuilderAgentAccessConfigOutputWithContext(context.Context) ImageBuilderAgentAccessConfigOutput
+}
+
+// The configuration for agent access on an image builder. Agent access enables AI agents to interact with the image builder desktop.
+type ImageBuilderAgentAccessConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+	S3BucketArn pulumi.StringPtrInput `pulumi:"s3BucketArn"`
+	// The image format for agent screen captures.
+	ScreenImageFormat pulumi.StringInput `pulumi:"screenImageFormat"`
+	// The screen resolution for the agent streaming environment.
+	ScreenResolution pulumi.StringInput `pulumi:"screenResolution"`
+	// Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+	ScreenshotsUploadEnabled pulumi.BoolPtrInput `pulumi:"screenshotsUploadEnabled"`
+	// The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+	Settings ImageBuilderAgentAccessSettingArrayInput `pulumi:"settings"`
+	// The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+	UserControlMode pulumi.StringPtrInput `pulumi:"userControlMode"`
+}
+
+func (ImageBuilderAgentAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderAgentAccessConfig)(nil)).Elem()
+}
+
+func (i ImageBuilderAgentAccessConfigArgs) ToImageBuilderAgentAccessConfigOutput() ImageBuilderAgentAccessConfigOutput {
+	return i.ToImageBuilderAgentAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderAgentAccessConfigArgs) ToImageBuilderAgentAccessConfigOutputWithContext(ctx context.Context) ImageBuilderAgentAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAgentAccessConfigOutput)
+}
+
+func (i ImageBuilderAgentAccessConfigArgs) ToImageBuilderAgentAccessConfigPtrOutput() ImageBuilderAgentAccessConfigPtrOutput {
+	return i.ToImageBuilderAgentAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderAgentAccessConfigArgs) ToImageBuilderAgentAccessConfigPtrOutputWithContext(ctx context.Context) ImageBuilderAgentAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAgentAccessConfigOutput).ToImageBuilderAgentAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ImageBuilderAgentAccessConfigPtrInput is an input type that accepts ImageBuilderAgentAccessConfigArgs, ImageBuilderAgentAccessConfigPtr and ImageBuilderAgentAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ImageBuilderAgentAccessConfigPtrInput` via:
+//
+//	        ImageBuilderAgentAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImageBuilderAgentAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToImageBuilderAgentAccessConfigPtrOutput() ImageBuilderAgentAccessConfigPtrOutput
+	ToImageBuilderAgentAccessConfigPtrOutputWithContext(context.Context) ImageBuilderAgentAccessConfigPtrOutput
+}
+
+type imageBuilderAgentAccessConfigPtrType ImageBuilderAgentAccessConfigArgs
+
+func ImageBuilderAgentAccessConfigPtr(v *ImageBuilderAgentAccessConfigArgs) ImageBuilderAgentAccessConfigPtrInput {
+	return (*imageBuilderAgentAccessConfigPtrType)(v)
+}
+
+func (*imageBuilderAgentAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageBuilderAgentAccessConfig)(nil)).Elem()
+}
+
+func (i *imageBuilderAgentAccessConfigPtrType) ToImageBuilderAgentAccessConfigPtrOutput() ImageBuilderAgentAccessConfigPtrOutput {
+	return i.ToImageBuilderAgentAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *imageBuilderAgentAccessConfigPtrType) ToImageBuilderAgentAccessConfigPtrOutputWithContext(ctx context.Context) ImageBuilderAgentAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAgentAccessConfigPtrOutput)
+}
+
+// The configuration for agent access on an image builder. Agent access enables AI agents to interact with the image builder desktop.
+type ImageBuilderAgentAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderAgentAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderAgentAccessConfig)(nil)).Elem()
+}
+
+func (o ImageBuilderAgentAccessConfigOutput) ToImageBuilderAgentAccessConfigOutput() ImageBuilderAgentAccessConfigOutput {
+	return o
+}
+
+func (o ImageBuilderAgentAccessConfigOutput) ToImageBuilderAgentAccessConfigOutputWithContext(ctx context.Context) ImageBuilderAgentAccessConfigOutput {
+	return o
+}
+
+func (o ImageBuilderAgentAccessConfigOutput) ToImageBuilderAgentAccessConfigPtrOutput() ImageBuilderAgentAccessConfigPtrOutput {
+	return o.ToImageBuilderAgentAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ImageBuilderAgentAccessConfigOutput) ToImageBuilderAgentAccessConfigPtrOutputWithContext(ctx context.Context) ImageBuilderAgentAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageBuilderAgentAccessConfig) *ImageBuilderAgentAccessConfig {
+		return &v
+	}).(ImageBuilderAgentAccessConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+func (o ImageBuilderAgentAccessConfigOutput) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageBuilderAgentAccessConfig) *string { return v.S3BucketArn }).(pulumi.StringPtrOutput)
+}
+
+// The image format for agent screen captures.
+func (o ImageBuilderAgentAccessConfigOutput) ScreenImageFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageBuilderAgentAccessConfig) string { return v.ScreenImageFormat }).(pulumi.StringOutput)
+}
+
+// The screen resolution for the agent streaming environment.
+func (o ImageBuilderAgentAccessConfigOutput) ScreenResolution() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageBuilderAgentAccessConfig) string { return v.ScreenResolution }).(pulumi.StringOutput)
+}
+
+// Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+func (o ImageBuilderAgentAccessConfigOutput) ScreenshotsUploadEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageBuilderAgentAccessConfig) *bool { return v.ScreenshotsUploadEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+func (o ImageBuilderAgentAccessConfigOutput) Settings() ImageBuilderAgentAccessSettingArrayOutput {
+	return o.ApplyT(func(v ImageBuilderAgentAccessConfig) []ImageBuilderAgentAccessSetting { return v.Settings }).(ImageBuilderAgentAccessSettingArrayOutput)
+}
+
+// The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+func (o ImageBuilderAgentAccessConfigOutput) UserControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageBuilderAgentAccessConfig) *string { return v.UserControlMode }).(pulumi.StringPtrOutput)
+}
+
+type ImageBuilderAgentAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderAgentAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageBuilderAgentAccessConfig)(nil)).Elem()
+}
+
+func (o ImageBuilderAgentAccessConfigPtrOutput) ToImageBuilderAgentAccessConfigPtrOutput() ImageBuilderAgentAccessConfigPtrOutput {
+	return o
+}
+
+func (o ImageBuilderAgentAccessConfigPtrOutput) ToImageBuilderAgentAccessConfigPtrOutputWithContext(ctx context.Context) ImageBuilderAgentAccessConfigPtrOutput {
+	return o
+}
+
+func (o ImageBuilderAgentAccessConfigPtrOutput) Elem() ImageBuilderAgentAccessConfigOutput {
+	return o.ApplyT(func(v *ImageBuilderAgentAccessConfig) ImageBuilderAgentAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ImageBuilderAgentAccessConfig
+		return ret
+	}).(ImageBuilderAgentAccessConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+func (o ImageBuilderAgentAccessConfigPtrOutput) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image format for agent screen captures.
+func (o ImageBuilderAgentAccessConfigPtrOutput) ScreenImageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScreenImageFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The screen resolution for the agent streaming environment.
+func (o ImageBuilderAgentAccessConfigPtrOutput) ScreenResolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScreenResolution
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+func (o ImageBuilderAgentAccessConfigPtrOutput) ScreenshotsUploadEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderAgentAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScreenshotsUploadEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+func (o ImageBuilderAgentAccessConfigPtrOutput) Settings() ImageBuilderAgentAccessSettingArrayOutput {
+	return o.ApplyT(func(v *ImageBuilderAgentAccessConfig) []ImageBuilderAgentAccessSetting {
+		if v == nil {
+			return nil
+		}
+		return v.Settings
+	}).(ImageBuilderAgentAccessSettingArrayOutput)
+}
+
+// The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+func (o ImageBuilderAgentAccessConfigPtrOutput) UserControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserControlMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+type ImageBuilderAgentAccessSetting struct {
+	// The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools.
+	AgentAction string `pulumi:"agentAction"`
+	// Whether the agent action is enabled or disabled.
+	Permission string `pulumi:"permission"`
+}
+
+// ImageBuilderAgentAccessSettingInput is an input type that accepts ImageBuilderAgentAccessSettingArgs and ImageBuilderAgentAccessSettingOutput values.
+// You can construct a concrete instance of `ImageBuilderAgentAccessSettingInput` via:
+//
+//	ImageBuilderAgentAccessSettingArgs{...}
+type ImageBuilderAgentAccessSettingInput interface {
+	pulumi.Input
+
+	ToImageBuilderAgentAccessSettingOutput() ImageBuilderAgentAccessSettingOutput
+	ToImageBuilderAgentAccessSettingOutputWithContext(context.Context) ImageBuilderAgentAccessSettingOutput
+}
+
+// A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+type ImageBuilderAgentAccessSettingArgs struct {
+	// The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools.
+	AgentAction pulumi.StringInput `pulumi:"agentAction"`
+	// Whether the agent action is enabled or disabled.
+	Permission pulumi.StringInput `pulumi:"permission"`
+}
+
+func (ImageBuilderAgentAccessSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderAgentAccessSetting)(nil)).Elem()
+}
+
+func (i ImageBuilderAgentAccessSettingArgs) ToImageBuilderAgentAccessSettingOutput() ImageBuilderAgentAccessSettingOutput {
+	return i.ToImageBuilderAgentAccessSettingOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderAgentAccessSettingArgs) ToImageBuilderAgentAccessSettingOutputWithContext(ctx context.Context) ImageBuilderAgentAccessSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAgentAccessSettingOutput)
+}
+
+// ImageBuilderAgentAccessSettingArrayInput is an input type that accepts ImageBuilderAgentAccessSettingArray and ImageBuilderAgentAccessSettingArrayOutput values.
+// You can construct a concrete instance of `ImageBuilderAgentAccessSettingArrayInput` via:
+//
+//	ImageBuilderAgentAccessSettingArray{ ImageBuilderAgentAccessSettingArgs{...} }
+type ImageBuilderAgentAccessSettingArrayInput interface {
+	pulumi.Input
+
+	ToImageBuilderAgentAccessSettingArrayOutput() ImageBuilderAgentAccessSettingArrayOutput
+	ToImageBuilderAgentAccessSettingArrayOutputWithContext(context.Context) ImageBuilderAgentAccessSettingArrayOutput
+}
+
+type ImageBuilderAgentAccessSettingArray []ImageBuilderAgentAccessSettingInput
+
+func (ImageBuilderAgentAccessSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageBuilderAgentAccessSetting)(nil)).Elem()
+}
+
+func (i ImageBuilderAgentAccessSettingArray) ToImageBuilderAgentAccessSettingArrayOutput() ImageBuilderAgentAccessSettingArrayOutput {
+	return i.ToImageBuilderAgentAccessSettingArrayOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderAgentAccessSettingArray) ToImageBuilderAgentAccessSettingArrayOutputWithContext(ctx context.Context) ImageBuilderAgentAccessSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAgentAccessSettingArrayOutput)
+}
+
+// A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+type ImageBuilderAgentAccessSettingOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderAgentAccessSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderAgentAccessSetting)(nil)).Elem()
+}
+
+func (o ImageBuilderAgentAccessSettingOutput) ToImageBuilderAgentAccessSettingOutput() ImageBuilderAgentAccessSettingOutput {
+	return o
+}
+
+func (o ImageBuilderAgentAccessSettingOutput) ToImageBuilderAgentAccessSettingOutputWithContext(ctx context.Context) ImageBuilderAgentAccessSettingOutput {
+	return o
+}
+
+// The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools.
+func (o ImageBuilderAgentAccessSettingOutput) AgentAction() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageBuilderAgentAccessSetting) string { return v.AgentAction }).(pulumi.StringOutput)
+}
+
+// Whether the agent action is enabled or disabled.
+func (o ImageBuilderAgentAccessSettingOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageBuilderAgentAccessSetting) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+type ImageBuilderAgentAccessSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderAgentAccessSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageBuilderAgentAccessSetting)(nil)).Elem()
+}
+
+func (o ImageBuilderAgentAccessSettingArrayOutput) ToImageBuilderAgentAccessSettingArrayOutput() ImageBuilderAgentAccessSettingArrayOutput {
+	return o
+}
+
+func (o ImageBuilderAgentAccessSettingArrayOutput) ToImageBuilderAgentAccessSettingArrayOutputWithContext(ctx context.Context) ImageBuilderAgentAccessSettingArrayOutput {
+	return o
+}
+
+func (o ImageBuilderAgentAccessSettingArrayOutput) Index(i pulumi.IntInput) ImageBuilderAgentAccessSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageBuilderAgentAccessSetting {
+		return vs[0].([]ImageBuilderAgentAccessSetting)[vs[1].(int)]
+	}).(ImageBuilderAgentAccessSettingOutput)
+}
+
 type ImageBuilderDomainJoinInfo struct {
 	// The fully qualified name of the directory (for example, corp.example.com).
 	DirectoryName *string `pulumi:"directoryName"`
@@ -2752,7 +3096,11 @@ func (o StackAccessEndpointArrayOutput) Index(i pulumi.IntInput) StackAccessEndp
 
 // The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
 type StackAgentAccessConfig struct {
-	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+	// The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+	ReplaySessionEnabled *bool `pulumi:"replaySessionEnabled"`
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
 	S3BucketArn *string `pulumi:"s3BucketArn"`
 	// The image format for agent screen captures.
 	ScreenImageFormat string `pulumi:"screenImageFormat"`
@@ -2779,7 +3127,11 @@ type StackAgentAccessConfigInput interface {
 
 // The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
 type StackAgentAccessConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+	// The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+	ReplaySessionEnabled pulumi.BoolPtrInput `pulumi:"replaySessionEnabled"`
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
 	S3BucketArn pulumi.StringPtrInput `pulumi:"s3BucketArn"`
 	// The image format for agent screen captures.
 	ScreenImageFormat pulumi.StringInput `pulumi:"screenImageFormat"`
@@ -2871,7 +3223,17 @@ func (o StackAgentAccessConfigOutput) ToStackAgentAccessConfigPtrOutputWithConte
 	}).(StackAgentAccessConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+// The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+func (o StackAgentAccessConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackAgentAccessConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+func (o StackAgentAccessConfigOutput) ReplaySessionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StackAgentAccessConfig) *bool { return v.ReplaySessionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
 func (o StackAgentAccessConfigOutput) S3BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackAgentAccessConfig) *string { return v.S3BucketArn }).(pulumi.StringPtrOutput)
 }
@@ -2925,7 +3287,27 @@ func (o StackAgentAccessConfigPtrOutput) Elem() StackAgentAccessConfigOutput {
 	}).(StackAgentAccessConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+// The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+func (o StackAgentAccessConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+func (o StackAgentAccessConfigPtrOutput) ReplaySessionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaySessionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
 func (o StackAgentAccessConfigPtrOutput) S3BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackAgentAccessConfig) *string {
 		if v == nil {
@@ -3985,6 +4367,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigPtrInput)(nil)).Elem(), FleetVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAccessEndpointInput)(nil)).Elem(), ImageBuilderAccessEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAccessEndpointArrayInput)(nil)).Elem(), ImageBuilderAccessEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAgentAccessConfigInput)(nil)).Elem(), ImageBuilderAgentAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAgentAccessConfigPtrInput)(nil)).Elem(), ImageBuilderAgentAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAgentAccessSettingInput)(nil)).Elem(), ImageBuilderAgentAccessSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAgentAccessSettingArrayInput)(nil)).Elem(), ImageBuilderAgentAccessSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderDomainJoinInfoInput)(nil)).Elem(), ImageBuilderDomainJoinInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderDomainJoinInfoPtrInput)(nil)).Elem(), ImageBuilderDomainJoinInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVolumeConfigInput)(nil)).Elem(), ImageBuilderVolumeConfigArgs{})
@@ -4041,6 +4427,10 @@ func init() {
 	pulumi.RegisterOutputType(FleetVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ImageBuilderAccessEndpointOutput{})
 	pulumi.RegisterOutputType(ImageBuilderAccessEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ImageBuilderAgentAccessConfigOutput{})
+	pulumi.RegisterOutputType(ImageBuilderAgentAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(ImageBuilderAgentAccessSettingOutput{})
+	pulumi.RegisterOutputType(ImageBuilderAgentAccessSettingArrayOutput{})
 	pulumi.RegisterOutputType(ImageBuilderDomainJoinInfoOutput{})
 	pulumi.RegisterOutputType(ImageBuilderDomainJoinInfoPtrOutput{})
 	pulumi.RegisterOutputType(ImageBuilderVolumeConfigOutput{})

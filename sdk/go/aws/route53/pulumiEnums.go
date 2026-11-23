@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+type HealthCheckConfigPropertiesEndpointType string
+
+const (
+	HealthCheckConfigPropertiesEndpointTypePublic  = HealthCheckConfigPropertiesEndpointType("PUBLIC")
+	HealthCheckConfigPropertiesEndpointTypePrivate = HealthCheckConfigPropertiesEndpointType("PRIVATE")
+)
+
+func (HealthCheckConfigPropertiesEndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckConfigPropertiesEndpointType)(nil)).Elem()
+}
+
+func (e HealthCheckConfigPropertiesEndpointType) ToHealthCheckConfigPropertiesEndpointTypeOutput() HealthCheckConfigPropertiesEndpointTypeOutput {
+	return pulumi.ToOutput(e).(HealthCheckConfigPropertiesEndpointTypeOutput)
+}
+
+func (e HealthCheckConfigPropertiesEndpointType) ToHealthCheckConfigPropertiesEndpointTypeOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HealthCheckConfigPropertiesEndpointTypeOutput)
+}
+
+func (e HealthCheckConfigPropertiesEndpointType) ToHealthCheckConfigPropertiesEndpointTypePtrOutput() HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return e.ToHealthCheckConfigPropertiesEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (e HealthCheckConfigPropertiesEndpointType) ToHealthCheckConfigPropertiesEndpointTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return HealthCheckConfigPropertiesEndpointType(e).ToHealthCheckConfigPropertiesEndpointTypeOutputWithContext(ctx).ToHealthCheckConfigPropertiesEndpointTypePtrOutputWithContext(ctx)
+}
+
+func (e HealthCheckConfigPropertiesEndpointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthCheckConfigPropertiesEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthCheckConfigPropertiesEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HealthCheckConfigPropertiesEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HealthCheckConfigPropertiesEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckConfigPropertiesEndpointType)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypeOutput) ToHealthCheckConfigPropertiesEndpointTypeOutput() HealthCheckConfigPropertiesEndpointTypeOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypeOutput) ToHealthCheckConfigPropertiesEndpointTypeOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesEndpointTypeOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypeOutput) ToHealthCheckConfigPropertiesEndpointTypePtrOutput() HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return o.ToHealthCheckConfigPropertiesEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypeOutput) ToHealthCheckConfigPropertiesEndpointTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheckConfigPropertiesEndpointType) *HealthCheckConfigPropertiesEndpointType {
+		return &v
+	}).(HealthCheckConfigPropertiesEndpointTypePtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthCheckConfigPropertiesEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthCheckConfigPropertiesEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HealthCheckConfigPropertiesEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckConfigPropertiesEndpointType)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypePtrOutput) ToHealthCheckConfigPropertiesEndpointTypePtrOutput() HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypePtrOutput) ToHealthCheckConfigPropertiesEndpointTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypePtrOutput) Elem() HealthCheckConfigPropertiesEndpointTypeOutput {
+	return o.ApplyT(func(v *HealthCheckConfigPropertiesEndpointType) HealthCheckConfigPropertiesEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret HealthCheckConfigPropertiesEndpointType
+		return ret
+	}).(HealthCheckConfigPropertiesEndpointTypeOutput)
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthCheckConfigPropertiesEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HealthCheckConfigPropertiesEndpointTypeInput is an input type that accepts values of the HealthCheckConfigPropertiesEndpointType enum
+// A concrete instance of `HealthCheckConfigPropertiesEndpointTypeInput` can be one of the following:
+//
+//	HealthCheckConfigPropertiesEndpointTypePublic
+//	HealthCheckConfigPropertiesEndpointTypePrivate
+type HealthCheckConfigPropertiesEndpointTypeInput interface {
+	pulumi.Input
+
+	ToHealthCheckConfigPropertiesEndpointTypeOutput() HealthCheckConfigPropertiesEndpointTypeOutput
+	ToHealthCheckConfigPropertiesEndpointTypeOutputWithContext(context.Context) HealthCheckConfigPropertiesEndpointTypeOutput
+}
+
+var healthCheckConfigPropertiesEndpointTypePtrType = reflect.TypeOf((**HealthCheckConfigPropertiesEndpointType)(nil)).Elem()
+
+type HealthCheckConfigPropertiesEndpointTypePtrInput interface {
+	pulumi.Input
+
+	ToHealthCheckConfigPropertiesEndpointTypePtrOutput() HealthCheckConfigPropertiesEndpointTypePtrOutput
+	ToHealthCheckConfigPropertiesEndpointTypePtrOutputWithContext(context.Context) HealthCheckConfigPropertiesEndpointTypePtrOutput
+}
+
+type healthCheckConfigPropertiesEndpointTypePtr string
+
+func HealthCheckConfigPropertiesEndpointTypePtr(v string) HealthCheckConfigPropertiesEndpointTypePtrInput {
+	return (*healthCheckConfigPropertiesEndpointTypePtr)(&v)
+}
+
+func (*healthCheckConfigPropertiesEndpointTypePtr) ElementType() reflect.Type {
+	return healthCheckConfigPropertiesEndpointTypePtrType
+}
+
+func (in *healthCheckConfigPropertiesEndpointTypePtr) ToHealthCheckConfigPropertiesEndpointTypePtrOutput() HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return pulumi.ToOutput(in).(HealthCheckConfigPropertiesEndpointTypePtrOutput)
+}
+
+func (in *healthCheckConfigPropertiesEndpointTypePtr) ToHealthCheckConfigPropertiesEndpointTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckConfigPropertiesEndpointTypePtrOutput)
+}
+
 // When CloudWatch has insufficient data about the metric to determine the alarm state, the status that you want Amazon Route 53 to assign to the health check:
 //
 // - `Healthy` : Route 53 considers the health check to be healthy.
@@ -506,6 +672,673 @@ func (o HealthCheckSourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Change Guardrail.
+type HostedZoneChangeGuardrailName string
+
+const (
+	HostedZoneChangeGuardrailNameNsOcclusionCheck      = HostedZoneChangeGuardrailName("NS_OCCLUSION_CHECK")
+	HostedZoneChangeGuardrailNameAliasTargetCheck      = HostedZoneChangeGuardrailName("ALIAS_TARGET_CHECK")
+	HostedZoneChangeGuardrailNameActiveRecordCheck     = HostedZoneChangeGuardrailName("ACTIVE_RECORD_CHECK")
+	HostedZoneChangeGuardrailNameActiveDelegationCheck = HostedZoneChangeGuardrailName("ACTIVE_DELEGATION_CHECK")
+)
+
+func (HostedZoneChangeGuardrailName) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeGuardrailName)(nil)).Elem()
+}
+
+func (e HostedZoneChangeGuardrailName) ToHostedZoneChangeGuardrailNameOutput() HostedZoneChangeGuardrailNameOutput {
+	return pulumi.ToOutput(e).(HostedZoneChangeGuardrailNameOutput)
+}
+
+func (e HostedZoneChangeGuardrailName) ToHostedZoneChangeGuardrailNameOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostedZoneChangeGuardrailNameOutput)
+}
+
+func (e HostedZoneChangeGuardrailName) ToHostedZoneChangeGuardrailNamePtrOutput() HostedZoneChangeGuardrailNamePtrOutput {
+	return e.ToHostedZoneChangeGuardrailNamePtrOutputWithContext(context.Background())
+}
+
+func (e HostedZoneChangeGuardrailName) ToHostedZoneChangeGuardrailNamePtrOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailNamePtrOutput {
+	return HostedZoneChangeGuardrailName(e).ToHostedZoneChangeGuardrailNameOutputWithContext(ctx).ToHostedZoneChangeGuardrailNamePtrOutputWithContext(ctx)
+}
+
+func (e HostedZoneChangeGuardrailName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostedZoneChangeGuardrailName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostedZoneChangeGuardrailName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HostedZoneChangeGuardrailName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HostedZoneChangeGuardrailNameOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeGuardrailNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeGuardrailName)(nil)).Elem()
+}
+
+func (o HostedZoneChangeGuardrailNameOutput) ToHostedZoneChangeGuardrailNameOutput() HostedZoneChangeGuardrailNameOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailNameOutput) ToHostedZoneChangeGuardrailNameOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailNameOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailNameOutput) ToHostedZoneChangeGuardrailNamePtrOutput() HostedZoneChangeGuardrailNamePtrOutput {
+	return o.ToHostedZoneChangeGuardrailNamePtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeGuardrailNameOutput) ToHostedZoneChangeGuardrailNamePtrOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedZoneChangeGuardrailName) *HostedZoneChangeGuardrailName {
+		return &v
+	}).(HostedZoneChangeGuardrailNamePtrOutput)
+}
+
+func (o HostedZoneChangeGuardrailNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeGuardrailNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostedZoneChangeGuardrailName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostedZoneChangeGuardrailNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeGuardrailNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostedZoneChangeGuardrailName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostedZoneChangeGuardrailNamePtrOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeGuardrailNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneChangeGuardrailName)(nil)).Elem()
+}
+
+func (o HostedZoneChangeGuardrailNamePtrOutput) ToHostedZoneChangeGuardrailNamePtrOutput() HostedZoneChangeGuardrailNamePtrOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailNamePtrOutput) ToHostedZoneChangeGuardrailNamePtrOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailNamePtrOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailNamePtrOutput) Elem() HostedZoneChangeGuardrailNameOutput {
+	return o.ApplyT(func(v *HostedZoneChangeGuardrailName) HostedZoneChangeGuardrailName {
+		if v != nil {
+			return *v
+		}
+		var ret HostedZoneChangeGuardrailName
+		return ret
+	}).(HostedZoneChangeGuardrailNameOutput)
+}
+
+func (o HostedZoneChangeGuardrailNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeGuardrailNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostedZoneChangeGuardrailName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostedZoneChangeGuardrailNameInput is an input type that accepts values of the HostedZoneChangeGuardrailName enum
+// A concrete instance of `HostedZoneChangeGuardrailNameInput` can be one of the following:
+//
+//	HostedZoneChangeGuardrailNameNsOcclusionCheck
+//	HostedZoneChangeGuardrailNameAliasTargetCheck
+//	HostedZoneChangeGuardrailNameActiveRecordCheck
+//	HostedZoneChangeGuardrailNameActiveDelegationCheck
+type HostedZoneChangeGuardrailNameInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeGuardrailNameOutput() HostedZoneChangeGuardrailNameOutput
+	ToHostedZoneChangeGuardrailNameOutputWithContext(context.Context) HostedZoneChangeGuardrailNameOutput
+}
+
+var hostedZoneChangeGuardrailNamePtrType = reflect.TypeOf((**HostedZoneChangeGuardrailName)(nil)).Elem()
+
+type HostedZoneChangeGuardrailNamePtrInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeGuardrailNamePtrOutput() HostedZoneChangeGuardrailNamePtrOutput
+	ToHostedZoneChangeGuardrailNamePtrOutputWithContext(context.Context) HostedZoneChangeGuardrailNamePtrOutput
+}
+
+type hostedZoneChangeGuardrailNamePtr string
+
+func HostedZoneChangeGuardrailNamePtr(v string) HostedZoneChangeGuardrailNamePtrInput {
+	return (*hostedZoneChangeGuardrailNamePtr)(&v)
+}
+
+func (*hostedZoneChangeGuardrailNamePtr) ElementType() reflect.Type {
+	return hostedZoneChangeGuardrailNamePtrType
+}
+
+func (in *hostedZoneChangeGuardrailNamePtr) ToHostedZoneChangeGuardrailNamePtrOutput() HostedZoneChangeGuardrailNamePtrOutput {
+	return pulumi.ToOutput(in).(HostedZoneChangeGuardrailNamePtrOutput)
+}
+
+func (in *hostedZoneChangeGuardrailNamePtr) ToHostedZoneChangeGuardrailNamePtrOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostedZoneChangeGuardrailNamePtrOutput)
+}
+
+// The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+type HostedZoneChangeGuardrailStatus string
+
+const (
+	HostedZoneChangeGuardrailStatusEnabled  = HostedZoneChangeGuardrailStatus("ENABLED")
+	HostedZoneChangeGuardrailStatusDisabled = HostedZoneChangeGuardrailStatus("DISABLED")
+)
+
+func (HostedZoneChangeGuardrailStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeGuardrailStatus)(nil)).Elem()
+}
+
+func (e HostedZoneChangeGuardrailStatus) ToHostedZoneChangeGuardrailStatusOutput() HostedZoneChangeGuardrailStatusOutput {
+	return pulumi.ToOutput(e).(HostedZoneChangeGuardrailStatusOutput)
+}
+
+func (e HostedZoneChangeGuardrailStatus) ToHostedZoneChangeGuardrailStatusOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostedZoneChangeGuardrailStatusOutput)
+}
+
+func (e HostedZoneChangeGuardrailStatus) ToHostedZoneChangeGuardrailStatusPtrOutput() HostedZoneChangeGuardrailStatusPtrOutput {
+	return e.ToHostedZoneChangeGuardrailStatusPtrOutputWithContext(context.Background())
+}
+
+func (e HostedZoneChangeGuardrailStatus) ToHostedZoneChangeGuardrailStatusPtrOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailStatusPtrOutput {
+	return HostedZoneChangeGuardrailStatus(e).ToHostedZoneChangeGuardrailStatusOutputWithContext(ctx).ToHostedZoneChangeGuardrailStatusPtrOutputWithContext(ctx)
+}
+
+func (e HostedZoneChangeGuardrailStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostedZoneChangeGuardrailStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostedZoneChangeGuardrailStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HostedZoneChangeGuardrailStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HostedZoneChangeGuardrailStatusOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeGuardrailStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeGuardrailStatus)(nil)).Elem()
+}
+
+func (o HostedZoneChangeGuardrailStatusOutput) ToHostedZoneChangeGuardrailStatusOutput() HostedZoneChangeGuardrailStatusOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailStatusOutput) ToHostedZoneChangeGuardrailStatusOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailStatusOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailStatusOutput) ToHostedZoneChangeGuardrailStatusPtrOutput() HostedZoneChangeGuardrailStatusPtrOutput {
+	return o.ToHostedZoneChangeGuardrailStatusPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeGuardrailStatusOutput) ToHostedZoneChangeGuardrailStatusPtrOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedZoneChangeGuardrailStatus) *HostedZoneChangeGuardrailStatus {
+		return &v
+	}).(HostedZoneChangeGuardrailStatusPtrOutput)
+}
+
+func (o HostedZoneChangeGuardrailStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeGuardrailStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostedZoneChangeGuardrailStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostedZoneChangeGuardrailStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeGuardrailStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostedZoneChangeGuardrailStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostedZoneChangeGuardrailStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeGuardrailStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneChangeGuardrailStatus)(nil)).Elem()
+}
+
+func (o HostedZoneChangeGuardrailStatusPtrOutput) ToHostedZoneChangeGuardrailStatusPtrOutput() HostedZoneChangeGuardrailStatusPtrOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailStatusPtrOutput) ToHostedZoneChangeGuardrailStatusPtrOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailStatusPtrOutput {
+	return o
+}
+
+func (o HostedZoneChangeGuardrailStatusPtrOutput) Elem() HostedZoneChangeGuardrailStatusOutput {
+	return o.ApplyT(func(v *HostedZoneChangeGuardrailStatus) HostedZoneChangeGuardrailStatus {
+		if v != nil {
+			return *v
+		}
+		var ret HostedZoneChangeGuardrailStatus
+		return ret
+	}).(HostedZoneChangeGuardrailStatusOutput)
+}
+
+func (o HostedZoneChangeGuardrailStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeGuardrailStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostedZoneChangeGuardrailStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostedZoneChangeGuardrailStatusInput is an input type that accepts values of the HostedZoneChangeGuardrailStatus enum
+// A concrete instance of `HostedZoneChangeGuardrailStatusInput` can be one of the following:
+//
+//	HostedZoneChangeGuardrailStatusEnabled
+//	HostedZoneChangeGuardrailStatusDisabled
+type HostedZoneChangeGuardrailStatusInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeGuardrailStatusOutput() HostedZoneChangeGuardrailStatusOutput
+	ToHostedZoneChangeGuardrailStatusOutputWithContext(context.Context) HostedZoneChangeGuardrailStatusOutput
+}
+
+var hostedZoneChangeGuardrailStatusPtrType = reflect.TypeOf((**HostedZoneChangeGuardrailStatus)(nil)).Elem()
+
+type HostedZoneChangeGuardrailStatusPtrInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeGuardrailStatusPtrOutput() HostedZoneChangeGuardrailStatusPtrOutput
+	ToHostedZoneChangeGuardrailStatusPtrOutputWithContext(context.Context) HostedZoneChangeGuardrailStatusPtrOutput
+}
+
+type hostedZoneChangeGuardrailStatusPtr string
+
+func HostedZoneChangeGuardrailStatusPtr(v string) HostedZoneChangeGuardrailStatusPtrInput {
+	return (*hostedZoneChangeGuardrailStatusPtr)(&v)
+}
+
+func (*hostedZoneChangeGuardrailStatusPtr) ElementType() reflect.Type {
+	return hostedZoneChangeGuardrailStatusPtrType
+}
+
+func (in *hostedZoneChangeGuardrailStatusPtr) ToHostedZoneChangeGuardrailStatusPtrOutput() HostedZoneChangeGuardrailStatusPtrOutput {
+	return pulumi.ToOutput(in).(HostedZoneChangeGuardrailStatusPtrOutput)
+}
+
+func (in *hostedZoneChangeGuardrailStatusPtr) ToHostedZoneChangeGuardrailStatusPtrOutputWithContext(ctx context.Context) HostedZoneChangeGuardrailStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostedZoneChangeGuardrailStatusPtrOutput)
+}
+
+// Whether change history is enabled for the hosted zone.
+type HostedZoneChangeHistoryStatus string
+
+const (
+	HostedZoneChangeHistoryStatusEnabled  = HostedZoneChangeHistoryStatus("ENABLED")
+	HostedZoneChangeHistoryStatusDisabled = HostedZoneChangeHistoryStatus("DISABLED")
+)
+
+func (HostedZoneChangeHistoryStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeHistoryStatus)(nil)).Elem()
+}
+
+func (e HostedZoneChangeHistoryStatus) ToHostedZoneChangeHistoryStatusOutput() HostedZoneChangeHistoryStatusOutput {
+	return pulumi.ToOutput(e).(HostedZoneChangeHistoryStatusOutput)
+}
+
+func (e HostedZoneChangeHistoryStatus) ToHostedZoneChangeHistoryStatusOutputWithContext(ctx context.Context) HostedZoneChangeHistoryStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostedZoneChangeHistoryStatusOutput)
+}
+
+func (e HostedZoneChangeHistoryStatus) ToHostedZoneChangeHistoryStatusPtrOutput() HostedZoneChangeHistoryStatusPtrOutput {
+	return e.ToHostedZoneChangeHistoryStatusPtrOutputWithContext(context.Background())
+}
+
+func (e HostedZoneChangeHistoryStatus) ToHostedZoneChangeHistoryStatusPtrOutputWithContext(ctx context.Context) HostedZoneChangeHistoryStatusPtrOutput {
+	return HostedZoneChangeHistoryStatus(e).ToHostedZoneChangeHistoryStatusOutputWithContext(ctx).ToHostedZoneChangeHistoryStatusPtrOutputWithContext(ctx)
+}
+
+func (e HostedZoneChangeHistoryStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostedZoneChangeHistoryStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostedZoneChangeHistoryStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HostedZoneChangeHistoryStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HostedZoneChangeHistoryStatusOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeHistoryStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneChangeHistoryStatus)(nil)).Elem()
+}
+
+func (o HostedZoneChangeHistoryStatusOutput) ToHostedZoneChangeHistoryStatusOutput() HostedZoneChangeHistoryStatusOutput {
+	return o
+}
+
+func (o HostedZoneChangeHistoryStatusOutput) ToHostedZoneChangeHistoryStatusOutputWithContext(ctx context.Context) HostedZoneChangeHistoryStatusOutput {
+	return o
+}
+
+func (o HostedZoneChangeHistoryStatusOutput) ToHostedZoneChangeHistoryStatusPtrOutput() HostedZoneChangeHistoryStatusPtrOutput {
+	return o.ToHostedZoneChangeHistoryStatusPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeHistoryStatusOutput) ToHostedZoneChangeHistoryStatusPtrOutputWithContext(ctx context.Context) HostedZoneChangeHistoryStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedZoneChangeHistoryStatus) *HostedZoneChangeHistoryStatus {
+		return &v
+	}).(HostedZoneChangeHistoryStatusPtrOutput)
+}
+
+func (o HostedZoneChangeHistoryStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeHistoryStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostedZoneChangeHistoryStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostedZoneChangeHistoryStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeHistoryStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostedZoneChangeHistoryStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostedZoneChangeHistoryStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneChangeHistoryStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneChangeHistoryStatus)(nil)).Elem()
+}
+
+func (o HostedZoneChangeHistoryStatusPtrOutput) ToHostedZoneChangeHistoryStatusPtrOutput() HostedZoneChangeHistoryStatusPtrOutput {
+	return o
+}
+
+func (o HostedZoneChangeHistoryStatusPtrOutput) ToHostedZoneChangeHistoryStatusPtrOutputWithContext(ctx context.Context) HostedZoneChangeHistoryStatusPtrOutput {
+	return o
+}
+
+func (o HostedZoneChangeHistoryStatusPtrOutput) Elem() HostedZoneChangeHistoryStatusOutput {
+	return o.ApplyT(func(v *HostedZoneChangeHistoryStatus) HostedZoneChangeHistoryStatus {
+		if v != nil {
+			return *v
+		}
+		var ret HostedZoneChangeHistoryStatus
+		return ret
+	}).(HostedZoneChangeHistoryStatusOutput)
+}
+
+func (o HostedZoneChangeHistoryStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneChangeHistoryStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostedZoneChangeHistoryStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostedZoneChangeHistoryStatusInput is an input type that accepts values of the HostedZoneChangeHistoryStatus enum
+// A concrete instance of `HostedZoneChangeHistoryStatusInput` can be one of the following:
+//
+//	HostedZoneChangeHistoryStatusEnabled
+//	HostedZoneChangeHistoryStatusDisabled
+type HostedZoneChangeHistoryStatusInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeHistoryStatusOutput() HostedZoneChangeHistoryStatusOutput
+	ToHostedZoneChangeHistoryStatusOutputWithContext(context.Context) HostedZoneChangeHistoryStatusOutput
+}
+
+var hostedZoneChangeHistoryStatusPtrType = reflect.TypeOf((**HostedZoneChangeHistoryStatus)(nil)).Elem()
+
+type HostedZoneChangeHistoryStatusPtrInput interface {
+	pulumi.Input
+
+	ToHostedZoneChangeHistoryStatusPtrOutput() HostedZoneChangeHistoryStatusPtrOutput
+	ToHostedZoneChangeHistoryStatusPtrOutputWithContext(context.Context) HostedZoneChangeHistoryStatusPtrOutput
+}
+
+type hostedZoneChangeHistoryStatusPtr string
+
+func HostedZoneChangeHistoryStatusPtr(v string) HostedZoneChangeHistoryStatusPtrInput {
+	return (*hostedZoneChangeHistoryStatusPtr)(&v)
+}
+
+func (*hostedZoneChangeHistoryStatusPtr) ElementType() reflect.Type {
+	return hostedZoneChangeHistoryStatusPtrType
+}
+
+func (in *hostedZoneChangeHistoryStatusPtr) ToHostedZoneChangeHistoryStatusPtrOutput() HostedZoneChangeHistoryStatusPtrOutput {
+	return pulumi.ToOutput(in).(HostedZoneChangeHistoryStatusPtrOutput)
+}
+
+func (in *hostedZoneChangeHistoryStatusPtr) ToHostedZoneChangeHistoryStatusPtrOutputWithContext(ctx context.Context) HostedZoneChangeHistoryStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostedZoneChangeHistoryStatusPtrOutput)
+}
+
+type HostedZoneConfigHostedZoneTier string
+
+const (
+	HostedZoneConfigHostedZoneTierStandard = HostedZoneConfigHostedZoneTier("STANDARD")
+	HostedZoneConfigHostedZoneTierAdvanced = HostedZoneConfigHostedZoneTier("ADVANCED")
+)
+
+func (HostedZoneConfigHostedZoneTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneConfigHostedZoneTier)(nil)).Elem()
+}
+
+func (e HostedZoneConfigHostedZoneTier) ToHostedZoneConfigHostedZoneTierOutput() HostedZoneConfigHostedZoneTierOutput {
+	return pulumi.ToOutput(e).(HostedZoneConfigHostedZoneTierOutput)
+}
+
+func (e HostedZoneConfigHostedZoneTier) ToHostedZoneConfigHostedZoneTierOutputWithContext(ctx context.Context) HostedZoneConfigHostedZoneTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostedZoneConfigHostedZoneTierOutput)
+}
+
+func (e HostedZoneConfigHostedZoneTier) ToHostedZoneConfigHostedZoneTierPtrOutput() HostedZoneConfigHostedZoneTierPtrOutput {
+	return e.ToHostedZoneConfigHostedZoneTierPtrOutputWithContext(context.Background())
+}
+
+func (e HostedZoneConfigHostedZoneTier) ToHostedZoneConfigHostedZoneTierPtrOutputWithContext(ctx context.Context) HostedZoneConfigHostedZoneTierPtrOutput {
+	return HostedZoneConfigHostedZoneTier(e).ToHostedZoneConfigHostedZoneTierOutputWithContext(ctx).ToHostedZoneConfigHostedZoneTierPtrOutputWithContext(ctx)
+}
+
+func (e HostedZoneConfigHostedZoneTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostedZoneConfigHostedZoneTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostedZoneConfigHostedZoneTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HostedZoneConfigHostedZoneTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HostedZoneConfigHostedZoneTierOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneConfigHostedZoneTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneConfigHostedZoneTier)(nil)).Elem()
+}
+
+func (o HostedZoneConfigHostedZoneTierOutput) ToHostedZoneConfigHostedZoneTierOutput() HostedZoneConfigHostedZoneTierOutput {
+	return o
+}
+
+func (o HostedZoneConfigHostedZoneTierOutput) ToHostedZoneConfigHostedZoneTierOutputWithContext(ctx context.Context) HostedZoneConfigHostedZoneTierOutput {
+	return o
+}
+
+func (o HostedZoneConfigHostedZoneTierOutput) ToHostedZoneConfigHostedZoneTierPtrOutput() HostedZoneConfigHostedZoneTierPtrOutput {
+	return o.ToHostedZoneConfigHostedZoneTierPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneConfigHostedZoneTierOutput) ToHostedZoneConfigHostedZoneTierPtrOutputWithContext(ctx context.Context) HostedZoneConfigHostedZoneTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedZoneConfigHostedZoneTier) *HostedZoneConfigHostedZoneTier {
+		return &v
+	}).(HostedZoneConfigHostedZoneTierPtrOutput)
+}
+
+func (o HostedZoneConfigHostedZoneTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostedZoneConfigHostedZoneTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostedZoneConfigHostedZoneTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostedZoneConfigHostedZoneTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneConfigHostedZoneTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostedZoneConfigHostedZoneTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostedZoneConfigHostedZoneTierPtrOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneConfigHostedZoneTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneConfigHostedZoneTier)(nil)).Elem()
+}
+
+func (o HostedZoneConfigHostedZoneTierPtrOutput) ToHostedZoneConfigHostedZoneTierPtrOutput() HostedZoneConfigHostedZoneTierPtrOutput {
+	return o
+}
+
+func (o HostedZoneConfigHostedZoneTierPtrOutput) ToHostedZoneConfigHostedZoneTierPtrOutputWithContext(ctx context.Context) HostedZoneConfigHostedZoneTierPtrOutput {
+	return o
+}
+
+func (o HostedZoneConfigHostedZoneTierPtrOutput) Elem() HostedZoneConfigHostedZoneTierOutput {
+	return o.ApplyT(func(v *HostedZoneConfigHostedZoneTier) HostedZoneConfigHostedZoneTier {
+		if v != nil {
+			return *v
+		}
+		var ret HostedZoneConfigHostedZoneTier
+		return ret
+	}).(HostedZoneConfigHostedZoneTierOutput)
+}
+
+func (o HostedZoneConfigHostedZoneTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneConfigHostedZoneTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostedZoneConfigHostedZoneTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostedZoneConfigHostedZoneTierInput is an input type that accepts values of the HostedZoneConfigHostedZoneTier enum
+// A concrete instance of `HostedZoneConfigHostedZoneTierInput` can be one of the following:
+//
+//	HostedZoneConfigHostedZoneTierStandard
+//	HostedZoneConfigHostedZoneTierAdvanced
+type HostedZoneConfigHostedZoneTierInput interface {
+	pulumi.Input
+
+	ToHostedZoneConfigHostedZoneTierOutput() HostedZoneConfigHostedZoneTierOutput
+	ToHostedZoneConfigHostedZoneTierOutputWithContext(context.Context) HostedZoneConfigHostedZoneTierOutput
+}
+
+var hostedZoneConfigHostedZoneTierPtrType = reflect.TypeOf((**HostedZoneConfigHostedZoneTier)(nil)).Elem()
+
+type HostedZoneConfigHostedZoneTierPtrInput interface {
+	pulumi.Input
+
+	ToHostedZoneConfigHostedZoneTierPtrOutput() HostedZoneConfigHostedZoneTierPtrOutput
+	ToHostedZoneConfigHostedZoneTierPtrOutputWithContext(context.Context) HostedZoneConfigHostedZoneTierPtrOutput
+}
+
+type hostedZoneConfigHostedZoneTierPtr string
+
+func HostedZoneConfigHostedZoneTierPtr(v string) HostedZoneConfigHostedZoneTierPtrInput {
+	return (*hostedZoneConfigHostedZoneTierPtr)(&v)
+}
+
+func (*hostedZoneConfigHostedZoneTierPtr) ElementType() reflect.Type {
+	return hostedZoneConfigHostedZoneTierPtrType
+}
+
+func (in *hostedZoneConfigHostedZoneTierPtr) ToHostedZoneConfigHostedZoneTierPtrOutput() HostedZoneConfigHostedZoneTierPtrOutput {
+	return pulumi.ToOutput(in).(HostedZoneConfigHostedZoneTierPtrOutput)
+}
+
+func (in *hostedZoneConfigHostedZoneTierPtr) ToHostedZoneConfigHostedZoneTierPtrOutputWithContext(ctx context.Context) HostedZoneConfigHostedZoneTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostedZoneConfigHostedZoneTierPtrOutput)
+}
+
 // A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
 type KeySigningKeyStatus string
 
@@ -670,6 +1503,178 @@ func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutput() KeySigningKey
 
 func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutputWithContext(ctx context.Context) KeySigningKeyStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeySigningKeyStatusPtrOutput)
+}
+
+// The type of the source location that the record set's answers apply to.
+type RecordSetAzAffinityLocationType string
+
+const (
+	RecordSetAzAffinityLocationTypeAvailabilityZone      = RecordSetAzAffinityLocationType("AvailabilityZone")
+	RecordSetAzAffinityLocationTypeAvailabilityZoneGroup = RecordSetAzAffinityLocationType("AvailabilityZoneGroup")
+	RecordSetAzAffinityLocationTypeRegion                = RecordSetAzAffinityLocationType("Region")
+	RecordSetAzAffinityLocationTypePartition             = RecordSetAzAffinityLocationType("Partition")
+	RecordSetAzAffinityLocationTypeGlobal                = RecordSetAzAffinityLocationType("Global")
+)
+
+func (RecordSetAzAffinityLocationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetAzAffinityLocationType)(nil)).Elem()
+}
+
+func (e RecordSetAzAffinityLocationType) ToRecordSetAzAffinityLocationTypeOutput() RecordSetAzAffinityLocationTypeOutput {
+	return pulumi.ToOutput(e).(RecordSetAzAffinityLocationTypeOutput)
+}
+
+func (e RecordSetAzAffinityLocationType) ToRecordSetAzAffinityLocationTypeOutputWithContext(ctx context.Context) RecordSetAzAffinityLocationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecordSetAzAffinityLocationTypeOutput)
+}
+
+func (e RecordSetAzAffinityLocationType) ToRecordSetAzAffinityLocationTypePtrOutput() RecordSetAzAffinityLocationTypePtrOutput {
+	return e.ToRecordSetAzAffinityLocationTypePtrOutputWithContext(context.Background())
+}
+
+func (e RecordSetAzAffinityLocationType) ToRecordSetAzAffinityLocationTypePtrOutputWithContext(ctx context.Context) RecordSetAzAffinityLocationTypePtrOutput {
+	return RecordSetAzAffinityLocationType(e).ToRecordSetAzAffinityLocationTypeOutputWithContext(ctx).ToRecordSetAzAffinityLocationTypePtrOutputWithContext(ctx)
+}
+
+func (e RecordSetAzAffinityLocationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordSetAzAffinityLocationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordSetAzAffinityLocationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecordSetAzAffinityLocationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecordSetAzAffinityLocationTypeOutput struct{ *pulumi.OutputState }
+
+func (RecordSetAzAffinityLocationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetAzAffinityLocationType)(nil)).Elem()
+}
+
+func (o RecordSetAzAffinityLocationTypeOutput) ToRecordSetAzAffinityLocationTypeOutput() RecordSetAzAffinityLocationTypeOutput {
+	return o
+}
+
+func (o RecordSetAzAffinityLocationTypeOutput) ToRecordSetAzAffinityLocationTypeOutputWithContext(ctx context.Context) RecordSetAzAffinityLocationTypeOutput {
+	return o
+}
+
+func (o RecordSetAzAffinityLocationTypeOutput) ToRecordSetAzAffinityLocationTypePtrOutput() RecordSetAzAffinityLocationTypePtrOutput {
+	return o.ToRecordSetAzAffinityLocationTypePtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetAzAffinityLocationTypeOutput) ToRecordSetAzAffinityLocationTypePtrOutputWithContext(ctx context.Context) RecordSetAzAffinityLocationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetAzAffinityLocationType) *RecordSetAzAffinityLocationType {
+		return &v
+	}).(RecordSetAzAffinityLocationTypePtrOutput)
+}
+
+func (o RecordSetAzAffinityLocationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecordSetAzAffinityLocationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordSetAzAffinityLocationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecordSetAzAffinityLocationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetAzAffinityLocationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordSetAzAffinityLocationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordSetAzAffinityLocationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetAzAffinityLocationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetAzAffinityLocationType)(nil)).Elem()
+}
+
+func (o RecordSetAzAffinityLocationTypePtrOutput) ToRecordSetAzAffinityLocationTypePtrOutput() RecordSetAzAffinityLocationTypePtrOutput {
+	return o
+}
+
+func (o RecordSetAzAffinityLocationTypePtrOutput) ToRecordSetAzAffinityLocationTypePtrOutputWithContext(ctx context.Context) RecordSetAzAffinityLocationTypePtrOutput {
+	return o
+}
+
+func (o RecordSetAzAffinityLocationTypePtrOutput) Elem() RecordSetAzAffinityLocationTypeOutput {
+	return o.ApplyT(func(v *RecordSetAzAffinityLocationType) RecordSetAzAffinityLocationType {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetAzAffinityLocationType
+		return ret
+	}).(RecordSetAzAffinityLocationTypeOutput)
+}
+
+func (o RecordSetAzAffinityLocationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetAzAffinityLocationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecordSetAzAffinityLocationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RecordSetAzAffinityLocationTypeInput is an input type that accepts values of the RecordSetAzAffinityLocationType enum
+// A concrete instance of `RecordSetAzAffinityLocationTypeInput` can be one of the following:
+//
+//	RecordSetAzAffinityLocationTypeAvailabilityZone
+//	RecordSetAzAffinityLocationTypeAvailabilityZoneGroup
+//	RecordSetAzAffinityLocationTypeRegion
+//	RecordSetAzAffinityLocationTypePartition
+//	RecordSetAzAffinityLocationTypeGlobal
+type RecordSetAzAffinityLocationTypeInput interface {
+	pulumi.Input
+
+	ToRecordSetAzAffinityLocationTypeOutput() RecordSetAzAffinityLocationTypeOutput
+	ToRecordSetAzAffinityLocationTypeOutputWithContext(context.Context) RecordSetAzAffinityLocationTypeOutput
+}
+
+var recordSetAzAffinityLocationTypePtrType = reflect.TypeOf((**RecordSetAzAffinityLocationType)(nil)).Elem()
+
+type RecordSetAzAffinityLocationTypePtrInput interface {
+	pulumi.Input
+
+	ToRecordSetAzAffinityLocationTypePtrOutput() RecordSetAzAffinityLocationTypePtrOutput
+	ToRecordSetAzAffinityLocationTypePtrOutputWithContext(context.Context) RecordSetAzAffinityLocationTypePtrOutput
+}
+
+type recordSetAzAffinityLocationTypePtr string
+
+func RecordSetAzAffinityLocationTypePtr(v string) RecordSetAzAffinityLocationTypePtrInput {
+	return (*recordSetAzAffinityLocationTypePtr)(&v)
+}
+
+func (*recordSetAzAffinityLocationTypePtr) ElementType() reflect.Type {
+	return recordSetAzAffinityLocationTypePtrType
+}
+
+func (in *recordSetAzAffinityLocationTypePtr) ToRecordSetAzAffinityLocationTypePtrOutput() RecordSetAzAffinityLocationTypePtrOutput {
+	return pulumi.ToOutput(in).(RecordSetAzAffinityLocationTypePtrOutput)
+}
+
+func (in *recordSetAzAffinityLocationTypePtr) ToRecordSetAzAffinityLocationTypePtrOutputWithContext(ctx context.Context) RecordSetAzAffinityLocationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecordSetAzAffinityLocationTypePtrOutput)
 }
 
 type RecordSetFailover string
@@ -837,6 +1842,112 @@ func (in *recordSetFailoverPtr) ToRecordSetFailoverPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(RecordSetFailoverPtrOutput)
 }
 
+// The DNS type that Amazon Route 53 assigned to all of the resource record sets that it created for this traffic policy instance. Route 53 derives it from the referenced traffic policy.
+type TrafficPolicyInstanceTrafficPolicyType string
+
+const (
+	TrafficPolicyInstanceTrafficPolicyTypeSoa   = TrafficPolicyInstanceTrafficPolicyType("SOA")
+	TrafficPolicyInstanceTrafficPolicyTypeA     = TrafficPolicyInstanceTrafficPolicyType("A")
+	TrafficPolicyInstanceTrafficPolicyTypeTxt   = TrafficPolicyInstanceTrafficPolicyType("TXT")
+	TrafficPolicyInstanceTrafficPolicyTypeNs    = TrafficPolicyInstanceTrafficPolicyType("NS")
+	TrafficPolicyInstanceTrafficPolicyTypeCname = TrafficPolicyInstanceTrafficPolicyType("CNAME")
+	TrafficPolicyInstanceTrafficPolicyTypeMx    = TrafficPolicyInstanceTrafficPolicyType("MX")
+	TrafficPolicyInstanceTrafficPolicyTypeNaptr = TrafficPolicyInstanceTrafficPolicyType("NAPTR")
+	TrafficPolicyInstanceTrafficPolicyTypePtr   = TrafficPolicyInstanceTrafficPolicyType("PTR")
+	TrafficPolicyInstanceTrafficPolicyTypeSrv   = TrafficPolicyInstanceTrafficPolicyType("SRV")
+	TrafficPolicyInstanceTrafficPolicyTypeSpf   = TrafficPolicyInstanceTrafficPolicyType("SPF")
+	TrafficPolicyInstanceTrafficPolicyTypeAaaa  = TrafficPolicyInstanceTrafficPolicyType("AAAA")
+	TrafficPolicyInstanceTrafficPolicyTypeCaa   = TrafficPolicyInstanceTrafficPolicyType("CAA")
+	TrafficPolicyInstanceTrafficPolicyTypeDs    = TrafficPolicyInstanceTrafficPolicyType("DS")
+	TrafficPolicyInstanceTrafficPolicyTypeTlsa  = TrafficPolicyInstanceTrafficPolicyType("TLSA")
+	TrafficPolicyInstanceTrafficPolicyTypeSshfp = TrafficPolicyInstanceTrafficPolicyType("SSHFP")
+	TrafficPolicyInstanceTrafficPolicyTypeSvcb  = TrafficPolicyInstanceTrafficPolicyType("SVCB")
+	TrafficPolicyInstanceTrafficPolicyTypeHttps = TrafficPolicyInstanceTrafficPolicyType("HTTPS")
+)
+
+type TrafficPolicyInstanceTrafficPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (TrafficPolicyInstanceTrafficPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficPolicyInstanceTrafficPolicyType)(nil)).Elem()
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypeOutput) ToTrafficPolicyInstanceTrafficPolicyTypeOutput() TrafficPolicyInstanceTrafficPolicyTypeOutput {
+	return o
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypeOutput) ToTrafficPolicyInstanceTrafficPolicyTypeOutputWithContext(ctx context.Context) TrafficPolicyInstanceTrafficPolicyTypeOutput {
+	return o
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypeOutput) ToTrafficPolicyInstanceTrafficPolicyTypePtrOutput() TrafficPolicyInstanceTrafficPolicyTypePtrOutput {
+	return o.ToTrafficPolicyInstanceTrafficPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypeOutput) ToTrafficPolicyInstanceTrafficPolicyTypePtrOutputWithContext(ctx context.Context) TrafficPolicyInstanceTrafficPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficPolicyInstanceTrafficPolicyType) *TrafficPolicyInstanceTrafficPolicyType {
+		return &v
+	}).(TrafficPolicyInstanceTrafficPolicyTypePtrOutput)
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrafficPolicyInstanceTrafficPolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrafficPolicyInstanceTrafficPolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrafficPolicyInstanceTrafficPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TrafficPolicyInstanceTrafficPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficPolicyInstanceTrafficPolicyType)(nil)).Elem()
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypePtrOutput) ToTrafficPolicyInstanceTrafficPolicyTypePtrOutput() TrafficPolicyInstanceTrafficPolicyTypePtrOutput {
+	return o
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypePtrOutput) ToTrafficPolicyInstanceTrafficPolicyTypePtrOutputWithContext(ctx context.Context) TrafficPolicyInstanceTrafficPolicyTypePtrOutput {
+	return o
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypePtrOutput) Elem() TrafficPolicyInstanceTrafficPolicyTypeOutput {
+	return o.ApplyT(func(v *TrafficPolicyInstanceTrafficPolicyType) TrafficPolicyInstanceTrafficPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficPolicyInstanceTrafficPolicyType
+		return ret
+	}).(TrafficPolicyInstanceTrafficPolicyTypeOutput)
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficPolicyInstanceTrafficPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrafficPolicyInstanceTrafficPolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The DNS type of the resource record sets that Amazon Route 53 creates when the traffic policy is used to create a traffic policy instance.
 type TrafficPolicyType string
 
@@ -944,24 +2055,50 @@ func (o TrafficPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesEndpointTypeInput)(nil)).Elem(), HealthCheckConfigPropertiesEndpointType("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesEndpointTypePtrInput)(nil)).Elem(), HealthCheckConfigPropertiesEndpointType("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatusInput)(nil)).Elem(), HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrInput)(nil)).Elem(), HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesTypeInput)(nil)).Elem(), HealthCheckConfigPropertiesType("CALCULATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesTypePtrInput)(nil)).Elem(), HealthCheckConfigPropertiesType("CALCULATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeGuardrailNameInput)(nil)).Elem(), HostedZoneChangeGuardrailName("NS_OCCLUSION_CHECK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeGuardrailNamePtrInput)(nil)).Elem(), HostedZoneChangeGuardrailName("NS_OCCLUSION_CHECK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeGuardrailStatusInput)(nil)).Elem(), HostedZoneChangeGuardrailStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeGuardrailStatusPtrInput)(nil)).Elem(), HostedZoneChangeGuardrailStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeHistoryStatusInput)(nil)).Elem(), HostedZoneChangeHistoryStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneChangeHistoryStatusPtrInput)(nil)).Elem(), HostedZoneChangeHistoryStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigHostedZoneTierInput)(nil)).Elem(), HostedZoneConfigHostedZoneTier("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigHostedZoneTierPtrInput)(nil)).Elem(), HostedZoneConfigHostedZoneTier("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyStatusInput)(nil)).Elem(), KeySigningKeyStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyStatusPtrInput)(nil)).Elem(), KeySigningKeyStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAzAffinityLocationTypeInput)(nil)).Elem(), RecordSetAzAffinityLocationType("AvailabilityZone"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAzAffinityLocationTypePtrInput)(nil)).Elem(), RecordSetAzAffinityLocationType("AvailabilityZone"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetFailoverInput)(nil)).Elem(), RecordSetFailover("PRIMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetFailoverPtrInput)(nil)).Elem(), RecordSetFailover("PRIMARY"))
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesEndpointTypeOutput{})
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypeOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckSourceStatusOutput{})
 	pulumi.RegisterOutputType(HealthCheckSourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeGuardrailNameOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeGuardrailNamePtrOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeGuardrailStatusOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeGuardrailStatusPtrOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeHistoryStatusOutput{})
+	pulumi.RegisterOutputType(HostedZoneChangeHistoryStatusPtrOutput{})
+	pulumi.RegisterOutputType(HostedZoneConfigHostedZoneTierOutput{})
+	pulumi.RegisterOutputType(HostedZoneConfigHostedZoneTierPtrOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyStatusOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyStatusPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetAzAffinityLocationTypeOutput{})
+	pulumi.RegisterOutputType(RecordSetAzAffinityLocationTypePtrOutput{})
 	pulumi.RegisterOutputType(RecordSetFailoverOutput{})
 	pulumi.RegisterOutputType(RecordSetFailoverPtrOutput{})
+	pulumi.RegisterOutputType(TrafficPolicyInstanceTrafficPolicyTypeOutput{})
+	pulumi.RegisterOutputType(TrafficPolicyInstanceTrafficPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(TrafficPolicyTypeOutput{})
 	pulumi.RegisterOutputType(TrafficPolicyTypePtrOutput{})
 }

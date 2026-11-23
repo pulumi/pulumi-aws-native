@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("domainOverride")]
+        public Output<Outputs.GatewayDomainOverride?> DomainOverride { get; private set; } = null!;
+
         /// <summary>
         /// The exception level for the gateway.
         /// </summary>
@@ -181,6 +184,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("domainOverride")]
+        public Input<Inputs.GatewayDomainOverrideArgs>? DomainOverride { get; set; }
 
         /// <summary>
         /// The exception level for the gateway.

@@ -24,6 +24,7 @@ class RecordSetArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  alias_target: pulumi.Input[Optional['RecordSetAliasTargetArgs']] = None,
+                 az_affinity: pulumi.Input[Optional['RecordSetAzAffinityArgs']] = None,
                  cidr_routing_config: pulumi.Input[Optional['RecordSetCidrRoutingConfigArgs']] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  failover: pulumi.Input[Optional['RecordSetFailover']] = None,
@@ -43,6 +44,7 @@ class RecordSetArgs:
 
         :param pulumi.Input[_builtins.str] type: The DNS record type.
         :param pulumi.Input['RecordSetAliasTargetArgs'] alias_target: Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
+        :param pulumi.Input['RecordSetAzAffinityArgs'] az_affinity: AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
         :param pulumi.Input['RecordSetCidrRoutingConfigArgs'] cidr_routing_config: The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
         :param pulumi.Input[_builtins.str] comment: Optional: Any comments you want to include about a change batch request.
         :param pulumi.Input['RecordSetFailover'] failover: To configure failover, you add the Failover element to two resource record sets. For one resource record set, you specify PRIMARY as the value for Failover; for the other resource record set, you specify SECONDARY. In addition, you include the HealthCheckId element and specify the health check that you want Amazon Route 53 to perform for each resource record set.
@@ -61,6 +63,8 @@ class RecordSetArgs:
         pulumi.set(__self__, "type", type)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
+        if az_affinity is not None:
+            pulumi.set(__self__, "az_affinity", az_affinity)
         if cidr_routing_config is not None:
             pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
         if comment is not None:
@@ -113,6 +117,18 @@ class RecordSetArgs:
     @alias_target.setter
     def alias_target(self, value: pulumi.Input[Optional['RecordSetAliasTargetArgs']]):
         pulumi.set(self, "alias_target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azAffinity")
+    def az_affinity(self) -> pulumi.Input[Optional['RecordSetAzAffinityArgs']]:
+        """
+        AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+        """
+        return pulumi.get(self, "az_affinity")
+
+    @az_affinity.setter
+    def az_affinity(self, value: pulumi.Input[Optional['RecordSetAzAffinityArgs']]):
+        pulumi.set(self, "az_affinity", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrRoutingConfig")
@@ -290,6 +306,7 @@ class RecordSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_target: pulumi.Input[Optional[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict', 'outputs.RecordSetAliasTarget']]] = None,
+                 az_affinity: pulumi.Input[Optional[Union['RecordSetAzAffinityArgs', 'RecordSetAzAffinityArgsDict', 'outputs.RecordSetAzAffinity']]] = None,
                  cidr_routing_config: pulumi.Input[Optional[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict', 'outputs.RecordSetCidrRoutingConfig']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  failover: pulumi.Input[Optional['RecordSetFailover']] = None,
@@ -312,6 +329,7 @@ class RecordSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict', 'outputs.RecordSetAliasTarget']] alias_target: Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
+        :param pulumi.Input[Union['RecordSetAzAffinityArgs', 'RecordSetAzAffinityArgsDict', 'outputs.RecordSetAzAffinity']] az_affinity: AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
         :param pulumi.Input[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict', 'outputs.RecordSetCidrRoutingConfig']] cidr_routing_config: The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
         :param pulumi.Input[_builtins.str] comment: Optional: Any comments you want to include about a change batch request.
         :param pulumi.Input['RecordSetFailover'] failover: To configure failover, you add the Failover element to two resource record sets. For one resource record set, you specify PRIMARY as the value for Failover; for the other resource record set, you specify SECONDARY. In addition, you include the HealthCheckId element and specify the health check that you want Amazon Route 53 to perform for each resource record set.
@@ -353,6 +371,7 @@ class RecordSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_target: pulumi.Input[Optional[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict', 'outputs.RecordSetAliasTarget']]] = None,
+                 az_affinity: pulumi.Input[Optional[Union['RecordSetAzAffinityArgs', 'RecordSetAzAffinityArgsDict', 'outputs.RecordSetAzAffinity']]] = None,
                  cidr_routing_config: pulumi.Input[Optional[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict', 'outputs.RecordSetCidrRoutingConfig']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  failover: pulumi.Input[Optional['RecordSetFailover']] = None,
@@ -378,6 +397,7 @@ class RecordSet(pulumi.CustomResource):
             __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
             __props__.__dict__["alias_target"] = alias_target
+            __props__.__dict__["az_affinity"] = az_affinity
             __props__.__dict__["cidr_routing_config"] = cidr_routing_config
             __props__.__dict__["comment"] = comment
             __props__.__dict__["failover"] = failover
@@ -420,6 +440,7 @@ class RecordSet(pulumi.CustomResource):
         __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
         __props__.__dict__["alias_target"] = None
+        __props__.__dict__["az_affinity"] = None
         __props__.__dict__["cidr_routing_config"] = None
         __props__.__dict__["comment"] = None
         __props__.__dict__["failover"] = None
@@ -450,6 +471,14 @@ class RecordSet(pulumi.CustomResource):
         Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
         """
         return pulumi.get(self, "alias_target")
+
+    @_builtins.property
+    @pulumi.getter(name="azAffinity")
+    def az_affinity(self) -> pulumi.Output[Optional['outputs.RecordSetAzAffinity']]:
+        """
+        AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+        """
+        return pulumi.get(self, "az_affinity")
 
     @_builtins.property
     @pulumi.getter(name="cidrRoutingConfig")

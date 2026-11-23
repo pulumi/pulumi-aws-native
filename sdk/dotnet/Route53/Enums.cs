@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.Route53
 {
     /// <summary>
+    /// Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+    /// </summary>
+    [EnumType]
+    public readonly struct HealthCheckConfigPropertiesEndpointType : IEquatable<HealthCheckConfigPropertiesEndpointType>
+    {
+        private readonly string _value;
+
+        private HealthCheckConfigPropertiesEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HealthCheckConfigPropertiesEndpointType Public { get; } = new HealthCheckConfigPropertiesEndpointType("PUBLIC");
+        public static HealthCheckConfigPropertiesEndpointType Private { get; } = new HealthCheckConfigPropertiesEndpointType("PRIVATE");
+
+        public static bool operator ==(HealthCheckConfigPropertiesEndpointType left, HealthCheckConfigPropertiesEndpointType right) => left.Equals(right);
+        public static bool operator !=(HealthCheckConfigPropertiesEndpointType left, HealthCheckConfigPropertiesEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(HealthCheckConfigPropertiesEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HealthCheckConfigPropertiesEndpointType other && Equals(other);
+        public bool Equals(HealthCheckConfigPropertiesEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// When CloudWatch has insufficient data about the metric to determine the alarm state, the status that you want Amazon Route 53 to assign to the health check:
     /// 
     /// - `Healthy` : Route 53 considers the health check to be healthy.
@@ -166,6 +197,129 @@ namespace Pulumi.AwsNative.Route53
     }
 
     /// <summary>
+    /// The name of the Change Guardrail.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostedZoneChangeGuardrailName : IEquatable<HostedZoneChangeGuardrailName>
+    {
+        private readonly string _value;
+
+        private HostedZoneChangeGuardrailName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostedZoneChangeGuardrailName NsOcclusionCheck { get; } = new HostedZoneChangeGuardrailName("NS_OCCLUSION_CHECK");
+        public static HostedZoneChangeGuardrailName AliasTargetCheck { get; } = new HostedZoneChangeGuardrailName("ALIAS_TARGET_CHECK");
+        public static HostedZoneChangeGuardrailName ActiveRecordCheck { get; } = new HostedZoneChangeGuardrailName("ACTIVE_RECORD_CHECK");
+        public static HostedZoneChangeGuardrailName ActiveDelegationCheck { get; } = new HostedZoneChangeGuardrailName("ACTIVE_DELEGATION_CHECK");
+
+        public static bool operator ==(HostedZoneChangeGuardrailName left, HostedZoneChangeGuardrailName right) => left.Equals(right);
+        public static bool operator !=(HostedZoneChangeGuardrailName left, HostedZoneChangeGuardrailName right) => !left.Equals(right);
+
+        public static explicit operator string(HostedZoneChangeGuardrailName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostedZoneChangeGuardrailName other && Equals(other);
+        public bool Equals(HostedZoneChangeGuardrailName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostedZoneChangeGuardrailStatus : IEquatable<HostedZoneChangeGuardrailStatus>
+    {
+        private readonly string _value;
+
+        private HostedZoneChangeGuardrailStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostedZoneChangeGuardrailStatus Enabled { get; } = new HostedZoneChangeGuardrailStatus("ENABLED");
+        public static HostedZoneChangeGuardrailStatus Disabled { get; } = new HostedZoneChangeGuardrailStatus("DISABLED");
+
+        public static bool operator ==(HostedZoneChangeGuardrailStatus left, HostedZoneChangeGuardrailStatus right) => left.Equals(right);
+        public static bool operator !=(HostedZoneChangeGuardrailStatus left, HostedZoneChangeGuardrailStatus right) => !left.Equals(right);
+
+        public static explicit operator string(HostedZoneChangeGuardrailStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostedZoneChangeGuardrailStatus other && Equals(other);
+        public bool Equals(HostedZoneChangeGuardrailStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether change history is enabled for the hosted zone.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostedZoneChangeHistoryStatus : IEquatable<HostedZoneChangeHistoryStatus>
+    {
+        private readonly string _value;
+
+        private HostedZoneChangeHistoryStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostedZoneChangeHistoryStatus Enabled { get; } = new HostedZoneChangeHistoryStatus("ENABLED");
+        public static HostedZoneChangeHistoryStatus Disabled { get; } = new HostedZoneChangeHistoryStatus("DISABLED");
+
+        public static bool operator ==(HostedZoneChangeHistoryStatus left, HostedZoneChangeHistoryStatus right) => left.Equals(right);
+        public static bool operator !=(HostedZoneChangeHistoryStatus left, HostedZoneChangeHistoryStatus right) => !left.Equals(right);
+
+        public static explicit operator string(HostedZoneChangeHistoryStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostedZoneChangeHistoryStatus other && Equals(other);
+        public bool Equals(HostedZoneChangeHistoryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct HostedZoneConfigHostedZoneTier : IEquatable<HostedZoneConfigHostedZoneTier>
+    {
+        private readonly string _value;
+
+        private HostedZoneConfigHostedZoneTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostedZoneConfigHostedZoneTier Standard { get; } = new HostedZoneConfigHostedZoneTier("STANDARD");
+        public static HostedZoneConfigHostedZoneTier Advanced { get; } = new HostedZoneConfigHostedZoneTier("ADVANCED");
+
+        public static bool operator ==(HostedZoneConfigHostedZoneTier left, HostedZoneConfigHostedZoneTier right) => left.Equals(right);
+        public static bool operator !=(HostedZoneConfigHostedZoneTier left, HostedZoneConfigHostedZoneTier right) => !left.Equals(right);
+
+        public static explicit operator string(HostedZoneConfigHostedZoneTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostedZoneConfigHostedZoneTier other && Equals(other);
+        public bool Equals(HostedZoneConfigHostedZoneTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
     /// </summary>
     [EnumType]
@@ -196,6 +350,40 @@ namespace Pulumi.AwsNative.Route53
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of the source location that the record set's answers apply to.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecordSetAzAffinityLocationType : IEquatable<RecordSetAzAffinityLocationType>
+    {
+        private readonly string _value;
+
+        private RecordSetAzAffinityLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecordSetAzAffinityLocationType AvailabilityZone { get; } = new RecordSetAzAffinityLocationType("AvailabilityZone");
+        public static RecordSetAzAffinityLocationType AvailabilityZoneGroup { get; } = new RecordSetAzAffinityLocationType("AvailabilityZoneGroup");
+        public static RecordSetAzAffinityLocationType Region { get; } = new RecordSetAzAffinityLocationType("Region");
+        public static RecordSetAzAffinityLocationType Partition { get; } = new RecordSetAzAffinityLocationType("Partition");
+        public static RecordSetAzAffinityLocationType Global { get; } = new RecordSetAzAffinityLocationType("Global");
+
+        public static bool operator ==(RecordSetAzAffinityLocationType left, RecordSetAzAffinityLocationType right) => left.Equals(right);
+        public static bool operator !=(RecordSetAzAffinityLocationType left, RecordSetAzAffinityLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(RecordSetAzAffinityLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecordSetAzAffinityLocationType other && Equals(other);
+        public bool Equals(RecordSetAzAffinityLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct RecordSetFailover : IEquatable<RecordSetFailover>
     {
@@ -217,6 +405,52 @@ namespace Pulumi.AwsNative.Route53
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RecordSetFailover other && Equals(other);
         public bool Equals(RecordSetFailover other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The DNS type that Amazon Route 53 assigned to all of the resource record sets that it created for this traffic policy instance. Route 53 derives it from the referenced traffic policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrafficPolicyInstanceTrafficPolicyType : IEquatable<TrafficPolicyInstanceTrafficPolicyType>
+    {
+        private readonly string _value;
+
+        private TrafficPolicyInstanceTrafficPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrafficPolicyInstanceTrafficPolicyType Soa { get; } = new TrafficPolicyInstanceTrafficPolicyType("SOA");
+        public static TrafficPolicyInstanceTrafficPolicyType A { get; } = new TrafficPolicyInstanceTrafficPolicyType("A");
+        public static TrafficPolicyInstanceTrafficPolicyType Txt { get; } = new TrafficPolicyInstanceTrafficPolicyType("TXT");
+        public static TrafficPolicyInstanceTrafficPolicyType Ns { get; } = new TrafficPolicyInstanceTrafficPolicyType("NS");
+        public static TrafficPolicyInstanceTrafficPolicyType Cname { get; } = new TrafficPolicyInstanceTrafficPolicyType("CNAME");
+        public static TrafficPolicyInstanceTrafficPolicyType Mx { get; } = new TrafficPolicyInstanceTrafficPolicyType("MX");
+        public static TrafficPolicyInstanceTrafficPolicyType Naptr { get; } = new TrafficPolicyInstanceTrafficPolicyType("NAPTR");
+        public static TrafficPolicyInstanceTrafficPolicyType Ptr { get; } = new TrafficPolicyInstanceTrafficPolicyType("PTR");
+        public static TrafficPolicyInstanceTrafficPolicyType Srv { get; } = new TrafficPolicyInstanceTrafficPolicyType("SRV");
+        public static TrafficPolicyInstanceTrafficPolicyType Spf { get; } = new TrafficPolicyInstanceTrafficPolicyType("SPF");
+        public static TrafficPolicyInstanceTrafficPolicyType Aaaa { get; } = new TrafficPolicyInstanceTrafficPolicyType("AAAA");
+        public static TrafficPolicyInstanceTrafficPolicyType Caa { get; } = new TrafficPolicyInstanceTrafficPolicyType("CAA");
+        public static TrafficPolicyInstanceTrafficPolicyType Ds { get; } = new TrafficPolicyInstanceTrafficPolicyType("DS");
+        public static TrafficPolicyInstanceTrafficPolicyType Tlsa { get; } = new TrafficPolicyInstanceTrafficPolicyType("TLSA");
+        public static TrafficPolicyInstanceTrafficPolicyType Sshfp { get; } = new TrafficPolicyInstanceTrafficPolicyType("SSHFP");
+        public static TrafficPolicyInstanceTrafficPolicyType Svcb { get; } = new TrafficPolicyInstanceTrafficPolicyType("SVCB");
+        public static TrafficPolicyInstanceTrafficPolicyType Https { get; } = new TrafficPolicyInstanceTrafficPolicyType("HTTPS");
+
+        public static bool operator ==(TrafficPolicyInstanceTrafficPolicyType left, TrafficPolicyInstanceTrafficPolicyType right) => left.Equals(right);
+        public static bool operator !=(TrafficPolicyInstanceTrafficPolicyType left, TrafficPolicyInstanceTrafficPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(TrafficPolicyInstanceTrafficPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrafficPolicyInstanceTrafficPolicyType other && Equals(other);
+        public bool Equals(TrafficPolicyInstanceTrafficPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

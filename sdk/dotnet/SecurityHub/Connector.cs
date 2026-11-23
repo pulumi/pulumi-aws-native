@@ -90,6 +90,7 @@ namespace Pulumi.AwsNative.SecurityHub
                 {
                     "name",
                     "provider.azure.awsConfigConnectorArn",
+                    "provider.gcp.awsConfigConnectorArn",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

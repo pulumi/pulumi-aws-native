@@ -52,6 +52,10 @@ __all__ = [
     'ConnectorAzureProviderConfigurationArgsDict',
     'ConnectorAzureScopeConfigurationMapArgs',
     'ConnectorAzureScopeConfigurationMapArgsDict',
+    'ConnectorGcpProviderConfigurationArgs',
+    'ConnectorGcpProviderConfigurationArgsDict',
+    'ConnectorGcpScopeConfigurationMapArgs',
+    'ConnectorGcpScopeConfigurationMapArgsDict',
     'ConnectorProviderConfigurationArgs',
     'ConnectorProviderConfigurationArgsDict',
     'ConnectorScopeConfigurationArgs',
@@ -799,33 +803,184 @@ class ConnectorAzureScopeConfigurationMapArgs:
         pulumi.set(self, "vm_scanning", value)
 
 
+class ConnectorGcpProviderConfigurationArgsDict(TypedDict):
+    aws_config_connector_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Config connector used for GCP resource discovery.
+    """
+    gcp_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of GCP regions to scan (e.g. us-central1).
+    """
+    scope_configuration: pulumi.Input['ConnectorGcpScopeConfigurationMapArgsDict']
+    auto_install_vm_scanner: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to automatically install the VM scanner. Defaults to true.
+    """
+
+@pulumi.input_type
+class ConnectorGcpProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 aws_config_connector_arn: pulumi.Input[_builtins.str],
+                 gcp_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 scope_configuration: pulumi.Input['ConnectorGcpScopeConfigurationMapArgs'],
+                 auto_install_vm_scanner: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] aws_config_connector_arn: The ARN of the AWS Config connector used for GCP resource discovery.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gcp_regions: List of GCP regions to scan (e.g. us-central1).
+        :param pulumi.Input[_builtins.bool] auto_install_vm_scanner: Whether to automatically install the VM scanner. Defaults to true.
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "gcp_regions", gcp_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+        if auto_install_vm_scanner is not None:
+            pulumi.set(__self__, "auto_install_vm_scanner", auto_install_vm_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Config connector used for GCP resource discovery.
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @aws_config_connector_arn.setter
+    def aws_config_connector_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "aws_config_connector_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gcpRegions")
+    def gcp_regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of GCP regions to scan (e.g. us-central1).
+        """
+        return pulumi.get(self, "gcp_regions")
+
+    @gcp_regions.setter
+    def gcp_regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "gcp_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> pulumi.Input['ConnectorGcpScopeConfigurationMapArgs']:
+        return pulumi.get(self, "scope_configuration")
+
+    @scope_configuration.setter
+    def scope_configuration(self, value: pulumi.Input['ConnectorGcpScopeConfigurationMapArgs']):
+        pulumi.set(self, "scope_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoInstallVmScanner")
+    def auto_install_vm_scanner(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to automatically install the VM scanner. Defaults to true.
+        """
+        return pulumi.get(self, "auto_install_vm_scanner")
+
+    @auto_install_vm_scanner.setter
+    def auto_install_vm_scanner(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_install_vm_scanner", value)
+
+
+class ConnectorGcpScopeConfigurationMapArgsDict(TypedDict):
+    """
+    Defines which GCP resource types to scan and at what scope level. GCP supports multiple capabilities per connector.
+    """
+    container_image_scanning: NotRequired[pulumi.Input[Optional['ConnectorScopeConfigurationArgsDict']]]
+    serverless_scanning: NotRequired[pulumi.Input[Optional['ConnectorScopeConfigurationArgsDict']]]
+    vm_scanning: NotRequired[pulumi.Input[Optional['ConnectorScopeConfigurationArgsDict']]]
+
+@pulumi.input_type
+class ConnectorGcpScopeConfigurationMapArgs:
+    def __init__(__self__, *,
+                 container_image_scanning: pulumi.Input[Optional['ConnectorScopeConfigurationArgs']] = None,
+                 serverless_scanning: pulumi.Input[Optional['ConnectorScopeConfigurationArgs']] = None,
+                 vm_scanning: pulumi.Input[Optional['ConnectorScopeConfigurationArgs']] = None):
+        """
+        Defines which GCP resource types to scan and at what scope level. GCP supports multiple capabilities per connector.
+        """
+        if container_image_scanning is not None:
+            pulumi.set(__self__, "container_image_scanning", container_image_scanning)
+        if serverless_scanning is not None:
+            pulumi.set(__self__, "serverless_scanning", serverless_scanning)
+        if vm_scanning is not None:
+            pulumi.set(__self__, "vm_scanning", vm_scanning)
+
+    @_builtins.property
+    @pulumi.getter(name="containerImageScanning")
+    def container_image_scanning(self) -> pulumi.Input[Optional['ConnectorScopeConfigurationArgs']]:
+        return pulumi.get(self, "container_image_scanning")
+
+    @container_image_scanning.setter
+    def container_image_scanning(self, value: pulumi.Input[Optional['ConnectorScopeConfigurationArgs']]):
+        pulumi.set(self, "container_image_scanning", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessScanning")
+    def serverless_scanning(self) -> pulumi.Input[Optional['ConnectorScopeConfigurationArgs']]:
+        return pulumi.get(self, "serverless_scanning")
+
+    @serverless_scanning.setter
+    def serverless_scanning(self, value: pulumi.Input[Optional['ConnectorScopeConfigurationArgs']]):
+        pulumi.set(self, "serverless_scanning", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vmScanning")
+    def vm_scanning(self) -> pulumi.Input[Optional['ConnectorScopeConfigurationArgs']]:
+        return pulumi.get(self, "vm_scanning")
+
+    @vm_scanning.setter
+    def vm_scanning(self, value: pulumi.Input[Optional['ConnectorScopeConfigurationArgs']]):
+        pulumi.set(self, "vm_scanning", value)
+
+
 class ConnectorProviderConfigurationArgsDict(TypedDict):
-    azure: pulumi.Input['ConnectorAzureProviderConfigurationArgsDict']
+    """
+    Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
+    """
+    azure: NotRequired[pulumi.Input[Optional['ConnectorAzureProviderConfigurationArgsDict']]]
+    gcp: NotRequired[pulumi.Input[Optional['ConnectorGcpProviderConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ConnectorProviderConfigurationArgs:
     def __init__(__self__, *,
-                 azure: pulumi.Input['ConnectorAzureProviderConfigurationArgs']):
-        pulumi.set(__self__, "azure", azure)
+                 azure: pulumi.Input[Optional['ConnectorAzureProviderConfigurationArgs']] = None,
+                 gcp: pulumi.Input[Optional['ConnectorGcpProviderConfigurationArgs']] = None):
+        """
+        Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
+        """
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> pulumi.Input['ConnectorAzureProviderConfigurationArgs']:
+    def azure(self) -> pulumi.Input[Optional['ConnectorAzureProviderConfigurationArgs']]:
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: pulumi.Input['ConnectorAzureProviderConfigurationArgs']):
+    def azure(self, value: pulumi.Input[Optional['ConnectorAzureProviderConfigurationArgs']]):
         pulumi.set(self, "azure", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gcp(self) -> pulumi.Input[Optional['ConnectorGcpProviderConfigurationArgs']]:
+        return pulumi.get(self, "gcp")
+
+    @gcp.setter
+    def gcp(self, value: pulumi.Input[Optional['ConnectorGcpProviderConfigurationArgs']]):
+        pulumi.set(self, "gcp", value)
 
 
 class ConnectorScopeConfigurationArgsDict(TypedDict):
     """
-    Defines the scope of Azure resources to monitor for a specific resource type.
+    Defines the scope of cloud resources to monitor for a specific resource type.
     """
     scope_type: pulumi.Input['ConnectorScopeType']
     scope_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    List of subscription IDs. Empty for TENANT scope.
+    List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
     """
     state: NotRequired[pulumi.Input[Optional['ConnectorScopeState']]]
     state_reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -841,9 +996,9 @@ class ConnectorScopeConfigurationArgs:
                  state: pulumi.Input[Optional['ConnectorScopeState']] = None,
                  state_reason: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        Defines the scope of Azure resources to monitor for a specific resource type.
+        Defines the scope of cloud resources to monitor for a specific resource type.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: List of subscription IDs. Empty for TENANT scope.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
         :param pulumi.Input[_builtins.str] state_reason: Reason for the current scope state.
         """
         pulumi.set(__self__, "scope_type", scope_type)
@@ -867,7 +1022,7 @@ class ConnectorScopeConfigurationArgs:
     @pulumi.getter(name="scopeValues")
     def scope_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of subscription IDs. Empty for TENANT scope.
+        List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
         """
         return pulumi.get(self, "scope_values")
 

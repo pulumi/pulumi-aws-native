@@ -20,11 +20,16 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// Any comments that you want to include about the hosted zone.
         /// </summary>
         public readonly string? Comment;
+        public readonly Pulumi.AwsNative.Route53.HostedZoneConfigHostedZoneTier? HostedZoneTier;
 
         [OutputConstructor]
-        private HostedZoneConfig(string? comment)
+        private HostedZoneConfig(
+            string? comment,
+
+            Pulumi.AwsNative.Route53.HostedZoneConfigHostedZoneTier? hostedZoneTier)
         {
             Comment = comment;
+            HostedZoneTier = hostedZoneTier;
         }
     }
 }

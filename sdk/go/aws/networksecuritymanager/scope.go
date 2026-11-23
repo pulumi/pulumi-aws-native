@@ -26,6 +26,8 @@ type Scope struct {
 	ScopeId pulumi.StringOutput `pulumi:"scopeId"`
 	// The name of the scope.
 	ScopeName pulumi.StringOutput `pulumi:"scopeName"`
+	// Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+	SpecializedScopeType ScopeSpecializedScopeTypePtrOutput `pulumi:"specializedScopeType"`
 	// The status of the scope.
 	Status ScopeStatusOutput `pulumi:"status"`
 	// The tags associated with the scope.
@@ -45,6 +47,7 @@ func NewScope(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"scopeName",
+		"specializedScopeType",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -92,6 +95,8 @@ type scopeArgs struct {
 	ScopeDescription *string `pulumi:"scopeDescription"`
 	// The name of the scope.
 	ScopeName *string `pulumi:"scopeName"`
+	// Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+	SpecializedScopeType *ScopeSpecializedScopeType `pulumi:"specializedScopeType"`
 	// The tags associated with the scope.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -104,6 +109,8 @@ type ScopeArgs struct {
 	ScopeDescription pulumi.StringPtrInput
 	// The name of the scope.
 	ScopeName pulumi.StringPtrInput
+	// Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+	SpecializedScopeType ScopeSpecializedScopeTypePtrInput
 	// The tags associated with the scope.
 	Tags aws.TagArrayInput
 }
@@ -168,6 +175,11 @@ func (o ScopeOutput) ScopeId() pulumi.StringOutput {
 // The name of the scope.
 func (o ScopeOutput) ScopeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scope) pulumi.StringOutput { return v.ScopeName }).(pulumi.StringOutput)
+}
+
+// Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+func (o ScopeOutput) SpecializedScopeType() ScopeSpecializedScopeTypePtrOutput {
+	return o.ApplyT(func(v *Scope) ScopeSpecializedScopeTypePtrOutput { return v.SpecializedScopeType }).(ScopeSpecializedScopeTypePtrOutput)
 }
 
 // The status of the scope.

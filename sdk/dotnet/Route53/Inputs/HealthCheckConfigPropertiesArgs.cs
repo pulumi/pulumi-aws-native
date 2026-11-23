@@ -44,6 +44,12 @@ namespace Pulumi.AwsNative.Route53.Inputs
         public Input<bool>? EnableSni { get; set; }
 
         /// <summary>
+        /// Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+        /// </summary>
+        [Input("endpointType")]
+        public Input<Pulumi.AwsNative.Route53.HealthCheckConfigPropertiesEndpointType>? EndpointType { get; set; }
+
+        /// <summary>
         /// The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
         /// 
         /// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -82,6 +88,12 @@ namespace Pulumi.AwsNative.Route53.Inputs
         /// </summary>
         [Input("fullyQualifiedDomainName")]
         public Input<string>? FullyQualifiedDomainName { get; set; }
+
+        /// <summary>
+        /// The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+        /// </summary>
+        [Input("healthCheckSourceId")]
+        public Input<string>? HealthCheckSourceId { get; set; }
 
         /// <summary>
         /// The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.

@@ -22,6 +22,8 @@ __all__ = [
     'DeploymentConfiguration',
     'PolicyAssociatedTemplateAndRule',
     'PolicyConfiguration',
+    'PolicyIgwFirewallConfig',
+    'PolicySubnetConnectivityOverride',
     'PolicyWafConfig',
     'TemplateAssociatedRule',
 ]
@@ -199,7 +201,9 @@ class PolicyConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "remediationEnabled":
+        if key == "igwFirewallConfig":
+            suggest = "igw_firewall_config"
+        elif key == "remediationEnabled":
             suggest = "remediation_enabled"
         elif key == "resourcesCleanUp":
             suggest = "resources_clean_up"
@@ -218,6 +222,7 @@ class PolicyConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 igw_firewall_config: Optional['outputs.PolicyIgwFirewallConfig'] = None,
                  remediation_enabled: Optional[_builtins.bool] = None,
                  resources_clean_up: Optional[_builtins.bool] = None,
                  waf_config: Optional['outputs.PolicyWafConfig'] = None):
@@ -227,12 +232,19 @@ class PolicyConfiguration(dict):
         :param _builtins.bool remediation_enabled: Controls automatic remediation of non-compliant resources.
         :param _builtins.bool resources_clean_up: Controls automatic cleanup of unused resources.
         """
+        if igw_firewall_config is not None:
+            pulumi.set(__self__, "igw_firewall_config", igw_firewall_config)
         if remediation_enabled is not None:
             pulumi.set(__self__, "remediation_enabled", remediation_enabled)
         if resources_clean_up is not None:
             pulumi.set(__self__, "resources_clean_up", resources_clean_up)
         if waf_config is not None:
             pulumi.set(__self__, "waf_config", waf_config)
+
+    @_builtins.property
+    @pulumi.getter(name="igwFirewallConfig")
+    def igw_firewall_config(self) -> Optional['outputs.PolicyIgwFirewallConfig']:
+        return pulumi.get(self, "igw_firewall_config")
 
     @_builtins.property
     @pulumi.getter(name="remediationEnabled")
@@ -254,6 +266,112 @@ class PolicyConfiguration(dict):
     @pulumi.getter(name="wafConfig")
     def waf_config(self) -> Optional['outputs.PolicyWafConfig']:
         return pulumi.get(self, "waf_config")
+
+
+@pulumi.output_type
+class PolicyIgwFirewallConfig(dict):
+    """
+    Internet gateway firewall policy settings. Populated only for IGW_FIREWALL firewall type policies.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSubnetConnectivity":
+            suggest = "default_subnet_connectivity"
+        elif key == "subnetConnectivityOverrides":
+            suggest = "subnet_connectivity_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyIgwFirewallConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyIgwFirewallConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyIgwFirewallConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_subnet_connectivity: Optional['PolicyIgwFirewallConfigDefaultSubnetConnectivity'] = None,
+                 subnet_connectivity_overrides: Optional[Sequence['outputs.PolicySubnetConnectivityOverride']] = None):
+        """
+        Internet gateway firewall policy settings. Populated only for IGW_FIREWALL firewall type policies.
+
+        :param 'PolicyIgwFirewallConfigDefaultSubnetConnectivity' default_subnet_connectivity: The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+        :param Sequence['PolicySubnetConnectivityOverride'] subnet_connectivity_overrides: An ordered list of subnet connectivity overrides. When a subnet matches more than one override, the first match applies. At most one override per connectivity type.
+        """
+        if default_subnet_connectivity is not None:
+            pulumi.set(__self__, "default_subnet_connectivity", default_subnet_connectivity)
+        if subnet_connectivity_overrides is not None:
+            pulumi.set(__self__, "subnet_connectivity_overrides", subnet_connectivity_overrides)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSubnetConnectivity")
+    def default_subnet_connectivity(self) -> Optional['PolicyIgwFirewallConfigDefaultSubnetConnectivity']:
+        """
+        The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+        """
+        return pulumi.get(self, "default_subnet_connectivity")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetConnectivityOverrides")
+    def subnet_connectivity_overrides(self) -> Optional[Sequence['outputs.PolicySubnetConnectivityOverride']]:
+        """
+        An ordered list of subnet connectivity overrides. When a subnet matches more than one override, the first match applies. At most one override per connectivity type.
+        """
+        return pulumi.get(self, "subnet_connectivity_overrides")
+
+
+@pulumi.output_type
+class PolicySubnetConnectivityOverride(dict):
+    """
+    Applies a connectivity treatment other than the policy default to the subnets that the referenced scope selects.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectivityType":
+            suggest = "connectivity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicySubnetConnectivityOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicySubnetConnectivityOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicySubnetConnectivityOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connectivity_type: 'PolicySubnetConnectivityOverrideConnectivityType',
+                 scopes: Sequence[_builtins.str]):
+        """
+        Applies a connectivity treatment other than the policy default to the subnets that the referenced scope selects.
+
+        :param 'PolicySubnetConnectivityOverrideConnectivityType' connectivity_type: The connectivity treatment applied to the subnets that the referenced scope selects.
+        :param Sequence[_builtins.str] scopes: The ARN of the IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE scope whose selected subnets receive ConnectivityType.
+        """
+        pulumi.set(__self__, "connectivity_type", connectivity_type)
+        pulumi.set(__self__, "scopes", scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="connectivityType")
+    def connectivity_type(self) -> 'PolicySubnetConnectivityOverrideConnectivityType':
+        """
+        The connectivity treatment applied to the subnets that the referenced scope selects.
+        """
+        return pulumi.get(self, "connectivity_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> Sequence[_builtins.str]:
+        """
+        The ARN of the IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE scope whose selected subnets receive ConnectivityType.
+        """
+        return pulumi.get(self, "scopes")
 
 
 @pulumi.output_type

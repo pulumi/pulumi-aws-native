@@ -481,12 +481,14 @@ func (o EventSourceAwsServiceEventsConfigurationPtrOutput) Pattern() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Event source configuration. Exactly one of the two variants must be set.
+// Event source configuration. Exactly one of the three variants must be set.
 type EventSourceConfiguration struct {
 	// Configuration for forwarding a single AWS service's events.
 	AwsServiceEventsConfiguration *EventSourceAwsServiceEventsConfiguration `pulumi:"awsServiceEventsConfiguration"`
 	// Configuration for forwarding a partner event source's events.
 	PartnerEventsConfiguration *EventSourcePartnerEventsConfiguration `pulumi:"partnerEventsConfiguration"`
+	// Configuration for receiving events that an external provider sends to a webhook URL.
+	WebhookEventsConfiguration *EventSourceWebhookEventsConfiguration `pulumi:"webhookEventsConfiguration"`
 }
 
 // EventSourceConfigurationInput is an input type that accepts EventSourceConfigurationArgs and EventSourceConfigurationOutput values.
@@ -500,12 +502,14 @@ type EventSourceConfigurationInput interface {
 	ToEventSourceConfigurationOutputWithContext(context.Context) EventSourceConfigurationOutput
 }
 
-// Event source configuration. Exactly one of the two variants must be set.
+// Event source configuration. Exactly one of the three variants must be set.
 type EventSourceConfigurationArgs struct {
 	// Configuration for forwarding a single AWS service's events.
 	AwsServiceEventsConfiguration EventSourceAwsServiceEventsConfigurationPtrInput `pulumi:"awsServiceEventsConfiguration"`
 	// Configuration for forwarding a partner event source's events.
 	PartnerEventsConfiguration EventSourcePartnerEventsConfigurationPtrInput `pulumi:"partnerEventsConfiguration"`
+	// Configuration for receiving events that an external provider sends to a webhook URL.
+	WebhookEventsConfiguration EventSourceWebhookEventsConfigurationPtrInput `pulumi:"webhookEventsConfiguration"`
 }
 
 func (EventSourceConfigurationArgs) ElementType() reflect.Type {
@@ -520,7 +524,7 @@ func (i EventSourceConfigurationArgs) ToEventSourceConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceConfigurationOutput)
 }
 
-// Event source configuration. Exactly one of the two variants must be set.
+// Event source configuration. Exactly one of the three variants must be set.
 type EventSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EventSourceConfigurationOutput) ElementType() reflect.Type {
@@ -547,6 +551,13 @@ func (o EventSourceConfigurationOutput) PartnerEventsConfiguration() EventSource
 	return o.ApplyT(func(v EventSourceConfiguration) *EventSourcePartnerEventsConfiguration {
 		return v.PartnerEventsConfiguration
 	}).(EventSourcePartnerEventsConfigurationPtrOutput)
+}
+
+// Configuration for receiving events that an external provider sends to a webhook URL.
+func (o EventSourceConfigurationOutput) WebhookEventsConfiguration() EventSourceWebhookEventsConfigurationPtrOutput {
+	return o.ApplyT(func(v EventSourceConfiguration) *EventSourceWebhookEventsConfiguration {
+		return v.WebhookEventsConfiguration
+	}).(EventSourceWebhookEventsConfigurationPtrOutput)
 }
 
 type EventSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -591,6 +602,317 @@ func (o EventSourceConfigurationPtrOutput) PartnerEventsConfiguration() EventSou
 		}
 		return v.PartnerEventsConfiguration
 	}).(EventSourcePartnerEventsConfigurationPtrOutput)
+}
+
+// Configuration for receiving events that an external provider sends to a webhook URL.
+func (o EventSourceConfigurationPtrOutput) WebhookEventsConfiguration() EventSourceWebhookEventsConfigurationPtrOutput {
+	return o.ApplyT(func(v *EventSourceConfiguration) *EventSourceWebhookEventsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.WebhookEventsConfiguration
+	}).(EventSourceWebhookEventsConfigurationPtrOutput)
+}
+
+// Values Amazon EventBridge generated for the event source that depend on its type. Only the member for the event source's type is set.
+type EventSourceDetails struct {
+	// Values generated for a webhook event source.
+	WebhookDetails *EventSourceWebhookDetails `pulumi:"webhookDetails"`
+}
+
+// EventSourceDetailsInput is an input type that accepts EventSourceDetailsArgs and EventSourceDetailsOutput values.
+// You can construct a concrete instance of `EventSourceDetailsInput` via:
+//
+//	EventSourceDetailsArgs{...}
+type EventSourceDetailsInput interface {
+	pulumi.Input
+
+	ToEventSourceDetailsOutput() EventSourceDetailsOutput
+	ToEventSourceDetailsOutputWithContext(context.Context) EventSourceDetailsOutput
+}
+
+// Values Amazon EventBridge generated for the event source that depend on its type. Only the member for the event source's type is set.
+type EventSourceDetailsArgs struct {
+	// Values generated for a webhook event source.
+	WebhookDetails EventSourceWebhookDetailsPtrInput `pulumi:"webhookDetails"`
+}
+
+func (EventSourceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceDetails)(nil)).Elem()
+}
+
+func (i EventSourceDetailsArgs) ToEventSourceDetailsOutput() EventSourceDetailsOutput {
+	return i.ToEventSourceDetailsOutputWithContext(context.Background())
+}
+
+func (i EventSourceDetailsArgs) ToEventSourceDetailsOutputWithContext(ctx context.Context) EventSourceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceDetailsOutput)
+}
+
+func (i EventSourceDetailsArgs) ToEventSourceDetailsPtrOutput() EventSourceDetailsPtrOutput {
+	return i.ToEventSourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceDetailsArgs) ToEventSourceDetailsPtrOutputWithContext(ctx context.Context) EventSourceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceDetailsOutput).ToEventSourceDetailsPtrOutputWithContext(ctx)
+}
+
+// EventSourceDetailsPtrInput is an input type that accepts EventSourceDetailsArgs, EventSourceDetailsPtr and EventSourceDetailsPtrOutput values.
+// You can construct a concrete instance of `EventSourceDetailsPtrInput` via:
+//
+//	        EventSourceDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceDetailsPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceDetailsPtrOutput() EventSourceDetailsPtrOutput
+	ToEventSourceDetailsPtrOutputWithContext(context.Context) EventSourceDetailsPtrOutput
+}
+
+type eventSourceDetailsPtrType EventSourceDetailsArgs
+
+func EventSourceDetailsPtr(v *EventSourceDetailsArgs) EventSourceDetailsPtrInput {
+	return (*eventSourceDetailsPtrType)(v)
+}
+
+func (*eventSourceDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceDetails)(nil)).Elem()
+}
+
+func (i *eventSourceDetailsPtrType) ToEventSourceDetailsPtrOutput() EventSourceDetailsPtrOutput {
+	return i.ToEventSourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceDetailsPtrType) ToEventSourceDetailsPtrOutputWithContext(ctx context.Context) EventSourceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceDetailsPtrOutput)
+}
+
+// Values Amazon EventBridge generated for the event source that depend on its type. Only the member for the event source's type is set.
+type EventSourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (EventSourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceDetails)(nil)).Elem()
+}
+
+func (o EventSourceDetailsOutput) ToEventSourceDetailsOutput() EventSourceDetailsOutput {
+	return o
+}
+
+func (o EventSourceDetailsOutput) ToEventSourceDetailsOutputWithContext(ctx context.Context) EventSourceDetailsOutput {
+	return o
+}
+
+func (o EventSourceDetailsOutput) ToEventSourceDetailsPtrOutput() EventSourceDetailsPtrOutput {
+	return o.ToEventSourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceDetailsOutput) ToEventSourceDetailsPtrOutputWithContext(ctx context.Context) EventSourceDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceDetails) *EventSourceDetails {
+		return &v
+	}).(EventSourceDetailsPtrOutput)
+}
+
+// Values generated for a webhook event source.
+func (o EventSourceDetailsOutput) WebhookDetails() EventSourceWebhookDetailsPtrOutput {
+	return o.ApplyT(func(v EventSourceDetails) *EventSourceWebhookDetails { return v.WebhookDetails }).(EventSourceWebhookDetailsPtrOutput)
+}
+
+type EventSourceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceDetails)(nil)).Elem()
+}
+
+func (o EventSourceDetailsPtrOutput) ToEventSourceDetailsPtrOutput() EventSourceDetailsPtrOutput {
+	return o
+}
+
+func (o EventSourceDetailsPtrOutput) ToEventSourceDetailsPtrOutputWithContext(ctx context.Context) EventSourceDetailsPtrOutput {
+	return o
+}
+
+func (o EventSourceDetailsPtrOutput) Elem() EventSourceDetailsOutput {
+	return o.ApplyT(func(v *EventSourceDetails) EventSourceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceDetails
+		return ret
+	}).(EventSourceDetailsOutput)
+}
+
+// Values generated for a webhook event source.
+func (o EventSourceDetailsPtrOutput) WebhookDetails() EventSourceWebhookDetailsPtrOutput {
+	return o.ApplyT(func(v *EventSourceDetails) *EventSourceWebhookDetails {
+		if v == nil {
+			return nil
+		}
+		return v.WebhookDetails
+	}).(EventSourceWebhookDetailsPtrOutput)
+}
+
+// Log settings for the webhook requests an event source receives.
+type EventSourceLogConfiguration struct {
+	// Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+	IncludePayload *EventSourceLogConfigurationIncludePayload `pulumi:"includePayload"`
+	// The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+	Level *EventSourceLogConfigurationLevel `pulumi:"level"`
+}
+
+// EventSourceLogConfigurationInput is an input type that accepts EventSourceLogConfigurationArgs and EventSourceLogConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceLogConfigurationInput` via:
+//
+//	EventSourceLogConfigurationArgs{...}
+type EventSourceLogConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceLogConfigurationOutput() EventSourceLogConfigurationOutput
+	ToEventSourceLogConfigurationOutputWithContext(context.Context) EventSourceLogConfigurationOutput
+}
+
+// Log settings for the webhook requests an event source receives.
+type EventSourceLogConfigurationArgs struct {
+	// Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+	IncludePayload EventSourceLogConfigurationIncludePayloadPtrInput `pulumi:"includePayload"`
+	// The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+	Level EventSourceLogConfigurationLevelPtrInput `pulumi:"level"`
+}
+
+func (EventSourceLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceLogConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceLogConfigurationArgs) ToEventSourceLogConfigurationOutput() EventSourceLogConfigurationOutput {
+	return i.ToEventSourceLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceLogConfigurationArgs) ToEventSourceLogConfigurationOutputWithContext(ctx context.Context) EventSourceLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceLogConfigurationOutput)
+}
+
+func (i EventSourceLogConfigurationArgs) ToEventSourceLogConfigurationPtrOutput() EventSourceLogConfigurationPtrOutput {
+	return i.ToEventSourceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceLogConfigurationArgs) ToEventSourceLogConfigurationPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceLogConfigurationOutput).ToEventSourceLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventSourceLogConfigurationPtrInput is an input type that accepts EventSourceLogConfigurationArgs, EventSourceLogConfigurationPtr and EventSourceLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventSourceLogConfigurationPtrInput` via:
+//
+//	        EventSourceLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceLogConfigurationPtrOutput() EventSourceLogConfigurationPtrOutput
+	ToEventSourceLogConfigurationPtrOutputWithContext(context.Context) EventSourceLogConfigurationPtrOutput
+}
+
+type eventSourceLogConfigurationPtrType EventSourceLogConfigurationArgs
+
+func EventSourceLogConfigurationPtr(v *EventSourceLogConfigurationArgs) EventSourceLogConfigurationPtrInput {
+	return (*eventSourceLogConfigurationPtrType)(v)
+}
+
+func (*eventSourceLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceLogConfiguration)(nil)).Elem()
+}
+
+func (i *eventSourceLogConfigurationPtrType) ToEventSourceLogConfigurationPtrOutput() EventSourceLogConfigurationPtrOutput {
+	return i.ToEventSourceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceLogConfigurationPtrType) ToEventSourceLogConfigurationPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceLogConfigurationPtrOutput)
+}
+
+// Log settings for the webhook requests an event source receives.
+type EventSourceLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceLogConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceLogConfigurationOutput) ToEventSourceLogConfigurationOutput() EventSourceLogConfigurationOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationOutput) ToEventSourceLogConfigurationOutputWithContext(ctx context.Context) EventSourceLogConfigurationOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationOutput) ToEventSourceLogConfigurationPtrOutput() EventSourceLogConfigurationPtrOutput {
+	return o.ToEventSourceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceLogConfigurationOutput) ToEventSourceLogConfigurationPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceLogConfiguration) *EventSourceLogConfiguration {
+		return &v
+	}).(EventSourceLogConfigurationPtrOutput)
+}
+
+// Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+func (o EventSourceLogConfigurationOutput) IncludePayload() EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return o.ApplyT(func(v EventSourceLogConfiguration) *EventSourceLogConfigurationIncludePayload {
+		return v.IncludePayload
+	}).(EventSourceLogConfigurationIncludePayloadPtrOutput)
+}
+
+// The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+func (o EventSourceLogConfigurationOutput) Level() EventSourceLogConfigurationLevelPtrOutput {
+	return o.ApplyT(func(v EventSourceLogConfiguration) *EventSourceLogConfigurationLevel { return v.Level }).(EventSourceLogConfigurationLevelPtrOutput)
+}
+
+type EventSourceLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceLogConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceLogConfigurationPtrOutput) ToEventSourceLogConfigurationPtrOutput() EventSourceLogConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationPtrOutput) ToEventSourceLogConfigurationPtrOutputWithContext(ctx context.Context) EventSourceLogConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceLogConfigurationPtrOutput) Elem() EventSourceLogConfigurationOutput {
+	return o.ApplyT(func(v *EventSourceLogConfiguration) EventSourceLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceLogConfiguration
+		return ret
+	}).(EventSourceLogConfigurationOutput)
+}
+
+// Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+func (o EventSourceLogConfigurationPtrOutput) IncludePayload() EventSourceLogConfigurationIncludePayloadPtrOutput {
+	return o.ApplyT(func(v *EventSourceLogConfiguration) *EventSourceLogConfigurationIncludePayload {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePayload
+	}).(EventSourceLogConfigurationIncludePayloadPtrOutput)
+}
+
+// The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+func (o EventSourceLogConfigurationPtrOutput) Level() EventSourceLogConfigurationLevelPtrOutput {
+	return o.ApplyT(func(v *EventSourceLogConfiguration) *EventSourceLogConfigurationLevel {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(EventSourceLogConfigurationLevelPtrOutput)
 }
 
 // The destination for events that could not be forwarded by the managed forwarding target or, for partner event sources, the managed partner event bus. Arn is optional. An empty object removes a configured destination on update.
@@ -938,6 +1260,1469 @@ type EventSourceTag struct {
 	Key string `pulumi:"key"`
 	// The tag value. May be empty. No leading or trailing whitespace (interior whitespace is allowed).
 	Value string `pulumi:"value"`
+}
+
+// How the provider authenticates its webhook requests. Exactly one of the three variants must be set.
+type EventSourceWebhookAuthConfiguration struct {
+	// The provider sends HTTP Basic authentication credentials.
+	BasicHttpAuthConfiguration *EventSourceWebhookBasicHttpAuthConfiguration `pulumi:"basicHttpAuthConfiguration"`
+	// The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+	HmacAuthConfiguration *EventSourceWebhookHmacAuthConfiguration `pulumi:"hmacAuthConfiguration"`
+	// The provider sends the secret as the value of an HTTP header.
+	StaticTokenAuthConfiguration *EventSourceWebhookStaticTokenAuthConfiguration `pulumi:"staticTokenAuthConfiguration"`
+}
+
+// EventSourceWebhookAuthConfigurationInput is an input type that accepts EventSourceWebhookAuthConfigurationArgs and EventSourceWebhookAuthConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceWebhookAuthConfigurationInput` via:
+//
+//	EventSourceWebhookAuthConfigurationArgs{...}
+type EventSourceWebhookAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookAuthConfigurationOutput() EventSourceWebhookAuthConfigurationOutput
+	ToEventSourceWebhookAuthConfigurationOutputWithContext(context.Context) EventSourceWebhookAuthConfigurationOutput
+}
+
+// How the provider authenticates its webhook requests. Exactly one of the three variants must be set.
+type EventSourceWebhookAuthConfigurationArgs struct {
+	// The provider sends HTTP Basic authentication credentials.
+	BasicHttpAuthConfiguration EventSourceWebhookBasicHttpAuthConfigurationPtrInput `pulumi:"basicHttpAuthConfiguration"`
+	// The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+	HmacAuthConfiguration EventSourceWebhookHmacAuthConfigurationPtrInput `pulumi:"hmacAuthConfiguration"`
+	// The provider sends the secret as the value of an HTTP header.
+	StaticTokenAuthConfiguration EventSourceWebhookStaticTokenAuthConfigurationPtrInput `pulumi:"staticTokenAuthConfiguration"`
+}
+
+func (EventSourceWebhookAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookAuthConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceWebhookAuthConfigurationArgs) ToEventSourceWebhookAuthConfigurationOutput() EventSourceWebhookAuthConfigurationOutput {
+	return i.ToEventSourceWebhookAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookAuthConfigurationArgs) ToEventSourceWebhookAuthConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookAuthConfigurationOutput)
+}
+
+func (i EventSourceWebhookAuthConfigurationArgs) ToEventSourceWebhookAuthConfigurationPtrOutput() EventSourceWebhookAuthConfigurationPtrOutput {
+	return i.ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookAuthConfigurationArgs) ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookAuthConfigurationOutput).ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventSourceWebhookAuthConfigurationPtrInput is an input type that accepts EventSourceWebhookAuthConfigurationArgs, EventSourceWebhookAuthConfigurationPtr and EventSourceWebhookAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventSourceWebhookAuthConfigurationPtrInput` via:
+//
+//	        EventSourceWebhookAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceWebhookAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookAuthConfigurationPtrOutput() EventSourceWebhookAuthConfigurationPtrOutput
+	ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(context.Context) EventSourceWebhookAuthConfigurationPtrOutput
+}
+
+type eventSourceWebhookAuthConfigurationPtrType EventSourceWebhookAuthConfigurationArgs
+
+func EventSourceWebhookAuthConfigurationPtr(v *EventSourceWebhookAuthConfigurationArgs) EventSourceWebhookAuthConfigurationPtrInput {
+	return (*eventSourceWebhookAuthConfigurationPtrType)(v)
+}
+
+func (*eventSourceWebhookAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookAuthConfiguration)(nil)).Elem()
+}
+
+func (i *eventSourceWebhookAuthConfigurationPtrType) ToEventSourceWebhookAuthConfigurationPtrOutput() EventSourceWebhookAuthConfigurationPtrOutput {
+	return i.ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceWebhookAuthConfigurationPtrType) ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookAuthConfigurationPtrOutput)
+}
+
+// How the provider authenticates its webhook requests. Exactly one of the three variants must be set.
+type EventSourceWebhookAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookAuthConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookAuthConfigurationOutput) ToEventSourceWebhookAuthConfigurationOutput() EventSourceWebhookAuthConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookAuthConfigurationOutput) ToEventSourceWebhookAuthConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookAuthConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookAuthConfigurationOutput) ToEventSourceWebhookAuthConfigurationPtrOutput() EventSourceWebhookAuthConfigurationPtrOutput {
+	return o.ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookAuthConfigurationOutput) ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookAuthConfiguration) *EventSourceWebhookAuthConfiguration {
+		return &v
+	}).(EventSourceWebhookAuthConfigurationPtrOutput)
+}
+
+// The provider sends HTTP Basic authentication credentials.
+func (o EventSourceWebhookAuthConfigurationOutput) BasicHttpAuthConfiguration() EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookAuthConfiguration) *EventSourceWebhookBasicHttpAuthConfiguration {
+		return v.BasicHttpAuthConfiguration
+	}).(EventSourceWebhookBasicHttpAuthConfigurationPtrOutput)
+}
+
+// The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+func (o EventSourceWebhookAuthConfigurationOutput) HmacAuthConfiguration() EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookAuthConfiguration) *EventSourceWebhookHmacAuthConfiguration {
+		return v.HmacAuthConfiguration
+	}).(EventSourceWebhookHmacAuthConfigurationPtrOutput)
+}
+
+// The provider sends the secret as the value of an HTTP header.
+func (o EventSourceWebhookAuthConfigurationOutput) StaticTokenAuthConfiguration() EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookAuthConfiguration) *EventSourceWebhookStaticTokenAuthConfiguration {
+		return v.StaticTokenAuthConfiguration
+	}).(EventSourceWebhookStaticTokenAuthConfigurationPtrOutput)
+}
+
+type EventSourceWebhookAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookAuthConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookAuthConfigurationPtrOutput) ToEventSourceWebhookAuthConfigurationPtrOutput() EventSourceWebhookAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookAuthConfigurationPtrOutput) ToEventSourceWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookAuthConfigurationPtrOutput) Elem() EventSourceWebhookAuthConfigurationOutput {
+	return o.ApplyT(func(v *EventSourceWebhookAuthConfiguration) EventSourceWebhookAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookAuthConfiguration
+		return ret
+	}).(EventSourceWebhookAuthConfigurationOutput)
+}
+
+// The provider sends HTTP Basic authentication credentials.
+func (o EventSourceWebhookAuthConfigurationPtrOutput) BasicHttpAuthConfiguration() EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookAuthConfiguration) *EventSourceWebhookBasicHttpAuthConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BasicHttpAuthConfiguration
+	}).(EventSourceWebhookBasicHttpAuthConfigurationPtrOutput)
+}
+
+// The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+func (o EventSourceWebhookAuthConfigurationPtrOutput) HmacAuthConfiguration() EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookAuthConfiguration) *EventSourceWebhookHmacAuthConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.HmacAuthConfiguration
+	}).(EventSourceWebhookHmacAuthConfigurationPtrOutput)
+}
+
+// The provider sends the secret as the value of an HTTP header.
+func (o EventSourceWebhookAuthConfigurationPtrOutput) StaticTokenAuthConfiguration() EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookAuthConfiguration) *EventSourceWebhookStaticTokenAuthConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.StaticTokenAuthConfiguration
+	}).(EventSourceWebhookStaticTokenAuthConfigurationPtrOutput)
+}
+
+// The provider sends HTTP Basic authentication credentials: an Authorization header with the value "Basic " followed by the Base64 encoding of username:password. Specify both Username and Password, or omit both and Amazon EventBridge generates the pair. Specifying only one fails the request. EventBridge stores both only in AWS Secrets Manager and never returns them.
+type EventSourceWebhookBasicHttpAuthConfiguration struct {
+	// The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+	Password *string `pulumi:"password"`
+	// The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+	Username *string `pulumi:"username"`
+}
+
+// EventSourceWebhookBasicHttpAuthConfigurationInput is an input type that accepts EventSourceWebhookBasicHttpAuthConfigurationArgs and EventSourceWebhookBasicHttpAuthConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceWebhookBasicHttpAuthConfigurationInput` via:
+//
+//	EventSourceWebhookBasicHttpAuthConfigurationArgs{...}
+type EventSourceWebhookBasicHttpAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookBasicHttpAuthConfigurationOutput() EventSourceWebhookBasicHttpAuthConfigurationOutput
+	ToEventSourceWebhookBasicHttpAuthConfigurationOutputWithContext(context.Context) EventSourceWebhookBasicHttpAuthConfigurationOutput
+}
+
+// The provider sends HTTP Basic authentication credentials: an Authorization header with the value "Basic " followed by the Base64 encoding of username:password. Specify both Username and Password, or omit both and Amazon EventBridge generates the pair. Specifying only one fails the request. EventBridge stores both only in AWS Secrets Manager and never returns them.
+type EventSourceWebhookBasicHttpAuthConfigurationArgs struct {
+	// The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (EventSourceWebhookBasicHttpAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookBasicHttpAuthConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceWebhookBasicHttpAuthConfigurationArgs) ToEventSourceWebhookBasicHttpAuthConfigurationOutput() EventSourceWebhookBasicHttpAuthConfigurationOutput {
+	return i.ToEventSourceWebhookBasicHttpAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookBasicHttpAuthConfigurationArgs) ToEventSourceWebhookBasicHttpAuthConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookBasicHttpAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookBasicHttpAuthConfigurationOutput)
+}
+
+func (i EventSourceWebhookBasicHttpAuthConfigurationArgs) ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutput() EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return i.ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookBasicHttpAuthConfigurationArgs) ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookBasicHttpAuthConfigurationOutput).ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventSourceWebhookBasicHttpAuthConfigurationPtrInput is an input type that accepts EventSourceWebhookBasicHttpAuthConfigurationArgs, EventSourceWebhookBasicHttpAuthConfigurationPtr and EventSourceWebhookBasicHttpAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventSourceWebhookBasicHttpAuthConfigurationPtrInput` via:
+//
+//	        EventSourceWebhookBasicHttpAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceWebhookBasicHttpAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutput() EventSourceWebhookBasicHttpAuthConfigurationPtrOutput
+	ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(context.Context) EventSourceWebhookBasicHttpAuthConfigurationPtrOutput
+}
+
+type eventSourceWebhookBasicHttpAuthConfigurationPtrType EventSourceWebhookBasicHttpAuthConfigurationArgs
+
+func EventSourceWebhookBasicHttpAuthConfigurationPtr(v *EventSourceWebhookBasicHttpAuthConfigurationArgs) EventSourceWebhookBasicHttpAuthConfigurationPtrInput {
+	return (*eventSourceWebhookBasicHttpAuthConfigurationPtrType)(v)
+}
+
+func (*eventSourceWebhookBasicHttpAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookBasicHttpAuthConfiguration)(nil)).Elem()
+}
+
+func (i *eventSourceWebhookBasicHttpAuthConfigurationPtrType) ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutput() EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return i.ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceWebhookBasicHttpAuthConfigurationPtrType) ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookBasicHttpAuthConfigurationPtrOutput)
+}
+
+// The provider sends HTTP Basic authentication credentials: an Authorization header with the value "Basic " followed by the Base64 encoding of username:password. Specify both Username and Password, or omit both and Amazon EventBridge generates the pair. Specifying only one fails the request. EventBridge stores both only in AWS Secrets Manager and never returns them.
+type EventSourceWebhookBasicHttpAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookBasicHttpAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookBasicHttpAuthConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookBasicHttpAuthConfigurationOutput) ToEventSourceWebhookBasicHttpAuthConfigurationOutput() EventSourceWebhookBasicHttpAuthConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookBasicHttpAuthConfigurationOutput) ToEventSourceWebhookBasicHttpAuthConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookBasicHttpAuthConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookBasicHttpAuthConfigurationOutput) ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutput() EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return o.ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookBasicHttpAuthConfigurationOutput) ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookBasicHttpAuthConfiguration) *EventSourceWebhookBasicHttpAuthConfiguration {
+		return &v
+	}).(EventSourceWebhookBasicHttpAuthConfigurationPtrOutput)
+}
+
+// The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+func (o EventSourceWebhookBasicHttpAuthConfigurationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookBasicHttpAuthConfiguration) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+func (o EventSourceWebhookBasicHttpAuthConfigurationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookBasicHttpAuthConfiguration) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type EventSourceWebhookBasicHttpAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookBasicHttpAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookBasicHttpAuthConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookBasicHttpAuthConfigurationPtrOutput) ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutput() EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookBasicHttpAuthConfigurationPtrOutput) ToEventSourceWebhookBasicHttpAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookBasicHttpAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookBasicHttpAuthConfigurationPtrOutput) Elem() EventSourceWebhookBasicHttpAuthConfigurationOutput {
+	return o.ApplyT(func(v *EventSourceWebhookBasicHttpAuthConfiguration) EventSourceWebhookBasicHttpAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookBasicHttpAuthConfiguration
+		return ret
+	}).(EventSourceWebhookBasicHttpAuthConfigurationOutput)
+}
+
+// The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+func (o EventSourceWebhookBasicHttpAuthConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookBasicHttpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+func (o EventSourceWebhookBasicHttpAuthConfigurationPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookBasicHttpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deduplication settings for a webhook event source's events.
+type EventSourceWebhookDeduplicationConfiguration struct {
+	// How EventBridge detects duplicate events.
+	//
+	// Valid values:
+	// - CONTENT_BASED - Detects duplicates by a hash of the event content.
+	DeduplicationType EventSourceWebhookDeduplicationConfigurationDeduplicationType `pulumi:"deduplicationType"`
+}
+
+// EventSourceWebhookDeduplicationConfigurationInput is an input type that accepts EventSourceWebhookDeduplicationConfigurationArgs and EventSourceWebhookDeduplicationConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceWebhookDeduplicationConfigurationInput` via:
+//
+//	EventSourceWebhookDeduplicationConfigurationArgs{...}
+type EventSourceWebhookDeduplicationConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookDeduplicationConfigurationOutput() EventSourceWebhookDeduplicationConfigurationOutput
+	ToEventSourceWebhookDeduplicationConfigurationOutputWithContext(context.Context) EventSourceWebhookDeduplicationConfigurationOutput
+}
+
+// Deduplication settings for a webhook event source's events.
+type EventSourceWebhookDeduplicationConfigurationArgs struct {
+	// How EventBridge detects duplicate events.
+	//
+	// Valid values:
+	// - CONTENT_BASED - Detects duplicates by a hash of the event content.
+	DeduplicationType EventSourceWebhookDeduplicationConfigurationDeduplicationTypeInput `pulumi:"deduplicationType"`
+}
+
+func (EventSourceWebhookDeduplicationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookDeduplicationConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceWebhookDeduplicationConfigurationArgs) ToEventSourceWebhookDeduplicationConfigurationOutput() EventSourceWebhookDeduplicationConfigurationOutput {
+	return i.ToEventSourceWebhookDeduplicationConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookDeduplicationConfigurationArgs) ToEventSourceWebhookDeduplicationConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookDeduplicationConfigurationOutput)
+}
+
+func (i EventSourceWebhookDeduplicationConfigurationArgs) ToEventSourceWebhookDeduplicationConfigurationPtrOutput() EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return i.ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookDeduplicationConfigurationArgs) ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookDeduplicationConfigurationOutput).ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventSourceWebhookDeduplicationConfigurationPtrInput is an input type that accepts EventSourceWebhookDeduplicationConfigurationArgs, EventSourceWebhookDeduplicationConfigurationPtr and EventSourceWebhookDeduplicationConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventSourceWebhookDeduplicationConfigurationPtrInput` via:
+//
+//	        EventSourceWebhookDeduplicationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceWebhookDeduplicationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookDeduplicationConfigurationPtrOutput() EventSourceWebhookDeduplicationConfigurationPtrOutput
+	ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(context.Context) EventSourceWebhookDeduplicationConfigurationPtrOutput
+}
+
+type eventSourceWebhookDeduplicationConfigurationPtrType EventSourceWebhookDeduplicationConfigurationArgs
+
+func EventSourceWebhookDeduplicationConfigurationPtr(v *EventSourceWebhookDeduplicationConfigurationArgs) EventSourceWebhookDeduplicationConfigurationPtrInput {
+	return (*eventSourceWebhookDeduplicationConfigurationPtrType)(v)
+}
+
+func (*eventSourceWebhookDeduplicationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookDeduplicationConfiguration)(nil)).Elem()
+}
+
+func (i *eventSourceWebhookDeduplicationConfigurationPtrType) ToEventSourceWebhookDeduplicationConfigurationPtrOutput() EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return i.ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceWebhookDeduplicationConfigurationPtrType) ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookDeduplicationConfigurationPtrOutput)
+}
+
+// Deduplication settings for a webhook event source's events.
+type EventSourceWebhookDeduplicationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookDeduplicationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookDeduplicationConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationOutput) ToEventSourceWebhookDeduplicationConfigurationOutput() EventSourceWebhookDeduplicationConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationOutput) ToEventSourceWebhookDeduplicationConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationOutput) ToEventSourceWebhookDeduplicationConfigurationPtrOutput() EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return o.ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationOutput) ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookDeduplicationConfiguration) *EventSourceWebhookDeduplicationConfiguration {
+		return &v
+	}).(EventSourceWebhookDeduplicationConfigurationPtrOutput)
+}
+
+// How EventBridge detects duplicate events.
+//
+// Valid values:
+// - CONTENT_BASED - Detects duplicates by a hash of the event content.
+func (o EventSourceWebhookDeduplicationConfigurationOutput) DeduplicationType() EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput {
+	return o.ApplyT(func(v EventSourceWebhookDeduplicationConfiguration) EventSourceWebhookDeduplicationConfigurationDeduplicationType {
+		return v.DeduplicationType
+	}).(EventSourceWebhookDeduplicationConfigurationDeduplicationTypeOutput)
+}
+
+type EventSourceWebhookDeduplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookDeduplicationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookDeduplicationConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationPtrOutput) ToEventSourceWebhookDeduplicationConfigurationPtrOutput() EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationPtrOutput) ToEventSourceWebhookDeduplicationConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookDeduplicationConfigurationPtrOutput) Elem() EventSourceWebhookDeduplicationConfigurationOutput {
+	return o.ApplyT(func(v *EventSourceWebhookDeduplicationConfiguration) EventSourceWebhookDeduplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookDeduplicationConfiguration
+		return ret
+	}).(EventSourceWebhookDeduplicationConfigurationOutput)
+}
+
+// How EventBridge detects duplicate events.
+//
+// Valid values:
+// - CONTENT_BASED - Detects duplicates by a hash of the event content.
+func (o EventSourceWebhookDeduplicationConfigurationPtrOutput) DeduplicationType() EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookDeduplicationConfiguration) *EventSourceWebhookDeduplicationConfigurationDeduplicationType {
+		if v == nil {
+			return nil
+		}
+		return &v.DeduplicationType
+	}).(EventSourceWebhookDeduplicationConfigurationDeduplicationTypePtrOutput)
+}
+
+// Values Amazon EventBridge generated for a webhook event source.
+type EventSourceWebhookDetails struct {
+	// The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+	SecretArn *string `pulumi:"secretArn"`
+	// The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+	WebhookUrl *string `pulumi:"webhookUrl"`
+}
+
+// EventSourceWebhookDetailsInput is an input type that accepts EventSourceWebhookDetailsArgs and EventSourceWebhookDetailsOutput values.
+// You can construct a concrete instance of `EventSourceWebhookDetailsInput` via:
+//
+//	EventSourceWebhookDetailsArgs{...}
+type EventSourceWebhookDetailsInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookDetailsOutput() EventSourceWebhookDetailsOutput
+	ToEventSourceWebhookDetailsOutputWithContext(context.Context) EventSourceWebhookDetailsOutput
+}
+
+// Values Amazon EventBridge generated for a webhook event source.
+type EventSourceWebhookDetailsArgs struct {
+	// The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+	// The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+	WebhookUrl pulumi.StringPtrInput `pulumi:"webhookUrl"`
+}
+
+func (EventSourceWebhookDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookDetails)(nil)).Elem()
+}
+
+func (i EventSourceWebhookDetailsArgs) ToEventSourceWebhookDetailsOutput() EventSourceWebhookDetailsOutput {
+	return i.ToEventSourceWebhookDetailsOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookDetailsArgs) ToEventSourceWebhookDetailsOutputWithContext(ctx context.Context) EventSourceWebhookDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookDetailsOutput)
+}
+
+func (i EventSourceWebhookDetailsArgs) ToEventSourceWebhookDetailsPtrOutput() EventSourceWebhookDetailsPtrOutput {
+	return i.ToEventSourceWebhookDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookDetailsArgs) ToEventSourceWebhookDetailsPtrOutputWithContext(ctx context.Context) EventSourceWebhookDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookDetailsOutput).ToEventSourceWebhookDetailsPtrOutputWithContext(ctx)
+}
+
+// EventSourceWebhookDetailsPtrInput is an input type that accepts EventSourceWebhookDetailsArgs, EventSourceWebhookDetailsPtr and EventSourceWebhookDetailsPtrOutput values.
+// You can construct a concrete instance of `EventSourceWebhookDetailsPtrInput` via:
+//
+//	        EventSourceWebhookDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceWebhookDetailsPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookDetailsPtrOutput() EventSourceWebhookDetailsPtrOutput
+	ToEventSourceWebhookDetailsPtrOutputWithContext(context.Context) EventSourceWebhookDetailsPtrOutput
+}
+
+type eventSourceWebhookDetailsPtrType EventSourceWebhookDetailsArgs
+
+func EventSourceWebhookDetailsPtr(v *EventSourceWebhookDetailsArgs) EventSourceWebhookDetailsPtrInput {
+	return (*eventSourceWebhookDetailsPtrType)(v)
+}
+
+func (*eventSourceWebhookDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookDetails)(nil)).Elem()
+}
+
+func (i *eventSourceWebhookDetailsPtrType) ToEventSourceWebhookDetailsPtrOutput() EventSourceWebhookDetailsPtrOutput {
+	return i.ToEventSourceWebhookDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceWebhookDetailsPtrType) ToEventSourceWebhookDetailsPtrOutputWithContext(ctx context.Context) EventSourceWebhookDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookDetailsPtrOutput)
+}
+
+// Values Amazon EventBridge generated for a webhook event source.
+type EventSourceWebhookDetailsOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookDetails)(nil)).Elem()
+}
+
+func (o EventSourceWebhookDetailsOutput) ToEventSourceWebhookDetailsOutput() EventSourceWebhookDetailsOutput {
+	return o
+}
+
+func (o EventSourceWebhookDetailsOutput) ToEventSourceWebhookDetailsOutputWithContext(ctx context.Context) EventSourceWebhookDetailsOutput {
+	return o
+}
+
+func (o EventSourceWebhookDetailsOutput) ToEventSourceWebhookDetailsPtrOutput() EventSourceWebhookDetailsPtrOutput {
+	return o.ToEventSourceWebhookDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookDetailsOutput) ToEventSourceWebhookDetailsPtrOutputWithContext(ctx context.Context) EventSourceWebhookDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookDetails) *EventSourceWebhookDetails {
+		return &v
+	}).(EventSourceWebhookDetailsPtrOutput)
+}
+
+// The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+func (o EventSourceWebhookDetailsOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookDetails) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+func (o EventSourceWebhookDetailsOutput) WebhookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookDetails) *string { return v.WebhookUrl }).(pulumi.StringPtrOutput)
+}
+
+type EventSourceWebhookDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookDetails)(nil)).Elem()
+}
+
+func (o EventSourceWebhookDetailsPtrOutput) ToEventSourceWebhookDetailsPtrOutput() EventSourceWebhookDetailsPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookDetailsPtrOutput) ToEventSourceWebhookDetailsPtrOutputWithContext(ctx context.Context) EventSourceWebhookDetailsPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookDetailsPtrOutput) Elem() EventSourceWebhookDetailsOutput {
+	return o.ApplyT(func(v *EventSourceWebhookDetails) EventSourceWebhookDetails {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookDetails
+		return ret
+	}).(EventSourceWebhookDetailsOutput)
+}
+
+// The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+func (o EventSourceWebhookDetailsPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+func (o EventSourceWebhookDetailsPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebhookUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Receive events from an external provider, such as a SaaS application, that sends them as HTTPS POST requests to a webhook URL. The provider authenticates with an HTTP scheme instead of AWS credentials.
+type EventSourceWebhookEventsConfiguration struct {
+	// How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+	AuthConfiguration EventSourceWebhookAuthConfiguration `pulumi:"authConfiguration"`
+	// Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+	DeduplicationConfiguration *EventSourceWebhookDeduplicationConfiguration `pulumi:"deduplicationConfiguration"`
+	// The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+	// The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+	LogConfiguration *EventSourceLogConfiguration `pulumi:"logConfiguration"`
+	// The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+	MetadataHttpHeaders []string `pulumi:"metadataHttpHeaders"`
+	// The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// EventSourceWebhookEventsConfigurationInput is an input type that accepts EventSourceWebhookEventsConfigurationArgs and EventSourceWebhookEventsConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceWebhookEventsConfigurationInput` via:
+//
+//	EventSourceWebhookEventsConfigurationArgs{...}
+type EventSourceWebhookEventsConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookEventsConfigurationOutput() EventSourceWebhookEventsConfigurationOutput
+	ToEventSourceWebhookEventsConfigurationOutputWithContext(context.Context) EventSourceWebhookEventsConfigurationOutput
+}
+
+// Receive events from an external provider, such as a SaaS application, that sends them as HTTPS POST requests to a webhook URL. The provider authenticates with an HTTP scheme instead of AWS credentials.
+type EventSourceWebhookEventsConfigurationArgs struct {
+	// How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+	AuthConfiguration EventSourceWebhookAuthConfigurationInput `pulumi:"authConfiguration"`
+	// Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+	DeduplicationConfiguration EventSourceWebhookDeduplicationConfigurationPtrInput `pulumi:"deduplicationConfiguration"`
+	// The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+	KmsKeyIdentifier pulumi.StringPtrInput `pulumi:"kmsKeyIdentifier"`
+	// The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+	LogConfiguration EventSourceLogConfigurationPtrInput `pulumi:"logConfiguration"`
+	// The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+	MetadataHttpHeaders pulumi.StringArrayInput `pulumi:"metadataHttpHeaders"`
+	// The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (EventSourceWebhookEventsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookEventsConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceWebhookEventsConfigurationArgs) ToEventSourceWebhookEventsConfigurationOutput() EventSourceWebhookEventsConfigurationOutput {
+	return i.ToEventSourceWebhookEventsConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookEventsConfigurationArgs) ToEventSourceWebhookEventsConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookEventsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookEventsConfigurationOutput)
+}
+
+func (i EventSourceWebhookEventsConfigurationArgs) ToEventSourceWebhookEventsConfigurationPtrOutput() EventSourceWebhookEventsConfigurationPtrOutput {
+	return i.ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookEventsConfigurationArgs) ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookEventsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookEventsConfigurationOutput).ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventSourceWebhookEventsConfigurationPtrInput is an input type that accepts EventSourceWebhookEventsConfigurationArgs, EventSourceWebhookEventsConfigurationPtr and EventSourceWebhookEventsConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventSourceWebhookEventsConfigurationPtrInput` via:
+//
+//	        EventSourceWebhookEventsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceWebhookEventsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookEventsConfigurationPtrOutput() EventSourceWebhookEventsConfigurationPtrOutput
+	ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(context.Context) EventSourceWebhookEventsConfigurationPtrOutput
+}
+
+type eventSourceWebhookEventsConfigurationPtrType EventSourceWebhookEventsConfigurationArgs
+
+func EventSourceWebhookEventsConfigurationPtr(v *EventSourceWebhookEventsConfigurationArgs) EventSourceWebhookEventsConfigurationPtrInput {
+	return (*eventSourceWebhookEventsConfigurationPtrType)(v)
+}
+
+func (*eventSourceWebhookEventsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookEventsConfiguration)(nil)).Elem()
+}
+
+func (i *eventSourceWebhookEventsConfigurationPtrType) ToEventSourceWebhookEventsConfigurationPtrOutput() EventSourceWebhookEventsConfigurationPtrOutput {
+	return i.ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceWebhookEventsConfigurationPtrType) ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookEventsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookEventsConfigurationPtrOutput)
+}
+
+// Receive events from an external provider, such as a SaaS application, that sends them as HTTPS POST requests to a webhook URL. The provider authenticates with an HTTP scheme instead of AWS credentials.
+type EventSourceWebhookEventsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookEventsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookEventsConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookEventsConfigurationOutput) ToEventSourceWebhookEventsConfigurationOutput() EventSourceWebhookEventsConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookEventsConfigurationOutput) ToEventSourceWebhookEventsConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookEventsConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookEventsConfigurationOutput) ToEventSourceWebhookEventsConfigurationPtrOutput() EventSourceWebhookEventsConfigurationPtrOutput {
+	return o.ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookEventsConfigurationOutput) ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookEventsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookEventsConfiguration) *EventSourceWebhookEventsConfiguration {
+		return &v
+	}).(EventSourceWebhookEventsConfigurationPtrOutput)
+}
+
+// How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+func (o EventSourceWebhookEventsConfigurationOutput) AuthConfiguration() EventSourceWebhookAuthConfigurationOutput {
+	return o.ApplyT(func(v EventSourceWebhookEventsConfiguration) EventSourceWebhookAuthConfiguration {
+		return v.AuthConfiguration
+	}).(EventSourceWebhookAuthConfigurationOutput)
+}
+
+// Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+func (o EventSourceWebhookEventsConfigurationOutput) DeduplicationConfiguration() EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookEventsConfiguration) *EventSourceWebhookDeduplicationConfiguration {
+		return v.DeduplicationConfiguration
+	}).(EventSourceWebhookDeduplicationConfigurationPtrOutput)
+}
+
+// The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+func (o EventSourceWebhookEventsConfigurationOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookEventsConfiguration) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+func (o EventSourceWebhookEventsConfigurationOutput) LogConfiguration() EventSourceLogConfigurationPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookEventsConfiguration) *EventSourceLogConfiguration { return v.LogConfiguration }).(EventSourceLogConfigurationPtrOutput)
+}
+
+// The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+func (o EventSourceWebhookEventsConfigurationOutput) MetadataHttpHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSourceWebhookEventsConfiguration) []string { return v.MetadataHttpHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+func (o EventSourceWebhookEventsConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSourceWebhookEventsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type EventSourceWebhookEventsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookEventsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookEventsConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookEventsConfigurationPtrOutput) ToEventSourceWebhookEventsConfigurationPtrOutput() EventSourceWebhookEventsConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookEventsConfigurationPtrOutput) ToEventSourceWebhookEventsConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookEventsConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookEventsConfigurationPtrOutput) Elem() EventSourceWebhookEventsConfigurationOutput {
+	return o.ApplyT(func(v *EventSourceWebhookEventsConfiguration) EventSourceWebhookEventsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookEventsConfiguration
+		return ret
+	}).(EventSourceWebhookEventsConfigurationOutput)
+}
+
+// How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+func (o EventSourceWebhookEventsConfigurationPtrOutput) AuthConfiguration() EventSourceWebhookAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookEventsConfiguration) *EventSourceWebhookAuthConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthConfiguration
+	}).(EventSourceWebhookAuthConfigurationPtrOutput)
+}
+
+// Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+func (o EventSourceWebhookEventsConfigurationPtrOutput) DeduplicationConfiguration() EventSourceWebhookDeduplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookEventsConfiguration) *EventSourceWebhookDeduplicationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DeduplicationConfiguration
+	}).(EventSourceWebhookDeduplicationConfigurationPtrOutput)
+}
+
+// The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+func (o EventSourceWebhookEventsConfigurationPtrOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookEventsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+func (o EventSourceWebhookEventsConfigurationPtrOutput) LogConfiguration() EventSourceLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookEventsConfiguration) *EventSourceLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfiguration
+	}).(EventSourceLogConfigurationPtrOutput)
+}
+
+// The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+func (o EventSourceWebhookEventsConfigurationPtrOutput) MetadataHttpHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSourceWebhookEventsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataHttpHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+func (o EventSourceWebhookEventsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookEventsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provider signs each request with a hash-based message authentication code (HMAC) of the secret. Amazon EventBridge accepts the request if any signature in SignatureHttpHeader matches.
+type EventSourceWebhookHmacAuthConfiguration struct {
+	// The hash algorithm the provider uses to compute the signature.
+	//
+	// Valid values:
+	// - SHA256 - SHA-256.
+	// - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+	Algorithm EventSourceWebhookHmacAuthConfigurationAlgorithm `pulumi:"algorithm"`
+	// The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+	Delimiter *string `pulumi:"delimiter"`
+	// How the provider encodes the signature in the header.
+	//
+	// Valid values:
+	// - HEX - Hexadecimal.
+	// - BASE64 - Base64.
+	Encoding EventSourceWebhookHmacAuthConfigurationEncoding `pulumi:"encoding"`
+	// The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+	MessageIdHttpHeader *string `pulumi:"messageIdHttpHeader"`
+	// How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+	SecretEncoding *EventSourceWebhookHmacAuthConfigurationSecretEncoding `pulumi:"secretEncoding"`
+	// The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+	SecretValue *string `pulumi:"secretValue"`
+	// The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+	SignatureHttpHeader string `pulumi:"signatureHttpHeader"`
+	// The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+	SignaturePrefix *string `pulumi:"signaturePrefix"`
+	// How the provider assembles the message it signs from the request.
+	//
+	// Valid values:
+	// - BODY - The request body alone.
+	// - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+	// - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+	SignedMessageComposition EventSourceWebhookHmacAuthConfigurationSignedMessageComposition `pulumi:"signedMessageComposition"`
+	// The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+	TimestampHttpHeader *string `pulumi:"timestampHttpHeader"`
+	// The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+	TimestampPrefix *string `pulumi:"timestampPrefix"`
+	// The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+	TimestampToleranceInSeconds *int `pulumi:"timestampToleranceInSeconds"`
+}
+
+// EventSourceWebhookHmacAuthConfigurationInput is an input type that accepts EventSourceWebhookHmacAuthConfigurationArgs and EventSourceWebhookHmacAuthConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceWebhookHmacAuthConfigurationInput` via:
+//
+//	EventSourceWebhookHmacAuthConfigurationArgs{...}
+type EventSourceWebhookHmacAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationOutput() EventSourceWebhookHmacAuthConfigurationOutput
+	ToEventSourceWebhookHmacAuthConfigurationOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationOutput
+}
+
+// The provider signs each request with a hash-based message authentication code (HMAC) of the secret. Amazon EventBridge accepts the request if any signature in SignatureHttpHeader matches.
+type EventSourceWebhookHmacAuthConfigurationArgs struct {
+	// The hash algorithm the provider uses to compute the signature.
+	//
+	// Valid values:
+	// - SHA256 - SHA-256.
+	// - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+	Algorithm EventSourceWebhookHmacAuthConfigurationAlgorithmInput `pulumi:"algorithm"`
+	// The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// How the provider encodes the signature in the header.
+	//
+	// Valid values:
+	// - HEX - Hexadecimal.
+	// - BASE64 - Base64.
+	Encoding EventSourceWebhookHmacAuthConfigurationEncodingInput `pulumi:"encoding"`
+	// The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+	MessageIdHttpHeader pulumi.StringPtrInput `pulumi:"messageIdHttpHeader"`
+	// How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+	SecretEncoding EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrInput `pulumi:"secretEncoding"`
+	// The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
+	// The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+	SignatureHttpHeader pulumi.StringInput `pulumi:"signatureHttpHeader"`
+	// The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+	SignaturePrefix pulumi.StringPtrInput `pulumi:"signaturePrefix"`
+	// How the provider assembles the message it signs from the request.
+	//
+	// Valid values:
+	// - BODY - The request body alone.
+	// - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+	// - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+	SignedMessageComposition EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionInput `pulumi:"signedMessageComposition"`
+	// The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+	TimestampHttpHeader pulumi.StringPtrInput `pulumi:"timestampHttpHeader"`
+	// The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+	TimestampPrefix pulumi.StringPtrInput `pulumi:"timestampPrefix"`
+	// The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+	TimestampToleranceInSeconds pulumi.IntPtrInput `pulumi:"timestampToleranceInSeconds"`
+}
+
+func (EventSourceWebhookHmacAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceWebhookHmacAuthConfigurationArgs) ToEventSourceWebhookHmacAuthConfigurationOutput() EventSourceWebhookHmacAuthConfigurationOutput {
+	return i.ToEventSourceWebhookHmacAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookHmacAuthConfigurationArgs) ToEventSourceWebhookHmacAuthConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookHmacAuthConfigurationOutput)
+}
+
+func (i EventSourceWebhookHmacAuthConfigurationArgs) ToEventSourceWebhookHmacAuthConfigurationPtrOutput() EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return i.ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookHmacAuthConfigurationArgs) ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookHmacAuthConfigurationOutput).ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventSourceWebhookHmacAuthConfigurationPtrInput is an input type that accepts EventSourceWebhookHmacAuthConfigurationArgs, EventSourceWebhookHmacAuthConfigurationPtr and EventSourceWebhookHmacAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventSourceWebhookHmacAuthConfigurationPtrInput` via:
+//
+//	        EventSourceWebhookHmacAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceWebhookHmacAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookHmacAuthConfigurationPtrOutput() EventSourceWebhookHmacAuthConfigurationPtrOutput
+	ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(context.Context) EventSourceWebhookHmacAuthConfigurationPtrOutput
+}
+
+type eventSourceWebhookHmacAuthConfigurationPtrType EventSourceWebhookHmacAuthConfigurationArgs
+
+func EventSourceWebhookHmacAuthConfigurationPtr(v *EventSourceWebhookHmacAuthConfigurationArgs) EventSourceWebhookHmacAuthConfigurationPtrInput {
+	return (*eventSourceWebhookHmacAuthConfigurationPtrType)(v)
+}
+
+func (*eventSourceWebhookHmacAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookHmacAuthConfiguration)(nil)).Elem()
+}
+
+func (i *eventSourceWebhookHmacAuthConfigurationPtrType) ToEventSourceWebhookHmacAuthConfigurationPtrOutput() EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return i.ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceWebhookHmacAuthConfigurationPtrType) ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookHmacAuthConfigurationPtrOutput)
+}
+
+// The provider signs each request with a hash-based message authentication code (HMAC) of the secret. Amazon EventBridge accepts the request if any signature in SignatureHttpHeader matches.
+type EventSourceWebhookHmacAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookHmacAuthConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationOutput) ToEventSourceWebhookHmacAuthConfigurationOutput() EventSourceWebhookHmacAuthConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationOutput) ToEventSourceWebhookHmacAuthConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationOutput) ToEventSourceWebhookHmacAuthConfigurationPtrOutput() EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return o.ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationOutput) ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookHmacAuthConfiguration) *EventSourceWebhookHmacAuthConfiguration {
+		return &v
+	}).(EventSourceWebhookHmacAuthConfigurationPtrOutput)
+}
+
+// The hash algorithm the provider uses to compute the signature.
+//
+// Valid values:
+// - SHA256 - SHA-256.
+// - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) Algorithm() EventSourceWebhookHmacAuthConfigurationAlgorithmOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) EventSourceWebhookHmacAuthConfigurationAlgorithm {
+		return v.Algorithm
+	}).(EventSourceWebhookHmacAuthConfigurationAlgorithmOutput)
+}
+
+// The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// How the provider encodes the signature in the header.
+//
+// Valid values:
+// - HEX - Hexadecimal.
+// - BASE64 - Base64.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) Encoding() EventSourceWebhookHmacAuthConfigurationEncodingOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) EventSourceWebhookHmacAuthConfigurationEncoding {
+		return v.Encoding
+	}).(EventSourceWebhookHmacAuthConfigurationEncodingOutput)
+}
+
+// The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) MessageIdHttpHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) *string { return v.MessageIdHttpHeader }).(pulumi.StringPtrOutput)
+}
+
+// How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) SecretEncoding() EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) *EventSourceWebhookHmacAuthConfigurationSecretEncoding {
+		return v.SecretEncoding
+	}).(EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput)
+}
+
+// The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) SecretValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) *string { return v.SecretValue }).(pulumi.StringPtrOutput)
+}
+
+// The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) SignatureHttpHeader() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) string { return v.SignatureHttpHeader }).(pulumi.StringOutput)
+}
+
+// The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) SignaturePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) *string { return v.SignaturePrefix }).(pulumi.StringPtrOutput)
+}
+
+// How the provider assembles the message it signs from the request.
+//
+// Valid values:
+// - BODY - The request body alone.
+// - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+// - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) SignedMessageComposition() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) EventSourceWebhookHmacAuthConfigurationSignedMessageComposition {
+		return v.SignedMessageComposition
+	}).(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionOutput)
+}
+
+// The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) TimestampHttpHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) *string { return v.TimestampHttpHeader }).(pulumi.StringPtrOutput)
+}
+
+// The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) TimestampPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) *string { return v.TimestampPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationOutput) TimestampToleranceInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookHmacAuthConfiguration) *int { return v.TimestampToleranceInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type EventSourceWebhookHmacAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookHmacAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookHmacAuthConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) ToEventSourceWebhookHmacAuthConfigurationPtrOutput() EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) ToEventSourceWebhookHmacAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookHmacAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) Elem() EventSourceWebhookHmacAuthConfigurationOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) EventSourceWebhookHmacAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookHmacAuthConfiguration
+		return ret
+	}).(EventSourceWebhookHmacAuthConfigurationOutput)
+}
+
+// The hash algorithm the provider uses to compute the signature.
+//
+// Valid values:
+// - SHA256 - SHA-256.
+// - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) Algorithm() EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *EventSourceWebhookHmacAuthConfigurationAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(EventSourceWebhookHmacAuthConfigurationAlgorithmPtrOutput)
+}
+
+// The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// How the provider encodes the signature in the header.
+//
+// Valid values:
+// - HEX - Hexadecimal.
+// - BASE64 - Base64.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) Encoding() EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *EventSourceWebhookHmacAuthConfigurationEncoding {
+		if v == nil {
+			return nil
+		}
+		return &v.Encoding
+	}).(EventSourceWebhookHmacAuthConfigurationEncodingPtrOutput)
+}
+
+// The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) MessageIdHttpHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageIdHttpHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) SecretEncoding() EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *EventSourceWebhookHmacAuthConfigurationSecretEncoding {
+		if v == nil {
+			return nil
+		}
+		return v.SecretEncoding
+	}).(EventSourceWebhookHmacAuthConfigurationSecretEncodingPtrOutput)
+}
+
+// The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) SecretValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) SignatureHttpHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SignatureHttpHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) SignaturePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignaturePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// How the provider assembles the message it signs from the request.
+//
+// Valid values:
+// - BODY - The request body alone.
+// - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+// - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) SignedMessageComposition() EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *EventSourceWebhookHmacAuthConfigurationSignedMessageComposition {
+		if v == nil {
+			return nil
+		}
+		return &v.SignedMessageComposition
+	}).(EventSourceWebhookHmacAuthConfigurationSignedMessageCompositionPtrOutput)
+}
+
+// The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) TimestampHttpHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampHttpHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) TimestampPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+func (o EventSourceWebhookHmacAuthConfigurationPtrOutput) TimestampToleranceInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookHmacAuthConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampToleranceInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The provider sends the secret as the value of an HTTP header.
+type EventSourceWebhookStaticTokenAuthConfiguration struct {
+	// The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+	SecretValue *string `pulumi:"secretValue"`
+	// The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+	TokenHttpHeader string `pulumi:"tokenHttpHeader"`
+}
+
+// EventSourceWebhookStaticTokenAuthConfigurationInput is an input type that accepts EventSourceWebhookStaticTokenAuthConfigurationArgs and EventSourceWebhookStaticTokenAuthConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceWebhookStaticTokenAuthConfigurationInput` via:
+//
+//	EventSourceWebhookStaticTokenAuthConfigurationArgs{...}
+type EventSourceWebhookStaticTokenAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookStaticTokenAuthConfigurationOutput() EventSourceWebhookStaticTokenAuthConfigurationOutput
+	ToEventSourceWebhookStaticTokenAuthConfigurationOutputWithContext(context.Context) EventSourceWebhookStaticTokenAuthConfigurationOutput
+}
+
+// The provider sends the secret as the value of an HTTP header.
+type EventSourceWebhookStaticTokenAuthConfigurationArgs struct {
+	// The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
+	// The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+	TokenHttpHeader pulumi.StringInput `pulumi:"tokenHttpHeader"`
+}
+
+func (EventSourceWebhookStaticTokenAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookStaticTokenAuthConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceWebhookStaticTokenAuthConfigurationArgs) ToEventSourceWebhookStaticTokenAuthConfigurationOutput() EventSourceWebhookStaticTokenAuthConfigurationOutput {
+	return i.ToEventSourceWebhookStaticTokenAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookStaticTokenAuthConfigurationArgs) ToEventSourceWebhookStaticTokenAuthConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookStaticTokenAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookStaticTokenAuthConfigurationOutput)
+}
+
+func (i EventSourceWebhookStaticTokenAuthConfigurationArgs) ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutput() EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return i.ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceWebhookStaticTokenAuthConfigurationArgs) ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookStaticTokenAuthConfigurationOutput).ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventSourceWebhookStaticTokenAuthConfigurationPtrInput is an input type that accepts EventSourceWebhookStaticTokenAuthConfigurationArgs, EventSourceWebhookStaticTokenAuthConfigurationPtr and EventSourceWebhookStaticTokenAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventSourceWebhookStaticTokenAuthConfigurationPtrInput` via:
+//
+//	        EventSourceWebhookStaticTokenAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceWebhookStaticTokenAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutput() EventSourceWebhookStaticTokenAuthConfigurationPtrOutput
+	ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(context.Context) EventSourceWebhookStaticTokenAuthConfigurationPtrOutput
+}
+
+type eventSourceWebhookStaticTokenAuthConfigurationPtrType EventSourceWebhookStaticTokenAuthConfigurationArgs
+
+func EventSourceWebhookStaticTokenAuthConfigurationPtr(v *EventSourceWebhookStaticTokenAuthConfigurationArgs) EventSourceWebhookStaticTokenAuthConfigurationPtrInput {
+	return (*eventSourceWebhookStaticTokenAuthConfigurationPtrType)(v)
+}
+
+func (*eventSourceWebhookStaticTokenAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookStaticTokenAuthConfiguration)(nil)).Elem()
+}
+
+func (i *eventSourceWebhookStaticTokenAuthConfigurationPtrType) ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutput() EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return i.ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceWebhookStaticTokenAuthConfigurationPtrType) ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceWebhookStaticTokenAuthConfigurationPtrOutput)
+}
+
+// The provider sends the secret as the value of an HTTP header.
+type EventSourceWebhookStaticTokenAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookStaticTokenAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceWebhookStaticTokenAuthConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookStaticTokenAuthConfigurationOutput) ToEventSourceWebhookStaticTokenAuthConfigurationOutput() EventSourceWebhookStaticTokenAuthConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookStaticTokenAuthConfigurationOutput) ToEventSourceWebhookStaticTokenAuthConfigurationOutputWithContext(ctx context.Context) EventSourceWebhookStaticTokenAuthConfigurationOutput {
+	return o
+}
+
+func (o EventSourceWebhookStaticTokenAuthConfigurationOutput) ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutput() EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return o.ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceWebhookStaticTokenAuthConfigurationOutput) ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceWebhookStaticTokenAuthConfiguration) *EventSourceWebhookStaticTokenAuthConfiguration {
+		return &v
+	}).(EventSourceWebhookStaticTokenAuthConfigurationPtrOutput)
+}
+
+// The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+func (o EventSourceWebhookStaticTokenAuthConfigurationOutput) SecretValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceWebhookStaticTokenAuthConfiguration) *string { return v.SecretValue }).(pulumi.StringPtrOutput)
+}
+
+// The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+func (o EventSourceWebhookStaticTokenAuthConfigurationOutput) TokenHttpHeader() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSourceWebhookStaticTokenAuthConfiguration) string { return v.TokenHttpHeader }).(pulumi.StringOutput)
+}
+
+type EventSourceWebhookStaticTokenAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceWebhookStaticTokenAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceWebhookStaticTokenAuthConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceWebhookStaticTokenAuthConfigurationPtrOutput) ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutput() EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookStaticTokenAuthConfigurationPtrOutput) ToEventSourceWebhookStaticTokenAuthConfigurationPtrOutputWithContext(ctx context.Context) EventSourceWebhookStaticTokenAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o EventSourceWebhookStaticTokenAuthConfigurationPtrOutput) Elem() EventSourceWebhookStaticTokenAuthConfigurationOutput {
+	return o.ApplyT(func(v *EventSourceWebhookStaticTokenAuthConfiguration) EventSourceWebhookStaticTokenAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceWebhookStaticTokenAuthConfiguration
+		return ret
+	}).(EventSourceWebhookStaticTokenAuthConfigurationOutput)
+}
+
+// The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+func (o EventSourceWebhookStaticTokenAuthConfigurationPtrOutput) SecretValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookStaticTokenAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+func (o EventSourceWebhookStaticTokenAuthConfigurationPtrOutput) TokenHttpHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceWebhookStaticTokenAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenHttpHeader
+	}).(pulumi.StringPtrOutput)
 }
 
 // Configuration for batching events into a single delivery.
@@ -1678,6 +3463,8 @@ type SubscriberInvokeConfiguration struct {
 	KinesisParameters *SubscriberInvokeConfigurationKinesisParametersProperties `pulumi:"kinesisParameters"`
 	// Parameters for invoking an AWS Lambda function target.
 	LambdaParameters *SubscriberInvokeConfigurationLambdaParametersProperties `pulumi:"lambdaParameters"`
+	// Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+	MskParameters *SubscriberInvokeConfigurationMskParametersProperties `pulumi:"mskParameters"`
 	// The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
 	RoleArn string `pulumi:"roleArn"`
 	// Parameters for publishing events to an Amazon SNS topic target.
@@ -1713,6 +3500,8 @@ type SubscriberInvokeConfigurationArgs struct {
 	KinesisParameters SubscriberInvokeConfigurationKinesisParametersPropertiesPtrInput `pulumi:"kinesisParameters"`
 	// Parameters for invoking an AWS Lambda function target.
 	LambdaParameters SubscriberInvokeConfigurationLambdaParametersPropertiesPtrInput `pulumi:"lambdaParameters"`
+	// Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+	MskParameters SubscriberInvokeConfigurationMskParametersPropertiesPtrInput `pulumi:"mskParameters"`
 	// The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Parameters for publishing events to an Amazon SNS topic target.
@@ -1780,6 +3569,13 @@ func (o SubscriberInvokeConfigurationOutput) LambdaParameters() SubscriberInvoke
 	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationLambdaParametersProperties {
 		return v.LambdaParameters
 	}).(SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput)
+}
+
+// Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+func (o SubscriberInvokeConfigurationOutput) MskParameters() SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationMskParametersProperties {
+		return v.MskParameters
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput)
 }
 
 // The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
@@ -1882,6 +3678,16 @@ func (o SubscriberInvokeConfigurationPtrOutput) LambdaParameters() SubscriberInv
 		}
 		return v.LambdaParameters
 	}).(SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput)
+}
+
+// Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+func (o SubscriberInvokeConfigurationPtrOutput) MskParameters() SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfiguration) *SubscriberInvokeConfigurationMskParametersProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MskParameters
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput)
 }
 
 // The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
@@ -2705,6 +4511,266 @@ func (o SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput) Tenant
 			return nil
 		}
 		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+type SubscriberInvokeConfigurationMskParametersProperties struct {
+	// Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+	Acks *SubscriberInvokeConfigurationMskParametersPropertiesAcks `pulumi:"acks"`
+	// Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+	ClientId *string `pulumi:"clientId"`
+	// Producer compression codec applied to the record batch. Defaults to NONE.
+	Compression *SubscriberInvokeConfigurationMskParametersPropertiesCompression `pulumi:"compression"`
+	// Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+	Connectivity SubscriberInvokeConfigurationMskParametersPropertiesConnectivity `pulumi:"connectivity"`
+	// Kafka record headers attached to each produced record.
+	Headers []SubscriberMskHeader `pulumi:"headers"`
+	// Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+	PartitionKey *string `pulumi:"partitionKey"`
+	// Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+	TopicName string `pulumi:"topicName"`
+}
+
+// SubscriberInvokeConfigurationMskParametersPropertiesInput is an input type that accepts SubscriberInvokeConfigurationMskParametersPropertiesArgs and SubscriberInvokeConfigurationMskParametersPropertiesOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationMskParametersPropertiesInput` via:
+//
+//	SubscriberInvokeConfigurationMskParametersPropertiesArgs{...}
+type SubscriberInvokeConfigurationMskParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToSubscriberInvokeConfigurationMskParametersPropertiesOutput() SubscriberInvokeConfigurationMskParametersPropertiesOutput
+	ToSubscriberInvokeConfigurationMskParametersPropertiesOutputWithContext(context.Context) SubscriberInvokeConfigurationMskParametersPropertiesOutput
+}
+
+// Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+type SubscriberInvokeConfigurationMskParametersPropertiesArgs struct {
+	// Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+	Acks SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrInput `pulumi:"acks"`
+	// Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Producer compression codec applied to the record batch. Defaults to NONE.
+	Compression SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrInput `pulumi:"compression"`
+	// Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+	Connectivity SubscriberInvokeConfigurationMskParametersPropertiesConnectivityInput `pulumi:"connectivity"`
+	// Kafka record headers attached to each produced record.
+	Headers SubscriberMskHeaderArrayInput `pulumi:"headers"`
+	// Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
+	// Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersProperties)(nil)).Elem()
+}
+
+func (i SubscriberInvokeConfigurationMskParametersPropertiesArgs) ToSubscriberInvokeConfigurationMskParametersPropertiesOutput() SubscriberInvokeConfigurationMskParametersPropertiesOutput {
+	return i.ToSubscriberInvokeConfigurationMskParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i SubscriberInvokeConfigurationMskParametersPropertiesArgs) ToSubscriberInvokeConfigurationMskParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationMskParametersPropertiesOutput)
+}
+
+func (i SubscriberInvokeConfigurationMskParametersPropertiesArgs) ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SubscriberInvokeConfigurationMskParametersPropertiesArgs) ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationMskParametersPropertiesOutput).ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// SubscriberInvokeConfigurationMskParametersPropertiesPtrInput is an input type that accepts SubscriberInvokeConfigurationMskParametersPropertiesArgs, SubscriberInvokeConfigurationMskParametersPropertiesPtr and SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubscriberInvokeConfigurationMskParametersPropertiesPtrInput` via:
+//
+//	        SubscriberInvokeConfigurationMskParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubscriberInvokeConfigurationMskParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput
+	ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(context.Context) SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput
+}
+
+type subscriberInvokeConfigurationMskParametersPropertiesPtrType SubscriberInvokeConfigurationMskParametersPropertiesArgs
+
+func SubscriberInvokeConfigurationMskParametersPropertiesPtr(v *SubscriberInvokeConfigurationMskParametersPropertiesArgs) SubscriberInvokeConfigurationMskParametersPropertiesPtrInput {
+	return (*subscriberInvokeConfigurationMskParametersPropertiesPtrType)(v)
+}
+
+func (*subscriberInvokeConfigurationMskParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationMskParametersProperties)(nil)).Elem()
+}
+
+func (i *subscriberInvokeConfigurationMskParametersPropertiesPtrType) ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return i.ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *subscriberInvokeConfigurationMskParametersPropertiesPtrType) ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput)
+}
+
+// Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+type SubscriberInvokeConfigurationMskParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersProperties)(nil)).Elem()
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesOutput() SubscriberInvokeConfigurationMskParametersPropertiesOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return o.ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberInvokeConfigurationMskParametersProperties) *SubscriberInvokeConfigurationMskParametersProperties {
+		return &v
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput)
+}
+
+// Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) Acks() SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationMskParametersProperties) *SubscriberInvokeConfigurationMskParametersPropertiesAcks {
+		return v.Acks
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput)
+}
+
+// Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationMskParametersProperties) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Producer compression codec applied to the record batch. Defaults to NONE.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) Compression() SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationMskParametersProperties) *SubscriberInvokeConfigurationMskParametersPropertiesCompression {
+		return v.Compression
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput)
+}
+
+// Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) Connectivity() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationMskParametersProperties) SubscriberInvokeConfigurationMskParametersPropertiesConnectivity {
+		return v.Connectivity
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityOutput)
+}
+
+// Kafka record headers attached to each produced record.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) Headers() SubscriberMskHeaderArrayOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationMskParametersProperties) []SubscriberMskHeader { return v.Headers }).(SubscriberMskHeaderArrayOutput)
+}
+
+// Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationMskParametersProperties) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesOutput) TopicName() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberInvokeConfigurationMskParametersProperties) string { return v.TopicName }).(pulumi.StringOutput)
+}
+
+type SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriberInvokeConfigurationMskParametersProperties)(nil)).Elem()
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutput() SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) ToSubscriberInvokeConfigurationMskParametersPropertiesPtrOutputWithContext(ctx context.Context) SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) Elem() SubscriberInvokeConfigurationMskParametersPropertiesOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersProperties) SubscriberInvokeConfigurationMskParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriberInvokeConfigurationMskParametersProperties
+		return ret
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesOutput)
+}
+
+// Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) Acks() SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersProperties) *SubscriberInvokeConfigurationMskParametersPropertiesAcks {
+		if v == nil {
+			return nil
+		}
+		return v.Acks
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesAcksPtrOutput)
+}
+
+// Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Producer compression codec applied to the record batch. Defaults to NONE.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) Compression() SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersProperties) *SubscriberInvokeConfigurationMskParametersPropertiesCompression {
+		if v == nil {
+			return nil
+		}
+		return v.Compression
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesCompressionPtrOutput)
+}
+
+// Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) Connectivity() SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersProperties) *SubscriberInvokeConfigurationMskParametersPropertiesConnectivity {
+		if v == nil {
+			return nil
+		}
+		return &v.Connectivity
+	}).(SubscriberInvokeConfigurationMskParametersPropertiesConnectivityPtrOutput)
+}
+
+// Kafka record headers attached to each produced record.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) Headers() SubscriberMskHeaderArrayOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersProperties) []SubscriberMskHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(SubscriberMskHeaderArrayOutput)
+}
+
+// Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+func (o SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriberInvokeConfigurationMskParametersProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3925,6 +5991,109 @@ func (o SubscriberMessageAttributeValueMapOutput) MapIndex(k pulumi.StringInput)
 	}).(SubscriberMessageAttributeValueOutput)
 }
 
+// A single Kafka record header. Key and Value each accept a literal or a JSONata expression.
+type SubscriberMskHeader struct {
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// SubscriberMskHeaderInput is an input type that accepts SubscriberMskHeaderArgs and SubscriberMskHeaderOutput values.
+// You can construct a concrete instance of `SubscriberMskHeaderInput` via:
+//
+//	SubscriberMskHeaderArgs{...}
+type SubscriberMskHeaderInput interface {
+	pulumi.Input
+
+	ToSubscriberMskHeaderOutput() SubscriberMskHeaderOutput
+	ToSubscriberMskHeaderOutputWithContext(context.Context) SubscriberMskHeaderOutput
+}
+
+// A single Kafka record header. Key and Value each accept a literal or a JSONata expression.
+type SubscriberMskHeaderArgs struct {
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SubscriberMskHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberMskHeader)(nil)).Elem()
+}
+
+func (i SubscriberMskHeaderArgs) ToSubscriberMskHeaderOutput() SubscriberMskHeaderOutput {
+	return i.ToSubscriberMskHeaderOutputWithContext(context.Background())
+}
+
+func (i SubscriberMskHeaderArgs) ToSubscriberMskHeaderOutputWithContext(ctx context.Context) SubscriberMskHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberMskHeaderOutput)
+}
+
+// SubscriberMskHeaderArrayInput is an input type that accepts SubscriberMskHeaderArray and SubscriberMskHeaderArrayOutput values.
+// You can construct a concrete instance of `SubscriberMskHeaderArrayInput` via:
+//
+//	SubscriberMskHeaderArray{ SubscriberMskHeaderArgs{...} }
+type SubscriberMskHeaderArrayInput interface {
+	pulumi.Input
+
+	ToSubscriberMskHeaderArrayOutput() SubscriberMskHeaderArrayOutput
+	ToSubscriberMskHeaderArrayOutputWithContext(context.Context) SubscriberMskHeaderArrayOutput
+}
+
+type SubscriberMskHeaderArray []SubscriberMskHeaderInput
+
+func (SubscriberMskHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriberMskHeader)(nil)).Elem()
+}
+
+func (i SubscriberMskHeaderArray) ToSubscriberMskHeaderArrayOutput() SubscriberMskHeaderArrayOutput {
+	return i.ToSubscriberMskHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriberMskHeaderArray) ToSubscriberMskHeaderArrayOutputWithContext(ctx context.Context) SubscriberMskHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberMskHeaderArrayOutput)
+}
+
+// A single Kafka record header. Key and Value each accept a literal or a JSONata expression.
+type SubscriberMskHeaderOutput struct{ *pulumi.OutputState }
+
+func (SubscriberMskHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriberMskHeader)(nil)).Elem()
+}
+
+func (o SubscriberMskHeaderOutput) ToSubscriberMskHeaderOutput() SubscriberMskHeaderOutput {
+	return o
+}
+
+func (o SubscriberMskHeaderOutput) ToSubscriberMskHeaderOutputWithContext(ctx context.Context) SubscriberMskHeaderOutput {
+	return o
+}
+
+func (o SubscriberMskHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberMskHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o SubscriberMskHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriberMskHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SubscriberMskHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriberMskHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriberMskHeader)(nil)).Elem()
+}
+
+func (o SubscriberMskHeaderArrayOutput) ToSubscriberMskHeaderArrayOutput() SubscriberMskHeaderArrayOutput {
+	return o
+}
+
+func (o SubscriberMskHeaderArrayOutput) ToSubscriberMskHeaderArrayOutputWithContext(ctx context.Context) SubscriberMskHeaderArrayOutput {
+	return o
+}
+
+func (o SubscriberMskHeaderArrayOutput) Index(i pulumi.IntInput) SubscriberMskHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriberMskHeader {
+		return vs[0].([]SubscriberMskHeader)[vs[1].(int)]
+	}).(SubscriberMskHeaderOutput)
+}
+
 // The destination for events that could not be delivered.
 type SubscriberOnFailureConfiguration struct {
 	// The ARN of the destination that receives events that could not be delivered. An Amazon SQS queue is the supported destination.
@@ -4598,10 +6767,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceAwsServiceEventsConfigurationInput)(nil)).Elem(), EventSourceAwsServiceEventsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceAwsServiceEventsConfigurationPtrInput)(nil)).Elem(), EventSourceAwsServiceEventsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceConfigurationInput)(nil)).Elem(), EventSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceDetailsInput)(nil)).Elem(), EventSourceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceDetailsPtrInput)(nil)).Elem(), EventSourceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceLogConfigurationInput)(nil)).Elem(), EventSourceLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceLogConfigurationPtrInput)(nil)).Elem(), EventSourceLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceOnFailureConfigurationInput)(nil)).Elem(), EventSourceOnFailureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceOnFailureConfigurationPtrInput)(nil)).Elem(), EventSourceOnFailureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourcePartnerEventsConfigurationInput)(nil)).Elem(), EventSourcePartnerEventsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourcePartnerEventsConfigurationPtrInput)(nil)).Elem(), EventSourcePartnerEventsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookAuthConfigurationInput)(nil)).Elem(), EventSourceWebhookAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookAuthConfigurationPtrInput)(nil)).Elem(), EventSourceWebhookAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookBasicHttpAuthConfigurationInput)(nil)).Elem(), EventSourceWebhookBasicHttpAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookBasicHttpAuthConfigurationPtrInput)(nil)).Elem(), EventSourceWebhookBasicHttpAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookDeduplicationConfigurationInput)(nil)).Elem(), EventSourceWebhookDeduplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookDeduplicationConfigurationPtrInput)(nil)).Elem(), EventSourceWebhookDeduplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookDetailsInput)(nil)).Elem(), EventSourceWebhookDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookDetailsPtrInput)(nil)).Elem(), EventSourceWebhookDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookEventsConfigurationInput)(nil)).Elem(), EventSourceWebhookEventsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookEventsConfigurationPtrInput)(nil)).Elem(), EventSourceWebhookEventsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookHmacAuthConfigurationPtrInput)(nil)).Elem(), EventSourceWebhookHmacAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookStaticTokenAuthConfigurationInput)(nil)).Elem(), EventSourceWebhookStaticTokenAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceWebhookStaticTokenAuthConfigurationPtrInput)(nil)).Elem(), EventSourceWebhookStaticTokenAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberBatchConfigurationInput)(nil)).Elem(), SubscriberBatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberBatchConfigurationPtrInput)(nil)).Elem(), SubscriberBatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberDeduplicationConfigurationInput)(nil)).Elem(), SubscriberDeduplicationConfigurationArgs{})
@@ -4621,6 +6808,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationKinesisParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationKinesisParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationLambdaParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationLambdaParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationLambdaParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationLambdaParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationMskParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationMskParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationMskParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationSnsParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationSnsParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationSnsParametersPropertiesPtrInput)(nil)).Elem(), SubscriberInvokeConfigurationSnsParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberInvokeConfigurationSqsParametersPropertiesInput)(nil)).Elem(), SubscriberInvokeConfigurationSqsParametersPropertiesArgs{})
@@ -4635,6 +6824,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberLogConfigurationPtrInput)(nil)).Elem(), SubscriberLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberMessageAttributeValueInput)(nil)).Elem(), SubscriberMessageAttributeValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberMessageAttributeValueMapInput)(nil)).Elem(), SubscriberMessageAttributeValueMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberMskHeaderInput)(nil)).Elem(), SubscriberMskHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberMskHeaderArrayInput)(nil)).Elem(), SubscriberMskHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberOnFailureConfigurationInput)(nil)).Elem(), SubscriberOnFailureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberOnFailureConfigurationPtrInput)(nil)).Elem(), SubscriberOnFailureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberPointInTimeConfigurationInput)(nil)).Elem(), SubscriberPointInTimeConfigurationArgs{})
@@ -4651,10 +6842,28 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceAwsServiceEventsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceDetailsOutput{})
+	pulumi.RegisterOutputType(EventSourceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceLogConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceOnFailureConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourceOnFailureConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EventSourcePartnerEventsConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourcePartnerEventsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookBasicHttpAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookBasicHttpAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookDeduplicationConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookDeduplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookDetailsOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookDetailsPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookEventsConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookEventsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookHmacAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookStaticTokenAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceWebhookStaticTokenAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberBatchConfigurationOutput{})
 	pulumi.RegisterOutputType(SubscriberBatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberDeduplicationConfigurationOutput{})
@@ -4675,6 +6884,8 @@ func init() {
 	pulumi.RegisterOutputType(SubscriberInvokeConfigurationKinesisParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberInvokeConfigurationLambdaParametersPropertiesOutput{})
 	pulumi.RegisterOutputType(SubscriberInvokeConfigurationLambdaParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationMskParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(SubscriberInvokeConfigurationMskParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberInvokeConfigurationSnsParametersPropertiesOutput{})
 	pulumi.RegisterOutputType(SubscriberInvokeConfigurationSnsParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberInvokeConfigurationSqsParametersPropertiesOutput{})
@@ -4689,6 +6900,8 @@ func init() {
 	pulumi.RegisterOutputType(SubscriberLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberMessageAttributeValueOutput{})
 	pulumi.RegisterOutputType(SubscriberMessageAttributeValueMapOutput{})
+	pulumi.RegisterOutputType(SubscriberMskHeaderOutput{})
+	pulumi.RegisterOutputType(SubscriberMskHeaderArrayOutput{})
 	pulumi.RegisterOutputType(SubscriberOnFailureConfigurationOutput{})
 	pulumi.RegisterOutputType(SubscriberOnFailureConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberPointInTimeConfigurationOutput{})
