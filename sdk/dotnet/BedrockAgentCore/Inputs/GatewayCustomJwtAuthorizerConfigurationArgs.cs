@@ -44,6 +44,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
             set => _allowedScopes = value;
         }
 
+        [Input("certificateConfigurations")]
+        private InputList<Union<Inputs.GatewayCertificateConfiguration0PropertiesArgs, Inputs.GatewayCertificateConfiguration1PropertiesArgs>>? _certificateConfigurations;
+        public InputList<Union<Inputs.GatewayCertificateConfiguration0PropertiesArgs, Inputs.GatewayCertificateConfiguration1PropertiesArgs>> CertificateConfigurations
+        {
+            get => _certificateConfigurations ?? (_certificateConfigurations = new InputList<Union<Inputs.GatewayCertificateConfiguration0PropertiesArgs, Inputs.GatewayCertificateConfiguration1PropertiesArgs>>());
+            set => _certificateConfigurations = value;
+        }
+
         [Input("customClaims")]
         private InputList<Inputs.GatewayCustomClaimValidationTypeArgs>? _customClaims;
         public InputList<Inputs.GatewayCustomClaimValidationTypeArgs> CustomClaims

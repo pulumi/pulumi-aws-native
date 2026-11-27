@@ -26,6 +26,7 @@ class GatewayArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  authorizer_configuration: pulumi.Input[Optional['GatewayAuthorizerConfigurationPropertiesArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_override: pulumi.Input[Optional['GatewayDomainOverrideArgs']] = None,
                  exception_level: pulumi.Input[Optional['GatewayExceptionLevel']] = None,
                  interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -55,6 +56,8 @@ class GatewayArgs:
             pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain_override is not None:
+            pulumi.set(__self__, "domain_override", domain_override)
         if exception_level is not None:
             pulumi.set(__self__, "exception_level", exception_level)
         if interceptor_configurations is not None:
@@ -115,6 +118,15 @@ class GatewayArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainOverride")
+    def domain_override(self) -> pulumi.Input[Optional['GatewayDomainOverrideArgs']]:
+        return pulumi.get(self, "domain_override")
+
+    @domain_override.setter
+    def domain_override(self, value: pulumi.Input[Optional['GatewayDomainOverrideArgs']]):
+        pulumi.set(self, "domain_override", value)
 
     @_builtins.property
     @pulumi.getter(name="exceptionLevel")
@@ -227,6 +239,7 @@ class Gateway(pulumi.CustomResource):
                  authorizer_configuration: pulumi.Input[Optional[Union['GatewayAuthorizerConfigurationPropertiesArgs', 'GatewayAuthorizerConfigurationPropertiesArgsDict', 'outputs.GatewayAuthorizerConfigurationProperties']]] = None,
                  authorizer_type: pulumi.Input[Optional['GatewayAuthorizerType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_override: pulumi.Input[Optional[Union['GatewayDomainOverrideArgs', 'GatewayDomainOverrideArgsDict', 'outputs.GatewayDomainOverride']]] = None,
                  exception_level: pulumi.Input[Optional['GatewayExceptionLevel']] = None,
                  interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict', 'outputs.GatewayInterceptorConfiguration']]]]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -281,6 +294,7 @@ class Gateway(pulumi.CustomResource):
                  authorizer_configuration: pulumi.Input[Optional[Union['GatewayAuthorizerConfigurationPropertiesArgs', 'GatewayAuthorizerConfigurationPropertiesArgsDict', 'outputs.GatewayAuthorizerConfigurationProperties']]] = None,
                  authorizer_type: pulumi.Input[Optional['GatewayAuthorizerType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_override: pulumi.Input[Optional[Union['GatewayDomainOverrideArgs', 'GatewayDomainOverrideArgsDict', 'outputs.GatewayDomainOverride']]] = None,
                  exception_level: pulumi.Input[Optional['GatewayExceptionLevel']] = None,
                  interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict', 'outputs.GatewayInterceptorConfiguration']]]]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -305,6 +319,7 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorizer_type'")
             __props__.__dict__["authorizer_type"] = authorizer_type
             __props__.__dict__["description"] = description
+            __props__.__dict__["domain_override"] = domain_override
             __props__.__dict__["exception_level"] = exception_level
             __props__.__dict__["interceptor_configurations"] = interceptor_configurations
             __props__.__dict__["kms_key_arn"] = kms_key_arn
@@ -352,6 +367,7 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["authorizer_type"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["domain_override"] = None
         __props__.__dict__["exception_level"] = None
         __props__.__dict__["gateway_arn"] = None
         __props__.__dict__["gateway_identifier"] = None
@@ -406,6 +422,11 @@ class Gateway(pulumi.CustomResource):
         The description for the gateway.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="domainOverride")
+    def domain_override(self) -> pulumi.Output[Optional['outputs.GatewayDomainOverride']]:
+        return pulumi.get(self, "domain_override")
 
     @_builtins.property
     @pulumi.getter(name="exceptionLevel")

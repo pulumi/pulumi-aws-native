@@ -10,15 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2.Outputs
 {
 
+    /// <summary>
+    /// Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
+    /// </summary>
     [OutputType]
     public sealed class ConnectorProviderConfiguration
     {
-        public readonly Outputs.ConnectorAzureProviderConfiguration Azure;
+        public readonly Outputs.ConnectorAzureProviderConfiguration? Azure;
+        public readonly Outputs.ConnectorGcpProviderConfiguration? Gcp;
 
         [OutputConstructor]
-        private ConnectorProviderConfiguration(Outputs.ConnectorAzureProviderConfiguration azure)
+        private ConnectorProviderConfiguration(
+            Outputs.ConnectorAzureProviderConfiguration? azure,
+
+            Outputs.ConnectorGcpProviderConfiguration? gcp)
         {
             Azure = azure;
+            Gcp = gcp;
         }
     }
 }

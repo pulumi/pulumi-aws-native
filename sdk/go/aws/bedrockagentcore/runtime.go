@@ -40,6 +40,8 @@ type Runtime struct {
 	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
 	// Filesystem configurations for the agent runtime
 	FilesystemConfigurations RuntimeFilesystemConfigurationArrayOutput `pulumi:"filesystemConfigurations"`
+	// Lifecycle hooks for the agent runtime
+	HooksConfiguration RuntimeHooksConfigurationPtrOutput `pulumi:"hooksConfiguration"`
 	// When resource was last updated
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// Lifecycle configuration for managing runtime sessions
@@ -52,6 +54,8 @@ type Runtime struct {
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
 	// Configuration for HTTP request headers
 	RequestHeaderConfiguration RuntimeRequestHeaderConfigurationPtrOutput `pulumi:"requestHeaderConfiguration"`
+	// Resource configurations for the agent runtime
+	ResourceConfigurations RuntimeResourceConfigurationArrayOutput `pulumi:"resourceConfigurations"`
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Current status of the agent
@@ -135,6 +139,8 @@ type runtimeArgs struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Filesystem configurations for the agent runtime
 	FilesystemConfigurations []RuntimeFilesystemConfiguration `pulumi:"filesystemConfigurations"`
+	// Lifecycle hooks for the agent runtime
+	HooksConfiguration *RuntimeHooksConfiguration `pulumi:"hooksConfiguration"`
 	// Lifecycle configuration for managing runtime sessions
 	LifecycleConfiguration *RuntimeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
@@ -145,6 +151,8 @@ type runtimeArgs struct {
 	ProtocolConfiguration *RuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Configuration for HTTP request headers
 	RequestHeaderConfiguration *RuntimeRequestHeaderConfiguration `pulumi:"requestHeaderConfiguration"`
+	// Resource configurations for the agent runtime
+	ResourceConfigurations []RuntimeResourceConfiguration `pulumi:"resourceConfigurations"`
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn string `pulumi:"roleArn"`
 	// The tags for the agent.
@@ -167,6 +175,8 @@ type RuntimeArgs struct {
 	EnvironmentVariables pulumi.StringMapInput
 	// Filesystem configurations for the agent runtime
 	FilesystemConfigurations RuntimeFilesystemConfigurationArrayInput
+	// Lifecycle hooks for the agent runtime
+	HooksConfiguration RuntimeHooksConfigurationPtrInput
 	// Lifecycle configuration for managing runtime sessions
 	LifecycleConfiguration RuntimeLifecycleConfigurationPtrInput
 	// Network access configuration for the Agent
@@ -177,6 +187,8 @@ type RuntimeArgs struct {
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrInput
 	// Configuration for HTTP request headers
 	RequestHeaderConfiguration RuntimeRequestHeaderConfigurationPtrInput
+	// Resource configurations for the agent runtime
+	ResourceConfigurations RuntimeResourceConfigurationArrayInput
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn pulumi.StringInput
 	// The tags for the agent.
@@ -280,6 +292,11 @@ func (o RuntimeOutput) FilesystemConfigurations() RuntimeFilesystemConfiguration
 	return o.ApplyT(func(v *Runtime) RuntimeFilesystemConfigurationArrayOutput { return v.FilesystemConfigurations }).(RuntimeFilesystemConfigurationArrayOutput)
 }
 
+// Lifecycle hooks for the agent runtime
+func (o RuntimeOutput) HooksConfiguration() RuntimeHooksConfigurationPtrOutput {
+	return o.ApplyT(func(v *Runtime) RuntimeHooksConfigurationPtrOutput { return v.HooksConfiguration }).(RuntimeHooksConfigurationPtrOutput)
+}
+
 // When resource was last updated
 func (o RuntimeOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Runtime) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
@@ -308,6 +325,11 @@ func (o RuntimeOutput) ProtocolConfiguration() RuntimeProtocolConfigurationPtrOu
 // Configuration for HTTP request headers
 func (o RuntimeOutput) RequestHeaderConfiguration() RuntimeRequestHeaderConfigurationPtrOutput {
 	return o.ApplyT(func(v *Runtime) RuntimeRequestHeaderConfigurationPtrOutput { return v.RequestHeaderConfiguration }).(RuntimeRequestHeaderConfigurationPtrOutput)
+}
+
+// Resource configurations for the agent runtime
+func (o RuntimeOutput) ResourceConfigurations() RuntimeResourceConfigurationArrayOutput {
+	return o.ApplyT(func(v *Runtime) RuntimeResourceConfigurationArrayOutput { return v.ResourceConfigurations }).(RuntimeResourceConfigurationArrayOutput)
 }
 
 // Amazon Resource Name (ARN) of an IAM role

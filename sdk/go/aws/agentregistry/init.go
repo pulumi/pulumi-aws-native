@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:agentregistry:Publisher":
+		r = &Publisher{}
 	case "aws-native:agentregistry:Registry":
 		r = &Registry{}
 	case "aws-native:agentregistry:RegistryRecord":

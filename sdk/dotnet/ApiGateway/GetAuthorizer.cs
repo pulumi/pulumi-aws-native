@@ -103,6 +103,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// A validation expression for the incoming identity token. For `TOKEN` authorizers, this value is a regular expression. For `COGNITO_USER_POOLS` authorizers, API Gateway will match the `aud` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the `REQUEST` authorizer.
         /// </summary>
         public readonly string? IdentityValidationExpression;
+        public readonly Outputs.AuthorizerJwtConfiguration? JwtConfiguration;
         /// <summary>
         /// The name of the authorizer.
         /// </summary>
@@ -132,6 +133,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? identityValidationExpression,
 
+            Outputs.AuthorizerJwtConfiguration? jwtConfiguration,
+
             string? name,
 
             ImmutableArray<string> providerArns,
@@ -145,6 +148,7 @@ namespace Pulumi.AwsNative.ApiGateway
             AuthorizerUri = authorizerUri;
             IdentitySource = identitySource;
             IdentityValidationExpression = identityValidationExpression;
+            JwtConfiguration = jwtConfiguration;
             Name = name;
             ProviderArns = providerArns;
             Type = type;

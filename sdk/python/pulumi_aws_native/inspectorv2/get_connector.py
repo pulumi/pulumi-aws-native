@@ -148,7 +148,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
 def get_connector(connector_arn: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+    Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
 
     :param _builtins.str connector_arn: The Amazon Resource Name (ARN) of the connector.
     """
@@ -170,7 +170,7 @@ def get_connector(connector_arn: Optional[_builtins.str] = None,
 def get_connector_output(connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+    Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
 
     :param _builtins.str connector_arn: The Amazon Resource Name (ARN) of the connector.
     """

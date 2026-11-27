@@ -20,19 +20,31 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// The specified domain.
         /// </summary>
         public readonly string? Domain;
+        public readonly string? ServeOn;
         /// <summary>
         /// Whether the domain is active or inactive.
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.DistributionTenantDomainResultStatus? Status;
+        public readonly string? StatusReason;
+        public readonly string? StatusReasonCode;
 
         [OutputConstructor]
         private DistributionTenantDomainResult(
             string? domain,
 
-            Pulumi.AwsNative.CloudFront.DistributionTenantDomainResultStatus? status)
+            string? serveOn,
+
+            Pulumi.AwsNative.CloudFront.DistributionTenantDomainResultStatus? status,
+
+            string? statusReason,
+
+            string? statusReasonCode)
         {
             Domain = domain;
+            ServeOn = serveOn;
             Status = status;
+            StatusReason = statusReason;
+            StatusReasonCode = statusReasonCode;
         }
     }
 }

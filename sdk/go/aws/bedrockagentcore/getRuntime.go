@@ -50,6 +50,8 @@ type LookupRuntimeResult struct {
 	FailureReason *string `pulumi:"failureReason"`
 	// Filesystem configurations for the agent runtime
 	FilesystemConfigurations []RuntimeFilesystemConfiguration `pulumi:"filesystemConfigurations"`
+	// Lifecycle hooks for the agent runtime
+	HooksConfiguration *RuntimeHooksConfiguration `pulumi:"hooksConfiguration"`
 	// When resource was last updated
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// Lifecycle configuration for managing runtime sessions
@@ -62,6 +64,8 @@ type LookupRuntimeResult struct {
 	ProtocolConfiguration *RuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Configuration for HTTP request headers
 	RequestHeaderConfiguration *RuntimeRequestHeaderConfiguration `pulumi:"requestHeaderConfiguration"`
+	// Resource configurations for the agent runtime
+	ResourceConfigurations []RuntimeResourceConfiguration `pulumi:"resourceConfigurations"`
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn *string `pulumi:"roleArn"`
 	// Current status of the agent
@@ -157,6 +161,11 @@ func (o LookupRuntimeResultOutput) FilesystemConfigurations() RuntimeFilesystemC
 	return o.ApplyT(func(v LookupRuntimeResult) []RuntimeFilesystemConfiguration { return v.FilesystemConfigurations }).(RuntimeFilesystemConfigurationArrayOutput)
 }
 
+// Lifecycle hooks for the agent runtime
+func (o LookupRuntimeResultOutput) HooksConfiguration() RuntimeHooksConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeHooksConfiguration { return v.HooksConfiguration }).(RuntimeHooksConfigurationPtrOutput)
+}
+
 // When resource was last updated
 func (o LookupRuntimeResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
@@ -185,6 +194,11 @@ func (o LookupRuntimeResultOutput) ProtocolConfiguration() RuntimeProtocolConfig
 // Configuration for HTTP request headers
 func (o LookupRuntimeResultOutput) RequestHeaderConfiguration() RuntimeRequestHeaderConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeRequestHeaderConfiguration { return v.RequestHeaderConfiguration }).(RuntimeRequestHeaderConfigurationPtrOutput)
+}
+
+// Resource configurations for the agent runtime
+func (o LookupRuntimeResultOutput) ResourceConfigurations() RuntimeResourceConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupRuntimeResult) []RuntimeResourceConfiguration { return v.ResourceConfigurations }).(RuntimeResourceConfigurationArrayOutput)
 }
 
 // Amazon Resource Name (ARN) of an IAM role

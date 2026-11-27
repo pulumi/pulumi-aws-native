@@ -76,9 +76,9 @@ export class Dataset extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
-     * Versioned schema type governing the structure of examples. Immutable after creation.
+     * Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
      */
-    declare public readonly schemaType: pulumi.Output<enums.bedrockagentcore.DatasetSchemaType>;
+    declare public readonly schemaType: pulumi.Output<enums.bedrockagentcore.DatasetSchemaType | undefined>;
     declare public readonly source: pulumi.Output<outputs.bedrockagentcore.DatasetDataSourceType | undefined>;
     /**
      * The current status of the dataset.
@@ -100,13 +100,10 @@ export class Dataset extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.schemaType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'schemaType'");
-            }
             resourceInputs["datasetName"] = args?.datasetName;
             resourceInputs["description"] = args?.description;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
@@ -134,7 +131,7 @@ export class Dataset extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["datasetName", "kmsKeyArn", "schemaType", "source"] };
+        const replaceOnChanges = { replaceOnChanges: ["datasetName", "kmsKeyArn", "source"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Dataset.__pulumiType, name, resourceInputs, opts);
     }
@@ -157,9 +154,9 @@ export interface DatasetArgs {
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * Versioned schema type governing the structure of examples. Immutable after creation.
+     * Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
      */
-    schemaType: pulumi.Input<enums.bedrockagentcore.DatasetSchemaType>;
+    schemaType?: pulumi.Input<enums.bedrockagentcore.DatasetSchemaType | undefined>;
     source?: pulumi.Input<inputs.bedrockagentcore.DatasetDataSourceTypeArgs | undefined>;
     /**
      * A list of tags to assign to the dataset.

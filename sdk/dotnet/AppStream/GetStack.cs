@@ -100,6 +100,10 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly string? RedirectUrl;
         /// <summary>
+        /// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+        /// </summary>
+        public readonly string? StorageConnectorAuthentication;
+        /// <summary>
         /// The storage connectors to enable.
         /// </summary>
         public readonly ImmutableArray<Outputs.StackStorageConnector> StorageConnectors;
@@ -136,6 +140,8 @@ namespace Pulumi.AwsNative.AppStream
 
             string? redirectUrl,
 
+            string? storageConnectorAuthentication,
+
             ImmutableArray<Outputs.StackStorageConnector> storageConnectors,
 
             Outputs.StackStreamingExperienceSettings? streamingExperienceSettings,
@@ -153,6 +159,7 @@ namespace Pulumi.AwsNative.AppStream
             EmbedHostDomains = embedHostDomains;
             FeedbackUrl = feedbackUrl;
             RedirectUrl = redirectUrl;
+            StorageConnectorAuthentication = storageConnectorAuthentication;
             StorageConnectors = storageConnectors;
             StreamingExperienceSettings = streamingExperienceSettings;
             Tags = tags;

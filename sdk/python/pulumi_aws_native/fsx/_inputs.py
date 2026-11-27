@@ -50,6 +50,16 @@ __all__ = [
     'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict',
     'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs',
     'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict',
+    'SnapmirrorPolicyRetentionRuleArgs',
+    'SnapmirrorPolicyRetentionRuleArgsDict',
+    'SnapmirrorRelationshipDestinationArgs',
+    'SnapmirrorRelationshipDestinationArgsDict',
+    'SnapmirrorRelationshipSourceArgs',
+    'SnapmirrorRelationshipSourceArgsDict',
+    'SnapshotPolicyRetentionPeriodArgs',
+    'SnapshotPolicyRetentionPeriodArgsDict',
+    'SnapshotPolicyScheduleArgs',
+    'SnapshotPolicyScheduleArgsDict',
     'StorageVirtualMachineActiveDirectoryConfigurationArgs',
     'StorageVirtualMachineActiveDirectoryConfigurationArgsDict',
     'StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs',
@@ -60,6 +70,8 @@ __all__ = [
     'VolumeAutocommitPeriodArgsDict',
     'VolumeClientConfigurationsArgs',
     'VolumeClientConfigurationsArgsDict',
+    'VolumeCloneConfigurationArgs',
+    'VolumeCloneConfigurationArgsDict',
     'VolumeNfsExportsArgs',
     'VolumeNfsExportsArgsDict',
     'VolumeOntapConfigurationArgs',
@@ -889,6 +901,322 @@ class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs:
         pulumi.set(self, "vpc_id", value)
 
 
+class SnapmirrorPolicyRetentionRuleArgsDict(TypedDict):
+    """
+    A rule that retains snapshots with a SnapMirror label on the destination.
+    """
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of snapshots with this label to retain on the destination.
+    """
+    label: pulumi.Input[_builtins.str]
+    """
+    The SnapMirror label of the snapshots this rule retains.
+    """
+    creation_schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of an ONTAP job schedule that creates snapshots with this label on the destination.
+    """
+
+@pulumi.input_type
+class SnapmirrorPolicyRetentionRuleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 label: pulumi.Input[_builtins.str],
+                 creation_schedule: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A rule that retains snapshots with a SnapMirror label on the destination.
+
+        :param pulumi.Input[_builtins.int] count: The number of snapshots with this label to retain on the destination.
+        :param pulumi.Input[_builtins.str] label: The SnapMirror label of the snapshots this rule retains.
+        :param pulumi.Input[_builtins.str] creation_schedule: The name of an ONTAP job schedule that creates snapshots with this label on the destination.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "label", label)
+        if creation_schedule is not None:
+            pulumi.set(__self__, "creation_schedule", creation_schedule)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of snapshots with this label to retain on the destination.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[_builtins.str]:
+        """
+        The SnapMirror label of the snapshots this rule retains.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter(name="creationSchedule")
+    def creation_schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of an ONTAP job schedule that creates snapshots with this label on the destination.
+        """
+        return pulumi.get(self, "creation_schedule")
+
+    @creation_schedule.setter
+    def creation_schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "creation_schedule", value)
+
+
+class SnapmirrorRelationshipDestinationArgsDict(TypedDict):
+    """
+    The destination of the SnapMirror relationship.
+    """
+    volume_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the destination volume. It must be a data-protection (DP) volume.
+    """
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The destination volume, as <svm-name>:<volume-name>.
+    """
+
+@pulumi.input_type
+class SnapmirrorRelationshipDestinationArgs:
+    def __init__(__self__, *,
+                 volume_id: pulumi.Input[_builtins.str],
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The destination of the SnapMirror relationship.
+
+        :param pulumi.Input[_builtins.str] volume_id: The ID of the destination volume. It must be a data-protection (DP) volume.
+        :param pulumi.Input[_builtins.str] path: The destination volume, as <svm-name>:<volume-name>.
+        """
+        pulumi.set(__self__, "volume_id", volume_id)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the destination volume. It must be a data-protection (DP) volume.
+        """
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "volume_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The destination volume, as <svm-name>:<volume-name>.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "path", value)
+
+
+class SnapmirrorRelationshipSourceArgsDict(TypedDict):
+    """
+    The source of the SnapMirror relationship.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The source volume, as <svm-name>:<volume-name>. For a source on the destination SVM, use that SVM's name. For a source on a peered SVM, use the peer SVM name or its local alias, as seen from the destination SVM.
+    """
+
+@pulumi.input_type
+class SnapmirrorRelationshipSourceArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str]):
+        """
+        The source of the SnapMirror relationship.
+
+        :param pulumi.Input[_builtins.str] path: The source volume, as <svm-name>:<volume-name>. For a source on the destination SVM, use that SVM's name. For a source on a peered SVM, use the peer SVM name or its local alias, as seen from the destination SVM.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        """
+        The source volume, as <svm-name>:<volume-name>. For a source on the destination SVM, use that SVM's name. For a source on a peered SVM, use the peer SVM name or its local alias, as seen from the destination SVM.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+
+class SnapshotPolicyRetentionPeriodArgsDict(TypedDict):
+    """
+    How long to retain snapshots created by a schedule.
+    """
+    type: pulumi.Input['SnapshotPolicyRetentionPeriodType']
+    """
+    The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+    """
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The length of the retention period, in the unit given by Type.
+    """
+
+@pulumi.input_type
+class SnapshotPolicyRetentionPeriodArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['SnapshotPolicyRetentionPeriodType'],
+                 value: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        How long to retain snapshots created by a schedule.
+
+        :param pulumi.Input['SnapshotPolicyRetentionPeriodType'] type: The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+        :param pulumi.Input[_builtins.int] value: The length of the retention period, in the unit given by Type.
+        """
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['SnapshotPolicyRetentionPeriodType']:
+        """
+        The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['SnapshotPolicyRetentionPeriodType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The length of the retention period, in the unit given by Type.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "value", value)
+
+
+class SnapshotPolicyScheduleArgsDict(TypedDict):
+    """
+    A schedule within a snapshot policy.
+    """
+    count: pulumi.Input[_builtins.int]
+    """
+    The maximum number of snapshots to retain for this schedule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the ONTAP job schedule that triggers snapshot creation, for example hourly, daily, or weekly.
+    """
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The prefix applied to the names of snapshots created by this schedule.
+    """
+    retention_period: NotRequired[pulumi.Input[Optional['SnapshotPolicyRetentionPeriodArgsDict']]]
+    snapmirror_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The SnapMirror label applied to snapshots created by this schedule. SnapMirror policies use this label to select snapshots to replicate.
+    """
+
+@pulumi.input_type
+class SnapshotPolicyScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 name: pulumi.Input[_builtins.str],
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional['SnapshotPolicyRetentionPeriodArgs']] = None,
+                 snapmirror_label: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A schedule within a snapshot policy.
+
+        :param pulumi.Input[_builtins.int] count: The maximum number of snapshots to retain for this schedule.
+        :param pulumi.Input[_builtins.str] name: The name of the ONTAP job schedule that triggers snapshot creation, for example hourly, daily, or weekly.
+        :param pulumi.Input[_builtins.str] prefix: The prefix applied to the names of snapshots created by this schedule.
+        :param pulumi.Input[_builtins.str] snapmirror_label: The SnapMirror label applied to snapshots created by this schedule. SnapMirror policies use this label to select snapshots to replicate.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "name", name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+        if snapmirror_label is not None:
+            pulumi.set(__self__, "snapmirror_label", snapmirror_label)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum number of snapshots to retain for this schedule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the ONTAP job schedule that triggers snapshot creation, for example hourly, daily, or weekly.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The prefix applied to the names of snapshots created by this schedule.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> pulumi.Input[Optional['SnapshotPolicyRetentionPeriodArgs']]:
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: pulumi.Input[Optional['SnapshotPolicyRetentionPeriodArgs']]):
+        pulumi.set(self, "retention_period", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snapmirrorLabel")
+    def snapmirror_label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The SnapMirror label applied to snapshots created by this schedule. SnapMirror policies use this label to select snapshots to replicate.
+        """
+        return pulumi.get(self, "snapmirror_label")
+
+    @snapmirror_label.setter
+    def snapmirror_label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snapmirror_label", value)
+
+
 class StorageVirtualMachineActiveDirectoryConfigurationArgsDict(TypedDict):
     """
     Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
@@ -1236,6 +1564,59 @@ class VolumeClientConfigurationsArgs:
         pulumi.set(self, "options", value)
 
 
+class VolumeCloneConfigurationArgsDict(TypedDict):
+    """
+    Creates the volume as an ONTAP FlexClone of an existing volume in the same SVM. After the volume is created, changing or removing CloneConfiguration isn't supported: the update fails and the clone is unchanged.
+    """
+    parent_volume_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+    """
+    snapshot_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+    """
+
+@pulumi.input_type
+class VolumeCloneConfigurationArgs:
+    def __init__(__self__, *,
+                 parent_volume_id: pulumi.Input[_builtins.str],
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Creates the volume as an ONTAP FlexClone of an existing volume in the same SVM. After the volume is created, changing or removing CloneConfiguration isn't supported: the update fails and the clone is unchanged.
+
+        :param pulumi.Input[_builtins.str] parent_volume_id: The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+        :param pulumi.Input[_builtins.str] snapshot_id: The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+        """
+        pulumi.set(__self__, "parent_volume_id", parent_volume_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+
+    @_builtins.property
+    @pulumi.getter(name="parentVolumeId")
+    def parent_volume_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+        """
+        return pulumi.get(self, "parent_volume_id")
+
+    @parent_volume_id.setter
+    def parent_volume_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "parent_volume_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+
 class VolumeNfsExportsArgsDict(TypedDict):
     client_configurations: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgsDict']]]
     """
@@ -1272,6 +1653,10 @@ class VolumeOntapConfigurationArgsDict(TypedDict):
     aggregate_configuration: NotRequired[pulumi.Input[Optional['VolumeAggregateConfigurationArgsDict']]]
     """
     Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+    """
+    clone_configuration: NotRequired[pulumi.Input[Optional['VolumeCloneConfigurationArgsDict']]]
+    """
+    Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
     """
     copy_tags_to_backups: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1323,6 +1708,7 @@ class VolumeOntapConfigurationArgs:
     def __init__(__self__, *,
                  storage_virtual_machine_id: pulumi.Input[_builtins.str],
                  aggregate_configuration: pulumi.Input[Optional['VolumeAggregateConfigurationArgs']] = None,
+                 clone_configuration: pulumi.Input[Optional['VolumeCloneConfigurationArgs']] = None,
                  copy_tags_to_backups: pulumi.Input[Optional[_builtins.str]] = None,
                  junction_path: pulumi.Input[Optional[_builtins.str]] = None,
                  ontap_volume_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1337,6 +1723,7 @@ class VolumeOntapConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] storage_virtual_machine_id: Specifies the ONTAP SVM in which to create the volume.
         :param pulumi.Input['VolumeAggregateConfigurationArgs'] aggregate_configuration: Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+        :param pulumi.Input['VolumeCloneConfigurationArgs'] clone_configuration: Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
         :param pulumi.Input[_builtins.str] copy_tags_to_backups: A boolean flag indicating whether tags for the volume should be copied to backups.
         :param pulumi.Input[_builtins.str] junction_path: Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
         :param pulumi.Input[_builtins.str] ontap_volume_type: Specifies the type of volume you are creating. Valid values are the following: RW or DP
@@ -1352,6 +1739,8 @@ class VolumeOntapConfigurationArgs:
         pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
         if aggregate_configuration is not None:
             pulumi.set(__self__, "aggregate_configuration", aggregate_configuration)
+        if clone_configuration is not None:
+            pulumi.set(__self__, "clone_configuration", clone_configuration)
         if copy_tags_to_backups is not None:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if junction_path is not None:
@@ -1398,6 +1787,18 @@ class VolumeOntapConfigurationArgs:
     @aggregate_configuration.setter
     def aggregate_configuration(self, value: pulumi.Input[Optional['VolumeAggregateConfigurationArgs']]):
         pulumi.set(self, "aggregate_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloneConfiguration")
+    def clone_configuration(self) -> pulumi.Input[Optional['VolumeCloneConfigurationArgs']]:
+        """
+        Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
+        """
+        return pulumi.get(self, "clone_configuration")
+
+    @clone_configuration.setter
+    def clone_configuration(self, value: pulumi.Input[Optional['VolumeCloneConfigurationArgs']]):
+        pulumi.set(self, "clone_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToBackups")

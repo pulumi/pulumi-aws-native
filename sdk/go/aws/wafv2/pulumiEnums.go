@@ -5496,6 +5496,172 @@ func (in *ruleGroupUriFragmentFallbackBehaviorPtr) ToRuleGroupUriFragmentFallbac
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupUriFragmentFallbackBehaviorPtrOutput)
 }
 
+// CROSS_REGION allows cross-Region storage; DISABLED prevents it.
+type WebAclAnalyticsMode string
+
+const (
+	WebAclAnalyticsModeCrossRegion = WebAclAnalyticsMode("CROSS_REGION")
+	WebAclAnalyticsModeDisabled    = WebAclAnalyticsMode("DISABLED")
+)
+
+func (WebAclAnalyticsMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAnalyticsMode)(nil)).Elem()
+}
+
+func (e WebAclAnalyticsMode) ToWebAclAnalyticsModeOutput() WebAclAnalyticsModeOutput {
+	return pulumi.ToOutput(e).(WebAclAnalyticsModeOutput)
+}
+
+func (e WebAclAnalyticsMode) ToWebAclAnalyticsModeOutputWithContext(ctx context.Context) WebAclAnalyticsModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclAnalyticsModeOutput)
+}
+
+func (e WebAclAnalyticsMode) ToWebAclAnalyticsModePtrOutput() WebAclAnalyticsModePtrOutput {
+	return e.ToWebAclAnalyticsModePtrOutputWithContext(context.Background())
+}
+
+func (e WebAclAnalyticsMode) ToWebAclAnalyticsModePtrOutputWithContext(ctx context.Context) WebAclAnalyticsModePtrOutput {
+	return WebAclAnalyticsMode(e).ToWebAclAnalyticsModeOutputWithContext(ctx).ToWebAclAnalyticsModePtrOutputWithContext(ctx)
+}
+
+func (e WebAclAnalyticsMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclAnalyticsMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclAnalyticsMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclAnalyticsMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclAnalyticsModeOutput struct{ *pulumi.OutputState }
+
+func (WebAclAnalyticsModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAnalyticsMode)(nil)).Elem()
+}
+
+func (o WebAclAnalyticsModeOutput) ToWebAclAnalyticsModeOutput() WebAclAnalyticsModeOutput {
+	return o
+}
+
+func (o WebAclAnalyticsModeOutput) ToWebAclAnalyticsModeOutputWithContext(ctx context.Context) WebAclAnalyticsModeOutput {
+	return o
+}
+
+func (o WebAclAnalyticsModeOutput) ToWebAclAnalyticsModePtrOutput() WebAclAnalyticsModePtrOutput {
+	return o.ToWebAclAnalyticsModePtrOutputWithContext(context.Background())
+}
+
+func (o WebAclAnalyticsModeOutput) ToWebAclAnalyticsModePtrOutputWithContext(ctx context.Context) WebAclAnalyticsModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclAnalyticsMode) *WebAclAnalyticsMode {
+		return &v
+	}).(WebAclAnalyticsModePtrOutput)
+}
+
+func (o WebAclAnalyticsModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclAnalyticsModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclAnalyticsMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclAnalyticsModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclAnalyticsModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclAnalyticsMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclAnalyticsModePtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclAnalyticsModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAnalyticsMode)(nil)).Elem()
+}
+
+func (o WebAclAnalyticsModePtrOutput) ToWebAclAnalyticsModePtrOutput() WebAclAnalyticsModePtrOutput {
+	return o
+}
+
+func (o WebAclAnalyticsModePtrOutput) ToWebAclAnalyticsModePtrOutputWithContext(ctx context.Context) WebAclAnalyticsModePtrOutput {
+	return o
+}
+
+func (o WebAclAnalyticsModePtrOutput) Elem() WebAclAnalyticsModeOutput {
+	return o.ApplyT(func(v *WebAclAnalyticsMode) WebAclAnalyticsMode {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclAnalyticsMode
+		return ret
+	}).(WebAclAnalyticsModeOutput)
+}
+
+func (o WebAclAnalyticsModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclAnalyticsModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclAnalyticsMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclAnalyticsModeInput is an input type that accepts values of the WebAclAnalyticsMode enum
+// A concrete instance of `WebAclAnalyticsModeInput` can be one of the following:
+//
+//	WebAclAnalyticsModeCrossRegion
+//	WebAclAnalyticsModeDisabled
+type WebAclAnalyticsModeInput interface {
+	pulumi.Input
+
+	ToWebAclAnalyticsModeOutput() WebAclAnalyticsModeOutput
+	ToWebAclAnalyticsModeOutputWithContext(context.Context) WebAclAnalyticsModeOutput
+}
+
+var webAclAnalyticsModePtrType = reflect.TypeOf((**WebAclAnalyticsMode)(nil)).Elem()
+
+type WebAclAnalyticsModePtrInput interface {
+	pulumi.Input
+
+	ToWebAclAnalyticsModePtrOutput() WebAclAnalyticsModePtrOutput
+	ToWebAclAnalyticsModePtrOutputWithContext(context.Context) WebAclAnalyticsModePtrOutput
+}
+
+type webAclAnalyticsModePtr string
+
+func WebAclAnalyticsModePtr(v string) WebAclAnalyticsModePtrInput {
+	return (*webAclAnalyticsModePtr)(&v)
+}
+
+func (*webAclAnalyticsModePtr) ElementType() reflect.Type {
+	return webAclAnalyticsModePtrType
+}
+
+func (in *webAclAnalyticsModePtr) ToWebAclAnalyticsModePtrOutput() WebAclAnalyticsModePtrOutput {
+	return pulumi.ToOutput(in).(WebAclAnalyticsModePtrOutput)
+}
+
+func (in *webAclAnalyticsModePtr) ToWebAclAnalyticsModePtrOutputWithContext(ctx context.Context) WebAclAnalyticsModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclAnalyticsModePtrOutput)
+}
+
 // The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
 type WebAclAwsManagedRulesBotControlRuleSetInspectionLevel string
 
@@ -11545,6 +11711,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationTypePtrInput)(nil)).Elem(), RuleGroupTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupUriFragmentFallbackBehaviorInput)(nil)).Elem(), RuleGroupUriFragmentFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupUriFragmentFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupUriFragmentFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAnalyticsModeInput)(nil)).Elem(), WebAclAnalyticsMode("CROSS_REGION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAnalyticsModePtrInput)(nil)).Elem(), WebAclAnalyticsMode("CROSS_REGION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBlockchainChainInput)(nil)).Elem(), WebAclBlockchainChain("BASE"))
@@ -11679,6 +11847,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupTextTransformationTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupUriFragmentFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(RuleGroupUriFragmentFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclAnalyticsModeOutput{})
+	pulumi.RegisterOutputType(WebAclAnalyticsModePtrOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput{})
 	pulumi.RegisterOutputType(WebAclBlockchainChainOutput{})

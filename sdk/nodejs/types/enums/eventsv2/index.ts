@@ -17,6 +17,27 @@ export const EventBusState = {
  */
 export type EventBusState = (typeof EventBusState)[keyof typeof EventBusState];
 
+export const EventSourceLogConfigurationIncludePayload = {
+    Full: "FULL",
+    OnErrorOnly: "ON_ERROR_ONLY",
+} as const;
+
+/**
+ * Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+ */
+export type EventSourceLogConfigurationIncludePayload = (typeof EventSourceLogConfigurationIncludePayload)[keyof typeof EventSourceLogConfigurationIncludePayload];
+
+export const EventSourceLogConfigurationLevel = {
+    Off: "OFF",
+    Error: "ERROR",
+    Info: "INFO",
+} as const;
+
+/**
+ * The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+ */
+export type EventSourceLogConfigurationLevel = (typeof EventSourceLogConfigurationLevel)[keyof typeof EventSourceLogConfigurationLevel];
+
 export const EventSourceState = {
     Creating: "CREATING",
     Active: "ACTIVE",
@@ -31,6 +52,72 @@ export const EventSourceState = {
  * The lifecycle state of the event source: CREATING, ACTIVE, UPDATING, CREATE_FAILED, UPDATE_FAILED, DELETING, or DELETE_FAILED. Revocation by the event bus owner is reported by the Revoked property, not by the state.
  */
 export type EventSourceState = (typeof EventSourceState)[keyof typeof EventSourceState];
+
+export const EventSourceWebhookDeduplicationConfigurationDeduplicationType = {
+    ContentBased: "CONTENT_BASED",
+} as const;
+
+/**
+ * How EventBridge detects duplicate events.
+ *
+ * Valid values:
+ * - CONTENT_BASED - Detects duplicates by a hash of the event content.
+ */
+export type EventSourceWebhookDeduplicationConfigurationDeduplicationType = (typeof EventSourceWebhookDeduplicationConfigurationDeduplicationType)[keyof typeof EventSourceWebhookDeduplicationConfigurationDeduplicationType];
+
+export const EventSourceWebhookHmacAuthConfigurationAlgorithm = {
+    Sha256: "SHA256",
+    Sha1: "SHA1",
+} as const;
+
+/**
+ * The hash algorithm the provider uses to compute the signature.
+ *
+ * Valid values:
+ * - SHA256 - SHA-256.
+ * - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+ */
+export type EventSourceWebhookHmacAuthConfigurationAlgorithm = (typeof EventSourceWebhookHmacAuthConfigurationAlgorithm)[keyof typeof EventSourceWebhookHmacAuthConfigurationAlgorithm];
+
+export const EventSourceWebhookHmacAuthConfigurationEncoding = {
+    Hex: "HEX",
+    Base64: "BASE64",
+} as const;
+
+/**
+ * How the provider encodes the signature in the header.
+ *
+ * Valid values:
+ * - HEX - Hexadecimal.
+ * - BASE64 - Base64.
+ */
+export type EventSourceWebhookHmacAuthConfigurationEncoding = (typeof EventSourceWebhookHmacAuthConfigurationEncoding)[keyof typeof EventSourceWebhookHmacAuthConfigurationEncoding];
+
+export const EventSourceWebhookHmacAuthConfigurationSecretEncoding = {
+    Raw: "RAW",
+    Base64: "BASE64",
+} as const;
+
+/**
+ * How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+ */
+export type EventSourceWebhookHmacAuthConfigurationSecretEncoding = (typeof EventSourceWebhookHmacAuthConfigurationSecretEncoding)[keyof typeof EventSourceWebhookHmacAuthConfigurationSecretEncoding];
+
+export const EventSourceWebhookHmacAuthConfigurationSignedMessageComposition = {
+    Body: "BODY",
+    TimestampDotBody: "TIMESTAMP_DOT_BODY",
+    MessageIdDotTimestampDotBody: "MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY",
+} as const;
+
+/**
+ * How the provider assembles the message it signs from the request.
+ *
+ * Valid values:
+ * - BODY - The request body alone.
+ * - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+ * - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+ */
+export type EventSourceWebhookHmacAuthConfigurationSignedMessageComposition = (typeof EventSourceWebhookHmacAuthConfigurationSignedMessageComposition)[keyof typeof EventSourceWebhookHmacAuthConfigurationSignedMessageComposition];
 
 export const SubscriberDeduplicationConfigurationDeduplicationType = {
     ContentBased: "CONTENT_BASED",
@@ -60,6 +147,39 @@ export const SubscriberFilterScope = {
  * Which part of the event the pattern is evaluated against: DATA (the event payload), METADATA (event metadata), or SYSTEM_METADATA (service-generated metadata).
  */
 export type SubscriberFilterScope = (typeof SubscriberFilterScope)[keyof typeof SubscriberFilterScope];
+
+export const SubscriberInvokeConfigurationMskParametersPropertiesAcks = {
+    All: "ALL",
+    Leader: "LEADER",
+} as const;
+
+/**
+ * Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+ */
+export type SubscriberInvokeConfigurationMskParametersPropertiesAcks = (typeof SubscriberInvokeConfigurationMskParametersPropertiesAcks)[keyof typeof SubscriberInvokeConfigurationMskParametersPropertiesAcks];
+
+export const SubscriberInvokeConfigurationMskParametersPropertiesCompression = {
+    None: "NONE",
+    Gzip: "GZIP",
+    Snappy: "SNAPPY",
+    Lz4: "LZ4",
+    Zstd: "ZSTD",
+} as const;
+
+/**
+ * Producer compression codec applied to the record batch. Defaults to NONE.
+ */
+export type SubscriberInvokeConfigurationMskParametersPropertiesCompression = (typeof SubscriberInvokeConfigurationMskParametersPropertiesCompression)[keyof typeof SubscriberInvokeConfigurationMskParametersPropertiesCompression];
+
+export const SubscriberInvokeConfigurationMskParametersPropertiesConnectivity = {
+    Public: "PUBLIC",
+    Private: "PRIVATE",
+} as const;
+
+/**
+ * Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+ */
+export type SubscriberInvokeConfigurationMskParametersPropertiesConnectivity = (typeof SubscriberInvokeConfigurationMskParametersPropertiesConnectivity)[keyof typeof SubscriberInvokeConfigurationMskParametersPropertiesConnectivity];
 
 export const SubscriberLogConfigurationIncludePayload = {
     Full: "FULL",

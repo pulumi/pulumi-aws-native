@@ -40,6 +40,16 @@ export type DistributionTenant = import("./distributionTenant").DistributionTena
 export const DistributionTenant: typeof import("./distributionTenant").DistributionTenant = null as any;
 utilities.lazyLoad(exports, ["DistributionTenant"], () => require("./distributionTenant"));
 
+export { FieldLevelEncryptionConfigArgs } from "./fieldLevelEncryptionConfig";
+export type FieldLevelEncryptionConfig = import("./fieldLevelEncryptionConfig").FieldLevelEncryptionConfig;
+export const FieldLevelEncryptionConfig: typeof import("./fieldLevelEncryptionConfig").FieldLevelEncryptionConfig = null as any;
+utilities.lazyLoad(exports, ["FieldLevelEncryptionConfig"], () => require("./fieldLevelEncryptionConfig"));
+
+export { FieldLevelEncryptionProfileArgs } from "./fieldLevelEncryptionProfile";
+export type FieldLevelEncryptionProfile = import("./fieldLevelEncryptionProfile").FieldLevelEncryptionProfile;
+export const FieldLevelEncryptionProfile: typeof import("./fieldLevelEncryptionProfile").FieldLevelEncryptionProfile = null as any;
+utilities.lazyLoad(exports, ["FieldLevelEncryptionProfile"], () => require("./fieldLevelEncryptionProfile"));
+
 export { FunctionArgs } from "./function";
 export type Function = import("./function").Function;
 export const Function: typeof import("./function").Function = null as any;
@@ -79,6 +89,16 @@ export { GetDistributionTenantArgs, GetDistributionTenantResult, GetDistribution
 export const getDistributionTenant: typeof import("./getDistributionTenant").getDistributionTenant = null as any;
 export const getDistributionTenantOutput: typeof import("./getDistributionTenant").getDistributionTenantOutput = null as any;
 utilities.lazyLoad(exports, ["getDistributionTenant","getDistributionTenantOutput"], () => require("./getDistributionTenant"));
+
+export { GetFieldLevelEncryptionConfigArgs, GetFieldLevelEncryptionConfigResult, GetFieldLevelEncryptionConfigOutputArgs } from "./getFieldLevelEncryptionConfig";
+export const getFieldLevelEncryptionConfig: typeof import("./getFieldLevelEncryptionConfig").getFieldLevelEncryptionConfig = null as any;
+export const getFieldLevelEncryptionConfigOutput: typeof import("./getFieldLevelEncryptionConfig").getFieldLevelEncryptionConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getFieldLevelEncryptionConfig","getFieldLevelEncryptionConfigOutput"], () => require("./getFieldLevelEncryptionConfig"));
+
+export { GetFieldLevelEncryptionProfileArgs, GetFieldLevelEncryptionProfileResult, GetFieldLevelEncryptionProfileOutputArgs } from "./getFieldLevelEncryptionProfile";
+export const getFieldLevelEncryptionProfile: typeof import("./getFieldLevelEncryptionProfile").getFieldLevelEncryptionProfile = null as any;
+export const getFieldLevelEncryptionProfileOutput: typeof import("./getFieldLevelEncryptionProfile").getFieldLevelEncryptionProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getFieldLevelEncryptionProfile","getFieldLevelEncryptionProfileOutput"], () => require("./getFieldLevelEncryptionProfile"));
 
 export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
 export const getFunction: typeof import("./getFunction").getFunction = null as any;
@@ -207,6 +227,10 @@ const _module = {
                 return new Distribution(name, <any>undefined, { urn })
             case "aws-native:cloudfront:DistributionTenant":
                 return new DistributionTenant(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:FieldLevelEncryptionConfig":
+                return new FieldLevelEncryptionConfig(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:FieldLevelEncryptionProfile":
+                return new FieldLevelEncryptionProfile(name, <any>undefined, { urn })
             case "aws-native:cloudfront:Function":
                 return new Function(name, <any>undefined, { urn })
             case "aws-native:cloudfront:KeyGroup":

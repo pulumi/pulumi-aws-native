@@ -168,6 +168,12 @@ namespace Pulumi.AwsNative.CertificateManager
         public Output<Pulumi.AwsNative.CertificateManager.CertificateTransparencyLoggingPreference?> CertificateTransparencyLoggingPreference { get; private set; } = null!;
 
         /// <summary>
+        /// The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+        /// </summary>
+        [Output("certificateUsage")]
+        public Output<Pulumi.AwsNative.CertificateManager.CertificateUsage?> CertificateUsage { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
         /// </summary>
         [Output("domainName")]
@@ -184,6 +190,12 @@ namespace Pulumi.AwsNative.CertificateManager
         /// </summary>
         [Output("keyAlgorithm")]
         public Output<string?> KeyAlgorithm { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+        /// </summary>
+        [Output("rootHierarchyType")]
+        public Output<Pulumi.AwsNative.CertificateManager.CertificateRootHierarchyType?> RootHierarchyType { get; private set; } = null!;
 
         /// <summary>
         /// Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
@@ -230,9 +242,11 @@ namespace Pulumi.AwsNative.CertificateManager
                 {
                     "certificateAuthorityArn",
                     "certificateExport",
+                    "certificateUsage",
                     "domainName",
                     "domainValidationOptions[*]",
                     "keyAlgorithm",
+                    "rootHierarchyType",
                     "subjectAlternativeNames[*]",
                 },
             };
@@ -276,6 +290,12 @@ namespace Pulumi.AwsNative.CertificateManager
         public Input<Pulumi.AwsNative.CertificateManager.CertificateTransparencyLoggingPreference>? CertificateTransparencyLoggingPreference { get; set; }
 
         /// <summary>
+        /// The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+        /// </summary>
+        [Input("certificateUsage")]
+        public Input<Pulumi.AwsNative.CertificateManager.CertificateUsage>? CertificateUsage { get; set; }
+
+        /// <summary>
         /// The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
         /// </summary>
         [Input("domainName", required: true)]
@@ -298,6 +318,12 @@ namespace Pulumi.AwsNative.CertificateManager
         /// </summary>
         [Input("keyAlgorithm")]
         public Input<string>? KeyAlgorithm { get; set; }
+
+        /// <summary>
+        /// The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+        /// </summary>
+        [Input("rootHierarchyType")]
+        public Input<Pulumi.AwsNative.CertificateManager.CertificateRootHierarchyType>? RootHierarchyType { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;

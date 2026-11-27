@@ -201,6 +201,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
+    /// Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderCpuOptionsNestedVirtualization : IEquatable<CapacityProviderCpuOptionsNestedVirtualization>
+    {
+        private readonly string _value;
+
+        private CapacityProviderCpuOptionsNestedVirtualization(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderCpuOptionsNestedVirtualization Enabled { get; } = new CapacityProviderCpuOptionsNestedVirtualization("ENABLED");
+        public static CapacityProviderCpuOptionsNestedVirtualization Disabled { get; } = new CapacityProviderCpuOptionsNestedVirtualization("DISABLED");
+
+        public static bool operator ==(CapacityProviderCpuOptionsNestedVirtualization left, CapacityProviderCpuOptionsNestedVirtualization right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderCpuOptionsNestedVirtualization left, CapacityProviderCpuOptionsNestedVirtualization right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderCpuOptionsNestedVirtualization value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderCpuOptionsNestedVirtualization other && Equals(other);
+        public bool Equals(CapacityProviderCpuOptionsNestedVirtualization other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The EBS volume type. Defaults to gp3 if not specified.
     /// </summary>
     [EnumType]
@@ -532,7 +563,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
-    /// Versioned schema type governing the structure of examples. Immutable after creation.
+    /// Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
     /// </summary>
     [EnumType]
     public readonly struct DatasetSchemaType : IEquatable<DatasetSchemaType>
@@ -1010,6 +1041,34 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayRateLimitStatus other && Equals(other);
         public bool Equals(GatewayRateLimitStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayResponseInterceptionMode : IEquatable<GatewayResponseInterceptionMode>
+    {
+        private readonly string _value;
+
+        private GatewayResponseInterceptionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayResponseInterceptionMode Buffered { get; } = new GatewayResponseInterceptionMode("BUFFERED");
+        public static GatewayResponseInterceptionMode Stream { get; } = new GatewayResponseInterceptionMode("STREAM");
+
+        public static bool operator ==(GatewayResponseInterceptionMode left, GatewayResponseInterceptionMode right) => left.Equals(right);
+        public static bool operator !=(GatewayResponseInterceptionMode left, GatewayResponseInterceptionMode right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayResponseInterceptionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayResponseInterceptionMode other && Equals(other);
+        public bool Equals(GatewayResponseInterceptionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3151,6 +3210,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static PaymentConnectorType CoinbaseCdp { get; } = new PaymentConnectorType("CoinbaseCDP");
         public static PaymentConnectorType StripePrivy { get; } = new PaymentConnectorType("StripePrivy");
+        public static PaymentConnectorType AwsBilling { get; } = new PaymentConnectorType("AwsBilling");
 
         public static bool operator ==(PaymentConnectorType left, PaymentConnectorType right) => left.Equals(right);
         public static bool operator !=(PaymentConnectorType left, PaymentConnectorType right) => !left.Equals(right);
@@ -3160,6 +3220,100 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PaymentConnectorType other && Equals(other);
         public bool Equals(PaymentConnectorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Amazon Pay API environment
+    /// </summary>
+    [EnumType]
+    public readonly struct PaymentCredentialProviderAmazonPayEnvironmentType : IEquatable<PaymentCredentialProviderAmazonPayEnvironmentType>
+    {
+        private readonly string _value;
+
+        private PaymentCredentialProviderAmazonPayEnvironmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentCredentialProviderAmazonPayEnvironmentType Live { get; } = new PaymentCredentialProviderAmazonPayEnvironmentType("LIVE");
+        public static PaymentCredentialProviderAmazonPayEnvironmentType Sandbox { get; } = new PaymentCredentialProviderAmazonPayEnvironmentType("SANDBOX");
+
+        public static bool operator ==(PaymentCredentialProviderAmazonPayEnvironmentType left, PaymentCredentialProviderAmazonPayEnvironmentType right) => left.Equals(right);
+        public static bool operator !=(PaymentCredentialProviderAmazonPayEnvironmentType left, PaymentCredentialProviderAmazonPayEnvironmentType right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentCredentialProviderAmazonPayEnvironmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentCredentialProviderAmazonPayEnvironmentType other && Equals(other);
+        public bool Equals(PaymentCredentialProviderAmazonPayEnvironmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Amazon Pay region the merchant's authorization token belongs to. AgentCore uses it to pick the Amazon Pay API host.
+    /// </summary>
+    [EnumType]
+    public readonly struct PaymentCredentialProviderAmazonPayRegionType : IEquatable<PaymentCredentialProviderAmazonPayRegionType>
+    {
+        private readonly string _value;
+
+        private PaymentCredentialProviderAmazonPayRegionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentCredentialProviderAmazonPayRegionType Na { get; } = new PaymentCredentialProviderAmazonPayRegionType("NA");
+        public static PaymentCredentialProviderAmazonPayRegionType Eu { get; } = new PaymentCredentialProviderAmazonPayRegionType("EU");
+        public static PaymentCredentialProviderAmazonPayRegionType Jp { get; } = new PaymentCredentialProviderAmazonPayRegionType("JP");
+
+        public static bool operator ==(PaymentCredentialProviderAmazonPayRegionType left, PaymentCredentialProviderAmazonPayRegionType right) => left.Equals(right);
+        public static bool operator !=(PaymentCredentialProviderAmazonPayRegionType left, PaymentCredentialProviderAmazonPayRegionType right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentCredentialProviderAmazonPayRegionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentCredentialProviderAmazonPayRegionType other && Equals(other);
+        public bool Equals(PaymentCredentialProviderAmazonPayRegionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The PayPal API environment
+    /// </summary>
+    [EnumType]
+    public readonly struct PaymentCredentialProviderPayPalEnvironmentType : IEquatable<PaymentCredentialProviderPayPalEnvironmentType>
+    {
+        private readonly string _value;
+
+        private PaymentCredentialProviderPayPalEnvironmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentCredentialProviderPayPalEnvironmentType Live { get; } = new PaymentCredentialProviderPayPalEnvironmentType("LIVE");
+        public static PaymentCredentialProviderPayPalEnvironmentType Sandbox { get; } = new PaymentCredentialProviderPayPalEnvironmentType("SANDBOX");
+
+        public static bool operator ==(PaymentCredentialProviderPayPalEnvironmentType left, PaymentCredentialProviderPayPalEnvironmentType right) => left.Equals(right);
+        public static bool operator !=(PaymentCredentialProviderPayPalEnvironmentType left, PaymentCredentialProviderPayPalEnvironmentType right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentCredentialProviderPayPalEnvironmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentCredentialProviderPayPalEnvironmentType other && Equals(other);
+        public bool Equals(PaymentCredentialProviderPayPalEnvironmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3213,6 +3367,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static PaymentCredentialProviderVendorType CoinbaseCdp { get; } = new PaymentCredentialProviderVendorType("CoinbaseCDP");
         public static PaymentCredentialProviderVendorType StripePrivy { get; } = new PaymentCredentialProviderVendorType("StripePrivy");
+        public static PaymentCredentialProviderVendorType Stripe { get; } = new PaymentCredentialProviderVendorType("Stripe");
+        public static PaymentCredentialProviderVendorType PayPal { get; } = new PaymentCredentialProviderVendorType("PayPal");
+        public static PaymentCredentialProviderVendorType AmazonPay { get; } = new PaymentCredentialProviderVendorType("AmazonPay");
 
         public static bool operator ==(PaymentCredentialProviderVendorType left, PaymentCredentialProviderVendorType right) => left.Equals(right);
         public static bool operator !=(PaymentCredentialProviderVendorType left, PaymentCredentialProviderVendorType right) => !left.Equals(right);

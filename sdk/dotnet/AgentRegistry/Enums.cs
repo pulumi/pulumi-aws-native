@@ -8,6 +8,40 @@ using Pulumi;
 namespace Pulumi.AwsNative.AgentRegistry
 {
     /// <summary>
+    /// The verification status of the Publisher.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublisherVerificationStatus : IEquatable<PublisherVerificationStatus>
+    {
+        private readonly string _value;
+
+        private PublisherVerificationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublisherVerificationStatus ActionRequired { get; } = new PublisherVerificationStatus("ACTION_REQUIRED");
+        public static PublisherVerificationStatus Active { get; } = new PublisherVerificationStatus("ACTIVE");
+        public static PublisherVerificationStatus Failed { get; } = new PublisherVerificationStatus("FAILED");
+        public static PublisherVerificationStatus Suspended { get; } = new PublisherVerificationStatus("SUSPENDED");
+        public static PublisherVerificationStatus Deleting { get; } = new PublisherVerificationStatus("DELETING");
+
+        public static bool operator ==(PublisherVerificationStatus left, PublisherVerificationStatus right) => left.Equals(right);
+        public static bool operator !=(PublisherVerificationStatus left, PublisherVerificationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PublisherVerificationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublisherVerificationStatus other && Equals(other);
+        public bool Equals(PublisherVerificationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of authorizer that controls how consumers access the registry's search and MCP invoke operations.
     /// </summary>
     [EnumType]
@@ -276,7 +310,37 @@ namespace Pulumi.AwsNative.AgentRegistry
     }
 
     /// <summary>
-    /// The lifecycle status of the registry record.
+    /// The type of the credential provider.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType : IEquatable<RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType>
+    {
+        private readonly string _value;
+
+        private RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType Iam { get; } = new RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType("IAM");
+
+        public static bool operator ==(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType left, RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType right) => left.Equals(right);
+        public static bool operator !=(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType left, RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType other && Equals(other);
+        public bool Equals(RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle status of the registry record. CREATE_PENDING_AUTH and UPDATE_PENDING_AUTH mean that the record waits for a user to authorize access to a GitHub source. CloudFormation doesn't support GitHub sources, so a create or update that reaches one of these states fails.
     /// </summary>
     [EnumType]
     public readonly struct RegistryRecordStatus : IEquatable<RegistryRecordStatus>
@@ -297,6 +361,8 @@ namespace Pulumi.AwsNative.AgentRegistry
         public static RegistryRecordStatus Updating { get; } = new RegistryRecordStatus("UPDATING");
         public static RegistryRecordStatus CreateFailed { get; } = new RegistryRecordStatus("CREATE_FAILED");
         public static RegistryRecordStatus UpdateFailed { get; } = new RegistryRecordStatus("UPDATE_FAILED");
+        public static RegistryRecordStatus CreatePendingAuth { get; } = new RegistryRecordStatus("CREATE_PENDING_AUTH");
+        public static RegistryRecordStatus UpdatePendingAuth { get; } = new RegistryRecordStatus("UPDATE_PENDING_AUTH");
 
         public static bool operator ==(RegistryRecordStatus left, RegistryRecordStatus right) => left.Equals(right);
         public static bool operator !=(RegistryRecordStatus left, RegistryRecordStatus right) => !left.Equals(right);

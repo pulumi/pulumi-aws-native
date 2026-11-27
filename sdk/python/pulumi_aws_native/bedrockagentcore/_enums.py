@@ -13,6 +13,7 @@ __all__ = [
     'BrowserCustomBrowserStatus',
     'BrowserProfileStatus',
     'CapacityProviderCapacityReservationSpecificationCapacityReservationPreference',
+    'CapacityProviderCpuOptionsNestedVirtualization',
     'CapacityProviderEbsVolumeConfigurationVolumeType',
     'CapacityProviderEphemeralEbsVolumeConfigurationVolumeType',
     'CapacityProviderLaunchParametersMonitoring',
@@ -39,6 +40,7 @@ __all__ = [
     'GatewayPolicyEngineMode',
     'GatewayRateLimitPeriod',
     'GatewayRateLimitStatus',
+    'GatewayResponseInterceptionMode',
     'GatewayRuleFallbackError',
     'GatewayRulePrincipalMatchOperator',
     'GatewayRuleStatus',
@@ -108,6 +110,9 @@ __all__ = [
     'PaymentConnectorProvisionMode',
     'PaymentConnectorStatus',
     'PaymentConnectorType',
+    'PaymentCredentialProviderAmazonPayEnvironmentType',
+    'PaymentCredentialProviderAmazonPayRegionType',
+    'PaymentCredentialProviderPayPalEnvironmentType',
     'PaymentCredentialProviderSecretSourceType',
     'PaymentCredentialProviderVendorType',
     'PaymentManagerAuthorizerType',
@@ -188,6 +193,15 @@ class CapacityProviderCapacityReservationSpecificationCapacityReservationPrefere
     CAPACITY_RESERVATIONS_ONLY = "capacity-reservations-only"
     OPEN = "open"
     NONE = "none"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderCpuOptionsNestedVirtualization")
+class CapacityProviderCpuOptionsNestedVirtualization(_builtins.str, Enum):
+    """
+    Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderEbsVolumeConfigurationVolumeType")
@@ -304,7 +318,7 @@ class ConsentPortalStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:bedrockagentcore:DatasetSchemaType")
 class DatasetSchemaType(_builtins.str, Enum):
     """
-    Versioned schema type governing the structure of examples. Immutable after creation.
+    Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
     """
     AGENTCORE_EVALUATION_PREDEFINED_V1 = "AGENTCORE_EVALUATION_PREDEFINED_V1"
     AGENTCORE_EVALUATION_SIMULATED_V1 = "AGENTCORE_EVALUATION_SIMULATED_V1"
@@ -433,6 +447,12 @@ class GatewayRateLimitStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
     UPDATING = "UPDATING"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayResponseInterceptionMode")
+class GatewayResponseInterceptionMode(_builtins.str, Enum):
+    BUFFERED = "BUFFERED"
+    STREAM = "STREAM"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayRuleFallbackError")
@@ -1065,6 +1085,35 @@ class PaymentConnectorStatus(_builtins.str, Enum):
 class PaymentConnectorType(_builtins.str, Enum):
     COINBASE_CDP = "CoinbaseCDP"
     STRIPE_PRIVY = "StripePrivy"
+    AWS_BILLING = "AwsBilling"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentCredentialProviderAmazonPayEnvironmentType")
+class PaymentCredentialProviderAmazonPayEnvironmentType(_builtins.str, Enum):
+    """
+    The Amazon Pay API environment
+    """
+    LIVE = "LIVE"
+    SANDBOX = "SANDBOX"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentCredentialProviderAmazonPayRegionType")
+class PaymentCredentialProviderAmazonPayRegionType(_builtins.str, Enum):
+    """
+    The Amazon Pay region the merchant's authorization token belongs to. AgentCore uses it to pick the Amazon Pay API host.
+    """
+    NA = "NA"
+    EU = "EU"
+    JP = "JP"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentCredentialProviderPayPalEnvironmentType")
+class PaymentCredentialProviderPayPalEnvironmentType(_builtins.str, Enum):
+    """
+    The PayPal API environment
+    """
+    LIVE = "LIVE"
+    SANDBOX = "SANDBOX"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentCredentialProviderSecretSourceType")
@@ -1083,6 +1132,9 @@ class PaymentCredentialProviderVendorType(_builtins.str, Enum):
     """
     COINBASE_CDP = "CoinbaseCDP"
     STRIPE_PRIVY = "StripePrivy"
+    STRIPE = "Stripe"
+    PAY_PAL = "PayPal"
+    AMAZON_PAY = "AmazonPay"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizerType")

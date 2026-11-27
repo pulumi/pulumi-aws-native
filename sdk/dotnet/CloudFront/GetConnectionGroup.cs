@@ -111,6 +111,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.ConnectionGroupViewerFallback? ViewerFallback;
 
         [OutputConstructor]
         private GetConnectionGroupResult(
@@ -136,7 +137,9 @@ namespace Pulumi.AwsNative.CloudFront
 
             string? status,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.ConnectionGroupViewerFallback? viewerFallback)
         {
             AnycastIpListId = anycastIpListId;
             Arn = arn;
@@ -150,6 +153,7 @@ namespace Pulumi.AwsNative.CloudFront
             RoutingEndpoint = routingEndpoint;
             Status = status;
             Tags = tags;
+            ViewerFallback = viewerFallback;
         }
     }
 }

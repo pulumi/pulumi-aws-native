@@ -52,7 +52,8 @@ type LookupConnectionGroupResult struct {
 	// The status of the connection group.
 	Status *string `pulumi:"status"`
 	// A complex type that contains zero or more ``Tag`` elements.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags           []aws.Tag                      `pulumi:"tags"`
+	ViewerFallback *ConnectionGroupViewerFallback `pulumi:"viewerFallback"`
 }
 
 func LookupConnectionGroupOutput(ctx *pulumi.Context, args LookupConnectionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionGroupResultOutput {
@@ -141,6 +142,10 @@ func (o LookupConnectionGroupResultOutput) Status() pulumi.StringPtrOutput {
 // A complex type that contains zero or more “Tag“ elements.
 func (o LookupConnectionGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupConnectionGroupResultOutput) ViewerFallback() ConnectionGroupViewerFallbackPtrOutput {
+	return o.ApplyT(func(v LookupConnectionGroupResult) *ConnectionGroupViewerFallback { return v.ViewerFallback }).(ConnectionGroupViewerFallbackPtrOutput)
 }
 
 func init() {

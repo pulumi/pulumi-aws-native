@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const HealthCheckConfigPropertiesEndpointType = {
+    Public: "PUBLIC",
+    Private: "PRIVATE",
+} as const;
+
+/**
+ * Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+ */
+export type HealthCheckConfigPropertiesEndpointType = (typeof HealthCheckConfigPropertiesEndpointType)[keyof typeof HealthCheckConfigPropertiesEndpointType];
+
 export const HealthCheckConfigPropertiesInsufficientDataHealthStatus = {
     Healthy: "Healthy",
     LastKnownStatus: "LastKnownStatus",
@@ -97,6 +107,45 @@ export const HealthCheckSourceStatus = {
  */
 export type HealthCheckSourceStatus = (typeof HealthCheckSourceStatus)[keyof typeof HealthCheckSourceStatus];
 
+export const HostedZoneChangeGuardrailName = {
+    NsOcclusionCheck: "NS_OCCLUSION_CHECK",
+    AliasTargetCheck: "ALIAS_TARGET_CHECK",
+    ActiveRecordCheck: "ACTIVE_RECORD_CHECK",
+    ActiveDelegationCheck: "ACTIVE_DELEGATION_CHECK",
+} as const;
+
+/**
+ * The name of the Change Guardrail.
+ */
+export type HostedZoneChangeGuardrailName = (typeof HostedZoneChangeGuardrailName)[keyof typeof HostedZoneChangeGuardrailName];
+
+export const HostedZoneChangeGuardrailStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+ */
+export type HostedZoneChangeGuardrailStatus = (typeof HostedZoneChangeGuardrailStatus)[keyof typeof HostedZoneChangeGuardrailStatus];
+
+export const HostedZoneChangeHistoryStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether change history is enabled for the hosted zone.
+ */
+export type HostedZoneChangeHistoryStatus = (typeof HostedZoneChangeHistoryStatus)[keyof typeof HostedZoneChangeHistoryStatus];
+
+export const HostedZoneConfigHostedZoneTier = {
+    Standard: "STANDARD",
+    Advanced: "ADVANCED",
+} as const;
+
+export type HostedZoneConfigHostedZoneTier = (typeof HostedZoneConfigHostedZoneTier)[keyof typeof HostedZoneConfigHostedZoneTier];
+
 export const KeySigningKeyStatus = {
     Active: "ACTIVE",
     Inactive: "INACTIVE",
@@ -107,12 +156,50 @@ export const KeySigningKeyStatus = {
  */
 export type KeySigningKeyStatus = (typeof KeySigningKeyStatus)[keyof typeof KeySigningKeyStatus];
 
+export const RecordSetAzAffinityLocationType = {
+    AvailabilityZone: "AvailabilityZone",
+    AvailabilityZoneGroup: "AvailabilityZoneGroup",
+    Region: "Region",
+    Partition: "Partition",
+    Global: "Global",
+} as const;
+
+/**
+ * The type of the source location that the record set's answers apply to.
+ */
+export type RecordSetAzAffinityLocationType = (typeof RecordSetAzAffinityLocationType)[keyof typeof RecordSetAzAffinityLocationType];
+
 export const RecordSetFailover = {
     Primary: "PRIMARY",
     Secondary: "SECONDARY",
 } as const;
 
 export type RecordSetFailover = (typeof RecordSetFailover)[keyof typeof RecordSetFailover];
+
+export const TrafficPolicyInstanceTrafficPolicyType = {
+    Soa: "SOA",
+    A: "A",
+    Txt: "TXT",
+    Ns: "NS",
+    Cname: "CNAME",
+    Mx: "MX",
+    Naptr: "NAPTR",
+    Ptr: "PTR",
+    Srv: "SRV",
+    Spf: "SPF",
+    Aaaa: "AAAA",
+    Caa: "CAA",
+    Ds: "DS",
+    Tlsa: "TLSA",
+    Sshfp: "SSHFP",
+    Svcb: "SVCB",
+    Https: "HTTPS",
+} as const;
+
+/**
+ * The DNS type that Amazon Route 53 assigned to all of the resource record sets that it created for this traffic policy instance. Route 53 derives it from the referenced traffic policy.
+ */
+export type TrafficPolicyInstanceTrafficPolicyType = (typeof TrafficPolicyInstanceTrafficPolicyType)[keyof typeof TrafficPolicyInstanceTrafficPolicyType];
 
 export const TrafficPolicyType = {
     Soa: "SOA",

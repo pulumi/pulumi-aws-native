@@ -72,12 +72,28 @@ export const DistributionCustomOriginConfigIpAddressType = {
  */
 export type DistributionCustomOriginConfigIpAddressType = (typeof DistributionCustomOriginConfigIpAddressType)[keyof typeof DistributionCustomOriginConfigIpAddressType];
 
+export const DistributionCustomOriginConfigOriginHttpVersion = {
+    Http11: "http1.1",
+    Http2: "http2",
+} as const;
+
+export type DistributionCustomOriginConfigOriginHttpVersion = (typeof DistributionCustomOriginConfigOriginHttpVersion)[keyof typeof DistributionCustomOriginConfigOriginHttpVersion];
+
 export const DistributionOriginGroupSelectionCriteria = {
     Default: "default",
     MediaQualityBased: "media-quality-based",
 } as const;
 
 export type DistributionOriginGroupSelectionCriteria = (typeof DistributionOriginGroupSelectionCriteria)[keyof typeof DistributionOriginGroupSelectionCriteria];
+
+export const DistributionTenantDomainMappingServeOn = {
+    AnycastIpListOnly: "anycast-ip-list-only",
+} as const;
+
+/**
+ * Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+ */
+export type DistributionTenantDomainMappingServeOn = (typeof DistributionTenantDomainMappingServeOn)[keyof typeof DistributionTenantDomainMappingServeOn];
 
 export const DistributionTenantDomainResultStatus = {
     Active: "active",
@@ -125,6 +141,13 @@ export const DistributionTenantManagedCertificateRequestValidationTokenHost = {
  */
 export type DistributionTenantManagedCertificateRequestValidationTokenHost = (typeof DistributionTenantManagedCertificateRequestValidationTokenHost)[keyof typeof DistributionTenantManagedCertificateRequestValidationTokenHost];
 
+export const DistributionTenantOnDomainTakeover = {
+    Allow: "allow",
+    Reject: "reject",
+} as const;
+
+export type DistributionTenantOnDomainTakeover = (typeof DistributionTenantOnDomainTakeover)[keyof typeof DistributionTenantOnDomainTakeover];
+
 export const DistributionTenantWebAclCustomizationAction = {
     Override: "override",
     Disable: "disable",
@@ -142,6 +165,22 @@ export const DistributionViewerMtlsMode = {
 } as const;
 
 export type DistributionViewerMtlsMode = (typeof DistributionViewerMtlsMode)[keyof typeof DistributionViewerMtlsMode];
+
+export const DistributionVpcOriginConfigOriginHttpVersion = {
+    Http11: "http1.1",
+    Http2: "http2",
+} as const;
+
+export type DistributionVpcOriginConfigOriginHttpVersion = (typeof DistributionVpcOriginConfigOriginHttpVersion)[keyof typeof DistributionVpcOriginConfigOriginHttpVersion];
+
+export const FieldLevelEncryptionConfigContentTypeProfileFormat = {
+    UrlEncoded: "URLEncoded",
+} as const;
+
+/**
+ * The encryption format CloudFront uses for this content type.
+ */
+export type FieldLevelEncryptionConfigContentTypeProfileFormat = (typeof FieldLevelEncryptionConfigContentTypeProfileFormat)[keyof typeof FieldLevelEncryptionConfigContentTypeProfileFormat];
 
 export const MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus = {
     Enabled: "Enabled",

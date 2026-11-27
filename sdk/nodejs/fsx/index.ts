@@ -10,6 +10,11 @@ export type Backup = import("./backup").Backup;
 export const Backup: typeof import("./backup").Backup = null as any;
 utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
 
+export { ClusterPeerArgs } from "./clusterPeer";
+export type ClusterPeer = import("./clusterPeer").ClusterPeer;
+export const ClusterPeer: typeof import("./clusterPeer").ClusterPeer = null as any;
+utilities.lazyLoad(exports, ["ClusterPeer"], () => require("./clusterPeer"));
+
 export { DataRepositoryAssociationArgs } from "./dataRepositoryAssociation";
 export type DataRepositoryAssociation = import("./dataRepositoryAssociation").DataRepositoryAssociation;
 export const DataRepositoryAssociation: typeof import("./dataRepositoryAssociation").DataRepositoryAssociation = null as any;
@@ -24,6 +29,11 @@ export { GetBackupArgs, GetBackupResult, GetBackupOutputArgs } from "./getBackup
 export const getBackup: typeof import("./getBackup").getBackup = null as any;
 export const getBackupOutput: typeof import("./getBackup").getBackupOutput = null as any;
 utilities.lazyLoad(exports, ["getBackup","getBackupOutput"], () => require("./getBackup"));
+
+export { GetClusterPeerArgs, GetClusterPeerResult, GetClusterPeerOutputArgs } from "./getClusterPeer";
+export const getClusterPeer: typeof import("./getClusterPeer").getClusterPeer = null as any;
+export const getClusterPeerOutput: typeof import("./getClusterPeer").getClusterPeerOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterPeer","getClusterPeerOutput"], () => require("./getClusterPeer"));
 
 export { GetDataRepositoryAssociationArgs, GetDataRepositoryAssociationResult, GetDataRepositoryAssociationOutputArgs } from "./getDataRepositoryAssociation";
 export const getDataRepositoryAssociation: typeof import("./getDataRepositoryAssociation").getDataRepositoryAssociation = null as any;
@@ -40,15 +50,35 @@ export const getS3AccessPointAttachment: typeof import("./getS3AccessPointAttach
 export const getS3AccessPointAttachmentOutput: typeof import("./getS3AccessPointAttachment").getS3AccessPointAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getS3AccessPointAttachment","getS3AccessPointAttachmentOutput"], () => require("./getS3AccessPointAttachment"));
 
+export { GetSnapmirrorPolicyArgs, GetSnapmirrorPolicyResult, GetSnapmirrorPolicyOutputArgs } from "./getSnapmirrorPolicy";
+export const getSnapmirrorPolicy: typeof import("./getSnapmirrorPolicy").getSnapmirrorPolicy = null as any;
+export const getSnapmirrorPolicyOutput: typeof import("./getSnapmirrorPolicy").getSnapmirrorPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapmirrorPolicy","getSnapmirrorPolicyOutput"], () => require("./getSnapmirrorPolicy"));
+
+export { GetSnapmirrorRelationshipArgs, GetSnapmirrorRelationshipResult, GetSnapmirrorRelationshipOutputArgs } from "./getSnapmirrorRelationship";
+export const getSnapmirrorRelationship: typeof import("./getSnapmirrorRelationship").getSnapmirrorRelationship = null as any;
+export const getSnapmirrorRelationshipOutput: typeof import("./getSnapmirrorRelationship").getSnapmirrorRelationshipOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapmirrorRelationship","getSnapmirrorRelationshipOutput"], () => require("./getSnapmirrorRelationship"));
+
 export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
 export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
 export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
 
+export { GetSnapshotPolicyArgs, GetSnapshotPolicyResult, GetSnapshotPolicyOutputArgs } from "./getSnapshotPolicy";
+export const getSnapshotPolicy: typeof import("./getSnapshotPolicy").getSnapshotPolicy = null as any;
+export const getSnapshotPolicyOutput: typeof import("./getSnapshotPolicy").getSnapshotPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshotPolicy","getSnapshotPolicyOutput"], () => require("./getSnapshotPolicy"));
+
 export { GetStorageVirtualMachineArgs, GetStorageVirtualMachineResult, GetStorageVirtualMachineOutputArgs } from "./getStorageVirtualMachine";
 export const getStorageVirtualMachine: typeof import("./getStorageVirtualMachine").getStorageVirtualMachine = null as any;
 export const getStorageVirtualMachineOutput: typeof import("./getStorageVirtualMachine").getStorageVirtualMachineOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageVirtualMachine","getStorageVirtualMachineOutput"], () => require("./getStorageVirtualMachine"));
+
+export { GetStorageVirtualMachinePeerArgs, GetStorageVirtualMachinePeerResult, GetStorageVirtualMachinePeerOutputArgs } from "./getStorageVirtualMachinePeer";
+export const getStorageVirtualMachinePeer: typeof import("./getStorageVirtualMachinePeer").getStorageVirtualMachinePeer = null as any;
+export const getStorageVirtualMachinePeerOutput: typeof import("./getStorageVirtualMachinePeer").getStorageVirtualMachinePeerOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageVirtualMachinePeer","getStorageVirtualMachinePeerOutput"], () => require("./getStorageVirtualMachinePeer"));
 
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
@@ -60,15 +90,35 @@ export type S3AccessPointAttachment = import("./s3accessPointAttachment").S3Acce
 export const S3AccessPointAttachment: typeof import("./s3accessPointAttachment").S3AccessPointAttachment = null as any;
 utilities.lazyLoad(exports, ["S3AccessPointAttachment"], () => require("./s3accessPointAttachment"));
 
+export { SnapmirrorPolicyArgs } from "./snapmirrorPolicy";
+export type SnapmirrorPolicy = import("./snapmirrorPolicy").SnapmirrorPolicy;
+export const SnapmirrorPolicy: typeof import("./snapmirrorPolicy").SnapmirrorPolicy = null as any;
+utilities.lazyLoad(exports, ["SnapmirrorPolicy"], () => require("./snapmirrorPolicy"));
+
+export { SnapmirrorRelationshipArgs } from "./snapmirrorRelationship";
+export type SnapmirrorRelationship = import("./snapmirrorRelationship").SnapmirrorRelationship;
+export const SnapmirrorRelationship: typeof import("./snapmirrorRelationship").SnapmirrorRelationship = null as any;
+utilities.lazyLoad(exports, ["SnapmirrorRelationship"], () => require("./snapmirrorRelationship"));
+
 export { SnapshotArgs } from "./snapshot";
 export type Snapshot = import("./snapshot").Snapshot;
 export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
 utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 
+export { SnapshotPolicyArgs } from "./snapshotPolicy";
+export type SnapshotPolicy = import("./snapshotPolicy").SnapshotPolicy;
+export const SnapshotPolicy: typeof import("./snapshotPolicy").SnapshotPolicy = null as any;
+utilities.lazyLoad(exports, ["SnapshotPolicy"], () => require("./snapshotPolicy"));
+
 export { StorageVirtualMachineArgs } from "./storageVirtualMachine";
 export type StorageVirtualMachine = import("./storageVirtualMachine").StorageVirtualMachine;
 export const StorageVirtualMachine: typeof import("./storageVirtualMachine").StorageVirtualMachine = null as any;
 utilities.lazyLoad(exports, ["StorageVirtualMachine"], () => require("./storageVirtualMachine"));
+
+export { StorageVirtualMachinePeerArgs } from "./storageVirtualMachinePeer";
+export type StorageVirtualMachinePeer = import("./storageVirtualMachinePeer").StorageVirtualMachinePeer;
+export const StorageVirtualMachinePeer: typeof import("./storageVirtualMachinePeer").StorageVirtualMachinePeer = null as any;
+utilities.lazyLoad(exports, ["StorageVirtualMachinePeer"], () => require("./storageVirtualMachinePeer"));
 
 export { VolumeArgs } from "./volume";
 export type Volume = import("./volume").Volume;
@@ -85,16 +135,26 @@ const _module = {
         switch (type) {
             case "aws-native:fsx:Backup":
                 return new Backup(name, <any>undefined, { urn })
+            case "aws-native:fsx:ClusterPeer":
+                return new ClusterPeer(name, <any>undefined, { urn })
             case "aws-native:fsx:DataRepositoryAssociation":
                 return new DataRepositoryAssociation(name, <any>undefined, { urn })
             case "aws-native:fsx:FileCache":
                 return new FileCache(name, <any>undefined, { urn })
             case "aws-native:fsx:S3AccessPointAttachment":
                 return new S3AccessPointAttachment(name, <any>undefined, { urn })
+            case "aws-native:fsx:SnapmirrorPolicy":
+                return new SnapmirrorPolicy(name, <any>undefined, { urn })
+            case "aws-native:fsx:SnapmirrorRelationship":
+                return new SnapmirrorRelationship(name, <any>undefined, { urn })
             case "aws-native:fsx:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
+            case "aws-native:fsx:SnapshotPolicy":
+                return new SnapshotPolicy(name, <any>undefined, { urn })
             case "aws-native:fsx:StorageVirtualMachine":
                 return new StorageVirtualMachine(name, <any>undefined, { urn })
+            case "aws-native:fsx:StorageVirtualMachinePeer":
+                return new StorageVirtualMachinePeer(name, <any>undefined, { urn })
             case "aws-native:fsx:Volume":
                 return new Volume(name, <any>undefined, { urn })
             default:

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStackResult:
-    def __init__(__self__, access_endpoints=None, agent_access_config=None, application_settings=None, content_redirection=None, description=None, display_name=None, embed_host_domains=None, feedback_url=None, redirect_url=None, storage_connectors=None, streaming_experience_settings=None, tags=None, user_settings=None):
+    def __init__(__self__, access_endpoints=None, agent_access_config=None, application_settings=None, content_redirection=None, description=None, display_name=None, embed_host_domains=None, feedback_url=None, redirect_url=None, storage_connector_authentication=None, storage_connectors=None, streaming_experience_settings=None, tags=None, user_settings=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -53,6 +53,9 @@ class GetStackResult:
         if redirect_url and not isinstance(redirect_url, str):
             raise TypeError("Expected argument 'redirect_url' to be a str")
         pulumi.set(__self__, "redirect_url", redirect_url)
+        if storage_connector_authentication and not isinstance(storage_connector_authentication, str):
+            raise TypeError("Expected argument 'storage_connector_authentication' to be a str")
+        pulumi.set(__self__, "storage_connector_authentication", storage_connector_authentication)
         if storage_connectors and not isinstance(storage_connectors, list):
             raise TypeError("Expected argument 'storage_connectors' to be a list")
         pulumi.set(__self__, "storage_connectors", storage_connectors)
@@ -139,6 +142,14 @@ class GetStackResult:
         return pulumi.get(self, "redirect_url")
 
     @_builtins.property
+    @pulumi.getter(name="storageConnectorAuthentication")
+    def storage_connector_authentication(self) -> Optional[_builtins.str]:
+        """
+        Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+        """
+        return pulumi.get(self, "storage_connector_authentication")
+
+    @_builtins.property
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> Optional[Sequence['outputs.StackStorageConnector']]:
         """
@@ -186,6 +197,7 @@ class AwaitableGetStackResult(GetStackResult):
             embed_host_domains=self.embed_host_domains,
             feedback_url=self.feedback_url,
             redirect_url=self.redirect_url,
+            storage_connector_authentication=self.storage_connector_authentication,
             storage_connectors=self.storage_connectors,
             streaming_experience_settings=self.streaming_experience_settings,
             tags=self.tags,
@@ -214,6 +226,7 @@ def get_stack(name: Optional[_builtins.str] = None,
         embed_host_domains=pulumi.get(__ret__, 'embed_host_domains'),
         feedback_url=pulumi.get(__ret__, 'feedback_url'),
         redirect_url=pulumi.get(__ret__, 'redirect_url'),
+        storage_connector_authentication=pulumi.get(__ret__, 'storage_connector_authentication'),
         storage_connectors=pulumi.get(__ret__, 'storage_connectors'),
         streaming_experience_settings=pulumi.get(__ret__, 'streaming_experience_settings'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -239,6 +252,7 @@ def get_stack_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         embed_host_domains=pulumi.get(__response__, 'embed_host_domains'),
         feedback_url=pulumi.get(__response__, 'feedback_url'),
         redirect_url=pulumi.get(__response__, 'redirect_url'),
+        storage_connector_authentication=pulumi.get(__response__, 'storage_connector_authentication'),
         storage_connectors=pulumi.get(__response__, 'storage_connectors'),
         streaming_experience_settings=pulumi.get(__response__, 'streaming_experience_settings'),
         tags=pulumi.get(__response__, 'tags'),

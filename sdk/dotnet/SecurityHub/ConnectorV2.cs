@@ -133,6 +133,7 @@ namespace Pulumi.AwsNative.SecurityHub
                     "kmsKeyArn",
                     "name",
                     "provider.azure.awsConfigConnectorArn",
+                    "provider.gcp.awsConfigConnectorArn",
                     "provider.serviceNow.instanceName",
                 },
             };

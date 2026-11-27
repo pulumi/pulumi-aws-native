@@ -141,7 +141,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
     /**
      * The revision ID of the policy.
      */
-    declare public readonly revisionId: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly revisionId: pulumi.Output<string>;
 
     /**
      * Create a RegistryPolicy resource with the given unique name, arguments, and options.
@@ -162,8 +162,8 @@ export class RegistryPolicy extends pulumi.CustomResource {
             }
             resourceInputs["policy"] = args?.policy;
             resourceInputs["registryName"] = args?.registryName;
-            resourceInputs["revisionId"] = args?.revisionId;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["revisionId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
@@ -189,8 +189,4 @@ export interface RegistryPolicyArgs {
      * The name of the registry.
      */
     registryName: pulumi.Input<string>;
-    /**
-     * The revision ID of the policy.
-     */
-    revisionId?: pulumi.Input<string | undefined>;
 }

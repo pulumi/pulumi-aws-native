@@ -70,6 +70,10 @@ export interface GetRuntimeResult {
      */
     readonly filesystemConfigurations?: outputs.bedrockagentcore.RuntimeFilesystemConfiguration[];
     /**
+     * Lifecycle hooks for the agent runtime
+     */
+    readonly hooksConfiguration?: outputs.bedrockagentcore.RuntimeHooksConfiguration;
+    /**
      * When resource was last updated
      */
     readonly lastUpdatedAt?: string;
@@ -93,6 +97,10 @@ export interface GetRuntimeResult {
      * Configuration for HTTP request headers
      */
     readonly requestHeaderConfiguration?: outputs.bedrockagentcore.RuntimeRequestHeaderConfiguration;
+    /**
+     * Resource configurations for the agent runtime
+     */
+    readonly resourceConfigurations?: outputs.bedrockagentcore.RuntimeResourceConfiguration[];
     /**
      * Amazon Resource Name (ARN) of an IAM role
      */

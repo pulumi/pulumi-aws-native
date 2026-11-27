@@ -31,6 +31,23 @@
       "type" : "object",
       "description" : "Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant."
     },
+    "DomainMapping" : {
+      "additionalProperties" : false,
+      "properties" : {
+        "Domain" : {
+          "type" : "string",
+          "description" : "The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`."
+        },
+        "ServeOn" : {
+          "type" : "string",
+          "description" : "Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.",
+          "enum" : [ "anycast-ip-list-only" ]
+        }
+      },
+      "required" : [ "Domain", "ServeOn" ],
+      "type" : "object",
+      "description" : ""
+    },
     "DomainResult" : {
       "additionalProperties" : false,
       "properties" : {
@@ -42,6 +59,18 @@
           "type" : "string",
           "enum" : [ "active", "inactive" ],
           "description" : "Whether the domain is active or inactive."
+        },
+        "StatusReasonCode" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "StatusReason" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "ServeOn" : {
+          "type" : "string",
+          "description" : ""
         }
       },
       "type" : "object",
@@ -234,15 +263,29 @@
       "uniqueItems" : false,
       "description" : "The domains associated with the distribution tenant."
     },
+    "DomainMappings" : {
+      "type" : "array",
+      "description" : "",
+      "items" : {
+        "$ref" : "#/definitions/DomainMapping"
+      },
+      "minItems" : 1,
+      "insertionOrder" : false
+    },
     "ManagedCertificateRequest" : {
       "$ref" : "#/definitions/ManagedCertificateRequest",
       "description" : "An object that represents the request for the Amazon CloudFront managed ACM certificate."
+    },
+    "OnDomainTakeover" : {
+      "type" : "string",
+      "description" : "",
+      "enum" : [ "allow", "reject" ]
     }
   },
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/DomainResults", "/properties/ETag", "/properties/Status", "/properties/CreatedTime", "/properties/LastModifiedTime" ],
   "required" : [ "DistributionId", "Name", "Domains" ],
-  "writeOnlyProperties" : [ "/properties/ManagedCertificateRequest" ],
+  "writeOnlyProperties" : [ "/properties/ManagedCertificateRequest", "/properties/OnDomainTakeover" ],
   "tagging" : {
     "cloudFormationSystemTags" : false,
     "permissions" : [ "cloudfront:TagResource", "cloudfront:ListTagsForResource", "cloudfront:UntagResource" ],

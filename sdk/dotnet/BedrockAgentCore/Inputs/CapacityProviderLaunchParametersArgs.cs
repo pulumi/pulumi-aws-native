@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("capacityReservationSpecification")]
         public Input<Inputs.CapacityProviderCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
 
+        [Input("cpuOptions")]
+        public Input<Inputs.CapacityProviderCpuOptionsArgs>? CpuOptions { get; set; }
+
         [Input("ephemeralVolumes")]
         private InputList<Inputs.CapacityProviderEphemeralBlockDeviceMappingArgs>? _ephemeralVolumes;
 

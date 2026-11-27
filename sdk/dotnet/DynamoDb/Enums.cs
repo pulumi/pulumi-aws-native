@@ -346,6 +346,11 @@ namespace Pulumi.AwsNative.DynamoDb
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The role of the attribute in the search schema. Valid values:
+    ///   +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+    ///   +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+    /// </summary>
     [EnumType]
     public readonly struct TableSearchSchemaElementSearchSchemaElementType : IEquatable<TableSearchSchemaElementSearchSchemaElementType>
     {
@@ -374,6 +379,9 @@ namespace Pulumi.AwsNative.DynamoDb
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+    /// </summary>
     [EnumType]
     public readonly struct TableVectorIndexDistanceFunction : IEquatable<TableVectorIndexDistanceFunction>
     {

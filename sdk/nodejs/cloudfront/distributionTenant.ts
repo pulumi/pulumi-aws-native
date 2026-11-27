@@ -71,6 +71,7 @@ export class DistributionTenant extends pulumi.CustomResource {
      * The ID of the multi-tenant distribution.
      */
     declare public readonly distributionId: pulumi.Output<string>;
+    declare public readonly domainMappings: pulumi.Output<outputs.cloudfront.DistributionTenantDomainMapping[] | undefined>;
     declare public /*out*/ readonly domainResults: pulumi.Output<outputs.cloudfront.DistributionTenantDomainResult[]>;
     /**
      * The domains associated with the distribution tenant.
@@ -96,6 +97,7 @@ export class DistributionTenant extends pulumi.CustomResource {
      * The name of the distribution tenant.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly onDomainTakeover: pulumi.Output<enums.cloudfront.DistributionTenantOnDomainTakeover | undefined>;
     /**
      * A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
      */
@@ -129,10 +131,12 @@ export class DistributionTenant extends pulumi.CustomResource {
             resourceInputs["connectionGroupId"] = args?.connectionGroupId;
             resourceInputs["customizations"] = args?.customizations;
             resourceInputs["distributionId"] = args?.distributionId;
+            resourceInputs["domainMappings"] = args?.domainMappings;
             resourceInputs["domains"] = args?.domains;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["managedCertificateRequest"] = args?.managedCertificateRequest;
             resourceInputs["name"] = args?.name;
+            resourceInputs["onDomainTakeover"] = args?.onDomainTakeover;
             resourceInputs["parameters"] = args?.parameters;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -149,6 +153,7 @@ export class DistributionTenant extends pulumi.CustomResource {
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["customizations"] = undefined /*out*/;
             resourceInputs["distributionId"] = undefined /*out*/;
+            resourceInputs["domainMappings"] = undefined /*out*/;
             resourceInputs["domainResults"] = undefined /*out*/;
             resourceInputs["domains"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
@@ -156,6 +161,7 @@ export class DistributionTenant extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["managedCertificateRequest"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["onDomainTakeover"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -183,6 +189,7 @@ export interface DistributionTenantArgs {
      * The ID of the multi-tenant distribution.
      */
     distributionId: pulumi.Input<string>;
+    domainMappings?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantDomainMappingArgs>[] | undefined>;
     /**
      * The domains associated with the distribution tenant.
      */
@@ -199,6 +206,7 @@ export interface DistributionTenantArgs {
      * The name of the distribution tenant.
      */
     name?: pulumi.Input<string | undefined>;
+    onDomainTakeover?: pulumi.Input<enums.cloudfront.DistributionTenantOnDomainTakeover | undefined>;
     /**
      * A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
      */

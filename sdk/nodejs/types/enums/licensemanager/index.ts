@@ -13,3 +13,23 @@ export const LicenseConfigurationLicenseCountingType = {
  * Dimension used to track the license inventory.
  */
 export type LicenseConfigurationLicenseCountingType = (typeof LicenseConfigurationLicenseCountingType)[keyof typeof LicenseConfigurationLicenseCountingType];
+
+export const ReportGeneratorReportFrequencyPeriod = {
+    Day: "DAY",
+    Week: "WEEK",
+    Month: "MONTH",
+    OneTime: "ONE_TIME",
+} as const;
+
+/**
+ * Time period between each report. The period can be daily, weekly, or monthly.
+ */
+export type ReportGeneratorReportFrequencyPeriod = (typeof ReportGeneratorReportFrequencyPeriod)[keyof typeof ReportGeneratorReportFrequencyPeriod];
+
+export const ReportGeneratorReportTypeItem = {
+    LicenseConfigurationSummaryReport: "LicenseConfigurationSummaryReport",
+    LicenseConfigurationUsageReport: "LicenseConfigurationUsageReport",
+    LicenseAssetGroupUsageReport: "LicenseAssetGroupUsageReport",
+} as const;
+
+export type ReportGeneratorReportTypeItem = (typeof ReportGeneratorReportTypeItem)[keyof typeof ReportGeneratorReportTypeItem];

@@ -26,6 +26,10 @@ __all__ = [
     'HealthCheckSourceConfigArgsDict',
     'HealthCheckSourceSubnetConfigurationArgs',
     'HealthCheckSourceSubnetConfigurationArgsDict',
+    'HostedZoneChangeGuardrailArgs',
+    'HostedZoneChangeGuardrailArgsDict',
+    'HostedZoneChangeHistoryArgs',
+    'HostedZoneChangeHistoryArgsDict',
     'HostedZoneConfigArgs',
     'HostedZoneConfigArgsDict',
     'HostedZoneFeaturesArgs',
@@ -36,6 +40,8 @@ __all__ = [
     'HostedZoneVpcArgsDict',
     'RecordSetAliasTargetArgs',
     'RecordSetAliasTargetArgsDict',
+    'RecordSetAzAffinityArgs',
+    'RecordSetAzAffinityArgsDict',
     'RecordSetCidrRoutingConfigArgs',
     'RecordSetCidrRoutingConfigArgsDict',
     'RecordSetGeoLocationArgs',
@@ -186,6 +192,10 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 
     The SSL/TLS certificate on your endpoint includes a domain name in the `Common Name` field and possibly several more in the `Subject Alternative Names` field. One of the domain names in the certificate should match the value that you specify for `FullyQualifiedDomainName` . If the endpoint responds to the `client_hello` message with a certificate that does not include the domain name that you specified in `FullyQualifiedDomainName` , a health checker will retry the handshake. In the second attempt, the health checker will omit `FullyQualifiedDomainName` from the `client_hello` message.
     """
+    endpoint_type: NotRequired[pulumi.Input[Optional['HealthCheckConfigPropertiesEndpointType']]]
+    """
+    Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+    """
     failure_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
@@ -221,6 +231,10 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
     > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
 
     In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
+    """
+    health_check_source_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
     """
     health_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -320,8 +334,10 @@ class HealthCheckConfigPropertiesArgs:
                  alarm_identifier: pulumi.Input[Optional['HealthCheckAlarmIdentifierArgs']] = None,
                  child_health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enable_sni: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_type: pulumi.Input[Optional['HealthCheckConfigPropertiesEndpointType']] = None,
                  failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
                  fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  health_threshold: pulumi.Input[Optional[_builtins.int]] = None,
                  insufficient_data_health_status: pulumi.Input[Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus']] = None,
                  inverted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -365,6 +381,7 @@ class HealthCheckConfigPropertiesArgs:
                Some endpoints require that `HTTPS` requests include the host name in the `client_hello` message. If you don't enable SNI, the status of the health check will be `SSL alert handshake_failure` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
                
                The SSL/TLS certificate on your endpoint includes a domain name in the `Common Name` field and possibly several more in the `Subject Alternative Names` field. One of the domain names in the certificate should match the value that you specify for `FullyQualifiedDomainName` . If the endpoint responds to the `client_hello` message with a certificate that does not include the domain name that you specified in `FullyQualifiedDomainName` , a health checker will retry the handshake. In the second attempt, the health checker will omit `FullyQualifiedDomainName` from the `client_hello` message.
+        :param pulumi.Input['HealthCheckConfigPropertiesEndpointType'] endpoint_type: Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
         :param pulumi.Input[_builtins.int] failure_threshold: The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
                
                `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -395,6 +412,7 @@ class HealthCheckConfigPropertiesArgs:
                > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
                
                In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
+        :param pulumi.Input[_builtins.str] health_check_source_id: The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
         :param pulumi.Input[_builtins.int] health_threshold: The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
                
                Note the following:
@@ -460,10 +478,14 @@ class HealthCheckConfigPropertiesArgs:
             pulumi.set(__self__, "child_health_checks", child_health_checks)
         if enable_sni is not None:
             pulumi.set(__self__, "enable_sni", enable_sni)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
         if failure_threshold is not None:
             pulumi.set(__self__, "failure_threshold", failure_threshold)
         if fully_qualified_domain_name is not None:
             pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if health_check_source_id is not None:
+            pulumi.set(__self__, "health_check_source_id", health_check_source_id)
         if health_threshold is not None:
             pulumi.set(__self__, "health_threshold", health_threshold)
         if insufficient_data_health_status is not None:
@@ -561,6 +583,18 @@ class HealthCheckConfigPropertiesArgs:
         pulumi.set(self, "enable_sni", value)
 
     @_builtins.property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[Optional['HealthCheckConfigPropertiesEndpointType']]:
+        """
+        Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[Optional['HealthCheckConfigPropertiesEndpointType']]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -611,6 +645,18 @@ class HealthCheckConfigPropertiesArgs:
     @fully_qualified_domain_name.setter
     def fully_qualified_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckSourceId")
+    def health_check_source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+        """
+        return pulumi.get(self, "health_check_source_id")
+
+    @health_check_source_id.setter
+    def health_check_source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "health_check_source_id", value)
 
     @_builtins.property
     @pulumi.getter(name="healthThreshold")
@@ -914,6 +960,102 @@ class HealthCheckSourceSubnetConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+class HostedZoneChangeGuardrailArgsDict(TypedDict):
+    name: pulumi.Input['HostedZoneChangeGuardrailName']
+    """
+    The name of the Change Guardrail.
+    """
+    status: pulumi.Input['HostedZoneChangeGuardrailStatus']
+    """
+    The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+    """
+
+@pulumi.input_type
+class HostedZoneChangeGuardrailArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input['HostedZoneChangeGuardrailName'],
+                 status: pulumi.Input['HostedZoneChangeGuardrailStatus']):
+        """
+        :param pulumi.Input['HostedZoneChangeGuardrailName'] name: The name of the Change Guardrail.
+        :param pulumi.Input['HostedZoneChangeGuardrailStatus'] status: The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input['HostedZoneChangeGuardrailName']:
+        """
+        The name of the Change Guardrail.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input['HostedZoneChangeGuardrailName']):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['HostedZoneChangeGuardrailStatus']:
+        """
+        The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['HostedZoneChangeGuardrailStatus']):
+        pulumi.set(self, "status", value)
+
+
+class HostedZoneChangeHistoryArgsDict(TypedDict):
+    retention_starts_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+    """
+    status: NotRequired[pulumi.Input[Optional['HostedZoneChangeHistoryStatus']]]
+    """
+    Whether change history is enabled for the hosted zone.
+    """
+
+@pulumi.input_type
+class HostedZoneChangeHistoryArgs:
+    def __init__(__self__, *,
+                 retention_starts_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['HostedZoneChangeHistoryStatus']] = None):
+        """
+        :param pulumi.Input[_builtins.str] retention_starts_at: The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+        :param pulumi.Input['HostedZoneChangeHistoryStatus'] status: Whether change history is enabled for the hosted zone.
+        """
+        if retention_starts_at is not None:
+            pulumi.set(__self__, "retention_starts_at", retention_starts_at)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionStartsAt")
+    def retention_starts_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+        """
+        return pulumi.get(self, "retention_starts_at")
+
+    @retention_starts_at.setter
+    def retention_starts_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "retention_starts_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['HostedZoneChangeHistoryStatus']]:
+        """
+        Whether change history is enabled for the hosted zone.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['HostedZoneChangeHistoryStatus']]):
+        pulumi.set(self, "status", value)
+
+
 class HostedZoneConfigArgsDict(TypedDict):
     """
     A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
@@ -922,11 +1064,13 @@ class HostedZoneConfigArgsDict(TypedDict):
     """
     Any comments that you want to include about the hosted zone.
     """
+    hosted_zone_tier: NotRequired[pulumi.Input[Optional['HostedZoneConfigHostedZoneTier']]]
 
 @pulumi.input_type
 class HostedZoneConfigArgs:
     def __init__(__self__, *,
-                 comment: pulumi.Input[Optional[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosted_zone_tier: pulumi.Input[Optional['HostedZoneConfigHostedZoneTier']] = None):
         """
         A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
 
@@ -934,6 +1078,8 @@ class HostedZoneConfigArgs:
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if hosted_zone_tier is not None:
+            pulumi.set(__self__, "hosted_zone_tier", hosted_zone_tier)
 
     @_builtins.property
     @pulumi.getter
@@ -947,22 +1093,61 @@ class HostedZoneConfigArgs:
     def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
+    @_builtins.property
+    @pulumi.getter(name="hostedZoneTier")
+    def hosted_zone_tier(self) -> pulumi.Input[Optional['HostedZoneConfigHostedZoneTier']]:
+        return pulumi.get(self, "hosted_zone_tier")
+
+    @hosted_zone_tier.setter
+    def hosted_zone_tier(self, value: pulumi.Input[Optional['HostedZoneConfigHostedZoneTier']]):
+        pulumi.set(self, "hosted_zone_tier", value)
+
 
 class HostedZoneFeaturesArgsDict(TypedDict):
     """
     Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
     """
+    change_guardrails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HostedZoneChangeGuardrailArgsDict']]]]]
+    change_history: NotRequired[pulumi.Input[Optional['HostedZoneChangeHistoryArgsDict']]]
     enable_accelerated_recovery: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enable_public_dns_fallback: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class HostedZoneFeaturesArgs:
     def __init__(__self__, *,
-                 enable_accelerated_recovery: pulumi.Input[Optional[_builtins.bool]] = None):
+                 change_guardrails: pulumi.Input[Optional[Sequence[pulumi.Input['HostedZoneChangeGuardrailArgs']]]] = None,
+                 change_history: pulumi.Input[Optional['HostedZoneChangeHistoryArgs']] = None,
+                 enable_accelerated_recovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_public_dns_fallback: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
         """
+        if change_guardrails is not None:
+            pulumi.set(__self__, "change_guardrails", change_guardrails)
+        if change_history is not None:
+            pulumi.set(__self__, "change_history", change_history)
         if enable_accelerated_recovery is not None:
             pulumi.set(__self__, "enable_accelerated_recovery", enable_accelerated_recovery)
+        if enable_public_dns_fallback is not None:
+            pulumi.set(__self__, "enable_public_dns_fallback", enable_public_dns_fallback)
+
+    @_builtins.property
+    @pulumi.getter(name="changeGuardrails")
+    def change_guardrails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HostedZoneChangeGuardrailArgs']]]]:
+        return pulumi.get(self, "change_guardrails")
+
+    @change_guardrails.setter
+    def change_guardrails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HostedZoneChangeGuardrailArgs']]]]):
+        pulumi.set(self, "change_guardrails", value)
+
+    @_builtins.property
+    @pulumi.getter(name="changeHistory")
+    def change_history(self) -> pulumi.Input[Optional['HostedZoneChangeHistoryArgs']]:
+        return pulumi.get(self, "change_history")
+
+    @change_history.setter
+    def change_history(self, value: pulumi.Input[Optional['HostedZoneChangeHistoryArgs']]):
+        pulumi.set(self, "change_history", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedRecovery")
@@ -972,6 +1157,15 @@ class HostedZoneFeaturesArgs:
     @enable_accelerated_recovery.setter
     def enable_accelerated_recovery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_accelerated_recovery", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enablePublicDnsFallback")
+    def enable_public_dns_fallback(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "enable_public_dns_fallback")
+
+    @enable_public_dns_fallback.setter
+    def enable_public_dns_fallback(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_public_dns_fallback", value)
 
 
 class HostedZoneQueryLoggingConfigArgsDict(TypedDict):
@@ -1132,6 +1326,53 @@ class RecordSetAliasTargetArgs:
     @evaluate_target_health.setter
     def evaluate_target_health(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "evaluate_target_health", value)
+
+
+class RecordSetAzAffinityArgsDict(TypedDict):
+    location_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+    """
+    location_type: pulumi.Input['RecordSetAzAffinityLocationType']
+    """
+    The type of the source location that the record set's answers apply to.
+    """
+
+@pulumi.input_type
+class RecordSetAzAffinityArgs:
+    def __init__(__self__, *,
+                 location_id: pulumi.Input[_builtins.str],
+                 location_type: pulumi.Input['RecordSetAzAffinityLocationType']):
+        """
+        :param pulumi.Input[_builtins.str] location_id: The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+        :param pulumi.Input['RecordSetAzAffinityLocationType'] location_type: The type of the source location that the record set's answers apply to.
+        """
+        pulumi.set(__self__, "location_id", location_id)
+        pulumi.set(__self__, "location_type", location_type)
+
+    @_builtins.property
+    @pulumi.getter(name="locationId")
+    def location_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+        """
+        return pulumi.get(self, "location_id")
+
+    @location_id.setter
+    def location_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "location_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="locationType")
+    def location_type(self) -> pulumi.Input['RecordSetAzAffinityLocationType']:
+        """
+        The type of the source location that the record set's answers apply to.
+        """
+        return pulumi.get(self, "location_type")
+
+    @location_type.setter
+    def location_type(self, value: pulumi.Input['RecordSetAzAffinityLocationType']):
+        pulumi.set(self, "location_type", value)
 
 
 class RecordSetCidrRoutingConfigArgsDict(TypedDict):

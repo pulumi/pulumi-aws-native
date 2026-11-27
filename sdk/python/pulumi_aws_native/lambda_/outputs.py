@@ -343,7 +343,7 @@ class BuildConfigPropertiesRuntimeConfigProperties(dict):
         """
         The runtime configuration for the revision.
 
-        :param _builtins.str runtime: The runtime identifier.
+        :param _builtins.str runtime: The runtime identifier. Either a short runtime name (for example, nodejs24.x) or a Lambda runtime ARN.
         """
         pulumi.set(__self__, "runtime", runtime)
 
@@ -351,7 +351,7 @@ class BuildConfigPropertiesRuntimeConfigProperties(dict):
     @pulumi.getter
     def runtime(self) -> _builtins.str:
         """
-        The runtime identifier.
+        The runtime identifier. Either a short runtime name (for example, nodejs24.x) or a Lambda runtime ARN.
         """
         return pulumi.get(self, "runtime")
 
@@ -1496,6 +1496,10 @@ class EventSourceMappingSchemaRegistryAccessConfig(dict):
          If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
 
         :param 'EventSourceMappingSchemaRegistryAccessConfigType' type: The type of authentication Lambda uses to access your schema registry.
+                 +  ``BASIC_AUTH`` – The Secrets Manager ARN of your secret key used for basic authentication with your Confluent schema registry.
+                 +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication with your Confluent schema registry.
+                 +  ``SERVER_ROOT_CA_CERTIFICATE`` – The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption with your Confluent schema registry.
+                 +  ``OAUTHBEARER_AUTH`` – The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses to acquire an access token for your Confluent schema registry. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
         :param _builtins.str uri: The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
         """
         if type is not None:
@@ -1508,6 +1512,10 @@ class EventSourceMappingSchemaRegistryAccessConfig(dict):
     def type(self) -> Optional['EventSourceMappingSchemaRegistryAccessConfigType']:
         """
         The type of authentication Lambda uses to access your schema registry.
+          +  ``BASIC_AUTH`` – The Secrets Manager ARN of your secret key used for basic authentication with your Confluent schema registry.
+          +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication with your Confluent schema registry.
+          +  ``SERVER_ROOT_CA_CERTIFICATE`` – The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption with your Confluent schema registry.
+          +  ``OAUTHBEARER_AUTH`` – The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses to acquire an access token for your Confluent schema registry. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
         """
         return pulumi.get(self, "type")
 
@@ -1745,6 +1753,13 @@ class EventSourceMappingSourceAccessConfiguration(dict):
                  +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
                  +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
                  +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+                 +  ``OAUTHBEARER_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses for SASL/OAUTHBEARER authentication with your Apache Kafka brokers. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
+                 +  ``OAUTHBEARER_SCOPE`` – (Self-managed Apache Kafka) The OAuth 2.0 scope that Lambda requests when it acquires an access token. The ``URI`` field holds the scope value, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+                 +  ``OAUTHBEARER_AUDIENCE`` – (Self-managed Apache Kafka) The OAuth 2.0 audience that Lambda requests when it acquires an access token. The ``URI`` field holds the audience value, not a secret ARN. This type requires either ``OAUTHBEARER_AUTH`` or ``IAM_OAUTHBEARER_AUTH``.
+                 +  ``OAUTHBEARER_LOGICAL_CLUSTER`` – (Self-managed Apache Kafka) The logical cluster identifier that Lambda sends to a Confluent Cloud broker. The ``URI`` field holds the identifier, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+                 +  ``OAUTHBEARER_IDENTITY_POOL`` – (Self-managed Apache Kafka) The identity pool identifier that Lambda sends to a Confluent Cloud broker. The ``URI`` field holds the identifier, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+                 +  ``IAM_AUTH`` – (Self-managed Apache Kafka) Authenticate with IAMlong (IAM). Your function's execution role signs each connection, so there is no secret to provide. Omit the ``URI`` field for this type.
+                 +  ``IAM_OAUTHBEARER_AUTH`` – (Self-managed Apache Kafka) Authenticate with an AWS web identity token over SASL/OAUTHBEARER. Lambda requests the token for your function's execution role, so there is no secret to provide. Omit the ``URI`` field for this type. This type requires ``OAUTHBEARER_AUDIENCE`` and does not support the other ``OAUTHBEARER`` types.
         :param _builtins.str uri: The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
         """
         if type is not None:
@@ -1766,6 +1781,13 @@ class EventSourceMappingSourceAccessConfiguration(dict):
           +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
           +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
           +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+          +  ``OAUTHBEARER_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses for SASL/OAUTHBEARER authentication with your Apache Kafka brokers. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
+          +  ``OAUTHBEARER_SCOPE`` – (Self-managed Apache Kafka) The OAuth 2.0 scope that Lambda requests when it acquires an access token. The ``URI`` field holds the scope value, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+          +  ``OAUTHBEARER_AUDIENCE`` – (Self-managed Apache Kafka) The OAuth 2.0 audience that Lambda requests when it acquires an access token. The ``URI`` field holds the audience value, not a secret ARN. This type requires either ``OAUTHBEARER_AUTH`` or ``IAM_OAUTHBEARER_AUTH``.
+          +  ``OAUTHBEARER_LOGICAL_CLUSTER`` – (Self-managed Apache Kafka) The logical cluster identifier that Lambda sends to a Confluent Cloud broker. The ``URI`` field holds the identifier, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+          +  ``OAUTHBEARER_IDENTITY_POOL`` – (Self-managed Apache Kafka) The identity pool identifier that Lambda sends to a Confluent Cloud broker. The ``URI`` field holds the identifier, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+          +  ``IAM_AUTH`` – (Self-managed Apache Kafka) Authenticate with IAMlong (IAM). Your function's execution role signs each connection, so there is no secret to provide. Omit the ``URI`` field for this type.
+          +  ``IAM_OAUTHBEARER_AUTH`` – (Self-managed Apache Kafka) Authenticate with an AWS web identity token over SASL/OAUTHBEARER. Lambda requests the token for your function's execution role, so there is no secret to provide. Omit the ``URI`` field for this type. This type requires ``OAUTHBEARER_AUDIENCE`` and does not support the other ``OAUTHBEARER`` types.
         """
         return pulumi.get(self, "type")
 

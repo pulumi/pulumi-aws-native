@@ -312,6 +312,209 @@ func (o DataCellsFilterRowFilterPtrOutput) FilterExpression() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataLakeSettingsDataLakePrincipal struct {
+	// An identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// DataLakeSettingsDataLakePrincipalInput is an input type that accepts DataLakeSettingsDataLakePrincipalArgs and DataLakeSettingsDataLakePrincipalOutput values.
+// You can construct a concrete instance of `DataLakeSettingsDataLakePrincipalInput` via:
+//
+//	DataLakeSettingsDataLakePrincipalArgs{...}
+type DataLakeSettingsDataLakePrincipalInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsDataLakePrincipalOutput() DataLakeSettingsDataLakePrincipalOutput
+	ToDataLakeSettingsDataLakePrincipalOutputWithContext(context.Context) DataLakeSettingsDataLakePrincipalOutput
+}
+
+type DataLakeSettingsDataLakePrincipalArgs struct {
+	// An identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier pulumi.StringInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (DataLakeSettingsDataLakePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsDataLakePrincipal)(nil)).Elem()
+}
+
+func (i DataLakeSettingsDataLakePrincipalArgs) ToDataLakeSettingsDataLakePrincipalOutput() DataLakeSettingsDataLakePrincipalOutput {
+	return i.ToDataLakeSettingsDataLakePrincipalOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsDataLakePrincipalArgs) ToDataLakeSettingsDataLakePrincipalOutputWithContext(ctx context.Context) DataLakeSettingsDataLakePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsDataLakePrincipalOutput)
+}
+
+// DataLakeSettingsDataLakePrincipalArrayInput is an input type that accepts DataLakeSettingsDataLakePrincipalArray and DataLakeSettingsDataLakePrincipalArrayOutput values.
+// You can construct a concrete instance of `DataLakeSettingsDataLakePrincipalArrayInput` via:
+//
+//	DataLakeSettingsDataLakePrincipalArray{ DataLakeSettingsDataLakePrincipalArgs{...} }
+type DataLakeSettingsDataLakePrincipalArrayInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsDataLakePrincipalArrayOutput() DataLakeSettingsDataLakePrincipalArrayOutput
+	ToDataLakeSettingsDataLakePrincipalArrayOutputWithContext(context.Context) DataLakeSettingsDataLakePrincipalArrayOutput
+}
+
+type DataLakeSettingsDataLakePrincipalArray []DataLakeSettingsDataLakePrincipalInput
+
+func (DataLakeSettingsDataLakePrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeSettingsDataLakePrincipal)(nil)).Elem()
+}
+
+func (i DataLakeSettingsDataLakePrincipalArray) ToDataLakeSettingsDataLakePrincipalArrayOutput() DataLakeSettingsDataLakePrincipalArrayOutput {
+	return i.ToDataLakeSettingsDataLakePrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsDataLakePrincipalArray) ToDataLakeSettingsDataLakePrincipalArrayOutputWithContext(ctx context.Context) DataLakeSettingsDataLakePrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsDataLakePrincipalArrayOutput)
+}
+
+type DataLakeSettingsDataLakePrincipalOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsDataLakePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsDataLakePrincipal)(nil)).Elem()
+}
+
+func (o DataLakeSettingsDataLakePrincipalOutput) ToDataLakeSettingsDataLakePrincipalOutput() DataLakeSettingsDataLakePrincipalOutput {
+	return o
+}
+
+func (o DataLakeSettingsDataLakePrincipalOutput) ToDataLakeSettingsDataLakePrincipalOutputWithContext(ctx context.Context) DataLakeSettingsDataLakePrincipalOutput {
+	return o
+}
+
+// An identifier for the Lake Formation principal.
+func (o DataLakeSettingsDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeSettingsDataLakePrincipal) string { return v.DataLakePrincipalIdentifier }).(pulumi.StringOutput)
+}
+
+type DataLakeSettingsDataLakePrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsDataLakePrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeSettingsDataLakePrincipal)(nil)).Elem()
+}
+
+func (o DataLakeSettingsDataLakePrincipalArrayOutput) ToDataLakeSettingsDataLakePrincipalArrayOutput() DataLakeSettingsDataLakePrincipalArrayOutput {
+	return o
+}
+
+func (o DataLakeSettingsDataLakePrincipalArrayOutput) ToDataLakeSettingsDataLakePrincipalArrayOutputWithContext(ctx context.Context) DataLakeSettingsDataLakePrincipalArrayOutput {
+	return o
+}
+
+func (o DataLakeSettingsDataLakePrincipalArrayOutput) Index(i pulumi.IntInput) DataLakeSettingsDataLakePrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeSettingsDataLakePrincipal {
+		return vs[0].([]DataLakeSettingsDataLakePrincipal)[vs[1].(int)]
+	}).(DataLakeSettingsDataLakePrincipalOutput)
+}
+
+type DataLakeSettingsPrincipalPermissions struct {
+	// The permissions that are granted to the principal.
+	Permissions []string `pulumi:"permissions"`
+	// The principal who is granted permissions.
+	Principal DataLakeSettingsDataLakePrincipal `pulumi:"principal"`
+}
+
+// DataLakeSettingsPrincipalPermissionsInput is an input type that accepts DataLakeSettingsPrincipalPermissionsArgs and DataLakeSettingsPrincipalPermissionsOutput values.
+// You can construct a concrete instance of `DataLakeSettingsPrincipalPermissionsInput` via:
+//
+//	DataLakeSettingsPrincipalPermissionsArgs{...}
+type DataLakeSettingsPrincipalPermissionsInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsPrincipalPermissionsOutput() DataLakeSettingsPrincipalPermissionsOutput
+	ToDataLakeSettingsPrincipalPermissionsOutputWithContext(context.Context) DataLakeSettingsPrincipalPermissionsOutput
+}
+
+type DataLakeSettingsPrincipalPermissionsArgs struct {
+	// The permissions that are granted to the principal.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// The principal who is granted permissions.
+	Principal DataLakeSettingsDataLakePrincipalInput `pulumi:"principal"`
+}
+
+func (DataLakeSettingsPrincipalPermissionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsPrincipalPermissions)(nil)).Elem()
+}
+
+func (i DataLakeSettingsPrincipalPermissionsArgs) ToDataLakeSettingsPrincipalPermissionsOutput() DataLakeSettingsPrincipalPermissionsOutput {
+	return i.ToDataLakeSettingsPrincipalPermissionsOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsPrincipalPermissionsArgs) ToDataLakeSettingsPrincipalPermissionsOutputWithContext(ctx context.Context) DataLakeSettingsPrincipalPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsPrincipalPermissionsOutput)
+}
+
+// DataLakeSettingsPrincipalPermissionsArrayInput is an input type that accepts DataLakeSettingsPrincipalPermissionsArray and DataLakeSettingsPrincipalPermissionsArrayOutput values.
+// You can construct a concrete instance of `DataLakeSettingsPrincipalPermissionsArrayInput` via:
+//
+//	DataLakeSettingsPrincipalPermissionsArray{ DataLakeSettingsPrincipalPermissionsArgs{...} }
+type DataLakeSettingsPrincipalPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsPrincipalPermissionsArrayOutput() DataLakeSettingsPrincipalPermissionsArrayOutput
+	ToDataLakeSettingsPrincipalPermissionsArrayOutputWithContext(context.Context) DataLakeSettingsPrincipalPermissionsArrayOutput
+}
+
+type DataLakeSettingsPrincipalPermissionsArray []DataLakeSettingsPrincipalPermissionsInput
+
+func (DataLakeSettingsPrincipalPermissionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeSettingsPrincipalPermissions)(nil)).Elem()
+}
+
+func (i DataLakeSettingsPrincipalPermissionsArray) ToDataLakeSettingsPrincipalPermissionsArrayOutput() DataLakeSettingsPrincipalPermissionsArrayOutput {
+	return i.ToDataLakeSettingsPrincipalPermissionsArrayOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsPrincipalPermissionsArray) ToDataLakeSettingsPrincipalPermissionsArrayOutputWithContext(ctx context.Context) DataLakeSettingsPrincipalPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsPrincipalPermissionsArrayOutput)
+}
+
+type DataLakeSettingsPrincipalPermissionsOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsPrincipalPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsPrincipalPermissions)(nil)).Elem()
+}
+
+func (o DataLakeSettingsPrincipalPermissionsOutput) ToDataLakeSettingsPrincipalPermissionsOutput() DataLakeSettingsPrincipalPermissionsOutput {
+	return o
+}
+
+func (o DataLakeSettingsPrincipalPermissionsOutput) ToDataLakeSettingsPrincipalPermissionsOutputWithContext(ctx context.Context) DataLakeSettingsPrincipalPermissionsOutput {
+	return o
+}
+
+// The permissions that are granted to the principal.
+func (o DataLakeSettingsPrincipalPermissionsOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataLakeSettingsPrincipalPermissions) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// The principal who is granted permissions.
+func (o DataLakeSettingsPrincipalPermissionsOutput) Principal() DataLakeSettingsDataLakePrincipalOutput {
+	return o.ApplyT(func(v DataLakeSettingsPrincipalPermissions) DataLakeSettingsDataLakePrincipal { return v.Principal }).(DataLakeSettingsDataLakePrincipalOutput)
+}
+
+type DataLakeSettingsPrincipalPermissionsArrayOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsPrincipalPermissionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeSettingsPrincipalPermissions)(nil)).Elem()
+}
+
+func (o DataLakeSettingsPrincipalPermissionsArrayOutput) ToDataLakeSettingsPrincipalPermissionsArrayOutput() DataLakeSettingsPrincipalPermissionsArrayOutput {
+	return o
+}
+
+func (o DataLakeSettingsPrincipalPermissionsArrayOutput) ToDataLakeSettingsPrincipalPermissionsArrayOutputWithContext(ctx context.Context) DataLakeSettingsPrincipalPermissionsArrayOutput {
+	return o
+}
+
+func (o DataLakeSettingsPrincipalPermissionsArrayOutput) Index(i pulumi.IntInput) DataLakeSettingsPrincipalPermissionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeSettingsPrincipalPermissions {
+		return vs[0].([]DataLakeSettingsPrincipalPermissions)[vs[1].(int)]
+	}).(DataLakeSettingsPrincipalPermissionsOutput)
+}
+
 // A structure for the catalog object.
 //
 //	This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
@@ -3294,6 +3497,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterColumnWildcardPtrInput)(nil)).Elem(), DataCellsFilterColumnWildcardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterRowFilterInput)(nil)).Elem(), DataCellsFilterRowFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterRowFilterPtrInput)(nil)).Elem(), DataCellsFilterRowFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsDataLakePrincipalInput)(nil)).Elem(), DataLakeSettingsDataLakePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsDataLakePrincipalArrayInput)(nil)).Elem(), DataLakeSettingsDataLakePrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsPrincipalPermissionsInput)(nil)).Elem(), DataLakeSettingsPrincipalPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsPrincipalPermissionsArrayInput)(nil)).Elem(), DataLakeSettingsPrincipalPermissionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsCatalogResourceInput)(nil)).Elem(), PrincipalPermissionsCatalogResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsCatalogResourcePtrInput)(nil)).Elem(), PrincipalPermissionsCatalogResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPermissionsColumnWildcardInput)(nil)).Elem(), PrincipalPermissionsColumnWildcardArgs{})
@@ -3335,6 +3542,10 @@ func init() {
 	pulumi.RegisterOutputType(DataCellsFilterColumnWildcardPtrOutput{})
 	pulumi.RegisterOutputType(DataCellsFilterRowFilterOutput{})
 	pulumi.RegisterOutputType(DataCellsFilterRowFilterPtrOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsDataLakePrincipalOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsDataLakePrincipalArrayOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsPrincipalPermissionsOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsPrincipalPermissionsArrayOutput{})
 	pulumi.RegisterOutputType(PrincipalPermissionsCatalogResourceOutput{})
 	pulumi.RegisterOutputType(PrincipalPermissionsCatalogResourcePtrOutput{})
 	pulumi.RegisterOutputType(PrincipalPermissionsColumnWildcardOutput{})

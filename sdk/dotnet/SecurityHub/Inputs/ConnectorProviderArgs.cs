@@ -10,10 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
+    /// <summary>
+    /// The CSPM provider configuration for the connector
+    /// </summary>
     public sealed class ConnectorProviderArgs : global::Pulumi.ResourceArgs
     {
-        [Input("azure", required: true)]
-        public Input<Inputs.ConnectorAzureProviderConfigurationArgs> Azure { get; set; } = null!;
+        [Input("azure")]
+        public Input<Inputs.ConnectorAzureProviderConfigurationArgs>? Azure { get; set; }
+
+        [Input("gcp")]
+        public Input<Inputs.ConnectorGcpProviderConfigurationArgs>? Gcp { get; set; }
 
         public ConnectorProviderArgs()
         {

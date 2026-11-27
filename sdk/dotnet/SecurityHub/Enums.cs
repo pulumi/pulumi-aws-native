@@ -764,6 +764,37 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
+    /// The scope type for the GCP connector
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectorGcpScopeConfigurationScopeType : IEquatable<ConnectorGcpScopeConfigurationScopeType>
+    {
+        private readonly string _value;
+
+        private ConnectorGcpScopeConfigurationScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorGcpScopeConfigurationScopeType Project { get; } = new ConnectorGcpScopeConfigurationScopeType("PROJECT");
+        public static ConnectorGcpScopeConfigurationScopeType Organization { get; } = new ConnectorGcpScopeConfigurationScopeType("ORGANIZATION");
+
+        public static bool operator ==(ConnectorGcpScopeConfigurationScopeType left, ConnectorGcpScopeConfigurationScopeType right) => left.Equals(right);
+        public static bool operator !=(ConnectorGcpScopeConfigurationScopeType left, ConnectorGcpScopeConfigurationScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorGcpScopeConfigurationScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorGcpScopeConfigurationScopeType other && Equals(other);
+        public bool Equals(ConnectorGcpScopeConfigurationScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The scope type for the Azure connector
     /// </summary>
     [EnumType]
@@ -787,6 +818,37 @@ namespace Pulumi.AwsNative.SecurityHub
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectorV2AzureScopeConfigurationScopeType other && Equals(other);
         public bool Equals(ConnectorV2AzureScopeConfigurationScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scope type for the GCP connector
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectorV2GcpScopeConfigurationScopeType : IEquatable<ConnectorV2GcpScopeConfigurationScopeType>
+    {
+        private readonly string _value;
+
+        private ConnectorV2GcpScopeConfigurationScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorV2GcpScopeConfigurationScopeType Project { get; } = new ConnectorV2GcpScopeConfigurationScopeType("PROJECT");
+        public static ConnectorV2GcpScopeConfigurationScopeType Organization { get; } = new ConnectorV2GcpScopeConfigurationScopeType("ORGANIZATION");
+
+        public static bool operator ==(ConnectorV2GcpScopeConfigurationScopeType left, ConnectorV2GcpScopeConfigurationScopeType right) => left.Equals(right);
+        public static bool operator !=(ConnectorV2GcpScopeConfigurationScopeType left, ConnectorV2GcpScopeConfigurationScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorV2GcpScopeConfigurationScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorV2GcpScopeConfigurationScopeType other && Equals(other);
+        public bool Equals(ConnectorV2GcpScopeConfigurationScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

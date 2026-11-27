@@ -24,44 +24,33 @@ __all__ = ['DatasetArgs', 'Dataset']
 @pulumi.input_type
 class DatasetArgs:
     def __init__(__self__, *,
-                 schema_type: pulumi.Input['DatasetSchemaType'],
                  dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional['DatasetSchemaType']] = None,
                  source: pulumi.Input[Optional['DatasetDataSourceTypeArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
 
-        :param pulumi.Input['DatasetSchemaType'] schema_type: Versioned schema type governing the structure of examples. Immutable after creation.
         :param pulumi.Input[_builtins.str] dataset_name: Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
         :param pulumi.Input[_builtins.str] description: A description of the dataset.
         :param pulumi.Input[_builtins.str] kms_key_arn: Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+        :param pulumi.Input['DatasetSchemaType'] schema_type: Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to assign to the dataset.
         """
-        pulumi.set(__self__, "schema_type", schema_type)
         if dataset_name is not None:
             pulumi.set(__self__, "dataset_name", dataset_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if schema_type is not None:
+            pulumi.set(__self__, "schema_type", schema_type)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="schemaType")
-    def schema_type(self) -> pulumi.Input['DatasetSchemaType']:
-        """
-        Versioned schema type governing the structure of examples. Immutable after creation.
-        """
-        return pulumi.get(self, "schema_type")
-
-    @schema_type.setter
-    def schema_type(self, value: pulumi.Input['DatasetSchemaType']):
-        pulumi.set(self, "schema_type", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetName")
@@ -98,6 +87,18 @@ class DatasetArgs:
     @kms_key_arn.setter
     def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> pulumi.Input[Optional['DatasetSchemaType']]:
+        """
+        Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
+        """
+        return pulumi.get(self, "schema_type")
+
+    @schema_type.setter
+    def schema_type(self, value: pulumi.Input[Optional['DatasetSchemaType']]):
+        pulumi.set(self, "schema_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -142,14 +143,14 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dataset_name: Human-readable name for the dataset. Unique within the account (case-insensitive). Immutable after creation.
         :param pulumi.Input[_builtins.str] description: A description of the dataset.
         :param pulumi.Input[_builtins.str] kms_key_arn: Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
-        :param pulumi.Input['DatasetSchemaType'] schema_type: Versioned schema type governing the structure of examples. Immutable after creation.
+        :param pulumi.Input['DatasetSchemaType'] schema_type: Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to assign to the dataset.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetArgs,
+                 args: Optional[DatasetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::BedrockAgentCore::Dataset Resource Type
@@ -187,8 +188,6 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["dataset_name"] = dataset_name
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_arn"] = kms_key_arn
-            if schema_type is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_type'")
             __props__.__dict__["schema_type"] = schema_type
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
@@ -198,7 +197,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["example_count"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetName", "kmsKeyArn", "schemaType", "source"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetName", "kmsKeyArn", "source"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dataset, __self__).__init__(
             'aws-native:bedrockagentcore:Dataset',
@@ -300,9 +299,9 @@ class Dataset(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="schemaType")
-    def schema_type(self) -> pulumi.Output['DatasetSchemaType']:
+    def schema_type(self) -> pulumi.Output[Optional['DatasetSchemaType']]:
         """
-        Versioned schema type governing the structure of examples. Immutable after creation.
+        Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
         """
         return pulumi.get(self, "schema_type")
 

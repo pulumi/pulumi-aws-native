@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -31,8 +30,8 @@ type Dataset struct {
 	ExampleCount pulumi.IntOutput `pulumi:"exampleCount"`
 	// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Versioned schema type governing the structure of examples. Immutable after creation.
-	SchemaType DatasetSchemaTypeOutput        `pulumi:"schemaType"`
+	// Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
+	SchemaType DatasetSchemaTypePtrOutput     `pulumi:"schemaType"`
 	Source     DatasetDataSourceTypePtrOutput `pulumi:"source"`
 	// The current status of the dataset.
 	Status DatasetStatusOutput `pulumi:"status"`
@@ -46,16 +45,12 @@ type Dataset struct {
 func NewDataset(ctx *pulumi.Context,
 	name string, args *DatasetArgs, opts ...pulumi.ResourceOption) (*Dataset, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DatasetArgs{}
 	}
 
-	if args.SchemaType == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaType'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"datasetName",
 		"kmsKeyArn",
-		"schemaType",
 		"source",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -104,8 +99,8 @@ type datasetArgs struct {
 	Description *string `pulumi:"description"`
 	// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Versioned schema type governing the structure of examples. Immutable after creation.
-	SchemaType DatasetSchemaType      `pulumi:"schemaType"`
+	// Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
+	SchemaType *DatasetSchemaType     `pulumi:"schemaType"`
 	Source     *DatasetDataSourceType `pulumi:"source"`
 	// A list of tags to assign to the dataset.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -119,8 +114,8 @@ type DatasetArgs struct {
 	Description pulumi.StringPtrInput
 	// Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
 	KmsKeyArn pulumi.StringPtrInput
-	// Versioned schema type governing the structure of examples. Immutable after creation.
-	SchemaType DatasetSchemaTypeInput
+	// Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
+	SchemaType DatasetSchemaTypePtrInput
 	Source     DatasetDataSourceTypePtrInput
 	// A list of tags to assign to the dataset.
 	Tags aws.TagArrayInput
@@ -198,9 +193,9 @@ func (o DatasetOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Versioned schema type governing the structure of examples. Immutable after creation.
-func (o DatasetOutput) SchemaType() DatasetSchemaTypeOutput {
-	return o.ApplyT(func(v *Dataset) DatasetSchemaTypeOutput { return v.SchemaType }).(DatasetSchemaTypeOutput)
+// Deprecated. This property is ignored by the service; whether an example is predefined or simulated is inferred from its fields. Versioned schema type governing the structure of examples.
+func (o DatasetOutput) SchemaType() DatasetSchemaTypePtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetSchemaTypePtrOutput { return v.SchemaType }).(DatasetSchemaTypePtrOutput)
 }
 
 func (o DatasetOutput) Source() DatasetDataSourceTypePtrOutput {

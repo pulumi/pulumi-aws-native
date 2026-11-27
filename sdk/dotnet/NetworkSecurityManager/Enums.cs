@@ -54,6 +54,7 @@ namespace Pulumi.AwsNative.NetworkSecurityManager
 
         public static PolicyFirewallType Waf { get; } = new PolicyFirewallType("WAF");
         public static PolicyFirewallType ShieldAdvanced { get; } = new PolicyFirewallType("SHIELD_ADVANCED");
+        public static PolicyFirewallType IgwFirewall { get; } = new PolicyFirewallType("IGW_FIREWALL");
 
         public static bool operator ==(PolicyFirewallType left, PolicyFirewallType right) => left.Equals(right);
         public static bool operator !=(PolicyFirewallType left, PolicyFirewallType right) => !left.Equals(right);
@@ -63,6 +64,38 @@ namespace Pulumi.AwsNative.NetworkSecurityManager
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PolicyFirewallType other && Equals(other);
         public bool Equals(PolicyFirewallType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyIgwFirewallConfigDefaultSubnetConnectivity : IEquatable<PolicyIgwFirewallConfigDefaultSubnetConnectivity>
+    {
+        private readonly string _value;
+
+        private PolicyIgwFirewallConfigDefaultSubnetConnectivity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyIgwFirewallConfigDefaultSubnetConnectivity Flexible { get; } = new PolicyIgwFirewallConfigDefaultSubnetConnectivity("flexible");
+        public static PolicyIgwFirewallConfigDefaultSubnetConnectivity Bidirectional { get; } = new PolicyIgwFirewallConfigDefaultSubnetConnectivity("bidirectional");
+        public static PolicyIgwFirewallConfigDefaultSubnetConnectivity OutboundOnly { get; } = new PolicyIgwFirewallConfigDefaultSubnetConnectivity("outbound-only");
+
+        public static bool operator ==(PolicyIgwFirewallConfigDefaultSubnetConnectivity left, PolicyIgwFirewallConfigDefaultSubnetConnectivity right) => left.Equals(right);
+        public static bool operator !=(PolicyIgwFirewallConfigDefaultSubnetConnectivity left, PolicyIgwFirewallConfigDefaultSubnetConnectivity right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyIgwFirewallConfigDefaultSubnetConnectivity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyIgwFirewallConfigDefaultSubnetConnectivity other && Equals(other);
+        public bool Equals(PolicyIgwFirewallConfigDefaultSubnetConnectivity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -95,6 +128,39 @@ namespace Pulumi.AwsNative.NetworkSecurityManager
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PolicyStatus other && Equals(other);
         public bool Equals(PolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The connectivity treatment applied to the subnets that the referenced scope selects.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicySubnetConnectivityOverrideConnectivityType : IEquatable<PolicySubnetConnectivityOverrideConnectivityType>
+    {
+        private readonly string _value;
+
+        private PolicySubnetConnectivityOverrideConnectivityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicySubnetConnectivityOverrideConnectivityType Flexible { get; } = new PolicySubnetConnectivityOverrideConnectivityType("flexible");
+        public static PolicySubnetConnectivityOverrideConnectivityType Bidirectional { get; } = new PolicySubnetConnectivityOverrideConnectivityType("bidirectional");
+        public static PolicySubnetConnectivityOverrideConnectivityType OutboundOnly { get; } = new PolicySubnetConnectivityOverrideConnectivityType("outbound-only");
+        public static PolicySubnetConnectivityOverrideConnectivityType Exclude { get; } = new PolicySubnetConnectivityOverrideConnectivityType("exclude");
+
+        public static bool operator ==(PolicySubnetConnectivityOverrideConnectivityType left, PolicySubnetConnectivityOverrideConnectivityType right) => left.Equals(right);
+        public static bool operator !=(PolicySubnetConnectivityOverrideConnectivityType left, PolicySubnetConnectivityOverrideConnectivityType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicySubnetConnectivityOverrideConnectivityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicySubnetConnectivityOverrideConnectivityType other && Equals(other);
+        public bool Equals(PolicySubnetConnectivityOverrideConnectivityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -178,6 +244,7 @@ namespace Pulumi.AwsNative.NetworkSecurityManager
         }
 
         public static RuleFirewallType Waf { get; } = new RuleFirewallType("WAF");
+        public static RuleFirewallType IgwFirewall { get; } = new RuleFirewallType("IGW_FIREWALL");
 
         public static bool operator ==(RuleFirewallType left, RuleFirewallType right) => left.Equals(right);
         public static bool operator !=(RuleFirewallType left, RuleFirewallType right) => !left.Equals(right);
@@ -250,6 +317,36 @@ namespace Pulumi.AwsNative.NetworkSecurityManager
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleType other && Equals(other);
         public bool Equals(RuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScopeSpecializedScopeType : IEquatable<ScopeSpecializedScopeType>
+    {
+        private readonly string _value;
+
+        private ScopeSpecializedScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScopeSpecializedScopeType IgwFirewallSubnetConnectivityOverride { get; } = new ScopeSpecializedScopeType("IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE");
+
+        public static bool operator ==(ScopeSpecializedScopeType left, ScopeSpecializedScopeType right) => left.Equals(right);
+        public static bool operator !=(ScopeSpecializedScopeType left, ScopeSpecializedScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(ScopeSpecializedScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScopeSpecializedScopeType other && Equals(other);
+        public bool Equals(ScopeSpecializedScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -65,6 +65,10 @@ export class GeneratedTemplate extends pulumi.CustomResource {
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     declare public /*out*/ readonly progress: pulumi.Output<outputs.cloudformation.GeneratedTemplateTemplateProgress>;
     /**
+     * The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+     */
+    declare public readonly stackId: pulumi.Output<string | undefined>;
+    /**
      * The status of the template generation.
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.cloudformation.GeneratedTemplateStatus>;
@@ -86,6 +90,7 @@ export class GeneratedTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["generatedTemplateName"] = args?.generatedTemplateName;
+            resourceInputs["stackId"] = args?.stackId;
             resourceInputs["templateConfiguration"] = args?.templateConfiguration;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["generatedTemplateId"] = undefined /*out*/;
@@ -99,11 +104,14 @@ export class GeneratedTemplate extends pulumi.CustomResource {
             resourceInputs["generatedTemplateName"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["progress"] = undefined /*out*/;
+            resourceInputs["stackId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["templateConfiguration"] = undefined /*out*/;
             resourceInputs["totalWarnings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["stackId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GeneratedTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -116,5 +124,9 @@ export interface GeneratedTemplateArgs {
      * The name assigned to the generated template.
      */
     generatedTemplateName?: pulumi.Input<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+     */
+    stackId?: pulumi.Input<string | undefined>;
     templateConfiguration?: pulumi.Input<inputs.cloudformation.GeneratedTemplateTemplateConfigurationArgs | undefined>;
 }

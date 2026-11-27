@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:lakeformation:DataCellsFilter":
 		r = &DataCellsFilter{}
+	case "aws-native:lakeformation:DataLakeSettings":
+		r = &DataLakeSettings{}
 	case "aws-native:lakeformation:PrincipalPermissions":
 		r = &PrincipalPermissions{}
 	case "aws-native:lakeformation:Resource":

@@ -2528,6 +2528,345 @@ func (o LicenseValidityDateFormatPtrOutput) End() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Details of the license configurations and asset groups that this generator reports on.
+type ReportGeneratorReportContext struct {
+	// Amazon Resource Names (ARNs) of the license asset groups to include in the report.
+	LicenseAssetGroupArns []string `pulumi:"licenseAssetGroupArns"`
+	// Amazon Resource Names (ARNs) of the license configurations that this generator reports on.
+	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
+	// End date for the report data collection period.
+	ReportEndDate *string `pulumi:"reportEndDate"`
+	// Start date for the report data collection period.
+	ReportStartDate *string `pulumi:"reportStartDate"`
+}
+
+// ReportGeneratorReportContextInput is an input type that accepts ReportGeneratorReportContextArgs and ReportGeneratorReportContextOutput values.
+// You can construct a concrete instance of `ReportGeneratorReportContextInput` via:
+//
+//	ReportGeneratorReportContextArgs{...}
+type ReportGeneratorReportContextInput interface {
+	pulumi.Input
+
+	ToReportGeneratorReportContextOutput() ReportGeneratorReportContextOutput
+	ToReportGeneratorReportContextOutputWithContext(context.Context) ReportGeneratorReportContextOutput
+}
+
+// Details of the license configurations and asset groups that this generator reports on.
+type ReportGeneratorReportContextArgs struct {
+	// Amazon Resource Names (ARNs) of the license asset groups to include in the report.
+	LicenseAssetGroupArns pulumi.StringArrayInput `pulumi:"licenseAssetGroupArns"`
+	// Amazon Resource Names (ARNs) of the license configurations that this generator reports on.
+	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
+	// End date for the report data collection period.
+	ReportEndDate pulumi.StringPtrInput `pulumi:"reportEndDate"`
+	// Start date for the report data collection period.
+	ReportStartDate pulumi.StringPtrInput `pulumi:"reportStartDate"`
+}
+
+func (ReportGeneratorReportContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorReportContext)(nil)).Elem()
+}
+
+func (i ReportGeneratorReportContextArgs) ToReportGeneratorReportContextOutput() ReportGeneratorReportContextOutput {
+	return i.ToReportGeneratorReportContextOutputWithContext(context.Background())
+}
+
+func (i ReportGeneratorReportContextArgs) ToReportGeneratorReportContextOutputWithContext(ctx context.Context) ReportGeneratorReportContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGeneratorReportContextOutput)
+}
+
+// Details of the license configurations and asset groups that this generator reports on.
+type ReportGeneratorReportContextOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorReportContext)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportContextOutput) ToReportGeneratorReportContextOutput() ReportGeneratorReportContextOutput {
+	return o
+}
+
+func (o ReportGeneratorReportContextOutput) ToReportGeneratorReportContextOutputWithContext(ctx context.Context) ReportGeneratorReportContextOutput {
+	return o
+}
+
+// Amazon Resource Names (ARNs) of the license asset groups to include in the report.
+func (o ReportGeneratorReportContextOutput) LicenseAssetGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportGeneratorReportContext) []string { return v.LicenseAssetGroupArns }).(pulumi.StringArrayOutput)
+}
+
+// Amazon Resource Names (ARNs) of the license configurations that this generator reports on.
+func (o ReportGeneratorReportContextOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportGeneratorReportContext) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
+}
+
+// End date for the report data collection period.
+func (o ReportGeneratorReportContextOutput) ReportEndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGeneratorReportContext) *string { return v.ReportEndDate }).(pulumi.StringPtrOutput)
+}
+
+// Start date for the report data collection period.
+func (o ReportGeneratorReportContextOutput) ReportStartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGeneratorReportContext) *string { return v.ReportStartDate }).(pulumi.StringPtrOutput)
+}
+
+type ReportGeneratorReportContextPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGeneratorReportContext)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportContextPtrOutput) ToReportGeneratorReportContextPtrOutput() ReportGeneratorReportContextPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorReportContextPtrOutput) ToReportGeneratorReportContextPtrOutputWithContext(ctx context.Context) ReportGeneratorReportContextPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorReportContextPtrOutput) Elem() ReportGeneratorReportContextOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportContext) ReportGeneratorReportContext {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGeneratorReportContext
+		return ret
+	}).(ReportGeneratorReportContextOutput)
+}
+
+// Amazon Resource Names (ARNs) of the license asset groups to include in the report.
+func (o ReportGeneratorReportContextPtrOutput) LicenseAssetGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportContext) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LicenseAssetGroupArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Amazon Resource Names (ARNs) of the license configurations that this generator reports on.
+func (o ReportGeneratorReportContextPtrOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportContext) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LicenseConfigurationArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// End date for the report data collection period.
+func (o ReportGeneratorReportContextPtrOutput) ReportEndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReportEndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start date for the report data collection period.
+func (o ReportGeneratorReportContextPtrOutput) ReportStartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReportStartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details about how frequently reports are generated.
+type ReportGeneratorReportFrequency struct {
+	// Time period between each report. The period can be daily, weekly, or monthly.
+	Period *ReportGeneratorReportFrequencyPeriod `pulumi:"period"`
+	// Number of times within the frequency period that a report is generated. The only supported value is 1.
+	Value *int `pulumi:"value"`
+}
+
+// ReportGeneratorReportFrequencyInput is an input type that accepts ReportGeneratorReportFrequencyArgs and ReportGeneratorReportFrequencyOutput values.
+// You can construct a concrete instance of `ReportGeneratorReportFrequencyInput` via:
+//
+//	ReportGeneratorReportFrequencyArgs{...}
+type ReportGeneratorReportFrequencyInput interface {
+	pulumi.Input
+
+	ToReportGeneratorReportFrequencyOutput() ReportGeneratorReportFrequencyOutput
+	ToReportGeneratorReportFrequencyOutputWithContext(context.Context) ReportGeneratorReportFrequencyOutput
+}
+
+// Details about how frequently reports are generated.
+type ReportGeneratorReportFrequencyArgs struct {
+	// Time period between each report. The period can be daily, weekly, or monthly.
+	Period ReportGeneratorReportFrequencyPeriodPtrInput `pulumi:"period"`
+	// Number of times within the frequency period that a report is generated. The only supported value is 1.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (ReportGeneratorReportFrequencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorReportFrequency)(nil)).Elem()
+}
+
+func (i ReportGeneratorReportFrequencyArgs) ToReportGeneratorReportFrequencyOutput() ReportGeneratorReportFrequencyOutput {
+	return i.ToReportGeneratorReportFrequencyOutputWithContext(context.Background())
+}
+
+func (i ReportGeneratorReportFrequencyArgs) ToReportGeneratorReportFrequencyOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGeneratorReportFrequencyOutput)
+}
+
+// Details about how frequently reports are generated.
+type ReportGeneratorReportFrequencyOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorReportFrequency)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportFrequencyOutput) ToReportGeneratorReportFrequencyOutput() ReportGeneratorReportFrequencyOutput {
+	return o
+}
+
+func (o ReportGeneratorReportFrequencyOutput) ToReportGeneratorReportFrequencyOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyOutput {
+	return o
+}
+
+// Time period between each report. The period can be daily, weekly, or monthly.
+func (o ReportGeneratorReportFrequencyOutput) Period() ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return o.ApplyT(func(v ReportGeneratorReportFrequency) *ReportGeneratorReportFrequencyPeriod { return v.Period }).(ReportGeneratorReportFrequencyPeriodPtrOutput)
+}
+
+// Number of times within the frequency period that a report is generated. The only supported value is 1.
+func (o ReportGeneratorReportFrequencyOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReportGeneratorReportFrequency) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type ReportGeneratorReportFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorReportFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGeneratorReportFrequency)(nil)).Elem()
+}
+
+func (o ReportGeneratorReportFrequencyPtrOutput) ToReportGeneratorReportFrequencyPtrOutput() ReportGeneratorReportFrequencyPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorReportFrequencyPtrOutput) ToReportGeneratorReportFrequencyPtrOutputWithContext(ctx context.Context) ReportGeneratorReportFrequencyPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorReportFrequencyPtrOutput) Elem() ReportGeneratorReportFrequencyOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportFrequency) ReportGeneratorReportFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGeneratorReportFrequency
+		return ret
+	}).(ReportGeneratorReportFrequencyOutput)
+}
+
+// Time period between each report. The period can be daily, weekly, or monthly.
+func (o ReportGeneratorReportFrequencyPtrOutput) Period() ReportGeneratorReportFrequencyPeriodPtrOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportFrequency) *ReportGeneratorReportFrequencyPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.Period
+	}).(ReportGeneratorReportFrequencyPeriodPtrOutput)
+}
+
+// Number of times within the frequency period that a report is generated. The only supported value is 1.
+func (o ReportGeneratorReportFrequencyPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReportGeneratorReportFrequency) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+// Details of the S3 bucket that report generator reports are published to.
+type ReportGeneratorS3Location struct {
+	// Name of the S3 bucket reports are published to.
+	Bucket *string `pulumi:"bucket"`
+	// Prefix of the S3 bucket reports are published to.
+	KeyPrefix *string `pulumi:"keyPrefix"`
+}
+
+// Details of the S3 bucket that report generator reports are published to.
+type ReportGeneratorS3LocationOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGeneratorS3Location)(nil)).Elem()
+}
+
+func (o ReportGeneratorS3LocationOutput) ToReportGeneratorS3LocationOutput() ReportGeneratorS3LocationOutput {
+	return o
+}
+
+func (o ReportGeneratorS3LocationOutput) ToReportGeneratorS3LocationOutputWithContext(ctx context.Context) ReportGeneratorS3LocationOutput {
+	return o
+}
+
+// Name of the S3 bucket reports are published to.
+func (o ReportGeneratorS3LocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGeneratorS3Location) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// Prefix of the S3 bucket reports are published to.
+func (o ReportGeneratorS3LocationOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGeneratorS3Location) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+type ReportGeneratorS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGeneratorS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGeneratorS3Location)(nil)).Elem()
+}
+
+func (o ReportGeneratorS3LocationPtrOutput) ToReportGeneratorS3LocationPtrOutput() ReportGeneratorS3LocationPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorS3LocationPtrOutput) ToReportGeneratorS3LocationPtrOutputWithContext(ctx context.Context) ReportGeneratorS3LocationPtrOutput {
+	return o
+}
+
+func (o ReportGeneratorS3LocationPtrOutput) Elem() ReportGeneratorS3LocationOutput {
+	return o.ApplyT(func(v *ReportGeneratorS3Location) ReportGeneratorS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGeneratorS3Location
+		return ret
+	}).(ReportGeneratorS3LocationOutput)
+}
+
+// Name of the S3 bucket reports are published to.
+func (o ReportGeneratorS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGeneratorS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix of the S3 bucket reports are published to.
+func (o ReportGeneratorS3LocationPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGeneratorS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ReportGeneratorTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetGroupConfigurationInput)(nil)).Elem(), LicenseAssetGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetGroupConfigurationArrayInput)(nil)).Elem(), LicenseAssetGroupConfigurationArray{})
@@ -2564,6 +2903,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseProvisionalConfigurationInput)(nil)).Elem(), LicenseProvisionalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseProvisionalConfigurationPtrInput)(nil)).Elem(), LicenseProvisionalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseValidityDateFormatInput)(nil)).Elem(), LicenseValidityDateFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGeneratorReportContextInput)(nil)).Elem(), ReportGeneratorReportContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGeneratorReportFrequencyInput)(nil)).Elem(), ReportGeneratorReportFrequencyArgs{})
 	pulumi.RegisterOutputType(LicenseAssetGroupConfigurationOutput{})
 	pulumi.RegisterOutputType(LicenseAssetGroupConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LicenseAssetGroupPropertyOutput{})
@@ -2602,4 +2943,10 @@ func init() {
 	pulumi.RegisterOutputType(LicenseProvisionalConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LicenseValidityDateFormatOutput{})
 	pulumi.RegisterOutputType(LicenseValidityDateFormatPtrOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportContextOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportContextPtrOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportFrequencyOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorReportFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorS3LocationOutput{})
+	pulumi.RegisterOutputType(ReportGeneratorS3LocationPtrOutput{})
 }

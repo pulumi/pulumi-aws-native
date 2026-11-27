@@ -68,6 +68,10 @@ export class Scope extends pulumi.CustomResource {
      */
     declare public readonly scopeName: pulumi.Output<string>;
     /**
+     * Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+     */
+    declare public readonly specializedScopeType: pulumi.Output<enums.networksecuritymanager.ScopeSpecializedScopeType | undefined>;
+    /**
      * The status of the scope.
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.networksecuritymanager.ScopeStatus>;
@@ -98,6 +102,7 @@ export class Scope extends pulumi.CustomResource {
             resourceInputs["scopeConfiguration"] = args?.scopeConfiguration;
             resourceInputs["scopeDescription"] = args?.scopeDescription;
             resourceInputs["scopeName"] = args?.scopeName;
+            resourceInputs["specializedScopeType"] = args?.specializedScopeType;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["scopeArn"] = undefined /*out*/;
             resourceInputs["scopeId"] = undefined /*out*/;
@@ -110,13 +115,14 @@ export class Scope extends pulumi.CustomResource {
             resourceInputs["scopeDescription"] = undefined /*out*/;
             resourceInputs["scopeId"] = undefined /*out*/;
             resourceInputs["scopeName"] = undefined /*out*/;
+            resourceInputs["specializedScopeType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["scopeName"] };
+        const replaceOnChanges = { replaceOnChanges: ["scopeName", "specializedScopeType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Scope.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,6 +144,10 @@ export interface ScopeArgs {
      * The name of the scope.
      */
     scopeName?: pulumi.Input<string | undefined>;
+    /**
+     * Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+     */
+    specializedScopeType?: pulumi.Input<enums.networksecuritymanager.ScopeSpecializedScopeType | undefined>;
     /**
      * The tags associated with the scope.
      */

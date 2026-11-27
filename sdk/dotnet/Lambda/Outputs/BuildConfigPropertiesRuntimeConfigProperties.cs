@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     public sealed class BuildConfigPropertiesRuntimeConfigProperties
     {
         /// <summary>
-        /// The runtime identifier.
+        /// The runtime identifier. Either a short runtime name (for example, nodejs24.x) or a Lambda runtime ARN.
         /// </summary>
         public readonly string Runtime;
 

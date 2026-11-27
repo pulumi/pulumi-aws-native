@@ -45,6 +45,7 @@ export interface GetDistributionTenantResult {
      * The ID of the multi-tenant distribution.
      */
     readonly distributionId?: string;
+    readonly domainMappings?: outputs.cloudfront.DistributionTenantDomainMapping[];
     readonly domainResults?: outputs.cloudfront.DistributionTenantDomainResult[];
     /**
      * The domains associated with the distribution tenant.

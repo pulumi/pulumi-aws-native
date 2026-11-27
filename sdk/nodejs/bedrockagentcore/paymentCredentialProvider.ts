@@ -104,7 +104,7 @@ export class PaymentCredentialProvider extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["credentialProviderVendor", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["credentialProviderVendor", "name", "providerConfigurationInput.amazonPayConfiguration.amazonPayRegion", "providerConfigurationInput.amazonPayConfiguration.authorizationTokenSource", "providerConfigurationInput.amazonPayConfiguration.merchantId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PaymentCredentialProvider.__pulumiType, name, resourceInputs, opts);
     }

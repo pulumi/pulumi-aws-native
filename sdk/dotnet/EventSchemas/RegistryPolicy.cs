@@ -170,7 +170,7 @@ namespace Pulumi.AwsNative.EventSchemas
         /// The revision ID of the policy.
         /// </summary>
         [Output("revisionId")]
-        public Output<string?> RevisionId { get; private set; } = null!;
+        public Output<string> RevisionId { get; private set; } = null!;
 
 
         /// <summary>
@@ -230,12 +230,6 @@ namespace Pulumi.AwsNative.EventSchemas
         /// </summary>
         [Input("registryName", required: true)]
         public Input<string> RegistryName { get; set; } = null!;
-
-        /// <summary>
-        /// The revision ID of the policy.
-        /// </summary>
-        [Input("revisionId")]
-        public Input<string>? RevisionId { get; set; }
 
         public RegistryPolicyArgs()
         {

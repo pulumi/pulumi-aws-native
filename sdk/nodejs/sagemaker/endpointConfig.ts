@@ -52,6 +52,10 @@ export class EndpointConfig extends pulumi.CustomResource {
      */
     declare public readonly asyncInferenceConfig: pulumi.Output<outputs.sagemaker.EndpointConfigAsyncInferenceConfig | undefined>;
     /**
+     * Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+     */
+    declare public readonly crossRegionTrafficConfig: pulumi.Output<outputs.sagemaker.EndpointConfigCrossRegionTrafficConfig | undefined>;
+    /**
      * Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
      */
     declare public readonly dataCaptureConfig: pulumi.Output<outputs.sagemaker.EndpointConfigDataCaptureConfig | undefined>;
@@ -115,6 +119,7 @@ export class EndpointConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'productionVariants'");
             }
             resourceInputs["asyncInferenceConfig"] = args?.asyncInferenceConfig;
+            resourceInputs["crossRegionTrafficConfig"] = args?.crossRegionTrafficConfig;
             resourceInputs["dataCaptureConfig"] = args?.dataCaptureConfig;
             resourceInputs["enableNetworkIsolation"] = args?.enableNetworkIsolation;
             resourceInputs["endpointConfigName"] = args?.endpointConfigName;
@@ -129,6 +134,7 @@ export class EndpointConfig extends pulumi.CustomResource {
             resourceInputs["endpointConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["asyncInferenceConfig"] = undefined /*out*/;
+            resourceInputs["crossRegionTrafficConfig"] = undefined /*out*/;
             resourceInputs["dataCaptureConfig"] = undefined /*out*/;
             resourceInputs["enableNetworkIsolation"] = undefined /*out*/;
             resourceInputs["endpointConfigArn"] = undefined /*out*/;
@@ -143,7 +149,7 @@ export class EndpointConfig extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["asyncInferenceConfig", "dataCaptureConfig", "enableNetworkIsolation", "endpointConfigName", "executionRoleArn", "explainerConfig", "kmsKeyId", "metricsConfig", "productionVariants[*]", "shadowProductionVariants[*]", "vpcConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["asyncInferenceConfig", "crossRegionTrafficConfig", "dataCaptureConfig", "enableNetworkIsolation", "endpointConfigName", "executionRoleArn", "explainerConfig", "kmsKeyId", "metricsConfig", "productionVariants[*]", "shadowProductionVariants[*]", "vpcConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EndpointConfig.__pulumiType, name, resourceInputs, opts);
     }
@@ -157,6 +163,10 @@ export interface EndpointConfigArgs {
      * Specifies configuration for how an endpoint performs asynchronous inference.
      */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigAsyncInferenceConfigArgs | undefined>;
+    /**
+     * Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+     */
+    crossRegionTrafficConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigCrossRegionTrafficConfigArgs | undefined>;
     /**
      * Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
      */

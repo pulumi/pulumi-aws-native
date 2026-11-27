@@ -30,6 +30,8 @@ type LookupUserDefinedFunctionArgs struct {
 type LookupUserDefinedFunctionResult struct {
 	// The Amazon Resource Name (ARN) of the user-defined function.
 	Arn *string `pulumi:"arn"`
+	// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+	ArtifactLocation *string `pulumi:"artifactLocation"`
 	// The Java class that contains the function code.
 	ClassName *string `pulumi:"className"`
 	// The owner of the function.
@@ -71,6 +73,11 @@ func (o LookupUserDefinedFunctionResultOutput) ToLookupUserDefinedFunctionResult
 // The Amazon Resource Name (ARN) of the user-defined function.
 func (o LookupUserDefinedFunctionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserDefinedFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+func (o LookupUserDefinedFunctionResultOutput) ArtifactLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserDefinedFunctionResult) *string { return v.ArtifactLocation }).(pulumi.StringPtrOutput)
 }
 
 // The Java class that contains the function code.

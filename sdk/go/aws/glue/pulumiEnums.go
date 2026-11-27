@@ -5396,6 +5396,172 @@ func (in *userDefinedFunctionFunctionTypePtr) ToUserDefinedFunctionFunctionTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(UserDefinedFunctionFunctionTypePtrOutput)
 }
 
+// How access to the function is governed. The mode cannot be changed after creation.
+type UserDefinedFunctionGovernanceMode string
+
+const (
+	UserDefinedFunctionGovernanceModeIamOnly       = UserDefinedFunctionGovernanceMode("IAM_ONLY")
+	UserDefinedFunctionGovernanceModeLakeFormation = UserDefinedFunctionGovernanceMode("LAKE_FORMATION")
+)
+
+func (UserDefinedFunctionGovernanceMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionGovernanceMode)(nil)).Elem()
+}
+
+func (e UserDefinedFunctionGovernanceMode) ToUserDefinedFunctionGovernanceModeOutput() UserDefinedFunctionGovernanceModeOutput {
+	return pulumi.ToOutput(e).(UserDefinedFunctionGovernanceModeOutput)
+}
+
+func (e UserDefinedFunctionGovernanceMode) ToUserDefinedFunctionGovernanceModeOutputWithContext(ctx context.Context) UserDefinedFunctionGovernanceModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserDefinedFunctionGovernanceModeOutput)
+}
+
+func (e UserDefinedFunctionGovernanceMode) ToUserDefinedFunctionGovernanceModePtrOutput() UserDefinedFunctionGovernanceModePtrOutput {
+	return e.ToUserDefinedFunctionGovernanceModePtrOutputWithContext(context.Background())
+}
+
+func (e UserDefinedFunctionGovernanceMode) ToUserDefinedFunctionGovernanceModePtrOutputWithContext(ctx context.Context) UserDefinedFunctionGovernanceModePtrOutput {
+	return UserDefinedFunctionGovernanceMode(e).ToUserDefinedFunctionGovernanceModeOutputWithContext(ctx).ToUserDefinedFunctionGovernanceModePtrOutputWithContext(ctx)
+}
+
+func (e UserDefinedFunctionGovernanceMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserDefinedFunctionGovernanceMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserDefinedFunctionGovernanceMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserDefinedFunctionGovernanceMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserDefinedFunctionGovernanceModeOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionGovernanceModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionGovernanceMode)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionGovernanceModeOutput) ToUserDefinedFunctionGovernanceModeOutput() UserDefinedFunctionGovernanceModeOutput {
+	return o
+}
+
+func (o UserDefinedFunctionGovernanceModeOutput) ToUserDefinedFunctionGovernanceModeOutputWithContext(ctx context.Context) UserDefinedFunctionGovernanceModeOutput {
+	return o
+}
+
+func (o UserDefinedFunctionGovernanceModeOutput) ToUserDefinedFunctionGovernanceModePtrOutput() UserDefinedFunctionGovernanceModePtrOutput {
+	return o.ToUserDefinedFunctionGovernanceModePtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionGovernanceModeOutput) ToUserDefinedFunctionGovernanceModePtrOutputWithContext(ctx context.Context) UserDefinedFunctionGovernanceModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedFunctionGovernanceMode) *UserDefinedFunctionGovernanceMode {
+		return &v
+	}).(UserDefinedFunctionGovernanceModePtrOutput)
+}
+
+func (o UserDefinedFunctionGovernanceModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionGovernanceModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserDefinedFunctionGovernanceMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserDefinedFunctionGovernanceModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionGovernanceModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserDefinedFunctionGovernanceMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserDefinedFunctionGovernanceModePtrOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionGovernanceModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserDefinedFunctionGovernanceMode)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionGovernanceModePtrOutput) ToUserDefinedFunctionGovernanceModePtrOutput() UserDefinedFunctionGovernanceModePtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionGovernanceModePtrOutput) ToUserDefinedFunctionGovernanceModePtrOutputWithContext(ctx context.Context) UserDefinedFunctionGovernanceModePtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionGovernanceModePtrOutput) Elem() UserDefinedFunctionGovernanceModeOutput {
+	return o.ApplyT(func(v *UserDefinedFunctionGovernanceMode) UserDefinedFunctionGovernanceMode {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedFunctionGovernanceMode
+		return ret
+	}).(UserDefinedFunctionGovernanceModeOutput)
+}
+
+func (o UserDefinedFunctionGovernanceModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionGovernanceModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserDefinedFunctionGovernanceMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserDefinedFunctionGovernanceModeInput is an input type that accepts values of the UserDefinedFunctionGovernanceMode enum
+// A concrete instance of `UserDefinedFunctionGovernanceModeInput` can be one of the following:
+//
+//	UserDefinedFunctionGovernanceModeIamOnly
+//	UserDefinedFunctionGovernanceModeLakeFormation
+type UserDefinedFunctionGovernanceModeInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionGovernanceModeOutput() UserDefinedFunctionGovernanceModeOutput
+	ToUserDefinedFunctionGovernanceModeOutputWithContext(context.Context) UserDefinedFunctionGovernanceModeOutput
+}
+
+var userDefinedFunctionGovernanceModePtrType = reflect.TypeOf((**UserDefinedFunctionGovernanceMode)(nil)).Elem()
+
+type UserDefinedFunctionGovernanceModePtrInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionGovernanceModePtrOutput() UserDefinedFunctionGovernanceModePtrOutput
+	ToUserDefinedFunctionGovernanceModePtrOutputWithContext(context.Context) UserDefinedFunctionGovernanceModePtrOutput
+}
+
+type userDefinedFunctionGovernanceModePtr string
+
+func UserDefinedFunctionGovernanceModePtr(v string) UserDefinedFunctionGovernanceModePtrInput {
+	return (*userDefinedFunctionGovernanceModePtr)(&v)
+}
+
+func (*userDefinedFunctionGovernanceModePtr) ElementType() reflect.Type {
+	return userDefinedFunctionGovernanceModePtrType
+}
+
+func (in *userDefinedFunctionGovernanceModePtr) ToUserDefinedFunctionGovernanceModePtrOutput() UserDefinedFunctionGovernanceModePtrOutput {
+	return pulumi.ToOutput(in).(UserDefinedFunctionGovernanceModePtrOutput)
+}
+
+func (in *userDefinedFunctionGovernanceModePtr) ToUserDefinedFunctionGovernanceModePtrOutputWithContext(ctx context.Context) UserDefinedFunctionGovernanceModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserDefinedFunctionGovernanceModePtrOutput)
+}
+
 // The owner type.
 type UserDefinedFunctionOwnerType string
 
@@ -5795,6 +5961,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionWorkerTypePtrInput)(nil)).Elem(), SessionWorkerType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionFunctionTypeInput)(nil)).Elem(), UserDefinedFunctionFunctionType("REGULAR_FUNCTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionFunctionTypePtrInput)(nil)).Elem(), UserDefinedFunctionFunctionType("REGULAR_FUNCTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionGovernanceModeInput)(nil)).Elem(), UserDefinedFunctionGovernanceMode("IAM_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionGovernanceModePtrInput)(nil)).Elem(), UserDefinedFunctionGovernanceMode("IAM_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionOwnerTypeInput)(nil)).Elem(), UserDefinedFunctionOwnerType("USER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionOwnerTypePtrInput)(nil)).Elem(), UserDefinedFunctionOwnerType("USER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriResourceTypeInput)(nil)).Elem(), UserDefinedFunctionResourceUriResourceType("JAR"))
@@ -5865,6 +6033,8 @@ func init() {
 	pulumi.RegisterOutputType(SessionWorkerTypePtrOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionFunctionTypeOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionFunctionTypePtrOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionGovernanceModeOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionGovernanceModePtrOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionOwnerTypeOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionOwnerTypePtrOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriResourceTypeOutput{})

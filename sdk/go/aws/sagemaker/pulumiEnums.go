@@ -12473,6 +12473,266 @@ func (in *inferenceExperimentTypePtr) ToInferenceExperimentTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(InferenceExperimentTypePtrOutput)
 }
 
+// How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+type InferenceRouterRoutingTargetRoutingPreference string
+
+const (
+	InferenceRouterRoutingTargetRoutingPreferenceLocalRegionFirst  = InferenceRouterRoutingTargetRoutingPreference("LocalRegionFirst")
+	InferenceRouterRoutingTargetRoutingPreferenceInstancePoolOrder = InferenceRouterRoutingTargetRoutingPreference("InstancePoolOrder")
+)
+
+func (InferenceRouterRoutingTargetRoutingPreference) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterRoutingTargetRoutingPreference)(nil)).Elem()
+}
+
+func (e InferenceRouterRoutingTargetRoutingPreference) ToInferenceRouterRoutingTargetRoutingPreferenceOutput() InferenceRouterRoutingTargetRoutingPreferenceOutput {
+	return pulumi.ToOutput(e).(InferenceRouterRoutingTargetRoutingPreferenceOutput)
+}
+
+func (e InferenceRouterRoutingTargetRoutingPreference) ToInferenceRouterRoutingTargetRoutingPreferenceOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetRoutingPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InferenceRouterRoutingTargetRoutingPreferenceOutput)
+}
+
+func (e InferenceRouterRoutingTargetRoutingPreference) ToInferenceRouterRoutingTargetRoutingPreferencePtrOutput() InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return e.ToInferenceRouterRoutingTargetRoutingPreferencePtrOutputWithContext(context.Background())
+}
+
+func (e InferenceRouterRoutingTargetRoutingPreference) ToInferenceRouterRoutingTargetRoutingPreferencePtrOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return InferenceRouterRoutingTargetRoutingPreference(e).ToInferenceRouterRoutingTargetRoutingPreferenceOutputWithContext(ctx).ToInferenceRouterRoutingTargetRoutingPreferencePtrOutputWithContext(ctx)
+}
+
+func (e InferenceRouterRoutingTargetRoutingPreference) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceRouterRoutingTargetRoutingPreference) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceRouterRoutingTargetRoutingPreference) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InferenceRouterRoutingTargetRoutingPreference) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InferenceRouterRoutingTargetRoutingPreferenceOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterRoutingTargetRoutingPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterRoutingTargetRoutingPreference)(nil)).Elem()
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferenceOutput) ToInferenceRouterRoutingTargetRoutingPreferenceOutput() InferenceRouterRoutingTargetRoutingPreferenceOutput {
+	return o
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferenceOutput) ToInferenceRouterRoutingTargetRoutingPreferenceOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetRoutingPreferenceOutput {
+	return o
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferenceOutput) ToInferenceRouterRoutingTargetRoutingPreferencePtrOutput() InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return o.ToInferenceRouterRoutingTargetRoutingPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferenceOutput) ToInferenceRouterRoutingTargetRoutingPreferencePtrOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceRouterRoutingTargetRoutingPreference) *InferenceRouterRoutingTargetRoutingPreference {
+		return &v
+	}).(InferenceRouterRoutingTargetRoutingPreferencePtrOutput)
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferenceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferenceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceRouterRoutingTargetRoutingPreference) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferenceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferenceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceRouterRoutingTargetRoutingPreference) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceRouterRoutingTargetRoutingPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterRoutingTargetRoutingPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterRoutingTargetRoutingPreference)(nil)).Elem()
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferencePtrOutput) ToInferenceRouterRoutingTargetRoutingPreferencePtrOutput() InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return o
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferencePtrOutput) ToInferenceRouterRoutingTargetRoutingPreferencePtrOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return o
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferencePtrOutput) Elem() InferenceRouterRoutingTargetRoutingPreferenceOutput {
+	return o.ApplyT(func(v *InferenceRouterRoutingTargetRoutingPreference) InferenceRouterRoutingTargetRoutingPreference {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceRouterRoutingTargetRoutingPreference
+		return ret
+	}).(InferenceRouterRoutingTargetRoutingPreferenceOutput)
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferencePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterRoutingTargetRoutingPreferencePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceRouterRoutingTargetRoutingPreference) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InferenceRouterRoutingTargetRoutingPreferenceInput is an input type that accepts values of the InferenceRouterRoutingTargetRoutingPreference enum
+// A concrete instance of `InferenceRouterRoutingTargetRoutingPreferenceInput` can be one of the following:
+//
+//	InferenceRouterRoutingTargetRoutingPreferenceLocalRegionFirst
+//	InferenceRouterRoutingTargetRoutingPreferenceInstancePoolOrder
+type InferenceRouterRoutingTargetRoutingPreferenceInput interface {
+	pulumi.Input
+
+	ToInferenceRouterRoutingTargetRoutingPreferenceOutput() InferenceRouterRoutingTargetRoutingPreferenceOutput
+	ToInferenceRouterRoutingTargetRoutingPreferenceOutputWithContext(context.Context) InferenceRouterRoutingTargetRoutingPreferenceOutput
+}
+
+var inferenceRouterRoutingTargetRoutingPreferencePtrType = reflect.TypeOf((**InferenceRouterRoutingTargetRoutingPreference)(nil)).Elem()
+
+type InferenceRouterRoutingTargetRoutingPreferencePtrInput interface {
+	pulumi.Input
+
+	ToInferenceRouterRoutingTargetRoutingPreferencePtrOutput() InferenceRouterRoutingTargetRoutingPreferencePtrOutput
+	ToInferenceRouterRoutingTargetRoutingPreferencePtrOutputWithContext(context.Context) InferenceRouterRoutingTargetRoutingPreferencePtrOutput
+}
+
+type inferenceRouterRoutingTargetRoutingPreferencePtr string
+
+func InferenceRouterRoutingTargetRoutingPreferencePtr(v string) InferenceRouterRoutingTargetRoutingPreferencePtrInput {
+	return (*inferenceRouterRoutingTargetRoutingPreferencePtr)(&v)
+}
+
+func (*inferenceRouterRoutingTargetRoutingPreferencePtr) ElementType() reflect.Type {
+	return inferenceRouterRoutingTargetRoutingPreferencePtrType
+}
+
+func (in *inferenceRouterRoutingTargetRoutingPreferencePtr) ToInferenceRouterRoutingTargetRoutingPreferencePtrOutput() InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return pulumi.ToOutput(in).(InferenceRouterRoutingTargetRoutingPreferencePtrOutput)
+}
+
+func (in *inferenceRouterRoutingTargetRoutingPreferencePtr) ToInferenceRouterRoutingTargetRoutingPreferencePtrOutputWithContext(ctx context.Context) InferenceRouterRoutingTargetRoutingPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InferenceRouterRoutingTargetRoutingPreferencePtrOutput)
+}
+
+// Where the Inference Router's most recent configuration write has got to. Writes commit synchronously; propagation to the data plane is asynchronous.
+type InferenceRouterStatus string
+
+const (
+	InferenceRouterStatusInService = InferenceRouterStatus("InService")
+	InferenceRouterStatusCreating  = InferenceRouterStatus("Creating")
+	InferenceRouterStatusUpdating  = InferenceRouterStatus("Updating")
+	InferenceRouterStatusFailed    = InferenceRouterStatus("Failed")
+	InferenceRouterStatusDeleting  = InferenceRouterStatus("Deleting")
+)
+
+type InferenceRouterStatusOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceRouterStatus)(nil)).Elem()
+}
+
+func (o InferenceRouterStatusOutput) ToInferenceRouterStatusOutput() InferenceRouterStatusOutput {
+	return o
+}
+
+func (o InferenceRouterStatusOutput) ToInferenceRouterStatusOutputWithContext(ctx context.Context) InferenceRouterStatusOutput {
+	return o
+}
+
+func (o InferenceRouterStatusOutput) ToInferenceRouterStatusPtrOutput() InferenceRouterStatusPtrOutput {
+	return o.ToInferenceRouterStatusPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterStatusOutput) ToInferenceRouterStatusPtrOutputWithContext(ctx context.Context) InferenceRouterStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceRouterStatus) *InferenceRouterStatus {
+		return &v
+	}).(InferenceRouterStatusPtrOutput)
+}
+
+func (o InferenceRouterStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceRouterStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceRouterStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceRouterStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceRouterStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceRouterStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceRouterStatus)(nil)).Elem()
+}
+
+func (o InferenceRouterStatusPtrOutput) ToInferenceRouterStatusPtrOutput() InferenceRouterStatusPtrOutput {
+	return o
+}
+
+func (o InferenceRouterStatusPtrOutput) ToInferenceRouterStatusPtrOutputWithContext(ctx context.Context) InferenceRouterStatusPtrOutput {
+	return o
+}
+
+func (o InferenceRouterStatusPtrOutput) Elem() InferenceRouterStatusOutput {
+	return o.ApplyT(func(v *InferenceRouterStatus) InferenceRouterStatus {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceRouterStatus
+		return ret
+	}).(InferenceRouterStatusOutput)
+}
+
+func (o InferenceRouterStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceRouterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceRouterStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
 type MlflowAppModelRegistrationMode string
 
@@ -28308,6 +28568,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTypeInput)(nil)).Elem(), InferenceExperimentType("ShadowMode"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTypePtrInput)(nil)).Elem(), InferenceExperimentType("ShadowMode"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterRoutingTargetRoutingPreferenceInput)(nil)).Elem(), InferenceRouterRoutingTargetRoutingPreference("LocalRegionFirst"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceRouterRoutingTargetRoutingPreferencePtrInput)(nil)).Elem(), InferenceRouterRoutingTargetRoutingPreference("LocalRegionFirst"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MlflowAppModelRegistrationModeInput)(nil)).Elem(), MlflowAppModelRegistrationMode("AutoModelRegistrationEnabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MlflowAppModelRegistrationModePtrInput)(nil)).Elem(), MlflowAppModelRegistrationMode("AutoModelRegistrationEnabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MlflowTrackingServerTrackingServerSizeInput)(nil)).Elem(), MlflowTrackingServerTrackingServerSize("Small"))
@@ -28629,6 +28891,10 @@ func init() {
 	pulumi.RegisterOutputType(InferenceExperimentStatusPtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentTypeOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentTypePtrOutput{})
+	pulumi.RegisterOutputType(InferenceRouterRoutingTargetRoutingPreferenceOutput{})
+	pulumi.RegisterOutputType(InferenceRouterRoutingTargetRoutingPreferencePtrOutput{})
+	pulumi.RegisterOutputType(InferenceRouterStatusOutput{})
+	pulumi.RegisterOutputType(InferenceRouterStatusPtrOutput{})
 	pulumi.RegisterOutputType(MlflowAppModelRegistrationModeOutput{})
 	pulumi.RegisterOutputType(MlflowAppModelRegistrationModePtrOutput{})
 	pulumi.RegisterOutputType(MlflowAppStatusOutput{})

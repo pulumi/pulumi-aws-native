@@ -194,6 +194,34 @@ namespace Pulumi.AwsNative.Cognito
     }
 
     [EnumType]
+    public readonly struct UserPoolDcrConfigurationEnableStatus : IEquatable<UserPoolDcrConfigurationEnableStatus>
+    {
+        private readonly string _value;
+
+        private UserPoolDcrConfigurationEnableStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserPoolDcrConfigurationEnableStatus Enabled { get; } = new UserPoolDcrConfigurationEnableStatus("Enabled");
+        public static UserPoolDcrConfigurationEnableStatus Disabled { get; } = new UserPoolDcrConfigurationEnableStatus("Disabled");
+
+        public static bool operator ==(UserPoolDcrConfigurationEnableStatus left, UserPoolDcrConfigurationEnableStatus right) => left.Equals(right);
+        public static bool operator !=(UserPoolDcrConfigurationEnableStatus left, UserPoolDcrConfigurationEnableStatus right) => !left.Equals(right);
+
+        public static explicit operator string(UserPoolDcrConfigurationEnableStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserPoolDcrConfigurationEnableStatus other && Equals(other);
+        public bool Equals(UserPoolDcrConfigurationEnableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct UserPoolEncryptionKeyType : IEquatable<UserPoolEncryptionKeyType>
     {
         private readonly string _value;

@@ -65,6 +65,11 @@ export const getTrafficPolicy: typeof import("./getTrafficPolicy").getTrafficPol
 export const getTrafficPolicyOutput: typeof import("./getTrafficPolicy").getTrafficPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getTrafficPolicy","getTrafficPolicyOutput"], () => require("./getTrafficPolicy"));
 
+export { GetTrafficPolicyInstanceArgs, GetTrafficPolicyInstanceResult, GetTrafficPolicyInstanceOutputArgs } from "./getTrafficPolicyInstance";
+export const getTrafficPolicyInstance: typeof import("./getTrafficPolicyInstance").getTrafficPolicyInstance = null as any;
+export const getTrafficPolicyInstanceOutput: typeof import("./getTrafficPolicyInstance").getTrafficPolicyInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getTrafficPolicyInstance","getTrafficPolicyInstanceOutput"], () => require("./getTrafficPolicyInstance"));
+
 export { HealthCheckArgs } from "./healthCheck";
 export type HealthCheck = import("./healthCheck").HealthCheck;
 export const HealthCheck: typeof import("./healthCheck").HealthCheck = null as any;
@@ -105,6 +110,11 @@ export type TrafficPolicy = import("./trafficPolicy").TrafficPolicy;
 export const TrafficPolicy: typeof import("./trafficPolicy").TrafficPolicy = null as any;
 utilities.lazyLoad(exports, ["TrafficPolicy"], () => require("./trafficPolicy"));
 
+export { TrafficPolicyInstanceArgs } from "./trafficPolicyInstance";
+export type TrafficPolicyInstance = import("./trafficPolicyInstance").TrafficPolicyInstance;
+export const TrafficPolicyInstance: typeof import("./trafficPolicyInstance").TrafficPolicyInstance = null as any;
+utilities.lazyLoad(exports, ["TrafficPolicyInstance"], () => require("./trafficPolicyInstance"));
+
 
 // Export enums:
 export * from "../types/enums/route53";
@@ -135,6 +145,8 @@ const _module = {
                 return new RecordSetProtection(name, <any>undefined, { urn })
             case "aws-native:route53:TrafficPolicy":
                 return new TrafficPolicy(name, <any>undefined, { urn })
+            case "aws-native:route53:TrafficPolicyInstance":
+                return new TrafficPolicyInstance(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

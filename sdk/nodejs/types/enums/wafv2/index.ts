@@ -441,6 +441,16 @@ export const RuleGroupUriFragmentFallbackBehavior = {
  */
 export type RuleGroupUriFragmentFallbackBehavior = (typeof RuleGroupUriFragmentFallbackBehavior)[keyof typeof RuleGroupUriFragmentFallbackBehavior];
 
+export const WebAclAnalyticsMode = {
+    CrossRegion: "CROSS_REGION",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * CROSS_REGION allows cross-Region storage; DISABLED prevents it.
+ */
+export type WebAclAnalyticsMode = (typeof WebAclAnalyticsMode)[keyof typeof WebAclAnalyticsMode];
+
 export const WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = {
     Common: "COMMON",
     Targeted: "TARGETED",

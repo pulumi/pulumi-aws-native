@@ -16,16 +16,28 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class PaymentCredentialProviderPaymentProviderConfigurationInput
     {
+        public readonly Outputs.PaymentCredentialProviderAmazonPayConfigurationInput? AmazonPayConfiguration;
         public readonly Outputs.PaymentCredentialProviderCoinbaseCdpConfigurationInput? CoinbaseCdpConfiguration;
+        public readonly Outputs.PaymentCredentialProviderPayPalConfigurationInput? PayPalConfiguration;
+        public readonly Outputs.PaymentCredentialProviderStripeConfigurationInput? StripeConfiguration;
         public readonly Outputs.PaymentCredentialProviderStripePrivyConfigurationInput? StripePrivyConfiguration;
 
         [OutputConstructor]
         private PaymentCredentialProviderPaymentProviderConfigurationInput(
+            Outputs.PaymentCredentialProviderAmazonPayConfigurationInput? amazonPayConfiguration,
+
             Outputs.PaymentCredentialProviderCoinbaseCdpConfigurationInput? coinbaseCdpConfiguration,
+
+            Outputs.PaymentCredentialProviderPayPalConfigurationInput? payPalConfiguration,
+
+            Outputs.PaymentCredentialProviderStripeConfigurationInput? stripeConfiguration,
 
             Outputs.PaymentCredentialProviderStripePrivyConfigurationInput? stripePrivyConfiguration)
         {
+            AmazonPayConfiguration = amazonPayConfiguration;
             CoinbaseCdpConfiguration = coinbaseCdpConfiguration;
+            PayPalConfiguration = payPalConfiguration;
+            StripeConfiguration = stripeConfiguration;
             StripePrivyConfiguration = stripePrivyConfiguration;
         }
     }

@@ -28,8 +28,9 @@ type DistributionTenant struct {
 	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
 	Customizations DistributionTenantCustomizationsPtrOutput `pulumi:"customizations"`
 	// The ID of the multi-tenant distribution.
-	DistributionId pulumi.StringOutput                       `pulumi:"distributionId"`
-	DomainResults  DistributionTenantDomainResultArrayOutput `pulumi:"domainResults"`
+	DistributionId pulumi.StringOutput                        `pulumi:"distributionId"`
+	DomainMappings DistributionTenantDomainMappingArrayOutput `pulumi:"domainMappings"`
+	DomainResults  DistributionTenantDomainResultArrayOutput  `pulumi:"domainResults"`
 	// The domains associated with the distribution tenant.
 	Domains pulumi.StringArrayOutput `pulumi:"domains"`
 	// The current version of the distribution tenant.
@@ -41,7 +42,8 @@ type DistributionTenant struct {
 	// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 	ManagedCertificateRequest DistributionTenantManagedCertificateRequestPtrOutput `pulumi:"managedCertificateRequest"`
 	// The name of the distribution tenant.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name             pulumi.StringOutput                         `pulumi:"name"`
+	OnDomainTakeover DistributionTenantOnDomainTakeoverPtrOutput `pulumi:"onDomainTakeover"`
 	// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
 	Parameters DistributionTenantParameterArrayOutput `pulumi:"parameters"`
 	// The status of the distribution tenant.
@@ -111,7 +113,8 @@ type distributionTenantArgs struct {
 	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
 	Customizations *DistributionTenantCustomizations `pulumi:"customizations"`
 	// The ID of the multi-tenant distribution.
-	DistributionId string `pulumi:"distributionId"`
+	DistributionId string                            `pulumi:"distributionId"`
+	DomainMappings []DistributionTenantDomainMapping `pulumi:"domainMappings"`
 	// The domains associated with the distribution tenant.
 	Domains []string `pulumi:"domains"`
 	// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
@@ -119,7 +122,8 @@ type distributionTenantArgs struct {
 	// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 	ManagedCertificateRequest *DistributionTenantManagedCertificateRequest `pulumi:"managedCertificateRequest"`
 	// The name of the distribution tenant.
-	Name *string `pulumi:"name"`
+	Name             *string                             `pulumi:"name"`
+	OnDomainTakeover *DistributionTenantOnDomainTakeover `pulumi:"onDomainTakeover"`
 	// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
 	Parameters []DistributionTenantParameter `pulumi:"parameters"`
 	// A complex type that contains zero or more ``Tag`` elements.
@@ -134,6 +138,7 @@ type DistributionTenantArgs struct {
 	Customizations DistributionTenantCustomizationsPtrInput
 	// The ID of the multi-tenant distribution.
 	DistributionId pulumi.StringInput
+	DomainMappings DistributionTenantDomainMappingArrayInput
 	// The domains associated with the distribution tenant.
 	Domains pulumi.StringArrayInput
 	// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
@@ -141,7 +146,8 @@ type DistributionTenantArgs struct {
 	// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 	ManagedCertificateRequest DistributionTenantManagedCertificateRequestPtrInput
 	// The name of the distribution tenant.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	OnDomainTakeover DistributionTenantOnDomainTakeoverPtrInput
 	// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
 	Parameters DistributionTenantParameterArrayInput
 	// A complex type that contains zero or more ``Tag`` elements.
@@ -215,6 +221,10 @@ func (o DistributionTenantOutput) DistributionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.DistributionId }).(pulumi.StringOutput)
 }
 
+func (o DistributionTenantOutput) DomainMappings() DistributionTenantDomainMappingArrayOutput {
+	return o.ApplyT(func(v *DistributionTenant) DistributionTenantDomainMappingArrayOutput { return v.DomainMappings }).(DistributionTenantDomainMappingArrayOutput)
+}
+
 func (o DistributionTenantOutput) DomainResults() DistributionTenantDomainResultArrayOutput {
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantDomainResultArrayOutput { return v.DomainResults }).(DistributionTenantDomainResultArrayOutput)
 }
@@ -249,6 +259,10 @@ func (o DistributionTenantOutput) ManagedCertificateRequest() DistributionTenant
 // The name of the distribution tenant.
 func (o DistributionTenantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DistributionTenantOutput) OnDomainTakeover() DistributionTenantOnDomainTakeoverPtrOutput {
+	return o.ApplyT(func(v *DistributionTenant) DistributionTenantOnDomainTakeoverPtrOutput { return v.OnDomainTakeover }).(DistributionTenantOnDomainTakeoverPtrOutput)
 }
 
 // A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.

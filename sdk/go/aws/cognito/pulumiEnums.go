@@ -1031,6 +1031,171 @@ func (in *userPoolClientRefreshTokenRotationFeaturePtr) ToUserPoolClientRefreshT
 	return pulumi.ToOutputWithContext(ctx, in).(UserPoolClientRefreshTokenRotationFeaturePtrOutput)
 }
 
+type UserPoolDcrConfigurationEnableStatus string
+
+const (
+	UserPoolDcrConfigurationEnableStatusEnabled  = UserPoolDcrConfigurationEnableStatus("Enabled")
+	UserPoolDcrConfigurationEnableStatusDisabled = UserPoolDcrConfigurationEnableStatus("Disabled")
+)
+
+func (UserPoolDcrConfigurationEnableStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDcrConfigurationEnableStatus)(nil)).Elem()
+}
+
+func (e UserPoolDcrConfigurationEnableStatus) ToUserPoolDcrConfigurationEnableStatusOutput() UserPoolDcrConfigurationEnableStatusOutput {
+	return pulumi.ToOutput(e).(UserPoolDcrConfigurationEnableStatusOutput)
+}
+
+func (e UserPoolDcrConfigurationEnableStatus) ToUserPoolDcrConfigurationEnableStatusOutputWithContext(ctx context.Context) UserPoolDcrConfigurationEnableStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserPoolDcrConfigurationEnableStatusOutput)
+}
+
+func (e UserPoolDcrConfigurationEnableStatus) ToUserPoolDcrConfigurationEnableStatusPtrOutput() UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return e.ToUserPoolDcrConfigurationEnableStatusPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolDcrConfigurationEnableStatus) ToUserPoolDcrConfigurationEnableStatusPtrOutputWithContext(ctx context.Context) UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return UserPoolDcrConfigurationEnableStatus(e).ToUserPoolDcrConfigurationEnableStatusOutputWithContext(ctx).ToUserPoolDcrConfigurationEnableStatusPtrOutputWithContext(ctx)
+}
+
+func (e UserPoolDcrConfigurationEnableStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolDcrConfigurationEnableStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolDcrConfigurationEnableStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolDcrConfigurationEnableStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserPoolDcrConfigurationEnableStatusOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDcrConfigurationEnableStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDcrConfigurationEnableStatus)(nil)).Elem()
+}
+
+func (o UserPoolDcrConfigurationEnableStatusOutput) ToUserPoolDcrConfigurationEnableStatusOutput() UserPoolDcrConfigurationEnableStatusOutput {
+	return o
+}
+
+func (o UserPoolDcrConfigurationEnableStatusOutput) ToUserPoolDcrConfigurationEnableStatusOutputWithContext(ctx context.Context) UserPoolDcrConfigurationEnableStatusOutput {
+	return o
+}
+
+func (o UserPoolDcrConfigurationEnableStatusOutput) ToUserPoolDcrConfigurationEnableStatusPtrOutput() UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return o.ToUserPoolDcrConfigurationEnableStatusPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolDcrConfigurationEnableStatusOutput) ToUserPoolDcrConfigurationEnableStatusPtrOutputWithContext(ctx context.Context) UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolDcrConfigurationEnableStatus) *UserPoolDcrConfigurationEnableStatus {
+		return &v
+	}).(UserPoolDcrConfigurationEnableStatusPtrOutput)
+}
+
+func (o UserPoolDcrConfigurationEnableStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserPoolDcrConfigurationEnableStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolDcrConfigurationEnableStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserPoolDcrConfigurationEnableStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolDcrConfigurationEnableStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolDcrConfigurationEnableStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolDcrConfigurationEnableStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDcrConfigurationEnableStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDcrConfigurationEnableStatus)(nil)).Elem()
+}
+
+func (o UserPoolDcrConfigurationEnableStatusPtrOutput) ToUserPoolDcrConfigurationEnableStatusPtrOutput() UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return o
+}
+
+func (o UserPoolDcrConfigurationEnableStatusPtrOutput) ToUserPoolDcrConfigurationEnableStatusPtrOutputWithContext(ctx context.Context) UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return o
+}
+
+func (o UserPoolDcrConfigurationEnableStatusPtrOutput) Elem() UserPoolDcrConfigurationEnableStatusOutput {
+	return o.ApplyT(func(v *UserPoolDcrConfigurationEnableStatus) UserPoolDcrConfigurationEnableStatus {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolDcrConfigurationEnableStatus
+		return ret
+	}).(UserPoolDcrConfigurationEnableStatusOutput)
+}
+
+func (o UserPoolDcrConfigurationEnableStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolDcrConfigurationEnableStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserPoolDcrConfigurationEnableStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserPoolDcrConfigurationEnableStatusInput is an input type that accepts values of the UserPoolDcrConfigurationEnableStatus enum
+// A concrete instance of `UserPoolDcrConfigurationEnableStatusInput` can be one of the following:
+//
+//	UserPoolDcrConfigurationEnableStatusEnabled
+//	UserPoolDcrConfigurationEnableStatusDisabled
+type UserPoolDcrConfigurationEnableStatusInput interface {
+	pulumi.Input
+
+	ToUserPoolDcrConfigurationEnableStatusOutput() UserPoolDcrConfigurationEnableStatusOutput
+	ToUserPoolDcrConfigurationEnableStatusOutputWithContext(context.Context) UserPoolDcrConfigurationEnableStatusOutput
+}
+
+var userPoolDcrConfigurationEnableStatusPtrType = reflect.TypeOf((**UserPoolDcrConfigurationEnableStatus)(nil)).Elem()
+
+type UserPoolDcrConfigurationEnableStatusPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolDcrConfigurationEnableStatusPtrOutput() UserPoolDcrConfigurationEnableStatusPtrOutput
+	ToUserPoolDcrConfigurationEnableStatusPtrOutputWithContext(context.Context) UserPoolDcrConfigurationEnableStatusPtrOutput
+}
+
+type userPoolDcrConfigurationEnableStatusPtr string
+
+func UserPoolDcrConfigurationEnableStatusPtr(v string) UserPoolDcrConfigurationEnableStatusPtrInput {
+	return (*userPoolDcrConfigurationEnableStatusPtr)(&v)
+}
+
+func (*userPoolDcrConfigurationEnableStatusPtr) ElementType() reflect.Type {
+	return userPoolDcrConfigurationEnableStatusPtrType
+}
+
+func (in *userPoolDcrConfigurationEnableStatusPtr) ToUserPoolDcrConfigurationEnableStatusPtrOutput() UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return pulumi.ToOutput(in).(UserPoolDcrConfigurationEnableStatusPtrOutput)
+}
+
+func (in *userPoolDcrConfigurationEnableStatusPtr) ToUserPoolDcrConfigurationEnableStatusPtrOutputWithContext(ctx context.Context) UserPoolDcrConfigurationEnableStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserPoolDcrConfigurationEnableStatusPtrOutput)
+}
+
 type UserPoolEncryptionKeyType string
 
 const (
@@ -1873,6 +2038,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TermsSourceTypePtrInput)(nil)).Elem(), TermsSourceType("LINK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeatureInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeaturePtrInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDcrConfigurationEnableStatusInput)(nil)).Elem(), UserPoolDcrConfigurationEnableStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDcrConfigurationEnableStatusPtrInput)(nil)).Elem(), UserPoolDcrConfigurationEnableStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEncryptionKeyTypeInput)(nil)).Elem(), UserPoolEncryptionKeyType("AWS_OWNED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEncryptionKeyTypePtrInput)(nil)).Elem(), UserPoolEncryptionKeyType("AWS_OWNED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIssuerConfigurationTypeInput)(nil)).Elem(), UserPoolIssuerConfigurationType("ORIGINAL"))
@@ -1895,6 +2062,8 @@ func init() {
 	pulumi.RegisterOutputType(TermsSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeatureOutput{})
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeaturePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolDcrConfigurationEnableStatusOutput{})
+	pulumi.RegisterOutputType(UserPoolDcrConfigurationEnableStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolEncryptionKeyTypeOutput{})
 	pulumi.RegisterOutputType(UserPoolEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolIssuerConfigurationTypeOutput{})

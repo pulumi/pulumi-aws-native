@@ -38,8 +38,9 @@ type LookupDistributionTenantResult struct {
 	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
 	Customizations *DistributionTenantCustomizations `pulumi:"customizations"`
 	// The ID of the multi-tenant distribution.
-	DistributionId *string                          `pulumi:"distributionId"`
-	DomainResults  []DistributionTenantDomainResult `pulumi:"domainResults"`
+	DistributionId *string                           `pulumi:"distributionId"`
+	DomainMappings []DistributionTenantDomainMapping `pulumi:"domainMappings"`
+	DomainResults  []DistributionTenantDomainResult  `pulumi:"domainResults"`
 	// The domains associated with the distribution tenant.
 	Domains []string `pulumi:"domains"`
 	// The current version of the distribution tenant.
@@ -109,6 +110,10 @@ func (o LookupDistributionTenantResultOutput) Customizations() DistributionTenan
 // The ID of the multi-tenant distribution.
 func (o LookupDistributionTenantResultOutput) DistributionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.DistributionId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDistributionTenantResultOutput) DomainMappings() DistributionTenantDomainMappingArrayOutput {
+	return o.ApplyT(func(v LookupDistributionTenantResult) []DistributionTenantDomainMapping { return v.DomainMappings }).(DistributionTenantDomainMappingArrayOutput)
 }
 
 func (o LookupDistributionTenantResultOutput) DomainResults() DistributionTenantDomainResultArrayOutput {

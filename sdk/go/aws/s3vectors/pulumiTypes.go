@@ -175,7 +175,8 @@ func (o IndexEncryptionConfigurationPtrOutput) SseType() IndexEncryptionConfigur
 // The metadata configuration for the vector index.
 type IndexMetadataConfiguration struct {
 	// Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
-	NonFilterableMetadataKeys []string `pulumi:"nonFilterableMetadataKeys"`
+	NonFilterableMetadataKeys []string                       `pulumi:"nonFilterableMetadataKeys"`
+	TextSearchConfigurations  []IndexTextSearchConfiguration `pulumi:"textSearchConfigurations"`
 }
 
 // IndexMetadataConfigurationInput is an input type that accepts IndexMetadataConfigurationArgs and IndexMetadataConfigurationOutput values.
@@ -192,7 +193,8 @@ type IndexMetadataConfigurationInput interface {
 // The metadata configuration for the vector index.
 type IndexMetadataConfigurationArgs struct {
 	// Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
-	NonFilterableMetadataKeys pulumi.StringArrayInput `pulumi:"nonFilterableMetadataKeys"`
+	NonFilterableMetadataKeys pulumi.StringArrayInput                `pulumi:"nonFilterableMetadataKeys"`
+	TextSearchConfigurations  IndexTextSearchConfigurationArrayInput `pulumi:"textSearchConfigurations"`
 }
 
 func (IndexMetadataConfigurationArgs) ElementType() reflect.Type {
@@ -278,6 +280,10 @@ func (o IndexMetadataConfigurationOutput) NonFilterableMetadataKeys() pulumi.Str
 	return o.ApplyT(func(v IndexMetadataConfiguration) []string { return v.NonFilterableMetadataKeys }).(pulumi.StringArrayOutput)
 }
 
+func (o IndexMetadataConfigurationOutput) TextSearchConfigurations() IndexTextSearchConfigurationArrayOutput {
+	return o.ApplyT(func(v IndexMetadataConfiguration) []IndexTextSearchConfiguration { return v.TextSearchConfigurations }).(IndexTextSearchConfigurationArrayOutput)
+}
+
 type IndexMetadataConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (IndexMetadataConfigurationPtrOutput) ElementType() reflect.Type {
@@ -312,11 +318,120 @@ func (o IndexMetadataConfigurationPtrOutput) NonFilterableMetadataKeys() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o IndexMetadataConfigurationPtrOutput) TextSearchConfigurations() IndexTextSearchConfigurationArrayOutput {
+	return o.ApplyT(func(v *IndexMetadataConfiguration) []IndexTextSearchConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TextSearchConfigurations
+	}).(IndexTextSearchConfigurationArrayOutput)
+}
+
 type IndexTag struct {
 	// Tag key must be between 1 to 128 characters in length. Tag key cannot start with 'aws:' and can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
 	Key string `pulumi:"key"`
 	// Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
 	Value string `pulumi:"value"`
+}
+
+type IndexTextSearchConfiguration struct {
+	Language    *IndexTextSearchConfigurationLanguage `pulumi:"language"`
+	MetadataKey string                                `pulumi:"metadataKey"`
+}
+
+// IndexTextSearchConfigurationInput is an input type that accepts IndexTextSearchConfigurationArgs and IndexTextSearchConfigurationOutput values.
+// You can construct a concrete instance of `IndexTextSearchConfigurationInput` via:
+//
+//	IndexTextSearchConfigurationArgs{...}
+type IndexTextSearchConfigurationInput interface {
+	pulumi.Input
+
+	ToIndexTextSearchConfigurationOutput() IndexTextSearchConfigurationOutput
+	ToIndexTextSearchConfigurationOutputWithContext(context.Context) IndexTextSearchConfigurationOutput
+}
+
+type IndexTextSearchConfigurationArgs struct {
+	Language    IndexTextSearchConfigurationLanguagePtrInput `pulumi:"language"`
+	MetadataKey pulumi.StringInput                           `pulumi:"metadataKey"`
+}
+
+func (IndexTextSearchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexTextSearchConfiguration)(nil)).Elem()
+}
+
+func (i IndexTextSearchConfigurationArgs) ToIndexTextSearchConfigurationOutput() IndexTextSearchConfigurationOutput {
+	return i.ToIndexTextSearchConfigurationOutputWithContext(context.Background())
+}
+
+func (i IndexTextSearchConfigurationArgs) ToIndexTextSearchConfigurationOutputWithContext(ctx context.Context) IndexTextSearchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexTextSearchConfigurationOutput)
+}
+
+// IndexTextSearchConfigurationArrayInput is an input type that accepts IndexTextSearchConfigurationArray and IndexTextSearchConfigurationArrayOutput values.
+// You can construct a concrete instance of `IndexTextSearchConfigurationArrayInput` via:
+//
+//	IndexTextSearchConfigurationArray{ IndexTextSearchConfigurationArgs{...} }
+type IndexTextSearchConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToIndexTextSearchConfigurationArrayOutput() IndexTextSearchConfigurationArrayOutput
+	ToIndexTextSearchConfigurationArrayOutputWithContext(context.Context) IndexTextSearchConfigurationArrayOutput
+}
+
+type IndexTextSearchConfigurationArray []IndexTextSearchConfigurationInput
+
+func (IndexTextSearchConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexTextSearchConfiguration)(nil)).Elem()
+}
+
+func (i IndexTextSearchConfigurationArray) ToIndexTextSearchConfigurationArrayOutput() IndexTextSearchConfigurationArrayOutput {
+	return i.ToIndexTextSearchConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i IndexTextSearchConfigurationArray) ToIndexTextSearchConfigurationArrayOutputWithContext(ctx context.Context) IndexTextSearchConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexTextSearchConfigurationArrayOutput)
+}
+
+type IndexTextSearchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IndexTextSearchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexTextSearchConfiguration)(nil)).Elem()
+}
+
+func (o IndexTextSearchConfigurationOutput) ToIndexTextSearchConfigurationOutput() IndexTextSearchConfigurationOutput {
+	return o
+}
+
+func (o IndexTextSearchConfigurationOutput) ToIndexTextSearchConfigurationOutputWithContext(ctx context.Context) IndexTextSearchConfigurationOutput {
+	return o
+}
+
+func (o IndexTextSearchConfigurationOutput) Language() IndexTextSearchConfigurationLanguagePtrOutput {
+	return o.ApplyT(func(v IndexTextSearchConfiguration) *IndexTextSearchConfigurationLanguage { return v.Language }).(IndexTextSearchConfigurationLanguagePtrOutput)
+}
+
+func (o IndexTextSearchConfigurationOutput) MetadataKey() pulumi.StringOutput {
+	return o.ApplyT(func(v IndexTextSearchConfiguration) string { return v.MetadataKey }).(pulumi.StringOutput)
+}
+
+type IndexTextSearchConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (IndexTextSearchConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexTextSearchConfiguration)(nil)).Elem()
+}
+
+func (o IndexTextSearchConfigurationArrayOutput) ToIndexTextSearchConfigurationArrayOutput() IndexTextSearchConfigurationArrayOutput {
+	return o
+}
+
+func (o IndexTextSearchConfigurationArrayOutput) ToIndexTextSearchConfigurationArrayOutputWithContext(ctx context.Context) IndexTextSearchConfigurationArrayOutput {
+	return o
+}
+
+func (o IndexTextSearchConfigurationArrayOutput) Index(i pulumi.IntInput) IndexTextSearchConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexTextSearchConfiguration {
+		return vs[0].([]IndexTextSearchConfiguration)[vs[1].(int)]
+	}).(IndexTextSearchConfigurationOutput)
 }
 
 // The encryption configuration for the vector bucket.
@@ -562,6 +677,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexEncryptionConfigurationPtrInput)(nil)).Elem(), IndexEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexMetadataConfigurationInput)(nil)).Elem(), IndexMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexMetadataConfigurationPtrInput)(nil)).Elem(), IndexMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexTextSearchConfigurationInput)(nil)).Elem(), IndexTextSearchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexTextSearchConfigurationArrayInput)(nil)).Elem(), IndexTextSearchConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketEncryptionConfigurationInput)(nil)).Elem(), VectorBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketEncryptionConfigurationPtrInput)(nil)).Elem(), VectorBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketPolicyPolicyInput)(nil)).Elem(), VectorBucketPolicyPolicyArgs{})
@@ -569,6 +686,8 @@ func init() {
 	pulumi.RegisterOutputType(IndexEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexMetadataConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IndexTextSearchConfigurationOutput{})
+	pulumi.RegisterOutputType(IndexTextSearchConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(VectorBucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(VectorBucketEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VectorBucketPolicyPolicyOutput{})

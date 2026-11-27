@@ -10,14 +10,36 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Outputs
 {
 
+    /// <summary>
+    /// Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
+    /// </summary>
     [OutputType]
     public sealed class TableVectorIndex
     {
+        /// <summary>
+        /// The number of dimensions in each vector.
+        /// </summary>
         public readonly int Dimensions;
+        /// <summary>
+        /// The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+        /// </summary>
         public readonly Pulumi.AwsNative.DynamoDb.TableVectorIndexDistanceFunction DistanceFunction;
+        /// <summary>
+        /// The name of the vector index.
+        /// </summary>
         public readonly string IndexName;
+        /// <summary>
+        /// Specifies attributes that are copied (projected) from the table into the vector index.
+        /// </summary>
         public readonly Outputs.TableProjection Projection;
+        /// <summary>
+        /// The search schema that defines partition key and inline filter attributes for the vector index.
+        ///  Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TableSearchSchemaElement> SearchSchema;
+        /// <summary>
+        /// The vector attribute configuration for the index.
+        /// </summary>
         public readonly Outputs.TableVectorAttribute VectorAttribute;
 
         [OutputConstructor]

@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+// Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
 type Connector struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +58,7 @@ func NewConnector(ctx *pulumi.Context,
 		"name",
 		"provider",
 		"providerConfiguration.azure.awsConfigConnectorArn",
+		"providerConfiguration.gcp.awsConfigConnectorArn",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

@@ -18,6 +18,18 @@ namespace Pulumi.AwsNative.ComputeOptimizer.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AccountIds;
         /// <summary>
+        /// List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+        /// </summary>
+        public readonly ImmutableArray<string> ExcludedAccountIds;
+        /// <summary>
+        /// List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+        /// </summary>
+        public readonly ImmutableArray<string> ExcludedOrganizationalUnitIds;
+        /// <summary>
+        /// List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+        /// </summary>
+        public readonly ImmutableArray<string> OrganizationalUnitIds;
+        /// <summary>
         /// When the rule should be applied relative to account rules
         /// </summary>
         public readonly Pulumi.AwsNative.ComputeOptimizer.AutomationRuleOrganizationConfigurationRuleApplyOrder? RuleApplyOrder;
@@ -26,9 +38,18 @@ namespace Pulumi.AwsNative.ComputeOptimizer.Outputs
         private AutomationRuleOrganizationConfiguration(
             ImmutableArray<string> accountIds,
 
+            ImmutableArray<string> excludedAccountIds,
+
+            ImmutableArray<string> excludedOrganizationalUnitIds,
+
+            ImmutableArray<string> organizationalUnitIds,
+
             Pulumi.AwsNative.ComputeOptimizer.AutomationRuleOrganizationConfigurationRuleApplyOrder? ruleApplyOrder)
         {
             AccountIds = accountIds;
+            ExcludedAccountIds = excludedAccountIds;
+            ExcludedOrganizationalUnitIds = excludedOrganizationalUnitIds;
+            OrganizationalUnitIds = organizationalUnitIds;
             RuleApplyOrder = ruleApplyOrder;
         }
     }

@@ -45,6 +45,9 @@ func NewPaymentCredentialProvider(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"credentialProviderVendor",
 		"name",
+		"providerConfigurationInput.amazonPayConfiguration.amazonPayRegion",
+		"providerConfigurationInput.amazonPayConfiguration.authorizationTokenSource",
+		"providerConfigurationInput.amazonPayConfiguration.merchantId",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

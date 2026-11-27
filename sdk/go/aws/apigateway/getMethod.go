@@ -37,7 +37,7 @@ type LookupMethodResult struct {
 	// A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
 	AuthorizationScopes []string `pulumi:"authorizationScopes"`
 	// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
-	//   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
+	//   If you specify the ``AuthorizerId`` property, specify ``CUSTOM``, ``COGNITO_USER_POOLS``, or ``JWT`` for this property.
 	AuthorizationType *string `pulumi:"authorizationType"`
 	// The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
 	AuthorizerId *string `pulumi:"authorizerId"`
@@ -99,7 +99,7 @@ func (o LookupMethodResultOutput) AuthorizationScopes() pulumi.StringArrayOutput
 
 // The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
 //
-//	If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
+//	If you specify the ``AuthorizerId`` property, specify ``CUSTOM``, ``COGNITO_USER_POOLS``, or ``JWT`` for this property.
 func (o LookupMethodResultOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMethodResult) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }

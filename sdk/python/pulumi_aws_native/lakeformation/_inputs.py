@@ -20,6 +20,10 @@ __all__ = [
     'DataCellsFilterColumnWildcardArgsDict',
     'DataCellsFilterRowFilterArgs',
     'DataCellsFilterRowFilterArgsDict',
+    'DataLakeSettingsDataLakePrincipalArgs',
+    'DataLakeSettingsDataLakePrincipalArgsDict',
+    'DataLakeSettingsPrincipalPermissionsArgs',
+    'DataLakeSettingsPrincipalPermissionsArgsDict',
     'PrincipalPermissionsCatalogResourceArgs',
     'PrincipalPermissionsCatalogResourceArgsDict',
     'PrincipalPermissionsColumnWildcardArgs',
@@ -148,6 +152,81 @@ class DataCellsFilterRowFilterArgs:
     @filter_expression.setter
     def filter_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_expression", value)
+
+
+class DataLakeSettingsDataLakePrincipalArgsDict(TypedDict):
+    data_lake_principal_identifier: pulumi.Input[_builtins.str]
+    """
+    An identifier for the Lake Formation principal.
+    """
+
+@pulumi.input_type
+class DataLakeSettingsDataLakePrincipalArgs:
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] data_lake_principal_identifier: An identifier for the Lake Formation principal.
+        """
+        pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        An identifier for the Lake Formation principal.
+        """
+        return pulumi.get(self, "data_lake_principal_identifier")
+
+    @data_lake_principal_identifier.setter
+    def data_lake_principal_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_lake_principal_identifier", value)
+
+
+class DataLakeSettingsPrincipalPermissionsArgsDict(TypedDict):
+    permissions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The permissions that are granted to the principal.
+    """
+    principal: pulumi.Input['DataLakeSettingsDataLakePrincipalArgsDict']
+    """
+    The principal who is granted permissions.
+    """
+
+@pulumi.input_type
+class DataLakeSettingsPrincipalPermissionsArgs:
+    def __init__(__self__, *,
+                 permissions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 principal: pulumi.Input['DataLakeSettingsDataLakePrincipalArgs']):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions that are granted to the principal.
+        :param pulumi.Input['DataLakeSettingsDataLakePrincipalArgs'] principal: The principal who is granted permissions.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The permissions that are granted to the principal.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "permissions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input['DataLakeSettingsDataLakePrincipalArgs']:
+        """
+        The principal who is granted permissions.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input['DataLakeSettingsDataLakePrincipalArgs']):
+        pulumi.set(self, "principal", value)
 
 
 class PrincipalPermissionsCatalogResourceArgsDict(TypedDict):

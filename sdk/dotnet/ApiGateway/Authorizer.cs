@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("identityValidationExpression")]
         public Output<string?> IdentityValidationExpression { get; private set; } = null!;
 
+        [Output("jwtConfiguration")]
+        public Output<Outputs.AuthorizerJwtConfiguration?> JwtConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The name of the authorizer.
         /// </summary>
@@ -165,6 +168,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         [Input("identityValidationExpression")]
         public Input<string>? IdentityValidationExpression { get; set; }
+
+        [Input("jwtConfiguration")]
+        public Input<Inputs.AuthorizerJwtConfigurationArgs>? JwtConfiguration { get; set; }
 
         /// <summary>
         /// The name of the authorizer.

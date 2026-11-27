@@ -40,6 +40,8 @@ type Stack struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
+	// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+	StorageConnectorAuthentication pulumi.StringPtrOutput `pulumi:"storageConnectorAuthentication"`
 	// The storage connectors to enable.
 	StorageConnectors StackStorageConnectorArrayOutput `pulumi:"storageConnectors"`
 	// The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -124,6 +126,8 @@ type stackArgs struct {
 	Name *string `pulumi:"name"`
 	// The URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
+	// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+	StorageConnectorAuthentication *string `pulumi:"storageConnectorAuthentication"`
 	// The storage connectors to enable.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
 	// The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -160,6 +164,8 @@ type StackArgs struct {
 	Name pulumi.StringPtrInput
 	// The URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
+	// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+	StorageConnectorAuthentication pulumi.StringPtrInput
 	// The storage connectors to enable.
 	StorageConnectors StackStorageConnectorArrayInput
 	// The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -265,6 +271,11 @@ func (o StackOutput) Name() pulumi.StringPtrOutput {
 // The URL that users are redirected to after their streaming session ends.
 func (o StackOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+func (o StackOutput) StorageConnectorAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.StorageConnectorAuthentication }).(pulumi.StringPtrOutput)
 }
 
 // The storage connectors to enable.

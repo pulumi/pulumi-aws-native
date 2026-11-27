@@ -29,7 +29,9 @@ __all__ = [
     'AutomationRulesFindingFieldsUpdateVerificationState',
     'ConfigurationPolicyParameterConfigurationValueType',
     'ConnectorAzureScopeConfigurationScopeType',
+    'ConnectorGcpScopeConfigurationScopeType',
     'ConnectorV2AzureScopeConfigurationScopeType',
+    'ConnectorV2GcpScopeConfigurationScopeType',
     'DelegatedAdminStatus',
     'FindingAggregatorRegionLinkingMode',
     'HubV2NetworkScanningStatus',
@@ -318,6 +320,15 @@ class ConnectorAzureScopeConfigurationScopeType(_builtins.str, Enum):
     SUBSCRIPTION = "SUBSCRIPTION"
 
 
+@pulumi.type_token("aws-native:securityhub:ConnectorGcpScopeConfigurationScopeType")
+class ConnectorGcpScopeConfigurationScopeType(_builtins.str, Enum):
+    """
+    The scope type for the GCP connector
+    """
+    PROJECT = "PROJECT"
+    ORGANIZATION = "ORGANIZATION"
+
+
 @pulumi.type_token("aws-native:securityhub:ConnectorV2AzureScopeConfigurationScopeType")
 class ConnectorV2AzureScopeConfigurationScopeType(_builtins.str, Enum):
     """
@@ -325,6 +336,15 @@ class ConnectorV2AzureScopeConfigurationScopeType(_builtins.str, Enum):
     """
     TENANT = "TENANT"
     SUBSCRIPTION = "SUBSCRIPTION"
+
+
+@pulumi.type_token("aws-native:securityhub:ConnectorV2GcpScopeConfigurationScopeType")
+class ConnectorV2GcpScopeConfigurationScopeType(_builtins.str, Enum):
+    """
+    The scope type for the GCP connector
+    """
+    PROJECT = "PROJECT"
+    ORGANIZATION = "ORGANIZATION"
 
 
 @pulumi.type_token("aws-native:securityhub:DelegatedAdminStatus")

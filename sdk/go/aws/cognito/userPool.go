@@ -24,7 +24,8 @@ type UserPool struct {
 	// The Amazon Resource Name (ARN) of the user pool, such as `arn:aws:cognito-idp:us-east-1:123412341234:userpool/us-east-1_123412341` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
-	AutoVerifiedAttributes pulumi.StringArrayOutput `pulumi:"autoVerifiedAttributes"`
+	AutoVerifiedAttributes pulumi.StringArrayOutput          `pulumi:"autoVerifiedAttributes"`
+	DcrConfiguration       UserPoolDcrConfigurationPtrOutput `pulumi:"dcrConfiguration"`
 	// When active, `DeletionProtection` prevents accidental deletion of your user
 	// pool. Before you can delete a user pool that you have protected against deletion, you
 	// must deactivate this feature.
@@ -167,7 +168,8 @@ type userPoolArgs struct {
 	// Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	AliasAttributes []string `pulumi:"aliasAttributes"`
 	// The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
-	AutoVerifiedAttributes []string `pulumi:"autoVerifiedAttributes"`
+	AutoVerifiedAttributes []string                  `pulumi:"autoVerifiedAttributes"`
+	DcrConfiguration       *UserPoolDcrConfiguration `pulumi:"dcrConfiguration"`
 	// When active, `DeletionProtection` prevents accidental deletion of your user
 	// pool. Before you can delete a user pool that you have protected against deletion, you
 	// must deactivate this feature.
@@ -261,6 +263,7 @@ type UserPoolArgs struct {
 	AliasAttributes pulumi.StringArrayInput
 	// The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
 	AutoVerifiedAttributes pulumi.StringArrayInput
+	DcrConfiguration       UserPoolDcrConfigurationPtrInput
 	// When active, `DeletionProtection` prevents accidental deletion of your user
 	// pool. Before you can delete a user pool that you have protected against deletion, you
 	// must deactivate this feature.
@@ -404,6 +407,10 @@ func (o UserPoolOutput) Arn() pulumi.StringOutput {
 // The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
 func (o UserPoolOutput) AutoVerifiedAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.AutoVerifiedAttributes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolOutput) DcrConfiguration() UserPoolDcrConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolDcrConfigurationPtrOutput { return v.DcrConfiguration }).(UserPoolDcrConfigurationPtrOutput)
 }
 
 // When active, `DeletionProtection` prevents accidental deletion of your user

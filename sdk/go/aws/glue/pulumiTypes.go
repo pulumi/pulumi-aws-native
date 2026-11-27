@@ -22600,6 +22600,8 @@ type UsageProfileTag struct {
 
 // The URIs for function resources.
 type UserDefinedFunctionResourceUri struct {
+	// The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+	LastModified *string `pulumi:"lastModified"`
 	// The type of the resource.
 	ResourceType *UserDefinedFunctionResourceUriResourceType `pulumi:"resourceType"`
 	// The URI for accessing the resource.
@@ -22619,6 +22621,8 @@ type UserDefinedFunctionResourceUriInput interface {
 
 // The URIs for function resources.
 type UserDefinedFunctionResourceUriArgs struct {
+	// The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+	LastModified pulumi.StringPtrInput `pulumi:"lastModified"`
 	// The type of the resource.
 	ResourceType UserDefinedFunctionResourceUriResourceTypePtrInput `pulumi:"resourceType"`
 	// The URI for accessing the resource.
@@ -22675,6 +22679,11 @@ func (o UserDefinedFunctionResourceUriOutput) ToUserDefinedFunctionResourceUriOu
 
 func (o UserDefinedFunctionResourceUriOutput) ToUserDefinedFunctionResourceUriOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriOutput {
 	return o
+}
+
+// The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+func (o UserDefinedFunctionResourceUriOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserDefinedFunctionResourceUri) *string { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
 // The type of the resource.

@@ -52,6 +52,10 @@ __all__ = [
     'FleetVpcConfigArgsDict',
     'ImageBuilderAccessEndpointArgs',
     'ImageBuilderAccessEndpointArgsDict',
+    'ImageBuilderAgentAccessConfigArgs',
+    'ImageBuilderAgentAccessConfigArgsDict',
+    'ImageBuilderAgentAccessSettingArgs',
+    'ImageBuilderAgentAccessSettingArgsDict',
     'ImageBuilderDomainJoinInfoArgs',
     'ImageBuilderDomainJoinInfoArgsDict',
     'ImageBuilderVolumeConfigArgs',
@@ -925,6 +929,189 @@ class ImageBuilderAccessEndpointArgs:
         pulumi.set(self, "vpce_id", value)
 
 
+class ImageBuilderAgentAccessConfigArgsDict(TypedDict):
+    """
+    The configuration for agent access on an image builder. Agent access enables AI agents to interact with the image builder desktop.
+    """
+    screen_image_format: pulumi.Input[_builtins.str]
+    """
+    The image format for agent screen captures.
+    """
+    screen_resolution: pulumi.Input[_builtins.str]
+    """
+    The screen resolution for the agent streaming environment.
+    """
+    settings: pulumi.Input[Sequence[pulumi.Input['ImageBuilderAgentAccessSettingArgsDict']]]
+    """
+    The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+    """
+    s3_bucket_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+    """
+    screenshots_upload_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+    """
+    user_control_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+    """
+
+@pulumi.input_type
+class ImageBuilderAgentAccessConfigArgs:
+    def __init__(__self__, *,
+                 screen_image_format: pulumi.Input[_builtins.str],
+                 screen_resolution: pulumi.Input[_builtins.str],
+                 settings: pulumi.Input[Sequence[pulumi.Input['ImageBuilderAgentAccessSettingArgs']]],
+                 s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 screenshots_upload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_control_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The configuration for agent access on an image builder. Agent access enables AI agents to interact with the image builder desktop.
+
+        :param pulumi.Input[_builtins.str] screen_image_format: The image format for agent screen captures.
+        :param pulumi.Input[_builtins.str] screen_resolution: The screen resolution for the agent streaming environment.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAgentAccessSettingArgs']]] settings: The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+        :param pulumi.Input[_builtins.str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+        :param pulumi.Input[_builtins.bool] screenshots_upload_enabled: Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+        :param pulumi.Input[_builtins.str] user_control_mode: The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+        """
+        pulumi.set(__self__, "screen_image_format", screen_image_format)
+        pulumi.set(__self__, "screen_resolution", screen_resolution)
+        pulumi.set(__self__, "settings", settings)
+        if s3_bucket_arn is not None:
+            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
+        if screenshots_upload_enabled is not None:
+            pulumi.set(__self__, "screenshots_upload_enabled", screenshots_upload_enabled)
+        if user_control_mode is not None:
+            pulumi.set(__self__, "user_control_mode", user_control_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="screenImageFormat")
+    def screen_image_format(self) -> pulumi.Input[_builtins.str]:
+        """
+        The image format for agent screen captures.
+        """
+        return pulumi.get(self, "screen_image_format")
+
+    @screen_image_format.setter
+    def screen_image_format(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "screen_image_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="screenResolution")
+    def screen_resolution(self) -> pulumi.Input[_builtins.str]:
+        """
+        The screen resolution for the agent streaming environment.
+        """
+        return pulumi.get(self, "screen_resolution")
+
+    @screen_resolution.setter
+    def screen_resolution(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "screen_resolution", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def settings(self) -> pulumi.Input[Sequence[pulumi.Input['ImageBuilderAgentAccessSettingArgs']]]:
+        """
+        The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: pulumi.Input[Sequence[pulumi.Input['ImageBuilderAgentAccessSettingArgs']]]):
+        pulumi.set(self, "settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+    @s3_bucket_arn.setter
+    def s3_bucket_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_bucket_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="screenshotsUploadEnabled")
+    def screenshots_upload_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+        """
+        return pulumi.get(self, "screenshots_upload_enabled")
+
+    @screenshots_upload_enabled.setter
+    def screenshots_upload_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "screenshots_upload_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userControlMode")
+    def user_control_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+        """
+        return pulumi.get(self, "user_control_mode")
+
+    @user_control_mode.setter
+    def user_control_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_control_mode", value)
+
+
+class ImageBuilderAgentAccessSettingArgsDict(TypedDict):
+    """
+    A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+    """
+    agent_action: pulumi.Input[_builtins.str]
+    """
+    The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools.
+    """
+    permission: pulumi.Input[_builtins.str]
+    """
+    Whether the agent action is enabled or disabled.
+    """
+
+@pulumi.input_type
+class ImageBuilderAgentAccessSettingArgs:
+    def __init__(__self__, *,
+                 agent_action: pulumi.Input[_builtins.str],
+                 permission: pulumi.Input[_builtins.str]):
+        """
+        A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+
+        :param pulumi.Input[_builtins.str] agent_action: The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools.
+        :param pulumi.Input[_builtins.str] permission: Whether the agent action is enabled or disabled.
+        """
+        pulumi.set(__self__, "agent_action", agent_action)
+        pulumi.set(__self__, "permission", permission)
+
+    @_builtins.property
+    @pulumi.getter(name="agentAction")
+    def agent_action(self) -> pulumi.Input[_builtins.str]:
+        """
+        The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools.
+        """
+        return pulumi.get(self, "agent_action")
+
+    @agent_action.setter
+    def agent_action(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "agent_action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> pulumi.Input[_builtins.str]:
+        """
+        Whether the agent action is enabled or disabled.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "permission", value)
+
+
 class ImageBuilderDomainJoinInfoArgsDict(TypedDict):
     directory_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1111,9 +1298,17 @@ class StackAgentAccessConfigArgsDict(TypedDict):
     """
     The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
     """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+    """
+    replay_session_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+    """
     s3_bucket_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+    The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
     """
     screenshots_upload_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -1130,6 +1325,8 @@ class StackAgentAccessConfigArgs:
                  screen_image_format: pulumi.Input[_builtins.str],
                  screen_resolution: pulumi.Input[_builtins.str],
                  settings: pulumi.Input[Sequence[pulumi.Input['StackAgentAccessSettingArgs']]],
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_session_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  screenshots_upload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  user_control_mode: pulumi.Input[Optional[_builtins.str]] = None):
@@ -1139,13 +1336,19 @@ class StackAgentAccessConfigArgs:
         :param pulumi.Input[_builtins.str] screen_image_format: The image format for agent screen captures.
         :param pulumi.Input[_builtins.str] screen_resolution: The screen resolution for the agent streaming environment.
         :param pulumi.Input[Sequence[pulumi.Input['StackAgentAccessSettingArgs']]] settings: The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
-        :param pulumi.Input[_builtins.str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+        :param pulumi.Input[_builtins.bool] replay_session_enabled: Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+        :param pulumi.Input[_builtins.str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
         :param pulumi.Input[_builtins.bool] screenshots_upload_enabled: Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
         :param pulumi.Input[_builtins.str] user_control_mode: The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
         """
         pulumi.set(__self__, "screen_image_format", screen_image_format)
         pulumi.set(__self__, "screen_resolution", screen_resolution)
         pulumi.set(__self__, "settings", settings)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if replay_session_enabled is not None:
+            pulumi.set(__self__, "replay_session_enabled", replay_session_enabled)
         if s3_bucket_arn is not None:
             pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if screenshots_upload_enabled is not None:
@@ -1190,10 +1393,34 @@ class StackAgentAccessConfigArgs:
         pulumi.set(self, "settings", value)
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replaySessionEnabled")
+    def replay_session_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+        """
+        return pulumi.get(self, "replay_session_enabled")
+
+    @replay_session_enabled.setter
+    def replay_session_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "replay_session_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
         """
         return pulumi.get(self, "s3_bucket_arn")
 

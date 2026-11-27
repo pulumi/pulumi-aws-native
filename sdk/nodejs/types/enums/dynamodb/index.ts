@@ -115,6 +115,11 @@ export const TableSearchSchemaElementSearchSchemaElementType = {
     InlineFilter: "INLINE_FILTER",
 } as const;
 
+/**
+ * The role of the attribute in the search schema. Valid values:
+ *   +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+ *   +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+ */
 export type TableSearchSchemaElementSearchSchemaElementType = (typeof TableSearchSchemaElementSearchSchemaElementType)[keyof typeof TableSearchSchemaElementSearchSchemaElementType];
 
 export const TableVectorIndexDistanceFunction = {
@@ -123,4 +128,7 @@ export const TableVectorIndexDistanceFunction = {
     Euclidean: "EUCLIDEAN",
 } as const;
 
+/**
+ * The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+ */
 export type TableVectorIndexDistanceFunction = (typeof TableVectorIndexDistanceFunction)[keyof typeof TableVectorIndexDistanceFunction];

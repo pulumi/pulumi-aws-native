@@ -40,6 +40,8 @@ __all__ = [
     'CapacityProviderCapacityReservationTargetArgsDict',
     'CapacityProviderComputeConfigurationArgs',
     'CapacityProviderComputeConfigurationArgsDict',
+    'CapacityProviderCpuOptionsArgs',
+    'CapacityProviderCpuOptionsArgsDict',
     'CapacityProviderEbsVolumeConfigurationArgs',
     'CapacityProviderEbsVolumeConfigurationArgsDict',
     'CapacityProviderEc2ConfigurationArgs',
@@ -122,6 +124,10 @@ __all__ = [
     'GatewayAuthorizerConfigurationPropertiesArgsDict',
     'GatewayAuthorizingClaimMatchValueTypeArgs',
     'GatewayAuthorizingClaimMatchValueTypeArgsDict',
+    'GatewayCertificateConfiguration0PropertiesArgs',
+    'GatewayCertificateConfiguration0PropertiesArgsDict',
+    'GatewayCertificateConfiguration1PropertiesArgs',
+    'GatewayCertificateConfiguration1PropertiesArgsDict',
     'GatewayClaimMatchValueType0PropertiesArgs',
     'GatewayClaimMatchValueType0PropertiesArgsDict',
     'GatewayClaimMatchValueType1PropertiesArgs',
@@ -130,6 +136,8 @@ __all__ = [
     'GatewayCustomClaimValidationTypeArgsDict',
     'GatewayCustomJwtAuthorizerConfigurationArgs',
     'GatewayCustomJwtAuthorizerConfigurationArgsDict',
+    'GatewayDomainOverrideArgs',
+    'GatewayDomainOverrideArgsDict',
     'GatewayInterceptorConfigurationArgs',
     'GatewayInterceptorConfigurationArgsDict',
     'GatewayInterceptorInputConfigurationArgs',
@@ -156,6 +164,8 @@ __all__ = [
     'GatewayRateLimitLimitEntryArgsDict',
     'GatewayRateLimitRateConfigArgs',
     'GatewayRateLimitRateConfigArgsDict',
+    'GatewayResponseStreamingConfigurationArgs',
+    'GatewayResponseStreamingConfigurationArgsDict',
     'GatewayRuleAction0PropertiesArgs',
     'GatewayRuleAction0PropertiesArgsDict',
     'GatewayRuleAction1PropertiesArgs',
@@ -208,6 +218,10 @@ __all__ = [
     'GatewayRuleWeightedOverrideArgsDict',
     'GatewayRuleWeightedRouteArgs',
     'GatewayRuleWeightedRouteArgsDict',
+    'GatewayS3CertificateConfigurationArgs',
+    'GatewayS3CertificateConfigurationArgsDict',
+    'GatewaySecretsManagerCertificateConfigurationArgs',
+    'GatewaySecretsManagerCertificateConfigurationArgsDict',
     'GatewaySelfManagedLatticeResourcePropertiesArgs',
     'GatewaySelfManagedLatticeResourcePropertiesArgsDict',
     'GatewaySessionConfigurationArgs',
@@ -624,12 +638,18 @@ __all__ = [
     'PaymentConnectorCredentialsProviderConfigurationArgsDict',
     'PaymentConnectorPaymentCredentialProviderConfigurationArgs',
     'PaymentConnectorPaymentCredentialProviderConfigurationArgsDict',
+    'PaymentCredentialProviderAmazonPayConfigurationInputArgs',
+    'PaymentCredentialProviderAmazonPayConfigurationInputArgsDict',
     'PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs',
     'PaymentCredentialProviderCoinbaseCdpConfigurationInputArgsDict',
+    'PaymentCredentialProviderPayPalConfigurationInputArgs',
+    'PaymentCredentialProviderPayPalConfigurationInputArgsDict',
     'PaymentCredentialProviderPaymentProviderConfigurationInputArgs',
     'PaymentCredentialProviderPaymentProviderConfigurationInputArgsDict',
     'PaymentCredentialProviderSecretReferenceArgs',
     'PaymentCredentialProviderSecretReferenceArgsDict',
+    'PaymentCredentialProviderStripeConfigurationInputArgs',
+    'PaymentCredentialProviderStripeConfigurationInputArgsDict',
     'PaymentCredentialProviderStripePrivyConfigurationInputArgs',
     'PaymentCredentialProviderStripePrivyConfigurationInputArgsDict',
     'PaymentManagerAuthorizerConfigurationPropertiesArgs',
@@ -658,6 +678,8 @@ __all__ = [
     'RuntimeAuthorizerConfigurationArgsDict',
     'RuntimeAuthorizingClaimMatchValueTypeArgs',
     'RuntimeAuthorizingClaimMatchValueTypeArgsDict',
+    'RuntimeBuildLifecycleHooksArgs',
+    'RuntimeBuildLifecycleHooksArgsDict',
     'RuntimeCapacityProviderConfigurationArgs',
     'RuntimeCapacityProviderConfigurationArgsDict',
     'RuntimeCapacityProviderVolumeConfigurationArgs',
@@ -678,10 +700,18 @@ __all__ = [
     'RuntimeEfsAccessPointConfigurationArgsDict',
     'RuntimeFilesystemConfigurationArgs',
     'RuntimeFilesystemConfigurationArgsDict',
+    'RuntimeHooksConfigurationArgs',
+    'RuntimeHooksConfigurationArgsDict',
     'RuntimeHostingEnvironmentArgs',
     'RuntimeHostingEnvironmentArgsDict',
+    'RuntimeHttpPostLifecycleHookActionArgs',
+    'RuntimeHttpPostLifecycleHookActionArgsDict',
     'RuntimeLifecycleConfigurationArgs',
     'RuntimeLifecycleConfigurationArgsDict',
+    'RuntimeLifecycleHookArgs',
+    'RuntimeLifecycleHookArgsDict',
+    'RuntimeLifecycleHookActionArgs',
+    'RuntimeLifecycleHookActionArgsDict',
     'RuntimeManagedVpcResourceArgs',
     'RuntimeManagedVpcResourceArgsDict',
     'RuntimeNetworkConfigurationArgs',
@@ -692,6 +722,8 @@ __all__ = [
     'RuntimePrivateEndpointOverrideArgsDict',
     'RuntimeRequestHeaderConfigurationArgs',
     'RuntimeRequestHeaderConfigurationArgsDict',
+    'RuntimeResourceConfigurationArgs',
+    'RuntimeResourceConfigurationArgsDict',
     'RuntimeS3FilesAccessPointConfigurationArgs',
     'RuntimeS3FilesAccessPointConfigurationArgsDict',
     'RuntimeS3LocationArgs',
@@ -1198,6 +1230,40 @@ class CapacityProviderComputeConfigurationArgs:
     @ec2_configuration.setter
     def ec2_configuration(self, value: pulumi.Input['CapacityProviderEc2ConfigurationArgs']):
         pulumi.set(self, "ec2_configuration", value)
+
+
+class CapacityProviderCpuOptionsArgsDict(TypedDict):
+    """
+    The CPU options for the instances.
+    """
+    nested_virtualization: NotRequired[pulumi.Input[Optional['CapacityProviderCpuOptionsNestedVirtualization']]]
+    """
+    Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+    """
+
+@pulumi.input_type
+class CapacityProviderCpuOptionsArgs:
+    def __init__(__self__, *,
+                 nested_virtualization: pulumi.Input[Optional['CapacityProviderCpuOptionsNestedVirtualization']] = None):
+        """
+        The CPU options for the instances.
+
+        :param pulumi.Input['CapacityProviderCpuOptionsNestedVirtualization'] nested_virtualization: Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+        """
+        if nested_virtualization is not None:
+            pulumi.set(__self__, "nested_virtualization", nested_virtualization)
+
+    @_builtins.property
+    @pulumi.getter(name="nestedVirtualization")
+    def nested_virtualization(self) -> pulumi.Input[Optional['CapacityProviderCpuOptionsNestedVirtualization']]:
+        """
+        Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+        """
+        return pulumi.get(self, "nested_virtualization")
+
+    @nested_virtualization.setter
+    def nested_virtualization(self, value: pulumi.Input[Optional['CapacityProviderCpuOptionsNestedVirtualization']]):
+        pulumi.set(self, "nested_virtualization", value)
 
 
 class CapacityProviderEbsVolumeConfigurationArgsDict(TypedDict):
@@ -1814,6 +1880,7 @@ class CapacityProviderLaunchParametersArgsDict(TypedDict):
     The operating system and CPU architecture for the instances.
     """
     capacity_reservation_specification: NotRequired[pulumi.Input[Optional['CapacityProviderCapacityReservationSpecificationArgsDict']]]
+    cpu_options: NotRequired[pulumi.Input[Optional['CapacityProviderCpuOptionsArgsDict']]]
     ephemeral_volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderEphemeralBlockDeviceMappingArgsDict']]]]]
     """
     The block device mapping for ephemeral (instance store) volumes.
@@ -1845,6 +1912,7 @@ class CapacityProviderLaunchParametersArgs:
                  instance_requirements: pulumi.Input['CapacityProviderInstanceRequirementsArgs'],
                  operating_system: pulumi.Input['CapacityProviderLaunchParametersOperatingSystem'],
                  capacity_reservation_specification: pulumi.Input[Optional['CapacityProviderCapacityReservationSpecificationArgs']] = None,
+                 cpu_options: pulumi.Input[Optional['CapacityProviderCpuOptionsArgs']] = None,
                  ephemeral_volumes: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderEphemeralBlockDeviceMappingArgs']]]] = None,
                  instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderLicenseSpecificationArgs']]]] = None,
@@ -1866,6 +1934,8 @@ class CapacityProviderLaunchParametersArgs:
         pulumi.set(__self__, "operating_system", operating_system)
         if capacity_reservation_specification is not None:
             pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+        if cpu_options is not None:
+            pulumi.set(__self__, "cpu_options", cpu_options)
         if ephemeral_volumes is not None:
             pulumi.set(__self__, "ephemeral_volumes", ephemeral_volumes)
         if instance_profile_arn is not None:
@@ -1908,6 +1978,15 @@ class CapacityProviderLaunchParametersArgs:
     @capacity_reservation_specification.setter
     def capacity_reservation_specification(self, value: pulumi.Input[Optional['CapacityProviderCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cpuOptions")
+    def cpu_options(self) -> pulumi.Input[Optional['CapacityProviderCpuOptionsArgs']]:
+        return pulumi.get(self, "cpu_options")
+
+    @cpu_options.setter
+    def cpu_options(self, value: pulumi.Input[Optional['CapacityProviderCpuOptionsArgs']]):
+        pulumi.set(self, "cpu_options", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralVolumes")
@@ -2648,7 +2727,7 @@ class DatasetInlineExamplesSourceArgsDict(TypedDict):
     """
     examples: pulumi.Input[Sequence[Any]]
     """
-    Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+    Examples to add. Each example is a free-form JSON document validated against the scenario rules.
     """
 
 @pulumi.input_type
@@ -2658,7 +2737,7 @@ class DatasetInlineExamplesSourceArgs:
         """
         Inline examples provided directly in the request body.
 
-        :param pulumi.Input[Sequence[Any]] examples: Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+        :param pulumi.Input[Sequence[Any]] examples: Examples to add. Each example is a free-form JSON document validated against the scenario rules.
         """
         pulumi.set(__self__, "examples", examples)
 
@@ -2666,7 +2745,7 @@ class DatasetInlineExamplesSourceArgs:
     @pulumi.getter
     def examples(self) -> pulumi.Input[Sequence[Any]]:
         """
-        Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+        Examples to add. Each example is a free-form JSON document validated against the scenario rules.
         """
         return pulumi.get(self, "examples")
 
@@ -3630,6 +3709,44 @@ class GatewayAuthorizingClaimMatchValueTypeArgs:
         pulumi.set(self, "claim_match_value", value)
 
 
+class GatewayCertificateConfiguration0PropertiesArgsDict(TypedDict):
+    s3: pulumi.Input['GatewayS3CertificateConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayCertificateConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 s3: pulumi.Input['GatewayS3CertificateConfigurationArgs']):
+        pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input['GatewayS3CertificateConfigurationArgs']:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input['GatewayS3CertificateConfigurationArgs']):
+        pulumi.set(self, "s3", value)
+
+
+class GatewayCertificateConfiguration1PropertiesArgsDict(TypedDict):
+    secrets_manager: pulumi.Input['GatewaySecretsManagerCertificateConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayCertificateConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 secrets_manager: pulumi.Input['GatewaySecretsManagerCertificateConfigurationArgs']):
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> pulumi.Input['GatewaySecretsManagerCertificateConfigurationArgs']:
+        return pulumi.get(self, "secrets_manager")
+
+    @secrets_manager.setter
+    def secrets_manager(self, value: pulumi.Input['GatewaySecretsManagerCertificateConfigurationArgs']):
+        pulumi.set(self, "secrets_manager", value)
+
+
 class GatewayClaimMatchValueType0PropertiesArgsDict(TypedDict):
     match_value_string: pulumi.Input[_builtins.str]
 
@@ -3717,6 +3834,7 @@ class GatewayCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
     allowed_audience: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    certificate_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayCertificateConfiguration0PropertiesArgsDict', 'GatewayCertificateConfiguration1PropertiesArgsDict']]]]]]
     custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgsDict']]]]]
     private_endpoint: NotRequired[pulumi.Input[Optional[Union['GatewayPrivateEndpoint0PropertiesArgsDict', 'GatewayPrivateEndpoint1PropertiesArgsDict']]]]
 
@@ -3728,6 +3846,7 @@ class GatewayCustomJwtAuthorizerConfigurationArgs:
                  allowed_audience: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_clients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 certificate_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayCertificateConfiguration0PropertiesArgs', 'GatewayCertificateConfiguration1PropertiesArgs']]]]] = None,
                  custom_claims: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgs']]]] = None,
                  private_endpoint: pulumi.Input[Optional[Union['GatewayPrivateEndpoint0PropertiesArgs', 'GatewayPrivateEndpoint1PropertiesArgs']]] = None):
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -3739,6 +3858,8 @@ class GatewayCustomJwtAuthorizerConfigurationArgs:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if certificate_configurations is not None:
+            pulumi.set(__self__, "certificate_configurations", certificate_configurations)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
         if private_endpoint is not None:
@@ -3790,6 +3911,15 @@ class GatewayCustomJwtAuthorizerConfigurationArgs:
         pulumi.set(self, "allowed_scopes", value)
 
     @_builtins.property
+    @pulumi.getter(name="certificateConfigurations")
+    def certificate_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayCertificateConfiguration0PropertiesArgs', 'GatewayCertificateConfiguration1PropertiesArgs']]]]]:
+        return pulumi.get(self, "certificate_configurations")
+
+    @certificate_configurations.setter
+    def certificate_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayCertificateConfiguration0PropertiesArgs', 'GatewayCertificateConfiguration1PropertiesArgs']]]]]):
+        pulumi.set(self, "certificate_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgs']]]]:
         return pulumi.get(self, "custom_claims")
@@ -3808,21 +3938,61 @@ class GatewayCustomJwtAuthorizerConfigurationArgs:
         pulumi.set(self, "private_endpoint", value)
 
 
+class GatewayDomainOverrideArgsDict(TypedDict):
+    default_domain: pulumi.Input[_builtins.str]
+    alternate_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class GatewayDomainOverrideArgs:
+    def __init__(__self__, *,
+                 default_domain: pulumi.Input[_builtins.str],
+                 alternate_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        pulumi.set(__self__, "default_domain", default_domain)
+        if alternate_domains is not None:
+            pulumi.set(__self__, "alternate_domains", alternate_domains)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDomain")
+    def default_domain(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "default_domain")
+
+    @default_domain.setter
+    def default_domain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "default_domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="alternateDomains")
+    def alternate_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "alternate_domains")
+
+    @alternate_domains.setter
+    def alternate_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "alternate_domains", value)
+
+
 class GatewayInterceptorConfigurationArgsDict(TypedDict):
     interception_points: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]]
     interceptor: pulumi.Input['InterceptorConfigurationPropertiesArgsDict']
     input_configuration: NotRequired[pulumi.Input[Optional['GatewayInterceptorInputConfigurationArgsDict']]]
+    response_interception_mode: NotRequired[pulumi.Input[Optional['GatewayResponseInterceptionMode']]]
+    response_streaming_configuration: NotRequired[pulumi.Input[Optional['GatewayResponseStreamingConfigurationArgsDict']]]
 
 @pulumi.input_type
 class GatewayInterceptorConfigurationArgs:
     def __init__(__self__, *,
                  interception_points: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]],
                  interceptor: pulumi.Input['InterceptorConfigurationPropertiesArgs'],
-                 input_configuration: pulumi.Input[Optional['GatewayInterceptorInputConfigurationArgs']] = None):
+                 input_configuration: pulumi.Input[Optional['GatewayInterceptorInputConfigurationArgs']] = None,
+                 response_interception_mode: pulumi.Input[Optional['GatewayResponseInterceptionMode']] = None,
+                 response_streaming_configuration: pulumi.Input[Optional['GatewayResponseStreamingConfigurationArgs']] = None):
         pulumi.set(__self__, "interception_points", interception_points)
         pulumi.set(__self__, "interceptor", interceptor)
         if input_configuration is not None:
             pulumi.set(__self__, "input_configuration", input_configuration)
+        if response_interception_mode is not None:
+            pulumi.set(__self__, "response_interception_mode", response_interception_mode)
+        if response_streaming_configuration is not None:
+            pulumi.set(__self__, "response_streaming_configuration", response_streaming_configuration)
 
     @_builtins.property
     @pulumi.getter(name="interceptionPoints")
@@ -3850,6 +4020,24 @@ class GatewayInterceptorConfigurationArgs:
     @input_configuration.setter
     def input_configuration(self, value: pulumi.Input[Optional['GatewayInterceptorInputConfigurationArgs']]):
         pulumi.set(self, "input_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseInterceptionMode")
+    def response_interception_mode(self) -> pulumi.Input[Optional['GatewayResponseInterceptionMode']]:
+        return pulumi.get(self, "response_interception_mode")
+
+    @response_interception_mode.setter
+    def response_interception_mode(self, value: pulumi.Input[Optional['GatewayResponseInterceptionMode']]):
+        pulumi.set(self, "response_interception_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseStreamingConfiguration")
+    def response_streaming_configuration(self) -> pulumi.Input[Optional['GatewayResponseStreamingConfigurationArgs']]:
+        return pulumi.get(self, "response_streaming_configuration")
+
+    @response_streaming_configuration.setter
+    def response_streaming_configuration(self, value: pulumi.Input[Optional['GatewayResponseStreamingConfigurationArgs']]):
+        pulumi.set(self, "response_streaming_configuration", value)
 
 
 class GatewayInterceptorInputConfigurationArgsDict(TypedDict):
@@ -4317,6 +4505,26 @@ class GatewayRateLimitRateConfigArgs:
     @rate.setter
     def rate(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "rate", value)
+
+
+class GatewayResponseStreamingConfigurationArgsDict(TypedDict):
+    max_events_per_invocation: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class GatewayResponseStreamingConfigurationArgs:
+    def __init__(__self__, *,
+                 max_events_per_invocation: pulumi.Input[Optional[_builtins.int]] = None):
+        if max_events_per_invocation is not None:
+            pulumi.set(__self__, "max_events_per_invocation", max_events_per_invocation)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEventsPerInvocation")
+    def max_events_per_invocation(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "max_events_per_invocation")
+
+    @max_events_per_invocation.setter
+    def max_events_per_invocation(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_events_per_invocation", value)
 
 
 class GatewayRuleAction0PropertiesArgsDict(TypedDict):
@@ -5106,6 +5314,57 @@ class GatewayRuleWeightedRouteArgs:
     @traffic_split.setter
     def traffic_split(self, value: pulumi.Input[Sequence[pulumi.Input['GatewayRuleTargetTrafficSplitEntryArgs']]]):
         pulumi.set(self, "traffic_split", value)
+
+
+class GatewayS3CertificateConfigurationArgsDict(TypedDict):
+    uri: pulumi.Input[_builtins.str]
+    bucket_owner_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class GatewayS3CertificateConfigurationArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[_builtins.str],
+                 bucket_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "uri", uri)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
+
+
+class GatewaySecretsManagerCertificateConfigurationArgsDict(TypedDict):
+    secret_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class GatewaySecretsManagerCertificateConfigurationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class GatewaySelfManagedLatticeResourcePropertiesArgsDict(TypedDict):
@@ -14766,6 +15025,128 @@ class PaymentConnectorPaymentCredentialProviderConfigurationArgs:
         pulumi.set(self, "credential_provider_arn", value)
 
 
+class PaymentCredentialProviderAmazonPayConfigurationInputArgsDict(TypedDict):
+    """
+    Amazon Pay configuration with merchant identifiers and a delegated authorization token
+    """
+    amazon_pay_region: pulumi.Input['PaymentCredentialProviderAmazonPayRegionType']
+    environment: pulumi.Input['PaymentCredentialProviderAmazonPayEnvironmentType']
+    merchant_id: pulumi.Input[_builtins.str]
+    """
+    The Amazon Pay merchant (seller) ID
+    """
+    store_id: pulumi.Input[_builtins.str]
+    """
+    The Amazon Pay store (client) ID
+    """
+    authorization_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The delegated authorization token, supplied inline. Mutually exclusive with AuthorizationTokenConfig.
+    """
+    authorization_token_config: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgsDict']]]
+    authorization_token_source: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]]
+
+@pulumi.input_type
+class PaymentCredentialProviderAmazonPayConfigurationInputArgs:
+    def __init__(__self__, *,
+                 amazon_pay_region: pulumi.Input['PaymentCredentialProviderAmazonPayRegionType'],
+                 environment: pulumi.Input['PaymentCredentialProviderAmazonPayEnvironmentType'],
+                 merchant_id: pulumi.Input[_builtins.str],
+                 store_id: pulumi.Input[_builtins.str],
+                 authorization_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_token_config: pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']] = None,
+                 authorization_token_source: pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']] = None):
+        """
+        Amazon Pay configuration with merchant identifiers and a delegated authorization token
+
+        :param pulumi.Input[_builtins.str] merchant_id: The Amazon Pay merchant (seller) ID
+        :param pulumi.Input[_builtins.str] store_id: The Amazon Pay store (client) ID
+        :param pulumi.Input[_builtins.str] authorization_token: The delegated authorization token, supplied inline. Mutually exclusive with AuthorizationTokenConfig.
+        """
+        pulumi.set(__self__, "amazon_pay_region", amazon_pay_region)
+        pulumi.set(__self__, "environment", environment)
+        pulumi.set(__self__, "merchant_id", merchant_id)
+        pulumi.set(__self__, "store_id", store_id)
+        if authorization_token is not None:
+            pulumi.set(__self__, "authorization_token", authorization_token)
+        if authorization_token_config is not None:
+            pulumi.set(__self__, "authorization_token_config", authorization_token_config)
+        if authorization_token_source is not None:
+            pulumi.set(__self__, "authorization_token_source", authorization_token_source)
+
+    @_builtins.property
+    @pulumi.getter(name="amazonPayRegion")
+    def amazon_pay_region(self) -> pulumi.Input['PaymentCredentialProviderAmazonPayRegionType']:
+        return pulumi.get(self, "amazon_pay_region")
+
+    @amazon_pay_region.setter
+    def amazon_pay_region(self, value: pulumi.Input['PaymentCredentialProviderAmazonPayRegionType']):
+        pulumi.set(self, "amazon_pay_region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> pulumi.Input['PaymentCredentialProviderAmazonPayEnvironmentType']:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: pulumi.Input['PaymentCredentialProviderAmazonPayEnvironmentType']):
+        pulumi.set(self, "environment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="merchantId")
+    def merchant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Pay merchant (seller) ID
+        """
+        return pulumi.get(self, "merchant_id")
+
+    @merchant_id.setter
+    def merchant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "merchant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storeId")
+    def store_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Pay store (client) ID
+        """
+        return pulumi.get(self, "store_id")
+
+    @store_id.setter
+    def store_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "store_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationToken")
+    def authorization_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The delegated authorization token, supplied inline. Mutually exclusive with AuthorizationTokenConfig.
+        """
+        return pulumi.get(self, "authorization_token")
+
+    @authorization_token.setter
+    def authorization_token(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationTokenConfig")
+    def authorization_token_config(self) -> pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "authorization_token_config")
+
+    @authorization_token_config.setter
+    def authorization_token_config(self, value: pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "authorization_token_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationTokenSource")
+    def authorization_token_source(self) -> pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]:
+        return pulumi.get(self, "authorization_token_source")
+
+    @authorization_token_source.setter
+    def authorization_token_source(self, value: pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]):
+        pulumi.set(self, "authorization_token_source", value)
+
+
 class PaymentCredentialProviderCoinbaseCdpConfigurationInputArgsDict(TypedDict):
     """
     Coinbase CDP configuration with API credentials
@@ -14891,25 +15272,137 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs:
         pulumi.set(self, "wallet_secret_source", value)
 
 
+class PaymentCredentialProviderPayPalConfigurationInputArgsDict(TypedDict):
+    """
+    PayPal configuration with REST app credentials
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The PayPal REST app client ID
+    """
+    environment: pulumi.Input['PaymentCredentialProviderPayPalEnvironmentType']
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The PayPal REST app client secret, supplied inline. Mutually exclusive with ClientSecretConfig.
+    """
+    client_secret_config: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgsDict']]]
+    client_secret_source: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]]
+
+@pulumi.input_type
+class PaymentCredentialProviderPayPalConfigurationInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 environment: pulumi.Input['PaymentCredentialProviderPayPalEnvironmentType'],
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_config: pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']] = None):
+        """
+        PayPal configuration with REST app credentials
+
+        :param pulumi.Input[_builtins.str] client_id: The PayPal REST app client ID
+        :param pulumi.Input[_builtins.str] client_secret: The PayPal REST app client secret, supplied inline. Mutually exclusive with ClientSecretConfig.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "environment", environment)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The PayPal REST app client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> pulumi.Input['PaymentCredentialProviderPayPalEnvironmentType']:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: pulumi.Input['PaymentCredentialProviderPayPalEnvironmentType']):
+        pulumi.set(self, "environment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The PayPal REST app client secret, supplied inline. Mutually exclusive with ClientSecretConfig.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]):
+        pulumi.set(self, "client_secret_source", value)
+
+
 class PaymentCredentialProviderPaymentProviderConfigurationInputArgsDict(TypedDict):
     """
     Provider configuration input containing secrets for creation/update
     """
+    amazon_pay_configuration: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderAmazonPayConfigurationInputArgsDict']]]
     coinbase_cdp_configuration: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderCoinbaseCdpConfigurationInputArgsDict']]]
+    pay_pal_configuration: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderPayPalConfigurationInputArgsDict']]]
+    stripe_configuration: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderStripeConfigurationInputArgsDict']]]
     stripe_privy_configuration: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderStripePrivyConfigurationInputArgsDict']]]
 
 @pulumi.input_type
 class PaymentCredentialProviderPaymentProviderConfigurationInputArgs:
     def __init__(__self__, *,
+                 amazon_pay_configuration: pulumi.Input[Optional['PaymentCredentialProviderAmazonPayConfigurationInputArgs']] = None,
                  coinbase_cdp_configuration: pulumi.Input[Optional['PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs']] = None,
+                 pay_pal_configuration: pulumi.Input[Optional['PaymentCredentialProviderPayPalConfigurationInputArgs']] = None,
+                 stripe_configuration: pulumi.Input[Optional['PaymentCredentialProviderStripeConfigurationInputArgs']] = None,
                  stripe_privy_configuration: pulumi.Input[Optional['PaymentCredentialProviderStripePrivyConfigurationInputArgs']] = None):
         """
         Provider configuration input containing secrets for creation/update
         """
+        if amazon_pay_configuration is not None:
+            pulumi.set(__self__, "amazon_pay_configuration", amazon_pay_configuration)
         if coinbase_cdp_configuration is not None:
             pulumi.set(__self__, "coinbase_cdp_configuration", coinbase_cdp_configuration)
+        if pay_pal_configuration is not None:
+            pulumi.set(__self__, "pay_pal_configuration", pay_pal_configuration)
+        if stripe_configuration is not None:
+            pulumi.set(__self__, "stripe_configuration", stripe_configuration)
         if stripe_privy_configuration is not None:
             pulumi.set(__self__, "stripe_privy_configuration", stripe_privy_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="amazonPayConfiguration")
+    def amazon_pay_configuration(self) -> pulumi.Input[Optional['PaymentCredentialProviderAmazonPayConfigurationInputArgs']]:
+        return pulumi.get(self, "amazon_pay_configuration")
+
+    @amazon_pay_configuration.setter
+    def amazon_pay_configuration(self, value: pulumi.Input[Optional['PaymentCredentialProviderAmazonPayConfigurationInputArgs']]):
+        pulumi.set(self, "amazon_pay_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="coinbaseCdpConfiguration")
@@ -14919,6 +15412,24 @@ class PaymentCredentialProviderPaymentProviderConfigurationInputArgs:
     @coinbase_cdp_configuration.setter
     def coinbase_cdp_configuration(self, value: pulumi.Input[Optional['PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs']]):
         pulumi.set(self, "coinbase_cdp_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="payPalConfiguration")
+    def pay_pal_configuration(self) -> pulumi.Input[Optional['PaymentCredentialProviderPayPalConfigurationInputArgs']]:
+        return pulumi.get(self, "pay_pal_configuration")
+
+    @pay_pal_configuration.setter
+    def pay_pal_configuration(self, value: pulumi.Input[Optional['PaymentCredentialProviderPayPalConfigurationInputArgs']]):
+        pulumi.set(self, "pay_pal_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stripeConfiguration")
+    def stripe_configuration(self) -> pulumi.Input[Optional['PaymentCredentialProviderStripeConfigurationInputArgs']]:
+        return pulumi.get(self, "stripe_configuration")
+
+    @stripe_configuration.setter
+    def stripe_configuration(self, value: pulumi.Input[Optional['PaymentCredentialProviderStripeConfigurationInputArgs']]):
+        pulumi.set(self, "stripe_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="stripePrivyConfiguration")
@@ -14980,6 +15491,86 @@ class PaymentCredentialProviderSecretReferenceArgs:
     @secret_id.setter
     def secret_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "secret_id", value)
+
+
+class PaymentCredentialProviderStripeConfigurationInputArgsDict(TypedDict):
+    """
+    Stripe configuration with a restricted key, supplied inline (MANAGED) or as a Secrets Manager reference (EXTERNAL)
+    """
+    publishable_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Stripe publishable key (pk_live_* or pk_test_*). Its mode must match the restricted key's.
+    """
+    restricted_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Stripe restricted key (rk_live_* or rk_test_*), supplied inline. Mutually exclusive with RestrictedKeyConfig.
+    """
+    restricted_key_config: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgsDict']]]
+    restricted_key_source: NotRequired[pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]]
+
+@pulumi.input_type
+class PaymentCredentialProviderStripeConfigurationInputArgs:
+    def __init__(__self__, *,
+                 publishable_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 restricted_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 restricted_key_config: pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']] = None,
+                 restricted_key_source: pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']] = None):
+        """
+        Stripe configuration with a restricted key, supplied inline (MANAGED) or as a Secrets Manager reference (EXTERNAL)
+
+        :param pulumi.Input[_builtins.str] publishable_key: The Stripe publishable key (pk_live_* or pk_test_*). Its mode must match the restricted key's.
+        :param pulumi.Input[_builtins.str] restricted_key: The Stripe restricted key (rk_live_* or rk_test_*), supplied inline. Mutually exclusive with RestrictedKeyConfig.
+        """
+        if publishable_key is not None:
+            pulumi.set(__self__, "publishable_key", publishable_key)
+        if restricted_key is not None:
+            pulumi.set(__self__, "restricted_key", restricted_key)
+        if restricted_key_config is not None:
+            pulumi.set(__self__, "restricted_key_config", restricted_key_config)
+        if restricted_key_source is not None:
+            pulumi.set(__self__, "restricted_key_source", restricted_key_source)
+
+    @_builtins.property
+    @pulumi.getter(name="publishableKey")
+    def publishable_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Stripe publishable key (pk_live_* or pk_test_*). Its mode must match the restricted key's.
+        """
+        return pulumi.get(self, "publishable_key")
+
+    @publishable_key.setter
+    def publishable_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "publishable_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKey")
+    def restricted_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Stripe restricted key (rk_live_* or rk_test_*), supplied inline. Mutually exclusive with RestrictedKeyConfig.
+        """
+        return pulumi.get(self, "restricted_key")
+
+    @restricted_key.setter
+    def restricted_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "restricted_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKeyConfig")
+    def restricted_key_config(self) -> pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "restricted_key_config")
+
+    @restricted_key_config.setter
+    def restricted_key_config(self, value: pulumi.Input[Optional['PaymentCredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "restricted_key_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKeySource")
+    def restricted_key_source(self) -> pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]:
+        return pulumi.get(self, "restricted_key_source")
+
+    @restricted_key_source.setter
+    def restricted_key_source(self, value: pulumi.Input[Optional['PaymentCredentialProviderSecretSourceType']]):
+        pulumi.set(self, "restricted_key_source", value)
 
 
 class PaymentCredentialProviderStripePrivyConfigurationInputArgsDict(TypedDict):
@@ -15585,6 +16176,32 @@ class RuntimeAuthorizingClaimMatchValueTypeArgs:
         pulumi.set(self, "claim_match_value", value)
 
 
+class RuntimeBuildLifecycleHooksArgsDict(TypedDict):
+    """
+    Hooks that run while the platform builds a runtime version, before any session exists
+    """
+    warmup: NotRequired[pulumi.Input[Optional['RuntimeLifecycleHookArgsDict']]]
+
+@pulumi.input_type
+class RuntimeBuildLifecycleHooksArgs:
+    def __init__(__self__, *,
+                 warmup: pulumi.Input[Optional['RuntimeLifecycleHookArgs']] = None):
+        """
+        Hooks that run while the platform builds a runtime version, before any session exists
+        """
+        if warmup is not None:
+            pulumi.set(__self__, "warmup", warmup)
+
+    @_builtins.property
+    @pulumi.getter
+    def warmup(self) -> pulumi.Input[Optional['RuntimeLifecycleHookArgs']]:
+        return pulumi.get(self, "warmup")
+
+    @warmup.setter
+    def warmup(self, value: pulumi.Input[Optional['RuntimeLifecycleHookArgs']]):
+        pulumi.set(self, "warmup", value)
+
+
 class RuntimeCapacityProviderConfigurationArgsDict(TypedDict):
     """
     Configuration for a capacity provider
@@ -16078,6 +16695,32 @@ class RuntimeFilesystemConfigurationArgs:
         pulumi.set(self, "session_storage", value)
 
 
+class RuntimeHooksConfigurationArgsDict(TypedDict):
+    """
+    Lifecycle hooks that the platform runs at fixed points in the runtime's lifecycle
+    """
+    build: NotRequired[pulumi.Input[Optional['RuntimeBuildLifecycleHooksArgsDict']]]
+
+@pulumi.input_type
+class RuntimeHooksConfigurationArgs:
+    def __init__(__self__, *,
+                 build: pulumi.Input[Optional['RuntimeBuildLifecycleHooksArgs']] = None):
+        """
+        Lifecycle hooks that the platform runs at fixed points in the runtime's lifecycle
+        """
+        if build is not None:
+            pulumi.set(__self__, "build", build)
+
+    @_builtins.property
+    @pulumi.getter
+    def build(self) -> pulumi.Input[Optional['RuntimeBuildLifecycleHooksArgs']]:
+        return pulumi.get(self, "build")
+
+    @build.setter
+    def build(self, value: pulumi.Input[Optional['RuntimeBuildLifecycleHooksArgs']]):
+        pulumi.set(self, "build", value)
+
+
 class RuntimeHostingEnvironmentArgsDict(TypedDict):
     """
     An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
@@ -16109,6 +16752,52 @@ class RuntimeHostingEnvironmentArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "arn", value)
+
+
+class RuntimeHttpPostLifecycleHookActionArgsDict(TypedDict):
+    """
+    Sends an HTTP POST to the agent's container. Any 2xx response ends the hook; anything else fails it. The path and port must not be a route the platform already calls on the container, such as the protocol's invocation path or the default health check.
+    """
+    path: pulumi.Input[_builtins.str]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port in the agent's container the platform sends the POST to. Defaults to the runtime's server port.
+    """
+
+@pulumi.input_type
+class RuntimeHttpPostLifecycleHookActionArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str],
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Sends an HTTP POST to the agent's container. Any 2xx response ends the hook; anything else fails it. The path and port must not be a route the platform already calls on the container, such as the protocol's invocation path or the default health check.
+
+        :param pulumi.Input[_builtins.int] port: Port in the agent's container the platform sends the POST to. Defaults to the runtime's server port.
+        """
+        pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port in the agent's container the platform sends the POST to. Defaults to the runtime's server port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
 
 
 class RuntimeLifecycleConfigurationArgsDict(TypedDict):
@@ -16163,6 +16852,56 @@ class RuntimeLifecycleConfigurationArgs:
     @max_lifetime.setter
     def max_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_lifetime", value)
+
+
+class RuntimeLifecycleHookArgsDict(TypedDict):
+    """
+    A lifecycle hook and the action it runs
+    """
+    action: pulumi.Input['RuntimeLifecycleHookActionArgsDict']
+
+@pulumi.input_type
+class RuntimeLifecycleHookArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['RuntimeLifecycleHookActionArgs']):
+        """
+        A lifecycle hook and the action it runs
+        """
+        pulumi.set(__self__, "action", action)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['RuntimeLifecycleHookActionArgs']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['RuntimeLifecycleHookActionArgs']):
+        pulumi.set(self, "action", value)
+
+
+class RuntimeLifecycleHookActionArgsDict(TypedDict):
+    """
+    The action a lifecycle hook runs. HttpPost is the only action.
+    """
+    http_post: pulumi.Input['RuntimeHttpPostLifecycleHookActionArgsDict']
+
+@pulumi.input_type
+class RuntimeLifecycleHookActionArgs:
+    def __init__(__self__, *,
+                 http_post: pulumi.Input['RuntimeHttpPostLifecycleHookActionArgs']):
+        """
+        The action a lifecycle hook runs. HttpPost is the only action.
+        """
+        pulumi.set(__self__, "http_post", http_post)
+
+    @_builtins.property
+    @pulumi.getter(name="httpPost")
+    def http_post(self) -> pulumi.Input['RuntimeHttpPostLifecycleHookActionArgs']:
+        return pulumi.get(self, "http_post")
+
+    @http_post.setter
+    def http_post(self, value: pulumi.Input['RuntimeHttpPostLifecycleHookActionArgs']):
+        pulumi.set(self, "http_post", value)
 
 
 class RuntimeManagedVpcResourceArgsDict(TypedDict):
@@ -16445,6 +17184,39 @@ class RuntimeRequestHeaderConfigurationArgs:
     @request_header_allowlist.setter
     def request_header_allowlist(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_header_allowlist", value)
+
+
+class RuntimeResourceConfigurationArgsDict(TypedDict):
+    """
+    Resource configuration for an agent runtime
+    """
+    minimum_memory_in_mi_b: pulumi.Input[_builtins.int]
+    """
+    The minimum amount of memory in MiB to allocate to the agent runtime
+    """
+
+@pulumi.input_type
+class RuntimeResourceConfigurationArgs:
+    def __init__(__self__, *,
+                 minimum_memory_in_mi_b: pulumi.Input[_builtins.int]):
+        """
+        Resource configuration for an agent runtime
+
+        :param pulumi.Input[_builtins.int] minimum_memory_in_mi_b: The minimum amount of memory in MiB to allocate to the agent runtime
+        """
+        pulumi.set(__self__, "minimum_memory_in_mi_b", minimum_memory_in_mi_b)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumMemoryInMiB")
+    def minimum_memory_in_mi_b(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum amount of memory in MiB to allocate to the agent runtime
+        """
+        return pulumi.get(self, "minimum_memory_in_mi_b")
+
+    @minimum_memory_in_mi_b.setter
+    def minimum_memory_in_mi_b(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_memory_in_mi_b", value)
 
 
 class RuntimeS3FilesAccessPointConfigurationArgsDict(TypedDict):

@@ -99,6 +99,7 @@ export class ConnectionGroup extends pulumi.CustomResource {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly viewerFallback: pulumi.Output<outputs.cloudfront.ConnectionGroupViewerFallback | undefined>;
 
     /**
      * Create a ConnectionGroup resource with the given unique name, arguments, and options.
@@ -116,6 +117,7 @@ export class ConnectionGroup extends pulumi.CustomResource {
             resourceInputs["ipv6Enabled"] = args?.ipv6Enabled;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["viewerFallback"] = args?.viewerFallback;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -138,6 +140,7 @@ export class ConnectionGroup extends pulumi.CustomResource {
             resourceInputs["routingEndpoint"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["viewerFallback"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["name"] };
@@ -170,4 +173,5 @@ export interface ConnectionGroupArgs {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    viewerFallback?: pulumi.Input<inputs.cloudfront.ConnectionGroupViewerFallbackArgs | undefined>;
 }

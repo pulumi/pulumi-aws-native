@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly ImmutableArray<string> AllowedAudience;
         public readonly ImmutableArray<string> AllowedClients;
         public readonly ImmutableArray<string> AllowedScopes;
+        public readonly ImmutableArray<Union<Outputs.GatewayCertificateConfiguration0Properties, Outputs.GatewayCertificateConfiguration1Properties>> CertificateConfigurations;
         public readonly ImmutableArray<Outputs.GatewayCustomClaimValidationType> CustomClaims;
         public readonly string DiscoveryUrl;
         public readonly Union<Outputs.GatewayPrivateEndpoint0Properties, Outputs.GatewayPrivateEndpoint1Properties>? PrivateEndpoint;
@@ -31,6 +32,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<string> allowedScopes,
 
+            ImmutableArray<Union<Outputs.GatewayCertificateConfiguration0Properties, Outputs.GatewayCertificateConfiguration1Properties>> certificateConfigurations,
+
             ImmutableArray<Outputs.GatewayCustomClaimValidationType> customClaims,
 
             string discoveryUrl,
@@ -41,6 +44,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             AllowedAudience = allowedAudience;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;
+            CertificateConfigurations = certificateConfigurations;
             CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
             PrivateEndpoint = privateEndpoint;

@@ -2351,6 +2351,47 @@ func (i ConnectorAzureProviderConfigurationArgs) ToConnectorAzureProviderConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureProviderConfigurationOutput)
 }
 
+func (i ConnectorAzureProviderConfigurationArgs) ToConnectorAzureProviderConfigurationPtrOutput() ConnectorAzureProviderConfigurationPtrOutput {
+	return i.ToConnectorAzureProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorAzureProviderConfigurationArgs) ToConnectorAzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureProviderConfigurationOutput).ToConnectorAzureProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorAzureProviderConfigurationPtrInput is an input type that accepts ConnectorAzureProviderConfigurationArgs, ConnectorAzureProviderConfigurationPtr and ConnectorAzureProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorAzureProviderConfigurationPtrInput` via:
+//
+//	        ConnectorAzureProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorAzureProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorAzureProviderConfigurationPtrOutput() ConnectorAzureProviderConfigurationPtrOutput
+	ToConnectorAzureProviderConfigurationPtrOutputWithContext(context.Context) ConnectorAzureProviderConfigurationPtrOutput
+}
+
+type connectorAzureProviderConfigurationPtrType ConnectorAzureProviderConfigurationArgs
+
+func ConnectorAzureProviderConfigurationPtr(v *ConnectorAzureProviderConfigurationArgs) ConnectorAzureProviderConfigurationPtrInput {
+	return (*connectorAzureProviderConfigurationPtrType)(v)
+}
+
+func (*connectorAzureProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureProviderConfiguration)(nil)).Elem()
+}
+
+func (i *connectorAzureProviderConfigurationPtrType) ToConnectorAzureProviderConfigurationPtrOutput() ConnectorAzureProviderConfigurationPtrOutput {
+	return i.ToConnectorAzureProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorAzureProviderConfigurationPtrType) ToConnectorAzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureProviderConfigurationPtrOutput)
+}
+
 type ConnectorAzureProviderConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorAzureProviderConfigurationOutput) ElementType() reflect.Type {
@@ -2363,6 +2404,16 @@ func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfi
 
 func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfigurationOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationOutput {
 	return o
+}
+
+func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfigurationPtrOutput() ConnectorAzureProviderConfigurationPtrOutput {
+	return o.ToConnectorAzureProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAzureProviderConfiguration) *ConnectorAzureProviderConfiguration {
+		return &v
+	}).(ConnectorAzureProviderConfigurationPtrOutput)
 }
 
 // Whether to automatically install the VM scanner. Defaults to true.
@@ -2486,6 +2537,47 @@ func (i ConnectorAzureScopeConfigurationMapArgs) ToConnectorAzureScopeConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureScopeConfigurationMapOutput)
 }
 
+func (i ConnectorAzureScopeConfigurationMapArgs) ToConnectorAzureScopeConfigurationMapPtrOutput() ConnectorAzureScopeConfigurationMapPtrOutput {
+	return i.ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorAzureScopeConfigurationMapArgs) ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureScopeConfigurationMapOutput).ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(ctx)
+}
+
+// ConnectorAzureScopeConfigurationMapPtrInput is an input type that accepts ConnectorAzureScopeConfigurationMapArgs, ConnectorAzureScopeConfigurationMapPtr and ConnectorAzureScopeConfigurationMapPtrOutput values.
+// You can construct a concrete instance of `ConnectorAzureScopeConfigurationMapPtrInput` via:
+//
+//	        ConnectorAzureScopeConfigurationMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorAzureScopeConfigurationMapPtrInput interface {
+	pulumi.Input
+
+	ToConnectorAzureScopeConfigurationMapPtrOutput() ConnectorAzureScopeConfigurationMapPtrOutput
+	ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(context.Context) ConnectorAzureScopeConfigurationMapPtrOutput
+}
+
+type connectorAzureScopeConfigurationMapPtrType ConnectorAzureScopeConfigurationMapArgs
+
+func ConnectorAzureScopeConfigurationMapPtr(v *ConnectorAzureScopeConfigurationMapArgs) ConnectorAzureScopeConfigurationMapPtrInput {
+	return (*connectorAzureScopeConfigurationMapPtrType)(v)
+}
+
+func (*connectorAzureScopeConfigurationMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureScopeConfigurationMap)(nil)).Elem()
+}
+
+func (i *connectorAzureScopeConfigurationMapPtrType) ToConnectorAzureScopeConfigurationMapPtrOutput() ConnectorAzureScopeConfigurationMapPtrOutput {
+	return i.ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorAzureScopeConfigurationMapPtrType) ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureScopeConfigurationMapPtrOutput)
+}
+
 // Defines which resource types to scan and at what scope level.
 type ConnectorAzureScopeConfigurationMapOutput struct{ *pulumi.OutputState }
 
@@ -2499,6 +2591,16 @@ func (o ConnectorAzureScopeConfigurationMapOutput) ToConnectorAzureScopeConfigur
 
 func (o ConnectorAzureScopeConfigurationMapOutput) ToConnectorAzureScopeConfigurationMapOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationMapOutput {
 	return o
+}
+
+func (o ConnectorAzureScopeConfigurationMapOutput) ToConnectorAzureScopeConfigurationMapPtrOutput() ConnectorAzureScopeConfigurationMapPtrOutput {
+	return o.ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAzureScopeConfigurationMapOutput) ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAzureScopeConfigurationMap) *ConnectorAzureScopeConfigurationMap {
+		return &v
+	}).(ConnectorAzureScopeConfigurationMapPtrOutput)
 }
 
 func (o ConnectorAzureScopeConfigurationMapOutput) ContainerImageScanning() ConnectorScopeConfigurationPtrOutput {
@@ -2559,6 +2661,366 @@ func (o ConnectorAzureScopeConfigurationMapPtrOutput) ServerlessScanning() Conne
 
 func (o ConnectorAzureScopeConfigurationMapPtrOutput) VmScanning() ConnectorScopeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ConnectorAzureScopeConfigurationMap) *ConnectorScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VmScanning
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+type ConnectorGcpProviderConfiguration struct {
+	// Whether to automatically install the VM scanner. Defaults to true.
+	AutoInstallVmScanner *bool `pulumi:"autoInstallVmScanner"`
+	// The ARN of the AWS Config connector used for GCP resource discovery.
+	AwsConfigConnectorArn string `pulumi:"awsConfigConnectorArn"`
+	// List of GCP regions to scan (e.g. us-central1).
+	GcpRegions         []string                          `pulumi:"gcpRegions"`
+	ScopeConfiguration ConnectorGcpScopeConfigurationMap `pulumi:"scopeConfiguration"`
+}
+
+// ConnectorGcpProviderConfigurationInput is an input type that accepts ConnectorGcpProviderConfigurationArgs and ConnectorGcpProviderConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorGcpProviderConfigurationInput` via:
+//
+//	ConnectorGcpProviderConfigurationArgs{...}
+type ConnectorGcpProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorGcpProviderConfigurationOutput() ConnectorGcpProviderConfigurationOutput
+	ToConnectorGcpProviderConfigurationOutputWithContext(context.Context) ConnectorGcpProviderConfigurationOutput
+}
+
+type ConnectorGcpProviderConfigurationArgs struct {
+	// Whether to automatically install the VM scanner. Defaults to true.
+	AutoInstallVmScanner pulumi.BoolPtrInput `pulumi:"autoInstallVmScanner"`
+	// The ARN of the AWS Config connector used for GCP resource discovery.
+	AwsConfigConnectorArn pulumi.StringInput `pulumi:"awsConfigConnectorArn"`
+	// List of GCP regions to scan (e.g. us-central1).
+	GcpRegions         pulumi.StringArrayInput                `pulumi:"gcpRegions"`
+	ScopeConfiguration ConnectorGcpScopeConfigurationMapInput `pulumi:"scopeConfiguration"`
+}
+
+func (ConnectorGcpProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorGcpProviderConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorGcpProviderConfigurationArgs) ToConnectorGcpProviderConfigurationOutput() ConnectorGcpProviderConfigurationOutput {
+	return i.ToConnectorGcpProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorGcpProviderConfigurationArgs) ToConnectorGcpProviderConfigurationOutputWithContext(ctx context.Context) ConnectorGcpProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpProviderConfigurationOutput)
+}
+
+func (i ConnectorGcpProviderConfigurationArgs) ToConnectorGcpProviderConfigurationPtrOutput() ConnectorGcpProviderConfigurationPtrOutput {
+	return i.ToConnectorGcpProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorGcpProviderConfigurationArgs) ToConnectorGcpProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorGcpProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpProviderConfigurationOutput).ToConnectorGcpProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorGcpProviderConfigurationPtrInput is an input type that accepts ConnectorGcpProviderConfigurationArgs, ConnectorGcpProviderConfigurationPtr and ConnectorGcpProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorGcpProviderConfigurationPtrInput` via:
+//
+//	        ConnectorGcpProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorGcpProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorGcpProviderConfigurationPtrOutput() ConnectorGcpProviderConfigurationPtrOutput
+	ToConnectorGcpProviderConfigurationPtrOutputWithContext(context.Context) ConnectorGcpProviderConfigurationPtrOutput
+}
+
+type connectorGcpProviderConfigurationPtrType ConnectorGcpProviderConfigurationArgs
+
+func ConnectorGcpProviderConfigurationPtr(v *ConnectorGcpProviderConfigurationArgs) ConnectorGcpProviderConfigurationPtrInput {
+	return (*connectorGcpProviderConfigurationPtrType)(v)
+}
+
+func (*connectorGcpProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorGcpProviderConfiguration)(nil)).Elem()
+}
+
+func (i *connectorGcpProviderConfigurationPtrType) ToConnectorGcpProviderConfigurationPtrOutput() ConnectorGcpProviderConfigurationPtrOutput {
+	return i.ToConnectorGcpProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorGcpProviderConfigurationPtrType) ToConnectorGcpProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorGcpProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpProviderConfigurationPtrOutput)
+}
+
+type ConnectorGcpProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorGcpProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorGcpProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorGcpProviderConfigurationOutput) ToConnectorGcpProviderConfigurationOutput() ConnectorGcpProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorGcpProviderConfigurationOutput) ToConnectorGcpProviderConfigurationOutputWithContext(ctx context.Context) ConnectorGcpProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorGcpProviderConfigurationOutput) ToConnectorGcpProviderConfigurationPtrOutput() ConnectorGcpProviderConfigurationPtrOutput {
+	return o.ToConnectorGcpProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorGcpProviderConfigurationOutput) ToConnectorGcpProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorGcpProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorGcpProviderConfiguration) *ConnectorGcpProviderConfiguration {
+		return &v
+	}).(ConnectorGcpProviderConfigurationPtrOutput)
+}
+
+// Whether to automatically install the VM scanner. Defaults to true.
+func (o ConnectorGcpProviderConfigurationOutput) AutoInstallVmScanner() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorGcpProviderConfiguration) *bool { return v.AutoInstallVmScanner }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the AWS Config connector used for GCP resource discovery.
+func (o ConnectorGcpProviderConfigurationOutput) AwsConfigConnectorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorGcpProviderConfiguration) string { return v.AwsConfigConnectorArn }).(pulumi.StringOutput)
+}
+
+// List of GCP regions to scan (e.g. us-central1).
+func (o ConnectorGcpProviderConfigurationOutput) GcpRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorGcpProviderConfiguration) []string { return v.GcpRegions }).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorGcpProviderConfigurationOutput) ScopeConfiguration() ConnectorGcpScopeConfigurationMapOutput {
+	return o.ApplyT(func(v ConnectorGcpProviderConfiguration) ConnectorGcpScopeConfigurationMap {
+		return v.ScopeConfiguration
+	}).(ConnectorGcpScopeConfigurationMapOutput)
+}
+
+type ConnectorGcpProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorGcpProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorGcpProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorGcpProviderConfigurationPtrOutput) ToConnectorGcpProviderConfigurationPtrOutput() ConnectorGcpProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorGcpProviderConfigurationPtrOutput) ToConnectorGcpProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorGcpProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorGcpProviderConfigurationPtrOutput) Elem() ConnectorGcpProviderConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorGcpProviderConfiguration) ConnectorGcpProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorGcpProviderConfiguration
+		return ret
+	}).(ConnectorGcpProviderConfigurationOutput)
+}
+
+// Whether to automatically install the VM scanner. Defaults to true.
+func (o ConnectorGcpProviderConfigurationPtrOutput) AutoInstallVmScanner() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpProviderConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoInstallVmScanner
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the AWS Config connector used for GCP resource discovery.
+func (o ConnectorGcpProviderConfigurationPtrOutput) AwsConfigConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsConfigConnectorArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of GCP regions to scan (e.g. us-central1).
+func (o ConnectorGcpProviderConfigurationPtrOutput) GcpRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorGcpProviderConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GcpRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorGcpProviderConfigurationPtrOutput) ScopeConfiguration() ConnectorGcpScopeConfigurationMapPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpProviderConfiguration) *ConnectorGcpScopeConfigurationMap {
+		if v == nil {
+			return nil
+		}
+		return &v.ScopeConfiguration
+	}).(ConnectorGcpScopeConfigurationMapPtrOutput)
+}
+
+// Defines which GCP resource types to scan and at what scope level. GCP supports multiple capabilities per connector.
+type ConnectorGcpScopeConfigurationMap struct {
+	ContainerImageScanning *ConnectorScopeConfiguration `pulumi:"containerImageScanning"`
+	ServerlessScanning     *ConnectorScopeConfiguration `pulumi:"serverlessScanning"`
+	VmScanning             *ConnectorScopeConfiguration `pulumi:"vmScanning"`
+}
+
+// ConnectorGcpScopeConfigurationMapInput is an input type that accepts ConnectorGcpScopeConfigurationMap and ConnectorGcpScopeConfigurationMapOutput values.
+// You can construct a concrete instance of `ConnectorGcpScopeConfigurationMapInput` via:
+//
+//	ConnectorGcpScopeConfigurationMap{ "key": ConnectorGcpScopeConfigurationArgs{...} }
+type ConnectorGcpScopeConfigurationMapInput interface {
+	pulumi.Input
+
+	ToConnectorGcpScopeConfigurationMapOutput() ConnectorGcpScopeConfigurationMapOutput
+	ToConnectorGcpScopeConfigurationMapOutputWithContext(context.Context) ConnectorGcpScopeConfigurationMapOutput
+}
+
+// Defines which GCP resource types to scan and at what scope level. GCP supports multiple capabilities per connector.
+type ConnectorGcpScopeConfigurationMapArgs struct {
+	ContainerImageScanning ConnectorScopeConfigurationPtrInput `pulumi:"containerImageScanning"`
+	ServerlessScanning     ConnectorScopeConfigurationPtrInput `pulumi:"serverlessScanning"`
+	VmScanning             ConnectorScopeConfigurationPtrInput `pulumi:"vmScanning"`
+}
+
+func (ConnectorGcpScopeConfigurationMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorGcpScopeConfigurationMap)(nil)).Elem()
+}
+
+func (i ConnectorGcpScopeConfigurationMapArgs) ToConnectorGcpScopeConfigurationMapOutput() ConnectorGcpScopeConfigurationMapOutput {
+	return i.ToConnectorGcpScopeConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i ConnectorGcpScopeConfigurationMapArgs) ToConnectorGcpScopeConfigurationMapOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpScopeConfigurationMapOutput)
+}
+
+func (i ConnectorGcpScopeConfigurationMapArgs) ToConnectorGcpScopeConfigurationMapPtrOutput() ConnectorGcpScopeConfigurationMapPtrOutput {
+	return i.ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorGcpScopeConfigurationMapArgs) ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpScopeConfigurationMapOutput).ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(ctx)
+}
+
+// ConnectorGcpScopeConfigurationMapPtrInput is an input type that accepts ConnectorGcpScopeConfigurationMapArgs, ConnectorGcpScopeConfigurationMapPtr and ConnectorGcpScopeConfigurationMapPtrOutput values.
+// You can construct a concrete instance of `ConnectorGcpScopeConfigurationMapPtrInput` via:
+//
+//	        ConnectorGcpScopeConfigurationMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorGcpScopeConfigurationMapPtrInput interface {
+	pulumi.Input
+
+	ToConnectorGcpScopeConfigurationMapPtrOutput() ConnectorGcpScopeConfigurationMapPtrOutput
+	ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(context.Context) ConnectorGcpScopeConfigurationMapPtrOutput
+}
+
+type connectorGcpScopeConfigurationMapPtrType ConnectorGcpScopeConfigurationMapArgs
+
+func ConnectorGcpScopeConfigurationMapPtr(v *ConnectorGcpScopeConfigurationMapArgs) ConnectorGcpScopeConfigurationMapPtrInput {
+	return (*connectorGcpScopeConfigurationMapPtrType)(v)
+}
+
+func (*connectorGcpScopeConfigurationMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorGcpScopeConfigurationMap)(nil)).Elem()
+}
+
+func (i *connectorGcpScopeConfigurationMapPtrType) ToConnectorGcpScopeConfigurationMapPtrOutput() ConnectorGcpScopeConfigurationMapPtrOutput {
+	return i.ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorGcpScopeConfigurationMapPtrType) ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorGcpScopeConfigurationMapPtrOutput)
+}
+
+// Defines which GCP resource types to scan and at what scope level. GCP supports multiple capabilities per connector.
+type ConnectorGcpScopeConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (ConnectorGcpScopeConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorGcpScopeConfigurationMap)(nil)).Elem()
+}
+
+func (o ConnectorGcpScopeConfigurationMapOutput) ToConnectorGcpScopeConfigurationMapOutput() ConnectorGcpScopeConfigurationMapOutput {
+	return o
+}
+
+func (o ConnectorGcpScopeConfigurationMapOutput) ToConnectorGcpScopeConfigurationMapOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationMapOutput {
+	return o
+}
+
+func (o ConnectorGcpScopeConfigurationMapOutput) ToConnectorGcpScopeConfigurationMapPtrOutput() ConnectorGcpScopeConfigurationMapPtrOutput {
+	return o.ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorGcpScopeConfigurationMapOutput) ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorGcpScopeConfigurationMap) *ConnectorGcpScopeConfigurationMap {
+		return &v
+	}).(ConnectorGcpScopeConfigurationMapPtrOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationMapOutput) ContainerImageScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorGcpScopeConfigurationMap) *ConnectorScopeConfiguration {
+		return v.ContainerImageScanning
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationMapOutput) ServerlessScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorGcpScopeConfigurationMap) *ConnectorScopeConfiguration { return v.ServerlessScanning }).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationMapOutput) VmScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorGcpScopeConfigurationMap) *ConnectorScopeConfiguration { return v.VmScanning }).(ConnectorScopeConfigurationPtrOutput)
+}
+
+type ConnectorGcpScopeConfigurationMapPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorGcpScopeConfigurationMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorGcpScopeConfigurationMap)(nil)).Elem()
+}
+
+func (o ConnectorGcpScopeConfigurationMapPtrOutput) ToConnectorGcpScopeConfigurationMapPtrOutput() ConnectorGcpScopeConfigurationMapPtrOutput {
+	return o
+}
+
+func (o ConnectorGcpScopeConfigurationMapPtrOutput) ToConnectorGcpScopeConfigurationMapPtrOutputWithContext(ctx context.Context) ConnectorGcpScopeConfigurationMapPtrOutput {
+	return o
+}
+
+func (o ConnectorGcpScopeConfigurationMapPtrOutput) Elem() ConnectorGcpScopeConfigurationMapOutput {
+	return o.ApplyT(func(v *ConnectorGcpScopeConfigurationMap) ConnectorGcpScopeConfigurationMap {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorGcpScopeConfigurationMap
+		return ret
+	}).(ConnectorGcpScopeConfigurationMapOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationMapPtrOutput) ContainerImageScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpScopeConfigurationMap) *ConnectorScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerImageScanning
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationMapPtrOutput) ServerlessScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpScopeConfigurationMap) *ConnectorScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServerlessScanning
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorGcpScopeConfigurationMapPtrOutput) VmScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorGcpScopeConfigurationMap) *ConnectorScopeConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -2649,8 +3111,10 @@ func (o ConnectorHealthPtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
 type ConnectorProviderConfiguration struct {
-	Azure ConnectorAzureProviderConfiguration `pulumi:"azure"`
+	Azure *ConnectorAzureProviderConfiguration `pulumi:"azure"`
+	Gcp   *ConnectorGcpProviderConfiguration   `pulumi:"gcp"`
 }
 
 // ConnectorProviderConfigurationInput is an input type that accepts ConnectorProviderConfigurationArgs and ConnectorProviderConfigurationOutput values.
@@ -2664,8 +3128,10 @@ type ConnectorProviderConfigurationInput interface {
 	ToConnectorProviderConfigurationOutputWithContext(context.Context) ConnectorProviderConfigurationOutput
 }
 
+// Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
 type ConnectorProviderConfigurationArgs struct {
-	Azure ConnectorAzureProviderConfigurationInput `pulumi:"azure"`
+	Azure ConnectorAzureProviderConfigurationPtrInput `pulumi:"azure"`
+	Gcp   ConnectorGcpProviderConfigurationPtrInput   `pulumi:"gcp"`
 }
 
 func (ConnectorProviderConfigurationArgs) ElementType() reflect.Type {
@@ -2680,6 +3146,7 @@ func (i ConnectorProviderConfigurationArgs) ToConnectorProviderConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProviderConfigurationOutput)
 }
 
+// Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
 type ConnectorProviderConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProviderConfigurationOutput) ElementType() reflect.Type {
@@ -2694,8 +3161,12 @@ func (o ConnectorProviderConfigurationOutput) ToConnectorProviderConfigurationOu
 	return o
 }
 
-func (o ConnectorProviderConfigurationOutput) Azure() ConnectorAzureProviderConfigurationOutput {
-	return o.ApplyT(func(v ConnectorProviderConfiguration) ConnectorAzureProviderConfiguration { return v.Azure }).(ConnectorAzureProviderConfigurationOutput)
+func (o ConnectorProviderConfigurationOutput) Azure() ConnectorAzureProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorProviderConfiguration) *ConnectorAzureProviderConfiguration { return v.Azure }).(ConnectorAzureProviderConfigurationPtrOutput)
+}
+
+func (o ConnectorProviderConfigurationOutput) Gcp() ConnectorGcpProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorProviderConfiguration) *ConnectorGcpProviderConfiguration { return v.Gcp }).(ConnectorGcpProviderConfigurationPtrOutput)
 }
 
 type ConnectorProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2727,14 +3198,23 @@ func (o ConnectorProviderConfigurationPtrOutput) Azure() ConnectorAzureProviderC
 		if v == nil {
 			return nil
 		}
-		return &v.Azure
+		return v.Azure
 	}).(ConnectorAzureProviderConfigurationPtrOutput)
 }
 
-// Defines the scope of Azure resources to monitor for a specific resource type.
+func (o ConnectorProviderConfigurationPtrOutput) Gcp() ConnectorGcpProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorProviderConfiguration) *ConnectorGcpProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Gcp
+	}).(ConnectorGcpProviderConfigurationPtrOutput)
+}
+
+// Defines the scope of cloud resources to monitor for a specific resource type.
 type ConnectorScopeConfiguration struct {
 	ScopeType ConnectorScopeType `pulumi:"scopeType"`
-	// List of subscription IDs. Empty for TENANT scope.
+	// List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
 	ScopeValues []string             `pulumi:"scopeValues"`
 	State       *ConnectorScopeState `pulumi:"state"`
 	// Reason for the current scope state.
@@ -2752,10 +3232,10 @@ type ConnectorScopeConfigurationInput interface {
 	ToConnectorScopeConfigurationOutputWithContext(context.Context) ConnectorScopeConfigurationOutput
 }
 
-// Defines the scope of Azure resources to monitor for a specific resource type.
+// Defines the scope of cloud resources to monitor for a specific resource type.
 type ConnectorScopeConfigurationArgs struct {
 	ScopeType ConnectorScopeTypeInput `pulumi:"scopeType"`
-	// List of subscription IDs. Empty for TENANT scope.
+	// List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
 	ScopeValues pulumi.StringArrayInput     `pulumi:"scopeValues"`
 	State       ConnectorScopeStatePtrInput `pulumi:"state"`
 	// Reason for the current scope state.
@@ -2815,7 +3295,7 @@ func (i *connectorScopeConfigurationPtrType) ToConnectorScopeConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorScopeConfigurationPtrOutput)
 }
 
-// Defines the scope of Azure resources to monitor for a specific resource type.
+// Defines the scope of cloud resources to monitor for a specific resource type.
 type ConnectorScopeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorScopeConfigurationOutput) ElementType() reflect.Type {
@@ -2844,7 +3324,7 @@ func (o ConnectorScopeConfigurationOutput) ScopeType() ConnectorScopeTypeOutput 
 	return o.ApplyT(func(v ConnectorScopeConfiguration) ConnectorScopeType { return v.ScopeType }).(ConnectorScopeTypeOutput)
 }
 
-// List of subscription IDs. Empty for TENANT scope.
+// List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
 func (o ConnectorScopeConfigurationOutput) ScopeValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorScopeConfiguration) []string { return v.ScopeValues }).(pulumi.StringArrayOutput)
 }
@@ -2891,7 +3371,7 @@ func (o ConnectorScopeConfigurationPtrOutput) ScopeType() ConnectorScopeTypePtrO
 	}).(ConnectorScopeTypePtrOutput)
 }
 
-// List of subscription IDs. Empty for TENANT scope.
+// List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
 func (o ConnectorScopeConfigurationPtrOutput) ScopeValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectorScopeConfiguration) []string {
 		if v == nil {
@@ -4621,7 +5101,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationScopeSettingsInput)(nil)).Elem(), CodeSecurityScanConfigurationScopeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationScopeSettingsPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationScopeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureProviderConfigurationInput)(nil)).Elem(), ConnectorAzureProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureProviderConfigurationPtrInput)(nil)).Elem(), ConnectorAzureProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationMapInput)(nil)).Elem(), ConnectorAzureScopeConfigurationMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationMapPtrInput)(nil)).Elem(), ConnectorAzureScopeConfigurationMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorGcpProviderConfigurationInput)(nil)).Elem(), ConnectorGcpProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorGcpProviderConfigurationPtrInput)(nil)).Elem(), ConnectorGcpProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorGcpScopeConfigurationMapInput)(nil)).Elem(), ConnectorGcpScopeConfigurationMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorGcpScopeConfigurationMapPtrInput)(nil)).Elem(), ConnectorGcpScopeConfigurationMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProviderConfigurationInput)(nil)).Elem(), ConnectorProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScopeConfigurationInput)(nil)).Elem(), ConnectorScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScopeConfigurationPtrInput)(nil)).Elem(), ConnectorScopeConfigurationArgs{})
@@ -4676,6 +5162,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorAzureProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationMapOutput{})
 	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationMapPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorGcpProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorGcpProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorGcpScopeConfigurationMapOutput{})
+	pulumi.RegisterOutputType(ConnectorGcpScopeConfigurationMapPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorHealthOutput{})
 	pulumi.RegisterOutputType(ConnectorHealthPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProviderConfigurationOutput{})

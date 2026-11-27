@@ -32,6 +32,8 @@ __all__ = [
     'ConnectionFunctionConfigArgsDict',
     'ConnectionFunctionKeyValueStoreAssociationArgs',
     'ConnectionFunctionKeyValueStoreAssociationArgsDict',
+    'ConnectionGroupViewerFallbackArgs',
+    'ConnectionGroupViewerFallbackArgsDict',
     'ContinuousDeploymentPolicyConfigArgs',
     'ContinuousDeploymentPolicyConfigArgsDict',
     'ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs',
@@ -114,6 +116,8 @@ __all__ = [
     'DistributionTenantCertificateArgsDict',
     'DistributionTenantCustomizationsArgs',
     'DistributionTenantCustomizationsArgsDict',
+    'DistributionTenantDomainMappingArgs',
+    'DistributionTenantDomainMappingArgsDict',
     'DistributionTenantGeoRestrictionCustomizationArgs',
     'DistributionTenantGeoRestrictionCustomizationArgsDict',
     'DistributionTenantManagedCertificateRequestArgs',
@@ -130,6 +134,18 @@ __all__ = [
     'DistributionViewerMtlsConfigArgsDict',
     'DistributionVpcOriginConfigArgs',
     'DistributionVpcOriginConfigArgsDict',
+    'FieldLevelEncryptionConfigContentTypeProfileArgs',
+    'FieldLevelEncryptionConfigContentTypeProfileArgsDict',
+    'FieldLevelEncryptionConfigContentTypeProfileConfigArgs',
+    'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict',
+    'FieldLevelEncryptionConfigQueryArgProfileArgs',
+    'FieldLevelEncryptionConfigQueryArgProfileArgsDict',
+    'FieldLevelEncryptionConfigQueryArgProfileConfigArgs',
+    'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict',
+    'FieldLevelEncryptionProfileConfigArgs',
+    'FieldLevelEncryptionProfileConfigArgsDict',
+    'FieldLevelEncryptionProfileEncryptionEntityArgs',
+    'FieldLevelEncryptionProfileEncryptionEntityArgsDict',
     'FunctionConfigArgs',
     'FunctionConfigArgsDict',
     'FunctionKeyValueStoreAssociationArgs',
@@ -836,6 +852,25 @@ class ConnectionFunctionKeyValueStoreAssociationArgs:
     @key_value_store_arn.setter
     def key_value_store_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "key_value_store_arn", value)
+
+
+class ConnectionGroupViewerFallbackArgsDict(TypedDict):
+    distribution_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ConnectionGroupViewerFallbackArgs:
+    def __init__(__self__, *,
+                 distribution_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "distribution_id", distribution_id)
+
+    @_builtins.property
+    @pulumi.getter(name="distributionId")
+    def distribution_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "distribution_id")
+
+    @distribution_id.setter
+    def distribution_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "distribution_id", value)
 
 
 class ContinuousDeploymentPolicyConfigArgsDict(TypedDict):
@@ -2825,6 +2860,7 @@ class DistributionCustomOriginConfigArgsDict(TypedDict):
     """
     Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
     """
+    origin_http_version: NotRequired[pulumi.Input[Optional['DistributionCustomOriginConfigOriginHttpVersion']]]
     origin_keepalive_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
@@ -2852,6 +2888,7 @@ class DistributionCustomOriginConfigArgs:
                  http_port: pulumi.Input[Optional[_builtins.int]] = None,
                  https_port: pulumi.Input[Optional[_builtins.int]] = None,
                  ip_address_type: pulumi.Input[Optional['DistributionCustomOriginConfigIpAddressType']] = None,
+                 origin_http_version: pulumi.Input[Optional['DistributionCustomOriginConfigOriginHttpVersion']] = None,
                  origin_keepalive_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  origin_mtls_config: pulumi.Input[Optional['DistributionOriginMtlsConfigArgs']] = None,
                  origin_read_timeout: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2881,6 +2918,8 @@ class DistributionCustomOriginConfigArgs:
             pulumi.set(__self__, "https_port", https_port)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if origin_http_version is not None:
+            pulumi.set(__self__, "origin_http_version", origin_http_version)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_mtls_config is not None:
@@ -2940,6 +2979,15 @@ class DistributionCustomOriginConfigArgs:
     @ip_address_type.setter
     def ip_address_type(self, value: pulumi.Input[Optional['DistributionCustomOriginConfigIpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originHttpVersion")
+    def origin_http_version(self) -> pulumi.Input[Optional['DistributionCustomOriginConfigOriginHttpVersion']]:
+        return pulumi.get(self, "origin_http_version")
+
+    @origin_http_version.setter
+    def origin_http_version(self, value: pulumi.Input[Optional['DistributionCustomOriginConfigOriginHttpVersion']]):
+        pulumi.set(self, "origin_http_version", value)
 
     @_builtins.property
     @pulumi.getter(name="originKeepaliveTimeout")
@@ -5268,6 +5316,53 @@ class DistributionTenantCustomizationsArgs:
         pulumi.set(self, "web_acl", value)
 
 
+class DistributionTenantDomainMappingArgsDict(TypedDict):
+    domain: pulumi.Input[_builtins.str]
+    """
+    The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`.
+    """
+    serve_on: pulumi.Input['DistributionTenantDomainMappingServeOn']
+    """
+    Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+    """
+
+@pulumi.input_type
+class DistributionTenantDomainMappingArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[_builtins.str],
+                 serve_on: pulumi.Input['DistributionTenantDomainMappingServeOn']):
+        """
+        :param pulumi.Input[_builtins.str] domain: The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`.
+        :param pulumi.Input['DistributionTenantDomainMappingServeOn'] serve_on: Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "serve_on", serve_on)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[_builtins.str]:
+        """
+        The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serveOn")
+    def serve_on(self) -> pulumi.Input['DistributionTenantDomainMappingServeOn']:
+        """
+        Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+        """
+        return pulumi.get(self, "serve_on")
+
+    @serve_on.setter
+    def serve_on(self, value: pulumi.Input['DistributionTenantDomainMappingServeOn']):
+        pulumi.set(self, "serve_on", value)
+
+
 class DistributionTenantGeoRestrictionCustomizationArgsDict(TypedDict):
     """
     The customizations that you specified for the distribution tenant for geographic restrictions.
@@ -5860,6 +5955,7 @@ class DistributionVpcOriginConfigArgsDict(TypedDict):
     """
     The VPC origin ID.
     """
+    origin_http_version: NotRequired[pulumi.Input[Optional['DistributionVpcOriginConfigOriginHttpVersion']]]
     origin_keepalive_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
@@ -5879,6 +5975,7 @@ class DistributionVpcOriginConfigArgsDict(TypedDict):
 class DistributionVpcOriginConfigArgs:
     def __init__(__self__, *,
                  vpc_origin_id: pulumi.Input[_builtins.str],
+                 origin_http_version: pulumi.Input[Optional['DistributionVpcOriginConfigOriginHttpVersion']] = None,
                  origin_keepalive_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  origin_read_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  owner_account_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -5893,6 +5990,8 @@ class DistributionVpcOriginConfigArgs:
         :param pulumi.Input[_builtins.str] owner_account_id: The account ID of the AWS-account that owns the VPC origin.
         """
         pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
+        if origin_http_version is not None:
+            pulumi.set(__self__, "origin_http_version", origin_http_version)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
@@ -5911,6 +6010,15 @@ class DistributionVpcOriginConfigArgs:
     @vpc_origin_id.setter
     def vpc_origin_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vpc_origin_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originHttpVersion")
+    def origin_http_version(self) -> pulumi.Input[Optional['DistributionVpcOriginConfigOriginHttpVersion']]:
+        return pulumi.get(self, "origin_http_version")
+
+    @origin_http_version.setter
+    def origin_http_version(self, value: pulumi.Input[Optional['DistributionVpcOriginConfigOriginHttpVersion']]):
+        pulumi.set(self, "origin_http_version", value)
 
     @_builtins.property
     @pulumi.getter(name="originKeepaliveTimeout")
@@ -5949,6 +6057,395 @@ class DistributionVpcOriginConfigArgs:
     @owner_account_id.setter
     def owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
+
+
+class FieldLevelEncryptionConfigContentTypeProfileArgsDict(TypedDict):
+    """
+    A content type paired with the field-level encryption profile that encrypts it.
+    """
+    content_type: pulumi.Input[_builtins.str]
+    """
+    The content type CloudFront encrypts. The service accepts only application/x-www-form-urlencoded.
+    """
+    format: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileFormat']
+    """
+    The encryption format CloudFront uses for this content type.
+    """
+    profile_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the field-level encryption profile CloudFront uses for this content type. Required, so that it cannot be omitted: the service accepts a content-type profile with the member absent on create and refuses one on update, and an update sends the whole profile list, so a configuration created that way could never be updated again. Supply an empty string to configure a content type and forward it WITHOUT field-level encryption. That mode is available through this resource and round-trips: create, update and read all accept and return the empty string, and it is the service's own encoding for the state -- asked for a content-type list with no items, CloudFront returns one item whose ProfileId is empty. Note that this is not the same as omitting the content type from the configuration, because ForwardWhenContentTypeIsUnknown governs only content types absent from it.
+    """
+
+@pulumi.input_type
+class FieldLevelEncryptionConfigContentTypeProfileArgs:
+    def __init__(__self__, *,
+                 content_type: pulumi.Input[_builtins.str],
+                 format: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileFormat'],
+                 profile_id: pulumi.Input[_builtins.str]):
+        """
+        A content type paired with the field-level encryption profile that encrypts it.
+
+        :param pulumi.Input[_builtins.str] content_type: The content type CloudFront encrypts. The service accepts only application/x-www-form-urlencoded.
+        :param pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileFormat'] format: The encryption format CloudFront uses for this content type.
+        :param pulumi.Input[_builtins.str] profile_id: The identifier of the field-level encryption profile CloudFront uses for this content type. Required, so that it cannot be omitted: the service accepts a content-type profile with the member absent on create and refuses one on update, and an update sends the whole profile list, so a configuration created that way could never be updated again. Supply an empty string to configure a content type and forward it WITHOUT field-level encryption. That mode is available through this resource and round-trips: create, update and read all accept and return the empty string, and it is the service's own encoding for the state -- asked for a content-type list with no items, CloudFront returns one item whose ProfileId is empty. Note that this is not the same as omitting the content type from the configuration, because ForwardWhenContentTypeIsUnknown governs only content types absent from it.
+        """
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "profile_id", profile_id)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The content type CloudFront encrypts. The service accepts only application/x-www-form-urlencoded.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileFormat']:
+        """
+        The encryption format CloudFront uses for this content type.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileFormat']):
+        pulumi.set(self, "format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileId")
+    def profile_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the field-level encryption profile CloudFront uses for this content type. Required, so that it cannot be omitted: the service accepts a content-type profile with the member absent on create and refuses one on update, and an update sends the whole profile list, so a configuration created that way could never be updated again. Supply an empty string to configure a content type and forward it WITHOUT field-level encryption. That mode is available through this resource and round-trips: create, update and read all accept and return the empty string, and it is the service's own encoding for the state -- asked for a content-type list with no items, CloudFront returns one item whose ProfileId is empty. Note that this is not the same as omitting the content type from the configuration, because ForwardWhenContentTypeIsUnknown governs only content types absent from it.
+        """
+        return pulumi.get(self, "profile_id")
+
+    @profile_id.setter
+    def profile_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "profile_id", value)
+
+
+class FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict(TypedDict):
+    """
+    How CloudFront handles content types, including the profile paired with each one.
+    """
+    content_type_profiles: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileArgsDict']]]
+    """
+    The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+    """
+    forward_when_content_type_is_unknown: pulumi.Input[_builtins.bool]
+    """
+    Whether CloudFront forwards a request when the content type names a profile that does not exist.
+    """
+
+@pulumi.input_type
+class FieldLevelEncryptionConfigContentTypeProfileConfigArgs:
+    def __init__(__self__, *,
+                 content_type_profiles: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileArgs']]],
+                 forward_when_content_type_is_unknown: pulumi.Input[_builtins.bool]):
+        """
+        How CloudFront handles content types, including the profile paired with each one.
+
+        :param pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileArgs']]] content_type_profiles: The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+        :param pulumi.Input[_builtins.bool] forward_when_content_type_is_unknown: Whether CloudFront forwards a request when the content type names a profile that does not exist.
+        """
+        pulumi.set(__self__, "content_type_profiles", content_type_profiles)
+        pulumi.set(__self__, "forward_when_content_type_is_unknown", forward_when_content_type_is_unknown)
+
+    @_builtins.property
+    @pulumi.getter(name="contentTypeProfiles")
+    def content_type_profiles(self) -> pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileArgs']]]:
+        """
+        The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+        """
+        return pulumi.get(self, "content_type_profiles")
+
+    @content_type_profiles.setter
+    def content_type_profiles(self, value: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileArgs']]]):
+        pulumi.set(self, "content_type_profiles", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forwardWhenContentTypeIsUnknown")
+    def forward_when_content_type_is_unknown(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether CloudFront forwards a request when the content type names a profile that does not exist.
+        """
+        return pulumi.get(self, "forward_when_content_type_is_unknown")
+
+    @forward_when_content_type_is_unknown.setter
+    def forward_when_content_type_is_unknown(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "forward_when_content_type_is_unknown", value)
+
+
+class FieldLevelEncryptionConfigQueryArgProfileArgsDict(TypedDict):
+    """
+    A query argument paired with the field-level encryption profile that encrypts it.
+    """
+    profile_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the field-level encryption profile CloudFront uses for this query argument.
+    """
+    query_arg: pulumi.Input[_builtins.str]
+    """
+    The query argument that CloudFront encrypts with the paired profile.
+    """
+
+@pulumi.input_type
+class FieldLevelEncryptionConfigQueryArgProfileArgs:
+    def __init__(__self__, *,
+                 profile_id: pulumi.Input[_builtins.str],
+                 query_arg: pulumi.Input[_builtins.str]):
+        """
+        A query argument paired with the field-level encryption profile that encrypts it.
+
+        :param pulumi.Input[_builtins.str] profile_id: The identifier of the field-level encryption profile CloudFront uses for this query argument.
+        :param pulumi.Input[_builtins.str] query_arg: The query argument that CloudFront encrypts with the paired profile.
+        """
+        pulumi.set(__self__, "profile_id", profile_id)
+        pulumi.set(__self__, "query_arg", query_arg)
+
+    @_builtins.property
+    @pulumi.getter(name="profileId")
+    def profile_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the field-level encryption profile CloudFront uses for this query argument.
+        """
+        return pulumi.get(self, "profile_id")
+
+    @profile_id.setter
+    def profile_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "profile_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryArg")
+    def query_arg(self) -> pulumi.Input[_builtins.str]:
+        """
+        The query argument that CloudFront encrypts with the paired profile.
+        """
+        return pulumi.get(self, "query_arg")
+
+    @query_arg.setter
+    def query_arg(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query_arg", value)
+
+
+class FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict(TypedDict):
+    """
+    How CloudFront handles query arguments, including the profile paired with each one.
+    """
+    forward_when_query_arg_profile_is_unknown: pulumi.Input[_builtins.bool]
+    """
+    Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+    """
+    query_arg_profiles: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileArgsDict']]]
+    """
+    The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+    """
+
+@pulumi.input_type
+class FieldLevelEncryptionConfigQueryArgProfileConfigArgs:
+    def __init__(__self__, *,
+                 forward_when_query_arg_profile_is_unknown: pulumi.Input[_builtins.bool],
+                 query_arg_profiles: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileArgs']]]):
+        """
+        How CloudFront handles query arguments, including the profile paired with each one.
+
+        :param pulumi.Input[_builtins.bool] forward_when_query_arg_profile_is_unknown: Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+        :param pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileArgs']]] query_arg_profiles: The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+        """
+        pulumi.set(__self__, "forward_when_query_arg_profile_is_unknown", forward_when_query_arg_profile_is_unknown)
+        pulumi.set(__self__, "query_arg_profiles", query_arg_profiles)
+
+    @_builtins.property
+    @pulumi.getter(name="forwardWhenQueryArgProfileIsUnknown")
+    def forward_when_query_arg_profile_is_unknown(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+        """
+        return pulumi.get(self, "forward_when_query_arg_profile_is_unknown")
+
+    @forward_when_query_arg_profile_is_unknown.setter
+    def forward_when_query_arg_profile_is_unknown(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "forward_when_query_arg_profile_is_unknown", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryArgProfiles")
+    def query_arg_profiles(self) -> pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileArgs']]]:
+        """
+        The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+        """
+        return pulumi.get(self, "query_arg_profiles")
+
+    @query_arg_profiles.setter
+    def query_arg_profiles(self, value: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileArgs']]]):
+        pulumi.set(self, "query_arg_profiles", value)
+
+
+class FieldLevelEncryptionProfileConfigArgsDict(TypedDict):
+    """
+    The configuration of a field-level encryption profile.
+    """
+    caller_reference: pulumi.Input[_builtins.str]
+    """
+    A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+    """
+    encryption_entities: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntityArgsDict']]]
+    """
+    The encryption entities of the field-level encryption profile. At least one entity is required.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the field-level encryption profile. Names are unique within an AWS account.
+    """
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional comment describing the field-level encryption profile.
+    """
+
+@pulumi.input_type
+class FieldLevelEncryptionProfileConfigArgs:
+    def __init__(__self__, *,
+                 caller_reference: pulumi.Input[_builtins.str],
+                 encryption_entities: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntityArgs']]],
+                 name: pulumi.Input[_builtins.str],
+                 comment: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The configuration of a field-level encryption profile.
+
+        :param pulumi.Input[_builtins.str] caller_reference: A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+        :param pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntityArgs']]] encryption_entities: The encryption entities of the field-level encryption profile. At least one entity is required.
+        :param pulumi.Input[_builtins.str] name: The name of the field-level encryption profile. Names are unique within an AWS account.
+        :param pulumi.Input[_builtins.str] comment: An optional comment describing the field-level encryption profile.
+        """
+        pulumi.set(__self__, "caller_reference", caller_reference)
+        pulumi.set(__self__, "encryption_entities", encryption_entities)
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+
+    @_builtins.property
+    @pulumi.getter(name="callerReference")
+    def caller_reference(self) -> pulumi.Input[_builtins.str]:
+        """
+        A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+        """
+        return pulumi.get(self, "caller_reference")
+
+    @caller_reference.setter
+    def caller_reference(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "caller_reference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionEntities")
+    def encryption_entities(self) -> pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntityArgs']]]:
+        """
+        The encryption entities of the field-level encryption profile. At least one entity is required.
+        """
+        return pulumi.get(self, "encryption_entities")
+
+    @encryption_entities.setter
+    def encryption_entities(self, value: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntityArgs']]]):
+        pulumi.set(self, "encryption_entities", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the field-level encryption profile. Names are unique within an AWS account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional comment describing the field-level encryption profile.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+
+class FieldLevelEncryptionProfileEncryptionEntityArgsDict(TypedDict):
+    """
+    A public key, its provider identity, and the field patterns CloudFront encrypts with that key.
+    """
+    field_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The request-body field names to encrypt. A pattern is either a full field name or leading characters followed by a wildcard (*). Patterns are case-sensitive and must not overlap.
+    """
+    provider_id: pulumi.Input[_builtins.str]
+    """
+    The provider associated with the public key. The same value must be supplied with the private key for an application to decrypt the data.
+    """
+    public_key_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the CloudFront public key used to encrypt the fields that match the patterns.
+    """
+
+@pulumi.input_type
+class FieldLevelEncryptionProfileEncryptionEntityArgs:
+    def __init__(__self__, *,
+                 field_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 provider_id: pulumi.Input[_builtins.str],
+                 public_key_id: pulumi.Input[_builtins.str]):
+        """
+        A public key, its provider identity, and the field patterns CloudFront encrypts with that key.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] field_patterns: The request-body field names to encrypt. A pattern is either a full field name or leading characters followed by a wildcard (*). Patterns are case-sensitive and must not overlap.
+        :param pulumi.Input[_builtins.str] provider_id: The provider associated with the public key. The same value must be supplied with the private key for an application to decrypt the data.
+        :param pulumi.Input[_builtins.str] public_key_id: The identifier of the CloudFront public key used to encrypt the fields that match the patterns.
+        """
+        pulumi.set(__self__, "field_patterns", field_patterns)
+        pulumi.set(__self__, "provider_id", provider_id)
+        pulumi.set(__self__, "public_key_id", public_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldPatterns")
+    def field_patterns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The request-body field names to encrypt. A pattern is either a full field name or leading characters followed by a wildcard (*). Patterns are case-sensitive and must not overlap.
+        """
+        return pulumi.get(self, "field_patterns")
+
+    @field_patterns.setter
+    def field_patterns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "field_patterns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerId")
+    def provider_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The provider associated with the public key. The same value must be supplied with the private key for an application to decrypt the data.
+        """
+        return pulumi.get(self, "provider_id")
+
+    @provider_id.setter
+    def provider_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicKeyId")
+    def public_key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the CloudFront public key used to encrypt the fields that match the patterns.
+        """
+        return pulumi.get(self, "public_key_id")
+
+    @public_key_id.setter
+    def public_key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "public_key_id", value)
 
 
 class FunctionConfigArgsDict(TypedDict):

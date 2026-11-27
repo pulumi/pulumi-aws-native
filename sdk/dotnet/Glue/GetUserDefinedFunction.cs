@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Glue
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+        /// </summary>
+        public readonly string? ArtifactLocation;
+        /// <summary>
         /// The Java class that contains the function code.
         /// </summary>
         public readonly string? ClassName;
@@ -88,6 +92,8 @@ namespace Pulumi.AwsNative.Glue
         private GetUserDefinedFunctionResult(
             string? arn,
 
+            string? artifactLocation,
+
             string? className,
 
             string? ownerName,
@@ -97,6 +103,7 @@ namespace Pulumi.AwsNative.Glue
             ImmutableArray<Outputs.UserDefinedFunctionResourceUri> resourceUris)
         {
             Arn = arn;
+            ArtifactLocation = artifactLocation;
             ClassName = className;
             OwnerName = ownerName;
             OwnerType = ownerType;

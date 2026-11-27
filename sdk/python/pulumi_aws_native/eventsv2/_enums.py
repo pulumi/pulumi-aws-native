@@ -8,10 +8,20 @@ from enum import Enum
 
 __all__ = [
     'EventBusState',
+    'EventSourceLogConfigurationIncludePayload',
+    'EventSourceLogConfigurationLevel',
     'EventSourceState',
+    'EventSourceWebhookDeduplicationConfigurationDeduplicationType',
+    'EventSourceWebhookHmacAuthConfigurationAlgorithm',
+    'EventSourceWebhookHmacAuthConfigurationEncoding',
+    'EventSourceWebhookHmacAuthConfigurationSecretEncoding',
+    'EventSourceWebhookHmacAuthConfigurationSignedMessageComposition',
     'SubscriberDeduplicationConfigurationDeduplicationType',
     'SubscriberFilterConfigurationLanguage',
     'SubscriberFilterScope',
+    'SubscriberInvokeConfigurationMskParametersPropertiesAcks',
+    'SubscriberInvokeConfigurationMskParametersPropertiesCompression',
+    'SubscriberInvokeConfigurationMskParametersPropertiesConnectivity',
     'SubscriberLogConfigurationIncludePayload',
     'SubscriberLogConfigurationLevel',
     'SubscriberPointInTimeConfigurationPointType',
@@ -38,6 +48,25 @@ class EventBusState(_builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:eventsv2:EventSourceLogConfigurationIncludePayload")
+class EventSourceLogConfigurationIncludePayload(_builtins.str, Enum):
+    """
+    Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+    """
+    FULL = "FULL"
+    ON_ERROR_ONLY = "ON_ERROR_ONLY"
+
+
+@pulumi.type_token("aws-native:eventsv2:EventSourceLogConfigurationLevel")
+class EventSourceLogConfigurationLevel(_builtins.str, Enum):
+    """
+    The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+    """
+    OFF = "OFF"
+    ERROR = "ERROR"
+    INFO = "INFO"
+
+
 @pulumi.type_token("aws-native:eventsv2:EventSourceState")
 class EventSourceState(_builtins.str, Enum):
     """
@@ -50,6 +79,67 @@ class EventSourceState(_builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
     DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:eventsv2:EventSourceWebhookDeduplicationConfigurationDeduplicationType")
+class EventSourceWebhookDeduplicationConfigurationDeduplicationType(_builtins.str, Enum):
+    """
+    How EventBridge detects duplicate events.
+
+    Valid values:
+    - CONTENT_BASED - Detects duplicates by a hash of the event content.
+    """
+    CONTENT_BASED = "CONTENT_BASED"
+
+
+@pulumi.type_token("aws-native:eventsv2:EventSourceWebhookHmacAuthConfigurationAlgorithm")
+class EventSourceWebhookHmacAuthConfigurationAlgorithm(_builtins.str, Enum):
+    """
+    The hash algorithm the provider uses to compute the signature.
+
+    Valid values:
+    - SHA256 - SHA-256.
+    - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+    """
+    SHA256 = "SHA256"
+    SHA1 = "SHA1"
+
+
+@pulumi.type_token("aws-native:eventsv2:EventSourceWebhookHmacAuthConfigurationEncoding")
+class EventSourceWebhookHmacAuthConfigurationEncoding(_builtins.str, Enum):
+    """
+    How the provider encodes the signature in the header.
+
+    Valid values:
+    - HEX - Hexadecimal.
+    - BASE64 - Base64.
+    """
+    HEX = "HEX"
+    BASE64 = "BASE64"
+
+
+@pulumi.type_token("aws-native:eventsv2:EventSourceWebhookHmacAuthConfigurationSecretEncoding")
+class EventSourceWebhookHmacAuthConfigurationSecretEncoding(_builtins.str, Enum):
+    """
+    How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+    """
+    RAW = "RAW"
+    BASE64 = "BASE64"
+
+
+@pulumi.type_token("aws-native:eventsv2:EventSourceWebhookHmacAuthConfigurationSignedMessageComposition")
+class EventSourceWebhookHmacAuthConfigurationSignedMessageComposition(_builtins.str, Enum):
+    """
+    How the provider assembles the message it signs from the request.
+
+    Valid values:
+    - BODY - The request body alone.
+    - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+    - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+    """
+    BODY = "BODY"
+    TIMESTAMP_DOT_BODY = "TIMESTAMP_DOT_BODY"
+    MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY = "MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY"
 
 
 @pulumi.type_token("aws-native:eventsv2:SubscriberDeduplicationConfigurationDeduplicationType")
@@ -76,6 +166,36 @@ class SubscriberFilterScope(_builtins.str, Enum):
     DATA = "DATA"
     METADATA = "METADATA"
     SYSTEM_METADATA = "SYSTEM_METADATA"
+
+
+@pulumi.type_token("aws-native:eventsv2:SubscriberInvokeConfigurationMskParametersPropertiesAcks")
+class SubscriberInvokeConfigurationMskParametersPropertiesAcks(_builtins.str, Enum):
+    """
+    Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+    """
+    ALL = "ALL"
+    LEADER = "LEADER"
+
+
+@pulumi.type_token("aws-native:eventsv2:SubscriberInvokeConfigurationMskParametersPropertiesCompression")
+class SubscriberInvokeConfigurationMskParametersPropertiesCompression(_builtins.str, Enum):
+    """
+    Producer compression codec applied to the record batch. Defaults to NONE.
+    """
+    NONE = "NONE"
+    GZIP = "GZIP"
+    SNAPPY = "SNAPPY"
+    LZ4 = "LZ4"
+    ZSTD = "ZSTD"
+
+
+@pulumi.type_token("aws-native:eventsv2:SubscriberInvokeConfigurationMskParametersPropertiesConnectivity")
+class SubscriberInvokeConfigurationMskParametersPropertiesConnectivity(_builtins.str, Enum):
+    """
+    Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+    """
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
 
 
 @pulumi.type_token("aws-native:eventsv2:SubscriberLogConfigurationIncludePayload")

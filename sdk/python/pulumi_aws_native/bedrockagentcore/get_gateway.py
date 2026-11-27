@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayResult:
-    def __init__(__self__, authorizer_configuration=None, authorizer_type=None, created_at=None, description=None, exception_level=None, gateway_arn=None, gateway_identifier=None, gateway_url=None, interceptor_configurations=None, kms_key_arn=None, name=None, policy_engine_configuration=None, protocol_configuration=None, protocol_type=None, role_arn=None, status=None, status_reasons=None, tags=None, updated_at=None, waf_configuration=None, web_acl_arn=None, workload_identity_details=None):
+    def __init__(__self__, authorizer_configuration=None, authorizer_type=None, created_at=None, description=None, domain_override=None, exception_level=None, gateway_arn=None, gateway_identifier=None, gateway_url=None, interceptor_configurations=None, kms_key_arn=None, name=None, policy_engine_configuration=None, protocol_configuration=None, protocol_type=None, role_arn=None, status=None, status_reasons=None, tags=None, updated_at=None, waf_configuration=None, web_acl_arn=None, workload_identity_details=None):
         if authorizer_configuration and not isinstance(authorizer_configuration, dict):
             raise TypeError("Expected argument 'authorizer_configuration' to be a dict")
         pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
@@ -38,6 +38,9 @@ class GetGatewayResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if domain_override and not isinstance(domain_override, dict):
+            raise TypeError("Expected argument 'domain_override' to be a dict")
+        pulumi.set(__self__, "domain_override", domain_override)
         if exception_level and not isinstance(exception_level, str):
             raise TypeError("Expected argument 'exception_level' to be a str")
         pulumi.set(__self__, "exception_level", exception_level)
@@ -121,6 +124,11 @@ class GetGatewayResult:
         The description for the gateway.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="domainOverride")
+    def domain_override(self) -> Optional['outputs.GatewayDomainOverride']:
+        return pulumi.get(self, "domain_override")
 
     @_builtins.property
     @pulumi.getter(name="exceptionLevel")
@@ -255,6 +263,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             authorizer_type=self.authorizer_type,
             created_at=self.created_at,
             description=self.description,
+            domain_override=self.domain_override,
             exception_level=self.exception_level,
             gateway_arn=self.gateway_arn,
             gateway_identifier=self.gateway_identifier,
@@ -290,6 +299,7 @@ def get_gateway(gateway_identifier: Optional[_builtins.str] = None,
         authorizer_type=pulumi.get(__ret__, 'authorizer_type'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
+        domain_override=pulumi.get(__ret__, 'domain_override'),
         exception_level=pulumi.get(__ret__, 'exception_level'),
         gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
         gateway_identifier=pulumi.get(__ret__, 'gateway_identifier'),
@@ -322,6 +332,7 @@ def get_gateway_output(gateway_identifier: pulumi.Input[Optional[_builtins.str]]
         authorizer_type=pulumi.get(__response__, 'authorizer_type'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
+        domain_override=pulumi.get(__response__, 'domain_override'),
         exception_level=pulumi.get(__response__, 'exception_level'),
         gateway_arn=pulumi.get(__response__, 'gateway_arn'),
         gateway_identifier=pulumi.get(__response__, 'gateway_identifier'),

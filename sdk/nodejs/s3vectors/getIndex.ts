@@ -40,6 +40,10 @@ export interface GetIndexResult {
      */
     readonly indexArn?: string;
     /**
+     * The metadata configuration for the vector index.
+     */
+    readonly metadataConfiguration?: outputs.s3vectors.IndexMetadataConfiguration;
+    /**
      * User tags (key-value pairs) to associate with the index.
      */
     readonly tags?: outputs.Tag[];

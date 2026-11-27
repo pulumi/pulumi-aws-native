@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// The ID of the multi-tenant distribution.
         /// </summary>
         public readonly string? DistributionId;
+        public readonly ImmutableArray<Outputs.DistributionTenantDomainMapping> DomainMappings;
         public readonly ImmutableArray<Outputs.DistributionTenantDomainResult> DomainResults;
         /// <summary>
         /// The domains associated with the distribution tenant.
@@ -129,6 +130,8 @@ namespace Pulumi.AwsNative.CloudFront
 
             string? distributionId,
 
+            ImmutableArray<Outputs.DistributionTenantDomainMapping> domainMappings,
+
             ImmutableArray<Outputs.DistributionTenantDomainResult> domainResults,
 
             ImmutableArray<string> domains,
@@ -152,6 +155,7 @@ namespace Pulumi.AwsNative.CloudFront
             CreatedTime = createdTime;
             Customizations = customizations;
             DistributionId = distributionId;
+            DomainMappings = domainMappings;
             DomainResults = domainResults;
             Domains = domains;
             ETag = eTag;

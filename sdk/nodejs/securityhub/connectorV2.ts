@@ -155,7 +155,7 @@ export class ConnectorV2 extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "name", "provider.azure.awsConfigConnectorArn", "provider.serviceNow.instanceName"] };
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "name", "provider.azure.awsConfigConnectorArn", "provider.gcp.awsConfigConnectorArn", "provider.serviceNow.instanceName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConnectorV2.__pulumiType, name, resourceInputs, opts);
     }

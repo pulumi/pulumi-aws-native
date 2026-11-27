@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAuthorizerResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAuthorizerResult:
-    def __init__(__self__, auth_type=None, authorizer_credentials=None, authorizer_id=None, authorizer_result_ttl_in_seconds=None, authorizer_uri=None, identity_source=None, identity_validation_expression=None, name=None, provider_arns=None, type=None):
+    def __init__(__self__, auth_type=None, authorizer_credentials=None, authorizer_id=None, authorizer_result_ttl_in_seconds=None, authorizer_uri=None, identity_source=None, identity_validation_expression=None, jwt_configuration=None, name=None, provider_arns=None, type=None):
         if auth_type and not isinstance(auth_type, str):
             raise TypeError("Expected argument 'auth_type' to be a str")
         pulumi.set(__self__, "auth_type", auth_type)
@@ -45,6 +46,9 @@ class GetAuthorizerResult:
         if identity_validation_expression and not isinstance(identity_validation_expression, str):
             raise TypeError("Expected argument 'identity_validation_expression' to be a str")
         pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+        if jwt_configuration and not isinstance(jwt_configuration, dict):
+            raise TypeError("Expected argument 'jwt_configuration' to be a dict")
+        pulumi.set(__self__, "jwt_configuration", jwt_configuration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -112,6 +116,11 @@ class GetAuthorizerResult:
         return pulumi.get(self, "identity_validation_expression")
 
     @_builtins.property
+    @pulumi.getter(name="jwtConfiguration")
+    def jwt_configuration(self) -> Optional['outputs.AuthorizerJwtConfiguration']:
+        return pulumi.get(self, "jwt_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
@@ -149,6 +158,7 @@ class AwaitableGetAuthorizerResult(GetAuthorizerResult):
             authorizer_uri=self.authorizer_uri,
             identity_source=self.identity_source,
             identity_validation_expression=self.identity_validation_expression,
+            jwt_configuration=self.jwt_configuration,
             name=self.name,
             provider_arns=self.provider_arns,
             type=self.type)
@@ -177,6 +187,7 @@ def get_authorizer(authorizer_id: Optional[_builtins.str] = None,
         authorizer_uri=pulumi.get(__ret__, 'authorizer_uri'),
         identity_source=pulumi.get(__ret__, 'identity_source'),
         identity_validation_expression=pulumi.get(__ret__, 'identity_validation_expression'),
+        jwt_configuration=pulumi.get(__ret__, 'jwt_configuration'),
         name=pulumi.get(__ret__, 'name'),
         provider_arns=pulumi.get(__ret__, 'provider_arns'),
         type=pulumi.get(__ret__, 'type'))
@@ -202,6 +213,7 @@ def get_authorizer_output(authorizer_id: pulumi.Input[Optional[_builtins.str]] =
         authorizer_uri=pulumi.get(__response__, 'authorizer_uri'),
         identity_source=pulumi.get(__response__, 'identity_source'),
         identity_validation_expression=pulumi.get(__response__, 'identity_validation_expression'),
+        jwt_configuration=pulumi.get(__response__, 'jwt_configuration'),
         name=pulumi.get(__response__, 'name'),
         provider_arns=pulumi.get(__response__, 'provider_arns'),
         type=pulumi.get(__response__, 'type')))

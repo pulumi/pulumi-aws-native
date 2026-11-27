@@ -33,7 +33,8 @@ type LookupGatewayResult struct {
 	// The date and time at which the gateway was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description for the gateway.
-	Description *string `pulumi:"description"`
+	Description    *string                `pulumi:"description"`
+	DomainOverride *GatewayDomainOverride `pulumi:"domainOverride"`
 	// The exception level for the gateway.
 	ExceptionLevel *GatewayExceptionLevel `pulumi:"exceptionLevel"`
 	// The ARN for the gateway.
@@ -112,6 +113,10 @@ func (o LookupGatewayResultOutput) CreatedAt() pulumi.StringPtrOutput {
 // The description for the gateway.
 func (o LookupGatewayResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGatewayResultOutput) DomainOverride() GatewayDomainOverridePtrOutput {
+	return o.ApplyT(func(v LookupGatewayResult) *GatewayDomainOverride { return v.DomainOverride }).(GatewayDomainOverridePtrOutput)
 }
 
 // The exception level for the gateway.

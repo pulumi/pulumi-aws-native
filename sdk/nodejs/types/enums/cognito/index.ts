@@ -62,6 +62,13 @@ export const UserPoolClientRefreshTokenRotationFeature = {
  */
 export type UserPoolClientRefreshTokenRotationFeature = (typeof UserPoolClientRefreshTokenRotationFeature)[keyof typeof UserPoolClientRefreshTokenRotationFeature];
 
+export const UserPoolDcrConfigurationEnableStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type UserPoolDcrConfigurationEnableStatus = (typeof UserPoolDcrConfigurationEnableStatus)[keyof typeof UserPoolDcrConfigurationEnableStatus];
+
 export const UserPoolEncryptionKeyType = {
     AwsOwnedKey: "AWS_OWNED_KEY",
     CustomerManagedKey: "CUSTOMER_MANAGED_KEY",

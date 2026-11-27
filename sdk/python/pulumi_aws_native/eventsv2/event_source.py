@@ -27,14 +27,16 @@ class EventSourceArgs:
                  configuration: pulumi.Input['EventSourceConfigurationArgs'],
                  event_bus_arn: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 details: pulumi.Input[Optional['EventSourceDetailsArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventSource resource.
 
-        :param pulumi.Input['EventSourceConfigurationArgs'] configuration: The event source configuration. Specify exactly one of AwsServiceEventsConfiguration or PartnerEventsConfiguration.
+        :param pulumi.Input['EventSourceConfigurationArgs'] configuration: The event source configuration. Specify exactly one of AwsServiceEventsConfiguration, PartnerEventsConfiguration or WebhookEventsConfiguration.
         :param pulumi.Input[_builtins.str] event_bus_arn: The ARN of the custom event bus the event source forwards onto.
         :param pulumi.Input[_builtins.str] description: A description of the event source. Control characters and Unicode line separators are not allowed.
+        :param pulumi.Input['EventSourceDetailsArgs'] details: Values EventBridge generated for the event source, such as a webhook's URL and the ARN of its secret. Absent for event source types that have no generated values.
         :param pulumi.Input[_builtins.str] name: The name of the event source. The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'. Names cannot begin with the reserved aws. prefix.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags assigned to the event source.
         """
@@ -42,6 +44,8 @@ class EventSourceArgs:
         pulumi.set(__self__, "event_bus_arn", event_bus_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -51,7 +55,7 @@ class EventSourceArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input['EventSourceConfigurationArgs']:
         """
-        The event source configuration. Specify exactly one of AwsServiceEventsConfiguration or PartnerEventsConfiguration.
+        The event source configuration. Specify exactly one of AwsServiceEventsConfiguration, PartnerEventsConfiguration or WebhookEventsConfiguration.
         """
         return pulumi.get(self, "configuration")
 
@@ -82,6 +86,18 @@ class EventSourceArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> pulumi.Input[Optional['EventSourceDetailsArgs']]:
+        """
+        Values EventBridge generated for the event source, such as a webhook's URL and the ARN of its secret. Absent for event source types that have no generated values.
+        """
+        return pulumi.get(self, "details")
+
+    @details.setter
+    def details(self, value: pulumi.Input[Optional['EventSourceDetailsArgs']]):
+        pulumi.set(self, "details", value)
 
     @_builtins.property
     @pulumi.getter
@@ -116,17 +132,19 @@ class EventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: pulumi.Input[Optional[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict', 'outputs.EventSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 details: pulumi.Input[Optional[Union['EventSourceDetailsArgs', 'EventSourceDetailsArgsDict', 'outputs.EventSourceDetails']]] = None,
                  event_bus_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::EventsV2::EventSource. A managed event source that forwards AWS service events or partner events onto a custom event bus.
+        Resource schema for AWS::EventsV2::EventSource. A managed event source that forwards AWS service events, partner events, or events a third-party provider sends to an inbound webhook URL, onto a custom event bus.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict', 'outputs.EventSourceConfiguration']] configuration: The event source configuration. Specify exactly one of AwsServiceEventsConfiguration or PartnerEventsConfiguration.
+        :param pulumi.Input[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict', 'outputs.EventSourceConfiguration']] configuration: The event source configuration. Specify exactly one of AwsServiceEventsConfiguration, PartnerEventsConfiguration or WebhookEventsConfiguration.
         :param pulumi.Input[_builtins.str] description: A description of the event source. Control characters and Unicode line separators are not allowed.
+        :param pulumi.Input[Union['EventSourceDetailsArgs', 'EventSourceDetailsArgsDict', 'outputs.EventSourceDetails']] details: Values EventBridge generated for the event source, such as a webhook's URL and the ARN of its secret. Absent for event source types that have no generated values.
         :param pulumi.Input[_builtins.str] event_bus_arn: The ARN of the custom event bus the event source forwards onto.
         :param pulumi.Input[_builtins.str] name: The name of the event source. The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'. Names cannot begin with the reserved aws. prefix.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the event source.
@@ -138,7 +156,7 @@ class EventSource(pulumi.CustomResource):
                  args: EventSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::EventsV2::EventSource. A managed event source that forwards AWS service events or partner events onto a custom event bus.
+        Resource schema for AWS::EventsV2::EventSource. A managed event source that forwards AWS service events, partner events, or events a third-party provider sends to an inbound webhook URL, onto a custom event bus.
 
         :param str resource_name: The name of the resource.
         :param EventSourceArgs args: The arguments to use to populate this resource's properties.
@@ -157,6 +175,7 @@ class EventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: pulumi.Input[Optional[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict', 'outputs.EventSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 details: pulumi.Input[Optional[Union['EventSourceDetailsArgs', 'EventSourceDetailsArgsDict', 'outputs.EventSourceDetails']]] = None,
                  event_bus_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -173,6 +192,7 @@ class EventSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
+            __props__.__dict__["details"] = details
             if event_bus_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'event_bus_arn'")
             __props__.__dict__["event_bus_arn"] = event_bus_arn
@@ -183,7 +203,7 @@ class EventSource(pulumi.CustomResource):
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["revoked"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration.partnerEventsConfiguration.partnerEventSourceArn", "eventBusArn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration.partnerEventsConfiguration.partnerEventSourceArn", "configuration.webhookEventsConfiguration.authConfiguration.basicHttpAuthConfiguration.username", "configuration.webhookEventsConfiguration.authConfiguration.hmacAuthConfiguration.secretEncoding", "eventBusArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventSource, __self__).__init__(
             'aws-native:eventsv2:EventSource',
@@ -210,6 +230,7 @@ class EventSource(pulumi.CustomResource):
         __props__.__dict__["configuration"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["details"] = None
         __props__.__dict__["event_bus_arn"] = None
         __props__.__dict__["event_source_arn"] = None
         __props__.__dict__["last_modified_time"] = None
@@ -229,7 +250,7 @@ class EventSource(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.EventSourceConfiguration']:
         """
-        The event source configuration. Specify exactly one of AwsServiceEventsConfiguration or PartnerEventsConfiguration.
+        The event source configuration. Specify exactly one of AwsServiceEventsConfiguration, PartnerEventsConfiguration or WebhookEventsConfiguration.
         """
         return pulumi.get(self, "configuration")
 
@@ -250,6 +271,14 @@ class EventSource(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter
+    def details(self) -> pulumi.Output[Optional['outputs.EventSourceDetails']]:
+        """
+        Values EventBridge generated for the event source, such as a webhook's URL and the ARN of its secret. Absent for event source types that have no generated values.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
     @pulumi.getter(name="eventBusArn")
     def event_bus_arn(self) -> pulumi.Output[_builtins.str]:
         """
@@ -261,7 +290,12 @@ class EventSource(pulumi.CustomResource):
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the event source. Its resource segment has the form event-sourcev2/<type>/<name>/<id>. The type segment is set by the service (aws.service for AWS service events, aws.partner for partner events) and is not part of the event source name. The id segment is a 25-character identifier generated by the service.
+        The Amazon Resource Name (ARN) of the event source. Its resource segment has the form event-sourcev2/<type>/<name>/<id>. Amazon EventBridge sets the type segment, which is not part of the event source name. The id segment is a 25-character identifier that EventBridge generates.
+
+        Valid values for the type segment:
+        - aws.service - AWS service events.
+        - aws.partner - Partner events.
+        - webhook - Webhook events.
         """
         return pulumi.get(self, "event_source_arn")
 

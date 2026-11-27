@@ -13,11 +13,13 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'IndexEncryptionConfiguration',
     'IndexMetadataConfiguration',
+    'IndexTextSearchConfiguration',
     'VectorBucketEncryptionConfiguration',
     'VectorBucketPolicyPolicy',
 ]
@@ -87,6 +89,8 @@ class IndexMetadataConfiguration(dict):
         suggest = None
         if key == "nonFilterableMetadataKeys":
             suggest = "non_filterable_metadata_keys"
+        elif key == "textSearchConfigurations":
+            suggest = "text_search_configurations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IndexMetadataConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -100,7 +104,8 @@ class IndexMetadataConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 non_filterable_metadata_keys: Optional[Sequence[_builtins.str]] = None):
+                 non_filterable_metadata_keys: Optional[Sequence[_builtins.str]] = None,
+                 text_search_configurations: Optional[Sequence['outputs.IndexTextSearchConfiguration']] = None):
         """
         The metadata configuration for the vector index.
 
@@ -108,6 +113,8 @@ class IndexMetadataConfiguration(dict):
         """
         if non_filterable_metadata_keys is not None:
             pulumi.set(__self__, "non_filterable_metadata_keys", non_filterable_metadata_keys)
+        if text_search_configurations is not None:
+            pulumi.set(__self__, "text_search_configurations", text_search_configurations)
 
     @_builtins.property
     @pulumi.getter(name="nonFilterableMetadataKeys")
@@ -116,6 +123,48 @@ class IndexMetadataConfiguration(dict):
         Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
         """
         return pulumi.get(self, "non_filterable_metadata_keys")
+
+    @_builtins.property
+    @pulumi.getter(name="textSearchConfigurations")
+    def text_search_configurations(self) -> Optional[Sequence['outputs.IndexTextSearchConfiguration']]:
+        return pulumi.get(self, "text_search_configurations")
+
+
+@pulumi.output_type
+class IndexTextSearchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataKey":
+            suggest = "metadata_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexTextSearchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexTextSearchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexTextSearchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata_key: _builtins.str,
+                 language: Optional['IndexTextSearchConfigurationLanguage'] = None):
+        pulumi.set(__self__, "metadata_key", metadata_key)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataKey")
+    def metadata_key(self) -> _builtins.str:
+        return pulumi.get(self, "metadata_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> Optional['IndexTextSearchConfigurationLanguage']:
+        return pulumi.get(self, "language")
 
 
 @pulumi.output_type

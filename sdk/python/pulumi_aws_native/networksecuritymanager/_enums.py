@@ -9,12 +9,15 @@ from enum import Enum
 __all__ = [
     'DeploymentStatus',
     'PolicyFirewallType',
+    'PolicyIgwFirewallConfigDefaultSubnetConnectivity',
     'PolicyStatus',
+    'PolicySubnetConnectivityOverrideConnectivityType',
     'PolicyWafConfigConflictResolution',
     'PolicyWafConfigExistingCustomerWebAclResolution',
     'RuleFirewallType',
     'RuleStatus',
     'RuleType',
+    'ScopeSpecializedScopeType',
     'ScopeStatus',
     'TemplateFirewallType',
     'TemplateStatus',
@@ -38,6 +41,17 @@ class PolicyFirewallType(_builtins.str, Enum):
     """
     WAF = "WAF"
     SHIELD_ADVANCED = "SHIELD_ADVANCED"
+    IGW_FIREWALL = "IGW_FIREWALL"
+
+
+@pulumi.type_token("aws-native:networksecuritymanager:PolicyIgwFirewallConfigDefaultSubnetConnectivity")
+class PolicyIgwFirewallConfigDefaultSubnetConnectivity(_builtins.str, Enum):
+    """
+    The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+    """
+    FLEXIBLE = "flexible"
+    BIDIRECTIONAL = "bidirectional"
+    OUTBOUND_ONLY = "outbound-only"
 
 
 @pulumi.type_token("aws-native:networksecuritymanager:PolicyStatus")
@@ -48,6 +62,17 @@ class PolicyStatus(_builtins.str, Enum):
     DRAFT = "DRAFT"
     ACTIVE = "ACTIVE"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:networksecuritymanager:PolicySubnetConnectivityOverrideConnectivityType")
+class PolicySubnetConnectivityOverrideConnectivityType(_builtins.str, Enum):
+    """
+    The connectivity treatment applied to the subnets that the referenced scope selects.
+    """
+    FLEXIBLE = "flexible"
+    BIDIRECTIONAL = "bidirectional"
+    OUTBOUND_ONLY = "outbound-only"
+    EXCLUDE = "exclude"
 
 
 @pulumi.type_token("aws-native:networksecuritymanager:PolicyWafConfigConflictResolution")
@@ -74,6 +99,7 @@ class RuleFirewallType(_builtins.str, Enum):
     The type of firewall for this rule.
     """
     WAF = "WAF"
+    IGW_FIREWALL = "IGW_FIREWALL"
 
 
 @pulumi.type_token("aws-native:networksecuritymanager:RuleStatus")
@@ -93,6 +119,14 @@ class RuleType(_builtins.str, Enum):
     """
     CONFIGURATION = "CONFIGURATION"
     INSPECTION = "INSPECTION"
+
+
+@pulumi.type_token("aws-native:networksecuritymanager:ScopeSpecializedScopeType")
+class ScopeSpecializedScopeType(_builtins.str, Enum):
+    """
+    Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+    """
+    IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE = "IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE"
 
 
 @pulumi.type_token("aws-native:networksecuritymanager:ScopeStatus")

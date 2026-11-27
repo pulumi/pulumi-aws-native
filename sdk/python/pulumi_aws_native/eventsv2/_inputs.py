@@ -24,10 +24,28 @@ __all__ = [
     'EventSourceAwsServiceEventsConfigurationArgsDict',
     'EventSourceConfigurationArgs',
     'EventSourceConfigurationArgsDict',
+    'EventSourceDetailsArgs',
+    'EventSourceDetailsArgsDict',
+    'EventSourceLogConfigurationArgs',
+    'EventSourceLogConfigurationArgsDict',
     'EventSourceOnFailureConfigurationArgs',
     'EventSourceOnFailureConfigurationArgsDict',
     'EventSourcePartnerEventsConfigurationArgs',
     'EventSourcePartnerEventsConfigurationArgsDict',
+    'EventSourceWebhookAuthConfigurationArgs',
+    'EventSourceWebhookAuthConfigurationArgsDict',
+    'EventSourceWebhookBasicHttpAuthConfigurationArgs',
+    'EventSourceWebhookBasicHttpAuthConfigurationArgsDict',
+    'EventSourceWebhookDeduplicationConfigurationArgs',
+    'EventSourceWebhookDeduplicationConfigurationArgsDict',
+    'EventSourceWebhookDetailsArgs',
+    'EventSourceWebhookDetailsArgsDict',
+    'EventSourceWebhookEventsConfigurationArgs',
+    'EventSourceWebhookEventsConfigurationArgsDict',
+    'EventSourceWebhookHmacAuthConfigurationArgs',
+    'EventSourceWebhookHmacAuthConfigurationArgsDict',
+    'EventSourceWebhookStaticTokenAuthConfigurationArgs',
+    'EventSourceWebhookStaticTokenAuthConfigurationArgsDict',
     'SubscriberBatchConfigurationArgs',
     'SubscriberBatchConfigurationArgsDict',
     'SubscriberDeduplicationConfigurationArgs',
@@ -48,6 +66,8 @@ __all__ = [
     'SubscriberInvokeConfigurationKinesisParametersPropertiesArgsDict',
     'SubscriberInvokeConfigurationLambdaParametersPropertiesArgs',
     'SubscriberInvokeConfigurationLambdaParametersPropertiesArgsDict',
+    'SubscriberInvokeConfigurationMskParametersPropertiesArgs',
+    'SubscriberInvokeConfigurationMskParametersPropertiesArgsDict',
     'SubscriberInvokeConfigurationSnsParametersPropertiesArgs',
     'SubscriberInvokeConfigurationSnsParametersPropertiesArgsDict',
     'SubscriberInvokeConfigurationSqsParametersPropertiesArgs',
@@ -62,6 +82,8 @@ __all__ = [
     'SubscriberLogConfigurationArgsDict',
     'SubscriberMessageAttributeValueArgs',
     'SubscriberMessageAttributeValueArgsDict',
+    'SubscriberMskHeaderArgs',
+    'SubscriberMskHeaderArgsDict',
     'SubscriberOnFailureConfigurationArgs',
     'SubscriberOnFailureConfigurationArgsDict',
     'SubscriberPointInTimeConfigurationArgs',
@@ -215,7 +237,7 @@ class EventSourceAwsServiceEventsConfigurationArgs:
 
 class EventSourceConfigurationArgsDict(TypedDict):
     """
-    Event source configuration. Exactly one of the two variants must be set.
+    Event source configuration. Exactly one of the three variants must be set.
     """
     aws_service_events_configuration: NotRequired[pulumi.Input[Optional['EventSourceAwsServiceEventsConfigurationArgsDict']]]
     """
@@ -225,22 +247,30 @@ class EventSourceConfigurationArgsDict(TypedDict):
     """
     Configuration for forwarding a partner event source's events.
     """
+    webhook_events_configuration: NotRequired[pulumi.Input[Optional['EventSourceWebhookEventsConfigurationArgsDict']]]
+    """
+    Configuration for receiving events that an external provider sends to a webhook URL.
+    """
 
 @pulumi.input_type
 class EventSourceConfigurationArgs:
     def __init__(__self__, *,
                  aws_service_events_configuration: pulumi.Input[Optional['EventSourceAwsServiceEventsConfigurationArgs']] = None,
-                 partner_events_configuration: pulumi.Input[Optional['EventSourcePartnerEventsConfigurationArgs']] = None):
+                 partner_events_configuration: pulumi.Input[Optional['EventSourcePartnerEventsConfigurationArgs']] = None,
+                 webhook_events_configuration: pulumi.Input[Optional['EventSourceWebhookEventsConfigurationArgs']] = None):
         """
-        Event source configuration. Exactly one of the two variants must be set.
+        Event source configuration. Exactly one of the three variants must be set.
 
         :param pulumi.Input['EventSourceAwsServiceEventsConfigurationArgs'] aws_service_events_configuration: Configuration for forwarding a single AWS service's events.
         :param pulumi.Input['EventSourcePartnerEventsConfigurationArgs'] partner_events_configuration: Configuration for forwarding a partner event source's events.
+        :param pulumi.Input['EventSourceWebhookEventsConfigurationArgs'] webhook_events_configuration: Configuration for receiving events that an external provider sends to a webhook URL.
         """
         if aws_service_events_configuration is not None:
             pulumi.set(__self__, "aws_service_events_configuration", aws_service_events_configuration)
         if partner_events_configuration is not None:
             pulumi.set(__self__, "partner_events_configuration", partner_events_configuration)
+        if webhook_events_configuration is not None:
+            pulumi.set(__self__, "webhook_events_configuration", webhook_events_configuration)
 
     @_builtins.property
     @pulumi.getter(name="awsServiceEventsConfiguration")
@@ -265,6 +295,106 @@ class EventSourceConfigurationArgs:
     @partner_events_configuration.setter
     def partner_events_configuration(self, value: pulumi.Input[Optional['EventSourcePartnerEventsConfigurationArgs']]):
         pulumi.set(self, "partner_events_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webhookEventsConfiguration")
+    def webhook_events_configuration(self) -> pulumi.Input[Optional['EventSourceWebhookEventsConfigurationArgs']]:
+        """
+        Configuration for receiving events that an external provider sends to a webhook URL.
+        """
+        return pulumi.get(self, "webhook_events_configuration")
+
+    @webhook_events_configuration.setter
+    def webhook_events_configuration(self, value: pulumi.Input[Optional['EventSourceWebhookEventsConfigurationArgs']]):
+        pulumi.set(self, "webhook_events_configuration", value)
+
+
+class EventSourceDetailsArgsDict(TypedDict):
+    """
+    Values Amazon EventBridge generated for the event source that depend on its type. Only the member for the event source's type is set.
+    """
+    webhook_details: NotRequired[pulumi.Input[Optional['EventSourceWebhookDetailsArgsDict']]]
+    """
+    Values generated for a webhook event source.
+    """
+
+@pulumi.input_type
+class EventSourceDetailsArgs:
+    def __init__(__self__, *,
+                 webhook_details: pulumi.Input[Optional['EventSourceWebhookDetailsArgs']] = None):
+        """
+        Values Amazon EventBridge generated for the event source that depend on its type. Only the member for the event source's type is set.
+
+        :param pulumi.Input['EventSourceWebhookDetailsArgs'] webhook_details: Values generated for a webhook event source.
+        """
+        if webhook_details is not None:
+            pulumi.set(__self__, "webhook_details", webhook_details)
+
+    @_builtins.property
+    @pulumi.getter(name="webhookDetails")
+    def webhook_details(self) -> pulumi.Input[Optional['EventSourceWebhookDetailsArgs']]:
+        """
+        Values generated for a webhook event source.
+        """
+        return pulumi.get(self, "webhook_details")
+
+    @webhook_details.setter
+    def webhook_details(self, value: pulumi.Input[Optional['EventSourceWebhookDetailsArgs']]):
+        pulumi.set(self, "webhook_details", value)
+
+
+class EventSourceLogConfigurationArgsDict(TypedDict):
+    """
+    Log settings for the webhook requests an event source receives.
+    """
+    include_payload: NotRequired[pulumi.Input[Optional['EventSourceLogConfigurationIncludePayload']]]
+    """
+    Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+    """
+    level: NotRequired[pulumi.Input[Optional['EventSourceLogConfigurationLevel']]]
+    """
+    The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+    """
+
+@pulumi.input_type
+class EventSourceLogConfigurationArgs:
+    def __init__(__self__, *,
+                 include_payload: pulumi.Input[Optional['EventSourceLogConfigurationIncludePayload']] = None,
+                 level: pulumi.Input[Optional['EventSourceLogConfigurationLevel']] = None):
+        """
+        Log settings for the webhook requests an event source receives.
+
+        :param pulumi.Input['EventSourceLogConfigurationIncludePayload'] include_payload: Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+        :param pulumi.Input['EventSourceLogConfigurationLevel'] level: The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+        """
+        if include_payload is not None:
+            pulumi.set(__self__, "include_payload", include_payload)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @_builtins.property
+    @pulumi.getter(name="includePayload")
+    def include_payload(self) -> pulumi.Input[Optional['EventSourceLogConfigurationIncludePayload']]:
+        """
+        Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+        """
+        return pulumi.get(self, "include_payload")
+
+    @include_payload.setter
+    def include_payload(self, value: pulumi.Input[Optional['EventSourceLogConfigurationIncludePayload']]):
+        pulumi.set(self, "include_payload", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional['EventSourceLogConfigurationLevel']]:
+        """
+        The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional['EventSourceLogConfigurationLevel']]):
+        pulumi.set(self, "level", value)
 
 
 class EventSourceOnFailureConfigurationArgsDict(TypedDict):
@@ -392,6 +522,704 @@ class EventSourcePartnerEventsConfigurationArgs:
     @pattern.setter
     def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
+
+
+class EventSourceWebhookAuthConfigurationArgsDict(TypedDict):
+    """
+    How the provider authenticates its webhook requests. Exactly one of the three variants must be set.
+    """
+    basic_http_auth_configuration: NotRequired[pulumi.Input[Optional['EventSourceWebhookBasicHttpAuthConfigurationArgsDict']]]
+    """
+    The provider sends HTTP Basic authentication credentials.
+    """
+    hmac_auth_configuration: NotRequired[pulumi.Input[Optional['EventSourceWebhookHmacAuthConfigurationArgsDict']]]
+    """
+    The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+    """
+    static_token_auth_configuration: NotRequired[pulumi.Input[Optional['EventSourceWebhookStaticTokenAuthConfigurationArgsDict']]]
+    """
+    The provider sends the secret as the value of an HTTP header.
+    """
+
+@pulumi.input_type
+class EventSourceWebhookAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 basic_http_auth_configuration: pulumi.Input[Optional['EventSourceWebhookBasicHttpAuthConfigurationArgs']] = None,
+                 hmac_auth_configuration: pulumi.Input[Optional['EventSourceWebhookHmacAuthConfigurationArgs']] = None,
+                 static_token_auth_configuration: pulumi.Input[Optional['EventSourceWebhookStaticTokenAuthConfigurationArgs']] = None):
+        """
+        How the provider authenticates its webhook requests. Exactly one of the three variants must be set.
+
+        :param pulumi.Input['EventSourceWebhookBasicHttpAuthConfigurationArgs'] basic_http_auth_configuration: The provider sends HTTP Basic authentication credentials.
+        :param pulumi.Input['EventSourceWebhookHmacAuthConfigurationArgs'] hmac_auth_configuration: The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+        :param pulumi.Input['EventSourceWebhookStaticTokenAuthConfigurationArgs'] static_token_auth_configuration: The provider sends the secret as the value of an HTTP header.
+        """
+        if basic_http_auth_configuration is not None:
+            pulumi.set(__self__, "basic_http_auth_configuration", basic_http_auth_configuration)
+        if hmac_auth_configuration is not None:
+            pulumi.set(__self__, "hmac_auth_configuration", hmac_auth_configuration)
+        if static_token_auth_configuration is not None:
+            pulumi.set(__self__, "static_token_auth_configuration", static_token_auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="basicHttpAuthConfiguration")
+    def basic_http_auth_configuration(self) -> pulumi.Input[Optional['EventSourceWebhookBasicHttpAuthConfigurationArgs']]:
+        """
+        The provider sends HTTP Basic authentication credentials.
+        """
+        return pulumi.get(self, "basic_http_auth_configuration")
+
+    @basic_http_auth_configuration.setter
+    def basic_http_auth_configuration(self, value: pulumi.Input[Optional['EventSourceWebhookBasicHttpAuthConfigurationArgs']]):
+        pulumi.set(self, "basic_http_auth_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hmacAuthConfiguration")
+    def hmac_auth_configuration(self) -> pulumi.Input[Optional['EventSourceWebhookHmacAuthConfigurationArgs']]:
+        """
+        The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+        """
+        return pulumi.get(self, "hmac_auth_configuration")
+
+    @hmac_auth_configuration.setter
+    def hmac_auth_configuration(self, value: pulumi.Input[Optional['EventSourceWebhookHmacAuthConfigurationArgs']]):
+        pulumi.set(self, "hmac_auth_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="staticTokenAuthConfiguration")
+    def static_token_auth_configuration(self) -> pulumi.Input[Optional['EventSourceWebhookStaticTokenAuthConfigurationArgs']]:
+        """
+        The provider sends the secret as the value of an HTTP header.
+        """
+        return pulumi.get(self, "static_token_auth_configuration")
+
+    @static_token_auth_configuration.setter
+    def static_token_auth_configuration(self, value: pulumi.Input[Optional['EventSourceWebhookStaticTokenAuthConfigurationArgs']]):
+        pulumi.set(self, "static_token_auth_configuration", value)
+
+
+class EventSourceWebhookBasicHttpAuthConfigurationArgsDict(TypedDict):
+    """
+    The provider sends HTTP Basic authentication credentials: an Authorization header with the value "Basic " followed by the Base64 encoding of username:password. Specify both Username and Password, or omit both and Amazon EventBridge generates the pair. Specifying only one fails the request. EventBridge stores both only in AWS Secrets Manager and never returns them.
+    """
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+    """
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+    """
+
+@pulumi.input_type
+class EventSourceWebhookBasicHttpAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The provider sends HTTP Basic authentication credentials: an Authorization header with the value "Basic " followed by the Base64 encoding of username:password. Specify both Username and Password, or omit both and Amazon EventBridge generates the pair. Specifying only one fails the request. EventBridge stores both only in AWS Secrets Manager and never returns them.
+
+        :param pulumi.Input[_builtins.str] password: The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+        :param pulumi.Input[_builtins.str] username: The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class EventSourceWebhookDeduplicationConfigurationArgsDict(TypedDict):
+    """
+    Deduplication settings for a webhook event source's events.
+    """
+    deduplication_type: pulumi.Input['EventSourceWebhookDeduplicationConfigurationDeduplicationType']
+    """
+    How EventBridge detects duplicate events.
+
+    Valid values:
+    - CONTENT_BASED - Detects duplicates by a hash of the event content.
+    """
+
+@pulumi.input_type
+class EventSourceWebhookDeduplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 deduplication_type: pulumi.Input['EventSourceWebhookDeduplicationConfigurationDeduplicationType']):
+        """
+        Deduplication settings for a webhook event source's events.
+
+        :param pulumi.Input['EventSourceWebhookDeduplicationConfigurationDeduplicationType'] deduplication_type: How EventBridge detects duplicate events.
+               
+               Valid values:
+               - CONTENT_BASED - Detects duplicates by a hash of the event content.
+        """
+        pulumi.set(__self__, "deduplication_type", deduplication_type)
+
+    @_builtins.property
+    @pulumi.getter(name="deduplicationType")
+    def deduplication_type(self) -> pulumi.Input['EventSourceWebhookDeduplicationConfigurationDeduplicationType']:
+        """
+        How EventBridge detects duplicate events.
+
+        Valid values:
+        - CONTENT_BASED - Detects duplicates by a hash of the event content.
+        """
+        return pulumi.get(self, "deduplication_type")
+
+    @deduplication_type.setter
+    def deduplication_type(self, value: pulumi.Input['EventSourceWebhookDeduplicationConfigurationDeduplicationType']):
+        pulumi.set(self, "deduplication_type", value)
+
+
+class EventSourceWebhookDetailsArgsDict(TypedDict):
+    """
+    Values Amazon EventBridge generated for a webhook event source.
+    """
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+    """
+    webhook_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+    """
+
+@pulumi.input_type
+class EventSourceWebhookDetailsArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 webhook_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Values Amazon EventBridge generated for a webhook event source.
+
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+        :param pulumi.Input[_builtins.str] webhook_url: The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+        """
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if webhook_url is not None:
+            pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webhookUrl")
+    def webhook_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+        """
+        return pulumi.get(self, "webhook_url")
+
+    @webhook_url.setter
+    def webhook_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "webhook_url", value)
+
+
+class EventSourceWebhookEventsConfigurationArgsDict(TypedDict):
+    """
+    Receive events from an external provider, such as a SaaS application, that sends them as HTTPS POST requests to a webhook URL. The provider authenticates with an HTTP scheme instead of AWS credentials.
+    """
+    auth_configuration: pulumi.Input['EventSourceWebhookAuthConfigurationArgsDict']
+    """
+    How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+    """
+    deduplication_configuration: NotRequired[pulumi.Input[Optional['EventSourceWebhookDeduplicationConfigurationArgsDict']]]
+    """
+    Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+    """
+    kms_key_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+    """
+    log_configuration: NotRequired[pulumi.Input[Optional['EventSourceLogConfigurationArgsDict']]]
+    """
+    The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+    """
+    metadata_http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+    """
+
+@pulumi.input_type
+class EventSourceWebhookEventsConfigurationArgs:
+    def __init__(__self__, *,
+                 auth_configuration: pulumi.Input['EventSourceWebhookAuthConfigurationArgs'],
+                 role_arn: pulumi.Input[_builtins.str],
+                 deduplication_configuration: pulumi.Input[Optional['EventSourceWebhookDeduplicationConfigurationArgs']] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_configuration: pulumi.Input[Optional['EventSourceLogConfigurationArgs']] = None,
+                 metadata_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Receive events from an external provider, such as a SaaS application, that sends them as HTTPS POST requests to a webhook URL. The provider authenticates with an HTTP scheme instead of AWS credentials.
+
+        :param pulumi.Input['EventSourceWebhookAuthConfigurationArgs'] auth_configuration: How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+        :param pulumi.Input['EventSourceWebhookDeduplicationConfigurationArgs'] deduplication_configuration: Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+        :param pulumi.Input['EventSourceLogConfigurationArgs'] log_configuration: The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metadata_http_headers: The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+        """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if deduplication_configuration is not None:
+            pulumi.set(__self__, "deduplication_configuration", deduplication_configuration)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if metadata_http_headers is not None:
+            pulumi.set(__self__, "metadata_http_headers", metadata_http_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> pulumi.Input['EventSourceWebhookAuthConfigurationArgs']:
+        """
+        How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+        """
+        return pulumi.get(self, "auth_configuration")
+
+    @auth_configuration.setter
+    def auth_configuration(self, value: pulumi.Input['EventSourceWebhookAuthConfigurationArgs']):
+        pulumi.set(self, "auth_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deduplicationConfiguration")
+    def deduplication_configuration(self) -> pulumi.Input[Optional['EventSourceWebhookDeduplicationConfigurationArgs']]:
+        """
+        Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+        """
+        return pulumi.get(self, "deduplication_configuration")
+
+    @deduplication_configuration.setter
+    def deduplication_configuration(self, value: pulumi.Input[Optional['EventSourceWebhookDeduplicationConfigurationArgs']]):
+        pulumi.set(self, "deduplication_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> pulumi.Input[Optional['EventSourceLogConfigurationArgs']]:
+        """
+        The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: pulumi.Input[Optional['EventSourceLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataHttpHeaders")
+    def metadata_http_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+        """
+        return pulumi.get(self, "metadata_http_headers")
+
+    @metadata_http_headers.setter
+    def metadata_http_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metadata_http_headers", value)
+
+
+class EventSourceWebhookHmacAuthConfigurationArgsDict(TypedDict):
+    """
+    The provider signs each request with a hash-based message authentication code (HMAC) of the secret. Amazon EventBridge accepts the request if any signature in SignatureHttpHeader matches.
+    """
+    algorithm: pulumi.Input['EventSourceWebhookHmacAuthConfigurationAlgorithm']
+    """
+    The hash algorithm the provider uses to compute the signature.
+
+    Valid values:
+    - SHA256 - SHA-256.
+    - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+    """
+    encoding: pulumi.Input['EventSourceWebhookHmacAuthConfigurationEncoding']
+    """
+    How the provider encodes the signature in the header.
+
+    Valid values:
+    - HEX - Hexadecimal.
+    - BASE64 - Base64.
+    """
+    signature_http_header: pulumi.Input[_builtins.str]
+    """
+    The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+    """
+    signed_message_composition: pulumi.Input['EventSourceWebhookHmacAuthConfigurationSignedMessageComposition']
+    """
+    How the provider assembles the message it signs from the request.
+
+    Valid values:
+    - BODY - The request body alone.
+    - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+    - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+    """
+    delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+    """
+    message_id_http_header: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+    """
+    secret_encoding: NotRequired[pulumi.Input[Optional['EventSourceWebhookHmacAuthConfigurationSecretEncoding']]]
+    """
+    How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+    """
+    secret_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+    """
+    signature_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+    """
+    timestamp_http_header: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+    """
+    timestamp_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+    """
+    timestamp_tolerance_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+    """
+
+@pulumi.input_type
+class EventSourceWebhookHmacAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input['EventSourceWebhookHmacAuthConfigurationAlgorithm'],
+                 encoding: pulumi.Input['EventSourceWebhookHmacAuthConfigurationEncoding'],
+                 signature_http_header: pulumi.Input[_builtins.str],
+                 signed_message_composition: pulumi.Input['EventSourceWebhookHmacAuthConfigurationSignedMessageComposition'],
+                 delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_id_http_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_encoding: pulumi.Input[Optional['EventSourceWebhookHmacAuthConfigurationSecretEncoding']] = None,
+                 secret_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_http_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_tolerance_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The provider signs each request with a hash-based message authentication code (HMAC) of the secret. Amazon EventBridge accepts the request if any signature in SignatureHttpHeader matches.
+
+        :param pulumi.Input['EventSourceWebhookHmacAuthConfigurationAlgorithm'] algorithm: The hash algorithm the provider uses to compute the signature.
+               
+               Valid values:
+               - SHA256 - SHA-256.
+               - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+        :param pulumi.Input['EventSourceWebhookHmacAuthConfigurationEncoding'] encoding: How the provider encodes the signature in the header.
+               
+               Valid values:
+               - HEX - Hexadecimal.
+               - BASE64 - Base64.
+        :param pulumi.Input[_builtins.str] signature_http_header: The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+        :param pulumi.Input['EventSourceWebhookHmacAuthConfigurationSignedMessageComposition'] signed_message_composition: How the provider assembles the message it signs from the request.
+               
+               Valid values:
+               - BODY - The request body alone.
+               - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+               - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+        :param pulumi.Input[_builtins.str] delimiter: The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+        :param pulumi.Input[_builtins.str] message_id_http_header: The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+        :param pulumi.Input['EventSourceWebhookHmacAuthConfigurationSecretEncoding'] secret_encoding: How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+        :param pulumi.Input[_builtins.str] secret_value: The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+        :param pulumi.Input[_builtins.str] signature_prefix: The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+        :param pulumi.Input[_builtins.str] timestamp_http_header: The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+        :param pulumi.Input[_builtins.str] timestamp_prefix: The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+        :param pulumi.Input[_builtins.int] timestamp_tolerance_in_seconds: The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "encoding", encoding)
+        pulumi.set(__self__, "signature_http_header", signature_http_header)
+        pulumi.set(__self__, "signed_message_composition", signed_message_composition)
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if message_id_http_header is not None:
+            pulumi.set(__self__, "message_id_http_header", message_id_http_header)
+        if secret_encoding is not None:
+            pulumi.set(__self__, "secret_encoding", secret_encoding)
+        if secret_value is not None:
+            pulumi.set(__self__, "secret_value", secret_value)
+        if signature_prefix is not None:
+            pulumi.set(__self__, "signature_prefix", signature_prefix)
+        if timestamp_http_header is not None:
+            pulumi.set(__self__, "timestamp_http_header", timestamp_http_header)
+        if timestamp_prefix is not None:
+            pulumi.set(__self__, "timestamp_prefix", timestamp_prefix)
+        if timestamp_tolerance_in_seconds is not None:
+            pulumi.set(__self__, "timestamp_tolerance_in_seconds", timestamp_tolerance_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input['EventSourceWebhookHmacAuthConfigurationAlgorithm']:
+        """
+        The hash algorithm the provider uses to compute the signature.
+
+        Valid values:
+        - SHA256 - SHA-256.
+        - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input['EventSourceWebhookHmacAuthConfigurationAlgorithm']):
+        pulumi.set(self, "algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> pulumi.Input['EventSourceWebhookHmacAuthConfigurationEncoding']:
+        """
+        How the provider encodes the signature in the header.
+
+        Valid values:
+        - HEX - Hexadecimal.
+        - BASE64 - Base64.
+        """
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: pulumi.Input['EventSourceWebhookHmacAuthConfigurationEncoding']):
+        pulumi.set(self, "encoding", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signatureHttpHeader")
+    def signature_http_header(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+        """
+        return pulumi.get(self, "signature_http_header")
+
+    @signature_http_header.setter
+    def signature_http_header(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "signature_http_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signedMessageComposition")
+    def signed_message_composition(self) -> pulumi.Input['EventSourceWebhookHmacAuthConfigurationSignedMessageComposition']:
+        """
+        How the provider assembles the message it signs from the request.
+
+        Valid values:
+        - BODY - The request body alone.
+        - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+        - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+        """
+        return pulumi.get(self, "signed_message_composition")
+
+    @signed_message_composition.setter
+    def signed_message_composition(self, value: pulumi.Input['EventSourceWebhookHmacAuthConfigurationSignedMessageComposition']):
+        pulumi.set(self, "signed_message_composition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messageIdHttpHeader")
+    def message_id_http_header(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+        """
+        return pulumi.get(self, "message_id_http_header")
+
+    @message_id_http_header.setter
+    def message_id_http_header(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message_id_http_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretEncoding")
+    def secret_encoding(self) -> pulumi.Input[Optional['EventSourceWebhookHmacAuthConfigurationSecretEncoding']]:
+        """
+        How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+        """
+        return pulumi.get(self, "secret_encoding")
+
+    @secret_encoding.setter
+    def secret_encoding(self, value: pulumi.Input[Optional['EventSourceWebhookHmacAuthConfigurationSecretEncoding']]):
+        pulumi.set(self, "secret_encoding", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretValue")
+    def secret_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+        """
+        return pulumi.get(self, "secret_value")
+
+    @secret_value.setter
+    def secret_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signaturePrefix")
+    def signature_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+        """
+        return pulumi.get(self, "signature_prefix")
+
+    @signature_prefix.setter
+    def signature_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "signature_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timestampHttpHeader")
+    def timestamp_http_header(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+        """
+        return pulumi.get(self, "timestamp_http_header")
+
+    @timestamp_http_header.setter
+    def timestamp_http_header(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timestamp_http_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timestampPrefix")
+    def timestamp_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+        """
+        return pulumi.get(self, "timestamp_prefix")
+
+    @timestamp_prefix.setter
+    def timestamp_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timestamp_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timestampToleranceInSeconds")
+    def timestamp_tolerance_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+        """
+        return pulumi.get(self, "timestamp_tolerance_in_seconds")
+
+    @timestamp_tolerance_in_seconds.setter
+    def timestamp_tolerance_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timestamp_tolerance_in_seconds", value)
+
+
+class EventSourceWebhookStaticTokenAuthConfigurationArgsDict(TypedDict):
+    """
+    The provider sends the secret as the value of an HTTP header.
+    """
+    token_http_header: pulumi.Input[_builtins.str]
+    """
+    The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+    """
+    secret_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+    """
+
+@pulumi.input_type
+class EventSourceWebhookStaticTokenAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 token_http_header: pulumi.Input[_builtins.str],
+                 secret_value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The provider sends the secret as the value of an HTTP header.
+
+        :param pulumi.Input[_builtins.str] token_http_header: The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+        :param pulumi.Input[_builtins.str] secret_value: The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+        """
+        pulumi.set(__self__, "token_http_header", token_http_header)
+        if secret_value is not None:
+            pulumi.set(__self__, "secret_value", secret_value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenHttpHeader")
+    def token_http_header(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+        """
+        return pulumi.get(self, "token_http_header")
+
+    @token_http_header.setter
+    def token_http_header(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_http_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretValue")
+    def secret_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+        """
+        return pulumi.get(self, "secret_value")
+
+    @secret_value.setter
+    def secret_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_value", value)
 
 
 class SubscriberBatchConfigurationArgsDict(TypedDict):
@@ -668,6 +1496,10 @@ class SubscriberInvokeConfigurationArgsDict(TypedDict):
     """
     Parameters for invoking an AWS Lambda function target.
     """
+    msk_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesArgsDict']]]
+    """
+    Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+    """
     sns_parameters: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationSnsParametersPropertiesArgsDict']]]
     """
     Parameters for publishing events to an Amazon SNS topic target.
@@ -694,6 +1526,7 @@ class SubscriberInvokeConfigurationArgs:
                  http_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationHttpParametersPropertiesArgs']] = None,
                  kinesis_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationKinesisParametersPropertiesArgs']] = None,
                  lambda_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationLambdaParametersPropertiesArgs']] = None,
+                 msk_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesArgs']] = None,
                  sns_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationSnsParametersPropertiesArgs']] = None,
                  sqs_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationSqsParametersPropertiesArgs']] = None,
                  step_functions_parameters: pulumi.Input[Optional['SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs']] = None,
@@ -707,6 +1540,7 @@ class SubscriberInvokeConfigurationArgs:
         :param pulumi.Input['SubscriberInvokeConfigurationHttpParametersPropertiesArgs'] http_parameters: Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
         :param pulumi.Input['SubscriberInvokeConfigurationKinesisParametersPropertiesArgs'] kinesis_parameters: Parameters for writing events to an Amazon Kinesis Data Streams target.
         :param pulumi.Input['SubscriberInvokeConfigurationLambdaParametersPropertiesArgs'] lambda_parameters: Parameters for invoking an AWS Lambda function target.
+        :param pulumi.Input['SubscriberInvokeConfigurationMskParametersPropertiesArgs'] msk_parameters: Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
         :param pulumi.Input['SubscriberInvokeConfigurationSnsParametersPropertiesArgs'] sns_parameters: Parameters for publishing events to an Amazon SNS topic target.
         :param pulumi.Input['SubscriberInvokeConfigurationSqsParametersPropertiesArgs'] sqs_parameters: Parameters for sending events to an Amazon SQS queue target.
         :param pulumi.Input['SubscriberInvokeConfigurationStepFunctionsParametersPropertiesArgs'] step_functions_parameters: Parameters for starting an AWS Step Functions state machine execution target.
@@ -722,6 +1556,8 @@ class SubscriberInvokeConfigurationArgs:
             pulumi.set(__self__, "kinesis_parameters", kinesis_parameters)
         if lambda_parameters is not None:
             pulumi.set(__self__, "lambda_parameters", lambda_parameters)
+        if msk_parameters is not None:
+            pulumi.set(__self__, "msk_parameters", msk_parameters)
         if sns_parameters is not None:
             pulumi.set(__self__, "sns_parameters", sns_parameters)
         if sqs_parameters is not None:
@@ -802,6 +1638,18 @@ class SubscriberInvokeConfigurationArgs:
     @lambda_parameters.setter
     def lambda_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationLambdaParametersPropertiesArgs']]):
         pulumi.set(self, "lambda_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mskParameters")
+    def msk_parameters(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesArgs']]:
+        """
+        Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+        """
+        return pulumi.get(self, "msk_parameters")
+
+    @msk_parameters.setter
+    def msk_parameters(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesArgs']]):
+        pulumi.set(self, "msk_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="snsParameters")
@@ -1186,6 +2034,158 @@ class SubscriberInvokeConfigurationLambdaParametersPropertiesArgs:
     @tenant_id.setter
     def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+class SubscriberInvokeConfigurationMskParametersPropertiesArgsDict(TypedDict):
+    """
+    Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+    """
+    connectivity: pulumi.Input['SubscriberInvokeConfigurationMskParametersPropertiesConnectivity']
+    """
+    Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+    """
+    topic_name: pulumi.Input[_builtins.str]
+    """
+    Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+    """
+    acks: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesAcks']]]
+    """
+    Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+    """
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+    """
+    compression: NotRequired[pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesCompression']]]
+    """
+    Producer compression codec applied to the record batch. Defaults to NONE.
+    """
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberMskHeaderArgsDict']]]]]
+    """
+    Kafka record headers attached to each produced record.
+    """
+    partition_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+    """
+
+@pulumi.input_type
+class SubscriberInvokeConfigurationMskParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 connectivity: pulumi.Input['SubscriberInvokeConfigurationMskParametersPropertiesConnectivity'],
+                 topic_name: pulumi.Input[_builtins.str],
+                 acks: pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesAcks']] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesCompression']] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberMskHeaderArgs']]]] = None,
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+
+        :param pulumi.Input['SubscriberInvokeConfigurationMskParametersPropertiesConnectivity'] connectivity: Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+        :param pulumi.Input[_builtins.str] topic_name: Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+        :param pulumi.Input['SubscriberInvokeConfigurationMskParametersPropertiesAcks'] acks: Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+        :param pulumi.Input[_builtins.str] client_id: Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+        :param pulumi.Input['SubscriberInvokeConfigurationMskParametersPropertiesCompression'] compression: Producer compression codec applied to the record batch. Defaults to NONE.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriberMskHeaderArgs']]] headers: Kafka record headers attached to each produced record.
+        :param pulumi.Input[_builtins.str] partition_key: Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+        """
+        pulumi.set(__self__, "connectivity", connectivity)
+        pulumi.set(__self__, "topic_name", topic_name)
+        if acks is not None:
+            pulumi.set(__self__, "acks", acks)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if partition_key is not None:
+            pulumi.set(__self__, "partition_key", partition_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def connectivity(self) -> pulumi.Input['SubscriberInvokeConfigurationMskParametersPropertiesConnectivity']:
+        """
+        Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+        """
+        return pulumi.get(self, "connectivity")
+
+    @connectivity.setter
+    def connectivity(self, value: pulumi.Input['SubscriberInvokeConfigurationMskParametersPropertiesConnectivity']):
+        pulumi.set(self, "connectivity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def acks(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesAcks']]:
+        """
+        Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+        """
+        return pulumi.get(self, "acks")
+
+    @acks.setter
+    def acks(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesAcks']]):
+        pulumi.set(self, "acks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesCompression']]:
+        """
+        Producer compression codec applied to the record batch. Defaults to NONE.
+        """
+        return pulumi.get(self, "compression")
+
+    @compression.setter
+    def compression(self, value: pulumi.Input[Optional['SubscriberInvokeConfigurationMskParametersPropertiesCompression']]):
+        pulumi.set(self, "compression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberMskHeaderArgs']]]]:
+        """
+        Kafka record headers attached to each produced record.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberMskHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+        """
+        return pulumi.get(self, "partition_key")
+
+    @partition_key.setter
+    def partition_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "partition_key", value)
 
 
 class SubscriberInvokeConfigurationSnsParametersPropertiesArgsDict(TypedDict):
@@ -1721,6 +2721,44 @@ class SubscriberMessageAttributeValueArgs:
     @string_value.setter
     def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
+
+
+class SubscriberMskHeaderArgsDict(TypedDict):
+    """
+    A single Kafka record header. Key and Value each accept a literal or a JSONata expression.
+    """
+    key: pulumi.Input[_builtins.str]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class SubscriberMskHeaderArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A single Kafka record header. Key and Value each accept a literal or a JSONata expression.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 class SubscriberOnFailureConfigurationArgsDict(TypedDict):

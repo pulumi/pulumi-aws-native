@@ -10,10 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.InspectorV2.Inputs
 {
 
+    /// <summary>
+    /// Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
+    /// </summary>
     public sealed class ConnectorProviderConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("azure", required: true)]
-        public Input<Inputs.ConnectorAzureProviderConfigurationArgs> Azure { get; set; } = null!;
+        [Input("azure")]
+        public Input<Inputs.ConnectorAzureProviderConfigurationArgs>? Azure { get; set; }
+
+        [Input("gcp")]
+        public Input<Inputs.ConnectorGcpProviderConfigurationArgs>? Gcp { get; set; }
 
         public ConnectorProviderConfigurationArgs()
         {

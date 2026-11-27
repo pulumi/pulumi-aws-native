@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Inputs
 {
 
+    /// <summary>
+    /// The definition of a vector attribute for a vector index.
+    /// </summary>
     public sealed class TableVectorAttributeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the vector attribute.
+        /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 

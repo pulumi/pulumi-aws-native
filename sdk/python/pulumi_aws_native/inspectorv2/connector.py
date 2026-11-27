@@ -121,7 +121,7 @@ class Connector(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
-        Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+        Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class Connector(pulumi.CustomResource):
                  args: ConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
+        Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure or GCP resources.
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["enablement_status_reason"] = None
             __props__.__dict__["health"] = None
             __props__.__dict__["last_updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "provider", "providerConfiguration.azure.awsConfigConnectorArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "provider", "providerConfiguration.azure.awsConfigConnectorArn", "providerConfiguration.gcp.awsConfigConnectorArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connector, __self__).__init__(
             'aws-native:inspectorv2:Connector',

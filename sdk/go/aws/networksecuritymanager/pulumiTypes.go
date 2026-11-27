@@ -464,6 +464,7 @@ func (o PolicyAssociatedTemplateAndRuleArrayOutput) Index(i pulumi.IntInput) Pol
 
 // Configuration settings for policy behavior.
 type PolicyConfiguration struct {
+	IgwFirewallConfig *PolicyIgwFirewallConfig `pulumi:"igwFirewallConfig"`
 	// Controls automatic remediation of non-compliant resources.
 	RemediationEnabled *bool `pulumi:"remediationEnabled"`
 	// Controls automatic cleanup of unused resources.
@@ -484,6 +485,7 @@ type PolicyConfigurationInput interface {
 
 // Configuration settings for policy behavior.
 type PolicyConfigurationArgs struct {
+	IgwFirewallConfig PolicyIgwFirewallConfigPtrInput `pulumi:"igwFirewallConfig"`
 	// Controls automatic remediation of non-compliant resources.
 	RemediationEnabled pulumi.BoolPtrInput `pulumi:"remediationEnabled"`
 	// Controls automatic cleanup of unused resources.
@@ -516,6 +518,10 @@ func (o PolicyConfigurationOutput) ToPolicyConfigurationOutput() PolicyConfigura
 
 func (o PolicyConfigurationOutput) ToPolicyConfigurationOutputWithContext(ctx context.Context) PolicyConfigurationOutput {
 	return o
+}
+
+func (o PolicyConfigurationOutput) IgwFirewallConfig() PolicyIgwFirewallConfigPtrOutput {
+	return o.ApplyT(func(v PolicyConfiguration) *PolicyIgwFirewallConfig { return v.IgwFirewallConfig }).(PolicyIgwFirewallConfigPtrOutput)
 }
 
 // Controls automatic remediation of non-compliant resources.
@@ -556,6 +562,15 @@ func (o PolicyConfigurationPtrOutput) Elem() PolicyConfigurationOutput {
 	}).(PolicyConfigurationOutput)
 }
 
+func (o PolicyConfigurationPtrOutput) IgwFirewallConfig() PolicyIgwFirewallConfigPtrOutput {
+	return o.ApplyT(func(v *PolicyConfiguration) *PolicyIgwFirewallConfig {
+		if v == nil {
+			return nil
+		}
+		return v.IgwFirewallConfig
+	}).(PolicyIgwFirewallConfigPtrOutput)
+}
+
 // Controls automatic remediation of non-compliant resources.
 func (o PolicyConfigurationPtrOutput) RemediationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyConfiguration) *bool {
@@ -583,6 +598,280 @@ func (o PolicyConfigurationPtrOutput) WafConfig() PolicyWafConfigPtrOutput {
 		}
 		return v.WafConfig
 	}).(PolicyWafConfigPtrOutput)
+}
+
+// Internet gateway firewall policy settings. Populated only for IGW_FIREWALL firewall type policies.
+type PolicyIgwFirewallConfig struct {
+	// The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+	DefaultSubnetConnectivity *PolicyIgwFirewallConfigDefaultSubnetConnectivity `pulumi:"defaultSubnetConnectivity"`
+	// An ordered list of subnet connectivity overrides. When a subnet matches more than one override, the first match applies. At most one override per connectivity type.
+	SubnetConnectivityOverrides []PolicySubnetConnectivityOverride `pulumi:"subnetConnectivityOverrides"`
+}
+
+// PolicyIgwFirewallConfigInput is an input type that accepts PolicyIgwFirewallConfigArgs and PolicyIgwFirewallConfigOutput values.
+// You can construct a concrete instance of `PolicyIgwFirewallConfigInput` via:
+//
+//	PolicyIgwFirewallConfigArgs{...}
+type PolicyIgwFirewallConfigInput interface {
+	pulumi.Input
+
+	ToPolicyIgwFirewallConfigOutput() PolicyIgwFirewallConfigOutput
+	ToPolicyIgwFirewallConfigOutputWithContext(context.Context) PolicyIgwFirewallConfigOutput
+}
+
+// Internet gateway firewall policy settings. Populated only for IGW_FIREWALL firewall type policies.
+type PolicyIgwFirewallConfigArgs struct {
+	// The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+	DefaultSubnetConnectivity PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrInput `pulumi:"defaultSubnetConnectivity"`
+	// An ordered list of subnet connectivity overrides. When a subnet matches more than one override, the first match applies. At most one override per connectivity type.
+	SubnetConnectivityOverrides PolicySubnetConnectivityOverrideArrayInput `pulumi:"subnetConnectivityOverrides"`
+}
+
+func (PolicyIgwFirewallConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyIgwFirewallConfig)(nil)).Elem()
+}
+
+func (i PolicyIgwFirewallConfigArgs) ToPolicyIgwFirewallConfigOutput() PolicyIgwFirewallConfigOutput {
+	return i.ToPolicyIgwFirewallConfigOutputWithContext(context.Background())
+}
+
+func (i PolicyIgwFirewallConfigArgs) ToPolicyIgwFirewallConfigOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyIgwFirewallConfigOutput)
+}
+
+func (i PolicyIgwFirewallConfigArgs) ToPolicyIgwFirewallConfigPtrOutput() PolicyIgwFirewallConfigPtrOutput {
+	return i.ToPolicyIgwFirewallConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyIgwFirewallConfigArgs) ToPolicyIgwFirewallConfigPtrOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyIgwFirewallConfigOutput).ToPolicyIgwFirewallConfigPtrOutputWithContext(ctx)
+}
+
+// PolicyIgwFirewallConfigPtrInput is an input type that accepts PolicyIgwFirewallConfigArgs, PolicyIgwFirewallConfigPtr and PolicyIgwFirewallConfigPtrOutput values.
+// You can construct a concrete instance of `PolicyIgwFirewallConfigPtrInput` via:
+//
+//	        PolicyIgwFirewallConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyIgwFirewallConfigPtrInput interface {
+	pulumi.Input
+
+	ToPolicyIgwFirewallConfigPtrOutput() PolicyIgwFirewallConfigPtrOutput
+	ToPolicyIgwFirewallConfigPtrOutputWithContext(context.Context) PolicyIgwFirewallConfigPtrOutput
+}
+
+type policyIgwFirewallConfigPtrType PolicyIgwFirewallConfigArgs
+
+func PolicyIgwFirewallConfigPtr(v *PolicyIgwFirewallConfigArgs) PolicyIgwFirewallConfigPtrInput {
+	return (*policyIgwFirewallConfigPtrType)(v)
+}
+
+func (*policyIgwFirewallConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyIgwFirewallConfig)(nil)).Elem()
+}
+
+func (i *policyIgwFirewallConfigPtrType) ToPolicyIgwFirewallConfigPtrOutput() PolicyIgwFirewallConfigPtrOutput {
+	return i.ToPolicyIgwFirewallConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *policyIgwFirewallConfigPtrType) ToPolicyIgwFirewallConfigPtrOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyIgwFirewallConfigPtrOutput)
+}
+
+// Internet gateway firewall policy settings. Populated only for IGW_FIREWALL firewall type policies.
+type PolicyIgwFirewallConfigOutput struct{ *pulumi.OutputState }
+
+func (PolicyIgwFirewallConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyIgwFirewallConfig)(nil)).Elem()
+}
+
+func (o PolicyIgwFirewallConfigOutput) ToPolicyIgwFirewallConfigOutput() PolicyIgwFirewallConfigOutput {
+	return o
+}
+
+func (o PolicyIgwFirewallConfigOutput) ToPolicyIgwFirewallConfigOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigOutput {
+	return o
+}
+
+func (o PolicyIgwFirewallConfigOutput) ToPolicyIgwFirewallConfigPtrOutput() PolicyIgwFirewallConfigPtrOutput {
+	return o.ToPolicyIgwFirewallConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyIgwFirewallConfigOutput) ToPolicyIgwFirewallConfigPtrOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyIgwFirewallConfig) *PolicyIgwFirewallConfig {
+		return &v
+	}).(PolicyIgwFirewallConfigPtrOutput)
+}
+
+// The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+func (o PolicyIgwFirewallConfigOutput) DefaultSubnetConnectivity() PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return o.ApplyT(func(v PolicyIgwFirewallConfig) *PolicyIgwFirewallConfigDefaultSubnetConnectivity {
+		return v.DefaultSubnetConnectivity
+	}).(PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput)
+}
+
+// An ordered list of subnet connectivity overrides. When a subnet matches more than one override, the first match applies. At most one override per connectivity type.
+func (o PolicyIgwFirewallConfigOutput) SubnetConnectivityOverrides() PolicySubnetConnectivityOverrideArrayOutput {
+	return o.ApplyT(func(v PolicyIgwFirewallConfig) []PolicySubnetConnectivityOverride {
+		return v.SubnetConnectivityOverrides
+	}).(PolicySubnetConnectivityOverrideArrayOutput)
+}
+
+type PolicyIgwFirewallConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyIgwFirewallConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyIgwFirewallConfig)(nil)).Elem()
+}
+
+func (o PolicyIgwFirewallConfigPtrOutput) ToPolicyIgwFirewallConfigPtrOutput() PolicyIgwFirewallConfigPtrOutput {
+	return o
+}
+
+func (o PolicyIgwFirewallConfigPtrOutput) ToPolicyIgwFirewallConfigPtrOutputWithContext(ctx context.Context) PolicyIgwFirewallConfigPtrOutput {
+	return o
+}
+
+func (o PolicyIgwFirewallConfigPtrOutput) Elem() PolicyIgwFirewallConfigOutput {
+	return o.ApplyT(func(v *PolicyIgwFirewallConfig) PolicyIgwFirewallConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyIgwFirewallConfig
+		return ret
+	}).(PolicyIgwFirewallConfigOutput)
+}
+
+// The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+func (o PolicyIgwFirewallConfigPtrOutput) DefaultSubnetConnectivity() PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput {
+	return o.ApplyT(func(v *PolicyIgwFirewallConfig) *PolicyIgwFirewallConfigDefaultSubnetConnectivity {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSubnetConnectivity
+	}).(PolicyIgwFirewallConfigDefaultSubnetConnectivityPtrOutput)
+}
+
+// An ordered list of subnet connectivity overrides. When a subnet matches more than one override, the first match applies. At most one override per connectivity type.
+func (o PolicyIgwFirewallConfigPtrOutput) SubnetConnectivityOverrides() PolicySubnetConnectivityOverrideArrayOutput {
+	return o.ApplyT(func(v *PolicyIgwFirewallConfig) []PolicySubnetConnectivityOverride {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetConnectivityOverrides
+	}).(PolicySubnetConnectivityOverrideArrayOutput)
+}
+
+// Applies a connectivity treatment other than the policy default to the subnets that the referenced scope selects.
+type PolicySubnetConnectivityOverride struct {
+	// The connectivity treatment applied to the subnets that the referenced scope selects.
+	ConnectivityType PolicySubnetConnectivityOverrideConnectivityType `pulumi:"connectivityType"`
+	// The ARN of the IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE scope whose selected subnets receive ConnectivityType.
+	Scopes []string `pulumi:"scopes"`
+}
+
+// PolicySubnetConnectivityOverrideInput is an input type that accepts PolicySubnetConnectivityOverrideArgs and PolicySubnetConnectivityOverrideOutput values.
+// You can construct a concrete instance of `PolicySubnetConnectivityOverrideInput` via:
+//
+//	PolicySubnetConnectivityOverrideArgs{...}
+type PolicySubnetConnectivityOverrideInput interface {
+	pulumi.Input
+
+	ToPolicySubnetConnectivityOverrideOutput() PolicySubnetConnectivityOverrideOutput
+	ToPolicySubnetConnectivityOverrideOutputWithContext(context.Context) PolicySubnetConnectivityOverrideOutput
+}
+
+// Applies a connectivity treatment other than the policy default to the subnets that the referenced scope selects.
+type PolicySubnetConnectivityOverrideArgs struct {
+	// The connectivity treatment applied to the subnets that the referenced scope selects.
+	ConnectivityType PolicySubnetConnectivityOverrideConnectivityTypeInput `pulumi:"connectivityType"`
+	// The ARN of the IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE scope whose selected subnets receive ConnectivityType.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (PolicySubnetConnectivityOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySubnetConnectivityOverride)(nil)).Elem()
+}
+
+func (i PolicySubnetConnectivityOverrideArgs) ToPolicySubnetConnectivityOverrideOutput() PolicySubnetConnectivityOverrideOutput {
+	return i.ToPolicySubnetConnectivityOverrideOutputWithContext(context.Background())
+}
+
+func (i PolicySubnetConnectivityOverrideArgs) ToPolicySubnetConnectivityOverrideOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySubnetConnectivityOverrideOutput)
+}
+
+// PolicySubnetConnectivityOverrideArrayInput is an input type that accepts PolicySubnetConnectivityOverrideArray and PolicySubnetConnectivityOverrideArrayOutput values.
+// You can construct a concrete instance of `PolicySubnetConnectivityOverrideArrayInput` via:
+//
+//	PolicySubnetConnectivityOverrideArray{ PolicySubnetConnectivityOverrideArgs{...} }
+type PolicySubnetConnectivityOverrideArrayInput interface {
+	pulumi.Input
+
+	ToPolicySubnetConnectivityOverrideArrayOutput() PolicySubnetConnectivityOverrideArrayOutput
+	ToPolicySubnetConnectivityOverrideArrayOutputWithContext(context.Context) PolicySubnetConnectivityOverrideArrayOutput
+}
+
+type PolicySubnetConnectivityOverrideArray []PolicySubnetConnectivityOverrideInput
+
+func (PolicySubnetConnectivityOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySubnetConnectivityOverride)(nil)).Elem()
+}
+
+func (i PolicySubnetConnectivityOverrideArray) ToPolicySubnetConnectivityOverrideArrayOutput() PolicySubnetConnectivityOverrideArrayOutput {
+	return i.ToPolicySubnetConnectivityOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i PolicySubnetConnectivityOverrideArray) ToPolicySubnetConnectivityOverrideArrayOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySubnetConnectivityOverrideArrayOutput)
+}
+
+// Applies a connectivity treatment other than the policy default to the subnets that the referenced scope selects.
+type PolicySubnetConnectivityOverrideOutput struct{ *pulumi.OutputState }
+
+func (PolicySubnetConnectivityOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySubnetConnectivityOverride)(nil)).Elem()
+}
+
+func (o PolicySubnetConnectivityOverrideOutput) ToPolicySubnetConnectivityOverrideOutput() PolicySubnetConnectivityOverrideOutput {
+	return o
+}
+
+func (o PolicySubnetConnectivityOverrideOutput) ToPolicySubnetConnectivityOverrideOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideOutput {
+	return o
+}
+
+// The connectivity treatment applied to the subnets that the referenced scope selects.
+func (o PolicySubnetConnectivityOverrideOutput) ConnectivityType() PolicySubnetConnectivityOverrideConnectivityTypeOutput {
+	return o.ApplyT(func(v PolicySubnetConnectivityOverride) PolicySubnetConnectivityOverrideConnectivityType {
+		return v.ConnectivityType
+	}).(PolicySubnetConnectivityOverrideConnectivityTypeOutput)
+}
+
+// The ARN of the IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE scope whose selected subnets receive ConnectivityType.
+func (o PolicySubnetConnectivityOverrideOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicySubnetConnectivityOverride) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type PolicySubnetConnectivityOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicySubnetConnectivityOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySubnetConnectivityOverride)(nil)).Elem()
+}
+
+func (o PolicySubnetConnectivityOverrideArrayOutput) ToPolicySubnetConnectivityOverrideArrayOutput() PolicySubnetConnectivityOverrideArrayOutput {
+	return o
+}
+
+func (o PolicySubnetConnectivityOverrideArrayOutput) ToPolicySubnetConnectivityOverrideArrayOutputWithContext(ctx context.Context) PolicySubnetConnectivityOverrideArrayOutput {
+	return o
+}
+
+func (o PolicySubnetConnectivityOverrideArrayOutput) Index(i pulumi.IntInput) PolicySubnetConnectivityOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicySubnetConnectivityOverride {
+		return vs[0].([]PolicySubnetConnectivityOverride)[vs[1].(int)]
+	}).(PolicySubnetConnectivityOverrideOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -880,6 +1169,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssociatedTemplateAndRuleInput)(nil)).Elem(), PolicyAssociatedTemplateAndRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssociatedTemplateAndRuleArrayInput)(nil)).Elem(), PolicyAssociatedTemplateAndRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyConfigurationInput)(nil)).Elem(), PolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIgwFirewallConfigInput)(nil)).Elem(), PolicyIgwFirewallConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIgwFirewallConfigPtrInput)(nil)).Elem(), PolicyIgwFirewallConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySubnetConnectivityOverrideInput)(nil)).Elem(), PolicySubnetConnectivityOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySubnetConnectivityOverrideArrayInput)(nil)).Elem(), PolicySubnetConnectivityOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyWafConfigInput)(nil)).Elem(), PolicyWafConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyWafConfigPtrInput)(nil)).Elem(), PolicyWafConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAssociatedRuleInput)(nil)).Elem(), TemplateAssociatedRuleArgs{})
@@ -894,6 +1187,10 @@ func init() {
 	pulumi.RegisterOutputType(PolicyAssociatedTemplateAndRuleArrayOutput{})
 	pulumi.RegisterOutputType(PolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(PolicyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PolicyIgwFirewallConfigOutput{})
+	pulumi.RegisterOutputType(PolicyIgwFirewallConfigPtrOutput{})
+	pulumi.RegisterOutputType(PolicySubnetConnectivityOverrideOutput{})
+	pulumi.RegisterOutputType(PolicySubnetConnectivityOverrideArrayOutput{})
 	pulumi.RegisterOutputType(PolicyWafConfigOutput{})
 	pulumi.RegisterOutputType(PolicyWafConfigPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAssociatedRuleOutput{})

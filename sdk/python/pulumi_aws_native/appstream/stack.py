@@ -35,6 +35,7 @@ class StackArgs:
                  feedback_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_connector_authentication: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
                  streaming_experience_settings: pulumi.Input[Optional['StackStreamingExperienceSettingsArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -54,6 +55,7 @@ class StackArgs:
         :param pulumi.Input[_builtins.str] feedback_url: The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
         :param pulumi.Input[_builtins.str] name: The name of the stack.
         :param pulumi.Input[_builtins.str] redirect_url: The URL that users are redirected to after their streaming session ends.
+        :param pulumi.Input[_builtins.str] storage_connector_authentication: Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: The storage connectors to enable.
         :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs.
@@ -83,6 +85,8 @@ class StackArgs:
             pulumi.set(__self__, "name", name)
         if redirect_url is not None:
             pulumi.set(__self__, "redirect_url", redirect_url)
+        if storage_connector_authentication is not None:
+            pulumi.set(__self__, "storage_connector_authentication", storage_connector_authentication)
         if storage_connectors is not None:
             pulumi.set(__self__, "storage_connectors", storage_connectors)
         if streaming_experience_settings is not None:
@@ -237,6 +241,18 @@ class StackArgs:
         pulumi.set(self, "redirect_url", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageConnectorAuthentication")
+    def storage_connector_authentication(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+        """
+        return pulumi.get(self, "storage_connector_authentication")
+
+    @storage_connector_authentication.setter
+    def storage_connector_authentication(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_connector_authentication", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackStorageConnectorArgs']]]]:
         """
@@ -303,6 +319,7 @@ class Stack(pulumi.CustomResource):
                  feedback_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_connector_authentication: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict', 'outputs.StackStorageConnector']]]]] = None,
                  streaming_experience_settings: pulumi.Input[Optional[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict', 'outputs.StackStreamingExperienceSettings']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -325,6 +342,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] feedback_url: The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
         :param pulumi.Input[_builtins.str] name: The name of the stack.
         :param pulumi.Input[_builtins.str] redirect_url: The URL that users are redirected to after their streaming session ends.
+        :param pulumi.Input[_builtins.str] storage_connector_authentication: Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict', 'outputs.StackStorageConnector']]]] storage_connectors: The storage connectors to enable.
         :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict', 'outputs.StackStreamingExperienceSettings']] streaming_experience_settings: The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs.
@@ -366,6 +384,7 @@ class Stack(pulumi.CustomResource):
                  feedback_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_connector_authentication: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict', 'outputs.StackStorageConnector']]]]] = None,
                  streaming_experience_settings: pulumi.Input[Optional[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict', 'outputs.StackStreamingExperienceSettings']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
@@ -391,6 +410,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["feedback_url"] = feedback_url
             __props__.__dict__["name"] = name
             __props__.__dict__["redirect_url"] = redirect_url
+            __props__.__dict__["storage_connector_authentication"] = storage_connector_authentication
             __props__.__dict__["storage_connectors"] = storage_connectors
             __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
             __props__.__dict__["tags"] = tags
@@ -431,6 +451,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["feedback_url"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["redirect_url"] = None
+        __props__.__dict__["storage_connector_authentication"] = None
         __props__.__dict__["storage_connectors"] = None
         __props__.__dict__["streaming_experience_settings"] = None
         __props__.__dict__["tags"] = None
@@ -538,6 +559,14 @@ class Stack(pulumi.CustomResource):
         The URL that users are redirected to after their streaming session ends.
         """
         return pulumi.get(self, "redirect_url")
+
+    @_builtins.property
+    @pulumi.getter(name="storageConnectorAuthentication")
+    def storage_connector_authentication(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+        """
+        return pulumi.get(self, "storage_connector_authentication")
 
     @_builtins.property
     @pulumi.getter(name="storageConnectors")

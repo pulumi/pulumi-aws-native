@@ -26,6 +26,10 @@ export interface GetRegistryRecordArgs {
 
 export interface GetRegistryRecordResult {
     /**
+     * The skill package that the registry stores for a skill record that synchronizes a skill package. The package's download URL isn't returned.
+     */
+    readonly artifact?: outputs.agentregistry.RegistryRecordArtifact;
+    /**
      * The timestamp when the registry record was created.
      */
     readonly createdAt?: string;
@@ -69,6 +73,10 @@ export interface GetRegistryRecordResult {
      */
     readonly registryArn?: string;
     readonly status?: enums.agentregistry.RegistryRecordStatus;
+    /**
+     * The source that the registry last synchronized the record's skill content from, and the version that it read. Absent until the first successful synchronization.
+     */
+    readonly synchronizedSource?: outputs.agentregistry.RegistryRecordSynchronizedSource;
     /**
      * Tags to assign to the registry record.
      */

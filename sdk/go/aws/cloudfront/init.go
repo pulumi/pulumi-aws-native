@@ -35,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Distribution{}
 	case "aws-native:cloudfront:DistributionTenant":
 		r = &DistributionTenant{}
+	case "aws-native:cloudfront:FieldLevelEncryptionConfig":
+		r = &FieldLevelEncryptionConfig{}
+	case "aws-native:cloudfront:FieldLevelEncryptionProfile":
+		r = &FieldLevelEncryptionProfile{}
 	case "aws-native:cloudfront:Function":
 		r = &Function{}
 	case "aws-native:cloudfront:KeyGroup":

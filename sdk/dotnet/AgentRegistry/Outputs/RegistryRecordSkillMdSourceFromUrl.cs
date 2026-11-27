@@ -11,19 +11,27 @@ namespace Pulumi.AwsNative.AgentRegistry.Outputs
 {
 
     /// <summary>
-    /// URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+    /// URL-based source of agent skills content. With an s3:// URL, the registry reads the Amazon S3 object when the record is created, and again whenever the URL, the credential provider or the bucket owner changes. Each read replaces the SKILL.md Data and sets the record's Name and Description from the name and description in the SKILL.md frontmatter, so set Name and Description to the same values and don't set SkillMd Data. An https:// URL is a reference URL that the registry doesn't synchronize from: where Amazon S3 skill synchronization is available, the registry accepts an https:// URL only on a record that already stores it, with the content provided inline in SkillMd Data.
     /// </summary>
     [OutputType]
     public sealed class RegistryRecordSkillMdSourceFromUrl
     {
         /// <summary>
-        /// URL source for the SkillMd document.
+        /// The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RegistryRecordSkillSourceCredentialProviderConfiguration> CredentialProviderConfigurations;
+        /// <summary>
+        /// The URL of the source. For synchronization, specify an s3://&lt;bucket&gt;/&lt;key&gt; URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
         /// </summary>
         public readonly string Url;
 
         [OutputConstructor]
-        private RegistryRecordSkillMdSourceFromUrl(string url)
+        private RegistryRecordSkillMdSourceFromUrl(
+            ImmutableArray<Outputs.RegistryRecordSkillSourceCredentialProviderConfiguration> credentialProviderConfigurations,
+
+            string url)
         {
+            CredentialProviderConfigurations = credentialProviderConfigurations;
             Url = url;
         }
     }

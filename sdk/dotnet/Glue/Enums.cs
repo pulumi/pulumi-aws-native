@@ -1050,6 +1050,37 @@ namespace Pulumi.AwsNative.Glue
     }
 
     /// <summary>
+    /// How access to the function is governed. The mode cannot be changed after creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserDefinedFunctionGovernanceMode : IEquatable<UserDefinedFunctionGovernanceMode>
+    {
+        private readonly string _value;
+
+        private UserDefinedFunctionGovernanceMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserDefinedFunctionGovernanceMode IamOnly { get; } = new UserDefinedFunctionGovernanceMode("IAM_ONLY");
+        public static UserDefinedFunctionGovernanceMode LakeFormation { get; } = new UserDefinedFunctionGovernanceMode("LAKE_FORMATION");
+
+        public static bool operator ==(UserDefinedFunctionGovernanceMode left, UserDefinedFunctionGovernanceMode right) => left.Equals(right);
+        public static bool operator !=(UserDefinedFunctionGovernanceMode left, UserDefinedFunctionGovernanceMode right) => !left.Equals(right);
+
+        public static explicit operator string(UserDefinedFunctionGovernanceMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserDefinedFunctionGovernanceMode other && Equals(other);
+        public bool Equals(UserDefinedFunctionGovernanceMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The owner type.
     /// </summary>
     [EnumType]

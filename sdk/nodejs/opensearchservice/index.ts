@@ -25,6 +25,16 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
+export { GetReplicationPeerArgs, GetReplicationPeerResult, GetReplicationPeerOutputArgs } from "./getReplicationPeer";
+export const getReplicationPeer: typeof import("./getReplicationPeer").getReplicationPeer = null as any;
+export const getReplicationPeerOutput: typeof import("./getReplicationPeer").getReplicationPeerOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationPeer","getReplicationPeerOutput"], () => require("./getReplicationPeer"));
+
+export { ReplicationPeerArgs } from "./replicationPeer";
+export type ReplicationPeer = import("./replicationPeer").ReplicationPeer;
+export const ReplicationPeer: typeof import("./replicationPeer").ReplicationPeer = null as any;
+utilities.lazyLoad(exports, ["ReplicationPeer"], () => require("./replicationPeer"));
+
 
 // Export enums:
 export * from "../types/enums/opensearchservice";
@@ -37,6 +47,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws-native:opensearchservice:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws-native:opensearchservice:ReplicationPeer":
+                return new ReplicationPeer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

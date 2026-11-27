@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Glue.Outputs
     public sealed class UserDefinedFunctionResourceUri
     {
         /// <summary>
+        /// The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+        /// </summary>
+        public readonly string? LastModified;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly Pulumi.AwsNative.Glue.UserDefinedFunctionResourceUriResourceType? ResourceType;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
         [OutputConstructor]
         private UserDefinedFunctionResourceUri(
+            string? lastModified,
+
             Pulumi.AwsNative.Glue.UserDefinedFunctionResourceUriResourceType? resourceType,
 
             string? uri)
         {
+            LastModified = lastModified;
             ResourceType = resourceType;
             Uri = uri;
         }

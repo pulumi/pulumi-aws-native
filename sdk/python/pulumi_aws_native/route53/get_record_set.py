@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetRecordSetResult:
-    def __init__(__self__, alias_target=None, cidr_routing_config=None, failover=None, geo_location=None, health_check_id=None, multi_value_answer=None, name=None, region=None, resource_records=None, set_identifier=None, ttl=None, type=None, weight=None):
+    def __init__(__self__, alias_target=None, az_affinity=None, cidr_routing_config=None, failover=None, geo_location=None, health_check_id=None, multi_value_answer=None, name=None, region=None, resource_records=None, set_identifier=None, ttl=None, type=None, weight=None):
         if alias_target and not isinstance(alias_target, dict):
             raise TypeError("Expected argument 'alias_target' to be a dict")
         pulumi.set(__self__, "alias_target", alias_target)
+        if az_affinity and not isinstance(az_affinity, dict):
+            raise TypeError("Expected argument 'az_affinity' to be a dict")
+        pulumi.set(__self__, "az_affinity", az_affinity)
         if cidr_routing_config and not isinstance(cidr_routing_config, dict):
             raise TypeError("Expected argument 'cidr_routing_config' to be a dict")
         pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
@@ -73,6 +76,14 @@ class GetRecordSetResult:
         Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
         """
         return pulumi.get(self, "alias_target")
+
+    @_builtins.property
+    @pulumi.getter(name="azAffinity")
+    def az_affinity(self) -> Optional['outputs.RecordSetAzAffinity']:
+        """
+        AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+        """
+        return pulumi.get(self, "az_affinity")
 
     @_builtins.property
     @pulumi.getter(name="cidrRoutingConfig")
@@ -178,6 +189,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             yield self
         return GetRecordSetResult(
             alias_target=self.alias_target,
+            az_affinity=self.az_affinity,
             cidr_routing_config=self.cidr_routing_config,
             failover=self.failover,
             geo_location=self.geo_location,
@@ -215,6 +227,7 @@ def get_record_set(hosted_zone_id: Optional[_builtins.str] = None,
 
     return AwaitableGetRecordSetResult(
         alias_target=pulumi.get(__ret__, 'alias_target'),
+        az_affinity=pulumi.get(__ret__, 'az_affinity'),
         cidr_routing_config=pulumi.get(__ret__, 'cidr_routing_config'),
         failover=pulumi.get(__ret__, 'failover'),
         geo_location=pulumi.get(__ret__, 'geo_location'),
@@ -249,6 +262,7 @@ def get_record_set_output(hosted_zone_id: pulumi.Input[Optional[_builtins.str]] 
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53:getRecordSet', __args__, opts=opts, typ=GetRecordSetResult)
     return __ret__.apply(lambda __response__: GetRecordSetResult(
         alias_target=pulumi.get(__response__, 'alias_target'),
+        az_affinity=pulumi.get(__response__, 'az_affinity'),
         cidr_routing_config=pulumi.get(__response__, 'cidr_routing_config'),
         failover=pulumi.get(__response__, 'failover'),
         geo_location=pulumi.get(__response__, 'geo_location'),

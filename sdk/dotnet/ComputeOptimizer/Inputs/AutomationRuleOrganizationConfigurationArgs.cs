@@ -24,6 +24,42 @@ namespace Pulumi.AwsNative.ComputeOptimizer.Inputs
             set => _accountIds = value;
         }
 
+        [Input("excludedAccountIds")]
+        private InputList<string>? _excludedAccountIds;
+
+        /// <summary>
+        /// List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+        /// </summary>
+        public InputList<string> ExcludedAccountIds
+        {
+            get => _excludedAccountIds ?? (_excludedAccountIds = new InputList<string>());
+            set => _excludedAccountIds = value;
+        }
+
+        [Input("excludedOrganizationalUnitIds")]
+        private InputList<string>? _excludedOrganizationalUnitIds;
+
+        /// <summary>
+        /// List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+        /// </summary>
+        public InputList<string> ExcludedOrganizationalUnitIds
+        {
+            get => _excludedOrganizationalUnitIds ?? (_excludedOrganizationalUnitIds = new InputList<string>());
+            set => _excludedOrganizationalUnitIds = value;
+        }
+
+        [Input("organizationalUnitIds")]
+        private InputList<string>? _organizationalUnitIds;
+
+        /// <summary>
+        /// List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+        /// </summary>
+        public InputList<string> OrganizationalUnitIds
+        {
+            get => _organizationalUnitIds ?? (_organizationalUnitIds = new InputList<string>());
+            set => _organizationalUnitIds = value;
+        }
+
         /// <summary>
         /// When the rule should be applied relative to account rules
         /// </summary>

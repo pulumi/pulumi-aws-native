@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> AuthorizationUrl { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.
+        /// </summary>
+        [Output("awsBillingIamRoleArn")]
+        public Output<string> AwsBillingIamRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp when the connector was created
         /// </summary>
         [Output("connectorCreatedAt")]

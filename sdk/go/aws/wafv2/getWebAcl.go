@@ -37,6 +37,7 @@ type LookupWebAclArgs struct {
 }
 
 type LookupWebAclResult struct {
+	AnalyticsConfig *WebAclAnalyticsConfig `pulumi:"analyticsConfig"`
 	// Collection of application attributes.
 	ApplicationConfig *WebAclApplicationConfig `pulumi:"applicationConfig"`
 	// The Amazon Resource Name (ARN) of the web ACL.
@@ -126,6 +127,10 @@ func (o LookupWebAclResultOutput) ToLookupWebAclResultOutput() LookupWebAclResul
 
 func (o LookupWebAclResultOutput) ToLookupWebAclResultOutputWithContext(ctx context.Context) LookupWebAclResultOutput {
 	return o
+}
+
+func (o LookupWebAclResultOutput) AnalyticsConfig() WebAclAnalyticsConfigPtrOutput {
+	return o.ApplyT(func(v LookupWebAclResult) *WebAclAnalyticsConfig { return v.AnalyticsConfig }).(WebAclAnalyticsConfigPtrOutput)
 }
 
 // Collection of application attributes.

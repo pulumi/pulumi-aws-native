@@ -185,7 +185,7 @@ class ConnectorV2(pulumi.CustomResource):
             __props__.__dict__["last_checked_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["message"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn", "name", "provider.azure.awsConfigConnectorArn", "provider.serviceNow.instanceName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn", "name", "provider.azure.awsConfigConnectorArn", "provider.gcp.awsConfigConnectorArn", "provider.serviceNow.instanceName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConnectorV2, __self__).__init__(
             'aws-native:securityhub:ConnectorV2',

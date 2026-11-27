@@ -1143,6 +1143,29 @@ export const InferenceExperimentType = {
  */
 export type InferenceExperimentType = (typeof InferenceExperimentType)[keyof typeof InferenceExperimentType];
 
+export const InferenceRouterRoutingTargetRoutingPreference = {
+    LocalRegionFirst: "LocalRegionFirst",
+    InstancePoolOrder: "InstancePoolOrder",
+} as const;
+
+/**
+ * How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+ */
+export type InferenceRouterRoutingTargetRoutingPreference = (typeof InferenceRouterRoutingTargetRoutingPreference)[keyof typeof InferenceRouterRoutingTargetRoutingPreference];
+
+export const InferenceRouterStatus = {
+    InService: "InService",
+    Creating: "Creating",
+    Updating: "Updating",
+    Failed: "Failed",
+    Deleting: "Deleting",
+} as const;
+
+/**
+ * Where the Inference Router's most recent configuration write has got to. Writes commit synchronously; propagation to the data plane is asynchronous.
+ */
+export type InferenceRouterStatus = (typeof InferenceRouterStatus)[keyof typeof InferenceRouterStatus];
+
 export const MlflowAppModelRegistrationMode = {
     AutoModelRegistrationEnabled: "AutoModelRegistrationEnabled",
     AutoModelRegistrationDisabled: "AutoModelRegistrationDisabled",

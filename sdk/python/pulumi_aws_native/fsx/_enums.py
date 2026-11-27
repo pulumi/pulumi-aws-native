@@ -9,6 +9,8 @@ from enum import Enum
 __all__ = [
     'BackupLifecycle',
     'BackupType',
+    'ClusterPeerAllowedSvmMode',
+    'ClusterPeerLifecycle',
     'DataRepositoryAssociationEventType',
     'FileCacheLifecycle',
     'FileCacheLogConfigurationLevel',
@@ -18,6 +20,17 @@ __all__ = [
     'S3AccessPointAttachmentOntapFileSystemIdentityType',
     'S3AccessPointAttachmentOpenZfsFileSystemIdentityType',
     'S3AccessPointAttachmentType',
+    'SnapmirrorPolicyLifecycle',
+    'SnapmirrorPolicyScope',
+    'SnapmirrorPolicySnapshotCopyMode',
+    'SnapmirrorRelationshipLifecycle',
+    'SnapmirrorRelationshipState',
+    'SnapshotPolicyLifecycle',
+    'SnapshotPolicyRetentionPeriodType',
+    'SnapshotPolicyScope',
+    'StorageVirtualMachinePeerApplicationsItem',
+    'StorageVirtualMachinePeerLifecycle',
+    'StorageVirtualMachinePeerState',
 ]
 
 
@@ -43,6 +56,27 @@ class BackupType(_builtins.str, Enum):
     AUTOMATIC = "AUTOMATIC"
     USER_INITIATED = "USER_INITIATED"
     AWS_BACKUP = "AWS_BACKUP"
+
+
+@pulumi.type_token("aws-native:fsx:ClusterPeerAllowedSvmMode")
+class ClusterPeerAllowedSvmMode(_builtins.str, Enum):
+    """
+    Which local SVMs the peer cluster may peer with automatically: ALL, NONE, or SPECIFIED (the SVMs in AllowedSvmIds).
+    """
+    ALL = "ALL"
+    NONE = "NONE"
+    SPECIFIED = "SPECIFIED"
+
+
+@pulumi.type_token("aws-native:fsx:ClusterPeerLifecycle")
+class ClusterPeerLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle status of the cluster peer relationship.
+    """
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:fsx:DataRepositoryAssociationEventType")
@@ -122,3 +156,122 @@ class S3AccessPointAttachmentType(_builtins.str, Enum):
     """
     OPENZFS = "OPENZFS"
     ONTAP = "ONTAP"
+
+
+@pulumi.type_token("aws-native:fsx:SnapmirrorPolicyLifecycle")
+class SnapmirrorPolicyLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle status of the SnapMirror policy.
+    """
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:fsx:SnapmirrorPolicyScope")
+class SnapmirrorPolicyScope(_builtins.str, Enum):
+    """
+    Whether the policy is scoped to a file system (FILESYSTEM) or to an SVM (SVM).
+    """
+    FILESYSTEM = "FILESYSTEM"
+    SVM = "SVM"
+
+
+@pulumi.type_token("aws-native:fsx:SnapmirrorPolicySnapshotCopyMode")
+class SnapmirrorPolicySnapshotCopyMode(_builtins.str, Enum):
+    """
+    Which snapshots SnapMirror copies. COPY_ALL_SOURCE_SNAPSHOTS and COPY_LATEST_SOURCE_SNAPSHOT create mirror policies and do not allow RetentionRules. NO_CREATE_SNAPSHOT_ON_SOURCE creates a vault policy and requires RetentionRules. Omit for a mirror-vault policy.
+    """
+    COPY_ALL_SOURCE_SNAPSHOTS = "COPY_ALL_SOURCE_SNAPSHOTS"
+    COPY_LATEST_SOURCE_SNAPSHOT = "COPY_LATEST_SOURCE_SNAPSHOT"
+    NO_CREATE_SNAPSHOT_ON_SOURCE = "NO_CREATE_SNAPSHOT_ON_SOURCE"
+
+
+@pulumi.type_token("aws-native:fsx:SnapmirrorRelationshipLifecycle")
+class SnapmirrorRelationshipLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle status of the SnapMirror relationship.
+    """
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:fsx:SnapmirrorRelationshipState")
+class SnapmirrorRelationshipState(_builtins.str, Enum):
+    """
+    The state of the relationship in ONTAP.
+    """
+    UNINITIALIZED = "UNINITIALIZED"
+    TRANSFERRING = "TRANSFERRING"
+    SNAPMIRRORED = "SNAPMIRRORED"
+    PAUSED = "PAUSED"
+    BROKEN_OFF = "BROKEN_OFF"
+
+
+@pulumi.type_token("aws-native:fsx:SnapshotPolicyLifecycle")
+class SnapshotPolicyLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle status of the snapshot policy.
+    """
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:fsx:SnapshotPolicyRetentionPeriodType")
+class SnapshotPolicyRetentionPeriodType(_builtins.str, Enum):
+    """
+    The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+    """
+    SECONDS = "SECONDS"
+    MINUTES = "MINUTES"
+    HOURS = "HOURS"
+    DAYS = "DAYS"
+    MONTHS = "MONTHS"
+    YEARS = "YEARS"
+    INFINITE = "INFINITE"
+
+
+@pulumi.type_token("aws-native:fsx:SnapshotPolicyScope")
+class SnapshotPolicyScope(_builtins.str, Enum):
+    """
+    Whether the snapshot policy is scoped to a file system or to an SVM.
+    """
+    FILESYSTEM = "FILESYSTEM"
+    SVM = "SVM"
+
+
+@pulumi.type_token("aws-native:fsx:StorageVirtualMachinePeerApplicationsItem")
+class StorageVirtualMachinePeerApplicationsItem(_builtins.str, Enum):
+    SNAPMIRROR = "SNAPMIRROR"
+    FILE_COPY = "FILE_COPY"
+    LUN_COPY = "LUN_COPY"
+    FLEXCACHE = "FLEXCACHE"
+
+
+@pulumi.type_token("aws-native:fsx:StorageVirtualMachinePeerLifecycle")
+class StorageVirtualMachinePeerLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle status of the SVM peer relationship.
+    """
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:fsx:StorageVirtualMachinePeerState")
+class StorageVirtualMachinePeerState(_builtins.str, Enum):
+    """
+    The state of the peer relationship in ONTAP.
+    """
+    PEERED = "PEERED"
+    REJECTED = "REJECTED"
+    SUSPENDED = "SUSPENDED"
+    INITIATED = "INITIATED"
+    PENDING = "PENDING"
+    INITIALIZING = "INITIALIZING"

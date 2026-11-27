@@ -36,6 +36,9 @@ __all__ = [
     'LicenseMetadata',
     'LicenseProvisionalConfiguration',
     'LicenseValidityDateFormat',
+    'ReportGeneratorReportContext',
+    'ReportGeneratorReportFrequency',
+    'ReportGeneratorS3Location',
 ]
 
 @pulumi.output_type
@@ -950,5 +953,177 @@ class LicenseValidityDateFormat(dict):
         Validity begin date for the license.
         """
         return pulumi.get(self, "end")
+
+
+@pulumi.output_type
+class ReportGeneratorReportContext(dict):
+    """
+    Details of the license configurations and asset groups that this generator reports on.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseAssetGroupArns":
+            suggest = "license_asset_group_arns"
+        elif key == "licenseConfigurationArns":
+            suggest = "license_configuration_arns"
+        elif key == "reportEndDate":
+            suggest = "report_end_date"
+        elif key == "reportStartDate":
+            suggest = "report_start_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportGeneratorReportContext. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportGeneratorReportContext.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportGeneratorReportContext.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_asset_group_arns: Optional[Sequence[_builtins.str]] = None,
+                 license_configuration_arns: Optional[Sequence[_builtins.str]] = None,
+                 report_end_date: Optional[_builtins.str] = None,
+                 report_start_date: Optional[_builtins.str] = None):
+        """
+        Details of the license configurations and asset groups that this generator reports on.
+
+        :param Sequence[_builtins.str] license_asset_group_arns: Amazon Resource Names (ARNs) of the license asset groups to include in the report.
+        :param Sequence[_builtins.str] license_configuration_arns: Amazon Resource Names (ARNs) of the license configurations that this generator reports on.
+        :param _builtins.str report_end_date: End date for the report data collection period.
+        :param _builtins.str report_start_date: Start date for the report data collection period.
+        """
+        if license_asset_group_arns is not None:
+            pulumi.set(__self__, "license_asset_group_arns", license_asset_group_arns)
+        if license_configuration_arns is not None:
+            pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
+        if report_end_date is not None:
+            pulumi.set(__self__, "report_end_date", report_end_date)
+        if report_start_date is not None:
+            pulumi.set(__self__, "report_start_date", report_start_date)
+
+    @_builtins.property
+    @pulumi.getter(name="licenseAssetGroupArns")
+    def license_asset_group_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Amazon Resource Names (ARNs) of the license asset groups to include in the report.
+        """
+        return pulumi.get(self, "license_asset_group_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="licenseConfigurationArns")
+    def license_configuration_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Amazon Resource Names (ARNs) of the license configurations that this generator reports on.
+        """
+        return pulumi.get(self, "license_configuration_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="reportEndDate")
+    def report_end_date(self) -> Optional[_builtins.str]:
+        """
+        End date for the report data collection period.
+        """
+        return pulumi.get(self, "report_end_date")
+
+    @_builtins.property
+    @pulumi.getter(name="reportStartDate")
+    def report_start_date(self) -> Optional[_builtins.str]:
+        """
+        Start date for the report data collection period.
+        """
+        return pulumi.get(self, "report_start_date")
+
+
+@pulumi.output_type
+class ReportGeneratorReportFrequency(dict):
+    """
+    Details about how frequently reports are generated.
+    """
+    def __init__(__self__, *,
+                 period: Optional['ReportGeneratorReportFrequencyPeriod'] = None,
+                 value: Optional[_builtins.int] = None):
+        """
+        Details about how frequently reports are generated.
+
+        :param 'ReportGeneratorReportFrequencyPeriod' period: Time period between each report. The period can be daily, weekly, or monthly.
+        :param _builtins.int value: Number of times within the frequency period that a report is generated. The only supported value is 1.
+        """
+        if period is not None:
+            pulumi.set(__self__, "period", period)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def period(self) -> Optional['ReportGeneratorReportFrequencyPeriod']:
+        """
+        Time period between each report. The period can be daily, weekly, or monthly.
+        """
+        return pulumi.get(self, "period")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.int]:
+        """
+        Number of times within the frequency period that a report is generated. The only supported value is 1.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ReportGeneratorS3Location(dict):
+    """
+    Details of the S3 bucket that report generator reports are published to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyPrefix":
+            suggest = "key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportGeneratorS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportGeneratorS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportGeneratorS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: Optional[_builtins.str] = None,
+                 key_prefix: Optional[_builtins.str] = None):
+        """
+        Details of the S3 bucket that report generator reports are published to.
+
+        :param _builtins.str bucket: Name of the S3 bucket reports are published to.
+        :param _builtins.str key_prefix: Prefix of the S3 bucket reports are published to.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[_builtins.str]:
+        """
+        Name of the S3 bucket reports are published to.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix of the S3 bucket reports are published to.
+        """
+        return pulumi.get(self, "key_prefix")
 
 

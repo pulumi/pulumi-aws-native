@@ -8,7 +8,9 @@ from enum import Enum
 
 __all__ = [
     'CertificateExport',
+    'CertificateRootHierarchyType',
     'CertificateTransparencyLoggingPreference',
+    'CertificateUsage',
 ]
 
 
@@ -21,6 +23,15 @@ class CertificateExport(_builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:certificatemanager:CertificateRootHierarchyType")
+class CertificateRootHierarchyType(_builtins.str, Enum):
+    """
+    The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+    """
+    N2_AMAZON_MANAGED = "N2_AMAZON_MANAGED"
+    N2_SFG2_AMAZON_MANAGED = "N2_SFG2_AMAZON_MANAGED"
+
+
 @pulumi.type_token("aws-native:certificatemanager:CertificateTransparencyLoggingPreference")
 class CertificateTransparencyLoggingPreference(_builtins.str, Enum):
     """
@@ -28,3 +39,12 @@ class CertificateTransparencyLoggingPreference(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:certificatemanager:CertificateUsage")
+class CertificateUsage(_builtins.str, Enum):
+    """
+    The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+    """
+    CLIENT_AND_SERVER_AUTH = "CLIENT_AND_SERVER_AUTH"
+    CLIENT_AUTH_ONLY = "CLIENT_AUTH_ONLY"

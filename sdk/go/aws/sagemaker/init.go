@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Endpoint{}
 	case "aws-native:sagemaker:EndpointConfig":
 		r = &EndpointConfig{}
+	case "aws-native:sagemaker:EndpointPolicy":
+		r = &EndpointPolicy{}
 	case "aws-native:sagemaker:Experiment":
 		r = &Experiment{}
 	case "aws-native:sagemaker:ExperimentTrialComponent":
@@ -75,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InferenceComponent{}
 	case "aws-native:sagemaker:InferenceExperiment":
 		r = &InferenceExperiment{}
+	case "aws-native:sagemaker:InferenceRouter":
+		r = &InferenceRouter{}
 	case "aws-native:sagemaker:MlflowApp":
 		r = &MlflowApp{}
 	case "aws-native:sagemaker:MlflowTrackingServer":

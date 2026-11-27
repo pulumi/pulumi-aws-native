@@ -47,6 +47,7 @@ export class WebAcl extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAcl.__pulumiType;
     }
 
+    declare public readonly analyticsConfig: pulumi.Output<outputs.wafv2.WebAclAnalyticsConfig | undefined>;
     /**
      * Collection of application attributes.
      */
@@ -167,6 +168,7 @@ export class WebAcl extends pulumi.CustomResource {
             if (args?.visibilityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            resourceInputs["analyticsConfig"] = args?.analyticsConfig;
             resourceInputs["applicationConfig"] = args?.applicationConfig;
             resourceInputs["associationConfig"] = args?.associationConfig;
             resourceInputs["captchaConfig"] = args?.captchaConfig;
@@ -188,6 +190,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
         } else {
+            resourceInputs["analyticsConfig"] = undefined /*out*/;
             resourceInputs["applicationConfig"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationConfig"] = undefined /*out*/;
@@ -220,6 +223,7 @@ export class WebAcl extends pulumi.CustomResource {
  * The set of arguments for constructing a WebAcl resource.
  */
 export interface WebAclArgs {
+    analyticsConfig?: pulumi.Input<inputs.wafv2.WebAclAnalyticsConfigArgs | undefined>;
     /**
      * Collection of application attributes.
      */

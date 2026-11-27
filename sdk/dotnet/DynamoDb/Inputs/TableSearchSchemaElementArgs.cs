@@ -10,11 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Inputs
 {
 
+    /// <summary>
+    /// An element in the search schema of a vector index.
+    /// </summary>
     public sealed class TableSearchSchemaElementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.
+        /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The role of the attribute in the search schema. Valid values:
+        ///   +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+        ///   +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+        /// </summary>
         [Input("searchSchemaElementType", required: true)]
         public Input<Pulumi.AwsNative.DynamoDb.TableSearchSchemaElementSearchSchemaElementType> SearchSchemaElementType { get; set; } = null!;
 

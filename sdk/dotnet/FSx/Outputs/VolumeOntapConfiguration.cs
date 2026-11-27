@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.FSx.Outputs
         /// </summary>
         public readonly Outputs.VolumeAggregateConfiguration? AggregateConfiguration;
         /// <summary>
+        /// Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
+        /// </summary>
+        public readonly Outputs.VolumeCloneConfiguration? CloneConfiguration;
+        /// <summary>
         /// A boolean flag indicating whether tags for the volume should be copied to backups.
         /// </summary>
         public readonly string? CopyTagsToBackups;
@@ -70,6 +74,8 @@ namespace Pulumi.AwsNative.FSx.Outputs
         private VolumeOntapConfiguration(
             Outputs.VolumeAggregateConfiguration? aggregateConfiguration,
 
+            Outputs.VolumeCloneConfiguration? cloneConfiguration,
+
             string? copyTagsToBackups,
 
             string? junctionPath,
@@ -95,6 +101,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
             string? volumeStyle)
         {
             AggregateConfiguration = aggregateConfiguration;
+            CloneConfiguration = cloneConfiguration;
             CopyTagsToBackups = copyTagsToBackups;
             JunctionPath = junctionPath;
             OntapVolumeType = ontapVolumeType;

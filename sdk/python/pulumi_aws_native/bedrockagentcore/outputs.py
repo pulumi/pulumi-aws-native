@@ -30,6 +30,7 @@ __all__ = [
     'CapacityProviderCapacityReservationSpecification',
     'CapacityProviderCapacityReservationTarget',
     'CapacityProviderComputeConfiguration',
+    'CapacityProviderCpuOptions',
     'CapacityProviderEbsVolumeConfiguration',
     'CapacityProviderEc2Configuration',
     'CapacityProviderEphemeralBlockDeviceMapping',
@@ -72,10 +73,13 @@ __all__ = [
     'EvaluatorReasoningConfiguration',
     'GatewayAuthorizerConfigurationProperties',
     'GatewayAuthorizingClaimMatchValueType',
+    'GatewayCertificateConfiguration0Properties',
+    'GatewayCertificateConfiguration1Properties',
     'GatewayClaimMatchValueType0Properties',
     'GatewayClaimMatchValueType1Properties',
     'GatewayCustomClaimValidationType',
     'GatewayCustomJwtAuthorizerConfiguration',
+    'GatewayDomainOverride',
     'GatewayInterceptorConfiguration',
     'GatewayInterceptorInputConfiguration',
     'GatewayInterceptorPayloadExclusionSelectorProperties',
@@ -89,6 +93,7 @@ __all__ = [
     'GatewayProtocolConfigurationProperties',
     'GatewayRateLimitLimitEntry',
     'GatewayRateLimitRateConfig',
+    'GatewayResponseStreamingConfiguration',
     'GatewayRuleAction0Properties',
     'GatewayRuleAction1Properties',
     'GatewayRuleCircuitBreakerConfiguration',
@@ -116,6 +121,8 @@ __all__ = [
     'GatewayRuleTrafficSplitEntry',
     'GatewayRuleWeightedOverride',
     'GatewayRuleWeightedRoute',
+    'GatewayS3CertificateConfiguration',
+    'GatewaySecretsManagerCertificateConfiguration',
     'GatewaySelfManagedLatticeResourceProperties',
     'GatewaySessionConfiguration',
     'GatewayStreamingConfiguration',
@@ -330,12 +337,18 @@ __all__ = [
     'OnlineEvaluationConfigSessionConfig',
     'PaymentConnectorCredentialsProviderConfiguration',
     'PaymentConnectorPaymentCredentialProviderConfiguration',
+    'PaymentCredentialProviderAmazonPayConfigurationInput',
+    'PaymentCredentialProviderAmazonPayConfigurationOutput',
     'PaymentCredentialProviderCoinbaseCdpConfigurationInput',
     'PaymentCredentialProviderCoinbaseCdpConfigurationOutput',
+    'PaymentCredentialProviderPayPalConfigurationInput',
+    'PaymentCredentialProviderPayPalConfigurationOutput',
     'PaymentCredentialProviderPaymentProviderConfigurationInput',
     'PaymentCredentialProviderPaymentProviderConfigurationOutput',
     'PaymentCredentialProviderSecretInfo',
     'PaymentCredentialProviderSecretReference',
+    'PaymentCredentialProviderStripeConfigurationInput',
+    'PaymentCredentialProviderStripeConfigurationOutput',
     'PaymentCredentialProviderStripePrivyConfigurationInput',
     'PaymentCredentialProviderStripePrivyConfigurationOutput',
     'PaymentManagerAuthorizerConfigurationProperties',
@@ -352,6 +365,7 @@ __all__ = [
     'RuntimeAllowedWorkloadConfiguration',
     'RuntimeAuthorizerConfiguration',
     'RuntimeAuthorizingClaimMatchValueType',
+    'RuntimeBuildLifecycleHooks',
     'RuntimeCapacityProviderConfiguration',
     'RuntimeCapacityProviderVolumeConfiguration',
     'RuntimeClaimMatchValueType',
@@ -362,13 +376,18 @@ __all__ = [
     'RuntimeCustomJwtAuthorizerConfiguration',
     'RuntimeEfsAccessPointConfiguration',
     'RuntimeFilesystemConfiguration',
+    'RuntimeHooksConfiguration',
     'RuntimeHostingEnvironment',
+    'RuntimeHttpPostLifecycleHookAction',
     'RuntimeLifecycleConfiguration',
+    'RuntimeLifecycleHook',
+    'RuntimeLifecycleHookAction',
     'RuntimeManagedVpcResource',
     'RuntimeNetworkConfiguration',
     'RuntimePrivateEndpoint',
     'RuntimePrivateEndpointOverride',
     'RuntimeRequestHeaderConfiguration',
+    'RuntimeResourceConfiguration',
     'RuntimeS3FilesAccessPointConfiguration',
     'RuntimeS3Location',
     'RuntimeSelfManagedLatticeResource',
@@ -915,6 +934,47 @@ class CapacityProviderComputeConfiguration(dict):
 
 
 @pulumi.output_type
+class CapacityProviderCpuOptions(dict):
+    """
+    The CPU options for the instances.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nestedVirtualization":
+            suggest = "nested_virtualization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderCpuOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderCpuOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderCpuOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nested_virtualization: Optional['CapacityProviderCpuOptionsNestedVirtualization'] = None):
+        """
+        The CPU options for the instances.
+
+        :param 'CapacityProviderCpuOptionsNestedVirtualization' nested_virtualization: Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+        """
+        if nested_virtualization is not None:
+            pulumi.set(__self__, "nested_virtualization", nested_virtualization)
+
+    @_builtins.property
+    @pulumi.getter(name="nestedVirtualization")
+    def nested_virtualization(self) -> Optional['CapacityProviderCpuOptionsNestedVirtualization']:
+        """
+        Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+        """
+        return pulumi.get(self, "nested_virtualization")
+
+
+@pulumi.output_type
 class CapacityProviderEbsVolumeConfiguration(dict):
     """
     Configuration for an EBS-backed persistent volume.
@@ -1439,6 +1499,8 @@ class CapacityProviderLaunchParameters(dict):
             suggest = "operating_system"
         elif key == "capacityReservationSpecification":
             suggest = "capacity_reservation_specification"
+        elif key == "cpuOptions":
+            suggest = "cpu_options"
         elif key == "ephemeralVolumes":
             suggest = "ephemeral_volumes"
         elif key == "instanceProfileArn":
@@ -1465,6 +1527,7 @@ class CapacityProviderLaunchParameters(dict):
                  instance_requirements: 'outputs.CapacityProviderInstanceRequirements',
                  operating_system: 'CapacityProviderLaunchParametersOperatingSystem',
                  capacity_reservation_specification: Optional['outputs.CapacityProviderCapacityReservationSpecification'] = None,
+                 cpu_options: Optional['outputs.CapacityProviderCpuOptions'] = None,
                  ephemeral_volumes: Optional[Sequence['outputs.CapacityProviderEphemeralBlockDeviceMapping']] = None,
                  instance_profile_arn: Optional[_builtins.str] = None,
                  license_specifications: Optional[Sequence['outputs.CapacityProviderLicenseSpecification']] = None,
@@ -1486,6 +1549,8 @@ class CapacityProviderLaunchParameters(dict):
         pulumi.set(__self__, "operating_system", operating_system)
         if capacity_reservation_specification is not None:
             pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+        if cpu_options is not None:
+            pulumi.set(__self__, "cpu_options", cpu_options)
         if ephemeral_volumes is not None:
             pulumi.set(__self__, "ephemeral_volumes", ephemeral_volumes)
         if instance_profile_arn is not None:
@@ -1516,6 +1581,11 @@ class CapacityProviderLaunchParameters(dict):
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional['outputs.CapacityProviderCapacityReservationSpecification']:
         return pulumi.get(self, "capacity_reservation_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="cpuOptions")
+    def cpu_options(self) -> Optional['outputs.CapacityProviderCpuOptions']:
+        return pulumi.get(self, "cpu_options")
 
     @_builtins.property
     @pulumi.getter(name="ephemeralVolumes")
@@ -2306,7 +2376,7 @@ class DatasetInlineExamplesSource(dict):
         """
         Inline examples provided directly in the request body.
 
-        :param Sequence[Any] examples: Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+        :param Sequence[Any] examples: Examples to add. Each example is a free-form JSON document validated against the scenario rules.
         """
         pulumi.set(__self__, "examples", examples)
 
@@ -2314,7 +2384,7 @@ class DatasetInlineExamplesSource(dict):
     @pulumi.getter
     def examples(self) -> Sequence[Any]:
         """
-        Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+        Examples to add. Each example is a free-form JSON document validated against the scenario rules.
         """
         return pulumi.get(self, "examples")
 
@@ -3212,6 +3282,47 @@ class GatewayAuthorizingClaimMatchValueType(dict):
 
 
 @pulumi.output_type
+class GatewayCertificateConfiguration0Properties(dict):
+    def __init__(__self__, *,
+                 s3: 'outputs.GatewayS3CertificateConfiguration'):
+        pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> 'outputs.GatewayS3CertificateConfiguration':
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class GatewayCertificateConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayCertificateConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayCertificateConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayCertificateConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: 'outputs.GatewaySecretsManagerCertificateConfiguration'):
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> 'outputs.GatewaySecretsManagerCertificateConfiguration':
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
 class GatewayClaimMatchValueType0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3331,6 +3442,8 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
             suggest = "allowed_clients"
         elif key == "allowedScopes":
             suggest = "allowed_scopes"
+        elif key == "certificateConfigurations":
+            suggest = "certificate_configurations"
         elif key == "customClaims":
             suggest = "custom_claims"
         elif key == "privateEndpoint":
@@ -3353,6 +3466,7 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
                  allowed_audience: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
+                 certificate_configurations: Optional[Sequence[Union['outputs.GatewayCertificateConfiguration0Properties', 'outputs.GatewayCertificateConfiguration1Properties']]] = None,
                  custom_claims: Optional[Sequence['outputs.GatewayCustomClaimValidationType']] = None,
                  private_endpoint: Optional[Union['outputs.GatewayPrivateEndpoint0Properties', 'outputs.GatewayPrivateEndpoint1Properties']] = None):
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -3364,6 +3478,8 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if certificate_configurations is not None:
+            pulumi.set(__self__, "certificate_configurations", certificate_configurations)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
         if private_endpoint is not None:
@@ -3395,6 +3511,11 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
         return pulumi.get(self, "allowed_scopes")
 
     @_builtins.property
+    @pulumi.getter(name="certificateConfigurations")
+    def certificate_configurations(self) -> Optional[Sequence[Union['outputs.GatewayCertificateConfiguration0Properties', 'outputs.GatewayCertificateConfiguration1Properties']]]:
+        return pulumi.get(self, "certificate_configurations")
+
+    @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> Optional[Sequence['outputs.GatewayCustomClaimValidationType']]:
         return pulumi.get(self, "custom_claims")
@@ -3406,6 +3527,45 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
 
 
 @pulumi.output_type
+class GatewayDomainOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDomain":
+            suggest = "default_domain"
+        elif key == "alternateDomains":
+            suggest = "alternate_domains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayDomainOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayDomainOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayDomainOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_domain: _builtins.str,
+                 alternate_domains: Optional[Sequence[_builtins.str]] = None):
+        pulumi.set(__self__, "default_domain", default_domain)
+        if alternate_domains is not None:
+            pulumi.set(__self__, "alternate_domains", alternate_domains)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDomain")
+    def default_domain(self) -> _builtins.str:
+        return pulumi.get(self, "default_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="alternateDomains")
+    def alternate_domains(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "alternate_domains")
+
+
+@pulumi.output_type
 class GatewayInterceptorConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3414,6 +3574,10 @@ class GatewayInterceptorConfiguration(dict):
             suggest = "interception_points"
         elif key == "inputConfiguration":
             suggest = "input_configuration"
+        elif key == "responseInterceptionMode":
+            suggest = "response_interception_mode"
+        elif key == "responseStreamingConfiguration":
+            suggest = "response_streaming_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GatewayInterceptorConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -3429,11 +3593,17 @@ class GatewayInterceptorConfiguration(dict):
     def __init__(__self__, *,
                  interception_points: Sequence['GatewayInterceptionPoint'],
                  interceptor: 'outputs.InterceptorConfigurationProperties',
-                 input_configuration: Optional['outputs.GatewayInterceptorInputConfiguration'] = None):
+                 input_configuration: Optional['outputs.GatewayInterceptorInputConfiguration'] = None,
+                 response_interception_mode: Optional['GatewayResponseInterceptionMode'] = None,
+                 response_streaming_configuration: Optional['outputs.GatewayResponseStreamingConfiguration'] = None):
         pulumi.set(__self__, "interception_points", interception_points)
         pulumi.set(__self__, "interceptor", interceptor)
         if input_configuration is not None:
             pulumi.set(__self__, "input_configuration", input_configuration)
+        if response_interception_mode is not None:
+            pulumi.set(__self__, "response_interception_mode", response_interception_mode)
+        if response_streaming_configuration is not None:
+            pulumi.set(__self__, "response_streaming_configuration", response_streaming_configuration)
 
     @_builtins.property
     @pulumi.getter(name="interceptionPoints")
@@ -3449,6 +3619,16 @@ class GatewayInterceptorConfiguration(dict):
     @pulumi.getter(name="inputConfiguration")
     def input_configuration(self) -> Optional['outputs.GatewayInterceptorInputConfiguration']:
         return pulumi.get(self, "input_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="responseInterceptionMode")
+    def response_interception_mode(self) -> Optional['GatewayResponseInterceptionMode']:
+        return pulumi.get(self, "response_interception_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="responseStreamingConfiguration")
+    def response_streaming_configuration(self) -> Optional['outputs.GatewayResponseStreamingConfiguration']:
+        return pulumi.get(self, "response_streaming_configuration")
 
 
 @pulumi.output_type
@@ -3846,6 +4026,36 @@ class GatewayRateLimitRateConfig(dict):
     @pulumi.getter
     def rate(self) -> _builtins.float:
         return pulumi.get(self, "rate")
+
+
+@pulumi.output_type
+class GatewayResponseStreamingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEventsPerInvocation":
+            suggest = "max_events_per_invocation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayResponseStreamingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayResponseStreamingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayResponseStreamingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_events_per_invocation: Optional[_builtins.int] = None):
+        if max_events_per_invocation is not None:
+            pulumi.set(__self__, "max_events_per_invocation", max_events_per_invocation)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEventsPerInvocation")
+    def max_events_per_invocation(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_events_per_invocation")
 
 
 @pulumi.output_type
@@ -4772,6 +4982,72 @@ class GatewayRuleWeightedRoute(dict):
     @pulumi.getter(name="trafficSplit")
     def traffic_split(self) -> Sequence['outputs.GatewayRuleTargetTrafficSplitEntry']:
         return pulumi.get(self, "traffic_split")
+
+
+@pulumi.output_type
+class GatewayS3CertificateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayS3CertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayS3CertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayS3CertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: _builtins.str,
+                 bucket_owner_account_id: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "uri", uri)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> _builtins.str:
+        return pulumi.get(self, "uri")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "bucket_owner_account_id")
+
+
+@pulumi.output_type
+class GatewaySecretsManagerCertificateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewaySecretsManagerCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewaySecretsManagerCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewaySecretsManagerCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type
@@ -14356,6 +14632,212 @@ class PaymentConnectorPaymentCredentialProviderConfiguration(dict):
 
 
 @pulumi.output_type
+class PaymentCredentialProviderAmazonPayConfigurationInput(dict):
+    """
+    Amazon Pay configuration with merchant identifiers and a delegated authorization token
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amazonPayRegion":
+            suggest = "amazon_pay_region"
+        elif key == "merchantId":
+            suggest = "merchant_id"
+        elif key == "storeId":
+            suggest = "store_id"
+        elif key == "authorizationToken":
+            suggest = "authorization_token"
+        elif key == "authorizationTokenConfig":
+            suggest = "authorization_token_config"
+        elif key == "authorizationTokenSource":
+            suggest = "authorization_token_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderAmazonPayConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderAmazonPayConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderAmazonPayConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amazon_pay_region: 'PaymentCredentialProviderAmazonPayRegionType',
+                 environment: 'PaymentCredentialProviderAmazonPayEnvironmentType',
+                 merchant_id: _builtins.str,
+                 store_id: _builtins.str,
+                 authorization_token: Optional[_builtins.str] = None,
+                 authorization_token_config: Optional['outputs.PaymentCredentialProviderSecretReference'] = None,
+                 authorization_token_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
+        """
+        Amazon Pay configuration with merchant identifiers and a delegated authorization token
+
+        :param _builtins.str merchant_id: The Amazon Pay merchant (seller) ID
+        :param _builtins.str store_id: The Amazon Pay store (client) ID
+        :param _builtins.str authorization_token: The delegated authorization token, supplied inline. Mutually exclusive with AuthorizationTokenConfig.
+        """
+        pulumi.set(__self__, "amazon_pay_region", amazon_pay_region)
+        pulumi.set(__self__, "environment", environment)
+        pulumi.set(__self__, "merchant_id", merchant_id)
+        pulumi.set(__self__, "store_id", store_id)
+        if authorization_token is not None:
+            pulumi.set(__self__, "authorization_token", authorization_token)
+        if authorization_token_config is not None:
+            pulumi.set(__self__, "authorization_token_config", authorization_token_config)
+        if authorization_token_source is not None:
+            pulumi.set(__self__, "authorization_token_source", authorization_token_source)
+
+    @_builtins.property
+    @pulumi.getter(name="amazonPayRegion")
+    def amazon_pay_region(self) -> 'PaymentCredentialProviderAmazonPayRegionType':
+        return pulumi.get(self, "amazon_pay_region")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> 'PaymentCredentialProviderAmazonPayEnvironmentType':
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="merchantId")
+    def merchant_id(self) -> _builtins.str:
+        """
+        The Amazon Pay merchant (seller) ID
+        """
+        return pulumi.get(self, "merchant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storeId")
+    def store_id(self) -> _builtins.str:
+        """
+        The Amazon Pay store (client) ID
+        """
+        return pulumi.get(self, "store_id")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationToken")
+    def authorization_token(self) -> Optional[_builtins.str]:
+        """
+        The delegated authorization token, supplied inline. Mutually exclusive with AuthorizationTokenConfig.
+        """
+        return pulumi.get(self, "authorization_token")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationTokenConfig")
+    def authorization_token_config(self) -> Optional['outputs.PaymentCredentialProviderSecretReference']:
+        return pulumi.get(self, "authorization_token_config")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationTokenSource")
+    def authorization_token_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "authorization_token_source")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderAmazonPayConfigurationOutput(dict):
+    """
+    Amazon Pay configuration output with the authorization token secret ARN
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationTokenArn":
+            suggest = "authorization_token_arn"
+        elif key == "merchantId":
+            suggest = "merchant_id"
+        elif key == "storeId":
+            suggest = "store_id"
+        elif key == "amazonPayRegion":
+            suggest = "amazon_pay_region"
+        elif key == "authorizationTokenJsonKey":
+            suggest = "authorization_token_json_key"
+        elif key == "authorizationTokenSource":
+            suggest = "authorization_token_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderAmazonPayConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderAmazonPayConfigurationOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderAmazonPayConfigurationOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_token_arn: 'outputs.PaymentCredentialProviderSecretInfo',
+                 environment: 'PaymentCredentialProviderAmazonPayEnvironmentType',
+                 merchant_id: _builtins.str,
+                 store_id: _builtins.str,
+                 amazon_pay_region: Optional['PaymentCredentialProviderAmazonPayRegionType'] = None,
+                 authorization_token_json_key: Optional[_builtins.str] = None,
+                 authorization_token_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
+        """
+        Amazon Pay configuration output with the authorization token secret ARN
+
+        :param _builtins.str merchant_id: The Amazon Pay merchant (seller) ID
+        :param _builtins.str store_id: The Amazon Pay store (client) ID
+        :param _builtins.str authorization_token_json_key: The JSON key within the secret that contains the authorization token value
+        """
+        pulumi.set(__self__, "authorization_token_arn", authorization_token_arn)
+        pulumi.set(__self__, "environment", environment)
+        pulumi.set(__self__, "merchant_id", merchant_id)
+        pulumi.set(__self__, "store_id", store_id)
+        if amazon_pay_region is not None:
+            pulumi.set(__self__, "amazon_pay_region", amazon_pay_region)
+        if authorization_token_json_key is not None:
+            pulumi.set(__self__, "authorization_token_json_key", authorization_token_json_key)
+        if authorization_token_source is not None:
+            pulumi.set(__self__, "authorization_token_source", authorization_token_source)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationTokenArn")
+    def authorization_token_arn(self) -> 'outputs.PaymentCredentialProviderSecretInfo':
+        return pulumi.get(self, "authorization_token_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> 'PaymentCredentialProviderAmazonPayEnvironmentType':
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="merchantId")
+    def merchant_id(self) -> _builtins.str:
+        """
+        The Amazon Pay merchant (seller) ID
+        """
+        return pulumi.get(self, "merchant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storeId")
+    def store_id(self) -> _builtins.str:
+        """
+        The Amazon Pay store (client) ID
+        """
+        return pulumi.get(self, "store_id")
+
+    @_builtins.property
+    @pulumi.getter(name="amazonPayRegion")
+    def amazon_pay_region(self) -> Optional['PaymentCredentialProviderAmazonPayRegionType']:
+        return pulumi.get(self, "amazon_pay_region")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationTokenJsonKey")
+    def authorization_token_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the authorization token value
+        """
+        return pulumi.get(self, "authorization_token_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationTokenSource")
+    def authorization_token_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "authorization_token_source")
+
+
+@pulumi.output_type
 class PaymentCredentialProviderCoinbaseCdpConfigurationInput(dict):
     """
     Coinbase CDP configuration with API credentials
@@ -14571,6 +15053,167 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationOutput(dict):
 
 
 @pulumi.output_type
+class PaymentCredentialProviderPayPalConfigurationInput(dict):
+    """
+    PayPal configuration with REST app credentials
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderPayPalConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderPayPalConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderPayPalConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 environment: 'PaymentCredentialProviderPayPalEnvironmentType',
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.PaymentCredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
+        """
+        PayPal configuration with REST app credentials
+
+        :param _builtins.str client_id: The PayPal REST app client ID
+        :param _builtins.str client_secret: The PayPal REST app client secret, supplied inline. Mutually exclusive with ClientSecretConfig.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "environment", environment)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The PayPal REST app client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> 'PaymentCredentialProviderPayPalEnvironmentType':
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        """
+        The PayPal REST app client secret, supplied inline. Mutually exclusive with ClientSecretConfig.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.PaymentCredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "client_secret_source")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderPayPalConfigurationOutput(dict):
+    """
+    PayPal configuration output with the client secret ARN
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecretArn":
+            suggest = "client_secret_arn"
+        elif key == "clientSecretJsonKey":
+            suggest = "client_secret_json_key"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderPayPalConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderPayPalConfigurationOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderPayPalConfigurationOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret_arn: 'outputs.PaymentCredentialProviderSecretInfo',
+                 environment: 'PaymentCredentialProviderPayPalEnvironmentType',
+                 client_secret_json_key: Optional[_builtins.str] = None,
+                 client_secret_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
+        """
+        PayPal configuration output with the client secret ARN
+
+        :param _builtins.str client_id: The PayPal REST app client ID
+        :param _builtins.str client_secret_json_key: The JSON key within the secret that contains the client secret value
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_arn", client_secret_arn)
+        pulumi.set(__self__, "environment", environment)
+        if client_secret_json_key is not None:
+            pulumi.set(__self__, "client_secret_json_key", client_secret_json_key)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The PayPal REST app client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretArn")
+    def client_secret_arn(self) -> 'outputs.PaymentCredentialProviderSecretInfo':
+        return pulumi.get(self, "client_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> 'PaymentCredentialProviderPayPalEnvironmentType':
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretJsonKey")
+    def client_secret_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the client secret value
+        """
+        return pulumi.get(self, "client_secret_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "client_secret_source")
+
+
+@pulumi.output_type
 class PaymentCredentialProviderPaymentProviderConfigurationInput(dict):
     """
     Provider configuration input containing secrets for creation/update
@@ -14578,8 +15221,14 @@ class PaymentCredentialProviderPaymentProviderConfigurationInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "coinbaseCdpConfiguration":
+        if key == "amazonPayConfiguration":
+            suggest = "amazon_pay_configuration"
+        elif key == "coinbaseCdpConfiguration":
             suggest = "coinbase_cdp_configuration"
+        elif key == "payPalConfiguration":
+            suggest = "pay_pal_configuration"
+        elif key == "stripeConfiguration":
+            suggest = "stripe_configuration"
         elif key == "stripePrivyConfiguration":
             suggest = "stripe_privy_configuration"
 
@@ -14595,20 +15244,44 @@ class PaymentCredentialProviderPaymentProviderConfigurationInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 amazon_pay_configuration: Optional['outputs.PaymentCredentialProviderAmazonPayConfigurationInput'] = None,
                  coinbase_cdp_configuration: Optional['outputs.PaymentCredentialProviderCoinbaseCdpConfigurationInput'] = None,
+                 pay_pal_configuration: Optional['outputs.PaymentCredentialProviderPayPalConfigurationInput'] = None,
+                 stripe_configuration: Optional['outputs.PaymentCredentialProviderStripeConfigurationInput'] = None,
                  stripe_privy_configuration: Optional['outputs.PaymentCredentialProviderStripePrivyConfigurationInput'] = None):
         """
         Provider configuration input containing secrets for creation/update
         """
+        if amazon_pay_configuration is not None:
+            pulumi.set(__self__, "amazon_pay_configuration", amazon_pay_configuration)
         if coinbase_cdp_configuration is not None:
             pulumi.set(__self__, "coinbase_cdp_configuration", coinbase_cdp_configuration)
+        if pay_pal_configuration is not None:
+            pulumi.set(__self__, "pay_pal_configuration", pay_pal_configuration)
+        if stripe_configuration is not None:
+            pulumi.set(__self__, "stripe_configuration", stripe_configuration)
         if stripe_privy_configuration is not None:
             pulumi.set(__self__, "stripe_privy_configuration", stripe_privy_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="amazonPayConfiguration")
+    def amazon_pay_configuration(self) -> Optional['outputs.PaymentCredentialProviderAmazonPayConfigurationInput']:
+        return pulumi.get(self, "amazon_pay_configuration")
 
     @_builtins.property
     @pulumi.getter(name="coinbaseCdpConfiguration")
     def coinbase_cdp_configuration(self) -> Optional['outputs.PaymentCredentialProviderCoinbaseCdpConfigurationInput']:
         return pulumi.get(self, "coinbase_cdp_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="payPalConfiguration")
+    def pay_pal_configuration(self) -> Optional['outputs.PaymentCredentialProviderPayPalConfigurationInput']:
+        return pulumi.get(self, "pay_pal_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="stripeConfiguration")
+    def stripe_configuration(self) -> Optional['outputs.PaymentCredentialProviderStripeConfigurationInput']:
+        return pulumi.get(self, "stripe_configuration")
 
     @_builtins.property
     @pulumi.getter(name="stripePrivyConfiguration")
@@ -14624,8 +15297,14 @@ class PaymentCredentialProviderPaymentProviderConfigurationOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "coinbaseCdpConfiguration":
+        if key == "amazonPayConfiguration":
+            suggest = "amazon_pay_configuration"
+        elif key == "coinbaseCdpConfiguration":
             suggest = "coinbase_cdp_configuration"
+        elif key == "payPalConfiguration":
+            suggest = "pay_pal_configuration"
+        elif key == "stripeConfiguration":
+            suggest = "stripe_configuration"
         elif key == "stripePrivyConfiguration":
             suggest = "stripe_privy_configuration"
 
@@ -14641,20 +15320,44 @@ class PaymentCredentialProviderPaymentProviderConfigurationOutput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 amazon_pay_configuration: Optional['outputs.PaymentCredentialProviderAmazonPayConfigurationOutput'] = None,
                  coinbase_cdp_configuration: Optional['outputs.PaymentCredentialProviderCoinbaseCdpConfigurationOutput'] = None,
+                 pay_pal_configuration: Optional['outputs.PaymentCredentialProviderPayPalConfigurationOutput'] = None,
+                 stripe_configuration: Optional['outputs.PaymentCredentialProviderStripeConfigurationOutput'] = None,
                  stripe_privy_configuration: Optional['outputs.PaymentCredentialProviderStripePrivyConfigurationOutput'] = None):
         """
         Provider configuration output containing secret ARNs (no raw secrets)
         """
+        if amazon_pay_configuration is not None:
+            pulumi.set(__self__, "amazon_pay_configuration", amazon_pay_configuration)
         if coinbase_cdp_configuration is not None:
             pulumi.set(__self__, "coinbase_cdp_configuration", coinbase_cdp_configuration)
+        if pay_pal_configuration is not None:
+            pulumi.set(__self__, "pay_pal_configuration", pay_pal_configuration)
+        if stripe_configuration is not None:
+            pulumi.set(__self__, "stripe_configuration", stripe_configuration)
         if stripe_privy_configuration is not None:
             pulumi.set(__self__, "stripe_privy_configuration", stripe_privy_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="amazonPayConfiguration")
+    def amazon_pay_configuration(self) -> Optional['outputs.PaymentCredentialProviderAmazonPayConfigurationOutput']:
+        return pulumi.get(self, "amazon_pay_configuration")
 
     @_builtins.property
     @pulumi.getter(name="coinbaseCdpConfiguration")
     def coinbase_cdp_configuration(self) -> Optional['outputs.PaymentCredentialProviderCoinbaseCdpConfigurationOutput']:
         return pulumi.get(self, "coinbase_cdp_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="payPalConfiguration")
+    def pay_pal_configuration(self) -> Optional['outputs.PaymentCredentialProviderPayPalConfigurationOutput']:
+        return pulumi.get(self, "pay_pal_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="stripeConfiguration")
+    def stripe_configuration(self) -> Optional['outputs.PaymentCredentialProviderStripeConfigurationOutput']:
+        return pulumi.get(self, "stripe_configuration")
 
     @_builtins.property
     @pulumi.getter(name="stripePrivyConfiguration")
@@ -14753,6 +15456,155 @@ class PaymentCredentialProviderSecretReference(dict):
         The ID or ARN of the secret in AWS Secrets Manager
         """
         return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderStripeConfigurationInput(dict):
+    """
+    Stripe configuration with a restricted key, supplied inline (MANAGED) or as a Secrets Manager reference (EXTERNAL)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishableKey":
+            suggest = "publishable_key"
+        elif key == "restrictedKey":
+            suggest = "restricted_key"
+        elif key == "restrictedKeyConfig":
+            suggest = "restricted_key_config"
+        elif key == "restrictedKeySource":
+            suggest = "restricted_key_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderStripeConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderStripeConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderStripeConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 publishable_key: Optional[_builtins.str] = None,
+                 restricted_key: Optional[_builtins.str] = None,
+                 restricted_key_config: Optional['outputs.PaymentCredentialProviderSecretReference'] = None,
+                 restricted_key_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
+        """
+        Stripe configuration with a restricted key, supplied inline (MANAGED) or as a Secrets Manager reference (EXTERNAL)
+
+        :param _builtins.str publishable_key: The Stripe publishable key (pk_live_* or pk_test_*). Its mode must match the restricted key's.
+        :param _builtins.str restricted_key: The Stripe restricted key (rk_live_* or rk_test_*), supplied inline. Mutually exclusive with RestrictedKeyConfig.
+        """
+        if publishable_key is not None:
+            pulumi.set(__self__, "publishable_key", publishable_key)
+        if restricted_key is not None:
+            pulumi.set(__self__, "restricted_key", restricted_key)
+        if restricted_key_config is not None:
+            pulumi.set(__self__, "restricted_key_config", restricted_key_config)
+        if restricted_key_source is not None:
+            pulumi.set(__self__, "restricted_key_source", restricted_key_source)
+
+    @_builtins.property
+    @pulumi.getter(name="publishableKey")
+    def publishable_key(self) -> Optional[_builtins.str]:
+        """
+        The Stripe publishable key (pk_live_* or pk_test_*). Its mode must match the restricted key's.
+        """
+        return pulumi.get(self, "publishable_key")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKey")
+    def restricted_key(self) -> Optional[_builtins.str]:
+        """
+        The Stripe restricted key (rk_live_* or rk_test_*), supplied inline. Mutually exclusive with RestrictedKeyConfig.
+        """
+        return pulumi.get(self, "restricted_key")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKeyConfig")
+    def restricted_key_config(self) -> Optional['outputs.PaymentCredentialProviderSecretReference']:
+        return pulumi.get(self, "restricted_key_config")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKeySource")
+    def restricted_key_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "restricted_key_source")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderStripeConfigurationOutput(dict):
+    """
+    Stripe configuration output with the restricted key secret ARN
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictedKeyArn":
+            suggest = "restricted_key_arn"
+        elif key == "publishableKey":
+            suggest = "publishable_key"
+        elif key == "restrictedKeyJsonKey":
+            suggest = "restricted_key_json_key"
+        elif key == "restrictedKeySource":
+            suggest = "restricted_key_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderStripeConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderStripeConfigurationOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderStripeConfigurationOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restricted_key_arn: 'outputs.PaymentCredentialProviderSecretInfo',
+                 publishable_key: Optional[_builtins.str] = None,
+                 restricted_key_json_key: Optional[_builtins.str] = None,
+                 restricted_key_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
+        """
+        Stripe configuration output with the restricted key secret ARN
+
+        :param _builtins.str publishable_key: The Stripe publishable key stored on the provider. Only present when one was supplied.
+        :param _builtins.str restricted_key_json_key: The JSON key within the secret that contains the restricted key value
+        """
+        pulumi.set(__self__, "restricted_key_arn", restricted_key_arn)
+        if publishable_key is not None:
+            pulumi.set(__self__, "publishable_key", publishable_key)
+        if restricted_key_json_key is not None:
+            pulumi.set(__self__, "restricted_key_json_key", restricted_key_json_key)
+        if restricted_key_source is not None:
+            pulumi.set(__self__, "restricted_key_source", restricted_key_source)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKeyArn")
+    def restricted_key_arn(self) -> 'outputs.PaymentCredentialProviderSecretInfo':
+        return pulumi.get(self, "restricted_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="publishableKey")
+    def publishable_key(self) -> Optional[_builtins.str]:
+        """
+        The Stripe publishable key stored on the provider. Only present when one was supplied.
+        """
+        return pulumi.get(self, "publishable_key")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKeyJsonKey")
+    def restricted_key_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the restricted key value
+        """
+        return pulumi.get(self, "restricted_key_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedKeySource")
+    def restricted_key_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "restricted_key_source")
 
 
 @pulumi.output_type
@@ -15517,6 +16369,25 @@ class RuntimeAuthorizingClaimMatchValueType(dict):
 
 
 @pulumi.output_type
+class RuntimeBuildLifecycleHooks(dict):
+    """
+    Hooks that run while the platform builds a runtime version, before any session exists
+    """
+    def __init__(__self__, *,
+                 warmup: Optional['outputs.RuntimeLifecycleHook'] = None):
+        """
+        Hooks that run while the platform builds a runtime version, before any session exists
+        """
+        if warmup is not None:
+            pulumi.set(__self__, "warmup", warmup)
+
+    @_builtins.property
+    @pulumi.getter
+    def warmup(self) -> Optional['outputs.RuntimeLifecycleHook']:
+        return pulumi.get(self, "warmup")
+
+
+@pulumi.output_type
 class RuntimeCapacityProviderConfiguration(dict):
     """
     Configuration for a capacity provider
@@ -16026,6 +16897,25 @@ class RuntimeFilesystemConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeHooksConfiguration(dict):
+    """
+    Lifecycle hooks that the platform runs at fixed points in the runtime's lifecycle
+    """
+    def __init__(__self__, *,
+                 build: Optional['outputs.RuntimeBuildLifecycleHooks'] = None):
+        """
+        Lifecycle hooks that the platform runs at fixed points in the runtime's lifecycle
+        """
+        if build is not None:
+            pulumi.set(__self__, "build", build)
+
+    @_builtins.property
+    @pulumi.getter
+    def build(self) -> Optional['outputs.RuntimeBuildLifecycleHooks']:
+        return pulumi.get(self, "build")
+
+
+@pulumi.output_type
 class RuntimeHostingEnvironment(dict):
     """
     An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
@@ -16046,6 +16936,37 @@ class RuntimeHostingEnvironment(dict):
         The ARN of the bedrock-agentcore hosting environment
         """
         return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class RuntimeHttpPostLifecycleHookAction(dict):
+    """
+    Sends an HTTP POST to the agent's container. Any 2xx response ends the hook; anything else fails it. The path and port must not be a route the platform already calls on the container, such as the protocol's invocation path or the default health check.
+    """
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 port: Optional[_builtins.int] = None):
+        """
+        Sends an HTTP POST to the agent's container. Any 2xx response ends the hook; anything else fails it. The path and port must not be a route the platform already calls on the container, such as the protocol's invocation path or the default health check.
+
+        :param _builtins.int port: Port in the agent's container the platform sends the POST to. Defaults to the runtime's server port.
+        """
+        pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[_builtins.int]:
+        """
+        Port in the agent's container the platform sends the POST to. Defaults to the runtime's server port.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type
@@ -16101,6 +17022,59 @@ class RuntimeLifecycleConfiguration(dict):
         Maximum lifetime in seconds for runtime sessions
         """
         return pulumi.get(self, "max_lifetime")
+
+
+@pulumi.output_type
+class RuntimeLifecycleHook(dict):
+    """
+    A lifecycle hook and the action it runs
+    """
+    def __init__(__self__, *,
+                 action: 'outputs.RuntimeLifecycleHookAction'):
+        """
+        A lifecycle hook and the action it runs
+        """
+        pulumi.set(__self__, "action", action)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'outputs.RuntimeLifecycleHookAction':
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class RuntimeLifecycleHookAction(dict):
+    """
+    The action a lifecycle hook runs. HttpPost is the only action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpPost":
+            suggest = "http_post"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeLifecycleHookAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeLifecycleHookAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeLifecycleHookAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_post: 'outputs.RuntimeHttpPostLifecycleHookAction'):
+        """
+        The action a lifecycle hook runs. HttpPost is the only action.
+        """
+        pulumi.set(__self__, "http_post", http_post)
+
+    @_builtins.property
+    @pulumi.getter(name="httpPost")
+    def http_post(self) -> 'outputs.RuntimeHttpPostLifecycleHookAction':
+        return pulumi.get(self, "http_post")
 
 
 @pulumi.output_type
@@ -16381,6 +17355,46 @@ class RuntimeRequestHeaderConfiguration(dict):
     @pulumi.getter(name="requestHeaderAllowlist")
     def request_header_allowlist(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "request_header_allowlist")
+
+
+@pulumi.output_type
+class RuntimeResourceConfiguration(dict):
+    """
+    Resource configuration for an agent runtime
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumMemoryInMiB":
+            suggest = "minimum_memory_in_mi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeResourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeResourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeResourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_memory_in_mi_b: _builtins.int):
+        """
+        Resource configuration for an agent runtime
+
+        :param _builtins.int minimum_memory_in_mi_b: The minimum amount of memory in MiB to allocate to the agent runtime
+        """
+        pulumi.set(__self__, "minimum_memory_in_mi_b", minimum_memory_in_mi_b)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumMemoryInMiB")
+    def minimum_memory_in_mi_b(self) -> _builtins.int:
+        """
+        The minimum amount of memory in MiB to allocate to the agent runtime
+        """
+        return pulumi.get(self, "minimum_memory_in_mi_b")
 
 
 @pulumi.output_type

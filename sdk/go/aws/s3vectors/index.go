@@ -76,7 +76,7 @@ func NewIndex(ctx *pulumi.Context,
 		"distanceMetric",
 		"encryptionConfiguration",
 		"indexName",
-		"metadataConfiguration",
+		"metadataConfiguration.nonFilterableMetadataKeys[*]",
 		"vectorBucketArn",
 		"vectorBucketName",
 	})

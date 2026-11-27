@@ -6507,8 +6507,13 @@ func (o TableS3BucketSourcePtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An element in the search schema of a vector index.
 type TableSearchSchemaElement struct {
-	AttributeName           string                                          `pulumi:"attributeName"`
+	// The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.
+	AttributeName string `pulumi:"attributeName"`
+	// The role of the attribute in the search schema. Valid values:
+	//   +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+	//   +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
 	SearchSchemaElementType TableSearchSchemaElementSearchSchemaElementType `pulumi:"searchSchemaElementType"`
 }
 
@@ -6523,8 +6528,13 @@ type TableSearchSchemaElementInput interface {
 	ToTableSearchSchemaElementOutputWithContext(context.Context) TableSearchSchemaElementOutput
 }
 
+// An element in the search schema of a vector index.
 type TableSearchSchemaElementArgs struct {
-	AttributeName           pulumi.StringInput                                   `pulumi:"attributeName"`
+	// The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// The role of the attribute in the search schema. Valid values:
+	//   +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+	//   +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
 	SearchSchemaElementType TableSearchSchemaElementSearchSchemaElementTypeInput `pulumi:"searchSchemaElementType"`
 }
 
@@ -6565,6 +6575,7 @@ func (i TableSearchSchemaElementArray) ToTableSearchSchemaElementArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableSearchSchemaElementArrayOutput)
 }
 
+// An element in the search schema of a vector index.
 type TableSearchSchemaElementOutput struct{ *pulumi.OutputState }
 
 func (TableSearchSchemaElementOutput) ElementType() reflect.Type {
@@ -6579,10 +6590,14 @@ func (o TableSearchSchemaElementOutput) ToTableSearchSchemaElementOutputWithCont
 	return o
 }
 
+// The name of the attribute. This attribute must also be declared in the table's “AttributeDefinitions“.
 func (o TableSearchSchemaElementOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSearchSchemaElement) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// The role of the attribute in the search schema. Valid values:
+//   - “HASH“ - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the “SearchConditionExpression“.
+//   - “INLINE_FILTER“ - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the “SearchConditionExpression“.
 func (o TableSearchSchemaElementOutput) SearchSchemaElementType() TableSearchSchemaElementSearchSchemaElementTypeOutput {
 	return o.ApplyT(func(v TableSearchSchemaElement) TableSearchSchemaElementSearchSchemaElementType {
 		return v.SearchSchemaElementType
@@ -7286,7 +7301,9 @@ func (o TableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The definition of a vector attribute for a vector index.
 type TableVectorAttribute struct {
+	// The name of the vector attribute.
 	AttributeName string `pulumi:"attributeName"`
 }
 
@@ -7301,7 +7318,9 @@ type TableVectorAttributeInput interface {
 	ToTableVectorAttributeOutputWithContext(context.Context) TableVectorAttributeOutput
 }
 
+// The definition of a vector attribute for a vector index.
 type TableVectorAttributeArgs struct {
+	// The name of the vector attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
 }
 
@@ -7317,6 +7336,7 @@ func (i TableVectorAttributeArgs) ToTableVectorAttributeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TableVectorAttributeOutput)
 }
 
+// The definition of a vector attribute for a vector index.
 type TableVectorAttributeOutput struct{ *pulumi.OutputState }
 
 func (TableVectorAttributeOutput) ElementType() reflect.Type {
@@ -7331,17 +7351,26 @@ func (o TableVectorAttributeOutput) ToTableVectorAttributeOutputWithContext(ctx 
 	return o
 }
 
+// The name of the vector attribute.
 func (o TableVectorAttributeOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableVectorAttribute) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
 type TableVectorIndex struct {
-	Dimensions       int                              `pulumi:"dimensions"`
+	// The number of dimensions in each vector.
+	Dimensions int `pulumi:"dimensions"`
+	// The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
 	DistanceFunction TableVectorIndexDistanceFunction `pulumi:"distanceFunction"`
-	IndexName        string                           `pulumi:"indexName"`
-	Projection       TableProjection                  `pulumi:"projection"`
-	SearchSchema     []TableSearchSchemaElement       `pulumi:"searchSchema"`
-	VectorAttribute  TableVectorAttribute             `pulumi:"vectorAttribute"`
+	// The name of the vector index.
+	IndexName string `pulumi:"indexName"`
+	// Specifies attributes that are copied (projected) from the table into the vector index.
+	Projection TableProjection `pulumi:"projection"`
+	// The search schema that defines partition key and inline filter attributes for the vector index.
+	//  Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+	SearchSchema []TableSearchSchemaElement `pulumi:"searchSchema"`
+	// The vector attribute configuration for the index.
+	VectorAttribute TableVectorAttribute `pulumi:"vectorAttribute"`
 }
 
 // TableVectorIndexInput is an input type that accepts TableVectorIndexArgs and TableVectorIndexOutput values.
@@ -7355,13 +7384,21 @@ type TableVectorIndexInput interface {
 	ToTableVectorIndexOutputWithContext(context.Context) TableVectorIndexOutput
 }
 
+// Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
 type TableVectorIndexArgs struct {
-	Dimensions       pulumi.IntInput                       `pulumi:"dimensions"`
+	// The number of dimensions in each vector.
+	Dimensions pulumi.IntInput `pulumi:"dimensions"`
+	// The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
 	DistanceFunction TableVectorIndexDistanceFunctionInput `pulumi:"distanceFunction"`
-	IndexName        pulumi.StringInput                    `pulumi:"indexName"`
-	Projection       TableProjectionInput                  `pulumi:"projection"`
-	SearchSchema     TableSearchSchemaElementArrayInput    `pulumi:"searchSchema"`
-	VectorAttribute  TableVectorAttributeInput             `pulumi:"vectorAttribute"`
+	// The name of the vector index.
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// Specifies attributes that are copied (projected) from the table into the vector index.
+	Projection TableProjectionInput `pulumi:"projection"`
+	// The search schema that defines partition key and inline filter attributes for the vector index.
+	//  Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+	SearchSchema TableSearchSchemaElementArrayInput `pulumi:"searchSchema"`
+	// The vector attribute configuration for the index.
+	VectorAttribute TableVectorAttributeInput `pulumi:"vectorAttribute"`
 }
 
 func (TableVectorIndexArgs) ElementType() reflect.Type {
@@ -7401,6 +7438,7 @@ func (i TableVectorIndexArray) ToTableVectorIndexArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TableVectorIndexArrayOutput)
 }
 
+// Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
 type TableVectorIndexOutput struct{ *pulumi.OutputState }
 
 func (TableVectorIndexOutput) ElementType() reflect.Type {
@@ -7415,26 +7453,34 @@ func (o TableVectorIndexOutput) ToTableVectorIndexOutputWithContext(ctx context.
 	return o
 }
 
+// The number of dimensions in each vector.
 func (o TableVectorIndexOutput) Dimensions() pulumi.IntOutput {
 	return o.ApplyT(func(v TableVectorIndex) int { return v.Dimensions }).(pulumi.IntOutput)
 }
 
+// The distance function used to calculate similarity between vectors. Valid values: “COSINE“, “EUCLIDEAN“, “DOT_PRODUCT“.
 func (o TableVectorIndexOutput) DistanceFunction() TableVectorIndexDistanceFunctionOutput {
 	return o.ApplyT(func(v TableVectorIndex) TableVectorIndexDistanceFunction { return v.DistanceFunction }).(TableVectorIndexDistanceFunctionOutput)
 }
 
+// The name of the vector index.
 func (o TableVectorIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableVectorIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// Specifies attributes that are copied (projected) from the table into the vector index.
 func (o TableVectorIndexOutput) Projection() TableProjectionOutput {
 	return o.ApplyT(func(v TableVectorIndex) TableProjection { return v.Projection }).(TableProjectionOutput)
 }
 
+// The search schema that defines partition key and inline filter attributes for the vector index.
+//
+//	Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
 func (o TableVectorIndexOutput) SearchSchema() TableSearchSchemaElementArrayOutput {
 	return o.ApplyT(func(v TableVectorIndex) []TableSearchSchemaElement { return v.SearchSchema }).(TableSearchSchemaElementArrayOutput)
 }
 
+// The vector attribute configuration for the index.
 func (o TableVectorIndexOutput) VectorAttribute() TableVectorAttributeOutput {
 	return o.ApplyT(func(v TableVectorIndex) TableVectorAttribute { return v.VectorAttribute }).(TableVectorAttributeOutput)
 }

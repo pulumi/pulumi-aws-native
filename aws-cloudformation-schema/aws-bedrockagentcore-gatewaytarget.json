@@ -1127,11 +1127,11 @@
     },
     "GatewayArn" : {
       "type" : "string",
-      "pattern" : "^arn:(aws(-[a-z]+)*):bedrock-agentcore:[a-z0-9-]{1,20}:[0-9]{12}:gateway/([0-9a-z][-]?){1,48}-[a-z0-9]{10}$"
+      "pattern" : "^arn:(aws(-[a-z]+)*):bedrock-agentcore:[a-z0-9-]{1,20}:[0-9]{12}:gateway/(([0-9a-z][-]?){1,48}-[a-z0-9]{10}|[0-9]{12}-default-v1)$"
     },
     "GatewayIdentifier" : {
       "type" : "string",
-      "pattern" : "^([0-9a-z][-]?){1,100}-[0-9a-z]{10}$"
+      "pattern" : "^(([0-9a-z][-]?){1,100}-[0-9a-z]{10}|[0-9]{12}-default-v1)$"
     },
     "LastSynchronizedAt" : {
       "type" : "string",

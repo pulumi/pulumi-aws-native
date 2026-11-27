@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Glue.Inputs
     public sealed class UserDefinedFunctionResourceUriArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+        /// </summary>
+        [Input("lastModified")]
+        public Input<string>? LastModified { get; set; }
+
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Input("resourceType")]

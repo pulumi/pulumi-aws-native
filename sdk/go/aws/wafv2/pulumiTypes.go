@@ -13635,6 +13635,142 @@ func (o WebAclAllowActionPtrOutput) CustomRequestHandling() WebAclCustomRequestH
 	}).(WebAclCustomRequestHandlingPtrOutput)
 }
 
+// Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+type WebAclAnalyticsConfig struct {
+	Mode WebAclAnalyticsMode `pulumi:"mode"`
+}
+
+// WebAclAnalyticsConfigInput is an input type that accepts WebAclAnalyticsConfigArgs and WebAclAnalyticsConfigOutput values.
+// You can construct a concrete instance of `WebAclAnalyticsConfigInput` via:
+//
+//	WebAclAnalyticsConfigArgs{...}
+type WebAclAnalyticsConfigInput interface {
+	pulumi.Input
+
+	ToWebAclAnalyticsConfigOutput() WebAclAnalyticsConfigOutput
+	ToWebAclAnalyticsConfigOutputWithContext(context.Context) WebAclAnalyticsConfigOutput
+}
+
+// Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+type WebAclAnalyticsConfigArgs struct {
+	Mode WebAclAnalyticsModeInput `pulumi:"mode"`
+}
+
+func (WebAclAnalyticsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAnalyticsConfig)(nil)).Elem()
+}
+
+func (i WebAclAnalyticsConfigArgs) ToWebAclAnalyticsConfigOutput() WebAclAnalyticsConfigOutput {
+	return i.ToWebAclAnalyticsConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclAnalyticsConfigArgs) ToWebAclAnalyticsConfigOutputWithContext(ctx context.Context) WebAclAnalyticsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAnalyticsConfigOutput)
+}
+
+func (i WebAclAnalyticsConfigArgs) ToWebAclAnalyticsConfigPtrOutput() WebAclAnalyticsConfigPtrOutput {
+	return i.ToWebAclAnalyticsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclAnalyticsConfigArgs) ToWebAclAnalyticsConfigPtrOutputWithContext(ctx context.Context) WebAclAnalyticsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAnalyticsConfigOutput).ToWebAclAnalyticsConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclAnalyticsConfigPtrInput is an input type that accepts WebAclAnalyticsConfigArgs, WebAclAnalyticsConfigPtr and WebAclAnalyticsConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclAnalyticsConfigPtrInput` via:
+//
+//	        WebAclAnalyticsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclAnalyticsConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclAnalyticsConfigPtrOutput() WebAclAnalyticsConfigPtrOutput
+	ToWebAclAnalyticsConfigPtrOutputWithContext(context.Context) WebAclAnalyticsConfigPtrOutput
+}
+
+type webAclAnalyticsConfigPtrType WebAclAnalyticsConfigArgs
+
+func WebAclAnalyticsConfigPtr(v *WebAclAnalyticsConfigArgs) WebAclAnalyticsConfigPtrInput {
+	return (*webAclAnalyticsConfigPtrType)(v)
+}
+
+func (*webAclAnalyticsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAnalyticsConfig)(nil)).Elem()
+}
+
+func (i *webAclAnalyticsConfigPtrType) ToWebAclAnalyticsConfigPtrOutput() WebAclAnalyticsConfigPtrOutput {
+	return i.ToWebAclAnalyticsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclAnalyticsConfigPtrType) ToWebAclAnalyticsConfigPtrOutputWithContext(ctx context.Context) WebAclAnalyticsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAnalyticsConfigPtrOutput)
+}
+
+// Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+type WebAclAnalyticsConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclAnalyticsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAnalyticsConfig)(nil)).Elem()
+}
+
+func (o WebAclAnalyticsConfigOutput) ToWebAclAnalyticsConfigOutput() WebAclAnalyticsConfigOutput {
+	return o
+}
+
+func (o WebAclAnalyticsConfigOutput) ToWebAclAnalyticsConfigOutputWithContext(ctx context.Context) WebAclAnalyticsConfigOutput {
+	return o
+}
+
+func (o WebAclAnalyticsConfigOutput) ToWebAclAnalyticsConfigPtrOutput() WebAclAnalyticsConfigPtrOutput {
+	return o.ToWebAclAnalyticsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclAnalyticsConfigOutput) ToWebAclAnalyticsConfigPtrOutputWithContext(ctx context.Context) WebAclAnalyticsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclAnalyticsConfig) *WebAclAnalyticsConfig {
+		return &v
+	}).(WebAclAnalyticsConfigPtrOutput)
+}
+
+func (o WebAclAnalyticsConfigOutput) Mode() WebAclAnalyticsModeOutput {
+	return o.ApplyT(func(v WebAclAnalyticsConfig) WebAclAnalyticsMode { return v.Mode }).(WebAclAnalyticsModeOutput)
+}
+
+type WebAclAnalyticsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclAnalyticsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAnalyticsConfig)(nil)).Elem()
+}
+
+func (o WebAclAnalyticsConfigPtrOutput) ToWebAclAnalyticsConfigPtrOutput() WebAclAnalyticsConfigPtrOutput {
+	return o
+}
+
+func (o WebAclAnalyticsConfigPtrOutput) ToWebAclAnalyticsConfigPtrOutputWithContext(ctx context.Context) WebAclAnalyticsConfigPtrOutput {
+	return o
+}
+
+func (o WebAclAnalyticsConfigPtrOutput) Elem() WebAclAnalyticsConfigOutput {
+	return o.ApplyT(func(v *WebAclAnalyticsConfig) WebAclAnalyticsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclAnalyticsConfig
+		return ret
+	}).(WebAclAnalyticsConfigOutput)
+}
+
+func (o WebAclAnalyticsConfigPtrOutput) Mode() WebAclAnalyticsModePtrOutput {
+	return o.ApplyT(func(v *WebAclAnalyticsConfig) *WebAclAnalyticsMode {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(WebAclAnalyticsModePtrOutput)
+}
+
 type WebAclAndStatement struct {
 	// The statements to combine with AND logic. You can use any statements that can be nested.
 	Statements []WebAclStatement `pulumi:"statements"`
@@ -31624,6 +31760,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementPtrInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAllowActionInput)(nil)).Elem(), WebAclAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAllowActionPtrInput)(nil)).Elem(), WebAclAllowActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAnalyticsConfigInput)(nil)).Elem(), WebAclAnalyticsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAnalyticsConfigPtrInput)(nil)).Elem(), WebAclAnalyticsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAndStatementInput)(nil)).Elem(), WebAclAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAndStatementPtrInput)(nil)).Elem(), WebAclAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclApplicationAttributeInput)(nil)).Elem(), WebAclApplicationAttributeArgs{})
@@ -31982,6 +32120,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAllowActionOutput{})
 	pulumi.RegisterOutputType(WebAclAllowActionPtrOutput{})
+	pulumi.RegisterOutputType(WebAclAnalyticsConfigOutput{})
+	pulumi.RegisterOutputType(WebAclAnalyticsConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAndStatementOutput{})
 	pulumi.RegisterOutputType(WebAclAndStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclApplicationAttributeOutput{})

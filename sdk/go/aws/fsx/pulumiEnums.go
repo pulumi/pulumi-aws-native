@@ -198,6 +198,267 @@ func (o BackupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Which local SVMs the peer cluster may peer with automatically: ALL, NONE, or SPECIFIED (the SVMs in AllowedSvmIds).
+type ClusterPeerAllowedSvmMode string
+
+const (
+	ClusterPeerAllowedSvmModeAll       = ClusterPeerAllowedSvmMode("ALL")
+	ClusterPeerAllowedSvmModeNone      = ClusterPeerAllowedSvmMode("NONE")
+	ClusterPeerAllowedSvmModeSpecified = ClusterPeerAllowedSvmMode("SPECIFIED")
+)
+
+func (ClusterPeerAllowedSvmMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPeerAllowedSvmMode)(nil)).Elem()
+}
+
+func (e ClusterPeerAllowedSvmMode) ToClusterPeerAllowedSvmModeOutput() ClusterPeerAllowedSvmModeOutput {
+	return pulumi.ToOutput(e).(ClusterPeerAllowedSvmModeOutput)
+}
+
+func (e ClusterPeerAllowedSvmMode) ToClusterPeerAllowedSvmModeOutputWithContext(ctx context.Context) ClusterPeerAllowedSvmModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterPeerAllowedSvmModeOutput)
+}
+
+func (e ClusterPeerAllowedSvmMode) ToClusterPeerAllowedSvmModePtrOutput() ClusterPeerAllowedSvmModePtrOutput {
+	return e.ToClusterPeerAllowedSvmModePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterPeerAllowedSvmMode) ToClusterPeerAllowedSvmModePtrOutputWithContext(ctx context.Context) ClusterPeerAllowedSvmModePtrOutput {
+	return ClusterPeerAllowedSvmMode(e).ToClusterPeerAllowedSvmModeOutputWithContext(ctx).ToClusterPeerAllowedSvmModePtrOutputWithContext(ctx)
+}
+
+func (e ClusterPeerAllowedSvmMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterPeerAllowedSvmMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterPeerAllowedSvmMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterPeerAllowedSvmMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterPeerAllowedSvmModeOutput struct{ *pulumi.OutputState }
+
+func (ClusterPeerAllowedSvmModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPeerAllowedSvmMode)(nil)).Elem()
+}
+
+func (o ClusterPeerAllowedSvmModeOutput) ToClusterPeerAllowedSvmModeOutput() ClusterPeerAllowedSvmModeOutput {
+	return o
+}
+
+func (o ClusterPeerAllowedSvmModeOutput) ToClusterPeerAllowedSvmModeOutputWithContext(ctx context.Context) ClusterPeerAllowedSvmModeOutput {
+	return o
+}
+
+func (o ClusterPeerAllowedSvmModeOutput) ToClusterPeerAllowedSvmModePtrOutput() ClusterPeerAllowedSvmModePtrOutput {
+	return o.ToClusterPeerAllowedSvmModePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPeerAllowedSvmModeOutput) ToClusterPeerAllowedSvmModePtrOutputWithContext(ctx context.Context) ClusterPeerAllowedSvmModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPeerAllowedSvmMode) *ClusterPeerAllowedSvmMode {
+		return &v
+	}).(ClusterPeerAllowedSvmModePtrOutput)
+}
+
+func (o ClusterPeerAllowedSvmModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterPeerAllowedSvmModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPeerAllowedSvmMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterPeerAllowedSvmModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPeerAllowedSvmModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPeerAllowedSvmMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterPeerAllowedSvmModePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPeerAllowedSvmModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPeerAllowedSvmMode)(nil)).Elem()
+}
+
+func (o ClusterPeerAllowedSvmModePtrOutput) ToClusterPeerAllowedSvmModePtrOutput() ClusterPeerAllowedSvmModePtrOutput {
+	return o
+}
+
+func (o ClusterPeerAllowedSvmModePtrOutput) ToClusterPeerAllowedSvmModePtrOutputWithContext(ctx context.Context) ClusterPeerAllowedSvmModePtrOutput {
+	return o
+}
+
+func (o ClusterPeerAllowedSvmModePtrOutput) Elem() ClusterPeerAllowedSvmModeOutput {
+	return o.ApplyT(func(v *ClusterPeerAllowedSvmMode) ClusterPeerAllowedSvmMode {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPeerAllowedSvmMode
+		return ret
+	}).(ClusterPeerAllowedSvmModeOutput)
+}
+
+func (o ClusterPeerAllowedSvmModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPeerAllowedSvmModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterPeerAllowedSvmMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterPeerAllowedSvmModeInput is an input type that accepts values of the ClusterPeerAllowedSvmMode enum
+// A concrete instance of `ClusterPeerAllowedSvmModeInput` can be one of the following:
+//
+//	ClusterPeerAllowedSvmModeAll
+//	ClusterPeerAllowedSvmModeNone
+//	ClusterPeerAllowedSvmModeSpecified
+type ClusterPeerAllowedSvmModeInput interface {
+	pulumi.Input
+
+	ToClusterPeerAllowedSvmModeOutput() ClusterPeerAllowedSvmModeOutput
+	ToClusterPeerAllowedSvmModeOutputWithContext(context.Context) ClusterPeerAllowedSvmModeOutput
+}
+
+var clusterPeerAllowedSvmModePtrType = reflect.TypeOf((**ClusterPeerAllowedSvmMode)(nil)).Elem()
+
+type ClusterPeerAllowedSvmModePtrInput interface {
+	pulumi.Input
+
+	ToClusterPeerAllowedSvmModePtrOutput() ClusterPeerAllowedSvmModePtrOutput
+	ToClusterPeerAllowedSvmModePtrOutputWithContext(context.Context) ClusterPeerAllowedSvmModePtrOutput
+}
+
+type clusterPeerAllowedSvmModePtr string
+
+func ClusterPeerAllowedSvmModePtr(v string) ClusterPeerAllowedSvmModePtrInput {
+	return (*clusterPeerAllowedSvmModePtr)(&v)
+}
+
+func (*clusterPeerAllowedSvmModePtr) ElementType() reflect.Type {
+	return clusterPeerAllowedSvmModePtrType
+}
+
+func (in *clusterPeerAllowedSvmModePtr) ToClusterPeerAllowedSvmModePtrOutput() ClusterPeerAllowedSvmModePtrOutput {
+	return pulumi.ToOutput(in).(ClusterPeerAllowedSvmModePtrOutput)
+}
+
+func (in *clusterPeerAllowedSvmModePtr) ToClusterPeerAllowedSvmModePtrOutputWithContext(ctx context.Context) ClusterPeerAllowedSvmModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterPeerAllowedSvmModePtrOutput)
+}
+
+// The lifecycle status of the cluster peer relationship.
+type ClusterPeerLifecycle string
+
+const (
+	ClusterPeerLifecycleCreating = ClusterPeerLifecycle("CREATING")
+	ClusterPeerLifecycleCreated  = ClusterPeerLifecycle("CREATED")
+	ClusterPeerLifecycleDeleting = ClusterPeerLifecycle("DELETING")
+	ClusterPeerLifecycleFailed   = ClusterPeerLifecycle("FAILED")
+)
+
+type ClusterPeerLifecycleOutput struct{ *pulumi.OutputState }
+
+func (ClusterPeerLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPeerLifecycle)(nil)).Elem()
+}
+
+func (o ClusterPeerLifecycleOutput) ToClusterPeerLifecycleOutput() ClusterPeerLifecycleOutput {
+	return o
+}
+
+func (o ClusterPeerLifecycleOutput) ToClusterPeerLifecycleOutputWithContext(ctx context.Context) ClusterPeerLifecycleOutput {
+	return o
+}
+
+func (o ClusterPeerLifecycleOutput) ToClusterPeerLifecyclePtrOutput() ClusterPeerLifecyclePtrOutput {
+	return o.ToClusterPeerLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPeerLifecycleOutput) ToClusterPeerLifecyclePtrOutputWithContext(ctx context.Context) ClusterPeerLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPeerLifecycle) *ClusterPeerLifecycle {
+		return &v
+	}).(ClusterPeerLifecyclePtrOutput)
+}
+
+func (o ClusterPeerLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterPeerLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPeerLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterPeerLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPeerLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPeerLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterPeerLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPeerLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPeerLifecycle)(nil)).Elem()
+}
+
+func (o ClusterPeerLifecyclePtrOutput) ToClusterPeerLifecyclePtrOutput() ClusterPeerLifecyclePtrOutput {
+	return o
+}
+
+func (o ClusterPeerLifecyclePtrOutput) ToClusterPeerLifecyclePtrOutputWithContext(ctx context.Context) ClusterPeerLifecyclePtrOutput {
+	return o
+}
+
+func (o ClusterPeerLifecyclePtrOutput) Elem() ClusterPeerLifecycleOutput {
+	return o.ApplyT(func(v *ClusterPeerLifecycle) ClusterPeerLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPeerLifecycle
+		return ret
+	}).(ClusterPeerLifecycleOutput)
+}
+
+func (o ClusterPeerLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPeerLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterPeerLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataRepositoryAssociationEventType string
 
 const (
@@ -1591,7 +1852,1310 @@ func (in *s3accessPointAttachmentTypePtr) ToS3AccessPointAttachmentTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(S3AccessPointAttachmentTypePtrOutput)
 }
 
+// The lifecycle status of the SnapMirror policy.
+type SnapmirrorPolicyLifecycle string
+
+const (
+	SnapmirrorPolicyLifecycleCreating = SnapmirrorPolicyLifecycle("CREATING")
+	SnapmirrorPolicyLifecycleCreated  = SnapmirrorPolicyLifecycle("CREATED")
+	SnapmirrorPolicyLifecycleDeleting = SnapmirrorPolicyLifecycle("DELETING")
+	SnapmirrorPolicyLifecycleFailed   = SnapmirrorPolicyLifecycle("FAILED")
+)
+
+type SnapmirrorPolicyLifecycleOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorPolicyLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorPolicyLifecycle)(nil)).Elem()
+}
+
+func (o SnapmirrorPolicyLifecycleOutput) ToSnapmirrorPolicyLifecycleOutput() SnapmirrorPolicyLifecycleOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyLifecycleOutput) ToSnapmirrorPolicyLifecycleOutputWithContext(ctx context.Context) SnapmirrorPolicyLifecycleOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyLifecycleOutput) ToSnapmirrorPolicyLifecyclePtrOutput() SnapmirrorPolicyLifecyclePtrOutput {
+	return o.ToSnapmirrorPolicyLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicyLifecycleOutput) ToSnapmirrorPolicyLifecyclePtrOutputWithContext(ctx context.Context) SnapmirrorPolicyLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapmirrorPolicyLifecycle) *SnapmirrorPolicyLifecycle {
+		return &v
+	}).(SnapmirrorPolicyLifecyclePtrOutput)
+}
+
+func (o SnapmirrorPolicyLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicyLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorPolicyLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapmirrorPolicyLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicyLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorPolicyLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapmirrorPolicyLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorPolicyLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapmirrorPolicyLifecycle)(nil)).Elem()
+}
+
+func (o SnapmirrorPolicyLifecyclePtrOutput) ToSnapmirrorPolicyLifecyclePtrOutput() SnapmirrorPolicyLifecyclePtrOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyLifecyclePtrOutput) ToSnapmirrorPolicyLifecyclePtrOutputWithContext(ctx context.Context) SnapmirrorPolicyLifecyclePtrOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyLifecyclePtrOutput) Elem() SnapmirrorPolicyLifecycleOutput {
+	return o.ApplyT(func(v *SnapmirrorPolicyLifecycle) SnapmirrorPolicyLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret SnapmirrorPolicyLifecycle
+		return ret
+	}).(SnapmirrorPolicyLifecycleOutput)
+}
+
+func (o SnapmirrorPolicyLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicyLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapmirrorPolicyLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the policy is scoped to a file system (FILESYSTEM) or to an SVM (SVM).
+type SnapmirrorPolicyScope string
+
+const (
+	SnapmirrorPolicyScopeFilesystem = SnapmirrorPolicyScope("FILESYSTEM")
+	SnapmirrorPolicyScopeSvm        = SnapmirrorPolicyScope("SVM")
+)
+
+type SnapmirrorPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorPolicyScope)(nil)).Elem()
+}
+
+func (o SnapmirrorPolicyScopeOutput) ToSnapmirrorPolicyScopeOutput() SnapmirrorPolicyScopeOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyScopeOutput) ToSnapmirrorPolicyScopeOutputWithContext(ctx context.Context) SnapmirrorPolicyScopeOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyScopeOutput) ToSnapmirrorPolicyScopePtrOutput() SnapmirrorPolicyScopePtrOutput {
+	return o.ToSnapmirrorPolicyScopePtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicyScopeOutput) ToSnapmirrorPolicyScopePtrOutputWithContext(ctx context.Context) SnapmirrorPolicyScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapmirrorPolicyScope) *SnapmirrorPolicyScope {
+		return &v
+	}).(SnapmirrorPolicyScopePtrOutput)
+}
+
+func (o SnapmirrorPolicyScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicyScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorPolicyScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapmirrorPolicyScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicyScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorPolicyScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapmirrorPolicyScopePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorPolicyScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapmirrorPolicyScope)(nil)).Elem()
+}
+
+func (o SnapmirrorPolicyScopePtrOutput) ToSnapmirrorPolicyScopePtrOutput() SnapmirrorPolicyScopePtrOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyScopePtrOutput) ToSnapmirrorPolicyScopePtrOutputWithContext(ctx context.Context) SnapmirrorPolicyScopePtrOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyScopePtrOutput) Elem() SnapmirrorPolicyScopeOutput {
+	return o.ApplyT(func(v *SnapmirrorPolicyScope) SnapmirrorPolicyScope {
+		if v != nil {
+			return *v
+		}
+		var ret SnapmirrorPolicyScope
+		return ret
+	}).(SnapmirrorPolicyScopeOutput)
+}
+
+func (o SnapmirrorPolicyScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicyScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapmirrorPolicyScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Which snapshots SnapMirror copies. COPY_ALL_SOURCE_SNAPSHOTS and COPY_LATEST_SOURCE_SNAPSHOT create mirror policies and do not allow RetentionRules. NO_CREATE_SNAPSHOT_ON_SOURCE creates a vault policy and requires RetentionRules. Omit for a mirror-vault policy.
+type SnapmirrorPolicySnapshotCopyMode string
+
+const (
+	SnapmirrorPolicySnapshotCopyModeCopyAllSourceSnapshots   = SnapmirrorPolicySnapshotCopyMode("COPY_ALL_SOURCE_SNAPSHOTS")
+	SnapmirrorPolicySnapshotCopyModeCopyLatestSourceSnapshot = SnapmirrorPolicySnapshotCopyMode("COPY_LATEST_SOURCE_SNAPSHOT")
+	SnapmirrorPolicySnapshotCopyModeNoCreateSnapshotOnSource = SnapmirrorPolicySnapshotCopyMode("NO_CREATE_SNAPSHOT_ON_SOURCE")
+)
+
+func (SnapmirrorPolicySnapshotCopyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorPolicySnapshotCopyMode)(nil)).Elem()
+}
+
+func (e SnapmirrorPolicySnapshotCopyMode) ToSnapmirrorPolicySnapshotCopyModeOutput() SnapmirrorPolicySnapshotCopyModeOutput {
+	return pulumi.ToOutput(e).(SnapmirrorPolicySnapshotCopyModeOutput)
+}
+
+func (e SnapmirrorPolicySnapshotCopyMode) ToSnapmirrorPolicySnapshotCopyModeOutputWithContext(ctx context.Context) SnapmirrorPolicySnapshotCopyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SnapmirrorPolicySnapshotCopyModeOutput)
+}
+
+func (e SnapmirrorPolicySnapshotCopyMode) ToSnapmirrorPolicySnapshotCopyModePtrOutput() SnapmirrorPolicySnapshotCopyModePtrOutput {
+	return e.ToSnapmirrorPolicySnapshotCopyModePtrOutputWithContext(context.Background())
+}
+
+func (e SnapmirrorPolicySnapshotCopyMode) ToSnapmirrorPolicySnapshotCopyModePtrOutputWithContext(ctx context.Context) SnapmirrorPolicySnapshotCopyModePtrOutput {
+	return SnapmirrorPolicySnapshotCopyMode(e).ToSnapmirrorPolicySnapshotCopyModeOutputWithContext(ctx).ToSnapmirrorPolicySnapshotCopyModePtrOutputWithContext(ctx)
+}
+
+func (e SnapmirrorPolicySnapshotCopyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapmirrorPolicySnapshotCopyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapmirrorPolicySnapshotCopyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SnapmirrorPolicySnapshotCopyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SnapmirrorPolicySnapshotCopyModeOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorPolicySnapshotCopyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorPolicySnapshotCopyMode)(nil)).Elem()
+}
+
+func (o SnapmirrorPolicySnapshotCopyModeOutput) ToSnapmirrorPolicySnapshotCopyModeOutput() SnapmirrorPolicySnapshotCopyModeOutput {
+	return o
+}
+
+func (o SnapmirrorPolicySnapshotCopyModeOutput) ToSnapmirrorPolicySnapshotCopyModeOutputWithContext(ctx context.Context) SnapmirrorPolicySnapshotCopyModeOutput {
+	return o
+}
+
+func (o SnapmirrorPolicySnapshotCopyModeOutput) ToSnapmirrorPolicySnapshotCopyModePtrOutput() SnapmirrorPolicySnapshotCopyModePtrOutput {
+	return o.ToSnapmirrorPolicySnapshotCopyModePtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicySnapshotCopyModeOutput) ToSnapmirrorPolicySnapshotCopyModePtrOutputWithContext(ctx context.Context) SnapmirrorPolicySnapshotCopyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapmirrorPolicySnapshotCopyMode) *SnapmirrorPolicySnapshotCopyMode {
+		return &v
+	}).(SnapmirrorPolicySnapshotCopyModePtrOutput)
+}
+
+func (o SnapmirrorPolicySnapshotCopyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicySnapshotCopyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorPolicySnapshotCopyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapmirrorPolicySnapshotCopyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicySnapshotCopyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorPolicySnapshotCopyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapmirrorPolicySnapshotCopyModePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorPolicySnapshotCopyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapmirrorPolicySnapshotCopyMode)(nil)).Elem()
+}
+
+func (o SnapmirrorPolicySnapshotCopyModePtrOutput) ToSnapmirrorPolicySnapshotCopyModePtrOutput() SnapmirrorPolicySnapshotCopyModePtrOutput {
+	return o
+}
+
+func (o SnapmirrorPolicySnapshotCopyModePtrOutput) ToSnapmirrorPolicySnapshotCopyModePtrOutputWithContext(ctx context.Context) SnapmirrorPolicySnapshotCopyModePtrOutput {
+	return o
+}
+
+func (o SnapmirrorPolicySnapshotCopyModePtrOutput) Elem() SnapmirrorPolicySnapshotCopyModeOutput {
+	return o.ApplyT(func(v *SnapmirrorPolicySnapshotCopyMode) SnapmirrorPolicySnapshotCopyMode {
+		if v != nil {
+			return *v
+		}
+		var ret SnapmirrorPolicySnapshotCopyMode
+		return ret
+	}).(SnapmirrorPolicySnapshotCopyModeOutput)
+}
+
+func (o SnapmirrorPolicySnapshotCopyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorPolicySnapshotCopyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapmirrorPolicySnapshotCopyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SnapmirrorPolicySnapshotCopyModeInput is an input type that accepts values of the SnapmirrorPolicySnapshotCopyMode enum
+// A concrete instance of `SnapmirrorPolicySnapshotCopyModeInput` can be one of the following:
+//
+//	SnapmirrorPolicySnapshotCopyModeCopyAllSourceSnapshots
+//	SnapmirrorPolicySnapshotCopyModeCopyLatestSourceSnapshot
+//	SnapmirrorPolicySnapshotCopyModeNoCreateSnapshotOnSource
+type SnapmirrorPolicySnapshotCopyModeInput interface {
+	pulumi.Input
+
+	ToSnapmirrorPolicySnapshotCopyModeOutput() SnapmirrorPolicySnapshotCopyModeOutput
+	ToSnapmirrorPolicySnapshotCopyModeOutputWithContext(context.Context) SnapmirrorPolicySnapshotCopyModeOutput
+}
+
+var snapmirrorPolicySnapshotCopyModePtrType = reflect.TypeOf((**SnapmirrorPolicySnapshotCopyMode)(nil)).Elem()
+
+type SnapmirrorPolicySnapshotCopyModePtrInput interface {
+	pulumi.Input
+
+	ToSnapmirrorPolicySnapshotCopyModePtrOutput() SnapmirrorPolicySnapshotCopyModePtrOutput
+	ToSnapmirrorPolicySnapshotCopyModePtrOutputWithContext(context.Context) SnapmirrorPolicySnapshotCopyModePtrOutput
+}
+
+type snapmirrorPolicySnapshotCopyModePtr string
+
+func SnapmirrorPolicySnapshotCopyModePtr(v string) SnapmirrorPolicySnapshotCopyModePtrInput {
+	return (*snapmirrorPolicySnapshotCopyModePtr)(&v)
+}
+
+func (*snapmirrorPolicySnapshotCopyModePtr) ElementType() reflect.Type {
+	return snapmirrorPolicySnapshotCopyModePtrType
+}
+
+func (in *snapmirrorPolicySnapshotCopyModePtr) ToSnapmirrorPolicySnapshotCopyModePtrOutput() SnapmirrorPolicySnapshotCopyModePtrOutput {
+	return pulumi.ToOutput(in).(SnapmirrorPolicySnapshotCopyModePtrOutput)
+}
+
+func (in *snapmirrorPolicySnapshotCopyModePtr) ToSnapmirrorPolicySnapshotCopyModePtrOutputWithContext(ctx context.Context) SnapmirrorPolicySnapshotCopyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SnapmirrorPolicySnapshotCopyModePtrOutput)
+}
+
+// The lifecycle status of the SnapMirror relationship.
+type SnapmirrorRelationshipLifecycle string
+
+const (
+	SnapmirrorRelationshipLifecycleCreating = SnapmirrorRelationshipLifecycle("CREATING")
+	SnapmirrorRelationshipLifecycleCreated  = SnapmirrorRelationshipLifecycle("CREATED")
+	SnapmirrorRelationshipLifecycleDeleting = SnapmirrorRelationshipLifecycle("DELETING")
+	SnapmirrorRelationshipLifecycleFailed   = SnapmirrorRelationshipLifecycle("FAILED")
+)
+
+type SnapmirrorRelationshipLifecycleOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorRelationshipLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorRelationshipLifecycle)(nil)).Elem()
+}
+
+func (o SnapmirrorRelationshipLifecycleOutput) ToSnapmirrorRelationshipLifecycleOutput() SnapmirrorRelationshipLifecycleOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipLifecycleOutput) ToSnapmirrorRelationshipLifecycleOutputWithContext(ctx context.Context) SnapmirrorRelationshipLifecycleOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipLifecycleOutput) ToSnapmirrorRelationshipLifecyclePtrOutput() SnapmirrorRelationshipLifecyclePtrOutput {
+	return o.ToSnapmirrorRelationshipLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorRelationshipLifecycleOutput) ToSnapmirrorRelationshipLifecyclePtrOutputWithContext(ctx context.Context) SnapmirrorRelationshipLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapmirrorRelationshipLifecycle) *SnapmirrorRelationshipLifecycle {
+		return &v
+	}).(SnapmirrorRelationshipLifecyclePtrOutput)
+}
+
+func (o SnapmirrorRelationshipLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorRelationshipLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorRelationshipLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapmirrorRelationshipLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorRelationshipLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorRelationshipLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapmirrorRelationshipLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorRelationshipLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapmirrorRelationshipLifecycle)(nil)).Elem()
+}
+
+func (o SnapmirrorRelationshipLifecyclePtrOutput) ToSnapmirrorRelationshipLifecyclePtrOutput() SnapmirrorRelationshipLifecyclePtrOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipLifecyclePtrOutput) ToSnapmirrorRelationshipLifecyclePtrOutputWithContext(ctx context.Context) SnapmirrorRelationshipLifecyclePtrOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipLifecyclePtrOutput) Elem() SnapmirrorRelationshipLifecycleOutput {
+	return o.ApplyT(func(v *SnapmirrorRelationshipLifecycle) SnapmirrorRelationshipLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret SnapmirrorRelationshipLifecycle
+		return ret
+	}).(SnapmirrorRelationshipLifecycleOutput)
+}
+
+func (o SnapmirrorRelationshipLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorRelationshipLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapmirrorRelationshipLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of the relationship in ONTAP.
+type SnapmirrorRelationshipStateEnum string
+
+const (
+	SnapmirrorRelationshipStateEnumUninitialized = SnapmirrorRelationshipStateEnum("UNINITIALIZED")
+	SnapmirrorRelationshipStateEnumTransferring  = SnapmirrorRelationshipStateEnum("TRANSFERRING")
+	SnapmirrorRelationshipStateEnumSnapmirrored  = SnapmirrorRelationshipStateEnum("SNAPMIRRORED")
+	SnapmirrorRelationshipStateEnumPaused        = SnapmirrorRelationshipStateEnum("PAUSED")
+	SnapmirrorRelationshipStateEnumBrokenOff     = SnapmirrorRelationshipStateEnum("BROKEN_OFF")
+)
+
+type SnapmirrorRelationshipStateEnumOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorRelationshipStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorRelationshipStateEnum)(nil)).Elem()
+}
+
+func (o SnapmirrorRelationshipStateEnumOutput) ToSnapmirrorRelationshipStateEnumOutput() SnapmirrorRelationshipStateEnumOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipStateEnumOutput) ToSnapmirrorRelationshipStateEnumOutputWithContext(ctx context.Context) SnapmirrorRelationshipStateEnumOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipStateEnumOutput) ToSnapmirrorRelationshipStateEnumPtrOutput() SnapmirrorRelationshipStateEnumPtrOutput {
+	return o.ToSnapmirrorRelationshipStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorRelationshipStateEnumOutput) ToSnapmirrorRelationshipStateEnumPtrOutputWithContext(ctx context.Context) SnapmirrorRelationshipStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapmirrorRelationshipStateEnum) *SnapmirrorRelationshipStateEnum {
+		return &v
+	}).(SnapmirrorRelationshipStateEnumPtrOutput)
+}
+
+func (o SnapmirrorRelationshipStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorRelationshipStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorRelationshipStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapmirrorRelationshipStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorRelationshipStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapmirrorRelationshipStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapmirrorRelationshipStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorRelationshipStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapmirrorRelationshipStateEnum)(nil)).Elem()
+}
+
+func (o SnapmirrorRelationshipStateEnumPtrOutput) ToSnapmirrorRelationshipStateEnumPtrOutput() SnapmirrorRelationshipStateEnumPtrOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipStateEnumPtrOutput) ToSnapmirrorRelationshipStateEnumPtrOutputWithContext(ctx context.Context) SnapmirrorRelationshipStateEnumPtrOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipStateEnumPtrOutput) Elem() SnapmirrorRelationshipStateEnumOutput {
+	return o.ApplyT(func(v *SnapmirrorRelationshipStateEnum) SnapmirrorRelationshipStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret SnapmirrorRelationshipStateEnum
+		return ret
+	}).(SnapmirrorRelationshipStateEnumOutput)
+}
+
+func (o SnapmirrorRelationshipStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapmirrorRelationshipStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapmirrorRelationshipStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lifecycle status of the snapshot policy.
+type SnapshotPolicyLifecycle string
+
+const (
+	SnapshotPolicyLifecycleCreating = SnapshotPolicyLifecycle("CREATING")
+	SnapshotPolicyLifecycleCreated  = SnapshotPolicyLifecycle("CREATED")
+	SnapshotPolicyLifecycleDeleting = SnapshotPolicyLifecycle("DELETING")
+	SnapshotPolicyLifecycleFailed   = SnapshotPolicyLifecycle("FAILED")
+)
+
+type SnapshotPolicyLifecycleOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyLifecycle)(nil)).Elem()
+}
+
+func (o SnapshotPolicyLifecycleOutput) ToSnapshotPolicyLifecycleOutput() SnapshotPolicyLifecycleOutput {
+	return o
+}
+
+func (o SnapshotPolicyLifecycleOutput) ToSnapshotPolicyLifecycleOutputWithContext(ctx context.Context) SnapshotPolicyLifecycleOutput {
+	return o
+}
+
+func (o SnapshotPolicyLifecycleOutput) ToSnapshotPolicyLifecyclePtrOutput() SnapshotPolicyLifecyclePtrOutput {
+	return o.ToSnapshotPolicyLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyLifecycleOutput) ToSnapshotPolicyLifecyclePtrOutputWithContext(ctx context.Context) SnapshotPolicyLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyLifecycle) *SnapshotPolicyLifecycle {
+		return &v
+	}).(SnapshotPolicyLifecyclePtrOutput)
+}
+
+func (o SnapshotPolicyLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotPolicyLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotPolicyLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotPolicyLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotPolicyLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyLifecycle)(nil)).Elem()
+}
+
+func (o SnapshotPolicyLifecyclePtrOutput) ToSnapshotPolicyLifecyclePtrOutput() SnapshotPolicyLifecyclePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyLifecyclePtrOutput) ToSnapshotPolicyLifecyclePtrOutputWithContext(ctx context.Context) SnapshotPolicyLifecyclePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyLifecyclePtrOutput) Elem() SnapshotPolicyLifecycleOutput {
+	return o.ApplyT(func(v *SnapshotPolicyLifecycle) SnapshotPolicyLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotPolicyLifecycle
+		return ret
+	}).(SnapshotPolicyLifecycleOutput)
+}
+
+func (o SnapshotPolicyLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotPolicyLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+type SnapshotPolicyRetentionPeriodType string
+
+const (
+	SnapshotPolicyRetentionPeriodTypeSeconds  = SnapshotPolicyRetentionPeriodType("SECONDS")
+	SnapshotPolicyRetentionPeriodTypeMinutes  = SnapshotPolicyRetentionPeriodType("MINUTES")
+	SnapshotPolicyRetentionPeriodTypeHours    = SnapshotPolicyRetentionPeriodType("HOURS")
+	SnapshotPolicyRetentionPeriodTypeDays     = SnapshotPolicyRetentionPeriodType("DAYS")
+	SnapshotPolicyRetentionPeriodTypeMonths   = SnapshotPolicyRetentionPeriodType("MONTHS")
+	SnapshotPolicyRetentionPeriodTypeYears    = SnapshotPolicyRetentionPeriodType("YEARS")
+	SnapshotPolicyRetentionPeriodTypeInfinite = SnapshotPolicyRetentionPeriodType("INFINITE")
+)
+
+func (SnapshotPolicyRetentionPeriodType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyRetentionPeriodType)(nil)).Elem()
+}
+
+func (e SnapshotPolicyRetentionPeriodType) ToSnapshotPolicyRetentionPeriodTypeOutput() SnapshotPolicyRetentionPeriodTypeOutput {
+	return pulumi.ToOutput(e).(SnapshotPolicyRetentionPeriodTypeOutput)
+}
+
+func (e SnapshotPolicyRetentionPeriodType) ToSnapshotPolicyRetentionPeriodTypeOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SnapshotPolicyRetentionPeriodTypeOutput)
+}
+
+func (e SnapshotPolicyRetentionPeriodType) ToSnapshotPolicyRetentionPeriodTypePtrOutput() SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return e.ToSnapshotPolicyRetentionPeriodTypePtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotPolicyRetentionPeriodType) ToSnapshotPolicyRetentionPeriodTypePtrOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return SnapshotPolicyRetentionPeriodType(e).ToSnapshotPolicyRetentionPeriodTypeOutputWithContext(ctx).ToSnapshotPolicyRetentionPeriodTypePtrOutputWithContext(ctx)
+}
+
+func (e SnapshotPolicyRetentionPeriodType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotPolicyRetentionPeriodType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotPolicyRetentionPeriodType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotPolicyRetentionPeriodType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SnapshotPolicyRetentionPeriodTypeOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyRetentionPeriodTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyRetentionPeriodType)(nil)).Elem()
+}
+
+func (o SnapshotPolicyRetentionPeriodTypeOutput) ToSnapshotPolicyRetentionPeriodTypeOutput() SnapshotPolicyRetentionPeriodTypeOutput {
+	return o
+}
+
+func (o SnapshotPolicyRetentionPeriodTypeOutput) ToSnapshotPolicyRetentionPeriodTypeOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodTypeOutput {
+	return o
+}
+
+func (o SnapshotPolicyRetentionPeriodTypeOutput) ToSnapshotPolicyRetentionPeriodTypePtrOutput() SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return o.ToSnapshotPolicyRetentionPeriodTypePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyRetentionPeriodTypeOutput) ToSnapshotPolicyRetentionPeriodTypePtrOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyRetentionPeriodType) *SnapshotPolicyRetentionPeriodType {
+		return &v
+	}).(SnapshotPolicyRetentionPeriodTypePtrOutput)
+}
+
+func (o SnapshotPolicyRetentionPeriodTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyRetentionPeriodTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotPolicyRetentionPeriodType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotPolicyRetentionPeriodTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyRetentionPeriodTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotPolicyRetentionPeriodType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotPolicyRetentionPeriodTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyRetentionPeriodTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyRetentionPeriodType)(nil)).Elem()
+}
+
+func (o SnapshotPolicyRetentionPeriodTypePtrOutput) ToSnapshotPolicyRetentionPeriodTypePtrOutput() SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyRetentionPeriodTypePtrOutput) ToSnapshotPolicyRetentionPeriodTypePtrOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyRetentionPeriodTypePtrOutput) Elem() SnapshotPolicyRetentionPeriodTypeOutput {
+	return o.ApplyT(func(v *SnapshotPolicyRetentionPeriodType) SnapshotPolicyRetentionPeriodType {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotPolicyRetentionPeriodType
+		return ret
+	}).(SnapshotPolicyRetentionPeriodTypeOutput)
+}
+
+func (o SnapshotPolicyRetentionPeriodTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyRetentionPeriodTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotPolicyRetentionPeriodType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SnapshotPolicyRetentionPeriodTypeInput is an input type that accepts values of the SnapshotPolicyRetentionPeriodType enum
+// A concrete instance of `SnapshotPolicyRetentionPeriodTypeInput` can be one of the following:
+//
+//	SnapshotPolicyRetentionPeriodTypeSeconds
+//	SnapshotPolicyRetentionPeriodTypeMinutes
+//	SnapshotPolicyRetentionPeriodTypeHours
+//	SnapshotPolicyRetentionPeriodTypeDays
+//	SnapshotPolicyRetentionPeriodTypeMonths
+//	SnapshotPolicyRetentionPeriodTypeYears
+//	SnapshotPolicyRetentionPeriodTypeInfinite
+type SnapshotPolicyRetentionPeriodTypeInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyRetentionPeriodTypeOutput() SnapshotPolicyRetentionPeriodTypeOutput
+	ToSnapshotPolicyRetentionPeriodTypeOutputWithContext(context.Context) SnapshotPolicyRetentionPeriodTypeOutput
+}
+
+var snapshotPolicyRetentionPeriodTypePtrType = reflect.TypeOf((**SnapshotPolicyRetentionPeriodType)(nil)).Elem()
+
+type SnapshotPolicyRetentionPeriodTypePtrInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyRetentionPeriodTypePtrOutput() SnapshotPolicyRetentionPeriodTypePtrOutput
+	ToSnapshotPolicyRetentionPeriodTypePtrOutputWithContext(context.Context) SnapshotPolicyRetentionPeriodTypePtrOutput
+}
+
+type snapshotPolicyRetentionPeriodTypePtr string
+
+func SnapshotPolicyRetentionPeriodTypePtr(v string) SnapshotPolicyRetentionPeriodTypePtrInput {
+	return (*snapshotPolicyRetentionPeriodTypePtr)(&v)
+}
+
+func (*snapshotPolicyRetentionPeriodTypePtr) ElementType() reflect.Type {
+	return snapshotPolicyRetentionPeriodTypePtrType
+}
+
+func (in *snapshotPolicyRetentionPeriodTypePtr) ToSnapshotPolicyRetentionPeriodTypePtrOutput() SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return pulumi.ToOutput(in).(SnapshotPolicyRetentionPeriodTypePtrOutput)
+}
+
+func (in *snapshotPolicyRetentionPeriodTypePtr) ToSnapshotPolicyRetentionPeriodTypePtrOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SnapshotPolicyRetentionPeriodTypePtrOutput)
+}
+
+// Whether the snapshot policy is scoped to a file system or to an SVM.
+type SnapshotPolicyScope string
+
+const (
+	SnapshotPolicyScopeFilesystem = SnapshotPolicyScope("FILESYSTEM")
+	SnapshotPolicyScopeSvm        = SnapshotPolicyScope("SVM")
+)
+
+type SnapshotPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyScope)(nil)).Elem()
+}
+
+func (o SnapshotPolicyScopeOutput) ToSnapshotPolicyScopeOutput() SnapshotPolicyScopeOutput {
+	return o
+}
+
+func (o SnapshotPolicyScopeOutput) ToSnapshotPolicyScopeOutputWithContext(ctx context.Context) SnapshotPolicyScopeOutput {
+	return o
+}
+
+func (o SnapshotPolicyScopeOutput) ToSnapshotPolicyScopePtrOutput() SnapshotPolicyScopePtrOutput {
+	return o.ToSnapshotPolicyScopePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyScopeOutput) ToSnapshotPolicyScopePtrOutputWithContext(ctx context.Context) SnapshotPolicyScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyScope) *SnapshotPolicyScope {
+		return &v
+	}).(SnapshotPolicyScopePtrOutput)
+}
+
+func (o SnapshotPolicyScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotPolicyScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotPolicyScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotPolicyScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotPolicyScopePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyScope)(nil)).Elem()
+}
+
+func (o SnapshotPolicyScopePtrOutput) ToSnapshotPolicyScopePtrOutput() SnapshotPolicyScopePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyScopePtrOutput) ToSnapshotPolicyScopePtrOutputWithContext(ctx context.Context) SnapshotPolicyScopePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyScopePtrOutput) Elem() SnapshotPolicyScopeOutput {
+	return o.ApplyT(func(v *SnapshotPolicyScope) SnapshotPolicyScope {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotPolicyScope
+		return ret
+	}).(SnapshotPolicyScopeOutput)
+}
+
+func (o SnapshotPolicyScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotPolicyScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageVirtualMachinePeerApplicationsItem string
+
+const (
+	StorageVirtualMachinePeerApplicationsItemSnapmirror = StorageVirtualMachinePeerApplicationsItem("SNAPMIRROR")
+	StorageVirtualMachinePeerApplicationsItemFileCopy   = StorageVirtualMachinePeerApplicationsItem("FILE_COPY")
+	StorageVirtualMachinePeerApplicationsItemLunCopy    = StorageVirtualMachinePeerApplicationsItem("LUN_COPY")
+	StorageVirtualMachinePeerApplicationsItemFlexcache  = StorageVirtualMachinePeerApplicationsItem("FLEXCACHE")
+)
+
+func (StorageVirtualMachinePeerApplicationsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachinePeerApplicationsItem)(nil)).Elem()
+}
+
+func (e StorageVirtualMachinePeerApplicationsItem) ToStorageVirtualMachinePeerApplicationsItemOutput() StorageVirtualMachinePeerApplicationsItemOutput {
+	return pulumi.ToOutput(e).(StorageVirtualMachinePeerApplicationsItemOutput)
+}
+
+func (e StorageVirtualMachinePeerApplicationsItem) ToStorageVirtualMachinePeerApplicationsItemOutputWithContext(ctx context.Context) StorageVirtualMachinePeerApplicationsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StorageVirtualMachinePeerApplicationsItemOutput)
+}
+
+func (e StorageVirtualMachinePeerApplicationsItem) ToStorageVirtualMachinePeerApplicationsItemPtrOutput() StorageVirtualMachinePeerApplicationsItemPtrOutput {
+	return e.ToStorageVirtualMachinePeerApplicationsItemPtrOutputWithContext(context.Background())
+}
+
+func (e StorageVirtualMachinePeerApplicationsItem) ToStorageVirtualMachinePeerApplicationsItemPtrOutputWithContext(ctx context.Context) StorageVirtualMachinePeerApplicationsItemPtrOutput {
+	return StorageVirtualMachinePeerApplicationsItem(e).ToStorageVirtualMachinePeerApplicationsItemOutputWithContext(ctx).ToStorageVirtualMachinePeerApplicationsItemPtrOutputWithContext(ctx)
+}
+
+func (e StorageVirtualMachinePeerApplicationsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StorageVirtualMachinePeerApplicationsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StorageVirtualMachinePeerApplicationsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StorageVirtualMachinePeerApplicationsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StorageVirtualMachinePeerApplicationsItemOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachinePeerApplicationsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachinePeerApplicationsItem)(nil)).Elem()
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemOutput) ToStorageVirtualMachinePeerApplicationsItemOutput() StorageVirtualMachinePeerApplicationsItemOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemOutput) ToStorageVirtualMachinePeerApplicationsItemOutputWithContext(ctx context.Context) StorageVirtualMachinePeerApplicationsItemOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemOutput) ToStorageVirtualMachinePeerApplicationsItemPtrOutput() StorageVirtualMachinePeerApplicationsItemPtrOutput {
+	return o.ToStorageVirtualMachinePeerApplicationsItemPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemOutput) ToStorageVirtualMachinePeerApplicationsItemPtrOutputWithContext(ctx context.Context) StorageVirtualMachinePeerApplicationsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageVirtualMachinePeerApplicationsItem) *StorageVirtualMachinePeerApplicationsItem {
+		return &v
+	}).(StorageVirtualMachinePeerApplicationsItemPtrOutput)
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageVirtualMachinePeerApplicationsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageVirtualMachinePeerApplicationsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageVirtualMachinePeerApplicationsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachinePeerApplicationsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachinePeerApplicationsItem)(nil)).Elem()
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemPtrOutput) ToStorageVirtualMachinePeerApplicationsItemPtrOutput() StorageVirtualMachinePeerApplicationsItemPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemPtrOutput) ToStorageVirtualMachinePeerApplicationsItemPtrOutputWithContext(ctx context.Context) StorageVirtualMachinePeerApplicationsItemPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemPtrOutput) Elem() StorageVirtualMachinePeerApplicationsItemOutput {
+	return o.ApplyT(func(v *StorageVirtualMachinePeerApplicationsItem) StorageVirtualMachinePeerApplicationsItem {
+		if v != nil {
+			return *v
+		}
+		var ret StorageVirtualMachinePeerApplicationsItem
+		return ret
+	}).(StorageVirtualMachinePeerApplicationsItemOutput)
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageVirtualMachinePeerApplicationsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StorageVirtualMachinePeerApplicationsItemInput is an input type that accepts values of the StorageVirtualMachinePeerApplicationsItem enum
+// A concrete instance of `StorageVirtualMachinePeerApplicationsItemInput` can be one of the following:
+//
+//	StorageVirtualMachinePeerApplicationsItemSnapmirror
+//	StorageVirtualMachinePeerApplicationsItemFileCopy
+//	StorageVirtualMachinePeerApplicationsItemLunCopy
+//	StorageVirtualMachinePeerApplicationsItemFlexcache
+type StorageVirtualMachinePeerApplicationsItemInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachinePeerApplicationsItemOutput() StorageVirtualMachinePeerApplicationsItemOutput
+	ToStorageVirtualMachinePeerApplicationsItemOutputWithContext(context.Context) StorageVirtualMachinePeerApplicationsItemOutput
+}
+
+var storageVirtualMachinePeerApplicationsItemPtrType = reflect.TypeOf((**StorageVirtualMachinePeerApplicationsItem)(nil)).Elem()
+
+type StorageVirtualMachinePeerApplicationsItemPtrInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachinePeerApplicationsItemPtrOutput() StorageVirtualMachinePeerApplicationsItemPtrOutput
+	ToStorageVirtualMachinePeerApplicationsItemPtrOutputWithContext(context.Context) StorageVirtualMachinePeerApplicationsItemPtrOutput
+}
+
+type storageVirtualMachinePeerApplicationsItemPtr string
+
+func StorageVirtualMachinePeerApplicationsItemPtr(v string) StorageVirtualMachinePeerApplicationsItemPtrInput {
+	return (*storageVirtualMachinePeerApplicationsItemPtr)(&v)
+}
+
+func (*storageVirtualMachinePeerApplicationsItemPtr) ElementType() reflect.Type {
+	return storageVirtualMachinePeerApplicationsItemPtrType
+}
+
+func (in *storageVirtualMachinePeerApplicationsItemPtr) ToStorageVirtualMachinePeerApplicationsItemPtrOutput() StorageVirtualMachinePeerApplicationsItemPtrOutput {
+	return pulumi.ToOutput(in).(StorageVirtualMachinePeerApplicationsItemPtrOutput)
+}
+
+func (in *storageVirtualMachinePeerApplicationsItemPtr) ToStorageVirtualMachinePeerApplicationsItemPtrOutputWithContext(ctx context.Context) StorageVirtualMachinePeerApplicationsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StorageVirtualMachinePeerApplicationsItemPtrOutput)
+}
+
+// StorageVirtualMachinePeerApplicationsItemArrayInput is an input type that accepts StorageVirtualMachinePeerApplicationsItemArray and StorageVirtualMachinePeerApplicationsItemArrayOutput values.
+// You can construct a concrete instance of `StorageVirtualMachinePeerApplicationsItemArrayInput` via:
+//
+//	StorageVirtualMachinePeerApplicationsItemArray{ StorageVirtualMachinePeerApplicationsItemArgs{...} }
+type StorageVirtualMachinePeerApplicationsItemArrayInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachinePeerApplicationsItemArrayOutput() StorageVirtualMachinePeerApplicationsItemArrayOutput
+	ToStorageVirtualMachinePeerApplicationsItemArrayOutputWithContext(context.Context) StorageVirtualMachinePeerApplicationsItemArrayOutput
+}
+
+type StorageVirtualMachinePeerApplicationsItemArray []StorageVirtualMachinePeerApplicationsItem
+
+func (StorageVirtualMachinePeerApplicationsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageVirtualMachinePeerApplicationsItem)(nil)).Elem()
+}
+
+func (i StorageVirtualMachinePeerApplicationsItemArray) ToStorageVirtualMachinePeerApplicationsItemArrayOutput() StorageVirtualMachinePeerApplicationsItemArrayOutput {
+	return i.ToStorageVirtualMachinePeerApplicationsItemArrayOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachinePeerApplicationsItemArray) ToStorageVirtualMachinePeerApplicationsItemArrayOutputWithContext(ctx context.Context) StorageVirtualMachinePeerApplicationsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachinePeerApplicationsItemArrayOutput)
+}
+
+type StorageVirtualMachinePeerApplicationsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachinePeerApplicationsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageVirtualMachinePeerApplicationsItem)(nil)).Elem()
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemArrayOutput) ToStorageVirtualMachinePeerApplicationsItemArrayOutput() StorageVirtualMachinePeerApplicationsItemArrayOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemArrayOutput) ToStorageVirtualMachinePeerApplicationsItemArrayOutputWithContext(ctx context.Context) StorageVirtualMachinePeerApplicationsItemArrayOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerApplicationsItemArrayOutput) Index(i pulumi.IntInput) StorageVirtualMachinePeerApplicationsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageVirtualMachinePeerApplicationsItem {
+		return vs[0].([]StorageVirtualMachinePeerApplicationsItem)[vs[1].(int)]
+	}).(StorageVirtualMachinePeerApplicationsItemOutput)
+}
+
+// The lifecycle status of the SVM peer relationship.
+type StorageVirtualMachinePeerLifecycle string
+
+const (
+	StorageVirtualMachinePeerLifecycleCreating = StorageVirtualMachinePeerLifecycle("CREATING")
+	StorageVirtualMachinePeerLifecycleCreated  = StorageVirtualMachinePeerLifecycle("CREATED")
+	StorageVirtualMachinePeerLifecycleDeleting = StorageVirtualMachinePeerLifecycle("DELETING")
+	StorageVirtualMachinePeerLifecycleFailed   = StorageVirtualMachinePeerLifecycle("FAILED")
+)
+
+type StorageVirtualMachinePeerLifecycleOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachinePeerLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachinePeerLifecycle)(nil)).Elem()
+}
+
+func (o StorageVirtualMachinePeerLifecycleOutput) ToStorageVirtualMachinePeerLifecycleOutput() StorageVirtualMachinePeerLifecycleOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerLifecycleOutput) ToStorageVirtualMachinePeerLifecycleOutputWithContext(ctx context.Context) StorageVirtualMachinePeerLifecycleOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerLifecycleOutput) ToStorageVirtualMachinePeerLifecyclePtrOutput() StorageVirtualMachinePeerLifecyclePtrOutput {
+	return o.ToStorageVirtualMachinePeerLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerLifecycleOutput) ToStorageVirtualMachinePeerLifecyclePtrOutputWithContext(ctx context.Context) StorageVirtualMachinePeerLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageVirtualMachinePeerLifecycle) *StorageVirtualMachinePeerLifecycle {
+		return &v
+	}).(StorageVirtualMachinePeerLifecyclePtrOutput)
+}
+
+func (o StorageVirtualMachinePeerLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageVirtualMachinePeerLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StorageVirtualMachinePeerLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageVirtualMachinePeerLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageVirtualMachinePeerLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachinePeerLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachinePeerLifecycle)(nil)).Elem()
+}
+
+func (o StorageVirtualMachinePeerLifecyclePtrOutput) ToStorageVirtualMachinePeerLifecyclePtrOutput() StorageVirtualMachinePeerLifecyclePtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerLifecyclePtrOutput) ToStorageVirtualMachinePeerLifecyclePtrOutputWithContext(ctx context.Context) StorageVirtualMachinePeerLifecyclePtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerLifecyclePtrOutput) Elem() StorageVirtualMachinePeerLifecycleOutput {
+	return o.ApplyT(func(v *StorageVirtualMachinePeerLifecycle) StorageVirtualMachinePeerLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret StorageVirtualMachinePeerLifecycle
+		return ret
+	}).(StorageVirtualMachinePeerLifecycleOutput)
+}
+
+func (o StorageVirtualMachinePeerLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageVirtualMachinePeerLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of the peer relationship in ONTAP.
+type StorageVirtualMachinePeerStateEnum string
+
+const (
+	StorageVirtualMachinePeerStateEnumPeered       = StorageVirtualMachinePeerStateEnum("PEERED")
+	StorageVirtualMachinePeerStateEnumRejected     = StorageVirtualMachinePeerStateEnum("REJECTED")
+	StorageVirtualMachinePeerStateEnumSuspended    = StorageVirtualMachinePeerStateEnum("SUSPENDED")
+	StorageVirtualMachinePeerStateEnumInitiated    = StorageVirtualMachinePeerStateEnum("INITIATED")
+	StorageVirtualMachinePeerStateEnumPending      = StorageVirtualMachinePeerStateEnum("PENDING")
+	StorageVirtualMachinePeerStateEnumInitializing = StorageVirtualMachinePeerStateEnum("INITIALIZING")
+)
+
+type StorageVirtualMachinePeerStateEnumOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachinePeerStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachinePeerStateEnum)(nil)).Elem()
+}
+
+func (o StorageVirtualMachinePeerStateEnumOutput) ToStorageVirtualMachinePeerStateEnumOutput() StorageVirtualMachinePeerStateEnumOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerStateEnumOutput) ToStorageVirtualMachinePeerStateEnumOutputWithContext(ctx context.Context) StorageVirtualMachinePeerStateEnumOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerStateEnumOutput) ToStorageVirtualMachinePeerStateEnumPtrOutput() StorageVirtualMachinePeerStateEnumPtrOutput {
+	return o.ToStorageVirtualMachinePeerStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerStateEnumOutput) ToStorageVirtualMachinePeerStateEnumPtrOutputWithContext(ctx context.Context) StorageVirtualMachinePeerStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageVirtualMachinePeerStateEnum) *StorageVirtualMachinePeerStateEnum {
+		return &v
+	}).(StorageVirtualMachinePeerStateEnumPtrOutput)
+}
+
+func (o StorageVirtualMachinePeerStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageVirtualMachinePeerStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StorageVirtualMachinePeerStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageVirtualMachinePeerStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageVirtualMachinePeerStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachinePeerStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachinePeerStateEnum)(nil)).Elem()
+}
+
+func (o StorageVirtualMachinePeerStateEnumPtrOutput) ToStorageVirtualMachinePeerStateEnumPtrOutput() StorageVirtualMachinePeerStateEnumPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerStateEnumPtrOutput) ToStorageVirtualMachinePeerStateEnumPtrOutputWithContext(ctx context.Context) StorageVirtualMachinePeerStateEnumPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachinePeerStateEnumPtrOutput) Elem() StorageVirtualMachinePeerStateEnumOutput {
+	return o.ApplyT(func(v *StorageVirtualMachinePeerStateEnum) StorageVirtualMachinePeerStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret StorageVirtualMachinePeerStateEnum
+		return ret
+	}).(StorageVirtualMachinePeerStateEnumOutput)
+}
+
+func (o StorageVirtualMachinePeerStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachinePeerStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageVirtualMachinePeerStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPeerAllowedSvmModeInput)(nil)).Elem(), ClusterPeerAllowedSvmMode("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPeerAllowedSvmModePtrInput)(nil)).Elem(), ClusterPeerAllowedSvmMode("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypeInput)(nil)).Elem(), DataRepositoryAssociationEventType("NEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypePtrInput)(nil)).Elem(), DataRepositoryAssociationEventType("NEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypeArrayInput)(nil)).Elem(), DataRepositoryAssociationEventTypeArray{})
@@ -1607,10 +3171,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentityTypePtrInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsFileSystemIdentityType("POSIX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentTypeInput)(nil)).Elem(), S3AccessPointAttachmentType("OPENZFS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentTypePtrInput)(nil)).Elem(), S3AccessPointAttachmentType("OPENZFS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapmirrorPolicySnapshotCopyModeInput)(nil)).Elem(), SnapmirrorPolicySnapshotCopyMode("COPY_ALL_SOURCE_SNAPSHOTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapmirrorPolicySnapshotCopyModePtrInput)(nil)).Elem(), SnapmirrorPolicySnapshotCopyMode("COPY_ALL_SOURCE_SNAPSHOTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyRetentionPeriodTypeInput)(nil)).Elem(), SnapshotPolicyRetentionPeriodType("SECONDS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyRetentionPeriodTypePtrInput)(nil)).Elem(), SnapshotPolicyRetentionPeriodType("SECONDS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachinePeerApplicationsItemInput)(nil)).Elem(), StorageVirtualMachinePeerApplicationsItem("SNAPMIRROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachinePeerApplicationsItemPtrInput)(nil)).Elem(), StorageVirtualMachinePeerApplicationsItem("SNAPMIRROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachinePeerApplicationsItemArrayInput)(nil)).Elem(), StorageVirtualMachinePeerApplicationsItemArray{})
 	pulumi.RegisterOutputType(BackupLifecycleOutput{})
 	pulumi.RegisterOutputType(BackupLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(BackupTypeOutput{})
 	pulumi.RegisterOutputType(BackupTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterPeerAllowedSvmModeOutput{})
+	pulumi.RegisterOutputType(ClusterPeerAllowedSvmModePtrOutput{})
+	pulumi.RegisterOutputType(ClusterPeerLifecycleOutput{})
+	pulumi.RegisterOutputType(ClusterPeerLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypeOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypePtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypeArrayOutput{})
@@ -1630,4 +3205,27 @@ func init() {
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsFileSystemIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentTypeOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentTypePtrOutput{})
+	pulumi.RegisterOutputType(SnapmirrorPolicyLifecycleOutput{})
+	pulumi.RegisterOutputType(SnapmirrorPolicyLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(SnapmirrorPolicyScopeOutput{})
+	pulumi.RegisterOutputType(SnapmirrorPolicyScopePtrOutput{})
+	pulumi.RegisterOutputType(SnapmirrorPolicySnapshotCopyModeOutput{})
+	pulumi.RegisterOutputType(SnapmirrorPolicySnapshotCopyModePtrOutput{})
+	pulumi.RegisterOutputType(SnapmirrorRelationshipLifecycleOutput{})
+	pulumi.RegisterOutputType(SnapmirrorRelationshipLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(SnapmirrorRelationshipStateEnumOutput{})
+	pulumi.RegisterOutputType(SnapmirrorRelationshipStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyLifecycleOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyRetentionPeriodTypeOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyRetentionPeriodTypePtrOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyScopeOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyScopePtrOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachinePeerApplicationsItemOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachinePeerApplicationsItemPtrOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachinePeerApplicationsItemArrayOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachinePeerLifecycleOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachinePeerLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachinePeerStateEnumOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachinePeerStateEnumPtrOutput{})
 }

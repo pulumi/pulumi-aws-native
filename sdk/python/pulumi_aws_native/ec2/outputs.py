@@ -19992,6 +19992,8 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
             suggest = "ike_versions"
         elif key == "logOptions":
             suggest = "log_options"
+        elif key == "phase1AdditionalKeyExchanges":
+            suggest = "phase1_additional_key_exchanges"
         elif key == "phase1EncryptionAlgorithms":
             suggest = "phase1_encryption_algorithms"
         elif key == "phase1IntegrityAlgorithms":
@@ -20000,6 +20002,8 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
             suggest = "phase1_lifetime_seconds"
         elif key == "phase1dhGroupNumbers":
             suggest = "phase1dh_group_numbers"
+        elif key == "phase2AdditionalKeyExchanges":
+            suggest = "phase2_additional_key_exchanges"
         elif key == "phase2EncryptionAlgorithms":
             suggest = "phase2_encryption_algorithms"
         elif key == "phase2IntegrityAlgorithms":
@@ -20040,10 +20044,12 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
                  enable_tunnel_lifecycle_control: Optional[_builtins.bool] = None,
                  ike_versions: Optional[Sequence['outputs.VpnConnectionIkeVersionsRequestListValue']] = None,
                  log_options: Optional['outputs.VpnConnectionVpnTunnelLogOptionsSpecification'] = None,
+                 phase1_additional_key_exchanges: Optional[Sequence[Any]] = None,
                  phase1_encryption_algorithms: Optional[Sequence['outputs.VpnConnectionPhase1EncryptionAlgorithmsRequestListValue']] = None,
                  phase1_integrity_algorithms: Optional[Sequence['outputs.VpnConnectionPhase1IntegrityAlgorithmsRequestListValue']] = None,
                  phase1_lifetime_seconds: Optional[_builtins.int] = None,
                  phase1dh_group_numbers: Optional[Sequence['outputs.VpnConnectionPhase1dhGroupNumbersRequestListValue']] = None,
+                 phase2_additional_key_exchanges: Optional[Sequence[Any]] = None,
                  phase2_encryption_algorithms: Optional[Sequence['outputs.VpnConnectionPhase2EncryptionAlgorithmsRequestListValue']] = None,
                  phase2_integrity_algorithms: Optional[Sequence['outputs.VpnConnectionPhase2IntegrityAlgorithmsRequestListValue']] = None,
                  phase2_lifetime_seconds: Optional[_builtins.int] = None,
@@ -20122,6 +20128,8 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
             pulumi.set(__self__, "ike_versions", ike_versions)
         if log_options is not None:
             pulumi.set(__self__, "log_options", log_options)
+        if phase1_additional_key_exchanges is not None:
+            pulumi.set(__self__, "phase1_additional_key_exchanges", phase1_additional_key_exchanges)
         if phase1_encryption_algorithms is not None:
             pulumi.set(__self__, "phase1_encryption_algorithms", phase1_encryption_algorithms)
         if phase1_integrity_algorithms is not None:
@@ -20130,6 +20138,8 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
             pulumi.set(__self__, "phase1_lifetime_seconds", phase1_lifetime_seconds)
         if phase1dh_group_numbers is not None:
             pulumi.set(__self__, "phase1dh_group_numbers", phase1dh_group_numbers)
+        if phase2_additional_key_exchanges is not None:
+            pulumi.set(__self__, "phase2_additional_key_exchanges", phase2_additional_key_exchanges)
         if phase2_encryption_algorithms is not None:
             pulumi.set(__self__, "phase2_encryption_algorithms", phase2_encryption_algorithms)
         if phase2_integrity_algorithms is not None:
@@ -20199,6 +20209,11 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
         return pulumi.get(self, "log_options")
 
     @_builtins.property
+    @pulumi.getter(name="phase1AdditionalKeyExchanges")
+    def phase1_additional_key_exchanges(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "phase1_additional_key_exchanges")
+
+    @_builtins.property
     @pulumi.getter(name="phase1EncryptionAlgorithms")
     def phase1_encryption_algorithms(self) -> Optional[Sequence['outputs.VpnConnectionPhase1EncryptionAlgorithmsRequestListValue']]:
         """
@@ -20234,6 +20249,11 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
          Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         """
         return pulumi.get(self, "phase1dh_group_numbers")
+
+    @_builtins.property
+    @pulumi.getter(name="phase2AdditionalKeyExchanges")
+    def phase2_additional_key_exchanges(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "phase2_additional_key_exchanges")
 
     @_builtins.property
     @pulumi.getter(name="phase2EncryptionAlgorithms")

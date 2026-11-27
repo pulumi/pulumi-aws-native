@@ -93,6 +93,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("viewerFallback")]
+        public Output<Outputs.ConnectionGroupViewerFallback?> ViewerFallback { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ConnectionGroup resource with the given unique name, arguments, and options.
@@ -177,6 +180,9 @@ namespace Pulumi.AwsNative.CloudFront
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("viewerFallback")]
+        public Input<Inputs.ConnectionGroupViewerFallbackArgs>? ViewerFallback { get; set; }
 
         public ConnectionGroupArgs()
         {

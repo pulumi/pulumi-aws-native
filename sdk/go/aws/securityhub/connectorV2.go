@@ -62,6 +62,7 @@ func NewConnectorV2(ctx *pulumi.Context,
 		"kmsKeyArn",
 		"name",
 		"provider.azure.awsConfigConnectorArn",
+		"provider.gcp.awsConfigConnectorArn",
 		"provider.serviceNow.instanceName",
 	})
 	opts = append(opts, replaceOnChanges)

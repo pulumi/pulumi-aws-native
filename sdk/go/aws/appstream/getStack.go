@@ -47,6 +47,8 @@ type LookupStackResult struct {
 	FeedbackUrl *string `pulumi:"feedbackUrl"`
 	// The URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
+	// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+	StorageConnectorAuthentication *string `pulumi:"storageConnectorAuthentication"`
 	// The storage connectors to enable.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
 	// The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -128,6 +130,11 @@ func (o LookupStackResultOutput) FeedbackUrl() pulumi.StringPtrOutput {
 // The URL that users are redirected to after their streaming session ends.
 func (o LookupStackResultOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+func (o LookupStackResultOutput) StorageConnectorAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.StorageConnectorAuthentication }).(pulumi.StringPtrOutput)
 }
 
 // The storage connectors to enable.

@@ -36,6 +36,8 @@ type LookupRecordSetArgs struct {
 type LookupRecordSetResult struct {
 	// Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	AliasTarget *RecordSetAliasTarget `pulumi:"aliasTarget"`
+	// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+	AzAffinity *RecordSetAzAffinity `pulumi:"azAffinity"`
 	// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
 	CidrRoutingConfig *RecordSetCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
 	// To configure failover, you add the Failover element to two resource record sets. For one resource record set, you specify PRIMARY as the value for Failover; for the other resource record set, you specify SECONDARY. In addition, you include the HealthCheckId element and specify the health check that you want Amazon Route 53 to perform for each resource record set.
@@ -99,6 +101,11 @@ func (o LookupRecordSetResultOutput) ToLookupRecordSetResultOutputWithContext(ct
 // Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 func (o LookupRecordSetResultOutput) AliasTarget() RecordSetAliasTargetPtrOutput {
 	return o.ApplyT(func(v LookupRecordSetResult) *RecordSetAliasTarget { return v.AliasTarget }).(RecordSetAliasTargetPtrOutput)
+}
+
+// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+func (o LookupRecordSetResultOutput) AzAffinity() RecordSetAzAffinityPtrOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) *RecordSetAzAffinity { return v.AzAffinity }).(RecordSetAzAffinityPtrOutput)
 }
 
 // The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.

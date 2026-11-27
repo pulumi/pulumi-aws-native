@@ -96,6 +96,10 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly redirectUrl: pulumi.Output<string | undefined>;
     /**
+     * Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+     */
+    declare public readonly storageConnectorAuthentication: pulumi.Output<string | undefined>;
+    /**
      * The storage connectors to enable.
      */
     declare public readonly storageConnectors: pulumi.Output<outputs.appstream.StackStorageConnector[] | undefined>;
@@ -135,6 +139,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["feedbackUrl"] = args?.feedbackUrl;
             resourceInputs["name"] = args?.name;
             resourceInputs["redirectUrl"] = args?.redirectUrl;
+            resourceInputs["storageConnectorAuthentication"] = args?.storageConnectorAuthentication;
             resourceInputs["storageConnectors"] = args?.storageConnectors;
             resourceInputs["streamingExperienceSettings"] = args?.streamingExperienceSettings;
             resourceInputs["tags"] = args?.tags;
@@ -152,6 +157,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["feedbackUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["redirectUrl"] = undefined /*out*/;
+            resourceInputs["storageConnectorAuthentication"] = undefined /*out*/;
             resourceInputs["storageConnectors"] = undefined /*out*/;
             resourceInputs["streamingExperienceSettings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -216,6 +222,10 @@ export interface StackArgs {
      * The URL that users are redirected to after their streaming session ends.
      */
     redirectUrl?: pulumi.Input<string | undefined>;
+    /**
+     * Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions. Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+     */
+    storageConnectorAuthentication?: pulumi.Input<string | undefined>;
     /**
      * The storage connectors to enable.
      */

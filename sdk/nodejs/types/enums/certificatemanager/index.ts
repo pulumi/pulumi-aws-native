@@ -12,6 +12,16 @@ export const CertificateExport = {
  */
 export type CertificateExport = (typeof CertificateExport)[keyof typeof CertificateExport];
 
+export const CertificateRootHierarchyType = {
+    N2AmazonManaged: "N2_AMAZON_MANAGED",
+    N2Sfg2AmazonManaged: "N2_SFG2_AMAZON_MANAGED",
+} as const;
+
+/**
+ * The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+ */
+export type CertificateRootHierarchyType = (typeof CertificateRootHierarchyType)[keyof typeof CertificateRootHierarchyType];
+
 export const CertificateTransparencyLoggingPreference = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -21,3 +31,13 @@ export const CertificateTransparencyLoggingPreference = {
  * You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED.
  */
 export type CertificateTransparencyLoggingPreference = (typeof CertificateTransparencyLoggingPreference)[keyof typeof CertificateTransparencyLoggingPreference];
+
+export const CertificateUsage = {
+    ClientAndServerAuth: "CLIENT_AND_SERVER_AUTH",
+    ClientAuthOnly: "CLIENT_AUTH_ONLY",
+} as const;
+
+/**
+ * The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+ */
+export type CertificateUsage = (typeof CertificateUsage)[keyof typeof CertificateUsage];

@@ -35,6 +35,7 @@ export interface GetGatewayResult {
      * The description for the gateway.
      */
     readonly description?: string;
+    readonly domainOverride?: outputs.bedrockagentcore.GatewayDomainOverride;
     /**
      * The exception level for the gateway.
      */

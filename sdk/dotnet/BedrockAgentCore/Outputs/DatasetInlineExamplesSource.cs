@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class DatasetInlineExamplesSource
     {
         /// <summary>
-        /// Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+        /// Examples to add. Each example is a free-form JSON document validated against the scenario rules.
         /// </summary>
         public readonly ImmutableArray<object> Examples;
 

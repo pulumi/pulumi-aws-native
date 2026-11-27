@@ -45,6 +45,7 @@ export interface GetUserPoolResult {
      * The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
      */
     readonly autoVerifiedAttributes?: string[];
+    readonly dcrConfiguration?: outputs.cognito.UserPoolDcrConfiguration;
     /**
      * When active, `DeletionProtection` prevents accidental deletion of your user
      * pool. Before you can delete a user pool that you have protected against deletion, you

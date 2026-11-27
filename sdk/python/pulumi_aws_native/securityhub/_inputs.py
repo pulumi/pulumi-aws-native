@@ -90,12 +90,20 @@ __all__ = [
     'ConnectorAzureProviderConfigurationArgsDict',
     'ConnectorAzureScopeConfigurationArgs',
     'ConnectorAzureScopeConfigurationArgsDict',
+    'ConnectorGcpProviderConfigurationArgs',
+    'ConnectorGcpProviderConfigurationArgsDict',
+    'ConnectorGcpScopeConfigurationArgs',
+    'ConnectorGcpScopeConfigurationArgsDict',
     'ConnectorProviderArgs',
     'ConnectorProviderArgsDict',
     'ConnectorV2AzureProviderConfigurationArgs',
     'ConnectorV2AzureProviderConfigurationArgsDict',
     'ConnectorV2AzureScopeConfigurationArgs',
     'ConnectorV2AzureScopeConfigurationArgsDict',
+    'ConnectorV2GcpProviderConfigurationArgs',
+    'ConnectorV2GcpProviderConfigurationArgsDict',
+    'ConnectorV2GcpScopeConfigurationArgs',
+    'ConnectorV2GcpScopeConfigurationArgsDict',
     'ConnectorV2JiraCloudProviderConfigurationArgs',
     'ConnectorV2JiraCloudProviderConfigurationArgsDict',
     'ConnectorV2ProviderArgs',
@@ -3535,23 +3543,150 @@ class ConnectorAzureScopeConfigurationArgs:
         pulumi.set(self, "scope_values", value)
 
 
+class ConnectorGcpProviderConfigurationArgsDict(TypedDict):
+    aws_config_connector_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Config connector used for the GCP integration
+    """
+    gcp_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of GCP regions to include in the connector scope
+    """
+    scope_configuration: pulumi.Input['ConnectorGcpScopeConfigurationArgsDict']
+
+@pulumi.input_type
+class ConnectorGcpProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 aws_config_connector_arn: pulumi.Input[_builtins.str],
+                 gcp_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 scope_configuration: pulumi.Input['ConnectorGcpScopeConfigurationArgs']):
+        """
+        :param pulumi.Input[_builtins.str] aws_config_connector_arn: The ARN of the AWS Config connector used for the GCP integration
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gcp_regions: The list of GCP regions to include in the connector scope
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "gcp_regions", gcp_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Config connector used for the GCP integration
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @aws_config_connector_arn.setter
+    def aws_config_connector_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "aws_config_connector_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gcpRegions")
+    def gcp_regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of GCP regions to include in the connector scope
+        """
+        return pulumi.get(self, "gcp_regions")
+
+    @gcp_regions.setter
+    def gcp_regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "gcp_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> pulumi.Input['ConnectorGcpScopeConfigurationArgs']:
+        return pulumi.get(self, "scope_configuration")
+
+    @scope_configuration.setter
+    def scope_configuration(self, value: pulumi.Input['ConnectorGcpScopeConfigurationArgs']):
+        pulumi.set(self, "scope_configuration", value)
+
+
+class ConnectorGcpScopeConfigurationArgsDict(TypedDict):
+    scope_type: pulumi.Input['ConnectorGcpScopeConfigurationScopeType']
+    """
+    The scope type for the GCP connector
+    """
+    scope_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of scope values for the GCP connector
+    """
+
+@pulumi.input_type
+class ConnectorGcpScopeConfigurationArgs:
+    def __init__(__self__, *,
+                 scope_type: pulumi.Input['ConnectorGcpScopeConfigurationScopeType'],
+                 scope_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input['ConnectorGcpScopeConfigurationScopeType'] scope_type: The scope type for the GCP connector
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: The list of scope values for the GCP connector
+        """
+        pulumi.set(__self__, "scope_type", scope_type)
+        if scope_values is not None:
+            pulumi.set(__self__, "scope_values", scope_values)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> pulumi.Input['ConnectorGcpScopeConfigurationScopeType']:
+        """
+        The scope type for the GCP connector
+        """
+        return pulumi.get(self, "scope_type")
+
+    @scope_type.setter
+    def scope_type(self, value: pulumi.Input['ConnectorGcpScopeConfigurationScopeType']):
+        pulumi.set(self, "scope_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeValues")
+    def scope_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of scope values for the GCP connector
+        """
+        return pulumi.get(self, "scope_values")
+
+    @scope_values.setter
+    def scope_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "scope_values", value)
+
+
 class ConnectorProviderArgsDict(TypedDict):
-    azure: pulumi.Input['ConnectorAzureProviderConfigurationArgsDict']
+    """
+    The CSPM provider configuration for the connector
+    """
+    azure: NotRequired[pulumi.Input[Optional['ConnectorAzureProviderConfigurationArgsDict']]]
+    gcp: NotRequired[pulumi.Input[Optional['ConnectorGcpProviderConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ConnectorProviderArgs:
     def __init__(__self__, *,
-                 azure: pulumi.Input['ConnectorAzureProviderConfigurationArgs']):
-        pulumi.set(__self__, "azure", azure)
+                 azure: pulumi.Input[Optional['ConnectorAzureProviderConfigurationArgs']] = None,
+                 gcp: pulumi.Input[Optional['ConnectorGcpProviderConfigurationArgs']] = None):
+        """
+        The CSPM provider configuration for the connector
+        """
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> pulumi.Input['ConnectorAzureProviderConfigurationArgs']:
+    def azure(self) -> pulumi.Input[Optional['ConnectorAzureProviderConfigurationArgs']]:
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: pulumi.Input['ConnectorAzureProviderConfigurationArgs']):
+    def azure(self, value: pulumi.Input[Optional['ConnectorAzureProviderConfigurationArgs']]):
         pulumi.set(self, "azure", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gcp(self) -> pulumi.Input[Optional['ConnectorGcpProviderConfigurationArgs']]:
+        return pulumi.get(self, "gcp")
+
+    @gcp.setter
+    def gcp(self, value: pulumi.Input[Optional['ConnectorGcpProviderConfigurationArgs']]):
+        pulumi.set(self, "gcp", value)
 
 
 class ConnectorV2AzureProviderConfigurationArgsDict(TypedDict):
@@ -3671,6 +3806,123 @@ class ConnectorV2AzureScopeConfigurationArgs:
         pulumi.set(self, "scope_values", value)
 
 
+class ConnectorV2GcpProviderConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings required to establish an integration between AWS Security Hub and GCP
+    """
+    aws_config_connector_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Config connector used for the GCP integration
+    """
+    gcp_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of GCP regions to include in the connector scope
+    """
+    scope_configuration: pulumi.Input['ConnectorV2GcpScopeConfigurationArgsDict']
+
+@pulumi.input_type
+class ConnectorV2GcpProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 aws_config_connector_arn: pulumi.Input[_builtins.str],
+                 gcp_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 scope_configuration: pulumi.Input['ConnectorV2GcpScopeConfigurationArgs']):
+        """
+        The configuration settings required to establish an integration between AWS Security Hub and GCP
+
+        :param pulumi.Input[_builtins.str] aws_config_connector_arn: The ARN of the AWS Config connector used for the GCP integration
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gcp_regions: The list of GCP regions to include in the connector scope
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "gcp_regions", gcp_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Config connector used for the GCP integration
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @aws_config_connector_arn.setter
+    def aws_config_connector_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "aws_config_connector_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gcpRegions")
+    def gcp_regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of GCP regions to include in the connector scope
+        """
+        return pulumi.get(self, "gcp_regions")
+
+    @gcp_regions.setter
+    def gcp_regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "gcp_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> pulumi.Input['ConnectorV2GcpScopeConfigurationArgs']:
+        return pulumi.get(self, "scope_configuration")
+
+    @scope_configuration.setter
+    def scope_configuration(self, value: pulumi.Input['ConnectorV2GcpScopeConfigurationArgs']):
+        pulumi.set(self, "scope_configuration", value)
+
+
+class ConnectorV2GcpScopeConfigurationArgsDict(TypedDict):
+    """
+    The scope configuration for a GCP connector
+    """
+    scope_type: pulumi.Input['ConnectorV2GcpScopeConfigurationScopeType']
+    """
+    The scope type for the GCP connector
+    """
+    scope_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of scope values for the GCP connector
+    """
+
+@pulumi.input_type
+class ConnectorV2GcpScopeConfigurationArgs:
+    def __init__(__self__, *,
+                 scope_type: pulumi.Input['ConnectorV2GcpScopeConfigurationScopeType'],
+                 scope_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The scope configuration for a GCP connector
+
+        :param pulumi.Input['ConnectorV2GcpScopeConfigurationScopeType'] scope_type: The scope type for the GCP connector
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: The list of scope values for the GCP connector
+        """
+        pulumi.set(__self__, "scope_type", scope_type)
+        if scope_values is not None:
+            pulumi.set(__self__, "scope_values", scope_values)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> pulumi.Input['ConnectorV2GcpScopeConfigurationScopeType']:
+        """
+        The scope type for the GCP connector
+        """
+        return pulumi.get(self, "scope_type")
+
+    @scope_type.setter
+    def scope_type(self, value: pulumi.Input['ConnectorV2GcpScopeConfigurationScopeType']):
+        pulumi.set(self, "scope_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeValues")
+    def scope_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of scope values for the GCP connector
+        """
+        return pulumi.get(self, "scope_values")
+
+    @scope_values.setter
+    def scope_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "scope_values", value)
+
+
 class ConnectorV2JiraCloudProviderConfigurationArgsDict(TypedDict):
     """
     The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
@@ -3709,6 +3961,7 @@ class ConnectorV2ProviderArgsDict(TypedDict):
     The third-party provider configuration for the connector
     """
     azure: NotRequired[pulumi.Input[Optional['ConnectorV2AzureProviderConfigurationArgsDict']]]
+    gcp: NotRequired[pulumi.Input[Optional['ConnectorV2GcpProviderConfigurationArgsDict']]]
     jira_cloud: NotRequired[pulumi.Input[Optional['ConnectorV2JiraCloudProviderConfigurationArgsDict']]]
     service_now: NotRequired[pulumi.Input[Optional['ConnectorV2ServiceNowProviderConfigurationArgsDict']]]
 
@@ -3716,6 +3969,7 @@ class ConnectorV2ProviderArgsDict(TypedDict):
 class ConnectorV2ProviderArgs:
     def __init__(__self__, *,
                  azure: pulumi.Input[Optional['ConnectorV2AzureProviderConfigurationArgs']] = None,
+                 gcp: pulumi.Input[Optional['ConnectorV2GcpProviderConfigurationArgs']] = None,
                  jira_cloud: pulumi.Input[Optional['ConnectorV2JiraCloudProviderConfigurationArgs']] = None,
                  service_now: pulumi.Input[Optional['ConnectorV2ServiceNowProviderConfigurationArgs']] = None):
         """
@@ -3723,6 +3977,8 @@ class ConnectorV2ProviderArgs:
         """
         if azure is not None:
             pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
         if jira_cloud is not None:
             pulumi.set(__self__, "jira_cloud", jira_cloud)
         if service_now is not None:
@@ -3736,6 +3992,15 @@ class ConnectorV2ProviderArgs:
     @azure.setter
     def azure(self, value: pulumi.Input[Optional['ConnectorV2AzureProviderConfigurationArgs']]):
         pulumi.set(self, "azure", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gcp(self) -> pulumi.Input[Optional['ConnectorV2GcpProviderConfigurationArgs']]:
+        return pulumi.get(self, "gcp")
+
+    @gcp.setter
+    def gcp(self, value: pulumi.Input[Optional['ConnectorV2GcpProviderConfigurationArgs']]):
+        pulumi.set(self, "gcp", value)
 
     @_builtins.property
     @pulumi.getter(name="jiraCloud")
@@ -3810,7 +4075,7 @@ class ConnectorV2ServiceNowProviderConfigurationArgs:
 
 class HubV2NetworkScanningArgsDict(TypedDict):
     """
-    Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+    Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is. A rollback enables it again when the restored template declares it ENABLED, unless an organization policy or the account's current Security Hub configuration prevents it, and leaves it as-is when no template declared it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
     """
     status: pulumi.Input['HubV2NetworkScanningStatus']
     """
@@ -3822,7 +4087,7 @@ class HubV2NetworkScanningArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['HubV2NetworkScanningStatus']):
         """
-        Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+        Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is. A rollback enables it again when the restored template declares it ENABLED, unless an organization policy or the account's current Security Hub configuration prevents it, and leaves it as-is when no template declared it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
 
         :param pulumi.Input['HubV2NetworkScanningStatus'] status: Whether the Network Scanning feature is enabled for this account and Region.
         """

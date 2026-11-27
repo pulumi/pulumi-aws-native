@@ -39,6 +39,7 @@ __all__ = [
     'SessionStatus',
     'SessionWorkerType',
     'UserDefinedFunctionFunctionType',
+    'UserDefinedFunctionGovernanceMode',
     'UserDefinedFunctionOwnerType',
     'UserDefinedFunctionResourceUriResourceType',
 ]
@@ -380,6 +381,15 @@ class UserDefinedFunctionFunctionType(_builtins.str, Enum):
     REGULAR_FUNCTION = "REGULAR_FUNCTION"
     AGGREGATE_FUNCTION = "AGGREGATE_FUNCTION"
     STORED_PROCEDURE = "STORED_PROCEDURE"
+
+
+@pulumi.type_token("aws-native:glue:UserDefinedFunctionGovernanceMode")
+class UserDefinedFunctionGovernanceMode(_builtins.str, Enum):
+    """
+    How access to the function is governed. The mode cannot be changed after creation.
+    """
+    IAM_ONLY = "IAM_ONLY"
+    LAKE_FORMATION = "LAKE_FORMATION"
 
 
 @pulumi.type_token("aws-native:glue:UserDefinedFunctionOwnerType")

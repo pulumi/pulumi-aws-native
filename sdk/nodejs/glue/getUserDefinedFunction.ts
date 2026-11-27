@@ -30,6 +30,10 @@ export interface GetUserDefinedFunctionResult {
      */
     readonly arn?: string;
     /**
+     * The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+     */
+    readonly artifactLocation?: string;
+    /**
      * The Java class that contains the function code.
      */
     readonly className?: string;

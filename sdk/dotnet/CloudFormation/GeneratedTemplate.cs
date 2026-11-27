@@ -43,6 +43,12 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<Outputs.GeneratedTemplateTemplateProgress> Progress { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+        /// </summary>
+        [Output("stackId")]
+        public Output<string?> StackId { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the template generation.
         /// </summary>
         [Output("status")]
@@ -80,6 +86,10 @@ namespace Pulumi.AwsNative.CloudFormation
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "stackId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -107,6 +117,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         [Input("generatedTemplateName")]
         public Input<string>? GeneratedTemplateName { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the stack to use as the base stack for the generated template.
+        /// </summary>
+        [Input("stackId")]
+        public Input<string>? StackId { get; set; }
 
         [Input("templateConfiguration")]
         public Input<Inputs.GeneratedTemplateTemplateConfigurationArgs>? TemplateConfiguration { get; set; }

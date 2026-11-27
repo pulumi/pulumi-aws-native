@@ -23,16 +23,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:fsx:Backup":
 		r = &Backup{}
+	case "aws-native:fsx:ClusterPeer":
+		r = &ClusterPeer{}
 	case "aws-native:fsx:DataRepositoryAssociation":
 		r = &DataRepositoryAssociation{}
 	case "aws-native:fsx:FileCache":
 		r = &FileCache{}
 	case "aws-native:fsx:S3AccessPointAttachment":
 		r = &S3AccessPointAttachment{}
+	case "aws-native:fsx:SnapmirrorPolicy":
+		r = &SnapmirrorPolicy{}
+	case "aws-native:fsx:SnapmirrorRelationship":
+		r = &SnapmirrorRelationship{}
 	case "aws-native:fsx:Snapshot":
 		r = &Snapshot{}
+	case "aws-native:fsx:SnapshotPolicy":
+		r = &SnapshotPolicy{}
 	case "aws-native:fsx:StorageVirtualMachine":
 		r = &StorageVirtualMachine{}
+	case "aws-native:fsx:StorageVirtualMachinePeer":
+		r = &StorageVirtualMachinePeer{}
 	case "aws-native:fsx:Volume":
 		r = &Volume{}
 	default:

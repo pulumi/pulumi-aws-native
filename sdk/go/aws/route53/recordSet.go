@@ -18,6 +18,8 @@ type RecordSet struct {
 
 	// Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	AliasTarget RecordSetAliasTargetPtrOutput `pulumi:"aliasTarget"`
+	// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+	AzAffinity RecordSetAzAffinityPtrOutput `pulumi:"azAffinity"`
 	// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
 	CidrRoutingConfig RecordSetCidrRoutingConfigPtrOutput `pulumi:"cidrRoutingConfig"`
 	// Optional: Any comments you want to include about a change batch request.
@@ -106,6 +108,8 @@ func RecordSetExists(ctx *pulumi.Context,
 type recordSetArgs struct {
 	// Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	AliasTarget *RecordSetAliasTarget `pulumi:"aliasTarget"`
+	// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+	AzAffinity *RecordSetAzAffinity `pulumi:"azAffinity"`
 	// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
 	CidrRoutingConfig *RecordSetCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
 	// Optional: Any comments you want to include about a change batch request.
@@ -142,6 +146,8 @@ type recordSetArgs struct {
 type RecordSetArgs struct {
 	// Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	AliasTarget RecordSetAliasTargetPtrInput
+	// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+	AzAffinity RecordSetAzAffinityPtrInput
 	// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
 	CidrRoutingConfig RecordSetCidrRoutingConfigPtrInput
 	// Optional: Any comments you want to include about a change batch request.
@@ -214,6 +220,11 @@ func (o RecordSetOutput) ToRecordSetOutputWithContext(ctx context.Context) Recor
 // Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 func (o RecordSetOutput) AliasTarget() RecordSetAliasTargetPtrOutput {
 	return o.ApplyT(func(v *RecordSet) RecordSetAliasTargetPtrOutput { return v.AliasTarget }).(RecordSetAliasTargetPtrOutput)
+}
+
+// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+func (o RecordSetOutput) AzAffinity() RecordSetAzAffinityPtrOutput {
+	return o.ApplyT(func(v *RecordSet) RecordSetAzAffinityPtrOutput { return v.AzAffinity }).(RecordSetAzAffinityPtrOutput)
 }
 
 // The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.

@@ -20,6 +20,91 @@ type BackupTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The authentication status of the cluster peer relationship in ONTAP.
+type ClusterPeerAuthenticationStatus struct {
+	// The authentication method in use, for example ok.
+	InUse *string `pulumi:"inUse"`
+	// The authentication state, for example ok.
+	State *string `pulumi:"state"`
+}
+
+// The authentication status of the cluster peer relationship in ONTAP.
+type ClusterPeerAuthenticationStatusOutput struct{ *pulumi.OutputState }
+
+func (ClusterPeerAuthenticationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPeerAuthenticationStatus)(nil)).Elem()
+}
+
+func (o ClusterPeerAuthenticationStatusOutput) ToClusterPeerAuthenticationStatusOutput() ClusterPeerAuthenticationStatusOutput {
+	return o
+}
+
+func (o ClusterPeerAuthenticationStatusOutput) ToClusterPeerAuthenticationStatusOutputWithContext(ctx context.Context) ClusterPeerAuthenticationStatusOutput {
+	return o
+}
+
+// The authentication method in use, for example ok.
+func (o ClusterPeerAuthenticationStatusOutput) InUse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPeerAuthenticationStatus) *string { return v.InUse }).(pulumi.StringPtrOutput)
+}
+
+// The authentication state, for example ok.
+func (o ClusterPeerAuthenticationStatusOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPeerAuthenticationStatus) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ClusterPeerAuthenticationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPeerAuthenticationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPeerAuthenticationStatus)(nil)).Elem()
+}
+
+func (o ClusterPeerAuthenticationStatusPtrOutput) ToClusterPeerAuthenticationStatusPtrOutput() ClusterPeerAuthenticationStatusPtrOutput {
+	return o
+}
+
+func (o ClusterPeerAuthenticationStatusPtrOutput) ToClusterPeerAuthenticationStatusPtrOutputWithContext(ctx context.Context) ClusterPeerAuthenticationStatusPtrOutput {
+	return o
+}
+
+func (o ClusterPeerAuthenticationStatusPtrOutput) Elem() ClusterPeerAuthenticationStatusOutput {
+	return o.ApplyT(func(v *ClusterPeerAuthenticationStatus) ClusterPeerAuthenticationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPeerAuthenticationStatus
+		return ret
+	}).(ClusterPeerAuthenticationStatusOutput)
+}
+
+// The authentication method in use, for example ok.
+func (o ClusterPeerAuthenticationStatusPtrOutput) InUse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPeerAuthenticationStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InUse
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authentication state, for example ok.
+func (o ClusterPeerAuthenticationStatusPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPeerAuthenticationStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair used to tag the cluster peer relationship.
+type ClusterPeerTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
 type DataRepositoryAssociationAutoExportPolicy struct {
 	// The `AutoExportPolicy` can have the following event values:
@@ -2673,6 +2758,559 @@ func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput) VpcId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// A rule that retains snapshots with a SnapMirror label on the destination.
+type SnapmirrorPolicyRetentionRule struct {
+	// The number of snapshots with this label to retain on the destination.
+	Count int `pulumi:"count"`
+	// The name of an ONTAP job schedule that creates snapshots with this label on the destination.
+	CreationSchedule *string `pulumi:"creationSchedule"`
+	// The SnapMirror label of the snapshots this rule retains.
+	Label string `pulumi:"label"`
+}
+
+// SnapmirrorPolicyRetentionRuleInput is an input type that accepts SnapmirrorPolicyRetentionRuleArgs and SnapmirrorPolicyRetentionRuleOutput values.
+// You can construct a concrete instance of `SnapmirrorPolicyRetentionRuleInput` via:
+//
+//	SnapmirrorPolicyRetentionRuleArgs{...}
+type SnapmirrorPolicyRetentionRuleInput interface {
+	pulumi.Input
+
+	ToSnapmirrorPolicyRetentionRuleOutput() SnapmirrorPolicyRetentionRuleOutput
+	ToSnapmirrorPolicyRetentionRuleOutputWithContext(context.Context) SnapmirrorPolicyRetentionRuleOutput
+}
+
+// A rule that retains snapshots with a SnapMirror label on the destination.
+type SnapmirrorPolicyRetentionRuleArgs struct {
+	// The number of snapshots with this label to retain on the destination.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The name of an ONTAP job schedule that creates snapshots with this label on the destination.
+	CreationSchedule pulumi.StringPtrInput `pulumi:"creationSchedule"`
+	// The SnapMirror label of the snapshots this rule retains.
+	Label pulumi.StringInput `pulumi:"label"`
+}
+
+func (SnapmirrorPolicyRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorPolicyRetentionRule)(nil)).Elem()
+}
+
+func (i SnapmirrorPolicyRetentionRuleArgs) ToSnapmirrorPolicyRetentionRuleOutput() SnapmirrorPolicyRetentionRuleOutput {
+	return i.ToSnapmirrorPolicyRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i SnapmirrorPolicyRetentionRuleArgs) ToSnapmirrorPolicyRetentionRuleOutputWithContext(ctx context.Context) SnapmirrorPolicyRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapmirrorPolicyRetentionRuleOutput)
+}
+
+// SnapmirrorPolicyRetentionRuleArrayInput is an input type that accepts SnapmirrorPolicyRetentionRuleArray and SnapmirrorPolicyRetentionRuleArrayOutput values.
+// You can construct a concrete instance of `SnapmirrorPolicyRetentionRuleArrayInput` via:
+//
+//	SnapmirrorPolicyRetentionRuleArray{ SnapmirrorPolicyRetentionRuleArgs{...} }
+type SnapmirrorPolicyRetentionRuleArrayInput interface {
+	pulumi.Input
+
+	ToSnapmirrorPolicyRetentionRuleArrayOutput() SnapmirrorPolicyRetentionRuleArrayOutput
+	ToSnapmirrorPolicyRetentionRuleArrayOutputWithContext(context.Context) SnapmirrorPolicyRetentionRuleArrayOutput
+}
+
+type SnapmirrorPolicyRetentionRuleArray []SnapmirrorPolicyRetentionRuleInput
+
+func (SnapmirrorPolicyRetentionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapmirrorPolicyRetentionRule)(nil)).Elem()
+}
+
+func (i SnapmirrorPolicyRetentionRuleArray) ToSnapmirrorPolicyRetentionRuleArrayOutput() SnapmirrorPolicyRetentionRuleArrayOutput {
+	return i.ToSnapmirrorPolicyRetentionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SnapmirrorPolicyRetentionRuleArray) ToSnapmirrorPolicyRetentionRuleArrayOutputWithContext(ctx context.Context) SnapmirrorPolicyRetentionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapmirrorPolicyRetentionRuleArrayOutput)
+}
+
+// A rule that retains snapshots with a SnapMirror label on the destination.
+type SnapmirrorPolicyRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorPolicyRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorPolicyRetentionRule)(nil)).Elem()
+}
+
+func (o SnapmirrorPolicyRetentionRuleOutput) ToSnapmirrorPolicyRetentionRuleOutput() SnapmirrorPolicyRetentionRuleOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyRetentionRuleOutput) ToSnapmirrorPolicyRetentionRuleOutputWithContext(ctx context.Context) SnapmirrorPolicyRetentionRuleOutput {
+	return o
+}
+
+// The number of snapshots with this label to retain on the destination.
+func (o SnapmirrorPolicyRetentionRuleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapmirrorPolicyRetentionRule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The name of an ONTAP job schedule that creates snapshots with this label on the destination.
+func (o SnapmirrorPolicyRetentionRuleOutput) CreationSchedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapmirrorPolicyRetentionRule) *string { return v.CreationSchedule }).(pulumi.StringPtrOutput)
+}
+
+// The SnapMirror label of the snapshots this rule retains.
+func (o SnapmirrorPolicyRetentionRuleOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapmirrorPolicyRetentionRule) string { return v.Label }).(pulumi.StringOutput)
+}
+
+type SnapmirrorPolicyRetentionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorPolicyRetentionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapmirrorPolicyRetentionRule)(nil)).Elem()
+}
+
+func (o SnapmirrorPolicyRetentionRuleArrayOutput) ToSnapmirrorPolicyRetentionRuleArrayOutput() SnapmirrorPolicyRetentionRuleArrayOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyRetentionRuleArrayOutput) ToSnapmirrorPolicyRetentionRuleArrayOutputWithContext(ctx context.Context) SnapmirrorPolicyRetentionRuleArrayOutput {
+	return o
+}
+
+func (o SnapmirrorPolicyRetentionRuleArrayOutput) Index(i pulumi.IntInput) SnapmirrorPolicyRetentionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapmirrorPolicyRetentionRule {
+		return vs[0].([]SnapmirrorPolicyRetentionRule)[vs[1].(int)]
+	}).(SnapmirrorPolicyRetentionRuleOutput)
+}
+
+// A key-value pair used to tag the SnapMirror policy.
+type SnapmirrorPolicyTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// The destination of the SnapMirror relationship.
+type SnapmirrorRelationshipDestination struct {
+	// The destination volume, as <svm-name>:<volume-name>.
+	Path *string `pulumi:"path"`
+	// The ID of the destination volume. It must be a data-protection (DP) volume.
+	VolumeId string `pulumi:"volumeId"`
+}
+
+// SnapmirrorRelationshipDestinationInput is an input type that accepts SnapmirrorRelationshipDestinationArgs and SnapmirrorRelationshipDestinationOutput values.
+// You can construct a concrete instance of `SnapmirrorRelationshipDestinationInput` via:
+//
+//	SnapmirrorRelationshipDestinationArgs{...}
+type SnapmirrorRelationshipDestinationInput interface {
+	pulumi.Input
+
+	ToSnapmirrorRelationshipDestinationOutput() SnapmirrorRelationshipDestinationOutput
+	ToSnapmirrorRelationshipDestinationOutputWithContext(context.Context) SnapmirrorRelationshipDestinationOutput
+}
+
+// The destination of the SnapMirror relationship.
+type SnapmirrorRelationshipDestinationArgs struct {
+	// The destination volume, as <svm-name>:<volume-name>.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The ID of the destination volume. It must be a data-protection (DP) volume.
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
+}
+
+func (SnapmirrorRelationshipDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorRelationshipDestination)(nil)).Elem()
+}
+
+func (i SnapmirrorRelationshipDestinationArgs) ToSnapmirrorRelationshipDestinationOutput() SnapmirrorRelationshipDestinationOutput {
+	return i.ToSnapmirrorRelationshipDestinationOutputWithContext(context.Background())
+}
+
+func (i SnapmirrorRelationshipDestinationArgs) ToSnapmirrorRelationshipDestinationOutputWithContext(ctx context.Context) SnapmirrorRelationshipDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapmirrorRelationshipDestinationOutput)
+}
+
+// The destination of the SnapMirror relationship.
+type SnapmirrorRelationshipDestinationOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorRelationshipDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorRelationshipDestination)(nil)).Elem()
+}
+
+func (o SnapmirrorRelationshipDestinationOutput) ToSnapmirrorRelationshipDestinationOutput() SnapmirrorRelationshipDestinationOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipDestinationOutput) ToSnapmirrorRelationshipDestinationOutputWithContext(ctx context.Context) SnapmirrorRelationshipDestinationOutput {
+	return o
+}
+
+// The destination volume, as <svm-name>:<volume-name>.
+func (o SnapmirrorRelationshipDestinationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapmirrorRelationshipDestination) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the destination volume. It must be a data-protection (DP) volume.
+func (o SnapmirrorRelationshipDestinationOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapmirrorRelationshipDestination) string { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+// The source of the SnapMirror relationship.
+type SnapmirrorRelationshipSource struct {
+	// The source volume, as <svm-name>:<volume-name>. For a source on the destination SVM, use that SVM's name. For a source on a peered SVM, use the peer SVM name or its local alias, as seen from the destination SVM.
+	Path string `pulumi:"path"`
+}
+
+// SnapmirrorRelationshipSourceInput is an input type that accepts SnapmirrorRelationshipSourceArgs and SnapmirrorRelationshipSourceOutput values.
+// You can construct a concrete instance of `SnapmirrorRelationshipSourceInput` via:
+//
+//	SnapmirrorRelationshipSourceArgs{...}
+type SnapmirrorRelationshipSourceInput interface {
+	pulumi.Input
+
+	ToSnapmirrorRelationshipSourceOutput() SnapmirrorRelationshipSourceOutput
+	ToSnapmirrorRelationshipSourceOutputWithContext(context.Context) SnapmirrorRelationshipSourceOutput
+}
+
+// The source of the SnapMirror relationship.
+type SnapmirrorRelationshipSourceArgs struct {
+	// The source volume, as <svm-name>:<volume-name>. For a source on the destination SVM, use that SVM's name. For a source on a peered SVM, use the peer SVM name or its local alias, as seen from the destination SVM.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (SnapmirrorRelationshipSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorRelationshipSource)(nil)).Elem()
+}
+
+func (i SnapmirrorRelationshipSourceArgs) ToSnapmirrorRelationshipSourceOutput() SnapmirrorRelationshipSourceOutput {
+	return i.ToSnapmirrorRelationshipSourceOutputWithContext(context.Background())
+}
+
+func (i SnapmirrorRelationshipSourceArgs) ToSnapmirrorRelationshipSourceOutputWithContext(ctx context.Context) SnapmirrorRelationshipSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapmirrorRelationshipSourceOutput)
+}
+
+// The source of the SnapMirror relationship.
+type SnapmirrorRelationshipSourceOutput struct{ *pulumi.OutputState }
+
+func (SnapmirrorRelationshipSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapmirrorRelationshipSource)(nil)).Elem()
+}
+
+func (o SnapmirrorRelationshipSourceOutput) ToSnapmirrorRelationshipSourceOutput() SnapmirrorRelationshipSourceOutput {
+	return o
+}
+
+func (o SnapmirrorRelationshipSourceOutput) ToSnapmirrorRelationshipSourceOutputWithContext(ctx context.Context) SnapmirrorRelationshipSourceOutput {
+	return o
+}
+
+// The source volume, as <svm-name>:<volume-name>. For a source on the destination SVM, use that SVM's name. For a source on a peered SVM, use the peer SVM name or its local alias, as seen from the destination SVM.
+func (o SnapmirrorRelationshipSourceOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapmirrorRelationshipSource) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// A key-value pair used to tag the SnapMirror relationship.
+type SnapmirrorRelationshipTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// How long to retain snapshots created by a schedule.
+type SnapshotPolicyRetentionPeriod struct {
+	// The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+	Type SnapshotPolicyRetentionPeriodType `pulumi:"type"`
+	// The length of the retention period, in the unit given by Type.
+	Value *int `pulumi:"value"`
+}
+
+// SnapshotPolicyRetentionPeriodInput is an input type that accepts SnapshotPolicyRetentionPeriodArgs and SnapshotPolicyRetentionPeriodOutput values.
+// You can construct a concrete instance of `SnapshotPolicyRetentionPeriodInput` via:
+//
+//	SnapshotPolicyRetentionPeriodArgs{...}
+type SnapshotPolicyRetentionPeriodInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyRetentionPeriodOutput() SnapshotPolicyRetentionPeriodOutput
+	ToSnapshotPolicyRetentionPeriodOutputWithContext(context.Context) SnapshotPolicyRetentionPeriodOutput
+}
+
+// How long to retain snapshots created by a schedule.
+type SnapshotPolicyRetentionPeriodArgs struct {
+	// The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+	Type SnapshotPolicyRetentionPeriodTypeInput `pulumi:"type"`
+	// The length of the retention period, in the unit given by Type.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (SnapshotPolicyRetentionPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyRetentionPeriod)(nil)).Elem()
+}
+
+func (i SnapshotPolicyRetentionPeriodArgs) ToSnapshotPolicyRetentionPeriodOutput() SnapshotPolicyRetentionPeriodOutput {
+	return i.ToSnapshotPolicyRetentionPeriodOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyRetentionPeriodArgs) ToSnapshotPolicyRetentionPeriodOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyRetentionPeriodOutput)
+}
+
+func (i SnapshotPolicyRetentionPeriodArgs) ToSnapshotPolicyRetentionPeriodPtrOutput() SnapshotPolicyRetentionPeriodPtrOutput {
+	return i.ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyRetentionPeriodArgs) ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyRetentionPeriodOutput).ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(ctx)
+}
+
+// SnapshotPolicyRetentionPeriodPtrInput is an input type that accepts SnapshotPolicyRetentionPeriodArgs, SnapshotPolicyRetentionPeriodPtr and SnapshotPolicyRetentionPeriodPtrOutput values.
+// You can construct a concrete instance of `SnapshotPolicyRetentionPeriodPtrInput` via:
+//
+//	        SnapshotPolicyRetentionPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type SnapshotPolicyRetentionPeriodPtrInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyRetentionPeriodPtrOutput() SnapshotPolicyRetentionPeriodPtrOutput
+	ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(context.Context) SnapshotPolicyRetentionPeriodPtrOutput
+}
+
+type snapshotPolicyRetentionPeriodPtrType SnapshotPolicyRetentionPeriodArgs
+
+func SnapshotPolicyRetentionPeriodPtr(v *SnapshotPolicyRetentionPeriodArgs) SnapshotPolicyRetentionPeriodPtrInput {
+	return (*snapshotPolicyRetentionPeriodPtrType)(v)
+}
+
+func (*snapshotPolicyRetentionPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyRetentionPeriod)(nil)).Elem()
+}
+
+func (i *snapshotPolicyRetentionPeriodPtrType) ToSnapshotPolicyRetentionPeriodPtrOutput() SnapshotPolicyRetentionPeriodPtrOutput {
+	return i.ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotPolicyRetentionPeriodPtrType) ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyRetentionPeriodPtrOutput)
+}
+
+// How long to retain snapshots created by a schedule.
+type SnapshotPolicyRetentionPeriodOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyRetentionPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyRetentionPeriod)(nil)).Elem()
+}
+
+func (o SnapshotPolicyRetentionPeriodOutput) ToSnapshotPolicyRetentionPeriodOutput() SnapshotPolicyRetentionPeriodOutput {
+	return o
+}
+
+func (o SnapshotPolicyRetentionPeriodOutput) ToSnapshotPolicyRetentionPeriodOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodOutput {
+	return o
+}
+
+func (o SnapshotPolicyRetentionPeriodOutput) ToSnapshotPolicyRetentionPeriodPtrOutput() SnapshotPolicyRetentionPeriodPtrOutput {
+	return o.ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyRetentionPeriodOutput) ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyRetentionPeriod) *SnapshotPolicyRetentionPeriod {
+		return &v
+	}).(SnapshotPolicyRetentionPeriodPtrOutput)
+}
+
+// The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+func (o SnapshotPolicyRetentionPeriodOutput) Type() SnapshotPolicyRetentionPeriodTypeOutput {
+	return o.ApplyT(func(v SnapshotPolicyRetentionPeriod) SnapshotPolicyRetentionPeriodType { return v.Type }).(SnapshotPolicyRetentionPeriodTypeOutput)
+}
+
+// The length of the retention period, in the unit given by Type.
+func (o SnapshotPolicyRetentionPeriodOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SnapshotPolicyRetentionPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type SnapshotPolicyRetentionPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyRetentionPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyRetentionPeriod)(nil)).Elem()
+}
+
+func (o SnapshotPolicyRetentionPeriodPtrOutput) ToSnapshotPolicyRetentionPeriodPtrOutput() SnapshotPolicyRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyRetentionPeriodPtrOutput) ToSnapshotPolicyRetentionPeriodPtrOutputWithContext(ctx context.Context) SnapshotPolicyRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyRetentionPeriodPtrOutput) Elem() SnapshotPolicyRetentionPeriodOutput {
+	return o.ApplyT(func(v *SnapshotPolicyRetentionPeriod) SnapshotPolicyRetentionPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotPolicyRetentionPeriod
+		return ret
+	}).(SnapshotPolicyRetentionPeriodOutput)
+}
+
+// The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+func (o SnapshotPolicyRetentionPeriodPtrOutput) Type() SnapshotPolicyRetentionPeriodTypePtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyRetentionPeriod) *SnapshotPolicyRetentionPeriodType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(SnapshotPolicyRetentionPeriodTypePtrOutput)
+}
+
+// The length of the retention period, in the unit given by Type.
+func (o SnapshotPolicyRetentionPeriodPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyRetentionPeriod) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+// A schedule within a snapshot policy.
+type SnapshotPolicySchedule struct {
+	// The maximum number of snapshots to retain for this schedule.
+	Count int `pulumi:"count"`
+	// The name of the ONTAP job schedule that triggers snapshot creation, for example hourly, daily, or weekly.
+	Name string `pulumi:"name"`
+	// The prefix applied to the names of snapshots created by this schedule.
+	Prefix          *string                        `pulumi:"prefix"`
+	RetentionPeriod *SnapshotPolicyRetentionPeriod `pulumi:"retentionPeriod"`
+	// The SnapMirror label applied to snapshots created by this schedule. SnapMirror policies use this label to select snapshots to replicate.
+	SnapmirrorLabel *string `pulumi:"snapmirrorLabel"`
+}
+
+// SnapshotPolicyScheduleInput is an input type that accepts SnapshotPolicyScheduleArgs and SnapshotPolicyScheduleOutput values.
+// You can construct a concrete instance of `SnapshotPolicyScheduleInput` via:
+//
+//	SnapshotPolicyScheduleArgs{...}
+type SnapshotPolicyScheduleInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyScheduleOutput() SnapshotPolicyScheduleOutput
+	ToSnapshotPolicyScheduleOutputWithContext(context.Context) SnapshotPolicyScheduleOutput
+}
+
+// A schedule within a snapshot policy.
+type SnapshotPolicyScheduleArgs struct {
+	// The maximum number of snapshots to retain for this schedule.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The name of the ONTAP job schedule that triggers snapshot creation, for example hourly, daily, or weekly.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The prefix applied to the names of snapshots created by this schedule.
+	Prefix          pulumi.StringPtrInput                 `pulumi:"prefix"`
+	RetentionPeriod SnapshotPolicyRetentionPeriodPtrInput `pulumi:"retentionPeriod"`
+	// The SnapMirror label applied to snapshots created by this schedule. SnapMirror policies use this label to select snapshots to replicate.
+	SnapmirrorLabel pulumi.StringPtrInput `pulumi:"snapmirrorLabel"`
+}
+
+func (SnapshotPolicyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicySchedule)(nil)).Elem()
+}
+
+func (i SnapshotPolicyScheduleArgs) ToSnapshotPolicyScheduleOutput() SnapshotPolicyScheduleOutput {
+	return i.ToSnapshotPolicyScheduleOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyScheduleArgs) ToSnapshotPolicyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyScheduleOutput)
+}
+
+// SnapshotPolicyScheduleArrayInput is an input type that accepts SnapshotPolicyScheduleArray and SnapshotPolicyScheduleArrayOutput values.
+// You can construct a concrete instance of `SnapshotPolicyScheduleArrayInput` via:
+//
+//	SnapshotPolicyScheduleArray{ SnapshotPolicyScheduleArgs{...} }
+type SnapshotPolicyScheduleArrayInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyScheduleArrayOutput() SnapshotPolicyScheduleArrayOutput
+	ToSnapshotPolicyScheduleArrayOutputWithContext(context.Context) SnapshotPolicyScheduleArrayOutput
+}
+
+type SnapshotPolicyScheduleArray []SnapshotPolicyScheduleInput
+
+func (SnapshotPolicyScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotPolicySchedule)(nil)).Elem()
+}
+
+func (i SnapshotPolicyScheduleArray) ToSnapshotPolicyScheduleArrayOutput() SnapshotPolicyScheduleArrayOutput {
+	return i.ToSnapshotPolicyScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyScheduleArray) ToSnapshotPolicyScheduleArrayOutputWithContext(ctx context.Context) SnapshotPolicyScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyScheduleArrayOutput)
+}
+
+// A schedule within a snapshot policy.
+type SnapshotPolicyScheduleOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyScheduleOutput) ToSnapshotPolicyScheduleOutput() SnapshotPolicyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyScheduleOutput) ToSnapshotPolicyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyScheduleOutput {
+	return o
+}
+
+// The maximum number of snapshots to retain for this schedule.
+func (o SnapshotPolicyScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The name of the ONTAP job schedule that triggers snapshot creation, for example hourly, daily, or weekly.
+func (o SnapshotPolicyScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotPolicySchedule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The prefix applied to the names of snapshots created by this schedule.
+func (o SnapshotPolicyScheduleOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotPolicySchedule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotPolicyScheduleOutput) RetentionPeriod() SnapshotPolicyRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v SnapshotPolicySchedule) *SnapshotPolicyRetentionPeriod { return v.RetentionPeriod }).(SnapshotPolicyRetentionPeriodPtrOutput)
+}
+
+// The SnapMirror label applied to snapshots created by this schedule. SnapMirror policies use this label to select snapshots to replicate.
+func (o SnapshotPolicyScheduleOutput) SnapmirrorLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotPolicySchedule) *string { return v.SnapmirrorLabel }).(pulumi.StringPtrOutput)
+}
+
+type SnapshotPolicyScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotPolicySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyScheduleArrayOutput) ToSnapshotPolicyScheduleArrayOutput() SnapshotPolicyScheduleArrayOutput {
+	return o
+}
+
+func (o SnapshotPolicyScheduleArrayOutput) ToSnapshotPolicyScheduleArrayOutputWithContext(ctx context.Context) SnapshotPolicyScheduleArrayOutput {
+	return o
+}
+
+func (o SnapshotPolicyScheduleArrayOutput) Index(i pulumi.IntInput) SnapshotPolicyScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotPolicySchedule {
+		return vs[0].([]SnapshotPolicySchedule)[vs[1].(int)]
+	}).(SnapshotPolicyScheduleOutput)
+}
+
+// A key-value pair used to tag the snapshot policy.
+type SnapshotPolicyTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 type SnapshotTag struct {
 	// A value that specifies the TagKey, the name of the tag. Tag keys must be unique for the resource to which they are attached.
 	Key string `pulumi:"key"`
@@ -2839,6 +3477,14 @@ func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) SelfManagedA
 		}
 		return v.SelfManagedActiveDirectoryConfiguration
 	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+// A key-value pair used to tag the SVM peer relationship.
+type StorageVirtualMachinePeerTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
 }
 
 type StorageVirtualMachineSelfManagedActiveDirectoryConfiguration struct {
@@ -3523,6 +4169,165 @@ func (o VolumeClientConfigurationsArrayOutput) Index(i pulumi.IntInput) VolumeCl
 	}).(VolumeClientConfigurationsOutput)
 }
 
+// Creates the volume as an ONTAP FlexClone of an existing volume in the same SVM. After the volume is created, changing or removing CloneConfiguration isn't supported: the update fails and the clone is unchanged.
+type VolumeCloneConfiguration struct {
+	// The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+	ParentVolumeId string `pulumi:"parentVolumeId"`
+	// The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+	SnapshotId *string `pulumi:"snapshotId"`
+}
+
+// VolumeCloneConfigurationInput is an input type that accepts VolumeCloneConfigurationArgs and VolumeCloneConfigurationOutput values.
+// You can construct a concrete instance of `VolumeCloneConfigurationInput` via:
+//
+//	VolumeCloneConfigurationArgs{...}
+type VolumeCloneConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeCloneConfigurationOutput() VolumeCloneConfigurationOutput
+	ToVolumeCloneConfigurationOutputWithContext(context.Context) VolumeCloneConfigurationOutput
+}
+
+// Creates the volume as an ONTAP FlexClone of an existing volume in the same SVM. After the volume is created, changing or removing CloneConfiguration isn't supported: the update fails and the clone is unchanged.
+type VolumeCloneConfigurationArgs struct {
+	// The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+	ParentVolumeId pulumi.StringInput `pulumi:"parentVolumeId"`
+	// The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+}
+
+func (VolumeCloneConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeCloneConfiguration)(nil)).Elem()
+}
+
+func (i VolumeCloneConfigurationArgs) ToVolumeCloneConfigurationOutput() VolumeCloneConfigurationOutput {
+	return i.ToVolumeCloneConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeCloneConfigurationArgs) ToVolumeCloneConfigurationOutputWithContext(ctx context.Context) VolumeCloneConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCloneConfigurationOutput)
+}
+
+func (i VolumeCloneConfigurationArgs) ToVolumeCloneConfigurationPtrOutput() VolumeCloneConfigurationPtrOutput {
+	return i.ToVolumeCloneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeCloneConfigurationArgs) ToVolumeCloneConfigurationPtrOutputWithContext(ctx context.Context) VolumeCloneConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCloneConfigurationOutput).ToVolumeCloneConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeCloneConfigurationPtrInput is an input type that accepts VolumeCloneConfigurationArgs, VolumeCloneConfigurationPtr and VolumeCloneConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeCloneConfigurationPtrInput` via:
+//
+//	        VolumeCloneConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeCloneConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeCloneConfigurationPtrOutput() VolumeCloneConfigurationPtrOutput
+	ToVolumeCloneConfigurationPtrOutputWithContext(context.Context) VolumeCloneConfigurationPtrOutput
+}
+
+type volumeCloneConfigurationPtrType VolumeCloneConfigurationArgs
+
+func VolumeCloneConfigurationPtr(v *VolumeCloneConfigurationArgs) VolumeCloneConfigurationPtrInput {
+	return (*volumeCloneConfigurationPtrType)(v)
+}
+
+func (*volumeCloneConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeCloneConfiguration)(nil)).Elem()
+}
+
+func (i *volumeCloneConfigurationPtrType) ToVolumeCloneConfigurationPtrOutput() VolumeCloneConfigurationPtrOutput {
+	return i.ToVolumeCloneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeCloneConfigurationPtrType) ToVolumeCloneConfigurationPtrOutputWithContext(ctx context.Context) VolumeCloneConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCloneConfigurationPtrOutput)
+}
+
+// Creates the volume as an ONTAP FlexClone of an existing volume in the same SVM. After the volume is created, changing or removing CloneConfiguration isn't supported: the update fails and the clone is unchanged.
+type VolumeCloneConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeCloneConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeCloneConfiguration)(nil)).Elem()
+}
+
+func (o VolumeCloneConfigurationOutput) ToVolumeCloneConfigurationOutput() VolumeCloneConfigurationOutput {
+	return o
+}
+
+func (o VolumeCloneConfigurationOutput) ToVolumeCloneConfigurationOutputWithContext(ctx context.Context) VolumeCloneConfigurationOutput {
+	return o
+}
+
+func (o VolumeCloneConfigurationOutput) ToVolumeCloneConfigurationPtrOutput() VolumeCloneConfigurationPtrOutput {
+	return o.ToVolumeCloneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeCloneConfigurationOutput) ToVolumeCloneConfigurationPtrOutputWithContext(ctx context.Context) VolumeCloneConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeCloneConfiguration) *VolumeCloneConfiguration {
+		return &v
+	}).(VolumeCloneConfigurationPtrOutput)
+}
+
+// The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+func (o VolumeCloneConfigurationOutput) ParentVolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeCloneConfiguration) string { return v.ParentVolumeId }).(pulumi.StringOutput)
+}
+
+// The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+func (o VolumeCloneConfigurationOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeCloneConfiguration) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+type VolumeCloneConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeCloneConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeCloneConfiguration)(nil)).Elem()
+}
+
+func (o VolumeCloneConfigurationPtrOutput) ToVolumeCloneConfigurationPtrOutput() VolumeCloneConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeCloneConfigurationPtrOutput) ToVolumeCloneConfigurationPtrOutputWithContext(ctx context.Context) VolumeCloneConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeCloneConfigurationPtrOutput) Elem() VolumeCloneConfigurationOutput {
+	return o.ApplyT(func(v *VolumeCloneConfiguration) VolumeCloneConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeCloneConfiguration
+		return ret
+	}).(VolumeCloneConfigurationOutput)
+}
+
+// The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+func (o VolumeCloneConfigurationPtrOutput) ParentVolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCloneConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParentVolumeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+func (o VolumeCloneConfigurationPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCloneConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
 type VolumeNfsExports struct {
 	// The configuration object for mounting a Network File System (NFS) file system.
 	ClientConfigurations []VolumeClientConfigurations `pulumi:"clientConfigurations"`
@@ -3623,6 +4428,8 @@ func (o VolumeNfsExportsArrayOutput) Index(i pulumi.IntInput) VolumeNfsExportsOu
 type VolumeOntapConfiguration struct {
 	// Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
 	AggregateConfiguration *VolumeAggregateConfiguration `pulumi:"aggregateConfiguration"`
+	// Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
+	CloneConfiguration *VolumeCloneConfiguration `pulumi:"cloneConfiguration"`
 	// A boolean flag indicating whether tags for the volume should be copied to backups.
 	CopyTagsToBackups *string `pulumi:"copyTagsToBackups"`
 	// Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
@@ -3663,6 +4470,8 @@ type VolumeOntapConfigurationInput interface {
 type VolumeOntapConfigurationArgs struct {
 	// Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
 	AggregateConfiguration VolumeAggregateConfigurationPtrInput `pulumi:"aggregateConfiguration"`
+	// Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
+	CloneConfiguration VolumeCloneConfigurationPtrInput `pulumi:"cloneConfiguration"`
 	// A boolean flag indicating whether tags for the volume should be copied to backups.
 	CopyTagsToBackups pulumi.StringPtrInput `pulumi:"copyTagsToBackups"`
 	// Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
@@ -3771,6 +4580,11 @@ func (o VolumeOntapConfigurationOutput) AggregateConfiguration() VolumeAggregate
 	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeAggregateConfiguration { return v.AggregateConfiguration }).(VolumeAggregateConfigurationPtrOutput)
 }
 
+// Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
+func (o VolumeOntapConfigurationOutput) CloneConfiguration() VolumeCloneConfigurationPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeCloneConfiguration { return v.CloneConfiguration }).(VolumeCloneConfigurationPtrOutput)
+}
+
 // A boolean flag indicating whether tags for the volume should be copied to backups.
 func (o VolumeOntapConfigurationOutput) CopyTagsToBackups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.CopyTagsToBackups }).(pulumi.StringPtrOutput)
@@ -3863,6 +4677,16 @@ func (o VolumeOntapConfigurationPtrOutput) AggregateConfiguration() VolumeAggreg
 		}
 		return v.AggregateConfiguration
 	}).(VolumeAggregateConfigurationPtrOutput)
+}
+
+// Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
+func (o VolumeOntapConfigurationPtrOutput) CloneConfiguration() VolumeCloneConfigurationPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *VolumeCloneConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloneConfiguration
+	}).(VolumeCloneConfigurationPtrOutput)
 }
 
 // A boolean flag indicating whether tags for the volume should be copied to backups.
@@ -5347,6 +6171,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapmirrorPolicyRetentionRuleInput)(nil)).Elem(), SnapmirrorPolicyRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapmirrorPolicyRetentionRuleArrayInput)(nil)).Elem(), SnapmirrorPolicyRetentionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapmirrorRelationshipDestinationInput)(nil)).Elem(), SnapmirrorRelationshipDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapmirrorRelationshipSourceInput)(nil)).Elem(), SnapmirrorRelationshipSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyRetentionPeriodInput)(nil)).Elem(), SnapshotPolicyRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyRetentionPeriodPtrInput)(nil)).Elem(), SnapshotPolicyRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyScheduleInput)(nil)).Elem(), SnapshotPolicyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyScheduleArrayInput)(nil)).Elem(), SnapshotPolicyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfigurationInput)(nil)).Elem(), StorageVirtualMachineActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
@@ -5357,6 +6189,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodPtrInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsInput)(nil)).Elem(), VolumeClientConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsArrayInput)(nil)).Elem(), VolumeClientConfigurationsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCloneConfigurationInput)(nil)).Elem(), VolumeCloneConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCloneConfigurationPtrInput)(nil)).Elem(), VolumeCloneConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeNfsExportsInput)(nil)).Elem(), VolumeNfsExportsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeNfsExportsArrayInput)(nil)).Elem(), VolumeNfsExportsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOntapConfigurationInput)(nil)).Elem(), VolumeOntapConfigurationArgs{})
@@ -5375,6 +6209,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTieringPolicyPtrInput)(nil)).Elem(), VolumeTieringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeUserAndGroupQuotasInput)(nil)).Elem(), VolumeUserAndGroupQuotasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeUserAndGroupQuotasArrayInput)(nil)).Elem(), VolumeUserAndGroupQuotasArray{})
+	pulumi.RegisterOutputType(ClusterPeerAuthenticationStatusOutput{})
+	pulumi.RegisterOutputType(ClusterPeerAuthenticationStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoExportPolicyOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoExportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoImportPolicyOutput{})
@@ -5409,6 +6245,14 @@ func init() {
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SnapmirrorPolicyRetentionRuleOutput{})
+	pulumi.RegisterOutputType(SnapmirrorPolicyRetentionRuleArrayOutput{})
+	pulumi.RegisterOutputType(SnapmirrorRelationshipDestinationOutput{})
+	pulumi.RegisterOutputType(SnapmirrorRelationshipSourceOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyRetentionPeriodOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyRetentionPeriodPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyScheduleOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineActiveDirectoryConfigurationOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput{})
@@ -5419,6 +6263,8 @@ func init() {
 	pulumi.RegisterOutputType(VolumeAutocommitPeriodPtrOutput{})
 	pulumi.RegisterOutputType(VolumeClientConfigurationsOutput{})
 	pulumi.RegisterOutputType(VolumeClientConfigurationsArrayOutput{})
+	pulumi.RegisterOutputType(VolumeCloneConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeCloneConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeNfsExportsOutput{})
 	pulumi.RegisterOutputType(VolumeNfsExportsArrayOutput{})
 	pulumi.RegisterOutputType(VolumeOntapConfigurationOutput{})

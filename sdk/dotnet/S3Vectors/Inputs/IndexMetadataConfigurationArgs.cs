@@ -27,6 +27,14 @@ namespace Pulumi.AwsNative.S3Vectors.Inputs
             set => _nonFilterableMetadataKeys = value;
         }
 
+        [Input("textSearchConfigurations")]
+        private InputList<Inputs.IndexTextSearchConfigurationArgs>? _textSearchConfigurations;
+        public InputList<Inputs.IndexTextSearchConfigurationArgs> TextSearchConfigurations
+        {
+            get => _textSearchConfigurations ?? (_textSearchConfigurations = new InputList<Inputs.IndexTextSearchConfigurationArgs>());
+            set => _textSearchConfigurations = value;
+        }
+
         public IndexMetadataConfigurationArgs()
         {
         }

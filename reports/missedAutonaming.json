@@ -155,6 +155,22 @@
       }
     }
   },
+  "aws-native:agentregistry:Publisher": {
+    "cfTypeName": "AWS::AgentRegistry::Publisher",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags to assign to the Publisher."
+      },
+      "value": {
+        "$ref": "#/types/aws-native:agentregistry:PublisherIdentifier",
+        "description": "The identifier that this Publisher proves ownership of."
+      }
+    }
+  },
   "aws-native:amplify:Webhook": {
     "cfTypeName": "AWS::Amplify::Webhook",
     "properties": {
@@ -474,7 +490,7 @@
       },
       "authorizationType": {
         "type": "string",
-        "description": "The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.\n  If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property."
+        "description": "The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.\n  If you specify the ``AuthorizerId`` property, specify ``CUSTOM``, ``COGNITO_USER_POOLS``, or ``JWT`` for this property."
       },
       "authorizerId": {
         "type": "string",
@@ -2194,6 +2210,10 @@
         },
         "description": "Filesystem configurations for the agent runtime"
       },
+      "hooksConfiguration": {
+        "$ref": "#/types/aws-native:bedrockagentcore:RuntimeHooksConfiguration",
+        "description": "Lifecycle hooks for the agent runtime"
+      },
       "lifecycleConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeLifecycleConfiguration",
         "description": "Lifecycle configuration for managing runtime sessions"
@@ -2213,6 +2233,13 @@
       "requestHeaderConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeRequestHeaderConfiguration",
         "description": "Configuration for HTTP request headers"
+      },
+      "resourceConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:bedrockagentcore:RuntimeResourceConfiguration"
+        },
+        "description": "Resource configurations for the agent runtime"
       },
       "roleArn": {
         "type": "string",
@@ -2486,6 +2513,10 @@
         "$ref": "#/types/aws-native:certificatemanager:CertificateTransparencyLoggingPreference",
         "description": "You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED."
       },
+      "certificateUsage": {
+        "$ref": "#/types/aws-native:certificatemanager:CertificateUsage",
+        "description": "The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED."
+      },
       "domainName": {
         "type": "string",
         "description": "The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate"
@@ -2500,6 +2531,10 @@
       "keyAlgorithm": {
         "type": "string",
         "description": "Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data."
+      },
+      "rootHierarchyType": {
+        "$ref": "#/types/aws-native:certificatemanager:CertificateRootHierarchyType",
+        "description": "The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers."
       },
       "subjectAlternativeNames": {
         "type": "array",
@@ -2948,6 +2983,33 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "A complex type that contains zero or more ``Tag`` elements."
+      }
+    }
+  },
+  "aws-native:cloudfront:FieldLevelEncryptionConfig": {
+    "cfTypeName": "AWS::CloudFront::FieldLevelEncryptionConfig",
+    "properties": {
+      "callerReference": {
+        "type": "string",
+        "description": "A unique value that identifies the create request. Any string unique within the account works; CloudFront refuses to change it once set, so supplying a different value replaces the configuration. It is also the only value CloudFront returns that identifies a configuration as this stack's, so cleaning up after a failed create depends on the template keeping it."
+      },
+      "comment": {
+        "type": "string",
+        "description": "An optional comment describing the field-level encryption configuration. CloudFront stores an omitted comment and an explicitly empty one identically as an empty string, and Read normalizes that empty string back to absent -- so omitting Comment round-trips, while asking for an empty string does not and would report perpetual drift. `minLength: 1` refuses the empty string at template validation; omission is the way to express no comment. The service documents a maximum of 128 characters, and `maxLength` moves that refusal from the API to template validation."
+      },
+      "contentTypeProfileConfig": {
+        "$ref": "#/types/aws-native:cloudfront:FieldLevelEncryptionConfigContentTypeProfileConfig"
+      },
+      "queryArgProfileConfig": {
+        "$ref": "#/types/aws-native:cloudfront:FieldLevelEncryptionConfigQueryArgProfileConfig"
+      }
+    }
+  },
+  "aws-native:cloudfront:FieldLevelEncryptionProfile": {
+    "cfTypeName": "AWS::CloudFront::FieldLevelEncryptionProfile",
+    "properties": {
+      "fieldLevelEncryptionProfileConfig": {
+        "$ref": "#/types/aws-native:cloudfront:FieldLevelEncryptionProfileConfig"
       }
     }
   },
@@ -11519,10 +11581,6 @@
       "registryName": {
         "type": "string",
         "description": "The name of the registry."
-      },
-      "revisionId": {
-        "type": "string",
-        "description": "The revision ID of the policy."
       }
     }
   },
@@ -11688,6 +11746,48 @@
       }
     }
   },
+  "aws-native:fsx:ClusterPeer": {
+    "cfTypeName": "AWS::FSx::ClusterPeer",
+    "properties": {
+      "allowedSvmIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The local SVMs the peer cluster may peer with automatically, when AllowedSvmMode is SPECIFIED."
+      },
+      "allowedSvmMode": {
+        "$ref": "#/types/aws-native:fsx:ClusterPeerAllowedSvmMode",
+        "description": "Which local SVMs the peer cluster may peer with automatically: ALL, NONE, or SPECIFIED (the SVMs in AllowedSvmIds)."
+      },
+      "fileSystemId": {
+        "type": "string",
+        "description": "The ID of the local file system."
+      },
+      "passphraseSecretArn": {
+        "type": "string",
+        "description": "The ARN of an AWS Secrets Manager secret whose plain-text value is the cluster peering passphrase. Required when you create the cluster peer. Both sides of the relationship must use the same passphrase. The secret must allow FSx to read it."
+      },
+      "peerAddresses": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The intercluster IP addresses of the peer cluster, at least one."
+      },
+      "peerClusterName": {
+        "type": "string",
+        "description": "The ONTAP name of the peer cluster. After it is set, it can be changed but not removed; removing it from the template leaves the current name."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tags to apply to the cluster peer relationship, with a maximum of 50 tags."
+      }
+    }
+  },
   "aws-native:fsx:DataRepositoryAssociation": {
     "cfTypeName": "AWS::FSx::DataRepositoryAssociation",
     "properties": {
@@ -11778,6 +11878,71 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Tags to associate with the file cache"
+      }
+    }
+  },
+  "aws-native:fsx:SnapmirrorRelationship": {
+    "cfTypeName": "AWS::FSx::SnapmirrorRelationship",
+    "properties": {
+      "destination": {
+        "$ref": "#/types/aws-native:fsx:SnapmirrorRelationshipDestination"
+      },
+      "policyId": {
+        "type": "string",
+        "description": "The ID of the SnapMirror policy for the relationship. Omit to use the ONTAP default policy for the destination. After it is set, it can be changed but not removed; removing it from the template leaves the current policy."
+      },
+      "source": {
+        "$ref": "#/types/aws-native:fsx:SnapmirrorRelationshipSource"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tags to apply to the SnapMirror relationship, with a maximum of 50 tags."
+      },
+      "throttleInKbps": {
+        "type": "integer",
+        "description": "The maximum transfer throughput in kilobytes per second. 0 means unlimited. Removing it from the template sets it back to 0 (unlimited)."
+      },
+      "transferSchedule": {
+        "type": "string",
+        "description": "The name of the ONTAP job schedule for transfers. Overrides the policy transfer schedule. After it is set, it can be changed but not removed; removing it from the template leaves the current schedule."
+      }
+    }
+  },
+  "aws-native:fsx:StorageVirtualMachinePeer": {
+    "cfTypeName": "AWS::FSx::StorageVirtualMachinePeer",
+    "properties": {
+      "applications": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:fsx:StorageVirtualMachinePeerApplicationsItem"
+        },
+        "description": "The applications that can use the peer relationship, at least one."
+      },
+      "peerClusterName": {
+        "type": "string",
+        "description": "The ONTAP name of the peer cluster. Omit to peer with an SVM on the same file system. A cross-cluster peer requires a cluster peer with that cluster."
+      },
+      "peerSvmAlias": {
+        "type": "string",
+        "description": "A local alias for the peer SVM. Use an alias when the peer SVM has the same name as a local SVM. After it is set, it can be changed but not removed; removing it from the template leaves the current alias."
+      },
+      "peerSvmName": {
+        "type": "string",
+        "description": "The name of the SVM to peer with, as it is known in ONTAP on the peer cluster."
+      },
+      "storageVirtualMachineId": {
+        "type": "string",
+        "description": "The ID of the local storage virtual machine (SVM) that initiates the peer relationship."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tags to apply to the SVM peer relationship, with a maximum of 50 tags."
       }
     }
   },
@@ -13671,6 +13836,79 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:lakeformation:DataLakeSettings": {
+    "cfTypeName": "AWS::LakeFormation::DataLakeSettings",
+    "properties": {
+      "admins": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:lakeformation:DataLakeSettingsDataLakePrincipal"
+        },
+        "description": "A list of Lake Formation principals designated as data lake administrators."
+      },
+      "allowExternalDataFiltering": {
+        "type": "boolean",
+        "description": "Whether to allow Amazon EMR clusters or other third-party query engines to access data managed by Lake Formation."
+      },
+      "allowFullTableExternalDataAccess": {
+        "type": "boolean",
+        "description": "Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full table access."
+      },
+      "authorizedSessionTagValueList": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it."
+      },
+      "createDatabaseDefaultPermissions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:lakeformation:DataLakeSettingsPrincipalPermissions"
+        },
+        "description": "Specifies whether access control on newly created database is managed by Lake Formation permissions or exclusively by IAM permissions."
+      },
+      "createTableDefaultPermissions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:lakeformation:DataLakeSettingsPrincipalPermissions"
+        },
+        "description": "Specifies whether access control on newly created table is managed by Lake Formation permissions or exclusively by IAM permissions."
+      },
+      "externalDataFilteringAllowList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:lakeformation:DataLakeSettingsDataLakePrincipal"
+        },
+        "description": "A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation."
+      },
+      "mutationType": {
+        "type": "string",
+        "description": "Enum which can be set to REPLACE or APPEND. If set to REPLACE, the resource will override existing settings on UPDATE. CREATE will fail with RESOURCE EXISTS if settings are not in their default state. DELETE will reset the settings to their default state. If set to APPEND, array/object properties it sets will be merged with the existing settings. If boolean properties are set with MutationType APPEND, the UniqueId will be set to `main` and no other stack will be able to manage boolean properties."
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "A key-value map that provides an additional configuration on your data lake."
+      },
+      "readOnlyAdmins": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:lakeformation:DataLakeSettingsDataLakePrincipal"
+        },
+        "description": "A list of Lake Formation principals designated as read-only administrators."
+      },
+      "trustedResourceOwners": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs)."
       }
     }
   },
@@ -16374,6 +16612,19 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Tags to assign to the Odb peering connection."
+      }
+    }
+  },
+  "aws-native:opensearchservice:ReplicationPeer": {
+    "cfTypeName": "AWS::OpenSearchService::ReplicationPeer",
+    "properties": {
+      "domainName": {
+        "type": "string",
+        "description": "The name of the domain to replicate, which becomes the primary. The domain must be in the same account and Region as the stack. After a switchover or failover this domain may no longer be the primary."
+      },
+      "peerDomainArn": {
+        "type": "string",
+        "description": "The ARN of the domain to replicate with, which becomes the secondary. The peer domain must be in the same account and can be in the same or another Region."
       }
     }
   },
@@ -19338,6 +19589,19 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Associate tags with the resource"
+      }
+    }
+  },
+  "aws-native:sagemaker:EndpointPolicy": {
+    "cfTypeName": "AWS::SageMaker::EndpointPolicy",
+    "properties": {
+      "endpointArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the endpoint the policy is attached to. The endpoint must be in the same account and Region as the stack."
+      },
+      "policyDocument": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The resource policy document, as a JSON object. The service returns the document in its canonical form, so specify principals as full ARNs (for example arn:aws:iam::111122223333:root) and keep the form the service returns, to avoid drift.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::EndpointPolicy` for more information about the expected schema for this property."
       }
     }
   },

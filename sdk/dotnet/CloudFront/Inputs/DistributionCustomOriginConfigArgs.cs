@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("ipAddressType")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigIpAddressType>? IpAddressType { get; set; }
 
+        [Input("originHttpVersion")]
+        public Input<Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigOriginHttpVersion>? OriginHttpVersion { get; set; }
+
         /// <summary>
         /// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
         ///  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.

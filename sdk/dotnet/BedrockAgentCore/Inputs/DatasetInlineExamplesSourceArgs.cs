@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         private InputList<object>? _examples;
 
         /// <summary>
-        /// Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+        /// Examples to add. Each example is a free-form JSON document validated against the scenario rules.
         /// </summary>
         public InputList<object> Examples
         {

@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 {
                     "credentialProviderVendor",
                     "name",
+                    "providerConfigurationInput.amazonPayConfiguration.amazonPayRegion",
+                    "providerConfigurationInput.amazonPayConfiguration.authorizationTokenSource",
+                    "providerConfigurationInput.amazonPayConfiguration.merchantId",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

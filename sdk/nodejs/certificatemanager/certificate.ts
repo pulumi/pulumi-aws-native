@@ -138,6 +138,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly certificateTransparencyLoggingPreference: pulumi.Output<enums.certificatemanager.CertificateTransparencyLoggingPreference | undefined>;
     /**
+     * The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+     */
+    declare public readonly certificateUsage: pulumi.Output<enums.certificatemanager.CertificateUsage | undefined>;
+    /**
      * The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
      */
     declare public readonly domainName: pulumi.Output<string>;
@@ -149,6 +153,10 @@ export class Certificate extends pulumi.CustomResource {
      * Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
      */
     declare public readonly keyAlgorithm: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+     */
+    declare public readonly rootHierarchyType: pulumi.Output<enums.certificatemanager.CertificateRootHierarchyType | undefined>;
     /**
      * Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
      */
@@ -179,9 +187,11 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
             resourceInputs["certificateExport"] = args?.certificateExport;
             resourceInputs["certificateTransparencyLoggingPreference"] = args?.certificateTransparencyLoggingPreference;
+            resourceInputs["certificateUsage"] = args?.certificateUsage;
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["domainValidationOptions"] = args?.domainValidationOptions;
             resourceInputs["keyAlgorithm"] = args?.keyAlgorithm;
+            resourceInputs["rootHierarchyType"] = args?.rootHierarchyType;
             resourceInputs["subjectAlternativeNames"] = args?.subjectAlternativeNames;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["validationMethod"] = args?.validationMethod;
@@ -191,15 +201,17 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateAuthorityArn"] = undefined /*out*/;
             resourceInputs["certificateExport"] = undefined /*out*/;
             resourceInputs["certificateTransparencyLoggingPreference"] = undefined /*out*/;
+            resourceInputs["certificateUsage"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainValidationOptions"] = undefined /*out*/;
             resourceInputs["keyAlgorithm"] = undefined /*out*/;
+            resourceInputs["rootHierarchyType"] = undefined /*out*/;
             resourceInputs["subjectAlternativeNames"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["validationMethod"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["certificateAuthorityArn", "certificateExport", "domainName", "domainValidationOptions[*]", "keyAlgorithm", "subjectAlternativeNames[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["certificateAuthorityArn", "certificateExport", "certificateUsage", "domainName", "domainValidationOptions[*]", "keyAlgorithm", "rootHierarchyType", "subjectAlternativeNames[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
@@ -222,6 +234,10 @@ export interface CertificateArgs {
      */
     certificateTransparencyLoggingPreference?: pulumi.Input<enums.certificatemanager.CertificateTransparencyLoggingPreference | undefined>;
     /**
+     * The extended key usage of an Amazon N2 certificate. Valid only with RootHierarchyType. Defaults to CLIENT_AND_SERVER_AUTH. CLIENT_AUTH_ONLY requires N2_AMAZON_MANAGED.
+     */
+    certificateUsage?: pulumi.Input<enums.certificatemanager.CertificateUsage | undefined>;
+    /**
      * The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
      */
     domainName: pulumi.Input<string>;
@@ -233,6 +249,10 @@ export interface CertificateArgs {
      * Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
      */
     keyAlgorithm?: pulumi.Input<string | undefined>;
+    /**
+     * The Amazon N2 root hierarchy that issues the certificate. Omit for a public TLS certificate. Amazon N2 roots are not trusted by browsers.
+     */
+    rootHierarchyType?: pulumi.Input<enums.certificatemanager.CertificateRootHierarchyType | undefined>;
     /**
      * Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
      */

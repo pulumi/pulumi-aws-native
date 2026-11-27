@@ -1119,6 +1119,37 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// CROSS_REGION allows cross-Region storage; DISABLED prevents it.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclAnalyticsMode : IEquatable<WebAclAnalyticsMode>
+    {
+        private readonly string _value;
+
+        private WebAclAnalyticsMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclAnalyticsMode CrossRegion { get; } = new WebAclAnalyticsMode("CROSS_REGION");
+        public static WebAclAnalyticsMode Disabled { get; } = new WebAclAnalyticsMode("DISABLED");
+
+        public static bool operator ==(WebAclAnalyticsMode left, WebAclAnalyticsMode right) => left.Equals(right);
+        public static bool operator !=(WebAclAnalyticsMode left, WebAclAnalyticsMode right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclAnalyticsMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclAnalyticsMode other && Equals(other);
+        public bool Equals(WebAclAnalyticsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
     /// </summary>
     [EnumType]

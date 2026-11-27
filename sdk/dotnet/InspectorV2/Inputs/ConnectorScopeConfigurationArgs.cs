@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
 {
 
     /// <summary>
-    /// Defines the scope of Azure resources to monitor for a specific resource type.
+    /// Defines the scope of cloud resources to monitor for a specific resource type.
     /// </summary>
     public sealed class ConnectorScopeConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         private InputList<string>? _scopeValues;
 
         /// <summary>
-        /// List of subscription IDs. Empty for TENANT scope.
+        /// List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
         /// </summary>
         public InputList<string> ScopeValues
         {

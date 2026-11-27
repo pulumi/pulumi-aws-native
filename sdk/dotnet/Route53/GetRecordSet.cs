@@ -104,6 +104,10 @@ namespace Pulumi.AwsNative.Route53
         /// </summary>
         public readonly Outputs.RecordSetAliasTarget? AliasTarget;
         /// <summary>
+        /// AZ affinity resource record sets only: the source location (Availability Zone, Availability Zone group, Region, partition, or global) of the DNS queries that this record set's answers apply to.
+        /// </summary>
+        public readonly Outputs.RecordSetAzAffinity? AzAffinity;
+        /// <summary>
         /// The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
         /// </summary>
         public readonly Outputs.RecordSetCidrRoutingConfig? CidrRoutingConfig;
@@ -156,6 +160,8 @@ namespace Pulumi.AwsNative.Route53
         private GetRecordSetResult(
             Outputs.RecordSetAliasTarget? aliasTarget,
 
+            Outputs.RecordSetAzAffinity? azAffinity,
+
             Outputs.RecordSetCidrRoutingConfig? cidrRoutingConfig,
 
             Pulumi.AwsNative.Route53.RecordSetFailover? failover,
@@ -181,6 +187,7 @@ namespace Pulumi.AwsNative.Route53
             int? weight)
         {
             AliasTarget = aliasTarget;
+            AzAffinity = azAffinity;
             CidrRoutingConfig = cidrRoutingConfig;
             Failover = failover;
             GeoLocation = geoLocation;

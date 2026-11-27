@@ -72,17 +72,78 @@
       "required" : [ "AWSConfigConnectorArn", "ScopeConfiguration", "AzureRegions" ],
       "additionalProperties" : false
     },
-    "Provider" : {
+    "GcpScopeConfiguration" : {
       "type" : "object",
       "description" : "",
       "properties" : {
-        "Azure" : {
-          "$ref" : "#/definitions/AzureProviderConfiguration",
-          "description" : ""
+        "ScopeType" : {
+          "description" : "The scope type for the GCP connector",
+          "type" : "string",
+          "enum" : [ "PROJECT", "ORGANIZATION" ]
+        },
+        "ScopeValues" : {
+          "description" : "The list of scope values for the GCP connector",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 0,
+          "maxItems" : 100
         }
       },
-      "required" : [ "Azure" ],
+      "required" : [ "ScopeType" ],
       "additionalProperties" : false
+    },
+    "GcpProviderConfiguration" : {
+      "type" : "object",
+      "description" : "",
+      "properties" : {
+        "AWSConfigConnectorArn" : {
+          "description" : "The ARN of the AWS Config connector used for the GCP integration",
+          "type" : "string"
+        },
+        "ScopeConfiguration" : {
+          "$ref" : "#/definitions/GcpScopeConfiguration"
+        },
+        "GCPRegions" : {
+          "description" : "The list of GCP regions to include in the connector scope",
+          "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 1,
+          "maxItems" : 256
+        }
+      },
+      "required" : [ "AWSConfigConnectorArn", "ScopeConfiguration", "GCPRegions" ],
+      "additionalProperties" : false
+    },
+    "Provider" : {
+      "type" : "object",
+      "description" : "The CSPM provider configuration for the connector",
+      "oneOf" : [ {
+        "type" : "object",
+        "properties" : {
+          "Azure" : {
+            "$ref" : "#/definitions/AzureProviderConfiguration"
+          }
+        },
+        "required" : [ "Azure" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "properties" : {
+          "GCP" : {
+            "$ref" : "#/definitions/GcpProviderConfiguration"
+          }
+        },
+        "required" : [ "GCP" ],
+        "additionalProperties" : false
+      } ]
     },
     "ConnectorStatus" : {
       "description" : "The status of the connector",
@@ -178,7 +239,7 @@
     }
   },
   "required" : [ "Name", "Provider" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Provider/Azure/AWSConfigConnectorArn" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Provider/Azure/AWSConfigConnectorArn", "/properties/Provider/GCP/AWSConfigConnectorArn" ],
   "readOnlyProperties" : [ "/properties/ConnectorArn", "/properties/ConnectorId", "/properties/ConnectorStatus", "/properties/Message", "/properties/LastCheckedAt", "/properties/CreatedAt", "/properties/LastUpdatedAt", "/properties/CreatedBy", "/properties/EnablementStatus", "/properties/Issues" ],
   "primaryIdentifier" : [ "/properties/ConnectorArn" ],
   "tagging" : {

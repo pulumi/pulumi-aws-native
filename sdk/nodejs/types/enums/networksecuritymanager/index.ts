@@ -16,12 +16,24 @@ export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof Deployment
 export const PolicyFirewallType = {
     Waf: "WAF",
     ShieldAdvanced: "SHIELD_ADVANCED",
+    IgwFirewall: "IGW_FIREWALL",
 } as const;
 
 /**
  * The type of firewall.
  */
 export type PolicyFirewallType = (typeof PolicyFirewallType)[keyof typeof PolicyFirewallType];
+
+export const PolicyIgwFirewallConfigDefaultSubnetConnectivity = {
+    Flexible: "flexible",
+    Bidirectional: "bidirectional",
+    OutboundOnly: "outbound-only",
+} as const;
+
+/**
+ * The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+ */
+export type PolicyIgwFirewallConfigDefaultSubnetConnectivity = (typeof PolicyIgwFirewallConfigDefaultSubnetConnectivity)[keyof typeof PolicyIgwFirewallConfigDefaultSubnetConnectivity];
 
 export const PolicyStatus = {
     Draft: "DRAFT",
@@ -33,6 +45,18 @@ export const PolicyStatus = {
  * The status of the policy.
  */
 export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
+
+export const PolicySubnetConnectivityOverrideConnectivityType = {
+    Flexible: "flexible",
+    Bidirectional: "bidirectional",
+    OutboundOnly: "outbound-only",
+    Exclude: "exclude",
+} as const;
+
+/**
+ * The connectivity treatment applied to the subnets that the referenced scope selects.
+ */
+export type PolicySubnetConnectivityOverrideConnectivityType = (typeof PolicySubnetConnectivityOverrideConnectivityType)[keyof typeof PolicySubnetConnectivityOverrideConnectivityType];
 
 export const PolicyWafConfigConflictResolution = {
     MergeWhereApplicable: "MERGE_WHERE_APPLICABLE",
@@ -56,6 +80,7 @@ export type PolicyWafConfigExistingCustomerWebAclResolution = (typeof PolicyWafC
 
 export const RuleFirewallType = {
     Waf: "WAF",
+    IgwFirewall: "IGW_FIREWALL",
 } as const;
 
 /**
@@ -83,6 +108,15 @@ export const RuleType = {
  * The type of rule.
  */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+export const ScopeSpecializedScopeType = {
+    IgwFirewallSubnetConnectivityOverride: "IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE",
+} as const;
+
+/**
+ * Marks the scope as built for one specific use. Omit for a standard scope. A specialized scope cannot be associated with a deployment. Cannot be changed after creation.
+ */
+export type ScopeSpecializedScopeType = (typeof ScopeSpecializedScopeType)[keyof typeof ScopeSpecializedScopeType];
 
 export const ScopeStatus = {
     Draft: "DRAFT",

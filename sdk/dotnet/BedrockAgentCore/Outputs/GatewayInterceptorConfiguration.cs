@@ -16,6 +16,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly Outputs.GatewayInterceptorInputConfiguration? InputConfiguration;
         public readonly ImmutableArray<Pulumi.AwsNative.BedrockAgentCore.GatewayInterceptionPoint> InterceptionPoints;
         public readonly Outputs.InterceptorConfigurationProperties Interceptor;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayResponseInterceptionMode? ResponseInterceptionMode;
+        public readonly Outputs.GatewayResponseStreamingConfiguration? ResponseStreamingConfiguration;
 
         [OutputConstructor]
         private GatewayInterceptorConfiguration(
@@ -23,11 +25,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<Pulumi.AwsNative.BedrockAgentCore.GatewayInterceptionPoint> interceptionPoints,
 
-            Outputs.InterceptorConfigurationProperties interceptor)
+            Outputs.InterceptorConfigurationProperties interceptor,
+
+            Pulumi.AwsNative.BedrockAgentCore.GatewayResponseInterceptionMode? responseInterceptionMode,
+
+            Outputs.GatewayResponseStreamingConfiguration? responseStreamingConfiguration)
         {
             InputConfiguration = inputConfiguration;
             InterceptionPoints = interceptionPoints;
             Interceptor = interceptor;
+            ResponseInterceptionMode = responseInterceptionMode;
+            ResponseStreamingConfiguration = responseStreamingConfiguration;
         }
     }
 }

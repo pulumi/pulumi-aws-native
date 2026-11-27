@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionVpcOriginConfig
     {
+        public readonly Pulumi.AwsNative.CloudFront.DistributionVpcOriginConfigOriginHttpVersion? OriginHttpVersion;
         /// <summary>
         /// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
         ///  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -37,6 +38,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private DistributionVpcOriginConfig(
+            Pulumi.AwsNative.CloudFront.DistributionVpcOriginConfigOriginHttpVersion? originHttpVersion,
+
             int? originKeepaliveTimeout,
 
             int? originReadTimeout,
@@ -45,6 +48,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             string vpcOriginId)
         {
+            OriginHttpVersion = originHttpVersion;
             OriginKeepaliveTimeout = originKeepaliveTimeout;
             OriginReadTimeout = originReadTimeout;
             OwnerAccountId = ownerAccountId;

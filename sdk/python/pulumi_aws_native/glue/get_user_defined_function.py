@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserDefinedFunctionResult:
-    def __init__(__self__, arn=None, class_name=None, owner_name=None, owner_type=None, resource_uris=None):
+    def __init__(__self__, arn=None, artifact_location=None, class_name=None, owner_name=None, owner_type=None, resource_uris=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if artifact_location and not isinstance(artifact_location, str):
+            raise TypeError("Expected argument 'artifact_location' to be a str")
+        pulumi.set(__self__, "artifact_location", artifact_location)
         if class_name and not isinstance(class_name, str):
             raise TypeError("Expected argument 'class_name' to be a str")
         pulumi.set(__self__, "class_name", class_name)
@@ -49,6 +52,14 @@ class GetUserDefinedFunctionResult:
         The Amazon Resource Name (ARN) of the user-defined function.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="artifactLocation")
+    def artifact_location(self) -> Optional[_builtins.str]:
+        """
+        The registered Amazon S3 location that contains the function artifacts. Required when GovernanceMode is LAKE_FORMATION.
+        """
+        return pulumi.get(self, "artifact_location")
 
     @_builtins.property
     @pulumi.getter(name="className")
@@ -90,6 +101,7 @@ class AwaitableGetUserDefinedFunctionResult(GetUserDefinedFunctionResult):
             yield self
         return GetUserDefinedFunctionResult(
             arn=self.arn,
+            artifact_location=self.artifact_location,
             class_name=self.class_name,
             owner_name=self.owner_name,
             owner_type=self.owner_type,
@@ -110,6 +122,7 @@ def get_user_defined_function(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetUserDefinedFunctionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        artifact_location=pulumi.get(__ret__, 'artifact_location'),
         class_name=pulumi.get(__ret__, 'class_name'),
         owner_name=pulumi.get(__ret__, 'owner_name'),
         owner_type=pulumi.get(__ret__, 'owner_type'),
@@ -127,6 +140,7 @@ def get_user_defined_function_output(arn: pulumi.Input[Optional[_builtins.str]] 
     __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getUserDefinedFunction', __args__, opts=opts, typ=GetUserDefinedFunctionResult)
     return __ret__.apply(lambda __response__: GetUserDefinedFunctionResult(
         arn=pulumi.get(__response__, 'arn'),
+        artifact_location=pulumi.get(__response__, 'artifact_location'),
         class_name=pulumi.get(__response__, 'class_name'),
         owner_name=pulumi.get(__response__, 'owner_name'),
         owner_type=pulumi.get(__response__, 'owner_type'),

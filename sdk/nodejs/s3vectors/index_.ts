@@ -150,7 +150,7 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["vectorBucketName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["dataType", "dimension", "distanceMetric", "encryptionConfiguration", "indexName", "metadataConfiguration", "vectorBucketArn", "vectorBucketName"] };
+        const replaceOnChanges = { replaceOnChanges: ["dataType", "dimension", "distanceMetric", "encryptionConfiguration", "indexName", "metadataConfiguration.nonFilterableMetadataKeys[*]", "vectorBucketArn", "vectorBucketName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Index.__pulumiType, name, resourceInputs, opts);
     }

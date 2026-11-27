@@ -20,8 +20,7 @@ __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
 class RegistryPolicyArgs:
     def __init__(__self__, *,
                  policy: Any,
-                 registry_name: pulumi.Input[_builtins.str],
-                 revision_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 registry_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RegistryPolicy resource.
 
@@ -29,12 +28,9 @@ class RegistryPolicyArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] registry_name: The name of the registry.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the policy.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "registry_name", registry_name)
-        if revision_id is not None:
-            pulumi.set(__self__, "revision_id", revision_id)
 
     @_builtins.property
     @pulumi.getter
@@ -62,18 +58,6 @@ class RegistryPolicyArgs:
     def registry_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "registry_name", value)
 
-    @_builtins.property
-    @pulumi.getter(name="revisionId")
-    def revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The revision ID of the policy.
-        """
-        return pulumi.get(self, "revision_id")
-
-    @revision_id.setter
-    def revision_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "revision_id", value)
-
 
 @pulumi.type_token("aws-native:eventschemas:RegistryPolicy")
 class RegistryPolicy(pulumi.CustomResource):
@@ -83,7 +67,6 @@ class RegistryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
                  registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EventSchemas::RegistryPolicy
@@ -172,7 +155,6 @@ class RegistryPolicy(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] registry_name: The name of the registry.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the policy.
         """
         ...
     @overload
@@ -278,7 +260,6 @@ class RegistryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
                  registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -294,8 +275,8 @@ class RegistryPolicy(pulumi.CustomResource):
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
-            __props__.__dict__["revision_id"] = revision_id
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["revision_id"] = None
         super(RegistryPolicy, __self__).__init__(
             'aws-native:eventschemas:RegistryPolicy',
             resource_name,
@@ -358,7 +339,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="revisionId")
-    def revision_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def revision_id(self) -> pulumi.Output[_builtins.str]:
         """
         The revision ID of the policy.
         """

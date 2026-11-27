@@ -10815,6 +10815,10 @@ class UserDefinedFunctionResourceUriArgsDict(TypedDict):
     """
     The URIs for function resources.
     """
+    last_modified: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+    """
     resource_type: NotRequired[pulumi.Input[Optional['UserDefinedFunctionResourceUriResourceType']]]
     """
     The type of the resource.
@@ -10827,18 +10831,34 @@ class UserDefinedFunctionResourceUriArgsDict(TypedDict):
 @pulumi.input_type
 class UserDefinedFunctionResourceUriArgs:
     def __init__(__self__, *,
+                 last_modified: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type: pulumi.Input[Optional['UserDefinedFunctionResourceUriResourceType']] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The URIs for function resources.
 
+        :param pulumi.Input[_builtins.str] last_modified: The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
         :param pulumi.Input['UserDefinedFunctionResourceUriResourceType'] resource_type: The type of the resource.
         :param pulumi.Input[_builtins.str] uri: The URI for accessing the resource.
         """
+        if last_modified is not None:
+            pulumi.set(__self__, "last_modified", last_modified)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+        """
+        return pulumi.get(self, "last_modified")
+
+    @last_modified.setter
+    def last_modified(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_modified", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")

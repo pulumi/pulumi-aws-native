@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WaFv2
     [AwsNativeResourceType("aws-native:wafv2:WebAcl")]
     public partial class WebAcl : global::Pulumi.CustomResource
     {
+        [Output("analyticsConfig")]
+        public Output<Outputs.WebAclAnalyticsConfig?> AnalyticsConfig { get; private set; } = null!;
+
         /// <summary>
         /// Collection of application attributes.
         /// </summary>
@@ -204,6 +207,9 @@ namespace Pulumi.AwsNative.WaFv2
 
     public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
+        [Input("analyticsConfig")]
+        public Input<Inputs.WebAclAnalyticsConfigArgs>? AnalyticsConfig { get; set; }
+
         /// <summary>
         /// Collection of application attributes.
         /// </summary>

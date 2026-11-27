@@ -18,6 +18,9 @@ from ._enums import *
 
 __all__ = [
     'ApiKeyStageKey',
+    'AuthorizerJwtAdditionalClaim',
+    'AuthorizerJwtConfiguration',
+    'AuthorizerJwtIssuer',
     'DeploymentAccessLogSetting',
     'DeploymentCanarySetting',
     'DeploymentCanarySettings',
@@ -94,6 +97,182 @@ class ApiKeyStageKey(dict):
         The stage name associated with the stage key.
         """
         return pulumi.get(self, "stage_name")
+
+
+@pulumi.output_type
+class AuthorizerJwtAdditionalClaim(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimName":
+            suggest = "claim_name"
+        elif key == "expectedValues":
+            suggest = "expected_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthorizerJwtAdditionalClaim. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthorizerJwtAdditionalClaim.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthorizerJwtAdditionalClaim.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim_name: _builtins.str,
+                 format: _builtins.str,
+                 expected_values: Optional[Sequence[_builtins.str]] = None,
+                 required: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str claim_name: The claim name. Can't be iss, aud, exp, nbf, iat, scope or scp.
+        :param _builtins.str format: The claim's format. SINGLE_STRING is the only format.
+        :param Sequence[_builtins.str] expected_values: The value the claim must have. Leave it out to check only that the claim is present.
+        :param _builtins.bool required: Whether the token must carry the claim. Defaults to false.
+        """
+        pulumi.set(__self__, "claim_name", claim_name)
+        pulumi.set(__self__, "format", format)
+        if expected_values is not None:
+            pulumi.set(__self__, "expected_values", expected_values)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter(name="claimName")
+    def claim_name(self) -> _builtins.str:
+        """
+        The claim name. Can't be iss, aud, exp, nbf, iat, scope or scp.
+        """
+        return pulumi.get(self, "claim_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        """
+        The claim's format. SINGLE_STRING is the only format.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter(name="expectedValues")
+    def expected_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The value the claim must have. Leave it out to check only that the claim is present.
+        """
+        return pulumi.get(self, "expected_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[_builtins.bool]:
+        """
+        Whether the token must carry the claim. Defaults to false.
+        """
+        return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class AuthorizerJwtConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAlgorithms":
+            suggest = "default_algorithms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthorizerJwtConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthorizerJwtConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthorizerJwtConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_algorithms: Sequence[_builtins.str],
+                 issuers: Sequence['outputs.AuthorizerJwtIssuer']):
+        """
+        :param Sequence[_builtins.str] default_algorithms: The signing algorithms the authorizer accepts: RS256, RS384, RS512, ES256, ES384 or ES512.
+        :param Sequence['AuthorizerJwtIssuer'] issuers: The token issuers the authorizer accepts.
+        """
+        pulumi.set(__self__, "default_algorithms", default_algorithms)
+        pulumi.set(__self__, "issuers", issuers)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultAlgorithms")
+    def default_algorithms(self) -> Sequence[_builtins.str]:
+        """
+        The signing algorithms the authorizer accepts: RS256, RS384, RS512, ES256, ES384 or ES512.
+        """
+        return pulumi.get(self, "default_algorithms")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuers(self) -> Sequence['outputs.AuthorizerJwtIssuer']:
+        """
+        The token issuers the authorizer accepts.
+        """
+        return pulumi.get(self, "issuers")
+
+
+@pulumi.output_type
+class AuthorizerJwtIssuer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalClaims":
+            suggest = "additional_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthorizerJwtIssuer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthorizerJwtIssuer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthorizerJwtIssuer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audiences: Sequence[_builtins.str],
+                 issuer: _builtins.str,
+                 additional_claims: Optional[Sequence['outputs.AuthorizerJwtAdditionalClaim']] = None):
+        """
+        :param Sequence[_builtins.str] audiences: The values that the token's aud claim must contain at least one of.
+        :param _builtins.str issuer: The HTTPS URL that the token's iss claim must match.
+        :param Sequence['AuthorizerJwtAdditionalClaim'] additional_claims: Other claims the token must carry.
+        """
+        pulumi.set(__self__, "audiences", audiences)
+        pulumi.set(__self__, "issuer", issuer)
+        if additional_claims is not None:
+            pulumi.set(__self__, "additional_claims", additional_claims)
+
+    @_builtins.property
+    @pulumi.getter
+    def audiences(self) -> Sequence[_builtins.str]:
+        """
+        The values that the token's aud claim must contain at least one of.
+        """
+        return pulumi.get(self, "audiences")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        The HTTPS URL that the token's iss claim must match.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalClaims")
+    def additional_claims(self) -> Optional[Sequence['outputs.AuthorizerJwtAdditionalClaim']]:
+        """
+        Other claims the token must carry.
+        """
+        return pulumi.get(self, "additional_claims")
 
 
 @pulumi.output_type
@@ -294,7 +473,7 @@ class DeploymentCanarySettings(dict):
 @pulumi.output_type
 class DeploymentMethodSetting(dict):
     """
-    The ``MethodSetting`` property type configures settings for all methods in a stage.
+    The ``MethodSetting`` property type configures settings for all methods in a stage. If you modify this property type, you must create a new deployment for your API.
      The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
     """
     @staticmethod
@@ -344,7 +523,7 @@ class DeploymentMethodSetting(dict):
                  throttling_burst_limit: Optional[_builtins.int] = None,
                  throttling_rate_limit: Optional[_builtins.float] = None):
         """
-        The ``MethodSetting`` property type configures settings for all methods in a stage.
+        The ``MethodSetting`` property type configures settings for all methods in a stage. If you modify this property type, you must create a new deployment for your API.
          The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
 
         :param _builtins.bool cache_data_encrypted: Specifies whether the cached responses are encrypted.

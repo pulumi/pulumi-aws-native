@@ -790,6 +790,16 @@ export namespace acmpca {
 
 export namespace agentregistry {
     /**
+     * The identifier value. Exactly one member is set.
+     */
+    export interface PublisherIdentifier {
+        /**
+         * The fully qualified domain name (RFC 1035/1123) with at least two labels, in lowercase. The service stores domain names in lowercase, so specify the value in lowercase to avoid drift.
+         */
+        domain: string;
+    }
+
+    /**
      * Configuration for the registry's record approval workflow.
      */
     export interface RegistryApprovalConfiguration {
@@ -912,6 +922,14 @@ export namespace agentregistry {
      */
     export interface RegistryRecordAgentSkillsAdditionalData {
         skillMd?: outputs.agentregistry.RegistryRecordAgentSkillsMdDescriptor;
+        /**
+         * The source that the registry synchronizes the full skill package from. You can't set it together with SkillMd.Source or SkillMd Data.
+         */
+        skillPackage?: outputs.agentregistry.RegistryRecordAgentSkillsPackageDescriptor;
+        /**
+         * The provider-specific settings of the record's skill source.
+         */
+        sourceConfiguration?: outputs.agentregistry.RegistryRecordAgentSkillsSourceConfiguration;
     }
 
     /**
@@ -936,6 +954,36 @@ export namespace agentregistry {
          */
         dataSchemaVersion?: string;
         source?: outputs.agentregistry.RegistryRecordSkillMdSource;
+    }
+
+    /**
+     * The skill package descriptor. It names the source that the registry synchronizes a skill package (a ZIP archive that follows the Agent Skills specification) from. The registry validates the package, stores it, and sets SkillMd Data from the package's SKILL.md.
+     */
+    export interface RegistryRecordAgentSkillsPackageDescriptor {
+        /**
+         * The source of the skill package, as an s3:// URL of a ZIP object.
+         */
+        source?: outputs.agentregistry.RegistryRecordSkillMdSource;
+    }
+
+    /**
+     * The provider-specific settings of a skill source. Specify the member that matches the source's provider, such as S3 for an Amazon S3 source.
+     */
+    export interface RegistryRecordAgentSkillsSourceConfiguration {
+        /**
+         * The settings of an Amazon S3 source.
+         */
+        s3: outputs.agentregistry.RegistryRecordS3SourceConfiguration;
+    }
+
+    /**
+     * The skill package that the registry stores for the record.
+     */
+    export interface RegistryRecordArtifact {
+        /**
+         * The SHA-256 checksum of the skill package, as 64 lowercase hexadecimal characters.
+         */
+        sha256?: string;
     }
 
     /**
@@ -1070,20 +1118,76 @@ export namespace agentregistry {
     }
 
     /**
-     * Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+     * The settings of a skill source that the registry reads from Amazon S3.
+     */
+    export interface RegistryRecordS3SourceConfiguration {
+        /**
+         * The ID of the AWS account that owns the source bucket. The registry checks that the bucket belongs to this account each time it reads the source. If you omit it for a source that uses an IAM role, the registry expects the bucket in the role's account. A source without a credential provider, which the registry reads as a public object, requires it.
+         */
+        bucketOwnerAccountId?: string;
+    }
+
+    /**
+     * An Amazon S3 source that the registry synchronized the skill content from, and the object version that it read. At most one of VersionId and ETag is set.
+     */
+    export interface RegistryRecordS3SynchronizedSource {
+        /**
+         * The entity tag (ETag) of the object that the registry read, without quotes, when the object has no version ID. Not recorded for a SKILL.md source on a registry that is encrypted with a customer managed key.
+         */
+        eTag?: string;
+        /**
+         * The timestamp when the registry read the source.
+         */
+        synchronizedAt: string;
+        /**
+         * The version ID of the object that the registry read. Absent when the bucket isn't versioned.
+         */
+        versionId?: string;
+    }
+
+    /**
+     * The source that the registry synchronizes agent skills content from: a SKILL.md document in SkillMd.Source, or a skill package in SkillPackage.Source.
      */
     export interface RegistryRecordSkillMdSource {
         fromUrl?: outputs.agentregistry.RegistryRecordSkillMdSourceFromUrl;
     }
 
     /**
-     * URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+     * URL-based source of agent skills content. With an s3:// URL, the registry reads the Amazon S3 object when the record is created, and again whenever the URL, the credential provider or the bucket owner changes. Each read replaces the SKILL.md Data and sets the record's Name and Description from the name and description in the SKILL.md frontmatter, so set Name and Description to the same values and don't set SkillMd Data. An https:// URL is a reference URL that the registry doesn't synchronize from: where Amazon S3 skill synchronization is available, the registry accepts an https:// URL only on a record that already stores it, with the content provided inline in SkillMd Data.
      */
     export interface RegistryRecordSkillMdSourceFromUrl {
         /**
-         * URL source for the SkillMd document.
+         * The credential provider that the registry uses to read the source. For an Amazon S3 source, specify an IAM role in your account that the agent-registry.amazonaws.com service principal can assume and that can read the object. Omit it to read a public object, and set SourceConfiguration.S3.BucketOwnerAccountId instead.
+         */
+        credentialProviderConfigurations?: outputs.agentregistry.RegistryRecordSkillSourceCredentialProviderConfiguration[];
+        /**
+         * The URL of the source. For synchronization, specify an s3://<bucket>/<key> URL that names one object in a bucket in the same AWS Region as the registry: a SKILL.md object for SkillMd, or a skill package ZIP object for SkillPackage.
          */
         url: string;
+    }
+
+    /**
+     * A credential provider configuration that the registry uses to read an agent skills source. An Amazon S3 source takes an IAM role.
+     */
+    export interface RegistryRecordSkillSourceCredentialProviderConfiguration {
+        /**
+         * The credential provider details.
+         */
+        credentialProvider: outputs.agentregistry.RegistryRecordSkillSourceCredentialProviderUnion;
+        /**
+         * The type of the credential provider.
+         */
+        credentialProviderType: enums.agentregistry.RegistryRecordSkillSourceCredentialProviderConfigurationCredentialProviderType;
+    }
+
+    /**
+     * The credential provider details of an agent skills source. Specify IamCredentialProvider.
+     */
+    export interface RegistryRecordSkillSourceCredentialProviderUnion {
+        /**
+         * The IAM role that the registry assumes to read the source. For an Amazon S3 source, omit Service or set it to s3, and omit Region or set it to the registry's Region.
+         */
+        iamCredentialProvider?: outputs.agentregistry.RegistryRecordIamCredentialProvider;
     }
 
     /**
@@ -1101,6 +1205,16 @@ export namespace agentregistry {
          * URL source for descriptor content.
          */
         url: string;
+    }
+
+    /**
+     * The source that the registry last synchronized the record's skill content from.
+     */
+    export interface RegistryRecordSynchronizedSource {
+        /**
+         * The Amazon S3 source that the registry read.
+         */
+        s3: outputs.agentregistry.RegistryRecordS3SynchronizedSource;
     }
 
     /**
@@ -2155,6 +2269,51 @@ export namespace apigateway {
         stageName?: string;
     }
 
+    export interface AuthorizerJwtAdditionalClaim {
+        /**
+         * The claim name. Can't be iss, aud, exp, nbf, iat, scope or scp.
+         */
+        claimName: string;
+        /**
+         * The value the claim must have. Leave it out to check only that the claim is present.
+         */
+        expectedValues?: string[];
+        /**
+         * The claim's format. SINGLE_STRING is the only format.
+         */
+        format: string;
+        /**
+         * Whether the token must carry the claim. Defaults to false.
+         */
+        required?: boolean;
+    }
+
+    export interface AuthorizerJwtConfiguration {
+        /**
+         * The signing algorithms the authorizer accepts: RS256, RS384, RS512, ES256, ES384 or ES512.
+         */
+        defaultAlgorithms: string[];
+        /**
+         * The token issuers the authorizer accepts.
+         */
+        issuers: outputs.apigateway.AuthorizerJwtIssuer[];
+    }
+
+    export interface AuthorizerJwtIssuer {
+        /**
+         * Other claims the token must carry.
+         */
+        additionalClaims?: outputs.apigateway.AuthorizerJwtAdditionalClaim[];
+        /**
+         * The values that the token's aud claim must contain at least one of.
+         */
+        audiences: string[];
+        /**
+         * The HTTPS URL that the token's iss claim must match.
+         */
+        issuer: string;
+    }
+
     /**
      * The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
      *  ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
@@ -2208,7 +2367,7 @@ export namespace apigateway {
     }
 
     /**
-     * The ``MethodSetting`` property type configures settings for all methods in a stage.
+     * The ``MethodSetting`` property type configures settings for all methods in a stage. If you modify this property type, you must create a new deployment for your API.
      *  The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
      */
     export interface DeploymentMethodSetting {
@@ -6825,6 +6984,50 @@ export namespace appstream {
         vpceId: string;
     }
 
+    /**
+     * The configuration for agent access on an image builder. Agent access enables AI agents to interact with the image builder desktop.
+     */
+    export interface ImageBuilderAgentAccessConfig {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+         */
+        s3BucketArn?: string;
+        /**
+         * The image format for agent screen captures.
+         */
+        screenImageFormat: string;
+        /**
+         * The screen resolution for the agent streaming environment.
+         */
+        screenResolution: string;
+        /**
+         * Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+         */
+        screenshotsUploadEnabled?: boolean;
+        /**
+         * The list of agent access settings that define permissions for each agent action. You must specify at least one setting. Agent actions that aren't listed are disabled, so list only the actions that you enable.
+         */
+        settings: outputs.appstream.ImageBuilderAgentAccessSetting[];
+        /**
+         * The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+         */
+        userControlMode?: string;
+    }
+
+    /**
+     * A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+     */
+    export interface ImageBuilderAgentAccessSetting {
+        /**
+         * The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools.
+         */
+        agentAction: string;
+        /**
+         * Whether the agent action is enabled or disabled.
+         */
+        permission: string;
+    }
+
     export interface ImageBuilderDomainJoinInfo {
         /**
          * The fully qualified name of the directory (for example, corp.example.com).
@@ -6870,7 +7073,15 @@ export namespace appstream {
      */
     export interface StackAgentAccessConfig {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+         * The Amazon Resource Name (ARN) of the customer managed symmetric encryption KMS key that encrypts Replay Session artifacts while WorkSpaces Applications processes them. The key must be in the same Region as the stack, and ReplaySessionEnabled must be true. To remove the key, use AttributesToDelete with the AGENT_ACCESS_CONFIG_KMS_KEY_ARN value.
+         */
+        kmsKeyArn?: string;
+        /**
+         * Indicates whether Replay Session is enabled for agent sessions. WorkSpaces Applications delivers a video combining session screenshots, a transcript, and a report for each session. Requires the COMPUTER_VISION agent action. Setting this attribute to false also removes the KmsKeyArn value from the stack.
+         */
+        replaySessionEnabled?: boolean;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots and Replay Session artifacts are stored. Required when ScreenshotsUploadEnabled or ReplaySessionEnabled is true.
          */
         s3BucketArn?: string;
         /**
@@ -17985,6 +18196,16 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * The CPU options for the instances.
+     */
+    export interface CapacityProviderCpuOptions {
+        /**
+         * Indicates whether nested virtualization is enabled on the instances, which exposes hardware virtualization (KVM) to agents. Default: DISABLED.
+         */
+        nestedVirtualization?: enums.bedrockagentcore.CapacityProviderCpuOptionsNestedVirtualization;
+    }
+
+    /**
      * Configuration for an EBS-backed persistent volume.
      */
     export interface CapacityProviderEbsVolumeConfiguration {
@@ -18122,6 +18343,7 @@ export namespace bedrockagentcore {
      */
     export interface CapacityProviderLaunchParameters {
         capacityReservationSpecification?: outputs.bedrockagentcore.CapacityProviderCapacityReservationSpecification;
+        cpuOptions?: outputs.bedrockagentcore.CapacityProviderCpuOptions;
         /**
          * The block device mapping for ephemeral (instance store) volumes.
          */
@@ -18340,7 +18562,7 @@ export namespace bedrockagentcore {
      */
     export interface DatasetInlineExamplesSource {
         /**
-         * Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+         * Examples to add. Each example is a free-form JSON document validated against the scenario rules.
          */
         examples: any[];
     }
@@ -18568,6 +18790,14 @@ export namespace bedrockagentcore {
         claimMatchValue: outputs.bedrockagentcore.GatewayClaimMatchValueType0Properties | outputs.bedrockagentcore.GatewayClaimMatchValueType1Properties;
     }
 
+    export interface GatewayCertificateConfiguration0Properties {
+        s3: outputs.bedrockagentcore.GatewayS3CertificateConfiguration;
+    }
+
+    export interface GatewayCertificateConfiguration1Properties {
+        secretsManager: outputs.bedrockagentcore.GatewaySecretsManagerCertificateConfiguration;
+    }
+
     export interface GatewayClaimMatchValueType0Properties {
         matchValueString: string;
     }
@@ -18587,15 +18817,23 @@ export namespace bedrockagentcore {
         allowedAudience?: string[];
         allowedClients?: string[];
         allowedScopes?: string[];
+        certificateConfigurations?: (outputs.bedrockagentcore.GatewayCertificateConfiguration0Properties | outputs.bedrockagentcore.GatewayCertificateConfiguration1Properties)[];
         customClaims?: outputs.bedrockagentcore.GatewayCustomClaimValidationType[];
         discoveryUrl: string;
         privateEndpoint?: outputs.bedrockagentcore.GatewayPrivateEndpoint0Properties | outputs.bedrockagentcore.GatewayPrivateEndpoint1Properties;
+    }
+
+    export interface GatewayDomainOverride {
+        alternateDomains?: string[];
+        defaultDomain: string;
     }
 
     export interface GatewayInterceptorConfiguration {
         inputConfiguration?: outputs.bedrockagentcore.GatewayInterceptorInputConfiguration;
         interceptionPoints: enums.bedrockagentcore.GatewayInterceptionPoint[];
         interceptor: outputs.bedrockagentcore.InterceptorConfigurationProperties;
+        responseInterceptionMode?: enums.bedrockagentcore.GatewayResponseInterceptionMode;
+        responseStreamingConfiguration?: outputs.bedrockagentcore.GatewayResponseStreamingConfiguration;
     }
 
     export interface GatewayInterceptorInputConfiguration {
@@ -18675,6 +18913,10 @@ export namespace bedrockagentcore {
     export interface GatewayRateLimitRateConfig {
         period: enums.bedrockagentcore.GatewayRateLimitPeriod;
         rate: number;
+    }
+
+    export interface GatewayResponseStreamingConfiguration {
+        maxEventsPerInvocation?: number;
     }
 
     export interface GatewayRuleAction0Properties {
@@ -18806,6 +19048,15 @@ export namespace bedrockagentcore {
 
     export interface GatewayRuleWeightedRoute {
         trafficSplit: outputs.bedrockagentcore.GatewayRuleTargetTrafficSplitEntry[];
+    }
+
+    export interface GatewayS3CertificateConfiguration {
+        bucketOwnerAccountId?: string;
+        uri: string;
+    }
+
+    export interface GatewaySecretsManagerCertificateConfiguration {
+        secretArn: string;
     }
 
     export interface GatewaySelfManagedLatticeResourceProperties {
@@ -20579,6 +20830,50 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * Amazon Pay configuration with merchant identifiers and a delegated authorization token
+     */
+    export interface PaymentCredentialProviderAmazonPayConfigurationInput {
+        amazonPayRegion: enums.bedrockagentcore.PaymentCredentialProviderAmazonPayRegionType;
+        /**
+         * The delegated authorization token, supplied inline. Mutually exclusive with AuthorizationTokenConfig.
+         */
+        authorizationToken?: string;
+        authorizationTokenConfig?: outputs.bedrockagentcore.PaymentCredentialProviderSecretReference;
+        authorizationTokenSource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
+        environment: enums.bedrockagentcore.PaymentCredentialProviderAmazonPayEnvironmentType;
+        /**
+         * The Amazon Pay merchant (seller) ID
+         */
+        merchantId: string;
+        /**
+         * The Amazon Pay store (client) ID
+         */
+        storeId: string;
+    }
+
+    /**
+     * Amazon Pay configuration output with the authorization token secret ARN
+     */
+    export interface PaymentCredentialProviderAmazonPayConfigurationOutput {
+        amazonPayRegion?: enums.bedrockagentcore.PaymentCredentialProviderAmazonPayRegionType;
+        authorizationTokenArn: outputs.bedrockagentcore.PaymentCredentialProviderSecretInfo;
+        /**
+         * The JSON key within the secret that contains the authorization token value
+         */
+        authorizationTokenJsonKey?: string;
+        authorizationTokenSource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
+        environment: enums.bedrockagentcore.PaymentCredentialProviderAmazonPayEnvironmentType;
+        /**
+         * The Amazon Pay merchant (seller) ID
+         */
+        merchantId: string;
+        /**
+         * The Amazon Pay store (client) ID
+         */
+        storeId: string;
+    }
+
+    /**
      * Coinbase CDP configuration with API credentials
      */
     export interface PaymentCredentialProviderCoinbaseCdpConfigurationInput {
@@ -20623,10 +20918,47 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * PayPal configuration with REST app credentials
+     */
+    export interface PaymentCredentialProviderPayPalConfigurationInput {
+        /**
+         * The PayPal REST app client ID
+         */
+        clientId: string;
+        /**
+         * The PayPal REST app client secret, supplied inline. Mutually exclusive with ClientSecretConfig.
+         */
+        clientSecret?: string;
+        clientSecretConfig?: outputs.bedrockagentcore.PaymentCredentialProviderSecretReference;
+        clientSecretSource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
+        environment: enums.bedrockagentcore.PaymentCredentialProviderPayPalEnvironmentType;
+    }
+
+    /**
+     * PayPal configuration output with the client secret ARN
+     */
+    export interface PaymentCredentialProviderPayPalConfigurationOutput {
+        /**
+         * The PayPal REST app client ID
+         */
+        clientId: string;
+        clientSecretArn: outputs.bedrockagentcore.PaymentCredentialProviderSecretInfo;
+        /**
+         * The JSON key within the secret that contains the client secret value
+         */
+        clientSecretJsonKey?: string;
+        clientSecretSource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
+        environment: enums.bedrockagentcore.PaymentCredentialProviderPayPalEnvironmentType;
+    }
+
+    /**
      * Provider configuration input containing secrets for creation/update
      */
     export interface PaymentCredentialProviderPaymentProviderConfigurationInput {
+        amazonPayConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderAmazonPayConfigurationInput;
         coinbaseCdpConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderCoinbaseCdpConfigurationInput;
+        payPalConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderPayPalConfigurationInput;
+        stripeConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderStripeConfigurationInput;
         stripePrivyConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderStripePrivyConfigurationInput;
     }
 
@@ -20634,7 +20966,10 @@ export namespace bedrockagentcore {
      * Provider configuration output containing secret ARNs (no raw secrets)
      */
     export interface PaymentCredentialProviderPaymentProviderConfigurationOutput {
+        amazonPayConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderAmazonPayConfigurationOutput;
         coinbaseCdpConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderCoinbaseCdpConfigurationOutput;
+        payPalConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderPayPalConfigurationOutput;
+        stripeConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderStripeConfigurationOutput;
         stripePrivyConfiguration?: outputs.bedrockagentcore.PaymentCredentialProviderStripePrivyConfigurationOutput;
     }
 
@@ -20660,6 +20995,38 @@ export namespace bedrockagentcore {
          * The ID or ARN of the secret in AWS Secrets Manager
          */
         secretId: string;
+    }
+
+    /**
+     * Stripe configuration with a restricted key, supplied inline (MANAGED) or as a Secrets Manager reference (EXTERNAL)
+     */
+    export interface PaymentCredentialProviderStripeConfigurationInput {
+        /**
+         * The Stripe publishable key (pk_live_* or pk_test_*). Its mode must match the restricted key's.
+         */
+        publishableKey?: string;
+        /**
+         * The Stripe restricted key (rk_live_* or rk_test_*), supplied inline. Mutually exclusive with RestrictedKeyConfig.
+         */
+        restrictedKey?: string;
+        restrictedKeyConfig?: outputs.bedrockagentcore.PaymentCredentialProviderSecretReference;
+        restrictedKeySource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
+    }
+
+    /**
+     * Stripe configuration output with the restricted key secret ARN
+     */
+    export interface PaymentCredentialProviderStripeConfigurationOutput {
+        /**
+         * The Stripe publishable key stored on the provider. Only present when one was supplied.
+         */
+        publishableKey?: string;
+        restrictedKeyArn: outputs.bedrockagentcore.PaymentCredentialProviderSecretInfo;
+        /**
+         * The JSON key within the secret that contains the restricted key value
+         */
+        restrictedKeyJsonKey?: string;
+        restrictedKeySource?: enums.bedrockagentcore.PaymentCredentialProviderSecretSourceType;
     }
 
     /**
@@ -20812,6 +21179,13 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * Hooks that run while the platform builds a runtime version, before any session exists
+     */
+    export interface RuntimeBuildLifecycleHooks {
+        warmup?: outputs.bedrockagentcore.RuntimeLifecycleHook;
+    }
+
+    /**
      * Configuration for a capacity provider
      */
     export interface RuntimeCapacityProviderConfiguration {
@@ -20908,6 +21282,13 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * Lifecycle hooks that the platform runs at fixed points in the runtime's lifecycle
+     */
+    export interface RuntimeHooksConfiguration {
+        build?: outputs.bedrockagentcore.RuntimeBuildLifecycleHooks;
+    }
+
+    /**
      * An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
      */
     export interface RuntimeHostingEnvironment {
@@ -20915,6 +21296,17 @@ export namespace bedrockagentcore {
          * The ARN of the bedrock-agentcore hosting environment
          */
         arn: string;
+    }
+
+    /**
+     * Sends an HTTP POST to the agent's container. Any 2xx response ends the hook; anything else fails it. The path and port must not be a route the platform already calls on the container, such as the protocol's invocation path or the default health check.
+     */
+    export interface RuntimeHttpPostLifecycleHookAction {
+        path: string;
+        /**
+         * Port in the agent's container the platform sends the POST to. Defaults to the runtime's server port.
+         */
+        port?: number;
     }
 
     /**
@@ -20929,6 +21321,20 @@ export namespace bedrockagentcore {
          * Maximum lifetime in seconds for runtime sessions
          */
         maxLifetime?: number;
+    }
+
+    /**
+     * A lifecycle hook and the action it runs
+     */
+    export interface RuntimeLifecycleHook {
+        action: outputs.bedrockagentcore.RuntimeLifecycleHookAction;
+    }
+
+    /**
+     * The action a lifecycle hook runs. HttpPost is the only action.
+     */
+    export interface RuntimeLifecycleHookAction {
+        httpPost: outputs.bedrockagentcore.RuntimeHttpPostLifecycleHookAction;
     }
 
     /**
@@ -20993,6 +21399,16 @@ export namespace bedrockagentcore {
      */
     export interface RuntimeRequestHeaderConfiguration {
         requestHeaderAllowlist?: string[];
+    }
+
+    /**
+     * Resource configuration for an agent runtime
+     */
+    export interface RuntimeResourceConfiguration {
+        /**
+         * The minimum amount of memory in MiB to allocate to the agent runtime
+         */
+        minimumMemoryInMiB: number;
     }
 
     /**
@@ -23867,6 +24283,10 @@ export namespace cloudfront {
         keyValueStoreArn: string;
     }
 
+    export interface ConnectionGroupViewerFallback {
+        distributionId: string;
+    }
+
     /**
      * Contains the configuration for a continuous deployment policy.
      */
@@ -24363,6 +24783,7 @@ export namespace cloudfront {
          * Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
          */
         ipAddressType?: enums.cloudfront.DistributionCustomOriginConfigIpAddressType;
+        originHttpVersion?: enums.cloudfront.DistributionCustomOriginConfigOriginHttpVersion;
         /**
          * Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
          *  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -24974,6 +25395,17 @@ export namespace cloudfront {
         webAcl?: outputs.cloudfront.DistributionTenantWebAclCustomization;
     }
 
+    export interface DistributionTenantDomainMapping {
+        /**
+         * The domain to serve only on the Anycast IP list. Must be lowercase and must also be listed in `Domains`.
+         */
+        domain: string;
+        /**
+         * Set to `anycast-ip-list-only` to serve the domain only on the Anycast IP list of the tenant's connection group. To serve a domain normally, on all CloudFront IP addresses, omit it from `DomainMappings`.
+         */
+        serveOn: enums.cloudfront.DistributionTenantDomainMappingServeOn;
+    }
+
     /**
      * The details about the domain result.
      */
@@ -24982,10 +25414,13 @@ export namespace cloudfront {
          * The specified domain.
          */
         domain?: string;
+        serveOn?: string;
         /**
          * Whether the domain is active or inactive.
          */
         status?: enums.cloudfront.DistributionTenantDomainResultStatus;
+        statusReason?: string;
+        statusReasonCode?: string;
     }
 
     /**
@@ -25150,6 +25585,7 @@ export namespace cloudfront {
      * An Amazon CloudFront VPC origin configuration.
      */
     export interface DistributionVpcOriginConfig {
+        originHttpVersion?: enums.cloudfront.DistributionVpcOriginConfigOriginHttpVersion;
         /**
          * Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
          *  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -25168,6 +25604,106 @@ export namespace cloudfront {
          * The VPC origin ID.
          */
         vpcOriginId: string;
+    }
+
+    /**
+     * A content type paired with the field-level encryption profile that encrypts it.
+     */
+    export interface FieldLevelEncryptionConfigContentTypeProfile {
+        /**
+         * The content type CloudFront encrypts. The service accepts only application/x-www-form-urlencoded.
+         */
+        contentType: string;
+        /**
+         * The encryption format CloudFront uses for this content type.
+         */
+        format: enums.cloudfront.FieldLevelEncryptionConfigContentTypeProfileFormat;
+        /**
+         * The identifier of the field-level encryption profile CloudFront uses for this content type. Required, so that it cannot be omitted: the service accepts a content-type profile with the member absent on create and refuses one on update, and an update sends the whole profile list, so a configuration created that way could never be updated again. Supply an empty string to configure a content type and forward it WITHOUT field-level encryption. That mode is available through this resource and round-trips: create, update and read all accept and return the empty string, and it is the service's own encoding for the state -- asked for a content-type list with no items, CloudFront returns one item whose ProfileId is empty. Note that this is not the same as omitting the content type from the configuration, because ForwardWhenContentTypeIsUnknown governs only content types absent from it.
+         */
+        profileId: string;
+    }
+
+    /**
+     * How CloudFront handles content types, including the profile paired with each one.
+     */
+    export interface FieldLevelEncryptionConfigContentTypeProfileConfig {
+        /**
+         * The content types paired with a profile. Required, and at least one item, because the service synthesizes one default item when the list is absent or empty, so neither state round-trips.
+         */
+        contentTypeProfiles: outputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfile[];
+        /**
+         * Whether CloudFront forwards a request when the content type names a profile that does not exist.
+         */
+        forwardWhenContentTypeIsUnknown: boolean;
+    }
+
+    /**
+     * A query argument paired with the field-level encryption profile that encrypts it.
+     */
+    export interface FieldLevelEncryptionConfigQueryArgProfile {
+        /**
+         * The identifier of the field-level encryption profile CloudFront uses for this query argument.
+         */
+        profileId: string;
+        /**
+         * The query argument that CloudFront encrypts with the paired profile.
+         */
+        queryArg: string;
+    }
+
+    /**
+     * How CloudFront handles query arguments, including the profile paired with each one.
+     */
+    export interface FieldLevelEncryptionConfigQueryArgProfileConfig {
+        /**
+         * Whether CloudFront forwards a request when the query argument names a profile that does not exist.
+         */
+        forwardWhenQueryArgProfileIsUnknown: boolean;
+        /**
+         * The query arguments paired with a profile. Required because the service returns an empty list rather than preserving absence, so an omitted value cannot round-trip. An empty list is accepted and is preserved.
+         */
+        queryArgProfiles: outputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfile[];
+    }
+
+    /**
+     * The configuration of a field-level encryption profile.
+     */
+    export interface FieldLevelEncryptionProfileConfig {
+        /**
+         * A unique value that identifies the creation request. Caller references are unique within an AWS account and cannot be changed after creation.
+         */
+        callerReference: string;
+        /**
+         * An optional comment describing the field-level encryption profile.
+         */
+        comment?: string;
+        /**
+         * The encryption entities of the field-level encryption profile. At least one entity is required.
+         */
+        encryptionEntities: outputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntity[];
+        /**
+         * The name of the field-level encryption profile. Names are unique within an AWS account.
+         */
+        name: string;
+    }
+
+    /**
+     * A public key, its provider identity, and the field patterns CloudFront encrypts with that key.
+     */
+    export interface FieldLevelEncryptionProfileEncryptionEntity {
+        /**
+         * The request-body field names to encrypt. A pattern is either a full field name or leading characters followed by a wildcard (*). Patterns are case-sensitive and must not overlap.
+         */
+        fieldPatterns: string[];
+        /**
+         * The provider associated with the public key. The same value must be supplied with the private key for an application to decrypt the data.
+         */
+        providerId: string;
+        /**
+         * The identifier of the CloudFront public key used to encrypt the fields that match the patterns.
+         */
+        publicKeyId: string;
     }
 
     /**
@@ -28987,6 +29523,14 @@ export namespace cognito {
         lambdaVersion?: string;
     }
 
+    export interface UserPoolDcrConfiguration {
+        allowedScopes?: string[];
+        authenticatedGrantTypes?: string[];
+        enableStatus?: enums.cognito.UserPoolDcrConfigurationEnableStatus;
+        openDcrEnabled?: boolean;
+        openDcrGrantTypes?: string[];
+    }
+
     export interface UserPoolDeviceConfiguration {
         /**
          * When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
@@ -29939,6 +30483,18 @@ export namespace computeoptimizer {
          * List of account IDs where the organization rule applies
          */
         accountIds?: string[];
+        /**
+         * List of account IDs to exclude from the organization rule. Excluded accounts take precedence over included organizational units and accounts.
+         */
+        excludedAccountIds?: string[];
+        /**
+         * List of organizational unit or organization root IDs to exclude from the organization rule. Exclusions include accounts in descendant organizational units and take precedence over included organizational units and accounts.
+         */
+        excludedOrganizationalUnitIds?: string[];
+        /**
+         * List of organizational unit or organization root IDs where the organization rule applies. The rule also applies to accounts in descendant organizational units.
+         */
+        organizationalUnitIds?: string[];
         /**
          * When the rule should be applied relative to account rules
          */
@@ -41794,8 +42350,19 @@ export namespace dynamodb {
         s3KeyPrefix?: string;
     }
 
+    /**
+     * An element in the search schema of a vector index.
+     */
     export interface TableSearchSchemaElement {
+        /**
+         * The name of the attribute. This attribute must also be declared in the table's ``AttributeDefinitions``.
+         */
         attributeName: string;
+        /**
+         * The role of the attribute in the search schema. Valid values:
+         *   +  ``HASH`` - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the ``SearchConditionExpression``.
+         *   +  ``INLINE_FILTER`` - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the ``SearchConditionExpression``.
+         */
         searchSchemaElementType: enums.dynamodb.TableSearchSchemaElementSearchSchemaElementType;
     }
 
@@ -41875,16 +42442,44 @@ export namespace dynamodb {
         enabled: boolean;
     }
 
+    /**
+     * The definition of a vector attribute for a vector index.
+     */
     export interface TableVectorAttribute {
+        /**
+         * The name of the vector attribute.
+         */
         attributeName: string;
     }
 
+    /**
+     * Contains the configuration settings for a vector index, including the index name, vector attribute, dimensions, distance function, search schema, and projection.
+     */
     export interface TableVectorIndex {
+        /**
+         * The number of dimensions in each vector.
+         */
         dimensions: number;
+        /**
+         * The distance function used to calculate similarity between vectors. Valid values: ``COSINE``, ``EUCLIDEAN``, ``DOT_PRODUCT``.
+         */
         distanceFunction: enums.dynamodb.TableVectorIndexDistanceFunction;
+        /**
+         * The name of the vector index.
+         */
         indexName: string;
+        /**
+         * Specifies attributes that are copied (projected) from the table into the vector index.
+         */
         projection: outputs.dynamodb.TableProjection;
+        /**
+         * The search schema that defines partition key and inline filter attributes for the vector index.
+         *  Every attribute that you reference in ``SearchSchema`` must also be declared in the table's ``AttributeDefinitions``, the same way key attributes are declared for a global secondary index. Otherwise, the request fails with a ``ValidationException``.
+         */
         searchSchema?: outputs.dynamodb.TableSearchSchemaElement[];
+        /**
+         * The vector attribute configuration for the index.
+         */
         vectorAttribute: outputs.dynamodb.TableVectorAttribute;
     }
 
@@ -47592,6 +48187,7 @@ export namespace ec2 {
          * Options for logging VPN tunnel activity.
          */
         logOptions?: outputs.ec2.VpnConnectionVpnTunnelLogOptionsSpecification;
+        phase1AdditionalKeyExchanges?: any[];
         /**
          * One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
          *  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
@@ -47613,6 +48209,7 @@ export namespace ec2 {
          *  Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
          */
         phase1dhGroupNumbers?: outputs.ec2.VpnConnectionPhase1dhGroupNumbersRequestListValue[];
+        phase2AdditionalKeyExchanges?: any[];
         /**
          * One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
          *  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
@@ -57148,7 +57745,7 @@ export namespace eventsv2 {
     }
 
     /**
-     * Event source configuration. Exactly one of the two variants must be set.
+     * Event source configuration. Exactly one of the three variants must be set.
      */
     export interface EventSourceConfiguration {
         /**
@@ -57159,6 +57756,34 @@ export namespace eventsv2 {
          * Configuration for forwarding a partner event source's events.
          */
         partnerEventsConfiguration?: outputs.eventsv2.EventSourcePartnerEventsConfiguration;
+        /**
+         * Configuration for receiving events that an external provider sends to a webhook URL.
+         */
+        webhookEventsConfiguration?: outputs.eventsv2.EventSourceWebhookEventsConfiguration;
+    }
+
+    /**
+     * Values Amazon EventBridge generated for the event source that depend on its type. Only the member for the event source's type is set.
+     */
+    export interface EventSourceDetails {
+        /**
+         * Values generated for a webhook event source.
+         */
+        webhookDetails?: outputs.eventsv2.EventSourceWebhookDetails;
+    }
+
+    /**
+     * Log settings for the webhook requests an event source receives.
+     */
+    export interface EventSourceLogConfiguration {
+        /**
+         * Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+         */
+        includePayload?: enums.eventsv2.EventSourceLogConfigurationIncludePayload;
+        /**
+         * The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+         */
+        level?: enums.eventsv2.EventSourceLogConfigurationLevel;
     }
 
     /**
@@ -57191,6 +57816,176 @@ export namespace eventsv2 {
          * A filter pattern, as a JSON string, that defines which events from the specified partner event source are forwarded to the event bus. If you do not specify a pattern, all events from the partner event source are forwarded.
          */
         pattern?: string;
+    }
+
+    /**
+     * How the provider authenticates its webhook requests. Exactly one of the three variants must be set.
+     */
+    export interface EventSourceWebhookAuthConfiguration {
+        /**
+         * The provider sends HTTP Basic authentication credentials.
+         */
+        basicHttpAuthConfiguration?: outputs.eventsv2.EventSourceWebhookBasicHttpAuthConfiguration;
+        /**
+         * The provider signs each request with a hash-based message authentication code (HMAC) of the secret.
+         */
+        hmacAuthConfiguration?: outputs.eventsv2.EventSourceWebhookHmacAuthConfiguration;
+        /**
+         * The provider sends the secret as the value of an HTTP header.
+         */
+        staticTokenAuthConfiguration?: outputs.eventsv2.EventSourceWebhookStaticTokenAuthConfiguration;
+    }
+
+    /**
+     * The provider sends HTTP Basic authentication credentials: an Authorization header with the value "Basic " followed by the Base64 encoding of username:password. Specify both Username and Password, or omit both and Amazon EventBridge generates the pair. Specifying only one fails the request. EventBridge stores both only in AWS Secrets Manager and never returns them.
+     */
+    export interface EventSourceWebhookBasicHttpAuthConfiguration {
+        /**
+         * The password. Set on create only: changing this value in a template has no effect. To change the password, call RotateWebhookCredentials. The username and the webhook URL do not change.
+         */
+        password?: string;
+        /**
+         * The username. Cannot contain a colon or whitespace. Changing the username requires replacing the event source, which also requires a new Name and gives the event source a new webhook URL. RotateWebhookCredentials cannot change the username.
+         */
+        username?: string;
+    }
+
+    /**
+     * Deduplication settings for a webhook event source's events.
+     */
+    export interface EventSourceWebhookDeduplicationConfiguration {
+        /**
+         * How EventBridge detects duplicate events.
+         *
+         * Valid values:
+         * - CONTENT_BASED - Detects duplicates by a hash of the event content.
+         */
+        deduplicationType: enums.eventsv2.EventSourceWebhookDeduplicationConfigurationDeduplicationType;
+    }
+
+    /**
+     * Values Amazon EventBridge generated for a webhook event source.
+     */
+    export interface EventSourceWebhookDetails {
+        /**
+         * The ARN of the AWS Secrets Manager secret, in your account, that holds the webhook credential.
+         */
+        secretArn?: string;
+        /**
+         * The HTTPS URL to configure at the event provider. The URL does not change for the life of the event source. Treat the URL as a credential. The URL appears in stack describe output and in drift detection results.
+         */
+        webhookUrl?: string;
+    }
+
+    /**
+     * Receive events from an external provider, such as a SaaS application, that sends them as HTTPS POST requests to a webhook URL. The provider authenticates with an HTTP scheme instead of AWS credentials.
+     */
+    export interface EventSourceWebhookEventsConfiguration {
+        /**
+         * How the provider authenticates its requests. Set exactly one authentication type. You can't change the type after you create the event source.
+         */
+        authConfiguration: outputs.eventsv2.EventSourceWebhookAuthConfiguration;
+        /**
+         * Deduplicates the event source's events on the event bus. If you do not specify a configuration, EventBridge does not deduplicate events.
+         */
+        deduplicationConfiguration?: outputs.eventsv2.EventSourceWebhookDeduplicationConfiguration;
+        /**
+         * The AWS KMS key that encrypts the event source's secret in AWS Secrets Manager. If you do not specify a key, the secret is encrypted with the AWS managed key aws/secretsmanager. A key you specify must be an enabled customer managed key in your account and Region. Changing the key re-encrypts the secret under the new key. The previous key can still decrypt the stored versions until the credential is next rotated.
+         */
+        kmsKeyIdentifier?: string;
+        /**
+         * The log records Amazon EventBridge delivers for the webhook requests this event source receives. If you do not specify a configuration, EventBridge delivers no logs. Logs are delivered to the destinations you configure with Amazon CloudWatch Logs vended log delivery.
+         */
+        logConfiguration?: outputs.eventsv2.EventSourceLogConfiguration;
+        /**
+         * The HTTP request headers to add to each event's metadata, up to 20. Header names are case-insensitive and cannot repeat. Amazon EventBridge adds each header under its lowercase name. If you do not specify headers, EventBridge adds none. You cannot list headers that carry credentials or describe the network path, or the header that carries the static token.
+         */
+        metadataHttpHeaders?: string[];
+        /**
+         * The ARN of the IAM role that Amazon EventBridge assumes to put the webhook's events on the event bus. The role must belong to the calling account.
+         */
+        roleArn: string;
+    }
+
+    /**
+     * The provider signs each request with a hash-based message authentication code (HMAC) of the secret. Amazon EventBridge accepts the request if any signature in SignatureHttpHeader matches.
+     */
+    export interface EventSourceWebhookHmacAuthConfiguration {
+        /**
+         * The hash algorithm the provider uses to compute the signature.
+         *
+         * Valid values:
+         * - SHA256 - SHA-256.
+         * - SHA1 - SHA-1. Not recommended. Use SHA1 only for interoperability with a provider that cannot sign with SHA-256.
+         */
+        algorithm: enums.eventsv2.EventSourceWebhookHmacAuthConfigurationAlgorithm;
+        /**
+         * The separator between parts of the signature header value, for example a comma for a header value of t=1727816400,v1=<signature>, or a space when the header carries several signatures. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+         */
+        delimiter?: string;
+        /**
+         * How the provider encodes the signature in the header.
+         *
+         * Valid values:
+         * - HEX - Hexadecimal.
+         * - BASE64 - Base64.
+         */
+        encoding: enums.eventsv2.EventSourceWebhookHmacAuthConfigurationEncoding;
+        /**
+         * The name of the header that carries the message ID. Required when SignedMessageComposition is MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY.
+         */
+        messageIdHttpHeader?: string;
+        /**
+         * How the secret is encoded. RAW uses the secret's characters as the signing key. BASE64 decodes the secret first, as required by providers that issue Base64-encoded signing keys, such as those following the Standard Webhooks specification. If you do not specify an encoding, EventBridge uses RAW. Changing the encoding replaces the event source.
+         */
+        secretEncoding?: enums.eventsv2.EventSourceWebhookHmacAuthConfigurationSecretEncoding;
+        /**
+         * The signing key shared with the provider. If you do not specify a key, EventBridge generates one. EventBridge stores the key only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the key, call RotateWebhookCredentials. The webhook URL does not change.
+         */
+        secretValue?: string;
+        /**
+         * The name of the header that carries the signature, for example X-Hub-Signature-256. When TimestampHttpHeader names the same header, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+         */
+        signatureHttpHeader: string;
+        /**
+         * The text that precedes the signature in the header value, for example sha256=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+         */
+        signaturePrefix?: string;
+        /**
+         * How the provider assembles the message it signs from the request.
+         *
+         * Valid values:
+         * - BODY - The request body alone.
+         * - TIMESTAMP_DOT_BODY - <timestamp>.<body>. Requires TimestampHttpHeader.
+         * - MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY - <messageId>.<timestamp>.<body>, as in the Standard Webhooks specification. Requires TimestampHttpHeader and MessageIdHttpHeader.
+         */
+        signedMessageComposition: enums.eventsv2.EventSourceWebhookHmacAuthConfigurationSignedMessageComposition;
+        /**
+         * The name of the header that carries the request timestamp. Required when SignedMessageComposition is TIMESTAMP_DOT_BODY or MESSAGE_ID_DOT_TIMESTAMP_DOT_BODY, or when TimestampToleranceInSeconds is set. When it names the same header as SignatureHttpHeader, Delimiter, SignaturePrefix and TimestampPrefix are all required.
+         */
+        timestampHttpHeader?: string;
+        /**
+         * The text that precedes the timestamp in the header value, for example t=. Required when TimestampHttpHeader is the same header as SignatureHttpHeader.
+         */
+        timestampPrefix?: string;
+        /**
+         * The maximum difference, in seconds, allowed between the request timestamp and the time EventBridge receives the request. Requests outside this window are rejected. If you do not specify a tolerance, EventBridge uses 300 seconds. Requires TimestampHttpHeader.
+         */
+        timestampToleranceInSeconds?: number;
+    }
+
+    /**
+     * The provider sends the secret as the value of an HTTP header.
+     */
+    export interface EventSourceWebhookStaticTokenAuthConfiguration {
+        /**
+         * The token the provider sends in the header. If you do not specify a token, Amazon EventBridge generates one. EventBridge stores the token only in AWS Secrets Manager and never returns it. Set on create only: changing this value in a template has no effect. To change the token, call RotateWebhookCredentials. The webhook URL does not change.
+         */
+        secretValue?: string;
+        /**
+         * The name of the header that carries the secret, for example X-Webhook-Secret. Must be a valid header name as defined in RFC 7230.
+         */
+        tokenHttpHeader: string;
     }
 
     /**
@@ -57279,6 +58074,10 @@ export namespace eventsv2 {
          * Parameters for invoking an AWS Lambda function target.
          */
         lambdaParameters?: outputs.eventsv2.SubscriberInvokeConfigurationLambdaParametersProperties;
+        /**
+         * Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+         */
+        mskParameters?: outputs.eventsv2.SubscriberInvokeConfigurationMskParametersProperties;
         /**
          * The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
          */
@@ -57383,6 +58182,40 @@ export namespace eventsv2 {
          * The tenant identifier for multi-tenant Lambda functions. Accepts a literal value or a JSONata expression.
          */
         tenantId?: string;
+    }
+
+    /**
+     * Parameters for producing events to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster, used when TargetArn is an Amazon MSK cluster ARN.
+     */
+    export interface SubscriberInvokeConfigurationMskParametersProperties {
+        /**
+         * Producer acknowledgement mode. ALL waits for all in-sync replicas. LEADER waits for the partition leader only. Defaults to ALL.
+         */
+        acks?: enums.eventsv2.SubscriberInvokeConfigurationMskParametersPropertiesAcks;
+        /**
+         * Producer client.id passed to the Kafka broker. A literal, not a JSONata expression.
+         */
+        clientId?: string;
+        /**
+         * Producer compression codec applied to the record batch. Defaults to NONE.
+         */
+        compression?: enums.eventsv2.SubscriberInvokeConfigurationMskParametersPropertiesCompression;
+        /**
+         * Specifies how the service connects to the Amazon MSK cluster. PUBLIC connects through the cluster's public access. PRIVATE connects through the cluster's multi-VPC private connectivity. You must turn on the chosen connectivity path, with IAM access control, on the cluster.
+         */
+        connectivity: enums.eventsv2.SubscriberInvokeConfigurationMskParametersPropertiesConnectivity;
+        /**
+         * Kafka record headers attached to each produced record.
+         */
+        headers?: outputs.eventsv2.SubscriberMskHeader[];
+        /**
+         * Kafka record key. Accepts a literal or a JSONata expression; the resolved value selects the destination partition.
+         */
+        partitionKey?: string;
+        /**
+         * Name of the Kafka topic events are produced to. Accepts a literal or a JSONata expression.
+         */
+        topicName: string;
     }
 
     /**
@@ -57513,6 +58346,14 @@ export namespace eventsv2 {
          * The attribute value for the String and Number data types (and String.Array for Amazon SNS targets).
          */
         stringValue?: string;
+    }
+
+    /**
+     * A single Kafka record header. Key and Value each accept a literal or a JSONata expression.
+     */
+    export interface SubscriberMskHeader {
+        key: string;
+        value?: string;
     }
 
     /**
@@ -58997,6 +59838,20 @@ export namespace frauddetector {
 
 export namespace fsx {
     /**
+     * The authentication status of the cluster peer relationship in ONTAP.
+     */
+    export interface ClusterPeerAuthenticationStatus {
+        /**
+         * The authentication method in use, for example ok.
+         */
+        inUse?: string;
+        /**
+         * The authentication state, for example ok.
+         */
+        state?: string;
+    }
+
+    /**
      * Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
      */
     export interface DataRepositoryAssociationAutoExportPolicy {
@@ -59180,6 +60035,85 @@ export namespace fsx {
     }
 
     /**
+     * A rule that retains snapshots with a SnapMirror label on the destination.
+     */
+    export interface SnapmirrorPolicyRetentionRule {
+        /**
+         * The number of snapshots with this label to retain on the destination.
+         */
+        count: number;
+        /**
+         * The name of an ONTAP job schedule that creates snapshots with this label on the destination.
+         */
+        creationSchedule?: string;
+        /**
+         * The SnapMirror label of the snapshots this rule retains.
+         */
+        label: string;
+    }
+
+    /**
+     * The destination of the SnapMirror relationship.
+     */
+    export interface SnapmirrorRelationshipDestination {
+        /**
+         * The destination volume, as <svm-name>:<volume-name>.
+         */
+        path?: string;
+        /**
+         * The ID of the destination volume. It must be a data-protection (DP) volume.
+         */
+        volumeId: string;
+    }
+
+    /**
+     * The source of the SnapMirror relationship.
+     */
+    export interface SnapmirrorRelationshipSource {
+        /**
+         * The source volume, as <svm-name>:<volume-name>. For a source on the destination SVM, use that SVM's name. For a source on a peered SVM, use the peer SVM name or its local alias, as seen from the destination SVM.
+         */
+        path: string;
+    }
+
+    /**
+     * How long to retain snapshots created by a schedule.
+     */
+    export interface SnapshotPolicyRetentionPeriod {
+        /**
+         * The unit of the retention period, or INFINITE to retain snapshots indefinitely.
+         */
+        type: enums.fsx.SnapshotPolicyRetentionPeriodType;
+        /**
+         * The length of the retention period, in the unit given by Type.
+         */
+        value?: number;
+    }
+
+    /**
+     * A schedule within a snapshot policy.
+     */
+    export interface SnapshotPolicySchedule {
+        /**
+         * The maximum number of snapshots to retain for this schedule.
+         */
+        count: number;
+        /**
+         * The name of the ONTAP job schedule that triggers snapshot creation, for example hourly, daily, or weekly.
+         */
+        name: string;
+        /**
+         * The prefix applied to the names of snapshots created by this schedule.
+         */
+        prefix?: string;
+        retentionPeriod?: outputs.fsx.SnapshotPolicyRetentionPeriod;
+        /**
+         * The SnapMirror label applied to snapshots created by this schedule. SnapMirror policies use this label to select snapshots to replicate.
+         */
+        snapmirrorLabel?: string;
+    }
+
+    /**
      * Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
      */
     export interface StorageVirtualMachineActiveDirectoryConfiguration {
@@ -59257,6 +60191,20 @@ export namespace fsx {
         options: string[];
     }
 
+    /**
+     * Creates the volume as an ONTAP FlexClone of an existing volume in the same SVM. After the volume is created, changing or removing CloneConfiguration isn't supported: the update fails and the clone is unchanged.
+     */
+    export interface VolumeCloneConfiguration {
+        /**
+         * The ID of the volume to clone. It must be in the same storage virtual machine (SVM) as the new volume.
+         */
+        parentVolumeId: string;
+        /**
+         * The ID of a snapshot of the parent volume to clone from. If you omit it, the clone is created from the parent volume's current state. Required when this volume's OntapVolumeType is DP (the parent volume must then also be DP).
+         */
+        snapshotId?: string;
+    }
+
     export interface VolumeNfsExports {
         /**
          * The configuration object for mounting a Network File System (NFS) file system.
@@ -59269,6 +60217,10 @@ export namespace fsx {
          * Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
          */
         aggregateConfiguration?: outputs.fsx.VolumeAggregateConfiguration;
+        /**
+         * Creates the volume as an ONTAP FlexClone of an existing volume. The clone takes SizeInMegabytes and StorageEfficiencyEnabled from the parent volume: omit them, or set them to the parent's values.
+         */
+        cloneConfiguration?: outputs.fsx.VolumeCloneConfiguration;
         /**
          * A boolean flag indicating whether tags for the volume should be copied to backups.
          */
@@ -62840,6 +63792,10 @@ export namespace glue {
      */
     export interface UserDefinedFunctionResourceUri {
         /**
+         * The time at which Glue recorded the resource as last modified in Amazon S3 for a Lake Formation governed function.
+         */
+        lastModified?: string;
+        /**
          * The type of the resource.
          */
         resourceType?: enums.glue.UserDefinedFunctionResourceUriResourceType;
@@ -65669,23 +66625,52 @@ export namespace inspectorv2 {
         vmScanning?: outputs.inspectorv2.ConnectorScopeConfiguration;
     }
 
+    export interface ConnectorGcpProviderConfiguration {
+        /**
+         * Whether to automatically install the VM scanner. Defaults to true.
+         */
+        autoInstallVmScanner?: boolean;
+        /**
+         * The ARN of the AWS Config connector used for GCP resource discovery.
+         */
+        awsConfigConnectorArn: string;
+        /**
+         * List of GCP regions to scan (e.g. us-central1).
+         */
+        gcpRegions: string[];
+        scopeConfiguration: outputs.inspectorv2.ConnectorGcpScopeConfigurationMap;
+    }
+
+    /**
+     * Defines which GCP resource types to scan and at what scope level. GCP supports multiple capabilities per connector.
+     */
+    export interface ConnectorGcpScopeConfigurationMap {
+        containerImageScanning?: outputs.inspectorv2.ConnectorScopeConfiguration;
+        serverlessScanning?: outputs.inspectorv2.ConnectorScopeConfiguration;
+        vmScanning?: outputs.inspectorv2.ConnectorScopeConfiguration;
+    }
+
     export interface ConnectorHealth {
         connectorStatus?: enums.inspectorv2.ConnectorHealthStatus;
         lastCheckedAt?: string;
         message?: string;
     }
 
+    /**
+     * Provider-specific configuration. Exactly one of Azure or Gcp must be set, matching the top-level Provider field.
+     */
     export interface ConnectorProviderConfiguration {
-        azure: outputs.inspectorv2.ConnectorAzureProviderConfiguration;
+        azure?: outputs.inspectorv2.ConnectorAzureProviderConfiguration;
+        gcp?: outputs.inspectorv2.ConnectorGcpProviderConfiguration;
     }
 
     /**
-     * Defines the scope of Azure resources to monitor for a specific resource type.
+     * Defines the scope of cloud resources to monitor for a specific resource type.
      */
     export interface ConnectorScopeConfiguration {
         scopeType: enums.inspectorv2.ConnectorScopeType;
         /**
-         * List of subscription IDs. Empty for TENANT scope.
+         * List of scope identifiers. For Azure, subscription IDs (empty for TENANT scope). For GCP, project IDs or organization ID (empty for ORGANIZATION scope).
          */
         scopeValues?: string[];
         state?: enums.inspectorv2.ConnectorScopeState;
@@ -74996,6 +75981,24 @@ export namespace lakeformation {
         filterExpression?: string;
     }
 
+    export interface DataLakeSettingsDataLakePrincipal {
+        /**
+         * An identifier for the Lake Formation principal.
+         */
+        dataLakePrincipalIdentifier: string;
+    }
+
+    export interface DataLakeSettingsPrincipalPermissions {
+        /**
+         * The permissions that are granted to the principal.
+         */
+        permissions: string[];
+        /**
+         * The principal who is granted permissions.
+         */
+        principal: outputs.lakeformation.DataLakeSettingsDataLakePrincipal;
+    }
+
     /**
      * A structure for the catalog object.
      *   This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
@@ -75369,7 +76372,7 @@ export namespace lambda {
      */
     export interface BuildConfigPropertiesRuntimeConfigProperties {
         /**
-         * The runtime identifier.
+         * The runtime identifier. Either a short runtime name (for example, nodejs24.x) or a Lambda runtime ARN.
          */
         runtime: string;
     }
@@ -75704,6 +76707,10 @@ export namespace lambda {
     export interface EventSourceMappingSchemaRegistryAccessConfig {
         /**
          * The type of authentication Lambda uses to access your schema registry.
+         *   +  ``BASIC_AUTH`` – The Secrets Manager ARN of your secret key used for basic authentication with your Confluent schema registry.
+         *   +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication with your Confluent schema registry.
+         *   +  ``SERVER_ROOT_CA_CERTIFICATE`` – The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption with your Confluent schema registry.
+         *   +  ``OAUTHBEARER_AUTH`` – The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses to acquire an access token for your Confluent schema registry. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
          */
         type?: enums.lambda.EventSourceMappingSchemaRegistryAccessConfigType;
         /**
@@ -75788,6 +76795,13 @@ export namespace lambda {
          *   +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
          *   +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
          *   +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+         *   +  ``OAUTHBEARER_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses for SASL/OAUTHBEARER authentication with your Apache Kafka brokers. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
+         *   +  ``OAUTHBEARER_SCOPE`` – (Self-managed Apache Kafka) The OAuth 2.0 scope that Lambda requests when it acquires an access token. The ``URI`` field holds the scope value, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+         *   +  ``OAUTHBEARER_AUDIENCE`` – (Self-managed Apache Kafka) The OAuth 2.0 audience that Lambda requests when it acquires an access token. The ``URI`` field holds the audience value, not a secret ARN. This type requires either ``OAUTHBEARER_AUTH`` or ``IAM_OAUTHBEARER_AUTH``.
+         *   +  ``OAUTHBEARER_LOGICAL_CLUSTER`` – (Self-managed Apache Kafka) The logical cluster identifier that Lambda sends to a Confluent Cloud broker. The ``URI`` field holds the identifier, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+         *   +  ``OAUTHBEARER_IDENTITY_POOL`` – (Self-managed Apache Kafka) The identity pool identifier that Lambda sends to a Confluent Cloud broker. The ``URI`` field holds the identifier, not a secret ARN. This type requires ``OAUTHBEARER_AUTH``.
+         *   +  ``IAM_AUTH`` – (Self-managed Apache Kafka) Authenticate with IAMlong (IAM). Your function's execution role signs each connection, so there is no secret to provide. Omit the ``URI`` field for this type.
+         *   +  ``IAM_OAUTHBEARER_AUTH`` – (Self-managed Apache Kafka) Authenticate with an AWS web identity token over SASL/OAUTHBEARER. Lambda requests the token for your function's execution role, so there is no secret to provide. Omit the ``URI`` field for this type. This type requires ``OAUTHBEARER_AUDIENCE`` and does not support the other ``OAUTHBEARER`` types.
          */
         type?: enums.lambda.EventSourceMappingSourceAccessConfigurationType;
         /**
@@ -78184,6 +79198,56 @@ export namespace licensemanager {
          * Validity begin date for the license.
          */
         end: string;
+    }
+
+    /**
+     * Details of the license configurations and asset groups that this generator reports on.
+     */
+    export interface ReportGeneratorReportContext {
+        /**
+         * Amazon Resource Names (ARNs) of the license asset groups to include in the report.
+         */
+        licenseAssetGroupArns?: string[];
+        /**
+         * Amazon Resource Names (ARNs) of the license configurations that this generator reports on.
+         */
+        licenseConfigurationArns?: string[];
+        /**
+         * End date for the report data collection period.
+         */
+        reportEndDate?: string;
+        /**
+         * Start date for the report data collection period.
+         */
+        reportStartDate?: string;
+    }
+
+    /**
+     * Details about how frequently reports are generated.
+     */
+    export interface ReportGeneratorReportFrequency {
+        /**
+         * Time period between each report. The period can be daily, weekly, or monthly.
+         */
+        period?: enums.licensemanager.ReportGeneratorReportFrequencyPeriod;
+        /**
+         * Number of times within the frequency period that a report is generated. The only supported value is 1.
+         */
+        value?: number;
+    }
+
+    /**
+     * Details of the S3 bucket that report generator reports are published to.
+     */
+    export interface ReportGeneratorS3Location {
+        /**
+         * Name of the S3 bucket reports are published to.
+         */
+        bucket?: string;
+        /**
+         * Prefix of the S3 bucket reports are published to.
+         */
+        keyPrefix?: string;
     }
 
 }
@@ -88397,6 +89461,7 @@ export namespace networksecuritymanager {
      * Configuration settings for policy behavior.
      */
     export interface PolicyConfiguration {
+        igwFirewallConfig?: outputs.networksecuritymanager.PolicyIgwFirewallConfig;
         /**
          * Controls automatic remediation of non-compliant resources.
          */
@@ -88406,6 +89471,34 @@ export namespace networksecuritymanager {
          */
         resourcesCleanUp?: boolean;
         wafConfig?: outputs.networksecuritymanager.PolicyWafConfig;
+    }
+
+    /**
+     * Internet gateway firewall policy settings. Populated only for IGW_FIREWALL firewall type policies.
+     */
+    export interface PolicyIgwFirewallConfig {
+        /**
+         * The default internet connectivity treatment applied to subnets in scope unless a subnet connectivity override applies. Required for IGW_FIREWALL policies.
+         */
+        defaultSubnetConnectivity?: enums.networksecuritymanager.PolicyIgwFirewallConfigDefaultSubnetConnectivity;
+        /**
+         * An ordered list of subnet connectivity overrides. When a subnet matches more than one override, the first match applies. At most one override per connectivity type.
+         */
+        subnetConnectivityOverrides?: outputs.networksecuritymanager.PolicySubnetConnectivityOverride[];
+    }
+
+    /**
+     * Applies a connectivity treatment other than the policy default to the subnets that the referenced scope selects.
+     */
+    export interface PolicySubnetConnectivityOverride {
+        /**
+         * The connectivity treatment applied to the subnets that the referenced scope selects.
+         */
+        connectivityType: enums.networksecuritymanager.PolicySubnetConnectivityOverrideConnectivityType;
+        /**
+         * The ARN of the IGW_FIREWALL_SUBNET_CONNECTIVITY_OVERRIDE scope whose selected subnets receive ConnectivityType.
+         */
+        scopes: string[];
     }
 
     /**
@@ -90054,6 +91147,30 @@ export namespace opensearch {
      */
     export interface DataSourceType {
         s3GlueDataCatalog?: outputs.opensearch.DataSourceS3GlueDataCatalog;
+    }
+
+}
+
+export namespace opensearchmemory {
+    export interface SpaceEncryptionConfiguration {
+        kmsKeyArn?: string;
+    }
+
+    export interface SpaceMemoryStrategy {
+        configuration?: outputs.opensearchmemory.SpaceMemoryStrategyConfiguration;
+        description?: string;
+        name: string;
+        type: enums.opensearchmemory.SpaceMemoryStrategyType;
+    }
+
+    export interface SpaceMemoryStrategyConfiguration {
+        consolidationEnabled?: boolean;
+        extractEveryNMessages?: number;
+        extractEveryNTokens?: number;
+        extractionPrompt?: string;
+        extractionSeedRecentN?: number;
+        extractionSeedTopK?: number;
+        idleTimeoutSeconds?: number;
     }
 
 }
@@ -128159,6 +129276,10 @@ export namespace route53 {
          */
         enableSni?: boolean;
         /**
+         * Whether the health check targets a public endpoint or a private endpoint inside a VPC. Defaults to PUBLIC. Adding this property to an existing health check's template replaces the health check; leave it unset for existing public health checks.
+         */
+        endpointType?: enums.route53.HealthCheckConfigPropertiesEndpointType;
+        /**
          * The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
          *
          * `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -128194,6 +129315,10 @@ export namespace route53 {
          * In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
          */
         fullyQualifiedDomainName?: string;
+        /**
+         * The ID of the health check source that Route 53 uses to reach a private endpoint. Required when EndpointType is PRIVATE.
+         */
+        healthCheckSourceId?: string;
         /**
          * The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
          *
@@ -128343,6 +129468,28 @@ export namespace route53 {
         subnetId: string;
     }
 
+    export interface HostedZoneChangeGuardrail {
+        /**
+         * The name of the Change Guardrail.
+         */
+        name: enums.route53.HostedZoneChangeGuardrailName;
+        /**
+         * The status of the Change Guardrail. ENABLED makes Route 53 block the corresponding destructive change; DISABLED turns the guardrail off.
+         */
+        status: enums.route53.HostedZoneChangeGuardrailStatus;
+    }
+
+    export interface HostedZoneChangeHistory {
+        /**
+         * The earliest time the hosted zone's change history can be read from, as an ISO 8601 timestamp. Present only when Status is ENABLED.
+         */
+        retentionStartsAt?: string;
+        /**
+         * Whether change history is enabled for the hosted zone.
+         */
+        status?: enums.route53.HostedZoneChangeHistoryStatus;
+    }
+
     /**
      * A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
      */
@@ -128351,13 +129498,17 @@ export namespace route53 {
          * Any comments that you want to include about the hosted zone.
          */
         comment?: string;
+        hostedZoneTier?: enums.route53.HostedZoneConfigHostedZoneTier;
     }
 
     /**
      * Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
      */
     export interface HostedZoneFeatures {
+        changeGuardrails?: outputs.route53.HostedZoneChangeGuardrail[];
+        changeHistory?: outputs.route53.HostedZoneChangeHistory;
         enableAcceleratedRecovery?: boolean;
+        enablePublicDnsFallback?: boolean;
     }
 
     /**
@@ -128400,6 +129551,17 @@ export namespace route53 {
          * The value used depends on where you want to route traffic.
          */
         hostedZoneId: string;
+    }
+
+    export interface RecordSetAzAffinity {
+        /**
+         * The ID of the location, for example an Availability Zone ID such as use1-az1, or a Region such as us-east-1.
+         */
+        locationId: string;
+        /**
+         * The type of the source location that the record set's answers apply to.
+         */
+        locationType: enums.route53.RecordSetAzAffinityLocationType;
     }
 
     export interface RecordSetCidrRoutingConfig {
@@ -131941,6 +133103,12 @@ export namespace s3vectors {
          * Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
          */
         nonFilterableMetadataKeys?: string[];
+        textSearchConfigurations?: outputs.s3vectors.IndexTextSearchConfiguration[];
+    }
+
+    export interface IndexTextSearchConfiguration {
+        language?: enums.s3vectors.IndexTextSearchConfigurationLanguage;
+        metadataKey: string;
     }
 
     /**
@@ -134021,6 +135189,20 @@ export namespace sagemaker {
     }
 
     /**
+     * Limits the requests per second that the endpoint accepts from other AWS Regions. The limit is MaxCrossRegionPercentPerEndpoint percent of MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances, shared by all production variants and inference components of the endpoint. Requests from the endpoint's own Region are not counted. Not supported with serverless variants or AsyncInferenceConfig. If you don't specify it, requests from other Regions are not limited.
+     */
+    export interface EndpointConfigCrossRegionTrafficConfig {
+        /**
+         * The percentage of the endpoint's capacity (MaxInvocationsPerSecondPerInstance multiplied by the number of InService instances) that requests from other Regions can use. Valid values are 1 to 100.
+         */
+        maxCrossRegionPercentPerEndpoint: number;
+        /**
+         * The number of invocations per second that one InService instance can serve, used to size the limit on requests from other Regions. One value applies to every production variant, whatever its instance type. Valid values are 1 to 10000.
+         */
+        maxInvocationsPerSecondPerInstance: number;
+    }
+
+    /**
      * Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
      */
     export interface EndpointConfigDataCaptureConfig {
@@ -134865,6 +136047,86 @@ export namespace sagemaker {
          * The name of the shadow variant.
          */
         shadowModelVariantName: string;
+    }
+
+    /**
+     * How the Inference Router submits a request to a destination.
+     */
+    export interface InferenceRouterAsyncInferenceClientConfig {
+        /**
+         * How long, in seconds, a request can wait for a destination to pick it up before it expires. The default is 900.
+         */
+        maxTimeInBacklogSeconds?: number;
+    }
+
+    /**
+     * Set this when the routing target's destinations are asynchronous inference endpoints. A routing target without it serves real-time requests.
+     */
+    export interface InferenceRouterAsyncInferenceConfig {
+        clientConfig?: outputs.sagemaker.InferenceRouterAsyncInferenceClientConfig;
+        outputConfig: outputs.sagemaker.InferenceRouterAsyncInferenceOutputConfig;
+    }
+
+    /**
+     * The SNS topics the Inference Router publishes a completion to. The notification carries the location of the result, not the result.
+     */
+    export interface InferenceRouterAsyncInferenceNotificationConfig {
+        /**
+         * The ARN of a standard (not FIFO) SNS topic to notify when a request fails. It can be in any Region.
+         */
+        errorTopic?: string;
+        /**
+         * The ARN of a standard (not FIFO) SNS topic to notify when a request succeeds. It can be in any Region.
+         */
+        successTopic?: string;
+    }
+
+    /**
+     * Where the results of asynchronous requests are written. Every destination of the routing target writes to these paths.
+     */
+    export interface InferenceRouterAsyncInferenceOutputConfig {
+        /**
+         * The AWS KMS key that encrypts the results. If any destination is in a different account or Region from the Inference Router, use a key ARN or an alias ARN.
+         */
+        kmsKeyId?: string;
+        notificationConfig?: outputs.sagemaker.InferenceRouterAsyncInferenceNotificationConfig;
+        /**
+         * The Amazon S3 location for failed requests. It can be in any Region and account.
+         */
+        s3FailurePath: string;
+        /**
+         * The Amazon S3 location for successful results. It can be in any Region and account.
+         */
+        s3OutputPath: string;
+    }
+
+    /**
+     * One placement of a routing target's model. ResourceArn is the destination's identity: changing it is a removal plus an addition.
+     */
+    export interface InferenceRouterDestination {
+        /**
+         * The ARN of a SageMaker endpoint or inference component that serves the routing target. It can be in any Region and account within the Inference Router's partition.
+         */
+        resourceArn: string;
+    }
+
+    /**
+     * A named logical model within the Inference Router. Callers pass Name on the inference request to select which model serves it.
+     */
+    export interface InferenceRouterRoutingTarget {
+        asyncInferenceConfig?: outputs.sagemaker.InferenceRouterAsyncInferenceConfig;
+        /**
+         * The endpoints and inference components that serve this routing target.
+         */
+        destinations: outputs.sagemaker.InferenceRouterDestination[];
+        /**
+         * The logical model name a caller passes at invoke time. Unique within an Inference Router.
+         */
+        name: string;
+        /**
+         * How the router prefers this routing target's destinations. LocalRegionFirst (the default) uses destinations in the router's Region first, then the others, each group in the order listed. InstancePoolOrder, for asynchronous routing targets only, tries destinations in order of the best instance pool they can serve from now. In both, degraded destinations are used after the others. If omitted, LocalRegionFirst is used and returned.
+         */
+        routingPreference?: enums.sagemaker.InferenceRouterRoutingTargetRoutingPreference;
     }
 
     /**
@@ -140902,6 +142164,29 @@ export namespace securityhub {
         scopeValues?: string[];
     }
 
+    export interface ConnectorGcpProviderConfiguration {
+        /**
+         * The ARN of the AWS Config connector used for the GCP integration
+         */
+        awsConfigConnectorArn: string;
+        /**
+         * The list of GCP regions to include in the connector scope
+         */
+        gcpRegions: string[];
+        scopeConfiguration: outputs.securityhub.ConnectorGcpScopeConfiguration;
+    }
+
+    export interface ConnectorGcpScopeConfiguration {
+        /**
+         * The scope type for the GCP connector
+         */
+        scopeType: enums.securityhub.ConnectorGcpScopeConfigurationScopeType;
+        /**
+         * The list of scope values for the GCP connector
+         */
+        scopeValues?: string[];
+    }
+
     /**
      * Represents a specific health issue detected for a connector.
      */
@@ -140916,8 +142201,12 @@ export namespace securityhub {
         message: string;
     }
 
+    /**
+     * The CSPM provider configuration for the connector
+     */
     export interface ConnectorProvider {
-        azure: outputs.securityhub.ConnectorAzureProviderConfiguration;
+        azure?: outputs.securityhub.ConnectorAzureProviderConfiguration;
+        gcp?: outputs.securityhub.ConnectorGcpProviderConfiguration;
     }
 
     /**
@@ -140945,6 +142234,35 @@ export namespace securityhub {
         scopeType: enums.securityhub.ConnectorV2AzureScopeConfigurationScopeType;
         /**
          * The list of scope values for the Azure connector
+         */
+        scopeValues?: string[];
+    }
+
+    /**
+     * The configuration settings required to establish an integration between AWS Security Hub and GCP
+     */
+    export interface ConnectorV2GcpProviderConfiguration {
+        /**
+         * The ARN of the AWS Config connector used for the GCP integration
+         */
+        awsConfigConnectorArn: string;
+        /**
+         * The list of GCP regions to include in the connector scope
+         */
+        gcpRegions: string[];
+        scopeConfiguration: outputs.securityhub.ConnectorV2GcpScopeConfiguration;
+    }
+
+    /**
+     * The scope configuration for a GCP connector
+     */
+    export interface ConnectorV2GcpScopeConfiguration {
+        /**
+         * The scope type for the GCP connector
+         */
+        scopeType: enums.securityhub.ConnectorV2GcpScopeConfigurationScopeType;
+        /**
+         * The list of scope values for the GCP connector
          */
         scopeValues?: string[];
     }
@@ -140978,6 +142296,7 @@ export namespace securityhub {
      */
     export interface ConnectorV2Provider {
         azure?: outputs.securityhub.ConnectorV2AzureProviderConfiguration;
+        gcp?: outputs.securityhub.ConnectorV2GcpProviderConfiguration;
         jiraCloud?: outputs.securityhub.ConnectorV2JiraCloudProviderConfiguration;
         serviceNow?: outputs.securityhub.ConnectorV2ServiceNowProviderConfiguration;
     }
@@ -140997,7 +142316,7 @@ export namespace securityhub {
     }
 
     /**
-     * Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+     * Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial and AWS GovCloud (US) partitions only; specifying this property in another partition, such as China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is. A rollback enables it again when the restored template declares it ENABLED, unless an organization policy or the account's current Security Hub configuration prevents it, and leaves it as-is when no template declared it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
      */
     export interface HubV2NetworkScanning {
         /**
@@ -148352,6 +149671,13 @@ export namespace wafv2 {
          * For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
          */
         customRequestHandling?: outputs.wafv2.WebAclCustomRequestHandling;
+    }
+
+    /**
+     * Configures whether AWS WAF may store request logs for this web ACL outside its origin Region for analytics. Omit to use the default for the scope.
+     */
+    export interface WebAclAnalyticsConfig {
+        mode: enums.wafv2.WebAclAnalyticsMode;
     }
 
     export interface WebAclAndStatement {

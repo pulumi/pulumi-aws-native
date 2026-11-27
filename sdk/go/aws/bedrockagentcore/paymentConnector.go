@@ -18,6 +18,8 @@ type PaymentConnector struct {
 
 	// The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
 	AuthorizationUrl pulumi.StringOutput `pulumi:"authorizationUrl"`
+	// The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.
+	AwsBillingIamRoleArn pulumi.StringOutput `pulumi:"awsBillingIamRoleArn"`
 	// The timestamp when the connector was created
 	ConnectorCreatedAt pulumi.StringOutput `pulumi:"connectorCreatedAt"`
 	// The timestamp when the connector was last updated
@@ -167,6 +169,11 @@ func (o PaymentConnectorOutput) ToPaymentConnectorOutputWithContext(ctx context.
 // The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
 func (o PaymentConnectorOutput) AuthorizationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *PaymentConnector) pulumi.StringOutput { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS Marketplace service-linked role in the payment manager's account, set by the service. Only present for AwsBilling connectors.
+func (o PaymentConnectorOutput) AwsBillingIamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PaymentConnector) pulumi.StringOutput { return v.AwsBillingIamRoleArn }).(pulumi.StringOutput)
 }
 
 // The timestamp when the connector was created
