@@ -3,17 +3,16 @@
   description = "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources."
   dependencies = ["packaging>=24.0", "pulumi>=3.269.0,<4.0.0", "semver>=2.8.1", "typing-extensions>=4.11,<5; python_version < \"3.11\""]
   keywords = ["pulumi", "aws", "aws-native", "cloud control", "ccapi", "category/cloud", "kind/native"]
+  license = "Apache-2.0"
   readme = "README.md"
   requires-python = ">=3.9"
   version = "1.0.0a0+dev"
-  [project.license]
-    text = "Apache-2.0"
   [project.urls]
     Homepage = "https://pulumi.com"
     Repository = "https://github.com/pulumi/pulumi-aws-native"
 
 [build-system]
-  requires = ["setuptools>=61.0"]
+  requires = ["setuptools>=77.0"]
   build-backend = "setuptools.build_meta"
 
 [tool]
