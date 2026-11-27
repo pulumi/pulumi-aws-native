@@ -161,6 +161,50 @@ func (c *PathClassifier) actualInputBaseline(
 	return result
 }
 
+// restoreNestedReadOnly returns newDesired with the live values of read-only
+// fields nested under a writable object, and adds the same values to baseline.
+//
+// A patch replaces a whole top-level property, and CloudControl rejects a
+// replacement that omits a nested read-only field it holds. For example, with
+// "operatorApp/iam/createdAt" read-only, replacing operatorApp with
+// {iam: {roleArn}} is refused, so the live createdAt is carried on both sides:
+// it adds no diff of its own and is present in any patch value that includes
+// operatorApp. A value the program sets itself is kept, and wildcard paths are
+// skipped because array indices of outputs and inputs need not line up.
+func (c *PathClassifier) restoreNestedReadOnly(
+	actual, baseline, newDesired resource.PropertyMap,
+) resource.PropertyMap {
+	var result resource.PropertyMap
+	for _, pattern := range c.readOnly.paths {
+		idx := strings.LastIndex(pattern, "/")
+		if idx < 0 || strings.Contains(pattern, "*") {
+			continue
+		}
+		value, ok := GetPath(actual, pattern)
+		if !ok || value.IsNull() {
+			continue
+		}
+		parent := pattern[:idx]
+		if _, exists := GetPath(newDesired, pattern); exists {
+			continue
+		}
+		if p, ok := GetPath(newDesired, parent); !ok || !unwrapSecretValue(p).IsObject() {
+			continue
+		}
+		if result == nil {
+			result = clonePropertyMap(newDesired)
+		}
+		SetPath(result, pattern, value)
+		if p, ok := GetPath(baseline, parent); ok && unwrapSecretValue(p).IsObject() {
+			SetPath(baseline, pattern, value)
+		}
+	}
+	if result == nil {
+		return newDesired
+	}
+	return result
+}
+
 // SuppressBaselineDiffs applies refresh-time diff suppression to a candidate
 // actual baseline before it is persisted to __inputs.
 //
